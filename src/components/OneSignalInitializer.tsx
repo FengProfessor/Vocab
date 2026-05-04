@@ -21,6 +21,13 @@ export default function OneSignalInitializer() {
     };
 
     if (typeof window !== 'undefined') {
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').then(() => {
+          console.log('PWA SW Registered');
+        }).catch(err => console.error('PWA SW Error:', err));
+      }
+      
       initOneSignal();
     }
   }, []);
