@@ -16,7 +16,14 @@ export interface EnrichedWord {
  * If dictionaryData is provided, AI helps pick the best meaning for the context.
  */
 export async function enrichWord(originalInput: string, customApiKey?: string, dictionaryData?: any, userTargetTranslation?: string): Promise<EnrichedWord> {
-  const apiKey = customApiKey || process.env.GEMINI_API_KEY || '';
+  let apiKey = customApiKey || process.env.GEMINI_API_KEY || '';
+  
+  // Handle multiple keys (comma separated)
+  if (apiKey.includes(',')) {
+    const keys = apiKey.split(',').map(k => k.trim()).filter(Boolean);
+    apiKey = keys[Math.floor(Math.random() * keys.length)];
+  }
+
   if (!apiKey) throw new Error('No Gemini API Key provided');
 
   const genAI = new GoogleGenerativeAI(apiKey);
