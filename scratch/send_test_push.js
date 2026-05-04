@@ -18,8 +18,8 @@ async function sendTestPush() {
       {
         app_id: ONESIGNAL_APP_ID,
         included_segments: ['All'],
-        headings: { en: '🚀 LingoPro Test!' },
-        contents: { en: 'Thông báo chuyên nghiệp của bạn đã sẵn sàng. Chúc mừng!' },
+        headings: { en: '⏰ Thời Điểm Vàng!' },
+        contents: { en: 'Chào bạn, hiện tại bạn đang có 63 từ vựng cần ôn tập. Hãy ôn ngay để không bị quên nhé! 📚' },
         url: 'https://lingopro-nu.vercel.app/quiz',
       },
       {
