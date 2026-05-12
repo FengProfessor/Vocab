@@ -25,8 +25,8 @@ export default function OneSignalInitializer() {
         await OneSignal.init({
           appId: process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID || '',
           allowLocalhostAsSecureOrigin: true,
-          // Trỏ vào sw.js - file duy nhất chứa cả PWA + OneSignal SDK
-          serviceWorkerPath: '/sw.js',
+          // OneSignal dùng file riêng của nó - KHÔNG dùng sw.js
+          serviceWorkerPath: '/OneSignalSDKWorker.js',
           serviceWorkerParam: { scope: '/' },
           notifyButton: { enable: false },
         });
