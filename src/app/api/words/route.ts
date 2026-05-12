@@ -4,42 +4,6 @@ import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { searchImage } from '@/lib/image-search';
 import { stabilityToLevel } from '@/lib/srs';
 
-// ── Telegram Helpers ──
-async function sendTelegramNotification(userId: string, text: string, imageUrl?: string | null) {
-  try {
-    const supabase = createServiceClient();
-    const { data: profile } = await supabase.from('profiles').select('telegram_id').eq('id', userId).single();
-    const botToken = process.env.TELEGRAM_BOT_TOKEN;
-
-    if (profile?.telegram_id && botToken) {
-      const endpoint = imageUrl 
-        ? `https://api.telegram.org/bot${botToken}/sendPhoto` 
-        : `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-      const body: any = {
-        chat_id: profile.telegram_id,
-        parse_mode: 'HTML',
-      };
-
-      if (imageUrl) {
-        body.photo = imageUrl;
-        body.caption = text;
-      } else {
-        body.text = text;
-      }
-
-      await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      return true;
-    }
-  } catch (err) {
-    console.warn('[Telegram] Notification failed:', err);
-  }
-  return false;
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper: Lấy hoặc tạo "personal classroom" của user
@@ -111,15 +75,6 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
       ...updateData,
       image_url: imageUrl
     }).eq('id', wordId);
-      
-    // ── Stage 2: Rich Follow-up Notification ──
-    const richCaption = `🎉 <b>Phân tích hoàn tất!</b>\n\n` +
-      `🏷 <b>${parsed.english}</b> (${parsed.pos})\n` +
-      `🔊 ${parsed.ipa || ''}\n` +
-      `🇻🇳 ${parsed.vietnamese}\n\n` +
-      `📝 <i>${parsed.example}</i>`;
-
-    await sendTelegramNotification(userId, richCaption, imageUrl);
 
   } catch (err: any) {
     console.error(`AI enrichment failed for "${originalInput}":`, err.message);
@@ -222,13 +177,6 @@ export async function POST(req: Request) {
       dictionary_data: dictData
     }).eq('id', data.id);
 
-    // ── Stage 1: Immediate Notification (Basic) ──
-    const immediateText = `✅ <b>Đã lưu:</b> <code>${word}</code>\n` +
-      `${initialIpa ? `🔊 ${initialIpa}\n` : ''}` +
-      `🇻🇳 ${initialTranslation}\n` +
-      `<i>Đang phân tích hình ảnh...</i>`;
-      
-    sendTelegramNotification(userId, immediateText);
 
     const skipAI = Boolean(body.skipAI);
     if (!skipAI) {

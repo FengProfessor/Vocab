@@ -178,4 +178,15 @@
     }
 
     if (isRunning && isAI) setTimeout(processNextBatch, 2000);
+
+    // --- AUTO-START FOR BOT FARM ---
+    if (isAI && window.location.hash.includes('autostart')) {
+        console.log("[LingoBot] Phát hiện tín hiệu AUTO-START. Đang chuẩn bị...");
+        setTimeout(() => {
+            if (!isRunning) {
+                GM_notification({ text: "Bot Farm đang khởi động...", title: "LingoPro", timeout: 2000 });
+                startAI();
+            }
+        }, 4000);
+    }
 })();
