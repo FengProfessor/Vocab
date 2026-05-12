@@ -85,8 +85,9 @@ export async function POST(req: Request) {
               vi: `${firstName} ơi, từ vựng vừa ôn đã sẵn sàng để ôn lại! Học ngay để không quên nhé 🧠`,
             },
             web_url: 'https://lingopro-nu.vercel.app/student',
-            // Gửi đúng lúc từ đến hạn
-            send_after: sendAfterDate.toUTCString(),
+            // OneSignal send_after format: "2024-01-01 00:00:00 UTC"
+            send_after: sendAfterDate.toISOString().replace('T', ' ').replace(/\.\d+Z$/, ' UTC'),
+
           },
           {
             headers: {
