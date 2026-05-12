@@ -149,7 +149,7 @@ function FlashcardContent() {
     });
 
     if (newQueue.length === 0) {
-      // Background save stats
+      // Background save stats + schedule next review notification
       (async () => {
         try {
           const finalEasy = quality === 5 ? sessionResults.easy + 1 : sessionResults.easy;
@@ -161,7 +161,9 @@ function FlashcardContent() {
               classroomId,
               score: finalEasy,
               totalQuestions: total,
-              quizType: 'vocabulary'
+              quizType: 'vocabulary',
+              // TEST MODE: 30 giây. Production: bỏ dòng này (sẽ dùng interval thật từ SRS)
+              nextReviewDelaySecs: 30,
             }),
           });
         } catch (err) {
@@ -169,6 +171,7 @@ function FlashcardContent() {
         }
       })();
     }
+
   };
 
   const handleRetryAI = async () => {

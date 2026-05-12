@@ -4,9 +4,8 @@ require('dotenv').config({ path: '.env.local' });
 const ONESIGNAL_APP_ID = process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID;
 const ONESIGNAL_REST_API_KEY = process.env.ONESIGNAL_REST_API_KEY;
 
-// Gửi đến TẤT CẢ subscriber (broadcast) - không cần external_id
 async function sendBroadcast() {
-  console.log('--- Gửi broadcast đến tất cả subscriber ---');
+  console.log('--- Gửi broadcast (web_url only) ---');
   
   try {
     const res = await axios.post(
@@ -14,15 +13,13 @@ async function sendBroadcast() {
       {
         app_id: ONESIGNAL_APP_ID,
         included_segments: ['All'],
-        headings: { en: '⏰ Đến giờ ôn từ vựng!', vi: '⏰ Đến giờ ôn từ vựng!' },
+        headings: { en: '⏰ LingoPro - Ôn từ vựng ngay!', vi: '⏰ LingoPro - Ôn từ vựng ngay!' },
         contents: {
-          en: 'Bạn có từ vựng cần ôn tập rồi! Vào LingoPro học ngay nhé 🧠',
-          vi: 'Bạn có từ vựng cần ôn tập rồi! Vào LingoPro học ngay nhé 🧠',
+          en: 'Bạn có từ vựng cần ôn tập! Tap vào đây để học ngay 🧠',
+          vi: 'Bạn có từ vựng cần ôn tập! Tap vào đây để học ngay 🧠',
         },
-        url: 'https://lingopro-nu.vercel.app/student',
-        ios_sound: 'default',
-        ios_badge_type: 'Increase',
-        ios_badge_count: 1,
+        // Safari Web Push chỉ cần web_url (không kèm url)
+        web_url: 'https://lingopro-nu.vercel.app/student',
       },
       {
         headers: {
@@ -31,11 +28,20 @@ async function sendBroadcast() {
         },
       }
     );
-    console.log('Kết quả:', JSON.stringify(res.data, null, 2));
-    if (res.data.errors) {
-      console.log('⚠️ Lỗi:', res.data.errors);
-    } else {
-      console.log(`✅ Đã gửi đến ${res.data.recipients} thiết bị! ID: ${res.data.id}`);
+    console.log('Kết quả gửi:', JSON.stringify(res.data, null, 2));
+    
+    if (res.data.id) {
+      await new Promise(r => setTimeout(r, 4000));
+      const check = await axios.get(
+        `https://onesignal.com/api/v1/notifications/${res.data.id}?app_id=${ONESIGNAL_APP_ID}`,
+        { headers: { Authorization: `Basic ${ONESIGNAL_REST_API_KEY}` } }
+      );
+      const d = check.data;
+      console.log('\n📊 Kết quả sau 4 giây:');
+      console.log(`  Thành công: ${d.successful}`);
+      console.log(`  Thất bại: ${d.failed}`);
+      console.log(`  Lỗi: ${d.errored}`);
+      console.log('  Platform:', JSON.stringify(d.platform_delivery_stats, null, 2));
     }
   } catch (err) {
     console.error('Lỗi:', err.response?.data || err.message);

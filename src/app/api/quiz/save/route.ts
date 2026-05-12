@@ -1,13 +1,23 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import axios from 'axios';
+
+const ONESIGNAL_APP_ID = process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID;
+const ONESIGNAL_REST_API_KEY = process.env.ONESIGNAL_REST_API_KEY;
 
 /**
  * POST /api/quiz/save
- * Body: { userId, classroomId, score, totalQuestions, quizType }
+ * Body: { userId, classroomId, score, totalQuestions, quizType, nextReviewDelaySecs? }
+ * 
+ * Sau khi lưu kết quả quiz, tự động lên lịch push notification cho lần ôn tiếp theo.
  */
 export async function POST(req: Request) {
   try {
-    const { userId, classroomId, score, totalQuestions, quizType = 'vocabulary' } = await req.json();
+    const { 
+      userId, classroomId, score, totalQuestions, 
+      quizType = 'vocabulary',
+      nextReviewDelaySecs = null, // Số giây đến lần ôn tiếp theo (do client gửi lên)
+    } = await req.json();
 
     let finalClassroomId = classroomId;
 
@@ -49,6 +59,46 @@ export async function POST(req: Request) {
         error: 'Failed to save quiz results to database',
         details: error.message 
       }, { status: 500 });
+    }
+
+    // ── Lên lịch push notification cho lần ôn tiếp theo ──
+    if (nextReviewDelaySecs && ONESIGNAL_APP_ID && ONESIGNAL_REST_API_KEY) {
+      const sendAfterDate = new Date(Date.now() + nextReviewDelaySecs * 1000);
+      
+      // Lấy tên user
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('full_name')
+        .eq('id', userId)
+        .single();
+      const firstName = (profile?.full_name || 'bạn').split(' ').pop();
+
+      try {
+        await axios.post(
+          'https://onesignal.com/api/v1/notifications',
+          {
+            app_id: ONESIGNAL_APP_ID,
+            included_segments: ['All'],
+            headings: { en: '⏰ Thời Điểm Ôn Tập Đã Đến!', vi: '⏰ Thời Điểm Ôn Tập Đã Đến!' },
+            contents: {
+              en: `${firstName} ơi, từ vựng vừa ôn đã sẵn sàng để ôn lại! Học ngay để không quên nhé 🧠`,
+              vi: `${firstName} ơi, từ vựng vừa ôn đã sẵn sàng để ôn lại! Học ngay để không quên nhé 🧠`,
+            },
+            web_url: 'https://lingopro-nu.vercel.app/student',
+            // Gửi đúng lúc từ đến hạn
+            send_after: sendAfterDate.toUTCString(),
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Basic ${ONESIGNAL_REST_API_KEY}`,
+            },
+          }
+        );
+        console.log(`[Quiz/Save] Scheduled notification in ${nextReviewDelaySecs}s for user ${userId}`);
+      } catch (pushErr: any) {
+        console.warn('[Quiz/Save] Failed to schedule push:', pushErr.response?.data || pushErr.message);
+      }
     }
 
     return NextResponse.json({ success: true, data });
