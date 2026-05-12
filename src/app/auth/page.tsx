@@ -81,6 +81,15 @@ export default function AuthPage() {
           setDebugError('Notice: Your browser has not saved the session yet. Please click the button below or try disabling Incognito.');
         } else {
           setStatus('Session verified! Redirecting...');
+          
+          // Gắn OneSignal với user ID để nhận thông báo đúng người
+          try {
+            const OneSignal = (await import('@/components/OneSignalInitializer')).setOneSignalExternalUserId;
+            await OneSignal(data.user.id);
+          } catch (osErr) {
+            console.warn('[OneSignal] Could not link user ID:', osErr);
+          }
+          
           // Hard redirect is often more reliable for auth state transitions in Next.js
           window.location.href = '/student';
         }
