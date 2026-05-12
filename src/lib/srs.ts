@@ -85,14 +85,15 @@ export function calculateNextReview(current: SRSData, rating: FSRSRating): SRSDa
     }
   }
 
-  const intervalSeconds = 30; // FIXED 30 SECONDS FOR TESTING
+  const intervalDays = calculateInterval(stability);
   const nextDate = new Date();
-  nextDate.setSeconds(nextDate.getSeconds() + intervalSeconds);
+  nextDate.setDate(nextDate.getDate() + intervalDays);
+
 
   return {
     stability,
     difficulty,
-    interval: intervalSeconds,
+    interval: intervalDays,
     reviewCount,
     nextReviewDate: nextDate.toISOString(),
     lastReviewDate: new Date().toISOString(),
