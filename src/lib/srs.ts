@@ -86,9 +86,10 @@ export function calculateNextReview(current: SRSData, rating: FSRSRating): SRSDa
   }
 
   const intervalDays = calculateInterval(stability);
+  // ⚡ TEST MODE: 30 giây thay vì ngày (để test thông báo)
+  const TEST_SECONDS = 30;
   const nextDate = new Date();
-  nextDate.setDate(nextDate.getDate() + intervalDays);
-
+  nextDate.setSeconds(nextDate.getSeconds() + TEST_SECONDS);
 
   return {
     stability,
