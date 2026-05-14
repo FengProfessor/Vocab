@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+  apiKey: "AIzaSyATgTyGPzlmi0ADwBsMJxEhgqJsjEiRftc",
+  authDomain: "lingopro-9d2f8.firebaseapp.com",
+  projectId: "lingopro-9d2f8",
+  storageBucket: "lingopro-9d2f8.firebasestorage.app",
+  messagingSenderId: "147138625371",
+  appId: "1:147138625371:web:9d308e4337c9fe7399647e"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -29,8 +29,9 @@ export const requestForToken = async () => {
     await navigator.serviceWorker.ready;
 
     // Truyền registration vào getToken để iOS không bị lỗi
+    // HARDCODE PUBLIC KEY để tránh lỗi Vercel không nhận biến môi trường
     const currentToken = await getToken(messaging, {
-      vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY,
+      vapidKey: 'BJIDyqCnEsAEl3Po7fjq1OR1ypWeJ8j7stMleUo9k5NEkcYa9elG1X41lH5yShiDITrDiOR8fr6cGGxCw3XMbVU',
       serviceWorkerRegistration: registration
     });
 
