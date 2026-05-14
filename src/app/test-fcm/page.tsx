@@ -11,14 +11,22 @@ export default function FCMTestPage() {
   const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
+  const [logs, setLogs] = useState<string[]>([]);
+  
+  const addLog = (msg: string) => setLogs(prev => [...prev, msg]);
+
   const handleGetToken = async () => {
     setLoading(true);
+    setLogs([]);
+    addLog('Bắt đầu lấy token...');
     try {
+      addLog('Đang gọi requestForToken()...');
       const fcmToken = await requestForToken();
+      addLog(`Kết quả từ requestForToken: ${fcmToken ? 'CÓ TOKEN' : 'NULL'}`);
+      
       if (fcmToken) {
         setToken(fcmToken);
-        
-        // Thử lưu vào DB ngay tại đây
+        addLog('Đang lưu vào Supabase...');
         const { data: { user } } = await supabase.auth.getUser();
         if (user) {
           const res = await fetch('/api/push/fcm-register', {
@@ -27,21 +35,27 @@ export default function FCMTestPage() {
             body: JSON.stringify({ userId: user.id, fcmToken }),
           });
           const result = await res.json();
+          addLog(`Kết quả lưu DB: ${JSON.stringify(result)}`);
           if (result.success) {
             toast.success('Token đã được lưu vào database!');
           } else {
             toast.error('Lỗi khi lưu token: ' + result.error);
           }
         } else {
+          addLog('Lỗi: Bạn chưa đăng nhập');
           toast.warning('Bạn chưa đăng nhập!');
         }
       } else {
+        addLog('Lỗi logic: Firebase trả về rỗng nhưng không báo lỗi!');
         toast.error('Không lấy được Token. Hãy kiểm tra quyền thông báo.');
       }
     } catch (err: any) {
+      addLog(`EXCEPTION CAUGHT: ${err.message}`);
+      addLog(`STACK: ${err.stack}`);
       toast.error('Lỗi: ' + err.message);
     } finally {
       setLoading(false);
+      addLog('Hoàn tất quá trình.');
     }
   };
 
@@ -59,10 +73,12 @@ export default function FCMTestPage() {
             {loading ? 'Đang lấy token...' : 'Lấy & Lưu FCM Token'}
           </Button>
           
-          {token && (
-            <div className="mt-4 p-4 bg-muted rounded-md break-all text-xs font-mono">
-              <strong>Token của bạn:</strong><br />
-              {token}
+          {logs.length > 0 && (
+            <div className="mt-6 p-4 bg-black text-green-400 rounded-md break-all text-xs font-mono max-h-64 overflow-y-auto space-y-1">
+              <strong className="text-white mb-2 block">System Logs:</strong>
+              {logs.map((log, i) => (
+                <div key={i}>&gt; {log}</div>
+              ))}
             </div>
           )}
         </CardContent>
