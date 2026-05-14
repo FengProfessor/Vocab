@@ -18,7 +18,7 @@ export default function FCMTestPage() {
   const handleGetToken = async () => {
     setLoading(true);
     setLogs([]);
-    addLog('Bắt đầu lấy token...');
+    addLog('Bắt đầu lấy token (Bản Cuối Cùng)...');
     try {
       addLog('Đang gọi requestForToken()...');
       const fcmToken = await requestForToken();
