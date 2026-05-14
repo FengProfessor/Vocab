@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from 'next-themes';
-import OneSignalInitializer from '@/components/OneSignalInitializer';
+import FirebaseInitializer from '@/components/FirebaseInitializer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           enableSystem
           disableTransitionOnChange
         >
-          <OneSignalInitializer />
+          <FirebaseInitializer />
           {children}
           <Toaster position="top-right" richColors />
         </ThemeProvider>
@@ -52,4 +52,3 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
-

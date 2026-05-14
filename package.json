@@ -28,6 +28,8 @@
     "cors": "^2.8.6",
     "date-fns": "^4.1.0",
     "express": "^5.2.1",
+    "firebase": "^12.13.0",
+    "firebase-admin": "^13.9.0",
     "google-img-scrap": "^1.1.8",
     "googleapis": "^171.4.0",
     "lucide-react": "^0.577.0",
