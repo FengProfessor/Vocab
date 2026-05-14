@@ -46,6 +46,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           <FirebaseInitializer />
           {children}
+          {/* Nút Test Firebase nổi trên màn hình cho Admin (là bạn) */}
+          <div className="fixed bottom-20 right-4 z-[9999] md:bottom-10">
+            <a 
+              href="/test-fcm" 
+              className="bg-amber-500 hover:bg-amber-600 text-white font-black px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 text-xs transition-all animate-bounce"
+            >
+              🔔 Test Firebase
+            </a>
+          </div>
           <Toaster position="top-right" richColors />
         </ThemeProvider>
       </body>
