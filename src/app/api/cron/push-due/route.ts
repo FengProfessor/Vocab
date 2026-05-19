@@ -33,9 +33,11 @@ export async function GET(req: Request) {
       .select('id, full_name, role');
 
     if (!profiles?.length) {
+      console.log('[Cron] No profiles found');
       return NextResponse.json({ notified: 0, message: 'No profiles found' });
     }
 
+    console.log(`[Cron] Found ${profiles.length} profiles`);
     const results: any[] = [];
 
     for (const profile of profiles) {
@@ -89,7 +91,7 @@ export async function GET(req: Request) {
           userId: profile.id,
           name: profile.full_name,
           dueCount,
-          sent: !!result?.id,
+          sent: !!result,
         });
       } catch (err: any) {
         console.error(`[Cron] Error processing user ${profile.id}:`, err.message);
