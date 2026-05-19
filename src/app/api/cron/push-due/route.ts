@@ -106,18 +106,25 @@ export async function GET(req: Request) {
         const firstName = (profile.full_name || 'bạn').split(' ').pop();
 
         // Gửi push notification đến user qua FCM
-        const result = await sendPushNotificationToUser(
-          profile.id,
-          '⏰ Thời Điểm Ôn Tập!',
-          `${firstName} ơi, bạn có ${dueCount} từ đang chờ ôn tập. Học ngay để không quên nhé! 🧠`,
-          '/student'
-        );
+        let sendResult = null;
+        let sendError = null;
+        try {
+          sendResult = await sendPushNotificationToUser(
+            profile.id,
+            '⏰ Thời Điểm Ôn Tập!',
+            `${firstName} ơi, bạn có ${dueCount} từ đang chờ ôn tập. Học ngay để không quên nhé! 🧠`,
+            '/student'
+          );
+        } catch (e: any) {
+          sendError = e.message;
+        }
 
         results.push({
           userId: profile.id,
           name: profile.full_name,
           dueCount,
-          sent: !!result,
+          sent: !!sendResult,
+          sendError,
         });
       } catch (err: any) {
         console.error(`[Cron] Error processing user ${profile.id}:`, err.message);
