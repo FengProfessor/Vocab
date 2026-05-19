@@ -30,7 +30,7 @@ export async function GET(req: Request) {
     // Lấy tất cả user
     const { data: profiles } = await supabase
       .from('profiles')
-      .select('id, full_name');
+      .select('id, full_name, role');
 
     if (!profiles?.length) {
       return NextResponse.json({ notified: 0, message: 'No profiles found' });
@@ -40,21 +40,32 @@ export async function GET(req: Request) {
 
     for (const profile of profiles) {
       try {
-        // Đếm số từ đến hạn của user này
-        const { data: classroom } = await supabase
-          .from('classrooms')
-          .select('id')
-          .eq('teacher_id', profile.id)
-          .eq('name', '__personal__')
-          .maybeSingle();
+        // Lấy classrooms mà user enrolled vào (hoặc created nếu teacher)
+        let classroomIds: string[] = [];
 
-        if (!classroom?.id) continue;
+        if (profile.role === 'teacher') {
+          // Teacher: tìm classrooms của teacher
+          const { data } = await supabase
+            .from('classrooms')
+            .select('id')
+            .eq('teacher_id', profile.id);
+          classroomIds = data?.map(c => c.id) || [];
+        } else {
+          // Student: tìm classrooms đã enroll
+          const { data } = await supabase
+            .from('enrollments')
+            .select('classroom_id')
+            .eq('student_id', profile.id);
+          classroomIds = data?.map(e => e.classroom_id) || [];
+        }
+
+        if (!classroomIds.length) continue;
 
         // Đếm từ đến hạn: chưa có SRS record, hoặc next_review_date <= now
         const { count } = await supabase
           .from('words')
           .select('id', { count: 'exact', head: true })
-          .eq('classroom_id', classroom.id)
+          .in('classroom_id', classroomIds)
           .or(
             `id.not.in.(select word_id from srs_progress where user_id=eq.${profile.id}),id.in.(select word_id from srs_progress where user_id=eq.${profile.id} and next_review_date=lte.${now})`
           );
