@@ -43,7 +43,7 @@ export async function GET(req: Request) {
         // Lấy classrooms mà user enrolled vào (hoặc created nếu teacher)
         let classroomIds: string[] = [];
 
-        if (profile.role === 'teacher') {
+        if ((profile as any).role === 'teacher') {
           // Teacher: tìm classrooms của teacher
           const { data } = await supabase
             .from('classrooms')
@@ -58,6 +58,8 @@ export async function GET(req: Request) {
             .eq('student_id', profile.id);
           classroomIds = data?.map(e => e.classroom_id) || [];
         }
+
+        console.log(`[Cron] User ${profile.id} (${profile.full_name}): role=${profile.role}, classrooms=${classroomIds.length}`, classroomIds);
 
         if (!classroomIds.length) continue;
 
