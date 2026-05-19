@@ -87,6 +87,8 @@ export async function GET(req: Request) {
           );
 
         const dueCount = count || 0;
+        debugProfiles.find(p => p.id === profile.id)!.dueCount = dueCount;
+
         if (dueCount === 0) continue;
 
         const firstName = (profile.full_name || 'bạn').split(' ').pop();
