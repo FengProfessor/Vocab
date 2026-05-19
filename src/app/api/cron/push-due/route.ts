@@ -15,12 +15,17 @@ export async function GET(req: Request) {
     const authHeader = req.headers.get('authorization');
     const envSecret = process.env.CRON_SECRET || 'lingopro_cron_2024';
 
+    console.log(`[Cron/Auth] secret=${secret}, envSecret=${envSecret}, authHeader=${authHeader}`);
+
     const isAuthorized =
       authHeader === `Bearer ${envSecret}` ||
       secret === envSecret ||
       secret === 'lingopro_secret_123'; // backward compat
 
+    console.log(`[Cron/Auth] isAuthorized=${isAuthorized}`);
+
     if (!isAuthorized) {
+      console.log('[Cron/Auth] UNAUTHORIZED');
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
