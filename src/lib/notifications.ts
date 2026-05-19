@@ -23,16 +23,14 @@ export async function sendPushNotificationToUser(
   message: string,
   url: string = '/student'
 ) {
-  if (typeof window !== 'undefined') return null; // Tuyệt đối không chạy ở Client
+  if (typeof window !== 'undefined') return { error: 'running on client' };
 
   try {
     const supabase = createServiceClient();
-    const { data: profile } = await supabase.from('profiles').select('fcm_token').eq('id', userId).single();
+    const { data: profile, error: dbError } = await supabase.from('profiles').select('fcm_token').eq('id', userId).single();
 
-    if (!profile?.fcm_token) {
-      console.error(`[FCM] No token for user ${userId}`);
-      return null;
-    }
+    if (dbError) return { error: `DB query failed: ${dbError.message}` };
+    if (!profile?.fcm_token) return { error: `No token for user ${userId}` };
 
     const payload = {
       notification: { title, body: message },
@@ -44,13 +42,10 @@ export async function sendPushNotificationToUser(
       },
     };
 
-    console.log(`[FCM] Sending to ${userId} with token ${profile.fcm_token.substring(0, 20)}...`);
     const result = await admin.messaging().send(payload);
-    console.log(`[FCM] Sent successfully, messageId: ${result}`);
-    return result;
+    return { messageId: result };
   } catch (err: any) {
-    console.error(`[FCM] Error sending to ${userId}:`, err.message, err.code);
-    return null;
+    return { error: `Firebase error: ${err.message || err.code || 'unknown'}` };
   }
 }
 

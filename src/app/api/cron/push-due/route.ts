@@ -106,24 +106,21 @@ export async function GET(req: Request) {
         const firstName = (profile.full_name || 'bạn').split(' ').pop();
 
         // Gửi push notification đến user qua FCM
-        let sendResult = null;
-        let sendError = null;
-        try {
-          sendResult = await sendPushNotificationToUser(
-            profile.id,
-            '⏰ Thời Điểm Ôn Tập!',
-            `${firstName} ơi, bạn có ${dueCount} từ đang chờ ôn tập. Học ngay để không quên nhé! 🧠`,
-            '/student'
-          );
-        } catch (e: any) {
-          sendError = e.message;
-        }
+        const sendResult = await sendPushNotificationToUser(
+          profile.id,
+          '⏰ Thời Điểm Ôn Tập!',
+          `${firstName} ơi, bạn có ${dueCount} từ đang chờ ôn tập. Học ngay để không quên nhé! 🧠`,
+          '/student'
+        );
+
+        const sent = !!(sendResult as any)?.messageId;
+        const sendError = (sendResult as any)?.error;
 
         results.push({
           userId: profile.id,
           name: profile.full_name,
           dueCount,
-          sent: !!sendResult,
+          sent,
           sendError,
         });
       } catch (err: any) {
