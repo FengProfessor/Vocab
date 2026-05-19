@@ -63,9 +63,12 @@ export async function GET(req: Request) {
           classroomIds = data?.map(e => e.classroom_id) || [];
         }
 
-        console.log(`[Cron] User ${profile.id} (${profile.full_name}): role=${profile.role}, classrooms=${classroomIds.length}`, classroomIds);
+        console.log(`[Cron] User ${profile.id} (${profile.full_name}): role=${(profile as any).role}, classrooms=${classroomIds.length}`, classroomIds);
 
-        if (!classroomIds.length) continue;
+        if (!classroomIds.length) {
+          console.log(`[Cron] Skipping user ${profile.id} - no classrooms`);
+          continue;
+        }
 
         // Đếm từ đến hạn: chưa có SRS record, hoặc next_review_date <= now
         const { count } = await supabase
