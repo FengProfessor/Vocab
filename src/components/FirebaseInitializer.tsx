@@ -37,10 +37,8 @@ export default function FirebaseInitializer() {
     if (typeof window !== 'undefined') {
       setupFCM();
 
-      // Lắng nghe thông báo khi app đang mở (Foreground)
-      onMessageListener().then((payload: any) => {
+      onMessageListener()?.then((payload: any) => {
         console.log('[FCM] Foreground message:', payload);
-        // Có thể dùng toast hoặc alert để báo tin nếu muốn
       });
     }
   }, []);

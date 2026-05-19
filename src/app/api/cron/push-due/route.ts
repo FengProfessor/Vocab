@@ -13,17 +13,15 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
     const secret = searchParams.get('secret');
     const authHeader = req.headers.get('authorization');
-    const envSecret = process.env.CRON_SECRET || 'lingopro_cron_2024';
+    const envSecret = process.env.CRON_SECRET;
 
     const isAuthorized =
       authHeader === `Bearer ${envSecret}` ||
-      secret === envSecret ||
-      secret === 'lingopro_secret_123'; // backward compat
+      secret === envSecret;
 
     if (!isAuthorized) {
       return NextResponse.json({
-        error: 'Unauthorized',
-        debug: { secret, envSecret, authHeader }
+        error: 'Unauthorized'
       }, { status: 401 });
     }
 
@@ -42,7 +40,6 @@ export async function GET(req: Request) {
 
     console.log(`[Cron] Found ${profiles.length} profiles`);
     const results: any[] = [];
-    const debugProfiles: any[] = [];
 
     for (const profile of profiles) {
       try {
@@ -64,14 +61,6 @@ export async function GET(req: Request) {
             .eq('student_id', profile.id);
           classroomIds = data?.map(e => e.classroom_id) || [];
         }
-
-        debugProfiles.push({
-          id: profile.id,
-          name: profile.full_name,
-          role: (profile as any).role,
-          classroomCount: classroomIds.length,
-          classrooms: classroomIds
-        });
 
         if (!classroomIds.length) {
           continue;
@@ -99,7 +88,6 @@ export async function GET(req: Request) {
             return !reviewDate || new Date(reviewDate) <= new Date(now);
           }).length;
         }
-        debugProfiles.find(p => p.id === profile.id)!.dueCount = dueCount;
 
         if (dueCount === 0) continue;
 
@@ -114,14 +102,12 @@ export async function GET(req: Request) {
         );
 
         const sent = !!(sendResult as any)?.messageId;
-        const sendError = (sendResult as any)?.error;
 
         results.push({
           userId: profile.id,
           name: profile.full_name,
           dueCount,
           sent,
-          sendError,
         });
       } catch (err: any) {
         console.error(`[Cron] Error processing user ${profile.id}:`, err.message);
@@ -135,13 +121,7 @@ export async function GET(req: Request) {
       success: true,
       total: profiles.length,
       notified,
-      results,
-      debug: {
-        profilesCount: profiles.length,
-        resultsCount: results.length,
-        now: new Date().toISOString(),
-        profiles: debugProfiles
-      }
+      results
     });
   } catch (err: any) {
     console.error('[Cron/push-due] Fatal error:', err.message);
