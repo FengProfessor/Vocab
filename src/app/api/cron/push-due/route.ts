@@ -15,18 +15,16 @@ export async function GET(req: Request) {
     const authHeader = req.headers.get('authorization');
     const envSecret = process.env.CRON_SECRET || 'lingopro_cron_2024';
 
-    console.log(`[Cron/Auth] secret=${secret}, envSecret=${envSecret}, authHeader=${authHeader}`);
-
     const isAuthorized =
       authHeader === `Bearer ${envSecret}` ||
       secret === envSecret ||
       secret === 'lingopro_secret_123'; // backward compat
 
-    console.log(`[Cron/Auth] isAuthorized=${isAuthorized}`);
-
     if (!isAuthorized) {
-      console.log('[Cron/Auth] UNAUTHORIZED');
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({
+        error: 'Unauthorized',
+        debug: { secret, envSecret, authHeader }
+      }, { status: 401 });
     }
 
     const supabase = createServiceClient();
@@ -116,6 +114,11 @@ export async function GET(req: Request) {
       total: profiles.length,
       notified,
       results,
+      debug: {
+        profilesCount: profiles.length,
+        resultsCount: results.length,
+        now: new Date().toISOString()
+      }
     });
   } catch (err: any) {
     console.error('[Cron/push-due] Fatal error:', err.message);
