@@ -29,7 +29,10 @@ export async function sendPushNotificationToUser(
     const supabase = createServiceClient();
     const { data: profile } = await supabase.from('profiles').select('fcm_token').eq('id', userId).single();
 
-    if (!profile?.fcm_token) return null;
+    if (!profile?.fcm_token) {
+      console.error(`[FCM] No token for user ${userId}`);
+      return null;
+    }
 
     const payload = {
       notification: { title, body: message },
@@ -41,9 +44,12 @@ export async function sendPushNotificationToUser(
       },
     };
 
-    return await admin.messaging().send(payload);
+    console.log(`[FCM] Sending to ${userId} with token ${profile.fcm_token.substring(0, 20)}...`);
+    const result = await admin.messaging().send(payload);
+    console.log(`[FCM] Sent successfully, messageId: ${result}`);
+    return result;
   } catch (err: any) {
-    console.error(`[FCM] Error sending to ${userId}:`, err.message);
+    console.error(`[FCM] Error sending to ${userId}:`, err.message, err.code);
     return null;
   }
 }
