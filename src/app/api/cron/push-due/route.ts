@@ -42,6 +42,8 @@ export async function GET(req: Request) {
 
     for (const profile of profiles) {
       try {
+        console.log(`[Cron] Processing profile:`, JSON.stringify(profile));
+
         // Lấy classrooms mà user enrolled vào (hoặc created nếu teacher)
         let classroomIds: string[] = [];
 
