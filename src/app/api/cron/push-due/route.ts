@@ -64,7 +64,7 @@ export async function GET(req: Request) {
 
         const firstName = (profile.full_name || 'bạn').split(' ').pop();
 
-        // Gửi push notification đến đúng user qua OneSignal external_id
+        // Gửi push notification đến user qua FCM
         const result = await sendPushNotificationToUser(
           profile.id,
           '⏰ Thời Điểm Ôn Tập!',

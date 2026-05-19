@@ -58,10 +58,44 @@ export interface Word {
   source_url?: string;
   status?: string;
   created_at: string;
+  image_url?: string;
+  image_source?: string;
+  image_confidence?: number | null;
+  synonyms?: string[];
+  antonyms?: string[];
+  dictionary_data?: DictionaryData | null;
   // Joined SRS for current user
   srs?: SRSProgress;
   isDue?: boolean;
   srsLevel?: number;
+}
+
+export interface DictionaryMeaning {
+  pos?: string;
+  definition?: string;
+  example?: string;
+  collocations?: string[];
+}
+
+export interface DictionaryData {
+  word?: string;
+  pronunciations?: { ipa?: string }[];
+  results?: { meanings?: DictionaryMeaning[] }[];
+  familyWords?: string[];
+  image_search_query?: string;
+}
+
+export interface GlobalDictionaryEntry {
+  id: string;
+  word: string;
+  tags: string[];
+  data: DictionaryData;
+  image_url?: string;
+  image_source?: string;
+  image_confidence?: number | null;
+  image_query?: string;
+  image_verified_at?: string;
+  created_at: string;
 }
 
 export interface SRSProgress {
@@ -95,6 +129,7 @@ export interface GrammarExercise {
   options: string[];
   correct_answer: string;
   explanation?: string;
+  lesson_id?: string | null;
   created_by?: string;
   created_at: string;
 }
@@ -107,6 +142,59 @@ export interface GrammarResult {
   is_correct: boolean;
   time_taken_ms?: number;
   completed_at: string;
+}
+
+export interface GrammarTopic {
+  id: string;
+  slug: string;
+  title: string;
+  title_vi?: string;
+  level: GrammarLevel;
+  order_index: number;
+  parent_id?: string | null;
+  created_at: string;
+  // joined
+  lessons?: GrammarLesson[];
+  lessonCount?: number;
+}
+
+export interface GrammarExample {
+  en: string;
+  vi?: string;
+  note?: string;
+}
+
+export interface GrammarLesson {
+  id: string;
+  topic_id: string;
+  title: string;
+  theory?: string;
+  theory_vi?: string;
+  examples: GrammarExample[];
+  image_url?: string;
+  image_source?: string;
+  image_confidence?: number | null;
+  source?: string;
+  source_url?: string;
+  order_index: number;
+  created_by?: string;
+  created_at: string;
+  // joined
+  topic?: GrammarTopic;
+}
+
+export interface GrammarProgress {
+  id: string;
+  user_id: string;
+  lesson_id: string;
+  stability: number;
+  difficulty: number;
+  interval_days: number;
+  review_count: number;
+  next_review_date: string;
+  last_reviewed_at?: string;
+  state: string;
+  mastery_score: number;
 }
 
 export interface StudentProgress {

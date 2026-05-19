@@ -13,6 +13,7 @@ import { toast } from 'sonner';
 function GrammarContent() {
   const searchParams = useSearchParams();
   const classroomId = searchParams.get('class');
+  const lessonId = searchParams.get('lesson');
   const [exercises, setExercises] = useState<GrammarExercise[]>([]);
   const [current, setCurrent] = useState<GrammarExercise | null>(null);
   const [qIndex, setQIndex] = useState(0);
@@ -29,9 +30,12 @@ function GrammarContent() {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) setUserId(user.id);
 
-      if (!classroomId) { setIsLoading(false); return; }
+      if (!classroomId && !lessonId) { setIsLoading(false); return; }
 
-      const res = await fetch(`/api/grammar?classroomId=${classroomId}`);
+      const params = new URLSearchParams();
+      if (classroomId) params.set('classroomId', classroomId);
+      if (lessonId) params.set('lessonId', lessonId);
+      const res = await fetch(`/api/grammar?${params.toString()}`);
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
         // Shuffle and take up to 10
@@ -45,7 +49,7 @@ function GrammarContent() {
       setStartTime(Date.now());
     };
     init();
-  }, [classroomId]);
+  }, [classroomId, lessonId]);
 
   const handleAnswer = async (choice: string) => {
     if (selected) return;
@@ -65,10 +69,26 @@ function GrammarContent() {
     }
   };
 
+  const submitGrammarProgress = async () => {
+    if (!lessonId || !userId) return;
+    const total = score.correct + score.wrong;
+    const accuracy = total > 0 ? score.correct / total : 0;
+    try {
+      await fetch('/api/grammar/progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, lessonId, accuracy }),
+      });
+    } catch {
+      /* ghi nhận tiến độ thất bại — bỏ qua, không chặn UI */
+    }
+  };
+
   const handleNext = () => {
     const nextIdx = qIndex + 1;
     if (nextIdx >= exercises.length) {
       setDone(true);
+      submitGrammarProgress();
     } else {
       setQIndex(nextIdx);
       setCurrent(exercises[nextIdx]);

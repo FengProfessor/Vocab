@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { getWordImage } from '@/lib/image-service';
+import { resolveWordImage } from '@/lib/image-pipeline';
 
 /**
  * POST /api/bot/fill-images
@@ -20,14 +20,6 @@ export async function POST(req: Request) {
             .limit(limit);
 
         if (error) {
-            // Nếu cột chưa tồn tại → trả về hướng dẫn tạo cột
-            if (error.message.includes('image_url') || error.message.includes('column')) {
-                return NextResponse.json({
-                    success: false,
-                    error: 'Cột image_url chưa tồn tại trong DB. Chạy SQL migration trước.',
-                    sql: `ALTER TABLE global_dictionary ADD COLUMN IF NOT EXISTS image_url TEXT; ALTER TABLE global_dictionary ADD COLUMN IF NOT EXISTS image_source TEXT DEFAULT 'none';`
-                }, { status: 400 });
-            }
             return NextResponse.json({ success: false, error: error.message }, { status: 500 });
         }
 
@@ -37,40 +29,49 @@ export async function POST(req: Request) {
 
         console.log(`[FILL-IMAGES] Processing ${words.length} words...`);
         let updated = 0;
-        let ddgCount = 0;
-        let wikiCount = 0;
-        let noneCount = 0;
+        const breakdown: Record<string, number> = {};
 
         for (const row of words) {
             const wordData = row.data as any;
-            const definition = wordData?.results?.[0]?.meanings?.[0]?.definition || '';
-            const pos = wordData?.results?.[0]?.meanings?.[0]?.pos || '';
+            const meanings = wordData?.results?.[0]?.meanings || [];
+            const definition = meanings[0]?.definition || '';
+            const pos = meanings[0]?.pos || '';
 
-            const { url, source } = await getWordImage(row.word, definition, pos);
+            const { url, source, confidence, query } = await resolveWordImage({
+                word: row.word,
+                definition,
+                pos,
+                imageSearchQuery: wordData?.image_search_query || '',
+                meaningCount: meanings.length || 1,
+            });
 
             const { error: updateErr } = await supabase
                 .from('global_dictionary')
-                .update({ image_url: url, image_source: source })
+                .update({
+                    image_url: url,
+                    image_source: source,
+                    image_confidence: confidence,
+                    image_query: query,
+                    image_verified_at: new Date().toISOString(),
+                })
                 .eq('word', row.word);
 
             if (!updateErr) {
                 updated++;
-                if (source === 'duckduckgo') ddgCount++;
-                else if (source === 'wikipedia') wikiCount++;
-                else noneCount++;
-                console.log(`[FILL-IMAGES] ✓ "${row.word}" ← ${source}`);
+                breakdown[source] = (breakdown[source] || 0) + 1;
+                console.log(`[FILL-IMAGES] ✓ "${row.word}" ← ${source} (${confidence ?? 'n/a'})`);
             } else {
                 console.error(`[FILL-IMAGES] ✗ "${row.word}":`, updateErr.message);
             }
 
-            // Throttle: tránh rate limit Pixabay (100 req/min free tier)
+            // Throttle: giãn nhịp giữa các từ tránh rate limit nguồn ảnh
             await new Promise(r => setTimeout(r, 650));
         }
 
         return NextResponse.json({
             success: true,
             updated,
-            breakdown: { duckduckgo: ddgCount, wikipedia: wikiCount, none: noneCount },
+            breakdown,
             message: `Đã cập nhật ${updated}/${words.length} từ`
         });
     } catch (e: any) {

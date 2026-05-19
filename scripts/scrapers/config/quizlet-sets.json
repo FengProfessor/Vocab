@@ -1,0 +1,9 @@
+{
+  "_comment": "Danh sách Quizlet set cần cào. Mỗi entry: url của set + tags gắn vào global_dictionary. Thay placeholder bằng set thật trước khi chạy.",
+  "sets": [
+    {
+      "url": "https://quizlet.com/000000/example-set/",
+      "tags": ["quizlet", "toeic"]
+    }
+  ]
+}

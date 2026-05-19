@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
-import { searchImage } from '@/lib/image-search';
+import { resolveWordImage } from '@/lib/image-pipeline';
 import { stabilityToLevel } from '@/lib/srs';
 
 
@@ -55,25 +55,43 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
 
     // ── Global Image Cache & Search ──
     let imageUrl: string | null = null;
-    
+    let imageSource = 'none';
+    let imageConfidence: number | null = null;
+
     const { data: cachedWord } = await supabase
       .from('words')
-      .select('image_url')
+      .select('image_url, image_source, image_confidence')
       .eq('word', parsed.english)
       .not('image_url', 'is', null)
       .limit(1)
       .maybeSingle();
 
     if (cachedWord?.image_url) {
+      // Tái dùng ảnh đã có của từ trùng → tiết kiệm quota
       imageUrl = cachedWord.image_url;
+      imageSource = cachedWord.image_source || 'cache';
+      imageConfidence = cachedWord.image_confidence ?? null;
     } else {
-      imageUrl = await searchImage(parsed.english, parsed.image_search_query);
+      const meaningCount = dictionaryData?.results?.[0]?.meanings?.length || 1;
+      const img = await resolveWordImage({
+        word: parsed.english,
+        pos: parsed.pos,
+        definition: parsed.vietnamese,
+        exampleSentence: parsed.example,
+        imageSearchQuery: parsed.image_search_query,
+        meaningCount,
+      });
+      imageUrl = img.url;
+      imageSource = img.source;
+      imageConfidence = img.confidence;
     }
 
     // Final Update
     await supabase.from('words').update({
       ...updateData,
-      image_url: imageUrl
+      image_url: imageUrl,
+      image_source: imageSource,
+      image_confidence: imageConfidence,
     }).eq('id', wordId);
 
   } catch (err: any) {

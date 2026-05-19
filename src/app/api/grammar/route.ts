@@ -8,13 +8,28 @@ const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 // POST - Generate grammar exercises for a classroom using AI
 export async function POST(req: Request) {
   try {
-    const { classroomId, topic, level = 'beginner', count = 5 } = await req.json();
+    const { classroomId, topic, level = 'beginner', count = 5, lessonId } = await req.json();
     if (!classroomId || !topic) {
       return NextResponse.json({ error: 'classroomId and topic are required' }, { status: 400 });
     }
 
+    const supabase = createServiceClient();
+
+    // Nếu gắn với 1 bài học → lấy lý thuyết để prompt bám sát nội dung
+    let lessonContext = '';
+    if (lessonId) {
+      const { data: lesson } = await supabase
+        .from('grammar_lessons')
+        .select('title, theory')
+        .eq('id', lessonId)
+        .maybeSingle();
+      if (lesson?.theory) {
+        lessonContext = `\nBase the exercises strictly on this lesson:\nLesson: ${lesson.title}\n${String(lesson.theory).slice(0, 2000)}\n`;
+      }
+    }
+
     const prompt = `You are an expert English grammar teacher. Generate ${count} grammar exercises on the topic: "${topic}".
-Level: ${level} (beginner = A1-A2, intermediate = B1-B2, advanced = C1-C2)
+Level: ${level} (beginner = A1-A2, intermediate = B1-B2, advanced = C1-C2)${lessonContext}
 
 Return ONLY a valid JSON array (no markdown, no explanation) with this exact format:
 [
@@ -40,7 +55,6 @@ Return JSON array only, no other text.`;
     const exercises = JSON.parse(text);
 
     // Save to Supabase
-    const supabase = createServiceClient();
     const toInsert = exercises.map((ex: any) => ({
       classroom_id: classroomId,
       topic,
@@ -49,6 +63,7 @@ Return JSON array only, no other text.`;
       options: ex.options,
       correct_answer: ex.correct_answer,
       explanation: ex.explanation,
+      lesson_id: lessonId || null,
     }));
 
     const { data, error } = await supabase
@@ -70,18 +85,21 @@ export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const classroomId = searchParams.get('classroomId');
+    const lessonId = searchParams.get('lessonId');
 
-    if (!classroomId) {
-      return NextResponse.json({ error: 'classroomId is required' }, { status: 400 });
+    if (!classroomId && !lessonId) {
+      return NextResponse.json({ error: 'classroomId or lessonId is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
-    const { data, error } = await supabase
+    let query = supabase
       .from('grammar_exercises')
       .select('*')
-      .eq('classroom_id', classroomId)
       .order('created_at', { ascending: false });
+    if (classroomId) query = query.eq('classroom_id', classroomId);
+    if (lessonId) query = query.eq('lesson_id', lessonId);
 
+    const { data, error } = await query;
     if (error) throw error;
 
     return NextResponse.json({ success: true, data });

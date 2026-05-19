@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import {
   Brain, BookOpen, Zap, LayoutDashboard, LogOut, Loader2, Plus,
   CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw, RefreshCw,
-  Menu, X, Clock
+  Menu, X, Clock, GraduationCap
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -23,6 +23,7 @@ export default function StudentDashboard() {
   const [isRetryingAI, setIsRetryingAI] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [countdown, setCountdown] = useState<string>('');
+  const [grammarDue, setGrammarDue] = useState(0);
   const [selectedWord, setSelectedWord] = useState<any>(null);
   const router = useRouter();
 
@@ -57,6 +58,12 @@ export default function StudentDashboard() {
     try {
       const { data: prof } = await supabase.from('profiles').select('*').eq('id', userId).single();
       setProfile(prof);
+
+      // Tiến độ ôn tập ngữ pháp
+      fetch(`/api/grammar/progress?userId=${userId}`)
+        .then((r) => r.json())
+        .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
+        .catch(() => {});
 
       // Fresh fetch with timestamp to disable any aggressive browser cache
       const res = await fetch(`/api/words?userId=${userId}&t=${Date.now()}`);
@@ -241,6 +248,7 @@ export default function StudentDashboard() {
                 <Link href="/student" className="flex items-center gap-3 font-bold text-primary bg-primary/5 p-3 rounded-xl"><LayoutDashboard /> Dashboard</Link>
                 <Link href="/import" className="flex items-center gap-3 font-semibold p-3"><Plus /> Import Words</Link>
                 <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Review</Link>
+                <Link href="/grammar/learn" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
               </nav>
               <button onClick={handleSignOut} className="flex items-center gap-3 p-3 text-destructive font-bold"><LogOut /> Sign Out</button>
           </div>
@@ -261,6 +269,9 @@ export default function StudentDashboard() {
           </Link>
           <Link href={classroomId ? `/quiz?class=${classroomId}` : '#'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Zap className="h-5 w-5" /> Mini Quiz
+          </Link>
+          <Link href="/grammar/learn" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <GraduationCap className="h-5 w-5" /> Grammar
           </Link>
           <Link href="/import" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Plus className="h-5 w-5" /> Import Words
@@ -303,6 +314,21 @@ export default function StudentDashboard() {
               </div>
             ))}
           </div>
+
+          <Link href="/grammar/learn" className="flex items-center justify-between bg-white border rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-4">
+              <div className="bg-indigo-50 w-12 h-12 rounded-xl flex items-center justify-center">
+                <GraduationCap className="h-6 w-6 text-indigo-500" />
+              </div>
+              <div>
+                <div className="font-black text-slate-800">Bài giảng Ngữ pháp</div>
+                <div className="text-xs font-bold text-muted-foreground">
+                  {grammarDue > 0 ? `${grammarDue} bài cần ôn tập` : 'Học lý thuyết & luyện tập'}
+                </div>
+              </div>
+            </div>
+            <ArrowRight className="h-5 w-5 text-muted-foreground" />
+          </Link>
 
           <section className="bg-white border rounded-[32px] shadow-xl p-8 sm:p-12 text-center relative overflow-hidden">
              <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-amber-400 via-emerald-400 to-indigo-500" />

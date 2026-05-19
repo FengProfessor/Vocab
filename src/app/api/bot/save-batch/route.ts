@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getWordSourceMap } from '@/lib/bot-utils';
-import { getWordImage } from '@/lib/image-service';
+import { resolveWordImage } from '@/lib/image-pipeline';
 
 export async function POST(req: Request) {
     try {
@@ -23,21 +23,29 @@ export async function POST(req: Request) {
             const sourceTags = wordToTags[cleanWord] || [];
             const finalTags = ['ai-auto-bot', ...sourceTags];
 
-            // Trích xuất definition và pos từ data để tìm ảnh chính xác hơn
-            const firstMeaning = item.results?.[0]?.meanings?.[0];
-            const definition = firstMeaning?.definition || '';
-            const pos = firstMeaning?.pos || '';
+            // Trích xuất definition và pos để tìm ảnh chính xác hơn
+            const meanings = item.results?.[0]?.meanings || [];
+            const definition = meanings[0]?.definition || '';
+            const pos = meanings[0]?.pos || '';
 
-            // Lấy ảnh minh họa (Unsplash → Gemini fallback)
+            // Lấy ảnh minh họa qua pipeline thống nhất (validate + AI Vision)
             let imageUrl: string | null = null;
-            let imageSource: string = 'none';
+            let imageSource = 'none';
+            let imageConfidence: number | null = null;
+            let imageQuery = '';
             try {
-                const imgResult = await getWordImage(cleanWord, definition, pos);
-                imageUrl = imgResult.url;
-                imageSource = imgResult.source;
-                if (imageUrl) {
-                    console.log(`[IMAGE] "${cleanWord}" ← ${imageSource}`);
-                }
+                const img = await resolveWordImage({
+                    word: cleanWord,
+                    definition,
+                    pos,
+                    imageSearchQuery: item.image_search_query || '',
+                    meaningCount: meanings.length || 1,
+                });
+                imageUrl = img.url;
+                imageSource = img.source;
+                imageConfidence = img.confidence;
+                imageQuery = img.query;
+                if (imageUrl) console.log(`[IMAGE] "${cleanWord}" ← ${imageSource} (${imageConfidence ?? 'n/a'})`);
             } catch (imgErr: any) {
                 console.warn(`[IMAGE] Skipped for "${cleanWord}":`, imgErr.message);
             }
@@ -48,23 +56,15 @@ export async function POST(req: Request) {
                 data: item,
                 image_url: imageUrl,
                 image_source: imageSource,
+                image_confidence: imageConfidence,
+                image_query: imageQuery,
+                image_verified_at: new Date().toISOString(),
             }, { onConflict: 'word' });
-            
+
             if (!error) {
                 successCount++;
             } else {
-                // Nếu lỗi do thiếu cột image_url → fallback lưu không có ảnh
-                if (error.message.includes('image_url') || error.message.includes('image_source')) {
-                    const { error: e2 } = await supabase.from('global_dictionary').upsert({
-                        word: cleanWord,
-                        tags: finalTags,
-                        data: item,
-                    }, { onConflict: 'word' });
-                    if (!e2) successCount++;
-                    else console.error(`[ERROR] Failed to save "${item.word}":`, e2.message);
-                } else {
-                    console.error(`[ERROR] Failed to save "${item.word}":`, error.message);
-                }
+                console.error(`[ERROR] Failed to save "${item.word}":`, error.message);
             }
         }
 

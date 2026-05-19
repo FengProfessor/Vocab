@@ -34,3 +34,8 @@ export async function getWordSourceMap() {
 
     return { wordToTags: wordToTagsArray, uniqueWords };
 }
+
+/** Hợp nhất 2 mảng tag, loại trùng. Dùng khi cào lại từ đã tồn tại. */
+export function mergeTags(existing: string[] = [], incoming: string[] = []): string[] {
+    return Array.from(new Set([...existing, ...incoming]));
+}
