@@ -59,10 +59,11 @@ export async function GET(req: Request) {
           classroomIds = data?.map(c => c.id) || [];
         } else {
           // Student: tìm classrooms đã enroll
-          const { data } = await supabase
+          const { data, error } = await supabase
             .from('enrollments')
             .select('classroom_id')
             .eq('student_id', profile.id);
+          if (error) console.error(`[Cron] Enrollment query error for ${profile.id}:`, error);
           classroomIds = data?.map(e => e.classroom_id) || [];
         }
 
