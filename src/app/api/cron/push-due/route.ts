@@ -77,16 +77,28 @@ export async function GET(req: Request) {
           continue;
         }
 
-        // Đếm từ đến hạn: chưa có SRS record, hoặc next_review_date <= now
-        const { count } = await supabase
+        // Đếm từ đến hạn: (1) chưa có SRS record, hoặc (2) next_review_date <= now
+        const { data: dueWords } = await supabase
           .from('words')
-          .select('id', { count: 'exact', head: true })
-          .in('classroom_id', classroomIds)
-          .or(
-            `id.not.in.(select word_id from srs_progress where user_id=eq.${profile.id}),id.in.(select word_id from srs_progress where user_id=eq.${profile.id} and next_review_date=lte.${now})`
-          );
+          .select('id')
+          .in('classroom_id', classroomIds);
 
-        const dueCount = count || 0;
+        let dueCount = 0;
+        if (dueWords?.length) {
+          // Lọc từ nào chưa được ôn hoặc quá hạn
+          const { data: srsData } = await supabase
+            .from('srs_progress')
+            .select('word_id, next_review_date')
+            .eq('user_id', profile.id)
+            .in('word_id', dueWords.map(w => w.id));
+
+          const srsByWordId = new Map(srsData?.map(s => [s.word_id, s.next_review_date]) || []);
+
+          dueCount = dueWords.filter(w => {
+            const reviewDate = srsByWordId.get(w.id);
+            return !reviewDate || new Date(reviewDate) <= new Date(now);
+          }).length;
+        }
         debugProfiles.find(p => p.id === profile.id)!.dueCount = dueCount;
 
         if (dueCount === 0) continue;
