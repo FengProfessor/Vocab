@@ -42,11 +42,10 @@ export async function GET(req: Request) {
 
     console.log(`[Cron] Found ${profiles.length} profiles`);
     const results: any[] = [];
+    const debugProfiles: any[] = [];
 
     for (const profile of profiles) {
       try {
-        console.log(`[Cron] Processing profile:`, JSON.stringify(profile));
-
         // Lấy classrooms mà user enrolled vào (hoặc created nếu teacher)
         let classroomIds: string[] = [];
 
@@ -59,18 +58,22 @@ export async function GET(req: Request) {
           classroomIds = data?.map(c => c.id) || [];
         } else {
           // Student: tìm classrooms đã enroll
-          const { data, error } = await supabase
+          const { data } = await supabase
             .from('enrollments')
             .select('classroom_id')
             .eq('student_id', profile.id);
-          if (error) console.error(`[Cron] Enrollment query error for ${profile.id}:`, error);
           classroomIds = data?.map(e => e.classroom_id) || [];
         }
 
-        console.log(`[Cron] User ${profile.id} (${profile.full_name}): role=${(profile as any).role}, classrooms=${classroomIds.length}`, classroomIds);
+        debugProfiles.push({
+          id: profile.id,
+          name: profile.full_name,
+          role: (profile as any).role,
+          classroomCount: classroomIds.length,
+          classrooms: classroomIds
+        });
 
         if (!classroomIds.length) {
-          console.log(`[Cron] Skipping user ${profile.id} - no classrooms`);
           continue;
         }
 
@@ -118,7 +121,8 @@ export async function GET(req: Request) {
       debug: {
         profilesCount: profiles.length,
         resultsCount: results.length,
-        now: new Date().toISOString()
+        now: new Date().toISOString(),
+        profiles: debugProfiles
       }
     });
   } catch (err: any) {
