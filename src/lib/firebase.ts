@@ -28,11 +28,8 @@ export const requestForToken = async () => {
     const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
     await navigator.serviceWorker.ready;
 
-    const vapidKey = process.env.NEXT_PUBLIC_VAPID_KEY;
-    if (!vapidKey) throw new Error('NEXT_PUBLIC_VAPID_KEY chưa được cấu hình');
-
     const currentToken = await getToken(messaging, {
-      vapidKey,
+      vapidKey: 'BJlDyqCnEsAEl3Po7fjq10R1ypWeJ8j7stMIeUo9k5NEkcYa9elG1X41lH5yShiDITrDi0R8fr6cGGxCw3XMbVU',
       serviceWorkerRegistration: registration
     });
 
