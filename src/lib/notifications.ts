@@ -33,10 +33,10 @@ export async function sendPushNotificationToUser(
 
     const payload = {
       notification: { title, body: message },
-      data: { url: `https://lingopro-nu.vercel.app${url}` },
+      data: { url: `https://vocab-taupe.vercel.app${url}` },
       token: profile.fcm_token,
       webpush: {
-        fcm_options: { link: `https://lingopro-nu.vercel.app${url}` },
+        fcm_options: { link: `https://vocab-taupe.vercel.app${url}` },
         notification: { icon: '/icons/icon-192x192.png' }
       },
     };
