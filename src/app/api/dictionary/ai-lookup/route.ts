@@ -1,16 +1,26 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { getRouter } from "@/lib/ai-router";
 
-// Lấy danh sách API Keys
-const apiKeys = (process.env.GEMINI_API_KEY || "").split(',').map(k => k.trim()).filter(k => k.length > 0);
-
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const { word } = await req.json();
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+    const rl = checkRateLimit(`ai:${ip}`, 10, 60_000); // 10 req/min per IP
+    if (!rl.allowed) {
+      return NextResponse.json(
+        { success: false, error: 'Too many requests. Please wait.' },
+        { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } }
+      );
+    }
 
-    if (!word) {
+    const { word } = await req.json() as { word?: unknown };
+
+    if (!word || typeof word !== 'string') {
       return NextResponse.json({ success: false, error: "Missing word" }, { status: 400 });
+    }
+    if (word.length > 50) {
+      return NextResponse.json({ success: false, error: "word must not exceed 50 characters" }, { status: 400 });
     }
 
     const cleanWord = word.trim().toLowerCase();
@@ -27,21 +37,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true, data: cachedData.data, cached: true });
     }
 
-    // 2. Nếu không có cache, tiến hành gọi AI với cơ chế xoay vòng Key
-    if (apiKeys.length === 0) {
-      return NextResponse.json({ success: false, error: "No API Keys configured" }, { status: 500 });
-    }
-
-    // Trộn ngẫu nhiên danh sách key để phân bổ tải
-    const shuffledKeys = [...apiKeys].sort(() => Math.random() - 0.5);
-    
-    let lastError = "";
-    for (const key of shuffledKeys) {
-      try {
-        const genAI = new GoogleGenerativeAI(key);
-        const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
-
-        const prompt = `You are an English-Vietnamese dictionary. Provide the dictionary entry for the English word "${cleanWord}".
+    // 2. Gọi AI với router — tier 'normal' (short generation, definition lookup)
+    const prompt = `You are an English-Vietnamese dictionary. Provide the dictionary entry for the English word "${cleanWord}".
 Return ONLY a valid JSON object with this exact structure:
 {
   "pronunciations": [
@@ -62,39 +59,28 @@ Return ONLY a valid JSON object with this exact structure:
 }
 Include the 3 most common meanings. Do not include markdown tags like \`\`\`json. Just the raw JSON.`;
 
-        const result = await model.generateContent(prompt);
-        let text = result.response.text().trim();
-        
-        if (text.startsWith('```json')) text = text.replace(/```json/g, '');
-        if (text.startsWith('```')) text = text.replace(/```/g, '');
-        text = text.trim();
+    let text = (await getRouter().generate(prompt, 'normal', true)).trim();
 
-        const data = JSON.parse(text);
+    if (text.startsWith('```json')) text = text.replace(/```json/g, '');
+    if (text.startsWith('```')) text = text.replace(/```/g, '');
+    text = text.trim();
 
-        // 3. Lưu vào Cache (Không cần đợi vì muốn trả kết quả nhanh)
-        supabase.from('global_dictionary').insert({
-            word: cleanWord,
-            data: data,
-            tags: ['ai-generated']
-        }).then(({error}) => {
-            if (error) console.error("[ai-lookup] Cache save error:", error.message);
-        });
+    const data = JSON.parse(text) as unknown;
 
-        return NextResponse.json({ success: true, data: data, cached: false });
-      } catch (err: any) {
-        lastError = err.message;
-        if (err.message.includes("429")) {
-          console.warn(`[ai-lookup] Key hết hạn mức, đang thử Key tiếp theo...`);
-          continue; // Thử key tiếp theo trong danh sách
-        }
-        throw err; // Lỗi khác thì báo luôn
-      }
-    }
+    // 3. Lưu vào Cache (fire-and-forget)
+    supabase.from('global_dictionary').insert({
+      word: cleanWord,
+      data: data,
+      tags: ['ai-generated'],
+    }).then(({ error }) => {
+      if (error) console.error('[ai-lookup] Cache save error:', error.message);
+    });
 
-    return NextResponse.json({ success: false, error: `All API keys exhausted. Last error: ${lastError}` }, { status: 429 });
+    return NextResponse.json({ success: true, data, cached: false });
 
-  } catch (error: any) {
-    console.error("[ai-lookup] Error:", error.message);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
+    console.error("[ai-lookup] Error:", msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

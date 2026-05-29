@@ -1,12 +1,17 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 
+type ProfileRow = { id: string; email: string; full_name: string; role: string; created_at: string };
+type ClassroomRow = { id: string };
+type WordRow = { id: string; created_at: string };
+type QuizRow = { accuracy: number; completed_at: string };
+
 /**
  * GET /api/admin/stats
  * Returns all users with their activity stats for the admin dashboard.
  * Uses service role to bypass RLS.
  */
-export async function GET() {
+export async function GET(): Promise<NextResponse> {
   try {
     const supabase = createServiceClient();
 
@@ -21,7 +26,7 @@ export async function GET() {
     const today = new Date().toISOString().split('T')[0];
 
     // Enrich each user with stats
-    const users = await Promise.all((profiles || []).map(async (profile: any) => {
+    const users = await Promise.all((profiles || []).map(async (profile: ProfileRow) => {
       // Count words (via their personal classroom)
       const { data: classrooms } = await supabase
         .from('classrooms')
@@ -34,20 +39,21 @@ export async function GET() {
       let lastActive: string | null = null;
 
       if (classrooms && classrooms.length > 0) {
-        const classroomIds = classrooms.map((c: any) => c.id);
+        const classroomIds = (classrooms as ClassroomRow[]).map((c) => c.id);
 
         const { data: words } = await supabase
           .from('words')
           .select('id, created_at')
           .in('classroom_id', classroomIds);
 
-        wordCount = words?.length || 0;
-        wordsToday = (words || []).filter((w: any) =>
+        const wordRows = (words || []) as WordRow[];
+        wordCount = wordRows.length;
+        wordsToday = wordRows.filter((w) =>
           w.created_at?.startsWith(today)
         ).length;
 
-        if (words && words.length > 0) {
-          lastActive = words.sort((a: any, b: any) =>
+        if (wordRows.length > 0) {
+          lastActive = wordRows.slice().sort((a, b) =>
             new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
           )[0]?.created_at;
         }
@@ -59,14 +65,15 @@ export async function GET() {
         .select('accuracy, completed_at')
         .eq('user_id', profile.id);
 
-      const quizCount = quizResults?.length || 0;
+      const quizRows = (quizResults || []) as QuizRow[];
+      const quizCount = quizRows.length;
       const avgAccuracy = quizCount > 0
-        ? (quizResults || []).reduce((sum: number, r: any) => sum + (r.accuracy || 0), 0) / quizCount
+        ? quizRows.reduce((sum, r) => sum + (r.accuracy || 0), 0) / quizCount
         : 0;
 
       // Update lastActive from quiz if more recent
-      if (quizResults && quizResults.length > 0) {
-        const latestQuiz = quizResults.sort((a: any, b: any) =>
+      if (quizRows.length > 0) {
+        const latestQuiz = quizRows.slice().sort((a, b) =>
           new Date(b.completed_at).getTime() - new Date(a.completed_at).getTime()
         )[0]?.completed_at;
 
@@ -94,8 +101,9 @@ export async function GET() {
     const totalQuizzes = users.reduce((sum, u) => sum + u.quizCount, 0);
 
     return NextResponse.json({ success: true, users, totalWords, totalQuizzes });
-  } catch (error: any) {
-    console.error('GET /api/admin/stats Error:', error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
+    console.error('GET /api/admin/stats Error:', msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

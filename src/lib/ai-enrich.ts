@@ -1,4 +1,5 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { getRouter } from '@/lib/ai-router';
+import type { DictionaryData } from '@/lib/supabase';
 
 export interface EnrichedWord {
   english: string;
@@ -11,34 +12,31 @@ export interface EnrichedWord {
   image_search_query: string;
 }
 
+/** Shape AI trả về sau parse — tất cả field đều optional vì model có thể bỏ sót */
+interface EnrichedWordRaw {
+  english?: string;
+  vietnamese?: string;
+  ipa?: string;
+  pos?: string;
+  example?: string;
+  synonyms?: string[];
+  antonyms?: string[];
+  image_search_query?: string;
+}
+
 /**
  * Analyzes a word using Gemini AI.
  * If dictionaryData is provided, AI helps pick the best meaning for the context.
  */
-export async function enrichWord(originalInput: string, customApiKey?: string, dictionaryData?: any, userTargetTranslation?: string): Promise<EnrichedWord> {
-  let apiKey = customApiKey || process.env.GEMINI_API_KEY || '';
-  
-  // Handle multiple keys (comma separated)
-  if (apiKey.includes(',')) {
-    const keys = apiKey.split(',').map(k => k.trim()).filter(Boolean);
-    apiKey = keys[Math.floor(Math.random() * keys.length)];
-  }
+export async function enrichWord(originalInput: string, customApiKey?: string, dictionaryData?: DictionaryData | null, userTargetTranslation?: string): Promise<EnrichedWord> {
+  // customApiKey vẫn được hỗ trợ (Chrome ext truyền key riêng) — nếu có thì dùng router tạm thời với key đó
+  // Nếu không có customApiKey → dùng singleton router với GEMINI_API_KEY env
 
-  if (!apiKey) throw new Error('No Gemini API Key provided');
-
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ 
-    model: 'gemini-2.0-flash',
-    generationConfig: {
-      responseMimeType: "application/json",
-    }
-  });
-
-  const dictionaryContext = dictionaryData 
-    ? `Available dictionary definitions: ${JSON.stringify(dictionaryData?.results?.[0]?.meanings || [])}` 
+  const dictionaryContext = dictionaryData
+    ? `Available dictionary definitions: ${JSON.stringify(dictionaryData?.results?.[0]?.meanings || [])}`
     : '';
 
-  const explicitContext = userTargetTranslation 
+  const explicitContext = userTargetTranslation
     ? `CRITICAL INSTRUCTION: The user SPECIFICALLY selected this translation: "${userTargetTranslation}". You MUST use EXACTLY "${userTargetTranslation}" for the "vietnamese" field, without changing it. Base all your generated example sentences, synonyms, antonyms, and especially the image search query context strictly around THIS specific meaning.`
     : `Detect language. If dictionary definitions above are provided, PICK the best one for a general learner.`;
 
@@ -58,17 +56,23 @@ Return ONLY valid JSON with these exact keys:
 Strict JSON only.`;
 
   try {
-    const result = await model.generateContent(prompt);
-    const rawText = result.response.text();
+    // Full enrichment là task nặng nhất → dùng tier 'smart'
+    // Nếu customApiKey được cung cấp (Chrome ext), tạo router riêng với key đó
+    const { AIRouter } = await import('@/lib/ai-router');
+    const router = customApiKey
+      ? new AIRouter(customApiKey)
+      : getRouter();
+
+    const rawText = await router.generate(prompt, 'smart', true);
     
     // Attempt multi-strategy parsing
-    let parsed: any;
+    let parsed: EnrichedWordRaw;
     try {
-      parsed = JSON.parse(rawText);
+      parsed = JSON.parse(rawText) as EnrichedWordRaw;
     } catch {
       const jsonMatch = rawText.match(/\{[\s\S]*\}/);
       if (!jsonMatch) throw new Error(`Invalid AI response format`);
-      parsed = JSON.parse(jsonMatch[0]);
+      parsed = JSON.parse(jsonMatch[0]) as EnrichedWordRaw;
     }
 
     return {
@@ -81,8 +85,9 @@ Strict JSON only.`;
       antonyms: parsed.antonyms || [],
       image_search_query: parsed.image_search_query || '',
     };
-  } catch (err: any) {
-    console.error(`AI enrichment failed for word "${originalInput}":`, err.message);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error(`AI enrichment failed for word "${originalInput}":`, msg);
     throw err;
   }
 }

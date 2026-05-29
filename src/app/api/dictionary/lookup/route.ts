@@ -33,17 +33,26 @@ export async function GET(req: Request) {
     }
 
     // Trả về data theo format chuẩn của LingoPro (giống dict.minhqnd.com)
-    return NextResponse.json({
-      success: true,
-      source: 'global_dictionary', // LingoPro có thể dùng để biết nguồn
-      tags: data.tags || [],
-      image_url: data.image_url || null,
-      image_source: data.image_source || 'none',
-      ...data.data, // Spread toàn bộ dữ liệu Bot cào: word, pronunciations, results, familyWords
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        source: 'global_dictionary', // LingoPro có thể dùng để biết nguồn
+        tags: data.tags || [],
+        image_url: data.image_url || null,
+        image_source: data.image_source || 'none',
+        ...data.data, // Spread toàn bộ dữ liệu Bot cào: word, pronunciations, results, familyWords
+      },
+      {
+        headers: {
+          // Global dictionary gần như tĩnh → cache CDN 1 ngày
+          'Cache-Control': 'public, s-maxage=86400',
+        },
+      }
+    );
 
-  } catch (err: any) {
-    console.error('[Dictionary Lookup] Error:', err.message);
-    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : 'Unknown error';
+    console.error('[Dictionary Lookup] Error:', msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }
