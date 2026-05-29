@@ -1,11 +1,14 @@
 {
-  "name": "LingoPro — AI English",
+  "name": "LingoPro",
   "short_name": "LingoPro",
-  "description": "Nền tảng học tiếng Anh thông minh với AI và SRS.",
-  "start_url": "/",
+  "description": "Học từ vựng tiếng Anh với AI + Spaced Repetition",
+  "start_url": "/student",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0ea5e9",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "lang": "vi",
+  "categories": ["education"],
   "icons": [
     {
       "src": "/icons/icon-48.webp",
@@ -48,6 +51,18 @@
       "type": "image/webp",
       "sizes": "512x512",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ôn từ",
+      "url": "/flashcard",
+      "description": "Mở flashcard review"
+    },
+    {
+      "name": "Quiz",
+      "url": "/quiz",
+      "description": "Làm bài quiz"
     }
   ]
 }

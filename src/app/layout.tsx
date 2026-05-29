@@ -1,9 +1,11 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from 'next-themes';
 import FirebaseInitializer from '@/components/FirebaseInitializer';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import InstallPrompt from '@/components/InstallPrompt';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -11,13 +13,19 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+export const viewport: Viewport = {
+  themeColor: '#6366f1',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   title: 'LingoPro — AI English Vocabulary & Grammar',
   description: 'Nền tảng học tiếng Anh thông minh với AI, SRS, và quản lý lớp học cho gia sư & học sinh.',
   keywords: ['học tiếng anh', 'vocabulary', 'spaced repetition', 'grammar', 'edtech', 'AI'],
   manifest: '/manifest.json',
-  themeColor: '#0ea5e9',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -37,6 +45,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="vi" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker'in navigator){navigator.serviceWorker.register('/sw-custom.js').catch(()=>{})}` }} />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -45,7 +56,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           disableTransitionOnChange
         >
           <FirebaseInitializer />
-          {children}
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
           {/* Nút Test Firebase nổi trên màn hình cho Admin (là bạn) */}
           <div className="fixed bottom-20 right-4 z-[9999] md:bottom-10">
             <a 
@@ -55,7 +68,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               🔔 Test Firebase
             </a>
           </div>
-          <Toaster position="top-right" richColors />
+          <InstallPrompt />
+          <Toaster position="bottom-right" richColors />
         </ThemeProvider>
       </body>
     </html>
