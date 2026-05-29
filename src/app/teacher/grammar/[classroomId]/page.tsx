@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
-import type { GrammarExercise, GrammarTopic, GrammarLesson } from '@/lib/supabase';
+import type { GrammarExercise, GrammarTopic, GrammarLesson, GrammarLevel, Classroom } from '@/lib/supabase';
 import {
   ChevronLeft, ChevronDown, Loader2, Brain, BookOpen, Trash2, BarChart3, Sparkles, GraduationCap,
 } from 'lucide-react';
@@ -14,7 +14,7 @@ export default function TeacherGrammarPage() {
   const params = useParams();
   const classroomId = params.classroomId as string;
   const [exercises, setExercises] = useState<GrammarExercise[]>([]);
-  const [classroom, setClassroom] = useState<any>(null);
+  const [classroom, setClassroom] = useState<Classroom | null>(null);
   const [topics, setTopics] = useState<GrammarTopic[]>([]);
   const [lessonsByTopic, setLessonsByTopic] = useState<Record<string, GrammarLesson[]>>({});
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
@@ -78,8 +78,9 @@ export default function TeacherGrammarPage() {
       setExercises([...data.data, ...exercises]);
       toast.success(`Đã sinh ${data.count} bài tập về "${topic}"! 🎉`);
       setCustomTopic('');
-    } catch (err: any) {
-      toast.error(`Lỗi: ${err.message}`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unknown error';
+      toast.error(`Lỗi: ${msg}`);
     }
     setIsGenerating(false);
   };
@@ -96,8 +97,9 @@ export default function TeacherGrammarPage() {
       if (!data.success) throw new Error(data.error);
       setExercises([...data.data, ...exercises]);
       toast.success(`Đã sinh ${data.count} bài tập cho bài "${lesson.title}"! 🎉`);
-    } catch (err: any) {
-      toast.error(`Lỗi: ${err.message}`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unknown error';
+      toast.error(`Lỗi: ${msg}`);
     }
     setGeneratingLesson(null);
   };
@@ -192,7 +194,7 @@ export default function TeacherGrammarPage() {
                 <label className="text-sm font-medium mb-1 block">Cấp độ</label>
                 <select
                   value={level}
-                  onChange={(e) => setLevel(e.target.value as any)}
+                  onChange={(e) => setLevel(e.target.value as GrammarLevel)}
                   className="w-full border rounded-xl px-4 py-2 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
                 >
                   <option value="beginner">Beginner (A1-A2)</option>

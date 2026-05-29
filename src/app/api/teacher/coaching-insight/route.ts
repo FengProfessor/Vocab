@@ -3,12 +3,18 @@ import { NextResponse } from "next/server";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse> {
   try {
-    const { studentName, vms, lcs, tag, msg } = await req.json();
+    const { studentName, vms, lcs, tag, msg } = (await req.json()) as {
+      studentName: string;
+      vms: number;
+      lcs: number;
+      tag: string;
+      msg: string;
+    };
 
     if (!process.env.GEMINI_API_KEY) {
-      return NextResponse.json({ error: "Gemini API key is not configured" }, { status: 500 });
+      return NextResponse.json({ success: false, error: "Gemini API key is not configured" }, { status: 500 });
     }
 
     // Try gemini-flash-latest which often has higher free tier quota
@@ -36,15 +42,17 @@ export async function POST(req: Request) {
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
-      return NextResponse.json({ suggestion: text });
-    } catch (apiError: any) {
-      console.warn("Gemini API Tier Error, using fallback:", apiError.message);
+      return NextResponse.json({ success: true, suggestion: text });
+    } catch (apiError: unknown) {
+      const apiMsg = apiError instanceof Error ? apiError.message : 'Unknown error';
+      console.warn("Gemini API Tier Error, using fallback:", apiMsg);
       // Fallback to a high-quality template if API fails
       const fallback = `Chào ${studentName.split(' ')[0]}! Thầy thấy chỉ số thành thạo của bạn đang ở mức ${vms}%. Hãy cố gắng duy trì việc ôn tập ${lcs > 50 ? 'đều đặn như hiện tại' : 'thêm một chút mỗi ngày'} để đạt kết quả tốt nhất nhé!`;
-      return NextResponse.json({ suggestion: fallback, isFallback: true });
+      return NextResponse.json({ success: true, suggestion: fallback, isFallback: true });
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error("Critical API Error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

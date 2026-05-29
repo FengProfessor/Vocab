@@ -11,7 +11,7 @@ export async function GET(req: Request) {
     const teacherId = searchParams.get('teacherId');
     const classroomId = searchParams.get('classroomId');
 
-    if (!teacherId) return NextResponse.json({ error: 'teacherId is required' }, { status: 400 });
+    if (!teacherId) return NextResponse.json({ success: false, error: 'teacherId is required' }, { status: 400 });
 
     const supabase = createServiceClient();
 
@@ -69,11 +69,13 @@ export async function GET(req: Request) {
     }
 
     return NextResponse.json({
+      success: true,
       classrooms: enriched,
-      students
+      students,
     });
-  } catch (error: any) {
-    console.error('Teacher API Error:', error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
+    console.error('Teacher API Error:', msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

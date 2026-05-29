@@ -2,15 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
+import { authFetch } from '@/lib/auth-fetch';
 import type { Word } from '@/lib/supabase';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import {
-  Brain, Plus, Loader2, Trash2, ChevronLeft, Sparkles,
-  BookOpen, CheckCircle2, Volume2
+  Plus, Loader2, Trash2, ChevronLeft, Sparkles,
+  BookOpen, Volume2, Download
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
+
+type StatusFilter = 'all' | 'pending' | 'approved' | 'rejected';
 
 export default function TeacherWordsPage() {
   const { classroomId } = useParams<{ classroomId: string }>();
@@ -20,6 +23,7 @@ export default function TeacherWordsPage() {
   const [newWord, setNewWord] = useState('');
   const [userId, setUserId] = useState<string | null>(null);
   const [classroomName, setClassroomName] = useState('');
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
   const router = useRouter();
 
   useEffect(() => {
@@ -40,7 +44,7 @@ export default function TeacherWordsPage() {
     if (cls) setClassroomName(cls.name);
 
     // Load words
-    const res = await fetch(`/api/words?classroomId=${classroomId}&userId=${user.id}`);
+    const res = await authFetch(`/api/words?classroomId=${classroomId}`);
     const data = await res.json();
     if (data.success) setWords(data.data || []);
     setIsLoading(false);
@@ -52,26 +56,27 @@ export default function TeacherWordsPage() {
     setIsSaving(true);
 
     const loadingId = Date.now();
-    const optimistic: any = {
+    const optimistic: Word & { isLoading?: boolean } = {
       id: `loading-${loadingId}`,
+      classroom_id: classroomId,
       word: newWord.trim(),
       translation: '⏳ Analyzing with AI...',
       ipa: '',
       pos: '',
       example: '',
+      created_at: new Date().toISOString(),
       isLoading: true,
     };
     setWords(prev => [optimistic, ...prev]);
     setNewWord('');
 
     try {
-      const res = await fetch('/api/words', {
+      const res = await authFetch('/api/words', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           word: optimistic.word,
           classroomId,
-          userId: userId,
         }),
       });
       const data = await res.json();
@@ -79,11 +84,12 @@ export default function TeacherWordsPage() {
       // Replace optimistic with real data
       setWords(prev => prev.map(w => w.id === optimistic.id ? data.data : w));
       toast.success(`"${data.data.word}" added with AI analysis! ✨`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (optimistic?.id) {
         setWords(prev => prev.filter(w => w.id !== optimistic.id));
       }
-      toast.error(err.message || 'Failed to add word');
+      const msg = err instanceof Error ? err.message : 'Failed to add word';
+      toast.error(msg);
     }
     setIsSaving(false);
   };
@@ -112,6 +118,34 @@ export default function TeacherWordsPage() {
     window.speechSynthesis.speak(u);
   };
 
+  const exportToCSV = () => {
+    if (words.length === 0) return;
+    const headers = ['word', 'translation', 'pos', 'ipa', 'example', 'status'];
+    const rows = words.map(w => [
+      w.word,
+      w.translation ?? '',
+      w.pos ?? '',
+      w.ipa ?? '',
+      (w.example ?? '').replace(/,/g, ';'), // escape commas
+      w.status ?? 'approved',
+    ]);
+    const csv = [headers, ...rows].map(r => r.join(',')).join('\n');
+    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' }); // BOM cho Excel
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `words-${classroomId}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast.success(`Xuất ${words.length} từ thành công`);
+  };
+
+  const filteredWords = words.filter(w => {
+    if (statusFilter === 'all') return true;
+    if (statusFilter === 'pending') return !w.status || w.status === 'pending';
+    return w.status === statusFilter;
+  });
+
   return (
     <div className="min-h-screen bg-muted/40 font-sans">
       {/* Header */}
@@ -126,7 +160,18 @@ export default function TeacherWordsPage() {
             <span className="font-semibold text-sm truncate">{classroomName || 'Loading...'}</span>
           </div>
         </div>
-        <span className="text-sm text-muted-foreground font-medium">{words.length} words</span>
+        <div className="flex items-center gap-2">
+          <span className="text-sm text-muted-foreground font-medium">{words.length} words</span>
+          {words.length > 0 && (
+            <button
+              onClick={exportToCSV}
+              className="flex items-center gap-1.5 text-sm font-semibold text-muted-foreground border rounded-lg px-3 py-1.5 hover:text-foreground hover:bg-muted/50 transition-colors"
+            >
+              <Download className="h-3.5 w-3.5" />
+              Xuất CSV
+            </button>
+          )}
+        </div>
       </header>
 
       <main className="max-w-3xl mx-auto p-4 sm:p-6">
@@ -163,8 +208,34 @@ export default function TeacherWordsPage() {
 
         {/* Words list */}
         <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-          <div className="px-5 py-4 border-b">
+          <div className="px-5 py-4 border-b flex items-center justify-between gap-4 flex-wrap">
             <h2 className="font-bold">Classroom Vocabulary</h2>
+            {/* Status filter tabs */}
+            <div className="flex items-center gap-1 bg-muted/50 rounded-xl p-1 text-xs font-semibold">
+              {([
+                { key: 'all', label: 'Tất cả' },
+                { key: 'pending', label: 'Chờ duyệt' },
+                { key: 'approved', label: 'Đã duyệt' },
+                { key: 'rejected', label: 'Từ chối' },
+              ] as { key: StatusFilter; label: string }[]).map(f => (
+                <button
+                  key={f.key}
+                  onClick={() => setStatusFilter(f.key)}
+                  className={`px-3 py-1.5 rounded-lg transition-colors ${
+                    statusFilter === f.key
+                      ? 'bg-background text-foreground shadow-sm'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {f.label}
+                  {f.key !== 'all' && (
+                    <span className="ml-1 opacity-60">
+                      ({words.filter(w => f.key === 'pending' ? (!w.status || w.status === 'pending') : w.status === f.key).length})
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
 
           {isLoading ? (
@@ -174,15 +245,24 @@ export default function TeacherWordsPage() {
               <Skeleton className="h-16 w-full rounded-xl" />
               <Skeleton className="h-16 w-full rounded-xl" />
             </div>
-          ) : words.length === 0 ? (
+          ) : filteredWords.length === 0 ? (
             <div className="p-12 text-center text-muted-foreground">
               <BookOpen className="h-12 w-12 mx-auto mb-4 opacity-20" />
-              <p className="font-semibold">No words yet</p>
-              <p className="text-sm mt-1">Add your first word above — AI will analyze it instantly.</p>
+              {words.length === 0 ? (
+                <>
+                  <p className="font-semibold">No words yet</p>
+                  <p className="text-sm mt-1">Add your first word above — AI will analyze it instantly.</p>
+                </>
+              ) : (
+                <>
+                  <p className="font-semibold">Không có từ nào</p>
+                  <p className="text-sm mt-1">Không tìm thấy từ với bộ lọc này.</p>
+                </>
+              )}
             </div>
           ) : (
             <div className="divide-y">
-              {words.map((w: any) => (
+              {filteredWords.map((w) => (
                 <div key={w.id} className="flex items-start gap-4 px-5 py-4 hover:bg-muted/30 transition-colors group">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
@@ -199,7 +279,7 @@ export default function TeacherWordsPage() {
                     <p className="text-sm font-semibold text-foreground/90">{w.translation}</p>
                     {w.example && (
                       <p className="text-xs text-muted-foreground italic mt-1 border-l-2 border-primary/30 pl-2 leading-relaxed">
-                        "{w.example}"
+                        &quot;{w.example}&quot;
                       </p>
                     )}
                   </div>

@@ -22,10 +22,13 @@ export default function StudentDetailPage() {
   const studentId = params.id as string;
   const classroomId = searchParams.get('class');
 
+  type HistoryPoint = { recorded_at: string; vms: number; lcs: number };
+  type QuizPoint = { completed_at: string; score: number; total_questions: number; accuracy: number };
+
   const [data, setData] = useState<{
     current: StudentProgress | null;
-    history: any[];
-    quizzes: any[];
+    history: HistoryPoint[];
+    quizzes: QuizPoint[];
   }>({ current: null, history: [], quizzes: [] });
   const [isLoading, setIsLoading] = useState(true);
   const [aiSuggestion, setAiSuggestion] = useState<string>('');
@@ -48,7 +51,7 @@ export default function StudentDetailPage() {
       if (json.current) {
         generateAiInsight(json.current);
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       toast.error('Failed to load student data');
       console.error(err);
     } finally {
@@ -77,8 +80,8 @@ export default function StudentDetailPage() {
           lcs: current.lcs, 
           tag, 
           msg,
-          cefr: (current as any).cefr_level || 'A1',
-          activeVms: (current as any).active_vms || 0,
+          cefr: current.cefr_level || 'A1',
+          activeVms: current.active_vms || 0,
           tesolFocus: true // Flag to prompt for pedagogical advice
         }),
       });
@@ -163,7 +166,7 @@ export default function StudentDetailPage() {
           {status.label}
         </div>
         <div className="px-2 py-0.5 rounded-md text-[10px] bg-amber-100 text-amber-700 border border-amber-200 font-black tracking-tighter">
-          {(current as any).cefr_level || 'A1'}
+          {current.cefr_level || 'A1'}
         </div>
       </header>
 
@@ -178,10 +181,10 @@ export default function StudentDetailPage() {
               <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Active Mastery (TESOL)</p>
             </div>
             <p className="text-4xl font-bold flex items-baseline gap-2">
-              {(current as any).active_vms || 0}%
+              {current.active_vms || 0}%
               <span className="text-sm font-normal text-muted-foreground">productive</span>
             </p>
-            <p className="text-[10px] text-muted-foreground mt-2 uppercase font-bold tracking-wider">Passive: {current.vms}% | Depth: {(current as any).communicative_depth || 0}%</p>
+            <p className="text-[10px] text-muted-foreground mt-2 uppercase font-bold tracking-wider">Passive: {current.vms}% | Depth: {current.communicative_depth || 0}%</p>
           </div>
 
           <div className="bg-background border rounded-2xl p-6 shadow-sm">
@@ -280,7 +283,7 @@ export default function StudentDetailPage() {
                     <span className="text-sm italic">Gemini is analyzing data...</span>
                   </div>
                 ) : (
-                  <p className="text-sm italic leading-relaxed text-slate-700 whitespace-pre-wrap">"{aiSuggestion || status.msg}"</p>
+                  <p className="text-sm italic leading-relaxed text-slate-700 whitespace-pre-wrap">&quot;{aiSuggestion || status.msg}&quot;</p>
                 )}
               </div>
               

@@ -1,14 +1,14 @@
 import { createServiceClient } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: Request) {
+export async function GET(req: Request): Promise<NextResponse> {
   try {
     const { searchParams } = new URL(req.url);
     const studentId = searchParams.get('studentId');
     const classroomId = searchParams.get('classroomId');
 
     if (!studentId || !classroomId) {
-      return NextResponse.json({ error: 'Missing studentId or classroomId' }, { status: 400 });
+      return NextResponse.json({ success: false, error: 'Missing studentId or classroomId' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
@@ -42,12 +42,14 @@ export async function GET(req: Request) {
       .limit(10);
 
     return NextResponse.json({
+      success: true,
       current,
       history: history || [],
-      quizzes: quizzes || []
+      quizzes: quizzes || [],
     });
-  } catch (error: any) {
-    console.error('Student Detail API Error:', error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
+    console.error('Student Detail API Error:', msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }
