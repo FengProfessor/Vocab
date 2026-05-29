@@ -10,7 +10,7 @@ import { resolveWordImage } from '@/lib/image-pipeline';
 export async function POST(req: Request) {
   try {
     const { wordId } = await req.json();
-    if (!wordId) return NextResponse.json({ error: 'wordId required' }, { status: 400 });
+    if (!wordId) return NextResponse.json({ success: false, error: 'wordId required' }, { status: 400 });
 
     const supabase = createServiceClient();
 
@@ -48,8 +48,9 @@ export async function POST(req: Request) {
       source: img.source,
       confidence: img.confidence,
     });
-  } catch (err: any) {
-    console.error('Refresh image error:', err.message);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : 'Unknown error';
+    console.error('Refresh image error:', msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

@@ -4,17 +4,19 @@
  * Mọi route/script lấy ảnh từ vựng PHẢI đi qua `resolveWordImage`.
  * Quy trình 4 giai đoạn:
  *   A. buildImageQueries  — sinh query thông minh theo POS + nghĩa (không search `word` trần)
- *   B. đa nguồn ảnh       — DuckDuckGo → Wikipedia → Openverse → Pollinations
+ *   B. đa nguồn ảnh       — Pixabay/Pexels → DuckDuckGo → Wikipedia → Openverse → Pollinations
  *   C. validateImageUrl   — kiểm ảnh thực sự tồn tại (HTTP, content-type, size)
  *   D. verifyImageMeaning — AI Vision chấm ảnh có khớp nghĩa từ (chỉ cho từ trừu tượng/đa nghĩa)
  */
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { search as searchPixabay } from './image-sources/pixabay';
+import { search as searchPexels } from './image-sources/pexels';
 import { search as searchDuckDuckGo } from './image-sources/duckduckgo';
 import { search as searchWikipedia } from './image-sources/wikipedia';
 import { search as searchOpenverse } from './image-sources/openverse';
 import { search as searchPollinations } from './image-sources/pollinations';
 
-export type ImageSource = 'duckduckgo' | 'wikipedia' | 'openverse' | 'pollinations' | 'none';
+export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'pollinations' | 'none';
 
 export interface ResolveImageInput {
   word: string;
@@ -241,23 +243,30 @@ export async function resolveWordImage(input: ResolveImageInput): Promise<Resolv
   // GIAI ĐOẠN B — thu thập ứng viên ảnh theo tier
   const candidates: { url: string; source: ImageSource }[] = [];
 
-  // Tier 1: DuckDuckGo — thử từng query
+  // Tier 1: Pixabay + Pexels — ảnh thật, license thương mại rõ ràng (ưu tiên, an toàn pháp lý)
+  for (const q of queries) {
+    for (const u of await searchPixabay(q, 3)) candidates.push({ url: u, source: 'pixabay' });
+    for (const u of await searchPexels(q, 3)) candidates.push({ url: u, source: 'pexels' });
+    if (candidates.length >= 5) break;
+  }
+
+  // Tier 2: DuckDuckGo — thử từng query
   for (const q of queries) {
     const urls = await searchDuckDuckGo(q, 4);
     for (const u of urls) candidates.push({ url: u, source: 'duckduckgo' });
     if (candidates.length >= 5) break;
   }
-  // Tier 2: Wikipedia — tra theo word gốc
+  // Tier 3: Wikipedia — tra theo word gốc
   if (candidates.length < 5) {
     const urls = await searchWikipedia(word);
     for (const u of urls) candidates.push({ url: u, source: 'wikipedia' });
   }
-  // Tier 3: Openverse
+  // Tier 4: Openverse
   if (candidates.length < 3) {
     const urls = await searchOpenverse(primaryQuery, 4);
     for (const u of urls) candidates.push({ url: u, source: 'openverse' });
   }
-  // Tier 4: Pollinations — generative, luôn có ứng viên
+  // Tier 5: Pollinations — generative, luôn có ứng viên
   const pollinationsQuery = imageSearchQuery || extractDescriptor(definition) || word;
   const pollUrls = await searchPollinations(pollinationsQuery, MAX_VISION_CANDIDATES);
   for (const u of pollUrls) candidates.push({ url: u, source: 'pollinations' });

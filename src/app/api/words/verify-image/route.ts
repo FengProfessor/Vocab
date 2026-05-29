@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient, type DictionaryData } from '@/lib/supabase';
 import { verifyImageMeaning, resolveWordImage } from '@/lib/image-pipeline';
 
 /**
@@ -7,10 +7,10 @@ import { verifyImageMeaning, resolveWordImage } from '@/lib/image-pipeline';
  * Chấm lại ảnh hiện tại của 1 từ trong global_dictionary bằng AI Vision.
  * Nếu điểm thấp (< 70) → tự tìm ảnh thay thế. Dùng cho nút "ảnh sai? kiểm tra lại".
  */
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse> {
   try {
     const { word } = await req.json();
-    if (!word) return NextResponse.json({ error: 'word required' }, { status: 400 });
+    if (!word) return NextResponse.json({ success: false, error: 'word required' }, { status: 400 });
 
     const supabase = createServiceClient();
     const { data: row, error } = await supabase
@@ -19,10 +19,10 @@ export async function POST(req: Request) {
       .eq('word', String(word).trim().toLowerCase())
       .maybeSingle();
 
-    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-    if (!row) return NextResponse.json({ error: 'word not found' }, { status: 404 });
+    if (error) return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    if (!row) return NextResponse.json({ success: false, error: 'word not found' }, { status: 404 });
 
-    const wordData = row.data as any;
+    const wordData = row.data as DictionaryData | null;
     const meanings = wordData?.results?.[0]?.meanings || [];
     const definition = meanings[0]?.definition || '';
     const pos = meanings[0]?.pos || '';
@@ -72,7 +72,8 @@ export async function POST(req: Request) {
       source: img.source,
       confidence: img.confidence,
     });
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500 });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

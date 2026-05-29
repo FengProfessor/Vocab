@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient, type DictionaryData } from '@/lib/supabase';
 import { resolveWordImage } from '@/lib/image-pipeline';
 
 /**
@@ -7,7 +7,7 @@ import { resolveWordImage } from '@/lib/image-pipeline';
  * Backfill ảnh cho các từ đã có trong DB nhưng chưa có image_url
  * Body: { limit?: number } — mặc định 100
  */
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse> {
     try {
         const { limit = 100 } = await req.json().catch(() => ({}));
         const supabase = createServiceClient();
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
         const breakdown: Record<string, number> = {};
 
         for (const row of words) {
-            const wordData = row.data as any;
+            const wordData = row.data as DictionaryData | null;
             const meanings = wordData?.results?.[0]?.meanings || [];
             const definition = meanings[0]?.definition || '';
             const pos = meanings[0]?.pos || '';
@@ -74,8 +74,9 @@ export async function POST(req: Request) {
             breakdown,
             message: `Đã cập nhật ${updated}/${words.length} từ`
         });
-    } catch (e: any) {
-        return NextResponse.json({ success: false, error: e.message }, { status: 500 });
+    } catch (e: unknown) {
+        const msg = e instanceof Error ? e.message : 'Unknown error';
+        return NextResponse.json({ success: false, error: msg }, { status: 500 });
     }
 }
 
@@ -83,7 +84,7 @@ export async function POST(req: Request) {
  * GET /api/bot/fill-images
  * Kiểm tra trạng thái: bao nhiêu từ đã có ảnh / chưa có
  */
-export async function GET() {
+export async function GET(): Promise<NextResponse> {
     try {
         const supabase = createServiceClient();
 
@@ -103,12 +104,14 @@ export async function GET() {
             .eq('image_source', 'placeholder');
 
         return NextResponse.json({
+            success: true,
             total: total || 0,
             withRealImage: withImage || 0,
             withPlaceholder: withPlaceholder || 0,
-            withoutImage: (total || 0) - (withImage || 0) - (withPlaceholder || 0)
+            withoutImage: (total || 0) - (withImage || 0) - (withPlaceholder || 0),
         });
-    } catch (e: any) {
-        return NextResponse.json({ error: e.message }, { status: 500 });
+    } catch (e: unknown) {
+        const msg = e instanceof Error ? e.message : 'Unknown error';
+        return NextResponse.json({ success: false, error: msg }, { status: 500 });
     }
 }
