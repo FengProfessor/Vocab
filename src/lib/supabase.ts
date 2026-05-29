@@ -106,6 +106,8 @@ export interface SRSProgress {
   user_id: string;
   word_id: string;
   ease_factor: number;
+  stability?: number;
+  difficulty?: number;
   interval_days: number;
   review_count: number;
   next_review_date: string;
