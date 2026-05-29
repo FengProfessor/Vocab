@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse> {
   try {
-    const { userId, fcmToken } = await req.json();
+    const { userId, fcmToken } = (await req.json()) as { userId?: string; fcmToken?: string };
 
     if (!userId || !fcmToken) {
-      return NextResponse.json({ error: 'userId and fcmToken are required' }, { status: 400 });
+      return NextResponse.json({ success: false, error: 'userId and fcmToken are required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
@@ -19,13 +19,14 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error('Error updating fcm_token:', error);
-      return NextResponse.json({ error: 'Failed to update token' }, { status: 500 });
+      return NextResponse.json({ success: false, error: 'Failed to update token' }, { status: 500 });
     }
 
     console.log(`[FCM] Token updated for user ${userId}`);
     return NextResponse.json({ success: true });
-  } catch (err: any) {
-    console.error('FCM Register Error:', err.message);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : 'Unknown error';
+    console.error('FCM Register Error:', msg);
+    return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 });
   }
 }

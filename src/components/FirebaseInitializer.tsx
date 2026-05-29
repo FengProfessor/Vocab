@@ -37,7 +37,7 @@ export default function FirebaseInitializer() {
     if (typeof window !== 'undefined') {
       setupFCM();
 
-      onMessageListener()?.then((payload: any) => {
+      onMessageListener()?.then((payload) => {
         console.log('[FCM] Foreground message:', payload);
       });
     }

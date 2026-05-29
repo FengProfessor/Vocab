@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getMessaging, getToken, onMessage } from 'firebase/messaging';
+import { getMessaging, getToken, onMessage, type MessagePayload } from 'firebase/messaging';
 
 const firebaseConfig = {
   apiKey: "AIzaSyATgTyGPzlmi0ADwBsMJxEhgqJsjEiRftc",
@@ -40,16 +40,16 @@ export const requestForToken = async () => {
       console.log('No registration token available.');
       return null;
     }
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('Lỗi khi lấy token:', err);
     throw err; // Quăng lỗi ra ngoài để UI hiển thị cho bạn biết
   }
 };
 
-export const onMessageListener = () => {
+export const onMessageListener = (): Promise<MessagePayload> | undefined => {
   if (typeof window === 'undefined') return;
   const messaging = getMessaging(app);
-  return new Promise((resolve) => {
+  return new Promise<MessagePayload>((resolve) => {
     onMessage(messaging, (payload) => {
       resolve(payload);
     });

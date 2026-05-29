@@ -12,8 +12,9 @@ if (typeof window === 'undefined' && !admin.apps.length) {
       }),
     });
     console.log('[FirebaseAdmin] Initialized on Server');
-  } catch (error: any) {
-    console.error('[FirebaseAdmin] Init Error:', error.message);
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[FirebaseAdmin] Init Error:', msg);
   }
 }
 
@@ -44,8 +45,9 @@ export async function sendPushNotificationToUser(
 
     const result = await admin.messaging().send(payload);
     return { messageId: result };
-  } catch (err: any) {
-    return { error: `Firebase error: ${err.message || err.code || 'unknown'}` };
+  } catch (err: unknown) {
+    const e = err as { message?: string; code?: string } | undefined;
+    return { error: `Firebase error: ${e?.message || e?.code || 'unknown'}` };
   }
 }
 

@@ -1,36 +1,39 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 
-async function sendTelegram(chatId: string, text: string): Promise<any> {
+type TelegramResponse = { ok: boolean; error?: string; [k: string]: unknown };
+
+async function sendTelegram(chatId: string, text: string): Promise<TelegramResponse> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   if (!token) return { ok: false, error: 'TELEGRAM_BOT_TOKEN is missing' };
-  
+
   try {
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' }),
     });
-    return await res.json();
-  } catch (err: any) {
-    return { ok: false, error: err.message };
+    return (await res.json()) as TelegramResponse;
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : 'Unknown error';
+    return { ok: false, error: msg };
   }
 }
 
-export async function GET(req: Request) {
+export async function GET(req: Request): Promise<NextResponse> {
   const { searchParams } = new URL(req.url);
   const userId = searchParams.get('userId');
   return handleNotify(userId);
 }
 
-export async function POST(req: Request) {
-  const { userId } = await req.json();
-  return handleNotify(userId);
+export async function POST(req: Request): Promise<NextResponse> {
+  const { userId } = (await req.json()) as { userId?: string };
+  return handleNotify(userId || null);
 }
 
-async function handleNotify(userId: string | null) {
+async function handleNotify(userId: string | null): Promise<NextResponse> {
   try {
-    if (!userId) return NextResponse.json({ error: 'userId is required' }, { status: 400 });
+    if (!userId) return NextResponse.json({ success: false, error: 'userId is required' }, { status: 400 });
 
     const supabase = createServiceClient();
     const { data: p, error } = await supabase
@@ -56,7 +59,8 @@ async function handleNotify(userId: string | null) {
       telegram_response: result,
       telegram_id: p.telegram_id 
     });
-  } catch (err: any) {
-    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }
