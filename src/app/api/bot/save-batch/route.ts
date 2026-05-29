@@ -3,7 +3,7 @@ import { createServiceClient } from '@/lib/supabase';
 import { getWordSourceMap } from '@/lib/bot-utils';
 import { resolveWordImage } from '@/lib/image-pipeline';
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse> {
     try {
         const data = await req.json();
         if (!Array.isArray(data)) {
@@ -46,11 +46,13 @@ export async function POST(req: Request) {
                 imageConfidence = img.confidence;
                 imageQuery = img.query;
                 if (imageUrl) console.log(`[IMAGE] "${cleanWord}" ← ${imageSource} (${imageConfidence ?? 'n/a'})`);
-            } catch (imgErr: any) {
-                console.warn(`[IMAGE] Skipped for "${cleanWord}":`, imgErr.message);
+            } catch (imgErr: unknown) {
+                const imgMsg = imgErr instanceof Error ? imgErr.message : 'Unknown error';
+                console.warn(`[IMAGE] Skipped for "${cleanWord}":`, imgMsg);
             }
 
-            const { error } = await supabase.from('global_dictionary').upsert({
+            // Try full upsert with image metadata columns
+            let { error } = await supabase.from('global_dictionary').upsert({
                 word: cleanWord,
                 tags: finalTags,
                 data: item,
@@ -61,6 +63,17 @@ export async function POST(req: Request) {
                 image_verified_at: new Date().toISOString(),
             }, { onConflict: 'word' });
 
+            // Fallback: image metadata columns missing (migration not yet run)
+            if (error?.code === 'PGRST204') {
+                console.warn(`[BOT-API] image metadata columns missing — saving core data only for "${cleanWord}". Run migration: 20260519_legalize_global_dictionary_images.sql`);
+                const fallback = await supabase.from('global_dictionary').upsert({
+                    word: cleanWord,
+                    tags: finalTags,
+                    data: item,
+                }, { onConflict: 'word' });
+                error = fallback.error;
+            }
+
             if (!error) {
                 successCount++;
             } else {
@@ -69,7 +82,8 @@ export async function POST(req: Request) {
         }
 
         return NextResponse.json({ success: true, saved: successCount });
-    } catch (e: any) {
-        return NextResponse.json({ success: false, error: e.message }, { status: 500 });
+    } catch (e: unknown) {
+        const msg = e instanceof Error ? e.message : 'Unknown error';
+        return NextResponse.json({ success: false, error: msg }, { status: 500 });
     }
 }

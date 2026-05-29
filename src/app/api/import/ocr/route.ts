@@ -9,11 +9,11 @@ const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
  * Body: { base64: string, mimeType: string }
  * Uses Gemini Vision to extract vocabulary words from an image
  */
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse> {
   try {
-    const { base64, mimeType } = await req.json();
+    const { base64, mimeType } = (await req.json()) as { base64?: string; mimeType?: string };
     if (!base64 || !mimeType) {
-      return NextResponse.json({ error: 'base64 and mimeType are required' }, { status: 400 });
+      return NextResponse.json({ success: false, error: 'base64 and mimeType are required' }, { status: 400 });
     }
 
     const prompt = `You are a vocabulary extraction assistant. 
@@ -33,7 +33,7 @@ If no clear vocabulary words are found, return an empty array: []`;
       {
         inlineData: {
           data: base64,
-          mimeType: mimeType as any,
+          mimeType,
         },
       },
     ]);
@@ -53,8 +53,9 @@ If no clear vocabulary words are found, return an empty array: []`;
       .map(w => w.toLowerCase().trim());
 
     return NextResponse.json({ success: true, words: [...new Set(filtered)] });
-  } catch (error: any) {
-    console.error('OCR Error:', error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
+    console.error('OCR Error:', msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

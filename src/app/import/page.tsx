@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
+import { authFetch } from '@/lib/auth-fetch';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { toast } from 'sonner';
@@ -10,7 +11,7 @@ import {
   CheckCircle2, XCircle, SkipForward, Trash2, Plus
 } from 'lucide-react';
 
-type Tab = 'text' | 'file' | 'ocr';
+type Tab = 'text' | 'file' | 'ocr' | 'csv';
 type WordStatus = 'pending' | 'saving' | 'saved' | 'duplicate' | 'error';
 
 interface ImportWord {
@@ -18,6 +19,19 @@ interface ImportWord {
   word: string;
   status: WordStatus;
   message?: string;
+}
+
+interface CsvRow {
+  id: string;
+  word: string;
+  translation: string;
+}
+
+function parseCSV(text: string): Array<{ word: string; translation: string }> {
+  return text.trim().split('\n')
+    .map(line => line.split(',').map(s => s.trim().replace(/^"|"$/g, '')))
+    .filter(cols => cols.length >= 2 && cols[0].length > 0)
+    .map(cols => ({ word: cols[0], translation: cols[1] || '' }));
 }
 
 export default function ImportPage() {
@@ -36,6 +50,15 @@ export default function ImportPage() {
   const fileRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState('');
 
+  // CSV import
+  const csvFileRef = useRef<HTMLInputElement>(null);
+  const [csvFileName, setCsvFileName] = useState('');
+  const [csvSkipHeader, setCsvSkipHeader] = useState(true);
+  const [csvRows, setCsvRows] = useState<CsvRow[]>([]);
+  const [csvIsDragging, setCsvIsDragging] = useState(false);
+  const [csvImporting, setCsvImporting] = useState(false);
+  const [csvProgress, setCsvProgress] = useState(0);
+
   // OCR
   const imageRef = useRef<HTMLInputElement>(null);
   const [ocrImage, setOcrImage] = useState<string | null>(null);
@@ -49,11 +72,101 @@ export default function ImportPage() {
       if (!session?.user) { router.push('/auth'); return; }
       setUserId(session.user.id);
 
-      const res = await fetch(`/api/words?userId=${session.user.id}`);
+      const res = await authFetch(`/api/words`);
       const data = await res.json();
       if (data.classroomId) setClassroomId(data.classroomId);
     })();
   }, []);
+
+  // ── CSV handlers ──
+  const processCsvText = (text: string, skipHeader: boolean) => {
+    const parsed = parseCSV(text);
+    const rows = skipHeader ? parsed.slice(1) : parsed;
+    setCsvRows(rows.map((r, i) => ({ id: `csv-${i}`, word: r.word, translation: r.translation })));
+  };
+
+  const handleCsvFile = (file: File) => {
+    setCsvFileName(file.name);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target?.result as string;
+      processCsvText(text, csvSkipHeader);
+    };
+    reader.readAsText(file);
+  };
+
+  const handleCsvFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) handleCsvFile(file);
+  };
+
+  const handleCsvDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setCsvIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) handleCsvFile(file);
+  };
+
+  const removeCsvRow = (id: string) => {
+    setCsvRows(prev => prev.filter(r => r.id !== id));
+  };
+
+  const importCsvWords = async () => {
+    if (!userId || csvRows.length === 0) return;
+    setCsvImporting(true);
+    setCsvProgress(0);
+
+    let done = 0;
+    let errors = 0;
+
+    for (const row of csvRows) {
+      try {
+        const res = await authFetch('/api/words', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            word: row.word,
+            translation: row.translation,
+            classroomId,
+            skipAI: true,
+          }),
+        });
+        const data = await res.json();
+        if (!data.success && !data.alreadyExists) errors++;
+      } catch {
+        errors++;
+      }
+      done++;
+      setCsvProgress(Math.round((done / csvRows.length) * 100));
+    }
+
+    if (done > 0 && classroomId) {
+      toast.loading(`Chạy AI phân tích ${done} từ...`, { id: 'csv-batch-toast' });
+      try {
+        const refreshRes = await fetch('/api/words/refresh', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ classroomId }),
+        });
+        const refreshData = await refreshRes.json();
+        if (refreshData.success) {
+          toast.success(`Đã import ${done - errors} từ, ${errors} lỗi. AI đã phân tích ${refreshData.refreshed} từ.`, { id: 'csv-batch-toast' });
+        } else {
+          throw new Error();
+        }
+      } catch {
+        toast.success(`Đã import ${done - errors} từ, ${errors} lỗi.`, { id: 'csv-batch-toast' });
+      }
+    } else {
+      toast.success(`Đã import ${done - errors} từ, ${errors} lỗi.`);
+    }
+
+    setCsvImporting(false);
+    setCsvRows([]);
+    setCsvFileName('');
+    setCsvProgress(0);
+    if (csvFileRef.current) csvFileRef.current.value = '';
+  };
 
   // ── Parse bulk text into words ──
   const parseText = () => {
@@ -74,23 +187,26 @@ export default function ImportPage() {
       const buffer = await file.arrayBuffer();
       const wb = XLSX.read(buffer);
       const ws = wb.Sheets[wb.SheetNames[0]];
-      const rows: any[] = XLSX.utils.sheet_to_json(ws, { header: 1 });
+      // Sheet rows: mỗi hàng là mảng cells (string | number | boolean | Date | null)
+      type SheetCell = string | number | boolean | Date | null | undefined;
+      const rows = XLSX.utils.sheet_to_json<SheetCell[]>(ws, { header: 1 });
 
       // Find a column named "word" or use the first column
-      const header = rows[0]?.map((h: any) => String(h).toLowerCase()) || [];
-      const wordColIdx = header.findIndex((h: string) => h.includes('word') || h.includes('từ')) ?? 0;
+      const header = rows[0]?.map((h) => String(h ?? '').toLowerCase()) || [];
+      const wordColIdx = header.findIndex((h) => h.includes('word') || h.includes('từ')) ?? 0;
       const col = wordColIdx >= 0 ? wordColIdx : 0;
 
       const words = rows
         .slice(header.length > 0 ? 1 : 0)
-        .map((r: any) => String(r[col] || '').trim())
+        .map((r) => String(r[col] || '').trim())
         .filter(w => w.length > 0 && w.length < 80);
 
       const unique = [...new Set(words)];
       setWordList(unique.map((w, i) => ({ id: String(i), word: w, status: 'pending' })));
       toast.success(`Found ${unique.length} words in ${file.name}`);
-    } catch (err: any) {
-      toast.error('Failed to read file: ' + err.message);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      toast.error('Failed to read file: ' + msg);
     }
   };
 
@@ -182,16 +298,17 @@ export default function ImportPage() {
       } else {
         toast.info('No vocabulary found. Try a clearer image.', { id: 'ocr-toast' });
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('OCR Error:', err);
-      toast.error(err.message || 'Failed to scan image', { id: 'ocr-toast' });
+      const msg = err instanceof Error ? err.message : 'Failed to scan image';
+      toast.error(msg, { id: 'ocr-toast' });
     } finally {
       setIsOcrProcessing(false);
     }
   };
 
   // ── Import words to database ──
-  const importWords = async (words: ImportWord[], setWords: (fn: (prev: ImportWord[]) => ImportWord[]) => void) => {
+  const importWords = async (words: ImportWord[], setWords: React.Dispatch<React.SetStateAction<ImportWord[]>>) => {
     if (!userId || words.length === 0) return;
     setIsImporting(true);
     setImportProgress(0);
@@ -203,10 +320,10 @@ export default function ImportPage() {
       setWords(prev => prev.map(p => p.id === w.id ? { ...p, status: 'saving' } : p));
 
       try {
-        const res = await fetch('/api/words', {
+        const res = await authFetch('/api/words', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ word: w.word, userId, classroomId, skipAI: true }), // fast insert
+          body: JSON.stringify({ word: w.word, classroomId, skipAI: true }), // fast insert
         });
         const data = await res.json();
         const status: WordStatus = data.alreadyExists ? 'duplicate' : (data.success ? 'saved' : 'error');
@@ -286,7 +403,7 @@ export default function ImportPage() {
                 className="text-xs text-red-500 hover:underline"
               >Clear</button>
               <button
-                onClick={() => importWords(words, setWords as any)}
+                onClick={() => importWords(words, setWords)}
                 disabled={isImporting || words.every(w => w.status !== 'pending')}
                 className="flex items-center gap-1.5 bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
               >
@@ -336,6 +453,7 @@ export default function ImportPage() {
           {([
             { key: 'text', icon: FileText, label: 'Paste Text' },
             { key: 'file', icon: Upload, label: 'Excel / CSV' },
+            { key: 'csv', icon: FileText, label: 'CSV + Nghĩa' },
             { key: 'ocr', icon: Camera, label: 'Scan Image' },
           ] as const).map(t => (
             <button
@@ -403,6 +521,140 @@ export default function ImportPage() {
             </button>
             <input ref={fileRef} type="file" accept=".xlsx,.xls,.csv" className="hidden" onChange={handleFileUpload} />
             <WordListPanel words={wordList} setWords={setWordList} label="Words from file" />
+          </div>
+        )}
+
+        {/* ── TAB: CSV với dịch nghĩa ── */}
+        {tab === 'csv' && (
+          <div className="bg-white border rounded-2xl p-6 space-y-4 shadow-sm">
+            <div>
+              <h2 className="font-black text-lg">Import CSV có dịch nghĩa</h2>
+              <p className="text-sm text-muted-foreground mt-1">
+                File CSV 2 cột: <code className="bg-muted px-1 rounded text-xs">word,translation</code>. Mỗi dòng một từ.
+              </p>
+            </div>
+
+            {/* Drop zone */}
+            <div
+              onDragOver={(e) => { e.preventDefault(); setCsvIsDragging(true); }}
+              onDragLeave={() => setCsvIsDragging(false)}
+              onDrop={handleCsvDrop}
+              onClick={() => csvFileRef.current?.click()}
+              className={`w-full border-2 border-dashed rounded-2xl p-8 flex flex-col items-center gap-3 cursor-pointer transition-colors ${
+                csvIsDragging
+                  ? 'border-indigo-500 bg-indigo-50'
+                  : 'border-indigo-200 hover:border-indigo-400'
+              }`}
+            >
+              <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center">
+                <Upload className="h-7 w-7 text-indigo-500" />
+              </div>
+              <div className="text-center">
+                <p className="font-bold text-sm">{csvFileName || 'Kéo thả hoặc click để chọn file'}</p>
+                <p className="text-xs text-muted-foreground mt-1">.csv, .tsv</p>
+              </div>
+            </div>
+            <input
+              ref={csvFileRef}
+              type="file"
+              accept=".csv,.tsv"
+              className="hidden"
+              onChange={handleCsvFileInput}
+            />
+
+            {/* Skip header checkbox */}
+            <label className="flex items-center gap-2 cursor-pointer select-none w-fit">
+              <input
+                type="checkbox"
+                checked={csvSkipHeader}
+                onChange={(e) => {
+                  setCsvSkipHeader(e.target.checked);
+                  // Re-parse nếu đã có file
+                  if (csvRows.length > 0 && csvFileName) {
+                    // Không re-parse ở đây vì không giữ raw text
+                    // User cần chọn lại file — hiển thị hint
+                  }
+                }}
+                className="rounded border-slate-300 text-indigo-600"
+              />
+              <span className="text-sm font-medium text-slate-700">Bỏ qua dòng đầu (header)</span>
+            </label>
+
+            {/* Preview table */}
+            {csvRows.length > 0 && (
+              <div className="space-y-3">
+                {/* Progress bar khi importing */}
+                {csvImporting && (
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-xs text-muted-foreground font-medium">
+                      <span>Đang import... {Math.round((csvProgress / 100) * csvRows.length)}/{csvRows.length}</span>
+                      <span>{csvProgress}%</span>
+                    </div>
+                    <div className="h-2 bg-muted rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-indigo-500 transition-all duration-300 rounded-full"
+                        style={{ width: `${csvProgress}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-muted-foreground">
+                    {csvRows.length > 50
+                      ? `Hiển thị 50/${csvRows.length} từ`
+                      : `${csvRows.length} từ sẵn sàng`}
+                  </span>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => { setCsvRows([]); setCsvFileName(''); if (csvFileRef.current) csvFileRef.current.value = ''; }}
+                      className="text-xs text-red-500 hover:underline"
+                    >
+                      Xóa tất cả
+                    </button>
+                    <button
+                      onClick={importCsvWords}
+                      disabled={csvImporting}
+                      className="flex items-center gap-1.5 bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                    >
+                      {csvImporting ? (
+                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                      ) : (
+                        <Plus className="h-3.5 w-3.5" />
+                      )}
+                      {csvImporting ? 'Đang import...' : `Import ${csvRows.length} từ`}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="bg-background border rounded-2xl overflow-hidden">
+                  {/* Table header */}
+                  <div className="grid grid-cols-[1fr_1fr_auto] gap-2 px-4 py-2 bg-muted/50 border-b text-[10px] font-black uppercase tracking-wider text-muted-foreground">
+                    <span>Từ</span>
+                    <span>Dịch nghĩa</span>
+                    <span className="w-6" />
+                  </div>
+                  <div className="max-h-72 overflow-y-auto">
+                    {csvRows.slice(0, 50).map(row => (
+                      <div
+                        key={row.id}
+                        className="grid grid-cols-[1fr_1fr_auto] gap-2 items-center px-4 py-2.5 border-b last:border-0 hover:bg-muted/30"
+                      >
+                        <span className="text-sm font-semibold truncate">{row.word}</span>
+                        <span className="text-sm text-muted-foreground truncate">{row.translation}</span>
+                        <button
+                          onClick={() => removeCsvRow(row.id)}
+                          className="text-muted-foreground hover:text-red-500 transition-colors"
+                          aria-label="Xóa dòng"
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
 

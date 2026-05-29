@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getWordSourceMap } from '@/lib/bot-utils';
 
-export async function GET(req: Request) {
+export async function GET(req: Request): Promise<NextResponse> {
     try {
         const { searchParams } = new URL(req.url);
         const batchSize = parseInt(searchParams.get('size') || '10');
@@ -10,12 +10,12 @@ export async function GET(req: Request) {
 
         const { uniqueWords } = await getWordSourceMap();
         
-        let allWords = [...uniqueWords];
+        const allWords = [...uniqueWords];
         if (direction === 'desc') allWords.reverse();
 
         const supabase = createServiceClient();
 
-        let nextBatch: string[] = [];
+        const nextBatch: string[] = [];
         let checkedCount = 0;
         const CHECK_CHUNK_SIZE = 500;
 
@@ -45,14 +45,16 @@ export async function GET(req: Request) {
             
         const realRemaining = uniqueWords.length - (totalSaved || 0);
 
-        return NextResponse.json({ 
-            words: nextBatch, 
+        return NextResponse.json({
+            success: true,
+            words: nextBatch,
             remaining: realRemaining,
             total: uniqueWords.length,
-            saved: totalSaved || 0
+            saved: totalSaved || 0,
         });
 
-    } catch (e: any) {
-        return NextResponse.json({ error: e.message }, { status: 500 });
+    } catch (e: unknown) {
+        const msg = e instanceof Error ? e.message : 'Unknown error';
+        return NextResponse.json({ success: false, error: msg }, { status: 500 });
     }
 }

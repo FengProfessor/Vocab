@@ -2,14 +2,19 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
+import { supabase, type SRSProgress } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Brain, ChevronLeft, Volume2, RotateCcw, CheckCircle2, Loader2, RefreshCw, Snail } from 'lucide-react';
+import { ChevronLeft, Volume2, RotateCcw, Loader2, RefreshCw, Snail, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
+import { useGamification } from '@/hooks/useGamification';
+import { XP_BY_QUALITY } from '@/lib/gamification';
+import { Celebration } from '@/components/gamification/Celebration';
+import { StreakCounter } from '@/components/gamification/StreakCounter';
+import { DailyGoalRing } from '@/components/gamification/DailyGoalRing';
 
 interface WordItem {
   id: string;
@@ -19,11 +24,13 @@ interface WordItem {
   pos: string;
   example: string;
   image_url?: string;
+  synonyms?: string[];
+  antonyms?: string[];
   isDue: boolean;
   reviewCount: number;
   srsLevel: number;
   mastery: number;
-  srs: any;
+  srs: SRSProgress | null;
 }
 
 function parseIpa(raw?: string): string {
@@ -55,20 +62,28 @@ function FlashcardContent() {
   const [spellingError, setSpellingError] = useState(false);
   const [hasSpelledCorrectly, setHasSpelledCorrectly] = useState(false);
   const [isSwapping, setIsSwapping] = useState(false);
+  const [sessionXp, setSessionXp] = useState(0);
+  const [goodStreak, setGoodStreak] = useState(0);
+  const [xpPopup, setXpPopup] = useState<{ show: boolean; amount: number }>({ show: false, amount: 0 });
+  const [showFlipHint, setShowFlipHint] = useState(false);
+  const { data: gamification, refresh: refreshGamification } = useGamification(userId);
 
   useEffect(() => {
     const init = async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) { router.push('/auth'); return; }
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
+        if (!user || !session) { router.push('/auth'); return; }
         setUserId(user.id);
 
         // Fetch words (and discover personal classroomId if missing)
-        const url = classroomId 
-          ? `/api/words?classroomId=${classroomId}&userId=${user.id}`
-          : `/api/words?userId=${user.id}`;
-        
-        const res = await fetch(url);
+        const url = classroomId
+          ? `/api/words?classroomId=${classroomId}`
+          : `/api/words`;
+
+        const res = await fetch(url, {
+          headers: { Authorization: `Bearer ${session.access_token}` },
+        });
         const data = await res.json();
 
         if (data.success && data.data) {
@@ -88,7 +103,9 @@ function FlashcardContent() {
           setCurrent(studyQueue[0] || null);
           setTotal(studyQueue.length);
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : 'Unknown error';
+        console.error('[Flashcard] Load failed:', msg);
         toast.error('Failed to load flashcards.');
       } finally {
         setIsLoading(false);
@@ -96,6 +113,30 @@ function FlashcardContent() {
     };
     init();
   }, [initialClassroomId]);
+
+  // Task 1: Keyboard shortcuts
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === ' ') { e.preventDefault(); setFlipped(f => !f); }
+      if (flipped) {
+        if (e.key === '1') handleRate(0);
+        if (e.key === '2') handleRate(3);
+        if (e.key === '3') handleRate(4);
+        if (e.key === '4') handleRate(5);
+      }
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flipped]);
+
+  // Task 3: Flip hint sau 5 giây
+  useEffect(() => {
+    if (flipped) { setShowFlipHint(false); return; }
+    const t = setTimeout(() => setShowFlipHint(true), 5000);
+    return () => clearTimeout(t);
+  }, [flipped, current?.id]);
 
   const speak = (text: string, rate: number = 1.0) => {
     // Cancel any ongoing speech to avoid overlapping
@@ -119,6 +160,19 @@ function FlashcardContent() {
       hard: quality === 3 ? prev.hard + 1 : prev.hard,
       forgot: quality === 0 ? prev.forgot + 1 : prev.forgot,
     }));
+
+    // Cập nhật good streak
+    if (quality === 4 || quality === 5) {
+      setGoodStreak(prev => prev + 1);
+    } else {
+      setGoodStreak(0);
+    }
+
+    // XP feedback
+    const xp = XP_BY_QUALITY[quality] ?? 5;
+    setSessionXp(prev => prev + xp);
+    setXpPopup({ show: true, amount: xp });
+    setTimeout(() => setXpPopup({ show: false, amount: 0 }), 900);
  
     const newQueue = queue.slice(1);
     if (quality === 0) newQueue.push(currentWord); 
@@ -136,41 +190,43 @@ function FlashcardContent() {
 
     if (newQueue.length === 0) {
       setDone(true);
+      // Refresh gamification sau khi session xong
+      setTimeout(() => refreshGamification(), 1500);
     }
 
     // 3. BACKGROUND SYNC (No 'await' to keep UI fast)
-    fetch('/api/words/srs', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId, wordId: currentWordId, quality: quality as 0|3|4|5 }),
-    }).catch(err => {
-      console.error('Failed to save SRS result:', err);
-      // We don't rollback to avoid UI flickering, just log it.
-    });
+    (async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+      const authHeaders = { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` };
 
-    if (newQueue.length === 0) {
-      // Background save stats + schedule next review notification
-      (async () => {
+      fetch('/api/words/srs', {
+        method: 'POST',
+        headers: authHeaders,
+        body: JSON.stringify({ wordId: currentWordId, quality: quality as 0|3|4|5 }),
+      }).catch(err => {
+        console.error('Failed to save SRS result:', err);
+        // We don't rollback to avoid UI flickering, just log it.
+      });
+
+      if (newQueue.length === 0) {
         try {
           const finalEasy = quality === 5 ? sessionResults.easy + 1 : sessionResults.easy;
           await fetch('/api/quiz/save', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: authHeaders,
             body: JSON.stringify({
-              userId,
               classroomId,
               score: finalEasy,
               totalQuestions: total,
               quizType: 'vocabulary',
-              // TEST MODE: 30 giây. Production: bỏ dòng này (sẽ dùng interval thật từ SRS)
-              nextReviewDelaySecs: 30,
             }),
           });
         } catch (err) {
           console.error('Failed to save session accuracy', err);
         }
-      })();
-    }
+      }
+    })();
 
   };
 
@@ -205,47 +261,65 @@ function FlashcardContent() {
   }
 
   if (done || !current) {
+    const goalReached = gamification.today_xp >= gamification.daily_goal;
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
+        <Celebration trigger={true} intensity={goalReached ? 'strong' : 'light'} />
+
         <div className="text-center space-y-3">
-          <div className="text-7xl mb-6">✨</div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight">Session Complete!</h1>
-          <p className="text-slate-500 text-lg font-medium">Your progress has been synchronized.</p>
+          <div className="text-7xl mb-4 animate-bounce">🥳</div>
+          <h1 className="text-4xl font-black text-slate-900 tracking-tight">Xong rồi!</h1>
+          <p className="text-slate-500 text-lg font-medium">Tiến độ đã được lưu.</p>
         </div>
-        
+
+        {/* XP + streak row */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 bg-yellow-50 border border-yellow-200 rounded-2xl px-4 py-2">
+            <span className="text-xl">⭐</span>
+            <span className="font-black text-yellow-700">+{sessionXp} XP</span>
+          </div>
+          <div className="flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-2xl px-4 py-2">
+            <span className="text-xl">🔥</span>
+            <span className="font-black text-orange-600">{gamification.current_streak} ngày</span>
+          </div>
+          {goalReached && (
+            <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-2xl px-4 py-2">
+              <span className="text-xl">🎯</span>
+              <span className="font-black text-emerald-600">Mục tiêu đạt!</span>
+            </div>
+          )}
+        </div>
+
         <Card className="w-full max-w-sm border-none shadow-2xl bg-white/70 backdrop-blur-xl rounded-3xl overflow-hidden">
           <CardContent className="p-8 space-y-6">
             <div className="grid grid-cols-3 gap-4 text-center">
               {[
-                 { label: 'Easy', val: sessionResults.easy, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-                 { label: 'Hard', val: sessionResults.hard, color: 'text-amber-600', bg: 'bg-amber-50' },
-                 { label: 'Forgot', val: sessionResults.forgot, color: 'text-rose-600', bg: 'bg-rose-50' }
+                 { label: 'Dễ', val: sessionResults.easy, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+                 { label: 'Khó', val: sessionResults.hard, color: 'text-amber-600', bg: 'bg-amber-50' },
+                 { label: 'Quên', val: sessionResults.forgot, color: 'text-rose-600', bg: 'bg-rose-50' }
               ].map(r => (
-                <div key={r.label} className={`${r.bg} rounded-2xl p-4 transition-transform hover:scale-105 underline-offset-4`}>
+                <div key={r.label} className={`${r.bg} rounded-2xl p-4`}>
                   <div className={`text-2xl font-black ${r.color}`}>{r.val}</div>
                   <div className={`text-[10px] uppercase font-black tracking-widest ${r.color} mt-1 opacity-70`}>{r.label}</div>
                 </div>
               ))}
             </div>
             <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-               <div className="h-full bg-indigo-500 rounded-full" style={{ width: '100%' }} />
+               <div className="h-full bg-primary rounded-full" style={{ width: '100%' }} />
             </div>
           </CardContent>
         </Card>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             className="flex-1 h-14 rounded-2xl font-bold border-2 hover:bg-slate-50 transition-all"
-            onClick={() => {
-              setIsLoading(true);
-              window.location.href = '/student'; // Force a full fresh load
-            }}
+            onClick={() => { window.location.href = '/student'; }}
           >
             <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
           </Button>
-          <Button className="flex-1 h-14 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-lg shadow-indigo-100 transition-all active:scale-95" onClick={() => window.location.reload()}>
-            <RotateCcw className="mr-2 h-5 w-5" /> Again
+          <Button className="flex-1 h-14 rounded-2xl bg-primary hover:brightness-110 text-white font-bold shadow-lg border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0 transition-all" onClick={() => window.location.reload()}>
+            <RotateCcw className="mr-2 h-5 w-5" /> Ôn lại
           </Button>
         </div>
       </div>
@@ -254,17 +328,17 @@ function FlashcardContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
-      <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10">
+      <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10 gap-3">
         <Link href="/student">
-          <Button variant="ghost" size="sm" className="gap-2 text-slate-500 hover:text-indigo-600 font-bold rounded-xl transition-colors">
-            <ChevronLeft className="h-5 w-5" /> Dashboard
+          <Button variant="ghost" size="sm" className="gap-2 text-slate-500 hover:text-primary font-bold rounded-xl transition-colors">
+            <ChevronLeft className="h-5 w-5" /> <span className="hidden sm:inline">Dashboard</span>
           </Button>
         </Link>
-        <div className="flex items-center gap-2 font-black text-slate-800">
-          <Brain className="h-6 w-6 text-indigo-600" />
-          <span className="tracking-tight">FLASHSESSION</span>
+        <div className="flex items-center gap-3">
+          <StreakCounter streak={gamification.current_streak} />
+          <DailyGoalRing todayXp={gamification.today_xp} dailyGoal={gamification.daily_goal} size={36} />
         </div>
-        <div className="px-4 py-1.5 bg-indigo-600 text-white rounded-full text-xs font-black tracking-widest">
+        <div className="px-4 py-1.5 bg-primary text-white rounded-full text-xs font-black tracking-widest">
           {Math.min(progress + 1, total)} / {total}
         </div>
       </header>
@@ -277,7 +351,7 @@ function FlashcardContent() {
 
       <div className="flex-1 flex flex-col items-center justify-center p-6 gap-8">
         <div
-          className={`w-full max-w-[420px] ${current.srsLevel >= 2 && !hasSpelledCorrectly ? '' : 'cursor-pointer'}`}
+          className={`relative w-full max-w-[420px] ${current.srsLevel >= 2 && !hasSpelledCorrectly ? '' : 'cursor-pointer'}`}
           style={{ perspective: '1200px' }}
           onClick={() => {
             if (current.srsLevel < 2 || hasSpelledCorrectly) {
@@ -285,6 +359,15 @@ function FlashcardContent() {
             }
           }}
         >
+          {/* Streak badge — hiện phía trên góc phải card */}
+          {goodStreak >= 2 && (
+            <div className="absolute -top-4 right-0 z-20 animate-in zoom-in duration-300">
+              <div className="flex items-center gap-1 bg-orange-500 text-white text-xs font-black px-3 py-1 rounded-full shadow-lg shadow-orange-200 border border-orange-400">
+                🔥 {goodStreak} streak
+              </div>
+            </div>
+          )}
+
           <div
             className={`relative w-full ${isSwapping ? '' : 'transition-transform duration-[200ms] ease-out'}`}
             style={{
@@ -307,6 +390,8 @@ function FlashcardContent() {
                     <img
                       src={current.image_url}
                       alt={current.word}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-all duration-700 opacity-0 group-hover/img:scale-110"
                       onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                       onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
@@ -415,6 +500,11 @@ function FlashcardContent() {
                        </div>
                        <p className="text-xs font-black text-slate-400 mt-2 uppercase tracking-tighter">Lật thẻ xem từ tiếng Anh</p>
                     </div>
+                    {showFlipHint && (
+                      <div className="flex flex-col items-center mt-2 animate-in fade-in duration-500">
+                        <ChevronDown className="animate-bounce text-slate-500 h-5 w-5" />
+                      </div>
+                    )}
                   </>
                 )}
               </CardContent>
@@ -462,38 +552,73 @@ function FlashcardContent() {
                     </p>
                   </div>
                 )}
+
+                {/* Task 2: Synonyms & Antonyms */}
+                {((current.synonyms && current.synonyms.length > 0) || (current.antonyms && current.antonyms.length > 0)) && (
+                  <div className="flex flex-col gap-1 text-xs w-full max-w-sm">
+                    {current.synonyms && current.synonyms.length > 0 && (
+                      <p className="text-emerald-400">
+                        <span className="font-black">Đồng nghĩa:</span>{' '}
+                        {current.synonyms.join(', ')}
+                      </p>
+                    )}
+                    {current.antonyms && current.antonyms.length > 0 && (
+                      <p className="text-red-400">
+                        <span className="font-black">Trái nghĩa:</span>{' '}
+                        {current.antonyms.join(', ')}
+                      </p>
+                    )}
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
         </div>
 
+        {/* XP popup */}
+        {xpPopup.show && (
+          <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 animate-in fade-in zoom-in duration-200 pointer-events-none">
+            <div className="bg-yellow-400 text-yellow-900 font-black text-lg rounded-2xl px-5 py-2 shadow-xl border border-yellow-300">
+              +{xpPopup.amount} XP ⭐
+            </div>
+          </div>
+        )}
+
         {/* Rating buttons */}
         <div className="w-full max-w-[420px] min-h-[80px]">
           {flipped ? (
-            <div className="flex gap-4 animate-in fade-in slide-in-from-bottom-8 duration-500 cubic-bezier(0.16, 1, 0.3, 1)">
+            <div className="flex gap-2 animate-in fade-in slide-in-from-bottom-8 duration-500">
               <button
-                className="flex-1 h-20 rounded-[28px] bg-white border border-rose-100 border-b-4 border-b-rose-200 text-rose-600 font-black text-xs uppercase tracking-tighter hover:bg-rose-50 hover:border-rose-300 transition-all active:translate-y-1 active:border-b-0 shadow-sm"
+                className="flex-1 h-20 rounded-[28px] bg-red-50 border border-red-200 border-b-4 border-b-red-300 text-red-700 font-black text-[11px] uppercase tracking-tight hover:bg-red-100 transition-all active:translate-y-1 active:border-b-0 shadow-sm flex flex-col items-center justify-center gap-0.5"
                 onClick={() => handleRate(0)}
               >
-                Forgot
+                <span className="text-base">😵</span>
+                <span>Again</span>
+                <span className="text-[9px] font-bold text-red-400 normal-case tracking-normal">Quên</span>
               </button>
               <button
-                className="flex-1 h-20 rounded-[28px] bg-white border border-amber-100 border-b-4 border-b-amber-200 text-amber-600 font-black text-xs uppercase tracking-tighter hover:bg-amber-50 hover:border-amber-300 transition-all active:translate-y-1 active:border-b-0 shadow-sm"
+                className="flex-1 h-20 rounded-[28px] bg-orange-50 border border-orange-200 border-b-4 border-b-orange-300 text-orange-700 font-black text-[11px] uppercase tracking-tight hover:bg-orange-100 transition-all active:translate-y-1 active:border-b-0 shadow-sm flex flex-col items-center justify-center gap-0.5"
                 onClick={() => handleRate(3)}
               >
-                Hard
+                <span className="text-base">😅</span>
+                <span>Hard</span>
+                <span className="text-[9px] font-bold text-orange-400 normal-case tracking-normal">Khó</span>
               </button>
               <button
-                className="flex-1 h-20 rounded-[28px] bg-white border border-blue-100 border-b-4 border-b-blue-200 text-blue-600 font-black text-xs uppercase tracking-tighter hover:bg-blue-50 hover:border-blue-300 transition-all active:translate-y-1 active:border-b-0 shadow-sm"
+                className="flex-1 h-20 rounded-[28px] bg-green-50 border border-green-200 border-b-4 border-b-green-300 text-green-700 font-black text-[11px] uppercase tracking-tight hover:bg-green-100 transition-all active:translate-y-1 active:border-b-0 shadow-sm flex flex-col items-center justify-center gap-0.5"
                 onClick={() => handleRate(4)}
               >
-                Good
+                <span className="text-base">😊</span>
+                <span>Good</span>
+                <span className="text-[9px] font-bold text-green-500 normal-case tracking-normal">Nhớ được</span>
               </button>
               <button
-                className="flex-1 h-20 rounded-[28px] bg-indigo-600 border-b-4 border-indigo-800 text-white font-black text-xs uppercase tracking-tighter shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:border-indigo-800 transition-all active:translate-y-1 active:border-b-0"
+                className="flex-1 h-20 rounded-[28px] bg-purple-600 border-b-4 border-purple-800 text-white font-black text-[11px] uppercase tracking-tight shadow-lg shadow-purple-200 hover:bg-purple-700 transition-all active:translate-y-1 active:border-b-0 flex flex-col items-center justify-center gap-0.5"
                 onClick={() => handleRate(5)}
               >
-                Mastered
+                <span className="text-base">🚀</span>
+                <span>Easy</span>
+                <span className="text-[9px] font-bold text-purple-200 normal-case tracking-normal">Dễ</span>
               </button>
             </div>
           ) : (
@@ -504,6 +629,7 @@ function FlashcardContent() {
               Flip Card
             </button>
           )}
+          <p className="text-[10px] text-slate-600 text-center mt-2">Space: lật • 1-4: đánh giá</p>
         </div>
       </div>
     </div>

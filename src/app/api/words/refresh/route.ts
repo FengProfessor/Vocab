@@ -8,16 +8,26 @@ const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 // POST /api/words/refresh
 // Body: { classroomId: string, userId: string }
 // Re-runs AI enrichment for all words still showing "Analyzing" or "failed"
-export async function POST(req: Request) {
+type PendingWordRow = { id: string; word: string; translation: string | null };
+type AIEnrichedWord = {
+  original?: string;
+  english?: string;
+  vietnamese?: string;
+  ipa?: string;
+  pos?: string;
+  example?: string;
+};
+
+export async function POST(req: Request): Promise<NextResponse> {
   try {
     const { classroomId } = await req.json();
     if (!classroomId) {
-      return NextResponse.json({ error: 'classroomId is required' }, { status: 400 });
+      return NextResponse.json({ success: false, error: 'classroomId is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
     console.log(`Refreshing classroom: ${classroomId}`);
-    
+
     // Find words that still need analysis
     const { data: pendingWords, error } = await supabase
       .from('words')
@@ -25,9 +35,9 @@ export async function POST(req: Request) {
       .eq('classroom_id', classroomId);
 
     if (error) throw error;
-    
+
     // Filter in-memory using any string that looks like it needs analysis
-    const filtered = (pendingWords || []).filter((w: any) => {
+    const filtered = ((pendingWords || []) as PendingWordRow[]).filter((w) => {
       const t = w.translation || '';
       return t === '' || t.includes('Analyzing') || t.includes('failed') || t.includes('⏳');
     });
@@ -39,7 +49,7 @@ export async function POST(req: Request) {
 
     // Process in chunks of 20 to speed up and avoid Gemini rate limits (Batch Processing)
     const CHUNK_SIZE = 20;
-    const pendingChunks = [];
+    const pendingChunks: PendingWordRow[][] = [];
     for (let i = 0; i < filtered.length; i += CHUNK_SIZE) {
       pendingChunks.push(filtered.slice(i, i + CHUNK_SIZE));
     }
@@ -47,7 +57,7 @@ export async function POST(req: Request) {
     let refreshed = 0;
     for (const chunk of pendingChunks) {
       try {
-        const wordsList = chunk.map((w: any) => `"${w.word}"`).join(', ');
+        const wordsList = chunk.map((w) => `"${w.word}"`).join(', ');
         const prompt = `You are a bilingual dictionary. Analyze these words/phrases: [${wordsList}].
 Each word may be in English OR Vietnamese. Detect the language of each.
 Return ONLY a valid JSON array of objects. Each object MUST have these exact keys:
@@ -67,14 +77,14 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
           throw new Error('AI did not return a valid JSON array.');
         }
         
-        const parsedArray: any[] = JSON.parse(jsonMatch[0]);
+        const parsedArray = JSON.parse(jsonMatch[0]) as AIEnrichedWord[];
 
         // Validate and update each word in the database
         for (const item of parsedArray) {
           if (!item.original && !item.english) continue;
-          
+
           // Case-insensitive matching to find the record in our current chunk
-          const originalRecord = chunk.find((w: any) => 
+          const originalRecord = chunk.find((w) =>
             w.word.toLowerCase().trim() === (item.original || item.english || '').toLowerCase().trim()
           );
 
@@ -102,8 +112,9 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
         // Minor delay to be safe with rate limits
         await new Promise(r => setTimeout(r, 600));
 
-      } catch (chunkErr: any) {
-        console.error(`Batch refresh failed:`, chunkErr.message);
+      } catch (chunkErr: unknown) {
+        const chunkMsg = chunkErr instanceof Error ? chunkErr.message : 'Unknown error';
+        console.error(`Batch refresh failed:`, chunkMsg);
       }
     }
 
@@ -114,8 +125,9 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
       message: `Refreshed ${refreshed}/${filtered.length} words`,
     });
 
-  } catch (error: any) {
-    console.error('POST /api/words/refresh Error:', error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
+    console.error('POST /api/words/refresh Error:', msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }
