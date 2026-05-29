@@ -47,3 +47,15 @@ scripts/scrapers/.checkpoints/
 scripts/scrapers/decks/
 *.checkpoint.json
 *.apkg
+
+# scraper run logs & debug output (artifact, không commit)
+*.log
+scraper-*.txt
+
+# local one-off debug scripts (không phải app, không commit)
+/scratch/
+/check-db.ts
+/check_grammar_tables.js
+/extract-pdf-content.ts
+/extract-pdf-text.ts
+/verify_env.js
