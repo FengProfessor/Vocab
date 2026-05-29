@@ -1,19 +1,152 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import type { GrammarExercise } from '@/lib/supabase';
 import {
-  Brain, ChevronLeft, CheckCircle2, XCircle, Lightbulb, Loader2, Trophy
+  Brain, ChevronLeft, CheckCircle2, XCircle, Lightbulb, Loader2, RotateCcw, Home, Sparkles
 } from 'lucide-react';
 import { toast } from 'sonner';
+
+// Animate progress bar width: dùng inline style transition, không cần thư viện
+function ProgressBar({ current, total }: { current: number; total: number }) {
+  const pct = total > 0 ? Math.round((current / total) * 100) : 0;
+  return (
+    <div className="px-4 sm:px-8 pt-2 pb-1">
+      <div className="flex items-center justify-between mb-1.5">
+        <span className="text-xs font-semibold text-muted-foreground">
+          Câu {current} / {total}
+        </span>
+        <span className="text-xs font-bold text-primary">{pct}%</span>
+      </div>
+      <div className="h-2.5 bg-muted rounded-full overflow-hidden">
+        <div
+          className="h-full bg-primary rounded-full transition-all duration-500 ease-out"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
+// Flash overlay — hiện brief khi đúng/sai
+function FeedbackFlash({ type }: { type: 'correct' | 'wrong' | null }) {
+  if (!type) return null;
+  return (
+    <div
+      className={[
+        'fixed inset-0 pointer-events-none z-50 transition-opacity duration-300',
+        type === 'correct' ? 'bg-emerald-400/20' : 'bg-red-400/20',
+      ].join(' ')}
+    />
+  );
+}
+
+// Score card hiển thị khi done
+function ScoreCard({
+  correct,
+  total,
+  onRetry,
+  backHref,
+}: {
+  correct: number;
+  total: number;
+  onRetry: () => void;
+  backHref: string;
+}) {
+  const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+  const emoji = accuracy >= 80 ? '🏆' : accuracy >= 60 ? '🎯' : '💪';
+  const label = accuracy >= 80 ? 'Xuất sắc!' : accuracy >= 60 ? 'Khá tốt!' : 'Cố lên!';
+
+  // Vẽ vòng tròn accuracy bằng SVG stroke-dashoffset
+  const r = 40;
+  const circumference = 2 * Math.PI * r;
+  const offset = circumference - (accuracy / 100) * circumference;
+
+  return (
+    <main className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-primary/5 to-muted/40 p-6">
+      {/* Hero */}
+      <div className="text-center">
+        <div className="text-6xl mb-3">{emoji}</div>
+        <h1 className="text-3xl font-bold mb-1">Grammar Drill Complete!</h1>
+        <p className="text-muted-foreground text-sm">{label}</p>
+      </div>
+
+      {/* Accuracy ring + stats */}
+      <div className="bg-background border rounded-2xl p-6 w-full max-w-sm shadow-xl flex flex-col items-center gap-5">
+        {/* SVG ring */}
+        <div className="relative flex items-center justify-center">
+          <svg width="100" height="100" className="-rotate-90">
+            <circle cx="50" cy="50" r={r} stroke="currentColor" strokeWidth="8" fill="none"
+              className="text-muted" />
+            <circle
+              cx="50" cy="50" r={r}
+              stroke="currentColor" strokeWidth="8" fill="none"
+              strokeDasharray={circumference}
+              strokeDashoffset={offset}
+              strokeLinecap="round"
+              className={accuracy >= 60 ? 'text-emerald-500' : 'text-red-500'}
+              style={{ transition: 'stroke-dashoffset 0.8s ease-out' }}
+            />
+          </svg>
+          <span className="absolute text-2xl font-bold">{accuracy}%</span>
+        </div>
+
+        {/* Correct / Wrong */}
+        <div className="grid grid-cols-2 gap-4 w-full text-center">
+          <div className="bg-emerald-50 rounded-xl p-4">
+            <div className="text-3xl font-bold text-emerald-600">{correct}</div>
+            <div className="text-xs text-emerald-700 font-semibold mt-1 flex items-center justify-center gap-1">
+              <CheckCircle2 className="h-3.5 w-3.5" /> Đúng
+            </div>
+          </div>
+          <div className="bg-red-50 rounded-xl p-4">
+            <div className="text-3xl font-bold text-red-600">{total - correct}</div>
+            <div className="text-xs text-red-700 font-semibold mt-1 flex items-center justify-center gap-1">
+              <XCircle className="h-3.5 w-3.5" /> Sai
+            </div>
+          </div>
+        </div>
+
+        {/* Accuracy bar */}
+        <div className="w-full">
+          <div className="h-2 bg-muted rounded-full overflow-hidden">
+            <div
+              className="h-full rounded-full transition-all duration-700 ease-out"
+              style={{
+                width: `${accuracy}%`,
+                backgroundColor: accuracy >= 60 ? 'var(--color-emerald-500, #10b981)' : 'var(--color-red-500, #ef4444)',
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Actions */}
+      <div className="flex gap-3 w-full max-w-sm">
+        <Link href={backHref} className="flex-1">
+          <button className="w-full border rounded-xl px-4 py-3 font-semibold hover:bg-muted transition-colors flex items-center justify-center gap-2 text-sm">
+            <Home className="h-4 w-4" /> Về trang học
+          </button>
+        </Link>
+        <button
+          onClick={onRetry}
+          className="flex-1 bg-primary text-white rounded-xl px-4 py-3 font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 text-sm"
+        >
+          <RotateCcw className="h-4 w-4" /> Làm lại
+        </button>
+      </div>
+    </main>
+  );
+}
 
 function GrammarContent() {
   const searchParams = useSearchParams();
   const classroomId = searchParams.get('class');
   const lessonId = searchParams.get('lesson');
+
   const [exercises, setExercises] = useState<GrammarExercise[]>([]);
   const [current, setCurrent] = useState<GrammarExercise | null>(null);
   const [qIndex, setQIndex] = useState(0);
@@ -24,6 +157,14 @@ function GrammarContent() {
   const [done, setDone] = useState(false);
   const [startTime, setStartTime] = useState(Date.now());
   const [userId, setUserId] = useState<string | null>(null);
+  // flash: null | 'correct' | 'wrong' — tự tắt sau 400ms
+  const [flash, setFlash] = useState<'correct' | 'wrong' | null>(null);
+  const flashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Nguồn exercises thô (chưa shuffle) để có thể reset
+  const rawExercises = useRef<GrammarExercise[]>([]);
+  // State cho AI quiz generation (student self-practice)
+  const [generatingQuiz, setGeneratingQuiz] = useState(false);
 
   useEffect(() => {
     const init = async () => {
@@ -38,28 +179,81 @@ function GrammarContent() {
       const res = await fetch(`/api/grammar?${params.toString()}`);
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
-        // Shuffle and take up to 10
-        const shuffled = [...data.data].sort(() => Math.random() - 0.5).slice(0, 10);
-        setExercises(shuffled);
-        setCurrent(shuffled[0]);
+        rawExercises.current = data.data;
+        startSession(data.data);
       } else {
-        toast.error('No grammar exercises available for this class yet.');
+        toast.error('Chưa có bài tập grammar cho lớp này.');
       }
       setIsLoading(false);
-      setStartTime(Date.now());
     };
     init();
   }, [classroomId, lessonId]);
+
+  const startSession = (source: GrammarExercise[]) => {
+    const shuffled = [...source].sort(() => Math.random() - 0.5).slice(0, 10);
+    setExercises(shuffled);
+    setCurrent(shuffled[0]);
+    setQIndex(0);
+    setSelected(null);
+    setShowExplanation(false);
+    setScore({ correct: 0, wrong: 0 });
+    setDone(false);
+    setStartTime(Date.now());
+    setFlash(null);
+  };
+
+  const handleRetry = () => {
+    startSession(rawExercises.current);
+  };
+
+  /**
+   * Gọi AI tạo 5 câu hỏi quiz từ bài học (student self-practice, không cần classroom).
+   * Route /api/grammar/quiz trả về QuizQuestion[] không lưu DB.
+   */
+  const generateAIQuiz = async () => {
+    if (!lessonId) return;
+    setGeneratingQuiz(true);
+    try {
+      const res = await fetch('/api/grammar/quiz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lessonId }),
+      });
+      const data = await res.json() as { success: boolean; data?: GrammarExercise[]; error?: string };
+      if (data.success && data.data && data.data.length > 0) {
+        rawExercises.current = data.data;
+        startSession(data.data);
+        toast.success('Đã tạo bài tập! Bắt đầu thôi!');
+      } else {
+        toast.error(data.error ?? 'Không thể tạo bài tập. Thử lại sau.');
+      }
+    } catch {
+      toast.error('Lỗi kết nối. Thử lại sau.');
+    } finally {
+      setGeneratingQuiz(false);
+    }
+  };
+
+  const triggerFlash = (type: 'correct' | 'wrong') => {
+    if (flashTimer.current) clearTimeout(flashTimer.current);
+    setFlash(type);
+    flashTimer.current = setTimeout(() => setFlash(null), 400);
+  };
 
   const handleAnswer = async (choice: string) => {
     if (selected) return;
     setSelected(choice);
     setShowExplanation(true);
     const isCorrect = choice === current?.correct_answer;
-    setScore(prev => ({ ...prev, correct: prev.correct + (isCorrect ? 1 : 0), wrong: prev.wrong + (isCorrect ? 0 : 1) }));
+    setScore(prev => ({
+      correct: prev.correct + (isCorrect ? 1 : 0),
+      wrong: prev.wrong + (isCorrect ? 0 : 1),
+    }));
+    triggerFlash(isCorrect ? 'correct' : 'wrong');
 
-    // Save result to Supabase
-    if (userId && current) {
+    // Lưu kết quả vào Supabase — chỉ khi exercise có UUID thật (không phải AI-generated "ai-0", "ai-1")
+    const isRealUuid = current && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(current.id);
+    if (userId && current && isRealUuid) {
       await supabase.from('grammar_results').insert({
         user_id: userId,
         exercise_id: current.id,
@@ -69,26 +263,30 @@ function GrammarContent() {
     }
   };
 
-  const submitGrammarProgress = async () => {
+  const submitGrammarProgress = async (finalCorrect: number, total: number) => {
     if (!lessonId || !userId) return;
-    const total = score.correct + score.wrong;
-    const accuracy = total > 0 ? score.correct / total : 0;
+    const accuracy = total > 0 ? finalCorrect / total : 0;
     try {
+      const { data: { session } } = await supabase.auth.getSession();
       await fetch('/api/grammar/progress', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, lessonId, accuracy }),
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
+        },
+        body: JSON.stringify({ lessonId, accuracy }),
       });
     } catch {
-      /* ghi nhận tiến độ thất bại — bỏ qua, không chặn UI */
+      /* bỏ qua lỗi — không chặn UI */
     }
   };
 
   const handleNext = () => {
     const nextIdx = qIndex + 1;
     if (nextIdx >= exercises.length) {
+      // Tính score cuối từ state hiện tại (đã updated trong handleAnswer)
       setDone(true);
-      submitGrammarProgress();
+      submitGrammarProgress(score.correct, score.correct + score.wrong);
     } else {
       setQIndex(nextIdx);
       setCurrent(exercises[nextIdx]);
@@ -98,70 +296,84 @@ function GrammarContent() {
     }
   };
 
+  /* ── Loading ──────────────────────────────────────────────── */
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/40">
+      <main className="min-h-screen flex items-center justify-center bg-muted/40">
         <div className="flex flex-col items-center gap-3">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-muted-foreground animate-pulse">Loading grammar exercises...</p>
+          <p className="text-muted-foreground animate-pulse">Đang tải bài tập...</p>
         </div>
-      </div>
+      </main>
     );
   }
 
-  if (!classroomId || exercises.length === 0) {
+  /* ── Empty state ──────────────────────────────────────────── */
+  if ((!classroomId && !lessonId) || exercises.length === 0) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-muted/40">
+      <main className="min-h-screen flex flex-col items-center justify-center gap-4 bg-muted/40 p-6">
         <Brain className="h-16 w-16 text-muted-foreground/20" />
-        <h2 className="text-xl font-bold">No exercises yet</h2>
-        <p className="text-muted-foreground text-sm">Your teacher hasn&apos;t assigned grammar exercises for this class yet.</p>
-        <Link href="/student"><button className="bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors">Back to Dashboard</button></Link>
-      </div>
+        <h2 className="text-xl font-bold">Chưa có bài tập</h2>
+        {lessonId ? (
+          <>
+            <p className="text-muted-foreground text-sm text-center max-w-xs">
+              Bài học này chưa có câu hỏi. Dùng AI để tạo 5 câu hỏi từ nội dung bài ngay bây giờ!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
+              <button
+                onClick={generateAIQuiz}
+                disabled={generatingQuiz}
+                className="flex-1 bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {generatingQuiz ? (
+                  <><Loader2 className="h-4 w-4 animate-spin" /> Đang tạo bài tập...</>
+                ) : (
+                  <><Sparkles className="h-4 w-4" /> AI Tạo bài tập</>
+                )}
+              </button>
+              <Link href="/grammar/learn">
+                <button className="w-full border px-6 py-3 rounded-xl font-semibold hover:bg-muted transition-colors text-sm">
+                  ← Quay lại
+                </button>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
+            <p className="text-muted-foreground text-sm text-center max-w-xs">
+              Giáo viên chưa tạo bài tập grammar cho lớp này.
+            </p>
+            <Link href="/student">
+              <button className="bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors">
+                Về Dashboard
+              </button>
+            </Link>
+          </>
+        )}
+      </main>
     );
   }
 
-  const accuracy = score.correct + score.wrong > 0
-    ? Math.round(score.correct / (score.correct + score.wrong) * 100)
-    : 0;
-
+  /* ── Done / Score card ────────────────────────────────────── */
   if (done) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-primary/5 to-muted/40 p-8">
-        <div className="text-center">
-          <div className="text-6xl mb-4">{accuracy >= 80 ? '🏆' : accuracy >= 60 ? '🎯' : '💪'}</div>
-          <h1 className="text-3xl font-bold mb-2">Grammar Drill Complete!</h1>
-          <p className="text-muted-foreground">Accuracy: <span className="text-primary font-bold text-xl">{accuracy}%</span></p>
-        </div>
-        <div className="bg-background border rounded-2xl p-6 w-full max-w-sm shadow-xl">
-          <div className="grid grid-cols-2 gap-4 text-center">
-            <div className="bg-emerald-50 rounded-xl p-4">
-              <div className="text-3xl font-bold text-emerald-600">{score.correct}</div>
-              <div className="text-sm text-emerald-700 font-medium mt-1">✅ Correct</div>
-            </div>
-            <div className="bg-red-50 rounded-xl p-4">
-              <div className="text-3xl font-bold text-red-600">{score.wrong}</div>
-              <div className="text-sm text-red-700 font-medium mt-1">❌ Wrong</div>
-            </div>
-          </div>
-        </div>
-        <div className="flex gap-3">
-          <Link href={`/student`}>
-            <button className="border rounded-xl px-6 py-3 font-semibold hover:bg-muted transition-colors flex items-center gap-2">
-              <ChevronLeft className="h-4 w-4" /> Dashboard
-            </button>
-          </Link>
-          <button onClick={() => window.location.reload()} className="bg-primary text-white rounded-xl px-6 py-3 font-semibold hover:bg-primary/90 transition-colors">
-            Practice Again
-          </button>
-        </div>
-      </div>
+      <ScoreCard
+        correct={score.correct}
+        total={score.correct + score.wrong}
+        onRetry={handleRetry}
+        backHref={lessonId ? '/grammar/learn' : '/student'}
+      />
     );
   }
 
   if (!current) return null;
 
+  /* ── Quiz ─────────────────────────────────────────────────── */
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-primary/5 to-muted/40">
+    <main className="min-h-screen flex flex-col bg-gradient-to-br from-primary/5 to-muted/40">
+      {/* Flash overlay */}
+      <FeedbackFlash type={flash} />
+
       {/* Header */}
       <header className="flex items-center justify-between p-4 sm:p-6">
         <Link href="/student">
@@ -169,35 +381,56 @@ function GrammarContent() {
             <ChevronLeft className="h-4 w-4" /> Back
           </button>
         </Link>
-        <div className="flex items-center gap-2 font-bold text-primary">
+        <h1 className="flex items-center gap-2 font-bold text-primary text-base">
           <Brain className="h-5 w-5" /> Grammar Drill
-        </div>
-        <span className="text-sm font-mono font-bold text-muted-foreground bg-muted px-3 py-1 rounded-xl">
-          {qIndex + 1} / {exercises.length}
-        </span>
-      </header>
-
-      {/* Progress */}
-      <div className="px-4 sm:px-8">
-        <div className="h-2 bg-muted rounded-full overflow-hidden">
-          <div className="h-full bg-primary rounded-full transition-all duration-500" style={{ width: `${(qIndex / exercises.length) * 100}%` }} />
-        </div>
-      </div>
-
-      <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 gap-6">
+        </h1>
         {/* Score badges */}
-        <div className="flex gap-3">
-          <span className="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1">
+        <div className="flex gap-2">
+          <span className="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-xl flex items-center gap-1">
             <CheckCircle2 className="h-3.5 w-3.5" /> {score.correct}
           </span>
-          <span className="bg-red-50 text-red-700 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1">
+          <span className="bg-red-50 text-red-700 text-xs font-bold px-2.5 py-1 rounded-xl flex items-center gap-1">
             <XCircle className="h-3.5 w-3.5" /> {score.wrong}
           </span>
         </div>
+      </header>
 
+      {/* Progress bar — tính dựa trên câu đã làm xong (sau khi selected) */}
+      <ProgressBar
+        current={selected ? qIndex + 1 : qIndex}
+        total={exercises.length}
+      />
+
+      <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 gap-5">
         {/* Question card */}
-        <div className="w-full max-w-lg bg-background border rounded-2xl p-6 shadow-2xl shadow-primary/10">
-          <p className="text-xs font-bold text-primary uppercase tracking-widest mb-3">{current.topic} · {current.level}</p>
+        <div
+          className={[
+            'w-full max-w-lg bg-background border rounded-2xl p-6 shadow-2xl shadow-primary/10 transition-all duration-300',
+            selected
+              ? selected === current.correct_answer
+                ? 'border-emerald-400 shadow-emerald-100'
+                : 'border-red-300 shadow-red-100'
+              : '',
+          ].join(' ')}
+        >
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-xs font-bold text-primary uppercase tracking-widest">
+              {current.topic} · {current.level}
+            </p>
+            {/* Feedback icon ngay trên card */}
+            {selected && (
+              <span className={[
+                'flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-lg',
+                selected === current.correct_answer
+                  ? 'bg-emerald-100 text-emerald-700'
+                  : 'bg-red-100 text-red-700',
+              ].join(' ')}>
+                {selected === current.correct_answer
+                  ? <><CheckCircle2 className="h-3.5 w-3.5" /> Đúng!</>
+                  : <><XCircle className="h-3.5 w-3.5" /> Sai</>}
+              </span>
+            )}
+          </div>
           <p className="text-lg font-bold text-foreground leading-relaxed">{current.question}</p>
         </div>
 
@@ -208,11 +441,15 @@ function GrammarContent() {
             const isSelected = selected === opt;
             let cn = 'w-full text-left h-auto py-4 px-5 rounded-xl border text-sm font-medium transition-all duration-200 ';
             if (selected) {
-              if (isCorrect) cn += 'bg-emerald-50 border-emerald-400 text-emerald-800 shadow-md ';
-              else if (isSelected) cn += 'bg-red-50 border-red-400 text-red-800 ';
-              else cn += 'opacity-40 border-muted ';
+              if (isCorrect) {
+                cn += 'bg-emerald-50 border-emerald-400 text-emerald-800 shadow-sm ';
+              } else if (isSelected) {
+                cn += 'bg-red-50 border-red-400 text-red-800 ';
+              } else {
+                cn += 'opacity-40 border-muted bg-background ';
+              }
             } else {
-              cn += 'bg-background hover:bg-primary/5 hover:border-primary/40 border-muted hover:shadow-sm ';
+              cn += 'bg-background hover:bg-primary/5 hover:border-primary/40 border-muted hover:shadow-sm cursor-pointer ';
             }
 
             return (
@@ -223,45 +460,56 @@ function GrammarContent() {
                 disabled={!!selected}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-bold text-muted-foreground w-5 shrink-0">{['A', 'B', 'C', 'D'][i]}</span>
-                  <span>{opt}</span>
-                  {selected && isCorrect && <CheckCircle2 className="h-4 w-4 text-emerald-600 ml-auto shrink-0" />}
-                  {selected && isSelected && !isCorrect && <XCircle className="h-4 w-4 text-red-600 ml-auto shrink-0" />}
+                  <span className="text-xs font-bold text-muted-foreground w-5 shrink-0">
+                    {String.fromCharCode(65 + i)}
+                  </span>
+                  <span className="flex-1">{opt}</span>
+                  {selected && isCorrect && (
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  )}
+                  {selected && isSelected && !isCorrect && (
+                    <XCircle className="h-4 w-4 text-red-600 shrink-0" />
+                  )}
                 </div>
               </button>
             );
           })}
         </div>
 
-        {/* Explanation */}
+        {/* Explanation — chỉ hiện khi sai hoặc luôn hiện nếu có */}
         {showExplanation && current.explanation && (
           <div className="w-full max-w-lg bg-amber-50 border border-amber-200 rounded-2xl p-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
             <div className="flex items-start gap-3">
               <Lightbulb className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-bold text-amber-800 mb-1">Explanation</p>
+                <p className="text-xs font-bold text-amber-800 mb-1">Giải thích</p>
                 <p className="text-sm text-amber-900 leading-relaxed">{current.explanation}</p>
               </div>
             </div>
           </div>
         )}
 
+        {/* Next button — chỉ hiện sau khi đã chọn */}
         {selected && (
           <button
             onClick={handleNext}
-            className="w-full max-w-lg bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 transition-colors animate-in fade-in duration-300"
+            className="w-full max-w-lg bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 active:translate-y-0.5 transition-all animate-in fade-in duration-300"
           >
-            {qIndex + 1 >= exercises.length ? 'See Results' : 'Next Question →'}
+            {qIndex + 1 >= exercises.length ? 'Xem kết quả →' : 'Tiếp theo →'}
           </button>
         )}
       </div>
-    </div>
+    </main>
   );
 }
 
 export default function GrammarPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>}>
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    }>
       <GrammarContent />
     </Suspense>
   );

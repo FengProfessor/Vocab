@@ -10,14 +10,112 @@ function accuracyToRating(acc: number): FSRSRating {
   return 1; // Again
 }
 
-/** GET /api/grammar/progress?userId=xxx — tiến độ học grammar của user. */
-export async function GET(req: Request) {
+/** Kiểu trả về cho view=topics */
+export interface TopicProgressSummary {
+  topicId: string;
+  title: string;
+  titleVi: string | null;
+  level: string;
+  totalLessons: number;
+  masteredLessons: number;
+  avgMasteryScore: number;
+  nextDueDate: string | null;
+}
+
+/** GET /api/grammar/progress — tiến độ học grammar của user hiện tại (auth required).
+ *  ?view=topics → trả TopicProgressSummary[] thay vì GrammarProgress[]
+ */
+export async function GET(req: Request): Promise<NextResponse> {
   try {
-    const { searchParams } = new URL(req.url);
-    const userId = searchParams.get('userId');
-    if (!userId) return NextResponse.json({ error: 'userId is required' }, { status: 400 });
+    const authHeader = req.headers.get('authorization');
+    const token = authHeader?.replace('Bearer ', '');
+    if (!token) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
 
     const supabase = createServiceClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    const userId = user.id;
+
+    const url = new URL(req.url);
+    const view = url.searchParams.get('view');
+
+    // ── view=topics: trả summary theo từng topic ──
+    if (view === 'topics') {
+      // Lấy tất cả lessons kèm topic info
+      const { data: lessons, error: lessonErr } = await supabase
+        .from('grammar_lessons')
+        .select('id, topic_id, topic:grammar_topics(id, title, title_vi, level)');
+      if (lessonErr) throw lessonErr;
+
+      // Lấy progress của user
+      const { data: progressRows, error: progErr } = await supabase
+        .from('grammar_progress')
+        .select('lesson_id, state, mastery_score, next_review_date')
+        .eq('user_id', userId);
+      if (progErr) throw progErr;
+
+      const progressByLesson = new Map<string, { state: string; mastery_score: number; next_review_date: string }>();
+      for (const p of progressRows ?? []) {
+        progressByLesson.set(p.lesson_id, p);
+      }
+
+      // Group lessons theo topic
+      const topicMap = new Map<string, {
+        title: string;
+        titleVi: string | null;
+        level: string;
+        lessonIds: string[];
+      }>();
+
+      for (const lesson of lessons ?? []) {
+        const t = lesson.topic as unknown as { id: string; title: string; title_vi: string | null; level: string } | null;
+        if (!t) continue;
+        if (!topicMap.has(t.id)) {
+          topicMap.set(t.id, { title: t.title, titleVi: t.title_vi, level: t.level, lessonIds: [] });
+        }
+        topicMap.get(t.id)!.lessonIds.push(lesson.id);
+      }
+
+      const now = Date.now();
+      const summaries: TopicProgressSummary[] = [];
+
+      for (const [topicId, info] of topicMap) {
+        const total = info.lessonIds.length;
+        let mastered = 0;
+        let scoreSum = 0;
+        let scored = 0;
+        let nextDue: string | null = null;
+
+        for (const lid of info.lessonIds) {
+          const p = progressByLesson.get(lid);
+          if (!p) continue;
+          if (p.state === 'mastered' || p.mastery_score >= 80) mastered++;
+          scoreSum += p.mastery_score;
+          scored++;
+          // Tìm bài due gần nhất
+          if (new Date(p.next_review_date).getTime() <= now) {
+            if (!nextDue || new Date(p.next_review_date) < new Date(nextDue)) {
+              nextDue = p.next_review_date;
+            }
+          }
+        }
+
+        summaries.push({
+          topicId,
+          title: info.title,
+          titleVi: info.titleVi,
+          level: info.level,
+          totalLessons: total,
+          masteredLessons: mastered,
+          avgMasteryScore: scored > 0 ? Math.round(scoreSum / scored) : 0,
+          nextDueDate: nextDue,
+        });
+      }
+
+      return NextResponse.json({ success: true, data: summaries });
+    }
+
+    // ── default: trả flat GrammarProgress[] (backward compat) ──
     const { data, error } = await supabase
       .from('grammar_progress')
       .select('*, lesson:grammar_lessons(id, title, topic_id)')
@@ -25,29 +123,43 @@ export async function GET(req: Request) {
     if (error) throw error;
 
     const now = Date.now();
-    const dueCount = (data || []).filter(
-      (p: any) => new Date(p.next_review_date).getTime() <= now
+    const dueCount = ((data || []) as { next_review_date: string }[]).filter(
+      (p) => new Date(p.next_review_date).getTime() <= now
     ).length;
     return NextResponse.json({ success: true, data: data || [], dueCount });
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500 });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }
 
 /**
- * POST /api/grammar/progress  Body: { userId, lessonId, accuracy }
+ * POST /api/grammar/progress  Body: { lessonId, accuracy }
  * Cập nhật SRS sau khi học xong 1 bài (accuracy = độ chính xác bài tập 0-1).
  */
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse> {
   try {
-    const { userId, lessonId, accuracy } = await req.json();
+    const authHeader = req.headers.get('authorization');
+    const token = authHeader?.replace('Bearer ', '');
+    const supabase = createServiceClient();
+
+    // Ưu tiên JWT; fallback về body.userId cho backward compat (sẽ xóa sau)
+    let userId: string | undefined;
+    if (token) {
+      const { data: { user } } = await supabase.auth.getUser(token);
+      userId = user?.id;
+    }
+
+    const body = await req.json();
+    const { lessonId, accuracy } = body;
+    if (!userId) userId = body.userId; // fallback — sẽ remove sau khi FE cập nhật
+
     if (!userId || !lessonId || typeof accuracy !== 'number') {
       return NextResponse.json(
-        { error: 'userId, lessonId, accuracy (number) are required' },
+        { success: false, error: 'lessonId, accuracy (number) are required + auth token' },
         { status: 400 }
       );
     }
-    const supabase = createServiceClient();
 
     const { data: existing } = await supabase
       .from('grammar_progress')
@@ -92,7 +204,8 @@ export async function POST(req: Request) {
       .single();
     if (error) throw error;
     return NextResponse.json({ success: true, data });
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500 });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

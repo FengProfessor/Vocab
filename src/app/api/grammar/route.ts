@@ -1,16 +1,43 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { createServiceClient } from '@/lib/supabase';
+import { checkRateLimit } from '@/lib/rate-limit';
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+function getGeminiModel() {
+  const keys = (process.env.GEMINI_API_KEY || '').split(',').map((k) => k.trim()).filter(Boolean);
+  const key = keys[Math.floor(Math.random() * keys.length)];
+  return new GoogleGenerativeAI(key).getGenerativeModel({
+    model: 'gemini-2.0-flash',
+    generationConfig: { responseMimeType: 'application/json' },
+  });
+}
+
+type GeneratedExercise = {
+  question: string;
+  options: string[];
+  correct_answer: string;
+  explanation?: string;
+  type?: string;
+};
 
 // POST - Generate grammar exercises for a classroom using AI
-export async function POST(req: Request) {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const { classroomId, topic, level = 'beginner', count = 5, lessonId } = await req.json();
-    if (!classroomId || !topic) {
-      return NextResponse.json({ error: 'classroomId and topic are required' }, { status: 400 });
+    // Rate limit: 5 req/min per IP để tránh abuse AI generation
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+    const rl = checkRateLimit(`grammar-gen:${ip}`, 5, 60_000);
+    if (!rl.allowed) {
+      return NextResponse.json(
+        { success: false, error: 'Too many requests. Please wait.' },
+        { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } }
+      );
+    }
+
+    const body = await req.json() as Record<string, unknown>;
+    const { classroomId, topic, level = 'beginner', count = 5, lessonId } = body;
+    // classroomId optional — student self-practice mode không cần classroom
+    if (!topic) {
+      return NextResponse.json({ success: false, error: 'topic is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
@@ -50,20 +77,40 @@ Include a mix of:
 Make sure explanations are in ENGLISH, clear and educational. Questions should be practical and relevant.
 Return JSON array only, no other text.`;
 
-    const result = await model.generateContent(prompt);
-    const text = result.response.text().replace(/```json|```/g, '').trim();
-    const exercises = JSON.parse(text);
+    const result = await getGeminiModel().generateContent(
+      { contents: [{ role: 'user', parts: [{ text: prompt }] }] },
+      { signal: AbortSignal.timeout(15000) }
+    );
+    const rawText = result.response.text();
+
+    let exercises: GeneratedExercise[];
+    try {
+      exercises = JSON.parse(rawText) as GeneratedExercise[];
+    } catch {
+      // Fallback: extract JSON array từ raw text
+      const match = rawText.match(/\[[\s\S]*\]/);
+      if (!match) {
+        console.error('[GrammarGenerate] Invalid AI response:', rawText.slice(0, 200));
+        return NextResponse.json({ success: false, error: 'AI returned invalid JSON' }, { status: 500 });
+      }
+      exercises = JSON.parse(match[0]) as GeneratedExercise[];
+    }
+
+    // Route này yêu cầu classroomId để lưu vào grammar_exercises (teacher flow)
+    if (typeof classroomId !== 'string' || !classroomId) {
+      return NextResponse.json({ success: false, error: 'classroomId is required to save exercises. For student practice, use /api/grammar/quiz' }, { status: 400 });
+    }
 
     // Save to Supabase
-    const toInsert = exercises.map((ex: any) => ({
-      classroom_id: classroomId,
-      topic,
-      level,
+    const toInsert = exercises.map((ex) => ({
+      classroom_id: classroomId as string,
+      topic: topic as string,
+      level: level as string,
       question: ex.question,
       options: ex.options,
       correct_answer: ex.correct_answer,
       explanation: ex.explanation,
-      lesson_id: lessonId || null,
+      lesson_id: typeof lessonId === 'string' ? lessonId : null,
     }));
 
     const { data, error } = await supabase
@@ -74,21 +121,22 @@ Return JSON array only, no other text.`;
     if (error) throw error;
 
     return NextResponse.json({ success: true, data, count: data.length });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error('Grammar API Error:', error);
-    return NextResponse.json({ error: 'Failed to generate exercises', details: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: 'Failed to generate exercises', details: msg }, { status: 500 });
   }
 }
 
 // GET - Fetch grammar exercises for a classroom
-export async function GET(req: Request) {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
     const { searchParams } = new URL(req.url);
     const classroomId = searchParams.get('classroomId');
     const lessonId = searchParams.get('lessonId');
 
     if (!classroomId && !lessonId) {
-      return NextResponse.json({ error: 'classroomId or lessonId is required' }, { status: 400 });
+      return NextResponse.json({ success: false, error: 'classroomId or lessonId is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
@@ -103,7 +151,8 @@ export async function GET(req: Request) {
     if (error) throw error;
 
     return NextResponse.json({ success: true, data });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }
