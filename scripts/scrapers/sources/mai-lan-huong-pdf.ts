@@ -36,8 +36,15 @@ async function extractPages(pdfPath: string): Promise<string[]> {
 export async function importPdf(pdfPath: string, chunkSize = 15): Promise<GrammarLessonDraft[]> {
   if (!fs.existsSync(pdfPath)) throw new Error(`PDF không tồn tại: ${pdfPath}`);
 
-  const pages = await extractPages(pdfPath);
-  console.log(`[PDF] ${pages.length} trang, chunk ${chunkSize} trang/lần`);
+  let pages: string[];
+  if (pdfPath.endsWith('.json')) {
+    const rawData = JSON.parse(fs.readFileSync(pdfPath, 'utf-8'));
+    pages = rawData.filter((p: string | null) => p !== null);
+    console.log(`[JSON] Đọc ${pages.length} trang từ file OCR JSON`);
+  } else {
+    pages = await extractPages(pdfPath);
+    console.log(`[PDF] ${pages.length} trang, chunk ${chunkSize} trang/lần`);
+  }
 
   const drafts: GrammarLessonDraft[] = [];
   for (let start = 0; start < pages.length; start += chunkSize) {

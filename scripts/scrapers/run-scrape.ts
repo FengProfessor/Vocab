@@ -2,13 +2,16 @@
  * Orchestrator cào từ vựng → global_dictionary.
  *
  * Cách chạy (từ thư mục web-app):
- *   npx tsx scripts/scrapers/run-scrape.ts --source=oxford --list=oxford-3000 [--limit=N] [--enrich]
+ *   npx tsx scripts/scrapers/run-scrape.ts --source=oxford --list=oxford-3000 [--limit=N] [--enrich] [--concurrency=3] [--dry-run]
  *   npx tsx scripts/scrapers/run-scrape.ts --source=longman --list=ielts-academic
  *   npx tsx scripts/scrapers/run-scrape.ts --source=vocabulary-com --list=toeic-600
  *   npx tsx scripts/scrapers/run-scrape.ts --source=quizlet [--limit=N]
  *   npx tsx scripts/scrapers/run-scrape.ts --source=anki --file=scripts/scrapers/decks/x.apkg
  *
  * Pipeline mỗi từ: scrape → normalize → (--enrich) → resolveWordImage → upsert.
+ * Flags:
+ *   --concurrency=N  Số từ xử lý song song (default: 1, tăng lên 3 nếu không dùng web scraper)
+ *   --dry-run        Chỉ in danh sách từ sẽ scrape, không gọi API thật
  */
 import fs from 'fs';
 import path from 'path';
@@ -39,15 +42,54 @@ function getArg(name: string): string | undefined {
 }
 const hasFlag = (name: string) => process.argv.includes(`--${name}`);
 
+// --- Concurrent chunk helper ---
+/** Xử lý mảng items theo từng chunk N phần tử song song. */
+async function runChunked<T>(
+  items: T[],
+  concurrency: number,
+  fn: (item: T) => Promise<void>
+): Promise<void> {
+  for (let i = 0; i < items.length; i += concurrency) {
+    await Promise.all(items.slice(i, i + concurrency).map(fn));
+  }
+}
+
+// --- Progress tracker ---
+interface ProgressState {
+  total: number;
+  done: number;
+  failed: number;
+  startMs: number;
+}
+
+function logProgress(state: ProgressState, word: string, ok: boolean): void {
+  state.done++;
+  if (!ok) state.failed++;
+  const elapsedSec = (Date.now() - state.startMs) / 1000;
+  const rate = elapsedSec > 0 ? (state.done / elapsedSec) * 60 : 0;
+  const remaining = state.total - state.done;
+  const etaMin = rate > 0 ? (remaining / rate).toFixed(0) : '?';
+  const status = ok ? '✓' : '✗';
+  console.log(
+    `  ${status} [${state.done}/${state.total}] ${word} | ${rate.toFixed(1)} w/min | ETA ${etaMin}min | failed: ${state.failed}`
+  );
+}
+
 /** Xử lý 1 entry: chuẩn hóa → enrich (tùy chọn) → ảnh → upsert vào global_dictionary. */
 async function processEntry(
   supabase: SupabaseClient,
   raw: RawEntry,
   tags: string[],
-  doEnrich: boolean
+  doEnrich: boolean,
+  dryRun = false
 ): Promise<void> {
   const { word, data } = normalizeToGlobalDict(raw);
   if (!isUsable(data)) throw new Error('thiếu nghĩa');
+
+  if (dryRun) {
+    console.log(`[DRY] Would upsert: "${word}" (${data.results[0].meanings.length} meanings, enrich=${doEnrich})`);
+    return;
+  }
 
   const meanings = data.results[0].meanings;
   const primary = meanings[0];
@@ -58,7 +100,7 @@ async function processEntry(
     try {
       const enriched = await enrichWord(word, process.env.GEMINI_API_KEY, data, primary.definition);
       imageSearchQuery = enriched.image_search_query || '';
-      const dataExt = data as Record<string, unknown>;
+      const dataExt = data as unknown as Record<string, unknown>;
       dataExt.synonyms = enriched.synonyms;
       dataExt.antonyms = enriched.antonyms;
       dataExt.image_search_query = imageSearchQuery;
@@ -116,7 +158,9 @@ async function runWebDict(
   source: string,
   list: string | undefined,
   limit: number,
-  doEnrich: boolean
+  doEnrich: boolean,
+  concurrency: number,
+  dryRun: boolean
 ): Promise<void> {
   if (!list) {
     console.error('Web dictionary cần tham số --list=<tên file trong scripts/lists>');
@@ -128,7 +172,7 @@ async function runWebDict(
     process.exit(1);
   }
 
-  const words = [
+  const allWords = [
     ...new Set(
       fs
         .readFileSync(listPath, 'utf-8')
@@ -143,35 +187,48 @@ async function runWebDict(
   const doneSet = new Set(cp.done);
   const scraper = WEB_SCRAPERS[source];
 
-  console.log(`[run-scrape] ${source} / ${list} — ${words.length} từ (${doneSet.size} đã xong)`);
-  let processed = 0;
+  // Lọc ra các từ chưa xử lý, áp dụng limit
+  let pending = allWords.filter((w) => !doneSet.has(w));
+  if (limit && pending.length > limit) pending = pending.slice(0, limit);
 
-  for (const word of words) {
-    if (doneSet.has(word)) continue;
-    if (limit && processed >= limit) break;
-    processed++;
+  if (dryRun) {
+    console.log(`[DRY-RUN] ${source} / ${list} — sẽ scrape ${pending.length} từ (concurrency=${concurrency}):`);
+    pending.forEach((w, i) => console.log(`  ${i + 1}. ${w}`));
+    return;
+  }
+
+  console.log(`[run-scrape] ${source} / ${list} — ${allWords.length} từ (${doneSet.size} đã xong, ${pending.length} còn lại, concurrency=${concurrency})`);
+
+  const progress: ProgressState = { total: pending.length, done: 0, failed: 0, startMs: Date.now() };
+  let saveCounter = 0;
+
+  await runChunked(pending, concurrency, async (word) => {
     try {
       const raw = await scraper(word);
       if (!raw) {
         cp.failed.push(word);
-        console.log(`  ✗ ${word} (không có dữ liệu)`);
+        logProgress(progress, word, false);
+        console.error(`    (không có dữ liệu)`);
       } else {
         await processEntry(supabase, raw, [source, 'scraped', ...(wordToTags[word] || [])], doEnrich);
         cp.done.push(word);
-        console.log(`  ✓ ${word}`);
+        logProgress(progress, word, true);
       }
     } catch (e) {
       cp.failed.push(word);
-      console.error(`  ✗ ${word}:`, (e as Error).message);
+      logProgress(progress, word, false);
+      console.error(`    lỗi:`, (e as Error).message);
     }
-    if (processed % 10 === 0) saveCheckpoint(cp);
-  }
+    saveCounter++;
+    if (saveCounter % 10 === 0) saveCheckpoint(cp);
+  });
 
   saveCheckpoint(cp);
-  console.log(`\nHoàn tất: ${cp.done.length} done, ${cp.failed.length} failed`);
+  const elapsedMin = ((Date.now() - progress.startMs) / 60000).toFixed(1);
+  console.log(`\nHoàn tất: ${cp.done.length} done, ${cp.failed.length} failed | ${elapsedMin}min`);
 }
 
-async function runQuizlet(supabase: SupabaseClient, limit: number): Promise<void> {
+async function runQuizlet(supabase: SupabaseClient, limit: number, concurrency: number, dryRun: boolean): Promise<void> {
   const cfgPath = path.resolve(process.cwd(), 'scripts/scrapers/config/quizlet-sets.json');
   if (!fs.existsSync(cfgPath)) {
     console.error('Thiếu config:', cfgPath);
@@ -182,46 +239,61 @@ async function runQuizlet(supabase: SupabaseClient, limit: number): Promise<void
 
   for (const set of sets) {
     console.log(`\n[Quizlet] ${set.url}`);
-    const entries = await scrapeSet(set.url);
-    let count = 0;
-    for (const raw of entries) {
-      if (limit && count >= limit) break;
-      count++;
+    const allEntries = await scrapeSet(set.url);
+    const entries = limit ? allEntries.slice(0, limit) : allEntries;
+
+    if (dryRun) {
+      console.log(`[DRY-RUN] sẽ upsert ${entries.length} từ từ set này`);
+      entries.forEach((e) => console.log(`  - ${e.word}`));
+      continue;
+    }
+
+    const progress: ProgressState = { total: entries.length, done: 0, failed: 0, startMs: Date.now() };
+    await runChunked(entries, concurrency, async (raw) => {
       try {
         await processEntry(supabase, raw, ['quizlet', 'scraped', ...(set.tags || [])], false);
-        console.log(`  ✓ ${raw.word}`);
+        logProgress(progress, raw.word, true);
       } catch (e) {
-        console.error(`  ✗ ${raw.word}:`, (e as Error).message);
+        logProgress(progress, raw.word, false);
+        console.error(`    lỗi:`, (e as Error).message);
       }
-    }
+    });
   }
 }
 
 async function runAnki(
   supabase: SupabaseClient,
   file: string | undefined,
-  limit: number
+  limit: number,
+  concurrency: number,
+  dryRun: boolean
 ): Promise<void> {
   if (!file) {
     console.error('Anki cần --file=<đường dẫn .apkg>');
     process.exit(1);
   }
   const filePath = path.isAbsolute(file) ? file : path.resolve(process.cwd(), file);
-  const entries = await scrapeApkg(filePath);
+  const allEntries = await scrapeApkg(filePath);
+  const entries = limit ? allEntries.slice(0, limit) : allEntries;
   console.log(`[Anki] ${entries.length} thẻ từ ${filePath}`);
   const deckTag = path.basename(filePath, path.extname(filePath));
 
-  let count = 0;
-  for (const raw of entries) {
-    if (limit && count >= limit) break;
-    count++;
+  if (dryRun) {
+    console.log(`[DRY-RUN] sẽ upsert ${entries.length} từ`);
+    entries.forEach((e) => console.log(`  - ${e.word}`));
+    return;
+  }
+
+  const progress: ProgressState = { total: entries.length, done: 0, failed: 0, startMs: Date.now() };
+  await runChunked(entries, concurrency, async (raw) => {
     try {
       await processEntry(supabase, raw, ['anki', 'scraped', deckTag], false);
-      console.log(`  ✓ ${raw.word}`);
+      logProgress(progress, raw.word, true);
     } catch (e) {
-      console.error(`  ✗ ${raw.word}:`, (e as Error).message);
+      logProgress(progress, raw.word, false);
+      console.error(`    lỗi:`, (e as Error).message);
     }
-  }
+  });
 }
 
 async function main(): Promise<void> {
@@ -240,14 +312,18 @@ async function main(): Promise<void> {
   const supabase = createClient(supabaseUrl, serviceKey);
 
   const limit = parseInt(getArg('limit') || '0', 10);
+  const concurrency = Math.max(1, parseInt(getArg('concurrency') || '1', 10));
   const doEnrich = hasFlag('enrich');
+  const dryRun = hasFlag('dry-run');
+
+  if (dryRun) console.log('[run-scrape] DRY-RUN mode — không gọi API, không ghi DB');
 
   if (source === 'quizlet') {
-    await runQuizlet(supabase, limit);
+    await runQuizlet(supabase, limit, concurrency, dryRun);
   } else if (source === 'anki') {
-    await runAnki(supabase, getArg('file'), limit);
+    await runAnki(supabase, getArg('file'), limit, concurrency, dryRun);
   } else if (WEB_SCRAPERS[source]) {
-    await runWebDict(supabase, source, getArg('list'), limit, doEnrich);
+    await runWebDict(supabase, source, getArg('list'), limit, doEnrich, concurrency, dryRun);
   } else {
     console.error('Source không hợp lệ:', source);
     process.exit(1);
