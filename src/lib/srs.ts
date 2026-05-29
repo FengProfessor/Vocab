@@ -55,7 +55,8 @@ export function calculateInterval(stability: number, retention: number = TARGET_
 }
 
 export function calculateNextReview(current: SRSData, rating: FSRSRating): SRSData {
-  let { stability, difficulty, reviewCount, lastReviewDate } = current;
+  let { stability, difficulty, reviewCount } = current;
+  const { lastReviewDate } = current;
   
   // 1. Initial review handling (if stability is 0)
   if (stability === 0) {
@@ -66,8 +67,8 @@ export function calculateNextReview(current: SRSData, rating: FSRSRating): SRSDa
     // 2. Existing card update
     const now = new Date();
     const last = lastReviewDate ? new Date(lastReviewDate) : new Date();
-    const elapsedSeconds = Math.max(0, (now.getTime() - last.getTime()) / 1000);
-    const retrievability = calculateRetrievability(elapsedSeconds, stability);
+    const elapsedDays = Math.max(0, (now.getTime() - last.getTime()) / (1000 * 60 * 60 * 24));
+    const retrievability = calculateRetrievability(elapsedDays, stability);
 
     // Update Difficulty
     difficulty = Math.max(1, Math.min(10, difficulty - W[6] * (rating - 3)));
