@@ -1,0 +1,32 @@
+name: Hourly Push Notifications
+
+# Dự phòng cho Vercel Hobby (cron Hobby bị ép chỉ chạy 1 lần/ngày).
+# Gọi endpoint push-due mỗi giờ; route tự lọc user theo notification_hour (giờ VN).
+# Nếu deploy Vercel Pro: có thể tắt workflow này (Vercel cron `0 * * * *` đã đủ).
+#
+# Yêu cầu: thêm repo secret CRON_SECRET (Settings → Secrets and variables → Actions)
+# khớp với env CRON_SECRET trên Vercel.
+
+on:
+  schedule:
+    - cron: '0 * * * *' # đầu mỗi giờ (UTC). Route tự convert sang giờ VN.
+  workflow_dispatch: {} # cho phép chạy thủ công để test
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger push-due
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "::error::Missing CRON_SECRET repo secret"
+            exit 1
+          fi
+          code=$(curl -sS -o /tmp/resp.json -w "%{http_code}" \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            "https://vocab-taupe.vercel.app/api/cron/push-due")
+          echo "HTTP $code"
+          cat /tmp/resp.json
+          test "$code" = "200"

@@ -2,13 +2,42 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { sendPushNotificationToUser } from '@/lib/notifications';
 
+// firebase-admin cần Node runtime; cron route không được cache
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
+type ProfileRow = {
+  id: string;
+  full_name: string | null;
+  role: string;
+  fcm_token: string | null;
+  notification_hour: number | null;
+};
+type PushResult = { userId: string; name: string | null; dueCount: number; sent: boolean };
+
+/**
+ * Lấy giờ hiện tại theo múi giờ Việt Nam (Asia/Ho_Chi_Minh, UTC+7, không DST).
+ * Vercel serverless chạy theo UTC nên phải convert thủ công.
+ */
+function getVietnamHour(): number {
+  const str = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    hour: '2-digit',
+    hour12: false,
+  }).format(new Date());
+  return parseInt(str, 10) % 24; // hour12:false có thể trả '24' lúc nửa đêm
+}
+
 /**
  * GET /api/cron/push-due
- * Vercel Cron: chạy mỗi giờ, quét tất cả user có từ đến hạn và gửi push notification.
- * 
+ * Chạy MỖI GIỜ (Vercel Pro cron `0 * * * *`, hoặc external cron trên Hobby).
+ * Chỉ gửi push cho user có `notification_hour` === giờ VN hiện tại + có fcm_token + có từ đến hạn.
+ * Idempotent: chạy lại trong cùng giờ chỉ gửi đúng nhóm user của giờ đó.
+ *
  * Authorization: Bearer <CRON_SECRET> hoặc query ?secret=<CRON_SECRET>
+ * Test thủ công: ?hour=20 (ép giờ mục tiêu) hoặc ?all=1 (bỏ lọc giờ, gửi mọi user có từ due).
  */
-export async function GET(req: Request) {
+export async function GET(req: Request): Promise<NextResponse> {
   try {
     const { searchParams } = new URL(req.url);
     const secret = searchParams.get('secret');
@@ -16,45 +45,58 @@ export async function GET(req: Request) {
     const envSecret = process.env.CRON_SECRET;
 
     const isAuthorized =
-      authHeader === `Bearer ${envSecret}` ||
-      secret === envSecret;
+      !!envSecret && (authHeader === `Bearer ${envSecret}` || secret === envSecret);
 
     if (!isAuthorized) {
-      return NextResponse.json({
-        error: 'Unauthorized'
-      }, { status: 401 });
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
+
+    // Giờ mục tiêu: mặc định = giờ VN hiện tại; ?hour= để test
+    const hourParam = searchParams.get('hour');
+    const sendAll = searchParams.get('all') === '1';
+    const targetHour =
+      hourParam !== null ? parseInt(hourParam, 10) % 24 : getVietnamHour();
 
     const supabase = createServiceClient();
     const now = new Date().toISOString();
 
-    // Lấy tất cả user
-    const { data: profiles } = await supabase
+    // Chỉ lấy user có fcm_token; lọc theo notification_hour trừ khi ?all=1
+    let query = supabase
       .from('profiles')
-      .select('id, full_name, role');
+      .select('id, full_name, role, fcm_token, notification_hour')
+      .not('fcm_token', 'is', null);
 
-    if (!profiles?.length) {
-      console.log('[Cron] No profiles found');
-      return NextResponse.json({ notified: 0, message: 'No profiles found' });
+    if (!sendAll) {
+      query = query.eq('notification_hour', targetHour);
     }
 
-    console.log(`[Cron] Found ${profiles.length} profiles`);
-    const results: any[] = [];
+    const { data: profiles, error: profErr } = await query;
 
-    for (const profile of profiles) {
+    if (profErr) {
+      console.error('[Cron/push-due] Profile query error:', profErr.message);
+      return NextResponse.json({ success: false, error: profErr.message }, { status: 500 });
+    }
+
+    if (!profiles?.length) {
+      console.log(`[Cron/push-due] No candidate users for hour ${targetHour} (VN)`);
+      return NextResponse.json({ success: true, vnHour: targetHour, total: 0, notified: 0, results: [] });
+    }
+
+    console.log(`[Cron/push-due] ${profiles.length} candidate(s) for hour ${targetHour} (VN)`);
+    const results: PushResult[] = [];
+
+    for (const profile of profiles as ProfileRow[]) {
       try {
         // Lấy classrooms mà user enrolled vào (hoặc created nếu teacher)
         let classroomIds: string[] = [];
 
-        if ((profile as any).role === 'teacher') {
-          // Teacher: tìm classrooms của teacher
+        if (profile.role === 'teacher') {
           const { data } = await supabase
             .from('classrooms')
             .select('id')
             .eq('teacher_id', profile.id);
           classroomIds = data?.map(c => c.id) || [];
         } else {
-          // Student: tìm classrooms đã enroll
           const { data } = await supabase
             .from('enrollments')
             .select('classroom_id')
@@ -62,9 +104,7 @@ export async function GET(req: Request) {
           classroomIds = data?.map(e => e.classroom_id) || [];
         }
 
-        if (!classroomIds.length) {
-          continue;
-        }
+        if (!classroomIds.length) continue;
 
         // Đếm từ đến hạn: (1) chưa có SRS record, hoặc (2) next_review_date <= now
         const { data: dueWords } = await supabase
@@ -74,7 +114,6 @@ export async function GET(req: Request) {
 
         let dueCount = 0;
         if (dueWords?.length) {
-          // Lọc từ nào chưa được ôn hoặc quá hạn
           const { data: srsData } = await supabase
             .from('srs_progress')
             .select('word_id, next_review_date')
@@ -93,7 +132,6 @@ export async function GET(req: Request) {
 
         const firstName = (profile.full_name || 'bạn').split(' ').pop();
 
-        // Gửi push notification đến user qua FCM
         const sendResult = await sendPushNotificationToUser(
           profile.id,
           '⏰ Thời Điểm Ôn Tập!',
@@ -101,30 +139,28 @@ export async function GET(req: Request) {
           '/student'
         );
 
-        const sent = !!(sendResult as any)?.messageId;
+        const sent = !!(sendResult as { messageId?: string } | undefined)?.messageId;
 
-        results.push({
-          userId: profile.id,
-          name: profile.full_name,
-          dueCount,
-          sent,
-        });
-      } catch (err: any) {
-        console.error(`[Cron] Error processing user ${profile.id}:`, err.message);
+        results.push({ userId: profile.id, name: profile.full_name, dueCount, sent });
+      } catch (err: unknown) {
+        const errMsg = err instanceof Error ? err.message : 'Unknown error';
+        console.error(`[Cron/push-due] Error processing user ${profile.id}:`, errMsg);
       }
     }
 
     const notified = results.filter(r => r.sent).length;
-    console.log(`[Cron/push-due] Sent ${notified}/${profiles.length} notifications`);
+    console.log(`[Cron/push-due] Sent ${notified}/${profiles.length} notifications (hour ${targetHour} VN)`);
 
     return NextResponse.json({
       success: true,
+      vnHour: targetHour,
       total: profiles.length,
       notified,
-      results
+      results,
     });
-  } catch (err: any) {
-    console.error('[Cron/push-due] Fatal error:', err.message);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : 'Unknown error';
+    console.error('[Cron/push-due] Fatal error:', msg);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

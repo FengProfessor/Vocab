@@ -32,6 +32,9 @@ export interface Profile {
   avatar_url?: string;
   role: UserRole;
   created_at: string;
+  daily_goal?: number;
+  notification_hour?: number;
+  fcm_token?: string | null;
 }
 
 export interface Classroom {
@@ -162,6 +165,7 @@ export interface GrammarExample {
   en: string;
   vi?: string;
   note?: string;
+  annotations?: import('@/components/grammar/GrammarHighlight').WordAnnotation[];
 }
 
 export interface GrammarLesson {
@@ -195,6 +199,17 @@ export interface GrammarProgress {
   last_reviewed_at?: string;
   state: string;
   mastery_score: number;
+}
+
+export interface UserGamification {
+  user_id: string;
+  total_xp: number;
+  current_streak: number;
+  longest_streak: number;
+  last_active_date: string | null;
+  daily_goal: number;
+  today_xp: number;
+  today_date: string | null;
 }
 
 export interface StudentProgress {
