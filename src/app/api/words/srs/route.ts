@@ -1,19 +1,25 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { calculateNextReview, mapQualityToRating } from '@/lib/srs';
+import { XP_BY_QUALITY } from '@/lib/gamification';
+import { getAuthUser, unauthorized, isValidString } from '@/lib/api-security';
 
 /**
  * POST /api/words/srs
- * Body: { userId, wordId, quality: 0 | 3 | 4 | 5 }
+ * Auth: Bearer JWT required. Body: { wordId, quality: 0 | 3 | 4 | 5 }
  * Upserts an srs_progress row using FSRS v5 algorithm.
  */
 export async function POST(req: Request) {
   try {
-    const { userId, wordId, quality } = await req.json();
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    const userId = auth.userId;
 
-    if (!userId || !wordId || ![0, 3, 4, 5].includes(quality)) {
+    const { wordId, quality } = await req.json();
+
+    if (!isValidString(wordId, 100) || ![0, 3, 4, 5].includes(quality)) {
       return NextResponse.json(
-        { error: 'userId, wordId, and quality (0|3|4|5) are required' },
+        { success: false, error: 'wordId (string) and quality (0|3|4|5) are required' },
         { status: 400 }
       );
     }
@@ -72,14 +78,27 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error('SRS Upsert Error:', error.message);
-      return NextResponse.json({ error: 'Failed to save progress', details: error.message }, { status: 500 });
+      return NextResponse.json({ success: false, error: 'Failed to save progress', details: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ success: true, srs: newSRS, data });
-  } catch (error: any) {
-    console.error('POST /api/words/srs Error:', error.message);
+    // Award XP (fire-and-forget, không block response)
+    const xp = XP_BY_QUALITY[quality] ?? 5;
+    void supabase.rpc('award_xp', { p_user_id: userId, p_xp: xp });
+
     return NextResponse.json(
-      { error: 'Internal Server Error', details: error.message },
+      { success: true, srs: newSRS, data, xpAwarded: xp },
+      {
+        headers: {
+          // Dữ liệu SRS riêng từng user → tuyệt đối không cache
+          'Cache-Control': 'private, no-store',
+        },
+      }
+    );
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : 'Unknown error';
+    console.error('POST /api/words/srs Error:', msg);
+    return NextResponse.json(
+      { success: false, error: 'Internal Server Error', details: msg },
       { status: 500 }
     );
   }

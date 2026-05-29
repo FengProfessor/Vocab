@@ -103,6 +103,18 @@ create table if not exists public.grammar_results (
   completed_at timestamptz default now()
 );
 
+-- USER GAMIFICATION (streak, XP, daily goal)
+create table if not exists public.user_gamification (
+  user_id         uuid primary key references public.profiles(id) on delete cascade,
+  total_xp        int not null default 0,
+  current_streak  int not null default 0,
+  longest_streak  int not null default 0,
+  last_active_date date,
+  daily_goal      int not null default 30,
+  today_xp        int not null default 0,
+  today_date      date
+);
+
 -- Function to automatically check grammar answer
 create or replace function public.check_grammar_answer()
 returns trigger as $$
@@ -130,6 +142,7 @@ alter table public.enrollments enable row level security;
 alter table public.words enable row level security;
 alter table public.srs_progress enable row level security;
 alter table public.quiz_results enable row level security;
+alter table public.user_gamification enable row level security;
 alter table public.grammar_exercises enable row level security;
 alter table public.grammar_results enable row level security;
 
@@ -211,6 +224,9 @@ create policy "Teachers manage grammar exercises" on public.grammar_exercises fo
 create policy "Students view classroom grammar" on public.grammar_exercises for select using (
   exists (select 1 from public.enrollments e where e.classroom_id = classroom_id and e.student_id = auth.uid())
 );
+
+-- Gamification
+create policy "Users manage own gamification" on public.user_gamification for all using (auth.uid() = user_id);
 
 -- Grammar Results
 create policy "Students manage own grammar results" on public.grammar_results for all using (auth.uid() = user_id);
