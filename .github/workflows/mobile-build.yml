@@ -26,7 +26,9 @@ jobs:
         run: npm ci
 
       - name: Sync Capacitor
-        run: npx cap sync android
+        run: |
+          mkdir -p android/app/src/main/assets
+          npx cap sync android
 
       - name: Build Android APK
         working-directory: ./android
