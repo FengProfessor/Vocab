@@ -1,18 +1,37 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import { supabase } from '@/lib/supabase';
+import { authFetch } from '@/lib/auth-fetch';
 import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   Brain, BookOpen, Zap, LayoutDashboard, LogOut, Loader2, Plus,
-  CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw, RefreshCw,
-  Menu, X, Clock, GraduationCap
+  CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw,
+  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
+import { WordCardSkeleton } from '@/components/ui/WordCardSkeleton';
+import { useGamification } from '@/hooks/useGamification';
+import { earnedBadges, xpToLevel } from '@/lib/gamification';
+import { Mascot, type MascotMood } from '@/components/gamification/Mascot';
+import { StreakCounter } from '@/components/gamification/StreakCounter';
+import { XpBadge } from '@/components/gamification/XpBadge';
+import { DailyGoalRing } from '@/components/gamification/DailyGoalRing';
+import { BadgeGrid } from '@/components/gamification/BadgeGrid';
+import type { CelebrationIntensity } from '@/components/gamification/Celebration';
+import { WordDetailModal } from '@/components/student/WordDetailModal';
+import { NotificationBell } from '@/components/NotificationBell';
+
+// Lazy load: canvas-confetti chỉ chạy client-side, không cần SSR + chỉ tải khi cần
+const Celebration = dynamic(
+  () => import('@/components/gamification/Celebration').then((m) => m.Celebration),
+  { ssr: false }
+);
 
 export default function StudentDashboard() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -24,8 +43,28 @@ export default function StudentDashboard() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [countdown, setCountdown] = useState<string>('');
   const [grammarDue, setGrammarDue] = useState(0);
-  const [selectedWord, setSelectedWord] = useState<any>(null);
+  const [selectedWord, setSelectedWord] = useState<Word | null>(null);
+  const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
+  // Join classroom modal
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+  const [joinCode, setJoinCode] = useState('');
+  const [isJoining, setIsJoining] = useState(false);
+  const [joinError, setJoinError] = useState<string | null>(null);
+  // Pagination state cho word list
+  const [totalWords, setTotalWords] = useState(0);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [wordsOffset, setWordsOffset] = useState(0);
+  const WORDS_PAGE_SIZE = 20;
+  const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const [statusFilter, setStatusFilter] = useState<'all' | 'new' | 'due' | 'learned' | 'mastered'>('all');
+  const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'az' | 'hardest'>('newest');
   const router = useRouter();
+  const { data: gamification, refresh: refreshGamification } = useGamification(profile?.id ?? null);
+
+  // Celebration state — fire khi level up / badge unlock / streak milestone
+  const [celebration, setCelebration] = useState<{ key: string; intensity: CelebrationIntensity } | null>(null);
+  const [prevSnapshot, setPrevSnapshot] = useState<{ level: number; badgeIds: string[]; streak: number } | null>(null);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -60,29 +99,33 @@ export default function StudentDashboard() {
       setProfile(prof);
 
       // Tiến độ ôn tập ngữ pháp
-      fetch(`/api/grammar/progress?userId=${userId}`)
+      authFetch(`/api/grammar/progress`)
         .then((r) => r.json())
         .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
         .catch(() => {});
 
-      // Fresh fetch with timestamp to disable any aggressive browser cache
-      const res = await fetch(`/api/words?userId=${userId}&t=${Date.now()}`);
+      // Fetch trang đầu với limit để tránh load toàn bộ
+      const res = await authFetch(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&t=${Date.now()}`);
       const data = await res.json();
-      
+
       if (data.success) {
         setWords(data.data || []);
         setClassroomId(data.classroomId);
+        setTotalWords(data.total || 0);
+        setWordsOffset(WORDS_PAGE_SIZE);
 
         if (data.classroomId) {
           const { data: qr } = await supabase
             .from('quiz_results')
-            .select('*')
+            .select('score, total_questions')
             .eq('user_id', userId)
             .eq('classroom_id', data.classroomId);
 
           if (qr && qr.length > 0) {
-            const totalCorrect = qr.reduce((s: number, q: any) => s + (q.score || 0), 0);
-            const totalQuestions = qr.reduce((s: number, q: any) => s + (q.total_questions || 1), 0);
+            type QuizRow = { score: number | null; total_questions: number | null };
+            const rows = qr as QuizRow[];
+            const totalCorrect = rows.reduce((s, q) => s + (q.score || 0), 0);
+            const totalQuestions = rows.reduce((s, q) => s + (q.total_questions || 1), 0);
             setQuizStats({
               total: qr.length,
               avgAccuracy: Math.round((totalCorrect / totalQuestions) * 100)
@@ -90,10 +133,50 @@ export default function StudentDashboard() {
           }
         }
       }
-    } catch (err: any) {
-      console.error('Load Dashboard error:', err.message);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unknown error';
+      console.error('Load Dashboard error:', msg);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  // Load thêm words (Load More)
+  const loadMoreWords = async () => {
+    if (!profile?.id || isLoadingMore) return;
+    setIsLoadingMore(true);
+    try {
+      const res = await authFetch(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}&t=${Date.now()}`);
+      const data = await res.json();
+      if (data.success && data.data?.length > 0) {
+        setWords(prev => [...prev, ...data.data]);
+        setWordsOffset(prev => prev + WORDS_PAGE_SIZE);
+        setTotalWords(data.total || totalWords);
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unknown error';
+      console.error('[Words] Load more error:', msg);
+    } finally {
+      setIsLoadingMore(false);
+    }
+  };
+
+  // Auto-refresh nhẹ: chỉ dùng summary endpoint để cập nhật dueCount
+  const refreshSummary = async (userId: string) => {
+    try {
+      const res = await authFetch(`/api/words?summary=1`);
+      const data = await res.json();
+      if (data.success) {
+        setTotalWords(data.total || 0);
+        // Cập nhật isDue trên words hiện có dựa trên thời gian
+        const now = Date.now();
+        setWords(prev => prev.map((w) => {
+          const nextReviewDate = w.srs?.next_review_date ? new Date(w.srs.next_review_date).getTime() : now;
+          return { ...w, isDue: !w.srs || nextReviewDate <= now };
+        }));
+      }
+    } catch {
+      // silent fail
     }
   };
 
@@ -102,10 +185,10 @@ export default function StudentDashboard() {
     if (words.length === 0) return;
 
     const sortedWords = [...words]
-      .filter((w: any) => w.srs?.next_review_date)
-      .sort((a: any, b: any) => new Date(a.srs.next_review_date).getTime() - new Date(b.srs.next_review_date).getTime());
+      .filter((w) => w.srs?.next_review_date)
+      .sort((a, b) => new Date(a.srs!.next_review_date).getTime() - new Date(b.srs!.next_review_date).getTime());
 
-    const soonestWord = sortedWords.find((w: any) => new Date(w.srs.next_review_date) > new Date());
+    const soonestWord = sortedWords.find((w) => new Date(w.srs!.next_review_date) > new Date());
     if (!soonestWord) {
       setCountdown('');
       return;
@@ -139,7 +222,7 @@ export default function StudentDashboard() {
   // === Auto-retry failed words ===
   useEffect(() => {
     if (!classroomId || words.length === 0) return;
-    const hasFailed = words.some((w: any) => 
+    const hasFailed = words.some((w) =>
       w.translation?.includes('failed') || w.translation?.includes('Analyzing')
     );
     if (hasFailed && !isRetryingAI) {
@@ -147,14 +230,63 @@ export default function StudentDashboard() {
     }
   }, [classroomId, words.length]);
 
-  // === Auto-refresh Data every 10s ===
+  // === Auto-refresh nhẹ mỗi 30s: chỉ cập nhật summary (dueCount), không fetch toàn bộ words ===
   useEffect(() => {
     if (!profile?.id) return;
     const interval = setInterval(() => {
-      loadData(profile.id);
-    }, 10000);
+      refreshSummary(profile.id);
+    }, 30000);
     return () => clearInterval(interval);
   }, [profile?.id]);
+
+  // === Detect milestones (level up / new badge / streak milestone) → trigger Celebration ===
+  useEffect(() => {
+    if (!profile?.id) return;
+    const masteredCount = words.filter((w: Word & { srsLevel?: number }) => w.srsLevel === 5).length;
+    const currentLevel = xpToLevel(gamification.total_xp);
+    const currentBadges = earnedBadges(gamification, masteredCount)
+      .filter(b => b.earned)
+      .map(b => b.id);
+
+    // Lần đầu chỉ snapshot, không fire
+    if (!prevSnapshot) {
+      setPrevSnapshot({
+        level: currentLevel,
+        badgeIds: currentBadges,
+        streak: gamification.current_streak,
+      });
+      return;
+    }
+
+    // Level up
+    if (currentLevel > prevSnapshot.level) {
+      setCelebration({ key: `level-${currentLevel}`, intensity: 'epic' });
+      toast.success(`🎉 Lên Level ${currentLevel}!`, { duration: 4000 });
+    } else {
+      // Badge mới
+      const newBadge = currentBadges.find(id => !prevSnapshot.badgeIds.includes(id));
+      if (newBadge) {
+        setCelebration({ key: `badge-${newBadge}`, intensity: 'strong' });
+        toast.success('🏆 Mở khoá thành tích mới!', { duration: 4000 });
+      } else {
+        // Streak milestone (3, 7, 14, 30, 60, 100)
+        const MILESTONES = [3, 7, 14, 30, 60, 100];
+        const hitMilestone = MILESTONES.includes(gamification.current_streak)
+          && gamification.current_streak > prevSnapshot.streak;
+        if (hitMilestone) {
+          setCelebration({ key: `streak-${gamification.current_streak}`, intensity: 'strong' });
+          toast.success(`🔥 Streak ${gamification.current_streak} ngày!`, { duration: 4000 });
+        }
+      }
+    }
+
+    setPrevSnapshot({
+      level: currentLevel,
+      badgeIds: currentBadges,
+      streak: gamification.current_streak,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: so sánh snapshot cũ vs mới, không re-run khi prevSnapshot đổi
+  }, [gamification.total_xp, gamification.current_streak, words.length, profile?.id]);
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
@@ -163,7 +295,7 @@ export default function StudentDashboard() {
 
   const handleUpdateMeaning = async (wordId: string, translation: string, pos: string, ipa?: string) => {
     try {
-      const res = await fetch('/api/words', {
+      const res = await authFetch('/api/words', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wordId, translation, pos, ipa }),
@@ -183,7 +315,7 @@ export default function StudentDashboard() {
   const handleDeleteWord = async (wordId: string) => {
     if (!confirm('Are you sure you want to delete this word?')) return;
     try {
-      const res = await fetch('/api/words', {
+      const res = await authFetch('/api/words', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wordId }),
@@ -220,6 +352,68 @@ export default function StudentDashboard() {
     }
   };
 
+  const handleJoinClassroom = async () => {
+    if (!joinCode.trim() || isJoining) return;
+    setIsJoining(true);
+    setJoinError(null);
+    try {
+      interface JoinResponse { success: boolean; data?: { name: string }; error?: string }
+      const res = await authFetch('/api/classrooms/join', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ inviteCode: joinCode.trim().toUpperCase() }),
+      });
+      const result: JoinResponse = await res.json();
+      if (!res.ok || !result.success) {
+        const msg =
+          res.status === 404 ? 'Không tìm thấy lớp học. Kiểm tra lại mã.' :
+          res.status === 409 ? 'Bạn đã tham gia lớp học này rồi.' :
+          result.error ?? 'Đã có lỗi xảy ra.';
+        setJoinError(msg);
+        return;
+      }
+      toast.success(`Đã tham gia lớp ${result.data?.name ?? ''}!`);
+      setIsJoinModalOpen(false);
+      setJoinCode('');
+      if (profile?.id) loadData(profile.id);
+    } catch {
+      setJoinError('Không thể kết nối. Thử lại sau.');
+    } finally {
+      setIsJoining(false);
+    }
+  };
+
+  // Debounce search — must be before any early return (Rules of Hooks)
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedQuery(searchQuery), 300);
+    return () => clearTimeout(t);
+  }, [searchQuery]);
+
+  const filteredWords = useMemo(() => {
+    let result = [...words];
+    const q = debouncedQuery.trim().toLowerCase();
+    if (q) {
+      result = result.filter(
+        (w) =>
+          w.word?.toLowerCase().includes(q) ||
+          w.translation?.toLowerCase().includes(q) ||
+          w.ipa?.toLowerCase().includes(q) ||
+          w.pos?.toLowerCase().includes(q)
+      );
+    }
+    if (statusFilter === 'new') result = result.filter((w) => !w.srs || w.srs.review_count === 0);
+    else if (statusFilter === 'due') result = result.filter((w) => w.isDue);
+    else if (statusFilter === 'learned') result = result.filter((w) => w.srs && w.srs.review_count > 0 && !w.isDue);
+    else if (statusFilter === 'mastered') result = result.filter((w) => (w.srsLevel ?? 0) >= 5);
+
+    if (sortBy === 'oldest') result.sort((a, b) => new Date(a.created_at ?? 0).getTime() - new Date(b.created_at ?? 0).getTime());
+    else if (sortBy === 'az') result.sort((a, b) => (a.word ?? '').localeCompare(b.word ?? ''));
+    else if (sortBy === 'hardest') result.sort((a, b) => (b.srs?.difficulty ?? 0) - (a.srs?.difficulty ?? 0));
+    else result.sort((a, b) => new Date(b.created_at ?? 0).getTime() - new Date(a.created_at ?? 0).getTime());
+
+    return result;
+  }, [words, debouncedQuery, statusFilter, sortBy]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-muted/40 p-8 flex items-center justify-center">
@@ -228,8 +422,17 @@ export default function StudentDashboard() {
     );
   }
 
-  const dueWords = words.filter((w: any) => w.isDue);
-  const masteredCount = words.filter((w: any) => w.srsLevel === 5).length;
+  const dueWords = words.filter((w) => w.isDue);
+  const masteredCount = words.filter((w) => w.srsLevel === 5).length;
+
+  const mascotMood: MascotMood = dueWords.length > 0 ? 'cheer' : gamification.current_streak === 0 ? 'sleepy' : 'happy';
+  const greeting = (() => {
+    const h = new Date().getHours();
+    if (h < 12) return 'Chào buổi sáng';
+    if (h < 18) return 'Chào buổi chiều';
+    return 'Chào buổi tối';
+  })();
+  const badges = earnedBadges(gamification, masteredCount);
 
   return (
     <div className="flex min-h-screen w-full bg-muted/40 font-sans relative">
@@ -248,7 +451,15 @@ export default function StudentDashboard() {
                 <Link href="/student" className="flex items-center gap-3 font-bold text-primary bg-primary/5 p-3 rounded-xl"><LayoutDashboard /> Dashboard</Link>
                 <Link href="/import" className="flex items-center gap-3 font-semibold p-3"><Plus /> Import Words</Link>
                 <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Review</Link>
+                <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
                 <Link href="/grammar/learn" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
+                <Link href="/student/profile" className="flex items-center gap-3 font-semibold p-3"><User /> Hồ sơ</Link>
+                <button
+                  onClick={() => { setIsMenuOpen(false); setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
+                  className="flex items-center gap-3 font-semibold p-3 w-full text-left"
+                >
+                  <UserPlus /> Tham gia lớp
+                </button>
               </nav>
               <button onClick={handleSignOut} className="flex items-center gap-3 p-3 text-destructive font-bold"><LogOut /> Sign Out</button>
           </div>
@@ -270,15 +481,30 @@ export default function StudentDashboard() {
           <Link href={classroomId ? `/quiz?class=${classroomId}` : '#'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Zap className="h-5 w-5" /> Mini Quiz
           </Link>
+          <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <Pencil className="h-5 w-5" /> Writing Practice
+          </Link>
           <Link href="/grammar/learn" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <GraduationCap className="h-5 w-5" /> Grammar
           </Link>
           <Link href="/import" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Plus className="h-5 w-5" /> Import Words
           </Link>
-          <Link href="/profile" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <User className="h-5 w-5" /> Profile
+          <Link href="/student/stats" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <BarChart3 className="h-5 w-5" /> Thống kê
           </Link>
+          <Link href={classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <Trophy className="h-5 w-5" /> Bảng xếp hạng
+          </Link>
+          <Link href="/student/profile" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <User className="h-5 w-5" /> Hồ sơ
+          </Link>
+          <button
+            onClick={() => { setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
+            className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold w-full text-left"
+          >
+            <UserPlus className="h-5 w-5" /> Tham gia lớp
+          </button>
         </nav>
         <button onClick={handleSignOut} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:text-destructive rounded-xl transition-all font-semibold">
           <LogOut className="h-5 w-5" /> Sign Out
@@ -287,20 +513,81 @@ export default function StudentDashboard() {
 
       {/* ═══ MAIN ═══ */}
       <main className="flex-1 md:pl-64 flex flex-col min-h-screen">
-        <header className="h-16 border-b bg-background/80 backdrop-blur sticky top-0 z-10 px-6 flex items-center justify-between">
+        <header className="h-16 border-b bg-background/80 backdrop-blur sticky top-0 z-10 px-4 sm:px-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <Menu className="h-6 w-6 md:hidden cursor-pointer" onClick={() => setIsMenuOpen(true)} />
-            <h1 className="font-black text-lg sm:text-xl">Dashboard</h1>
+            <Menu className="h-6 w-6 md:hidden cursor-pointer shrink-0" onClick={() => setIsMenuOpen(true)} />
+            <h1 className="font-black text-lg sm:text-xl hidden sm:block">Dashboard</h1>
           </div>
-          <button onClick={() => profile?.id && loadData(profile.id)} className="p-2 hover:bg-muted rounded-full transition-colors">
-            <RotateCcw className={`h-5 w-5 ${isLoading ? 'animate-spin' : ''}`} />
-          </button>
+          {/* Gamification bar */}
+          <div className="flex items-center gap-2 sm:gap-3 flex-1 justify-center sm:justify-end max-w-sm">
+            <StreakCounter streak={gamification.current_streak} lastActiveDate={gamification.last_active_date} />
+            <XpBadge totalXp={gamification.total_xp} />
+            <DailyGoalRing todayXp={gamification.today_xp} dailyGoal={gamification.daily_goal} size={38} />
+          </div>
+          <div className="flex items-center gap-1 shrink-0">
+            <NotificationBell
+              dueCount={dueWords.length}
+              grammarDueCount={grammarDue}
+              streak={gamification.current_streak}
+              dailyGoalXp={gamification.today_xp}
+              dailyGoal={gamification.daily_goal}
+              classroomId={classroomId}
+            />
+            <button onClick={() => { if (profile?.id) { loadData(profile.id); refreshGamification(); } }} className="p-2 hover:bg-muted rounded-full transition-colors">
+              <RotateCcw className={`h-5 w-5 ${isLoading ? 'animate-spin' : ''}`} />
+            </button>
+          </div>
         </header>
 
         <div className="p-6 sm:p-10 max-w-5xl mx-auto w-full space-y-8">
+          {/* Greeting */}
+          <div className="flex items-center gap-4">
+            <Mascot mood={mascotMood} size="lg" />
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-black text-foreground leading-tight">
+                {greeting}, {profile?.full_name?.split(' ')[0] || 'bạn'}! 👋
+              </h2>
+              <p className="text-sm font-semibold text-muted-foreground mt-0.5">
+                {dueWords.length > 0
+                  ? `Bạn có ${dueWords.length} từ cần ôn hôm nay!`
+                  : 'Hôm nay đã học xong hết rồi 🎉'}
+              </p>
+            </div>
+          </div>
+
+          {/* Due words reminder banner */}
+          {dueWords.length > 0 && (
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-3 flex items-center justify-between">
+              <span className="text-amber-600 dark:text-amber-400 text-sm font-semibold">
+                📚 Bạn có <strong>{dueWords.length}</strong> từ cần ôn hôm nay
+              </span>
+              <Link
+                href={classroomId ? `/flashcard?class=${classroomId}` : '#'}
+                className="text-amber-600 dark:text-amber-400 text-xs font-bold underline underline-offset-2 hover:opacity-80 transition-opacity"
+              >
+                Ôn ngay →
+              </Link>
+            </div>
+          )}
+
+          {/* Gamification overview — 3 cards detailed */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <XpBadge totalXp={gamification.total_xp} variant="detailed" />
+            <StreakCounter
+              streak={gamification.current_streak}
+              lastActiveDate={gamification.last_active_date}
+              variant="detailed"
+            />
+            <DailyGoalRing
+              todayXp={gamification.today_xp}
+              dailyGoal={gamification.daily_goal}
+              variant="detailed"
+            />
+          </div>
+
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { label: 'Total Words', val: words.length, icon: LayoutGrid, color: 'text-blue-500', bg: 'bg-blue-50' },
+              { label: 'Total Words', val: totalWords, icon: LayoutGrid, color: 'text-blue-500', bg: 'bg-blue-50' },
               { label: 'Ready Review', val: dueWords.length, icon: Zap, color: 'text-amber-500', bg: 'bg-amber-50' },
               { label: 'Mastered', val: masteredCount, icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-50' },
               { label: 'Accuracy', val: `${quizStats.avgAccuracy}%`, icon: TrendingUp, color: 'text-purple-500', bg: 'bg-purple-50' },
@@ -315,13 +602,45 @@ export default function StudentDashboard() {
             ))}
           </div>
 
+          <Link
+            href={classroomId ? `/writing?class=${classroomId}` : '/writing'}
+            className="flex items-center justify-between bg-white border rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-center gap-4">
+              <div className="bg-emerald-50 w-12 h-12 rounded-xl flex items-center justify-center">
+                <Pencil className="h-6 w-6 text-emerald-500" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-black text-slate-800">✍️ Writing Practice</span>
+                  {dueWords.length > 0 && (
+                    <span className="bg-emerald-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                      {dueWords.length}
+                    </span>
+                  )}
+                </div>
+                <div className="text-xs font-bold text-muted-foreground">
+                  Nhìn nghĩa tiếng Việt, gõ từ tiếng Anh từ trí nhớ
+                </div>
+              </div>
+            </div>
+            <ArrowRight className="h-5 w-5 text-muted-foreground" />
+          </Link>
+
           <Link href="/grammar/learn" className="flex items-center justify-between bg-white border rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center gap-4">
               <div className="bg-indigo-50 w-12 h-12 rounded-xl flex items-center justify-center">
                 <GraduationCap className="h-6 w-6 text-indigo-500" />
               </div>
               <div>
-                <div className="font-black text-slate-800">Bài giảng Ngữ pháp</div>
+                <div className="flex items-center gap-2">
+                  <span className="font-black text-slate-800">Bài giảng Ngữ pháp</span>
+                  {grammarDue > 0 && (
+                    <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                      {grammarDue}
+                    </span>
+                  )}
+                </div>
                 <div className="text-xs font-bold text-muted-foreground">
                   {grammarDue > 0 ? `${grammarDue} bài cần ôn tập` : 'Học lý thuyết & luyện tập'}
                 </div>
@@ -338,7 +657,7 @@ export default function StudentDashboard() {
              
              <div className="flex items-end justify-center gap-3 sm:gap-8 h-40 sm:h-56 px-4 border-b-2 border-slate-50 mb-12">
                 {[1, 2, 3, 4, 5, 6].map((level) => {
-                  const count = words.filter((w: any) => (w.srsLevel || 1) === level).length;
+                  const count = words.filter((w) => (w.srsLevel || 1) === level).length;
                   const maxCount = Math.max(1, words.length);
                   const heightPct = Math.max(10, Math.round((count / maxCount) * 100));
                   
@@ -374,12 +693,12 @@ export default function StudentDashboard() {
                   Ready to review: <span className="text-emerald-500 font-black">{dueWords.length}</span> words
                 </h3>
                 
-                <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} 
-                      className={`inline-flex items-center gap-3 px-12 py-5 rounded-full font-black text-xl shadow-2xl transition-all
-                        ${dueWords.length > 0 
-                          ? 'bg-emerald-500 text-white hover:scale-105 hover:bg-emerald-600' 
+                <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'}
+                      className={`inline-flex items-center gap-3 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl transition-all
+                        ${dueWords.length > 0
+                          ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 hover:brightness-110 active:translate-y-0.5 active:border-b-0'
                           : 'bg-slate-100 text-slate-400 pointer-events-none'}`}>
-                  {dueWords.length > 0 ? 'Review Now' : 'All Caught Up!'} <ArrowRight className="h-6 w-6" />
+                  {dueWords.length > 0 ? 'Ôn ngay! 🚀' : 'Xong hết rồi! 🎉'} <ArrowRight className="h-6 w-6" />
                 </Link>
                 
                 {countdown && dueWords.length === 0 && (
@@ -398,12 +717,100 @@ export default function StudentDashboard() {
               <h3 className="text-2xl font-black text-slate-800 flex items-center gap-2">
                 <LayoutGrid className="h-6 w-6 text-primary" /> Your Vocabulary
               </h3>
-              <Badge variant="outline" className="font-bold">{words.length} items</Badge>
+              <Badge variant="outline" className="font-bold">{totalWords} items</Badge>
             </div>
 
+            {/* Search + filter */}
+            <div className="space-y-2">
+              <div className="flex gap-2">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Tìm từ..."
+                    className="w-full pl-9 pr-3 py-2 text-sm border rounded-xl bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  />
+                </div>
+                <div className="relative">
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                    className="appearance-none pl-3 pr-8 py-2 text-sm border rounded-xl bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 cursor-pointer"
+                  >
+                    <option value="newest">Mới nhất</option>
+                    <option value="oldest">Cũ nhất</option>
+                    <option value="az">A → Z</option>
+                    <option value="hardest">Khó nhất</option>
+                  </select>
+                  <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground pointer-events-none" />
+                </div>
+              </div>
+              <div className="flex gap-1.5 flex-wrap">
+                {(['all', 'new', 'due', 'learned', 'mastered'] as const).map((f) => (
+                  <button
+                    key={f}
+                    onClick={() => setStatusFilter(f)}
+                    className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                      statusFilter === f
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                    }`}
+                  >
+                    {{ all: 'Tất cả', new: 'Mới', due: 'Đến hạn', learned: 'Đã học', mastered: 'Thành thạo' }[f]}
+                  </button>
+                ))}
+                {(debouncedQuery || statusFilter !== 'all') && (
+                  <span className="ml-auto text-xs text-muted-foreground self-center">
+                    {filteredWords.length} / {totalWords} từ
+                  </span>
+                )}
+              </div>
+            </div>
+
+            {isLoading ? (
+              <WordCardSkeleton count={6} />
+            ) : words.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
+                <div className="text-muted-foreground opacity-40"><LayoutGrid className="h-12 w-12 mx-auto" /></div>
+                <h4 className="text-lg font-black text-slate-700">Chưa có từ vựng nào</h4>
+                <p className="text-sm text-muted-foreground max-w-xs">Thêm từ mới hoặc tham gia lớp học để bắt đầu học với AI và Spaced Repetition.</p>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  <Link href="/import" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl font-bold text-sm hover:brightness-110 transition-all">
+                    <Plus className="h-4 w-4" /> Thêm từ ngay
+                  </Link>
+                  <button
+                    onClick={() => { setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-primary/30 text-primary rounded-xl font-bold text-sm hover:bg-primary/5 transition-all"
+                  >
+                    <UserPlus className="h-4 w-4" /> Tham gia lớp
+                  </button>
+                </div>
+              </div>
+            ) : (
+            <>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {words.slice(0, 10).map((word: any) => (
-                <div key={word.id} className="bg-white border rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+              {filteredWords.length === 0 && (debouncedQuery || statusFilter !== 'all') && (
+                <div className="col-span-2 text-center py-10 text-muted-foreground">
+                  <Search className="h-8 w-8 mx-auto mb-2 opacity-30" />
+                  <p className="text-sm">Không tìm thấy từ nào</p>
+                </div>
+              )}
+              {filteredWords.map((word) => (
+                <div
+                  key={word.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSelectedWordId(word.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setSelectedWordId(word.id);
+                    }
+                  }}
+                  className="bg-white border rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-primary/40 transition-all group relative overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40"
+                >
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <h4 className="text-xl font-black text-primary">{word.word}</h4>
@@ -412,26 +819,26 @@ export default function StudentDashboard() {
                          <span>{word.ipa || ''}</span>
                       </div>
                     </div>
-                    <Badge className={word.srsLevel >= 5 ? 'bg-emerald-500' : 'bg-primary/20 text-primary'}>
+                    <Badge className={(word.srsLevel ?? 0) >= 5 ? 'bg-emerald-500' : 'bg-primary/20 text-primary'}>
                       Lvl {word.srsLevel || 1}
                     </Badge>
                   </div>
-                  
+
                   <p className="text-sm font-semibold text-slate-600 line-clamp-2 mb-4">
                     {word.translation}
                   </p>
 
                   <div className="flex items-center gap-2">
                     {word.dictionary_data && (
-                      <button 
-                        onClick={() => setSelectedWord(word)}
+                      <button
+                        onClick={(e) => { e.stopPropagation(); setSelectedWord(word); }}
                         className="text-[10px] font-black uppercase tracking-wider text-indigo-500 hover:text-indigo-700 bg-indigo-50 px-3 py-1.5 rounded-lg transition-colors"
                       >
                         Change Meaning
                       </button>
                     )}
-                    <button 
-                      onClick={() => handleDeleteWord(word.id)}
+                    <button
+                      onClick={(e) => { e.stopPropagation(); handleDeleteWord(word.id); }}
                       className="text-[10px] font-black uppercase tracking-wider text-rose-500 hover:text-rose-700 bg-rose-50 px-3 py-1.5 rounded-lg transition-colors ml-auto opacity-0 group-hover:opacity-100"
                     >
                       Delete
@@ -440,15 +847,49 @@ export default function StudentDashboard() {
                 </div>
               ))}
             </div>
-            
-            {words.length > 10 && (
-              <p className="text-center text-sm font-bold text-muted-foreground italic">
-                + {words.length - 10} more words in your list
-              </p>
+
+            {words.length < totalWords && !debouncedQuery && statusFilter === 'all' && (
+              <div className="text-center pt-2">
+                <button
+                  onClick={loadMoreWords}
+                  disabled={isLoadingMore}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border-2 border-primary/20 font-bold text-primary hover:bg-primary/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isLoadingMore ? (
+                    <><Loader2 className="h-4 w-4 animate-spin" /> Loading...</>
+                  ) : (
+                    <>Load more ({totalWords - words.length} remaining)</>
+                  )}
+                </button>
+              </div>
+            )}
+            </>
             )}
           </section>
+
+          {/* Badges */}
+          <BadgeGrid badges={badges} />
+
+          {/* Milestone celebration (level up / new badge / streak milestone) */}
+          {celebration && (
+            <Celebration
+              trigger
+              triggerKey={celebration.key}
+              intensity={celebration.intensity}
+            />
+          )}
         </div>
       </main>
+
+      {/* ═══ WORD DETAIL MODAL ═══ */}
+      <WordDetailModal
+        wordId={selectedWordId}
+        onClose={() => setSelectedWordId(null)}
+        onDeleted={(deletedId) => {
+          setWords((prev) => prev.filter((w) => w.id !== deletedId));
+          setTotalWords((prev) => Math.max(0, prev - 1));
+        }}
+      />
 
       {/* ═══ MEANING SELECTOR MODAL ═══ */}
       {selectedWord && (
@@ -469,13 +910,17 @@ export default function StudentDashboard() {
             </div>
             
             <div className="p-6 max-h-[60vh] overflow-y-auto space-y-4">
-              {/* @ts-ignore */}
-              {selectedWord.dictionary_data?.map((entry: any, eIdx: number) => (
+              {/* Dictionary data shape từ external API khác với DictionaryData interface — dùng narrow type */}
+              {(selectedWord.dictionary_data as unknown as Array<{
+                pos?: string;
+                pronunciations?: { ipa?: string }[];
+                definitions: Array<{ definition: string; pos?: string; example?: string }>;
+              }> | null | undefined)?.map((entry, eIdx) => (
                 <div key={eIdx} className="space-y-3">
-                  {entry.definitions.map((def: any, dIdx: number) => (
+                  {entry.definitions.map((def, dIdx) => (
                     <button
                       key={`${eIdx}-${dIdx}`}
-                      onClick={() => handleUpdateMeaning(selectedWord.id, def.definition, def.pos, entry.pronunciations?.[0]?.ipa)}
+                      onClick={() => handleUpdateMeaning(selectedWord.id, def.definition, def.pos || '', entry.pronunciations?.[0]?.ipa)}
                       className="w-full text-left p-4 rounded-2xl border-2 border-transparent hover:border-primary hover:bg-primary/5 transition-all group"
                     >
                       <div className="flex items-center gap-2 mb-1">
@@ -493,7 +938,7 @@ export default function StudentDashboard() {
                       </p>
                       {def.example && (
                         <p className="text-xs font-medium text-slate-500 italic">
-                          "{def.example}"
+                          &quot;{def.example}&quot;
                         </p>
                       )}
                     </button>
@@ -510,6 +955,54 @@ export default function StudentDashboard() {
                  Cancel
                </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* ═══ JOIN CLASSROOM MODAL ═══ */}
+      {isJoinModalOpen && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+          <div
+            className="absolute inset-0"
+            onClick={() => { if (!isJoining) { setIsJoinModalOpen(false); setJoinError(null); } }}
+          />
+          <div className="relative bg-slate-900 border border-white/10 rounded-2xl p-6 w-80 shadow-2xl animate-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between mb-5">
+              <h3 className="text-lg font-black text-white flex items-center gap-2">
+                <UserPlus className="h-5 w-5 text-primary" /> Tham gia lớp học
+              </h3>
+              <button
+                onClick={() => { if (!isJoining) { setIsJoinModalOpen(false); setJoinError(null); } }}
+                className="p-1 hover:bg-white/10 rounded-lg transition-colors"
+              >
+                <X className="h-5 w-5 text-white/60" />
+              </button>
+            </div>
+            <p className="text-sm text-white/50 mb-4">Nhập mã lớp do giáo viên cung cấp (VD: ABC123)</p>
+            <input
+              type="text"
+              value={joinCode}
+              onChange={(e) => { setJoinCode(e.target.value.toUpperCase()); setJoinError(null); }}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleJoinClassroom(); }}
+              placeholder="Mã lớp..."
+              maxLength={12}
+              autoFocus
+              className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/30 font-mono text-lg tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-primary/50 mb-3"
+            />
+            {joinError && (
+              <p className="text-rose-400 text-sm font-semibold mb-3">{joinError}</p>
+            )}
+            <button
+              onClick={handleJoinClassroom}
+              disabled={!joinCode.trim() || isJoining}
+              className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-black text-sm hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {isJoining ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Đang tham gia...</>
+              ) : (
+                'Tham gia'
+              )}
+            </button>
           </div>
         </div>
       )}

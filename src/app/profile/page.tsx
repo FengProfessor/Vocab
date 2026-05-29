@@ -1,23 +1,31 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { supabase, type Profile } from '@/lib/supabase';
+import { authFetch } from '@/lib/auth-fetch';
+import type { User as SupabaseUser } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
-import { User, Copy, CheckCircle2, LogOut, Brain, ArrowLeft, Bell, Loader2 } from 'lucide-react';
+import { User, Copy, CheckCircle2, LogOut, Brain, ArrowLeft, Bell, Loader2, Target, BarChart3 } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 
+type ProfileWithExtras = Profile & { telegram_id?: string | null; gemini_api_key?: string | null };
+
 export default function ProfilePage() {
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
-  const [profile, setProfile] = useState<any>(null);
-  const [copied, setCopied] = useState(false);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
+  const [profile, setProfile] = useState<ProfileWithExtras | null>(null);
+  const [copied, setCopied] = useState(false)
+  const [tokenCopied, setTokenCopied] = useState(false);
   const [wordCount, setWordCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   
   const [telegramId, setTelegramId] = useState('');
   const [isSavingTg, setIsSavingTg] = useState(false);
   const [isTestingTg, setIsTestingTg] = useState(false);
+  const [dailyGoal, setDailyGoal] = useState(10);
+  const [notificationHour, setNotificationHour] = useState(20);
+  const [isSavingGoal, setIsSavingGoal] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -28,9 +36,11 @@ export default function ProfilePage() {
       const { data: prof } = await supabase.from('profiles').select('*').eq('id', user.id).single();
       setProfile(prof);
       if (prof?.telegram_id) setTelegramId(prof.telegram_id);
+      if (prof?.daily_goal) setDailyGoal(prof.daily_goal);
+      if (prof?.notification_hour !== undefined) setNotificationHour(prof.notification_hour);
 
       // Count words
-      const res = await fetch(`/api/words?userId=${user.id}`);
+      const res = await authFetch(`/api/words`);
       const data = await res.json();
       if (data.success) setWordCount(data.data?.length || 0);
 
@@ -47,6 +57,20 @@ export default function ProfilePage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const copyAccessToken = async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token;
+      if (!token) { toast.error('Không lấy được token — thử đăng nhập lại'); return; }
+      await navigator.clipboard.writeText(token);
+      setTokenCopied(true);
+      toast.success('Access token đã copy! Paste vào Extension popup.');
+      setTimeout(() => setTokenCopied(false), 3000);
+    } catch {
+      toast.error('Không copy được token');
+    }
+  };
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.push('/auth');
@@ -61,8 +85,9 @@ export default function ProfilePage() {
       }).eq('id', user.id);
       if (error) throw error;
       toast.success('Settings updated successfully!');
-    } catch (err: any) {
-      toast.error(err.message || 'Error saving settings');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Error saving settings';
+      toast.error(msg);
     } finally {
       setIsSavingTg(false);
     }
@@ -83,8 +108,9 @@ export default function ProfilePage() {
       } else {
         throw new Error(data.error || 'Failed to send test message');
       }
-    } catch (err: any) {
-      toast.error(err.message || 'Error testing Telegram notification');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Error testing Telegram notification';
+      toast.error(msg);
     } finally {
       setIsTestingTg(false);
     }
@@ -133,7 +159,7 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* User ID — key feature for Extension setup */}
+          {/* Chrome Extension Setup — dùng Access Token (JWT) */}
           <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-2 opacity-10">
               <Brain className="h-10 w-10 text-primary" />
@@ -146,29 +172,51 @@ export default function ProfilePage() {
               Chrome Extension Setup
             </p>
             <p className="text-[10px] text-slate-400 mb-3 leading-relaxed">
-              To save words from any website, paste this ID into the Extension Settings:
+              Copy token bên dưới rồi paste vào Extension → Settings → Access Token:
             </p>
-            <div className="flex items-center gap-2">
-              <code className="flex-1 text-xs text-slate-300 font-mono bg-black/40 rounded-lg px-3 py-2.5 overflow-hidden text-ellipsis whitespace-nowrap border border-white/5">
-                {user?.id}
+            {/* Access Token — primary for extension auth */}
+            <div className="flex items-center gap-2 mb-3">
+              <code className="flex-1 text-xs text-slate-300 font-mono bg-black/40 rounded-lg px-3 py-2.5 overflow-hidden text-ellipsis whitespace-nowrap border border-white/5 select-none">
+                {'●●●●●●●● (click Copy để lấy)'}
               </code>
               <button
-                onClick={copyUserId}
+                onClick={copyAccessToken}
                 className="flex items-center gap-1.5 bg-primary text-white text-xs font-black px-4 py-2.5 rounded-lg hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20 shrink-0"
               >
-                {copied ? <CheckCircle2 className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                {copied ? 'Done!' : 'Copy'}
+                {tokenCopied ? <CheckCircle2 className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {tokenCopied ? 'Copied!' : 'Copy Token'}
               </button>
             </div>
+            <p className="text-[10px] text-amber-400/80 leading-relaxed mb-3">
+              ⚠️ Token hết hạn sau ~1 giờ — nếu extension báo lỗi 401, quay lại đây copy lại.
+            </p>
+            {/* User ID — legacy, keep for reference */}
+            <details className="group">
+              <summary className="text-[10px] text-slate-500 cursor-pointer hover:text-slate-400 transition-colors">
+                Hoặc dùng User ID cũ (deprecated) ▸
+              </summary>
+              <div className="flex items-center gap-2 mt-2">
+                <code className="flex-1 text-xs text-slate-500 font-mono bg-black/20 rounded-lg px-3 py-2 overflow-hidden text-ellipsis whitespace-nowrap border border-white/5">
+                  {user?.id}
+                </code>
+                <button
+                  onClick={copyUserId}
+                  className="flex items-center gap-1.5 bg-slate-600/60 text-slate-300 text-xs font-bold px-3 py-2 rounded-lg hover:bg-slate-600 transition-all shrink-0"
+                >
+                  {copied ? <CheckCircle2 className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                  {copied ? 'Done!' : 'Copy'}
+                </button>
+              </div>
+            </details>
             <div className="mt-4 pt-4 border-t border-white/5 grid grid-cols-2 gap-2">
                <div className="text-[10px] text-slate-500">
                   <strong>1.</strong> Install Extension
                </div>
                <div className="text-[10px] text-slate-500">
-                  <strong>2.</strong> Paste User ID
+                  <strong>2.</strong> Copy Token (above)
                </div>
                <div className="text-[10px] text-slate-500">
-                  <strong>3.</strong> Set Server URL
+                  <strong>3.</strong> Paste vào Extension
                </div>
                <div className="text-[10px] text-slate-500 font-bold text-primary">
                   <strong>4.</strong> Start Catching!
@@ -226,6 +274,74 @@ export default function ProfilePage() {
             </button>
           </div>
         </div>
+
+        {/* Learning goal settings */}
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 space-y-4">
+          <p className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+            <Target className="h-3.5 w-3.5" /> Mục tiêu học tập
+          </p>
+          <div>
+            <label className="text-xs text-slate-400 block mb-2">
+              Mục tiêu hàng ngày: <span className="text-white font-bold">{dailyGoal} từ/ngày</span>
+            </label>
+            <input
+              type="range" min={5} max={50} step={5}
+              value={dailyGoal}
+              onChange={(e) => setDailyGoal(Number(e.target.value))}
+              className="w-full accent-emerald-500"
+            />
+            <div className="flex justify-between text-[10px] text-slate-600 mt-1"><span>5</span><span>25</span><span>50</span></div>
+          </div>
+          <div>
+            <label className="text-xs text-slate-400 block mb-2">
+              Giờ nhắc nhở: <span className="text-white font-bold">{String(notificationHour).padStart(2,'0')}:00</span>
+            </label>
+            <select
+              value={notificationHour}
+              onChange={(e) => setNotificationHour(Number(e.target.value))}
+              className="w-full bg-black/40 border border-white/10 text-white text-sm rounded-xl px-3 py-2.5 focus:outline-none focus:border-emerald-500"
+            >
+              {Array.from({ length: 24 }, (_, i) => (
+                <option key={i} value={i}>{String(i).padStart(2,'0')}:00</option>
+              ))}
+            </select>
+          </div>
+          <button
+            onClick={async () => {
+              setIsSavingGoal(true);
+              try {
+                if (!user?.id) return;
+                const { error } = await supabase.from('profiles').update({ daily_goal: dailyGoal, notification_hour: notificationHour }).eq('id', user.id);
+                if (error) throw error;
+                toast.success('Đã lưu mục tiêu!');
+              } catch (err: unknown) {
+                toast.error(err instanceof Error ? err.message : 'Lỗi lưu');
+              } finally {
+                setIsSavingGoal(false);
+              }
+            }}
+            disabled={isSavingGoal}
+            className="w-full flex items-center justify-center gap-2 bg-emerald-600/80 hover:bg-emerald-600 text-white text-sm font-bold py-2.5 rounded-xl transition-all disabled:opacity-50"
+          >
+            {isSavingGoal ? <Loader2 className="h-4 w-4 animate-spin" /> : <Target className="h-4 w-4" />}
+            Lưu mục tiêu
+          </button>
+        </div>
+
+        {/* Stats link */}
+        <Link
+          href="/student/stats"
+          className="flex items-center justify-between bg-white/5 border border-white/10 rounded-2xl p-4 hover:bg-white/10 transition-all"
+        >
+          <div className="flex items-center gap-3">
+            <BarChart3 className="h-5 w-5 text-indigo-400" />
+            <div>
+              <p className="text-sm font-bold text-white">Thống kê học tập</p>
+              <p className="text-[10px] text-slate-400">Streak, SRS level, quiz history</p>
+            </div>
+          </div>
+          <ArrowLeft className="h-4 w-4 rotate-180 text-slate-500" />
+        </Link>
 
         {/* Sign out */}
         <button
