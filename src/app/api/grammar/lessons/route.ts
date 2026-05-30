@@ -125,6 +125,8 @@ export async function PUT(req: Request) {
       .select()
       .single();
     if (error) throw error;
+    // Nội dung lesson đổi → xoá quiz cache cũ để lần sau sinh lại theo nội dung mới
+    await supabase.from('grammar_quiz_cache').delete().eq('lesson_id', id);
     return NextResponse.json({ success: true, data });
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : 'Unknown error';

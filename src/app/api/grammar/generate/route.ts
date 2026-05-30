@@ -3,6 +3,9 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import type { GrammarExample, GrammarLevel } from '@/lib/supabase';
 import { checkRateLimit } from '@/lib/rate-limit';
 
+// Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
+export const maxDuration = 30;
+
 interface GenerateBody {
   topic?: unknown;
   level?: unknown;

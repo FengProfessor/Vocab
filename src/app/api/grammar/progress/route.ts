@@ -183,6 +183,17 @@ export async function POST(req: Request): Promise<NextResponse> {
     const next = calculateNextReview(current, rating);
     const state = rating === 1 ? 'relearning' : next.reviewCount <= 1 ? 'learning' : 'review';
 
+    // EMA cho mastery_score: smooth qua nhiều session, không overwrite từ lần submit cuối.
+    // new = α * current + (1 - α) * old, với α = 0.3.
+    // Nếu chưa có session nào → dùng current trực tiếp.
+    const clampedAcc = Math.max(0, Math.min(1, accuracy));
+    const currentScore = Math.round(clampedAcc * 100);
+    const ALPHA = 0.3;
+    const oldScore = existing?.mastery_score;
+    const masteryScore = typeof oldScore === 'number'
+      ? Math.round(ALPHA * currentScore + (1 - ALPHA) * oldScore)
+      : currentScore;
+
     const { data, error } = await supabase
       .from('grammar_progress')
       .upsert(
@@ -196,7 +207,7 @@ export async function POST(req: Request): Promise<NextResponse> {
           next_review_date: next.nextReviewDate,
           last_reviewed_at: next.lastReviewDate,
           state,
-          mastery_score: Math.round(Math.max(0, Math.min(1, accuracy)) * 100),
+          mastery_score: masteryScore,
         },
         { onConflict: 'user_id,lesson_id' }
       )

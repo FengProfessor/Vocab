@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import {
   Brain, BookOpen, Zap, LayoutDashboard, LogOut, Loader2, Plus,
   CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw,
-  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy
+  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -506,9 +506,17 @@ export default function StudentDashboard() {
             <UserPlus className="h-5 w-5" /> Tham gia lớp
           </button>
         </nav>
-        <button onClick={handleSignOut} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:text-destructive rounded-xl transition-all font-semibold">
-          <LogOut className="h-5 w-5" /> Sign Out
-        </button>
+        <div className="space-y-1">
+          <Link href="/upgrade" className="flex items-center gap-3 px-4 py-3 text-violet-600 hover:bg-violet-50 rounded-xl transition-all font-bold">
+            <Crown className="h-5 w-5" /> Nâng cấp
+            {profile?.plan && profile.plan !== 'free' && (
+              <span className="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-violet-100 text-violet-600 font-black uppercase">{profile.plan}</span>
+            )}
+          </Link>
+          <button onClick={handleSignOut} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:text-destructive rounded-xl transition-all font-semibold w-full text-left">
+            <LogOut className="h-5 w-5" /> Sign Out
+          </button>
+        </div>
       </aside>
 
       {/* ═══ MAIN ═══ */}

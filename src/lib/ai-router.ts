@@ -32,9 +32,9 @@ const MODEL_MAP: Record<ModelTier, string> = {
 
 /** Timeout per tier (ms) */
 const TIMEOUT_MAP: Record<ModelTier, number> = {
-  fast: 8_000,
-  normal: 15_000,
-  smart: 30_000,
+  fast: 12_000,
+  normal: 30_000,
+  smart: 60_000,
 };
 
 const COOLDOWN_MS = 60_000; // 60s sau khi bị 429

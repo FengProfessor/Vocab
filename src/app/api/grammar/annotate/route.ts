@@ -2,9 +2,27 @@ import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { checkRateLimit } from '@/lib/rate-limit';
 
+// Gemini call dùng AbortSignal.timeout(10000). Mặc định Hobby cắt ở 10s → đặt 30s để có headroom.
+export const maxDuration = 30;
+
 export interface WordAnnotation {
   word: string;
-  role: 'subject' | 'verb' | 'object' | 'adjective' | 'adverb' | 'preposition' | 'conjunction' | 'article' | 'other';
+  role:
+    | 'noun'        // danh từ (book, happiness)
+    | 'pronoun'     // đại từ (he, she, this)
+    | 'verb'        // động từ chính (run, eat)
+    | 'auxiliary'   // trợ động từ (is, has, do)
+    | 'modal'       // động từ khuyết thiếu (can, will, should)
+    | 'adjective'   // tính từ (big, happy)
+    | 'adverb'      // trạng từ (quickly, very)
+    | 'preposition' // giới từ (in, on, at)
+    | 'conjunction' // liên từ (and, but, because)
+    | 'determiner'  // hạn định từ (this, my, some)
+    | 'article'     // mạo từ (a, an, the)
+    | 'interjection'// thán từ (oh, wow)
+    // Backward-compat: dữ liệu cũ vẫn dùng nhãn chức năng
+    | 'subject' | 'object'
+    | 'other';
   start: number;
   end: number;
 }
@@ -50,15 +68,30 @@ export async function POST(req: NextRequest) {
     });
 
     const topicLine = typeof topic === 'string' && topic.trim() ? `Grammar topic context: ${topic.trim()}` : '';
-    const prompt = `Analyze this English sentence and identify the grammatical role of each meaningful word/phrase.
+    const prompt = `You are an English linguist. Tag every meaningful token in this sentence with ITS PART OF SPEECH (not its syntactic function).
 Return a JSON array. Each element: {"word": exact_substring, "role": one_of_roles, "start": char_index, "end": exclusive_char_index}.
-Roles: subject, verb, object, adjective, adverb, preposition, conjunction, article, other.
+
+Allowed roles (use ONLY these — never use "subject" or "object"):
+- noun          (book, happiness, John)
+- pronoun       (he, she, it, they, this, who)
+- verb          (main verbs: run, eat, became)
+- auxiliary     (forms of be/have/do used as helpers: is, has, did)
+- modal         (can, could, will, would, must, should, may)
+- adjective     (big, blue, careful)
+- adverb        (quickly, very, often, here, then)
+- preposition   (in, on, at, by, for, with)
+- conjunction   (and, but, or, because, although)
+- determiner    (this/that/these/those, my/your, some, any, much, many)
+- article       (a, an, the)
+- interjection  (oh, wow, ah)
+
 Rules:
-- "start" and "end" must be exact character positions in the original sentence string (case-sensitive match).
-- Multi-word subjects/objects (e.g. "the big dog") can be one annotation.
-- Articles (a, an, the) → role "article".
-- Cover only meaningful tokens, skip punctuation.
-- Return ONLY valid JSON array, no markdown, no explanation.
+- Tag EACH word individually. Do NOT group multi-word phrases — one token = one annotation.
+- "start" and "end" are exact character offsets in the original sentence (case-sensitive substring).
+- Skip punctuation. Skip nothing else.
+- For phrasal verbs ("look up"), tag the verb as "verb" and the particle as "adverb".
+- For gerunds/infinitives acting as nouns, still tag them as "verb" (their POS).
+- ONLY valid JSON array. No markdown. No prose.
 ${topicLine}
 Sentence: "${sentence}"`;
 
@@ -93,7 +126,13 @@ Sentence: "${sentence}"`;
     }
 
     const sentenceLen = sentence.length;
-    const validRoles = new Set(['subject', 'verb', 'object', 'adjective', 'adverb', 'preposition', 'conjunction', 'article', 'other']);
+    const validRoles = new Set([
+      'noun', 'pronoun', 'verb', 'auxiliary', 'modal',
+      'adjective', 'adverb', 'preposition', 'conjunction',
+      'determiner', 'article', 'interjection',
+      // Backward-compat: vẫn chấp nhận nhãn cũ từ cache DB
+      'subject', 'object', 'other',
+    ]);
 
     const annotations: WordAnnotation[] = (parsed as unknown[])
       .filter((item): item is Record<string, unknown> => item !== null && typeof item === 'object')

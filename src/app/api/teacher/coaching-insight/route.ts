@@ -1,6 +1,9 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 
+// Gemini call. Hobby mặc định 10s có thể kill sớm → đặt 30s headroom.
+export const maxDuration = 30;
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 export async function POST(req: Request): Promise<NextResponse> {

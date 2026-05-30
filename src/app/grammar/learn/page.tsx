@@ -8,7 +8,7 @@ import { supabase } from '@/lib/supabase';
 import type { GrammarTopic, GrammarLesson, GrammarProgress } from '@/lib/supabase';
 import GrammarHighlight, { type WordAnnotation } from '@/components/grammar/GrammarHighlight';
 import {
-  ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen,
+  ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen, Volume2, History,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -21,6 +21,24 @@ interface TopicProgressSummary {
   masteredLessons: number;
   avgMasteryScore: number;
   nextDueDate: string | null;
+}
+
+/**
+ * Đọc câu tiếng Anh bằng Web Speech API (free, native).
+ * Tự cancel utterance đang chạy nếu user click liên tiếp.
+ */
+function speakEnglish(text: string) {
+  if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+    toast.error('Trình duyệt không hỗ trợ đọc giọng nói.');
+    return;
+  }
+  const synth = window.speechSynthesis;
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'en-US';
+  utter.rate = 0.9;
+  utter.pitch = 1;
+  synth.speak(utter);
 }
 
 function formatOcrTheory(text: string): string {
@@ -190,6 +208,13 @@ export default function GrammarLearnPage() {
     }
   };
 
+  /**
+   * Đánh dấu đã đọc / ôn lại bài học.
+   * Sư phạm: chỉ đọc lý thuyết KHÔNG = đã thuộc.
+   * - Bài mới (chưa có progress) → accuracy 0.55 ≈ Hard → FSRS lên lịch ôn lại sớm (1-2 ngày).
+   * - Bài đã từng học (đang due/learned) → accuracy 0.8 ≈ Good → khoảng cách review tăng theo FSRS.
+   * Để có Good/Easy thực sự, học sinh phải làm bài tập (route /api/grammar/progress nhận accuracy thật từ quiz).
+   */
   const markAsLearned = async () => {
     if (!activeLesson || !userId) {
       toast.error('Bạn cần đăng nhập để lưu tiến độ.');
@@ -198,18 +223,24 @@ export default function GrammarLearnPage() {
     setMarking(true);
     try {
       const { data: { session } } = await supabase.auth.getSession();
+      const hasPriorProgress = !!progressMap[activeLesson.id];
+      const accuracy = hasPriorProgress ? 0.8 : 0.55;
       const res = await fetch('/api/grammar/progress', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
         },
-        body: JSON.stringify({ lessonId: activeLesson.id, accuracy: 0.8 }),
+        body: JSON.stringify({ lessonId: activeLesson.id, accuracy }),
       });
       const data = await res.json();
       if (data.success) {
         setProgressMap((prev) => ({ ...prev, [activeLesson.id]: data.data }));
-        toast.success('Đã đánh dấu hoàn thành bài học! 🎉');
+        toast.success(
+          hasPriorProgress
+            ? 'Đã ôn lại bài học! Lịch ôn tiếp theo đã cập nhật.'
+            : 'Đã ghi nhận bạn đọc xong. Hãy làm bài tập để củng cố!',
+        );
       } else {
         toast.error('Lỗi: ' + (data.error || 'không rõ'));
       }
@@ -338,35 +369,55 @@ export default function GrammarLearnPage() {
                 <BookOpen className="h-4 w-4" /> Ví dụ
               </h3>
               {activeLesson.examples.map((ex, i) => (
-                <div key={i} className="border-l-2 border-primary/30 pl-3">
+                <div key={i} className="border-l-2 border-primary/30 pl-3 group">
+                  <div className="flex items-start gap-2">
+                    <button
+                      type="button"
+                      onClick={() => speakEnglish(ex.en)}
+                      aria-label={`Đọc câu ví dụ ${i + 1}`}
+                      title="Nghe phát âm"
+                      className="shrink-0 mt-1 h-7 w-7 flex items-center justify-center rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <Volume2 className="h-3.5 w-3.5" />
+                    </button>
+                    <div className="flex-1 min-w-0">
                   <GrammarHighlight
                     sentence={ex.en}
                     annotations={annotationsCache[ex.en] ?? []}
                     loading={loadingAnnotations && !annotationsCache[ex.en]}
                     showLegend={i === 0}
                   />
-                  {ex.vi && <p className="text-sm text-muted-foreground mt-0.5">{ex.vi}</p>}
-                  {ex.note && <p className="text-xs text-amber-700 italic mt-0.5">{ex.note}</p>}
+                      {ex.vi && <p className="text-sm text-muted-foreground mt-0.5">{ex.vi}</p>}
+                      {ex.note && <p className="text-xs text-amber-700 italic mt-0.5">{ex.note}</p>}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <button
-              onClick={() => router.push(`/grammar?lesson=${activeLesson.id}`)}
-              className="flex-1 bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
-            >
-              <Dumbbell className="h-4 w-4" /> Làm bài tập
-            </button>
-            <button
-              onClick={markAsLearned}
-              disabled={marking}
-              className="flex-1 border font-bold py-3 rounded-xl hover:bg-muted transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
-            >
-              {marking ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-              {status === 'new' ? 'Đánh dấu đã học' : 'Ôn lại — hoàn thành'}
-            </button>
+          <div className="space-y-2 pt-2">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => router.push(`/grammar?lesson=${activeLesson.id}`)}
+                className="flex-1 bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+              >
+                <Dumbbell className="h-4 w-4" /> Làm bài tập
+              </button>
+              <button
+                onClick={markAsLearned}
+                disabled={marking}
+                className="flex-1 border font-bold py-3 rounded-xl hover:bg-muted transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+              >
+                {marking ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
+                {status === 'new' ? 'Đã đọc xong' : 'Ôn lại xong'}
+              </button>
+            </div>
+            {status === 'new' && (
+              <p className="text-xs text-muted-foreground text-center">
+                💡 Chỉ đọc lý thuyết thôi chưa đủ — làm bài tập để chứng minh bạn đã nắm vững.
+              </p>
+            )}
           </div>
         </article>
       </main>
@@ -435,15 +486,24 @@ export default function GrammarLearnPage() {
         <h1 className="flex items-center gap-2 font-bold text-primary text-base">
           <GraduationCap className="h-5 w-5" /> Bài giảng Ngữ pháp
         </h1>
-        {/* Mobile: nút mở sidebar */}
-        <button
-          onClick={() => setSidebarOpen((v) => !v)}
-          className="md:hidden flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
-          aria-label="Tiến độ chủ đề"
-        >
-          Tiến độ {sidebarOpen ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-        </button>
-        <span className="hidden md:block w-16" />
+        <div className="flex items-center gap-2">
+          {/* Quick link: ôn câu sai */}
+          <Link
+            href="/grammar?review=1"
+            className="hidden sm:flex items-center gap-1 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 rounded-full px-3 py-1.5 transition-colors"
+            title="Ôn các câu bạn từng làm sai trong 14 ngày qua"
+          >
+            <History className="h-3.5 w-3.5" /> Ôn câu sai
+          </Link>
+          {/* Mobile: nút mở sidebar */}
+          <button
+            onClick={() => setSidebarOpen((v) => !v)}
+            className="md:hidden flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Tiến độ chủ đề"
+          >
+            Tiến độ {sidebarOpen ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+          </button>
+        </div>
       </header>
 
       <div className="flex gap-6 max-w-5xl mx-auto px-4 sm:px-6 py-6">

@@ -3,6 +3,9 @@ import { createServiceClient } from "@/lib/supabase";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { getRouter } from "@/lib/ai-router";
 
+// Gọi AI sinh từ điển khi cache miss. Hobby mặc định 10s có thể kill sớm.
+export const maxDuration = 30;
+
 export async function POST(req: NextRequest) {
   try {
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';

@@ -25,6 +25,8 @@ export type UserRole = 'teacher' | 'student';
 export type QuizType = 'vocabulary' | 'grammar';
 export type GrammarLevel = 'beginner' | 'intermediate' | 'advanced';
 
+export type Plan = 'free' | 'pro' | 'premium';
+
 export interface Profile {
   id: string;
   email: string;
@@ -35,6 +37,8 @@ export interface Profile {
   daily_goal?: number;
   notification_hour?: number;
   fcm_token?: string | null;
+  plan?: Plan;
+  plan_expires_at?: string | null;
 }
 
 export interface Classroom {
@@ -125,6 +129,8 @@ export interface QuizResult {
   completed_at: string;
 }
 
+export type GrammarExerciseType = 'multiple_choice' | 'fill_blank' | 'error_correction';
+
 export interface GrammarExercise {
   id: string;
   classroom_id: string;
@@ -134,6 +140,8 @@ export interface GrammarExercise {
   options: string[];
   correct_answer: string;
   explanation?: string;
+  type?: GrammarExerciseType;
+  difficulty?: number; // 1=easy, 2=medium, 3=hard
   lesson_id?: string | null;
   created_by?: string;
   created_at: string;

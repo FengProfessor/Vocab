@@ -17,6 +17,8 @@ create table if not exists public.profiles (
   full_name text,
   avatar_url text,
   role text not null default 'student' check (role in ('teacher', 'student')),
+  plan text default 'free' check (plan in ('free', 'pro', 'premium')),
+  plan_expires_at timestamptz,        -- null = không hết hạn (free/lifetime)
   created_at timestamptz default now()
 );
 
@@ -88,6 +90,8 @@ create table if not exists public.grammar_exercises (
   options text[] not null,
   correct_answer text not null,
   explanation text,
+  type text default 'multiple_choice' check (type in ('multiple_choice', 'fill_blank', 'error_correction')),
+  difficulty smallint default 2 check (difficulty between 1 and 3),
   created_by uuid references public.profiles(id),
   created_at timestamptz default now()
 );

@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes';
 import FirebaseInitializer from '@/components/FirebaseInitializer';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import InstallPrompt from '@/components/InstallPrompt';
+import { PostHogProvider } from '@/components/PostHogProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker'in navigator){navigator.serviceWorker.register('/sw-custom.js').catch(()=>{})}` }} />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <PostHogProvider>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -71,6 +73,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <InstallPrompt />
           <Toaster position="bottom-right" richColors />
         </ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

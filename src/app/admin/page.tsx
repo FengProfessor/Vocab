@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
-import { Brain, Users, BookOpen, Target, TrendingUp, ChevronLeft } from 'lucide-react';
+import { Brain, Users, BookOpen, Target, TrendingUp, ChevronLeft, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 
 interface UserStat {
@@ -63,6 +63,11 @@ export default function AdminPage() {
         <div className="flex items-center gap-2 font-bold text-primary">
           <Brain className="h-5 w-5" />
           Admin Dashboard
+        </div>
+        <div className="ml-auto">
+          <Link href="/admin/billing" className="flex items-center gap-1.5 text-sm font-semibold bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-xl transition-colors">
+            <CreditCard className="h-4 w-4" /> Billing
+          </Link>
         </div>
       </header>
 

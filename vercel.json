@@ -1,4 +1,10 @@
 {
+  "crons": [
+    {
+      "path": "/api/cron/check-expired",
+      "schedule": "0 2 * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
