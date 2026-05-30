@@ -13,12 +13,43 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 /** Giá gốc theo tháng (VNĐ). Free không có trong map. */
 export const PLAN_PRICES: Record<Exclude<Plan, 'free'>, number> = {
-  pro: 99_000,
-  premium: 199_000,
+  pro: 79_000,
+  premium: 129_000,
+};
+
+/** Giá trọn gói NĂM (12 tháng) — đã giảm sẵn so với trả từng tháng. */
+export const PLAN_ANNUAL_PRICES: Record<Exclude<Plan, 'free'>, number> = {
+  pro: 599_000,     // ~37% off so với 79k×12 = 948k
+  premium: 899_000, // ~42% off so với 129k×12 = 1.548tr
 };
 
 /** Giá gói School (dùng cho landing, riêng vì ngoài Plan type hiện tại). */
 export const SCHOOL_PRICE = 499_000;
+
+/** Kỳ hạn mua + % giảm. 12 tháng = null → dùng giá năm cố định (PLAN_ANNUAL_PRICES). */
+export const PERIOD_OPTIONS: { months: number; label: string; discountPct: number | null }[] = [
+  { months: 1, label: '1 tháng', discountPct: 0 },
+  { months: 3, label: '3 tháng', discountPct: 10 },
+  { months: 6, label: '6 tháng', discountPct: 20 },
+  { months: 12, label: '1 năm', discountPct: null },
+];
+
+/**
+ * Giá gốc (trước coupon) theo gói + số tháng. NGUỒN DUY NHẤT cho cả client lẫn server.
+ * - 12 tháng → giá năm cố định.
+ * - Khác → giá tháng × số tháng × (1 - % giảm kỳ hạn).
+ */
+export function computeBasePrice(plan: Exclude<Plan, 'free'>, periodMonths: number): number {
+  if (periodMonths === 12) return PLAN_ANNUAL_PRICES[plan];
+  const opt = PERIOD_OPTIONS.find((o) => o.months === periodMonths);
+  const pct = opt?.discountPct ?? 0;
+  return Math.round(PLAN_PRICES[plan] * periodMonths * (1 - pct / 100));
+}
+
+/** Giá niêm yết (giá tháng × số tháng, KHÔNG giảm) — để hiển thị "tiết kiệm bao nhiêu". */
+export function listPrice(plan: Exclude<Plan, 'free'>, periodMonths: number): number {
+  return PLAN_PRICES[plan] * periodMonths;
+}
 
 /** Nhãn gói cho UI. */
 export const PLAN_LABELS: Record<Plan, string> = {
@@ -78,7 +109,8 @@ export async function createOrder(
 ) {
   const { userId, plan, periodMonths = 1, paymentMethod = 'bank_transfer', couponCode } = input;
 
-  const basePrice = PLAN_PRICES[plan] * periodMonths;
+  // Áp giảm giá kỳ hạn ngay tại server → số tiền order luôn khớp giá hiển thị ở /upgrade
+  const basePrice = computeBasePrice(plan, periodMonths);
 
   // Validate + apply coupon
   let coupon: Coupon | null = null;

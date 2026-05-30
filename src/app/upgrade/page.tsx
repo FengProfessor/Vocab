@@ -10,7 +10,7 @@ import {
   Copy, Clock, CreditCard
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { PLAN_PRICES, PLAN_LABELS, formatVND, getRemainingDays, formatExpiry, applyDiscount, type Coupon } from '@/lib/billing';
+import { PLAN_PRICES, PLAN_LABELS, PERIOD_OPTIONS, computeBasePrice, listPrice, formatVND, getRemainingDays, formatExpiry, applyDiscount, type Coupon } from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
 
 // ─── Constants ───
@@ -68,13 +68,6 @@ const PLAN_OPTIONS: PlanOption[] = [
   },
 ];
 
-const PERIOD_OPTIONS = [
-  { months: 1, label: '1 tháng', discount: 0 },
-  { months: 3, label: '3 tháng', discount: 10 },
-  { months: 6, label: '6 tháng', discount: 15 },
-  { months: 12, label: '12 tháng', discount: 25 },
-];
-
 export default function UpgradePage() {
   const router = useRouter();
   const [currentPlan, setCurrentPlan] = useState<Plan>('free');
@@ -106,11 +99,10 @@ export default function UpgradePage() {
     })();
   }, [router]);
 
-  // Calculate price
+  // Calculate price — dùng chung computeBasePrice/listPrice với server (billing.ts) để luôn khớp
   const selectedOption = PLAN_OPTIONS.find(p => p.plan === selectedPlan)!;
-  const periodDiscount = PERIOD_OPTIONS.find(p => p.months === periodMonths)?.discount ?? 0;
-  const basePrice = selectedOption.price * periodMonths;
-  const afterPeriodDiscount = Math.round(basePrice * (1 - periodDiscount / 100));
+  const basePrice = listPrice(selectedPlan, periodMonths);            // giá niêm yết (chưa giảm)
+  const afterPeriodDiscount = computeBasePrice(selectedPlan, periodMonths); // sau giảm kỳ hạn
   const afterCoupon = couponValid
     ? applyDiscount(afterPeriodDiscount, couponValid)
     : afterPeriodDiscount;
@@ -347,11 +339,15 @@ export default function UpgradePage() {
                     }`}
                   >
                     <p className="font-bold text-sm">{opt.label}</p>
-                    {opt.discount > 0 && (
-                      <span className="text-[10px] font-bold bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full mt-1 inline-block">
-                        -{opt.discount}%
+                    {opt.discountPct === null ? (
+                      <span className="text-[10px] font-bold bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded-full mt-1 inline-block">
+                        Rẻ nhất
                       </span>
-                    )}
+                    ) : opt.discountPct > 0 ? (
+                      <span className="text-[10px] font-bold bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full mt-1 inline-block">
+                        -{opt.discountPct}%
+                      </span>
+                    ) : null}
                   </button>
                 ))}
               </div>
@@ -399,9 +395,9 @@ export default function UpgradePage() {
                   </span>
                   <span>{formatVND(basePrice)}</span>
                 </div>
-                {periodDiscount > 0 && (
+                {basePrice > afterPeriodDiscount && (
                   <div className="flex justify-between text-sm text-emerald-400">
-                    <span>Giảm thời hạn (-{periodDiscount}%)</span>
+                    <span>Ưu đãi kỳ hạn</span>
                     <span>-{formatVND(basePrice - afterPeriodDiscount)}</span>
                   </div>
                 )}
