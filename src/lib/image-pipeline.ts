@@ -15,8 +15,9 @@ import { search as searchDuckDuckGo } from './image-sources/duckduckgo';
 import { search as searchWikipedia } from './image-sources/wikipedia';
 import { search as searchOpenverse } from './image-sources/openverse';
 import { search as searchPollinations } from './image-sources/pollinations';
+import { search as searchGemini } from './image-sources/gemini';
 
-export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'pollinations' | 'none';
+export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'gemini' | 'pollinations' | 'none';
 
 export interface ResolveImageInput {
   word: string;
@@ -194,7 +195,7 @@ export async function verifyImageMeaning(
 
     const genAI = new GoogleGenerativeAI(key);
     const model = genAI.getGenerativeModel({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       generationConfig: { responseMimeType: 'application/json' },
     });
 
@@ -266,9 +267,17 @@ export async function resolveWordImage(input: ResolveImageInput): Promise<Resolv
     const urls = await searchOpenverse(primaryQuery, 4);
     for (const u of urls) candidates.push({ url: u, source: 'openverse' });
   }
-  // Tier 5: Pollinations — generative, luôn có ứng viên
-  const pollinationsQuery = imageSearchQuery || extractDescriptor(definition) || word;
-  const pollUrls = await searchPollinations(pollinationsQuery, MAX_VISION_CANDIDATES);
+
+  // Tier 5: Gemini Image (Nano Banana) — generative chất lượng cao, tốn quota
+  // Chỉ gọi khi ứng viên thực còn ít (< 3) để tiết kiệm quota API
+  const generativeQuery = imageSearchQuery || extractDescriptor(definition) || word;
+  if (candidates.length < 3) {
+    const geminiUrls = await searchGemini(generativeQuery, 1, word);
+    for (const u of geminiUrls) candidates.push({ url: u, source: 'gemini' });
+  }
+
+  // Tier 6: Pollinations — fallback cuối, free vô hạn nhưng chất lượng tạp
+  const pollUrls = await searchPollinations(generativeQuery, MAX_VISION_CANDIDATES);
   for (const u of pollUrls) candidates.push({ url: u, source: 'pollinations' });
 
   // GIAI ĐOẠN C + D — validate rồi (nếu cần) kiểm chứng
@@ -278,8 +287,8 @@ export async function resolveWordImage(input: ResolveImageInput): Promise<Resolv
   for (const cand of candidates) {
     if (!(await validateImageUrl(cand.url))) continue;
 
-    // Pollinations (generative) luôn cần kiểm chứng; ngoài ra theo needsVision
-    const mustVerify = needsVision || cand.source === 'pollinations';
+    // Generative (gemini/pollinations) luôn cần kiểm chứng; ngoài ra theo needsVision
+    const mustVerify = needsVision || cand.source === 'pollinations' || cand.source === 'gemini';
 
     if (!mustVerify) {
       // Danh từ cụ thể đơn nghĩa + ảnh thực hợp lệ → nhận luôn, tiết kiệm quota

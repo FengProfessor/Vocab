@@ -10,7 +10,7 @@ function getGeminiModel() {
   const keys = (process.env.GEMINI_API_KEY || '').split(',').map((k) => k.trim()).filter(Boolean);
   const key = keys[Math.floor(Math.random() * keys.length)];
   return new GoogleGenerativeAI(key).getGenerativeModel({
-    model: 'gemini-2.0-flash',
+    model: 'gemini-2.5-flash',
     generationConfig: { responseMimeType: 'application/json' },
   });
 }

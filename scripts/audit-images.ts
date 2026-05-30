@@ -31,15 +31,33 @@ async function audit() {
   let from = 0;
   const bySource: Record<string, number> = {};
   let noImage = 0;
+  let placeholderImage = 0;
   let unverified = 0;
   let lowConf = 0;
   let goodConf = 0;
   const lowSamples: string[] = [];
 
+  // Probe if image_confidence column exists
+  let hasConfidence = true;
+  const { error: probeError } = await supabase
+    .from('global_dictionary')
+    .select('image_confidence')
+    .limit(1);
+
+  if (probeError && probeError.message.includes('image_confidence')) {
+    hasConfidence = false;
+    console.warn('⚠️  Cảnh báo: Cột "image_confidence" chưa tồn tại trong cơ sở dữ liệu.');
+    console.warn('   Hãy chạy migration "20260519_legalize_global_dictionary_images.sql" để bổ sung cột này.\n');
+  }
+
+  const selectCols = hasConfidence
+    ? 'word, image_url, image_source, image_confidence'
+    : 'word, image_url, image_source';
+
   while (true) {
     const { data, error } = await supabase
       .from('global_dictionary')
-      .select('word, image_url, image_source, image_confidence')
+      .select(selectCols)
       .range(from, from + pageSize - 1);
 
     if (error) {
@@ -54,11 +72,13 @@ async function audit() {
 
       if (!r.image_url || src === 'none') {
         noImage++;
-      } else if (r.image_confidence == null) {
+      } else if (src === 'placeholder') {
+        placeholderImage++;
+      } else if (!hasConfidence || r.image_confidence == null) {
         unverified++;
-      } else if (r.image_confidence < 70) {
+      } else if ((r as any).image_confidence < 70) {
         lowConf++;
-        if (lowSamples.length < 30) lowSamples.push(`${r.word} (${r.image_confidence})`);
+        if (lowSamples.length < 30) lowSamples.push(`${r.word} (${(r as any).image_confidence})`);
       } else {
         goodConf++;
       }
@@ -73,8 +93,11 @@ async function audit() {
     console.log(`  ${s.padEnd(22)} ${c}`);
   }
 
+  const needBackfill = noImage + placeholderImage;
   console.log('\n-- Chất lượng --');
-  console.log(`  Không có ảnh:           ${noImage}`);
+  console.log(`  Không có ảnh (none):    ${noImage}`);
+  console.log(`  Placeholder giả:        ${placeholderImage}`);
+  console.log(`  → CẦN BACKFILL:         ${needBackfill}  (${((needBackfill / (total || 1)) * 100).toFixed(1)}%)`);
   console.log(`  Chưa chấm AI Vision:    ${unverified}`);
   console.log(`  Điểm Vision THẤP (<70): ${lowConf}`);
   console.log(`  Điểm Vision tốt (>=70): ${goodConf}`);

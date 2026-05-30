@@ -4,8 +4,8 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
  * AI Router — phân loại task → chọn model phù hợp → quản lý quota
  *
  * Model tiers:
- *   'fast'   → gemini-2.0-flash-lite  (rẻ nhất, tasks đơn giản: classify, pick index)
- *   'normal' → gemini-2.0-flash        (tasks trung bình: ai-lookup, short generation)
+ *   'fast'   → gemini-2.5-flash-lite  (rẻ nhất, tasks đơn giản: classify, pick index)
+ *   'normal' → gemini-2.5-flash        (tasks trung bình: ai-lookup, short generation)
  *   'smart'  → gemini-2.5-flash        (tasks phức tạp: full enrichment, long context)
  *
  * Key rotation:
@@ -25,8 +25,8 @@ interface RouterKey {
 export type ModelTier = 'fast' | 'normal' | 'smart';
 
 const MODEL_MAP: Record<ModelTier, string> = {
-  fast: 'gemini-2.0-flash-lite',
-  normal: 'gemini-2.0-flash',
+  fast: 'gemini-2.5-flash-lite',
+  normal: 'gemini-2.5-flash',
   smart: 'gemini-2.5-flash',
 };
 

@@ -248,17 +248,33 @@ async function main(): Promise<void> {
         }
 
         // Kiểm tra trùng
-        const { data: existing } = await supabase
+        let existing = null;
+        let hasImageColumns = true;
+
+        const { data: extData, error: extErr } = await supabase
           .from('global_dictionary')
           .select('word, tags, image_url, image_source')
           .eq('word', normWord)
           .maybeSingle();
 
+        if (extErr) {
+          // Fallback: image columns missing
+          hasImageColumns = false;
+          const { data: fallbackData } = await supabase
+            .from('global_dictionary')
+            .select('word, tags')
+            .eq('word', normWord)
+            .maybeSingle();
+          existing = fallbackData;
+        } else {
+          existing = extData;
+        }
+
         if (existing) {
           const patch: Record<string, unknown> = {
             tags: mergeTags(existing.tags || [], tags),
           };
-          if (withImages && (!existing.image_url || existing.image_source === 'none') && img.url) {
+          if (hasImageColumns && withImages && (!existing.image_url || existing.image_source === 'none') && img.url) {
             patch.image_url = img.url;
             patch.image_source = img.source;
             patch.image_confidence = img.confidence;
@@ -270,16 +286,19 @@ async function main(): Promise<void> {
           console.log(`  ~ Cập nhật tags/ảnh: "${normWord}"`);
           updatedCount++;
         } else {
-          const { error } = await supabase.from('global_dictionary').insert({
+          const insertPayload: Record<string, any> = {
             word: normWord,
             tags,
             data,
-            image_url: img.url || null,
-            image_source: img.source || 'none',
-            image_confidence: img.confidence || null,
-            image_query: img.query || null,
-            image_verified_at: img.url ? new Date().toISOString() : null,
-          });
+          };
+          if (hasImageColumns && img.url) {
+            insertPayload.image_url = img.url;
+            insertPayload.image_source = img.source || 'none';
+            insertPayload.image_confidence = img.confidence || null;
+            insertPayload.image_query = img.query || null;
+            insertPayload.image_verified_at = new Date().toISOString();
+          }
+          const { error } = await supabase.from('global_dictionary').insert(insertPayload);
           if (error) throw error;
           console.log(`  ✓ Thêm mới: "${normWord}"`);
           savedCount++;

@@ -21,7 +21,7 @@ export interface QuizQuestion {
 
 const VALID_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction']);
 
-const QUIZ_MODEL = 'gemini-2.0-flash';
+const QUIZ_MODEL = 'gemini-2.5-flash';
 const QUIZ_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 ngày
 
 /**
