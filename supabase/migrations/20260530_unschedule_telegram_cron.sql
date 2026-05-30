@@ -6,9 +6,15 @@
 
 DO $$
 BEGIN
+    -- Gỡ job dạng telegram_due_30s_* (từ migration 20260411)
     PERFORM cron.unschedule(jobid)
     FROM cron.job
     WHERE jobname LIKE 'telegram_due_30s_%';
+
+    -- Gỡ job telegram_due_cron_1min (tên thực tế trên prod)
+    PERFORM cron.unschedule(jobid)
+    FROM cron.job
+    WHERE jobname = 'telegram_due_cron_1min';
 EXCEPTION WHEN OTHERS THEN
     NULL;
 END $$;
