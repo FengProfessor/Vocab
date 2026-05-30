@@ -1,0 +1,65 @@
+name: Daily Supabase Backup
+
+# Sao lưu toàn bộ database Supabase mỗi đêm — MIỄN PHÍ, không cần Supabase Pro.
+# Cách hoạt động: pg_dump xuất toàn bộ DB ra 1 file .sql → nén gzip → cất vào
+# "Artifacts" của GitHub (giữ 30 ngày). Mất data thì tải file về dựng lại.
+#
+# CẦN LÀM 1 LẦN: thêm repo secret SUPABASE_DB_URL
+#   GitHub repo → Settings → Secrets and variables → Actions → New repository secret
+#   Tên:  SUPABASE_DB_URL
+#   Giá trị: chuỗi kết nối "Session pooler" của Supabase
+#     (Supabase → Project Settings → Database → Connection string → chọn "Session pooler",
+#      copy chuỗi dạng: postgresql://postgres.<ref>:<password>@aws-0-...pooler.supabase.com:5432/postgres
+#      Dùng Session pooler vì nó chạy được qua IPv4 của GitHub; KHÔNG dùng "Direct connection" (IPv6).)
+
+on:
+  schedule:
+    - cron: '0 19 * * *'   # 19:00 UTC = 02:00 sáng giờ VN (lúc ít người dùng)
+  workflow_dispatch: {}     # cho phép bấm "Run workflow" để chạy thử ngay
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump & nén database
+        env:
+          DATABASE_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::error::Thiếu repo secret SUPABASE_DB_URL — xem hướng dẫn ở đầu file."
+            exit 1
+          fi
+          STAMP=$(date +%Y%m%d_%H%M%S)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+
+          # Dùng image postgres:17 để pg_dump luôn khớp/mới hơn server (tránh lỗi version).
+          # --no-owner --no-privileges: bỏ thông tin chủ sở hữu/quyền → restore dễ hơn.
+          docker run --rm postgres:17 \
+            pg_dump --no-owner --no-privileges "$DATABASE_URL" \
+            | gzip > "lingopro_backup_$STAMP.sql.gz"
+
+          echo "Dung lượng file backup:"
+          ls -lh "lingopro_backup_$STAMP.sql.gz"
+
+          # An toàn: nếu file rỗng (dump lỗi) thì fail để bạn biết
+          if [ ! -s "lingopro_backup_$STAMP.sql.gz" ]; then
+            echo "::error::File backup rỗng — pg_dump có thể đã lỗi."
+            exit 1
+          fi
+
+      - name: Cất file backup vào Artifacts (giữ 30 ngày)
+        uses: actions/upload-artifact@v4
+        with:
+          name: lingopro-backup-${{ env.STAMP }}
+          path: lingopro_backup_*.sql.gz
+          retention-days: 30
+
+# ─────────────────────────────────────────────────────────────────────
+# CÁCH KHÔI PHỤC (khi cần dựng lại data):
+#   1. GitHub repo → tab Actions → mở lần chạy "Daily Supabase Backup" gần nhất
+#      → mục Artifacts ở cuối trang → tải file lingopro_backup_*.sql.gz về máy.
+#   2. Giải nén:            gunzip lingopro_backup_YYYYMMDD_HHMMSS.sql.gz
+#   3. Đổ ngược vào DB (DB mới hoặc local Postgres):
+#        psql "<chuoi-ket-noi-session-pooler>" < lingopro_backup_YYYYMMDD_HHMMSS.sql
+#   (Khôi phục vào 1 Supabase project MỚI/sạch để tránh đụng dữ liệu đang chạy.)
+# ─────────────────────────────────────────────────────────────────────
