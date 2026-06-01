@@ -59,25 +59,113 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
   return created.id;
 }
 
+// Shape JSONB của global_dictionary.data (Vietnamese definitions + IPA)
+type GdMeaning = { pos?: string; definition?: string; example?: string; collocations?: string[] };
+type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[] };
+
+type EnrichResult = {
+  word: string; translation: string; ipa: string; pos: string;
+  example: string; synonyms: string[]; antonyms: string[];
+};
+
 /**
- * Background AI enrichment (Internal)
+ * Background enrichment với THÁC 3 TẦNG tiết kiệm request AI:
+ *   Tier 1: global_dictionary (kho chung — bot cào / AI đã cache)  → 0 AI
+ *   Tier 2: từ của user khác đã enrich xong (cùng từ)              → 0 AI
+ *   Tier 3: Gemini AI (chỉ khi 2 tầng trên trượt) + ghi cache ngược → 1 AI
+ * Nếu user TỰ CHỌN nghĩa cụ thể (userTargetTranslation) → bỏ qua cache, dùng AI để tôn trọng lựa chọn.
  */
 async function enrichWord(wordId: string, originalInput: string, userId: string, customApiKey?: string, dictionaryData?: DictionaryData | null, userTargetTranslation?: string): Promise<void> {
+  const supabase = createServiceClient();
+  const lower = originalInput.trim().toLowerCase();
   try {
-    const parsed = await performAIEnrichment(originalInput, customApiKey, dictionaryData, userTargetTranslation);
+    let updateData: EnrichResult | null = null;
+    let imageSearchQuery = '';
+    let source: 'global_dict' | 'peer_word' | 'ai' = 'ai';
 
-    const supabase = createServiceClient();
-    const updateData = {
-      word: parsed.english,
-      translation: parsed.vietnamese,
-      ipa: parsed.ipa,
-      pos: parsed.pos,
-      example: parsed.example,
-      synonyms: parsed.synonyms,
-      antonyms: parsed.antonyms,
-    };
+    // ── CASCADE (chỉ khi user không tự chọn nghĩa riêng) ──
+    if (!userTargetTranslation) {
+      // Tier 1: global_dictionary
+      const { data: gd } = await supabase
+        .from('global_dictionary')
+        .select('data')
+        .eq('word', lower)
+        .maybeSingle();
+      const gdData = (gd?.data ?? null) as GdData | null;
+      const gdMeaning = gdData?.results?.[0]?.meanings?.[0];
+      if (gdMeaning?.definition) {
+        updateData = {
+          word: lower,
+          translation: gdMeaning.definition,
+          ipa: gdData?.pronunciations?.[0]?.ipa || '',
+          pos: gdMeaning.pos || '',
+          example: gdMeaning.example || '',
+          synonyms: [],
+          antonyms: [],
+        };
+        source = 'global_dict';
+      } else {
+        // Tier 2: từ của user khác đã enrich (translation sạch + có IPA)
+        const { data: peer } = await supabase
+          .from('words')
+          .select('translation, ipa, pos, example, synonyms, antonyms')
+          .ilike('word', lower)
+          .neq('id', wordId)
+          .neq('ipa', '')
+          .not('translation', 'ilike', '%Analyzing%')
+          .not('translation', 'ilike', '%failed%')
+          .limit(1)
+          .maybeSingle();
+        if (peer?.translation) {
+          updateData = {
+            word: lower,
+            translation: peer.translation,
+            ipa: peer.ipa || '',
+            pos: peer.pos || '',
+            example: peer.example || '',
+            synonyms: peer.synonyms || [],
+            antonyms: peer.antonyms || [],
+          };
+          source = 'peer_word';
+        }
+      }
+    }
 
-    // ── Global Image Cache & Search ──
+    // ── Tier 3: AI (cache miss, hoặc user chọn nghĩa riêng) ──
+    if (!updateData) {
+      const parsed = await performAIEnrichment(originalInput, customApiKey, dictionaryData, userTargetTranslation);
+      updateData = {
+        word: parsed.english,
+        translation: parsed.vietnamese,
+        ipa: parsed.ipa,
+        pos: parsed.pos,
+        example: parsed.example,
+        synonyms: parsed.synonyms,
+        antonyms: parsed.antonyms,
+      };
+      imageSearchQuery = parsed.image_search_query;
+      source = 'ai';
+
+      // Ghi cache ngược vào global_dictionary để lần sau hit Tier 1.
+      // Chỉ ghi khi KHÔNG phải nghĩa user tự chọn (tránh ghi đè nghĩa hiếm lên kho chung).
+      if (!userTargetTranslation) {
+        void supabase.from('global_dictionary').upsert({
+          word: parsed.english,
+          data: {
+            word: parsed.english,
+            pronunciations: parsed.ipa ? [{ ipa: parsed.ipa }] : [],
+            results: [{ meanings: [{ pos: parsed.pos, definition: parsed.vietnamese, example: parsed.example, collocations: [] }] }],
+          },
+          tags: ['ai-generated', 'save-enrich'],
+        }, { onConflict: 'word' }).then(({ error }) => {
+          if (error) console.error('[Enrich] global_dictionary cache write failed:', error.message);
+        });
+      }
+    }
+
+    console.log(`[Enrich] "${lower}" via ${source}`);
+
+    // ── Ảnh: ưu tiên ảnh của từ trùng (mọi user), cuối cùng mới fetch pipeline ──
     let imageUrl: string | null = null;
     let imageSource = 'none';
     let imageConfidence: number | null = null;
@@ -85,24 +173,24 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
     const { data: cachedWord } = await supabase
       .from('words')
       .select('image_url, image_source, image_confidence')
-      .eq('word', parsed.english)
+      .eq('word', updateData.word)
       .not('image_url', 'is', null)
+      .neq('id', wordId)
       .limit(1)
       .maybeSingle();
 
     if (cachedWord?.image_url) {
-      // Tái dùng ảnh đã có của từ trùng → tiết kiệm quota
       imageUrl = cachedWord.image_url;
       imageSource = cachedWord.image_source || 'cache';
       imageConfidence = cachedWord.image_confidence ?? null;
     } else {
       const meaningCount = dictionaryData?.results?.[0]?.meanings?.length || 1;
       const img = await resolveWordImage({
-        word: parsed.english,
-        pos: parsed.pos,
-        definition: parsed.vietnamese,
-        exampleSentence: parsed.example,
-        imageSearchQuery: parsed.image_search_query,
+        word: updateData.word,
+        pos: updateData.pos,
+        definition: updateData.translation,
+        exampleSentence: updateData.example,
+        imageSearchQuery,
         meaningCount,
       });
       imageUrl = img.url;
@@ -122,7 +210,6 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error(`AI enrichment failed for "${originalInput}":`, msg);
     try {
-      const supabase = createServiceClient();
       await supabase.from('words').update({
         translation: '❌ Analysis failed - click Retry',
       }).eq('id', wordId);
