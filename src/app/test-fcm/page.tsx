@@ -22,7 +22,7 @@ export default function FCMTestPage() {
     addLog('Bắt đầu lấy token (Bản Cuối Cùng)...');
     try {
       addLog('Đang gọi requestForToken()...');
-      const fcmToken = await requestForToken();
+      const fcmToken = await requestForToken(addLog);
       addLog(`Kết quả từ requestForToken: ${fcmToken ? 'CÓ TOKEN' : 'NULL'}`);
       
       if (fcmToken) {

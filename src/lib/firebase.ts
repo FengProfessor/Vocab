@@ -12,37 +12,69 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const requestForToken = async () => {
+// Bọc 1 promise với timeout để không treo vô hạn (báo lỗi rõ thay vì spinner mãi)
+function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
+  return Promise.race([
+    p,
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error(`Timeout ${ms}ms: ${label}`)), ms)),
+  ]);
+}
+
+/**
+ * Lấy FCM token. Truyền `onStep` để xem tiến trình từng bước (test-fcm in ra màn hình,
+ * hữu ích khi debug iOS PWA vì không có DevTools).
+ */
+export const requestForToken = async (onStep?: (msg: string) => void): Promise<string | null> => {
+  const log = (m: string) => { console.log('[FCM]', m); onStep?.(m); };
   if (typeof window === 'undefined') return null;
 
+  // Chặn sớm môi trường không hỗ trợ (iOS < 16.4, hoặc mở trong tab thường)
+  if (!('Notification' in window)) {
+    throw new Error('Trình duyệt không hỗ trợ Notification. iOS cần ≥16.4 và mở app từ icon Màn hình chính.');
+  }
+  if (!('serviceWorker' in navigator)) {
+    throw new Error('Trình duyệt không hỗ trợ Service Worker (thử mở app từ icon Màn hình chính).');
+  }
+
   try {
-    // Bắt buộc đối với iOS: Phải xin quyền trực tiếp trước khi làm việc khác
+    // iOS BẮT BUỘC: xin quyền ngay trong user gesture, trước mọi await khác
+    log('Xin quyền thông báo…');
     const permission = await Notification.requestPermission();
+    log(`Quyền thông báo: ${permission}`);
     if (permission !== 'granted') {
-      throw new Error('Người dùng đã từ chối quyền thông báo.');
+      throw new Error(`Chưa được cấp quyền (permission=${permission}). Vào Cài đặt → app → Thông báo để bật.`);
     }
 
-    const messaging = getMessaging(app);
-
-    // Đảm bảo Service Worker đã được đăng ký và sẵn sàng
+    log('Đăng ký service worker…');
     const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
-    await navigator.serviceWorker.ready;
 
-    const currentToken = await getToken(messaging, {
-      vapidKey: 'BJlDyqCnEsAEl3Po7fjq10R1ypWeJ8j7stMIeUo9k5NEkcYa9elG1X41lH5yShiDITrDi0R8fr6cGGxCw3XMbVU',
-      serviceWorkerRegistration: registration
-    });
+    log('Chờ service worker active…');
+    await withTimeout(
+      navigator.serviceWorker.ready,
+      15000,
+      'service worker không active. Thử xoá app khỏi Màn hình chính rồi thêm lại.'
+    );
+
+    log('Service worker OK. Đang lấy token từ FCM…');
+    const messaging = getMessaging(app);
+    const currentToken = await withTimeout(
+      getToken(messaging, {
+        vapidKey: 'BJlDyqCnEsAEl3Po7fjq10R1ypWeJ8j7stMIeUo9k5NEkcYa9elG1X41lH5yShiDITrDi0R8fr6cGGxCw3XMbVU',
+        serviceWorkerRegistration: registration,
+      }),
+      20000,
+      'FCM không trả token. Có thể mạng tới Google bị chậm/chặn — thử đổi Wi-Fi/4G.'
+    );
 
     if (currentToken) {
-      console.log('FCM Token:', currentToken);
+      log('Lấy token THÀNH CÔNG ✅');
       return currentToken;
-    } else {
-      console.log('No registration token available.');
-      return null;
     }
+    log('FCM trả về rỗng (không có token).');
+    return null;
   } catch (err: unknown) {
     console.error('Lỗi khi lấy token:', err);
-    throw err; // Quăng lỗi ra ngoài để UI hiển thị cho bạn biết
+    throw err; // Quăng ra ngoài để UI hiển thị
   }
 };
 

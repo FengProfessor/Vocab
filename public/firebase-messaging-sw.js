@@ -11,6 +11,10 @@ firebase.initializeApp({
   appId: "1:147138625371:web:9d308e4337c9fe7399647e"
 });
 
+// Active SW mới ngay, không kẹt "waiting" (tránh getToken treo vì SW chưa active)
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
+
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
