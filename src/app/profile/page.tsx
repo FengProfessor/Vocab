@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase, type Profile } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
+import { requestForToken } from '@/lib/firebase';
 import type { User as SupabaseUser } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import { User, Copy, CheckCircle2, LogOut, Brain, ArrowLeft, Bell, Loader2, Target, BarChart3 } from 'lucide-react';
@@ -24,7 +25,7 @@ export default function ProfilePage() {
   const [isSavingTg, setIsSavingTg] = useState(false);
   const [isTestingTg, setIsTestingTg] = useState(false);
   const [dailyGoal, setDailyGoal] = useState(10);
-  const [notificationHour, setNotificationHour] = useState(20);
+  const [isEnablingPush, setIsEnablingPush] = useState(false);
   const [isSavingGoal, setIsSavingGoal] = useState(false);
 
   useEffect(() => {
@@ -37,7 +38,6 @@ export default function ProfilePage() {
       setProfile(prof);
       if (prof?.telegram_id) setTelegramId(prof.telegram_id);
       if (prof?.daily_goal) setDailyGoal(prof.daily_goal);
-      if (prof?.notification_hour !== undefined) setNotificationHour(prof.notification_hour);
 
       // Count words
       const res = await authFetch(`/api/words`);
@@ -293,25 +293,44 @@ export default function ProfilePage() {
             <div className="flex justify-between text-[10px] text-slate-600 mt-1"><span>5</span><span>25</span><span>50</span></div>
           </div>
           <div>
-            <label className="text-xs text-slate-400 block mb-2">
-              Giờ nhắc nhở: <span className="text-white font-bold">{String(notificationHour).padStart(2,'0')}:00</span>
-            </label>
-            <select
-              value={notificationHour}
-              onChange={(e) => setNotificationHour(Number(e.target.value))}
-              className="w-full bg-black/40 border border-white/10 text-white text-sm rounded-xl px-3 py-2.5 focus:outline-none focus:border-emerald-500"
+            <p className="text-xs text-slate-400 mb-2">
+              🔔 Nhắc ôn tập tự động lúc <span className="text-white font-bold">8:00 · 12:00 · 20:00</span> mỗi ngày khi có từ đến hạn.
+            </p>
+            <button
+              type="button"
+              onClick={async () => {
+                if (!user?.id) return;
+                setIsEnablingPush(true);
+                try {
+                  const token = await requestForToken();
+                  if (!token) { toast.error('Không lấy được token — kiểm tra quyền thông báo'); return; }
+                  const res = await fetch('/api/push/fcm-register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId: user.id, fcmToken: token }),
+                  });
+                  const d = await res.json();
+                  if (d.success) toast.success('Đã bật thông báo trên thiết bị này!');
+                  else toast.error('Lỗi: ' + (d.error || ''));
+                } catch (e: unknown) {
+                  toast.error(e instanceof Error ? e.message : 'Lỗi bật thông báo');
+                } finally {
+                  setIsEnablingPush(false);
+                }
+              }}
+              disabled={isEnablingPush}
+              className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white text-sm font-bold py-2.5 rounded-xl transition-all disabled:opacity-50 border border-white/10"
             >
-              {Array.from({ length: 24 }, (_, i) => (
-                <option key={i} value={i}>{String(i).padStart(2,'0')}:00</option>
-              ))}
-            </select>
+              {isEnablingPush ? <Loader2 className="h-4 w-4 animate-spin" /> : <Bell className="h-4 w-4" />}
+              Bật thông báo trên thiết bị này
+            </button>
           </div>
           <button
             onClick={async () => {
               setIsSavingGoal(true);
               try {
                 if (!user?.id) return;
-                const { error } = await supabase.from('profiles').update({ daily_goal: dailyGoal, notification_hour: notificationHour }).eq('id', user.id);
+                const { error } = await supabase.from('profiles').update({ daily_goal: dailyGoal }).eq('id', user.id);
                 if (error) throw error;
                 toast.success('Đã lưu mục tiêu!');
               } catch (err: unknown) {
