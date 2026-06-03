@@ -11,9 +11,12 @@ type ProfileRow = {
   full_name: string | null;
   role: string;
   fcm_token: string | null;
-  notification_hour: number | null;
 };
 type PushResult = { userId: string; name: string | null; dueCount: number; sent: boolean };
+
+// Khung giờ nhắc trong ngày (giờ VN). Cron chạy mỗi giờ nhưng chỉ gửi vào các mốc này.
+// Nhiều mốc → user ít bỏ lỡ từ đến hạn. Sửa mảng này để đổi lịch nhắc.
+const REMINDER_HOURS = [8, 12, 20]; // sáng / trưa / tối
 
 /**
  * Lấy giờ hiện tại theo múi giờ Việt Nam (Asia/Ho_Chi_Minh, UTC+7, không DST).
@@ -30,12 +33,11 @@ function getVietnamHour(): number {
 
 /**
  * GET /api/cron/push-due
- * Chạy MỖI GIỜ (Vercel Pro cron `0 * * * *`, hoặc external cron trên Hobby).
- * Chỉ gửi push cho user có `notification_hour` === giờ VN hiện tại + có fcm_token + có từ đến hạn.
- * Idempotent: chạy lại trong cùng giờ chỉ gửi đúng nhóm user của giờ đó.
+ * Chạy MỖI GIỜ (GitHub Actions). Chỉ gửi vào các khung REMINDER_HOURS (giờ VN):
+ * mỗi user có fcm_token + có từ đến hạn được nhắc ở từng mốc → ít bỏ lỡ.
  *
  * Authorization: Bearer <CRON_SECRET> hoặc query ?secret=<CRON_SECRET>
- * Test thủ công: ?hour=20 (ép giờ mục tiêu) hoặc ?all=1 (bỏ lọc giờ, gửi mọi user có từ due).
+ * Test: ?hour=20 (ép giờ; phải thuộc REMINDER_HOURS) hoặc ?all=1 (bỏ cổng giờ, gửi mọi user có từ due).
  */
 export async function GET(req: Request): Promise<NextResponse> {
   try {
@@ -57,20 +59,22 @@ export async function GET(req: Request): Promise<NextResponse> {
     const targetHour =
       hourParam !== null ? parseInt(hourParam, 10) % 24 : getVietnamHour();
 
+    // Cổng giờ: chỉ nhắc vào các khung REMINDER_HOURS (trừ khi ?all=1 để test)
+    if (!sendAll && !REMINDER_HOURS.includes(targetHour)) {
+      return NextResponse.json({
+        success: true, vnHour: targetHour, skipped: 'not a reminder hour',
+        reminderHours: REMINDER_HOURS, total: 0, notified: 0, results: [],
+      });
+    }
+
     const supabase = createServiceClient();
     const now = new Date().toISOString();
 
-    // Chỉ lấy user có fcm_token; lọc theo notification_hour trừ khi ?all=1
-    let query = supabase
+    // Lấy mọi user có fcm_token (gửi ở mọi khung giờ nhắc, không lọc giờ cá nhân)
+    const { data: profiles, error: profErr } = await supabase
       .from('profiles')
-      .select('id, full_name, role, fcm_token, notification_hour')
+      .select('id, full_name, role, fcm_token')
       .not('fcm_token', 'is', null);
-
-    if (!sendAll) {
-      query = query.eq('notification_hour', targetHour);
-    }
-
-    const { data: profiles, error: profErr } = await query;
 
     if (profErr) {
       console.error('[Cron/push-due] Profile query error:', profErr.message);
