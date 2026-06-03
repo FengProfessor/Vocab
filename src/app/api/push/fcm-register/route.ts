@@ -11,7 +11,19 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     const supabase = createServiceClient();
 
-    // Lưu fcmToken vào profile của user
+    // Đa thiết bị: mỗi (user, token) là 1 dòng. Upsert để không trùng.
+    const { error: tokErr } = await supabase
+      .from('fcm_tokens')
+      .upsert(
+        { user_id: userId, token: fcmToken, last_used_at: new Date().toISOString() },
+        { onConflict: 'user_id,token' }
+      );
+    if (tokErr) {
+      // Bảng chưa tồn tại (migration chưa chạy) → bỏ qua, vẫn dùng legacy bên dưới
+      console.warn('[FCM] fcm_tokens upsert skipped:', tokErr.message);
+    }
+
+    // Legacy: vẫn ghi profiles.fcm_token để tương thích ngược
     const { error } = await supabase
       .from('profiles')
       .update({ fcm_token: fcmToken })
@@ -22,7 +34,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'Failed to update token' }, { status: 500 });
     }
 
-    console.log(`[FCM] Token updated for user ${userId}`);
+    console.log(`[FCM] Token registered for user ${userId}`);
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Unknown error';

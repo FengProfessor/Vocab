@@ -18,6 +18,11 @@ if (typeof window === 'undefined' && !admin.apps.length) {
   }
 }
 
+const DEAD_TOKEN_CODES = [
+  'messaging/registration-token-not-registered',
+  'messaging/invalid-registration-token',
+];
+
 export async function sendPushNotificationToUser(
   userId: string,
   title: string,
@@ -28,40 +33,55 @@ export async function sendPushNotificationToUser(
 
   try {
     const supabase = createServiceClient();
-    const { data: profile, error: dbError } = await supabase.from('profiles').select('fcm_token').eq('id', userId).single();
 
-    if (dbError) return { error: `DB query failed: ${dbError.message}` };
-    if (!profile?.fcm_token) return { error: `No token for user ${userId}` };
+    // Gom token đa thiết bị: bảng fcm_tokens + legacy profiles.fcm_token
+    const tokens = new Set<string>();
+    const { data: rows } = await supabase.from('fcm_tokens').select('token').eq('user_id', userId);
+    rows?.forEach((r: { token: string | null }) => { if (r.token) tokens.add(r.token); });
 
-    const payload = {
-      notification: { title, body: message },
-      data: { url: `https://vocab-taupe.vercel.app${url}` },
-      token: profile.fcm_token,
-      webpush: {
-        fcm_options: { link: `https://vocab-taupe.vercel.app${url}` },
-        notification: { icon: '/icons/icon-192x192.png' }
-      },
-    };
+    const { data: profile } = await supabase.from('profiles').select('fcm_token').eq('id', userId).single();
+    if (profile?.fcm_token) tokens.add(profile.fcm_token);
 
-    const result = await admin.messaging().send(payload);
-    return { messageId: result };
-  } catch (err: unknown) {
-    const e = err as { message?: string; code?: string } | undefined;
-    const code = e?.code || '';
-    // Token chết/không còn hợp lệ → dọn khỏi DB để cron khỏi gửi lại mãi
-    if (
-      code === 'messaging/registration-token-not-registered' ||
-      code === 'messaging/invalid-registration-token'
-    ) {
+    if (tokens.size === 0) return { error: `No token for user ${userId}` };
+
+    const link = `https://vocab-taupe.vercel.app${url}`;
+    let sentCount = 0;
+    let lastId = '';
+    const deadTokens: string[] = [];
+
+    // Gửi tới TẤT CẢ thiết bị của user
+    for (const token of tokens) {
       try {
-        const supabase = createServiceClient();
-        await supabase.from('profiles').update({ fcm_token: null }).eq('id', userId);
-        console.log(`[FCM] Cleared dead token for user ${userId} (${code})`);
-      } catch {
-        /* bỏ qua lỗi cleanup */
+        lastId = await admin.messaging().send({
+          notification: { title, body: message },
+          data: { url: link },
+          token,
+          webpush: {
+            fcm_options: { link },
+            notification: { icon: '/icons/icon-192x192.png' },
+          },
+        });
+        sentCount++;
+      } catch (err: unknown) {
+        const code = (err as { code?: string } | undefined)?.code || '';
+        if (DEAD_TOKEN_CODES.includes(code)) deadTokens.push(token);
       }
     }
-    return { error: `Firebase error: ${e?.message || code || 'unknown'}` };
+
+    // Dọn token chết khỏi cả 2 nơi
+    if (deadTokens.length) {
+      await supabase.from('fcm_tokens').delete().in('token', deadTokens);
+      if (profile?.fcm_token && deadTokens.includes(profile.fcm_token)) {
+        await supabase.from('profiles').update({ fcm_token: null }).eq('id', userId);
+      }
+      console.log(`[FCM] Cleared ${deadTokens.length} dead token(s) for user ${userId}`);
+    }
+
+    if (sentCount > 0) return { messageId: lastId, sentCount };
+    return { error: `All ${tokens.size} token(s) failed for user ${userId}` };
+  } catch (err: unknown) {
+    const e = err as { message?: string; code?: string } | undefined;
+    return { error: `Firebase error: ${e?.message || e?.code || 'unknown'}` };
   }
 }
 
