@@ -1,16 +1,15 @@
 name: Hourly Push Notifications
 
-# Dự phòng cho Vercel Hobby (cron Hobby bị ép chỉ chạy 1 lần/ngày).
-# Gọi endpoint push-due mỗi giờ; route tự lọc user theo notification_hour (giờ VN).
-# Nếu deploy Vercel Pro: có thể tắt workflow này (Vercel cron `0 * * * *` đã đủ).
+# Lịch tự động ĐÃ CHUYỂN sang cron-job.org (đáng tin hơn GitHub Actions schedule,
+# vốn hay trễ/skip giờ cao điểm). Giữ workflow này để chạy TAY khi cần test.
+# Muốn bật lại lịch GitHub Actions: bỏ comment 2 dòng schedule bên dưới.
 #
-# Yêu cầu: thêm repo secret CRON_SECRET (Settings → Secrets and variables → Actions)
-# khớp với env CRON_SECRET trên Vercel.
+# Yêu cầu (nếu bật lại): repo secret CRON_SECRET khớp env CRON_SECRET trên Vercel.
 
 on:
-  schedule:
-    - cron: '0 * * * *' # đầu mỗi giờ (UTC). Route tự convert sang giờ VN.
-  workflow_dispatch: {} # cho phép chạy thủ công để test
+  # schedule:
+  #   - cron: '0 * * * *'   # đầu mỗi giờ (UTC) — đã tắt, dùng cron-job.org thay
+  workflow_dispatch: {} # vẫn cho chạy thủ công để test
 
 jobs:
   ping:
