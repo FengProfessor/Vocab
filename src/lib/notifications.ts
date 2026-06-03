@@ -47,7 +47,21 @@ export async function sendPushNotificationToUser(
     return { messageId: result };
   } catch (err: unknown) {
     const e = err as { message?: string; code?: string } | undefined;
-    return { error: `Firebase error: ${e?.message || e?.code || 'unknown'}` };
+    const code = e?.code || '';
+    // Token chết/không còn hợp lệ → dọn khỏi DB để cron khỏi gửi lại mãi
+    if (
+      code === 'messaging/registration-token-not-registered' ||
+      code === 'messaging/invalid-registration-token'
+    ) {
+      try {
+        const supabase = createServiceClient();
+        await supabase.from('profiles').update({ fcm_token: null }).eq('id', userId);
+        console.log(`[FCM] Cleared dead token for user ${userId} (${code})`);
+      } catch {
+        /* bỏ qua lỗi cleanup */
+      }
+    }
+    return { error: `Firebase error: ${e?.message || code || 'unknown'}` };
   }
 }
 
