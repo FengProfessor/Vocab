@@ -57,7 +57,7 @@ export async function sendPushNotificationToUser(
           data: { url: link },
           token,
           webpush: {
-            fcm_options: { link },
+            fcmOptions: { link },
             notification: { icon: '/icons/icon-192x192.png' },
           },
         });
