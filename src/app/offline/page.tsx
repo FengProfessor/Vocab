@@ -2,7 +2,7 @@
 
 export default function OfflinePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900 px-4">
+    <div className="min-h-dvh flex items-center justify-center bg-slate-900 px-4">
       <div className="max-w-sm w-full text-center">
         {/* Icon */}
         <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6">

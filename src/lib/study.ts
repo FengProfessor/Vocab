@@ -3,6 +3,16 @@
 
 export type Verdict = 'correct' | 'close' | 'wrong';
 
+/**
+ * True nếu thiết bị dùng con trỏ chính xác (chuột/trackpad) → an toàn để auto-focus.
+ * Trên cảm ứng (pointer: coarse) trả false để KHÔNG tự bật bàn phím ảo che layout khi vừa vào màn.
+ * React không serialize autoFocus ra HTML nên gọi lúc render client không gây hydration mismatch.
+ */
+export function canAutoFocus(): boolean {
+  if (typeof window === 'undefined' || !window.matchMedia) return false;
+  return window.matchMedia('(pointer: fine)').matches;
+}
+
 /** Phát âm bằng Web Speech API. rate: 1.0 = thường, 0.6 = chậm. */
 export function speak(text: string, rate = 1.0): void {
   if (typeof window === 'undefined' || !window.speechSynthesis) return;

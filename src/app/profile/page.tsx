@@ -118,14 +118,14 @@ export default function ProfilePage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/40">
+      <div className="min-h-dvh flex items-center justify-center bg-muted/40">
         <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 p-4 flex flex-col items-center justify-center">
+    <div className="min-h-dvh bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 p-4 flex flex-col items-center justify-center">
       <div className="w-full max-w-md space-y-4">
         {/* Back */}
         <button 

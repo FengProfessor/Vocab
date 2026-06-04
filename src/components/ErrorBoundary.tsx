@@ -32,7 +32,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
       if (this.props.fallback) return this.props.fallback;
 
       return (
-        <div className="min-h-screen flex items-center justify-center bg-muted/40 p-4">
+        <div className="min-h-dvh flex items-center justify-center bg-muted/40 p-4">
           <div className="bg-background border rounded-2xl shadow-lg p-8 max-w-md w-full text-center space-y-4">
             <div className="flex justify-center">
               <div className="bg-destructive/10 p-4 rounded-full">

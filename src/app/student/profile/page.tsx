@@ -96,7 +96,7 @@ export default function ProfilePage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-muted/40 flex items-center justify-center">
+      <div className="min-h-dvh bg-muted/40 flex items-center justify-center">
         <Loader2 className="h-10 w-10 animate-spin text-primary" />
       </div>
     );
@@ -112,7 +112,7 @@ export default function ProfilePage() {
   const level = xpToLevel(gamification.total_xp);
 
   return (
-    <div className="flex min-h-screen w-full bg-muted/40 font-sans">
+    <div className="flex min-h-dvh w-full bg-muted/40 font-sans">
       {/* ═══ SIDEBAR ═══ */}
       <aside className="fixed inset-y-0 left-0 z-20 w-64 border-r bg-background hidden md:flex flex-col p-6">
         <Link href="/student" className="flex items-center gap-2 font-black text-primary text-2xl mb-10">
@@ -153,7 +153,7 @@ export default function ProfilePage() {
       </aside>
 
       {/* ═══ MAIN ═══ */}
-      <main className="flex-1 md:pl-64 flex flex-col min-h-screen">
+      <main className="flex-1 md:pl-64 flex flex-col min-h-dvh">
         {/* Header */}
         <header className="h-16 border-b bg-background/80 backdrop-blur sticky top-0 z-10 px-4 sm:px-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">

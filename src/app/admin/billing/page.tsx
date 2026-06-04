@@ -241,7 +241,7 @@ export default function BillingDashboard() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/40">
+      <div className="min-h-dvh flex items-center justify-center bg-muted/40">
         <div className="flex flex-col items-center gap-3">
           <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
           <p className="text-sm text-muted-foreground">Loading billing data…</p>
@@ -251,7 +251,7 @@ export default function BillingDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-muted/40 font-sans">
+    <div className="min-h-dvh bg-muted/40 font-sans">
       {/* Header */}
       <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-4">
         <Link href="/admin" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">

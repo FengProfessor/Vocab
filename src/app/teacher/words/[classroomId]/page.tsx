@@ -147,7 +147,7 @@ export default function TeacherWordsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-muted/40 font-sans">
+    <div className="min-h-dvh bg-muted/40 font-sans">
       {/* Header */}
       <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">

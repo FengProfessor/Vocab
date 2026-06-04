@@ -97,7 +97,7 @@ export default function StudentDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/30">
+      <div className="min-h-dvh flex items-center justify-center bg-muted/30">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
@@ -107,7 +107,7 @@ export default function StudentDetailPage() {
 
   if (!current) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+      <div className="min-h-dvh flex flex-col items-center justify-center p-6 text-center">
         <AlertCircle className="h-12 w-12 text-muted-foreground mb-4" />
         <h2 className="text-xl font-bold">Student not found</h2>
         <Link href="/teacher" className="text-primary hover:underline mt-4">Back to Dashboard</Link>
@@ -151,7 +151,7 @@ export default function StudentDetailPage() {
   }));
 
   return (
-    <div className="min-h-screen bg-muted/40 font-sans pb-12">
+    <div className="min-h-dvh bg-muted/40 font-sans pb-12">
       {/* Header */}
       <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 px-6 flex items-center gap-4">
         <button onClick={() => router.back()} className="p-2 hover:bg-muted rounded-xl transition-colors">

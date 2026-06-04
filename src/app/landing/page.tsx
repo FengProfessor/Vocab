@@ -88,7 +88,7 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#070711] text-white font-sans">
+    <div className="min-h-dvh bg-[#070711] text-white font-sans">
       {/* Nav */}
       <nav className="sticky top-0 z-50 border-b border-white/5 bg-[#070711]/80 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">

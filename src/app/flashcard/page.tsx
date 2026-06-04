@@ -16,7 +16,7 @@ import { Celebration } from '@/components/gamification/Celebration';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { DailyGoalRing } from '@/components/gamification/DailyGoalRing';
 import { LearnMode } from './LearnMode';
-import { speak, parseIpa } from '@/lib/study';
+import { speak, parseIpa, canAutoFocus } from '@/lib/study';
 
 interface WordItem {
   id: string;
@@ -77,10 +77,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         if (!user || !session) { router.push('/auth'); return; }
         setUserId(user.id);
 
-        // Fetch words (and discover personal classroomId if missing)
+        // Lấy ĐÚNG từ đã học & đến hạn (server lọc toàn bộ srs_progress, không kẹt 100 từ mới nhất)
         const url = classroomId
-          ? `/api/words?classroomId=${classroomId}`
-          : `/api/words`;
+          ? `/api/words?classroomId=${classroomId}&filter=review`
+          : `/api/words?filter=review`;
 
         const res = await fetch(url, {
           headers: { Authorization: `Bearer ${session.access_token}` },
@@ -90,9 +90,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         if (data.success && data.data) {
           if (!classroomId && data.classroomId) setClassroomId(data.classroomId);
 
-          const all: WordItem[] = data.data;
-          // Chỉ ôn từ ĐÃ học (reviewCount>0) và đến hạn — từ mới được học ở mode=learn
-          const studyQueue = all.filter(w => w.isDue && w.reviewCount > 0);
+          // Server đã trả đúng từ đã học & đến hạn (filter=review)
+          const studyQueue: WordItem[] = data.data;
 
           if (studyQueue.length === 0) {
             setIsLoading(false);
@@ -171,7 +170,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     setQueue(newQueue);
     setCurrent(newQueue[0] || null);
     setFlipped(false);
-    setProgress(prev => Math.min(prev + 1, total));
+    // Chỉ tăng tiến độ khi thẻ THỰC SỰ xong (không Quên). Quên → thẻ quay lại cuối hàng, chưa tính.
+    if (quality !== 0) setProgress(prev => Math.min(prev + 1, total));
     setSpellingInput('');
     setSpellingError(false);
     setHasSpelledCorrectly(false);
@@ -202,13 +202,16 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
       if (newQueue.length === 0) {
         try {
-          const finalEasy = quality === 5 ? sessionResults.easy + 1 : sessionResults.easy;
+          // "Nhớ được" = Good(4) hoặc Easy(5) — khớp cách đếm sessionResults.easy ở trên.
+          // sessionResults là snapshot TRƯỚC thẻ này nên cộng thêm thẻ hiện tại; clamp ≤ total.
+          const remembered = (quality === 4 || quality === 5) ? sessionResults.easy + 1 : sessionResults.easy;
+          const finalScore = Math.min(remembered, total);
           await fetch('/api/quiz/save', {
             method: 'POST',
             headers: authHeaders,
             body: JSON.stringify({
               classroomId,
-              score: finalEasy,
+              score: finalScore,
               totalQuestions: total,
               quizType: 'vocabulary',
             }),
@@ -242,7 +245,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/40 font-sans">
+      <div className="min-h-dvh flex items-center justify-center bg-muted/40 font-sans">
         <div className="flex flex-col items-center gap-6">
           <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
           <p className="text-indigo-600 font-bold animate-pulse text-lg">Preparing your session...</p>
@@ -254,7 +257,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   if (done || !current) {
     const goalReached = gamification.today_xp >= gamification.daily_goal;
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
+      <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
         <Celebration trigger={true} intensity={goalReached ? 'strong' : 'light'} />
 
         <div className="text-center space-y-3">
@@ -318,7 +321,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
+    <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
       <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10 gap-3">
         <Link href="/student">
           <Button variant="ghost" size="sm" className="gap-2 text-slate-500 hover:text-primary font-bold rounded-xl transition-colors">
@@ -363,13 +366,15 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
             className={`relative w-full ${isSwapping ? '' : 'transition-transform duration-[200ms] ease-out'}`}
             style={{
               transformStyle: 'preserve-3d',
+              WebkitTransformStyle: 'preserve-3d',
               transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-              minHeight: '480px',
+              WebkitTransform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+              minHeight: 'clamp(380px, 58vh, 480px)', // co lại trên màn nhỏ, tránh tràn
             }}
           >
             {/* Front */}
             <Card className="absolute inset-0 border-none shadow-2xl shadow-indigo-100 flex flex-col items-center justify-center p-10 text-center rounded-[40px] bg-white border-b-8 border-slate-200"
-              style={{ backfaceVisibility: 'hidden' }}>
+              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
               <CardContent className="p-0 w-full flex flex-col items-center gap-6">
                 <Badge className="bg-amber-50 text-amber-600 border-none text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-2">
                   {current.isDue ? '⚡ REVIEW TIME' : '📖 NEW WORD'}
@@ -434,9 +439,9 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                      {current.ipa && <p className="text-sm font-mono text-slate-400">{parseIpa(current.ipa)}</p>}
 
                     <div className="w-full relative mt-4">
-                      <input 
-                        type="text" 
-                        autoFocus
+                      <input
+                        type="text"
+                        autoFocus={canAutoFocus()}
                         value={spellingInput}
                         onChange={(e) => {
                           setSpellingInput(e.target.value);
@@ -503,7 +508,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
             {/* Back */}
             <Card className="absolute inset-0 border-none shadow-2xl shadow-indigo-100 flex flex-col items-center justify-center p-10 text-center rounded-[40px] bg-indigo-600 border-b-8 border-indigo-800"
-              style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
               <CardContent className="p-0 w-full flex flex-col items-center gap-4 text-white">
                 <div className="flex flex-col items-center gap-2">
                    <h3 className="text-7xl font-black tracking-tight leading-tight mb-2">
@@ -630,7 +635,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 export default function FlashcardPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="min-h-dvh flex items-center justify-center bg-slate-50">
         <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
       </div>
     }>

@@ -26,6 +26,7 @@ import { BadgeGrid } from '@/components/gamification/BadgeGrid';
 import type { CelebrationIntensity } from '@/components/gamification/Celebration';
 import { WordDetailModal } from '@/components/student/WordDetailModal';
 import { NotificationBell } from '@/components/NotificationBell';
+import { EnableNotifications } from '@/components/EnableNotifications';
 
 // Lazy load: canvas-confetti chỉ chạy client-side, không cần SSR + chỉ tải khi cần
 const Celebration = dynamic(
@@ -421,16 +422,15 @@ export default function StudentDashboard() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-muted/40 p-8 flex items-center justify-center">
+      <div className="min-h-dvh bg-muted/40 p-8 flex items-center justify-center">
         <Loader2 className="h-10 w-10 animate-spin text-primary" />
       </div>
     );
   }
 
-  const dueWords = words.filter((w) => w.isDue);
   const masteredCount = words.filter((w) => w.srsLevel === 5).length;
 
-  const mascotMood: MascotMood = dueWords.length > 0 ? 'cheer' : gamification.current_streak === 0 ? 'sleepy' : 'happy';
+  const mascotMood: MascotMood = reviewDueCount > 0 ? 'cheer' : gamification.current_streak === 0 ? 'sleepy' : 'happy';
   const greeting = (() => {
     const h = new Date().getHours();
     if (h < 12) return 'Chào buổi sáng';
@@ -440,7 +440,7 @@ export default function StudentDashboard() {
   const badges = earnedBadges(gamification, masteredCount);
 
   return (
-    <div className="flex min-h-screen w-full bg-muted/40 font-sans relative">
+    <div className="flex min-h-dvh w-full bg-muted/40 font-sans relative">
       {/* ═══ MOBILE DRAWER ═══ */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] md:hidden">
@@ -533,7 +533,7 @@ export default function StudentDashboard() {
       </aside>
 
       {/* ═══ MAIN ═══ */}
-      <main className="flex-1 md:pl-64 flex flex-col min-h-screen">
+      <main className="flex-1 md:pl-64 flex flex-col min-h-dvh">
         <header className="h-16 border-b bg-background/80 backdrop-blur sticky top-0 z-10 px-4 sm:px-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Menu className="h-6 w-6 md:hidden cursor-pointer shrink-0" onClick={() => setIsMenuOpen(true)} />
@@ -547,7 +547,7 @@ export default function StudentDashboard() {
           </div>
           <div className="flex items-center gap-1 shrink-0">
             <NotificationBell
-              dueCount={dueWords.length}
+              dueCount={reviewDueCount}
               grammarDueCount={grammarDue}
               streak={gamification.current_streak}
               dailyGoalXp={gamification.today_xp}
@@ -569,12 +569,15 @@ export default function StudentDashboard() {
                 {greeting}, {profile?.full_name?.split(' ')[0] || 'bạn'}! 👋
               </h2>
               <p className="text-sm font-semibold text-muted-foreground mt-0.5">
-                {dueWords.length > 0
-                  ? `Bạn có ${dueWords.length} từ cần ôn hôm nay!`
+                {reviewDueCount > 0
+                  ? `Bạn có ${reviewDueCount} từ cần ôn hôm nay!`
                   : 'Hôm nay đã học xong hết rồi 🎉'}
               </p>
             </div>
           </div>
+
+          {/* Banner bật push (chỉ hiện khi chưa cấp quyền) */}
+          <EnableNotifications />
 
           {/* ═══ Tách bạch: HỌC TỪ MỚI vs ÔN TẬP ═══ */}
           {totalWords > 0 && (
@@ -643,7 +646,7 @@ export default function StudentDashboard() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { label: 'Total Words', val: totalWords, icon: LayoutGrid, color: 'text-blue-500', bg: 'bg-blue-50' },
-              { label: 'Ready Review', val: dueWords.length, icon: Zap, color: 'text-amber-500', bg: 'bg-amber-50' },
+              { label: 'Ready Review', val: reviewDueCount, icon: Zap, color: 'text-amber-500', bg: 'bg-amber-50' },
               { label: 'Mastered', val: masteredCount, icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-50' },
               { label: 'Accuracy', val: `${quizStats.avgAccuracy}%`, icon: TrendingUp, color: 'text-purple-500', bg: 'bg-purple-50' },
             ].map(s => (
@@ -668,9 +671,9 @@ export default function StudentDashboard() {
               <div>
                 <div className="flex items-center gap-2">
                   <span className="font-black text-slate-800">✍️ Writing Practice</span>
-                  {dueWords.length > 0 && (
+                  {reviewDueCount > 0 && (
                     <span className="bg-emerald-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-                      {dueWords.length}
+                      {reviewDueCount}
                     </span>
                   )}
                 </div>
@@ -756,7 +759,7 @@ export default function StudentDashboard() {
                   {reviewDueCount > 0 ? 'Ôn ngay! 🚀' : 'Xong hết rồi! 🎉'} <ArrowRight className="h-6 w-6" />
                 </Link>
                 
-                {countdown && dueWords.length === 0 && (
+                {countdown && reviewDueCount === 0 && (
                   <div className="flex items-center justify-center gap-3 text-slate-500 pt-4 animate-in fade-in zoom-in duration-500">
                     <Clock className="h-6 w-6 text-indigo-500" />
                     <span className="text-sm font-bold">Next session in:</span>

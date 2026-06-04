@@ -58,7 +58,7 @@ export async function sendPushNotificationToUser(
           token,
           webpush: {
             fcmOptions: { link },
-            notification: { icon: '/icons/icon-192x192.png' },
+            notification: { icon: '/icons/icon-192.webp', badge: '/icons/icon-192.webp' },
           },
         });
         sentCount++;

@@ -357,6 +357,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
     let classroomId = searchParams.get('classroomId') || '';
     const summary = searchParams.get('summary') === '1';
+    const filter = searchParams.get('filter'); // 'review' = từ đã học & đến hạn (không giới hạn pagination)
     const limit = Math.min(500, Math.max(1, parseInt(searchParams.get('limit') || '100', 10)));
     const offset = Math.max(0, parseInt(searchParams.get('offset') || '0', 10));
 
@@ -382,6 +383,57 @@ export async function GET(req: Request): Promise<NextResponse> {
     } else {
       // Tự động dùng personal classroom của chính user
       classroomId = await getOrCreatePersonalClassroom(supabase, userId);
+    }
+
+    // ── Chế độ REVIEW: trả từ ĐÃ học & ĐẾN HẠN trên TOÀN BỘ srs_progress ──
+    // Khác fetch words paginated (chỉ 100 từ mới nhất) → không bỏ sót từ cũ đến hạn.
+    if (filter === 'review') {
+      const nowIso = new Date().toISOString();
+      const { data: dueSrs, error: dueErr } = await supabase
+        .from('srs_progress')
+        .select('word_id, next_review_date')
+        .eq('user_id', userId)
+        .gt('review_count', 0)
+        .lte('next_review_date', nowIso)
+        .order('next_review_date', { ascending: true })
+        .limit(1000);
+      if (dueErr) throw dueErr;
+
+      const dueIds = (dueSrs || []).map((s) => s.word_id);
+      if (dueIds.length === 0) {
+        return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
+          headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+        });
+      }
+
+      // Lấy MỌI từ due của user (không lọc classroom) → khớp tuyệt đối reviewDueCount ở dashboard.
+      // An toàn: dueIds đến từ srs_progress của CHÍNH user (đã học = đã có quyền tiếp cận).
+      const { data: wordsData, error: wErr } = await supabase
+        .from('words')
+        .select('*, srs_progress(*)')
+        .in('id', dueIds);
+      if (wErr) throw wErr;
+
+      const order = new Map(dueIds.map((id, i) => [id, i])); // giữ thứ tự due lâu nhất trước
+      const enriched = ((wordsData || []) as WordWithSrsList[])
+        .map((w) => {
+          const srs = (w.srs_progress || []).find((s) => s.user_id === userId) || null;
+          const srsLevel = stabilityToLevel(srs?.stability || 0);
+          return {
+            ...w,
+            srs,
+            isDue: true,
+            reviewCount: srs?.review_count || 0,
+            srsLevel,
+            mastery: Math.min(100, srsLevel * 20),
+            status: srsLevel >= 5 ? 'mastered' : 'learning',
+          };
+        })
+        .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
+
+      return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
+        headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+      });
     }
 
     // Chế độ summary: chỉ đếm tổng + due, không fetch full data

@@ -18,8 +18,7 @@ export const viewport: Viewport = {
   themeColor: '#6366f1',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5, // cho phép phóng to (accessibility) — không khoá zoom
 };
 
 export const metadata: Metadata = {
@@ -61,15 +60,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <ErrorBoundary>
             {children}
           </ErrorBoundary>
-          {/* Nút Test Firebase nổi trên màn hình cho Admin (là bạn) */}
-          <div className="fixed bottom-20 right-4 z-[9999] md:bottom-10">
-            <a 
-              href="/test-fcm" 
-              className="bg-amber-500 hover:bg-amber-600 text-white font-black px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 text-xs transition-all animate-bounce"
-            >
-              🔔 Test Firebase
-            </a>
-          </div>
+          {/* Nút Test Firebase — CHỈ hiện ở môi trường dev, không lộ cho user production */}
+          {process.env.NODE_ENV !== 'production' && (
+            <div className="fixed bottom-20 right-4 z-[9999] md:bottom-10">
+              <a
+                href="/test-fcm"
+                className="bg-amber-500 hover:bg-amber-600 text-white font-black px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 text-xs transition-all"
+              >
+                🔔 Test Firebase
+              </a>
+            </div>
+          )}
           <InstallPrompt />
           <Toaster position="bottom-right" richColors />
         </ThemeProvider>

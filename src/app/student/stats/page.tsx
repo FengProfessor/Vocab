@@ -70,13 +70,13 @@ export default function StudentStatsPage() {
   }, [router]);
 
   if (isLoading) return (
-    <main className="min-h-screen flex items-center justify-center bg-slate-900">
+    <main className="min-h-dvh flex items-center justify-center bg-slate-900">
       <Loader2 className="h-8 w-8 animate-spin text-primary" />
     </main>
   );
 
   if (!stats) return (
-    <main className="min-h-screen flex items-center justify-center bg-slate-900 text-slate-400">
+    <main className="min-h-dvh flex items-center justify-center bg-slate-900 text-slate-400">
       Không tải được dữ liệu.
     </main>
   );
@@ -94,7 +94,7 @@ export default function StudentStatsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-900 text-slate-100 font-sans">
+    <main className="min-h-dvh bg-slate-900 text-slate-100 font-sans">
       <header className="sticky top-0 z-30 h-14 border-b border-slate-700 bg-slate-900/90 backdrop-blur flex items-center px-4 sm:px-6 gap-3">
         <Link
           href="/student"

@@ -32,14 +32,14 @@ export default function LandingPage() {
 
   if (checking) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950">
+      <div className="min-h-dvh flex items-center justify-center bg-slate-950">
         <Loader2 className="h-8 w-8 animate-spin text-indigo-400" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white font-sans">
+    <div className="min-h-dvh bg-slate-950 text-white font-sans">
       {/* ── NAVBAR ── */}
       <header className="sticky top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">

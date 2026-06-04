@@ -324,7 +324,7 @@ export default function GrammarLearnPage() {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-muted/40">
+      <main className="min-h-dvh flex items-center justify-center bg-muted/40">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </main>
     );
@@ -333,7 +333,7 @@ export default function GrammarLearnPage() {
   if (activeLesson) {
     const status = lessonStatus(activeLesson.id);
     return (
-      <main className="min-h-screen bg-muted/40 font-sans">
+      <main className="min-h-dvh bg-muted/40 font-sans">
         <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 flex items-center px-4 sm:px-6">
           <button
             onClick={() => setActiveLesson(null)}
@@ -475,7 +475,7 @@ export default function GrammarLearnPage() {
   );
 
   return (
-    <main className="min-h-screen bg-muted/40 font-sans">
+    <main className="min-h-dvh bg-muted/40 font-sans">
       <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 flex items-center justify-between px-4 sm:px-6">
         <Link
           href="/student"

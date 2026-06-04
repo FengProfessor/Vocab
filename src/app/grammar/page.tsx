@@ -162,7 +162,7 @@ function ScoreCard({
   const offset = circumference - (accuracy / 100) * circumference;
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-primary/5 to-muted/40 p-6">
+    <main className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-primary/5 to-muted/40 p-6">
       {/* Hero */}
       <div className="text-center">
         <div className="text-6xl mb-3">{emoji}</div>
@@ -440,7 +440,7 @@ function GrammarContent() {
   /* ── Loading ──────────────────────────────────────────────── */
   if (isLoading) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-muted/40">
+      <main className="min-h-dvh flex items-center justify-center bg-muted/40">
         <div className="flex flex-col items-center gap-3">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
           <p className="text-muted-foreground animate-pulse">Đang tải bài tập...</p>
@@ -452,7 +452,7 @@ function GrammarContent() {
   /* ── Empty state ──────────────────────────────────────────── */
   if ((!classroomId && !lessonId && !reviewMode) || exercises.length === 0) {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center gap-4 bg-muted/40 p-6">
+      <main className="min-h-dvh flex flex-col items-center justify-center gap-4 bg-muted/40 p-6">
         <Brain className="h-16 w-16 text-muted-foreground/20" />
         <h2 className="text-xl font-bold">
           {reviewMode ? 'Không có câu sai để ôn' : 'Chưa có bài tập'}
@@ -524,7 +524,7 @@ function GrammarContent() {
 
   /* ── Quiz ─────────────────────────────────────────────────── */
   return (
-    <main className="min-h-screen flex flex-col bg-gradient-to-br from-primary/5 to-muted/40">
+    <main className="min-h-dvh flex flex-col bg-gradient-to-br from-primary/5 to-muted/40">
       {/* Flash overlay */}
       <FeedbackFlash type={flash} />
 
@@ -715,7 +715,7 @@ function GrammarContent() {
 export default function GrammarPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-dvh flex items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     }>

@@ -70,11 +70,23 @@ export async function GET(req: Request): Promise<NextResponse> {
     const supabase = createServiceClient();
     const now = new Date().toISOString();
 
-    // Lấy mọi user có fcm_token (gửi ở mọi khung giờ nhắc, không lọc giờ cá nhân)
+    // Gom user_id CÓ thiết bị: bảng fcm_tokens (đa thiết bị) + legacy profiles.fcm_token.
+    // Tránh bỏ sót user chỉ còn token ở fcm_tokens (vd profiles.fcm_token đã bị dọn khi token chết).
+    const userIds = new Set<string>();
+    const { data: tokenRows } = await supabase.from('fcm_tokens').select('user_id');
+    tokenRows?.forEach((r: { user_id: string | null }) => { if (r.user_id) userIds.add(r.user_id); });
+    const { data: legacyRows } = await supabase.from('profiles').select('id').not('fcm_token', 'is', null);
+    legacyRows?.forEach((r: { id: string }) => { if (r.id) userIds.add(r.id); });
+
+    if (userIds.size === 0) {
+      console.log(`[Cron/push-due] No users with tokens for hour ${targetHour} (VN)`);
+      return NextResponse.json({ success: true, vnHour: targetHour, total: 0, notified: 0, results: [] });
+    }
+
     const { data: profiles, error: profErr } = await supabase
       .from('profiles')
       .select('id, full_name, role, fcm_token')
-      .not('fcm_token', 'is', null);
+      .in('id', Array.from(userIds));
 
     if (profErr) {
       console.error('[Cron/push-due] Profile query error:', profErr.message);

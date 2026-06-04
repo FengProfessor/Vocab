@@ -243,12 +243,12 @@ export default function TeacherDashboard() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-muted/40 font-sans">
+      <div className="min-h-dvh bg-muted/40 font-sans">
         <header className="h-14 border-b bg-background px-6 flex items-center justify-between lg:hidden">
           <Skeleton className="h-6 w-32" />
           <Skeleton className="h-9 w-9 rounded-full" />
         </header>
-        <div className="flex flex-col lg:flex-row min-h-screen">
+        <div className="flex flex-col lg:flex-row min-h-dvh">
           <aside className="hidden lg:flex w-64 border-r bg-background flex-col p-6 space-y-6">
             <Skeleton className="h-10 w-full" />
             <Skeleton className="h-10 w-full" />
@@ -281,7 +281,7 @@ export default function TeacherDashboard() {
     : 0;
 
   return (
-    <div className="flex min-h-screen bg-muted/40 font-sans">
+    <div className="flex min-h-dvh bg-muted/40 font-sans">
       {/* Sidebar */}
       <aside className="fixed inset-y-0 left-0 z-10 w-64 flex-col border-r bg-background hidden sm:flex">
         <div className="flex h-14 items-center border-b px-5">

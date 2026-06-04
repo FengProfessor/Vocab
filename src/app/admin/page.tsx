@@ -46,7 +46,7 @@ export default function AdminPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/40">
+      <div className="min-h-dvh flex items-center justify-center bg-muted/40">
         <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
       </div>
     );
@@ -55,7 +55,7 @@ export default function AdminPage() {
   const activeUsers = users.filter(u => u.wordCount > 0).length;
 
   return (
-    <div className="min-h-screen bg-muted/40 font-sans">
+    <div className="min-h-dvh bg-muted/40 font-sans">
       <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-4">
         <Link href="/" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
           <ChevronLeft className="h-4 w-4" /> Back

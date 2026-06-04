@@ -210,7 +210,7 @@ function QuizContent() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-900">
+      <div className="min-h-dvh flex items-center justify-center bg-slate-900">
         <div className="flex flex-col items-center gap-6">
           <div className="w-12 h-12 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
           <p className="text-violet-400 font-bold animate-pulse text-lg">Generating quiz...</p>
@@ -222,7 +222,7 @@ function QuizContent() {
   if (done) {
     const emoji = accuracy >= 90 ? '🦁' : accuracy >= 80 ? '🦊' : accuracy >= 60 ? '🐼' : '🐢';
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-slate-900 p-8 font-sans text-white">
+      <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-slate-900 p-8 font-sans text-white">
         <div className="text-center space-y-4">
           <div className="text-8xl mb-6">{emoji}</div>
           <h1 className="text-4xl font-black tracking-tight">Quiz Complete!</h1>
@@ -280,7 +280,7 @@ function QuizContent() {
 
   if (!current) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-slate-900 font-sans text-center">
+      <div className="min-h-dvh flex flex-col items-center justify-center p-8 bg-slate-900 font-sans text-center">
         <div className="w-20 h-20 bg-slate-800 rounded-3xl flex items-center justify-center mb-6 mx-auto">
           <Brain className="w-10 h-10 text-violet-400" />
         </div>
@@ -296,7 +296,7 @@ function QuizContent() {
   const correctChoice = getCorrectChoice(current, mode);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-900 font-sans text-white overflow-hidden">
+    <div className="min-h-dvh flex flex-col bg-slate-900 font-sans text-white overflow-hidden">
       {/* Header */}
       <header className="flex items-center justify-between p-4 sm:p-6 bg-slate-900/80 backdrop-blur-md sticky top-0 z-10 border-b border-slate-800">
         <Link href="/student">
@@ -452,7 +452,7 @@ function QuizContent() {
 export default function QuizPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-slate-900">
+      <div className="min-h-dvh flex items-center justify-center bg-slate-900">
         <Loader2 className="h-10 w-10 animate-spin text-violet-400" />
       </div>
     }>

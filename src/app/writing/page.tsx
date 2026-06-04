@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { ChevronLeft, Loader2, RotateCcw, Pencil, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { levenshtein, verdictToQuality, parseIpa, type Verdict } from '@/lib/study';
+import { levenshtein, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
 
 interface WordItem {
   id: string;
@@ -62,9 +62,10 @@ function WritingContent() {
         }
         setUserId(user.id);
 
+        // Từ đã học & đến hạn (server lọc toàn bộ srs_progress, không kẹt pagination)
         const url = classroomId
-          ? `/api/words?classroomId=${classroomId}`
-          : `/api/words`;
+          ? `/api/words?classroomId=${classroomId}&filter=review`
+          : `/api/words?filter=review`;
 
         const res = await authFetch(url);
         const data = await res.json();
@@ -73,10 +74,9 @@ function WritingContent() {
           if (!classroomId && data.classroomId) setClassroomId(data.classroomId);
 
           const all: WordItem[] = data.data;
-          // Chỉ lấy từ due VÀ đã được phân tích (có word + translation hợp lệ)
+          // Server đã lọc từ đến hạn (filter=review); chỉ loại từ chưa enrich xong
           const due = all.filter(
             (w) =>
-              w.isDue &&
               w.word &&
               w.translation &&
               !w.translation.includes('failed') &&
@@ -194,7 +194,7 @@ function WritingContent() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/40 font-sans">
+      <div className="min-h-dvh flex items-center justify-center bg-muted/40 font-sans">
         <div className="flex flex-col items-center gap-6">
           <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
           <p className="text-indigo-600 font-bold animate-pulse text-lg">Đang chuẩn bị...</p>
@@ -206,7 +206,7 @@ function WritingContent() {
   // Không có từ due
   if (!current && !done) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
+      <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
         <div className="text-center space-y-3">
           <div className="text-7xl mb-4">🎉</div>
           <h1 className="text-4xl font-black text-slate-900 tracking-tight">Không có từ cần ôn</h1>
@@ -227,7 +227,7 @@ function WritingContent() {
   if (done) {
     const accuracy = total > 0 ? Math.round((results.correct / total) * 100) : 0;
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
+      <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
         <div className="text-center space-y-3">
           <div className="text-7xl mb-4 animate-bounce">🥳</div>
           <h1 className="text-4xl font-black text-slate-900 tracking-tight">Hoàn thành!</h1>
@@ -298,7 +298,7 @@ function WritingContent() {
           : 'border-slate-200 bg-slate-50 focus:border-indigo-500';
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
+    <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
       <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10 gap-3">
         <Link href="/student">
           <Button
@@ -356,7 +356,7 @@ function WritingContent() {
               <input
                 ref={inputRef}
                 type="text"
-                autoFocus
+                autoFocus={canAutoFocus()}
                 value={input}
                 disabled={verdict !== null}
                 onChange={(e) => setInput(e.target.value)}
@@ -423,7 +423,7 @@ export default function WritingPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="min-h-dvh flex items-center justify-center bg-slate-50">
           <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
         </div>
       }

@@ -23,8 +23,8 @@ messaging.onBackgroundMessage((payload) => {
   const notificationTitle = payload.notification.title || 'LingoPro Update';
   const notificationOptions = {
     body: payload.notification.body,
-    icon: '/icons/icon-192x192.png',
-    badge: '/icons/icon-192x192.png',
+    icon: '/icons/icon-192.webp',
+    badge: '/icons/icon-192.webp',
     data: payload.data
   };
 

@@ -306,7 +306,7 @@ export default function TeacherGrammarEditorPage() {
   // ---------- Render ----------
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/40">
+      <div className="min-h-dvh flex items-center justify-center bg-muted/40">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
@@ -316,7 +316,7 @@ export default function TeacherGrammarEditorPage() {
   const topicById = (id: string): GrammarTopic | undefined => topics.find((t) => t.id === id);
 
   return (
-    <div className="min-h-screen bg-muted/40 font-sans">
+    <div className="min-h-dvh bg-muted/40 font-sans">
       {/* Header */}
       <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-6 flex items-center justify-between">
         <div className="flex items-center gap-3">

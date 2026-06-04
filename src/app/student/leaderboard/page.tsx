@@ -102,7 +102,7 @@ function LeaderboardContent() {
   const periodLabels: Record<Period, string> = { week: 'Tuần này', month: 'Tháng này', all: 'Tất cả' };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 p-4">
+    <div className="min-h-dvh bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 p-4">
       <div className="max-w-lg mx-auto space-y-4">
         {/* Header */}
         <div className="flex items-center gap-3 pt-2">
@@ -235,7 +235,7 @@ function LeaderboardContent() {
 export default function LeaderboardPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 flex items-center justify-center">
+      <div className="min-h-dvh bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 flex items-center justify-center">
         <Loader2 className="h-8 w-8 text-indigo-400 animate-spin" />
       </div>
     }>

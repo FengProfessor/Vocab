@@ -112,7 +112,7 @@ export default function TeacherGrammarPage() {
 
   if (isLoading)
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/40">
+      <div className="min-h-dvh flex items-center justify-center bg-muted/40">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
@@ -124,7 +124,7 @@ export default function TeacherGrammarPage() {
   }, {} as Record<string, GrammarExercise[]>);
 
   return (
-    <div className="min-h-screen bg-muted/40 font-sans">
+    <div className="min-h-dvh bg-muted/40 font-sans">
       <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 flex items-center justify-between px-6">
         <Link
           href="/teacher"

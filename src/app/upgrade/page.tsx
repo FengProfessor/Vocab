@@ -150,14 +150,14 @@ export default function UpgradePage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#070711]">
+      <div className="min-h-dvh flex items-center justify-center bg-[#070711]">
         <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#070711] text-white font-sans">
+    <div className="min-h-dvh bg-[#070711] text-white font-sans">
       {/* Header */}
       <header className="sticky top-0 z-30 h-14 border-b border-white/5 bg-[#070711]/80 backdrop-blur-xl px-4 sm:px-6 flex items-center gap-4">
         <Link href="/" className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors">

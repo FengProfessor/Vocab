@@ -117,7 +117,7 @@ export default function LibraryPage() {
   }, [categories, selectedCategory, query]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/20 font-sans">
+    <div className="min-h-dvh bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/20 font-sans">
       {/* Header */}
       <header className="sticky top-0 z-20 bg-white/80 backdrop-blur border-b px-4 sm:px-6 h-16 flex items-center gap-4">
         <Link href="/student">
