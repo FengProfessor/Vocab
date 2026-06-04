@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { toast } from 'sonner';
 import {
   Brain, ChevronLeft, Upload, FileText, Camera, Loader2,
-  CheckCircle2, XCircle, SkipForward, Trash2, Plus
+  CheckCircle2, XCircle, SkipForward, Trash2, Plus, BookMarked, ArrowRight
 } from 'lucide-react';
 
 type Tab = 'text' | 'file' | 'ocr' | 'csv';
@@ -448,8 +448,23 @@ export default function ImportPage() {
       </header>
 
       <div className="max-w-2xl mx-auto p-4 sm:p-8 space-y-6">
+        {/* Banner dẫn sang Thư viện chuyên đề (đã tách khỏi đây cho dễ tìm) */}
+        <Link
+          href="/library"
+          className="group flex items-center gap-4 rounded-2xl p-4 bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-200/50 hover:brightness-110 transition-all"
+        >
+          <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+            <BookMarked className="h-6 w-6" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-black text-sm sm:text-base">Thư viện từ vựng theo chuyên đề</p>
+            <p className="text-xs text-white/80 font-medium">Từ vựng SGK, chủ điểm, phrasal verbs, thành ngữ — gom sẵn, nhập 1 chạm.</p>
+          </div>
+          <ArrowRight className="h-5 w-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
+
         {/* Tab switcher */}
-        <div className="bg-white border rounded-2xl p-1.5 flex gap-1 shadow-sm">
+        <div className="bg-white border rounded-2xl p-1.5 flex gap-1 shadow-sm flex-wrap">
           {([
             { key: 'text', icon: FileText, label: 'Paste Text' },
             { key: 'file', icon: Upload, label: 'Excel / CSV' },
@@ -459,14 +474,14 @@ export default function ImportPage() {
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
-              className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-sm transition-all ${
+              className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all ${
                 tab === t.key
                   ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200'
                   : 'text-muted-foreground hover:bg-muted/50'
               }`}
             >
               <t.icon className="h-4 w-4" />
-              <span className="hidden sm:inline">{t.label}</span>
+              <span className="hidden md:inline">{t.label}</span>
             </button>
           ))}
         </div>
@@ -702,6 +717,7 @@ export default function ImportPage() {
             <WordListPanel words={ocrWords} setWords={setOcrWords} label="Words from image" />
           </div>
         )}
+
       </div>
     </div>
   );

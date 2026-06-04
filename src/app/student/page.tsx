@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import {
   Brain, BookOpen, Zap, LayoutDashboard, LogOut, Loader2, Plus,
   CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw,
-  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown
+  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -449,6 +449,7 @@ export default function StudentDashboard() {
               </div>
               <nav className="flex-1 space-y-4">
                 <Link href="/student" className="flex items-center gap-3 font-bold text-primary bg-primary/5 p-3 rounded-xl"><LayoutDashboard /> Dashboard</Link>
+                <Link href="/library" className="flex items-center gap-3 font-semibold p-3"><Library /> Thư viện từ vựng</Link>
                 <Link href="/import" className="flex items-center gap-3 font-semibold p-3"><Plus /> Import Words</Link>
                 <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Review</Link>
                 <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
@@ -486,6 +487,9 @@ export default function StudentDashboard() {
           </Link>
           <Link href="/grammar/learn" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <GraduationCap className="h-5 w-5" /> Grammar
+          </Link>
+          <Link href="/library" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <Library className="h-5 w-5" /> Thư viện từ vựng
           </Link>
           <Link href="/import" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Plus className="h-5 w-5" /> Import Words
@@ -1018,6 +1022,7 @@ export default function StudentDashboard() {
       {/* MOBILE BOTTOM NAV */}
       <nav className="fixed bottom-0 inset-x-0 h-16 bg-background border-t md:hidden flex items-center justify-around z-[90]">
         <Link href="/student" className="p-3 text-primary"><LayoutDashboard /></Link>
+        <Link href="/library" className="p-3 text-muted-foreground"><Library /></Link>
         <Link href="/import" className="p-4 -mt-10 bg-primary text-white rounded-2xl shadow-lg shadow-primary/40"><Plus /></Link>
         <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="p-3 text-muted-foreground"><BookOpen /></Link>
       </nav>
