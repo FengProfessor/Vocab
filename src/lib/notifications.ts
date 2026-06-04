@@ -45,28 +45,31 @@ export async function sendPushNotificationToUser(
     if (tokens.size === 0) return { error: `No token for user ${userId}` };
 
     const link = `https://vocab-taupe.vercel.app${url}`;
-    let sentCount = 0;
-    let lastId = '';
+    const tokenArr = Array.from(tokens);
     const deadTokens: string[] = [];
 
-    // Gửi tới TẤT CẢ thiết bị của user
-    for (const token of tokens) {
-      try {
-        lastId = await admin.messaging().send({
-          notification: { title, body: message },
-          data: { url: link },
-          token,
-          webpush: {
-            fcmOptions: { link },
-            notification: { icon: '/icons/icon-192.webp', badge: '/icons/icon-192.webp' },
-          },
-        });
-        sentCount++;
-      } catch (err: unknown) {
-        const code = (err as { code?: string } | undefined)?.code || '';
-        if (DEAD_TOKEN_CODES.includes(code)) deadTokens.push(token);
+    // Gửi 1 lần tới TẤT CẢ thiết bị của user (sendEachForMulticast: tối đa 500 token/call,
+    // 1 round-trip thay vì N — tránh nghẽn khi cron bắn hàng loạt user).
+    const resp = await admin.messaging().sendEachForMulticast({
+      tokens: tokenArr,
+      notification: { title, body: message },
+      data: { url: link },
+      webpush: {
+        fcmOptions: { link },
+        notification: { icon: '/icons/icon-192.webp', badge: '/icons/icon-192.webp' },
+      },
+    });
+
+    let lastId = '';
+    resp.responses.forEach((r, i) => {
+      if (r.success) {
+        lastId = r.messageId || lastId;
+      } else {
+        const code = (r.error as { code?: string } | undefined)?.code || '';
+        if (DEAD_TOKEN_CODES.includes(code)) deadTokens.push(tokenArr[i]);
       }
-    }
+    });
+    const sentCount = resp.successCount;
 
     // Dọn token chết khỏi cả 2 nơi
     if (deadTokens.length) {
