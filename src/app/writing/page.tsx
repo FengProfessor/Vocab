@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { ChevronLeft, Loader2, RotateCcw, Pencil, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
+import { levenshtein, verdictToQuality, parseIpa, type Verdict } from '@/lib/study';
 
 interface WordItem {
   id: string;
@@ -24,52 +25,6 @@ interface WordItem {
   srsLevel: number;
   mastery: number;
   srs: SRSProgress | null;
-}
-
-type Verdict = 'correct' | 'close' | 'wrong';
-
-function parseIpa(raw?: string): string {
-  if (!raw) return '';
-  try {
-    const parsed = JSON.parse(raw);
-    return parsed.uk || parsed.us || (Object.values(parsed)[0] as string) || raw;
-  } catch {
-    return raw;
-  }
-}
-
-/** Levenshtein edit distance (DP, O(a*b)) */
-function levenshtein(a: string, b: string): number {
-  const m = a.length;
-  const n = b.length;
-  if (m === 0) return n;
-  if (n === 0) return m;
-
-  // Chỉ giữ 2 hàng để tiết kiệm bộ nhớ
-  let prev = new Array<number>(n + 1);
-  let curr = new Array<number>(n + 1);
-  for (let j = 0; j <= n; j++) prev[j] = j;
-
-  for (let i = 1; i <= m; i++) {
-    curr[0] = i;
-    for (let j = 1; j <= n; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      curr[j] = Math.min(
-        prev[j] + 1, // deletion
-        curr[j - 1] + 1, // insertion
-        prev[j - 1] + cost, // substitution
-      );
-    }
-    [prev, curr] = [curr, prev];
-  }
-  return prev[n];
-}
-
-/** Verdict đúng → quality 4 (Good); gần đúng → 3 (Hard); sai → 0 (Again) */
-function verdictToQuality(v: Verdict): 0 | 3 | 4 {
-  if (v === 'correct') return 4;
-  if (v === 'close') return 3;
-  return 0;
 }
 
 const NEXT_DELAY_MS = 1500;

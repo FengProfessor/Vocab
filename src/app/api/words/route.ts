@@ -404,11 +404,31 @@ export async function GET(req: Request): Promise<NextResponse> {
         .select('id', { count: 'exact', head: true })
         .eq('user_id', userId);
 
+      // Đã học (review_count>0) → để tách "Học mới" vs "Ôn tập"
+      const { count: learnedCount } = await supabase
+        .from('srs_progress')
+        .select('id', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .gt('review_count', 0);
+
+      // Đã học & đến hạn → cần ôn tập
+      const { count: reviewDueCount } = await supabase
+        .from('srs_progress')
+        .select('id', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .gt('review_count', 0)
+        .lte('next_review_date', now);
+
+      // Từ mới = tổng - đã học (gồm cả từ chưa có SRS lẫn review_count=0)
+      const newCount = Math.max(0, (total || 0) - (learnedCount || 0));
+
       return new NextResponse(JSON.stringify({
         success: true,
         classroomId,
         total: total || 0,
         dueCount: (dueCount || 0) + Math.max(0, (total || 0) - (wordsWithSrs || 0)),
+        newCount,
+        reviewDueCount: reviewDueCount || 0,
       }), {
         headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
       });

@@ -15,6 +15,8 @@ import { XP_BY_QUALITY } from '@/lib/gamification';
 import { Celebration } from '@/components/gamification/Celebration';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { DailyGoalRing } from '@/components/gamification/DailyGoalRing';
+import { LearnMode } from './LearnMode';
+import { speak, parseIpa } from '@/lib/study';
 
 interface WordItem {
   id: string;
@@ -33,18 +35,17 @@ interface WordItem {
   srs: SRSProgress | null;
 }
 
-function parseIpa(raw?: string): string {
-  if (!raw) return '';
-  try {
-    const parsed = JSON.parse(raw);
-    return parsed.uk || parsed.us || (Object.values(parsed)[0] as string) || raw;
-  } catch { return raw; }
+function FlashcardContent() {
+  const searchParams = useSearchParams();
+  // Chế độ học từ mới (Giới thiệu → Nhớ lại) tách khỏi luồng ôn tập
+  if (searchParams.get('mode') === 'learn') {
+    return <LearnMode classroomId={searchParams.get('class')} />;
+  }
+  return <ReviewSession initialClassroomId={searchParams.get('class')} />;
 }
 
-function FlashcardContent() {
+function ReviewSession({ initialClassroomId }: { initialClassroomId: string | null }) {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const initialClassroomId = searchParams.get('class');
 
   const [userId, setUserId] = useState<string | null>(null);
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
@@ -90,10 +91,9 @@ function FlashcardContent() {
           if (!classroomId && data.classroomId) setClassroomId(data.classroomId);
 
           const all: WordItem[] = data.data;
-          const due = all.filter(w => w.isDue);
-          // If no words are due, show all words (no cap)
-          const studyQueue = due.length > 0 ? due : all;
-          
+          // Chỉ ôn từ ĐÃ học (reviewCount>0) và đến hạn — từ mới được học ở mode=learn
+          const studyQueue = all.filter(w => w.isDue && w.reviewCount > 0);
+
           if (studyQueue.length === 0) {
             setIsLoading(false);
             return;
@@ -137,15 +137,6 @@ function FlashcardContent() {
     const t = setTimeout(() => setShowFlipHint(true), 5000);
     return () => clearTimeout(t);
   }, [flipped, current?.id]);
-
-  const speak = (text: string, rate: number = 1.0) => {
-    // Cancel any ongoing speech to avoid overlapping
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = rate; // 1.0 is normal, 0.6 is slow
-    window.speechSynthesis.speak(u);
-  };
 
   const handleRate = async (quality: 0 | 3 | 4 | 5) => {
     if (!current || !userId) return;

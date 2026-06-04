@@ -76,6 +76,14 @@ export default function LibraryPage() {
       if (data.success) {
         toast.success(data.message || 'Đã nhập thành công!', { id: 'lib-import' });
         setImportedLessons(prev => new Set(prev).add(key));
+        // Kích hoạt AI enrich nền cho các từ chưa có nghĩa (giống luồng CSV ở /import)
+        if (data.classroomId) {
+          authFetch('/api/words/refresh', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ classroomId: data.classroomId }),
+          }).catch(() => {});
+        }
       } else {
         toast.error(data.error || 'Có lỗi khi nhập bài học', { id: 'lib-import' });
       }

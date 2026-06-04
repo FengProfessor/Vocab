@@ -216,7 +216,7 @@ export async function POST(req: Request): Promise<NextResponse> {
           classroom_id: classroomId,
           added_by: userId,
           word,
-          translation: m.definition || '⏳ Click to enrich',
+          translation: m.definition || '⏳ Analyzing...',
           ipa: gdData.pronunciations?.[0]?.ipa || '',
           pos: m.pos || '',
           example: m.example || '',
@@ -251,6 +251,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     return NextResponse.json({
       success: true,
       imported: rows.length,
+      classroomId,
       message: `Đã nhập thành công ${rows.length} từ vào danh sách tự học!`,
     });
   } catch (error: unknown) {

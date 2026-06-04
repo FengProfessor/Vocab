@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import {
   Brain, BookOpen, Zap, LayoutDashboard, LogOut, Loader2, Plus,
   CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw,
-  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library
+  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -52,6 +52,8 @@ export default function StudentDashboard() {
   const [joinError, setJoinError] = useState<string | null>(null);
   // Pagination state cho word list
   const [totalWords, setTotalWords] = useState(0);
+  const [newCount, setNewCount] = useState(0);
+  const [reviewDueCount, setReviewDueCount] = useState(0);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [wordsOffset, setWordsOffset] = useState(0);
   const WORDS_PAGE_SIZE = 20;
@@ -113,6 +115,7 @@ export default function StudentDashboard() {
         setClassroomId(data.classroomId);
         setTotalWords(data.total || 0);
         setWordsOffset(WORDS_PAGE_SIZE);
+        refreshSummary(userId); // lấy newCount / reviewDueCount để tách Học mới vs Ôn tập
 
         if (data.classroomId) {
           const { data: qr } = await supabase
@@ -168,6 +171,8 @@ export default function StudentDashboard() {
       const data = await res.json();
       if (data.success) {
         setTotalWords(data.total || 0);
+        setNewCount(data.newCount || 0);
+        setReviewDueCount(data.reviewDueCount || 0);
         // Cập nhật isDue trên words hiện có dựa trên thời gian
         const now = Date.now();
         setWords(prev => prev.map((w) => {
@@ -451,7 +456,8 @@ export default function StudentDashboard() {
                 <Link href="/student" className="flex items-center gap-3 font-bold text-primary bg-primary/5 p-3 rounded-xl"><LayoutDashboard /> Dashboard</Link>
                 <Link href="/library" className="flex items-center gap-3 font-semibold p-3"><Library /> Thư viện từ vựng</Link>
                 <Link href="/import" className="flex items-center gap-3 font-semibold p-3"><Plus /> Import Words</Link>
-                <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Review</Link>
+                <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} className="flex items-center gap-3 font-semibold p-3"><Sparkles /> Học từ mới</Link>
+                <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Ôn tập</Link>
                 <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
                 <Link href="/grammar/learn" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
                 <Link href="/student/profile" className="flex items-center gap-3 font-semibold p-3"><User /> Hồ sơ</Link>
@@ -476,8 +482,11 @@ export default function StudentDashboard() {
           <Link href="/student" className="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold transition-all">
             <LayoutDashboard className="h-5 w-5" /> Dashboard
           </Link>
+          <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <Sparkles className="h-5 w-5" /> Học từ mới
+          </Link>
           <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <BookOpen className="h-5 w-5" /> Flashcards
+            <BookOpen className="h-5 w-5" /> Ôn tập (Flashcards)
           </Link>
           <Link href={classroomId ? `/quiz?class=${classroomId}` : '#'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Zap className="h-5 w-5" /> Mini Quiz
@@ -567,17 +576,51 @@ export default function StudentDashboard() {
             </div>
           </div>
 
-          {/* Due words reminder banner */}
-          {dueWords.length > 0 && (
-            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-3 flex items-center justify-between">
-              <span className="text-amber-600 dark:text-amber-400 text-sm font-semibold">
-                📚 Bạn có <strong>{dueWords.length}</strong> từ cần ôn hôm nay
-              </span>
+          {/* ═══ Tách bạch: HỌC TỪ MỚI vs ÔN TẬP ═══ */}
+          {totalWords > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Học từ mới: xem từ + nghĩa + phát âm, rồi điền lại */}
               <Link
-                href={classroomId ? `/flashcard?class=${classroomId}` : '#'}
-                className="text-amber-600 dark:text-amber-400 text-xs font-bold underline underline-offset-2 hover:opacity-80 transition-opacity"
+                href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}
+                className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
+                  newCount > 0 ? 'bg-white hover:shadow-md hover:border-indigo-300' : 'bg-slate-50 opacity-70 pointer-events-none'
+                }`}
               >
-                Ôn ngay →
+                <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center shrink-0">
+                  <BookOpen className="h-6 w-6 text-indigo-600" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="font-black text-slate-800">Học từ mới</span>
+                    {newCount > 0 && <span className="bg-indigo-600 text-white text-xs font-black px-2 py-0.5 rounded-full">{newCount}</span>}
+                  </div>
+                  <div className="text-xs font-bold text-muted-foreground">
+                    {newCount > 0 ? 'Xem từ, nghĩa, nghe phát âm rồi điền lại' : 'Đã học hết từ mới 🎉'}
+                  </div>
+                </div>
+                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+
+              {/* Ôn tập: từ đã học, đến hạn nhớ lại */}
+              <Link
+                href={reviewDueCount > 0 && classroomId ? `/flashcard?class=${classroomId}` : '#'}
+                className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
+                  reviewDueCount > 0 ? 'bg-white hover:shadow-md hover:border-emerald-300' : 'bg-slate-50 opacity-70 pointer-events-none'
+                }`}
+              >
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
+                  <GraduationCap className="h-6 w-6 text-emerald-600" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="font-black text-slate-800">Ôn tập</span>
+                    {reviewDueCount > 0 && <span className="bg-emerald-500 text-white text-xs font-black px-2 py-0.5 rounded-full">{reviewDueCount}</span>}
+                  </div>
+                  <div className="text-xs font-bold text-muted-foreground">
+                    {reviewDueCount > 0 ? 'Từ đã học đến hạn nhớ lại' : 'Chưa có từ cần ôn'}
+                  </div>
+                </div>
+                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           )}
@@ -702,15 +745,15 @@ export default function StudentDashboard() {
 
              <div className="space-y-6">
                 <h3 className="text-xl font-bold text-slate-600">
-                  Ready to review: <span className="text-emerald-500 font-black">{dueWords.length}</span> words
+                  Ready to review: <span className="text-emerald-500 font-black">{reviewDueCount}</span> words
                 </h3>
-                
-                <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'}
+
+                <Link href={reviewDueCount > 0 && classroomId ? `/flashcard?class=${classroomId}` : '#'}
                       className={`inline-flex items-center gap-3 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl transition-all
-                        ${dueWords.length > 0
+                        ${reviewDueCount > 0
                           ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 hover:brightness-110 active:translate-y-0.5 active:border-b-0'
                           : 'bg-slate-100 text-slate-400 pointer-events-none'}`}>
-                  {dueWords.length > 0 ? 'Ôn ngay! 🚀' : 'Xong hết rồi! 🎉'} <ArrowRight className="h-6 w-6" />
+                  {reviewDueCount > 0 ? 'Ôn ngay! 🚀' : 'Xong hết rồi! 🎉'} <ArrowRight className="h-6 w-6" />
                 </Link>
                 
                 {countdown && dueWords.length === 0 && (
