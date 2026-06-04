@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { calculateNextReview, mapQualityToRating } from '@/lib/srs';
+import { mapQualityToRating } from '@/lib/srs';
+import { scheduleNext } from '@/lib/fsrs';
 import { XP_BY_QUALITY } from '@/lib/gamification';
 import { getAuthUser, unauthorized, isValidString } from '@/lib/api-security';
 
@@ -34,27 +35,9 @@ export async function POST(req: Request) {
       .eq('word_id', wordId)
       .single();
 
-    // Port existing SM-2 data to FSRS if stability/difficulty are missing
-    const currentSRS = existing
-      ? {
-          stability: Number(existing.stability) || Number(existing.interval_days) || 0,
-          difficulty: Number(existing.difficulty) || 5,
-          interval: existing.interval_days,
-          reviewCount: existing.review_count,
-          nextReviewDate: existing.next_review_date,
-          lastReviewDate: existing.last_reviewed_at || existing.created_at,
-        }
-      : {
-          stability: 0,
-          difficulty: 0,
-          interval: 0,
-          reviewCount: 0,
-          nextReviewDate: new Date().toISOString(),
-          lastReviewDate: new Date().toISOString(),
-        };
-
+    // ts-fsrs lo tái dựng Card + suy luận state cho dữ liệu cũ (xem lib/fsrs.ts)
     const fsrsRating = mapQualityToRating(quality);
-    const newSRS = calculateNextReview(currentSRS, fsrsRating);
+    const newSRS = scheduleNext(existing, fsrsRating);
 
     // Upsert into srs_progress with FSRS columns
     const { data, error } = await supabase
@@ -65,11 +48,14 @@ export async function POST(req: Request) {
           word_id: wordId,
           stability: newSRS.stability,
           difficulty: newSRS.difficulty,
-          interval_days: newSRS.interval,
-          review_count: newSRS.reviewCount,
-          next_review_date: newSRS.nextReviewDate,
-          last_reviewed_at: new Date().toISOString(),
-          algorithm_version: 'fsrs-v5',
+          interval_days: newSRS.interval_days,
+          review_count: newSRS.review_count,
+          state: newSRS.state,
+          lapses: newSRS.lapses,
+          learning_steps: newSRS.learning_steps,
+          next_review_date: newSRS.next_review_date,
+          last_reviewed_at: newSRS.last_reviewed_at,
+          algorithm_version: 'ts-fsrs',
         },
         { onConflict: 'user_id,word_id' }
       )

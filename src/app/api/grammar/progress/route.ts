@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { calculateNextReview, defaultSRS, SRSData, FSRSRating } from '@/lib/srs';
+import { FSRSRating } from '@/lib/srs';
+import { scheduleNext, stateToText, textToState } from '@/lib/fsrs';
 
 /** Map độ chính xác bài tập (0-1) → rating FSRS. */
 function accuracyToRating(acc: number): FSRSRating {
@@ -168,20 +169,21 @@ export async function POST(req: Request): Promise<NextResponse> {
       .eq('lesson_id', lessonId)
       .maybeSingle();
 
-    const current: SRSData = existing
-      ? {
-          stability: existing.stability || 0,
-          difficulty: existing.difficulty || 0,
-          interval: existing.interval_days || 0,
-          reviewCount: existing.review_count || 0,
-          nextReviewDate: existing.next_review_date,
-          lastReviewDate: existing.last_reviewed_at || undefined,
-        }
-      : defaultSRS();
-
     const rating = accuracyToRating(accuracy);
-    const next = calculateNextReview(current, rating);
-    const state = rating === 1 ? 'relearning' : next.reviewCount <= 1 ? 'learning' : 'review';
+    const prev = existing
+      ? {
+          stability: existing.stability,
+          difficulty: existing.difficulty,
+          interval_days: existing.interval_days,
+          review_count: existing.review_count,
+          state: textToState(existing.state),
+          lapses: existing.lapses,
+          learning_steps: existing.learning_steps,
+          next_review_date: existing.next_review_date,
+          last_reviewed_at: existing.last_reviewed_at,
+        }
+      : null;
+    const next = scheduleNext(prev, rating);
 
     // EMA cho mastery_score: smooth qua nhiều session, không overwrite từ lần submit cuối.
     // new = α * current + (1 - α) * old, với α = 0.3.
@@ -193,6 +195,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     const masteryScore = typeof oldScore === 'number'
       ? Math.round(ALPHA * currentScore + (1 - ALPHA) * oldScore)
       : currentScore;
+    // Giữ 'mastered' theo điểm thành thạo; còn lại lấy state FSRS.
+    const state = masteryScore >= 80 ? 'mastered' : stateToText(next.state);
 
     const { data, error } = await supabase
       .from('grammar_progress')
@@ -202,10 +206,12 @@ export async function POST(req: Request): Promise<NextResponse> {
           lesson_id: lessonId,
           stability: next.stability,
           difficulty: next.difficulty,
-          interval_days: next.interval,
-          review_count: next.reviewCount,
-          next_review_date: next.nextReviewDate,
-          last_reviewed_at: next.lastReviewDate,
+          interval_days: next.interval_days,
+          review_count: next.review_count,
+          lapses: next.lapses,
+          learning_steps: next.learning_steps,
+          next_review_date: next.next_review_date,
+          last_reviewed_at: next.last_reviewed_at,
           state,
           mastery_score: masteryScore,
         },
