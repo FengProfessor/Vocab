@@ -1,14 +1,16 @@
 name: Hourly Push Notifications
 
-# Lịch tự động ĐÃ CHUYỂN sang cron-job.org (đáng tin hơn GitHub Actions schedule,
-# vốn hay trễ/skip giờ cao điểm). Giữ workflow này để chạy TAY khi cần test.
-# Muốn bật lại lịch GitHub Actions: bỏ comment 2 dòng schedule bên dưới.
+# Lịch tự động trigger /api/cron/push-due. GitHub Actions là nguồn cron CHÍNH
+# (in-repo, xem được lịch sử chạy ở tab Actions) vì cron-job.org không tự verify được.
+# Chạy đúng 3 mốc nhắc 8h/12h/20h VN = 1h/5h/13h UTC (route tự gate REMINDER_HOURS).
+# GitHub Actions schedule có thể trễ ~vài phút nhưng vẫn trong cùng giờ → route vẫn khớp.
 #
-# Yêu cầu (nếu bật lại): repo secret CRON_SECRET khớp env CRON_SECRET trên Vercel.
+# Yêu cầu: repo secret CRON_SECRET khớp env CRON_SECRET trên Vercel.
+# ⚠️ Nếu cron-job.org cũng đang bật cho cùng URL → TẮT 1 trong 2 để tránh push trùng.
 
 on:
-  # schedule:
-  #   - cron: '0 * * * *'   # đầu mỗi giờ (UTC) — đã tắt, dùng cron-job.org thay
+  schedule:
+    - cron: '0 1,5,13 * * *' # 8h/12h/20h VN (UTC+7). Route gate đúng các mốc này.
   workflow_dispatch: {} # vẫn cho chạy thủ công để test
 
 jobs:

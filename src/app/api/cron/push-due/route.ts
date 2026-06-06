@@ -33,6 +33,14 @@ function getVietnamHour(): number {
   return parseInt(str, 10) % 24; // hour12:false có thể trả '24' lúc nửa đêm
 }
 
+/** Ngày hiện tại theo giờ VN, dạng 'YYYY-MM-DD' (để ghép slot khử push trùng). */
+function getVietnamDateStr(): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
+}
+
 /**
  * GET /api/cron/push-due
  * Chạy MỖI GIỜ (GitHub Actions). Chỉ gửi vào các khung REMINDER_HOURS (giờ VN):
@@ -71,6 +79,11 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const supabase = createServiceClient();
     const now = new Date().toISOString();
+
+    // Slot khử trùng: 1 user chỉ nhận 1 push/mốc/ngày dù nhiều nguồn cron cùng bắn.
+    // Bỏ qua khi test (?hour= hoặc ?all=1) để không vướng dedup lúc thử.
+    const isTest = hourParam !== null || sendAll;
+    const slotKey = `${getVietnamDateStr()}-${targetHour}`;
 
     // Gom user_id CÓ thiết bị: bảng fcm_tokens (đa thiết bị) + legacy profiles.fcm_token.
     // Tránh bỏ sót user chỉ còn token ở fcm_tokens (vd profiles.fcm_token đã bị dọn khi token chết).
@@ -146,6 +159,23 @@ export async function GET(req: Request): Promise<NextResponse> {
       }
 
       if (dueCount === 0) return null;
+
+      // Khử trùng đa nguồn cron: claim slot bằng UPDATE có điều kiện (atomic per-row trong
+      // Postgres). Chỉ nguồn claim được mới gửi; nguồn khác thấy slot trùng → 0 row → skip.
+      // Nếu cột chưa tồn tại (migration chưa chạy) → claimErr → vẫn gửi như cũ (không chặn).
+      if (!isTest) {
+        const { data: claimed, error: claimErr } = await supabase
+          .from('profiles')
+          .update({ last_due_push_slot: slotKey })
+          .eq('id', profile.id)
+          .or(`last_due_push_slot.is.null,last_due_push_slot.neq.${slotKey}`)
+          .select('id');
+        if (claimErr) {
+          console.warn('[Cron/push-due] dedup claim skipped:', claimErr.message);
+        } else if (!claimed?.length) {
+          return null; // slot đã được nguồn cron khác gửi
+        }
+      }
 
       const firstName = (profile.full_name || 'bạn').split(' ').pop();
 
