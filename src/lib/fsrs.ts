@@ -73,10 +73,17 @@ function toCard(row: SrsRowLike | null | undefined, now: Date): Card {
   let state = (row.state ?? 0) as State;
   if (state === State.New && hasHistory) state = State.Review;
 
+  // ts-fsrs BẮT BUỘC thẻ đã học: difficulty ∈ [1,10] và stability > 0.
+  // Hàng legacy từ srs.ts cũ thường có difficulty=0 (hoặc stability=0) → scheduler.next()
+  // ném "Invalid memory state" → 500 mỗi lần review. Clamp để chữa & tự lành khi ghi lại.
+  const rawDiff = row.difficulty ?? 0;
+  const difficulty = Math.min(10, Math.max(1, rawDiff > 0 ? rawDiff : 5));
+  const stability = Math.max(0.01, row.stability ?? 0);
+
   return {
     due,
-    stability: row.stability ?? 0,
-    difficulty: row.difficulty ?? 0,
+    stability,
+    difficulty,
     elapsed_days: elapsed,
     scheduled_days: row.interval_days ?? 0,
     learning_steps: row.learning_steps ?? 0,
