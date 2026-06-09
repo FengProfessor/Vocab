@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { supabase } from '@/lib/supabase';
 import type { GrammarTopic, GrammarLesson, GrammarProgress } from '@/lib/supabase';
 import GrammarHighlight, { type WordAnnotation } from '@/components/grammar/GrammarHighlight';
+import TenseTimeline from '@/components/grammar/TenseTimeline';
 import {
   ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen, Volume2, History,
 } from 'lucide-react';
@@ -376,8 +377,57 @@ export default function GrammarLearnPage() {
             </div>
           )}
 
-          <div className="prose prose-slate max-w-none bg-background border rounded-2xl p-6 shadow-sm">
-            <ReactMarkdown>
+          {/* Timeline visual aid */}
+          <TenseTimeline lessonTitle={activeLesson.title} />
+
+          <div className="prose prose-slate max-w-none bg-background border rounded-3xl p-6 sm:p-8 shadow-sm">
+            <ReactMarkdown
+              components={{
+                h2: ({ node, ...props }) => (
+                  <h2 className="text-xl font-extrabold text-slate-800 border-b border-slate-100 pb-2.5 mb-4 mt-6 flex items-center gap-2" {...props} />
+                ),
+                h3: ({ node, ...props }) => (
+                  <h3 className="text-lg font-extrabold text-slate-700 mb-3 mt-4" {...props} />
+                ),
+                blockquote: ({ node, ...props }) => (
+                  <div className="my-4 p-4 bg-amber-50/50 border-l-4 border-amber-500 rounded-r-2xl text-amber-900 text-sm leading-relaxed" {...props} />
+                ),
+                table: ({ node, ...props }) => (
+                  <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200 shadow-sm bg-white">
+                    <table className="w-full text-left text-sm text-slate-600 border-collapse" {...props} />
+                  </div>
+                ),
+                thead: ({ node, ...props }) => <thead className="bg-slate-50/80 text-xs text-slate-700 uppercase font-black" {...props} />,
+                th: ({ node, ...props }) => <th className="px-4 py-3 border-b font-bold tracking-wider text-slate-700" {...props} />,
+                td: ({ node, ...props }) => <td className="px-4 py-3 border-b border-slate-100 font-medium" {...props} />,
+                code: ({ node, inline, className, children, ...props }: any) => {
+                  const codeText = String(children).replace(/\n$/, '');
+                  // Check if it's a formula: contains '+' or '→' or '=>'
+                  const isFormula = (codeText.includes('+') || codeText.includes('→') || codeText.includes('=>')) && codeText.length < 80;
+                  
+                  if (inline) {
+                    if (isFormula) {
+                      return (
+                        <code className="px-2.5 py-1 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-700 font-black font-mono text-xs inline-block mx-1.5 shadow-sm" {...props}>
+                          {codeText}
+                        </code>
+                      );
+                    }
+                    return (
+                      <code className="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-800 font-semibold font-mono text-xs mx-0.5" {...props}>
+                        {codeText}
+                      </code>
+                    );
+                  }
+                  
+                  return (
+                    <pre className="p-4 rounded-2xl bg-slate-900 text-slate-200 font-mono text-sm overflow-x-auto shadow-inner my-4 border border-slate-800">
+                      <code {...props}>{codeText}</code>
+                    </pre>
+                  );
+                }
+              }}
+            >
               {formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')}
             </ReactMarkdown>
           </div>
