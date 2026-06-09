@@ -125,6 +125,15 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   // Task 1: Keyboard shortcuts
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
+      // Allow Escape key to skip spelling card even when input is focused
+      if (e.key === 'Escape') {
+        if (current && current.srsLevel >= 2 && !hasSpelledCorrectly && !flipped) {
+          e.preventDefault();
+          handleSpellingSkip();
+          return;
+        }
+      }
+
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       if (e.key === ' ') { e.preventDefault(); setFlipped(f => !f); }
       if (flipped) {
@@ -137,7 +146,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flipped]);
+  }, [flipped, current, hasSpelledCorrectly]);
 
   // Task 3: Flip hint sau 5 giây
   useEffect(() => {
@@ -159,6 +168,20 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
       handleRate(4);
       setAutoAdvanceTime(null);
     }, 1800);
+  };
+
+  const handleSpellingSkip = () => {
+    if (!current) return;
+    setFlipped(true);
+    setSpellingInput('');
+    setSpellingError(false);
+    setHasSpelledCorrectly(false);
+    if (autoAdvanceRef.current) {
+      clearTimeout(autoAdvanceRef.current);
+      autoAdvanceRef.current = null;
+    }
+    setAutoAdvanceTime(null);
+    toast.info('Hãy xem kỹ từ này và tự đánh giá nhé!', { position: 'top-center' });
   };
 
   const handleRate = async (quality: 0 | 3 | 4 | 5) => {
@@ -487,26 +510,42 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                                setSpellingError(true);
                                toast.error('Incorrect, try again!', { position: 'top-center' });
                              }
+                           } else if (e.key === 'Escape') {
+                             e.preventDefault();
+                             handleSpellingSkip();
                            }
                         }}
-                        placeholder="Nghe và gõ lại..."
+                        placeholder="Nghe và gõ lại (Esc để bỏ qua)..."
                         className={`w-full text-center text-3xl font-black p-4 rounded-2xl border-4 focus:outline-none transition-colors
                           ${spellingError ? 'border-rose-400 bg-rose-50 text-rose-600 animate-shake' : 'border-slate-200 bg-slate-50 focus:border-indigo-500'}`}
                       />
                     </div>
-                    <Button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
-                           handleSpellingCorrect();
-                        } else {
-                           setSpellingError(true);
-                        }
-                      }}
-                      className="w-full mt-4 h-14 rounded-2xl bg-indigo-600 hover:bg-indigo-700 font-bold text-lg shadow-xl shadow-indigo-100"
-                    >
-                      Kiểm Tra
-                    </Button>
+                    <div className="flex gap-3 w-full mt-4">
+                       <Button 
+                         onClick={(e) => {
+                           e.stopPropagation();
+                           if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
+                              handleSpellingCorrect();
+                           } else {
+                              setSpellingError(true);
+                              toast.error('Incorrect, try again!', { position: 'top-center' });
+                           }
+                         }}
+                         className="flex-[2] h-14 rounded-2xl bg-indigo-600 hover:bg-indigo-700 font-bold text-lg shadow-xl shadow-indigo-100"
+                       >
+                         Kiểm Tra
+                       </Button>
+                       <Button
+                         variant="outline"
+                         onClick={(e) => {
+                           e.stopPropagation();
+                           handleSpellingSkip();
+                         }}
+                         className="flex-1 h-14 rounded-2xl border-2 border-slate-200 text-slate-500 hover:bg-slate-50 font-bold text-sm shadow-sm"
+                       >
+                         Không nhớ
+                       </Button>
+                     </div>
                   </div>
                 ) : (
                   // Passive Recognition Mode (Level 1) or After Spelled Correctly
