@@ -17,6 +17,7 @@ type WordStatus = 'pending' | 'saving' | 'saved' | 'duplicate' | 'error';
 interface ImportWord {
   id: string;
   word: string;
+  translation?: string;
   status: WordStatus;
   message?: string;
 }
@@ -196,13 +197,37 @@ export default function ImportPage() {
       const wordColIdx = header.findIndex((h) => h.includes('word') || h.includes('từ')) ?? 0;
       const col = wordColIdx >= 0 ? wordColIdx : 0;
 
-      const words = rows
-        .slice(header.length > 0 ? 1 : 0)
-        .map((r) => String(r[col] || '').trim())
-        .filter(w => w.length > 0 && w.length < 80);
+      // Find translation column if present
+      const transColIdx = header.findIndex((h) =>
+        h.includes('translation') || h.includes('meaning') || h.includes('dịch') || h.includes('nghĩa') || h.includes('definition') || h.includes('vietnamese') || h.includes('tiếng việt')
+      );
 
-      const unique = [...new Set(words)];
-      setWordList(unique.map((w, i) => ({ id: String(i), word: w, status: 'pending' })));
+      const importedList = rows
+        .slice(header.length > 0 ? 1 : 0)
+        .map((r) => {
+          const w = String(r[col] || '').trim();
+          const t = transColIdx >= 0 ? String(r[transColIdx] || '').trim() : '';
+          return { word: w, translation: t };
+        })
+        .filter((item) => item.word.length > 0 && item.word.length < 80);
+
+      // Unique by word
+      const seen = new Set<string>();
+      const unique: typeof importedList = [];
+      for (const item of importedList) {
+        const key = item.word.toLowerCase();
+        if (!seen.has(key)) {
+          seen.add(key);
+          unique.push(item);
+        }
+      }
+
+      setWordList(unique.map((item, i) => ({
+        id: String(i),
+        word: item.word,
+        translation: item.translation || undefined,
+        status: 'pending'
+      })));
       toast.success(`Found ${unique.length} words in ${file.name}`);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
@@ -323,7 +348,12 @@ export default function ImportPage() {
         const res = await authFetch('/api/words', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ word: w.word, classroomId, skipAI: true }), // fast insert
+          body: JSON.stringify({
+            word: w.word,
+            translation: w.translation,
+            classroomId,
+            skipAI: true, // fast insert
+          }),
         });
         const data = await res.json();
         const status: WordStatus = data.alreadyExists ? 'duplicate' : (data.success ? 'saved' : 'error');
