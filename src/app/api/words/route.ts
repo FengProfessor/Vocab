@@ -78,13 +78,15 @@ type EnrichResult = {
 async function enrichWord(wordId: string, originalInput: string, userId: string, customApiKey?: string, dictionaryData?: DictionaryData | null, userTargetTranslation?: string): Promise<void> {
   const supabase = createServiceClient();
   const lower = originalInput.trim().toLowerCase();
+  const hasUserTranslation = userTargetTranslation && userTargetTranslation !== '⏳ Analyzing...' && !userTargetTranslation.includes('⏳') && !userTargetTranslation.includes('Analyzing');
+
   try {
     let updateData: EnrichResult | null = null;
     let imageSearchQuery = '';
     let source: 'global_dict' | 'peer_word' | 'ai' = 'ai';
 
     // ── CASCADE (chỉ khi user không tự chọn nghĩa riêng) ──
-    if (!userTargetTranslation) {
+    if (!hasUserTranslation) {
       // Tier 1: global_dictionary
       const { data: gd } = await supabase
         .from('global_dictionary')
@@ -148,7 +150,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
 
       // Ghi cache ngược vào global_dictionary để lần sau hit Tier 1.
       // Chỉ ghi khi KHÔNG phải nghĩa user tự chọn (tránh ghi đè nghĩa hiếm lên kho chung).
-      if (!userTargetTranslation) {
+      if (!hasUserTranslation) {
         void supabase.from('global_dictionary').upsert({
           word: parsed.english,
           data: {
@@ -199,20 +201,39 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
     }
 
     // Final Update
-    await supabase.from('words').update({
+    const finalUpdate: Record<string, any> = {
       ...updateData,
       image_url: imageUrl,
       image_source: imageSource,
       image_confidence: imageConfidence,
-    }).eq('id', wordId);
+    };
+
+    // If the user explicitly selected a translation, we guarantee it is NOT overwritten by AI
+    if (hasUserTranslation) {
+      finalUpdate.translation = userTargetTranslation;
+    }
+
+    await supabase.from('words').update(finalUpdate).eq('id', wordId);
 
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error(`AI enrichment failed for "${originalInput}":`, msg);
     try {
-      await supabase.from('words').update({
-        translation: '❌ Analysis failed - click Retry',
-      }).eq('id', wordId);
+      // Fetch current translation to protect it from being overwritten by failure messages
+      const { data: currentWord } = await supabase
+        .from('words')
+        .select('translation')
+        .eq('id', wordId)
+        .maybeSingle();
+      
+      const currentT = currentWord?.translation || '';
+      const isPending = !currentT || currentT.includes('⏳') || currentT.includes('Analyzing');
+      
+      if (isPending) {
+        await supabase.from('words').update({
+          translation: '❌ Analysis failed - click Retry',
+        }).eq('id', wordId);
+      }
     } catch {}
   }
 }
@@ -263,22 +284,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       });
     }
 
-    // ── Save word immediately (Basic) ──
-    const { data, error } = await supabase
-      .from('words')
-      .insert({
-        classroom_id: classroomId,
-        added_by: userId,
-        word,
-        translation: '⏳ Analyzing...',
-        source_url: body.sourceUrl || null,
-      })
-      .select('id')
-      .single();
-
-    if (error) throw error;
-
-    // ── Stage 1: Fast Dictionary Lookup (Skip if already provided by Extension) ──
+    // ── Stage 1: Fast Dictionary Lookup (Skip if already provided by Extension/Spreadsheet) ──
     // External API trả về shape có thêm `pronunciations` ở mỗi result entry — dùng narrow type
     type DictApiResult = {
       pronunciations?: { ipa?: string }[];
@@ -291,7 +297,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     let initialIpa = body.ipa || '';
     let initialPos = body.pos || '';
 
-    // Only fetch if data was not manually selected in the extension
+    // Only fetch if data was not manually selected or imported
     if (initialTranslation === '⏳ Analyzing...') {
       try {
         const dictRes = await fetch(`https://dict.minhqnd.com/api/v1/lookup?word=${encodeURIComponent(word)}&lang=en&def_lang=vi`);
@@ -310,20 +316,35 @@ export async function POST(req: Request): Promise<NextResponse> {
       }
     }
 
-    // Update DB with either manual or fetched data
-    await supabase.from('words').update({
-      translation: initialTranslation,
-      ipa: initialIpa,
-      pos: initialPos,
-      dictionary_data: dictData
-    }).eq('id', data.id);
+    // ── Save word immediately with manual or fetched dictionary data ──
+    const { data, error } = await supabase
+      .from('words')
+      .insert({
+        classroom_id: classroomId,
+        added_by: userId,
+        word,
+        translation: initialTranslation,
+        ipa: initialIpa,
+        pos: initialPos,
+        dictionary_data: dictData,
+        source_url: body.sourceUrl || null,
+      })
+      .select('id')
+      .single();
 
+    if (error) throw error;
 
     const skipAI = Boolean(body.skipAI);
     if (!skipAI) {
       // ── Background AI Enrichment (Stage 2) ──
       const { data: profile } = await supabase.from('profiles').select('gemini_api_key').eq('id', userId).single();
-      enrichWord(data.id, word, userId, profile?.gemini_api_key, dictData, initialTranslation);
+      
+      // Pass userSelectedTranslation (only if explicitly provided in body.translation)
+      const userSelectedTranslation = (typeof body.translation === 'string' && body.translation.trim().length > 0 && body.translation !== '⏳ Analyzing...')
+        ? body.translation.trim()
+        : undefined;
+
+      enrichWord(data.id, word, userId, profile?.gemini_api_key, dictData, userSelectedTranslation);
     }
     
     return NextResponse.json({
