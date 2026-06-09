@@ -4,12 +4,12 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
  * AI Router — phân loại task → chọn model phù hợp → quản lý quota
  *
  * Model tiers:
- *   'fast'   → gemini-2.5-flash-lite  (rẻ nhất, tasks đơn giản: classify, pick index)
- *   'normal' → gemini-2.5-flash        (tasks trung bình: ai-lookup, short generation)
- *   'smart'  → gemini-2.5-flash        (tasks phức tạp: full enrichment, long context)
+ *   'fast'   → gemini-2.5-flash-lite / llama-3.1-8b-instant
+ *   'normal' → gemini-2.5-flash / llama-3.1-8b-instant
+ *   'smart'  → gemini-2.5-flash-lite / llama-3.3-70b-versatile
  *
  * Key rotation:
- *   - Parse GEMINI_API_KEY (comma-separated) thành pool
+ *   - Parse GEMINI_API_KEY và GROQ_API_KEY (comma-separated) thành pool
  *   - Mỗi key có cooldown timestamp (tránh gọi lại key đang bị 429)
  *   - Round-robin với skip key đang cooldown
  *   - Nếu tất cả keys cooldown → throw RateLimitError
@@ -27,14 +27,20 @@ export type ModelTier = 'fast' | 'normal' | 'smart';
 const MODEL_MAP: Record<ModelTier, string> = {
   fast: 'gemini-2.5-flash-lite',
   normal: 'gemini-2.5-flash',
-  smart: 'gemini-2.5-flash',
+  smart: 'gemini-2.5-flash-lite',
+};
+
+const GROQ_MODEL_MAP: Record<ModelTier, string> = {
+  fast: 'llama-3.1-8b-instant',
+  normal: 'llama-3.1-8b-instant',
+  smart: 'llama-3.3-70b-versatile',
 };
 
 /** Timeout per tier (ms) */
 const TIMEOUT_MAP: Record<ModelTier, number> = {
   fast: 12_000,
   normal: 30_000,
-  smart: 60_000,
+  smart: 180_000,
 };
 
 const COOLDOWN_MS = 60_000; // 60s sau khi bị 429
@@ -51,7 +57,7 @@ export class AIRouter {
       .map(key => ({ key, cooldownUntil: 0, totalCalls: 0, errors429: 0 }));
 
     if (this.keys.length === 0) {
-      throw new Error('[AIRouter] No valid API keys found in GEMINI_API_KEY');
+      throw new Error('[AIRouter] No valid API keys found in GEMINI_API_KEY / GROQ_API_KEY');
     }
   }
 
@@ -81,38 +87,80 @@ export class AIRouter {
         throw lastErr;
       }
 
+      const isGroq = keyEntry.key.startsWith('gsk_');
+
       try {
-        const genAI = new GoogleGenerativeAI(keyEntry.key);
-        const model = genAI.getGenerativeModel({
-          model: MODEL_MAP[tier],
-          generationConfig: jsonMode
-            ? { responseMimeType: 'application/json' }
-            : undefined,
-        });
+        if (isGroq) {
+          const groqModel = GROQ_MODEL_MAP[tier];
+          console.log(`[AIRouter] Calling Groq model ${groqModel} using key ...${keyEntry.key.slice(-8)}`);
+          
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MAP[tier]);
+          
+          const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${keyEntry.key}`
+            },
+            body: JSON.stringify({
+              model: groqModel,
+              messages: [{ role: 'user', content: prompt }],
+              temperature: 0.1,
+              response_format: jsonMode ? { type: 'json_object' } : undefined
+            }),
+            signal: controller.signal
+          });
+          
+          clearTimeout(timeoutId);
 
-        const result = await Promise.race([
-          model.generateContent({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-          }),
-          new Promise<never>((_, reject) =>
-            setTimeout(
-              () => reject(new Error(`[AIRouter] Timeout after ${TIMEOUT_MAP[tier]}ms (tier=${tier})`)),
-              TIMEOUT_MAP[tier]
-            )
-          ),
-        ]);
+          if (!response.ok) {
+            const txt = await response.text();
+            throw new Error(`[Groq API Error] HTTP ${response.status}: ${txt}`);
+          }
 
-        keyEntry.totalCalls++;
-        return result.response.text();
+          const data = await response.json();
+          const text = data?.choices?.[0]?.message?.content || '';
+          keyEntry.totalCalls++;
+          return text;
+        } else {
+          const geminiModel = MODEL_MAP[tier];
+          console.log(`[AIRouter] Calling Gemini model ${geminiModel} using key ...${keyEntry.key.slice(-8)}`);
+          
+          const genAI = new GoogleGenerativeAI(keyEntry.key);
+          const model = genAI.getGenerativeModel({
+            model: geminiModel,
+            generationConfig: jsonMode
+              ? { responseMimeType: 'application/json' }
+              : undefined,
+          });
+
+          const result = await Promise.race([
+            model.generateContent({
+              contents: [{ role: 'user', parts: [{ text: prompt }] }],
+            }),
+            new Promise<never>((_, reject) =>
+              setTimeout(
+                () => reject(new Error(`[AIRouter] Timeout after ${TIMEOUT_MAP[tier]}ms (tier=${tier})`)),
+                TIMEOUT_MAP[tier]
+              )
+            ),
+          ]);
+
+          keyEntry.totalCalls++;
+          return result.response.text();
+        }
       } catch (err: unknown) {
         const msg = err instanceof Error ? err.message : String(err);
         // Phát hiện rate limit / quota lỗi
-        if (
+        const isRateLimit = 
           msg.includes('429') ||
           msg.includes('quota') ||
           msg.includes('RESOURCE_EXHAUSTED') ||
-          msg.includes('rateLimitExceeded')
-        ) {
+          msg.includes('rateLimitExceeded') ||
+          msg.includes('too many requests');
+
+        if (isRateLimit) {
           keyEntry.cooldownUntil = Date.now() + COOLDOWN_MS;
           keyEntry.errors429++;
           lastErr = new Error(`[AIRouter] Key rate limited (attempt ${attempt + 1}): ${msg}`);
@@ -144,9 +192,11 @@ let _router: AIRouter | null = null;
 
 export function getRouter(): AIRouter {
   if (!_router) {
-    const keys = process.env.GEMINI_API_KEY || '';
-    if (!keys) throw new Error('[AIRouter] GEMINI_API_KEY not set');
-    _router = new AIRouter(keys);
+    const geminiKeys = process.env.GEMINI_API_KEY || '';
+    const groqKeys = process.env.GROQ_API_KEY || '';
+    const allKeys = [geminiKeys, groqKeys].filter(Boolean).join(',');
+    if (!allKeys) throw new Error('[AIRouter] Neither GEMINI_API_KEY nor GROQ_API_KEY set');
+    _router = new AIRouter(allKeys);
   }
   return _router;
 }
