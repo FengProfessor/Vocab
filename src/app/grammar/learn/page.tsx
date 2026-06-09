@@ -346,7 +346,7 @@ export default function GrammarLearnPage() {
         <article className="max-w-2xl mx-auto p-4 sm:p-8 space-y-6">
           <h1 className="text-2xl sm:text-3xl font-black text-slate-800">{activeLesson.title}</h1>
 
-          {activeLesson.image_url && (
+          {activeLesson.image_url ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={`/api/image-proxy?url=${encodeURIComponent(activeLesson.image_url)}`}
@@ -355,6 +355,25 @@ export default function GrammarLearnPage() {
               decoding="async"
               className="w-full max-h-64 object-cover rounded-2xl border"
             />
+          ) : (
+            // Beautiful colored level-based HSL gradient header
+            <div className={`w-full min-h-32 rounded-2xl border flex flex-col justify-end p-6 text-white bg-gradient-to-br ${
+              activeLesson.topic?.level === 'beginner' 
+                ? 'from-emerald-500 to-teal-600 shadow-emerald-100/10' 
+                : activeLesson.topic?.level === 'intermediate'
+                  ? 'from-blue-500 to-indigo-600 shadow-blue-100/10'
+                  : 'from-purple-500 to-pink-600 shadow-purple-100/10'
+            } shadow-lg relative overflow-hidden`}>
+              <div className="absolute top-0 right-0 p-8 opacity-10 font-bold text-7xl pointer-events-none select-none">
+                {activeLesson.topic?.level === 'beginner' ? 'A1-A2' : activeLesson.topic?.level === 'intermediate' ? 'B1-B2' : 'C1-C2'}
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-widest bg-white/20 px-2.5 py-1 rounded-full w-max mb-1.5 backdrop-blur-sm">
+                📚 Ngữ Pháp • {activeLesson.topic?.level === 'beginner' ? 'Cơ bản' : activeLesson.topic?.level === 'intermediate' ? 'Trung cấp' : 'Nâng cao'}
+              </span>
+              <p className="text-xs text-white/80 font-medium tracking-wide">
+                {activeLesson.topic?.title_vi || activeLesson.topic?.title}
+              </p>
+            </div>
           )}
 
           <div className="prose prose-slate max-w-none bg-background border rounded-2xl p-6 shadow-sm">
@@ -576,7 +595,7 @@ export default function GrammarLearnPage() {
                       return (
                         <button
                           key={lesson.id}
-                          onClick={() => setActiveLesson(lesson)}
+                          onClick={() => setActiveLesson({ ...lesson, topic })}
                           className="w-full flex items-center justify-between px-5 py-3 hover:bg-primary/5 transition-colors text-left"
                         >
                           <span className="text-sm font-medium text-slate-700">{lesson.title}</span>
