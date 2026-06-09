@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { supabase, type SRSProgress } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
@@ -67,6 +67,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   const [goodStreak, setGoodStreak] = useState(0);
   const [xpPopup, setXpPopup] = useState<{ show: boolean; amount: number }>({ show: false, amount: 0 });
   const [showFlipHint, setShowFlipHint] = useState(false);
+  const [autoAdvanceTime, setAutoAdvanceTime] = useState<number | null>(null);
+  const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { data: gamification, refresh: refreshGamification } = useGamification(userId);
 
   useEffect(() => {
@@ -113,6 +115,13 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     init();
   }, [initialClassroomId]);
 
+  // Clean up auto advance timer on unmount
+  useEffect(() => {
+    return () => {
+      if (autoAdvanceRef.current) clearTimeout(autoAdvanceRef.current);
+    };
+  }, []);
+
   // Task 1: Keyboard shortcuts
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -137,8 +146,30 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     return () => clearTimeout(t);
   }, [flipped, current?.id]);
 
+  const handleSpellingCorrect = () => {
+    if (!current) return;
+    setHasSpelledCorrectly(true);
+    speak(current.word, 1.0);
+    toast.success('Chính xác! Đang tự động chuyển...', { position: 'top-center' });
+    setTimeout(() => setFlipped(true), 600);
+
+    if (autoAdvanceRef.current) clearTimeout(autoAdvanceRef.current);
+    setAutoAdvanceTime(1200);
+    autoAdvanceRef.current = setTimeout(() => {
+      handleRate(4);
+      setAutoAdvanceTime(null);
+    }, 1800);
+  };
+
   const handleRate = async (quality: 0 | 3 | 4 | 5) => {
     if (!current || !userId) return;
+
+    // Hủy bộ hẹn giờ tự động chuyển thẻ nếu người dùng tự ấn rating
+    if (autoAdvanceRef.current) {
+      clearTimeout(autoAdvanceRef.current);
+      autoAdvanceRef.current = null;
+    }
+    setAutoAdvanceTime(null);
 
     // 1. Snapshot for the background sync
     const currentWordId = current.id;
@@ -451,14 +482,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                            if (e.key === 'Enter') {
                              e.preventDefault();
                              if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
-                               setHasSpelledCorrectly(true);
-                               speak(current.word, 1.0);
-                               toast.success('Perfect! Flip the card to proceed.', { position: 'top-center' });
-                               setTimeout(() => setFlipped(true), 600);
+                               handleSpellingCorrect();
                              } else {
                                setSpellingError(true);
                                toast.error('Incorrect, try again!', { position: 'top-center' });
-                               // Optional: speak(current.word); if we want to give auditory hint
                              }
                            }
                         }}
@@ -471,9 +498,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                       onClick={(e) => {
                         e.stopPropagation();
                         if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
-                           setHasSpelledCorrectly(true);
-                           speak(current.word, 1.0);
-                           setTimeout(() => setFlipped(true), 600);
+                           handleSpellingCorrect();
                         } else {
                            setSpellingError(true);
                         }
@@ -547,6 +572,13 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                       &quot;{current.example}&quot;
                     </p>
                   </div>
+                )}
+
+                {/* Auto-advance notification */}
+                {autoAdvanceTime !== null && (
+                  <p className="text-xs font-black text-indigo-200 tracking-wide mt-2 animate-pulse">
+                     ⚡ Đang chuyển thẻ tiếp theo...
+                  </p>
                 )}
 
                 {/* Task 2: Synonyms & Antonyms */}
