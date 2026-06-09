@@ -1,12 +1,9 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { createServiceClient } from '@/lib/supabase';
+import { getRouter } from '@/lib/ai-router';
 
 // Enrich nhiều từ trong 1 request → có thể lâu. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 60;
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
 // POST /api/words/refresh
 // Body: { classroomId: string, userId: string }
@@ -72,8 +69,8 @@ Return ONLY a valid JSON array of objects. Each object MUST have these exact key
 - "example": one natural English sentence using the English word
 The response MUST be a valid JSON array starting with '[' and ending with ']'. No markdown fences.`;
 
-        const result = await model.generateContent(prompt);
-        const rawText = result.response.text();
+        const router = getRouter();
+        const rawText = await router.generate(prompt, 'normal', true);
         const jsonMatch = rawText.match(/\[[\s\S]*\]/);
         
         if (!jsonMatch) {
