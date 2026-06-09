@@ -6,10 +6,26 @@ import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import type { GrammarExercise } from '@/lib/supabase';
 import {
-  Brain, ChevronLeft, CheckCircle2, XCircle, Lightbulb, Loader2, RotateCcw, Home, Sparkles
+  Brain, ChevronLeft, CheckCircle2, XCircle, Lightbulb, Loader2, RotateCcw, Home, Sparkles, Volume2
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
+
+/**
+ * Đọc câu tiếng Anh bằng Web Speech API (free, native).
+ */
+function speakEnglish(text: string) {
+  if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+    return;
+  }
+  const synth = window.speechSynthesis;
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'en-US';
+  utter.rate = 0.9;
+  utter.pitch = 1;
+  synth.speak(utter);
+}
 
 /**
  * Render text có chứa **bold** markdown và "___" blank.
@@ -568,11 +584,27 @@ function GrammarContent() {
           ].join(' ')}
         >
           <div className="flex items-center justify-between mb-3">
-            <p className="text-xs font-bold text-primary uppercase tracking-widest">
-              {current.topic} · {current.level}
-              {current.type === 'error_correction' && ' · TÌM LỖI'}
-              {current.type === 'fill_blank' && ' · ĐIỀN CHỖ TRỐNG'}
-            </p>
+            <div className="flex items-center gap-2">
+              <p className="text-xs font-bold text-primary uppercase tracking-widest">
+                {current.topic} · {current.level}
+                {current.type === 'error_correction' && ' · TÌM LỖI'}
+                {current.type === 'fill_blank' && ' · ĐIỀN CHỖ TRỐNG'}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  let textToRead = current.question
+                    .replace(/^find\s+the\s+error:\s*/i, '')
+                    .replace(/_{2,}/g, 'something')
+                    .replace(/\*\*([^*]+)\*\*/g, '$1');
+                  speakEnglish(textToRead);
+                }}
+                className="h-6 w-6 flex items-center justify-center rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors"
+                title="Nghe phát âm câu hỏi"
+              >
+                <Volume2 className="h-3 w-3" />
+              </button>
+            </div>
             {/* Feedback icon ngay trên card */}
             {selected && (
               <span className={[
