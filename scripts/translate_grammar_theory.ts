@@ -76,12 +76,12 @@ ${lesson.theory}
         console.warn(`⚠ AI returned insufficient content for "${lesson.title}":`, translatedText);
       }
 
-      // Delay to avoid rate limits
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Delay to avoid rate limits (Gemini/Groq free tier limits are very strict)
+      await new Promise(resolve => setTimeout(resolve, 5000));
     } catch (err: any) {
       console.error(`Failed to translate lesson "${lesson.title}":`, err.message);
       // Wait a bit longer if there's an error
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      await new Promise(resolve => setTimeout(resolve, 10000));
     }
   }
 
