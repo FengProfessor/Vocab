@@ -390,7 +390,7 @@ export default function GrammarLearnPage() {
                   <h3 className="text-lg font-extrabold text-slate-700 mb-3 mt-4" {...props} />
                 ),
                 blockquote: ({ node, ...props }) => (
-                  <div className="my-4 p-4 bg-amber-50/50 border-l-4 border-amber-500 rounded-r-2xl text-amber-900 text-sm leading-relaxed" {...props} />
+                  <blockquote className="my-4 p-4 bg-amber-50/50 border-l-4 border-amber-500 rounded-r-2xl text-amber-900 text-sm leading-relaxed" {...props} />
                 ),
                 table: ({ node, ...props }) => (
                   <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200 shadow-sm bg-white">
