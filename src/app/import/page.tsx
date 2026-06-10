@@ -144,9 +144,10 @@ export default function ImportPage() {
     if (done > 0 && classroomId) {
       toast.loading(`Chạy AI phân tích ${done} từ...`, { id: 'csv-batch-toast' });
       try {
+        const { data: { session } } = await supabase.auth.getSession();
         const refreshRes = await fetch('/api/words/refresh', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
           body: JSON.stringify({ classroomId }),
         });
         const refreshData = await refreshRes.json();
@@ -300,9 +301,10 @@ export default function ImportPage() {
 
       toast.loading('AI is scanning for vocabulary...', { id: 'ocr-toast' });
       
+      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch('/api/import/ocr', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
         body: JSON.stringify({ base64, mimeType }),
       });
       
@@ -369,9 +371,10 @@ export default function ImportPage() {
     if (done > 0 && classroomId) {
       toast.loading(`Running AI batch analysis for ${done} words...`, { id: 'batch-toast' });
       try {
+        const { data: { session } } = await supabase.auth.getSession();
         const refreshRes = await fetch('/api/words/refresh', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
           body: JSON.stringify({ classroomId }),
         });
         const refreshData = await refreshRes.json();

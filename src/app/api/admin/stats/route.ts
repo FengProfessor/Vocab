@@ -1,19 +1,36 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
 type ProfileRow = { id: string; email: string; full_name: string; role: string; created_at: string };
 type ClassroomRow = { id: string };
 type WordRow = { id: string; created_at: string };
 type QuizRow = { accuracy: number; completed_at: string };
 
+// Fail-closed: nếu ADMIN_EMAILS chưa cấu hình → mảng rỗng → mọi request đều 403
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
+
 /**
  * GET /api/admin/stats
  * Returns all users with their activity stats for the admin dashboard.
- * Uses service role to bypass RLS.
+ * Auth: Admin only (JWT + email whitelist).
  */
-export async function GET(): Promise<NextResponse> {
+export async function GET(req: Request): Promise<NextResponse> {
   try {
+    // ── Auth: admin only ──
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    // Fail-closed: danh sách rỗng (env chưa set) → từ chối tất cả
+    if (ADMIN_EMAILS.length === 0) {
+      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
+    }
     const supabase = createServiceClient();
+    const { data: callerProfile } = await supabase.from('profiles').select('email').eq('id', auth.userId).single();
+    const callerEmail = callerProfile?.email?.toLowerCase() ?? '';
+    if (!callerEmail || !ADMIN_EMAILS.includes(callerEmail)) {
+      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
+    }
+
 
     // Get all profiles
     const { data: profiles, error: profilesError } = await supabase
@@ -102,8 +119,6 @@ export async function GET(): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, users, totalWords, totalQuizzes });
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error('GET /api/admin/stats Error:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(error, 'Failed to fetch admin stats');
   }
 }

@@ -67,6 +67,9 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   const [goodStreak, setGoodStreak] = useState(0);
   const [xpPopup, setXpPopup] = useState<{ show: boolean; amount: number }>({ show: false, amount: 0 });
   const [showFlipHint, setShowFlipHint] = useState(false);
+  // Chế độ gõ từ (Active Recall). Tắt → lật thẻ truyền thống, đỡ mỏi tay trên mobile.
+  // Đọc localStorage sau mount để tránh hydration mismatch.
+  const [typingMode, setTypingMode] = useState(true);
   const [autoAdvanceTime, setAutoAdvanceTime] = useState<number | null>(null);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { data: gamification, refresh: refreshGamification } = useGamification(userId);
@@ -122,12 +125,24 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     };
   }, []);
 
+  // Khôi phục lựa chọn chế độ gõ
+  useEffect(() => {
+    setTypingMode(localStorage.getItem('lingopro_typing_mode') !== 'off');
+  }, []);
+
+  const toggleTypingMode = () => {
+    setTypingMode((prev) => {
+      localStorage.setItem('lingopro_typing_mode', prev ? 'off' : 'on');
+      return !prev;
+    });
+  };
+
   // Task 1: Keyboard shortcuts
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       // Allow Escape key to skip spelling card even when input is focused
       if (e.key === 'Escape') {
-        if (current && current.srsLevel >= 2 && !hasSpelledCorrectly && !flipped) {
+        if (current && typingMode && current.srsLevel >= 2 && !hasSpelledCorrectly && !flipped) {
           e.preventDefault();
           handleSpellingSkip();
           return;
@@ -146,7 +161,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flipped, current, hasSpelledCorrectly]);
+  }, [flipped, current, hasSpelledCorrectly, typingMode]);
 
   // Task 3: Flip hint sau 5 giây
   useEffect(() => {
@@ -282,9 +297,11 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     if (!classroomId || isRetryingAI) return;
     setIsRetryingAI(true);
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) { toast.error('Please sign in again.'); return; }
       const res = await fetch('/api/words/refresh', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
         body: JSON.stringify({ classroomId }),
       });
       const data = await res.json();
@@ -399,10 +416,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
       <div className="flex-1 flex flex-col items-center justify-center p-6 gap-8">
         <div
-          className={`relative w-full max-w-[420px] ${current.srsLevel >= 2 && !hasSpelledCorrectly ? '' : 'cursor-pointer'}`}
+          className={`relative w-full max-w-[420px] ${typingMode && current.srsLevel >= 2 && !hasSpelledCorrectly ? '' : 'cursor-pointer'}`}
           style={{ perspective: '1200px' }}
           onClick={() => {
-            if (current.srsLevel < 2 || hasSpelledCorrectly) {
+            if (!typingMode || current.srsLevel < 2 || hasSpelledCorrectly) {
               setFlipped(!flipped);
             }
           }}
@@ -444,16 +461,26 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                       decoding="async"
                       className="w-full h-full object-cover transition-all duration-700 opacity-0 group-hover/img:scale-110"
                       onLoad={(e) => (e.currentTarget.style.opacity = '1')}
-                      onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                      onError={(e) => {
+                        const img = e.currentTarget as HTMLImageElement;
+                        img.style.display = 'none';
+                        img.parentElement?.querySelector('[data-img-fallback]')?.classList.replace('hidden', 'flex');
+                      }}
                     />
+                    {/* Placeholder khi ảnh lỗi — giữ nguyên kích thước card, nút refresh vẫn dùng được */}
+                    <div data-img-fallback className="hidden absolute inset-0 flex-col items-center justify-center gap-1 bg-slate-50 text-slate-300">
+                      <span className="text-3xl">🖼️</span>
+                      <span className="text-[10px] font-bold">Ảnh lỗi — bấm 🔄 để tìm ảnh khác</span>
+                    </div>
                     <button 
                       onClick={async (e) => {
                         e.stopPropagation();
                         toast.info('Finding a better image...', { icon: '🔍' });
                         try {
+                          const { data: { session } } = await supabase.auth.getSession();
                           const res = await fetch('/api/words/refresh-image', {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
+                            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
                             body: JSON.stringify({ wordId: current.id })
                           });
                           const data = await res.json();
@@ -473,7 +500,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                 )}
 
                 {/* Only use typing mode if word is fully analyzed */}
-                {current.srsLevel >= 2 && !hasSpelledCorrectly &&
+                {typingMode && current.srsLevel >= 2 && !hasSpelledCorrectly &&
                   current.translation && !current.translation.includes('failed') && !current.translation.includes('Analyzing') ? (
                   // Active Recall Typing Mode (MochiVocab Style)
                   <div className="w-full flex flex-col items-center gap-6 animate-in fade-in zoom-in duration-300">
@@ -696,7 +723,19 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
               Flip Card
             </button>
           )}
-          <p className="text-[10px] text-slate-600 text-center mt-2">Space: lật • 1-4: đánh giá</p>
+          <div className="flex items-center justify-center gap-3 mt-2">
+            <p className="text-[10px] text-slate-600">Space: lật • 1-4: đánh giá</p>
+            <button
+              onClick={toggleTypingMode}
+              className={`text-[10px] font-bold px-2.5 py-1 rounded-full border transition-colors ${
+                typingMode
+                  ? 'bg-indigo-50 text-indigo-600 border-indigo-200 hover:bg-indigo-100'
+                  : 'bg-slate-100 text-slate-500 border-slate-200 hover:bg-slate-200'
+              }`}
+            >
+              ✍️ Chế độ gõ: {typingMode ? 'Bật' : 'Tắt'}
+            </button>
+          </div>
         </div>
       </div>
     </div>

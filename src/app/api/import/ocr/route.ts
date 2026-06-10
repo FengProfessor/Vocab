@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { getAuthUser, unauthorized, checkRateLimit } from '@/lib/api-security';
 
 // Gemini Vision OCR trên ảnh — chậm hơn text. Đặt 60s để không bị cắt giữa chừng.
 export const maxDuration = 60;
@@ -14,6 +15,20 @@ const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
  */
 export async function POST(req: Request): Promise<NextResponse> {
   try {
+    // Auth: Bearer JWT bắt buộc — OCR gọi Gemini Vision tốn quota
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+
+    // Rate limit: 5 req/min theo user id (fallback IP)
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+    const rl = checkRateLimit(`ocr:${auth.userId || ip}`, 5, 60_000);
+    if (!rl.allowed) {
+      return NextResponse.json(
+        { success: false, error: 'Too many requests. Please wait.' },
+        { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } }
+      );
+    }
+
     const { base64, mimeType } = (await req.json()) as { base64?: string; mimeType?: string };
     if (!base64 || !mimeType) {
       return NextResponse.json({ success: false, error: 'base64 and mimeType are required' }, { status: 400 });
@@ -42,7 +57,7 @@ If no clear vocabulary words are found, return an empty array: []`;
     ]);
 
     const rawText = result.response.text();
-    console.log('OCR raw response:', rawText.substring(0, 500));
+    console.log('[OCR] OCR raw response:', rawText.substring(0, 500));
 
     // Extract JSON array from response
     const arrayMatch = rawText.match(/\[[\s\S]*\]/);

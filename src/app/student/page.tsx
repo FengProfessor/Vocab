@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import {
   Brain, BookOpen, Zap, LayoutDashboard, LogOut, Loader2, Plus,
   CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw,
-  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles
+  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles, MessageSquare
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -71,7 +71,7 @@ export default function StudentDashboard() {
 
   useEffect(() => {
     const checkAuth = async () => {
-      console.log('--- Auth Check Started ---');
+      console.log('[Student] Auth check started');
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const { data: { session } } = await supabase.auth.getSession();
@@ -98,8 +98,12 @@ export default function StudentDashboard() {
 
   const loadData = async (userId: string) => {
     try {
-      const { data: prof } = await supabase.from('profiles').select('*').eq('id', userId).single();
-      setProfile(prof);
+      const { data: prof, error } = await supabase.from('profiles').select('*').eq('id', userId).single();
+      if (error) {
+        console.error('[Student] Load profile failed:', error.message);
+        return;
+      }
+      if (prof) setProfile(prof);
 
       // Tiến độ ôn tập ngữ pháp
       authFetch(`/api/grammar/progress`)
@@ -459,6 +463,7 @@ export default function StudentDashboard() {
                 <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} className="flex items-center gap-3 font-semibold p-3"><Sparkles /> Học từ mới</Link>
                 <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Ôn tập</Link>
                 <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
+                <Link href="/student/speaking" className="flex items-center gap-3 font-semibold p-3"><MessageSquare /> AI Speaking Tutor</Link>
                 <Link href="/grammar/learn" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
                 <Link href="/student/profile" className="flex items-center gap-3 font-semibold p-3"><User /> Hồ sơ</Link>
                 <button
@@ -493,6 +498,9 @@ export default function StudentDashboard() {
           </Link>
           <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Pencil className="h-5 w-5" /> Writing Practice
+          </Link>
+          <Link href="/student/speaking" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <MessageSquare className="h-5 w-5" /> AI Speaking Tutor
           </Link>
           <Link href="/grammar/learn" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <GraduationCap className="h-5 w-5" /> Grammar
@@ -679,6 +687,27 @@ export default function StudentDashboard() {
                 </div>
                 <div className="text-xs font-bold text-muted-foreground">
                   Nhìn nghĩa tiếng Việt, gõ từ tiếng Anh từ trí nhớ
+                </div>
+              </div>
+            </div>
+            <ArrowRight className="h-5 w-5 text-muted-foreground" />
+          </Link>
+
+          <Link
+            href="/student/speaking"
+            className="flex items-center justify-between bg-white border rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-center gap-4">
+              <div className="bg-indigo-50 w-12 h-12 rounded-xl flex items-center justify-center">
+                <MessageSquare className="h-6 w-6 text-indigo-500" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-black text-slate-800">🎙️ AI Speaking Tutor</span>
+                  <span className="bg-indigo-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase">MVA</span>
+                </div>
+                <div className="text-xs font-bold text-muted-foreground">
+                  Luyện phản xạ giao tiếp và nhận nhận xét phát âm từ AI
                 </div>
               </div>
             </div>

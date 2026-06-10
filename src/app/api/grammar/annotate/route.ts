@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { checkRateLimit } from '@/lib/rate-limit';
+import { checkRateLimit, safeErrorResponse, sanitizeForPrompt, getAuthUser, unauthorized } from '@/lib/api-security';
 
 // Gemini call dùng AbortSignal.timeout(10000). Mặc định Hobby cắt ở 10s → đặt 30s để có headroom.
 export const maxDuration = 30;
@@ -29,8 +29,10 @@ export interface WordAnnotation {
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = checkRateLimit(`ai:${ip}`, 20, 60_000); // 20 req/min per IP
+    // Route đốt Gemini → bắt buộc JWT, rate limit theo user
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    const rl = checkRateLimit(`ai:${auth.userId}`, 20, 60_000); // 20 req/min per user
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },
@@ -47,6 +49,11 @@ export async function POST(req: NextRequest) {
     }
     if (sentence.length > 500) {
       return NextResponse.json({ success: false, error: 'sentence must not exceed 500 characters' }, { status: 400 });
+    }
+    // KHÔNG sanitize-mutate sentence (AI trả char offset trên câu gốc → mutate làm lệch offset).
+    // Thay vào đó reject nếu chứa pattern injection.
+    if (/[\x00-\x1F\x7F]|```/.test(sentence)) {
+      return NextResponse.json({ success: false, error: 'sentence contains invalid characters' }, { status: 400 });
     }
 
     // Multi-key rotation — copy pattern từ ai-enrich.ts
@@ -67,7 +74,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    const topicLine = typeof topic === 'string' && topic.trim() ? `Grammar topic context: ${topic.trim()}` : '';
+    const topicLine = typeof topic === 'string' && topic.trim() ? `Grammar topic context: ${sanitizeForPrompt(topic, 100)}` : '';
     const prompt = `You are an English linguist. Tag every meaningful token in this sentence with ITS PART OF SPEECH (not its syntactic function).
 Return a JSON array. Each element: {"word": exact_substring, "role": one_of_roles, "start": char_index, "end": exclusive_char_index}.
 
@@ -152,8 +159,6 @@ Sentence: "${sentence}"`;
 
     return NextResponse.json({ success: true, data: annotations });
   } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : 'Unknown error';
-    console.error('[GrammarAnnotate] Error:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(err, 'Failed to annotate grammar');
   }
 }

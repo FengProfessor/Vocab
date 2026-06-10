@@ -3,7 +3,7 @@ import { createServiceClient, type DictionaryData, type SRSProgress, type Word }
 import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { stabilityToLevel } from '@/lib/srs';
-import { getAuthUser, unauthorized, isValidString } from '@/lib/api-security';
+import { getAuthUser, unauthorized, isValidString, checkRateLimit } from '@/lib/api-security';
 
 /**
  * Kiểm tra user có quyền trên word (qua classroom): user là owner classroom,
@@ -201,7 +201,11 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
     }
 
     // Final Update
-    const finalUpdate: Record<string, any> = {
+    const finalUpdate: EnrichResult & {
+      image_url: string | null;
+      image_source: string;
+      image_confidence: number | null;
+    } = {
       ...updateData,
       image_url: imageUrl,
       image_source: imageSource,
@@ -209,7 +213,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
     };
 
     // If the user explicitly selected a translation, we guarantee it is NOT overwritten by AI
-    if (hasUserTranslation) {
+    if (hasUserTranslation && userTargetTranslation) {
       finalUpdate.translation = userTargetTranslation;
     }
 
@@ -258,6 +262,17 @@ export async function POST(req: Request): Promise<NextResponse> {
     // Reject quá dài để tránh abuse (raw input trước khi slice)
     if (typeof body.word === 'string' && body.word.length > 200) {
       return NextResponse.json({ success: false, error: 'Word too long' }, { status: 400 });
+    }
+
+    // Rate limit: chỉ áp lên path kích hoạt AI enrichment (skipAI=false) — 15 req/min mỗi user
+    if (!body.skipAI) {
+      const rl = checkRateLimit(`ai:words:${userId}`, 15, 60_000);
+      if (!rl.allowed) {
+        return NextResponse.json(
+          { success: false, error: 'Rate limit exceeded' },
+          { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } }
+        );
+      }
     }
 
     const supabase = createServiceClient();
@@ -378,7 +393,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
     let classroomId = searchParams.get('classroomId') || '';
     const summary = searchParams.get('summary') === '1';
-    const filter = searchParams.get('filter'); // 'review' = từ đã học & đến hạn (không giới hạn pagination)
+    const filter = searchParams.get('filter'); // 'review' = từ đã học & đến hạn | 'new' = từ chưa học (review_count=0)
     const limit = Math.min(500, Math.max(1, parseInt(searchParams.get('limit') || '100', 10)));
     const offset = Math.max(0, parseInt(searchParams.get('offset') || '0', 10));
 
@@ -451,6 +466,75 @@ export async function GET(req: Request): Promise<NextResponse> {
           };
         })
         .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
+
+      return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
+        headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+      });
+    }
+
+    // ── Chế độ NEW: trả từ CHƯA học (không có SRS hoặc review_count=0) trên TOÀN BỘ words ──
+    // LearnMode dùng — không kẹt pagination 300 từ mới nhất, không bỏ sót từ cũ chưa học.
+    if (filter === 'new') {
+      // 1. Tập word_id ĐÃ học của user (review_count > 0)
+      // ⚠️ Perf cliff: user học >10k từ → hàng vượt limit bị drop → từ đã học hiện lại như "mới".
+      // Khi chạm ngưỡng: chuyển sang RPC đếm phía DB hoặc paginate vòng lặp.
+      const { data: learnedRows, error: lErr } = await supabase
+        .from('srs_progress')
+        .select('word_id')
+        .eq('user_id', userId)
+        .gt('review_count', 0)
+        .limit(10000);
+      if (lErr) throw lErr;
+      const learnedIds = new Set((learnedRows || []).map((r) => r.word_id));
+
+      // 2. Id mọi từ trong classroom (nhẹ — chỉ id) theo thứ tự mới nhất trước
+      const { data: idRows, error: idErr } = await supabase
+        .from('words')
+        .select('id')
+        .eq('classroom_id', classroomId)
+        .order('created_at', { ascending: false })
+        .limit(5000);
+      if (idErr) throw idErr;
+
+      // 3. Lấy dư gấp 3 limit để còn lọc từ chưa enrich xong
+      const candidateIds = (idRows || [])
+        .map((r) => r.id)
+        .filter((id) => !learnedIds.has(id))
+        .slice(0, limit * 3);
+
+      if (candidateIds.length === 0) {
+        return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
+          headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+        });
+      }
+
+      const { data: wordsData, error: wErr } = await supabase
+        .from('words')
+        .select('*, srs_progress(*)')
+        .in('id', candidateIds);
+      if (wErr) throw wErr;
+
+      const order = new Map(candidateIds.map((id, i) => [id, i]));
+      const enriched = ((wordsData || []) as WordWithSrsList[])
+        .filter((w) =>
+          w.word && w.translation &&
+          !w.translation.includes('failed') &&
+          !w.translation.includes('Analyzing') &&
+          !w.translation.includes('⏳'))
+        .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0))
+        .slice(0, limit)
+        .map((w) => {
+          const srs = (w.srs_progress || []).find((s) => s.user_id === userId) || null;
+          return {
+            ...w,
+            srs,
+            isDue: true,
+            reviewCount: 0,
+            srsLevel: stabilityToLevel(srs?.stability || 0),
+            mastery: 0,
+            status: 'learning',
+          };
+        });
 
       return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
         headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, type DictionaryData } from '@/lib/supabase';
 import { resolveWordImage } from '@/lib/image-pipeline';
+import { safeErrorResponse } from '@/lib/api-security';
 
 /**
  * POST /api/bot/fill-images
@@ -9,6 +10,13 @@ import { resolveWordImage } from '@/lib/image-pipeline';
  */
 export async function POST(req: Request): Promise<NextResponse> {
     try {
+        // ── Auth: chỉ cho phép bot/script có BOT_SECRET ──
+        const botSecret = process.env.BOT_SECRET;
+        const authHeader = req.headers.get('authorization');
+        if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
+            return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+        }
+
         const { limit = 100 } = await req.json().catch(() => ({}));
         const supabase = createServiceClient();
 
@@ -75,8 +83,7 @@ export async function POST(req: Request): Promise<NextResponse> {
             message: `Đã cập nhật ${updated}/${words.length} từ`
         });
     } catch (e: unknown) {
-        const msg = e instanceof Error ? e.message : 'Unknown error';
-        return NextResponse.json({ success: false, error: msg }, { status: 500 });
+        return safeErrorResponse(e, 'Failed to fill images');
     }
 }
 
@@ -84,8 +91,15 @@ export async function POST(req: Request): Promise<NextResponse> {
  * GET /api/bot/fill-images
  * Kiểm tra trạng thái: bao nhiêu từ đã có ảnh / chưa có
  */
-export async function GET(): Promise<NextResponse> {
+export async function GET(req: Request): Promise<NextResponse> {
     try {
+        // ── Auth: chỉ cho phép bot/script có BOT_SECRET ──
+        const botSecret = process.env.BOT_SECRET;
+        const authHeader = req.headers.get('authorization');
+        if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
+            return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+        }
+
         const supabase = createServiceClient();
 
         const { count: total } = await supabase
@@ -111,7 +125,6 @@ export async function GET(): Promise<NextResponse> {
             withoutImage: (total || 0) - (withImage || 0) - (withPlaceholder || 0),
         });
     } catch (e: unknown) {
-        const msg = e instanceof Error ? e.message : 'Unknown error';
-        return NextResponse.json({ success: false, error: msg }, { status: 500 });
+        return safeErrorResponse(e, 'Failed to check image status');
     }
 }

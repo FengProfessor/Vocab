@@ -29,7 +29,8 @@ interface WordItem {
 }
 
 const NEW_BATCH = 8;       // số từ mới mỗi phiên học
-const NEXT_DELAY_MS = 1400; // delay tự chuyển sau khi chấm recall
+const NEXT_DELAY_MS = 1400;  // delay tự chuyển khi đúng
+const WRONG_DELAY_MS = 2400; // sai → đợi lâu hơn để kịp nhìn đáp án
 
 type Phase = 'loading' | 'empty' | 'ready' | 'introduce' | 'recall' | 'done';
 
@@ -58,24 +59,16 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         const { data: { session } } = await supabase.auth.getSession();
         if (!session?.user) { router.push('/auth'); return; }
 
+        // filter=new: server lọc từ CHƯA học trên toàn bộ words (không kẹt 300 từ mới nhất)
         const url = initialClassroomId
-          ? `/api/words?classroomId=${initialClassroomId}&limit=300`
-          : `/api/words?limit=300`;
+          ? `/api/words?classroomId=${initialClassroomId}&filter=new&limit=100`
+          : `/api/words?filter=new&limit=100`;
         const res = await authFetch(url);
         const data = await res.json();
 
         if (data.success && data.data) {
           if (!initialClassroomId && data.classroomId) setClassroomId(data.classroomId);
-          const all: WordItem[] = data.data;
-          const fresh = all.filter(
-            (w) =>
-              w.reviewCount === 0 &&
-              w.word &&
-              w.translation &&
-              !w.translation.includes('failed') &&
-              !w.translation.includes('Analyzing') &&
-              !w.translation.includes('⏳'),
-          );
+          const fresh: WordItem[] = data.data;
           if (fresh.length === 0) { setPhase('empty'); return; }
           setBatch(fresh.slice(0, NEW_BATCH));
           setRemainingNew(Math.max(0, fresh.length - NEW_BATCH));
@@ -134,11 +127,10 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     }
   }, [recallIndex, batch.length]);
 
-  const submitRecall = useCallback(() => {
-    if (!recallWord || verdict !== null) return;
-    const guess = input.trim();
-    if (!guess) return;
-    const v = judgeAnswer(guess, recallWord.word);
+  // Chốt kết quả 1 từ: ghi điểm + phát âm + sync SRS + hẹn auto-next.
+  // Sai → đợi lâu hơn để user kịp nhìn đáp án.
+  const finalizeRecall = useCallback((v: Verdict) => {
+    if (!recallWord) return;
     setVerdict(v);
     setResults((p) => ({
       correct: v === 'correct' ? p.correct + 1 : p.correct,
@@ -154,8 +146,21 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       body: JSON.stringify({ wordId: recallWord.id, quality: verdictToQuality(v) }),
     }).catch((err) => console.error('[Learn] save SRS failed:', err));
 
-    advanceTimer.current = setTimeout(goNextRecall, NEXT_DELAY_MS);
-  }, [recallWord, verdict, input, goNextRecall]);
+    advanceTimer.current = setTimeout(goNextRecall, v === 'correct' ? NEXT_DELAY_MS : WRONG_DELAY_MS);
+  }, [recallWord, goNextRecall]);
+
+  const submitRecall = useCallback(() => {
+    if (!recallWord || verdict !== null) return;
+    const guess = input.trim();
+    if (!guess) return;
+    finalizeRecall(judgeAnswer(guess, recallWord.word));
+  }, [recallWord, verdict, input, finalizeRecall]);
+
+  // "Không nhớ" — không bắt user gõ bừa; tính là sai (Again) và hiện đáp án
+  const giveUpRecall = useCallback(() => {
+    if (!recallWord || verdict !== null) return;
+    finalizeRecall('wrong');
+  }, [recallWord, verdict, finalizeRecall]);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
@@ -164,6 +169,9 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     } else if (e.key === ' ' && verdict !== null) {
       e.preventDefault();
       goNextRecall();
+    } else if (e.key === 'Escape' && verdict === null) {
+      e.preventDefault();
+      giveUpRecall();
     }
   };
 
@@ -259,10 +267,18 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               </Badge>
 
               {w.image_url && (
-                <div className="w-full h-40 rounded-3xl overflow-hidden border border-slate-100 shadow-inner">
+                <div className="relative w-full h-40 rounded-3xl overflow-hidden border border-slate-100 shadow-inner">
                   <img src={w.image_url} alt={w.word} loading="lazy" decoding="async"
                     className="w-full h-full object-cover"
-                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                    onError={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      img.style.display = 'none';
+                      img.parentElement?.querySelector('[data-img-fallback]')?.classList.replace('hidden', 'flex');
+                    }} />
+                  {/* Placeholder khi ảnh lỗi — giữ nguyên layout card */}
+                  <div data-img-fallback className="hidden absolute inset-0 flex-col items-center justify-center bg-slate-50 text-slate-300">
+                    <span className="text-3xl">🖼️</span>
+                  </div>
                 </div>
               )}
 
@@ -348,12 +364,12 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                   type="text"
                   autoFocus={canAutoFocus()}
                   value={input}
-                  disabled={verdict !== null}
+                  readOnly={verdict !== null}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={onKeyDown}
                   placeholder="Gõ từ vừa học..."
                   autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
-                  className={`w-full text-center text-2xl sm:text-3xl font-black p-4 rounded-2xl border-4 focus:outline-none transition-colors disabled:opacity-90 ${inputBorder}`}
+                  className={`w-full text-center text-2xl sm:text-3xl font-black p-4 rounded-2xl border-4 focus:outline-none transition-colors read-only:opacity-90 ${inputBorder}`}
                 />
               </div>
 
@@ -369,10 +385,16 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
           <div className="w-full max-w-[480px]">
             {verdict === null ? (
-              <button onClick={submitRecall} disabled={!input.trim()}
-                className="w-full h-16 rounded-[28px] bg-indigo-600 border-b-4 border-indigo-800 text-white font-black text-lg shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all active:translate-y-1 active:border-b-0 disabled:opacity-40">
-                Kiểm tra
-              </button>
+              <div className="flex gap-3">
+                <button onClick={submitRecall} disabled={!input.trim()}
+                  className="flex-[2] h-16 rounded-[28px] bg-indigo-600 border-b-4 border-indigo-800 text-white font-black text-lg shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all active:translate-y-1 active:border-b-0 disabled:opacity-40">
+                  Kiểm tra
+                </button>
+                <button onClick={giveUpRecall}
+                  className="flex-1 h-16 rounded-[28px] bg-white border-2 border-slate-200 border-b-4 text-slate-500 font-bold text-sm hover:bg-slate-50 transition-all active:translate-y-1 active:border-b-2">
+                  Không nhớ
+                </button>
+              </div>
             ) : (
               <button onClick={goNextRecall}
                 className="w-full h-16 rounded-[28px] bg-white border-b-4 border-slate-200 text-slate-800 font-black text-lg shadow-sm hover:bg-slate-50 transition-all active:translate-y-1 active:border-b-0 flex items-center justify-center gap-2">

@@ -3,7 +3,7 @@ import { createServiceClient } from '@/lib/supabase';
 import { mapQualityToRating } from '@/lib/srs';
 import { scheduleNext } from '@/lib/fsrs';
 import { XP_BY_QUALITY } from '@/lib/gamification';
-import { getAuthUser, unauthorized, isValidString } from '@/lib/api-security';
+import { getAuthUser, unauthorized, isValidString, safeErrorResponse } from '@/lib/api-security';
 
 /**
  * POST /api/words/srs
@@ -63,8 +63,7 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error('SRS Upsert Error:', error.message);
-      return NextResponse.json({ success: false, error: 'Failed to save progress', details: error.message }, { status: 500 });
+      return safeErrorResponse(error, 'Failed to save progress');
     }
 
     // Award XP (fire-and-forget, không block response)
@@ -81,11 +80,6 @@ export async function POST(req: Request) {
       }
     );
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error('POST /api/words/srs Error:', msg);
-    return NextResponse.json(
-      { success: false, error: 'Internal Server Error', details: msg },
-      { status: 500 }
-    );
+    return safeErrorResponse(error, 'Internal Server Error');
   }
 }

@@ -312,7 +312,10 @@ function GrammarContent() {
       const params = new URLSearchParams();
       if (classroomId) params.set('classroomId', classroomId);
       if (lessonId) params.set('lessonId', lessonId);
-      const res = await fetch(`/api/grammar?${params.toString()}`);
+      const { data: { session } } = await supabase.auth.getSession();
+      const res = await fetch(`/api/grammar?${params.toString()}`, {
+        headers: { Authorization: `Bearer ${session?.access_token ?? ''}` },
+      });
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
         rawExercises.current = data.data;
@@ -593,7 +596,7 @@ function GrammarContent() {
               <button
                 type="button"
                 onClick={() => {
-                  let textToRead = current.question
+                  const textToRead = current.question
                     .replace(/^find\s+the\s+error:\s*/i, '')
                     .replace(/_{2,}/g, 'something')
                     .replace(/\*\*([^*]+)\*\*/g, '$1');

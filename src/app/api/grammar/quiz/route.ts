@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimit } from '@/lib/rate-limit';
+import { checkRateLimit, safeErrorResponse } from '@/lib/api-security';
 import { resolveUserPlan, checkAccess } from '@/lib/entitlement';
 
 // Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
@@ -260,8 +260,6 @@ Constraints:
 
     return NextResponse.json({ success: true, data: questions, cached: false });
   } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error('[GrammarQuiz] Error:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(err, 'Failed to generate quiz');
   }
 }

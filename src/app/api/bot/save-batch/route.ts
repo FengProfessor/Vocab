@@ -2,9 +2,17 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getWordSourceMap } from '@/lib/bot-utils';
 import { resolveWordImage } from '@/lib/image-pipeline';
+import { safeErrorResponse } from '@/lib/api-security';
 
 export async function POST(req: Request): Promise<NextResponse> {
     try {
+        // ── Auth: chỉ cho phép bot/script có BOT_SECRET ──
+        const botSecret = process.env.BOT_SECRET;
+        const authHeader = req.headers.get('authorization');
+        if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
+            return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+        }
+
         const data = await req.json();
         if (!Array.isArray(data)) {
             return NextResponse.json({ success: false, error: "Invalid data format" }, { status: 400 });
@@ -83,7 +91,6 @@ export async function POST(req: Request): Promise<NextResponse> {
 
         return NextResponse.json({ success: true, saved: successCount });
     } catch (e: unknown) {
-        const msg = e instanceof Error ? e.message : 'Unknown error';
-        return NextResponse.json({ success: false, error: msg }, { status: 500 });
+        return safeErrorResponse(e, 'Failed to save batch');
     }
 }

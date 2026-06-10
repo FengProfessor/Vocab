@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
-import { checkRateLimit } from "@/lib/rate-limit";
 import { getRouter } from "@/lib/ai-router";
+import { sanitizeForPrompt, checkRateLimit, safeErrorResponse, getAuthUser, unauthorized } from "@/lib/api-security";
 
 // Gọi AI sinh từ điển khi cache miss. Hobby mặc định 10s có thể kill sớm.
 export const maxDuration = 30;
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = checkRateLimit(`ai:${ip}`, 10, 60_000); // 10 req/min per IP
+    // Route đốt Gemini → bắt buộc JWT, rate limit theo user (chống đốt quota ẩn danh)
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    const rl = checkRateLimit(`ai:${auth.userId}`, 10, 60_000); // 10 req/min per user
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },
@@ -26,7 +28,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: "word must not exceed 50 characters" }, { status: 400 });
     }
 
-    const cleanWord = word.trim().toLowerCase();
+    const cleanWord = sanitizeForPrompt(word, 50).toLowerCase();
     const supabase = createServiceClient();
 
     // 1. Kiểm tra Cache trong global_dictionary trước
@@ -82,8 +84,6 @@ Include the 3 most common meanings. Do not include markdown tags like \`\`\`json
     return NextResponse.json({ success: true, data, cached: false });
 
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error("[ai-lookup] Error:", msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(error, 'Failed to lookup word');
   }
 }

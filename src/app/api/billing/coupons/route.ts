@@ -7,7 +7,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase());
+// Fail-closed: env rỗng → mảng rỗng → mọi request đều 403 (tránh [''].includes('') = true)
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
 
 async function requireAdmin(req: NextRequest) {
   const supabase = createServiceClient();

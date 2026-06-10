@@ -1,17 +1,19 @@
 import { createServiceClient } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
 
 /**
- * GET /api/teacher/stats?teacherId=xxx&classroomId=yyy
+ * GET /api/teacher/stats?classroomId=yyy
  * Fetches teacher dashboard stats bypassing RLS recursion issues.
+ * Auth is required.
  */
 export async function GET(req: Request) {
   try {
-    const { searchParams } = new URL(req.url);
-    const teacherId = searchParams.get('teacherId');
-    const classroomId = searchParams.get('classroomId');
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
 
-    if (!teacherId) return NextResponse.json({ success: false, error: 'teacherId is required' }, { status: 400 });
+    const { searchParams } = new URL(req.url);
+    const classroomId = searchParams.get('classroomId');
 
     const supabase = createServiceClient();
 
@@ -19,7 +21,7 @@ export async function GET(req: Request) {
     const { data: classrooms, error: classErr } = await supabase
       .from('classrooms')
       .select('*, enrollments(count)')
-      .eq('teacher_id', teacherId)
+      .eq('teacher_id', auth.userId)
       .order('created_at', { ascending: false });
 
     if (classErr) throw classErr;
@@ -33,6 +35,18 @@ export async function GET(req: Request) {
     // 2. Get students for selected classroom if provided
     let students = [];
     if (classroomId) {
+      // Verify classroom ownership first
+      const { data: classroom, error: classroomErr } = await supabase
+        .from('classrooms')
+        .select('teacher_id')
+        .eq('id', classroomId)
+        .maybeSingle();
+
+      if (classroomErr) throw classroomErr;
+      if (!classroom || classroom.teacher_id !== auth.userId) {
+        return unauthorized();
+      }
+
       const { data: studentData, error: studentErr } = await supabase
         .from('student_progress')
         .select('*')

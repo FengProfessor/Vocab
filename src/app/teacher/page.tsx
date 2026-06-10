@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
+import { authFetch } from '@/lib/auth-fetch';
 
 // --- Analytics types ---
 interface ClassStats {
@@ -94,7 +95,7 @@ export default function TeacherDashboard() {
   const loadAnalytics = useCallback(async (teacherId: string, classroomId: string) => {
     setIsLoadingAnalytics(true);
     try {
-      const res = await fetch(`/api/teacher/analytics?teacherId=${teacherId}&classroomId=${classroomId}`);
+      const res = await authFetch(`/api/teacher/analytics?classroomId=${classroomId}`);
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       setAnalytics(data as AnalyticsData);
@@ -119,8 +120,8 @@ export default function TeacherDashboard() {
     if (!user) { router.push('/auth'); return; }
 
     try {
-      const url = `/api/teacher/stats?teacherId=${user.id}${classId ? `&classroomId=${classId}` : ''}`;
-      const res = await fetch(url);
+      const url = `/api/teacher/stats${classId ? `?classroomId=${classId}` : ''}`;
+      const res = await authFetch(url);
       const data = await res.json();
       
       if (data.error) throw new Error(data.error);
@@ -154,7 +155,7 @@ export default function TeacherDashboard() {
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
-      const res = await fetch(`/api/teacher/stats?teacherId=${user.id}&classroomId=${classroomId}`);
+      const res = await authFetch(`/api/teacher/stats?classroomId=${classroomId}`);
       const data = await res.json();
       setStudents(data.students || []);
       // Load analytics + pending words in parallel

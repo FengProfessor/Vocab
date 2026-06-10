@@ -9,6 +9,13 @@ import { verifyImageMeaning, resolveWordImage } from '@/lib/image-pipeline';
  */
 export async function POST(req: Request): Promise<NextResponse> {
   try {
+    // ── Auth: chỉ cho phép bot/script có BOT_SECRET ──
+    const botSecret = process.env.BOT_SECRET;
+    const authHeader = req.headers.get('authorization');
+    if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     const { word } = await req.json();
     if (!word) return NextResponse.json({ success: false, error: 'word required' }, { status: 400 });
 

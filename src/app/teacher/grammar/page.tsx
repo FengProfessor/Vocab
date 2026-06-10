@@ -231,10 +231,11 @@ export default function TeacherGrammarEditorPage() {
 
     setIsSaving(true);
     try {
+      const { data: { session } } = await supabase.auth.getSession();
       if (isNewLesson) {
         const res = await fetch('/api/grammar/lessons', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
           body: JSON.stringify({
             topic_id: form.topic_id,
             title: form.title.trim(),
@@ -254,7 +255,7 @@ export default function TeacherGrammarEditorPage() {
       } else if (selectedLessonId) {
         const res = await fetch('/api/grammar/lessons', {
           method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
           body: JSON.stringify({
             id: selectedLessonId,
             topic_id: form.topic_id,
@@ -285,8 +286,10 @@ export default function TeacherGrammarEditorPage() {
 
     setIsDeleting(true);
     try {
+      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch(`/api/grammar/lessons?id=${selectedLessonId}`, {
         method: 'DELETE',
+        headers: { Authorization: `Bearer ${session?.access_token ?? ''}` },
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error || 'Delete failed');

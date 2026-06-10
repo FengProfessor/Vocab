@@ -16,15 +16,18 @@ export default function FirebaseInitializer() {
         const token = await requestForToken();
         
         if (token) {
-          // 2. Lấy thông tin user hiện tại
-          const { data: { user } } = await supabase.auth.getUser();
+          // 2. Lấy session hiện tại để có access_token
+          const { data: { session } } = await supabase.auth.getSession();
           
-          if (user) {
-            // 3. Gửi Token lên server để lưu
+          if (session) {
+            // 3. Gửi Token lên server (auth qua JWT, không gửi userId trong body)
             await fetch('/api/push/fcm-register', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ userId: user.id, fcmToken: token }),
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${session.access_token}`,
+              },
+              body: JSON.stringify({ fcmToken: token }),
             });
             console.log('[FCM] Token registered successfully');
           }

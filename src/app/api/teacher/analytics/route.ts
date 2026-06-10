@@ -1,9 +1,10 @@
 import { createServiceClient } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
 
 /**
- * GET /api/teacher/analytics?teacherId=xxx&classroomId=yyy
- * Returns enhanced analytics for teacher dashboard:
+ * GET /api/teacher/analytics?classroomId=yyy
+ * Returns enhanced analytics for teacher dashboard. Auth is required.
  * - Class stats (active students, total words, avg accuracy, words due today)
  * - Top students by mastery (VMS)
  * - Struggling students (least reviews, low LCS)
@@ -12,15 +13,30 @@ import { NextResponse } from 'next/server';
  */
 export async function GET(req: Request) {
   try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+
     const { searchParams } = new URL(req.url);
-    const teacherId = searchParams.get('teacherId');
     const classroomId = searchParams.get('classroomId');
 
-    if (!teacherId || !classroomId) {
-      return NextResponse.json({ success: false, error: 'teacherId and classroomId are required' }, { status: 400 });
+    if (!classroomId) {
+      return NextResponse.json({ success: false, error: 'classroomId is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
+
+    // Verify classroom ownership
+    const { data: classroom, error: classroomErr } = await supabase
+      .from('classrooms')
+      .select('teacher_id')
+      .eq('id', classroomId)
+      .maybeSingle();
+
+    if (classroomErr) throw classroomErr;
+    if (!classroom || classroom.teacher_id !== auth.userId) {
+      return unauthorized();
+    }
+
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
     const sevenDaysAgoISO = sevenDaysAgo.toISOString();
@@ -35,6 +51,7 @@ export async function GET(req: Request) {
     if (studErr) throw studErr;
 
     const studentList = students || [];
+    const studentIds = studentList.map(s => s.student_id);
 
     // 2. Class stats
     const activeStudents = studentList.filter(
@@ -50,11 +67,15 @@ export async function GET(req: Request) {
       : 0;
 
     // Count words due today across all enrolled students
-    const { count: wordsDueToday } = await supabase
-      .from('srs_progress')
-      .select('id', { count: 'exact', head: true })
-      .in('user_id', studentList.map(s => s.student_id))
-      .lte('next_review_date', todayDate);
+    let wordsDueToday = 0;
+    if (studentList.length > 0) {
+      const { count } = await supabase
+        .from('srs_progress')
+        .select('id', { count: 'exact', head: true })
+        .in('user_id', studentIds)
+        .lte('next_review_date', todayDate);
+      wordsDueToday = count || 0;
+    }
 
     // 3. Top students by VMS (mastery score), top 5
     const topStudents = [...studentList]
@@ -109,7 +130,7 @@ export async function GET(req: Request) {
           .from('srs_progress')
           .select('word_id, user_id')
           .in('word_id', wordIds)
-          .in('user_id', studentList.map(s => s.student_id))
+          .in('user_id', studentIds)
           .gt('review_count', 0);
 
         if (!covErr && coverage) {
@@ -154,7 +175,7 @@ export async function GET(req: Request) {
           .from('srs_progress')
           .select('word_id, review_count, stability')
           .in('word_id', diffWordIds)
-          .in('user_id', studentList.map(s => s.student_id))
+          .in('user_id', studentIds)
           .gt('review_count', 1); // chỉ tính từ đã review ít nhất 2 lần
 
         if (diffProgress && diffProgress.length > 0) {
@@ -194,7 +215,6 @@ export async function GET(req: Request) {
       timestamp: string;
     };
 
-    const studentIds = studentList.map(s => s.student_id);
     const nameMap = new Map(studentList.map(s => [s.student_id, s.student_name || s.email]));
 
     let activityFeed: ActivityItem[] = [];
@@ -259,7 +279,7 @@ export async function GET(req: Request) {
         total_enrolled: enrolledCount,
         total_class_words: totalClassWords,
         avg_accuracy: Math.round(avgAccuracy * 100),
-        words_due_today: wordsDueToday || 0,
+        words_due_today: wordsDueToday,
       },
       topStudents,
       strugglingStudents,

@@ -1,9 +1,17 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getWordSourceMap } from '@/lib/bot-utils';
+import { safeErrorResponse } from '@/lib/api-security';
 
 export async function GET(req: Request): Promise<NextResponse> {
     try {
+        // ── Auth: chỉ cho phép bot/script có BOT_SECRET ──
+        const botSecret = process.env.BOT_SECRET;
+        const authHeader = req.headers.get('authorization');
+        if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
+            return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+        }
+
         const { searchParams } = new URL(req.url);
         const batchSize = parseInt(searchParams.get('size') || '10');
         const direction = searchParams.get('direction') || 'asc';
@@ -54,7 +62,6 @@ export async function GET(req: Request): Promise<NextResponse> {
         });
 
     } catch (e: unknown) {
-        const msg = e instanceof Error ? e.message : 'Unknown error';
-        return NextResponse.json({ success: false, error: msg }, { status: 500 });
+        return safeErrorResponse(e, 'Failed to fetch next batch');
     }
 }

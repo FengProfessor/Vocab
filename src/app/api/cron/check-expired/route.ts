@@ -7,12 +7,13 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { safeErrorResponse } from '@/lib/api-security';
 
 export async function GET(req: NextRequest) {
-  // Auth: verify cron secret
+  // Auth: verify cron secret (BLOCK if not configured)
   const authHeader = req.headers.get('authorization');
   const cronSecret = process.env.CRON_SECRET;
-  if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
+  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -62,14 +63,28 @@ export async function GET(req: NextRequest) {
 
     console.log(`[Cron] check-expired: downgraded ${downgraded}/${expiredUsers.length} users`);
 
+    // Snapshot student stats for analytics history (lỗi không chặn cron, nhưng phải lộ ra response)
+    let snapshotStatus = 'ok';
+    try {
+      const { error: snapErr } = await supabase.rpc('snapshot_student_stats');
+      if (snapErr) {
+        snapshotStatus = `failed: ${snapErr.message}`;
+        console.error('[Cron] Failed to snapshot student stats:', snapErr.message);
+      } else {
+        console.log('[Cron] Successfully snapshotted student stats');
+      }
+    } catch (snapEx) {
+      snapshotStatus = 'exception';
+      console.error('[Cron] Exception snapshotting student stats:', snapEx);
+    }
+
     return NextResponse.json({
       success: true,
       downgraded,
       total_expired: expiredUsers.length,
+      snapshot: snapshotStatus,
     });
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error('[Cron] check-expired error:', msg);
-    return NextResponse.json({ error: msg }, { status: 500 });
+    return safeErrorResponse(err, 'Failed to process expired subscriptions');
   }
 }

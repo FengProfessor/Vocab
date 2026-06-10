@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import type { GrammarExample, GrammarLevel } from '@/lib/supabase';
-import { checkRateLimit } from '@/lib/rate-limit';
+import { checkRateLimit, safeErrorResponse, sanitizeForPrompt } from '@/lib/api-security';
 
 // Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 30;
@@ -61,7 +61,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const levelLabel = { beginner: 'cơ bản (A1-A2)', intermediate: 'trung cấp (B1-B2)', advanced: 'nâng cao (C1-C2)' }[resolvedLevel];
 
-    const prompt = `Bạn là giáo viên tiếng Anh chuyên nghiệp. Hãy tạo một bài học ngữ pháp tiếng Anh về chủ đề: "${topic.trim()}" ở cấp độ ${levelLabel}.
+    const safeTopic = sanitizeForPrompt(topic, 100);
+    const prompt = `Bạn là giáo viên tiếng Anh chuyên nghiệp. Hãy tạo một bài học ngữ pháp tiếng Anh về chủ đề: "${safeTopic}" ở cấp độ ${levelLabel}.
 
 Trả về JSON với cấu trúc sau (KHÔNG có markdown, chỉ JSON thuần):
 {
@@ -123,8 +124,6 @@ Yêu cầu:
 
     return NextResponse.json({ success: true, data });
   } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error('[GrammarGenerate] Error:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(err, 'Failed to generate grammar lesson');
   }
 }

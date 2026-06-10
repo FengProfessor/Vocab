@@ -1,5 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, type GrammarTopic } from '@/lib/supabase';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
+
+/** Caller có role teacher mới được tạo/sửa chủ đề. */
+async function isTeacher(userId: string): Promise<boolean> {
+  const supabase = createServiceClient();
+  const { data } = await supabase.from('profiles').select('role').eq('id', userId).single();
+  return data?.role === 'teacher';
+}
 
 type GrammarTopicJoined = GrammarTopic & { grammar_lessons?: { count: number }[] };
 
@@ -43,6 +51,11 @@ export async function GET(): Promise<NextResponse> {
 /** POST /api/grammar/topics — tạo/cập nhật 1 chủ đề (teacher). */
 export async function POST(req: Request): Promise<NextResponse> {
   try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    if (!(await isTeacher(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    }
     const { slug, title, title_vi, level = 'beginner', order_index = 0, parent_id = null } =
       await req.json();
     if (!slug || !title) {

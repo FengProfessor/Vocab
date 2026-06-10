@@ -1,12 +1,18 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
 export async function POST(req: Request): Promise<NextResponse> {
   try {
-    const { userId, fcmToken } = (await req.json()) as { userId?: string; fcmToken?: string };
+    // ── Auth: verify JWT → lấy userId từ token, KHÔNG tin client ──
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    const userId = auth.userId;
 
-    if (!userId || !fcmToken) {
-      return NextResponse.json({ success: false, error: 'userId and fcmToken are required' }, { status: 400 });
+    const { fcmToken } = (await req.json()) as { fcmToken?: string };
+
+    if (!fcmToken || typeof fcmToken !== 'string' || fcmToken.length > 500) {
+      return NextResponse.json({ success: false, error: 'Valid fcmToken is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
@@ -30,15 +36,50 @@ export async function POST(req: Request): Promise<NextResponse> {
       .eq('id', userId);
 
     if (error) {
-      console.error('Error updating fcm_token:', error);
-      return NextResponse.json({ success: false, error: 'Failed to update token' }, { status: 500 });
+      return safeErrorResponse(error, 'Failed to update token');
     }
 
     console.log(`[FCM] Token registered for user ${userId}`);
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : 'Unknown error';
-    console.error('FCM Register Error:', msg);
-    return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 });
+    return safeErrorResponse(err, 'Internal Server Error');
+  }
+}
+
+/**
+ * GET /api/push/fcm-register — đếm token sống của user hiện tại.
+ * Dùng cho banner tự-lành: permission='granted' nhưng 0 token → mời "Kết nối lại".
+ */
+export async function GET(req: Request): Promise<NextResponse> {
+  try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+
+    const supabase = createServiceClient();
+    const { count, error } = await supabase
+      .from('fcm_tokens')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', auth.userId);
+
+    if (error) {
+      // Bảng thiếu / lỗi → coi như không xác định được, trả -1 để client KHÔNG hiện banner sai
+      console.warn('[FCM] count tokens failed:', error.message);
+      return NextResponse.json({ success: true, count: -1 });
+    }
+
+    // Fallback legacy: fcm_tokens trống nhưng profiles.fcm_token còn → vẫn tính là 1
+    let total = count ?? 0;
+    if (total === 0) {
+      const { data: prof } = await supabase
+        .from('profiles')
+        .select('fcm_token')
+        .eq('id', auth.userId)
+        .maybeSingle();
+      if (prof?.fcm_token) total = 1;
+    }
+
+    return NextResponse.json({ success: true, count: total });
+  } catch (err: unknown) {
+    return safeErrorResponse(err, 'Internal Server Error');
   }
 }

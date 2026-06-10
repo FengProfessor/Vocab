@@ -29,11 +29,17 @@ export default function TeacherGrammarPage() {
 
   useEffect(() => {
     const loadData = async () => {
-      const { data: cls } = await supabase.from('classrooms').select('*').eq('id', classroomId).single();
-      setClassroom(cls);
+      const { data: cls, error } = await supabase.from('classrooms').select('*').eq('id', classroomId).single();
+      if (error) {
+        console.error('[TeacherGrammar] Load classroom failed:', error.message);
+        return;
+      }
+      if (cls) setClassroom(cls);
 
+      const { data: { session } } = await supabase.auth.getSession();
+      const authHeaders = { Authorization: `Bearer ${session?.access_token ?? ''}` };
       const [exRes, topicRes] = await Promise.all([
-        fetch(`/api/grammar?classroomId=${classroomId}`).then((r) => r.json()).catch(() => null),
+        fetch(`/api/grammar?classroomId=${classroomId}`, { headers: authHeaders }).then((r) => r.json()).catch(() => null),
         fetch('/api/grammar/topics').then((r) => r.json()).catch(() => null),
       ]);
       if (exRes?.success) setExercises(exRes.data);
@@ -68,9 +74,10 @@ export default function TeacherGrammarPage() {
     }
     setIsGenerating(true);
     try {
+      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch('/api/grammar', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
         body: JSON.stringify({ classroomId, topic, level, count }),
       });
       const data = await res.json();
@@ -88,9 +95,10 @@ export default function TeacherGrammarPage() {
   const handleGenerateForLesson = async (lesson: GrammarLesson) => {
     setGeneratingLesson(lesson.id);
     try {
+      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch('/api/grammar', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
         body: JSON.stringify({ classroomId, topic: lesson.title, level, count, lessonId: lesson.id }),
       });
       const data = await res.json();

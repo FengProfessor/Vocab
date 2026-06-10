@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimit } from '@/lib/rate-limit';
+import { checkRateLimit, safeErrorResponse, getAuthUser, unauthorized, sanitizeForPrompt } from '@/lib/api-security';
 
 // Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 30;
@@ -69,14 +69,37 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
+    // Auth bắt buộc — route dùng service client (bypass RLS) + đốt quota AI
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+
     const body = await req.json() as Record<string, unknown>;
-    const { classroomId, topic, level = 'beginner', count = 5, lessonId } = body;
+    const { classroomId, topic: rawTopic, level: rawLevel = 'beginner', count: rawCount = 5, lessonId } = body;
     // classroomId optional — student self-practice mode không cần classroom
+    if (!rawTopic || typeof rawTopic !== 'string') {
+      return NextResponse.json({ success: false, error: 'topic is required' }, { status: 400 });
+    }
+    // Sanitize input trước khi nhúng vào prompt (chống prompt injection) + clamp count
+    const topic = sanitizeForPrompt(rawTopic, 100);
+    const level = ['beginner', 'intermediate', 'advanced'].includes(String(rawLevel)) ? String(rawLevel) : 'beginner';
+    const count = Math.min(Math.max(1, parseInt(String(rawCount ?? '5'), 10) || 5), 10);
     if (!topic) {
       return NextResponse.json({ success: false, error: 'topic is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
+
+    // Lưu vào classroom → phải là giáo viên của lớp đó
+    if (typeof classroomId === 'string' && classroomId) {
+      const { data: cls } = await supabase
+        .from('classrooms')
+        .select('teacher_id')
+        .eq('id', classroomId)
+        .maybeSingle();
+      if (!cls || cls.teacher_id !== auth.userId) {
+        return NextResponse.json({ success: false, error: 'Not your classroom' }, { status: 403 });
+      }
+    }
 
     // Nếu gắn với 1 bài học → lấy lý thuyết để prompt bám sát nội dung
     let lessonContext = '';
@@ -194,15 +217,17 @@ Return JSON array only, no other text.`;
 
     return NextResponse.json({ success: true, data, count: data.length });
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error('Grammar API Error:', error);
-    return NextResponse.json({ success: false, error: 'Failed to generate exercises', details: msg }, { status: 500 });
+    return safeErrorResponse(error, 'Failed to generate exercises');
   }
 }
 
 // GET - Fetch grammar exercises for a classroom
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
+    // Auth bắt buộc — service client bypass RLS, không auth = ai cũng đọc được bài của mọi lớp
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+
     const { searchParams } = new URL(req.url);
     const classroomId = searchParams.get('classroomId');
     const lessonId = searchParams.get('lessonId');
@@ -212,6 +237,18 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     }
 
     const supabase = createServiceClient();
+
+    // Đọc theo classroom → phải là giáo viên của lớp HOẶC học sinh đã enroll
+    if (classroomId) {
+      const [{ data: cls }, { data: enrollment }] = await Promise.all([
+        supabase.from('classrooms').select('teacher_id').eq('id', classroomId).maybeSingle(),
+        supabase.from('enrollments').select('id').eq('classroom_id', classroomId).eq('student_id', auth.userId).maybeSingle(),
+      ]);
+      const isTeacher = cls?.teacher_id === auth.userId;
+      if (!isTeacher && !enrollment) {
+        return NextResponse.json({ success: false, error: 'Not a member of this classroom' }, { status: 403 });
+      }
+    }
     // Sort easy → hard cho drill, fallback created_at để stable
     let query = supabase
       .from('grammar_exercises')
@@ -226,7 +263,6 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, data });
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(error, 'Failed to fetch exercises');
   }
 }

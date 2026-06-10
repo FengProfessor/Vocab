@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
-import { checkRateLimit } from "@/lib/rate-limit";
 import { getRouter } from "@/lib/ai-router";
-import { getAuthUser, unauthorized, isValidString } from "@/lib/api-security";
+import { getAuthUser, unauthorized, isValidString, sanitizeForPrompt, checkRateLimit, safeErrorResponse } from "@/lib/api-security";
 
 export const maxDuration = 30;
 
@@ -30,8 +29,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: "phrase too long" }, { status: 400 });
     }
 
-    const cleanPhrase = phrase.trim();
-    const cleanContext = typeof context === 'string' ? context.trim() : '';
+    const cleanPhrase = sanitizeForPrompt(phrase, 200);
+    const cleanContext = typeof context === 'string' ? sanitizeForPrompt(context, 500) : '';
 
     const supabase = createServiceClient();
 
@@ -103,8 +102,6 @@ Return ONLY valid raw JSON. No markdown fences, no explanations.`;
     return NextResponse.json({ success: true, data });
 
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error("[ai-phrase-lookup] Error:", msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(error, 'Failed to lookup phrase');
   }
 }

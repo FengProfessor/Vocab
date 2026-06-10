@@ -16,8 +16,9 @@ import { search as searchWikipedia } from './image-sources/wikipedia';
 import { search as searchOpenverse } from './image-sources/openverse';
 import { search as searchPollinations } from './image-sources/pollinations';
 import { search as searchGemini } from './image-sources/gemini';
+import { classifyWord, isNSFWUrl } from './word-classifier';
 
-export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'gemini' | 'pollinations' | 'none';
+export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'gemini' | 'pollinations' | 'skip-function' | 'none';
 
 export interface ResolveImageInput {
   word: string;
@@ -42,9 +43,15 @@ export interface ResolvedImage {
   query: string;
 }
 
-const MIN_IMAGE_BYTES = 3000;
+const MIN_IMAGE_BYTES = 15000; // 15KB — trên ngưỡng này mới là ảnh thực, dưới = thumbnail/placeholder rác
 const VISION_THRESHOLD = 70;
+const VISION_HARD_REJECT = 15; // Vision score dưới ngưỡng này coi như ảnh hoàn toàn sai — không lưu
 const MAX_VISION_CANDIDATES = 3;
+
+/** Tắt Gemini Vision verify (env DISABLE_VISION=true). Dùng khi Gemini quota cạn hoặc account bị ToS warning. */
+const DISABLE_VISION = process.env.DISABLE_VISION === 'true';
+/** Tắt tier Gemini image generation. Dùng cùng lý do trên. */
+const DISABLE_GEMINI_TIER = process.env.DISABLE_GEMINI_TIER === 'true' || DISABLE_VISION;
 
 const BROWSER_HEADERS: Record<string, string> = {
   'User-Agent':
@@ -234,12 +241,22 @@ Return ONLY valid JSON: { "match_score": <integer 0-100>, "reason": "<short expl
 
 export async function resolveWordImage(input: ResolveImageInput): Promise<ResolvedImage> {
   const { word, pos = '', definition = '', imageSearchQuery, meaningCount = 1, forceVision = false } = input;
+
+  // GIAI ĐOẠN 0 — Phân loại từ: function words KHÔNG cần ảnh (mạo từ, giới từ, liên từ...)
+  // Ảnh tìm về luôn lệch nghĩa → bỏ qua hoàn toàn, dùng icon ở frontend.
+  const wordClass = classifyWord(word, pos, definition);
+  if (wordClass === 'function') {
+    return { url: '', source: 'skip-function', confidence: null, query: '' };
+  }
+
   const queries = buildImageQueries(input);
   const primaryQuery = queries[0] || word;
   const concreteness = classifyConcreteness(pos, definition);
 
   // Quyết định có cần AI Vision: ép buộc HOẶC từ trừu tượng HOẶC đa nghĩa
-  const needsVision = forceVision || concreteness === 'abstract' || meaningCount > 1;
+  // Word class 'abstract' override luôn → mọi tính từ/trạng từ đều phải verify
+  // Khi DISABLE_VISION=true (env), luôn skip Vision → pipeline nhận ảnh đầu tiên validate được
+  const needsVision = !DISABLE_VISION && (forceVision || wordClass === 'abstract' || concreteness === 'abstract' || meaningCount > 1);
 
   // GIAI ĐOẠN B — thu thập ứng viên ảnh theo tier
   const candidates: { url: string; source: ImageSource }[] = [];
@@ -270,21 +287,28 @@ export async function resolveWordImage(input: ResolveImageInput): Promise<Resolv
 
   // Tier 5: Gemini Image (Nano Banana) — generative chất lượng cao, tốn quota
   // Chỉ gọi khi ứng viên thực còn ít (< 3) để tiết kiệm quota API
+  // SKIP khi DISABLE_GEMINI_TIER=true (Google project bị suspended hoặc ToS warning)
   const generativeQuery = imageSearchQuery || extractDescriptor(definition) || word;
-  if (candidates.length < 3) {
+  if (!DISABLE_GEMINI_TIER && candidates.length < 3) {
     const geminiUrls = await searchGemini(generativeQuery, 1, word);
     for (const u of geminiUrls) candidates.push({ url: u, source: 'gemini' });
   }
 
   // Tier 6: Pollinations — fallback cuối, free vô hạn nhưng chất lượng tạp
-  const pollUrls = await searchPollinations(generativeQuery, MAX_VISION_CANDIDATES);
-  for (const u of pollUrls) candidates.push({ url: u, source: 'pollinations' });
+  // KHI DISABLE_VISION: chỉ dùng pollinations nếu candidates trống hoàn toàn
+  // (vì không có Vision verify thì pollinations sinh ảnh ngẫu nhiên rất dễ sai)
+  if (!DISABLE_VISION || candidates.length === 0) {
+    const pollUrls = await searchPollinations(generativeQuery, MAX_VISION_CANDIDATES);
+    for (const u of pollUrls) candidates.push({ url: u, source: 'pollinations' });
+  }
 
   // GIAI ĐOẠN C + D — validate rồi (nếu cần) kiểm chứng
   let best: ResolvedImage | null = null;
   let visionCalls = 0;
 
   for (const cand of candidates) {
+    // Filter NSFW URL ngay đầu (chống vd "actress" → ảnh bikini lọt từ DuckDuckGo/Wikipedia)
+    if (isNSFWUrl(cand.url)) continue;
     if (!(await validateImageUrl(cand.url))) continue;
 
     // Generative (gemini/pollinations) luôn cần kiểm chứng; ngoài ra theo needsVision
@@ -314,7 +338,11 @@ export async function resolveWordImage(input: ResolveImageInput): Promise<Resolv
     if (score >= VISION_THRESHOLD) {
       return { url: cand.url, source: cand.source, confidence: score, query: primaryQuery };
     }
-    // Điểm thấp → ghi nhận ứng viên tốt nhất tới hiện tại
+    // Score CỰC THẤP (≤15) → ảnh hoàn toàn sai nghĩa, không lưu làm fallback
+    if (score <= VISION_HARD_REJECT) {
+      continue;
+    }
+    // Điểm thấp nhưng còn cứu được → ghi nhận ứng viên tốt nhất tới hiện tại
     if (!best || score > (best.confidence ?? -1)) {
       best = { url: cand.url, source: `${cand.source}-low`, confidence: score, query: primaryQuery };
     }

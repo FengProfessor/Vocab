@@ -47,6 +47,14 @@ async function main() {
   // Load module SAU khi env đã sẵn sàng
   ({ resolveWordImage } = await import('../src/lib/image-pipeline'));
 
+  // Probe cột mới: nếu thiếu thì chỉ update image_url + image_source (tránh fail)
+  const probe = createClient(url, key);
+  const { error: probeErr } = await probe.from('global_dictionary').select('image_confidence').limit(1);
+  const hasNewCols = !probeErr;
+  if (!hasNewCols) {
+    console.warn(`${LOG} ⚠ cột image_confidence chưa migrate → chỉ update image_url + image_source`);
+  }
+
   const { limit, throttle, onlyNone, dryRun } = parseArgs();
   console.log(`${LOG} cấu hình: limit=${limit || '∞'} throttle=${throttle}ms only-none=${onlyNone} dry-run=${dryRun}`);
 
@@ -118,21 +126,35 @@ async function main() {
           meaningCount: meanings.length || 1,
         });
 
-        if (!imgUrl) {
+        // Function word skip: vẫn update DB để không scan lại
+        if (source === 'skip-function') {
+          if (!dryRun) {
+            await supabase
+              .from('global_dictionary')
+              .update({ image_url: null, image_source: 'skip-function' })
+              .eq('word', word);
+          }
+          done++;
+          stats['skip-function'] = (stats['skip-function'] || 0) + 1;
+          console.log(`${LOG} [${idx}/${target}] SKIP "${word}" (function word — không cần ảnh)`);
+        } else if (!imgUrl) {
           fail++;
           stats['none'] = (stats['none'] || 0) + 1;
           console.log(`${LOG} [${idx}/${target}] MISS "${word}"`);
         } else {
           if (!dryRun) {
+            const updatePayload: Record<string, unknown> = {
+              image_url: imgUrl,
+              image_source: source,
+            };
+            if (hasNewCols) {
+              updatePayload.image_confidence = confidence;
+              updatePayload.image_query = query;
+              updatePayload.image_verified_at = new Date().toISOString();
+            }
             const { error: upErr } = await supabase
               .from('global_dictionary')
-              .update({
-                image_url: imgUrl,
-                image_source: source,
-                image_confidence: confidence,
-                image_query: query,
-                image_verified_at: new Date().toISOString(),
-              })
+              .update(updatePayload)
               .eq('word', word);
             if (upErr) {
               fail++;

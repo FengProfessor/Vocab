@@ -1,8 +1,12 @@
+import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
 
 export async function GET(req: Request): Promise<NextResponse> {
   try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+
     const { searchParams } = new URL(req.url);
     const studentId = searchParams.get('studentId');
     const classroomId = searchParams.get('classroomId');
@@ -12,6 +16,18 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     const supabase = createServiceClient();
+
+    // Verify classroom ownership first
+    const { data: classroom, error: classroomErr } = await supabase
+      .from('classrooms')
+      .select('teacher_id')
+      .eq('id', classroomId)
+      .maybeSingle();
+
+    if (classroomErr) throw classroomErr;
+    if (!classroom || classroom.teacher_id !== auth.userId) {
+      return unauthorized();
+    }
 
     // 1. Fetch current student progress
     const { data: current, error: curErr } = await supabase

@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { ChevronLeft, Loader2, RotateCcw, Pencil, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { levenshtein, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
+import { levenshtein, verdictToQuality, parseIpa, canAutoFocus, speak, type Verdict } from '@/lib/study';
 
 interface WordItem {
   id: string;
@@ -27,7 +27,8 @@ interface WordItem {
   srs: SRSProgress | null;
 }
 
-const NEXT_DELAY_MS = 1500;
+const NEXT_DELAY_MS = 1500;  // delay tự chuyển khi đúng
+const WRONG_DELAY_MS = 2400; // sai → đợi lâu hơn để kịp nhìn đáp án
 
 function WritingContent() {
   const router = useRouter();
@@ -111,22 +112,35 @@ function WritingContent() {
     };
   }, []);
 
-  const goNext = useCallback(() => {
+  // wasWrong: từ sai quay lại cuối hàng để luyện lại (như flashcard); không tính tiến độ.
+  const goNext = useCallback((wasWrong = false) => {
     if (advanceTimer.current) {
       clearTimeout(advanceTimer.current);
       advanceTimer.current = null;
     }
 
+    const head = queueRef.current[0];
     const newQueue = queueRef.current.slice(1);
+    if (wasWrong && head) newQueue.push(head);
     queueRef.current = newQueue;
     setCurrent(newQueue[0] || null);
     if (newQueue.length === 0) setDone(true);
-    setProgress((p) => Math.min(p + 1, total));
+    if (!wasWrong) setProgress((p) => Math.min(p + 1, total));
     setInput('');
     setVerdict(null);
     // Refocus input cho từ tiếp theo
     setTimeout(() => inputRef.current?.focus(), 50);
   }, [total]);
+
+  // Bỏ qua thời gian đợi và chuyển đến từ tiếp theo (phải khai báo SAU goNext — tránh TDZ)
+  const skipWait = useCallback(() => {
+    if (verdict === null) return; // Chỉ skip khi đã chấm xong
+    if (advanceTimer.current) {
+      clearTimeout(advanceTimer.current);
+      advanceTimer.current = null;
+    }
+    goNext(verdict === 'wrong');
+  }, [verdict, goNext]);
 
   const handleSubmit = useCallback(() => {
     if (!current || !userId || verdict !== null) return;
@@ -146,6 +160,8 @@ function WritingContent() {
       close: v === 'close' ? prev.close + 1 : prev.close,
       wrong: v === 'wrong' ? prev.wrong + 1 : prev.wrong,
     }));
+    // Phát âm từ vừa chấm để củng cố nghe (đồng bộ với LearnMode)
+    speak(current.word, 1.0);
 
     // Background SRS sync (fire-and-forget)
     const quality = verdictToQuality(v);
@@ -155,8 +171,11 @@ function WritingContent() {
       body: JSON.stringify({ wordId: current.id, quality }),
     }).catch((err) => console.error('[Writing] Failed to save SRS:', err));
 
-    // Auto next sau 1.5s
-    advanceTimer.current = setTimeout(goNext, NEXT_DELAY_MS);
+    // Auto next: sai → quay lại cuối hàng + đợi lâu hơn để nhìn đáp án
+    advanceTimer.current = setTimeout(
+      () => goNext(v === 'wrong'),
+      v === 'correct' ? NEXT_DELAY_MS : WRONG_DELAY_MS,
+    );
   }, [current, userId, verdict, input, goNext]);
 
   // Lưu session accuracy khi xong
@@ -185,10 +204,10 @@ function WritingContent() {
     if (e.key === 'Enter') {
       e.preventDefault();
       if (verdict === null) handleSubmit();
-      else goNext();
+      else skipWait(); // Nhấn Enter khi đã chấm → bỏ qua đợi, tiếp theo ngay
     } else if (e.key === ' ' && verdict !== null) {
       e.preventDefault();
-      goNext();
+      skipWait(); // Nhấn Space khi đã chấm → bỏ qua đợi
     }
   };
 
@@ -358,7 +377,7 @@ function WritingContent() {
                 type="text"
                 autoFocus={canAutoFocus()}
                 value={input}
-                disabled={verdict !== null}
+                readOnly={verdict !== null}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={onKeyDown}
                 placeholder="Gõ từ tiếng Anh..."
@@ -366,13 +385,16 @@ function WritingContent() {
                 autoCorrect="off"
                 autoCapitalize="off"
                 spellCheck={false}
-                className={`w-full text-center text-2xl sm:text-3xl font-black p-4 rounded-2xl border-4 focus:outline-none transition-colors disabled:opacity-90 ${inputBorder}`}
+                className={`w-full text-center text-2xl sm:text-3xl font-black p-4 rounded-2xl border-4 focus:outline-none transition-colors read-only:opacity-90 ${inputBorder}`}
               />
             </div>
 
             {/* Feedback */}
             {verdict !== null && (
-              <div className="w-full animate-in fade-in slide-in-from-bottom-2 duration-300">
+              <div
+                className="w-full animate-in fade-in slide-in-from-bottom-2 duration-300 cursor-pointer"
+                onClick={skipWait}
+              >
                 {verdict === 'correct' && (
                   <p className="text-lg font-black text-emerald-600">
                     ✓ Chính xác! <span className="underline decoration-emerald-400">{word.word}</span>
@@ -389,6 +411,7 @@ function WritingContent() {
                     ✗ Đáp án: <span className="underline decoration-rose-400">{word.word}</span>
                   </p>
                 )}
+                <p className="text-xs text-muted-foreground mt-2">Nhấn Enter hoặc chạm để tiếp tục →</p>
               </div>
             )}
           </CardContent>
@@ -406,7 +429,7 @@ function WritingContent() {
             </button>
           ) : (
             <button
-              onClick={goNext}
+              onClick={() => goNext(verdict === 'wrong')}
               className="w-full h-16 rounded-[28px] bg-white border-b-4 border-slate-200 text-slate-800 font-black text-lg shadow-sm hover:bg-slate-50 transition-all active:translate-y-1 active:border-b-0 flex items-center justify-center gap-2"
             >
               Tiếp theo <ArrowRight className="h-5 w-5" />

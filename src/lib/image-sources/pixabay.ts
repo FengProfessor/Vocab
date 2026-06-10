@@ -3,10 +3,18 @@
  * Ảnh thật, license thương mại rõ ràng (Pixabay License). Cần PIXABAY_KEY.
  * LƯU Ý: Pixabay chặn User-Agent mặc định của fetch/python-requests → phải gửi UA
  * giống browser, nếu không trả 403 Forbidden.
+ *
+ * v2: thêm exclude brand/NSFW vào query (Pixabay hỗ trợ `keyword -exclude`).
+ * Filter post-hoc các hit có tags chứa NSFW/brand collision.
  */
+import { buildPixabayExcludeSuffix, isNSFWUrl, isTextArt } from '../word-classifier';
+
 interface PixabayHit {
   webformatURL?: string;
   largeImageURL?: string;
+  tags?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 /** Hỗ trợ nhiều key phân tách bằng dấu phẩy (rotation tránh rate limit). */
@@ -19,12 +27,15 @@ function pickKey(): string {
 
 export async function search(query: string, limit = 3): Promise<string[]> {
   const key = pickKey();
-  if (!key) return []; // chưa cấu hình key → bỏ qua nguồn này, pipeline tự rơi xuống tier sau
+  if (!key) return [];
   try {
+    // Pixabay: cú pháp `keyword -exclude1 -exclude2` để loại bỏ kết quả chứa từ đó
+    const fullQuery = `${query} ${buildPixabayExcludeSuffix()}`.trim();
+
     const url =
       `https://pixabay.com/api/?key=${key}` +
-      `&q=${encodeURIComponent(query)}&image_type=photo&safesearch=true` +
-      `&lang=en&order=popular&per_page=${Math.max(3, limit)}`; // Pixabay yêu cầu per_page ≥ 3
+      `&q=${encodeURIComponent(fullQuery)}&image_type=photo&safesearch=true` +
+      `&lang=en&order=popular&per_page=${Math.max(3, limit + 2)}`; // +2 dự phòng để filter
 
     const res = await fetch(url, {
       headers: {
@@ -37,8 +48,17 @@ export async function search(query: string, limit = 3): Promise<string[]> {
 
     const data = await res.json();
     const hits: PixabayHit[] = data?.hits || [];
+
     return hits
-      .map((h) => h.webformatURL || h.largeImageURL) // 640px đủ cho flashcard + nhẹ cho Vision
+      .filter((h) => {
+        // Filter NSFW + text-art qua tags/URL
+        const url = h.webformatURL || h.largeImageURL || '';
+        const tags = (h.tags || '').split(',').map((t) => t.trim());
+        if (isNSFWUrl(url, '', tags)) return false;
+        if (isTextArt('', tags)) return false;
+        return true;
+      })
+      .map((h) => h.webformatURL || h.largeImageURL)
       .filter((u): u is string => typeof u === 'string' && u.length > 0)
       .slice(0, limit);
   } catch (e) {

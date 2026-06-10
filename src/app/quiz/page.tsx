@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
@@ -79,6 +79,10 @@ function QuizContent() {
   const [mode, setMode] = useState<QuizMode>('meaning_to_word');
   // shakingIdx: index của button đang shake khi chọn sai
   const [shakingIdx, setShakingIdx] = useState<number | null>(null);
+  // advanceRef giữ hàm chuyển câu hiện tại — nút "Tiếp theo" và setTimeout dùng chung,
+  // identity check chống double-advance (bấm nút xong timeout vẫn bắn)
+  const advanceRef = useRef<(() => void) | null>(null);
+  const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Rebuild choices khi đổi mode
   useEffect(() => {
@@ -153,9 +157,17 @@ function QuizContent() {
       setTimeout(() => setShakingIdx(null), 600);
     }
 
-    const delay = isCorrect ? 1200 : 2500;
+    // Sai → giữ feedback lâu hơn để kịp đọc giải thích; nút "Tiếp theo" cho phép bỏ chờ
+    const delay = isCorrect ? 1200 : 3500;
 
-    setTimeout(async () => {
+    const advance = async () => {
+      // Chống double-advance: chỉ hàm đang giữ ref mới được chạy (timeout vs nút Tiếp theo)
+      if (advanceRef.current !== advance) return;
+      advanceRef.current = null;
+      if (advanceTimerRef.current) {
+        clearTimeout(advanceTimerRef.current);
+        advanceTimerRef.current = null;
+      }
       const newQueue = queue.slice(1);
       setQueue(newQueue);
       const nextWord = newQueue[0] || null;
@@ -187,8 +199,16 @@ function QuizContent() {
         }
         setDone(true);
       }
-    }, delay);
+    };
+
+    advanceRef.current = advance;
+    advanceTimerRef.current = setTimeout(advance, delay);
   }, [selected, current, mode, score, queue, words, classroomId, initialClassroomId, total]);
+
+  /** Bỏ chờ auto-advance — gọi từ nút "Tiếp theo" hoặc phím Enter/Space */
+  const skipNext = useCallback(() => {
+    void advanceRef.current?.();
+  }, []);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -201,10 +221,16 @@ function QuizContent() {
           handleSelect(choices[idx], idx);
         }
       }
+
+      // Đã chọn đáp án → Enter/Space bỏ chờ, chuyển câu ngay
+      if (selected && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        skipNext();
+      }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [done, isLoading, current, choices, selected, handleSelect]);
+  }, [done, isLoading, current, choices, selected, handleSelect, skipNext]);
 
   const accuracy = total > 0 ? Math.round((score.correct / total) * 100) : 0;
 
@@ -437,12 +463,15 @@ function QuizContent() {
           </div>
         )}
 
-        {/* Next arrow hint sau khi chọn */}
+        {/* Nút Tiếp theo — bỏ chờ auto-advance */}
         {selected && (
-          <div className="flex items-center gap-2 text-slate-500 text-sm animate-in fade-in duration-500">
-            <ArrowRight className="h-4 w-4" />
-            <span>Tự động chuyển câu tiếp...</span>
-          </div>
+          <button
+            type="button"
+            onClick={skipNext}
+            className="flex items-center gap-2 text-slate-300 hover:text-white text-sm font-bold bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-full px-5 py-2.5 transition-colors animate-in fade-in duration-500"
+          >
+            Tiếp theo <ArrowRight className="h-4 w-4" />
+          </button>
         )}
       </div>
     </div>

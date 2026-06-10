@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getRouter } from '@/lib/ai-router';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
 
 // Enrich nhiều từ trong 1 request → có thể lâu. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 60;
@@ -22,15 +23,39 @@ type AIEnrichedWord = {
 type GdMeaning = { pos?: string; definition?: string; example?: string; collocations?: string[] };
 type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[] };
 
+type PeerWord = {
+  word: string;
+  translation: string | null;
+  ipa: string | null;
+  pos: string | null;
+  example: string | null;
+  synonyms: string[] | null;
+  antonyms: string[] | null;
+};
+
 export async function POST(req: Request): Promise<NextResponse> {
   try {
+    // Auth bắt buộc — route đốt quota AI hàng loạt, không auth = ai cũng trigger được
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+
     const { classroomId } = await req.json();
     if (!classroomId) {
       return NextResponse.json({ success: false, error: 'classroomId is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
-    console.log(`Refreshing classroom: ${classroomId}`);
+
+    // Giáo viên của lớp HOẶC học sinh đã enroll mới được refresh (nút Retry AI ở flashcard là của học sinh)
+    const [{ data: cls }, { data: enrollment }] = await Promise.all([
+      supabase.from('classrooms').select('teacher_id').eq('id', classroomId).maybeSingle(),
+      supabase.from('enrollments').select('id').eq('classroom_id', classroomId).eq('student_id', auth.userId).maybeSingle(),
+    ]);
+    if (cls?.teacher_id !== auth.userId && !enrollment) {
+      return NextResponse.json({ success: false, error: 'Not a member of this classroom' }, { status: 403 });
+    }
+
+    console.log(`[Refresh] Refreshing classroom: ${classroomId}`);
 
     // Find words that still need analysis
     const { data: pendingWords, error } = await supabase
@@ -46,7 +71,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       return t === '' || t.includes('Analyzing') || t.includes('failed') || t.includes('⏳');
     });
 
-    console.log(`Words in class: ${pendingWords?.length || 0}. Pending: ${filtered.length}`);
+    console.log(`[Refresh] Words in class: ${pendingWords?.length || 0}. Pending: ${filtered.length}`);
     if (filtered.length === 0) {
       return NextResponse.json({ success: true, refreshed: 0, message: 'No pending words found.' });
     }
@@ -78,7 +103,7 @@ export async function POST(req: Request): Promise<NextResponse> {
         .filter((w) => !gdMap.has(w.word.trim().toLowerCase()))
         .map((w) => w.word.trim().toLowerCase());
       
-      const peerMap = new Map<string, any>();
+      const peerMap = new Map<string, PeerWord>();
       if (unresolvedWords.length > 0) {
         const { data: peerEntries } = await supabase
           .from('words')

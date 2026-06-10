@@ -28,12 +28,15 @@ export default function FCMTestPage() {
       if (fcmToken) {
         setToken(fcmToken);
         addLog('Đang lưu vào Supabase...');
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) {
           const res = await fetch('/api/push/fcm-register', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId: user.id, fcmToken }),
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${session.access_token}`,
+            },
+            body: JSON.stringify({ fcmToken }),
           });
           const result = await res.json();
           addLog(`Kết quả lưu DB: ${JSON.stringify(result)}`);

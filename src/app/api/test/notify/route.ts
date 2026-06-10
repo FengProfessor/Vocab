@@ -21,12 +21,20 @@ async function sendTelegram(chatId: string, text: string): Promise<TelegramRespo
 }
 
 export async function GET(req: Request): Promise<NextResponse> {
+  // ── Block test endpoints in production ──
+  if (process.env.NODE_ENV === 'production' && process.env.ALLOW_TEST_ROUTES !== 'true') {
+    return NextResponse.json({ error: 'Not available in production' }, { status: 404 });
+  }
   const { searchParams } = new URL(req.url);
   const userId = searchParams.get('userId');
   return handleNotify(userId);
 }
 
 export async function POST(req: Request): Promise<NextResponse> {
+  // ── Block test endpoints in production ──
+  if (process.env.NODE_ENV === 'production' && process.env.ALLOW_TEST_ROUTES !== 'true') {
+    return NextResponse.json({ error: 'Not available in production' }, { status: 404 });
+  }
   const { userId } = (await req.json()) as { userId?: string };
   return handleNotify(userId || null);
 }

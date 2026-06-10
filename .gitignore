@@ -59,3 +59,8 @@ scraper-*.txt
 /extract-pdf-content.ts
 /extract-pdf-text.ts
 /verify_env.js
+
+# One-off local artifacts
+tmp-*
+tampermonkey-*
+inspect_all_columns.js

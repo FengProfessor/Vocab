@@ -24,6 +24,13 @@ interface TopicProgressSummary {
   nextDueDate: string | null;
 }
 
+/** Cấu hình hiển thị 3 cấp độ — gradient đồng bộ với banner trong trang bài học */
+const LEVELS = [
+  { key: 'beginner', label: 'Cơ bản', sub: 'A1-A2', icon: '🌱', grad: 'from-emerald-500 to-teal-600' },
+  { key: 'intermediate', label: 'Trung cấp', sub: 'B1-B2', icon: '🚀', grad: 'from-blue-500 to-indigo-600' },
+  { key: 'advanced', label: 'Nâng cao', sub: 'C1-C2', icon: '🎓', grad: 'from-purple-500 to-pink-600' },
+] as const;
+
 /**
  * Đọc câu tiếng Anh bằng Web Speech API (free, native).
  * Tự cancel utterance đang chạy nếu user click liên tiếp.
@@ -276,16 +283,22 @@ export default function GrammarLearnPage() {
 
     setLoadingAnnotations(true);
 
-    Promise.allSettled(
-      uncachedExamples.map((ex) =>
-        fetch('/api/grammar/annotate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ sentence: ex.en, topic }),
-        })
-          .then((r) => r.json())
-          .then((res) => (res?.success ? { key: ex.en, data: res.data as WordAnnotation[] } : null))
-          .catch(() => null)
+    // Route annotate yêu cầu JWT → lấy session trước khi gọi batch
+    supabase.auth.getSession().then(({ data: { session } }) =>
+      Promise.allSettled(
+        uncachedExamples.map((ex) =>
+          fetch('/api/grammar/annotate', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${session?.access_token ?? ''}`,
+            },
+            body: JSON.stringify({ sentence: ex.en, topic }),
+          })
+            .then((r) => r.json())
+            .then((res) => (res?.success ? { key: ex.en, data: res.data as WordAnnotation[] } : null))
+            .catch(() => null)
+        )
       )
     ).then((results) => {
       const newEntries: Record<string, WordAnnotation[]> = {};
@@ -304,11 +317,13 @@ export default function GrammarLearnPage() {
         );
         setActiveLesson((prev) => prev ? { ...prev, examples: updatedExamples } : prev);
 
-        void fetch('/api/grammar/lessons', {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ lessonId: activeLesson.id, examples: updatedExamples }),
-        }).catch(() => {
+        void supabase.auth.getSession().then(({ data: { session } }) =>
+          fetch('/api/grammar/lessons', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
+            body: JSON.stringify({ lessonId: activeLesson.id, examples: updatedExamples }),
+          })
+        ).catch(() => {
           console.warn('[Grammar] Failed to persist annotations to DB');
         });
       }
@@ -400,7 +415,12 @@ export default function GrammarLearnPage() {
                 thead: ({ node, ...props }) => <thead className="bg-slate-50/80 text-xs text-slate-700 uppercase font-black" {...props} />,
                 th: ({ node, ...props }) => <th className="px-4 py-3 border-b font-bold tracking-wider text-slate-700" {...props} />,
                 td: ({ node, ...props }) => <td className="px-4 py-3 border-b border-slate-100 font-medium" {...props} />,
-                code: ({ node, inline, className, children, ...props }: any) => {
+                code: ({ node, inline, className, children, ...props }: {
+                  node?: unknown;
+                  inline?: boolean;
+                  className?: string;
+                  children?: React.ReactNode;
+                } & React.HTMLAttributes<HTMLElement>) => {
                   const codeText = String(children).replace(/\n$/, '');
                   // Check if it's a formula: contains '+' or '→' or '=>'
                   const isFormula = (codeText.includes('+') || codeText.includes('→') || codeText.includes('=>')) && codeText.length < 80;
@@ -495,6 +515,9 @@ export default function GrammarLearnPage() {
 
   // ─── Topics roadmap view ───
   const now = Date.now();
+  const progressByTopic: Record<string, TopicProgressSummary> = Object.fromEntries(
+    topicProgress.map((tp) => [tp.topicId, tp]),
+  );
 
   /** Sidebar: list topics với progress bar */
   const ProgressSidebar = () => (
@@ -605,66 +628,139 @@ export default function GrammarLearnPage() {
             </div>
           )}
 
-          {topics.map((topic) => {
-            const lessons = lessonsByTopic[topic.id] || [];
-            const isOpen = expandedTopic === topic.id;
+          {LEVELS.map((lv) => {
+            const lvTopics = topics.filter((t) => t.level === lv.key);
+            if (lvTopics.length === 0) return null;
+            // Tổng tiến độ của cấp độ (chỉ có khi đăng nhập)
+            const lvProg = lvTopics.reduce(
+              (acc, t) => {
+                const tp = progressByTopic[t.id];
+                if (tp) { acc.done += tp.masteredLessons; acc.total += tp.totalLessons; }
+                return acc;
+              },
+              { done: 0, total: 0 },
+            );
             return (
-              <div
-                key={topic.id}
-                ref={(el) => { topicRefs.current[topic.id] = el; }}
-                className="bg-background border rounded-2xl shadow-sm overflow-hidden"
-              >
-                <button
-                  onClick={() => toggleTopic(topic.id)}
-                  className="w-full flex items-center justify-between px-5 py-4 hover:bg-muted/30 transition-colors"
-                >
-                  <div className="text-left">
-                    <div className="font-bold text-slate-800">{topic.title_vi || topic.title}</div>
-                    <div className="text-xs text-muted-foreground">
-                      {topic.title} · {topic.level}
-                      {typeof topic.lessonCount === 'number' ? ` · ${topic.lessonCount} bài` : ''}
+              <section key={lv.key} className="space-y-3 pt-2 first:pt-0">
+                <div className="flex items-center justify-between px-1">
+                  <div className="flex items-center gap-2.5">
+                    <span className={`h-9 w-9 rounded-xl bg-gradient-to-br ${lv.grad} text-white flex items-center justify-center text-base shadow-sm`}>
+                      {lv.icon}
+                    </span>
+                    <div>
+                      <h2 className="font-black text-slate-800 leading-tight">{lv.label}</h2>
+                      <p className="text-[11px] text-muted-foreground font-semibold tracking-wide">
+                        {lv.sub} · {lvTopics.length} chủ đề
+                      </p>
                     </div>
                   </div>
-                  <ChevronDown
-                    className={`h-5 w-5 text-muted-foreground transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
+                  {userId && lvProg.total > 0 && (
+                    <span className="text-xs font-bold text-muted-foreground tabular-nums">
+                      {lvProg.done}/{lvProg.total} bài
+                    </span>
+                  )}
+                </div>
 
-                {isOpen && (
-                  <div className="border-t divide-y">
-                    {loadingTopic === topic.id && (
-                      <div className="px-5 py-4 flex items-center gap-2 text-sm text-muted-foreground">
-                        <Loader2 className="h-4 w-4 animate-spin" /> Đang tải...
-                      </div>
-                    )}
-                    {loadingTopic !== topic.id && lessons.length === 0 && (
-                      <div className="px-5 py-4 text-sm text-muted-foreground">Chưa có bài học.</div>
-                    )}
-                    {lessons.map((lesson) => {
-                      const status = lessonStatus(lesson.id);
-                      return (
-                        <button
-                          key={lesson.id}
-                          onClick={() => setActiveLesson({ ...lesson, topic })}
-                          className="w-full flex items-center justify-between px-5 py-3 hover:bg-primary/5 transition-colors text-left"
-                        >
-                          <span className="text-sm font-medium text-slate-700">{lesson.title}</span>
-                          {status === 'learned' && (
-                            <span className="text-xs text-emerald-600 font-bold flex items-center gap-1">
-                              <CheckCircle2 className="h-3.5 w-3.5" /> Đã học
-                            </span>
+                {lvTopics.map((topic) => {
+                  const lessons = lessonsByTopic[topic.id] || [];
+                  const isOpen = expandedTopic === topic.id;
+                  const tp = progressByTopic[topic.id];
+                  const pct = tp && tp.totalLessons > 0 ? Math.round((tp.masteredLessons / tp.totalLessons) * 100) : 0;
+                  const isDue = tp?.nextDueDate != null && new Date(tp.nextDueDate).getTime() <= now;
+                  return (
+                    <div
+                      key={topic.id}
+                      ref={(el) => { topicRefs.current[topic.id] = el; }}
+                      className={`bg-background border rounded-2xl shadow-sm overflow-hidden transition-all ${
+                        isOpen ? 'ring-2 ring-primary/15 border-primary/30' : ''
+                      }`}
+                    >
+                      <button
+                        onClick={() => toggleTopic(topic.id)}
+                        className="w-full flex items-center gap-3 px-4 sm:px-5 py-4 hover:bg-muted/30 transition-colors text-left"
+                      >
+                        <span className={`shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br ${lv.grad} text-white flex items-center justify-center font-black text-sm shadow-sm ${pct === 100 ? '' : 'opacity-90'}`}>
+                          {pct === 100 ? <CheckCircle2 className="h-5 w-5" /> : (topic.title_vi || topic.title).charAt(0).toUpperCase()}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-slate-800 truncate">{topic.title_vi || topic.title}</span>
+                            {isDue && (
+                              <span className="shrink-0 text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-1.5 py-0.5">
+                                Cần ôn
+                              </span>
+                            )}
+                          </div>
+                          <div className="text-xs text-muted-foreground truncate">
+                            {topic.title}
+                            {typeof topic.lessonCount === 'number' ? ` · ${topic.lessonCount} bài` : ''}
+                          </div>
+                          {userId && tp && tp.totalLessons > 0 && (
+                            <div className="flex items-center gap-2 mt-1.5">
+                              <div className="flex-1 max-w-[180px] h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                                <div
+                                  className={`h-full rounded-full transition-all ${pct === 100 ? 'bg-emerald-500' : 'bg-primary'}`}
+                                  style={{ width: `${pct}%` }}
+                                />
+                              </div>
+                              <span className="text-[10px] text-muted-foreground tabular-nums">
+                                {tp.masteredLessons}/{tp.totalLessons}
+                              </span>
+                            </div>
                           )}
-                          {status === 'due' && (
-                            <span className="text-xs text-amber-600 font-bold flex items-center gap-1">
-                              <Clock className="h-3.5 w-3.5" /> Cần ôn
-                            </span>
+                        </div>
+                        <ChevronDown
+                          className={`shrink-0 h-5 w-5 text-muted-foreground transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+
+                      {isOpen && (
+                        <div className="border-t divide-y">
+                          {loadingTopic === topic.id && (
+                            <div className="px-5 py-4 flex items-center gap-2 text-sm text-muted-foreground">
+                              <Loader2 className="h-4 w-4 animate-spin" /> Đang tải...
+                            </div>
                           )}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
+                          {loadingTopic !== topic.id && lessons.length === 0 && (
+                            <div className="px-5 py-4 text-sm text-muted-foreground">Chưa có bài học.</div>
+                          )}
+                          {lessons.map((lesson, idx) => {
+                            const status = lessonStatus(lesson.id);
+                            return (
+                              <button
+                                key={lesson.id}
+                                onClick={() => setActiveLesson({ ...lesson, topic })}
+                                className="w-full flex items-center gap-3 px-4 sm:px-5 py-3 hover:bg-primary/5 transition-colors text-left"
+                              >
+                                <span
+                                  className={`shrink-0 h-7 w-7 rounded-full flex items-center justify-center text-xs font-bold border transition-colors ${
+                                    status === 'learned'
+                                      ? 'bg-emerald-500 border-emerald-500 text-white'
+                                      : status === 'due'
+                                        ? 'bg-amber-100 border-amber-300 text-amber-700'
+                                        : 'bg-background border-slate-200 text-slate-500'
+                                  }`}
+                                >
+                                  {status === 'learned' ? <CheckCircle2 className="h-4 w-4" /> : idx + 1}
+                                </span>
+                                <span className="flex-1 min-w-0 text-sm font-medium text-slate-700 truncate">{lesson.title}</span>
+                                {status === 'due' && (
+                                  <span className="shrink-0 text-xs text-amber-600 font-bold flex items-center gap-1">
+                                    <Clock className="h-3.5 w-3.5" /> Cần ôn
+                                  </span>
+                                )}
+                                {status === 'new' && (
+                                  <span className="shrink-0 text-[10px] text-muted-foreground font-semibold uppercase tracking-wide">Mới</span>
+                                )}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </section>
             );
           })}
         </div>

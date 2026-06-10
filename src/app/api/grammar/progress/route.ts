@@ -140,24 +140,22 @@ export async function GET(req: Request): Promise<NextResponse> {
  */
 export async function POST(req: Request): Promise<NextResponse> {
   try {
+    // userId BẮT BUỘC lấy từ JWT đã verify — KHÔNG nhận từ body (chống IDOR)
     const authHeader = req.headers.get('authorization');
     const token = authHeader?.replace('Bearer ', '');
-    const supabase = createServiceClient();
+    if (!token) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
 
-    // Ưu tiên JWT; fallback về body.userId cho backward compat (sẽ xóa sau)
-    let userId: string | undefined;
-    if (token) {
-      const { data: { user } } = await supabase.auth.getUser(token);
-      userId = user?.id;
-    }
+    const supabase = createServiceClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    const userId = user.id;
 
     const body = await req.json();
     const { lessonId, accuracy } = body;
-    if (!userId) userId = body.userId; // fallback — sẽ remove sau khi FE cập nhật
 
-    if (!userId || !lessonId || typeof accuracy !== 'number') {
+    if (!lessonId || typeof accuracy !== 'number') {
       return NextResponse.json(
-        { success: false, error: 'lessonId, accuracy (number) are required + auth token' },
+        { success: false, error: 'lessonId, accuracy (number) are required' },
         { status: 400 }
       );
     }

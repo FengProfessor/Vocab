@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getMessaging, getToken, onMessage, type MessagePayload } from 'firebase/messaging';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyATgTyGPzlmi0ADwBsMJxEhgqJsjEiRftc",
-  authDomain: "lingopro-9d2f8.firebaseapp.com",
-  projectId: "lingopro-9d2f8",
-  storageBucket: "lingopro-9d2f8.firebasestorage.app",
-  messagingSenderId: "147138625371",
-  appId: "1:147138625371:web:9d308e4337c9fe7399647e"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY!,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN!,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID!,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET!,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID!,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID!,
 };
 
 const app = initializeApp(firebaseConfig);
@@ -59,7 +59,7 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
     const messaging = getMessaging(app);
     const currentToken = await withTimeout(
       getToken(messaging, {
-        vapidKey: 'BJlDyqCnEsAEl3Po7fjq10R1ypWeJ8j7stMIeUo9k5NEkcYa9elG1X41lH5yShiDITrDi0R8fr6cGGxCw3XMbVU',
+        vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY!,
         serviceWorkerRegistration: registration,
       }),
       20000,

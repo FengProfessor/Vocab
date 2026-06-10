@@ -168,7 +168,7 @@ export async function createOrder(
 export async function confirmOrder(
   supabase: SupabaseClient,
   orderId: string,
-  adminId: string,
+  adminId: string | null,
   paymentRef?: string,
   note?: string,
 ) {

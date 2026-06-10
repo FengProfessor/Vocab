@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getRouter } from "@/lib/ai-router";
+import { checkRateLimit, sanitizeForPrompt, getAuthUser, unauthorized } from "@/lib/api-security";
 
 /**
  * POST /api/dictionary/smart-lookup
@@ -10,6 +11,14 @@ type MeaningInput = { definition?: string; pos?: string };
 
 export async function POST(req: Request): Promise<NextResponse> {
   try {
+    // Route đốt Gemini → bắt buộc JWT, rate limit theo user
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    const rl = checkRateLimit(`smart:${auth.userId}`, 15, 60_000);
+    if (!rl.allowed) {
+      return NextResponse.json({ bestIndex: 0 }, { status: 429 });
+    }
+
     const { word, context, meanings } = (await req.json()) as {
       word?: string;
       context?: string;
@@ -26,9 +35,11 @@ export async function POST(req: Request): Promise<NextResponse> {
       .map((m, i) => `${i + 1}. [${m.pos || "?"}] ${m.definition}`)
       .join("\n");
 
-    const prompt = `You are an expert linguist. A user selected the word "${word}" in this exact context:
+    const safeWord = sanitizeForPrompt(word, 50);
+    const safeContext = sanitizeForPrompt(context, 500);
+    const prompt = `You are an expert linguist. A user selected the word "${safeWord}" in this exact context:
 
-"${context}"
+"${safeContext}"
 
 Available definitions:
 ${meaningList}

@@ -1,6 +1,14 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import type { GrammarExample } from '@/lib/supabase';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
+
+/** Caller có role teacher (elevated) mới được tạo/sửa/xoá lesson. */
+async function isTeacher(userId: string): Promise<boolean> {
+  const supabase = createServiceClient();
+  const { data } = await supabase.from('profiles').select('role').eq('id', userId).single();
+  return data?.role === 'teacher';
+}
 
 /**
  * GET /api/grammar/lessons
@@ -44,6 +52,11 @@ export async function GET(req: Request) {
 /** POST /api/grammar/lessons — tạo bài học mới (teacher). */
 export async function POST(req: Request) {
   try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    if (!(await isTeacher(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    }
     const body = await req.json();
     const {
       topic_id,
@@ -92,7 +105,16 @@ export async function POST(req: Request) {
  */
 export async function PATCH(req: Request) {
   try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
     const body = await req.json() as { lessonId?: string; examples?: GrammarExample[] };
+    // User thường chỉ được persist annotation: body đúng 2 field { lessonId, examples }.
+    // Body chạm field khác → bắt buộc role teacher.
+    const keys = Object.keys(body);
+    const isAnnotationOnly = keys.length === 2 && keys.includes('lessonId') && keys.includes('examples');
+    if (!isAnnotationOnly && !(await isTeacher(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    }
     const { lessonId, examples } = body;
     if (!lessonId || !Array.isArray(examples)) {
       return NextResponse.json({ success: false, error: 'lessonId and examples are required' }, { status: 400 });
@@ -115,6 +137,11 @@ export async function PATCH(req: Request) {
 /** PUT /api/grammar/lessons — cập nhật 1 bài học (teacher). */
 export async function PUT(req: Request) {
   try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    if (!(await isTeacher(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    }
     const { id, ...fields } = await req.json();
     if (!id) return NextResponse.json({ success: false, error: 'id is required' }, { status: 400 });
     const supabase = createServiceClient();
@@ -137,6 +164,11 @@ export async function PUT(req: Request) {
 /** DELETE /api/grammar/lessons?id=<lessonId> — xoá 1 bài học (teacher). */
 export async function DELETE(req: Request) {
   try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    if (!(await isTeacher(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    }
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');
     if (!id) {

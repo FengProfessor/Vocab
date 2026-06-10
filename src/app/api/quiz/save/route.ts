@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, type QuizType } from '@/lib/supabase';
 import { XP_PER_CORRECT_QUIZ } from '@/lib/gamification';
-import { getAuthUser, unauthorized, isNumberInRange } from '@/lib/api-security';
+import { getAuthUser, unauthorized, isNumberInRange, safeErrorResponse } from '@/lib/api-security';
 
 /**
  * POST /api/quiz/save
@@ -62,12 +62,7 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error('[Quiz/Save] DB error:', error.message, error.details, error.hint);
-      return NextResponse.json({
-        success: false,
-        error: 'Failed to save quiz results to database',
-        details: error.message
-      }, { status: 500 });
+      return safeErrorResponse(error, 'Failed to save quiz results to database');
     }
 
     // Award XP cho số câu đúng
@@ -75,8 +70,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, data, xpAwarded: score * XP_PER_CORRECT_QUIZ });
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error('[Quiz/Save] Error:', msg);
-    return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 });
+    return safeErrorResponse(error, 'Internal Server Error');
   }
 }
