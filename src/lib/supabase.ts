@@ -41,6 +41,15 @@ export interface Profile {
   plan_expires_at?: string | null;
 }
 
+/** Token dài hạn cho Chrome Extension — DB chỉ lưu SHA-256 hash (service-role only). */
+export interface ExtensionToken {
+  id: string;
+  user_id: string;
+  token_hash: string;
+  created_at: string;
+  last_used_at?: string | null;
+}
+
 export interface Classroom {
   id: string;
   teacher_id: string;

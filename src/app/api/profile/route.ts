@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
     const supabase = createServiceClient();
-    const { data: { user }, error } = await supabase.auth.getUser(token);
-    if (error || !user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    const { data, error: dbErr } = await supabase.from('profiles').select('*').eq('id', user.id).single();
+    const { data, error: dbErr } = await supabase.from('profiles').select('*').eq('id', auth.userId).single();
     if (dbErr) return NextResponse.json({ success: false, error: dbErr.message }, { status: 500 });
     return NextResponse.json({ success: true, data });
   } catch (err: unknown) {
@@ -18,11 +17,9 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
 export async function PUT(req: NextRequest): Promise<NextResponse> {
   try {
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
     const supabase = createServiceClient();
-    const { data: { user }, error } = await supabase.auth.getUser(token);
-    if (error || !user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
 
     const body = await req.json() as Record<string, unknown>;
     const updates: Record<string, unknown> = {};
@@ -41,7 +38,7 @@ export async function PUT(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'No valid fields to update' }, { status: 400 });
     }
 
-    const { data, error: dbErr } = await supabase.from('profiles').update(updates).eq('id', user.id).select().single();
+    const { data, error: dbErr } = await supabase.from('profiles').update(updates).eq('id', auth.userId).select().single();
     if (dbErr) return NextResponse.json({ success: false, error: dbErr.message }, { status: 500 });
     return NextResponse.json({ success: true, data });
   } catch (err: unknown) {

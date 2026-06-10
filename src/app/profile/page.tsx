@@ -60,11 +60,31 @@ export default function ProfilePage() {
   const copyAccessToken = async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
-      const token = session?.access_token;
-      if (!token) { toast.error('Không lấy được token — thử đăng nhập lại'); return; }
+      const jwt = session?.access_token;
+      if (!jwt) { toast.error('Không lấy được token — thử đăng nhập lại'); return; }
+
+      // Token dài hạn cho extension (không hết hạn sau 1h như access_token)
+      let token = jwt;
+      let longLived = false;
+      try {
+        const res = await fetch('/api/extension-token', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${jwt}` },
+        });
+        const json = await res.json();
+        if (json.success && typeof json.token === 'string') {
+          token = json.token;
+          longLived = true;
+        }
+      } catch {
+        // endpoint lỗi → fallback access_token (sống 1h) bên dưới
+      }
+
       await navigator.clipboard.writeText(token);
       setTokenCopied(true);
-      toast.success('Access token đã copy! Paste vào Extension popup.');
+      toast.success(longLived
+        ? 'Token đã copy! Paste vào Extension popup — token này không hết hạn.'
+        : 'Access token đã copy (tạm thời, hết hạn sau 1h). Paste vào Extension popup.');
       setTimeout(() => setTokenCopied(false), 3000);
     } catch {
       toast.error('Không copy được token');

@@ -1,9 +1,11 @@
 import { NextResponse } from 'next/server';
+import { createHash } from 'crypto';
 import { createServiceClient } from '@/lib/supabase';
 
 /**
  * Shared security helpers for API route handlers.
  * - JWT auth verification (Supabase access token from `Authorization: Bearer` header)
+ * - Extension token verification (long-lived `lpext_` token, hashed in `extension_tokens`)
  * - Simple in-memory IP rate limiter (no external deps)
  */
 
@@ -15,8 +17,18 @@ export interface AuthResult {
   userId: string;
 }
 
+/** Prefix nhận diện extension token (mint tại /api/extension-token). */
+export const EXT_TOKEN_PREFIX = 'lpext_';
+
+/** SHA-256 hex — extension token chỉ lưu hash trong DB. */
+export function hashExtensionToken(token: string): string {
+  return createHash('sha256').update(token).digest('hex');
+}
+
 /**
- * Extract & verify the Supabase JWT from the request `Authorization` header.
+ * Extract & verify the bearer token from the request `Authorization` header.
+ * Hỗ trợ 2 loại: Supabase JWT (web session, hết hạn ~1h) và extension token
+ * `lpext_` (dài hạn, tra bảng `extension_tokens` qua SHA-256 hash).
  * Returns `{ userId }` on success, hoặc `null` nếu không hợp lệ.
  */
 export async function getAuthUser(req: Request): Promise<AuthResult | null> {
@@ -25,6 +37,24 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
   if (!token) return null;
 
   const supabase = createServiceClient();
+
+  if (token.startsWith(EXT_TOKEN_PREFIX)) {
+    const tokenHash = hashExtensionToken(token);
+    const { data, error } = await supabase
+      .from('extension_tokens')
+      .select('user_id')
+      .eq('token_hash', tokenHash)
+      .maybeSingle();
+    if (error || !data?.user_id) return null;
+    // Ghi nhận lần dùng cuối — fire-and-forget, không chặn request
+    void supabase
+      .from('extension_tokens')
+      .update({ last_used_at: new Date().toISOString() })
+      .eq('token_hash', tokenHash)
+      .then(() => {});
+    return { userId: data.user_id };
+  }
+
   const { data, error } = await supabase.auth.getUser(token);
   if (error || !data.user) return null;
   return { userId: data.user.id };

@@ -262,3 +262,16 @@ left join public.words w on w.classroom_id = e.classroom_id
 left join public.srs_progress sp on sp.word_id = w.id and sp.user_id = p.id
 left join public.quiz_results qr on qr.user_id = p.id and qr.classroom_id = e.classroom_id
 group by p.id, p.full_name, p.email, e.classroom_id;
+
+-- ── Extension tokens (migration 20260611_extension_tokens.sql) ──
+-- Token dài hạn `lpext_` cho Chrome Extension; chỉ lưu SHA-256 hash; 1 token/user.
+create table if not exists public.extension_tokens (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  token_hash text not null unique,
+  created_at timestamptz not null default now(),
+  last_used_at timestamptz
+);
+create unique index if not exists extension_tokens_user_id_key
+  on public.extension_tokens(user_id);
+alter table public.extension_tokens enable row level security;
