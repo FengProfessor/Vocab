@@ -3,10 +3,6 @@
     {
       "path": "/api/cron/check-expired",
       "schedule": "0 19 * * *"
-    },
-    {
-      "path": "/api/cron/push-due",
-      "schedule": "0 1,5,13 * * *"
     }
   ],
   "headers": [
