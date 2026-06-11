@@ -3,7 +3,7 @@
   "title": "Reported Speech",
   "title_vi": "Câu tường thuật",
   "level": "intermediate",
-  "order": 36,
+  "order": 43,
   "sections": {
     "definition": "Reported Speech dùng **câu tường thuật** để kể lại lời nói mà không lặp nguyên văn. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -344,6 +344,11 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Lan asked whether I was free.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "She asked us what were we doing?",
+        "right": "She asked us what we were doing.",
+        "why": "Câu hỏi gián tiếp dùng trật tự câu kể: chủ ngữ đứng trước động từ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **said (that) + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",

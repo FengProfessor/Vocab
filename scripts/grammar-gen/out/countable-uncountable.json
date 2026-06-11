@@ -3,7 +3,7 @@
   "title": "Countable & Uncountable Nouns",
   "title_vi": "Danh từ đếm được & không đếm được",
   "level": "beginner",
-  "order": 9,
+  "order": 17,
   "sections": {
     "definition": "**Danh từ đếm được** (Countable Nouns) là danh từ chỉ các sự vật, hiện tượng có thể đếm được bằng số, có cả dạng số ít và số nhiều (ví dụ: *books*, *chairs*). Ngược lại, **danh từ không đếm được** (Uncountable Nouns) chỉ các chất liệu, khái niệm hoặc sự vật không thể tách rời thành đơn vị đếm được và chỉ có một dạng duy nhất (ví dụ: *water*, *information*).",
     "usage": [
@@ -298,10 +298,20 @@
         "wrong": "I have any books.",
         "right": "I have some books.",
         "note": "Sử dụng 'some' với danh từ đếm được trong câu khẳng định."
+      },
+      {
+        "wrong": "She gave me many advices.",
+        "right": "She gave me a lot of advice.",
+        "why": "Advice là danh từ không đếm được, không thêm -s và không đi trực tiếp với many."
+      },
+      {
+        "wrong": "He bought two furnitures.",
+        "right": "He bought two pieces of furniture.",
+        "why": "Furniture là danh từ không đếm được; dùng đơn vị pieces of để đếm."
       }
     ],
     "tips": "**Mẹo nhớ:** Danh từ đếm được sử dụng số đếm, danh từ không đếm được sử dụng 'some', 'any', 'much', 'little'. Sử dụng 'a' hoặc 'an' với danh từ đếm được tùy thuộc vào cách phát âm.",
-    "comparison": "",
+    "comparison": "**Danh từ đếm được vs không đếm được:** Danh từ đếm được có dạng số ít/số nhiều và đi trực tiếp với số đếm (*one apple, two apples*). Danh từ không đếm được không dùng trực tiếp với số đếm hoặc *a/an*; muốn đếm phải thêm đơn vị (*two pieces of advice*, không nói *two advices*).",
     "timeline": null
   },
   "exercises": [

@@ -36,5 +36,24 @@ Cờ: `--delay <ms>` (mặc định 3000, tránh rate limit) · `--level` · `--
 4. Cập nhật UI render `sections` có cấu trúc (thay `formatOcrTheory` blob).
 5. Cá nhân hóa (Pro): nút AI inject từ vựng user lúc render.
 
+## Đồng bộ production an toàn
+
+`import.ts` đã vô hiệu hóa vì từng xóa cascade toàn bộ `grammar_progress`.
+
+```bash
+# Đồng bộ có chọn lọc, giữ nguyên lesson ID / FSRS progress
+npx tsx scripts/grammar-gen/sync-lessons.ts --only verb-to-be,have-got --dry
+npx tsx scripts/grammar-gen/sync-lessons.ts --only verb-to-be,have-got --apply
+
+# Cập nhật level + thứ tự CEFR, giữ nguyên ID
+npx tsx scripts/grammar-gen/update-roadmap.ts --dry
+npx tsx scripts/grammar-gen/update-roadmap.ts --apply
+
+# Kiểm tra bắt buộc trước commit/sync
+node scripts/grammar-gen/annotate-check.mjs
+node scripts/grammar-gen/check.mjs
+node scripts/grammar-gen/deep-check.mjs
+```
+
 ## Lưu ý chất lượng
 Golden-seed là chuẩn tối thiểu. Gemini 2.5-flash đủ tốt cho lý thuyết+ví dụ; bài quan trọng (12 thì, điều kiện, bị động) nên review tay hoặc re-gen bằng model mạnh hơn. Đặt chất lượng lên hàng đầu — bài nào đọc chán/mỏng thì `--force --only <slug>` bào lại.

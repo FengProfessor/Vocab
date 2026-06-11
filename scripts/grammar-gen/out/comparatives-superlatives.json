@@ -2,8 +2,8 @@
   "slug": "comparatives-superlatives",
   "title": "Comparatives & Superlatives",
   "title_vi": "So sánh hơn & so sánh nhất",
-  "level": "intermediate",
-  "order": 26,
+  "level": "beginner",
+  "order": 19,
   "sections": {
     "definition": "**So sánh hơn** (comparatives) dùng để đối chiếu sự khác biệt giữa hai đối tượng, thường dùng đuôi '-er' hoặc 'more' và đi với 'than'. **So sánh nhất** (superlatives) dùng với 'the' cùng đuôi '-est' hoặc 'most' để xác định đối tượng có đặc điểm cao nhất trong một nhóm.",
     "usage": [
@@ -380,6 +380,11 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "The train is more comfortable than the bus.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "The most shops accept credit cards.",
+        "right": "Most shops accept credit cards.",
+        "why": "Most không có the khi mang nghĩa phần lớn hoặc đa số nói chung."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **short adjective + -er / the + -est** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",

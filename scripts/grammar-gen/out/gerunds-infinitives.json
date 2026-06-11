@@ -3,7 +3,7 @@
   "title": "Gerunds & Infinitives",
   "title_vi": "Danh động từ & động từ nguyên mẫu",
   "level": "intermediate",
-  "order": 38,
+  "order": 32,
   "sections": {
     "definition": "Gerunds & Infinitives dùng **V-ing và to-infinitive** sau các động từ/cấu trúc nhất định; lựa chọn đôi khi làm đổi nghĩa. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -302,6 +302,16 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Thank you for helping me.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I enjoy to play soccer.",
+        "right": "I enjoy playing soccer.",
+        "why": "Enjoy đi với V-ing, không đi với to + động từ."
+      },
+      {
+        "wrong": "We spent the whole day to prepare for the party.",
+        "right": "We spent the whole day preparing for the party.",
+        "why": "Cấu trúc spend time đi với V-ing."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **verb + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",

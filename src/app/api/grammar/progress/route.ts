@@ -45,7 +45,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       // Lấy tất cả lessons kèm topic info
       const { data: lessons, error: lessonErr } = await supabase
         .from('grammar_lessons')
-        .select('id, topic_id, topic:grammar_topics(id, title, title_vi, level)');
+        .select('id, topic_id, topic:grammar_topics(id, title, title_vi, level, order_index)');
       if (lessonErr) throw lessonErr;
 
       // Lấy progress của user
@@ -65,14 +65,27 @@ export async function GET(req: Request): Promise<NextResponse> {
         title: string;
         titleVi: string | null;
         level: string;
+        orderIndex: number;
         lessonIds: string[];
       }>();
 
       for (const lesson of lessons ?? []) {
-        const t = lesson.topic as unknown as { id: string; title: string; title_vi: string | null; level: string } | null;
+        const t = lesson.topic as unknown as {
+          id: string;
+          title: string;
+          title_vi: string | null;
+          level: string;
+          order_index: number | null;
+        } | null;
         if (!t) continue;
         if (!topicMap.has(t.id)) {
-          topicMap.set(t.id, { title: t.title, titleVi: t.title_vi, level: t.level, lessonIds: [] });
+          topicMap.set(t.id, {
+            title: t.title,
+            titleVi: t.title_vi,
+            level: t.level,
+            orderIndex: t.order_index ?? 0,
+            lessonIds: [],
+          });
         }
         topicMap.get(t.id)!.lessonIds.push(lesson.id);
       }
@@ -112,6 +125,12 @@ export async function GET(req: Request): Promise<NextResponse> {
           nextDueDate: nextDue,
         });
       }
+
+      summaries.sort((a, b) => {
+        const aOrder = topicMap.get(a.topicId)?.orderIndex ?? 0;
+        const bOrder = topicMap.get(b.topicId)?.orderIndex ?? 0;
+        return aOrder - bOrder;
+      });
 
       return NextResponse.json({ success: true, data: summaries });
     }

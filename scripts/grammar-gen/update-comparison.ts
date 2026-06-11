@@ -6,7 +6,7 @@
  * Surgical: chỉ set sections.comparison; KHÔNG đụng examples/exercises/progress.
  * Ghi cả out/<slug>.json (source) và prod DB.
  *
- * Chạy (web-app/): npx tsx scripts/grammar-gen/update-comparison.ts [--dry]
+ * Chạy (web-app/): npx tsx scripts/grammar-gen/update-comparison.ts --apply
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -15,9 +15,11 @@ import { createClient } from '@supabase/supabase-js';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(DIR, 'out');
-const DRY = process.argv.includes('--dry');
+const DRY = !process.argv.includes('--apply');
 
 const COMPARISON: Record<string, string> = {
+  'countable-uncountable':
+    '**Danh từ đếm được vs không đếm được:** Danh từ đếm được có dạng số ít/số nhiều và đi trực tiếp với số đếm (*one apple, two apples*). Danh từ không đếm được không dùng trực tiếp với số đếm hoặc *a/an*; muốn đếm phải thêm đơn vị (*two pieces of advice*, không nói *two advices*).',
   'present-simple':
     '**Hiện tại đơn vs Hiện tại tiếp diễn:** Đơn = sự thật / thói quen, mang tính lâu dài (*Water boils at 100°C* — chân lý). Tiếp diễn = tạm thời, đang diễn ra quanh lúc nói (*The water is boiling — be careful!* — ngay lúc này).',
   'present-continuous':

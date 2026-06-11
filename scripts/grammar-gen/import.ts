@@ -105,6 +105,11 @@ function buildTheory(l: Lesson): string {
 }
 
 async function main() {
+  throw new Error(
+    'import.ts đã vô hiệu hóa vì DELETE CASCADE không atomic và xóa grammar_progress. ' +
+    'Dùng sync-lessons.ts / update-*.ts để cập nhật an toàn.',
+  );
+  /*
   loadEnv();
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -142,6 +147,7 @@ async function main() {
   }
 
   console.log(`\n[import] xong: ${ok}/${lessons.length} bài vào DB.`);
+  */
 }
 
 main().catch((e) => { console.error('FATAL:', e); process.exit(1); });

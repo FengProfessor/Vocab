@@ -1,5 +1,7 @@
 import { readdirSync, readFileSync } from 'fs';
-const d = './out';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const d = path.join(path.dirname(fileURLToPath(import.meta.url)), 'out');
 const files = readdirSync(d).filter(f => f.endsWith('.json')).sort();
 const bad = [];
 for (const f of files) {
@@ -19,3 +21,4 @@ for (const f of files) {
 }
 console.log(files.length + ' file. ' + bad.length + ' can xem:');
 bad.forEach(b => console.log('  - ' + b));
+if (bad.length) process.exitCode = 1;

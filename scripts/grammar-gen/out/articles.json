@@ -3,7 +3,7 @@
   "title": "Articles (a / an / the)",
   "title_vi": "Mạo từ (a / an / the)",
   "level": "beginner",
-  "order": 8,
+  "order": 6,
   "sections": {
     "definition": "**Mạo từ** (Articles: a/an/the) là những từ đứng trước danh từ để chỉ định danh từ đó là **cụ thể** hay **không cụ thể**. Ta dùng **a/an** để nói về một danh từ đếm được, số ít, không xác định hoặc được đề cập lần đầu, còn **the** dùng cho danh từ đã xác định rõ ràng, đã được biết đến hoặc được đề cập trước đó.",
     "usage": [
@@ -335,6 +335,16 @@
         "wrong": "I saw dog.",
         "right": "I saw a dog.",
         "why": "Chưa xác định danh từ 'dog' là cụ thể hay không."
+      },
+      {
+        "wrong": "I bought apple.",
+        "right": "I bought an apple.",
+        "why": "Danh từ đếm được số ít apple cần mạo từ; dùng an trước âm nguyên âm."
+      },
+      {
+        "wrong": "Sun is bright today.",
+        "right": "The sun is bright today.",
+        "why": "Dùng the với sự vật duy nhất và đã được xác định như the sun."
       }
     ],
     "tips": "**Mẹo nhớ:** Dùng **a** trước danh từ bắt đầu bằng phụ âm, dùng **an** trước danh từ bắt đầu bằng nguyên âm. Dùng **the** cho danh từ cụ thể hoặc đã được nhắc đến trước đó.",

@@ -3,7 +3,7 @@
   "title": "Past Simple",
   "title_vi": "Thì Quá khứ đơn",
   "level": "beginner",
-  "order": 3,
+  "order": 21,
   "sections": {
     "definition": "**Thì Quá khứ đơn** (Past Simple) là thì dùng để diễn tả những hành động **đã xảy ra và kết thúc** trong quá khứ. Đây là một trong những thì cơ bản nhất trong tiếng Anh, thường được sử dụng để kể lại những sự kiện đã xảy ra trước đây.",
     "usage": [
@@ -437,6 +437,16 @@
         "wrong": "I eat breakfast at 7 a.m. yesterday.",
         "right": "I ate breakfast at 7 a.m. yesterday.",
         "why": "Quên sử dụng thì quá khứ đơn."
+      },
+      {
+        "wrong": "She buyed a new dress.",
+        "right": "She bought a new dress.",
+        "why": "Buy là động từ bất quy tắc; dạng quá khứ là bought, không phải buyed."
+      },
+      {
+        "wrong": "He teached English.",
+        "right": "He taught English.",
+        "why": "Teach là động từ bất quy tắc; dạng quá khứ là taught, không phải teached."
       }
     ],
     "tips": "**Mẹo nhớ:** Sử dụng thì quá khứ đơn để diễn tả những hành động đã xảy ra và kết thúc trong quá khứ. Đa số động từ thêm -ed để tạo thành quá khứ đơn.",

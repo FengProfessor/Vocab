@@ -1,64 +1,436 @@
 [
-  { "slug": "present-simple", "title": "Present Simple", "title_vi": "Thì Hiện tại đơn", "level": "beginner", "order": 1 },
-  { "slug": "present-continuous", "title": "Present Continuous", "title_vi": "Thì Hiện tại tiếp diễn", "level": "beginner", "order": 2 },
-  { "slug": "past-simple", "title": "Past Simple", "title_vi": "Thì Quá khứ đơn", "level": "beginner", "order": 3 },
-  { "slug": "past-continuous", "title": "Past Continuous", "title_vi": "Thì Quá khứ tiếp diễn", "level": "beginner", "order": 4 },
-  { "slug": "future-will", "title": "Future Simple (will)", "title_vi": "Thì Tương lai đơn (will)", "level": "beginner", "order": 5 },
-  { "slug": "be-going-to", "title": "Future: be going to", "title_vi": "Tương lai gần (be going to)", "level": "beginner", "order": 6 },
-  { "slug": "present-perfect", "title": "Present Perfect", "title_vi": "Thì Hiện tại hoàn thành", "level": "beginner", "order": 7 },
-  { "slug": "articles", "title": "Articles (a / an / the)", "title_vi": "Mạo từ (a / an / the)", "level": "beginner", "order": 8 },
-  { "slug": "countable-uncountable", "title": "Countable & Uncountable Nouns", "title_vi": "Danh từ đếm được & không đếm được", "level": "beginner", "order": 9 },
-  { "slug": "plural-nouns", "title": "Plural Nouns", "title_vi": "Danh từ số nhiều", "level": "beginner", "order": 10 },
-  { "slug": "personal-pronouns", "title": "Personal Pronouns", "title_vi": "Đại từ nhân xưng", "level": "beginner", "order": 11 },
-  { "slug": "possessives", "title": "Possessive Adjectives & Pronouns", "title_vi": "Tính từ & đại từ sở hữu", "level": "beginner", "order": 12 },
-  { "slug": "demonstratives", "title": "Demonstratives (this/that/these/those)", "title_vi": "Từ chỉ định (this/that/these/those)", "level": "beginner", "order": 13 },
-  { "slug": "there-is-there-are", "title": "There is / There are", "title_vi": "Cấu trúc There is / There are", "level": "beginner", "order": 14 },
-  { "slug": "prepositions-place", "title": "Prepositions of Place", "title_vi": "Giới từ chỉ nơi chốn", "level": "beginner", "order": 15 },
-  { "slug": "prepositions-time", "title": "Prepositions of Time (in/on/at)", "title_vi": "Giới từ chỉ thời gian (in/on/at)", "level": "beginner", "order": 16 },
-  { "slug": "adjectives-basic", "title": "Adjectives (basic)", "title_vi": "Tính từ cơ bản", "level": "beginner", "order": 17 },
-  { "slug": "adverbs-frequency", "title": "Adverbs of Frequency", "title_vi": "Trạng từ chỉ tần suất", "level": "beginner", "order": 18 },
-  { "slug": "imperatives", "title": "Imperatives", "title_vi": "Câu mệnh lệnh", "level": "beginner", "order": 19 },
-  { "slug": "wh-questions", "title": "Wh- Questions", "title_vi": "Câu hỏi với từ để hỏi (Wh-)", "level": "beginner", "order": 20 },
-
-  { "slug": "present-perfect-continuous", "title": "Present Perfect Continuous", "title_vi": "Hiện tại hoàn thành tiếp diễn", "level": "intermediate", "order": 21 },
-  { "slug": "past-perfect", "title": "Past Perfect", "title_vi": "Thì Quá khứ hoàn thành", "level": "intermediate", "order": 22 },
-  { "slug": "past-perfect-continuous", "title": "Past Perfect Continuous", "title_vi": "Quá khứ hoàn thành tiếp diễn", "level": "intermediate", "order": 23 },
-  { "slug": "future-continuous", "title": "Future Continuous", "title_vi": "Thì Tương lai tiếp diễn", "level": "intermediate", "order": 24 },
-  { "slug": "future-perfect", "title": "Future Perfect", "title_vi": "Thì Tương lai hoàn thành", "level": "intermediate", "order": 25 },
-  { "slug": "comparatives-superlatives", "title": "Comparatives & Superlatives", "title_vi": "So sánh hơn & so sánh nhất", "level": "intermediate", "order": 26 },
-  { "slug": "modals-ability", "title": "Modals: Ability (can/could)", "title_vi": "Động từ khuyết thiếu: khả năng (can/could)", "level": "intermediate", "order": 27 },
-  { "slug": "modals-permission", "title": "Modals: Permission & Requests", "title_vi": "Khuyết thiếu: xin phép & yêu cầu", "level": "intermediate", "order": 28 },
-  { "slug": "modals-obligation", "title": "Modals: Obligation (must/have to)", "title_vi": "Khuyết thiếu: bắt buộc (must/have to)", "level": "intermediate", "order": 29 },
-  { "slug": "modals-advice", "title": "Modals: Advice (should/ought to)", "title_vi": "Khuyết thiếu: lời khuyên (should)", "level": "intermediate", "order": 30 },
-  { "slug": "modals-deduction", "title": "Modals: Deduction (must/might/can't)", "title_vi": "Khuyết thiếu: suy đoán (must/might/can't)", "level": "intermediate", "order": 31 },
-  { "slug": "conditionals-0-1", "title": "Zero & First Conditional", "title_vi": "Câu điều kiện loại 0 & loại 1", "level": "intermediate", "order": 32 },
-  { "slug": "second-conditional", "title": "Second Conditional", "title_vi": "Câu điều kiện loại 2", "level": "intermediate", "order": 33 },
-  { "slug": "third-conditional", "title": "Third Conditional", "title_vi": "Câu điều kiện loại 3", "level": "intermediate", "order": 34 },
-  { "slug": "passive-voice", "title": "Passive Voice", "title_vi": "Câu bị động", "level": "intermediate", "order": 35 },
-  { "slug": "reported-speech", "title": "Reported Speech", "title_vi": "Câu tường thuật", "level": "intermediate", "order": 36 },
-  { "slug": "relative-clauses", "title": "Relative Clauses", "title_vi": "Mệnh đề quan hệ", "level": "intermediate", "order": 37 },
-  { "slug": "gerunds-infinitives", "title": "Gerunds & Infinitives", "title_vi": "Danh động từ & động từ nguyên mẫu", "level": "intermediate", "order": 38 },
-  { "slug": "used-to", "title": "Used to / Be used to / Get used to", "title_vi": "Cấu trúc Used to", "level": "intermediate", "order": 39 },
-  { "slug": "quantifiers", "title": "Quantifiers (some/any/much/many)", "title_vi": "Lượng từ (some/any/much/many)", "level": "intermediate", "order": 40 },
-  { "slug": "phrasal-verbs", "title": "Phrasal Verbs (intro)", "title_vi": "Cụm động từ (nhập môn)", "level": "intermediate", "order": 41 },
-  { "slug": "question-tags", "title": "Question Tags", "title_vi": "Câu hỏi đuôi", "level": "intermediate", "order": 42 },
-
-  { "slug": "mixed-conditionals", "title": "Mixed Conditionals", "title_vi": "Câu điều kiện hỗn hợp", "level": "advanced", "order": 43 },
-  { "slug": "inversion", "title": "Inversion", "title_vi": "Đảo ngữ", "level": "advanced", "order": 44 },
-  { "slug": "cleft-sentences", "title": "Cleft Sentences", "title_vi": "Câu chẻ (nhấn mạnh)", "level": "advanced", "order": 45 },
-  { "slug": "subjunctive", "title": "Subjunctive", "title_vi": "Thức giả định", "level": "advanced", "order": 46 },
-  { "slug": "wish-if-only", "title": "Wish / If only", "title_vi": "Cấu trúc Wish / If only", "level": "advanced", "order": 47 },
-  { "slug": "causative", "title": "Causative (have/get something done)", "title_vi": "Thể nhờ/sai bảo (have/get sth done)", "level": "advanced", "order": 48 },
-  { "slug": "participle-clauses", "title": "Participle Clauses", "title_vi": "Mệnh đề phân từ", "level": "advanced", "order": 49 },
-  { "slug": "advanced-passive", "title": "Advanced Passive", "title_vi": "Bị động nâng cao", "level": "advanced", "order": 50 },
-  { "slug": "modals-perfect", "title": "Perfect Modals (should have, etc.)", "title_vi": "Khuyết thiếu hoàn thành (should have...)", "level": "advanced", "order": 51 },
-  { "slug": "future-in-the-past", "title": "Future in the Past", "title_vi": "Tương lai trong quá khứ", "level": "advanced", "order": 52 },
-  { "slug": "conjunctions-linking", "title": "Conjunctions & Linking Words", "title_vi": "Liên từ & từ nối", "level": "advanced", "order": 53 },
-  { "slug": "discourse-markers", "title": "Discourse Markers", "title_vi": "Từ nối diễn ngôn", "level": "advanced", "order": 54 },
-  { "slug": "ellipsis-substitution", "title": "Ellipsis & Substitution", "title_vi": "Lược bỏ & thay thế", "level": "advanced", "order": 55 },
-  { "slug": "emphasis-structures", "title": "Emphasis Structures", "title_vi": "Cấu trúc nhấn mạnh", "level": "advanced", "order": 56 },
-  { "slug": "advanced-relative-clauses", "title": "Advanced Relative Clauses", "title_vi": "Mệnh đề quan hệ nâng cao", "level": "advanced", "order": 57 },
-  { "slug": "nominalisation", "title": "Nominalisation", "title_vi": "Danh từ hóa", "level": "advanced", "order": 58 },
-  { "slug": "hedging-language", "title": "Hedging Language", "title_vi": "Ngôn ngữ rào đón (hedging)", "level": "advanced", "order": 59 },
-  { "slug": "grammatical-collocations", "title": "Grammatical Collocations", "title_vi": "Kết hợp ngữ pháp (collocations)", "level": "advanced", "order": 60 }
+  {
+    "slug": "verb-to-be",
+    "title": "Verb to be (am / is / are)",
+    "title_vi": "Động từ to be (am / is / are)",
+    "level": "beginner",
+    "order": 1
+  },
+  {
+    "slug": "have-got",
+    "title": "Have got / Has got",
+    "title_vi": "Cấu trúc have got / has got",
+    "level": "beginner",
+    "order": 2
+  },
+  {
+    "slug": "personal-pronouns",
+    "title": "Personal Pronouns",
+    "title_vi": "Đại từ nhân xưng",
+    "level": "beginner",
+    "order": 3
+  },
+  {
+    "slug": "possessives",
+    "title": "Possessive Adjectives & Pronouns",
+    "title_vi": "Tính từ & đại từ sở hữu",
+    "level": "beginner",
+    "order": 4
+  },
+  {
+    "slug": "demonstratives",
+    "title": "Demonstratives (this/that/these/those)",
+    "title_vi": "Từ chỉ định (this/that/these/those)",
+    "level": "beginner",
+    "order": 5
+  },
+  {
+    "slug": "articles",
+    "title": "Articles (a / an / the)",
+    "title_vi": "Mạo từ (a / an / the)",
+    "level": "beginner",
+    "order": 6
+  },
+  {
+    "slug": "plural-nouns",
+    "title": "Plural Nouns",
+    "title_vi": "Danh từ số nhiều",
+    "level": "beginner",
+    "order": 7
+  },
+  {
+    "slug": "adjectives-basic",
+    "title": "Adjectives (basic)",
+    "title_vi": "Tính từ cơ bản",
+    "level": "beginner",
+    "order": 8
+  },
+  {
+    "slug": "present-simple",
+    "title": "Present Simple",
+    "title_vi": "Thì Hiện tại đơn",
+    "level": "beginner",
+    "order": 9
+  },
+  {
+    "slug": "adverbs-frequency",
+    "title": "Adverbs of Frequency",
+    "title_vi": "Trạng từ chỉ tần suất",
+    "level": "beginner",
+    "order": 10
+  },
+  {
+    "slug": "wh-questions",
+    "title": "Wh- Questions",
+    "title_vi": "Câu hỏi với từ để hỏi (Wh-)",
+    "level": "beginner",
+    "order": 11
+  },
+  {
+    "slug": "there-is-there-are",
+    "title": "There is / There are",
+    "title_vi": "Cấu trúc There is / There are",
+    "level": "beginner",
+    "order": 12
+  },
+  {
+    "slug": "prepositions-place",
+    "title": "Prepositions of Place",
+    "title_vi": "Giới từ chỉ nơi chốn",
+    "level": "beginner",
+    "order": 13
+  },
+  {
+    "slug": "imperatives",
+    "title": "Imperatives",
+    "title_vi": "Câu mệnh lệnh",
+    "level": "beginner",
+    "order": 14
+  },
+  {
+    "slug": "modals-ability",
+    "title": "Modals: Ability (can/could)",
+    "title_vi": "Động từ khuyết thiếu: khả năng (can/could)",
+    "level": "beginner",
+    "order": 15
+  },
+  {
+    "slug": "present-continuous",
+    "title": "Present Continuous",
+    "title_vi": "Thì Hiện tại tiếp diễn",
+    "level": "beginner",
+    "order": 16
+  },
+  {
+    "slug": "countable-uncountable",
+    "title": "Countable & Uncountable Nouns",
+    "title_vi": "Danh từ đếm được & không đếm được",
+    "level": "beginner",
+    "order": 17
+  },
+  {
+    "slug": "quantifiers",
+    "title": "Quantifiers (some/any/much/many)",
+    "title_vi": "Lượng từ (some/any/much/many)",
+    "level": "beginner",
+    "order": 18
+  },
+  {
+    "slug": "comparatives-superlatives",
+    "title": "Comparatives & Superlatives",
+    "title_vi": "So sánh hơn & so sánh nhất",
+    "level": "beginner",
+    "order": 19
+  },
+  {
+    "slug": "prepositions-time",
+    "title": "Prepositions of Time (in/on/at)",
+    "title_vi": "Giới từ chỉ thời gian (in/on/at)",
+    "level": "beginner",
+    "order": 20
+  },
+  {
+    "slug": "past-simple",
+    "title": "Past Simple",
+    "title_vi": "Thì Quá khứ đơn",
+    "level": "beginner",
+    "order": 21
+  },
+  {
+    "slug": "past-continuous",
+    "title": "Past Continuous",
+    "title_vi": "Thì Quá khứ tiếp diễn",
+    "level": "beginner",
+    "order": 22
+  },
+  {
+    "slug": "future-will",
+    "title": "Future Simple (will)",
+    "title_vi": "Thì Tương lai đơn (will)",
+    "level": "beginner",
+    "order": 23
+  },
+  {
+    "slug": "be-going-to",
+    "title": "Future: be going to",
+    "title_vi": "Tương lai gần (be going to)",
+    "level": "beginner",
+    "order": 24
+  },
+  {
+    "slug": "modals-permission",
+    "title": "Modals: Permission & Requests",
+    "title_vi": "Khuyết thiếu: xin phép & yêu cầu",
+    "level": "beginner",
+    "order": 25
+  },
+  {
+    "slug": "modals-obligation",
+    "title": "Modals: Obligation (must/have to)",
+    "title_vi": "Khuyết thiếu: bắt buộc (must/have to)",
+    "level": "beginner",
+    "order": 26
+  },
+  {
+    "slug": "modals-advice",
+    "title": "Modals: Advice (should/ought to)",
+    "title_vi": "Khuyết thiếu: lời khuyên (should)",
+    "level": "beginner",
+    "order": 27
+  },
+  {
+    "slug": "present-perfect",
+    "title": "Present Perfect",
+    "title_vi": "Thì Hiện tại hoàn thành",
+    "level": "beginner",
+    "order": 28
+  },
+  {
+    "slug": "conditionals-0-1",
+    "title": "Zero & First Conditional",
+    "title_vi": "Câu điều kiện loại 0 & loại 1",
+    "level": "beginner",
+    "order": 29
+  },
+  {
+    "slug": "question-tags",
+    "title": "Question Tags",
+    "title_vi": "Câu hỏi đuôi",
+    "level": "beginner",
+    "order": 30
+  },
+  {
+    "slug": "conjunctions-linking",
+    "title": "Conjunctions & Linking Words",
+    "title_vi": "Liên từ & từ nối",
+    "level": "intermediate",
+    "order": 31
+  },
+  {
+    "slug": "gerunds-infinitives",
+    "title": "Gerunds & Infinitives",
+    "title_vi": "Danh động từ & động từ nguyên mẫu",
+    "level": "intermediate",
+    "order": 32
+  },
+  {
+    "slug": "used-to",
+    "title": "Used to / Be used to / Get used to",
+    "title_vi": "Cấu trúc Used to",
+    "level": "intermediate",
+    "order": 33
+  },
+  {
+    "slug": "present-perfect-continuous",
+    "title": "Present Perfect Continuous",
+    "title_vi": "Hiện tại hoàn thành tiếp diễn",
+    "level": "intermediate",
+    "order": 34
+  },
+  {
+    "slug": "past-perfect",
+    "title": "Past Perfect",
+    "title_vi": "Thì Quá khứ hoàn thành",
+    "level": "intermediate",
+    "order": 35
+  },
+  {
+    "slug": "past-perfect-continuous",
+    "title": "Past Perfect Continuous",
+    "title_vi": "Quá khứ hoàn thành tiếp diễn",
+    "level": "intermediate",
+    "order": 36
+  },
+  {
+    "slug": "future-continuous",
+    "title": "Future Continuous",
+    "title_vi": "Thì Tương lai tiếp diễn",
+    "level": "intermediate",
+    "order": 37
+  },
+  {
+    "slug": "modals-deduction",
+    "title": "Modals: Deduction (must/might/can't)",
+    "title_vi": "Khuyết thiếu: suy đoán (must/might/can't)",
+    "level": "intermediate",
+    "order": 38
+  },
+  {
+    "slug": "second-conditional",
+    "title": "Second Conditional",
+    "title_vi": "Câu điều kiện loại 2",
+    "level": "intermediate",
+    "order": 39
+  },
+  {
+    "slug": "third-conditional",
+    "title": "Third Conditional",
+    "title_vi": "Câu điều kiện loại 3",
+    "level": "intermediate",
+    "order": 40
+  },
+  {
+    "slug": "relative-clauses",
+    "title": "Relative Clauses",
+    "title_vi": "Mệnh đề quan hệ",
+    "level": "intermediate",
+    "order": 41
+  },
+  {
+    "slug": "passive-voice",
+    "title": "Passive Voice",
+    "title_vi": "Câu bị động",
+    "level": "intermediate",
+    "order": 42
+  },
+  {
+    "slug": "reported-speech",
+    "title": "Reported Speech",
+    "title_vi": "Câu tường thuật",
+    "level": "intermediate",
+    "order": 43
+  },
+  {
+    "slug": "phrasal-verbs",
+    "title": "Phrasal Verbs (intro)",
+    "title_vi": "Cụm động từ (nhập môn)",
+    "level": "intermediate",
+    "order": 44
+  },
+  {
+    "slug": "future-perfect",
+    "title": "Future Perfect",
+    "title_vi": "Thì Tương lai hoàn thành",
+    "level": "intermediate",
+    "order": 45
+  },
+  {
+    "slug": "wish-if-only",
+    "title": "Wish / If only",
+    "title_vi": "Cấu trúc Wish / If only",
+    "level": "intermediate",
+    "order": 46
+  },
+  {
+    "slug": "mixed-conditionals",
+    "title": "Mixed Conditionals",
+    "title_vi": "Câu điều kiện hỗn hợp",
+    "level": "intermediate",
+    "order": 47
+  },
+  {
+    "slug": "modals-perfect",
+    "title": "Perfect Modals (should have, etc.)",
+    "title_vi": "Khuyết thiếu hoàn thành (should have...)",
+    "level": "intermediate",
+    "order": 48
+  },
+  {
+    "slug": "causative",
+    "title": "Causative (have/get something done)",
+    "title_vi": "Thể nhờ/sai bảo (have/get sth done)",
+    "level": "intermediate",
+    "order": 49
+  },
+  {
+    "slug": "advanced-passive",
+    "title": "Advanced Passive",
+    "title_vi": "Bị động nâng cao",
+    "level": "intermediate",
+    "order": 50
+  },
+  {
+    "slug": "advanced-relative-clauses",
+    "title": "Advanced Relative Clauses",
+    "title_vi": "Mệnh đề quan hệ nâng cao",
+    "level": "intermediate",
+    "order": 51
+  },
+  {
+    "slug": "future-in-the-past",
+    "title": "Future in the Past",
+    "title_vi": "Tương lai trong quá khứ",
+    "level": "intermediate",
+    "order": 52
+  },
+  {
+    "slug": "participle-clauses",
+    "title": "Participle Clauses",
+    "title_vi": "Mệnh đề phân từ",
+    "level": "advanced",
+    "order": 53
+  },
+  {
+    "slug": "discourse-markers",
+    "title": "Discourse Markers",
+    "title_vi": "Từ nối diễn ngôn",
+    "level": "advanced",
+    "order": 54
+  },
+  {
+    "slug": "inversion",
+    "title": "Inversion",
+    "title_vi": "Đảo ngữ",
+    "level": "advanced",
+    "order": 55
+  },
+  {
+    "slug": "cleft-sentences",
+    "title": "Cleft Sentences",
+    "title_vi": "Câu chẻ (nhấn mạnh)",
+    "level": "advanced",
+    "order": 56
+  },
+  {
+    "slug": "emphasis-structures",
+    "title": "Emphasis Structures",
+    "title_vi": "Cấu trúc nhấn mạnh",
+    "level": "advanced",
+    "order": 57
+  },
+  {
+    "slug": "subjunctive",
+    "title": "Subjunctive",
+    "title_vi": "Thức giả định",
+    "level": "advanced",
+    "order": 58
+  },
+  {
+    "slug": "ellipsis-substitution",
+    "title": "Ellipsis & Substitution",
+    "title_vi": "Lược bỏ & thay thế",
+    "level": "advanced",
+    "order": 59
+  },
+  {
+    "slug": "nominalisation",
+    "title": "Nominalisation",
+    "title_vi": "Danh từ hóa",
+    "level": "advanced",
+    "order": 60
+  },
+  {
+    "slug": "hedging-language",
+    "title": "Hedging Language",
+    "title_vi": "Ngôn ngữ rào đón (hedging)",
+    "level": "advanced",
+    "order": 61
+  },
+  {
+    "slug": "grammatical-collocations",
+    "title": "Grammatical Collocations",
+    "title_vi": "Kết hợp ngữ pháp (collocations)",
+    "level": "advanced",
+    "order": 62
+  }
 ]

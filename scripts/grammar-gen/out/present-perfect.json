@@ -3,7 +3,7 @@
   "title": "Present Perfect",
   "title_vi": "Thì Hiện tại hoàn thành",
   "level": "beginner",
-  "order": 7,
+  "order": 28,
   "sections": {
     "definition": "Thì **Hiện tại hoàn thành** (Present Perfect) mô tả hành động **bắt đầu từ quá khứ** và **có liên quan đến hiện tại**. Hành động có thể đã hoàn thành hoặc vẫn tiếp tục. Đây là thì dùng để nối liền quá khứ với hiện tại.",
     "usage": [
@@ -382,6 +382,16 @@
         "wrong": "I have been to Paris last year.",
         "right": "I went to Paris last year.",
         "why": "Sai thì, nên dùng quá khứ đơn"
+      },
+      {
+        "wrong": "Long ago dinosaurs have lived here.",
+        "right": "Long ago dinosaurs lived here.",
+        "why": "Sự kiện lịch sử đã kết thúc dùng quá khứ đơn, không dùng hiện tại hoàn thành."
+      },
+      {
+        "wrong": "Who has invented the telephone?",
+        "right": "Who invented the telephone?",
+        "why": "Hỏi về một phát minh thuộc lịch sử đã hoàn tất dùng quá khứ đơn."
       }
     ],
     "tips": "**Mẹo nhớ:** Hiện tại hoàn thành dùng để nối quá khứ với hiện tại. Cấu trúc: S + have/has + V-en.",

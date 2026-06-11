@@ -3,7 +3,7 @@
   "title": "Relative Clauses",
   "title_vi": "Mệnh đề quan hệ",
   "level": "intermediate",
-  "order": 37,
+  "order": 41,
   "sections": {
     "definition": "Relative Clauses dùng **mệnh đề quan hệ** để bổ sung thông tin cho danh từ mà không phải mở câu mới. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -392,6 +392,16 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "The café where we met has closed.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Everything what they said was true.",
+        "right": "Everything that they said was true.",
+        "why": "Sau everything dùng that hoặc lược bỏ đại từ quan hệ, không dùng what."
+      },
+      {
+        "wrong": "The man I was sitting next to him was friendly.",
+        "right": "The man I was sitting next to was friendly.",
+        "why": "Không lặp lại đại từ tân ngữ him trong mệnh đề quan hệ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **person + who/that + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",

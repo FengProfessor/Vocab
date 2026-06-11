@@ -3,7 +3,7 @@
  * Adapt sang giọng golden VN từ nguồn chuẩn (NLM: docs/grammar-research/04-deep-definitions.md)
  * + giữ định nghĩa cũ làm mốc. Gemini flash-lite (Codex chết headless). Surgical update.
  *
- * Chạy (web-app/): npx tsx scripts/grammar-gen/update-definition.ts [--dry]
+ * Chạy (web-app/): npx tsx scripts/grammar-gen/update-definition.ts --apply
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -14,9 +14,15 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(DIR, 'out');
 const REF = path.resolve(DIR, '../../../docs/grammar-research/04-deep-definitions.md');
-const DRY = process.argv.includes('--dry');
+const DRY = !process.argv.includes('--apply');
 
 const DONE = new Set(['present-simple', 'present-continuous', 'present-perfect', 'past-simple', 'past-continuous', 'present-perfect-continuous', 'future-will', 'be-going-to', 'conditionals-0-1', 'second-conditional', 'third-conditional', 'passive-voice', 'relative-clauses', 'reported-speech', 'gerunds-infinitives', 'used-to']);
+type TopicPromptItem = {
+  slug: string;
+  title: string;
+  title_vi: string;
+  current_definition: string;
+};
 
 function loadEnv() {
   const p = path.join(process.cwd(), '.env.local');
@@ -35,8 +41,9 @@ async function gemini(prompt: string, attempt = 0): Promise<string> {
   try {
     const r = await m.generateContent({ contents: [{ role: 'user', parts: [{ text: prompt }] }] }, { signal: AbortSignal.timeout(45000) });
     return r.response.text();
-  } catch (e: any) {
-    if (/429|quota|rate/i.test(String(e?.message)) && attempt < 6) { await sleep(5000 * (attempt + 1)); return gemini(prompt, attempt + 1); }
+  } catch (e: unknown) {
+    const message = e instanceof Error ? e.message : String(e);
+    if (/429|quota|rate/i.test(message) && attempt < 6) { await sleep(5000 * (attempt + 1)); return gemini(prompt, attempt + 1); }
     throw e;
   }
 }
@@ -54,8 +61,12 @@ async function main() {
   const ONLY = onlyIdx >= 0 ? new Set((process.argv[onlyIdx + 1] || '').split(',').map((s) => s.trim()).filter(Boolean)) : null;
   const road = JSON.parse(readFileSync(path.join(DIR, 'roadmap.json'), 'utf8')) as { slug: string; title: string; title_vi: string }[];
   const targets = road.filter((r) => !DONE.has(r.slug)).filter((r) => !ONLY || ONLY.has(r.slug));
+  if (DRY) {
+    console.log(`[definition] dry-run: ${targets.length} topic; không gọi Gemini, không ghi DB.`);
+    return;
+  }
 
-  const PROMPT = (items: any[]) => `Bạn là chuyên gia sư phạm tiếng Anh. Dựa vào REFERENCE (định nghĩa chuẩn tiếng Anh từ Murphy/Cambridge/Oxford/British Council) và định nghĩa cũ, VIẾT LẠI định nghĩa tiếng Việt SÂU HƠN & chính xác cho mỗi chủ đề.
+  const PROMPT = (items: TopicPromptItem[]) => `Bạn là chuyên gia sư phạm tiếng Anh. Dựa vào REFERENCE (định nghĩa chuẩn tiếng Anh từ Murphy/Cambridge/Oxford/British Council) và định nghĩa cũ, VIẾT LẠI định nghĩa tiếng Việt SÂU HƠN & chính xác cho mỗi chủ đề.
 Yêu cầu mỗi định nghĩa: 2-3 câu, giọng sư phạm rõ ràng tự nhiên, **in đậm** thuật ngữ then chốt, nêu ĐÚNG bản chất + công dụng chính. KHÔNG dịch máy móc, KHÔNG dài dòng.
 Trả về JSON: {"defs":{"<slug>":"định nghĩa tiếng Việt"}} — đúng mọi slug được cho. Không prose.
 
@@ -75,7 +86,11 @@ ${JSON.stringify(items)}`;
     });
     process.stdout.write(`  [batch ${i / BATCH + 1}] ${group.length} topic... `);
     let raw: string;
-    try { raw = await gemini(PROMPT(group)); } catch (e: any) { console.log('✗ ' + String(e.message).slice(0, 100)); continue; }
+    try { raw = await gemini(PROMPT(group)); } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : String(e);
+      console.log('✗ ' + message.slice(0, 100));
+      continue;
+    }
     let defs: Record<string, string> = {};
     try { defs = JSON.parse(raw).defs || {}; } catch { const mm = raw.match(/\{[\s\S]*\}/); if (mm) try { defs = JSON.parse(mm[0]).defs || {}; } catch {} }
 

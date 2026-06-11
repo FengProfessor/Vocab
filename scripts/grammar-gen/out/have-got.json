@@ -1,0 +1,535 @@
+{
+  "slug": "have-got",
+  "title": "Have got / Has got",
+  "title_vi": "Cấu trúc have got / has got",
+  "level": "beginner",
+  "order": 2,
+  "sections": {
+    "definition": "**Have got / has got** có nghĩa là **có, sở hữu**. Cấu trúc này rất phổ biến trong tiếng Anh Anh và thường dùng để nói về đồ vật, gia đình, đặc điểm cơ thể hoặc tình trạng hiện tại. **Have got** đi với I/you/we/they; **has got** đi với he/she/it.",
+    "usage": [
+      {
+        "icon": "🎒",
+        "label": "Nói về đồ vật mình sở hữu",
+        "en": "I have got a new bag.",
+        "vi": "Tôi có một chiếc túi mới."
+      },
+      {
+        "icon": "👨‍👩‍👧",
+        "label": "Nói về gia đình và các mối quan hệ",
+        "en": "She has got two brothers.",
+        "vi": "Cô ấy có hai anh/em trai."
+      },
+      {
+        "icon": "👀",
+        "label": "Miêu tả đặc điểm cơ thể",
+        "en": "He has got brown eyes.",
+        "vi": "Cậu ấy có đôi mắt nâu."
+      },
+      {
+        "icon": "🤕",
+        "label": "Nói tình trạng hoặc vấn đề hiện tại",
+        "en": "I have got a headache.",
+        "vi": "Tôi bị đau đầu."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "(+) Khẳng định",
+          "base": "I/You/We/They + have got",
+          "third": "He/She/It + has got"
+        },
+        {
+          "form": "(−) Phủ định",
+          "base": "I/You/We/They + haven't got",
+          "third": "He/She/It + hasn't got"
+        },
+        {
+          "form": "(?) Nghi vấn",
+          "base": "Have + I/you/we/they + got...?",
+          "third": "Has + he/she/it + got...?"
+        }
+      ],
+      "note": "Trong câu hỏi và phủ định, have/has hoạt động như trợ động từ. Không dùng do/does với cấu trúc have got."
+    },
+    "rules": [
+      {
+        "case": "I, You, We, They",
+        "rule": "dùng have got",
+        "example": "We have got a car."
+      },
+      {
+        "case": "He, She, It hoặc một người/vật",
+        "rule": "dùng has got",
+        "example": "Mai has got a bicycle."
+      },
+      {
+        "case": "Dạng phủ định",
+        "rule": "haven't got / hasn't got",
+        "example": "They haven't got a map. He hasn't got a map."
+      },
+      {
+        "case": "Dạng rút gọn khẳng định",
+        "rule": "'ve got / 's got",
+        "example": "I've got a pen. She's got a pen."
+      }
+    ],
+    "signals": [
+      "have got",
+      "has got",
+      "'ve got",
+      "'s got",
+      "haven't got",
+      "hasn't got"
+    ],
+    "examples": [
+      {
+        "en": "I have got a new bike.",
+        "vi": "Tôi có một chiếc xe đạp mới.",
+        "note": "I đi với have got.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "got",
+            "start": 7,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 11,
+            "end": 12,
+            "role": "article"
+          },
+          {
+            "word": "new",
+            "start": 13,
+            "end": 16,
+            "role": "adjective"
+          },
+          {
+            "word": "bike",
+            "start": 17,
+            "end": 21,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "She has got two sisters.",
+        "vi": "Cô ấy có hai chị/em gái.",
+        "note": "She đi với has got.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "has",
+            "start": 4,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "got",
+            "start": 8,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "two",
+            "start": 12,
+            "end": 15,
+            "role": "determiner"
+          },
+          {
+            "word": "sisters",
+            "start": 16,
+            "end": 23,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "We haven't got any milk.",
+        "vi": "Chúng tôi không có chút sữa nào.",
+        "note": "Haven't got là dạng phủ định của have got.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "haven't",
+            "start": 3,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "got",
+            "start": 11,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "any",
+            "start": 15,
+            "end": 18,
+            "role": "determiner"
+          },
+          {
+            "word": "milk",
+            "start": 19,
+            "end": 23,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "Has he got a phone?",
+        "vi": "Cậu ấy có điện thoại không?",
+        "note": "Đưa has lên trước he để tạo câu hỏi.",
+        "annotations": [
+          {
+            "word": "Has",
+            "start": 0,
+            "end": 3,
+            "role": "auxiliary"
+          },
+          {
+            "word": "he",
+            "start": 4,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "got",
+            "start": 7,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 11,
+            "end": 12,
+            "role": "article"
+          },
+          {
+            "word": "phone",
+            "start": 13,
+            "end": 18,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "Have they got blue eyes?",
+        "vi": "Họ có đôi mắt xanh không?",
+        "note": "They dùng have trong câu hỏi.",
+        "annotations": [
+          {
+            "word": "Have",
+            "start": 0,
+            "end": 4,
+            "role": "auxiliary"
+          },
+          {
+            "word": "they",
+            "start": 5,
+            "end": 9,
+            "role": "pronoun"
+          },
+          {
+            "word": "got",
+            "start": 10,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "blue",
+            "start": 14,
+            "end": 18,
+            "role": "adjective"
+          },
+          {
+            "word": "eyes",
+            "start": 19,
+            "end": 23,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "My dog has got a long tail.",
+        "vi": "Con chó của tôi có một chiếc đuôi dài.",
+        "note": "My dog là một con vật nên dùng has got.",
+        "annotations": [
+          {
+            "word": "My",
+            "start": 0,
+            "end": 2,
+            "role": "determiner"
+          },
+          {
+            "word": "dog",
+            "start": 3,
+            "end": 6,
+            "role": "noun"
+          },
+          {
+            "word": "has",
+            "start": 7,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "got",
+            "start": 11,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 15,
+            "end": 16,
+            "role": "article"
+          },
+          {
+            "word": "long",
+            "start": 17,
+            "end": 21,
+            "role": "adjective"
+          },
+          {
+            "word": "tail",
+            "start": 22,
+            "end": 26,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "I've got a headache.",
+        "vi": "Tôi bị đau đầu.",
+        "note": "I've got là dạng rút gọn của I have got.",
+        "annotations": [
+          {
+            "word": "I've",
+            "start": 0,
+            "end": 4,
+            "role": "auxiliary"
+          },
+          {
+            "word": "got",
+            "start": 5,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 9,
+            "end": 10,
+            "role": "article"
+          },
+          {
+            "word": "headache",
+            "start": 11,
+            "end": 19,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "She hasn't got much time.",
+        "vi": "Cô ấy không có nhiều thời gian.",
+        "note": "Hasn't got là dạng phủ định của has got.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "hasn't",
+            "start": 4,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "got",
+            "start": 11,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "much",
+            "start": 15,
+            "end": 19,
+            "role": "determiner"
+          },
+          {
+            "word": "time",
+            "start": 20,
+            "end": 24,
+            "role": "noun"
+          }
+        ]
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "She have got a cat.",
+        "right": "She has got a cat.",
+        "why": "She đi với has got, không đi với have got."
+      },
+      {
+        "wrong": "I haven't a bike.",
+        "right": "I haven't got a bike.",
+        "why": "Trong cấu trúc have got, không được bỏ got."
+      },
+      {
+        "wrong": "Does he have got a car?",
+        "right": "Has he got a car?",
+        "why": "Câu hỏi với have got không dùng do/does; đưa have/has lên đầu."
+      },
+      {
+        "wrong": "He hasn't got no money.",
+        "right": "He hasn't got any money.",
+        "why": "Sau câu phủ định, dùng any thay vì no để tránh hai từ phủ định."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** **He/She/It has got**; các chủ ngữ còn lại dùng **have got**. Hỏi thì đưa have/has lên đầu; phủ định đổi thành **haven't/hasn't got**.",
+    "comparison": "**Have got và have:** Cả *I have got a car* và *I have a car* đều nghĩa là “Tôi có một chiếc xe”. Với **have got**, hỏi *Have you got...?*; với **have** theo cách dùng phổ biến, hỏi *Do you have...?*. Không trộn hai mẫu thành *Do you have got...?*.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "I ___ got a pencil.",
+      "opts": [
+        "have",
+        "has",
+        "am"
+      ],
+      "answer": "have",
+      "fb": "I đi với have got."
+    },
+    {
+      "type": "mcq",
+      "q": "Nam ___ got a new backpack.",
+      "opts": [
+        "have",
+        "has",
+        "is"
+      ],
+      "answer": "has",
+      "fb": "Nam là một người, tương đương he, nên dùng has got."
+    },
+    {
+      "type": "fill",
+      "q": "We ___ got any homework today. (phủ định, dạng rút gọn)",
+      "answer": [
+        "haven't",
+        "have not"
+      ],
+      "fb": "We dùng haven't got hoặc have not got."
+    },
+    {
+      "type": "fill",
+      "q": "___ she got a sister? (Have/Has)",
+      "answer": [
+        "has"
+      ],
+      "fb": "She đi với has; trong câu hỏi đưa Has lên đầu."
+    },
+    {
+      "type": "fill",
+      "q": "My cat ___ got green eyes. (have/has)",
+      "answer": [
+        "has"
+      ],
+      "fb": "My cat là một con vật, tương đương it, nên dùng has got."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"They have got two children.\"",
+      "answer": true,
+      "fb": "ĐÚNG. They đi với have got."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"He have got a cold.\"",
+      "answer": false,
+      "fb": "SAI. He phải đi với has got."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "I've got a question.",
+        "She has got a car.",
+        "We has got a problem."
+      ],
+      "answer": "We has got a problem.",
+      "fb": "We phải đi với have got."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng câu hỏi đúng của \"He has got a bike.\" là:",
+      "opts": [
+        "Has he got a bike?",
+        "Does he has got a bike?",
+        "Have he got a bike?"
+      ],
+      "answer": "Has he got a bike?",
+      "fb": "Đưa has lên trước he; không dùng does."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng phủ định đúng của \"She has got time.\" là:",
+      "opts": [
+        "She hasn't got time.",
+        "She doesn't has got time.",
+        "She not has got time."
+      ],
+      "answer": "She hasn't got time.",
+      "fb": "Has not rút gọn thành hasn't; giữ got."
+    },
+    {
+      "type": "fill",
+      "q": "Viết dạng rút gọn: I have got a dog. → ___ got a dog.",
+      "answer": [
+        "I've",
+        "i've"
+      ],
+      "fb": "I have rút gọn thành I've."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Have you got a pen?",
+        "Has Mai got a brother?",
+        "Do they have got a car?"
+      ],
+      "answer": "Do they have got a car?",
+      "fb": "Không dùng do với have got. Câu đúng là \"Have they got a car?\""
+    }
+  ]
+}

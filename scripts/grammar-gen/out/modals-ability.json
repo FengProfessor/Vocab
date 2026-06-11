@@ -2,8 +2,8 @@
   "slug": "modals-ability",
   "title": "Modals: Ability (can/could)",
   "title_vi": "Động từ khuyết thiếu: khả năng (can/could)",
-  "level": "intermediate",
-  "order": 27,
+  "level": "beginner",
+  "order": 15,
   "sections": {
     "definition": "Động từ khuyết thiếu **'can'** dùng để diễn tả khả năng, sự cho phép hoặc điều có thể xảy ra ở hiện tại. Dạng quá khứ của nó là **'could'**, dùng cho khả năng chung trong quá khứ hoặc lời đề nghị lịch sự, trong khi **'was/were able to'** hoặc **'managed to'** thường dùng cho thành công ở một tình huống cụ thể.",
     "usage": [
@@ -332,6 +332,11 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Can you hear me?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "She can sings.",
+        "right": "She can sing.",
+        "why": "Sau động từ khuyết thiếu can, động từ chính giữ nguyên thể không to."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + can/could + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",

@@ -1,5 +1,7 @@
 import { readdirSync, readFileSync } from 'fs';
-const d='./out';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const d=path.join(path.dirname(fileURLToPath(import.meta.url)), 'out');
 const files=readdirSync(d).filter(f=>f.endsWith('.json')).sort();
 const rows=[]; const flags=[];
 let totTheory=0,totEx=0,totXr=0;
@@ -45,3 +47,4 @@ console.log('\n=== 8 bai NGAN nhat (theory) ===');
 console.log('\n=== FLAGS ('+flags.length+' bai) ===');
 flags.forEach(x=>console.log('  - '+x));
 if(!flags.length)console.log('  (khong co)');
+if(flags.length)process.exitCode=1;

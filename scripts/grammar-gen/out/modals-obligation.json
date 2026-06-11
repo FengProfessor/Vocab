@@ -2,8 +2,8 @@
   "slug": "modals-obligation",
   "title": "Modals: Obligation (must/have to)",
   "title_vi": "Khuyết thiếu: bắt buộc (must/have to)",
-  "level": "intermediate",
-  "order": 29,
+  "level": "beginner",
+  "order": 26,
   "sections": {
     "definition": "**Động từ khuyết thiếu chỉ sự bắt buộc** như 'must' và 'have to' dùng để diễn tả nghĩa vụ hoặc sự cần thiết phải thực hiện một hành động. Trong đó, 'have to' thường nhấn mạnh vào quy định khách quan từ bên ngoài, còn 'must' thường mang sắc thái chủ quan hoặc mệnh lệnh nghiêm khắc từ chính người nói.",
     "usage": [
@@ -344,6 +344,11 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Visitors mustn't touch the paintings.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "You must to study hard.",
+        "right": "You must study hard.",
+        "why": "Sau động từ khuyết thiếu must, dùng động từ nguyên thể không to."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + must + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",

@@ -3,8 +3,8 @@
  * Surgical: match lesson qua topic.slug → update cột examples (+ sections.examples) baked annotations.
  * An toàn hơn import.ts (vốn delete-cascade wipe SRS progress).
  *
- * Chạy (web-app/): npx tsx scripts/grammar-gen/update-annotations.ts
- *   --dry  chỉ in, không ghi.
+ * Chạy (web-app/): npx tsx scripts/grammar-gen/update-annotations.ts --apply
+ * Mặc định dry-run; chỉ ghi khi có --apply.
  */
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -13,7 +13,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(DIR, 'out');
-const DRY = process.argv.includes('--dry');
+const DRY = !process.argv.includes('--apply');
 
 function loadEnv() {
   const p = path.join(process.cwd(), '.env.local');
@@ -47,11 +47,16 @@ async function main() {
     const exWithAnn = (l.sections?.examples ?? [])
       .map((e: Ex) => ({ en: e.en ?? '', vi: e.vi ?? '', note: e.note ?? '', annotations: e.annotations ?? [] }))
       .filter((e: Ex) => e.en);
+    if (exWithAnn.length === 0 || exWithAnn.some((example: Ex) => !example.annotations?.length)) {
+      throw new Error(`${slug}: từ chối ghi examples thiếu/rỗng annotations`);
+    }
 
-    const { data: topic } = await sb.from('grammar_topics').select('id').eq('slug', slug).maybeSingle();
+    const { data: topic, error: topicError } = await sb.from('grammar_topics').select('id').eq('slug', slug).maybeSingle();
+    if (topicError) throw new Error(`${slug}: đọc topic lỗi: ${topicError.message}`);
     if (!topic) { console.log(`  ⚠ ${slug}: không thấy topic trên DB`); missing++; continue; }
 
-    const { data: lessons } = await sb.from('grammar_lessons').select('id, sections').eq('topic_id', topic.id);
+    const { data: lessons, error: lessonError } = await sb.from('grammar_lessons').select('id, sections').eq('topic_id', topic.id);
+    if (lessonError) throw new Error(`${slug}: đọc lesson lỗi: ${lessonError.message}`);
     if (!lessons || lessons.length === 0) { console.log(`  ⚠ ${slug}: topic chưa có lesson`); missing++; continue; }
 
     for (const lesson of lessons) {

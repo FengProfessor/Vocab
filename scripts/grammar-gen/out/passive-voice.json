@@ -3,7 +3,7 @@
   "title": "Passive Voice",
   "title_vi": "Câu bị động",
   "level": "intermediate",
-  "order": 35,
+  "order": 42,
   "sections": {
     "definition": "Passive Voice dùng **câu bị động** khi muốn nhấn mạnh người/vật chịu tác động hoặc khi tác nhân không rõ/không quan trọng. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -320,6 +320,11 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "The package will be delivered tomorrow.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Many accidents cause by careless driving.",
+        "right": "Many accidents are caused by careless driving.",
+        "why": "Câu bị động cần dạng phù hợp của be + quá khứ phân từ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + be + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",

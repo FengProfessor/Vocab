@@ -3,7 +3,7 @@
   "title": "Present Simple",
   "title_vi": "Thì Hiện tại đơn",
   "level": "beginner",
-  "order": 1,
+  "order": 9,
   "sections": {
     "definition": "**Thì Hiện tại đơn** (Present Simple) là một trong những thì cơ bản của tiếng Anh, được sử dụng để diễn tả những hành động **lặp đi lặp lại**, những **sự thật hiển nhiên**, hoặc **lịch trình cố định**. Đây là thì nền tảng đầu tiên mà mọi người học tiếng Anh cần nắm vững.",
     "usage": [
@@ -415,6 +415,16 @@
         "wrong": "I am play tennis every day.",
         "right": "I play tennis every day.",
         "why": "Hiện tại đơn không dùng 'am/is/are' với động từ thường."
+      },
+      {
+        "wrong": "She have a dog.",
+        "right": "She has a dog.",
+        "why": "Với chủ ngữ ngôi thứ ba số ít, động từ have đổi thành has."
+      },
+      {
+        "wrong": "He not like sushi.",
+        "right": "He does not like sushi.",
+        "why": "Câu phủ định hiện tại đơn với He/She/It cần does not + động từ nguyên thể."
       }
     ],
     "tips": "**Mẹo nhớ:** \"He / She / It → thêm s\". Nhưng khi đã có **does / doesn't** thì động từ được \"nghỉ\", trở về nguyên thể. Trạng từ tần suất (always, usually, never...) đứng **trước** động từ thường nhưng **sau** động từ to be.",

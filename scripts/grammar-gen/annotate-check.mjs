@@ -16,6 +16,21 @@ const ROLES = new Set([
   'noun', 'pronoun', 'verb', 'auxiliary', 'modal', 'adjective', 'adverb',
   'preposition', 'conjunction', 'determiner', 'article', 'interjection', 'other',
 ]);
+const EDGE = /["“”‘’()\[\]{}.,!?;:…—–]/;
+
+function tokenize(sentence) {
+  const tokens = [];
+  const re = /\S+/g;
+  let match;
+  while ((match = re.exec(sentence))) {
+    let start = match.index;
+    let end = start + match[0].length;
+    while (start < end && EDGE.test(sentence[start])) start++;
+    while (end > start && EDGE.test(sentence[end - 1])) end--;
+    if (end > start) tokens.push({ word: sentence.slice(start, end), start, end });
+  }
+  return tokens;
+}
 
 const files = readdirSync(OUT).filter((f) => f.endsWith('.json')).sort();
 let errors = 0;
@@ -26,14 +41,26 @@ const filesWithErr = new Set();
 for (const f of files) {
   const json = JSON.parse(readFileSync(path.join(OUT, f), 'utf8'));
   const examples = json.sections?.examples;
-  if (!Array.isArray(examples)) continue;
+  if (!Array.isArray(examples) || examples.length === 0) {
+    console.log(`  ✗ ${f}: sections.examples thiếu/rỗng`);
+    errors++; filesWithErr.add(f); continue;
+  }
   for (const ex of examples) {
-    if (typeof ex.en !== 'string' || !ex.en.trim()) continue;
+    if (typeof ex.en !== 'string' || !ex.en.trim()) {
+      console.log(`  ✗ ${f}: ví dụ thiếu câu tiếng Anh`);
+      errors++; filesWithErr.add(f); continue;
+    }
     if (!Array.isArray(ex.annotations) || ex.annotations.length === 0) {
       console.log(`  ✗ ${f}: ví dụ thiếu annotations → "${ex.en}"`);
       errors++; filesWithErr.add(f); continue;
     }
     okEx++;
+    const expected = tokenize(ex.en);
+    const actual = ex.annotations.map(({ word, start, end }) => ({ word, start, end }));
+    if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+      console.log(`  ✗ ${f}: annotation không phủ token 1:1 trong "${ex.en}"`);
+      errors++; filesWithErr.add(f);
+    }
     for (const a of ex.annotations) {
       okTok++;
       if (ex.en.slice(a.start, a.end) !== a.word) {

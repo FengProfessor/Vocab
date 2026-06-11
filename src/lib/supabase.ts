@@ -215,7 +215,7 @@ export interface GrammarSections {
   formula?: { rows?: Record<string, string>[]; note?: string };
   rules?: { case?: string; rule?: string; example?: string }[];
   signals?: string[];
-  examples?: { en?: string; vi?: string; note?: string }[];
+  examples?: GrammarExample[];
   mistakes?: { wrong?: string; right?: string; why?: string }[];
   tips?: string;
   comparison?: string;

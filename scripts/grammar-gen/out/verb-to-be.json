@@ -1,0 +1,474 @@
+{
+  "slug": "verb-to-be",
+  "title": "Verb to be (am / is / are)",
+  "title_vi": "Động từ to be (am / is / are)",
+  "level": "beginner",
+  "order": 1,
+  "sections": {
+    "definition": "Động từ **to be** ở hiện tại có ba dạng: **am, is, are**. Ta dùng to be để nói ai đó hoặc vật gì đó **là ai, như thế nào, ở đâu**. To be tự tạo câu phủ định và câu hỏi, không cần dùng do hoặc does.",
+    "usage": [
+      {
+        "icon": "👤",
+        "label": "Giới thiệu tên, nghề nghiệp hoặc vai trò",
+        "en": "I am a student.",
+        "vi": "Tôi là học sinh."
+      },
+      {
+        "icon": "😊",
+        "label": "Miêu tả đặc điểm hoặc cảm xúc",
+        "en": "She is happy.",
+        "vi": "Cô ấy vui."
+      },
+      {
+        "icon": "📍",
+        "label": "Nói vị trí",
+        "en": "The keys are on the table.",
+        "vi": "Chìa khóa ở trên bàn."
+      },
+      {
+        "icon": "🎂",
+        "label": "Nói tuổi, quốc tịch hoặc nguồn gốc",
+        "en": "He is ten years old.",
+        "vi": "Cậu ấy mười tuổi."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "(+) Khẳng định",
+          "singular": "I am · He/She/It is",
+          "plural": "You/We/They are"
+        },
+        {
+          "form": "(−) Phủ định",
+          "singular": "I am not · He/She/It is not",
+          "plural": "You/We/They are not"
+        },
+        {
+          "form": "(?) Nghi vấn",
+          "singular": "Am I...? · Is he/she/it...?",
+          "plural": "Are you/we/they...?"
+        }
+      ],
+      "note": "Để hỏi, đưa am/is/are lên trước chủ ngữ. Để phủ định, thêm not ngay sau am/is/are."
+    },
+    "rules": [
+      {
+        "case": "Chủ ngữ I",
+        "rule": "dùng am",
+        "example": "I am ready."
+      },
+      {
+        "case": "He, She, It hoặc một người/vật",
+        "rule": "dùng is",
+        "example": "Lan is kind. The cat is small."
+      },
+      {
+        "case": "You, We, They hoặc nhiều người/vật",
+        "rule": "dùng are",
+        "example": "You are nice. The books are new."
+      },
+      {
+        "case": "Dạng rút gọn",
+        "rule": "I'm · he's/she's/it's · you're/we're/they're",
+        "example": "I'm fine. They're at home."
+      }
+    ],
+    "signals": [
+      "am",
+      "is",
+      "are",
+      "am not",
+      "isn't",
+      "aren't"
+    ],
+    "examples": [
+      {
+        "en": "I am a student.",
+        "vi": "Tôi là học sinh.",
+        "note": "Chủ ngữ I luôn đi với am.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "am",
+            "start": 2,
+            "end": 4,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 5,
+            "end": 6,
+            "role": "article"
+          },
+          {
+            "word": "student",
+            "start": 7,
+            "end": 14,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "She is very kind.",
+        "vi": "Cô ấy rất tốt bụng.",
+        "note": "She đi với is; kind miêu tả tính cách.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 4,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "very",
+            "start": 7,
+            "end": 11,
+            "role": "adverb"
+          },
+          {
+            "word": "kind",
+            "start": 12,
+            "end": 16,
+            "role": "adjective"
+          }
+        ]
+      },
+      {
+        "en": "We are not tired.",
+        "vi": "Chúng tôi không mệt.",
+        "note": "Thêm not sau are để tạo câu phủ định.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "are",
+            "start": 3,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "not",
+            "start": 7,
+            "end": 10,
+            "role": "adverb"
+          },
+          {
+            "word": "tired",
+            "start": 11,
+            "end": 16,
+            "role": "adjective"
+          }
+        ]
+      },
+      {
+        "en": "Is he at home?",
+        "vi": "Anh ấy có ở nhà không?",
+        "note": "Đưa is lên trước he để tạo câu hỏi.",
+        "annotations": [
+          {
+            "word": "Is",
+            "start": 0,
+            "end": 2,
+            "role": "verb"
+          },
+          {
+            "word": "he",
+            "start": 3,
+            "end": 5,
+            "role": "pronoun"
+          },
+          {
+            "word": "at",
+            "start": 6,
+            "end": 8,
+            "role": "preposition"
+          },
+          {
+            "word": "home",
+            "start": 9,
+            "end": 13,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "Are they your friends?",
+        "vi": "Họ có phải là bạn của bạn không?",
+        "note": "They đi với are.",
+        "annotations": [
+          {
+            "word": "Are",
+            "start": 0,
+            "end": 3,
+            "role": "verb"
+          },
+          {
+            "word": "they",
+            "start": 4,
+            "end": 8,
+            "role": "pronoun"
+          },
+          {
+            "word": "your",
+            "start": 9,
+            "end": 13,
+            "role": "determiner"
+          },
+          {
+            "word": "friends",
+            "start": 14,
+            "end": 21,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "My parents are teachers.",
+        "vi": "Bố mẹ tôi là giáo viên.",
+        "note": "Parents là số nhiều nên dùng are.",
+        "annotations": [
+          {
+            "word": "My",
+            "start": 0,
+            "end": 2,
+            "role": "determiner"
+          },
+          {
+            "word": "parents",
+            "start": 3,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "are",
+            "start": 11,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "teachers",
+            "start": 15,
+            "end": 23,
+            "role": "noun"
+          }
+        ]
+      },
+      {
+        "en": "Where are you from?",
+        "vi": "Bạn đến từ đâu?",
+        "note": "Câu hỏi Wh- đặt where trước are.",
+        "annotations": [
+          {
+            "word": "Where",
+            "start": 0,
+            "end": 5,
+            "role": "adverb"
+          },
+          {
+            "word": "are",
+            "start": 6,
+            "end": 9,
+            "role": "verb"
+          },
+          {
+            "word": "you",
+            "start": 10,
+            "end": 13,
+            "role": "pronoun"
+          },
+          {
+            "word": "from",
+            "start": 14,
+            "end": 18,
+            "role": "preposition"
+          }
+        ]
+      },
+      {
+        "en": "It isn't cold today.",
+        "vi": "Hôm nay trời không lạnh.",
+        "note": "Isn't là dạng rút gọn của is not.",
+        "annotations": [
+          {
+            "word": "It",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "isn't",
+            "start": 3,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "cold",
+            "start": 9,
+            "end": 13,
+            "role": "adjective"
+          },
+          {
+            "word": "today",
+            "start": 14,
+            "end": 19,
+            "role": "adverb"
+          }
+        ]
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "I is a student.",
+        "right": "I am a student.",
+        "why": "Chủ ngữ I chỉ đi với am."
+      },
+      {
+        "wrong": "They is happy.",
+        "right": "They are happy.",
+        "why": "They là chủ ngữ số nhiều nên dùng are."
+      },
+      {
+        "wrong": "She not is tired.",
+        "right": "She is not tired.",
+        "why": "Not phải đứng sau am/is/are."
+      },
+      {
+        "wrong": "Do you are ready?",
+        "right": "Are you ready?",
+        "why": "Câu hỏi với to be không dùng do; chỉ đưa are lên trước chủ ngữ."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** **I am**, **một người/vật is**, **nhiều người/vật are**. Hỏi thì đảo to be lên đầu; phủ định thì thêm **not** sau to be.",
+    "comparison": "**To be và động từ thường:** To be tự tạo câu hỏi/phủ định (*Is she happy? She isn't happy.*). Động từ thường cần do/does (*Does she work? She doesn't work.*). Không nói *Does she be happy?*.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "I ___ from Vietnam.",
+      "opts": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "am",
+      "fb": "Chủ ngữ I luôn đi với am."
+    },
+    {
+      "type": "mcq",
+      "q": "My brother ___ twelve years old.",
+      "opts": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is",
+      "fb": "My brother là một người, tương đương he, nên dùng is."
+    },
+    {
+      "type": "fill",
+      "q": "The children ___ in the garden. (be)",
+      "answer": [
+        "are"
+      ],
+      "fb": "The children là số nhiều nên dùng are."
+    },
+    {
+      "type": "fill",
+      "q": "She ___ not busy today. (be)",
+      "answer": [
+        "is"
+      ],
+      "fb": "She đi với is; phủ định đầy đủ là is not."
+    },
+    {
+      "type": "fill",
+      "q": "___ you ready? (be)",
+      "answer": [
+        "are"
+      ],
+      "fb": "Câu hỏi với you bắt đầu bằng Are."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"He are my friend.\"",
+      "answer": false,
+      "fb": "SAI. He đi với is: \"He is my friend.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"We aren't late.\"",
+      "answer": true,
+      "fb": "ĐÚNG. Aren't là dạng rút gọn của are not."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "I am hungry.",
+        "They are at school.",
+        "She am happy."
+      ],
+      "answer": "She am happy.",
+      "fb": "She phải đi với is, không đi với am."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng câu hỏi của \"Tom is at home.\" là:",
+      "opts": [
+        "Does Tom is at home?",
+        "Is Tom at home?",
+        "Tom is at home?"
+      ],
+      "answer": "Is Tom at home?",
+      "fb": "Đưa is lên trước Tom để tạo câu hỏi."
+    },
+    {
+      "type": "fill",
+      "q": "Viết dạng rút gọn: They are my classmates. → ___ my classmates.",
+      "answer": [
+        "They're",
+        "they're"
+      ],
+      "fb": "They are rút gọn thành they're."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng phủ định đúng của \"It is hot.\" là:",
+      "opts": [
+        "It not is hot.",
+        "It doesn't hot.",
+        "It isn't hot."
+      ],
+      "answer": "It isn't hot.",
+      "fb": "Thêm not sau is; is not có thể rút gọn thành isn't."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Are they students?",
+        "Is your mother a doctor?",
+        "Do you are tired?"
+      ],
+      "answer": "Do you are tired?",
+      "fb": "To be không dùng do. Câu đúng là \"Are you tired?\""
+    }
+  ]
+}
