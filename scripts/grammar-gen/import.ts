@@ -130,8 +130,10 @@ async function main() {
     const { error: lErr } = await sb.from('grammar_lessons').insert({
       topic_id: topic.id,
       title: l.title_vi,
-      theory_vi: buildTheory(l),
+      theory_vi: buildTheory(l), // fallback nếu UI chưa render sections
       examples,
+      sections: l.sections,      // render section-cards giống bài mẫu
+      exercises: l.exercises,    // quiz interactive
       source: 'ai-golden',
       order_index: l.order,
     });

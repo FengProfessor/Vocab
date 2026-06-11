@@ -95,7 +95,7 @@ export interface DictionaryMeaning {
 
 export interface DictionaryData {
   word?: string;
-  pronunciations?: { ipa?: string }[];
+  pronunciations?: { ipa?: string; region?: 'UK' | 'US' | null }[];
   results?: { meanings?: DictionaryMeaning[] }[];
   familyWords?: string[];
   image_search_query?: string;
@@ -202,8 +202,32 @@ export interface GrammarLesson {
   order_index: number;
   created_by?: string;
   created_at: string;
+  sections?: GrammarSections | null;
+  exercises?: GrammarExerciseItem[] | null;
   // joined
   topic?: GrammarTopic;
+}
+
+/** Golden Lesson — nội dung có cấu trúc (render section-cards). */
+export interface GrammarSections {
+  definition?: string;
+  usage?: { icon?: string; label?: string; en?: string; vi?: string }[];
+  formula?: { rows?: Record<string, string>[]; note?: string };
+  rules?: { case?: string; rule?: string; example?: string }[];
+  signals?: string[];
+  examples?: { en?: string; vi?: string; note?: string }[];
+  mistakes?: { wrong?: string; right?: string; why?: string }[];
+  tips?: string;
+  comparison?: string;
+  timeline?: { caption?: string; points?: { label?: string; note?: string }[] } | null;
+}
+
+export interface GrammarExerciseItem {
+  type: 'mcq' | 'fill' | 'tf' | 'error';
+  q: string;
+  opts?: string[];
+  answer: string | string[] | boolean;
+  fb?: string;
 }
 
 export interface GrammarProgress {

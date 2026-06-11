@@ -8,6 +8,7 @@ import { supabase } from '@/lib/supabase';
 import type { GrammarTopic, GrammarLesson, GrammarProgress } from '@/lib/supabase';
 import GrammarHighlight, { type WordAnnotation } from '@/components/grammar/GrammarHighlight';
 import TenseTimeline from '@/components/grammar/TenseTimeline';
+import GoldenLesson from '@/components/grammar/GoldenLesson';
 import {
   ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen, Volume2, History,
 } from 'lucide-react';
@@ -392,9 +393,12 @@ export default function GrammarLearnPage() {
             </div>
           )}
 
-          {/* Timeline visual aid */}
-          <TenseTimeline lessonTitle={activeLesson.title} />
+          {/* Timeline visual aid (chỉ cho bài cũ; Golden Lesson tự có timeline trong sections) */}
+          {!activeLesson.sections && <TenseTimeline lessonTitle={activeLesson.title} />}
 
+          {activeLesson.sections ? (
+            <GoldenLesson sections={activeLesson.sections} exercises={activeLesson.exercises} />
+          ) : (
           <div className="prose prose-slate max-w-none bg-background border rounded-3xl p-6 sm:p-8 shadow-sm">
             <ReactMarkdown
               components={{
@@ -453,6 +457,7 @@ export default function GrammarLearnPage() {
                 : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')}
             </ReactMarkdown>
           </div>
+          )}
 
           {activeLesson.examples?.length > 0 && (
             <div className="bg-background border rounded-2xl p-6 shadow-sm space-y-3">
