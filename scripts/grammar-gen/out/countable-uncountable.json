@@ -1,0 +1,247 @@
+{
+  "slug": "countable-uncountable",
+  "title": "Countable & Uncountable Nouns",
+  "title_vi": "Danh từ đếm được & không đếm được",
+  "level": "beginner",
+  "order": 9,
+  "sections": {
+    "definition": "**Danh từ đếm được** (Countable Nouns) là những danh từ có thể đếm được, tức là có thể sử dụng số đếm trước chúng. Ví dụ: **book**, **car**, **apple**. Ngược lại, **danh từ không đếm được** (Uncountable Nouns) là những danh từ không thể đếm được, không thể sử dụng số đếm trước chúng. Ví dụ: **water**, **air**, **happiness**.",
+    "usage": [
+      {
+        "icon": "📚",
+        "label": "Danh từ đếm được",
+        "en": "I have two books.",
+        "vi": "Tôi có hai cuốn sách."
+      },
+      {
+        "icon": "💧",
+        "label": "Danh từ không đếm được",
+        "en": "I need water to drink.",
+        "vi": "Tôi cần nước để uống."
+      },
+      {
+        "icon": "🍎",
+        "label": "Sử dụng 'a' hoặc 'an' với danh từ đếm được",
+        "en": "I have an apple.",
+        "vi": "Tôi có một quả táo."
+      },
+      {
+        "icon": "📦",
+        "label": "Sử dụng 'some' hoặc 'any' với danh từ không đếm được",
+        "en": "I need some water.",
+        "vi": "Tôi cần một chút nước."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "(+) Khẳng định",
+          "base": "S + V (danh từ đếm được)",
+          "note": "Sử dụng số đếm trước danh từ đếm được."
+        },
+        {
+          "form": "(−) Phủ định",
+          "base": "S + don't + V (danh từ đếm được)",
+          "note": "Sử dụng 'don't' với danh từ đếm được."
+        },
+        {
+          "form": "(?) Nghi vấn",
+          "base": "Do + S + V? (danh từ đếm được)",
+          "note": "Sử dụng 'Do' với danh từ đếm được."
+        }
+      ],
+      "note": "Danh từ không đếm được không sử dụng số đếm, nhưng có thể sử dụng 'some', 'any', 'much', 'little' để chỉ lượng."
+    },
+    "rules": [
+      {
+        "case": "Danh từ đếm được",
+        "rule": "Có thể sử dụng số đếm",
+        "example": "one book, two books"
+      },
+      {
+        "case": "Danh từ không đếm được",
+        "rule": "Không sử dụng số đếm",
+        "example": "water, air"
+      },
+      {
+        "case": "Sử dụng 'a' hoặc 'an' với danh từ đếm được",
+        "rule": "Sử dụng 'a' trước danh từ bắt đầu bằng phụ âm, sử dụng 'an' trước danh từ bắt đầu bằng nguyên âm",
+        "example": "a book, an apple"
+      }
+    ],
+    "signals": [
+      "some",
+      "any",
+      "much",
+      "little",
+      "a",
+      "an"
+    ],
+    "examples": [
+      {
+        "en": "I have two dogs.",
+        "vi": "Tôi có hai con chó.",
+        "note": "Sử dụng số đếm với danh từ đếm được."
+      },
+      {
+        "en": "I need some water.",
+        "vi": "Tôi cần một chút nước.",
+        "note": "Sử dụng 'some' với danh từ không đếm được."
+      },
+      {
+        "en": "I have a book.",
+        "vi": "Tôi có một cuốn sách.",
+        "note": "Sử dụng 'a' với danh từ đếm được bắt đầu bằng phụ âm."
+      },
+      {
+        "en": "I have an apple.",
+        "vi": "Tôi có một quả táo.",
+        "note": "Sử dụng 'an' với danh từ đếm được bắt đầu bằng nguyên âm."
+      },
+      {
+        "en": "I don't have any money.",
+        "vi": "Tôi không có tiền.",
+        "note": "Sử dụng 'any' với danh từ không đếm được trong câu phủ định."
+      },
+      {
+        "en": "How much water do you need?",
+        "vi": "Bạn cần bao nhiêu nước?",
+        "note": "Sử dụng 'much' với danh từ không đếm được để hỏi về lượng."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "I have two waters.",
+        "right": "I have two bottles of water.",
+        "why": "Danh từ không đếm được không sử dụng số đếm."
+      },
+      {
+        "wrong": "I need a water.",
+        "right": "I need some water.",
+        "note": "Sử dụng 'some' với danh từ không đếm được."
+      },
+      {
+        "wrong": "I have any books.",
+        "right": "I have some books.",
+        "note": "Sử dụng 'some' với danh từ đếm được trong câu khẳng định."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** Danh từ đếm được sử dụng số đếm, danh từ không đếm được sử dụng 'some', 'any', 'much', 'little'. Sử dụng 'a' hoặc 'an' với danh từ đếm được tùy thuộc vào cách phát âm.",
+    "comparison": "",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Tôi có _______ cuốn sách.",
+      "opts": [
+        "một",
+        "hai",
+        "nhiều"
+      ],
+      "answer": "một",
+      "fb": "Sử dụng số đếm với danh từ đếm được."
+    },
+    {
+      "type": "mcq",
+      "q": "Tôi cần _______ nước để uống.",
+      "opts": [
+        "một chút",
+        "nhiều",
+        "ít"
+      ],
+      "answer": "một chút",
+      "fb": "Sử dụng 'một chút' với danh từ không đếm được."
+    },
+    {
+      "type": "fill",
+      "q": "Tôi có _______ (book) trên bàn.",
+      "answer": [
+        "một cuốn sách"
+      ],
+      "fb": "Sử dụng 'một' với danh từ đếm được."
+    },
+    {
+      "type": "fill",
+      "q": "Tôi cần _______ (water) để uống.",
+      "answer": [
+        "nước",
+        "một chút nước"
+      ],
+      "fb": "Sử dụng 'nước' hoặc 'một chút nước' với danh từ không đếm được."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → 'Tôi có hai nước.'",
+      "answer": false,
+      "fb": "Sai. Danh từ không đếm được không sử dụng số đếm."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → 'Tôi cần một chút nước.'",
+      "answer": true,
+      "fb": "Đúng. Sử dụng 'một chút' với danh từ không đếm được."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Tôi có một cuốn sách.",
+        "Tôi cần nước.",
+        "Tôi có hai nước."
+      ],
+      "answer": "Tôi có hai nước.",
+      "fb": "Sai. Danh từ không đếm được không sử dụng số đếm."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng phủ định của 'Tôi có sách' là:",
+      "opts": [
+        "Tôi không có sách.",
+        "Tôi không có một cuốn sách.",
+        "Tôi không có nhiều sách."
+      ],
+      "answer": "Tôi không có sách.",
+      "fb": "Sử dụng 'không có' với danh từ đếm được."
+    },
+    {
+      "type": "fill",
+      "q": "Tôi cần _______ (water) để uống.",
+      "answer": [
+        "nước",
+        "một chút nước"
+      ],
+      "fb": "Sử dụng 'nước' hoặc 'một chút nước' với danh từ không đếm được."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn từ đúng để điền vào chỗ trống: 'Tôi có _______ quả táo.'",
+      "opts": [
+        "một",
+        "hai",
+        "nhiều"
+      ],
+      "answer": "một",
+      "fb": "Sử dụng 'một' với danh từ đếm được."
+    },
+    {
+      "type": "fill",
+      "q": "Tôi có _______ (book) trên bàn.",
+      "answer": [
+        "một cuốn sách"
+      ],
+      "fb": "Sử dụng 'một' với danh từ đếm được."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng nghi vấn của 'Tôi có sách' là:",
+      "opts": [
+        "Tôi có sách không?",
+        "Tôi có một cuốn sách không?",
+        "Tôi có nhiều sách không?"
+      ],
+      "answer": "Tôi có sách không?",
+      "fb": "Sử dụng 'có' với danh từ đếm được."
+    }
+  ]
+}

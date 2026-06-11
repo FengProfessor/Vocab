@@ -1,0 +1,263 @@
+{
+  "slug": "past-continuous",
+  "title": "Past Continuous",
+  "title_vi": "Thì Quá khứ tiếp diễn",
+  "level": "beginner",
+  "order": 4,
+  "sections": {
+    "definition": "**Thì Quá khứ tiếp diễn** (Past Continuous) diễn tả hành động **đang diễn ra** tại một thời điểm cụ thể trong quá khứ. Nó thường được sử dụng để mô tả một hành động **đang xảy ra** khi một hành động khác **xảy ra**.",
+    "usage": [
+      {
+        "icon": "🕰️",
+        "label": "Mô tả hành động đang diễn ra",
+        "en": "I was studying English at 8 pm last night.",
+        "vi": "Tôi đang học tiếng Anh vào lúc 8 giờ tối đêm qua."
+      },
+      {
+        "icon": "📚",
+        "label": "Diễn tả hai hành động cùng xảy ra",
+        "en": "She was cooking dinner while I was watching TV.",
+        "vi": "Cô ấy đang nấu ăn trong khi tôi đang xem TV."
+      },
+      {
+        "icon": "📞",
+        "label": "Truyền đạt thông tin về quá khứ",
+        "en": "They were talking on the phone when I arrived.",
+        "vi": "Họ đang nói chuyện điện thoại khi tôi đến."
+      },
+      {
+        "icon": "🚗",
+        "label": "Mô tả hành động gây ra một sự kiện",
+        "en": "The car was speeding when it crashed.",
+        "vi": "Xe đang chạy với tốc độ cao khi nó bị tai nạn."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "(+) Khẳng định",
+          "base": "S + was/were + V-ing"
+        },
+        {
+          "form": "(-) Phủ định",
+          "base": "S + was/were + not + V-ing"
+        },
+        {
+          "form": "(?) Nghi vấn",
+          "base": "Was/Were + S + V-ing?"
+        }
+      ],
+      "note": "Dạng **was** được sử dụng cho **I**, **he**, **she**, **it**, trong khi **were** được sử dụng cho **you**, **we**, **they**."
+    },
+    "rules": [
+      {
+        "case": "Động từ thường",
+        "rule": "thêm -ing",
+        "example": "walk → walking"
+      },
+      {
+        "case": "Động từ tận cùng -e",
+        "rule": "bỏ -e và thêm -ing",
+        "example": "love → loving"
+      },
+      {
+        "case": "Động từ có một âm tiết và tận cùng -y",
+        "rule": "thêm -ing",
+        "example": "try → trying"
+      },
+      {
+        "case": "Động từ có hai âm tiết và tận cùng -y",
+        "rule": "thêm -ing hoặc thay -y bằng -i và thêm -ng",
+        "example": "carry → carrying hoặc study → studying"
+      }
+    ],
+    "signals": [
+      "while",
+      "when",
+      "as",
+      "at the same time",
+      "meanwhile",
+      "at that moment"
+    ],
+    "examples": [
+      {
+        "en": "They were playing football when it started raining.",
+        "vi": "Họ đang chơi bóng đá khi trời bắt đầu mưa.",
+        "note": "Mô tả hai hành động cùng xảy ra."
+      },
+      {
+        "en": "I was studying English at 8 pm last night.",
+        "vi": "Tôi đang học tiếng Anh vào lúc 8 giờ tối đêm qua.",
+        "note": "Mô tả hành động đang diễn ra."
+      },
+      {
+        "en": "She was not watching TV at that time.",
+        "vi": "Cô ấy không xem TV vào thời điểm đó.",
+        "note": "Phủ định."
+      },
+      {
+        "en": "Were you sleeping when I called?",
+        "vi": "Bạn có đang ngủ khi tôi gọi không?",
+        "note": "Nghi vấn."
+      },
+      {
+        "en": "They were having a party when the police arrived.",
+        "vi": "Họ đang tổ chức một bữa tiệc khi cảnh sát đến.",
+        "note": "Mô tả hành động đang diễn ra."
+      },
+      {
+        "en": "The baby was crying when the mother came home.",
+        "vi": "Em bé đang khóc khi mẹ về nhà.",
+        "note": "Mô tả hành động gây ra một sự kiện."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "I was go to school.",
+        "right": "I was going to school.",
+        "why": "Quên thêm -ing vào động từ."
+      },
+      {
+        "wrong": "They was playing football.",
+        "right": "They were playing football.",
+        "why": "Sử dụng sai **was** và **were**."
+      },
+      {
+        "wrong": "She were not watching TV.",
+        "right": "She was not watching TV.",
+        "why": "Sử dụng sai **was** và **were** trong phủ định."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** Để tạo dạng **Past Continuous**, thêm **-ing** vào động từ thường. Với **I**, **he**, **she**, **it**, sử dụng **was**, và với **you**, **we**, **they**, sử dụng **were**.",
+    "comparison": "**Past Continuous vs Past Simple:** Past Continuous mô tả hành động **đang diễn ra** trong quá khứ, trong khi Past Simple mô tả hành động **xảy ra và kết thúc** trong quá khứ.",
+    "timeline": {
+      "caption": "Ví dụ \"I was studying English at 8 pm last night\" — hành động **đang diễn ra** tại một thời điểm cụ thể trong quá khứ.",
+      "points": [
+        {
+          "label": "7:30 pm",
+          "note": "bắt đầu học"
+        },
+        {
+          "label": "8:00 pm",
+          "note": "đang học"
+        },
+        {
+          "label": "9:00 pm",
+          "note": "kết thúc học"
+        }
+      ]
+    }
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "I ___ (play) football at 5 pm yesterday.",
+      "opts": [
+        "play",
+        "was playing",
+        "played"
+      ],
+      "answer": "was playing",
+      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
+    },
+    {
+      "type": "fill",
+      "q": "They ___ (not / watch) TV at that time.",
+      "answer": [
+        "were not watching"
+      ],
+      "fb": "Sử dụng Past Continuous trong phủ định."
+    },
+    {
+      "type": "mcq",
+      "q": "What were you ___ (do) at 8 pm last night?",
+      "opts": [
+        "doing",
+        "do",
+        "did"
+      ],
+      "answer": "doing",
+      "fb": "Sử dụng Past Continuous để hỏi về hành động đang diễn ra."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"I was go to school.\"",
+      "answer": false,
+      "fb": "Sử dụng sai Past Continuous."
+    },
+    {
+      "type": "fill",
+      "q": "The baby ___ (cry) when the mother came home.",
+      "answer": [
+        "was crying"
+      ],
+      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
+    },
+    {
+      "type": "mcq",
+      "q": "Which sentence is in the Past Continuous tense?",
+      "opts": [
+        "I went to school.",
+        "I was going to school.",
+        "I go to school."
+      ],
+      "answer": "I was going to school.",
+      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "They were playing football.",
+        "They was playing football.",
+        "They play football."
+      ],
+      "answer": "They was playing football.",
+      "fb": "Sử dụng sai **was** và **were**."
+    },
+    {
+      "type": "fill",
+      "q": "She ___ (not / study) English at that time.",
+      "answer": [
+        "was not studying"
+      ],
+      "fb": "Sử dụng Past Continuous trong phủ định."
+    },
+    {
+      "type": "mcq",
+      "q": "What was she ___ (do) at 5 pm yesterday?",
+      "opts": [
+        "doing",
+        "do",
+        "did"
+      ],
+      "answer": "doing",
+      "fb": "Sử dụng Past Continuous để hỏi về hành động đang diễn ra."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"They were not watching TV.\"",
+      "answer": true,
+      "fb": "Sử dụng đúng Past Continuous trong phủ định."
+    },
+    {
+      "type": "fill",
+      "q": "The students ___ (write) their exams when the fire alarm went off.",
+      "answer": [
+        "were writing"
+      ],
+      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
+    },
+    {
+      "type": "mcq",
+      "q": "Which sentence is in the Past Continuous tense?",
+      "opts": [
+        "I did my homework.",
+        "I was doing my homework.",
+        "I do my homework."
+      ],
+      "answer": "I was doing my homework.",
+      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
+    }
+  ]
+}

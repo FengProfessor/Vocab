@@ -1,0 +1,246 @@
+{
+  "slug": "personal-pronouns",
+  "title": "Personal Pronouns",
+  "title_vi": "Đại từ nhân xưng",
+  "level": "beginner",
+  "order": 11,
+  "sections": {
+    "definition": "**Đại từ nhân xưng** thay thế danh từ chỉ người, vật hoặc nhóm để tránh lặp lại. Đại từ chủ ngữ (I, you, he, she, it, we, they) đứng trước động từ; đại từ tân ngữ (me, you, him, her, it, us, them) đứng sau động từ hoặc giới từ.",
+    "usage": [
+      {
+        "icon": "👤",
+        "label": "Làm chủ ngữ của câu",
+        "en": "She works here.",
+        "vi": "Cô ấy làm việc ở đây."
+      },
+      {
+        "icon": "🎯",
+        "label": "Làm tân ngữ của động từ",
+        "en": "I called him yesterday.",
+        "vi": "Tôi đã gọi cho anh ấy hôm qua."
+      },
+      {
+        "icon": "🔗",
+        "label": "Đứng sau giới từ",
+        "en": "This gift is for them.",
+        "vi": "Món quà này dành cho họ."
+      },
+      {
+        "icon": "🔁",
+        "label": "Thay danh từ để tránh lặp",
+        "en": "Mai has a cat. It is white.",
+        "vi": "Mai có một con mèo. Nó màu trắng."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Chủ ngữ",
+          "structure": "I / you / he / she / it / we / they + V",
+          "example": "They know me."
+        },
+        {
+          "form": "Tân ngữ",
+          "structure": "V + me / you / him / her / it / us / them",
+          "example": "I know them."
+        },
+        {
+          "form": "Sau giới từ",
+          "structure": "preposition + object pronoun",
+          "example": "with her, for us"
+        }
+      ],
+      "note": "Đọc cấu trúc cùng ví dụ và luôn kiểm tra vai trò, số lượng hoặc dạng động từ theo từng trường hợp."
+    },
+    "rules": [
+      {
+        "case": "Nam / nữ",
+        "rule": "he-him / she-her",
+        "example": "He called her."
+      },
+      {
+        "case": "Vật hoặc con vật",
+        "rule": "it ở cả chủ ngữ và tân ngữ",
+        "example": "It is new. I bought it."
+      },
+      {
+        "case": "Người nói + người khác",
+        "rule": "we-us",
+        "example": "We invited them."
+      },
+      {
+        "case": "Nhiều người/vật khác",
+        "rule": "they-them",
+        "example": "They helped us."
+      }
+    ],
+    "signals": [
+      "trước động từ chính",
+      "sau động từ",
+      "sau for/to/with/about",
+      "thay danh từ đã nhắc"
+    ],
+    "examples": [
+      {
+        "en": "They live near us.",
+        "vi": "Họ sống gần chúng tôi.",
+        "note": "They là chủ ngữ; us sau giới từ."
+      },
+      {
+        "en": "Can you help me?",
+        "vi": "Bạn có thể giúp tôi không?",
+        "note": "you là chủ ngữ; me là tân ngữ."
+      },
+      {
+        "en": "He sent her an email.",
+        "vi": "Anh ấy gửi cho cô ấy một email.",
+        "note": "He làm chủ ngữ; her làm tân ngữ."
+      },
+      {
+        "en": "The book is interesting. It has ten chapters.",
+        "vi": "Cuốn sách thú vị. Nó có mười chương.",
+        "note": "It thay cho the book."
+      },
+      {
+        "en": "Lan and I are classmates. We study together.",
+        "vi": "Lan và tôi là bạn cùng lớp. Chúng tôi học cùng nhau.",
+        "note": "We thay cho Lan and I."
+      },
+      {
+        "en": "Please wait for them.",
+        "vi": "Vui lòng đợi họ.",
+        "note": "Sau giới từ for dùng them."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Me am tired.",
+        "right": "I am tired.",
+        "why": "Vị trí chủ ngữ phải dùng I."
+      },
+      {
+        "wrong": "She called he.",
+        "right": "She called him.",
+        "why": "Sau động từ called cần đại từ tân ngữ him."
+      },
+      {
+        "wrong": "This is for they.",
+        "right": "This is for them.",
+        "why": "Sau giới từ for dùng đại từ tân ngữ."
+      }
+    ],
+    "tips": "**Mẹo:** Đứng trước động từ chia thì → chọn đại từ chủ ngữ. Đứng sau động từ hoặc giới từ → chọn đại từ tân ngữ. Học theo cặp: I–me, he–him, she–her, we–us, they–them.",
+    "comparison": "**subject vs object pronouns:** *She likes him*: she thực hiện hành động, him nhận hành động. **it vs they:** it thay một vật; they thay nhiều người hoặc vật.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Tom is my friend. ___ lives nearby.",
+      "opts": [
+        "He",
+        "Him",
+        "His"
+      ],
+      "answer": "He",
+      "fb": "Vị trí chủ ngữ trước lives cần He."
+    },
+    {
+      "type": "mcq",
+      "q": "I see Anna every day. I see ___ at school.",
+      "opts": [
+        "she",
+        "her",
+        "hers"
+      ],
+      "answer": "her",
+      "fb": "Sau động từ see cần tân ngữ her."
+    },
+    {
+      "type": "mcq",
+      "q": "Our teacher gave ___ extra homework.",
+      "opts": [
+        "we",
+        "us",
+        "our"
+      ],
+      "answer": "us",
+      "fb": "Sau gave cần tân ngữ us."
+    },
+    {
+      "type": "fill",
+      "q": "My parents are kind. ___ help me a lot.",
+      "answer": [
+        "they"
+      ],
+      "fb": "Thay my parents ở vị trí chủ ngữ bằng they."
+    },
+    {
+      "type": "fill",
+      "q": "Please listen to ___. (I)",
+      "answer": [
+        "me"
+      ],
+      "fb": "Sau giới từ to dùng me."
+    },
+    {
+      "type": "fill",
+      "q": "I like these shoes, so I bought ___.",
+      "answer": [
+        "them"
+      ],
+      "fb": "Thay shoes số nhiều ở vị trí tân ngữ bằng them."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"Me am tired.\"",
+      "answer": false,
+      "fb": "SAI. Vị trí chủ ngữ phải dùng I. Câu đúng: \"I am tired.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"She called he.\"",
+      "answer": false,
+      "fb": "SAI. Sau động từ called cần đại từ tân ngữ him. Câu đúng: \"She called him.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"This is for they.\"",
+      "answer": false,
+      "fb": "SAI. Sau giới từ for dùng đại từ tân ngữ. Câu đúng: \"This is for them.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "They live near us.",
+        "Me am tired.",
+        "The book is interesting. It has ten chapters."
+      ],
+      "answer": "Me am tired.",
+      "fb": "Vị trí chủ ngữ phải dùng I. Câu đúng: \"I am tired.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Can you help me?",
+        "She called he.",
+        "Lan and I are classmates. We study together."
+      ],
+      "answer": "She called he.",
+      "fb": "Sau động từ called cần đại từ tân ngữ him. Câu đúng: \"She called him.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "He sent her an email.",
+        "This is for they.",
+        "Please wait for them."
+      ],
+      "answer": "This is for they.",
+      "fb": "Sau giới từ for dùng đại từ tân ngữ. Câu đúng: \"This is for them.\""
+    }
+  ]
+}

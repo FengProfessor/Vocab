@@ -448,7 +448,9 @@ export default function GrammarLearnPage() {
                 }
               }}
             >
-              {formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')}
+              {activeLesson.source === 'ai-golden'
+                ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
+                : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')}
             </ReactMarkdown>
           </div>
 

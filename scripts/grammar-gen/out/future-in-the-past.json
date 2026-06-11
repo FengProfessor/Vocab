@@ -1,0 +1,265 @@
+{
+  "slug": "future-in-the-past",
+  "title": "Future in the Past",
+  "title_vi": "Tương lai trong quá khứ",
+  "level": "advanced",
+  "order": 52,
+  "sections": {
+    "definition": "Future in the Past dùng **tương lai trong quá khứ** để nhìn một sự kiện tương lai từ một mốc kể chuyện quá khứ. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "I knew she would succeed.",
+        "vi": "Tôi biết cô ấy sẽ thành công."
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "They were going to leave, but it rained.",
+        "vi": "Họ định rời đi nhưng trời mưa."
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "He was about to speak when the phone rang.",
+        "vi": "Anh ấy sắp nói thì điện thoại reo."
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "She promised she would call.",
+        "vi": "Cô ấy hứa sẽ gọi."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "would + V",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "was/were going to + V",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "was/were about to + V",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "would + V",
+        "example": "I knew she would succeed."
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "was/were going to + V",
+        "example": "They were going to leave, but it rained."
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "was/were about to + V",
+        "example": "He was about to speak when the phone rang."
+      }
+    ],
+    "signals": [
+      "by",
+      "before",
+      "when",
+      "for",
+      "since",
+      "this time"
+    ],
+    "examples": [
+      {
+        "en": "I knew she would succeed.",
+        "vi": "Tôi biết cô ấy sẽ thành công.",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "They were going to leave, but it rained.",
+        "vi": "Họ định rời đi nhưng trời mưa.",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "He was about to speak when the phone rang.",
+        "vi": "Anh ấy sắp nói thì điện thoại reo.",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "She promised she would call.",
+        "vi": "Cô ấy hứa sẽ gọi.",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "We were to meet the next day.",
+        "vi": "Chúng tôi dự kiến gặp nhau ngày hôm sau.",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "I thought the journey would be easy.",
+        "vi": "Tôi đã nghĩ chuyến đi sẽ dễ dàng.",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “would + V”.",
+        "right": "I knew she would succeed.",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “was/were going to + V”.",
+        "right": "They were going to leave, but it rained.",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "He was about to speak when the phone rang.",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **would + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** will nhìn từ hiện tại; would nhìn tương lai từ một điểm trong quá khứ.",
+    "timeline": {
+      "caption": "Đặt một mốc tham chiếu và quan sát hành động của Future in the Past diễn ra trước, tại hoặc hướng tới mốc đó.",
+      "points": [
+        {
+          "label": "quá khứ",
+          "note": "mốc trước"
+        },
+        {
+          "label": "điểm tham chiếu",
+          "note": "trọng tâm"
+        },
+        {
+          "label": "tương lai",
+          "note": "mốc sau"
+        }
+      ]
+    }
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Future in the Past.",
+      "opts": [
+        "I knew she would succeed.",
+        "Not correctly: would + V.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "I knew she would succeed.",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "would + V",
+        "was/were going to + V",
+        "was/were about to + V"
+      ],
+      "answer": "would + V",
+      "fb": "Mẫu trọng tâm là would + V."
+    },
+    {
+      "type": "fill",
+      "q": "Hoàn thành theo mẫu: They ___ going to leave, but it rained.",
+      "answer": [
+        "were"
+      ],
+      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Future in the Past",
+        "future in the past"
+      ],
+      "fb": "Chủ điểm là Future in the Past."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “He was about to speak when the phone rang.”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Future in the Past chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "She promised she would call.",
+        "We were to meet the next day.",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Tôi đã nghĩ chuyến đi sẽ dễ dàng.”",
+      "answer": [
+        "I thought the journey would be easy."
+      ],
+      "fb": "I thought the journey would be easy."
+    },
+    {
+      "type": "tf",
+      "q": "“I knew she would succeed.” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "I thought the journey would be easy.",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "I thought the journey would be easy.",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}

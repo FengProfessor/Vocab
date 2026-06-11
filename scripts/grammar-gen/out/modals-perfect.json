@@ -1,0 +1,242 @@
+{
+  "slug": "modals-perfect",
+  "title": "Perfect Modals (should have, etc.)",
+  "title_vi": "Khuyết thiếu hoàn thành (should have...)",
+  "level": "advanced",
+  "order": 51,
+  "sections": {
+    "definition": "Perfect Modals (should have, etc.) dùng **modal perfect** để đánh giá, suy đoán hoặc tiếc nuối về hành động trong quá khứ. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "You should have called me.",
+        "vi": "Lẽ ra bạn nên gọi tôi."
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "She must have forgotten.",
+        "vi": "Chắc hẳn cô ấy đã quên."
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "They might have taken the wrong bus.",
+        "vi": "Có thể họ đã đi nhầm xe buýt."
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "He can't have finished already.",
+        "vi": "Anh ấy không thể đã làm xong rồi."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "modal + have + V3",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "should/ought to have + V3",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "must/might/can't have + V3",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "modal + have + V3",
+        "example": "You should have called me."
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "should/ought to have + V3",
+        "example": "She must have forgotten."
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "must/might/can't have + V3",
+        "example": "They might have taken the wrong bus."
+      }
+    ],
+    "signals": [],
+    "examples": [
+      {
+        "en": "You should have called me.",
+        "vi": "Lẽ ra bạn nên gọi tôi.",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "She must have forgotten.",
+        "vi": "Chắc hẳn cô ấy đã quên.",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "They might have taken the wrong bus.",
+        "vi": "Có thể họ đã đi nhầm xe buýt.",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "He can't have finished already.",
+        "vi": "Anh ấy không thể đã làm xong rồi.",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "We could have won.",
+        "vi": "Chúng tôi đã có thể thắng.",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "I needn't have brought food.",
+        "vi": "Tôi đã mang đồ ăn dù không cần.",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “modal + have + V3”.",
+        "right": "You should have called me.",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “should/ought to have + V3”.",
+        "right": "She must have forgotten.",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "They might have taken the wrong bus.",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **modal + have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** didn't need to có thể là không làm vì không cần; needn't have done là đã làm nhưng hóa ra không cần.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Perfect Modals (should have, etc.).",
+      "opts": [
+        "You should have called me.",
+        "Not correctly: modal + have + V3.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "You should have called me.",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "modal + have + V3",
+        "should/ought to have + V3",
+        "must/might/can't have + V3"
+      ],
+      "answer": "modal + have + V3",
+      "fb": "Mẫu trọng tâm là modal + have + V3."
+    },
+    {
+      "type": "fill",
+      "q": "Hoàn thành theo mẫu: She ___ have forgotten.",
+      "answer": [
+        "must"
+      ],
+      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Perfect Modals (should have, etc.)",
+        "perfect modals (should have, etc.)"
+      ],
+      "fb": "Chủ điểm là Perfect Modals (should have, etc.)."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “They might have taken the wrong bus.”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Perfect Modals (should have, etc.) chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "He can't have finished already.",
+        "We could have won.",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Tôi đã mang đồ ăn dù không cần.”",
+      "answer": [
+        "I needn't have brought food."
+      ],
+      "fb": "I needn't have brought food."
+    },
+    {
+      "type": "tf",
+      "q": "“You should have called me.” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "I needn't have brought food.",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "I needn't have brought food.",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}

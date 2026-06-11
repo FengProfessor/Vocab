@@ -1,0 +1,242 @@
+{
+  "slug": "modals-obligation",
+  "title": "Modals: Obligation (must/have to)",
+  "title_vi": "Khuyết thiếu: bắt buộc (must/have to)",
+  "level": "intermediate",
+  "order": 29,
+  "sections": {
+    "definition": "Modals: Obligation (must/have to) dùng **must, have to, mustn't và don't have to** để diễn tả bắt buộc, cấm đoán hoặc không cần thiết. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "You must wear a helmet.",
+        "vi": "Bạn phải đội mũ bảo hiểm."
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "I have to submit this today.",
+        "vi": "Tôi phải nộp việc này hôm nay."
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Visitors mustn't touch the paintings.",
+        "vi": "Khách tham quan không được chạm vào tranh."
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "You don't have to come early.",
+        "vi": "Bạn không cần đến sớm."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "S + must + V",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "S + have/has to + V",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "mustn't + V / don't have to + V",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "S + must + V",
+        "example": "You must wear a helmet."
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "S + have/has to + V",
+        "example": "I have to submit this today."
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "mustn't + V / don't have to + V",
+        "example": "Visitors mustn't touch the paintings."
+      }
+    ],
+    "signals": [],
+    "examples": [
+      {
+        "en": "You must wear a helmet.",
+        "vi": "Bạn phải đội mũ bảo hiểm.",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "I have to submit this today.",
+        "vi": "Tôi phải nộp việc này hôm nay.",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Visitors mustn't touch the paintings.",
+        "vi": "Khách tham quan không được chạm vào tranh.",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "You don't have to come early.",
+        "vi": "Bạn không cần đến sớm.",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Did she have to pay a fee?",
+        "vi": "Cô ấy có phải trả phí không?",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "We had to cancel the trip.",
+        "vi": "Chúng tôi đã phải hủy chuyến đi.",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + must + V”.",
+        "right": "You must wear a helmet.",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + have/has to + V”.",
+        "right": "I have to submit this today.",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "Visitors mustn't touch the paintings.",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **S + must + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** mustn't = bị cấm; don't have to = không cần, hoàn toàn khác nghĩa.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Modals: Obligation (must/have to).",
+      "opts": [
+        "You must wear a helmet.",
+        "Not correctly: S + must + V.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "You must wear a helmet.",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "S + must + V",
+        "S + have/has to + V",
+        "mustn't + V / don't have to + V"
+      ],
+      "answer": "S + must + V",
+      "fb": "Mẫu trọng tâm là S + must + V."
+    },
+    {
+      "type": "fill",
+      "q": "Hoàn thành theo mẫu: I ___ to submit this today.",
+      "answer": [
+        "have"
+      ],
+      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Modals: Obligation (must/have to)",
+        "modals: obligation (must/have to)"
+      ],
+      "fb": "Chủ điểm là Modals: Obligation (must/have to)."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Visitors mustn't touch the paintings.”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Modals: Obligation (must/have to) chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "You don't have to come early.",
+        "Did she have to pay a fee?",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Chúng tôi đã phải hủy chuyến đi.”",
+      "answer": [
+        "We had to cancel the trip."
+      ],
+      "fb": "We had to cancel the trip."
+    },
+    {
+      "type": "tf",
+      "q": "“You must wear a helmet.” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "We had to cancel the trip.",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "We had to cancel the trip.",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}

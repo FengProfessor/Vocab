@@ -1,0 +1,265 @@
+{
+  "slug": "past-perfect",
+  "title": "Past Perfect",
+  "title_vi": "Thì Quá khứ hoàn thành",
+  "level": "intermediate",
+  "order": 22,
+  "sections": {
+    "definition": "Past Perfect dùng **quá khứ hoàn thành** cho hành động đã hoàn tất trước một mốc hoặc hành động khác trong quá khứ. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "The train had left before we arrived.",
+        "vi": "Tàu đã rời đi trước khi chúng tôi đến."
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "She had never flown before that trip.",
+        "vi": "Trước chuyến đi đó cô ấy chưa từng bay."
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Had you finished when he called?",
+        "vi": "Bạn đã làm xong khi anh ấy gọi chưa?"
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "I hadn't seen the warning.",
+        "vi": "Tôi đã không nhìn thấy cảnh báo."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "S + had + V3",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "S + had not + V3",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "Had + S + V3?",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "S + had + V3",
+        "example": "The train had left before we arrived."
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "S + had not + V3",
+        "example": "She had never flown before that trip."
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "Had + S + V3?",
+        "example": "Had you finished when he called?"
+      }
+    ],
+    "signals": [
+      "by",
+      "before",
+      "when",
+      "for",
+      "since",
+      "this time"
+    ],
+    "examples": [
+      {
+        "en": "The train had left before we arrived.",
+        "vi": "Tàu đã rời đi trước khi chúng tôi đến.",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "She had never flown before that trip.",
+        "vi": "Trước chuyến đi đó cô ấy chưa từng bay.",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Had you finished when he called?",
+        "vi": "Bạn đã làm xong khi anh ấy gọi chưa?",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "I hadn't seen the warning.",
+        "vi": "Tôi đã không nhìn thấy cảnh báo.",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "After they had eaten, they went out.",
+        "vi": "Sau khi ăn xong, họ ra ngoài.",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "By noon, we had completed the report.",
+        "vi": "Đến trưa, chúng tôi đã hoàn thành báo cáo.",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + had + V3”.",
+        "right": "The train had left before we arrived.",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + had not + V3”.",
+        "right": "She had never flown before that trip.",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "Had you finished when he called?",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **S + had + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** past simple kể các sự kiện quá khứ; past perfect làm rõ sự kiện xảy ra sớm hơn.",
+    "timeline": {
+      "caption": "Đặt một mốc tham chiếu và quan sát hành động của Past Perfect diễn ra trước, tại hoặc hướng tới mốc đó.",
+      "points": [
+        {
+          "label": "quá khứ",
+          "note": "mốc trước"
+        },
+        {
+          "label": "điểm tham chiếu",
+          "note": "trọng tâm"
+        },
+        {
+          "label": "tương lai",
+          "note": "mốc sau"
+        }
+      ]
+    }
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Past Perfect.",
+      "opts": [
+        "The train had left before we arrived.",
+        "Not correctly: S + had + V3.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "The train had left before we arrived.",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "S + had + V3",
+        "S + had not + V3",
+        "Had + S + V3?"
+      ],
+      "answer": "S + had + V3",
+      "fb": "Mẫu trọng tâm là S + had + V3."
+    },
+    {
+      "type": "fill",
+      "q": "Hoàn thành theo mẫu: She ___ never flown before that trip.",
+      "answer": [
+        "had"
+      ],
+      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Past Perfect",
+        "past perfect"
+      ],
+      "fb": "Chủ điểm là Past Perfect."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Had you finished when he called?”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Past Perfect chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "I hadn't seen the warning.",
+        "After they had eaten, they went out.",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Đến trưa, chúng tôi đã hoàn thành báo cáo.”",
+      "answer": [
+        "By noon, we had completed the report."
+      ],
+      "fb": "By noon, we had completed the report."
+    },
+    {
+      "type": "tf",
+      "q": "“The train had left before we arrived.” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "By noon, we had completed the report.",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "By noon, we had completed the report.",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}

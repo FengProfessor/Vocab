@@ -1,0 +1,282 @@
+{
+  "slug": "past-simple",
+  "title": "Past Simple",
+  "title_vi": "Thì Quá khứ đơn",
+  "level": "beginner",
+  "order": 3,
+  "sections": {
+    "definition": "**Thì Quá khứ đơn** (Past Simple) là thì dùng để diễn tả những hành động **đã xảy ra và kết thúc** trong quá khứ. Đây là một trong những thì cơ bản nhất trong tiếng Anh, thường được sử dụng để kể lại những sự kiện đã xảy ra trước đây.",
+    "usage": [
+      {
+        "icon": "🕰️",
+        "label": "Sự kiện đã xảy ra và kết thúc",
+        "en": "I went to the store yesterday.",
+        "vi": "Tôi đã đi đến cửa hàng vào ngày hôm qua."
+      },
+      {
+        "icon": "📚",
+        "label": "Trình độ học vấn",
+        "en": "She studied English at university.",
+        "vi": "Cô ấy đã học tiếng Anh tại trường đại học."
+      },
+      {
+        "icon": "🏆",
+        "label": "Thành tựu, giải thưởng",
+        "en": "He won the championship last year.",
+        "vi": "Anh ấy đã giành giải vô địch năm ngoái."
+      },
+      {
+        "icon": "📝",
+        "label": "Trải nghiệm, kinh nghiệm",
+        "en": "They traveled to Europe in 2019.",
+        "vi": "Họ đã đi du lịch đến châu Âu vào năm 2019."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "(+) Khẳng định",
+          "base": "S + V-ed (quá khứ)",
+          "note": "Đa số động từ thêm -ed"
+        },
+        {
+          "form": "(-) Phủ định",
+          "base": "S + did not + V (nguyên thể)",
+          "note": "Dùng did not + V nguyên thể"
+        },
+        {
+          "form": "(?) Nghi vấn",
+          "base": "Did + S + V (nguyên thể)?",
+          "note": "Dùng Did + S + V nguyên thể"
+        }
+      ],
+      "note": "Một số động từ bất quy tắc không thêm -ed. Ví dụ: go → went, take → took."
+    },
+    "rules": [
+      {
+        "case": "Đa số động từ",
+        "rule": "thêm -ed",
+        "example": "walk → walked"
+      },
+      {
+        "case": "Tận cùng -e",
+        "rule": "thêm -d",
+        "example": "love → loved"
+      },
+      {
+        "case": "Tận cùng -y (chữ trước y là phụ âm)",
+        "rule": "thay y bằng -ied",
+        "example": "study → studied"
+      },
+      {
+        "case": "Nguyên âm + y",
+        "rule": "thêm -ed",
+        "example": "play → played"
+      }
+    ],
+    "signals": [
+      "yesterday",
+      "last week",
+      "last month",
+      "last year",
+      "ago",
+      "in 2019",
+      "when I was a child"
+    ],
+    "examples": [
+      {
+        "en": "I ate breakfast at 7 a.m.",
+        "vi": "Tôi đã ăn bữa sáng vào lúc 7 giờ sáng.",
+        "note": "Khẳng định, hành động đã xảy ra và kết thúc."
+      },
+      {
+        "en": "She didn't go to the party.",
+        "vi": "Cô ấy đã không đi dự tiệc.",
+        "note": "Phủ định, sử dụng didn't + V nguyên thể."
+      },
+      {
+        "en": "Did you finish your homework?",
+        "vi": "Bạn đã hoàn thành bài tập về nhà chưa?",
+        "note": "Nghi vấn, sử dụng Did + S + V nguyên thể."
+      },
+      {
+        "en": "They got married in 2015.",
+        "vi": "Họ đã kết hôn vào năm 2015.",
+        "note": "Hành động đã xảy ra và kết thúc trong quá khứ."
+      },
+      {
+        "en": "He studied law at university.",
+        "vi": "Anh ấy đã học luật tại trường đại học.",
+        "note": "Trình độ học vấn, sử dụng quá khứ đơn."
+      },
+      {
+        "en": "We didn't travel to Japan last year.",
+        "vi": "Chúng tôi đã không đi du lịch đến Nhật Bản năm ngoái.",
+        "note": "Phủ định, sử dụng didn't + V nguyên thể."
+      },
+      {
+        "en": "What did you eat for lunch yesterday?",
+        "vi": "Bạn đã ăn gì cho bữa trưa vào ngày hôm qua?",
+        "note": "Câu hỏi Wh- + Did + S + V nguyên thể."
+      },
+      {
+        "en": "She didn't like the movie.",
+        "vi": "Cô ấy đã không thích bộ phim.",
+        "note": "Phủ định, sử dụng didn't + V nguyên thể."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "I go to the store yesterday.",
+        "right": "I went to the store yesterday.",
+        "why": "Quên sử dụng thì quá khứ đơn."
+      },
+      {
+        "wrong": "She don't like coffee.",
+        "right": "She didn't like coffee.",
+        "why": "Sử dụng didn't + V nguyên thể trong quá khứ đơn."
+      },
+      {
+        "wrong": "Did she go to the party?",
+        "right": "Did she go to the party? (Đúng)",
+        "why": "Câu hỏi nghi vấn đã đúng."
+      },
+      {
+        "wrong": "I eat breakfast at 7 a.m. yesterday.",
+        "right": "I ate breakfast at 7 a.m. yesterday.",
+        "why": "Quên sử dụng thì quá khứ đơn."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** Sử dụng thì quá khứ đơn để diễn tả những hành động đã xảy ra và kết thúc trong quá khứ. Đa số động từ thêm -ed để tạo thành quá khứ đơn.",
+    "comparison": "**Quá khứ đơn vs Hiện tại đơn:** Quá khứ đơn dùng để diễn tả hành động đã xảy ra và kết thúc trong quá khứ, trong khi hiện tại đơn dùng để diễn tả thói quen, sự thật hiển nhiên hoặc lịch trình cố định.",
+    "timeline": {
+      "caption": "Ví dụ \"I went to the store yesterday\" — hành động đã xảy ra và kết thúc vào ngày hôm qua.",
+      "points": [
+        {
+          "label": "Hôm qua",
+          "note": "Quá khứ"
+        },
+        {
+          "label": "Ngày hôm nay",
+          "note": "Hiện tại"
+        },
+        {
+          "label": "Ngày mai",
+          "note": "Tương lai"
+        }
+      ]
+    }
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "She ___ to the movies last night.",
+      "opts": [
+        "go",
+        "goes",
+        "went"
+      ],
+      "answer": "went",
+      "fb": "Sử dụng quá khứ đơn để diễn tả hành động đã xảy ra và kết thúc."
+    },
+    {
+      "type": "fill",
+      "q": "I ___ (eat) breakfast at 7 a.m. yesterday.",
+      "answer": [
+        "ate"
+      ],
+      "fb": "Sử dụng quá khứ đơn để diễn tả hành động đã xảy ra và kết thúc."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"I go to the store yesterday.\"",
+      "answer": false,
+      "fb": "Sai, phải sử dụng quá khứ đơn: \"I went to the store yesterday.\""
+    },
+    {
+      "type": "mcq",
+      "q": "Câu sau là câu gì?",
+      "opts": [
+        "Khẳng định",
+        "Phủ định",
+        "Nghi vấn"
+      ],
+      "answer": "Khẳng định",
+      "fb": "Câu \"I went to the store yesterday\" là câu khẳng định."
+    },
+    {
+      "type": "fill",
+      "q": "They ___ (not / go) to the party.",
+      "answer": [
+        "did not go"
+      ],
+      "fb": "Sử dụng didn't + V nguyên thể trong quá khứ đơn."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "I went to the store yesterday.",
+        "I go to the store yesterday.",
+        "She didn't like coffee."
+      ],
+      "answer": "I go to the store yesterday.",
+      "fb": "Phải sử dụng quá khứ đơn: \"I went to the store yesterday.\""
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng phủ định của \"They went to the movies\" là:",
+      "opts": [
+        "They didn't go to the movies.",
+        "They don't go to the movies.",
+        "They doesn't go to the movies."
+      ],
+      "answer": "They didn't go to the movies.",
+      "fb": "Sử dụng didn't + V nguyên thể trong quá khứ đơn."
+    },
+    {
+      "type": "fill",
+      "q": "The company ___ (start) in 2010.",
+      "answer": [
+        "started"
+      ],
+      "fb": "Sử dụng quá khứ đơn để diễn tả hành động đã xảy ra và kết thúc."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn câu đúng?",
+      "opts": [
+        "I go to the store yesterday.",
+        "I went to the store yesterday.",
+        "I am going to the store yesterday."
+      ],
+      "answer": "I went to the store yesterday.",
+      "fb": "Sử dụng quá khứ đơn để diễn tả hành động đã xảy ra và kết thúc."
+    },
+    {
+      "type": "fill",
+      "q": "Did you ___ (finish) your homework?",
+      "answer": [
+        "finish"
+      ],
+      "fb": "Sử dụng Did + S + V nguyên thể trong câu hỏi nghi vấn."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"She didn't likes coffee.\"",
+      "answer": false,
+      "fb": "Sai, phải sử dụng didn't + V nguyên thể: \"She didn't like coffee.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "I went to the store yesterday.",
+        "I go to the store yesterday.",
+        "She didn't like coffee."
+      ],
+      "answer": "I go to the store yesterday.",
+      "fb": "Phải sử dụng quá khứ đơn: \"I went to the store yesterday.\""
+    }
+  ]
+}

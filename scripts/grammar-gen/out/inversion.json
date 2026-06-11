@@ -1,0 +1,242 @@
+{
+  "slug": "inversion",
+  "title": "Inversion",
+  "title_vi": "Đảo ngữ",
+  "level": "advanced",
+  "order": 44,
+  "sections": {
+    "definition": "Inversion dùng **đảo ngữ** để tạo sắc thái trang trọng hoặc nhấn mạnh bằng cách đưa trợ động từ lên trước chủ ngữ. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "Never have I seen such a view.",
+        "vi": "Tôi chưa bao giờ thấy cảnh như vậy."
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "Rarely does he complain.",
+        "vi": "Anh ấy hiếm khi phàn nàn."
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Only then did I understand.",
+        "vi": "Chỉ lúc đó tôi mới hiểu."
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Not only did she apologize, but she also paid.",
+        "vi": "Cô ấy không chỉ xin lỗi mà còn trả tiền."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "negative adverbial + auxiliary + S + V",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "Only + expression + auxiliary + S + V",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "Had/Were/Should + S ...",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "negative adverbial + auxiliary + S + V",
+        "example": "Never have I seen such a view."
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "Only + expression + auxiliary + S + V",
+        "example": "Rarely does he complain."
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "Had/Were/Should + S ...",
+        "example": "Only then did I understand."
+      }
+    ],
+    "signals": [],
+    "examples": [
+      {
+        "en": "Never have I seen such a view.",
+        "vi": "Tôi chưa bao giờ thấy cảnh như vậy.",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Rarely does he complain.",
+        "vi": "Anh ấy hiếm khi phàn nàn.",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Only then did I understand.",
+        "vi": "Chỉ lúc đó tôi mới hiểu.",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Not only did she apologize, but she also paid.",
+        "vi": "Cô ấy không chỉ xin lỗi mà còn trả tiền.",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Had I known, I would have stayed.",
+        "vi": "Nếu biết, tôi đã ở lại.",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Under no circumstances should you open this door.",
+        "vi": "Trong bất kỳ hoàn cảnh nào bạn cũng không được mở cửa này.",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “negative adverbial + auxiliary + S + V”.",
+        "right": "Never have I seen such a view.",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “Only + expression + auxiliary + S + V”.",
+        "right": "Rarely does he complain.",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "Only then did I understand.",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **negative adverbial + auxiliary + S + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** đảo ngữ cần trợ động từ như câu hỏi nhưng toàn câu vẫn là câu trần thuật.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Inversion.",
+      "opts": [
+        "Never have I seen such a view.",
+        "Not correctly: negative adverbial + auxiliary + S + V.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "Never have I seen such a view.",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "negative adverbial + auxiliary + S + V",
+        "Only + expression + auxiliary + S + V",
+        "Had/Were/Should + S ..."
+      ],
+      "answer": "negative adverbial + auxiliary + S + V",
+      "fb": "Mẫu trọng tâm là negative adverbial + auxiliary + S + V."
+    },
+    {
+      "type": "fill",
+      "q": "Ho?n th?nh c?u: ___ does he complain.",
+      "answer": [
+        "Rarely"
+      ],
+      "fb": "T? c?n ?i?n l? ?Rarely? ?? c?u ??ng v? t? nhi?n."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Inversion",
+        "inversion"
+      ],
+      "fb": "Chủ điểm là Inversion."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Only then did I understand.”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Inversion chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "Not only did she apologize, but she also paid.",
+        "Had I known, I would have stayed.",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Trong bất kỳ hoàn cảnh nào bạn cũng không được mở cửa này.”",
+      "answer": [
+        "Under no circumstances should you open this door."
+      ],
+      "fb": "Under no circumstances should you open this door."
+    },
+    {
+      "type": "tf",
+      "q": "“Never have I seen such a view.” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "Under no circumstances should you open this door.",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "Under no circumstances should you open this door.",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}

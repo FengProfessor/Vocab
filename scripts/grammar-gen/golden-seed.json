@@ -1,0 +1,73 @@
+{
+  "slug": "present-simple",
+  "title": "Present Simple",
+  "title_vi": "Thì Hiện tại đơn",
+  "level": "beginner",
+  "order": 1,
+  "sections": {
+    "definition": "Thì **Hiện tại đơn** (Present Simple) diễn tả những hành động **lặp đi lặp lại** (thói quen), những **sự thật hiển nhiên**, hoặc **lịch trình cố định**. Đây là thì nền tảng đầu tiên — gần như mọi câu tiếng Anh cơ bản đều dùng nó.",
+    "usage": [
+      { "icon": "🔁", "label": "Thói quen, hành động lặp lại", "en": "I drink coffee every morning.", "vi": "Tôi uống cà phê mỗi sáng." },
+      { "icon": "🌍", "label": "Sự thật hiển nhiên, chân lý", "en": "The sun rises in the east.", "vi": "Mặt trời mọc ở hướng đông." },
+      { "icon": "🕐", "label": "Lịch trình, thời gian biểu cố định", "en": "The train leaves at 7 a.m.", "vi": "Tàu khởi hành lúc 7 giờ sáng." },
+      { "icon": "💭", "label": "Cảm xúc, sở hữu, trạng thái", "en": "She loves music. I have a dog.", "vi": "Cô ấy yêu âm nhạc. Tôi có một con chó." }
+    ],
+    "formula": {
+      "rows": [
+        { "form": "(+) Khẳng định", "base": "S + V(nguyên thể)", "third": "S + V-s/es" },
+        { "form": "(−) Phủ định", "base": "S + don't + V", "third": "S + doesn't + V" },
+        { "form": "(?) Nghi vấn", "base": "Do + S + V?", "third": "Does + S + V?" }
+      ],
+      "note": "He / She / It → thêm -s/es ở dạng khẳng định, NHƯNG dùng doesn't / Does (động từ về nguyên thể)."
+    },
+    "rules": [
+      { "case": "Đa số động từ", "rule": "+ s", "example": "work → works" },
+      { "case": "Tận cùng o, s, x, ch, sh", "rule": "+ es", "example": "go → goes · watch → watches" },
+      { "case": "Phụ âm + y (chữ trước y là phụ âm)", "rule": "đổi y → ies", "example": "study → studies (d = phụ âm)" },
+      { "case": "Nguyên âm + y (a,e,i,o,u trước y)", "rule": "giữ y, + s", "example": "play → plays (a = nguyên âm)" }
+    ],
+    "signals": ["always", "usually", "often", "sometimes", "rarely", "never", "every day", "on Mondays", "twice a week"],
+    "examples": [
+      { "en": "She teaches English every day.", "vi": "Cô ấy dạy tiếng Anh mỗi ngày.", "note": "Khẳng định, ngôi thứ 3 số ít → teaches." },
+      { "en": "They don't watch TV on weekdays.", "vi": "Họ không xem TV vào các ngày trong tuần.", "note": "Phủ định với don't + V nguyên thể." },
+      { "en": "Does he play football?", "vi": "Anh ấy có chơi bóng đá không?", "note": "Nghi vấn với Does + V nguyên thể." },
+      { "en": "Water boils at 100°C.", "vi": "Nước sôi ở 100 độ C.", "note": "Sự thật hiển nhiên." },
+      { "en": "I usually get up at six.", "vi": "Tôi thường thức dậy lúc 6 giờ.", "note": "Trạng từ tần suất 'usually' đứng trước động từ." },
+      { "en": "My father works in a bank.", "vi": "Bố tôi làm việc ở ngân hàng.", "note": "Thói quen / sự thật về công việc." },
+      { "en": "We don't live in Hanoi.", "vi": "Chúng tôi không sống ở Hà Nội.", "note": "Phủ định ngôi số nhiều." },
+      { "en": "What time does the shop open?", "vi": "Cửa hàng mở cửa lúc mấy giờ?", "note": "Câu hỏi Wh- + does." }
+    ],
+    "mistakes": [
+      { "wrong": "He go to school.", "right": "He goes to school.", "why": "Quên thêm -s/es với He/She/It ở dạng khẳng định." },
+      { "wrong": "She doesn't likes tea.", "right": "She doesn't like tea.", "why": "Sau doesn't/don't, động từ trở về NGUYÊN thể." },
+      { "wrong": "Do she work here?", "right": "Does she work here?", "why": "He/She/It dùng Does, không dùng Do." },
+      { "wrong": "I am play tennis every day.", "right": "I play tennis every day.", "why": "Hiện tại đơn không dùng 'am/is/are' với động từ thường." }
+    ],
+    "tips": "**Mẹo nhớ:** \"He / She / It → thêm s\". Nhưng khi đã có **does / doesn't** thì động từ được \"nghỉ\", trở về nguyên thể. Trạng từ tần suất (always, usually, never...) đứng **trước** động từ thường nhưng **sau** động từ to be.",
+    "comparison": "**Hiện tại đơn vs Hiện tại tiếp diễn:** Hiện tại đơn = thói quen lặp lại nói chung (*I play tennis* — nói về sở thích). Hiện tại tiếp diễn = hành động đang diễn ra ngay lúc nói (*I am playing tennis* — ngay bây giờ).",
+    "timeline": {
+      "caption": "Ví dụ \"I drink coffee every morning\" — mỗi ☕ là một buổi sáng, lặp lại đều quanh hiện tại, không quan tâm bắt đầu hay kết thúc.",
+      "points": [
+        { "label": "☕ T2", "note": "quá khứ" },
+        { "label": "☕ T3", "note": "" },
+        { "label": "☕ hôm nay", "note": "hiện tại" },
+        { "label": "☕ T6", "note": "" },
+        { "label": "☕ T7", "note": "tương lai" }
+      ]
+    }
+  },
+  "exercises": [
+    { "type": "mcq", "q": "She ___ to school every day.", "opts": ["go", "goes", "going"], "answer": "goes", "fb": "go → goes (tận cùng o + es) với He/She/It." },
+    { "type": "mcq", "q": "___ they like coffee?", "opts": ["Does", "Do", "Are"], "answer": "Do", "fb": "I/You/We/They → Do." },
+    { "type": "fill", "q": "He ___ (watch) TV after dinner.", "answer": ["watches"], "fb": "watch → watches (tận cùng ch + es)." },
+    { "type": "fill", "q": "My sister ___ (study) at night.", "answer": ["studies"], "fb": "study → studies (phụ âm d trước y → ies)." },
+    { "type": "fill", "q": "We ___ (not / like) fish. (dạng rút gọn)", "answer": ["don't like", "do not like"], "fb": "We → don't like (don't + nguyên thể)." },
+    { "type": "tf", "q": "Câu sau đúng ngữ pháp không? → \"She don't like tea.\"", "answer": false, "fb": "SAI. She phải dùng doesn't → \"She doesn't like tea.\"" },
+    { "type": "tf", "q": "Câu sau đúng ngữ pháp không? → \"Water boils at 100°C.\"", "answer": true, "fb": "ĐÚNG. Sự thật hiển nhiên dùng hiện tại đơn." },
+    { "type": "error", "q": "Câu nào SAI ngữ pháp?", "opts": ["He goes to work by car.", "Do she work here?", "They don't watch TV."], "answer": "Do she work here?", "fb": "Phải là \"Does she work here?\" (He/She/It → Does)." },
+    { "type": "mcq", "q": "Dạng phủ định của \"They play games\" là:", "opts": ["They doesn't play games.", "They don't play games.", "They don't plays games."], "answer": "They don't play games.", "fb": "They + don't + V nguyên thể." },
+    { "type": "fill", "q": "The shop ___ (open) at 8 a.m.", "answer": ["opens"], "fb": "open → opens với 'The shop' (ngôi thứ 3 số ít)." },
+    { "type": "mcq", "q": "Chọn trạng từ tần suất đúng vị trí: 'I ___ eat breakfast.'", "opts": ["always", "every day", "at 7"], "answer": "always", "fb": "Trạng từ tần suất (always) đứng trước động từ thường." },
+    { "type": "fill", "q": "___ your brother speak French? (Do/Does)", "answer": ["does"], "fb": "your brother = He → Does." }
+  ]
+}

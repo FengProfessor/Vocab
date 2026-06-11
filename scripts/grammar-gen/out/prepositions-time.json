@@ -1,0 +1,249 @@
+{
+  "slug": "prepositions-time",
+  "title": "Prepositions of Time (in/on/at)",
+  "title_vi": "Giới từ chỉ thời gian (in/on/at)",
+  "level": "beginner",
+  "order": 16,
+  "sections": {
+    "definition": "**Giới từ chỉ thời gian** là những từ được sử dụng để chỉ thời gian xảy ra của một sự kiện hoặc hành động. **In**, **on**, và **at** là ba giới từ chỉ thời gian cơ bản nhất trong tiếng Anh.",
+    "usage": [
+      {
+        "icon": "📆",
+        "label": "Tháng, năm, thế kỷ",
+        "en": "I was born in June.",
+        "vi": "Tôi sinh ra vào tháng sáu."
+      },
+      {
+        "icon": "🕰️",
+        "label": "Giờ, thời điểm cụ thể",
+        "en": "The meeting starts at 5 o'clock.",
+        "vi": "Cuộc họp bắt đầu vào lúc 5 giờ."
+      },
+      {
+        "icon": "📅",
+        "label": "Ngày trong tuần, ngày lễ",
+        "en": "I have a meeting on Monday.",
+        "vi": "Tôi có một cuộc họp vào thứ hai."
+      },
+      {
+        "icon": "🌞",
+        "label": "Mùa",
+        "en": "I love swimming in summer.",
+        "vi": "Tôi yêu thích bơi lội vào mùa hè."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "In",
+          "time": "tháng, năm, thế kỷ, mùa",
+          "note": "Sử dụng với tháng, năm, thế kỷ, mùa"
+        },
+        {
+          "form": "On",
+          "time": "ngày trong tuần, ngày lễ",
+          "note": "Sử dụng với ngày trong tuần, ngày lễ"
+        },
+        {
+          "form": "At",
+          "time": "giờ, thời điểm cụ thể",
+          "note": "Sử dụng với giờ, thời điểm cụ thể"
+        }
+      ],
+      "note": "Lưu ý: Không sử dụng **in** với ngày trong tuần, không sử dụng **on** với giờ, và không sử dụng **at** với tháng hoặc năm."
+    },
+    "rules": [
+      {
+        "case": "Tháng",
+        "rule": "sử dụng **in**",
+        "example": "I was born in June."
+      },
+      {
+        "case": "Ngày trong tuần",
+        "rule": "sử dụng **on**",
+        "example": "I have a meeting on Monday."
+      },
+      {
+        "case": "Giờ",
+        "rule": "sử dụng **at**",
+        "example": "The meeting starts at 5 o'clock."
+      }
+    ],
+    "signals": [
+      "yesterday",
+      "today",
+      "tomorrow",
+      "next week",
+      "last year"
+    ],
+    "examples": [
+      {
+        "en": "I have a meeting in May.",
+        "vi": "Tôi có một cuộc họp vào tháng năm.",
+        "note": "Sử dụng **in** với tháng."
+      },
+      {
+        "en": "The party is on Saturday.",
+        "vi": "Bữa tiệc vào thứ bảy.",
+        "note": "Sử dụng **on** với ngày trong tuần."
+      },
+      {
+        "en": "I'll meet you at 7 o'clock.",
+        "vi": "Tôi sẽ gặp bạn vào lúc 7 giờ.",
+        "note": "Sử dụng **at** với giờ."
+      },
+      {
+        "en": "She was born in 1990.",
+        "vi": "Cô ấy sinh ra vào năm 1990.",
+        "note": "Sử dụng **in** với năm."
+      },
+      {
+        "en": "We're going to the beach in summer.",
+        "vi": "Chúng tôi sẽ đi đến bãi biển vào mùa hè.",
+        "note": "Sử dụng **in** với mùa."
+      },
+      {
+        "en": "The store is open on Sundays.",
+        "vi": "Cửa hàng mở cửa vào chủ nhật.",
+        "note": "Sử dụng **on** với ngày trong tuần."
+      },
+      {
+        "en": "The meeting starts at 9 am.",
+        "vi": "Cuộc họp bắt đầu vào lúc 9 giờ sáng.",
+        "note": "Sử dụng **at** với giờ."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "I have a meeting on May.",
+        "right": "I have a meeting in May.",
+        "why": "Sử dụng **in** với tháng."
+      },
+      {
+        "wrong": "The party is in Saturday.",
+        "right": "The party is on Saturday.",
+        "why": "Sử dụng **on** với ngày trong tuần."
+      },
+      {
+        "wrong": "I'll meet you in 7 o'clock.",
+        "right": "I'll meet you at 7 o'clock.",
+        "why": "Sử dụng **at** với giờ."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** Sử dụng **in** với tháng, năm, thế kỷ, mùa; sử dụng **on** với ngày trong tuần, ngày lễ; sử dụng **at** với giờ, thời điểm cụ thể.",
+    "comparison": "**In**, **on**, và **at** là ba giới từ chỉ thời gian khác nhau. Sử dụng **in** với thời gian dài, sử dụng **on** với thời gian ngắn, và sử dụng **at** với thời điểm cụ thể.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "I have a meeting ___ May.",
+      "opts": [
+        "in",
+        "on",
+        "at"
+      ],
+      "answer": "in",
+      "fb": "Sử dụng **in** với tháng."
+    },
+    {
+      "type": "mcq",
+      "q": "The party is ___ Saturday.",
+      "opts": [
+        "in",
+        "on",
+        "at"
+      ],
+      "answer": "on",
+      "fb": "Sử dụng **on** với ngày trong tuần."
+    },
+    {
+      "type": "mcq",
+      "q": "I'll meet you ___ 7 o'clock.",
+      "opts": [
+        "in",
+        "on",
+        "at"
+      ],
+      "answer": "at",
+      "fb": "Sử dụng **at** với giờ."
+    },
+    {
+      "type": "fill",
+      "q": "I was born ___ 1990.",
+      "answer": [
+        "in"
+      ],
+      "fb": "Sử dụng **in** với năm."
+    },
+    {
+      "type": "fill",
+      "q": "We're going to the beach ___ summer.",
+      "answer": [
+        "in"
+      ],
+      "fb": "Sử dụng **in** với mùa."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"I have a meeting on May.\"",
+      "answer": false,
+      "fb": "SAI. Sử dụng **in** với tháng."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"The party is in Saturday.\"",
+      "answer": false,
+      "fb": "SAI. Sử dụng **on** với ngày trong tuần."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "I have a meeting in May.",
+        "The party is on Saturday.",
+        "I'll meet you in 7 o'clock."
+      ],
+      "answer": "I'll meet you in 7 o'clock.",
+      "fb": "Phải là \"I'll meet you at 7 o'clock.\" (Sử dụng **at** với giờ)."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng đúng của câu \"I'll meet you at 7 o'clock.\" là:",
+      "opts": [
+        "I'll meet you in 7 o'clock.",
+        "I'll meet you on 7 o'clock.",
+        "I'll meet you at 7 o'clock."
+      ],
+      "answer": "I'll meet you at 7 o'clock.",
+      "fb": "Sử dụng **at** với giờ."
+    },
+    {
+      "type": "fill",
+      "q": "The store is open ___ Sundays.",
+      "answer": [
+        "on"
+      ],
+      "fb": "Sử dụng **on** với ngày trong tuần."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn giới từ đúng: 'I have a meeting ___ Monday.'",
+      "opts": [
+        "in",
+        "on",
+        "at"
+      ],
+      "answer": "on",
+      "fb": "Sử dụng **on** với ngày trong tuần."
+    },
+    {
+      "type": "fill",
+      "q": "I was born ___ 1990.",
+      "answer": [
+        "in"
+      ],
+      "fb": "Sử dụng **in** với năm."
+    }
+  ]
+}

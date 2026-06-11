@@ -1,0 +1,253 @@
+{
+  "slug": "future-will",
+  "title": "Future Simple (will)",
+  "title_vi": "Thì Tương lai đơn (will)",
+  "level": "beginner",
+  "order": 5,
+  "sections": {
+    "definition": "**Tương lai đơn với will** diễn tả quyết định ngay lúc nói, dự đoán dựa trên ý kiến, lời hứa, lời đề nghị và sự việc tương lai được xem là chắc chắn. **Will** dùng như nhau với mọi chủ ngữ và động từ sau will luôn ở nguyên thể.",
+    "usage": [
+      {
+        "icon": "⚡",
+        "label": "Quyết định ngay lúc nói",
+        "en": "The phone is ringing. I’ll answer it.",
+        "vi": "Điện thoại đang reo. Tôi sẽ nghe."
+      },
+      {
+        "icon": "🔮",
+        "label": "Dự đoán hoặc ý kiến",
+        "en": "I think it will rain tomorrow.",
+        "vi": "Tôi nghĩ ngày mai trời sẽ mưa."
+      },
+      {
+        "icon": "🤝",
+        "label": "Lời hứa hoặc đề nghị giúp",
+        "en": "I’ll help you with your bags.",
+        "vi": "Tôi sẽ giúp bạn mang túi."
+      },
+      {
+        "icon": "📅",
+        "label": "Sự việc tương lai",
+        "en": "She will be twenty next month.",
+        "vi": "Tháng sau cô ấy sẽ tròn hai mươi tuổi."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Khẳng định",
+          "structure": "S + will + V / S'll + V",
+          "example": "They'll arrive soon."
+        },
+        {
+          "form": "Phủ định",
+          "structure": "S + will not + V / won't + V",
+          "example": "He won't forget."
+        },
+        {
+          "form": "Nghi vấn",
+          "structure": "Will + S + V?",
+          "example": "Will you come?"
+        },
+        {
+          "form": "Trả lời ngắn",
+          "structure": "Yes, S will. / No, S won't.",
+          "example": "Yes, I will."
+        }
+      ],
+      "note": "Đọc cấu trúc cùng ví dụ và luôn kiểm tra vai trò, số lượng hoặc dạng động từ theo từng trường hợp."
+    },
+    "rules": [
+      {
+        "case": "Mọi chủ ngữ",
+        "rule": "Dùng will giống nhau",
+        "example": "I/She/They will go."
+      },
+      {
+        "case": "Sau will",
+        "rule": "Dùng V nguyên thể không to",
+        "example": "will study, không phải will studies"
+      },
+      {
+        "case": "Phủ định",
+        "rule": "will not = won't",
+        "example": "We won't be late."
+      },
+      {
+        "case": "Câu hỏi đề nghị",
+        "rule": "Will you + V...?",
+        "example": "Will you open the door?"
+      }
+    ],
+    "signals": [
+      "tomorrow",
+      "next week/year",
+      "soon",
+      "I think",
+      "probably",
+      "I promise"
+    ],
+    "examples": [
+      {
+        "en": "I'll call you tonight.",
+        "vi": "Tối nay tôi sẽ gọi cho bạn.",
+        "note": "Lời hứa hoặc quyết định."
+      },
+      {
+        "en": "She won't attend the meeting.",
+        "vi": "Cô ấy sẽ không dự cuộc họp.",
+        "note": "won't + V nguyên thể."
+      },
+      {
+        "en": "Will they arrive before noon?",
+        "vi": "Họ sẽ đến trước buổi trưa chứ?",
+        "note": "Câu hỏi đảo will lên trước chủ ngữ."
+      },
+      {
+        "en": "I think our team will win.",
+        "vi": "Tôi nghĩ đội chúng ta sẽ thắng.",
+        "note": "Dự đoán dựa trên ý kiến."
+      },
+      {
+        "en": "Don't worry; I'll carry the box.",
+        "vi": "Đừng lo; tôi sẽ mang chiếc hộp.",
+        "note": "Quyết định giúp ngay lúc nói."
+      },
+      {
+        "en": "The sun will rise at 5:30 tomorrow.",
+        "vi": "Ngày mai mặt trời sẽ mọc lúc 5:30.",
+        "note": "Sự việc tương lai."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "She will goes tomorrow.",
+        "right": "She will go tomorrow.",
+        "why": "Sau will dùng động từ nguyên thể."
+      },
+      {
+        "wrong": "I won't to forget.",
+        "right": "I won't forget.",
+        "why": "Sau won't không dùng to."
+      },
+      {
+        "wrong": "Will you will come?",
+        "right": "Will you come?",
+        "why": "Trong câu hỏi chỉ dùng một will trước chủ ngữ."
+      }
+    ],
+    "tips": "**Mẹo:** Sau **will/won’t** luôn đặt động từ nguyên thể. Gặp quyết định tức thời, lời hứa, đề nghị giúp hoặc cụm **I think/probably**, hãy cân nhắc dùng will.",
+    "comparison": "**will vs be going to:** will thường là quyết định ngay lúc nói hoặc dự đoán theo ý kiến; be going to thường là kế hoạch đã có hoặc dự đoán dựa trên dấu hiệu hiện tại. *I’ll answer the phone* khác *I’m going to visit Hue next week*.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "I think people ___ live on Mars one day.",
+      "opts": [
+        "will",
+        "are",
+        "do"
+      ],
+      "answer": "will",
+      "fb": "I think + dự đoán thường dùng will."
+    },
+    {
+      "type": "mcq",
+      "q": "The bag is heavy. I ___ carry it for you.",
+      "opts": [
+        "'ll",
+        "am going",
+        "do"
+      ],
+      "answer": "'ll",
+      "fb": "Đây là đề nghị giúp ngay lúc nói."
+    },
+    {
+      "type": "mcq",
+      "q": "Choose the correct question.",
+      "opts": [
+        "Will she comes?",
+        "Does she will come?",
+        "Will she come?"
+      ],
+      "answer": "Will she come?",
+      "fb": "Will + S + V nguyên thể."
+    },
+    {
+      "type": "fill",
+      "q": "They ___ arrive soon. (will)",
+      "answer": [
+        "will"
+      ],
+      "fb": "Will dùng với mọi chủ ngữ."
+    },
+    {
+      "type": "fill",
+      "q": "He ___ forget your birthday. (will not, contracted)",
+      "answer": [
+        "won't"
+      ],
+      "fb": "will not rút gọn thành won't."
+    },
+    {
+      "type": "fill",
+      "q": "___ you help me with this box?",
+      "answer": [
+        "will"
+      ],
+      "fb": "Will you...? dùng để yêu cầu/đề nghị."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"She will goes tomorrow.\"",
+      "answer": false,
+      "fb": "SAI. Sau will dùng động từ nguyên thể. Câu đúng: \"She will go tomorrow.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"I won't to forget.\"",
+      "answer": false,
+      "fb": "SAI. Sau won't không dùng to. Câu đúng: \"I won't forget.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"Will you will come?\"",
+      "answer": false,
+      "fb": "SAI. Trong câu hỏi chỉ dùng một will trước chủ ngữ. Câu đúng: \"Will you come?\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "I'll call you tonight.",
+        "She will goes tomorrow.",
+        "I think our team will win."
+      ],
+      "answer": "She will goes tomorrow.",
+      "fb": "Sau will dùng động từ nguyên thể. Câu đúng: \"She will go tomorrow.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "She won't attend the meeting.",
+        "I won't to forget.",
+        "Don't worry; I'll carry the box."
+      ],
+      "answer": "I won't to forget.",
+      "fb": "Sau won't không dùng to. Câu đúng: \"I won't forget.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Will they arrive before noon?",
+        "Will you will come?",
+        "The sun will rise at 5:30 tomorrow."
+      ],
+      "answer": "Will you will come?",
+      "fb": "Trong câu hỏi chỉ dùng một will trước chủ ngữ. Câu đúng: \"Will you come?\""
+    }
+  ]
+}

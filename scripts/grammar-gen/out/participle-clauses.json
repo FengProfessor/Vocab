@@ -1,0 +1,242 @@
+{
+  "slug": "participle-clauses",
+  "title": "Participle Clauses",
+  "title_vi": "Mệnh đề phân từ",
+  "level": "advanced",
+  "order": 49,
+  "sections": {
+    "definition": "Participle Clauses dùng **mệnh đề phân từ** để rút gọn mệnh đề trạng ngữ/quan hệ và làm văn viết súc tích. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "Walking home, I saw an accident.",
+        "vi": "Khi đi bộ về nhà, tôi thấy một tai nạn."
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "Built in 1890, the house needs repairs.",
+        "vi": "Được xây năm 1890, ngôi nhà cần sửa."
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Having finished the report, she went home.",
+        "vi": "Sau khi hoàn thành báo cáo, cô ấy về nhà."
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Not knowing the answer, I stayed silent.",
+        "vi": "Vì không biết đáp án, tôi im lặng."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "V-ing ..., main clause",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "V3 ..., main clause",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "Having + V3 ..., main clause",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "V-ing ..., main clause",
+        "example": "Walking home, I saw an accident."
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "V3 ..., main clause",
+        "example": "Built in 1890, the house needs repairs."
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "Having + V3 ..., main clause",
+        "example": "Having finished the report, she went home."
+      }
+    ],
+    "signals": [],
+    "examples": [
+      {
+        "en": "Walking home, I saw an accident.",
+        "vi": "Khi đi bộ về nhà, tôi thấy một tai nạn.",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Built in 1890, the house needs repairs.",
+        "vi": "Được xây năm 1890, ngôi nhà cần sửa.",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Having finished the report, she went home.",
+        "vi": "Sau khi hoàn thành báo cáo, cô ấy về nhà.",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Not knowing the answer, I stayed silent.",
+        "vi": "Vì không biết đáp án, tôi im lặng.",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Surrounded by trees, the cabin felt peaceful.",
+        "vi": "Được cây cối bao quanh, căn nhà gỗ rất yên bình.",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Having been warned, he acted carefully.",
+        "vi": "Vì đã được cảnh báo, anh ấy hành động cẩn thận.",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “V-ing ..., main clause”.",
+        "right": "Walking home, I saw an accident.",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “V3 ..., main clause”.",
+        "right": "Built in 1890, the house needs repairs.",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "Having finished the report, she went home.",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **V-ing ..., main clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** chủ ngữ ngầm của mệnh đề phân từ phải trùng chủ ngữ mệnh đề chính.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Participle Clauses.",
+      "opts": [
+        "Walking home, I saw an accident.",
+        "Not correctly: V-ing ..., main clause.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "Walking home, I saw an accident.",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "V-ing ..., main clause",
+        "V3 ..., main clause",
+        "Having + V3 ..., main clause"
+      ],
+      "answer": "V-ing ..., main clause",
+      "fb": "Mẫu trọng tâm là V-ing ..., main clause."
+    },
+    {
+      "type": "fill",
+      "q": "Ho?n th?nh c?u: ___ in 1890, the house needs repairs.",
+      "answer": [
+        "Built"
+      ],
+      "fb": "T? c?n ?i?n l? ?Built? ?? c?u ??ng v? t? nhi?n."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Participle Clauses",
+        "participle clauses"
+      ],
+      "fb": "Chủ điểm là Participle Clauses."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Having finished the report, she went home.”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Participle Clauses chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "Not knowing the answer, I stayed silent.",
+        "Surrounded by trees, the cabin felt peaceful.",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Vì đã được cảnh báo, anh ấy hành động cẩn thận.”",
+      "answer": [
+        "Having been warned, he acted carefully."
+      ],
+      "fb": "Having been warned, he acted carefully."
+    },
+    {
+      "type": "tf",
+      "q": "“Walking home, I saw an accident.” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "Having been warned, he acted carefully.",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "Having been warned, he acted carefully.",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}

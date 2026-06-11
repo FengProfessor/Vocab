@@ -1,0 +1,252 @@
+{
+  "slug": "demonstratives",
+  "title": "Demonstratives (this/that/these/those)",
+  "title_vi": "Từ chỉ định (this/that/these/those)",
+  "level": "beginner",
+  "order": 13,
+  "sections": {
+    "definition": "**Từ chỉ định** xác định người hoặc vật theo khoảng cách và số lượng. Dùng **this/these** cho thứ ở gần người nói; dùng **that/those** cho thứ ở xa. **This/that** đi với số ít, còn **these/those** đi với số nhiều.",
+    "usage": [
+      {
+        "icon": "📍",
+        "label": "Một vật ở gần",
+        "en": "This key is mine.",
+        "vi": "Chìa khóa này là của tôi."
+      },
+      {
+        "icon": "🔭",
+        "label": "Một vật ở xa",
+        "en": "That building is a museum.",
+        "vi": "Tòa nhà kia là bảo tàng."
+      },
+      {
+        "icon": "📚",
+        "label": "Nhiều vật ở gần",
+        "en": "These books are useful.",
+        "vi": "Những cuốn sách này hữu ích."
+      },
+      {
+        "icon": "🏔️",
+        "label": "Nhiều vật ở xa",
+        "en": "Those mountains are beautiful.",
+        "vi": "Những ngọn núi kia rất đẹp."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Gần + số ít",
+          "structure": "this + singular noun / This is...",
+          "example": "this cup"
+        },
+        {
+          "form": "Xa + số ít",
+          "structure": "that + singular noun / That is...",
+          "example": "that cup"
+        },
+        {
+          "form": "Gần + số nhiều",
+          "structure": "these + plural noun / These are...",
+          "example": "these cups"
+        },
+        {
+          "form": "Xa + số nhiều",
+          "structure": "those + plural noun / Those are...",
+          "example": "those cups"
+        }
+      ],
+      "note": "Đọc cấu trúc cùng ví dụ và luôn kiểm tra vai trò, số lượng hoặc dạng động từ theo từng trường hợp."
+    },
+    "rules": [
+      {
+        "case": "this / that",
+        "rule": "Đi với is và danh từ số ít",
+        "example": "This is a chair."
+      },
+      {
+        "case": "these / those",
+        "rule": "Đi với are và danh từ số nhiều",
+        "example": "Those are chairs."
+      },
+      {
+        "case": "Đứng trước danh từ",
+        "rule": "Không dùng a/an sau từ chỉ định",
+        "example": "this phone, không phải this a phone"
+      },
+      {
+        "case": "Giới thiệu người",
+        "rule": "Dùng This is... khi giới thiệu",
+        "example": "This is my friend, Mai."
+      }
+    ],
+    "signals": [
+      "here/near me",
+      "over there/far away",
+      "singular",
+      "plural",
+      "these days / that day"
+    ],
+    "examples": [
+      {
+        "en": "This apple is sweet.",
+        "vi": "Quả táo này ngọt.",
+        "note": "Gần và số ít."
+      },
+      {
+        "en": "That car over there is expensive.",
+        "vi": "Chiếc xe đằng kia đắt tiền.",
+        "note": "Xa và số ít."
+      },
+      {
+        "en": "These shoes fit me well.",
+        "vi": "Đôi giày này vừa với tôi.",
+        "note": "Gần và số nhiều."
+      },
+      {
+        "en": "Those birds are flying south.",
+        "vi": "Những con chim kia đang bay về phía nam.",
+        "note": "Xa và số nhiều."
+      },
+      {
+        "en": "Who is that?",
+        "vi": "Ai đó?",
+        "note": "that chỉ một người ở xa hoặc qua điện thoại."
+      },
+      {
+        "en": "This is my colleague, Nam.",
+        "vi": "Đây là đồng nghiệp của tôi, Nam.",
+        "note": "This is dùng để giới thiệu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "This books are new.",
+        "right": "These books are new.",
+        "why": "Books là số nhiều nên dùng these."
+      },
+      {
+        "wrong": "Those car is fast.",
+        "right": "That car is fast.",
+        "why": "Car là số ít nên dùng that."
+      },
+      {
+        "wrong": "This is a my bag.",
+        "right": "This is my bag.",
+        "why": "Không dùng a trước cụm my bag."
+      }
+    ],
+    "tips": "**Mẹo 2×2:** gần: **this/these**; xa: **that/those**. Số ít kết thúc bằng **-t** (this, that); số nhiều có âm /z/ ở cuối (these, those). Luôn kiểm tra is/are và danh từ số ít/số nhiều.",
+    "comparison": "**this vs it:** *This is my phone* dùng khi chỉ/giới thiệu điện thoại; *It is new* dùng it để nhắc lại vật đã xác định. **that vs those:** cùng chỉ xa nhưng that số ít, those số nhiều.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "___ flowers here smell wonderful.",
+      "opts": [
+        "This",
+        "These",
+        "That"
+      ],
+      "answer": "These",
+      "fb": "Flowers số nhiều và ở gần."
+    },
+    {
+      "type": "mcq",
+      "q": "Look at ___ star over there.",
+      "opts": [
+        "this",
+        "these",
+        "that"
+      ],
+      "answer": "that",
+      "fb": "Star số ít và ở xa."
+    },
+    {
+      "type": "mcq",
+      "q": "___ are my parents in this photo.",
+      "opts": [
+        "This",
+        "These",
+        "That"
+      ],
+      "answer": "These",
+      "fb": "Parents là số nhiều."
+    },
+    {
+      "type": "fill",
+      "q": "___ is my desk here. (near, singular)",
+      "answer": [
+        "this"
+      ],
+      "fb": "Gần và số ít dùng this."
+    },
+    {
+      "type": "fill",
+      "q": "___ houses across the river are old. (far, plural)",
+      "answer": [
+        "those"
+      ],
+      "fb": "Xa và số nhiều dùng those."
+    },
+    {
+      "type": "fill",
+      "q": "___ are fresh cookies on this plate. (near, plural)",
+      "answer": [
+        "these"
+      ],
+      "fb": "Gần và số nhiều dùng these."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"This books are new.\"",
+      "answer": false,
+      "fb": "SAI. Books là số nhiều nên dùng these. Câu đúng: \"These books are new.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"Those car is fast.\"",
+      "answer": false,
+      "fb": "SAI. Car là số ít nên dùng that. Câu đúng: \"That car is fast.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"This is a my bag.\"",
+      "answer": false,
+      "fb": "SAI. Không dùng a trước cụm my bag. Câu đúng: \"This is my bag.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "This apple is sweet.",
+        "This books are new.",
+        "Those birds are flying south."
+      ],
+      "answer": "This books are new.",
+      "fb": "Books là số nhiều nên dùng these. Câu đúng: \"These books are new.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "That car over there is expensive.",
+        "Those car is fast.",
+        "Who is that?"
+      ],
+      "answer": "Those car is fast.",
+      "fb": "Car là số ít nên dùng that. Câu đúng: \"That car is fast.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "These shoes fit me well.",
+        "This is a my bag.",
+        "This is my colleague, Nam."
+      ],
+      "answer": "This is a my bag.",
+      "fb": "Không dùng a trước cụm my bag. Câu đúng: \"This is my bag.\""
+    }
+  ]
+}

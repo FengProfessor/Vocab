@@ -1,0 +1,252 @@
+{
+  "slug": "imperatives",
+  "title": "Imperatives",
+  "title_vi": "Câu mệnh lệnh",
+  "level": "beginner",
+  "order": 19,
+  "sections": {
+    "definition": "**Câu mệnh lệnh** dùng động từ nguyên thể không “to” và thường lược bỏ chủ ngữ **you**. Cấu trúc này dùng để ra lệnh, hướng dẫn, cảnh báo, mời hoặc đề nghị; thêm **please** giúp lời nói lịch sự hơn.",
+    "usage": [
+      {
+        "icon": "📣",
+        "label": "Ra lệnh hoặc yêu cầu",
+        "en": "Close the door, please.",
+        "vi": "Vui lòng đóng cửa."
+      },
+      {
+        "icon": "🧭",
+        "label": "Hướng dẫn, chỉ đường",
+        "en": "Turn left at the bank.",
+        "vi": "Rẽ trái tại ngân hàng."
+      },
+      {
+        "icon": "⚠️",
+        "label": "Cảnh báo hoặc cấm đoán",
+        "en": "Don’t touch that wire.",
+        "vi": "Đừng chạm vào dây điện đó."
+      },
+      {
+        "icon": "🤝",
+        "label": "Rủ cùng làm với Let’s",
+        "en": "Let’s take a short break.",
+        "vi": "Chúng ta nghỉ giải lao ngắn nhé."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Khẳng định",
+          "structure": "V nguyên thể + ...",
+          "example": "Sit down."
+        },
+        {
+          "form": "Phủ định",
+          "structure": "Don't + V nguyên thể + ...",
+          "example": "Don't run."
+        },
+        {
+          "form": "Rủ cùng làm",
+          "structure": "Let's + V nguyên thể + ...",
+          "example": "Let's begin."
+        },
+        {
+          "form": "Lịch sự",
+          "structure": "Please + imperative / imperative + please",
+          "example": "Please wait."
+        }
+      ],
+      "note": "Đọc cấu trúc cùng ví dụ và luôn kiểm tra vai trò, số lượng hoặc dạng động từ theo từng trường hợp."
+    },
+    "rules": [
+      {
+        "case": "Động từ đầu câu",
+        "rule": "Dùng nguyên thể không to",
+        "example": "Open the window."
+      },
+      {
+        "case": "Chủ ngữ",
+        "rule": "Thường bỏ you",
+        "example": "Be careful."
+      },
+      {
+        "case": "Phủ định",
+        "rule": "Đặt don't trước động từ, kể cả be",
+        "example": "Don't be late."
+      },
+      {
+        "case": "Let’s phủ định",
+        "rule": "Dùng Let's not + V",
+        "example": "Let's not argue."
+      }
+    ],
+    "signals": [
+      "please",
+      "don't",
+      "let's",
+      "first/next/finally",
+      "cảnh báo trên biển báo"
+    ],
+    "examples": [
+      {
+        "en": "Please write your name here.",
+        "vi": "Vui lòng viết tên của bạn ở đây.",
+        "note": "Please làm yêu cầu lịch sự."
+      },
+      {
+        "en": "Don't open the window.",
+        "vi": "Đừng mở cửa sổ.",
+        "note": "Don't + động từ nguyên thể."
+      },
+      {
+        "en": "Be quiet during the test.",
+        "vi": "Hãy giữ im lặng trong lúc kiểm tra.",
+        "note": "Mệnh lệnh với động từ be."
+      },
+      {
+        "en": "Let's cook dinner together.",
+        "vi": "Chúng ta cùng nấu bữa tối nhé.",
+        "note": "Let's dùng để rủ cùng làm."
+      },
+      {
+        "en": "Take the second road on the right.",
+        "vi": "Đi vào con đường thứ hai bên phải.",
+        "note": "Câu chỉ đường."
+      },
+      {
+        "en": "Let's not tell anyone yet.",
+        "vi": "Chúng ta chưa nói với ai nhé.",
+        "note": "Let's not + V là lời rủ phủ định."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "You close the door!",
+        "right": "Close the door!",
+        "why": "Câu mệnh lệnh thông thường lược bỏ chủ ngữ you."
+      },
+      {
+        "wrong": "Don't to worry.",
+        "right": "Don't worry.",
+        "why": "Sau don't dùng động từ nguyên thể không to."
+      },
+      {
+        "wrong": "Let's to go home.",
+        "right": "Let's go home.",
+        "why": "Sau let's dùng động từ nguyên thể không to."
+      }
+    ],
+    "tips": "**Mẹo:** Bắt đầu thẳng bằng động từ nguyên thể. Muốn nói “đừng” dùng **Don’t + V**; muốn rủ “chúng ta cùng...” dùng **Let’s + V**; thêm **please** để giảm sắc thái ra lệnh.",
+    "comparison": "**Imperative vs câu trần thuật:** *You open the file* mô tả hành động; *Open the file* yêu cầu người nghe làm. **Don’t be...** là mệnh lệnh phủ định, còn **You aren’t...** là câu trần thuật.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "___ careful when you cross the road.",
+      "opts": [
+        "Be",
+        "Are",
+        "To be"
+      ],
+      "answer": "Be",
+      "fb": "Mệnh lệnh dùng động từ nguyên thể."
+    },
+    {
+      "type": "mcq",
+      "q": "Choose the polite request.",
+      "opts": [
+        "Give me water.",
+        "Please give me some water.",
+        "You give water."
+      ],
+      "answer": "Please give me some water.",
+      "fb": "Please làm yêu cầu lịch sự hơn."
+    },
+    {
+      "type": "mcq",
+      "q": "Choose the correct negative imperative.",
+      "opts": [
+        "Not talk.",
+        "Don't talk.",
+        "Doesn't talk."
+      ],
+      "answer": "Don't talk.",
+      "fb": "Phủ định dùng don't + V."
+    },
+    {
+      "type": "fill",
+      "q": "___ the medicine after lunch. (take)",
+      "answer": [
+        "take"
+      ],
+      "fb": "Bắt đầu bằng động từ nguyên thể."
+    },
+    {
+      "type": "fill",
+      "q": "___ be noisy in the library. (don't)",
+      "answer": [
+        "don't"
+      ],
+      "fb": "Don't đứng trước be."
+    },
+    {
+      "type": "fill",
+      "q": "Let's ___ a taxi. (call)",
+      "answer": [
+        "call"
+      ],
+      "fb": "Sau let's dùng V nguyên thể."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"You close the door!\"",
+      "answer": false,
+      "fb": "SAI. Câu mệnh lệnh thông thường lược bỏ chủ ngữ you. Câu đúng: \"Close the door!\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"Don't to worry.\"",
+      "answer": false,
+      "fb": "SAI. Sau don't dùng động từ nguyên thể không to. Câu đúng: \"Don't worry.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"Let's to go home.\"",
+      "answer": false,
+      "fb": "SAI. Sau let's dùng động từ nguyên thể không to. Câu đúng: \"Let's go home.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Please write your name here.",
+        "You close the door!",
+        "Let's cook dinner together."
+      ],
+      "answer": "You close the door!",
+      "fb": "Câu mệnh lệnh thông thường lược bỏ chủ ngữ you. Câu đúng: \"Close the door!\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Don't open the window.",
+        "Don't to worry.",
+        "Take the second road on the right."
+      ],
+      "answer": "Don't to worry.",
+      "fb": "Sau don't dùng động từ nguyên thể không to. Câu đúng: \"Don't worry.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Be quiet during the test.",
+        "Let's to go home.",
+        "Let's not tell anyone yet."
+      ],
+      "answer": "Let's to go home.",
+      "fb": "Sau let's dùng động từ nguyên thể không to. Câu đúng: \"Let's go home.\""
+    }
+  ]
+}

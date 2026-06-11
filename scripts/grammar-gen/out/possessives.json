@@ -1,0 +1,246 @@
+{
+  "slug": "possessives",
+  "title": "Possessive Adjectives & Pronouns",
+  "title_vi": "Tính từ & đại từ sở hữu",
+  "level": "beginner",
+  "order": 12,
+  "sections": {
+    "definition": "**Tính từ sở hữu** (my, your, his, her, its, our, their) đứng trước danh từ để cho biết danh từ thuộc về ai. **Đại từ sở hữu** (mine, yours, his, hers, ours, theirs) thay thế cả cụm danh từ sở hữu, vì vậy không có danh từ theo sau.",
+    "usage": [
+      {
+        "icon": "👤",
+        "label": "Nói người nói sở hữu",
+        "en": "This is my notebook. It is mine.",
+        "vi": "Đây là vở của tôi. Nó là của tôi."
+      },
+      {
+        "icon": "🤝",
+        "label": "Nói người nghe sở hữu",
+        "en": "Is this your seat or hers?",
+        "vi": "Đây là chỗ của bạn hay của cô ấy?"
+      },
+      {
+        "icon": "👨‍👩‍👧",
+        "label": "Nói người hoặc vật khác sở hữu",
+        "en": "Their house is next to ours.",
+        "vi": "Nhà của họ ở cạnh nhà của chúng tôi."
+      },
+      {
+        "icon": "🔁",
+        "label": "Tránh lặp lại danh từ",
+        "en": "My bag is blue; yours is black.",
+        "vi": "Túi của tôi màu xanh; túi của bạn màu đen."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Tính từ sở hữu",
+          "structure": "possessive adjective + noun",
+          "example": "my phone, their books"
+        },
+        {
+          "form": "Đại từ sở hữu",
+          "structure": "possessive pronoun (không + noun)",
+          "example": "The phone is mine."
+        },
+        {
+          "form": "Hỏi chủ sở hữu",
+          "structure": "Whose + noun + be ...?",
+          "example": "Whose coat is this?"
+        }
+      ],
+      "note": "Đọc cấu trúc cùng ví dụ và luôn kiểm tra vai trò, số lượng hoặc dạng động từ theo từng trường hợp."
+    },
+    "rules": [
+      {
+        "case": "I / we",
+        "rule": "my / our → mine / ours",
+        "example": "our room → The room is ours."
+      },
+      {
+        "case": "you",
+        "rule": "your → yours",
+        "example": "your key → The key is yours."
+      },
+      {
+        "case": "he / she",
+        "rule": "his / her → his / hers",
+        "example": "her bike → The bike is hers."
+      },
+      {
+        "case": "it / they",
+        "rule": "its / their → theirs",
+        "example": "their plan → The plan is theirs."
+      }
+    ],
+    "signals": [
+      "Whose...?",
+      "belong to",
+      "my/your/his/her/its/our/their + noun",
+      "mine/yours/his/hers/ours/theirs"
+    ],
+    "examples": [
+      {
+        "en": "My brother is a doctor.",
+        "vi": "Anh trai tôi là bác sĩ.",
+        "note": "my đứng trước danh từ brother."
+      },
+      {
+        "en": "That red umbrella is hers.",
+        "vi": "Chiếc ô màu đỏ kia là của cô ấy.",
+        "note": "hers thay cho her umbrella."
+      },
+      {
+        "en": "Our classroom is larger than theirs.",
+        "vi": "Lớp học của chúng tôi lớn hơn lớp của họ.",
+        "note": "our + noun; theirs đứng độc lập."
+      },
+      {
+        "en": "Is this pen yours?",
+        "vi": "Cây bút này là của bạn phải không?",
+        "note": "yours không có danh từ theo sau."
+      },
+      {
+        "en": "The cat is washing its paws.",
+        "vi": "Con mèo đang rửa chân của nó.",
+        "note": "its là tính từ sở hữu, không có dấu nháy."
+      },
+      {
+        "en": "His answer is different from mine.",
+        "vi": "Câu trả lời của anh ấy khác câu trả lời của tôi.",
+        "note": "his có thể đứng trước noun; mine thay cả cụm my answer."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "This is mine book.",
+        "right": "This is my book.",
+        "why": "Trước danh từ book phải dùng tính từ sở hữu my."
+      },
+      {
+        "wrong": "That bicycle is her.",
+        "right": "That bicycle is hers.",
+        "why": "Đứng độc lập để chỉ sở hữu phải dùng hers."
+      },
+      {
+        "wrong": "The dog is eating it’s food.",
+        "right": "The dog is eating its food.",
+        "why": "its là sở hữu; it’s là dạng rút gọn của it is/it has."
+      }
+    ],
+    "tips": "**Mẹo:** Có danh từ ngay sau chỗ trống → chọn tính từ sở hữu. Không có danh từ sau chỗ trống → chọn đại từ sở hữu. Riêng **his** giống nhau ở cả hai vai trò; **its** không có dạng đại từ sở hữu thông dụng.",
+    "comparison": "**my vs mine:** *my book* cần danh từ; *the book is mine* không thêm danh từ. **its vs it’s:** *its tail* = cái đuôi của nó; *it’s long* = it is long.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "This laptop belongs to me. It is ___.",
+      "opts": [
+        "my",
+        "mine",
+        "me"
+      ],
+      "answer": "mine",
+      "fb": "mine thay cho my laptop."
+    },
+    {
+      "type": "mcq",
+      "q": "Lan has a new bike. ___ bike is green.",
+      "opts": [
+        "Her",
+        "Hers",
+        "She"
+      ],
+      "answer": "Her",
+      "fb": "Her đứng trước danh từ bike."
+    },
+    {
+      "type": "mcq",
+      "q": "We own this house. It is ___.",
+      "opts": [
+        "our",
+        "ours",
+        "us"
+      ],
+      "answer": "ours",
+      "fb": "Ours là đại từ sở hữu đứng độc lập."
+    },
+    {
+      "type": "fill",
+      "q": "They brought ___ children to the party. (they)",
+      "answer": [
+        "their"
+      ],
+      "fb": "Cần tính từ sở hữu trước children."
+    },
+    {
+      "type": "fill",
+      "q": "This seat is ___. (you)",
+      "answer": [
+        "yours"
+      ],
+      "fb": "Cần đại từ sở hữu đứng độc lập."
+    },
+    {
+      "type": "fill",
+      "q": "The cat hurt ___ leg. (it)",
+      "answer": [
+        "its"
+      ],
+      "fb": "its chỉ sự sở hữu."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"This is mine book.\"",
+      "answer": false,
+      "fb": "SAI. Trước danh từ book phải dùng tính từ sở hữu my. Câu đúng: \"This is my book.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"That bicycle is her.\"",
+      "answer": false,
+      "fb": "SAI. Đứng độc lập để chỉ sở hữu phải dùng hers. Câu đúng: \"That bicycle is hers.\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"The dog is eating it’s food.\"",
+      "answer": false,
+      "fb": "SAI. its là sở hữu; it’s là dạng rút gọn của it is/it has. Câu đúng: \"The dog is eating its food.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "My brother is a doctor.",
+        "This is mine book.",
+        "Is this pen yours?"
+      ],
+      "answer": "This is mine book.",
+      "fb": "Trước danh từ book phải dùng tính từ sở hữu my. Câu đúng: \"This is my book.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "That red umbrella is hers.",
+        "That bicycle is her.",
+        "The cat is washing its paws."
+      ],
+      "answer": "That bicycle is her.",
+      "fb": "Đứng độc lập để chỉ sở hữu phải dùng hers. Câu đúng: \"That bicycle is hers.\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Our classroom is larger than theirs.",
+        "The dog is eating it’s food.",
+        "His answer is different from mine."
+      ],
+      "answer": "The dog is eating it’s food.",
+      "fb": "its là sở hữu; it’s là dạng rút gọn của it is/it has. Câu đúng: \"The dog is eating its food.\""
+    }
+  ]
+}

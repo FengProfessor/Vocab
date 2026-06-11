@@ -1,0 +1,258 @@
+{
+  "slug": "plural-nouns",
+  "title": "Plural Nouns",
+  "title_vi": "Danh từ số nhiều",
+  "level": "beginner",
+  "order": 10,
+  "sections": {
+    "definition": "**Danh từ số nhiều** chỉ từ hai người, vật hoặc ý niệm trở lên. Phần lớn danh từ thêm **-s**, nhưng một số tận cùng cần thêm **-es** hoặc đổi chính tả; ngoài ra còn có các dạng bất quy tắc phải ghi nhớ.",
+    "usage": [
+      {
+        "icon": "2️⃣",
+        "label": "Nói số lượng từ hai trở lên",
+        "en": "I have two sisters.",
+        "vi": "Tôi có hai chị/em gái."
+      },
+      {
+        "icon": "📦",
+        "label": "Sau many, several, a few",
+        "en": "There are many boxes.",
+        "vi": "Có nhiều chiếc hộp."
+      },
+      {
+        "icon": "👥",
+        "label": "Chủ ngữ số nhiều đi với are/V nguyên thể",
+        "en": "The children are playing.",
+        "vi": "Những đứa trẻ đang chơi."
+      },
+      {
+        "icon": "🌍",
+        "label": "Nói chung về một loại",
+        "en": "Dogs are loyal animals.",
+        "vi": "Chó là loài vật trung thành."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Thông thường",
+          "structure": "noun + s",
+          "example": "book → books"
+        },
+        {
+          "form": "Tận cùng s, x, z, ch, sh",
+          "structure": "noun + es",
+          "example": "box → boxes"
+        },
+        {
+          "form": "Phụ âm + y",
+          "structure": "y → ies",
+          "example": "city → cities"
+        },
+        {
+          "form": "Một số f/fe",
+          "structure": "f/fe → ves",
+          "example": "knife → knives"
+        },
+        {
+          "form": "Bất quy tắc",
+          "structure": "đổi dạng / không đổi",
+          "example": "child → children; sheep → sheep"
+        }
+      ],
+      "note": "Đọc cấu trúc cùng ví dụ và luôn kiểm tra vai trò, số lượng hoặc dạng động từ theo từng trường hợp."
+    },
+    "rules": [
+      {
+        "case": "Nguyên âm + y",
+        "rule": "Giữ y rồi thêm s",
+        "example": "toy → toys"
+      },
+      {
+        "case": "Phụ âm + y",
+        "rule": "Đổi y thành ies",
+        "example": "baby → babies"
+      },
+      {
+        "case": "Một số tận cùng o",
+        "rule": "Thêm es; có ngoại lệ",
+        "example": "tomato → tomatoes; photo → photos"
+      },
+      {
+        "case": "Danh từ bất quy tắc",
+        "rule": "Học từng dạng",
+        "example": "man → men; mouse → mice"
+      }
+    ],
+    "signals": [
+      "two/three...",
+      "many",
+      "several",
+      "a few",
+      "these/those",
+      "are"
+    ],
+    "examples": [
+      {
+        "en": "Three buses stop here.",
+        "vi": "Ba chiếc xe buýt dừng ở đây.",
+        "note": "bus tận cùng s nên thêm es."
+      },
+      {
+        "en": "The babies are sleeping.",
+        "vi": "Những em bé đang ngủ.",
+        "note": "baby: phụ âm + y → babies."
+      },
+      {
+        "en": "We need four knives.",
+        "vi": "Chúng tôi cần bốn con dao.",
+        "note": "knife là dạng f/fe → ves."
+      },
+      {
+        "en": "Two children are in the garden.",
+        "vi": "Hai đứa trẻ ở trong vườn.",
+        "note": "child → children là bất quy tắc."
+      },
+      {
+        "en": "Those sheep belong to my uncle.",
+        "vi": "Những con cừu kia thuộc về chú tôi.",
+        "note": "sheep giữ nguyên ở số nhiều."
+      },
+      {
+        "en": "Her feet are cold.",
+        "vi": "Hai bàn chân cô ấy lạnh.",
+        "note": "foot → feet là bất quy tắc."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "two childs",
+        "right": "two children",
+        "why": "Child có dạng số nhiều bất quy tắc children."
+      },
+      {
+        "wrong": "three boxs",
+        "right": "three boxes",
+        "why": "Danh từ tận cùng x thêm -es."
+      },
+      {
+        "wrong": "many citys",
+        "right": "many cities",
+        "why": "Phụ âm + y: đổi y thành ies."
+      }
+    ],
+    "tips": "**Mẹo:** Trước tiên kiểm tra danh từ có bất quy tắc không. Nếu không, nhìn chữ cuối: s/x/z/ch/sh → **-es**; phụ âm + y → **-ies**; còn lại thường thêm **-s**. Sau số đếm lớn hơn một phải dùng số nhiều.",
+    "comparison": "**Regular vs irregular plurals:** dạng thường theo quy tắc (*book → books*); dạng bất quy tắc đổi từ (*person → people*) hoặc giữ nguyên (*sheep → sheep*). **Countable vs uncountable:** không thêm -s cho danh từ không đếm được như information, furniture.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "What is the plural of “class”?",
+      "opts": [
+        "classs",
+        "classes",
+        "classies"
+      ],
+      "answer": "classes",
+      "fb": "class tận cùng s nên thêm es."
+    },
+    {
+      "type": "mcq",
+      "q": "What is the plural of “woman”?",
+      "opts": [
+        "womans",
+        "women",
+        "womanses"
+      ],
+      "answer": "women",
+      "fb": "woman → women là bất quy tắc."
+    },
+    {
+      "type": "mcq",
+      "q": "Choose the correct phrase.",
+      "opts": [
+        "three potatoes",
+        "three potatos",
+        "three potato"
+      ],
+      "answer": "three potatoes",
+      "fb": "potato thường thêm es."
+    },
+    {
+      "type": "fill",
+      "q": "There are five ___ on the shelf. (box)",
+      "answer": [
+        "boxes"
+      ],
+      "fb": "box tận cùng x nên thêm es."
+    },
+    {
+      "type": "fill",
+      "q": "Two ___ are playing outside. (child)",
+      "answer": [
+        "children"
+      ],
+      "fb": "child có số nhiều bất quy tắc children."
+    },
+    {
+      "type": "fill",
+      "q": "She bought three ___. (toy)",
+      "answer": [
+        "toys"
+      ],
+      "fb": "Nguyên âm + y: giữ y và thêm s."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"two childs\"",
+      "answer": false,
+      "fb": "SAI. Child có dạng số nhiều bất quy tắc children. Câu đúng: \"two children\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"three boxs\"",
+      "answer": false,
+      "fb": "SAI. Danh từ tận cùng x thêm -es. Câu đúng: \"three boxes\""
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"many citys\"",
+      "answer": false,
+      "fb": "SAI. Phụ âm + y: đổi y thành ies. Câu đúng: \"many cities\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "Three buses stop here.",
+        "two childs",
+        "Two children are in the garden."
+      ],
+      "answer": "two childs",
+      "fb": "Child có dạng số nhiều bất quy tắc children. Câu đúng: \"two children\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "The babies are sleeping.",
+        "three boxs",
+        "Those sheep belong to my uncle."
+      ],
+      "answer": "three boxs",
+      "fb": "Danh từ tận cùng x thêm -es. Câu đúng: \"three boxes\""
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "We need four knives.",
+        "many citys",
+        "Her feet are cold."
+      ],
+      "answer": "many citys",
+      "fb": "Phụ âm + y: đổi y thành ies. Câu đúng: \"many cities\""
+    }
+  ]
+}

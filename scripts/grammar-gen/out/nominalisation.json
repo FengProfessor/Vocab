@@ -1,0 +1,242 @@
+{
+  "slug": "nominalisation",
+  "title": "Nominalisation",
+  "title_vi": "Danh từ hóa",
+  "level": "advanced",
+  "order": 58,
+  "sections": {
+    "definition": "Nominalisation dùng **danh từ hóa** để biến hành động/tính chất thành danh từ, tạo văn phong cô đọng và trang trọng. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "The committee decided to postpone the vote.",
+        "vi": "Ủy ban quyết định hoãn bỏ phiếu."
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "The committee's decision led to a delay.",
+        "vi": "Quyết định của ủy ban dẫn đến trì hoãn."
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "The rapid expansion caused concern.",
+        "vi": "Sự mở rộng nhanh chóng gây lo ngại."
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "There was a significant improvement in sales.",
+        "vi": "Doanh số đã có sự cải thiện đáng kể."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "verb → noun",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "adjective → noun",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "the + noun + of ...",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "verb → noun",
+        "example": "The committee decided to postpone the vote."
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "adjective → noun",
+        "example": "The committee's decision led to a delay."
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "the + noun + of ...",
+        "example": "The rapid expansion caused concern."
+      }
+    ],
+    "signals": [],
+    "examples": [
+      {
+        "en": "The committee decided to postpone the vote.",
+        "vi": "Ủy ban quyết định hoãn bỏ phiếu.",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "The committee's decision led to a delay.",
+        "vi": "Quyết định của ủy ban dẫn đến trì hoãn.",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "The rapid expansion caused concern.",
+        "vi": "Sự mở rộng nhanh chóng gây lo ngại.",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "There was a significant improvement in sales.",
+        "vi": "Doanh số đã có sự cải thiện đáng kể.",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Their refusal surprised us.",
+        "vi": "Việc họ từ chối làm chúng tôi ngạc nhiên.",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "The implementation of the policy took months.",
+        "vi": "Việc triển khai chính sách mất nhiều tháng.",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “verb → noun”.",
+        "right": "The committee decided to postpone the vote.",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “adjective → noun”.",
+        "right": "The committee's decision led to a delay.",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "The rapid expansion caused concern.",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **verb → noun** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** danh từ hóa trang trọng hơn nhưng dùng quá nhiều làm câu nặng và che khuất người thực hiện.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Nominalisation.",
+      "opts": [
+        "The committee decided to postpone the vote.",
+        "Not correctly: verb → noun.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "The committee decided to postpone the vote.",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "verb → noun",
+        "adjective → noun",
+        "the + noun + of ..."
+      ],
+      "answer": "verb → noun",
+      "fb": "Mẫu trọng tâm là verb → noun."
+    },
+    {
+      "type": "fill",
+      "q": "Ho?n th?nh c?u: ___ committee's decision led to a delay.",
+      "answer": [
+        "The"
+      ],
+      "fb": "T? c?n ?i?n l? ?The? ?? c?u ??ng v? t? nhi?n."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Nominalisation",
+        "nominalisation"
+      ],
+      "fb": "Chủ điểm là Nominalisation."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “The rapid expansion caused concern.”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Nominalisation chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "There was a significant improvement in sales.",
+        "Their refusal surprised us.",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Việc triển khai chính sách mất nhiều tháng.”",
+      "answer": [
+        "The implementation of the policy took months."
+      ],
+      "fb": "The implementation of the policy took months."
+    },
+    {
+      "type": "tf",
+      "q": "“The committee decided to postpone the vote.” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "The implementation of the policy took months.",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "The implementation of the policy took months.",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "slug": "present-perfect",
+  "title": "Present Perfect",
+  "title_vi": "Thì Hiện tại hoàn thành",
+  "level": "beginner",
+  "order": 7,
+  "sections": {
+    "definition": "Thì **Hiện tại hoàn thành** (Present Perfect) mô tả hành động **bắt đầu từ quá khứ** và **có liên quan đến hiện tại**. Hành động có thể đã hoàn thành hoặc vẫn tiếp tục. Đây là thì dùng để nối liền quá khứ với hiện tại.",
+    "usage": [
+      {
+        "icon": "🕰️",
+        "label": "Hành động bắt đầu từ quá khứ và kéo dài đến hiện tại",
+        "en": "I have been studying English for three years.",
+        "vi": "Tôi đã học tiếng Anh được ba năm rồi."
+      },
+      {
+        "icon": "📚",
+        "label": "Hành động đã hoàn thành gần đây",
+        "en": "She has just finished her homework.",
+        "vi": "Cô ấy vừa hoàn thành bài tập về nhà."
+      },
+      {
+        "icon": "👥",
+        "label": "Hành động lặp lại nhiều lần từ quá khứ đến hiện tại",
+        "en": "They have visited Paris three times.",
+        "vi": "Họ đã đến thăm Paris ba lần."
+      },
+      {
+        "icon": "📆",
+        "label": "Hành động xảy ra tại một thời điểm không xác định trong quá khứ",
+        "en": "I have never been to the USA.",
+        "vi": "Tôi chưa bao giờ đến Mỹ."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "(+) Khẳng định",
+          "base": "S + have/has + V-en",
+          "note": "V-en là dạng quá khứ phân từ của động từ"
+        },
+        {
+          "form": "(-) Phủ định",
+          "base": "S + haven't/hasn't + V-en",
+          "note": "Dùng haven't với I/you/we/they, hasn't với he/she/it"
+        },
+        {
+          "form": "(?) Nghi vấn",
+          "base": "Have/Has + S + V-en?",
+          "note": "Dùng have với I/you/we/they, has với he/she/it"
+        }
+      ],
+      "note": "Quan tâm đến sự khác biệt giữa **have** và **has** cho chủ ngữ số ít (he/she/it) và số nhiều (I/you/we/they)."
+    },
+    "rules": [
+      {
+        "case": "Động từ thường",
+        "rule": "thêm -ed",
+        "example": "walk → walked"
+      },
+      {
+        "case": "Động từ tận cùng bằng -e",
+        "rule": "thêm -d",
+        "example": "love → loved"
+      },
+      {
+        "case": "Động từ có một âm tiết và tận cùng bằng một phụ âm đơn",
+        "rule": "lặp lại phụ âm và thêm -ed",
+        "example": "run → ran"
+      },
+      {
+        "case": "Động từ có hai âm tiết và tận cùng bằng -y",
+        "rule": "thay y bằng i và thêm -ed",
+        "example": "study → studied"
+      }
+    ],
+    "signals": [
+      "already",
+      "just",
+      "yet",
+      "ever",
+      "never",
+      "since",
+      "for",
+      "recently"
+    ],
+    "examples": [
+      {
+        "en": "I have eaten breakfast.",
+        "vi": "Tôi đã ăn bữa sáng.",
+        "note": "Hành động đã hoàn thành"
+      },
+      {
+        "en": "She has been to the gym three times this week.",
+        "vi": "Cô ấy đã đến phòng tập thể dục ba lần trong tuần này.",
+        "note": "Hành động lặp lại"
+      },
+      {
+        "en": "They haven't seen that movie yet.",
+        "vi": "Họ chưa xem bộ phim đó.",
+        "note": "Hành động chưa xảy ra"
+      },
+      {
+        "en": "He has never traveled by plane.",
+        "vi": "Anh ấy chưa bao giờ đi máy bay.",
+        "note": "Hành động chưa bao giờ xảy ra"
+      },
+      {
+        "en": "What have you done today?",
+        "vi": "Bạn đã làm gì hôm nay?",
+        "note": "Câu hỏi về hành động đã xảy ra"
+      },
+      {
+        "en": "I have been studying English for five years.",
+        "vi": "Tôi đã học tiếng Anh được năm năm.",
+        "note": "Hành động bắt đầu từ quá khứ và vẫn tiếp tục"
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "I have go to school.",
+        "right": "I have gone to school.",
+        "why": "Sai dạng quá khứ phân từ"
+      },
+      {
+        "wrong": "She hasn't eat breakfast.",
+        "right": "She hasn't eaten breakfast.",
+        "why": "Sai dạng quá khứ phân từ"
+      },
+      {
+        "wrong": "They have went to the store.",
+        "right": "They have gone to the store.",
+        "why": "Sai dạng quá khứ phân từ"
+      },
+      {
+        "wrong": "I have been to Paris last year.",
+        "right": "I went to Paris last year.",
+        "why": "Sai thì, nên dùng quá khứ đơn"
+      }
+    ],
+    "tips": "**Mẹo nhớ:** Hiện tại hoàn thành dùng để nối quá khứ với hiện tại. Cấu trúc: S + have/has + V-en.",
+    "comparison": "**Hiện tại hoàn thành vs Quá khứ đơn:** Hiện tại hoàn thành dùng cho hành động có liên quan đến hiện tại, trong khi quá khứ đơn dùng cho hành động đã hoàn thành trong quá khứ.",
+    "timeline": {
+      "caption": "Ví dụ \"I have studied English for three years\" — hành động bắt đầu từ quá khứ và kéo dài đến hiện tại",
+      "points": [
+        {
+          "label": "Bắt đầu học tiếng Anh",
+          "note": "quá khứ"
+        },
+        {
+          "label": "Tiếp tục học",
+          "note": "quá khứ → hiện tại"
+        },
+        {
+          "label": "Vẫn tiếp tục học",
+          "note": "hiện tại"
+        }
+      ]
+    }
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "I ___ (finish) my homework.",
+      "opts": [
+        "have finish",
+        "have finished",
+        "has finish"
+      ],
+      "answer": "have finished",
+      "fb": "Dạng quá khứ phân từ của 'finish' là 'finished'"
+    },
+    {
+      "type": "mcq",
+      "q": "She ___ (not/go) to the party last night.",
+      "opts": [
+        "hasn't gone",
+        "haven't go",
+        "hasn't go"
+      ],
+      "answer": "hasn't gone",
+      "fb": "Dạng quá khứ phân từ của 'go' là 'gone', và dùng 'hasn't' với she"
+    },
+    {
+      "type": "fill",
+      "q": "They ___ (visit) Paris twice.",
+      "answer": [
+        "have visited"
+      ],
+      "fb": "Dạng quá khứ phân từ của 'visit' là 'visited'"
+    },
+    {
+      "type": "fill",
+      "q": "I ___ (not/eat) breakfast yet.",
+      "answer": [
+        "haven't eaten"
+      ],
+      "fb": "Dạng quá khứ phân từ của 'eat' là 'eaten', và dùng 'haven't' với I"
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"I have went to school.\"",
+      "answer": false,
+      "fb": "Sai, nên dùng 'I have gone to school.'"
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"She has never been to the USA.\"",
+      "answer": true,
+      "fb": "Đúng, câu sử dụng thì hiện tại hoàn thành để nói về một sự kiện chưa bao giờ xảy ra"
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "I have eaten breakfast.",
+        "She has gone to the store.",
+        "They have went to the movie."
+      ],
+      "answer": "They have went to the movie.",
+      "fb": "Sai, nên dùng 'They have gone to the movie.'"
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng phủ định của \"I have eaten breakfast\" là:",
+      "opts": [
+        "I haven't eat breakfast.",
+        "I haven't eaten breakfast.",
+        "I don't eat breakfast."
+      ],
+      "answer": "I haven't eaten breakfast.",
+      "fb": "Dạng quá khứ phân từ của 'eat' là 'eaten', và dùng 'haven't' với I"
+    },
+    {
+      "type": "fill",
+      "q": "___ you (finish) your project?",
+      "answer": [
+        "Have you finished"
+      ],
+      "fb": "Câu hỏi về hành động đã hoàn thành, dùng 'have' với you"
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn câu trả lời đúng: \"I ___ (see) that movie.\"",
+      "opts": [
+        "have see",
+        "have seen",
+        "has see"
+      ],
+      "answer": "have seen",
+      "fb": "Dạng quá khứ phân từ của 'see' là 'seen'"
+    },
+    {
+      "type": "fill",
+      "q": "My parents ___ (travel) to many countries.",
+      "answer": [
+        "have traveled"
+      ],
+      "fb": "Dạng quá khứ phân từ của 'travel' là 'traveled'"
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng nghi vấn của \"She has eaten breakfast\" là:",
+      "opts": [
+        "Has she eat breakfast?",
+        "Has she eaten breakfast?",
+        "Have she eaten breakfast?"
+      ],
+      "answer": "Has she eaten breakfast?",
+      "fb": "Dạng quá khứ phân từ của 'eat' là 'eaten', và dùng 'has' với she"
+    }
+  ]
+}

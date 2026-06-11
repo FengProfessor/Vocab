@@ -1,0 +1,242 @@
+{
+  "slug": "modals-deduction",
+  "title": "Modals: Deduction (must/might/can't)",
+  "title_vi": "Khuyết thiếu: suy đoán (must/might/can't)",
+  "level": "intermediate",
+  "order": 31,
+  "sections": {
+    "definition": "Modals: Deduction (must/might/can't) dùng **must, might/may/could và can't** để suy đoán mức độ chắc chắn từ bằng chứng. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "She must be at work; her car is gone.",
+        "vi": "Chắc cô ấy đang ở chỗ làm; xe cô ấy không còn đây."
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "He might know the answer.",
+        "vi": "Có thể anh ấy biết đáp án."
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "That can't be true.",
+        "vi": "Điều đó không thể đúng."
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "They may arrive late.",
+        "vi": "Có thể họ sẽ đến muộn."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "must + V: gần như chắc chắn",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "might/may/could + V: có thể",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "can't + V: gần như không thể",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "must + V: gần như chắc chắn",
+        "example": "She must be at work; her car is gone."
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "might/may/could + V: có thể",
+        "example": "He might know the answer."
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "can't + V: gần như không thể",
+        "example": "That can't be true."
+      }
+    ],
+    "signals": [],
+    "examples": [
+      {
+        "en": "She must be at work; her car is gone.",
+        "vi": "Chắc cô ấy đang ở chỗ làm; xe cô ấy không còn đây.",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "He might know the answer.",
+        "vi": "Có thể anh ấy biết đáp án.",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "That can't be true.",
+        "vi": "Điều đó không thể đúng.",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "They may arrive late.",
+        "vi": "Có thể họ sẽ đến muộn.",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "This could be the right key.",
+        "vi": "Đây có thể là chìa khóa đúng.",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "You must be tired after the journey.",
+        "vi": "Hẳn bạn mệt sau chuyến đi.",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “must + V: gần như chắc chắn”.",
+        "right": "She must be at work; her car is gone.",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “might/may/could + V: có thể”.",
+        "right": "He might know the answer.",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "That can't be true.",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **must + V: gần như chắc chắn** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** must suy đoán không phải must bắt buộc; can't suy đoán phủ định mạnh.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Modals: Deduction (must/might/can't).",
+      "opts": [
+        "She must be at work; her car is gone.",
+        "Not correctly: must + V: gần như chắc chắn.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "She must be at work; her car is gone.",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "must + V: gần như chắc chắn",
+        "might/may/could + V: có thể",
+        "can't + V: gần như không thể"
+      ],
+      "answer": "must + V: gần như chắc chắn",
+      "fb": "Mẫu trọng tâm là must + V: gần như chắc chắn."
+    },
+    {
+      "type": "fill",
+      "q": "Hoàn thành theo mẫu: He ___ know the answer.",
+      "answer": [
+        "might"
+      ],
+      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Modals: Deduction (must/might/can't)",
+        "modals: deduction (must/might/can't)"
+      ],
+      "fb": "Chủ điểm là Modals: Deduction (must/might/can't)."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “That can't be true.”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Modals: Deduction (must/might/can't) chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "They may arrive late.",
+        "This could be the right key.",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Hẳn bạn mệt sau chuyến đi.”",
+      "answer": [
+        "You must be tired after the journey."
+      ],
+      "fb": "You must be tired after the journey."
+    },
+    {
+      "type": "tf",
+      "q": "“She must be at work; her car is gone.” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "You must be tired after the journey.",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "You must be tired after the journey.",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}

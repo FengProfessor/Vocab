@@ -1,0 +1,238 @@
+{
+  "slug": "articles",
+  "title": "Articles (a / an / the)",
+  "title_vi": "Mạo từ (a / an / the)",
+  "level": "beginner",
+  "order": 8,
+  "sections": {
+    "definition": "**Mạo từ** là từ dùng để mô tả danh từ, chỉ ra danh từ đó là cụ thể hay không cụ thể. Trong tiếng Anh, có ba loại mạo từ chính: **a**, **an**, và **the**. **A** và **an** được dùng cho danh từ không cụ thể, còn **the** được dùng cho danh từ cụ thể.",
+    "usage": [
+      {
+        "icon": "👉",
+        "label": "Dùng **a** trước danh từ bắt đầu bằng phụ âm",
+        "en": "I have a book.",
+        "vi": "Tôi có một cuốn sách."
+      },
+      {
+        "icon": "👉",
+        "label": "Dùng **an** trước danh từ bắt đầu bằng nguyên âm",
+        "en": "I have an apple.",
+        "vi": "Tôi có một quả táo."
+      },
+      {
+        "icon": "👉",
+        "label": "Dùng **the** cho danh từ cụ thể",
+        "en": "I am reading the book.",
+        "vi": "Tôi đang đọc cuốn sách."
+      },
+      {
+        "icon": "👉",
+        "label": "Dùng **the** cho danh từ đã được nhắc đến trước đó",
+        "en": "I saw a dog. The dog was very big.",
+        "vi": "Tôi thấy một con chó. Con chó đó rất lớn."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Danh từ không cụ thể",
+          "mạo_từ": "a / an"
+        },
+        {
+          "form": "Danh từ cụ thể",
+          "mạo_từ": "the"
+        },
+        {
+          "form": "Danh từ đã được nhắc đến",
+          "mạo_từ": "the"
+        }
+      ],
+      "note": "**A** và **an** được dùng cho danh từ không cụ thể, trong khi **the** được dùng cho danh từ cụ thể hoặc đã được nhắc đến trước đó."
+    },
+    "rules": [
+      {
+        "case": "Danh từ bắt đầu bằng phụ âm",
+        "rule": "Dùng **a**",
+        "example": "cat → a cat"
+      },
+      {
+        "case": "Danh từ bắt đầu bằng nguyên âm",
+        "rule": "Dùng **an**",
+        "example": "apple → an apple"
+      },
+      {
+        "case": "Danh từ cụ thể",
+        "rule": "Dùng **the**",
+        "example": "book → the book"
+      }
+    ],
+    "signals": [
+      "specific",
+      "general",
+      "previously mentioned"
+    ],
+    "examples": [
+      {
+        "en": "I have a car.",
+        "vi": "Tôi có một chiếc xe.",
+        "note": "Dùng **a** vì danh từ 'car' không cụ thể."
+      },
+      {
+        "en": "I am reading an article.",
+        "vi": "Tôi đang đọc một bài viết.",
+        "note": "Dùng **an** vì danh từ 'article' bắt đầu bằng nguyên âm."
+      },
+      {
+        "en": "I saw the movie yesterday.",
+        "vi": "Tôi xem phim đó vào ngày hôm qua.",
+        "note": "Dùng **the** vì danh từ 'movie' đã được nhắc đến trước đó."
+      },
+      {
+        "en": "The book on the table is mine.",
+        "vi": "Cuốn sách trên bàn là của tôi.",
+        "note": "Dùng **the** vì danh từ 'book' cụ thể."
+      },
+      {
+        "en": "I have a brother and a sister.",
+        "vi": "Tôi có một anh trai và một chị gái.",
+        "note": "Dùng **a** vì danh từ 'brother' và 'sister' không cụ thể."
+      },
+      {
+        "en": "The teacher gave us an assignment.",
+        "vi": "Giáo viên đã giao cho chúng tôi một nhiệm vụ.",
+        "note": "Dùng **an** vì danh từ 'assignment' bắt đầu bằng nguyên âm."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "I have the book.",
+        "right": "I have a book.",
+        "why": "Chưa xác định danh từ 'book' là cụ thể hay không."
+      },
+      {
+        "wrong": "I am reading an book.",
+        "right": "I am reading a book.",
+        "vi": "Sai vì danh từ 'book' bắt đầu bằng phụ âm, dùng **a**.",
+        "why": "Danh từ 'book' bắt đầu bằng phụ âm, nên dùng **a**."
+      },
+      {
+        "wrong": "I saw dog.",
+        "right": "I saw a dog.",
+        "why": "Chưa xác định danh từ 'dog' là cụ thể hay không."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** Dùng **a** trước danh từ bắt đầu bằng phụ âm, dùng **an** trước danh từ bắt đầu bằng nguyên âm. Dùng **the** cho danh từ cụ thể hoặc đã được nhắc đến trước đó.",
+    "comparison": "**Sự khác biệt giữa a, an, và the:** Dùng **a** và **an** cho danh từ không cụ thể, dùng **the** cho danh từ cụ thể hoặc đã được nhắc đến trước đó.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Tôi có một chiếc xe. Câu tiếng Anh là:",
+      "opts": [
+        "I have the car.",
+        "I have a car.",
+        "I have an car."
+      ],
+      "answer": "I have a car.",
+      "fb": "Danh từ 'car' không cụ thể, dùng **a**."
+    },
+    {
+      "type": "fill",
+      "q": "Tôi đang đọc một bài viết. Câu tiếng Anh là: I am reading ___ article.",
+      "answer": [
+        "an"
+      ],
+      "fb": "Danh từ 'article' bắt đầu bằng nguyên âm, dùng **an**."
+    },
+    {
+      "type": "mcq",
+      "q": "Tôi xem phim đó vào ngày hôm qua. Câu tiếng Anh là:",
+      "opts": [
+        "I saw a movie yesterday.",
+        "I saw the movie yesterday.",
+        "I saw an movie yesterday."
+      ],
+      "answer": "I saw the movie yesterday.",
+      "fb": "Danh từ 'movie' đã được nhắc đến trước đó, dùng **the**."
+    },
+    {
+      "type": "fill",
+      "q": "Cuốn sách trên bàn là của tôi. Câu tiếng Anh là: The book on the table is ___ .",
+      "answer": [
+        "mine"
+      ],
+      "fb": "Danh từ 'book' cụ thể, dùng **the**."
+    },
+    {
+      "type": "mcq",
+      "q": "Tôi có một anh trai và một chị gái. Câu tiếng Anh là:",
+      "opts": [
+        "I have the brother and the sister.",
+        "I have a brother and a sister.",
+        "I have an brother and a sister."
+      ],
+      "answer": "I have a brother and a sister.",
+      "fb": "Danh từ 'brother' và 'sister' không cụ thể, dùng **a**."
+    },
+    {
+      "type": "fill",
+      "q": "Giáo viên đã giao cho chúng tôi một nhiệm vụ. Câu tiếng Anh là: The teacher gave us ___ assignment.",
+      "answer": [
+        "an"
+      ],
+      "fb": "Danh từ 'assignment' bắt đầu bằng nguyên âm, dùng **an**."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"I have the book.\"",
+      "answer": false,
+      "fb": "Sai vì chưa xác định danh từ 'book' là cụ thể hay không."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"I am reading a book.\"",
+      "answer": true,
+      "fb": "Đúng vì danh từ 'book' không cụ thể, dùng **a**."
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "I have a book.",
+        "I have the book.",
+        "I have an book."
+      ],
+      "answer": "I have an book.",
+      "fb": "Sai vì danh từ 'book' bắt đầu bằng phụ âm, dùng **a**."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng câu sau đúng ngữ pháp không? → \"I saw dog.\"",
+      "opts": [
+        "Đúng",
+        "Sai"
+      ],
+      "answer": "Sai",
+      "fb": "Sai vì chưa xác định danh từ 'dog' là cụ thể hay không."
+    },
+    {
+      "type": "fill",
+      "q": "Tôi có một chiếc xe. Câu tiếng Anh là: I have ___ car.",
+      "answer": [
+        "a"
+      ],
+      "fb": "Danh từ 'car' không cụ thể, dùng **a**."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu sau đúng ngữ pháp không? → \"I am reading the book.\"",
+      "opts": [
+        "Đúng",
+        "Sai"
+      ],
+      "answer": "Đúng",
+      "fb": "Đúng vì danh từ 'book' đã được nhắc đến trước đó, dùng **the**."
+    }
+  ]
+}

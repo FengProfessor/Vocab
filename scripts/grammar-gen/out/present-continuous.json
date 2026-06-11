@@ -1,0 +1,287 @@
+{
+  "slug": "present-continuous",
+  "title": "Present Continuous",
+  "title_vi": "Thì Hiện tại tiếp diễn",
+  "level": "beginner",
+  "order": 2,
+  "sections": {
+    "definition": "Thì **Hiện tại tiếp diễn** (Present Continuous) diễn tả những hành động **đang diễn ra** ngay tại thời điểm nói hoặc xung quanh thời điểm nói. Nó cũng có thể dùng để nói về những **kế hoạch đã được sắp xếp** trong tương lai gần. Đây là thì rất quan trọng để mô tả những gì đang xảy ra trong cuộc sống của bạn.",
+    "usage": [
+      {
+        "icon": "⏰",
+        "label": "Hành động đang diễn ra ngay lúc nói",
+        "en": "I am studying English now.",
+        "vi": "Tôi đang học tiếng Anh bây giờ."
+      },
+      {
+        "icon": "🗓️",
+        "label": "Hành động tạm thời xung quanh hiện tại",
+        "en": "She is living with her aunt this month.",
+        "vi": "Cô ấy đang sống với dì của mình tháng này."
+      },
+      {
+        "icon": "✈️",
+        "label": "Kế hoạch, sắp xếp trong tương lai gần (đã định trước)",
+        "en": "We are flying to Japan next week.",
+        "vi": "Chúng tôi sẽ bay đến Nhật Bản vào tuần tới."
+      },
+      {
+        "icon": "😠",
+        "label": "Hành động lặp đi lặp lại gây khó chịu (thường với 'always')",
+        "en": "He is always complaining about something.",
+        "vi": "Anh ấy lúc nào cũng than phiền về điều gì đó."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "(+) Khẳng định",
+          "base": "S + am/is/are + V-ing"
+        },
+        {
+          "form": "(−) Phủ định",
+          "base": "S + am/is/are + not + V-ing"
+        },
+        {
+          "form": "(?) Nghi vấn",
+          "base": "Am/Is/Are + S + V-ing?"
+        }
+      ],
+      "note": "Cách chia động từ 'to be':\n-   **I** đi với **am**\n-   **He / She / It / Danh từ số ít** đi với **is**\n-   **You / We / They / Danh từ số nhiều** đi với **are**\n\nDạng rút gọn:\n-   I'm, You're, He's, She's, It's, We're, They're\n-   isn't (is not), aren't (are not)"
+    },
+    "rules": [
+      {
+        "case": "Đa số động từ",
+        "rule": "+ ing",
+        "example": "work → working · play → playing"
+      },
+      {
+        "case": "Động từ tận cùng bằng -e",
+        "rule": "bỏ -e rồi + ing",
+        "example": "make → making · write → writing"
+      },
+      {
+        "case": "Động từ tận cùng bằng -ie",
+        "rule": "đổi -ie thành -y rồi + ing",
+        "example": "lie → lying · die → dying"
+      },
+      {
+        "case": "Động từ một âm tiết, tận cùng là phụ âm + nguyên âm + phụ âm (trừ h, w, y, x)",
+        "rule": "gấp đôi phụ âm cuối rồi + ing",
+        "example": "run → running (r-u-n) · stop → stopping (s-t-o-p) · swim → swimming (s-w-i-m)\n*Giải thích:* **Phụ âm** là các chữ cái không phải nguyên âm. **Nguyên âm** là a, e, i, o, u."
+      }
+    ],
+    "signals": [
+      "now",
+      "right now",
+      "at the moment",
+      "at present",
+      "currently",
+      "today",
+      "tonight",
+      "this week/month/year",
+      "listen!",
+      "look!"
+    ],
+    "examples": [
+      {
+        "en": "She is reading a book right now.",
+        "vi": "Cô ấy đang đọc sách ngay bây giờ.",
+        "note": "Hành động đang diễn ra tại thời điểm nói."
+      },
+      {
+        "en": "They aren't watching TV at the moment.",
+        "vi": "Họ không đang xem TV vào lúc này.",
+        "note": "Phủ định, hành động không diễn ra."
+      },
+      {
+        "en": "Are you listening to me?",
+        "vi": "Bạn có đang nghe tôi nói không?",
+        "note": "Câu hỏi nghi vấn."
+      },
+      {
+        "en": "My brother is working on a new project this month.",
+        "vi": "Anh trai tôi đang làm một dự án mới tháng này.",
+        "note": "Hành động tạm thời, kéo dài xung quanh hiện tại."
+      },
+      {
+        "en": "We are having dinner with friends tomorrow evening.",
+        "vi": "Chúng tôi sẽ ăn tối với bạn bè vào tối mai.",
+        "note": "Kế hoạch đã được sắp xếp trong tương lai gần."
+      },
+      {
+        "en": "Look! It is raining heavily outside.",
+        "vi": "Nhìn kìa! Trời đang mưa to bên ngoài.",
+        "note": "Dấu hiệu 'Look!' chỉ hành động đang diễn ra."
+      },
+      {
+        "en": "Why are you always interrupting me?",
+        "vi": "Sao bạn lúc nào cũng ngắt lời tôi vậy?",
+        "note": "Diễn tả sự khó chịu về một hành động lặp lại."
+      },
+      {
+        "en": "I am not feeling well today.",
+        "vi": "Hôm nay tôi không cảm thấy khỏe.",
+        "note": "Phủ định, trạng thái tạm thời."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "She studying now.",
+        "right": "She **is** studying now.",
+        "why": "Quên động từ 'to be' (am/is/are) là lỗi rất phổ biến. Thì Hiện tại tiếp diễn LUÔN CÓ 'to be' + V-ing."
+      },
+      {
+        "wrong": "They are play football.",
+        "right": "They are play**ing** football.",
+        "why": "Động từ chính phải thêm -ing. 'To be' không thể đứng một mình với động từ thường."
+      },
+      {
+        "wrong": "I am runing fast.",
+        "right": "I am runn**ing** fast.",
+        "why": "Động từ 'run' có cấu trúc phụ âm + nguyên âm + phụ âm, cần gấp đôi phụ âm cuối 'n' trước khi thêm -ing."
+      },
+      {
+        "wrong": "He is makeing a cake.",
+        "right": "He is mak**ing** a cake.",
+        "why": "Động từ tận cùng bằng -e (make), phải bỏ -e rồi mới thêm -ing."
+      },
+      {
+        "wrong": "I am loving this song.",
+        "right": "I love this song.",
+        "why": "Một số động từ trạng thái (state verbs) như 'love', 'hate', 'know', 'understand', 'want', 'need', 'believe' KHÔNG dùng ở thì tiếp diễn."
+      }
+    ],
+    "tips": "**Mẹo nhớ:**\n-   **3 chữ cái thần kỳ:** S + **be** + **V-ing**. Nhớ đủ 3 thành phần này là đúng cấu trúc thì Hiện tại tiếp diễn.\n-   **Đang diễn ra:** Cứ thấy cái gì \"đang\" thì nghĩ ngay đến Hiện tại tiếp diễn.\n-   **Cẩn thận -ing:** Luôn kiểm tra quy tắc thêm -ing (bỏ -e, gấp đôi phụ âm, đổi -ie thành -y, v.v.) để tránh sai chính tả.",
+    "comparison": "**Hiện tại đơn vs Hiện tại tiếp diễn:**\n-   **Hiện tại đơn:** Diễn tả thói quen, sự thật hiển nhiên, lịch trình cố định. (VD: *I drink coffee every morning.* — Tôi uống cà phê mỗi sáng [là thói quen của tôi].)\n-   **Hiện tại tiếp diễn:** Diễn tả hành động đang diễn ra ngay lúc nói, hành động tạm thời, hoặc kế hoạch tương lai đã định. (VD: *I am drinking coffee now.* — Tôi đang uống cà phê ngay bây giờ [hành động đang xảy ra].)\n\n**Lưu ý đặc biệt:** Một số **động từ trạng thái (state verbs)** không dùng ở thì tiếp diễn. Chúng thường diễn tả cảm xúc, suy nghĩ, sở hữu, giác quan, v.v. Ví dụ: *love, hate, like, want, need, know, understand, believe, remember, see, hear, smell, taste, have (sở hữu), seem, own.* Bạn sẽ nói *I want a coffee* chứ không nói *I am wanting a coffee*.",
+    "timeline": {
+      "caption": "Ví dụ \"I am studying English now\" — hành động bắt đầu trước hiện tại, tiếp diễn xuyên qua hiện tại, và sẽ kết thúc trong tương lai gần.",
+      "points": [
+        {
+          "label": "Bắt đầu học",
+          "note": "quá khứ"
+        },
+        {
+          "label": "ĐANG HỌC",
+          "note": "HIỆN TẠI"
+        },
+        {
+          "label": "Sẽ kết thúc",
+          "note": "tương lai"
+        }
+      ]
+    }
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "She ___ a letter now.",
+      "opts": [
+        "is writing",
+        "writes",
+        "write"
+      ],
+      "answer": "is writing",
+      "fb": "Hành động đang diễn ra (now) → dùng Hiện tại tiếp diễn (S + is + V-ing)."
+    },
+    {
+      "type": "mcq",
+      "q": "What ___ you ___ at the moment?",
+      "opts": [
+        "are / doing",
+        "do / doing",
+        "are / do"
+      ],
+      "answer": "are / doing",
+      "fb": "Câu hỏi ở Hiện tại tiếp diễn: Are + S + V-ing."
+    },
+    {
+      "type": "fill",
+      "q": "They ___ (not / play) games right now.",
+      "answer": [
+        "are not playing",
+        "aren't playing"
+      ],
+      "fb": "Dạng phủ định của Hiện tại tiếp diễn: S + are not + V-ing."
+    },
+    {
+      "type": "fill",
+      "q": "Look! The baby ___ (sleep) in the crib.",
+      "answer": [
+        "is sleeping"
+      ],
+      "fb": "'Look!' là dấu hiệu của hành động đang diễn ra. 'sleep' → sleeping."
+    },
+    {
+      "type": "fill",
+      "q": "We ___ (have) dinner with our parents tonight.",
+      "answer": [
+        "are having"
+      ],
+      "fb": "Kế hoạch đã được sắp xếp trong tương lai gần dùng Hiện tại tiếp diễn. 'have' → having (bỏ -e)."
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"He is always forget his keys.\"",
+      "answer": false,
+      "fb": "SAI. Sau 'is always', động từ phải thêm -ing để diễn tả sự khó chịu: 'He is always forgetting his keys.'"
+    },
+    {
+      "type": "tf",
+      "q": "Câu sau đúng ngữ pháp không? → \"I am understanding this lesson.\"",
+      "answer": false,
+      "fb": "SAI. 'Understand' là động từ trạng thái, không dùng ở thì tiếp diễn. Phải là 'I understand this lesson.'"
+    },
+    {
+      "type": "error",
+      "q": "Câu nào SAI ngữ pháp?",
+      "opts": [
+        "She is cooking lunch.",
+        "They are watch TV.",
+        "I am reading a book."
+      ],
+      "answer": "They are watch TV.",
+      "fb": "Phải là 'They are watching TV.' Động từ chính phải thêm -ing."
+    },
+    {
+      "type": "mcq",
+      "q": "Dạng phủ định của \"You are listening to music\" là:",
+      "opts": [
+        "You aren't listen to music.",
+        "You aren't listening to music.",
+        "You don't listening to music."
+      ],
+      "answer": "You aren't listening to music.",
+      "fb": "Dạng phủ định: S + be + not + V-ing. 'Don't' không dùng với động từ 'to be' trong thì tiếp diễn."
+    },
+    {
+      "type": "fill",
+      "q": "My sister ___ (live) with friends for a few months.",
+      "answer": [
+        "is living"
+      ],
+      "fb": "Hành động tạm thời xung quanh hiện tại. 'live' → living (bỏ -e)."
+    },
+    {
+      "type": "mcq",
+      "q": "Be quiet! The children ___.",
+      "opts": [
+        "are sleeping",
+        "sleep",
+        "sleeps"
+      ],
+      "answer": "are sleeping",
+      "fb": "Lời kêu gọi 'Be quiet!' chỉ hành động đang diễn ra ngay lúc nói → dùng Hiện tại tiếp diễn."
+    },
+    {
+      "type": "fill",
+      "q": "What ___ she ___ (do) this afternoon? She ___ (meet) a client.",
+      "answer": [
+        "is",
+        "doing",
+        "is meeting"
+      ],
+      "fb": "Câu hỏi và câu trả lời về kế hoạch trong tương lai gần đều dùng Hiện tại tiếp diễn. 'meet' → meeting."
+    }
+  ]
+}

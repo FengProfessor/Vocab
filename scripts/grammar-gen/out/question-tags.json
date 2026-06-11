@@ -1,0 +1,242 @@
+{
+  "slug": "question-tags",
+  "title": "Question Tags",
+  "title_vi": "Câu hỏi đuôi",
+  "level": "intermediate",
+  "order": 42,
+  "sections": {
+    "definition": "Question Tags dùng **câu hỏi đuôi** để xác nhận thông tin hoặc mời người nghe đồng tình. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
+    "usage": [
+      {
+        "icon": "🎯",
+        "label": "Diễn đạt ý chính",
+        "en": "You're coming, aren't you?",
+        "vi": "Bạn sẽ đến, phải không?"
+      },
+      {
+        "icon": "🧭",
+        "label": "Dùng trong giao tiếp",
+        "en": "She doesn't drive, does she?",
+        "vi": "Cô ấy không lái xe, đúng không?"
+      },
+      {
+        "icon": "💬",
+        "label": "Dùng ở dạng biến đổi",
+        "en": "They left early, didn't they?",
+        "vi": "Họ đã rời đi sớm, phải không?"
+      },
+      {
+        "icon": "📝",
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Let's start, shall we?",
+        "vi": "Chúng ta bắt đầu nhé?"
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Cấu trúc chính",
+          "base": "mệnh đề khẳng định, trợ động từ phủ định + đại từ?",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Biến thể quan trọng",
+          "base": "mệnh đề phủ định, trợ động từ khẳng định + đại từ?",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "form": "Dạng mở rộng",
+          "base": "Let's ..., shall we?",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ],
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
+    },
+    "rules": [
+      {
+        "case": "Chọn cấu trúc theo ý nghĩa",
+        "rule": "mệnh đề khẳng định, trợ động từ phủ định + đại từ?",
+        "example": "You're coming, aren't you?"
+      },
+      {
+        "case": "Kiểm tra thành phần theo sau",
+        "rule": "mệnh đề phủ định, trợ động từ khẳng định + đại từ?",
+        "example": "She doesn't drive, does she?"
+      },
+      {
+        "case": "Nguyên âm và phụ âm",
+        "rule": "Nguyên âm tiếng Anh gồm a, e, i, o, u; các chữ cái còn lại thường là phụ âm. Phân biệt này quan trọng khi thêm hậu tố hoặc chọn a/an.",
+        "example": "study → studies (d là phụ âm); play → plays (a là nguyên âm)"
+      },
+      {
+        "case": "Giữ sự hòa hợp và đúng dạng động từ",
+        "rule": "Let's ..., shall we?",
+        "example": "They left early, didn't they?"
+      }
+    ],
+    "signals": [],
+    "examples": [
+      {
+        "en": "You're coming, aren't you?",
+        "vi": "Bạn sẽ đến, phải không?",
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "She doesn't drive, does she?",
+        "vi": "Cô ấy không lái xe, đúng không?",
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "They left early, didn't they?",
+        "vi": "Họ đã rời đi sớm, phải không?",
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Let's start, shall we?",
+        "vi": "Chúng ta bắt đầu nhé?",
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "I'm late, aren't I?",
+        "vi": "Tôi muộn, phải không?",
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+      },
+      {
+        "en": "Nobody called, did they?",
+        "vi": "Không ai gọi, phải không?",
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “mệnh đề khẳng định, trợ động từ phủ định + đại từ?”.",
+        "right": "You're coming, aren't you?",
+        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+      },
+      {
+        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “mệnh đề phủ định, trợ động từ khẳng định + đại từ?”.",
+        "right": "She doesn't drive, does she?",
+        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+      },
+      {
+        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
+        "right": "They left early, didn't they?",
+        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      }
+    ],
+    "tips": "**Mẹo nhớ:** học mẫu **mệnh đề khẳng định, trợ động từ phủ định + đại từ?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "comparison": "**Phân biệt:** đuôi thường trái dấu với mệnh đề chính và lặp đúng trợ động từ/thì.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "type": "mcq",
+      "q": "Chọn câu dùng đúng Question Tags.",
+      "opts": [
+        "You're coming, aren't you?",
+        "Not correctly: mệnh đề khẳng định, trợ động từ phủ định + đại từ?.",
+        "Wrong structure for this meaning."
+      ],
+      "answer": "You're coming, aren't you?",
+      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
+    },
+    {
+      "type": "mcq",
+      "q": "Chọn cấu trúc phù hợp nhất.",
+      "opts": [
+        "mệnh đề khẳng định, trợ động từ phủ định + đại từ?",
+        "mệnh đề phủ định, trợ động từ khẳng định + đại từ?",
+        "Let's ..., shall we?"
+      ],
+      "answer": "mệnh đề khẳng định, trợ động từ phủ định + đại từ?",
+      "fb": "Mẫu trọng tâm là mệnh đề khẳng định, trợ động từ phủ định + đại từ?."
+    },
+    {
+      "type": "fill",
+      "q": "Ho?n th?nh c?u: ___ doesn't drive, does she?",
+      "answer": [
+        "She"
+      ],
+      "fb": "T? c?n ?i?n l? ?She? ?? c?u ??ng v? t? nhi?n."
+    },
+    {
+      "type": "fill",
+      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
+      "answer": [
+        "Question Tags",
+        "question tags"
+      ],
+      "fb": "Chủ điểm là Question Tags."
+    },
+    {
+      "type": "tf",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “They left early, didn't they?”",
+      "answer": true,
+      "fb": "Đúng; câu minh họa một biến thể quan trọng."
+    },
+    {
+      "type": "tf",
+      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Question Tags chính xác.",
+      "answer": false,
+      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
+    },
+    {
+      "type": "error",
+      "q": "Câu/mô tả nào SAI?",
+      "opts": [
+        "Let's start, shall we?",
+        "I'm late, aren't I?",
+        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
+      ],
+      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
+      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
+    },
+    {
+      "type": "mcq",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opts": [
+        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+        "Chỉ số lượng từ trong câu",
+        "Chỉ độ dài câu"
+      ],
+      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
+      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
+    },
+    {
+      "type": "fill",
+      "q": "Dịch sang tiếng Anh: “Không ai gọi, phải không?”",
+      "answer": [
+        "Nobody called, did they?"
+      ],
+      "fb": "Nobody called, did they?"
+    },
+    {
+      "type": "tf",
+      "q": "“You're coming, aren't you?” là một ví dụ đúng.",
+      "answer": true,
+      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
+    },
+    {
+      "type": "error",
+      "q": "Chọn lời khuyên SAI.",
+      "opts": [
+        "Học cấu trúc cùng ví dụ.",
+        "Kiểm tra dạng động từ.",
+        "Dịch máy móc từng từ luôn cho kết quả đúng."
+      ],
+      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
+      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
+    },
+    {
+      "type": "mcq",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opts": [
+        "Nobody called, did they?",
+        "This sentence missing required grammar.",
+        "Incorrectly structure sentence."
+      ],
+      "answer": "Nobody called, did they?",
+      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    }
+  ]
+}
