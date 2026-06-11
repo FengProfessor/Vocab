@@ -79,32 +79,278 @@
       {
         "en": "If you heat ice, it melts.",
         "vi": "Nếu bạn làm nóng băng, nó tan.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "If",
+            "start": 0,
+            "end": 2,
+            "role": "conjunction"
+          },
+          {
+            "word": "you",
+            "start": 3,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "heat",
+            "start": 7,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "ice",
+            "start": 12,
+            "end": 15,
+            "role": "noun"
+          },
+          {
+            "word": "it",
+            "start": 17,
+            "end": 19,
+            "role": "pronoun"
+          },
+          {
+            "word": "melts",
+            "start": 20,
+            "end": 25,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "If it rains, we'll stay home.",
         "vi": "Nếu trời mưa, chúng tôi sẽ ở nhà.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "If",
+            "start": 0,
+            "end": 2,
+            "role": "conjunction"
+          },
+          {
+            "word": "it",
+            "start": 3,
+            "end": 5,
+            "role": "pronoun"
+          },
+          {
+            "word": "rains",
+            "start": 6,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "we'll",
+            "start": 13,
+            "end": 18,
+            "role": "modal"
+          },
+          {
+            "word": "stay",
+            "start": 19,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "home",
+            "start": 24,
+            "end": 28,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Plants die if they don't get water.",
         "vi": "Cây chết nếu không có nước.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Plants",
+            "start": 0,
+            "end": 6,
+            "role": "noun"
+          },
+          {
+            "word": "die",
+            "start": 7,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "if",
+            "start": 11,
+            "end": 13,
+            "role": "conjunction"
+          },
+          {
+            "word": "they",
+            "start": 14,
+            "end": 18,
+            "role": "pronoun"
+          },
+          {
+            "word": "don't",
+            "start": 19,
+            "end": 24,
+            "role": "auxiliary"
+          },
+          {
+            "word": "get",
+            "start": 25,
+            "end": 28,
+            "role": "verb"
+          },
+          {
+            "word": "water",
+            "start": 29,
+            "end": 34,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I'll call you if I arrive early.",
         "vi": "Tôi sẽ gọi nếu đến sớm.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I'll",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "call",
+            "start": 5,
+            "end": 9,
+            "role": "modal"
+          },
+          {
+            "word": "you",
+            "start": 10,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "if",
+            "start": 14,
+            "end": 16,
+            "role": "pronoun"
+          },
+          {
+            "word": "I",
+            "start": 17,
+            "end": 18,
+            "role": "conjunction"
+          },
+          {
+            "word": "arrive",
+            "start": 19,
+            "end": 25,
+            "role": "pronoun"
+          },
+          {
+            "word": "early",
+            "start": 26,
+            "end": 31,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "Unless you hurry, you'll miss the bus.",
         "vi": "Nếu không nhanh lên, bạn sẽ lỡ xe buýt.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Unless",
+            "start": 0,
+            "end": 6,
+            "role": "conjunction"
+          },
+          {
+            "word": "you",
+            "start": 7,
+            "end": 10,
+            "role": "pronoun"
+          },
+          {
+            "word": "hurry",
+            "start": 11,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "you'll",
+            "start": 18,
+            "end": 24,
+            "role": "pronoun"
+          },
+          {
+            "word": "miss",
+            "start": 25,
+            "end": 29,
+            "role": "modal"
+          },
+          {
+            "word": "the",
+            "start": 30,
+            "end": 33,
+            "role": "verb"
+          },
+          {
+            "word": "bus",
+            "start": 34,
+            "end": 37,
+            "role": "article"
+          }
+        ]
       },
       {
         "en": "If she studies, she may pass.",
         "vi": "Nếu học, cô ấy có thể đỗ.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "If",
+            "start": 0,
+            "end": 2,
+            "role": "conjunction"
+          },
+          {
+            "word": "she",
+            "start": 3,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "studies",
+            "start": 7,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "she",
+            "start": 16,
+            "end": 19,
+            "role": "pronoun"
+          },
+          {
+            "word": "may",
+            "start": 20,
+            "end": 23,
+            "role": "modal"
+          },
+          {
+            "word": "pass",
+            "start": 24,
+            "end": 28,
+            "role": "verb"
+          }
+        ]
       }
     ],
     "mistakes": [

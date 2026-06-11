@@ -86,32 +86,284 @@
       {
         "en": "I have been studying for three hours.",
         "vi": "Tôi đã học được ba tiếng rồi.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "been",
+            "start": 7,
+            "end": 11,
+            "role": "auxiliary"
+          },
+          {
+            "word": "studying",
+            "start": 12,
+            "end": 20,
+            "role": "verb"
+          },
+          {
+            "word": "for",
+            "start": 21,
+            "end": 24,
+            "role": "preposition"
+          },
+          {
+            "word": "three",
+            "start": 25,
+            "end": 30,
+            "role": "other"
+          },
+          {
+            "word": "hours",
+            "start": 31,
+            "end": 36,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She has been crying; her eyes are red.",
         "vi": "Cô ấy vừa khóc; mắt cô ấy đỏ.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "has",
+            "start": 4,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "been",
+            "start": 8,
+            "end": 12,
+            "role": "auxiliary"
+          },
+          {
+            "word": "crying",
+            "start": 13,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "her",
+            "start": 21,
+            "end": 24,
+            "role": "pronoun"
+          },
+          {
+            "word": "eyes",
+            "start": 25,
+            "end": 29,
+            "role": "noun"
+          },
+          {
+            "word": "are",
+            "start": 30,
+            "end": 33,
+            "role": "auxiliary"
+          },
+          {
+            "word": "red",
+            "start": 34,
+            "end": 37,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "We haven't been sleeping well lately.",
         "vi": "Gần đây chúng tôi ngủ không ngon.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "haven't",
+            "start": 3,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "been",
+            "start": 11,
+            "end": 15,
+            "role": "auxiliary"
+          },
+          {
+            "word": "sleeping",
+            "start": 16,
+            "end": 24,
+            "role": "verb"
+          },
+          {
+            "word": "well",
+            "start": 25,
+            "end": 29,
+            "role": "adverb"
+          },
+          {
+            "word": "lately",
+            "start": 30,
+            "end": 36,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "How long have you been waiting?",
         "vi": "Bạn đã chờ bao lâu rồi?",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "How",
+            "start": 0,
+            "end": 3,
+            "role": "adverb"
+          },
+          {
+            "word": "long",
+            "start": 4,
+            "end": 8,
+            "role": "adverb"
+          },
+          {
+            "word": "have",
+            "start": 9,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 14,
+            "end": 17,
+            "role": "pronoun"
+          },
+          {
+            "word": "been",
+            "start": 18,
+            "end": 22,
+            "role": "auxiliary"
+          },
+          {
+            "word": "waiting",
+            "start": 23,
+            "end": 30,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "It has been raining since noon.",
         "vi": "Trời đã mưa từ trưa.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "It",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "has",
+            "start": 3,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "been",
+            "start": 7,
+            "end": 11,
+            "role": "auxiliary"
+          },
+          {
+            "word": "raining",
+            "start": 12,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "since",
+            "start": 20,
+            "end": 25,
+            "role": "preposition"
+          },
+          {
+            "word": "noon",
+            "start": 26,
+            "end": 30,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "They have been working here since 2022.",
         "vi": "Họ đã làm việc ở đây từ năm 2022.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 5,
+            "end": 9,
+            "role": "auxiliary"
+          },
+          {
+            "word": "been",
+            "start": 10,
+            "end": 14,
+            "role": "auxiliary"
+          },
+          {
+            "word": "working",
+            "start": 15,
+            "end": 22,
+            "role": "verb"
+          },
+          {
+            "word": "here",
+            "start": 23,
+            "end": 27,
+            "role": "adverb"
+          },
+          {
+            "word": "since",
+            "start": 28,
+            "end": 33,
+            "role": "preposition"
+          },
+          {
+            "word": "2022",
+            "start": 34,
+            "end": 38,
+            "role": "other"
+          }
+        ]
       }
     ],
     "mistakes": [

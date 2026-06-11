@@ -96,32 +96,212 @@
       {
         "en": "Three buses stop here.",
         "vi": "Ba chiếc xe buýt dừng ở đây.",
-        "note": "bus tận cùng s nên thêm es."
+        "note": "bus tận cùng s nên thêm es.",
+        "annotations": [
+          {
+            "word": "Three",
+            "start": 0,
+            "end": 5,
+            "role": "other"
+          },
+          {
+            "word": "buses",
+            "start": 6,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "stop",
+            "start": 12,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "here",
+            "start": 17,
+            "end": 21,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "The babies are sleeping.",
         "vi": "Những em bé đang ngủ.",
-        "note": "baby: phụ âm + y → babies."
+        "note": "baby: phụ âm + y → babies.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "babies",
+            "start": 4,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "are",
+            "start": 11,
+            "end": 14,
+            "role": "auxiliary"
+          },
+          {
+            "word": "sleeping",
+            "start": 15,
+            "end": 23,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "We need four knives.",
         "vi": "Chúng tôi cần bốn con dao.",
-        "note": "knife là dạng f/fe → ves."
+        "note": "knife là dạng f/fe → ves.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "need",
+            "start": 3,
+            "end": 7,
+            "role": "verb"
+          },
+          {
+            "word": "four",
+            "start": 8,
+            "end": 12,
+            "role": "other"
+          },
+          {
+            "word": "knives",
+            "start": 13,
+            "end": 19,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Two children are in the garden.",
         "vi": "Hai đứa trẻ ở trong vườn.",
-        "note": "child → children là bất quy tắc."
+        "note": "child → children là bất quy tắc.",
+        "annotations": [
+          {
+            "word": "Two",
+            "start": 0,
+            "end": 3,
+            "role": "other"
+          },
+          {
+            "word": "children",
+            "start": 4,
+            "end": 12,
+            "role": "noun"
+          },
+          {
+            "word": "are",
+            "start": 13,
+            "end": 16,
+            "role": "auxiliary"
+          },
+          {
+            "word": "in",
+            "start": 17,
+            "end": 19,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 20,
+            "end": 23,
+            "role": "article"
+          },
+          {
+            "word": "garden",
+            "start": 24,
+            "end": 30,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Those sheep belong to my uncle.",
         "vi": "Những con cừu kia thuộc về chú tôi.",
-        "note": "sheep giữ nguyên ở số nhiều."
+        "note": "sheep giữ nguyên ở số nhiều.",
+        "annotations": [
+          {
+            "word": "Those",
+            "start": 0,
+            "end": 5,
+            "role": "determiner"
+          },
+          {
+            "word": "sheep",
+            "start": 6,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "belong",
+            "start": 12,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 19,
+            "end": 21,
+            "role": "preposition"
+          },
+          {
+            "word": "my",
+            "start": 22,
+            "end": 24,
+            "role": "determiner"
+          },
+          {
+            "word": "uncle",
+            "start": 25,
+            "end": 30,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Her feet are cold.",
         "vi": "Hai bàn chân cô ấy lạnh.",
-        "note": "foot → feet là bất quy tắc."
+        "note": "foot → feet là bất quy tắc.",
+        "annotations": [
+          {
+            "word": "Her",
+            "start": 0,
+            "end": 3,
+            "role": "determiner"
+          },
+          {
+            "word": "feet",
+            "start": 4,
+            "end": 8,
+            "role": "noun"
+          },
+          {
+            "word": "are",
+            "start": 9,
+            "end": 12,
+            "role": "auxiliary"
+          },
+          {
+            "word": "cold",
+            "start": 13,
+            "end": 17,
+            "role": "adjective"
+          }
+        ]
       }
     ],
     "mistakes": [

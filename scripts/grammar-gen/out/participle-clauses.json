@@ -79,32 +79,284 @@
       {
         "en": "Walking home, I saw an accident.",
         "vi": "Khi đi bộ về nhà, tôi thấy một tai nạn.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Walking",
+            "start": 0,
+            "end": 7,
+            "role": "verb"
+          },
+          {
+            "word": "home",
+            "start": 8,
+            "end": 12,
+            "role": "adverb"
+          },
+          {
+            "word": "I",
+            "start": 14,
+            "end": 15,
+            "role": "pronoun"
+          },
+          {
+            "word": "saw",
+            "start": 16,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "an",
+            "start": 20,
+            "end": 22,
+            "role": "article"
+          },
+          {
+            "word": "accident",
+            "start": 23,
+            "end": 31,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Built in 1890, the house needs repairs.",
         "vi": "Được xây năm 1890, ngôi nhà cần sửa.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Built",
+            "start": 0,
+            "end": 5,
+            "role": "verb"
+          },
+          {
+            "word": "in",
+            "start": 6,
+            "end": 8,
+            "role": "preposition"
+          },
+          {
+            "word": "1890",
+            "start": 9,
+            "end": 13,
+            "role": "other"
+          },
+          {
+            "word": "the",
+            "start": 15,
+            "end": 18,
+            "role": "article"
+          },
+          {
+            "word": "house",
+            "start": 19,
+            "end": 24,
+            "role": "noun"
+          },
+          {
+            "word": "needs",
+            "start": 25,
+            "end": 30,
+            "role": "verb"
+          },
+          {
+            "word": "repairs",
+            "start": 31,
+            "end": 38,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Having finished the report, she went home.",
         "vi": "Sau khi hoàn thành báo cáo, cô ấy về nhà.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Having",
+            "start": 0,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "finished",
+            "start": 7,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 16,
+            "end": 19,
+            "role": "article"
+          },
+          {
+            "word": "report",
+            "start": 20,
+            "end": 26,
+            "role": "noun"
+          },
+          {
+            "word": "she",
+            "start": 28,
+            "end": 31,
+            "role": "pronoun"
+          },
+          {
+            "word": "went",
+            "start": 32,
+            "end": 36,
+            "role": "verb"
+          },
+          {
+            "word": "home",
+            "start": 37,
+            "end": 41,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "Not knowing the answer, I stayed silent.",
         "vi": "Vì không biết đáp án, tôi im lặng.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Not",
+            "start": 0,
+            "end": 3,
+            "role": "adverb"
+          },
+          {
+            "word": "knowing",
+            "start": 4,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 12,
+            "end": 15,
+            "role": "article"
+          },
+          {
+            "word": "answer",
+            "start": 16,
+            "end": 22,
+            "role": "noun"
+          },
+          {
+            "word": "I",
+            "start": 24,
+            "end": 25,
+            "role": "pronoun"
+          },
+          {
+            "word": "stayed",
+            "start": 26,
+            "end": 32,
+            "role": "verb"
+          },
+          {
+            "word": "silent",
+            "start": 33,
+            "end": 39,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "Surrounded by trees, the cabin felt peaceful.",
         "vi": "Được cây cối bao quanh, căn nhà gỗ rất yên bình.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Surrounded",
+            "start": 0,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "by",
+            "start": 11,
+            "end": 13,
+            "role": "preposition"
+          },
+          {
+            "word": "trees",
+            "start": 14,
+            "end": 19,
+            "role": "noun"
+          },
+          {
+            "word": "the",
+            "start": 21,
+            "end": 24,
+            "role": "article"
+          },
+          {
+            "word": "cabin",
+            "start": 25,
+            "end": 30,
+            "role": "noun"
+          },
+          {
+            "word": "felt",
+            "start": 31,
+            "end": 35,
+            "role": "verb"
+          },
+          {
+            "word": "peaceful",
+            "start": 36,
+            "end": 44,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "Having been warned, he acted carefully.",
         "vi": "Vì đã được cảnh báo, anh ấy hành động cẩn thận.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Having",
+            "start": 0,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "been",
+            "start": 7,
+            "end": 11,
+            "role": "auxiliary"
+          },
+          {
+            "word": "warned",
+            "start": 12,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "he",
+            "start": 20,
+            "end": 22,
+            "role": "pronoun"
+          },
+          {
+            "word": "acted",
+            "start": 23,
+            "end": 28,
+            "role": "verb"
+          },
+          {
+            "word": "carefully",
+            "start": 29,
+            "end": 38,
+            "role": "adverb"
+          }
+        ]
       }
     ],
     "mistakes": [

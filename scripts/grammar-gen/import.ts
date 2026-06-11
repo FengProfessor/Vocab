@@ -39,7 +39,7 @@ type Lesson = {
     formula?: { rows?: Record<string, string>[]; note?: string };
     rules?: { case?: string; rule?: string; example?: string }[];
     signals?: string[];
-    examples?: { en?: string; vi?: string; note?: string }[];
+    examples?: { en?: string; vi?: string; note?: string; annotations?: { word: string; role: string; start: number; end: number }[] }[];
     mistakes?: { wrong?: string; right?: string; why?: string }[];
     tips?: string;
     comparison?: string;
@@ -126,7 +126,7 @@ async function main() {
     }).select('id').single();
     if (tErr || !topic) { console.log(`  ❌ ${l.slug} topic: ${tErr?.message}`); continue; }
 
-    const examples = (l.sections?.examples ?? []).map((e) => ({ en: e.en ?? '', vi: e.vi ?? '', note: e.note ?? '' })).filter((e) => e.en);
+    const examples = (l.sections?.examples ?? []).map((e) => ({ en: e.en ?? '', vi: e.vi ?? '', note: e.note ?? '', annotations: e.annotations ?? [] })).filter((e) => e.en);
     const { error: lErr } = await sb.from('grammar_lessons').insert({
       topic_id: topic.id,
       title: l.title_vi,

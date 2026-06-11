@@ -79,32 +79,278 @@
       {
         "en": "First of all, we need a clear goal.",
         "vi": "Trước hết, chúng ta cần mục tiêu rõ ràng.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "First",
+            "start": 0,
+            "end": 5,
+            "role": "adverb"
+          },
+          {
+            "word": "of",
+            "start": 6,
+            "end": 8,
+            "role": "preposition"
+          },
+          {
+            "word": "all",
+            "start": 9,
+            "end": 12,
+            "role": "other"
+          },
+          {
+            "word": "we",
+            "start": 14,
+            "end": 16,
+            "role": "pronoun"
+          },
+          {
+            "word": "need",
+            "start": 17,
+            "end": 21,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 22,
+            "end": 23,
+            "role": "article"
+          },
+          {
+            "word": "clear",
+            "start": 24,
+            "end": 29,
+            "role": "adjective"
+          },
+          {
+            "word": "goal",
+            "start": 30,
+            "end": 34,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "However, the plan is expensive.",
         "vi": "Tuy nhiên, kế hoạch tốn kém.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "However",
+            "start": 0,
+            "end": 7,
+            "role": "conjunction"
+          },
+          {
+            "word": "the",
+            "start": 9,
+            "end": 12,
+            "role": "determiner"
+          },
+          {
+            "word": "plan",
+            "start": 13,
+            "end": 17,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 18,
+            "end": 20,
+            "role": "auxiliary"
+          },
+          {
+            "word": "expensive",
+            "start": 21,
+            "end": 30,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "In other words, we need more time.",
         "vi": "Nói cách khác, chúng ta cần thêm thời gian.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "In",
+            "start": 0,
+            "end": 2,
+            "role": "preposition"
+          },
+          {
+            "word": "other",
+            "start": 3,
+            "end": 8,
+            "role": "determiner"
+          },
+          {
+            "word": "words",
+            "start": 9,
+            "end": 14,
+            "role": "noun"
+          },
+          {
+            "word": "we",
+            "start": 16,
+            "end": 18,
+            "role": "pronoun"
+          },
+          {
+            "word": "need",
+            "start": 19,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "more",
+            "start": 24,
+            "end": 28,
+            "role": "determiner"
+          },
+          {
+            "word": "time",
+            "start": 29,
+            "end": 33,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "By the way, have you called Mai?",
         "vi": "Nhân tiện, bạn đã gọi Mai chưa?",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "By",
+            "start": 0,
+            "end": 2,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 3,
+            "end": 6,
+            "role": "determiner"
+          },
+          {
+            "word": "way",
+            "start": 7,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "have",
+            "start": 12,
+            "end": 16,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 17,
+            "end": 20,
+            "role": "pronoun"
+          },
+          {
+            "word": "called",
+            "start": 21,
+            "end": 27,
+            "role": "verb"
+          },
+          {
+            "word": "Mai",
+            "start": 28,
+            "end": 31,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "On the whole, the event went well.",
         "vi": "Nhìn chung, sự kiện diễn ra tốt đẹp.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "On",
+            "start": 0,
+            "end": 2,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 3,
+            "end": 6,
+            "role": "determiner"
+          },
+          {
+            "word": "whole",
+            "start": 7,
+            "end": 12,
+            "role": "other"
+          },
+          {
+            "word": "the",
+            "start": 14,
+            "end": 17,
+            "role": "determiner"
+          },
+          {
+            "word": "event",
+            "start": 18,
+            "end": 23,
+            "role": "noun"
+          },
+          {
+            "word": "went",
+            "start": 24,
+            "end": 28,
+            "role": "verb"
+          },
+          {
+            "word": "well",
+            "start": 29,
+            "end": 33,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "Admittedly, the evidence is limited.",
         "vi": "Phải thừa nhận rằng bằng chứng còn hạn chế.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Admittedly",
+            "start": 0,
+            "end": 10,
+            "role": "adverb"
+          },
+          {
+            "word": "the",
+            "start": 12,
+            "end": 15,
+            "role": "determiner"
+          },
+          {
+            "word": "evidence",
+            "start": 16,
+            "end": 24,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 25,
+            "end": 27,
+            "role": "auxiliary"
+          },
+          {
+            "word": "limited",
+            "start": 28,
+            "end": 35,
+            "role": "adjective"
+          }
+        ]
       }
     ],
     "mistakes": [

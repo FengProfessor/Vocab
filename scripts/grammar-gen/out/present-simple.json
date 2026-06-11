@@ -89,42 +89,310 @@
       {
         "en": "She teaches English every day.",
         "vi": "Cô ấy dạy tiếng Anh mỗi ngày.",
-        "note": "Khẳng định, ngôi thứ 3 số ít → teaches."
+        "note": "Khẳng định, ngôi thứ 3 số ít → teaches.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "teaches",
+            "start": 4,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "English",
+            "start": 12,
+            "end": 19,
+            "role": "noun"
+          },
+          {
+            "word": "every",
+            "start": 20,
+            "end": 25,
+            "role": "determiner"
+          },
+          {
+            "word": "day",
+            "start": 26,
+            "end": 29,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "They don't watch TV on weekdays.",
         "vi": "Họ không xem TV vào các ngày trong tuần.",
-        "note": "Phủ định với don't + V nguyên thể."
+        "note": "Phủ định với don't + V nguyên thể.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "don't",
+            "start": 5,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "watch",
+            "start": 11,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "TV",
+            "start": 17,
+            "end": 19,
+            "role": "noun"
+          },
+          {
+            "word": "on",
+            "start": 20,
+            "end": 22,
+            "role": "preposition"
+          },
+          {
+            "word": "weekdays",
+            "start": 23,
+            "end": 31,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Does he play football?",
         "vi": "Anh ấy có chơi bóng đá không?",
-        "note": "Nghi vấn với Does + V nguyên thể."
+        "note": "Nghi vấn với Does + V nguyên thể.",
+        "annotations": [
+          {
+            "word": "Does",
+            "start": 0,
+            "end": 4,
+            "role": "auxiliary"
+          },
+          {
+            "word": "he",
+            "start": 5,
+            "end": 7,
+            "role": "pronoun"
+          },
+          {
+            "word": "play",
+            "start": 8,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "football",
+            "start": 13,
+            "end": 21,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Water boils at 100°C.",
         "vi": "Nước sôi ở 100 độ C.",
-        "note": "Sự thật hiển nhiên."
+        "note": "Sự thật hiển nhiên.",
+        "annotations": [
+          {
+            "word": "Water",
+            "start": 0,
+            "end": 5,
+            "role": "noun"
+          },
+          {
+            "word": "boils",
+            "start": 6,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "at",
+            "start": 12,
+            "end": 14,
+            "role": "preposition"
+          },
+          {
+            "word": "100°C",
+            "start": 15,
+            "end": 20,
+            "role": "other"
+          }
+        ]
       },
       {
         "en": "I usually get up at six.",
         "vi": "Tôi thường thức dậy lúc 6 giờ.",
-        "note": "Trạng từ tần suất 'usually' đứng trước động từ."
+        "note": "Trạng từ tần suất 'usually' đứng trước động từ.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "usually",
+            "start": 2,
+            "end": 9,
+            "role": "adverb"
+          },
+          {
+            "word": "get",
+            "start": 10,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "up",
+            "start": 14,
+            "end": 16,
+            "role": "adverb"
+          },
+          {
+            "word": "at",
+            "start": 17,
+            "end": 19,
+            "role": "preposition"
+          },
+          {
+            "word": "six",
+            "start": 20,
+            "end": 23,
+            "role": "other"
+          }
+        ]
       },
       {
         "en": "My father works in a bank.",
         "vi": "Bố tôi làm việc ở ngân hàng.",
-        "note": "Thói quen / sự thật về công việc."
+        "note": "Thói quen / sự thật về công việc.",
+        "annotations": [
+          {
+            "word": "My",
+            "start": 0,
+            "end": 2,
+            "role": "determiner"
+          },
+          {
+            "word": "father",
+            "start": 3,
+            "end": 9,
+            "role": "noun"
+          },
+          {
+            "word": "works",
+            "start": 10,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "in",
+            "start": 16,
+            "end": 18,
+            "role": "preposition"
+          },
+          {
+            "word": "a",
+            "start": 19,
+            "end": 20,
+            "role": "article"
+          },
+          {
+            "word": "bank",
+            "start": 21,
+            "end": 25,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "We don't live in Hanoi.",
         "vi": "Chúng tôi không sống ở Hà Nội.",
-        "note": "Phủ định ngôi số nhiều."
+        "note": "Phủ định ngôi số nhiều.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "don't",
+            "start": 3,
+            "end": 8,
+            "role": "auxiliary"
+          },
+          {
+            "word": "live",
+            "start": 9,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "in",
+            "start": 14,
+            "end": 16,
+            "role": "preposition"
+          },
+          {
+            "word": "Hanoi",
+            "start": 17,
+            "end": 22,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "What time does the shop open?",
         "vi": "Cửa hàng mở cửa lúc mấy giờ?",
-        "note": "Câu hỏi Wh- + does."
+        "note": "Câu hỏi Wh- + does.",
+        "annotations": [
+          {
+            "word": "What",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "time",
+            "start": 5,
+            "end": 9,
+            "role": "noun"
+          },
+          {
+            "word": "does",
+            "start": 10,
+            "end": 14,
+            "role": "auxiliary"
+          },
+          {
+            "word": "the",
+            "start": 15,
+            "end": 18,
+            "role": "article"
+          },
+          {
+            "word": "shop",
+            "start": 19,
+            "end": 23,
+            "role": "noun"
+          },
+          {
+            "word": "open",
+            "start": 24,
+            "end": 28,
+            "role": "verb"
+          }
+        ]
       }
     ],
     "mistakes": [

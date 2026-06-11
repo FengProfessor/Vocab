@@ -79,32 +79,272 @@
       {
         "en": "I do understand your concern.",
         "vi": "Tôi thực sự hiểu mối lo của bạn.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "do",
+            "start": 2,
+            "end": 4,
+            "role": "auxiliary"
+          },
+          {
+            "word": "understand",
+            "start": 5,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "your",
+            "start": 16,
+            "end": 20,
+            "role": "determiner"
+          },
+          {
+            "word": "concern",
+            "start": 21,
+            "end": 28,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She did call you yesterday.",
         "vi": "Cô ấy quả thực đã gọi bạn hôm qua.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "noun"
+          },
+          {
+            "word": "did",
+            "start": 4,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "call",
+            "start": 8,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "you",
+            "start": 13,
+            "end": 16,
+            "role": "pronoun"
+          },
+          {
+            "word": "yesterday",
+            "start": 17,
+            "end": 26,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "The film was so moving that I cried.",
         "vi": "Bộ phim cảm động đến mức tôi khóc.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "film",
+            "start": 4,
+            "end": 8,
+            "role": "noun"
+          },
+          {
+            "word": "was",
+            "start": 9,
+            "end": 12,
+            "role": "auxiliary"
+          },
+          {
+            "word": "so",
+            "start": 13,
+            "end": 15,
+            "role": "adverb"
+          },
+          {
+            "word": "moving",
+            "start": 16,
+            "end": 22,
+            "role": "adjective"
+          },
+          {
+            "word": "that",
+            "start": 23,
+            "end": 27,
+            "role": "conjunction"
+          },
+          {
+            "word": "I",
+            "start": 28,
+            "end": 29,
+            "role": "pronoun"
+          },
+          {
+            "word": "cried",
+            "start": 30,
+            "end": 35,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "It was such a difficult test that many failed.",
         "vi": "Đó là bài kiểm tra khó đến mức nhiều người trượt.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "It",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 3,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "such",
+            "start": 7,
+            "end": 11,
+            "role": "determiner"
+          },
+          {
+            "word": "a",
+            "start": 12,
+            "end": 13,
+            "role": "article"
+          },
+          {
+            "word": "difficult",
+            "start": 14,
+            "end": 23,
+            "role": "adjective"
+          },
+          {
+            "word": "test",
+            "start": 24,
+            "end": 28,
+            "role": "noun"
+          },
+          {
+            "word": "that",
+            "start": 29,
+            "end": 33,
+            "role": "conjunction"
+          },
+          {
+            "word": "many",
+            "start": 34,
+            "end": 38,
+            "role": "determiner"
+          },
+          {
+            "word": "failed",
+            "start": 39,
+            "end": 45,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I myself checked every figure.",
         "vi": "Chính tôi đã kiểm tra từng con số.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "myself",
+            "start": 2,
+            "end": 8,
+            "role": "pronoun"
+          },
+          {
+            "word": "checked",
+            "start": 9,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "every",
+            "start": 17,
+            "end": 22,
+            "role": "determiner"
+          },
+          {
+            "word": "figure",
+            "start": 23,
+            "end": 29,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "What I need most is time.",
         "vi": "Điều tôi cần nhất chính là thời gian.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "What",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "I",
+            "start": 5,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "need",
+            "start": 7,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "most",
+            "start": 12,
+            "end": 16,
+            "role": "adverb"
+          },
+          {
+            "word": "is",
+            "start": 17,
+            "end": 19,
+            "role": "auxiliary"
+          },
+          {
+            "word": "time",
+            "start": 20,
+            "end": 24,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

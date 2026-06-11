@@ -90,32 +90,212 @@
       {
         "en": "This apple is sweet.",
         "vi": "Quả táo này ngọt.",
-        "note": "Gần và số ít."
+        "note": "Gần và số ít.",
+        "annotations": [
+          {
+            "word": "This",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "apple",
+            "start": 5,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 11,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "sweet",
+            "start": 14,
+            "end": 19,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "That car over there is expensive.",
         "vi": "Chiếc xe đằng kia đắt tiền.",
-        "note": "Xa và số ít."
+        "note": "Xa và số ít.",
+        "annotations": [
+          {
+            "word": "That",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "car",
+            "start": 5,
+            "end": 8,
+            "role": "noun"
+          },
+          {
+            "word": "over",
+            "start": 9,
+            "end": 13,
+            "role": "preposition"
+          },
+          {
+            "word": "there",
+            "start": 14,
+            "end": 19,
+            "role": "adverb"
+          },
+          {
+            "word": "is",
+            "start": 20,
+            "end": 22,
+            "role": "auxiliary"
+          },
+          {
+            "word": "expensive",
+            "start": 23,
+            "end": 32,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "These shoes fit me well.",
         "vi": "Đôi giày này vừa với tôi.",
-        "note": "Gần và số nhiều."
+        "note": "Gần và số nhiều.",
+        "annotations": [
+          {
+            "word": "These",
+            "start": 0,
+            "end": 5,
+            "role": "determiner"
+          },
+          {
+            "word": "shoes",
+            "start": 6,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "fit",
+            "start": 12,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "me",
+            "start": 16,
+            "end": 18,
+            "role": "pronoun"
+          },
+          {
+            "word": "well",
+            "start": 19,
+            "end": 23,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "Those birds are flying south.",
         "vi": "Những con chim kia đang bay về phía nam.",
-        "note": "Xa và số nhiều."
+        "note": "Xa và số nhiều.",
+        "annotations": [
+          {
+            "word": "Those",
+            "start": 0,
+            "end": 5,
+            "role": "determiner"
+          },
+          {
+            "word": "birds",
+            "start": 6,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "are",
+            "start": 12,
+            "end": 15,
+            "role": "auxiliary"
+          },
+          {
+            "word": "flying",
+            "start": 16,
+            "end": 22,
+            "role": "verb"
+          },
+          {
+            "word": "south",
+            "start": 23,
+            "end": 28,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "Who is that?",
         "vi": "Ai đó?",
-        "note": "that chỉ một người ở xa hoặc qua điện thoại."
+        "note": "that chỉ một người ở xa hoặc qua điện thoại.",
+        "annotations": [
+          {
+            "word": "Who",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 4,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "that",
+            "start": 7,
+            "end": 11,
+            "role": "determiner"
+          }
+        ]
       },
       {
         "en": "This is my colleague, Nam.",
         "vi": "Đây là đồng nghiệp của tôi, Nam.",
-        "note": "This is dùng để giới thiệu."
+        "note": "This is dùng để giới thiệu.",
+        "annotations": [
+          {
+            "word": "This",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "is",
+            "start": 5,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "my",
+            "start": 8,
+            "end": 10,
+            "role": "determiner"
+          },
+          {
+            "word": "colleague",
+            "start": 11,
+            "end": 20,
+            "role": "noun"
+          },
+          {
+            "word": "Nam",
+            "start": 22,
+            "end": 25,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

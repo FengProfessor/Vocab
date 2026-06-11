@@ -81,32 +81,206 @@
       {
         "en": "I have two dogs.",
         "vi": "Tôi có hai con chó.",
-        "note": "Sử dụng số đếm với danh từ đếm được."
+        "note": "Sử dụng số đếm với danh từ đếm được.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "two",
+            "start": 7,
+            "end": 10,
+            "role": "other"
+          },
+          {
+            "word": "dogs",
+            "start": 11,
+            "end": 15,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I need some water.",
         "vi": "Tôi cần một chút nước.",
-        "note": "Sử dụng 'some' với danh từ không đếm được."
+        "note": "Sử dụng 'some' với danh từ không đếm được.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "need",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "some",
+            "start": 7,
+            "end": 11,
+            "role": "determiner"
+          },
+          {
+            "word": "water",
+            "start": 12,
+            "end": 17,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I have a book.",
         "vi": "Tôi có một cuốn sách.",
-        "note": "Sử dụng 'a' với danh từ đếm được bắt đầu bằng phụ âm."
+        "note": "Sử dụng 'a' với danh từ đếm được bắt đầu bằng phụ âm.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 7,
+            "end": 8,
+            "role": "article"
+          },
+          {
+            "word": "book",
+            "start": 9,
+            "end": 13,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I have an apple.",
         "vi": "Tôi có một quả táo.",
-        "note": "Sử dụng 'an' với danh từ đếm được bắt đầu bằng nguyên âm."
+        "note": "Sử dụng 'an' với danh từ đếm được bắt đầu bằng nguyên âm.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "an",
+            "start": 7,
+            "end": 9,
+            "role": "article"
+          },
+          {
+            "word": "apple",
+            "start": 10,
+            "end": 15,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I don't have any money.",
         "vi": "Tôi không có tiền.",
-        "note": "Sử dụng 'any' với danh từ không đếm được trong câu phủ định."
+        "note": "Sử dụng 'any' với danh từ không đếm được trong câu phủ định.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "don't",
+            "start": 2,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "have",
+            "start": 8,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "any",
+            "start": 13,
+            "end": 16,
+            "role": "determiner"
+          },
+          {
+            "word": "money",
+            "start": 17,
+            "end": 22,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "How much water do you need?",
         "vi": "Bạn cần bao nhiêu nước?",
-        "note": "Sử dụng 'much' với danh từ không đếm được để hỏi về lượng."
+        "note": "Sử dụng 'much' với danh từ không đếm được để hỏi về lượng.",
+        "annotations": [
+          {
+            "word": "How",
+            "start": 0,
+            "end": 3,
+            "role": "adverb"
+          },
+          {
+            "word": "much",
+            "start": 4,
+            "end": 8,
+            "role": "determiner"
+          },
+          {
+            "word": "water",
+            "start": 9,
+            "end": 14,
+            "role": "noun"
+          },
+          {
+            "word": "do",
+            "start": 15,
+            "end": 17,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 18,
+            "end": 21,
+            "role": "pronoun"
+          },
+          {
+            "word": "need",
+            "start": 22,
+            "end": 26,
+            "role": "verb"
+          }
+        ]
       }
     ],
     "mistakes": [

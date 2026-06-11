@@ -79,32 +79,308 @@
       {
         "en": "It is believed that the painting is genuine.",
         "vi": "Người ta tin bức tranh là thật.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "It",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 3,
+            "end": 5,
+            "role": "auxiliary"
+          },
+          {
+            "word": "believed",
+            "start": 6,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "that",
+            "start": 15,
+            "end": 19,
+            "role": "conjunction"
+          },
+          {
+            "word": "the",
+            "start": 20,
+            "end": 23,
+            "role": "article"
+          },
+          {
+            "word": "painting",
+            "start": 24,
+            "end": 32,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 33,
+            "end": 35,
+            "role": "auxiliary"
+          },
+          {
+            "word": "genuine",
+            "start": 36,
+            "end": 43,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "The company is expected to announce cuts.",
         "vi": "Công ty được dự kiến sẽ công bố cắt giảm.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "company",
+            "start": 4,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 12,
+            "end": 14,
+            "role": "auxiliary"
+          },
+          {
+            "word": "expected",
+            "start": 15,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 24,
+            "end": 26,
+            "role": "other"
+          },
+          {
+            "word": "announce",
+            "start": 27,
+            "end": 35,
+            "role": "verb"
+          },
+          {
+            "word": "cuts",
+            "start": 36,
+            "end": 40,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "He is said to have left the country.",
         "vi": "Người ta nói anh ấy đã rời đất nước.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "He",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 3,
+            "end": 5,
+            "role": "auxiliary"
+          },
+          {
+            "word": "said",
+            "start": 6,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 11,
+            "end": 13,
+            "role": "other"
+          },
+          {
+            "word": "have",
+            "start": 14,
+            "end": 18,
+            "role": "auxiliary"
+          },
+          {
+            "word": "left",
+            "start": 19,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 24,
+            "end": 27,
+            "role": "article"
+          },
+          {
+            "word": "country",
+            "start": 28,
+            "end": 35,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She was given a second chance.",
         "vi": "Cô ấy được trao cơ hội thứ hai.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 4,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "given",
+            "start": 8,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 14,
+            "end": 15,
+            "role": "article"
+          },
+          {
+            "word": "second",
+            "start": 16,
+            "end": 22,
+            "role": "adjective"
+          },
+          {
+            "word": "chance",
+            "start": 23,
+            "end": 29,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "The suspect was seen entering the building.",
         "vi": "Nghi phạm được nhìn thấy đang vào tòa nhà.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "suspect",
+            "start": 4,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "was",
+            "start": 12,
+            "end": 15,
+            "role": "auxiliary"
+          },
+          {
+            "word": "seen",
+            "start": 16,
+            "end": 20,
+            "role": "verb"
+          },
+          {
+            "word": "entering",
+            "start": 21,
+            "end": 29,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 30,
+            "end": 33,
+            "role": "article"
+          },
+          {
+            "word": "building",
+            "start": 34,
+            "end": 42,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "The project needs to be completed by Friday.",
         "vi": "Dự án cần được hoàn thành trước thứ Sáu.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "project",
+            "start": 4,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "needs",
+            "start": 12,
+            "end": 17,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 18,
+            "end": 20,
+            "role": "other"
+          },
+          {
+            "word": "be",
+            "start": 21,
+            "end": 23,
+            "role": "auxiliary"
+          },
+          {
+            "word": "completed",
+            "start": 24,
+            "end": 33,
+            "role": "verb"
+          },
+          {
+            "word": "by",
+            "start": 34,
+            "end": 36,
+            "role": "preposition"
+          },
+          {
+            "word": "Friday",
+            "start": 37,
+            "end": 43,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

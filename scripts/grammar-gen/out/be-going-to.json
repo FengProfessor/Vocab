@@ -77,42 +77,472 @@
       {
         "en": "I'm going to learn how to play the guitar.",
         "vi": "Tôi sẽ học cách chơi ghi-ta.",
-        "note": "Dự định học một kỹ năng mới."
+        "note": "Dự định học một kỹ năng mới.",
+        "annotations": [
+          {
+            "word": "I'm",
+            "start": 0,
+            "end": 3,
+            "role": "auxiliary"
+          },
+          {
+            "word": "going",
+            "start": 4,
+            "end": 9,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 10,
+            "end": 12,
+            "role": "other"
+          },
+          {
+            "word": "learn",
+            "start": 13,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "how",
+            "start": 19,
+            "end": 22,
+            "role": "adverb"
+          },
+          {
+            "word": "to",
+            "start": 23,
+            "end": 25,
+            "role": "other"
+          },
+          {
+            "word": "play",
+            "start": 26,
+            "end": 30,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 31,
+            "end": 34,
+            "role": "article"
+          },
+          {
+            "word": "guitar",
+            "start": 35,
+            "end": 41,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "They are not going to come to the party.",
         "vi": "Họ sẽ không đến dự tiệc.",
-        "note": "Phủ định dự định."
+        "note": "Phủ định dự định.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "are",
+            "start": 5,
+            "end": 8,
+            "role": "auxiliary"
+          },
+          {
+            "word": "not",
+            "start": 9,
+            "end": 12,
+            "role": "adverb"
+          },
+          {
+            "word": "going",
+            "start": 13,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 19,
+            "end": 21,
+            "role": "other"
+          },
+          {
+            "word": "come",
+            "start": 22,
+            "end": 26,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 27,
+            "end": 29,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 30,
+            "end": 33,
+            "role": "article"
+          },
+          {
+            "word": "party",
+            "start": 34,
+            "end": 39,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Is she going to finish the project on time?",
         "vi": "Cô ấy có hoàn thành dự án đúng hạn không?",
-        "note": "Nghi vấn về khả năng hoàn thành dự án."
+        "note": "Nghi vấn về khả năng hoàn thành dự án.",
+        "annotations": [
+          {
+            "word": "Is",
+            "start": 0,
+            "end": 2,
+            "role": "auxiliary"
+          },
+          {
+            "word": "she",
+            "start": 3,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "going",
+            "start": 7,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 13,
+            "end": 15,
+            "role": "other"
+          },
+          {
+            "word": "finish",
+            "start": 16,
+            "end": 22,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 23,
+            "end": 26,
+            "role": "article"
+          },
+          {
+            "word": "project",
+            "start": 27,
+            "end": 34,
+            "role": "noun"
+          },
+          {
+            "word": "on",
+            "start": 35,
+            "end": 37,
+            "role": "preposition"
+          },
+          {
+            "word": "time",
+            "start": 38,
+            "end": 42,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "It's going to be a beautiful day tomorrow.",
         "vi": "Ngày mai sẽ là một ngày tuyệt đẹp.",
-        "note": "Dự đoán về thời tiết."
+        "note": "Dự đoán về thời tiết.",
+        "annotations": [
+          {
+            "word": "It's",
+            "start": 0,
+            "end": 4,
+            "role": "auxiliary"
+          },
+          {
+            "word": "going",
+            "start": 5,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 11,
+            "end": 13,
+            "role": "other"
+          },
+          {
+            "word": "be",
+            "start": 14,
+            "end": 16,
+            "role": "auxiliary"
+          },
+          {
+            "word": "a",
+            "start": 17,
+            "end": 18,
+            "role": "article"
+          },
+          {
+            "word": "beautiful",
+            "start": 19,
+            "end": 28,
+            "role": "adjective"
+          },
+          {
+            "word": "day",
+            "start": 29,
+            "end": 32,
+            "role": "noun"
+          },
+          {
+            "word": "tomorrow",
+            "start": 33,
+            "end": 41,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "We are going to have a meeting at 2 PM.",
         "vi": "Chúng tôi sẽ có một cuộc họp vào 2 giờ chiều.",
-        "note": "Kế hoạch họp."
+        "note": "Kế hoạch họp.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "are",
+            "start": 3,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "going",
+            "start": 7,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 13,
+            "end": 15,
+            "role": "other"
+          },
+          {
+            "word": "have",
+            "start": 16,
+            "end": 20,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 21,
+            "end": 22,
+            "role": "article"
+          },
+          {
+            "word": "meeting",
+            "start": 23,
+            "end": 30,
+            "role": "noun"
+          },
+          {
+            "word": "at",
+            "start": 31,
+            "end": 33,
+            "role": "preposition"
+          },
+          {
+            "word": "2",
+            "start": 34,
+            "end": 35,
+            "role": "other"
+          },
+          {
+            "word": "PM",
+            "start": 36,
+            "end": 38,
+            "role": "other"
+          }
+        ]
       },
       {
         "en": "He's going to travel around the world next year.",
         "vi": "Anh ấy sẽ đi du lịch quanh thế giới vào năm tới.",
-        "note": "Dự định du lịch."
+        "note": "Dự định du lịch.",
+        "annotations": [
+          {
+            "word": "He's",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "going",
+            "start": 5,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "to",
+            "start": 11,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "travel",
+            "start": 14,
+            "end": 20,
+            "role": "other"
+          },
+          {
+            "word": "around",
+            "start": 21,
+            "end": 27,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 28,
+            "end": 31,
+            "role": "preposition"
+          },
+          {
+            "word": "world",
+            "start": 32,
+            "end": 37,
+            "role": "article"
+          },
+          {
+            "word": "next",
+            "start": 38,
+            "end": 42,
+            "role": "noun"
+          },
+          {
+            "word": "year",
+            "start": 43,
+            "end": 47,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "They are not going to sell their house.",
         "vi": "Họ sẽ không bán nhà của họ.",
-        "note": "Phủ định dự định bán nhà."
+        "note": "Phủ định dự định bán nhà.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "are",
+            "start": 5,
+            "end": 8,
+            "role": "auxiliary"
+          },
+          {
+            "word": "not",
+            "start": 9,
+            "end": 12,
+            "role": "adverb"
+          },
+          {
+            "word": "going",
+            "start": 13,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 19,
+            "end": 21,
+            "role": "other"
+          },
+          {
+            "word": "sell",
+            "start": 22,
+            "end": 26,
+            "role": "verb"
+          },
+          {
+            "word": "their",
+            "start": 27,
+            "end": 32,
+            "role": "determiner"
+          },
+          {
+            "word": "house",
+            "start": 33,
+            "end": 38,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Are you going to attend the conference?",
         "vi": "Bạn có dự định tham dự hội nghị không?",
-        "note": "Nghi vấn về dự định tham dự."
+        "note": "Nghi vấn về dự định tham dự.",
+        "annotations": [
+          {
+            "word": "Are",
+            "start": 0,
+            "end": 3,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 4,
+            "end": 7,
+            "role": "pronoun"
+          },
+          {
+            "word": "going",
+            "start": 8,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 14,
+            "end": 16,
+            "role": "other"
+          },
+          {
+            "word": "attend",
+            "start": 17,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 24,
+            "end": 27,
+            "role": "article"
+          },
+          {
+            "word": "conference",
+            "start": 28,
+            "end": 38,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

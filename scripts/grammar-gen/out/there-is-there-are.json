@@ -79,32 +79,254 @@
       {
         "en": "There is a pharmacy near my house.",
         "vi": "Có một hiệu thuốc gần nhà tôi.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "There",
+            "start": 0,
+            "end": 5,
+            "role": "adverb"
+          },
+          {
+            "word": "is",
+            "start": 6,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 9,
+            "end": 10,
+            "role": "article"
+          },
+          {
+            "word": "pharmacy",
+            "start": 11,
+            "end": 19,
+            "role": "noun"
+          },
+          {
+            "word": "near",
+            "start": 20,
+            "end": 24,
+            "role": "preposition"
+          },
+          {
+            "word": "my",
+            "start": 25,
+            "end": 27,
+            "role": "determiner"
+          },
+          {
+            "word": "house",
+            "start": 28,
+            "end": 33,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "There are two messages for you.",
         "vi": "Có hai tin nhắn dành cho bạn.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "There",
+            "start": 0,
+            "end": 5,
+            "role": "adverb"
+          },
+          {
+            "word": "are",
+            "start": 6,
+            "end": 9,
+            "role": "verb"
+          },
+          {
+            "word": "two",
+            "start": 10,
+            "end": 13,
+            "role": "other"
+          },
+          {
+            "word": "messages",
+            "start": 14,
+            "end": 22,
+            "role": "noun"
+          },
+          {
+            "word": "for",
+            "start": 23,
+            "end": 26,
+            "role": "preposition"
+          },
+          {
+            "word": "you",
+            "start": 27,
+            "end": 30,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "There isn't any milk left.",
         "vi": "Không còn chút sữa nào.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "There",
+            "start": 0,
+            "end": 5,
+            "role": "adverb"
+          },
+          {
+            "word": "isn't",
+            "start": 6,
+            "end": 11,
+            "role": "auxiliary"
+          },
+          {
+            "word": "any",
+            "start": 12,
+            "end": 15,
+            "role": "determiner"
+          },
+          {
+            "word": "milk",
+            "start": 16,
+            "end": 20,
+            "role": "noun"
+          },
+          {
+            "word": "left",
+            "start": 21,
+            "end": 25,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "Are there enough chairs?",
         "vi": "Có đủ ghế không?",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Are",
+            "start": 0,
+            "end": 3,
+            "role": "auxiliary"
+          },
+          {
+            "word": "there",
+            "start": 4,
+            "end": 9,
+            "role": "adverb"
+          },
+          {
+            "word": "enough",
+            "start": 10,
+            "end": 16,
+            "role": "determiner"
+          },
+          {
+            "word": "chairs",
+            "start": 17,
+            "end": 23,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "There was a power cut last night.",
         "vi": "Tối qua đã có một vụ mất điện.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "There",
+            "start": 0,
+            "end": 5,
+            "role": "adverb"
+          },
+          {
+            "word": "was",
+            "start": 6,
+            "end": 9,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 10,
+            "end": 11,
+            "role": "article"
+          },
+          {
+            "word": "power",
+            "start": 12,
+            "end": 17,
+            "role": "noun"
+          },
+          {
+            "word": "cut",
+            "start": 18,
+            "end": 21,
+            "role": "verb"
+          },
+          {
+            "word": "last",
+            "start": 22,
+            "end": 26,
+            "role": "adjective"
+          },
+          {
+            "word": "night",
+            "start": 27,
+            "end": 32,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "There will be a meeting tomorrow.",
         "vi": "Ngày mai sẽ có một cuộc họp.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "There",
+            "start": 0,
+            "end": 5,
+            "role": "adverb"
+          },
+          {
+            "word": "will",
+            "start": 6,
+            "end": 10,
+            "role": "modal"
+          },
+          {
+            "word": "be",
+            "start": 11,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 14,
+            "end": 15,
+            "role": "article"
+          },
+          {
+            "word": "meeting",
+            "start": 16,
+            "end": 23,
+            "role": "noun"
+          },
+          {
+            "word": "tomorrow",
+            "start": 24,
+            "end": 32,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

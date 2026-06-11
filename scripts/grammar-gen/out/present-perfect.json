@@ -88,32 +88,278 @@
       {
         "en": "I have eaten breakfast.",
         "vi": "Tôi đã ăn bữa sáng.",
-        "note": "Hành động đã hoàn thành"
+        "note": "Hành động đã hoàn thành",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "eaten",
+            "start": 7,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "breakfast",
+            "start": 13,
+            "end": 22,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She has been to the gym three times this week.",
         "vi": "Cô ấy đã đến phòng tập thể dục ba lần trong tuần này.",
-        "note": "Hành động lặp lại"
+        "note": "Hành động lặp lại",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "has",
+            "start": 4,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "been",
+            "start": 8,
+            "end": 12,
+            "role": "auxiliary"
+          },
+          {
+            "word": "to",
+            "start": 13,
+            "end": 15,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 16,
+            "end": 19,
+            "role": "article"
+          },
+          {
+            "word": "gym",
+            "start": 20,
+            "end": 23,
+            "role": "noun"
+          },
+          {
+            "word": "three",
+            "start": 24,
+            "end": 29,
+            "role": "other"
+          },
+          {
+            "word": "times",
+            "start": 30,
+            "end": 35,
+            "role": "noun"
+          },
+          {
+            "word": "this",
+            "start": 36,
+            "end": 40,
+            "role": "determiner"
+          },
+          {
+            "word": "week",
+            "start": 41,
+            "end": 45,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "They haven't seen that movie yet.",
         "vi": "Họ chưa xem bộ phim đó.",
-        "note": "Hành động chưa xảy ra"
+        "note": "Hành động chưa xảy ra",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "haven't",
+            "start": 5,
+            "end": 12,
+            "role": "auxiliary"
+          },
+          {
+            "word": "seen",
+            "start": 13,
+            "end": 17,
+            "role": "verb"
+          },
+          {
+            "word": "that",
+            "start": 18,
+            "end": 22,
+            "role": "determiner"
+          },
+          {
+            "word": "movie",
+            "start": 23,
+            "end": 28,
+            "role": "noun"
+          },
+          {
+            "word": "yet",
+            "start": 29,
+            "end": 32,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "He has never traveled by plane.",
         "vi": "Anh ấy chưa bao giờ đi máy bay.",
-        "note": "Hành động chưa bao giờ xảy ra"
+        "note": "Hành động chưa bao giờ xảy ra",
+        "annotations": [
+          {
+            "word": "He",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "has",
+            "start": 3,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "never",
+            "start": 7,
+            "end": 12,
+            "role": "adverb"
+          },
+          {
+            "word": "traveled",
+            "start": 13,
+            "end": 21,
+            "role": "verb"
+          },
+          {
+            "word": "by",
+            "start": 22,
+            "end": 24,
+            "role": "preposition"
+          },
+          {
+            "word": "plane",
+            "start": 25,
+            "end": 30,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "What have you done today?",
         "vi": "Bạn đã làm gì hôm nay?",
-        "note": "Câu hỏi về hành động đã xảy ra"
+        "note": "Câu hỏi về hành động đã xảy ra",
+        "annotations": [
+          {
+            "word": "What",
+            "start": 0,
+            "end": 4,
+            "role": "adverb"
+          },
+          {
+            "word": "have",
+            "start": 5,
+            "end": 9,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 10,
+            "end": 13,
+            "role": "pronoun"
+          },
+          {
+            "word": "done",
+            "start": 14,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "today",
+            "start": 19,
+            "end": 24,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "I have been studying English for five years.",
         "vi": "Tôi đã học tiếng Anh được năm năm.",
-        "note": "Hành động bắt đầu từ quá khứ và vẫn tiếp tục"
+        "note": "Hành động bắt đầu từ quá khứ và vẫn tiếp tục",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "been",
+            "start": 7,
+            "end": 11,
+            "role": "auxiliary"
+          },
+          {
+            "word": "studying",
+            "start": 12,
+            "end": 20,
+            "role": "verb"
+          },
+          {
+            "word": "English",
+            "start": 21,
+            "end": 28,
+            "role": "noun"
+          },
+          {
+            "word": "for",
+            "start": 29,
+            "end": 32,
+            "role": "preposition"
+          },
+          {
+            "word": "five",
+            "start": 33,
+            "end": 37,
+            "role": "other"
+          },
+          {
+            "word": "years",
+            "start": 38,
+            "end": 43,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

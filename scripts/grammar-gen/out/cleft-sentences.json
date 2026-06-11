@@ -79,32 +79,308 @@
       {
         "en": "It was Lan who solved the problem.",
         "vi": "Chính Lan là người giải quyết vấn đề.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "It",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 3,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "Lan",
+            "start": 7,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "who",
+            "start": 11,
+            "end": 14,
+            "role": "pronoun"
+          },
+          {
+            "word": "solved",
+            "start": 15,
+            "end": 21,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 22,
+            "end": 25,
+            "role": "article"
+          },
+          {
+            "word": "problem",
+            "start": 26,
+            "end": 33,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "It is patience that you need.",
         "vi": "Chính sự kiên nhẫn là điều bạn cần.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "It",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 3,
+            "end": 5,
+            "role": "auxiliary"
+          },
+          {
+            "word": "patience",
+            "start": 6,
+            "end": 14,
+            "role": "noun"
+          },
+          {
+            "word": "that",
+            "start": 15,
+            "end": 19,
+            "role": "conjunction"
+          },
+          {
+            "word": "you",
+            "start": 20,
+            "end": 23,
+            "role": "pronoun"
+          },
+          {
+            "word": "need",
+            "start": 24,
+            "end": 28,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "What I want is a quiet weekend.",
         "vi": "Điều tôi muốn là một cuối tuần yên tĩnh.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "What",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "I",
+            "start": 5,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "want",
+            "start": 7,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "is",
+            "start": 12,
+            "end": 14,
+            "role": "auxiliary"
+          },
+          {
+            "word": "a",
+            "start": 15,
+            "end": 16,
+            "role": "article"
+          },
+          {
+            "word": "quiet",
+            "start": 17,
+            "end": 22,
+            "role": "adjective"
+          },
+          {
+            "word": "weekend",
+            "start": 23,
+            "end": 30,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "What surprised me was his honesty.",
         "vi": "Điều làm tôi ngạc nhiên là sự trung thực của anh ấy.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "What",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "surprised",
+            "start": 5,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "me",
+            "start": 15,
+            "end": 17,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 18,
+            "end": 21,
+            "role": "auxiliary"
+          },
+          {
+            "word": "his",
+            "start": 22,
+            "end": 25,
+            "role": "determiner"
+          },
+          {
+            "word": "honesty",
+            "start": 26,
+            "end": 33,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "The reason why I left was that I felt ill.",
         "vi": "Lý do tôi rời đi là tôi thấy không khỏe.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "reason",
+            "start": 4,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "why",
+            "start": 11,
+            "end": 14,
+            "role": "pronoun"
+          },
+          {
+            "word": "I",
+            "start": 15,
+            "end": 16,
+            "role": "pronoun"
+          },
+          {
+            "word": "left",
+            "start": 17,
+            "end": 21,
+            "role": "verb"
+          },
+          {
+            "word": "was",
+            "start": 22,
+            "end": 25,
+            "role": "auxiliary"
+          },
+          {
+            "word": "that",
+            "start": 26,
+            "end": 30,
+            "role": "conjunction"
+          },
+          {
+            "word": "I",
+            "start": 31,
+            "end": 32,
+            "role": "pronoun"
+          },
+          {
+            "word": "felt",
+            "start": 33,
+            "end": 37,
+            "role": "verb"
+          },
+          {
+            "word": "ill",
+            "start": 38,
+            "end": 41,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "It was yesterday that they announced the result.",
         "vi": "Chính hôm qua họ công bố kết quả.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "It",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 3,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "yesterday",
+            "start": 7,
+            "end": 16,
+            "role": "adverb"
+          },
+          {
+            "word": "that",
+            "start": 17,
+            "end": 21,
+            "role": "conjunction"
+          },
+          {
+            "word": "they",
+            "start": 22,
+            "end": 26,
+            "role": "pronoun"
+          },
+          {
+            "word": "announced",
+            "start": 27,
+            "end": 36,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 37,
+            "end": 40,
+            "role": "article"
+          },
+          {
+            "word": "result",
+            "start": 41,
+            "end": 47,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

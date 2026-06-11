@@ -79,32 +79,338 @@
       {
         "en": "The person to whom I spoke was helpful.",
         "vi": "Người tôi nói chuyện cùng rất nhiệt tình.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "person",
+            "start": 4,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "to",
+            "start": 11,
+            "end": 13,
+            "role": "preposition"
+          },
+          {
+            "word": "whom",
+            "start": 14,
+            "end": 18,
+            "role": "pronoun"
+          },
+          {
+            "word": "I",
+            "start": 19,
+            "end": 20,
+            "role": "pronoun"
+          },
+          {
+            "word": "spoke",
+            "start": 21,
+            "end": 26,
+            "role": "verb"
+          },
+          {
+            "word": "was",
+            "start": 27,
+            "end": 30,
+            "role": "auxiliary"
+          },
+          {
+            "word": "helpful",
+            "start": 31,
+            "end": 38,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "She has three sons, all of whom are doctors.",
         "vi": "Cô ấy có ba con trai, tất cả đều là bác sĩ.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "has",
+            "start": 4,
+            "end": 7,
+            "role": "verb"
+          },
+          {
+            "word": "three",
+            "start": 8,
+            "end": 13,
+            "role": "adjective"
+          },
+          {
+            "word": "sons",
+            "start": 14,
+            "end": 18,
+            "role": "noun"
+          },
+          {
+            "word": "all",
+            "start": 20,
+            "end": 23,
+            "role": "pronoun"
+          },
+          {
+            "word": "of",
+            "start": 24,
+            "end": 26,
+            "role": "preposition"
+          },
+          {
+            "word": "whom",
+            "start": 27,
+            "end": 31,
+            "role": "pronoun"
+          },
+          {
+            "word": "are",
+            "start": 32,
+            "end": 35,
+            "role": "auxiliary"
+          },
+          {
+            "word": "doctors",
+            "start": 36,
+            "end": 43,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "The meeting was cancelled, which surprised us.",
         "vi": "Cuộc họp bị hủy, điều đó làm chúng tôi ngạc nhiên.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "meeting",
+            "start": 4,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "was",
+            "start": 12,
+            "end": 15,
+            "role": "auxiliary"
+          },
+          {
+            "word": "cancelled",
+            "start": 16,
+            "end": 25,
+            "role": "verb"
+          },
+          {
+            "word": "which",
+            "start": 27,
+            "end": 32,
+            "role": "conjunction"
+          },
+          {
+            "word": "surprised",
+            "start": 33,
+            "end": 42,
+            "role": "pronoun"
+          },
+          {
+            "word": "us",
+            "start": 43,
+            "end": 45,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "This is the issue about which we argued.",
         "vi": "Đây là vấn đề chúng tôi đã tranh luận.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "This",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "is",
+            "start": 5,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "the",
+            "start": 8,
+            "end": 11,
+            "role": "article"
+          },
+          {
+            "word": "issue",
+            "start": 12,
+            "end": 17,
+            "role": "noun"
+          },
+          {
+            "word": "about",
+            "start": 18,
+            "end": 23,
+            "role": "preposition"
+          },
+          {
+            "word": "which",
+            "start": 24,
+            "end": 29,
+            "role": "pronoun"
+          },
+          {
+            "word": "we",
+            "start": 30,
+            "end": 32,
+            "role": "pronoun"
+          },
+          {
+            "word": "argued",
+            "start": 33,
+            "end": 39,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "The house, the roof of which was damaged, is empty.",
         "vi": "Ngôi nhà có mái bị hỏng hiện bỏ trống.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "house",
+            "start": 4,
+            "end": 9,
+            "role": "noun"
+          },
+          {
+            "word": "the",
+            "start": 11,
+            "end": 14,
+            "role": "article"
+          },
+          {
+            "word": "roof",
+            "start": 15,
+            "end": 19,
+            "role": "noun"
+          },
+          {
+            "word": "of",
+            "start": 20,
+            "end": 22,
+            "role": "preposition"
+          },
+          {
+            "word": "which",
+            "start": 23,
+            "end": 28,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 29,
+            "end": 32,
+            "role": "auxiliary"
+          },
+          {
+            "word": "damaged",
+            "start": 33,
+            "end": 40,
+            "role": "verb"
+          },
+          {
+            "word": "is",
+            "start": 42,
+            "end": 44,
+            "role": "auxiliary"
+          },
+          {
+            "word": "empty",
+            "start": 45,
+            "end": 50,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "Whatever you decide, I will support you.",
         "vi": "Dù bạn quyết định gì, tôi sẽ ủng hộ.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Whatever",
+            "start": 0,
+            "end": 8,
+            "role": "pronoun"
+          },
+          {
+            "word": "you",
+            "start": 9,
+            "end": 12,
+            "role": "pronoun"
+          },
+          {
+            "word": "decide",
+            "start": 13,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "I",
+            "start": 21,
+            "end": 22,
+            "role": "pronoun"
+          },
+          {
+            "word": "will",
+            "start": 23,
+            "end": 27,
+            "role": "modal"
+          },
+          {
+            "word": "support",
+            "start": 28,
+            "end": 35,
+            "role": "verb"
+          },
+          {
+            "word": "you",
+            "start": 36,
+            "end": 39,
+            "role": "pronoun"
+          }
+        ]
       }
     ],
     "mistakes": [

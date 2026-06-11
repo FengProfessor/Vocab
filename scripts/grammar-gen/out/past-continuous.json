@@ -83,32 +83,338 @@
       {
         "en": "They were playing football when it started raining.",
         "vi": "Họ đang chơi bóng đá khi trời bắt đầu mưa.",
-        "note": "Mô tả hai hành động cùng xảy ra."
+        "note": "Mô tả hai hành động cùng xảy ra.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "were",
+            "start": 5,
+            "end": 9,
+            "role": "auxiliary"
+          },
+          {
+            "word": "playing",
+            "start": 10,
+            "end": 17,
+            "role": "verb"
+          },
+          {
+            "word": "football",
+            "start": 18,
+            "end": 26,
+            "role": "noun"
+          },
+          {
+            "word": "when",
+            "start": 27,
+            "end": 31,
+            "role": "conjunction"
+          },
+          {
+            "word": "it",
+            "start": 32,
+            "end": 34,
+            "role": "pronoun"
+          },
+          {
+            "word": "started",
+            "start": 35,
+            "end": 42,
+            "role": "verb"
+          },
+          {
+            "word": "raining",
+            "start": 43,
+            "end": 50,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "I was studying English at 8 pm last night.",
         "vi": "Tôi đang học tiếng Anh vào lúc 8 giờ tối đêm qua.",
-        "note": "Mô tả hành động đang diễn ra."
+        "note": "Mô tả hành động đang diễn ra.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 2,
+            "end": 5,
+            "role": "auxiliary"
+          },
+          {
+            "word": "studying",
+            "start": 6,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "English",
+            "start": 15,
+            "end": 22,
+            "role": "noun"
+          },
+          {
+            "word": "at",
+            "start": 23,
+            "end": 25,
+            "role": "preposition"
+          },
+          {
+            "word": "8",
+            "start": 26,
+            "end": 27,
+            "role": "other"
+          },
+          {
+            "word": "pm",
+            "start": 28,
+            "end": 30,
+            "role": "noun"
+          },
+          {
+            "word": "last",
+            "start": 31,
+            "end": 35,
+            "role": "determiner"
+          },
+          {
+            "word": "night",
+            "start": 36,
+            "end": 41,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She was not watching TV at that time.",
         "vi": "Cô ấy không xem TV vào thời điểm đó.",
-        "note": "Phủ định."
+        "note": "Phủ định.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 4,
+            "end": 7,
+            "role": "auxiliary"
+          },
+          {
+            "word": "not",
+            "start": 8,
+            "end": 11,
+            "role": "adverb"
+          },
+          {
+            "word": "watching",
+            "start": 12,
+            "end": 20,
+            "role": "verb"
+          },
+          {
+            "word": "TV",
+            "start": 21,
+            "end": 23,
+            "role": "noun"
+          },
+          {
+            "word": "at",
+            "start": 24,
+            "end": 26,
+            "role": "preposition"
+          },
+          {
+            "word": "that",
+            "start": 27,
+            "end": 31,
+            "role": "determiner"
+          },
+          {
+            "word": "time",
+            "start": 32,
+            "end": 36,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Were you sleeping when I called?",
         "vi": "Bạn có đang ngủ khi tôi gọi không?",
-        "note": "Nghi vấn."
+        "note": "Nghi vấn.",
+        "annotations": [
+          {
+            "word": "Were",
+            "start": 0,
+            "end": 4,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 5,
+            "end": 8,
+            "role": "pronoun"
+          },
+          {
+            "word": "sleeping",
+            "start": 9,
+            "end": 17,
+            "role": "verb"
+          },
+          {
+            "word": "when",
+            "start": 18,
+            "end": 22,
+            "role": "conjunction"
+          },
+          {
+            "word": "I",
+            "start": 23,
+            "end": 24,
+            "role": "pronoun"
+          },
+          {
+            "word": "called",
+            "start": 25,
+            "end": 31,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "They were having a party when the police arrived.",
         "vi": "Họ đang tổ chức một bữa tiệc khi cảnh sát đến.",
-        "note": "Mô tả hành động đang diễn ra."
+        "note": "Mô tả hành động đang diễn ra.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "were",
+            "start": 5,
+            "end": 9,
+            "role": "auxiliary"
+          },
+          {
+            "word": "having",
+            "start": 10,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 17,
+            "end": 18,
+            "role": "article"
+          },
+          {
+            "word": "party",
+            "start": 19,
+            "end": 24,
+            "role": "noun"
+          },
+          {
+            "word": "when",
+            "start": 25,
+            "end": 29,
+            "role": "conjunction"
+          },
+          {
+            "word": "the",
+            "start": 30,
+            "end": 33,
+            "role": "article"
+          },
+          {
+            "word": "police",
+            "start": 34,
+            "end": 40,
+            "role": "noun"
+          },
+          {
+            "word": "arrived",
+            "start": 41,
+            "end": 48,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "The baby was crying when the mother came home.",
         "vi": "Em bé đang khóc khi mẹ về nhà.",
-        "note": "Mô tả hành động gây ra một sự kiện."
+        "note": "Mô tả hành động gây ra một sự kiện.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "baby",
+            "start": 4,
+            "end": 8,
+            "role": "noun"
+          },
+          {
+            "word": "was",
+            "start": 9,
+            "end": 12,
+            "role": "auxiliary"
+          },
+          {
+            "word": "crying",
+            "start": 13,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "when",
+            "start": 20,
+            "end": 24,
+            "role": "conjunction"
+          },
+          {
+            "word": "the",
+            "start": 25,
+            "end": 28,
+            "role": "article"
+          },
+          {
+            "word": "mother",
+            "start": 29,
+            "end": 35,
+            "role": "noun"
+          },
+          {
+            "word": "came",
+            "start": 36,
+            "end": 40,
+            "role": "verb"
+          },
+          {
+            "word": "home",
+            "start": 41,
+            "end": 45,
+            "role": "other"
+          }
+        ]
       }
     ],
     "mistakes": [

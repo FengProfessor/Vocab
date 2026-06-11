@@ -79,32 +79,290 @@
       {
         "en": "I used to live in Hue.",
         "vi": "Tôi từng sống ở Huế.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "used",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 7,
+            "end": 9,
+            "role": "other"
+          },
+          {
+            "word": "live",
+            "start": 10,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "in",
+            "start": 15,
+            "end": 17,
+            "role": "preposition"
+          },
+          {
+            "word": "Hue",
+            "start": 18,
+            "end": 21,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She didn't use to drink coffee.",
         "vi": "Cô ấy trước đây không uống cà phê.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "didn't",
+            "start": 4,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "use",
+            "start": 11,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 15,
+            "end": 17,
+            "role": "other"
+          },
+          {
+            "word": "drink",
+            "start": 18,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "coffee",
+            "start": 24,
+            "end": 30,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Are you used to the heat?",
         "vi": "Bạn có quen với cái nóng không?",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Are",
+            "start": 0,
+            "end": 3,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 4,
+            "end": 7,
+            "role": "pronoun"
+          },
+          {
+            "word": "used",
+            "start": 8,
+            "end": 12,
+            "role": "adjective"
+          },
+          {
+            "word": "to",
+            "start": 13,
+            "end": 15,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 16,
+            "end": 19,
+            "role": "article"
+          },
+          {
+            "word": "heat",
+            "start": 20,
+            "end": 24,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I'm used to working late.",
         "vi": "Tôi quen làm việc muộn.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I'm",
+            "start": 0,
+            "end": 3,
+            "role": "auxiliary"
+          },
+          {
+            "word": "used",
+            "start": 4,
+            "end": 8,
+            "role": "adjective"
+          },
+          {
+            "word": "to",
+            "start": 9,
+            "end": 11,
+            "role": "preposition"
+          },
+          {
+            "word": "working",
+            "start": 12,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "late",
+            "start": 20,
+            "end": 24,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "He is getting used to his new job.",
         "vi": "Anh ấy đang dần quen việc mới.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "He",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 3,
+            "end": 5,
+            "role": "auxiliary"
+          },
+          {
+            "word": "getting",
+            "start": 6,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "used",
+            "start": 14,
+            "end": 18,
+            "role": "adjective"
+          },
+          {
+            "word": "to",
+            "start": 19,
+            "end": 21,
+            "role": "preposition"
+          },
+          {
+            "word": "his",
+            "start": 22,
+            "end": 25,
+            "role": "determiner"
+          },
+          {
+            "word": "new",
+            "start": 26,
+            "end": 29,
+            "role": "adjective"
+          },
+          {
+            "word": "job",
+            "start": 30,
+            "end": 33,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "It took me weeks to get used to driving here.",
         "vi": "Tôi mất nhiều tuần để quen lái xe ở đây.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "It",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "took",
+            "start": 3,
+            "end": 7,
+            "role": "verb"
+          },
+          {
+            "word": "me",
+            "start": 8,
+            "end": 10,
+            "role": "pronoun"
+          },
+          {
+            "word": "weeks",
+            "start": 11,
+            "end": 16,
+            "role": "noun"
+          },
+          {
+            "word": "to",
+            "start": 17,
+            "end": 19,
+            "role": "other"
+          },
+          {
+            "word": "get",
+            "start": 20,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "used",
+            "start": 24,
+            "end": 28,
+            "role": "adjective"
+          },
+          {
+            "word": "to",
+            "start": 29,
+            "end": 31,
+            "role": "preposition"
+          },
+          {
+            "word": "driving",
+            "start": 32,
+            "end": 39,
+            "role": "verb"
+          },
+          {
+            "word": "here",
+            "start": 40,
+            "end": 44,
+            "role": "adverb"
+          }
+        ]
       }
     ],
     "mistakes": [

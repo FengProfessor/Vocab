@@ -75,32 +75,248 @@
       {
         "en": "I have a car.",
         "vi": "Tôi có một chiếc xe.",
-        "note": "Dùng **a** vì danh từ 'car' không cụ thể."
+        "note": "Dùng **a** vì danh từ 'car' không cụ thể.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 7,
+            "end": 8,
+            "role": "article"
+          },
+          {
+            "word": "car",
+            "start": 9,
+            "end": 12,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I am reading an article.",
         "vi": "Tôi đang đọc một bài viết.",
-        "note": "Dùng **an** vì danh từ 'article' bắt đầu bằng nguyên âm."
+        "note": "Dùng **an** vì danh từ 'article' bắt đầu bằng nguyên âm.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "am",
+            "start": 2,
+            "end": 4,
+            "role": "auxiliary"
+          },
+          {
+            "word": "reading",
+            "start": 5,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "an",
+            "start": 13,
+            "end": 15,
+            "role": "article"
+          },
+          {
+            "word": "article",
+            "start": 16,
+            "end": 23,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I saw the movie yesterday.",
         "vi": "Tôi xem phim đó vào ngày hôm qua.",
-        "note": "Dùng **the** vì danh từ 'movie' đã được nhắc đến trước đó."
+        "note": "Dùng **the** vì danh từ 'movie' đã được nhắc đến trước đó.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "saw",
+            "start": 2,
+            "end": 5,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 6,
+            "end": 9,
+            "role": "article"
+          },
+          {
+            "word": "movie",
+            "start": 10,
+            "end": 15,
+            "role": "noun"
+          },
+          {
+            "word": "yesterday",
+            "start": 16,
+            "end": 25,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "The book on the table is mine.",
         "vi": "Cuốn sách trên bàn là của tôi.",
-        "note": "Dùng **the** vì danh từ 'book' cụ thể."
+        "note": "Dùng **the** vì danh từ 'book' cụ thể.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "book",
+            "start": 4,
+            "end": 8,
+            "role": "noun"
+          },
+          {
+            "word": "on",
+            "start": 9,
+            "end": 11,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 12,
+            "end": 15,
+            "role": "article"
+          },
+          {
+            "word": "table",
+            "start": 16,
+            "end": 21,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 22,
+            "end": 24,
+            "role": "auxiliary"
+          },
+          {
+            "word": "mine",
+            "start": 25,
+            "end": 29,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "I have a brother and a sister.",
         "vi": "Tôi có một anh trai và một chị gái.",
-        "note": "Dùng **a** vì danh từ 'brother' và 'sister' không cụ thể."
+        "note": "Dùng **a** vì danh từ 'brother' và 'sister' không cụ thể.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 7,
+            "end": 8,
+            "role": "article"
+          },
+          {
+            "word": "brother",
+            "start": 9,
+            "end": 16,
+            "role": "noun"
+          },
+          {
+            "word": "and",
+            "start": 17,
+            "end": 20,
+            "role": "conjunction"
+          },
+          {
+            "word": "a",
+            "start": 21,
+            "end": 22,
+            "role": "article"
+          },
+          {
+            "word": "sister",
+            "start": 23,
+            "end": 29,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "The teacher gave us an assignment.",
         "vi": "Giáo viên đã giao cho chúng tôi một nhiệm vụ.",
-        "note": "Dùng **an** vì danh từ 'assignment' bắt đầu bằng nguyên âm."
+        "note": "Dùng **an** vì danh từ 'assignment' bắt đầu bằng nguyên âm.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "teacher",
+            "start": 4,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "gave",
+            "start": 12,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "us",
+            "start": 17,
+            "end": 19,
+            "role": "pronoun"
+          },
+          {
+            "word": "an",
+            "start": 20,
+            "end": 22,
+            "role": "article"
+          },
+          {
+            "word": "assignment",
+            "start": 23,
+            "end": 33,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

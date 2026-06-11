@@ -79,32 +79,254 @@
       {
         "en": "She must be at work; her car is gone.",
         "vi": "Chắc cô ấy đang ở chỗ làm; xe cô ấy không còn đây.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "must",
+            "start": 4,
+            "end": 8,
+            "role": "modal"
+          },
+          {
+            "word": "be",
+            "start": 9,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "at",
+            "start": 12,
+            "end": 14,
+            "role": "preposition"
+          },
+          {
+            "word": "work",
+            "start": 15,
+            "end": 19,
+            "role": "noun"
+          },
+          {
+            "word": "her",
+            "start": 21,
+            "end": 24,
+            "role": "pronoun"
+          },
+          {
+            "word": "car",
+            "start": 25,
+            "end": 28,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 29,
+            "end": 31,
+            "role": "auxiliary"
+          },
+          {
+            "word": "gone",
+            "start": 32,
+            "end": 36,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "He might know the answer.",
         "vi": "Có thể anh ấy biết đáp án.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "He",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "might",
+            "start": 3,
+            "end": 8,
+            "role": "modal"
+          },
+          {
+            "word": "know",
+            "start": 9,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 14,
+            "end": 17,
+            "role": "article"
+          },
+          {
+            "word": "answer",
+            "start": 18,
+            "end": 24,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "That can't be true.",
         "vi": "Điều đó không thể đúng.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "That",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "can't",
+            "start": 5,
+            "end": 10,
+            "role": "modal"
+          },
+          {
+            "word": "be",
+            "start": 11,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "true",
+            "start": 14,
+            "end": 18,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "They may arrive late.",
         "vi": "Có thể họ sẽ đến muộn.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "may",
+            "start": 5,
+            "end": 8,
+            "role": "modal"
+          },
+          {
+            "word": "arrive",
+            "start": 9,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "late",
+            "start": 16,
+            "end": 20,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "This could be the right key.",
         "vi": "Đây có thể là chìa khóa đúng.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "This",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "could",
+            "start": 5,
+            "end": 10,
+            "role": "modal"
+          },
+          {
+            "word": "be",
+            "start": 11,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "the",
+            "start": 14,
+            "end": 17,
+            "role": "article"
+          },
+          {
+            "word": "right",
+            "start": 18,
+            "end": 23,
+            "role": "adjective"
+          },
+          {
+            "word": "key",
+            "start": 24,
+            "end": 27,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "You must be tired after the journey.",
         "vi": "Hẳn bạn mệt sau chuyến đi.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "You",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "must",
+            "start": 4,
+            "end": 8,
+            "role": "modal"
+          },
+          {
+            "word": "be",
+            "start": 9,
+            "end": 11,
+            "role": "auxiliary"
+          },
+          {
+            "word": "tired",
+            "start": 12,
+            "end": 17,
+            "role": "adjective"
+          },
+          {
+            "word": "after",
+            "start": 18,
+            "end": 23,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 24,
+            "end": 27,
+            "role": "article"
+          },
+          {
+            "word": "journey",
+            "start": 28,
+            "end": 35,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

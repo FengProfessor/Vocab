@@ -79,32 +79,242 @@
       {
         "en": "She is interested in design.",
         "vi": "Cô ấy quan tâm đến thiết kế.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 4,
+            "end": 6,
+            "role": "auxiliary"
+          },
+          {
+            "word": "interested",
+            "start": 7,
+            "end": 17,
+            "role": "adjective"
+          },
+          {
+            "word": "in",
+            "start": 18,
+            "end": 20,
+            "role": "preposition"
+          },
+          {
+            "word": "design",
+            "start": 21,
+            "end": 27,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "We depend on public transport.",
         "vi": "Chúng tôi phụ thuộc vào giao thông công cộng.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "depend",
+            "start": 3,
+            "end": 9,
+            "role": "verb"
+          },
+          {
+            "word": "on",
+            "start": 10,
+            "end": 12,
+            "role": "preposition"
+          },
+          {
+            "word": "public",
+            "start": 13,
+            "end": 19,
+            "role": "noun"
+          },
+          {
+            "word": "transport",
+            "start": 20,
+            "end": 29,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "He apologized for being late.",
         "vi": "Anh ấy xin lỗi vì đến muộn.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "He",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "apologized",
+            "start": 3,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "for",
+            "start": 14,
+            "end": 17,
+            "role": "preposition"
+          },
+          {
+            "word": "being",
+            "start": 18,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "late",
+            "start": 24,
+            "end": 28,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "There has been an increase in demand.",
         "vi": "Nhu cầu đã tăng.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "There",
+            "start": 0,
+            "end": 5,
+            "role": "pronoun"
+          },
+          {
+            "word": "has",
+            "start": 6,
+            "end": 9,
+            "role": "auxiliary"
+          },
+          {
+            "word": "been",
+            "start": 10,
+            "end": 14,
+            "role": "auxiliary"
+          },
+          {
+            "word": "an",
+            "start": 15,
+            "end": 17,
+            "role": "article"
+          },
+          {
+            "word": "increase",
+            "start": 18,
+            "end": 26,
+            "role": "noun"
+          },
+          {
+            "word": "in",
+            "start": 27,
+            "end": 29,
+            "role": "preposition"
+          },
+          {
+            "word": "demand",
+            "start": 30,
+            "end": 36,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "They prevented us from entering.",
         "vi": "Họ ngăn chúng tôi vào.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "prevented",
+            "start": 5,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "us",
+            "start": 15,
+            "end": 17,
+            "role": "pronoun"
+          },
+          {
+            "word": "from",
+            "start": 18,
+            "end": 22,
+            "role": "preposition"
+          },
+          {
+            "word": "entering",
+            "start": 23,
+            "end": 31,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "I'm responsible for preparing the report.",
         "vi": "Tôi chịu trách nhiệm chuẩn bị báo cáo.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I'm",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "responsible",
+            "start": 4,
+            "end": 15,
+            "role": "adjective"
+          },
+          {
+            "word": "for",
+            "start": 16,
+            "end": 19,
+            "role": "preposition"
+          },
+          {
+            "word": "preparing",
+            "start": 20,
+            "end": 29,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 30,
+            "end": 33,
+            "role": "article"
+          },
+          {
+            "word": "report",
+            "start": 34,
+            "end": 40,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

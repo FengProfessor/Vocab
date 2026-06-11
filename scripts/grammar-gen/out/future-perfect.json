@@ -86,32 +86,326 @@
       {
         "en": "By Friday, I will have finished the report.",
         "vi": "Đến thứ Sáu tôi sẽ hoàn thành báo cáo.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "By",
+            "start": 0,
+            "end": 2,
+            "role": "preposition"
+          },
+          {
+            "word": "Friday",
+            "start": 3,
+            "end": 9,
+            "role": "noun"
+          },
+          {
+            "word": "I",
+            "start": 11,
+            "end": 12,
+            "role": "pronoun"
+          },
+          {
+            "word": "will",
+            "start": 13,
+            "end": 17,
+            "role": "modal"
+          },
+          {
+            "word": "have",
+            "start": 18,
+            "end": 22,
+            "role": "auxiliary"
+          },
+          {
+            "word": "finished",
+            "start": 23,
+            "end": 31,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 32,
+            "end": 35,
+            "role": "article"
+          },
+          {
+            "word": "report",
+            "start": 36,
+            "end": 42,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She will have left before noon.",
         "vi": "Cô ấy sẽ rời đi trước trưa.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "will",
+            "start": 4,
+            "end": 8,
+            "role": "modal"
+          },
+          {
+            "word": "have",
+            "start": 9,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "left",
+            "start": 14,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "before",
+            "start": 19,
+            "end": 25,
+            "role": "preposition"
+          },
+          {
+            "word": "noon",
+            "start": 26,
+            "end": 30,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Will they have arrived by then?",
         "vi": "Đến lúc đó họ sẽ tới chưa?",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Will",
+            "start": 0,
+            "end": 4,
+            "role": "modal"
+          },
+          {
+            "word": "they",
+            "start": 5,
+            "end": 9,
+            "role": "pronoun"
+          },
+          {
+            "word": "have",
+            "start": 10,
+            "end": 14,
+            "role": "auxiliary"
+          },
+          {
+            "word": "arrived",
+            "start": 15,
+            "end": 22,
+            "role": "verb"
+          },
+          {
+            "word": "by",
+            "start": 23,
+            "end": 25,
+            "role": "preposition"
+          },
+          {
+            "word": "then",
+            "start": 26,
+            "end": 30,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "We won't have saved enough by June.",
         "vi": "Đến tháng Sáu chúng tôi sẽ chưa tiết kiệm đủ.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "won't",
+            "start": 3,
+            "end": 8,
+            "role": "auxiliary"
+          },
+          {
+            "word": "have",
+            "start": 9,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "saved",
+            "start": 14,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "enough",
+            "start": 20,
+            "end": 26,
+            "role": "adverb"
+          },
+          {
+            "word": "by",
+            "start": 27,
+            "end": 29,
+            "role": "preposition"
+          },
+          {
+            "word": "June",
+            "start": 30,
+            "end": 34,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "By next year, he will have worked here for a decade.",
         "vi": "Đến năm sau anh ấy sẽ làm ở đây tròn một thập kỷ.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "By",
+            "start": 0,
+            "end": 2,
+            "role": "preposition"
+          },
+          {
+            "word": "next",
+            "start": 3,
+            "end": 7,
+            "role": "adjective"
+          },
+          {
+            "word": "year",
+            "start": 8,
+            "end": 12,
+            "role": "noun"
+          },
+          {
+            "word": "he",
+            "start": 14,
+            "end": 16,
+            "role": "pronoun"
+          },
+          {
+            "word": "will",
+            "start": 17,
+            "end": 21,
+            "role": "modal"
+          },
+          {
+            "word": "have",
+            "start": 22,
+            "end": 26,
+            "role": "auxiliary"
+          },
+          {
+            "word": "worked",
+            "start": 27,
+            "end": 33,
+            "role": "verb"
+          },
+          {
+            "word": "here",
+            "start": 34,
+            "end": 38,
+            "role": "adverb"
+          },
+          {
+            "word": "for",
+            "start": 39,
+            "end": 42,
+            "role": "preposition"
+          },
+          {
+            "word": "a",
+            "start": 43,
+            "end": 44,
+            "role": "article"
+          },
+          {
+            "word": "decade",
+            "start": 45,
+            "end": 51,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "The guests will have eaten before the show starts.",
         "vi": "Khách sẽ ăn xong trước khi buổi diễn bắt đầu.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "guests",
+            "start": 4,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "will",
+            "start": 11,
+            "end": 15,
+            "role": "modal"
+          },
+          {
+            "word": "have",
+            "start": 16,
+            "end": 20,
+            "role": "auxiliary"
+          },
+          {
+            "word": "eaten",
+            "start": 21,
+            "end": 26,
+            "role": "verb"
+          },
+          {
+            "word": "before",
+            "start": 27,
+            "end": 33,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 34,
+            "end": 37,
+            "role": "article"
+          },
+          {
+            "word": "show",
+            "start": 38,
+            "end": 42,
+            "role": "noun"
+          },
+          {
+            "word": "starts",
+            "start": 43,
+            "end": 49,
+            "role": "verb"
+          }
+        ]
       }
     ],
     "mistakes": [

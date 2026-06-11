@@ -79,32 +79,236 @@
       {
         "en": "May I come in?",
         "vi": "Tôi vào được không ạ?",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "May",
+            "start": 0,
+            "end": 3,
+            "role": "modal"
+          },
+          {
+            "word": "I",
+            "start": 4,
+            "end": 5,
+            "role": "pronoun"
+          },
+          {
+            "word": "come",
+            "start": 6,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "in",
+            "start": 11,
+            "end": 13,
+            "role": "preposition"
+          }
+        ]
       },
       {
         "en": "Could you open the window, please?",
         "vi": "Bạn vui lòng mở cửa sổ được không?",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Could",
+            "start": 0,
+            "end": 5,
+            "role": "modal"
+          },
+          {
+            "word": "you",
+            "start": 6,
+            "end": 9,
+            "role": "pronoun"
+          },
+          {
+            "word": "open",
+            "start": 10,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 15,
+            "end": 18,
+            "role": "article"
+          },
+          {
+            "word": "window",
+            "start": 19,
+            "end": 25,
+            "role": "noun"
+          },
+          {
+            "word": "please",
+            "start": 27,
+            "end": 33,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "Can I borrow your pen?",
         "vi": "Tôi mượn bút của bạn được không?",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Can",
+            "start": 0,
+            "end": 3,
+            "role": "modal"
+          },
+          {
+            "word": "I",
+            "start": 4,
+            "end": 5,
+            "role": "pronoun"
+          },
+          {
+            "word": "borrow",
+            "start": 6,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "your",
+            "start": 13,
+            "end": 17,
+            "role": "determiner"
+          },
+          {
+            "word": "pen",
+            "start": 18,
+            "end": 21,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Would you wait here for a moment?",
         "vi": "Bạn vui lòng chờ ở đây một lát nhé?",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Would",
+            "start": 0,
+            "end": 5,
+            "role": "modal"
+          },
+          {
+            "word": "you",
+            "start": 6,
+            "end": 9,
+            "role": "pronoun"
+          },
+          {
+            "word": "wait",
+            "start": 10,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "here",
+            "start": 15,
+            "end": 19,
+            "role": "adverb"
+          },
+          {
+            "word": "for",
+            "start": 20,
+            "end": 23,
+            "role": "preposition"
+          },
+          {
+            "word": "a",
+            "start": 24,
+            "end": 25,
+            "role": "article"
+          },
+          {
+            "word": "moment",
+            "start": 26,
+            "end": 32,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Do you mind helping me?",
         "vi": "Bạn có phiền giúp tôi không?",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Do",
+            "start": 0,
+            "end": 2,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 3,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "mind",
+            "start": 7,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "helping",
+            "start": 12,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "me",
+            "start": 20,
+            "end": 22,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "You may leave early today.",
         "vi": "Hôm nay bạn được phép về sớm.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "You",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "may",
+            "start": 4,
+            "end": 7,
+            "role": "modal"
+          },
+          {
+            "word": "leave",
+            "start": 8,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "early",
+            "start": 14,
+            "end": 19,
+            "role": "adverb"
+          },
+          {
+            "word": "today",
+            "start": 20,
+            "end": 25,
+            "role": "adverb"
+          }
+        ]
       }
     ],
     "mistakes": [

@@ -84,32 +84,236 @@
       {
         "en": "My brother is a doctor.",
         "vi": "Anh trai tôi là bác sĩ.",
-        "note": "my đứng trước danh từ brother."
+        "note": "my đứng trước danh từ brother.",
+        "annotations": [
+          {
+            "word": "My",
+            "start": 0,
+            "end": 2,
+            "role": "determiner"
+          },
+          {
+            "word": "brother",
+            "start": 3,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 11,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "a",
+            "start": 14,
+            "end": 15,
+            "role": "article"
+          },
+          {
+            "word": "doctor",
+            "start": 16,
+            "end": 22,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "That red umbrella is hers.",
         "vi": "Chiếc ô màu đỏ kia là của cô ấy.",
-        "note": "hers thay cho her umbrella."
+        "note": "hers thay cho her umbrella.",
+        "annotations": [
+          {
+            "word": "That",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "red",
+            "start": 5,
+            "end": 8,
+            "role": "adjective"
+          },
+          {
+            "word": "umbrella",
+            "start": 9,
+            "end": 17,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 18,
+            "end": 20,
+            "role": "auxiliary"
+          },
+          {
+            "word": "hers",
+            "start": 21,
+            "end": 25,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "Our classroom is larger than theirs.",
         "vi": "Lớp học của chúng tôi lớn hơn lớp của họ.",
-        "note": "our + noun; theirs đứng độc lập."
+        "note": "our + noun; theirs đứng độc lập.",
+        "annotations": [
+          {
+            "word": "Our",
+            "start": 0,
+            "end": 3,
+            "role": "determiner"
+          },
+          {
+            "word": "classroom",
+            "start": 4,
+            "end": 13,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 14,
+            "end": 16,
+            "role": "auxiliary"
+          },
+          {
+            "word": "larger",
+            "start": 17,
+            "end": 23,
+            "role": "adjective"
+          },
+          {
+            "word": "than",
+            "start": 24,
+            "end": 28,
+            "role": "conjunction"
+          },
+          {
+            "word": "theirs",
+            "start": 29,
+            "end": 35,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "Is this pen yours?",
         "vi": "Cây bút này là của bạn phải không?",
-        "note": "yours không có danh từ theo sau."
+        "note": "yours không có danh từ theo sau.",
+        "annotations": [
+          {
+            "word": "Is",
+            "start": 0,
+            "end": 2,
+            "role": "auxiliary"
+          },
+          {
+            "word": "this",
+            "start": 3,
+            "end": 7,
+            "role": "determiner"
+          },
+          {
+            "word": "pen",
+            "start": 8,
+            "end": 11,
+            "role": "noun"
+          },
+          {
+            "word": "yours",
+            "start": 12,
+            "end": 17,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "The cat is washing its paws.",
         "vi": "Con mèo đang rửa chân của nó.",
-        "note": "its là tính từ sở hữu, không có dấu nháy."
+        "note": "its là tính từ sở hữu, không có dấu nháy.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "cat",
+            "start": 4,
+            "end": 7,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 8,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "washing",
+            "start": 11,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "its",
+            "start": 19,
+            "end": 22,
+            "role": "determiner"
+          },
+          {
+            "word": "paws",
+            "start": 23,
+            "end": 27,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "His answer is different from mine.",
         "vi": "Câu trả lời của anh ấy khác câu trả lời của tôi.",
-        "note": "his có thể đứng trước noun; mine thay cả cụm my answer."
+        "note": "his có thể đứng trước noun; mine thay cả cụm my answer.",
+        "annotations": [
+          {
+            "word": "His",
+            "start": 0,
+            "end": 3,
+            "role": "determiner"
+          },
+          {
+            "word": "answer",
+            "start": 4,
+            "end": 10,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 11,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "different",
+            "start": 14,
+            "end": 23,
+            "role": "adjective"
+          },
+          {
+            "word": "from",
+            "start": 24,
+            "end": 28,
+            "role": "preposition"
+          },
+          {
+            "word": "mine",
+            "start": 29,
+            "end": 33,
+            "role": "pronoun"
+          }
+        ]
       }
     ],
     "mistakes": [

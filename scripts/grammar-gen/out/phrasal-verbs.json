@@ -79,32 +79,224 @@
       {
         "en": "Please turn off the lights.",
         "vi": "Vui lòng tắt đèn.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Please",
+            "start": 0,
+            "end": 6,
+            "role": "adverb"
+          },
+          {
+            "word": "turn",
+            "start": 7,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "off",
+            "start": 12,
+            "end": 15,
+            "role": "adverb"
+          },
+          {
+            "word": "the",
+            "start": 16,
+            "end": 19,
+            "role": "article"
+          },
+          {
+            "word": "lights",
+            "start": 20,
+            "end": 26,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "I ran into an old friend.",
         "vi": "Tôi tình cờ gặp một người bạn cũ.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "ran",
+            "start": 2,
+            "end": 5,
+            "role": "verb"
+          },
+          {
+            "word": "into",
+            "start": 6,
+            "end": 10,
+            "role": "preposition"
+          },
+          {
+            "word": "an",
+            "start": 11,
+            "end": 13,
+            "role": "article"
+          },
+          {
+            "word": "old",
+            "start": 14,
+            "end": 17,
+            "role": "adjective"
+          },
+          {
+            "word": "friend",
+            "start": 18,
+            "end": 24,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She looked after the children.",
         "vi": "Cô ấy chăm sóc bọn trẻ.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "looked",
+            "start": 4,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "after",
+            "start": 11,
+            "end": 16,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 17,
+            "end": 20,
+            "role": "article"
+          },
+          {
+            "word": "children",
+            "start": 21,
+            "end": 29,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Don't give up.",
         "vi": "Đừng bỏ cuộc.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Don't",
+            "start": 0,
+            "end": 5,
+            "role": "auxiliary"
+          },
+          {
+            "word": "give",
+            "start": 6,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "up",
+            "start": 11,
+            "end": 13,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "Please pick it up.",
         "vi": "Vui lòng nhặt nó lên.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Please",
+            "start": 0,
+            "end": 6,
+            "role": "adverb"
+          },
+          {
+            "word": "pick",
+            "start": 7,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "it",
+            "start": 12,
+            "end": 14,
+            "role": "pronoun"
+          },
+          {
+            "word": "up",
+            "start": 15,
+            "end": 17,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "We need to find out the truth.",
         "vi": "Chúng ta cần tìm ra sự thật.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "need",
+            "start": 3,
+            "end": 7,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 8,
+            "end": 10,
+            "role": "preposition"
+          },
+          {
+            "word": "find",
+            "start": 11,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "out",
+            "start": 16,
+            "end": 19,
+            "role": "adverb"
+          },
+          {
+            "word": "the",
+            "start": 20,
+            "end": 23,
+            "role": "article"
+          },
+          {
+            "word": "truth",
+            "start": 24,
+            "end": 29,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

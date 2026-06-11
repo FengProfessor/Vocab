@@ -79,32 +79,440 @@
       {
         "en": "If I had slept earlier, I wouldn't be tired now.",
         "vi": "Nếu tối qua ngủ sớm hơn, giờ tôi đã không mệt.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "If",
+            "start": 0,
+            "end": 2,
+            "role": "conjunction"
+          },
+          {
+            "word": "I",
+            "start": 3,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "had",
+            "start": 5,
+            "end": 8,
+            "role": "auxiliary"
+          },
+          {
+            "word": "slept",
+            "start": 9,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "earlier",
+            "start": 15,
+            "end": 22,
+            "role": "adverb"
+          },
+          {
+            "word": "I",
+            "start": 24,
+            "end": 25,
+            "role": "pronoun"
+          },
+          {
+            "word": "wouldn't",
+            "start": 26,
+            "end": 34,
+            "role": "modal"
+          },
+          {
+            "word": "be",
+            "start": 35,
+            "end": 37,
+            "role": "auxiliary"
+          },
+          {
+            "word": "tired",
+            "start": 38,
+            "end": 43,
+            "role": "adjective"
+          },
+          {
+            "word": "now",
+            "start": 44,
+            "end": 47,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "If she were more organized, she wouldn't have missed the deadline.",
         "vi": "Nếu cô ấy ngăn nắp hơn, cô ấy đã không lỡ hạn.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "If",
+            "start": 0,
+            "end": 2,
+            "role": "conjunction"
+          },
+          {
+            "word": "she",
+            "start": 3,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "were",
+            "start": 7,
+            "end": 11,
+            "role": "auxiliary"
+          },
+          {
+            "word": "more",
+            "start": 12,
+            "end": 16,
+            "role": "adjective"
+          },
+          {
+            "word": "organized",
+            "start": 17,
+            "end": 26,
+            "role": "adjective"
+          },
+          {
+            "word": "she",
+            "start": 28,
+            "end": 31,
+            "role": "pronoun"
+          },
+          {
+            "word": "wouldn't",
+            "start": 32,
+            "end": 40,
+            "role": "modal"
+          },
+          {
+            "word": "have",
+            "start": 41,
+            "end": 45,
+            "role": "auxiliary"
+          },
+          {
+            "word": "missed",
+            "start": 46,
+            "end": 52,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 53,
+            "end": 56,
+            "role": "article"
+          },
+          {
+            "word": "deadline",
+            "start": 57,
+            "end": 65,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Had we taken the map, we would know where we are.",
         "vi": "Nếu mang bản đồ, giờ chúng tôi đã biết mình ở đâu.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Had",
+            "start": 0,
+            "end": 3,
+            "role": "auxiliary"
+          },
+          {
+            "word": "we",
+            "start": 4,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "taken",
+            "start": 7,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 13,
+            "end": 16,
+            "role": "article"
+          },
+          {
+            "word": "map",
+            "start": 17,
+            "end": 20,
+            "role": "noun"
+          },
+          {
+            "word": "we",
+            "start": 22,
+            "end": 24,
+            "role": "pronoun"
+          },
+          {
+            "word": "would",
+            "start": 25,
+            "end": 30,
+            "role": "modal"
+          },
+          {
+            "word": "know",
+            "start": 31,
+            "end": 35,
+            "role": "verb"
+          },
+          {
+            "word": "where",
+            "start": 36,
+            "end": 41,
+            "role": "adverb"
+          },
+          {
+            "word": "we",
+            "start": 42,
+            "end": 44,
+            "role": "pronoun"
+          },
+          {
+            "word": "are",
+            "start": 45,
+            "end": 48,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "If he weren't afraid of flying, he would have joined us.",
         "vi": "Nếu không sợ bay, anh ấy đã đi cùng.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "If",
+            "start": 0,
+            "end": 2,
+            "role": "conjunction"
+          },
+          {
+            "word": "he",
+            "start": 3,
+            "end": 5,
+            "role": "pronoun"
+          },
+          {
+            "word": "weren't",
+            "start": 6,
+            "end": 13,
+            "role": "auxiliary"
+          },
+          {
+            "word": "afraid",
+            "start": 14,
+            "end": 20,
+            "role": "adjective"
+          },
+          {
+            "word": "of",
+            "start": 21,
+            "end": 23,
+            "role": "preposition"
+          },
+          {
+            "word": "flying",
+            "start": 24,
+            "end": 30,
+            "role": "verb"
+          },
+          {
+            "word": "he",
+            "start": 32,
+            "end": 34,
+            "role": "pronoun"
+          },
+          {
+            "word": "would",
+            "start": 35,
+            "end": 40,
+            "role": "modal"
+          },
+          {
+            "word": "have",
+            "start": 41,
+            "end": 45,
+            "role": "auxiliary"
+          },
+          {
+            "word": "joined",
+            "start": 46,
+            "end": 52,
+            "role": "verb"
+          },
+          {
+            "word": "us",
+            "start": 53,
+            "end": 55,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "If I had accepted that job, I would live in Tokyo now.",
         "vi": "Nếu nhận việc đó, giờ tôi đã sống ở Tokyo.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "If",
+            "start": 0,
+            "end": 2,
+            "role": "conjunction"
+          },
+          {
+            "word": "I",
+            "start": 3,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "had",
+            "start": 5,
+            "end": 8,
+            "role": "auxiliary"
+          },
+          {
+            "word": "accepted",
+            "start": 9,
+            "end": 17,
+            "role": "verb"
+          },
+          {
+            "word": "that",
+            "start": 18,
+            "end": 22,
+            "role": "determiner"
+          },
+          {
+            "word": "job",
+            "start": 23,
+            "end": 26,
+            "role": "noun"
+          },
+          {
+            "word": "I",
+            "start": 28,
+            "end": 29,
+            "role": "pronoun"
+          },
+          {
+            "word": "would",
+            "start": 30,
+            "end": 35,
+            "role": "modal"
+          },
+          {
+            "word": "live",
+            "start": 36,
+            "end": 40,
+            "role": "verb"
+          },
+          {
+            "word": "in",
+            "start": 41,
+            "end": 43,
+            "role": "preposition"
+          },
+          {
+            "word": "Tokyo",
+            "start": 44,
+            "end": 49,
+            "role": "noun"
+          },
+          {
+            "word": "now",
+            "start": 50,
+            "end": 53,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "She would be happier now if she had followed her passion.",
         "vi": "Giờ cô ấy đã vui hơn nếu từng theo đuổi đam mê.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "would",
+            "start": 4,
+            "end": 9,
+            "role": "modal"
+          },
+          {
+            "word": "be",
+            "start": 10,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "happier",
+            "start": 13,
+            "end": 20,
+            "role": "adjective"
+          },
+          {
+            "word": "now",
+            "start": 21,
+            "end": 24,
+            "role": "adverb"
+          },
+          {
+            "word": "if",
+            "start": 25,
+            "end": 27,
+            "role": "conjunction"
+          },
+          {
+            "word": "she",
+            "start": 28,
+            "end": 31,
+            "role": "pronoun"
+          },
+          {
+            "word": "had",
+            "start": 32,
+            "end": 35,
+            "role": "auxiliary"
+          },
+          {
+            "word": "followed",
+            "start": 36,
+            "end": 44,
+            "role": "verb"
+          },
+          {
+            "word": "her",
+            "start": 45,
+            "end": 48,
+            "role": "determiner"
+          },
+          {
+            "word": "passion",
+            "start": 49,
+            "end": 56,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

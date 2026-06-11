@@ -79,32 +79,200 @@
       {
         "en": "You're coming, aren't you?",
         "vi": "Bạn sẽ đến, phải không?",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "You're",
+            "start": 0,
+            "end": 6,
+            "role": "pronoun"
+          },
+          {
+            "word": "coming",
+            "start": 7,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "aren't",
+            "start": 15,
+            "end": 21,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 22,
+            "end": 25,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "She doesn't drive, does she?",
         "vi": "Cô ấy không lái xe, đúng không?",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "doesn't",
+            "start": 4,
+            "end": 11,
+            "role": "auxiliary"
+          },
+          {
+            "word": "drive",
+            "start": 12,
+            "end": 17,
+            "role": "verb"
+          },
+          {
+            "word": "does",
+            "start": 19,
+            "end": 23,
+            "role": "auxiliary"
+          },
+          {
+            "word": "she",
+            "start": 24,
+            "end": 27,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "They left early, didn't they?",
         "vi": "Họ đã rời đi sớm, phải không?",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "left",
+            "start": 5,
+            "end": 9,
+            "role": "verb"
+          },
+          {
+            "word": "early",
+            "start": 10,
+            "end": 15,
+            "role": "adverb"
+          },
+          {
+            "word": "didn't",
+            "start": 17,
+            "end": 23,
+            "role": "auxiliary"
+          },
+          {
+            "word": "they",
+            "start": 24,
+            "end": 28,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "Let's start, shall we?",
         "vi": "Chúng ta bắt đầu nhé?",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Let's",
+            "start": 0,
+            "end": 5,
+            "role": "modal"
+          },
+          {
+            "word": "start",
+            "start": 6,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "shall",
+            "start": 13,
+            "end": 18,
+            "role": "modal"
+          },
+          {
+            "word": "we",
+            "start": 19,
+            "end": 21,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "I'm late, aren't I?",
         "vi": "Tôi muộn, phải không?",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I'm",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "late",
+            "start": 4,
+            "end": 8,
+            "role": "adjective"
+          },
+          {
+            "word": "aren't",
+            "start": 10,
+            "end": 16,
+            "role": "auxiliary"
+          },
+          {
+            "word": "I",
+            "start": 17,
+            "end": 18,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "Nobody called, did they?",
         "vi": "Không ai gọi, phải không?",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Nobody",
+            "start": 0,
+            "end": 6,
+            "role": "noun"
+          },
+          {
+            "word": "called",
+            "start": 7,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "did",
+            "start": 15,
+            "end": 18,
+            "role": "auxiliary"
+          },
+          {
+            "word": "they",
+            "start": 19,
+            "end": 23,
+            "role": "pronoun"
+          }
+        ]
       }
     ],
     "mistakes": [

@@ -79,32 +79,218 @@
       {
         "en": "You should get more sleep.",
         "vi": "Bạn nên ngủ nhiều hơn.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "You",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "should",
+            "start": 4,
+            "end": 10,
+            "role": "modal"
+          },
+          {
+            "word": "get",
+            "start": 11,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "more",
+            "start": 15,
+            "end": 19,
+            "role": "determiner"
+          },
+          {
+            "word": "sleep",
+            "start": 20,
+            "end": 25,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "We ought to apologize.",
         "vi": "Chúng ta nên xin lỗi.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "ought",
+            "start": 3,
+            "end": 8,
+            "role": "modal"
+          },
+          {
+            "word": "to",
+            "start": 9,
+            "end": 11,
+            "role": "preposition"
+          },
+          {
+            "word": "apologize",
+            "start": 12,
+            "end": 21,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "Should I call her now?",
         "vi": "Tôi có nên gọi cô ấy bây giờ không?",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Should",
+            "start": 0,
+            "end": 6,
+            "role": "modal"
+          },
+          {
+            "word": "I",
+            "start": 7,
+            "end": 8,
+            "role": "pronoun"
+          },
+          {
+            "word": "call",
+            "start": 9,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "her",
+            "start": 14,
+            "end": 17,
+            "role": "pronoun"
+          },
+          {
+            "word": "now",
+            "start": 18,
+            "end": 21,
+            "role": "adverb"
+          }
+        ]
       },
       {
         "en": "You shouldn't skip breakfast.",
         "vi": "Bạn không nên bỏ bữa sáng.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "You",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "shouldn't",
+            "start": 4,
+            "end": 13,
+            "role": "modal"
+          },
+          {
+            "word": "skip",
+            "start": 14,
+            "end": 18,
+            "role": "verb"
+          },
+          {
+            "word": "breakfast",
+            "start": 19,
+            "end": 28,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "You'd better take an umbrella.",
         "vi": "Bạn nên mang ô thì hơn.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "You'd",
+            "start": 0,
+            "end": 5,
+            "role": "pronoun"
+          },
+          {
+            "word": "better",
+            "start": 6,
+            "end": 12,
+            "role": "adverb"
+          },
+          {
+            "word": "take",
+            "start": 13,
+            "end": 17,
+            "role": "verb"
+          },
+          {
+            "word": "an",
+            "start": 18,
+            "end": 20,
+            "role": "article"
+          },
+          {
+            "word": "umbrella",
+            "start": 21,
+            "end": 29,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "They should have checked the address.",
         "vi": "Lẽ ra họ nên kiểm tra địa chỉ.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "should",
+            "start": 5,
+            "end": 11,
+            "role": "modal"
+          },
+          {
+            "word": "have",
+            "start": 12,
+            "end": 16,
+            "role": "auxiliary"
+          },
+          {
+            "word": "checked",
+            "start": 17,
+            "end": 24,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 25,
+            "end": 28,
+            "role": "article"
+          },
+          {
+            "word": "address",
+            "start": 29,
+            "end": 36,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

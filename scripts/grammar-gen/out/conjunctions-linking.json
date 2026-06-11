@@ -79,32 +79,290 @@
       {
         "en": "I stayed home because I was ill.",
         "vi": "Tôi ở nhà vì bị ốm.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "stayed",
+            "start": 2,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "home",
+            "start": 9,
+            "end": 13,
+            "role": "noun"
+          },
+          {
+            "word": "because",
+            "start": 14,
+            "end": 21,
+            "role": "conjunction"
+          },
+          {
+            "word": "I",
+            "start": 22,
+            "end": 23,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 24,
+            "end": 27,
+            "role": "auxiliary"
+          },
+          {
+            "word": "ill",
+            "start": 28,
+            "end": 31,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "Although it was late, we continued.",
         "vi": "Mặc dù muộn, chúng tôi vẫn tiếp tục.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Although",
+            "start": 0,
+            "end": 8,
+            "role": "conjunction"
+          },
+          {
+            "word": "it",
+            "start": 9,
+            "end": 11,
+            "role": "pronoun"
+          },
+          {
+            "word": "was",
+            "start": 12,
+            "end": 15,
+            "role": "auxiliary"
+          },
+          {
+            "word": "late",
+            "start": 16,
+            "end": 20,
+            "role": "adjective"
+          },
+          {
+            "word": "we",
+            "start": 22,
+            "end": 24,
+            "role": "pronoun"
+          },
+          {
+            "word": "continued",
+            "start": 25,
+            "end": 34,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "She studied hard; therefore, she passed.",
         "vi": "Cô ấy học chăm; vì vậy cô ấy đã đỗ.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "noun"
+          },
+          {
+            "word": "studied",
+            "start": 4,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "hard",
+            "start": 12,
+            "end": 16,
+            "role": "adverb"
+          },
+          {
+            "word": "therefore",
+            "start": 18,
+            "end": 27,
+            "role": "conjunction"
+          },
+          {
+            "word": "she",
+            "start": 29,
+            "end": 32,
+            "role": "pronoun"
+          },
+          {
+            "word": "passed",
+            "start": 33,
+            "end": 39,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "You can call or send a message.",
         "vi": "Bạn có thể gọi hoặc nhắn tin.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "You",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "can",
+            "start": 4,
+            "end": 7,
+            "role": "modal"
+          },
+          {
+            "word": "call",
+            "start": 8,
+            "end": 12,
+            "role": "verb"
+          },
+          {
+            "word": "or",
+            "start": 13,
+            "end": 15,
+            "role": "conjunction"
+          },
+          {
+            "word": "send",
+            "start": 16,
+            "end": 20,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 21,
+            "end": 22,
+            "role": "article"
+          },
+          {
+            "word": "message",
+            "start": 23,
+            "end": 30,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "He is kind, whereas his brother is reserved.",
         "vi": "Anh ấy thân thiện, trong khi em trai khá kín đáo.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "He",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 3,
+            "end": 5,
+            "role": "auxiliary"
+          },
+          {
+            "word": "kind",
+            "start": 6,
+            "end": 10,
+            "role": "adjective"
+          },
+          {
+            "word": "whereas",
+            "start": 12,
+            "end": 19,
+            "role": "conjunction"
+          },
+          {
+            "word": "his",
+            "start": 20,
+            "end": 23,
+            "role": "determiner"
+          },
+          {
+            "word": "brother",
+            "start": 24,
+            "end": 31,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 32,
+            "end": 34,
+            "role": "auxiliary"
+          },
+          {
+            "word": "reserved",
+            "start": 35,
+            "end": 43,
+            "role": "adjective"
+          }
+        ]
       },
       {
         "en": "Take an umbrella in case it rains.",
         "vi": "Hãy mang ô phòng khi trời mưa.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Take",
+            "start": 0,
+            "end": 4,
+            "role": "verb"
+          },
+          {
+            "word": "an",
+            "start": 5,
+            "end": 7,
+            "role": "article"
+          },
+          {
+            "word": "umbrella",
+            "start": 8,
+            "end": 16,
+            "role": "noun"
+          },
+          {
+            "word": "in",
+            "start": 17,
+            "end": 19,
+            "role": "preposition"
+          },
+          {
+            "word": "case",
+            "start": 20,
+            "end": 24,
+            "role": "conjunction"
+          },
+          {
+            "word": "it",
+            "start": 25,
+            "end": 27,
+            "role": "pronoun"
+          },
+          {
+            "word": "rains",
+            "start": 28,
+            "end": 33,
+            "role": "verb"
+          }
+        ]
       }
     ],
     "mistakes": [

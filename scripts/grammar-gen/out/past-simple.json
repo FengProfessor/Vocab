@@ -87,42 +87,334 @@
       {
         "en": "I ate breakfast at 7 a.m.",
         "vi": "Tôi đã ăn bữa sáng vào lúc 7 giờ sáng.",
-        "note": "Khẳng định, hành động đã xảy ra và kết thúc."
+        "note": "Khẳng định, hành động đã xảy ra và kết thúc.",
+        "annotations": [
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "ate",
+            "start": 2,
+            "end": 5,
+            "role": "verb"
+          },
+          {
+            "word": "breakfast",
+            "start": 6,
+            "end": 15,
+            "role": "noun"
+          },
+          {
+            "word": "at",
+            "start": 16,
+            "end": 18,
+            "role": "preposition"
+          },
+          {
+            "word": "7",
+            "start": 19,
+            "end": 20,
+            "role": "other"
+          },
+          {
+            "word": "a.m",
+            "start": 21,
+            "end": 24,
+            "role": "other"
+          }
+        ]
       },
       {
         "en": "She didn't go to the party.",
         "vi": "Cô ấy đã không đi dự tiệc.",
-        "note": "Phủ định, sử dụng didn't + V nguyên thể."
+        "note": "Phủ định, sử dụng didn't + V nguyên thể.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "didn't",
+            "start": 4,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "go",
+            "start": 11,
+            "end": 13,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 14,
+            "end": 16,
+            "role": "preposition"
+          },
+          {
+            "word": "the",
+            "start": 17,
+            "end": 20,
+            "role": "article"
+          },
+          {
+            "word": "party",
+            "start": 21,
+            "end": 26,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "Did you finish your homework?",
         "vi": "Bạn đã hoàn thành bài tập về nhà chưa?",
-        "note": "Nghi vấn, sử dụng Did + S + V nguyên thể."
+        "note": "Nghi vấn, sử dụng Did + S + V nguyên thể.",
+        "annotations": [
+          {
+            "word": "Did",
+            "start": 0,
+            "end": 3,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 4,
+            "end": 7,
+            "role": "pronoun"
+          },
+          {
+            "word": "finish",
+            "start": 8,
+            "end": 14,
+            "role": "verb"
+          },
+          {
+            "word": "your",
+            "start": 15,
+            "end": 19,
+            "role": "determiner"
+          },
+          {
+            "word": "homework",
+            "start": 20,
+            "end": 28,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "They got married in 2015.",
         "vi": "Họ đã kết hôn vào năm 2015.",
-        "note": "Hành động đã xảy ra và kết thúc trong quá khứ."
+        "note": "Hành động đã xảy ra và kết thúc trong quá khứ.",
+        "annotations": [
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "got",
+            "start": 5,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "married",
+            "start": 9,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "in",
+            "start": 17,
+            "end": 19,
+            "role": "preposition"
+          },
+          {
+            "word": "2015",
+            "start": 20,
+            "end": 24,
+            "role": "other"
+          }
+        ]
       },
       {
         "en": "He studied law at university.",
         "vi": "Anh ấy đã học luật tại trường đại học.",
-        "note": "Trình độ học vấn, sử dụng quá khứ đơn."
+        "note": "Trình độ học vấn, sử dụng quá khứ đơn.",
+        "annotations": [
+          {
+            "word": "He",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "studied",
+            "start": 3,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "law",
+            "start": 11,
+            "end": 14,
+            "role": "noun"
+          },
+          {
+            "word": "at",
+            "start": 15,
+            "end": 17,
+            "role": "preposition"
+          },
+          {
+            "word": "university",
+            "start": 18,
+            "end": 28,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "We didn't travel to Japan last year.",
         "vi": "Chúng tôi đã không đi du lịch đến Nhật Bản năm ngoái.",
-        "note": "Phủ định, sử dụng didn't + V nguyên thể."
+        "note": "Phủ định, sử dụng didn't + V nguyên thể.",
+        "annotations": [
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "didn't",
+            "start": 3,
+            "end": 9,
+            "role": "auxiliary"
+          },
+          {
+            "word": "travel",
+            "start": 10,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 17,
+            "end": 19,
+            "role": "preposition"
+          },
+          {
+            "word": "Japan",
+            "start": 20,
+            "end": 25,
+            "role": "noun"
+          },
+          {
+            "word": "last",
+            "start": 26,
+            "end": 30,
+            "role": "determiner"
+          },
+          {
+            "word": "year",
+            "start": 31,
+            "end": 35,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "What did you eat for lunch yesterday?",
         "vi": "Bạn đã ăn gì cho bữa trưa vào ngày hôm qua?",
-        "note": "Câu hỏi Wh- + Did + S + V nguyên thể."
+        "note": "Câu hỏi Wh- + Did + S + V nguyên thể.",
+        "annotations": [
+          {
+            "word": "What",
+            "start": 0,
+            "end": 4,
+            "role": "other"
+          },
+          {
+            "word": "did",
+            "start": 5,
+            "end": 8,
+            "role": "auxiliary"
+          },
+          {
+            "word": "you",
+            "start": 9,
+            "end": 12,
+            "role": "pronoun"
+          },
+          {
+            "word": "eat",
+            "start": 13,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "for",
+            "start": 17,
+            "end": 20,
+            "role": "preposition"
+          },
+          {
+            "word": "lunch",
+            "start": 21,
+            "end": 26,
+            "role": "noun"
+          },
+          {
+            "word": "yesterday",
+            "start": 27,
+            "end": 36,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "She didn't like the movie.",
         "vi": "Cô ấy đã không thích bộ phim.",
-        "note": "Phủ định, sử dụng didn't + V nguyên thể."
+        "note": "Phủ định, sử dụng didn't + V nguyên thể.",
+        "annotations": [
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "didn't",
+            "start": 4,
+            "end": 10,
+            "role": "auxiliary"
+          },
+          {
+            "word": "like",
+            "start": 11,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 16,
+            "end": 19,
+            "role": "article"
+          },
+          {
+            "word": "movie",
+            "start": 20,
+            "end": 25,
+            "role": "noun"
+          }
+        ]
       }
     ],
     "mistakes": [

@@ -79,32 +79,302 @@
       {
         "en": "The woman who called is my aunt.",
         "vi": "Người phụ nữ đã gọi là dì tôi.",
-        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "woman",
+            "start": 4,
+            "end": 9,
+            "role": "noun"
+          },
+          {
+            "word": "who",
+            "start": 10,
+            "end": 13,
+            "role": "pronoun"
+          },
+          {
+            "word": "called",
+            "start": 14,
+            "end": 20,
+            "role": "verb"
+          },
+          {
+            "word": "is",
+            "start": 21,
+            "end": 23,
+            "role": "verb"
+          },
+          {
+            "word": "my",
+            "start": 24,
+            "end": 26,
+            "role": "determiner"
+          },
+          {
+            "word": "aunt",
+            "start": 27,
+            "end": 31,
+            "role": "noun"
+          }
+        ]
       },
       {
         "en": "This is the book that I mentioned.",
         "vi": "Đây là cuốn sách tôi đã nhắc.",
-        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "This",
+            "start": 0,
+            "end": 4,
+            "role": "determiner"
+          },
+          {
+            "word": "is",
+            "start": 5,
+            "end": 7,
+            "role": "verb"
+          },
+          {
+            "word": "the",
+            "start": 8,
+            "end": 11,
+            "role": "article"
+          },
+          {
+            "word": "book",
+            "start": 12,
+            "end": 16,
+            "role": "noun"
+          },
+          {
+            "word": "that",
+            "start": 17,
+            "end": 21,
+            "role": "pronoun"
+          },
+          {
+            "word": "I",
+            "start": 22,
+            "end": 23,
+            "role": "pronoun"
+          },
+          {
+            "word": "mentioned",
+            "start": 24,
+            "end": 33,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "The café where we met has closed.",
         "vi": "Quán cà phê nơi chúng ta gặp đã đóng cửa.",
-        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "café",
+            "start": 4,
+            "end": 8,
+            "role": "noun"
+          },
+          {
+            "word": "where",
+            "start": 9,
+            "end": 14,
+            "role": "adverb"
+          },
+          {
+            "word": "we",
+            "start": 15,
+            "end": 17,
+            "role": "pronoun"
+          },
+          {
+            "word": "met",
+            "start": 18,
+            "end": 21,
+            "role": "verb"
+          },
+          {
+            "word": "has",
+            "start": 22,
+            "end": 25,
+            "role": "auxiliary"
+          },
+          {
+            "word": "closed",
+            "start": 26,
+            "end": 32,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "Students whose work is late must email me.",
         "vi": "Học sinh nộp bài muộn phải gửi email cho tôi.",
-        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "Students",
+            "start": 0,
+            "end": 8,
+            "role": "noun"
+          },
+          {
+            "word": "whose",
+            "start": 9,
+            "end": 14,
+            "role": "determiner"
+          },
+          {
+            "word": "work",
+            "start": 15,
+            "end": 19,
+            "role": "noun"
+          },
+          {
+            "word": "is",
+            "start": 20,
+            "end": 22,
+            "role": "verb"
+          },
+          {
+            "word": "late",
+            "start": 23,
+            "end": 27,
+            "role": "adjective"
+          },
+          {
+            "word": "must",
+            "start": 28,
+            "end": 32,
+            "role": "modal"
+          },
+          {
+            "word": "email",
+            "start": 33,
+            "end": 38,
+            "role": "verb"
+          },
+          {
+            "word": "me",
+            "start": 39,
+            "end": 41,
+            "role": "pronoun"
+          }
+        ]
       },
       {
         "en": "My laptop, which is old, still works.",
         "vi": "Laptop của tôi, vốn đã cũ, vẫn hoạt động.",
-        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "My",
+            "start": 0,
+            "end": 2,
+            "role": "determiner"
+          },
+          {
+            "word": "laptop",
+            "start": 3,
+            "end": 9,
+            "role": "noun"
+          },
+          {
+            "word": "which",
+            "start": 11,
+            "end": 16,
+            "role": "pronoun"
+          },
+          {
+            "word": "is",
+            "start": 17,
+            "end": 19,
+            "role": "verb"
+          },
+          {
+            "word": "old",
+            "start": 20,
+            "end": 23,
+            "role": "adjective"
+          },
+          {
+            "word": "still",
+            "start": 25,
+            "end": 30,
+            "role": "adverb"
+          },
+          {
+            "word": "works",
+            "start": 31,
+            "end": 36,
+            "role": "verb"
+          }
+        ]
       },
       {
         "en": "The man I spoke to was helpful.",
         "vi": "Người đàn ông tôi nói chuyện cùng rất nhiệt tình.",
-        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu."
+        "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
+        "annotations": [
+          {
+            "word": "The",
+            "start": 0,
+            "end": 3,
+            "role": "article"
+          },
+          {
+            "word": "man",
+            "start": 4,
+            "end": 7,
+            "role": "noun"
+          },
+          {
+            "word": "I",
+            "start": 8,
+            "end": 9,
+            "role": "pronoun"
+          },
+          {
+            "word": "spoke",
+            "start": 10,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 16,
+            "end": 18,
+            "role": "preposition"
+          },
+          {
+            "word": "was",
+            "start": 19,
+            "end": 22,
+            "role": "verb"
+          },
+          {
+            "word": "helpful",
+            "start": 23,
+            "end": 30,
+            "role": "adjective"
+          }
+        ]
       }
     ],
     "mistakes": [
