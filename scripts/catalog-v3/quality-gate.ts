@@ -79,8 +79,15 @@ async function main() {
   // Ảnh hợp lệ = có URL và (chưa chấm điểm = null → chấp nhận ảnh legacy) hoặc (đã chấm ≥ ngưỡng).
   // Chỉ confidence THẤP RÕ RÀNG (<70) mới bị loại.
   const validImg = (r?: GdRow): boolean => !!r?.image_url && (r.image_confidence == null || r.image_confidence >= IMG_CONF_MIN);
-  const cefrOf = (r?: GdRow): string | null => r?.data?.openVocab?.cefr ?? r?.data?.openVocab?.cefrMin ?? null;
   const CEFR_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  // Mỗi từ có thể có dải cefrMin..cefrMax (đa POS). Lấy cả 2 biên để dải subtopic phủ đúng.
+  const cefrBounds = (r?: GdRow): number[] => {
+    const ov = r?.data?.openVocab;
+    if (!ov) return [];
+    const lo = ov.cefrMin ?? ov.cefr;
+    const hi = ov.cefrMax ?? ov.cefr;
+    return [lo, hi].filter((x): x is string => !!x && CEFR_ORDER.includes(x)).map((x) => CEFR_ORDER.indexOf(x));
+  };
 
   const routeFeatured = new Map(art.routes.map((r) => [r.id, r.featured]));
 
@@ -99,7 +106,7 @@ async function main() {
       const r = dict.get(w);
       if (validVi(r)) viOk++; else quarantine.push({ type: 'word', word: w, subtopicId: sub.id, reason: r ? 'thiếu nghĩa tiếng Việt' : 'không có trong global_dictionary' });
       if (validImg(r)) { imgOk++; if (!coverImage) coverImage = r!.image_url; } else { missingImages.push(w); }
-      const c = cefrOf(r); if (c && CEFR_ORDER.includes(c)) cefrs.push(CEFR_ORDER.indexOf(c));
+      cefrs.push(...cefrBounds(r));
     }
     missingImagesAll.push(...missingImages);
     const viCov = words.length ? viOk / words.length : 0;

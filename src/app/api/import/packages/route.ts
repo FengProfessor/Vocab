@@ -87,22 +87,12 @@ async function importPack(supabase: ReturnType<typeof createServiceClient>, { us
   const orderedWordIds = words.map((w) => wordIdMap.get(w)).filter((id): id is string => Boolean(id));
   if (orderedWordIds.length !== words.length) throw new Error('Could not resolve every word ID for this pack');
 
-  const now = new Date().toISOString();
-  const { data: existingPack } = await supabase.from('user_vocab_packs').select('status, started_at').eq('user_id', userId).eq('pack_id', packId).maybeSingle();
-  const { error: packError } = await supabase.from('user_vocab_packs').upsert({
-    user_id: userId, pack_id: packId, catalog_version: catalogVersion, topic_id: topicId, topic_title: topicTitle,
-    pack_index: packIndex, status: existingPack?.status === 'completed' ? 'completed' : 'in_progress',
-    word_count: orderedWordIds.length, started_at: existingPack?.started_at ?? now, last_studied_at: now,
-  }, { onConflict: 'user_id,pack_id' });
-  if (packError) throw packError;
-
-  const { error: membershipError } = await supabase.from('user_vocab_pack_words').upsert(
-    orderedWordIds.map((wordId, position) => ({ user_id: userId, pack_id: packId, word_id: wordId, position })),
-    { onConflict: 'user_id,pack_id,word_id', ignoreDuplicates: true },
-  );
-  if (membershipError) throw membershipError;
-  const { error: refreshError } = await supabase.rpc('refresh_vocab_pack_progress', { p_user_id: userId, p_word_id: orderedWordIds[0] });
-  if (refreshError) throw refreshError;
+  // Pack + membership + progress trong MỘT transaction (RPC) — tránh trạng thái nhập dở.
+  const { error: rpcError } = await supabase.rpc('import_vocab_pack', {
+    p_user_id: userId, p_pack_id: packId, p_catalog_version: catalogVersion,
+    p_topic_id: topicId, p_topic_title: topicTitle, p_pack_index: packIndex, p_word_ids: orderedWordIds,
+  });
+  if (rpcError) throw rpcError;
 
   return { ok: { imported: rows.length, classroomId, packId, wordIds: orderedWordIds } };
 }
