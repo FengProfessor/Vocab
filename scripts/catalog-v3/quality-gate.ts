@@ -115,19 +115,22 @@ async function main() {
     const inSubRange = sub.wordCount >= SUBTOPIC_MIN && sub.wordCount <= SUBTOPIC_MAX;
     const cefrRange = cefrs.length ? { min: CEFR_ORDER[Math.min(...cefrs)], max: CEFR_ORDER[Math.max(...cefrs)] } : null;
 
-    // Hard gate publish: 100% vi + ảnh đạt ngưỡng. (subtopic 30-90 là soft flag.)
-    const published = viCov >= 1 && imgCov >= imgGate && words.length >= 10;
+    // Hard gate publish = TOÀN VẸN NỘI DUNG: 100% nghĩa VN + ≥10 từ. (Mọi từ học được dù thiếu ảnh.)
+    // Ảnh KHÔNG ẩn subtopic nữa — nó vào qualityScore để xếp hạng nổi bật.
+    // featuredEligible = đạt ngưỡng ảnh (featured≥90%/extended≥80%) → ưu tiên hiển thị đầu.
+    const published = viCov >= 1 && words.length >= 10;
     const status: 'published' | 'draft' | 'quarantine' = viCov < 0.5 ? 'quarantine' : published ? 'published' : 'draft';
+    const featuredEligible = imgCov >= imgGate;
     if (status === 'published') publishedSub++; else draftSub++;
     const qualityScore = Math.round(100 * (0.5 * viCov + 0.4 * imgCov + 0.1 * (inSubRange ? 1 : 0.6)));
 
     subQuality[sub.id] = {
-      publishStatus: status, qualityScore, viCoverage: +viCov.toFixed(3), imageCoverage: +imgCov.toFixed(3),
+      publishStatus: status, featuredEligible, qualityScore, viCoverage: +viCov.toFixed(3), imageCoverage: +imgCov.toFixed(3),
       wordCount: words.length, inSubtopicRange: inSubRange, cefrRange, coverImage,
       missingImageCount: missingImages.length, missingImages: missingImages.slice(0, 50),
       failReasons: [
-        viCov < 1 ? `nghĩa VN ${Math.round(viCov * 100)}% (<100%)` : null,
-        imgCov < imgGate ? `ảnh ${Math.round(imgCov * 100)}% (<${Math.round(imgGate * 100)}%)` : null,
+        viCov < 1 ? `nghĩa VN ${Math.round(viCov * 100)}% (<100%) — CHẶN publish` : null,
+        imgCov < imgGate ? `ảnh ${Math.round(imgCov * 100)}% (<${Math.round(imgGate * 100)}%) — chưa nổi bật` : null,
         !inSubRange ? `số từ ${sub.wordCount} ngoài ${SUBTOPIC_MIN}-${SUBTOPIC_MAX}` : null,
       ].filter(Boolean),
     };

@@ -3,8 +3,8 @@
   "summary": {
     "catalogVersion": "2026-06-12-v3",
     "subtopics": 124,
-    "publishedSubtopics": 76,
-    "draftSubtopics": 48,
+    "publishedSubtopics": 124,
+    "draftSubtopics": 0,
     "words": 4671,
     "wordsInDict": 4671,
     "quarantineWords": 0,
@@ -13,37 +13,37 @@
   "routes": {
     "di-lam": {
       "publishStatus": "published",
-      "publishedSubtopics": 7,
+      "publishedSubtopics": 13,
       "totalSubtopics": 13
     },
     "du-lich": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
+      "publishedSubtopics": 9,
       "totalSubtopics": 9
     },
     "doi-song": {
       "publishStatus": "published",
-      "publishedSubtopics": 12,
+      "publishedSubtopics": 25,
       "totalSubtopics": 25
     },
     "suc-khoe": {
       "publishStatus": "published",
-      "publishedSubtopics": 5,
+      "publishedSubtopics": 9,
       "totalSubtopics": 9
     },
     "cong-nghe": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
+      "publishedSubtopics": 6,
       "totalSubtopics": 6
     },
     "hoc-tap": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
+      "publishedSubtopics": 7,
       "totalSubtopics": 7
     },
     "hoc-thuat": {
       "publishStatus": "published",
-      "publishedSubtopics": 26,
+      "publishedSubtopics": 36,
       "totalSubtopics": 36
     },
     "extended": {
@@ -55,37 +55,37 @@
   "topics": {
     "tp-132448072e": {
       "publishStatus": "published",
-      "publishedSubtopics": 1,
+      "publishedSubtopics": 4,
       "totalSubtopics": 4,
       "qualityScore": 90
     },
     "tp-2a8542b1aa": {
       "publishStatus": "published",
-      "publishedSubtopics": 5,
+      "publishedSubtopics": 10,
       "totalSubtopics": 10,
       "qualityScore": 93
     },
     "tp-2d1dddc93a": {
-      "publishStatus": "draft",
-      "publishedSubtopics": 0,
+      "publishStatus": "published",
+      "publishedSubtopics": 3,
       "totalSubtopics": 3,
       "qualityScore": 92
     },
     "tp-32dabe9530": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
+      "publishedSubtopics": 3,
       "totalSubtopics": 3,
       "qualityScore": 95
     },
     "tp-47d3a045c5": {
       "publishStatus": "published",
-      "publishedSubtopics": 1,
+      "publishedSubtopics": 3,
       "totalSubtopics": 3,
       "qualityScore": 93
     },
     "tp-56648ca5ac": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
+      "publishedSubtopics": 4,
       "totalSubtopics": 4,
       "qualityScore": 94
     },
@@ -103,86 +103,87 @@
     },
     "tp-70cf7f7227": {
       "publishStatus": "published",
-      "publishedSubtopics": 7,
+      "publishedSubtopics": 9,
       "totalSubtopics": 9,
       "qualityScore": 93
     },
     "tp-7a934ad2a7": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
+      "publishedSubtopics": 6,
       "totalSubtopics": 6,
       "qualityScore": 94
     },
     "tp-7c7631f3bd": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
+      "publishedSubtopics": 6,
       "totalSubtopics": 6,
       "qualityScore": 93
     },
     "tp-87971d0e5c": {
       "publishStatus": "published",
-      "publishedSubtopics": 1,
+      "publishedSubtopics": 2,
       "totalSubtopics": 2,
       "qualityScore": 94
     },
     "tp-8cd90ef97c": {
       "publishStatus": "published",
-      "publishedSubtopics": 13,
+      "publishedSubtopics": 16,
       "totalSubtopics": 16,
       "qualityScore": 94
     },
     "tp-9275f23d61": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
+      "publishedSubtopics": 7,
       "totalSubtopics": 7,
       "qualityScore": 93
     },
     "tp-95e3b28bf2": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
+      "publishedSubtopics": 5,
       "totalSubtopics": 5,
       "qualityScore": 92
     },
     "tp-a0358154bf": {
       "publishStatus": "published",
-      "publishedSubtopics": 1,
+      "publishedSubtopics": 4,
       "totalSubtopics": 4,
       "qualityScore": 91
     },
     "tp-cc12b088fb": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
+      "publishedSubtopics": 4,
       "totalSubtopics": 4,
       "qualityScore": 96
     },
     "tp-e90a33ab98": {
       "publishStatus": "published",
-      "publishedSubtopics": 1,
+      "publishedSubtopics": 3,
       "totalSubtopics": 3,
       "qualityScore": 92
     },
     "tp-f06a497f6f": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
+      "publishedSubtopics": 4,
       "totalSubtopics": 4,
       "qualityScore": 92
     },
     "tp-f9b50ef195": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
+      "publishedSubtopics": 7,
       "totalSubtopics": 7,
       "qualityScore": 91
     },
     "tp-ffa0a73f9c": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
+      "publishedSubtopics": 3,
       "totalSubtopics": 3,
       "qualityScore": 94
     }
   },
   "subtopics": {
     "st-0309de5a7285": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.824,
@@ -200,11 +201,12 @@
         "take an overdose"
       ],
       "failReasons": [
-        "ảnh 82% (<90%)"
+        "ảnh 82% (<90%) — chưa nổi bật"
       ]
     },
     "st-0431d2104f66": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.875,
@@ -218,12 +220,13 @@
         "traffic congestion"
       ],
       "failReasons": [
-        "ảnh 88% (<90%)",
+        "ảnh 88% (<90%) — chưa nổi bật",
         "số từ 16 ngoài 30-90"
       ]
     },
     "st-047eccb61a4e": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.889,
@@ -237,12 +240,13 @@
         "take out a mortgage"
       ],
       "failReasons": [
-        "ảnh 89% (<90%)",
+        "ảnh 89% (<90%) — chưa nổi bật",
         "số từ 18 ngoài 30-90"
       ]
     },
     "st-06a6a1f92f71": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 86,
       "viCoverage": 1,
       "imageCoverage": 0.75,
@@ -258,12 +262,13 @@
         "pursue"
       ],
       "failReasons": [
-        "ảnh 75% (<90%)",
+        "ảnh 75% (<90%) — chưa nổi bật",
         "số từ 16 ngoài 30-90"
       ]
     },
     "st-0a66b98c1ff8": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -279,6 +284,7 @@
     },
     "st-0bf9ebd8c770": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.958,
@@ -295,7 +301,8 @@
       ]
     },
     "st-0c026cf00ccb": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 90,
       "viCoverage": 1,
       "imageCoverage": 0.857,
@@ -320,12 +327,13 @@
         "work at a relationship"
       ],
       "failReasons": [
-        "ảnh 86% (<90%)",
+        "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 91 ngoài 30-90"
       ]
     },
     "st-11737267bc3e": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.929,
@@ -343,6 +351,7 @@
     },
     "st-1328760cf40e": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.924,
@@ -368,6 +377,7 @@
     },
     "st-14866d46c554": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -383,6 +393,7 @@
     },
     "st-16e51553fca8": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 98,
       "viCoverage": 1,
       "imageCoverage": 0.95,
@@ -400,6 +411,7 @@
     },
     "st-1809746c17f8": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 97,
       "viCoverage": 1,
       "imageCoverage": 0.914,
@@ -416,7 +428,8 @@
       "failReasons": []
     },
     "st-182f097caed8": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.889,
@@ -430,12 +443,13 @@
         "vertically challenged"
       ],
       "failReasons": [
-        "ảnh 89% (<90%)",
+        "ảnh 89% (<90%) — chưa nổi bật",
         "số từ 18 ngoài 30-90"
       ]
     },
     "st-18f7dc3853f8": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.821,
@@ -454,11 +468,12 @@
         "where the power is"
       ],
       "failReasons": [
-        "ảnh 82% (<90%)"
+        "ảnh 82% (<90%) — chưa nổi bật"
       ]
     },
     "st-1cf8d5488fc0": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 95,
       "viCoverage": 1,
       "imageCoverage": 0.863,
@@ -480,6 +495,7 @@
     },
     "st-1df96d64d462": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.923,
@@ -497,7 +513,8 @@
       ]
     },
     "st-1e82ba496fc6": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 90,
       "viCoverage": 1,
       "imageCoverage": 0.86,
@@ -527,12 +544,13 @@
         "yellow-bellied"
       ],
       "failReasons": [
-        "ảnh 86% (<90%)",
+        "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 129 ngoài 30-90"
       ]
     },
     "st-2034de421f7d": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.83,
@@ -560,12 +578,13 @@
         "workout"
       ],
       "failReasons": [
-        "ảnh 83% (<90%)",
+        "ảnh 83% (<90%) — chưa nổi bật",
         "số từ 94 ngoài 30-90"
       ]
     },
     "st-203826401c71": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.95,
@@ -583,6 +602,7 @@
     },
     "st-2069df52b7d3": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 0.903,
@@ -599,7 +619,8 @@
       "failReasons": []
     },
     "st-239ce0bcaa81": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.833,
@@ -614,12 +635,13 @@
         "undergraduate"
       ],
       "failReasons": [
-        "ảnh 83% (<90%)",
+        "ảnh 83% (<90%) — chưa nổi bật",
         "số từ 18 ngoài 30-90"
       ]
     },
     "st-25a2ca74645f": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -635,6 +657,7 @@
     },
     "st-27421a0fa2d9": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.917,
@@ -652,6 +675,7 @@
     },
     "st-2b6e2d54c321": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.909,
@@ -669,6 +693,7 @@
     },
     "st-2df01493d07e": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 99,
       "viCoverage": 1,
       "imageCoverage": 0.97,
@@ -684,6 +709,7 @@
     },
     "st-31fde43dd7f5": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.947,
@@ -701,6 +727,7 @@
     },
     "st-38bc8e24242b": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.95,
@@ -718,6 +745,7 @@
     },
     "st-3f6ff8d69c24": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 97,
       "viCoverage": 1,
       "imageCoverage": 0.922,
@@ -737,7 +765,8 @@
       "failReasons": []
     },
     "st-4563e2072fde": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 85,
       "viCoverage": 1,
       "imageCoverage": 0.731,
@@ -756,12 +785,13 @@
         "after all"
       ],
       "failReasons": [
-        "ảnh 73% (<90%)",
+        "ảnh 73% (<90%) — chưa nổi bật",
         "số từ 26 ngoài 30-90"
       ]
     },
     "st-49fe4f58fae1": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.92,
@@ -790,6 +820,7 @@
     },
     "st-4b24f6f562e8": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 98,
       "viCoverage": 1,
       "imageCoverage": 0.951,
@@ -806,6 +837,7 @@
     },
     "st-4c0b35f14ebc": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.917,
@@ -824,6 +856,7 @@
     },
     "st-4c1878609dfb": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 98,
       "viCoverage": 1,
       "imageCoverage": 0.956,
@@ -839,7 +872,8 @@
       "failReasons": []
     },
     "st-4cd972d14bcb": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.893,
@@ -868,12 +902,13 @@
         "to play truant"
       ],
       "failReasons": [
-        "ảnh 89% (<90%)",
+        "ảnh 89% (<90%) — chưa nổi bật",
         "số từ 159 ngoài 30-90"
       ]
     },
     "st-4f4af74a7df7": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -888,7 +923,8 @@
       ]
     },
     "st-50a7f1c4ac2a": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 88,
       "viCoverage": 1,
       "imageCoverage": 0.81,
@@ -904,12 +940,13 @@
         "the death penalty"
       ],
       "failReasons": [
-        "ảnh 81% (<90%)",
+        "ảnh 81% (<90%) — chưa nổi bật",
         "số từ 21 ngoài 30-90"
       ]
     },
     "st-50d3c0be95b2": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.848,
@@ -928,11 +965,12 @@
         "worm"
       ],
       "failReasons": [
-        "ảnh 85% (<90%)"
+        "ảnh 85% (<90%) — chưa nổi bật"
       ]
     },
     "st-51a74a734c86": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.882,
@@ -946,12 +984,13 @@
         "worship"
       ],
       "failReasons": [
-        "ảnh 88% (<90%)",
+        "ảnh 88% (<90%) — chưa nổi bật",
         "số từ 17 ngoài 30-90"
       ]
     },
     "st-543f143800bd": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 98,
       "viCoverage": 1,
       "imageCoverage": 0.94,
@@ -970,6 +1009,7 @@
     },
     "st-550fab2fd1aa": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -984,7 +1024,8 @@
       ]
     },
     "st-56c676568318": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 87,
       "viCoverage": 1,
       "imageCoverage": 0.783,
@@ -1001,12 +1042,13 @@
         "windsurfing"
       ],
       "failReasons": [
-        "ảnh 78% (<90%)",
+        "ảnh 78% (<90%) — chưa nổi bật",
         "số từ 23 ngoài 30-90"
       ]
     },
     "st-59fae6f6f141": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.916,
@@ -1035,6 +1077,7 @@
     },
     "st-5a643382a6dd": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 99,
       "viCoverage": 1,
       "imageCoverage": 0.977,
@@ -1051,6 +1094,7 @@
     },
     "st-5bad759d4837": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1065,7 +1109,8 @@
       ]
     },
     "st-5e535ace91c2": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.794,
@@ -1084,11 +1129,12 @@
         "xerox subsidy"
       ],
       "failReasons": [
-        "ảnh 79% (<90%)"
+        "ảnh 79% (<90%) — chưa nổi bật"
       ]
     },
     "st-5fd6a2ec020d": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 84,
       "viCoverage": 1,
       "imageCoverage": 0.688,
@@ -1105,12 +1151,13 @@
         "wise decisions"
       ],
       "failReasons": [
-        "ảnh 69% (<90%)",
+        "ảnh 69% (<90%) — chưa nổi bật",
         "số từ 16 ngoài 30-90"
       ]
     },
     "st-67a3bea1636b": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 97,
       "viCoverage": 1,
       "imageCoverage": 0.919,
@@ -1128,6 +1175,7 @@
     },
     "st-68f128dc5dc2": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.938,
@@ -1145,6 +1193,7 @@
     },
     "st-695a27b533b1": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 99,
       "viCoverage": 1,
       "imageCoverage": 0.973,
@@ -1159,7 +1208,8 @@
       "failReasons": []
     },
     "st-6a1d7b1df8e4": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.813,
@@ -1200,12 +1250,13 @@
         "the apple of one's eyes"
       ],
       "failReasons": [
-        "ảnh 81% (<90%)",
+        "ảnh 81% (<90%) — chưa nổi bật",
         "số từ 155 ngoài 30-90"
       ]
     },
     "st-6b0f849ec0cf": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.844,
@@ -1222,11 +1273,12 @@
         "violate the contract"
       ],
       "failReasons": [
-        "ảnh 84% (<90%)"
+        "ảnh 84% (<90%) — chưa nổi bật"
       ]
     },
     "st-6daaf99290d5": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1241,7 +1293,8 @@
       ]
     },
     "st-6e414416cd83": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.818,
@@ -1255,12 +1308,13 @@
         "tour guide"
       ],
       "failReasons": [
-        "ảnh 82% (<90%)",
+        "ảnh 82% (<90%) — chưa nổi bật",
         "số từ 11 ngoài 30-90"
       ]
     },
     "st-6fa84c853836": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.828,
@@ -1282,6 +1336,7 @@
     },
     "st-6fe862e82f1f": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.833,
@@ -1300,7 +1355,8 @@
       ]
     },
     "st-7995eb63923b": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 90,
       "viCoverage": 1,
       "imageCoverage": 0.75,
@@ -1320,11 +1376,12 @@
         "weigh the pros and cons"
       ],
       "failReasons": [
-        "ảnh 75% (<90%)"
+        "ảnh 75% (<90%) — chưa nổi bật"
       ]
     },
     "st-7a178959b21b": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 97,
       "viCoverage": 1,
       "imageCoverage": 0.935,
@@ -1340,7 +1397,8 @@
       "failReasons": []
     },
     "st-7a5fe5c927a0": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 87,
       "viCoverage": 1,
       "imageCoverage": 0.675,
@@ -1378,11 +1436,12 @@
         "workout"
       ],
       "failReasons": [
-        "ảnh 68% (<90%)"
+        "ảnh 68% (<90%) — chưa nổi bật"
       ]
     },
     "st-7b7ed41dc190": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 90,
       "viCoverage": 1,
       "imageCoverage": 0.857,
@@ -1397,12 +1456,13 @@
         "as good as new"
       ],
       "failReasons": [
-        "ảnh 86% (<90%)",
+        "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 21 ngoài 30-90"
       ]
     },
     "st-7f4a3733b49b": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 100,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1416,6 +1476,7 @@
     },
     "st-7f9c63a68525": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.921,
@@ -1440,6 +1501,7 @@
     },
     "st-8038b4976663": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.909,
@@ -1457,6 +1519,7 @@
     },
     "st-81bc6676876c": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.903,
@@ -1483,6 +1546,7 @@
     },
     "st-86b9261ccfb5": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.912,
@@ -1507,6 +1571,7 @@
     },
     "st-8953ab47236a": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.92,
@@ -1525,6 +1590,7 @@
     },
     "st-91b0331e72ff": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.905,
@@ -1542,7 +1608,8 @@
       ]
     },
     "st-91b85dbce068": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 87,
       "viCoverage": 1,
       "imageCoverage": 0.769,
@@ -1557,12 +1624,13 @@
         "now"
       ],
       "failReasons": [
-        "ảnh 77% (<90%)",
+        "ảnh 77% (<90%) — chưa nổi bật",
         "số từ 13 ngoài 30-90"
       ]
     },
     "st-94bb76e4dca3": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 97,
       "viCoverage": 1,
       "imageCoverage": 0.915,
@@ -1582,7 +1650,8 @@
       "failReasons": []
     },
     "st-980877fc1fb0": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.887,
@@ -1605,12 +1674,13 @@
         "turbulence"
       ],
       "failReasons": [
-        "ảnh 89% (<90%)",
+        "ảnh 89% (<90%) — chưa nổi bật",
         "số từ 97 ngoài 30-90"
       ]
     },
     "st-9a7430ce8e4c": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.87,
@@ -1629,7 +1699,8 @@
       ]
     },
     "st-9d2657755a0c": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.867,
@@ -1643,12 +1714,13 @@
         "temptation"
       ],
       "failReasons": [
-        "ảnh 87% (<90%)",
+        "ảnh 87% (<90%) — chưa nổi bật",
         "số từ 15 ngoài 30-90"
       ]
     },
     "st-9e888f373654": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.9,
@@ -1666,6 +1738,7 @@
     },
     "st-a1c09644b1f2": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 100,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1679,6 +1752,7 @@
     },
     "st-a57d77728a71": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1693,7 +1767,8 @@
       ]
     },
     "st-a6d639f5ebfc": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.83,
@@ -1714,11 +1789,12 @@
         "wear the trousers"
       ],
       "failReasons": [
-        "ảnh 83% (<90%)"
+        "ảnh 83% (<90%) — chưa nổi bật"
       ]
     },
     "st-a8f51e97eddb": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.941,
@@ -1736,6 +1812,7 @@
     },
     "st-aa43fc15a9be": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 98,
       "viCoverage": 1,
       "imageCoverage": 0.946,
@@ -1752,6 +1829,7 @@
     },
     "st-ac190da5560c": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 98,
       "viCoverage": 1,
       "imageCoverage": 0.946,
@@ -1768,6 +1846,7 @@
     },
     "st-ac67ec2b5817": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 90,
       "viCoverage": 1,
       "imageCoverage": 0.857,
@@ -1786,7 +1865,8 @@
       ]
     },
     "st-b4ae7e1ea3ac": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 86,
       "viCoverage": 1,
       "imageCoverage": 0.75,
@@ -1802,12 +1882,13 @@
         "up in arms"
       ],
       "failReasons": [
-        "ảnh 75% (<90%)",
+        "ảnh 75% (<90%) — chưa nổi bật",
         "số từ 16 ngoài 30-90"
       ]
     },
     "st-b5dd0dbf6d5b": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1823,6 +1904,7 @@
     },
     "st-b614cb516f02": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1837,7 +1919,8 @@
       ]
     },
     "st-b6bfd44386d1": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.813,
@@ -1852,12 +1935,13 @@
         "somebody"
       ],
       "failReasons": [
-        "ảnh 81% (<90%)",
+        "ảnh 81% (<90%) — chưa nổi bật",
         "số từ 16 ngoài 30-90"
       ]
     },
     "st-b9f07f3086f7": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.913,
@@ -1883,6 +1967,7 @@
     },
     "st-ba80bd8e6e7f": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1898,6 +1983,7 @@
     },
     "st-bc7d42b18c7b": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1912,7 +1998,8 @@
       ]
     },
     "st-bde858ab7943": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 95,
       "viCoverage": 1,
       "imageCoverage": 0.885,
@@ -1934,11 +2021,12 @@
         "tread water"
       ],
       "failReasons": [
-        "ảnh 89% (<90%)"
+        "ảnh 89% (<90%) — chưa nổi bật"
       ]
     },
     "st-bee654c1d0b9": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -1953,7 +2041,8 @@
       ]
     },
     "st-c33d58ef5f9a": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.864,
@@ -1968,12 +2057,13 @@
         "terribly sorry"
       ],
       "failReasons": [
-        "ảnh 86% (<90%)",
+        "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 22 ngoài 30-90"
       ]
     },
     "st-c4d557fe5580": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.833,
@@ -1987,12 +2077,13 @@
         "touch screen"
       ],
       "failReasons": [
-        "ảnh 83% (<90%)",
+        "ảnh 83% (<90%) — chưa nổi bật",
         "số từ 12 ngoài 30-90"
       ]
     },
     "st-c502bcaa0aef": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.933,
@@ -2009,7 +2100,8 @@
       ]
     },
     "st-c54e304f5b1d": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.864,
@@ -2036,12 +2128,13 @@
         "voluntary work"
       ],
       "failReasons": [
-        "ảnh 86% (<90%)",
+        "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 110 ngoài 30-90"
       ]
     },
     "st-cb18eb3ba80c": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.867,
@@ -2055,12 +2148,13 @@
         "unbelievable"
       ],
       "failReasons": [
-        "ảnh 87% (<90%)",
+        "ảnh 87% (<90%) — chưa nổi bật",
         "số từ 15 ngoài 30-90"
       ]
     },
     "st-cb1bdcaeb6f3": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.95,
@@ -2078,6 +2172,7 @@
     },
     "st-cb942718c15f": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.947,
@@ -2094,7 +2189,8 @@
       ]
     },
     "st-cccde3e56722": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 95,
       "viCoverage": 1,
       "imageCoverage": 0.873,
@@ -2115,11 +2211,12 @@
         "want someone's head on a platter"
       ],
       "failReasons": [
-        "ảnh 87% (<90%)"
+        "ảnh 87% (<90%) — chưa nổi bật"
       ]
     },
     "st-d2b50749cec7": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 0.903,
@@ -2140,6 +2237,7 @@
     },
     "st-d4ffc62318e9": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.944,
@@ -2156,7 +2254,8 @@
       ]
     },
     "st-d5683a4ad489": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.81,
@@ -2176,11 +2275,12 @@
         "work like a charm"
       ],
       "failReasons": [
-        "ảnh 81% (<90%)"
+        "ảnh 81% (<90%) — chưa nổi bật"
       ]
     },
     "st-d60fc3fec805": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 86,
       "viCoverage": 1,
       "imageCoverage": 0.75,
@@ -2199,12 +2299,13 @@
         "the chill wind of something"
       ],
       "failReasons": [
-        "ảnh 75% (<90%)",
+        "ảnh 75% (<90%) — chưa nổi bật",
         "số từ 28 ngoài 30-90"
       ]
     },
     "st-d66cfe92885e": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.813,
@@ -2219,12 +2320,13 @@
         "well-informed"
       ],
       "failReasons": [
-        "ảnh 81% (<90%)",
+        "ảnh 81% (<90%) — chưa nổi bật",
         "số từ 16 ngoài 30-90"
       ]
     },
     "st-d7951b075968": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -2239,7 +2341,8 @@
       ]
     },
     "st-db7787575149": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 88,
       "viCoverage": 1,
       "imageCoverage": 0.8,
@@ -2253,12 +2356,13 @@
         "traffic chaos"
       ],
       "failReasons": [
-        "ảnh 80% (<90%)",
+        "ảnh 80% (<90%) — chưa nổi bật",
         "số từ 10 ngoài 30-90"
       ]
     },
     "st-db7e93c8ff0e": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.775,
@@ -2288,11 +2392,12 @@
         "written all over your face"
       ],
       "failReasons": [
-        "ảnh 78% (<90%)"
+        "ảnh 78% (<90%) — chưa nổi bật"
       ]
     },
     "st-dbdaa66610bc": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.896,
@@ -2315,12 +2420,13 @@
         "wireless network"
       ],
       "failReasons": [
-        "ảnh 90% (<90%)",
+        "ảnh 90% (<90%) — chưa nổi bật",
         "số từ 106 ngoài 30-90"
       ]
     },
     "st-df43209db5de": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.909,
@@ -2338,6 +2444,7 @@
     },
     "st-e34d6d0ed072": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.917,
@@ -2364,7 +2471,8 @@
       ]
     },
     "st-e6f01f3fddf1": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.895,
@@ -2378,12 +2486,13 @@
         "well spoken"
       ],
       "failReasons": [
-        "ảnh 89% (<90%)",
+        "ảnh 89% (<90%) — chưa nổi bật",
         "số từ 19 ngoài 30-90"
       ]
     },
     "st-e797d01716fd": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.895,
@@ -2397,12 +2506,13 @@
         "traffic jam"
       ],
       "failReasons": [
-        "ảnh 89% (<90%)",
+        "ảnh 89% (<90%) — chưa nổi bật",
         "số từ 19 ngoài 30-90"
       ]
     },
     "st-e7b7995bc7fa": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.86,
@@ -2423,6 +2533,7 @@
     },
     "st-e9b1d123831d": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 92,
       "viCoverage": 1,
       "imageCoverage": 0.909,
@@ -2441,6 +2552,7 @@
     },
     "st-ebfad9b20a2b": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 95,
       "viCoverage": 1,
       "imageCoverage": 0.986,
@@ -2458,7 +2570,8 @@
       ]
     },
     "st-eecf44a16fcb": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.874,
@@ -2483,12 +2596,13 @@
         "yoga"
       ],
       "failReasons": [
-        "ảnh 87% (<90%)",
+        "ảnh 87% (<90%) — chưa nổi bật",
         "số từ 103 ngoài 30-90"
       ]
     },
     "st-eee552b4c34e": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.933,
@@ -2506,6 +2620,7 @@
     },
     "st-f2e8ccd2308d": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.944,
@@ -2523,6 +2638,7 @@
     },
     "st-f4a389d821bf": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -2537,7 +2653,8 @@
       ]
     },
     "st-f51259238e9b": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 90,
       "viCoverage": 1,
       "imageCoverage": 0.857,
@@ -2551,12 +2668,13 @@
         "terrible memory"
       ],
       "failReasons": [
-        "ảnh 86% (<90%)",
+        "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 14 ngoài 30-90"
       ]
     },
     "st-f95858dee93e": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.949,
@@ -2578,6 +2696,7 @@
     },
     "st-fa66697d8627": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 97,
       "viCoverage": 1,
       "imageCoverage": 0.927,
@@ -2596,6 +2715,7 @@
     },
     "st-fbf0dc671092": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 94,
       "viCoverage": 1,
       "imageCoverage": 0.962,
@@ -2612,7 +2732,8 @@
       ]
     },
     "st-fc32593c8e8c": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 90,
       "viCoverage": 1,
       "imageCoverage": 0.862,
@@ -2637,12 +2758,13 @@
         "weather forecast"
       ],
       "failReasons": [
-        "ảnh 86% (<90%)",
+        "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 94 ngoài 30-90"
       ]
     },
     "st-fc61870ddde0": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 96,
       "viCoverage": 1,
       "imageCoverage": 1,
@@ -2658,6 +2780,7 @@
     },
     "st-fed7e3c93f9a": {
       "publishStatus": "published",
+      "featuredEligible": true,
       "qualityScore": 93,
       "viCoverage": 1,
       "imageCoverage": 0.923,
@@ -2675,7 +2798,8 @@
       ]
     },
     "st-ff585f467a16": {
-      "publishStatus": "draft",
+      "publishStatus": "published",
+      "featuredEligible": false,
       "qualityScore": 91,
       "viCoverage": 1,
       "imageCoverage": 0.882,
@@ -2689,7 +2813,7 @@
         "when in rome do as the romans do"
       ],
       "failReasons": [
-        "ảnh 88% (<90%)",
+        "ảnh 88% (<90%) — chưa nổi bật",
         "số từ 17 ngoài 30-90"
       ]
     }

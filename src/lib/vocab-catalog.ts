@@ -23,7 +23,7 @@ interface RawSubtopic {
 }
 interface RawPack { id: string; subtopicId: string; index: number; title: string; wordCount: number; words: { word: string; contentType: ContentType }[] }
 interface RawArtifact { catalogVersion: string; microPackSize: number; routes: RawRoute[]; topics: RawTopic[]; subtopics: RawSubtopic[]; packs: RawPack[] }
-interface QualitySub { publishStatus: PublishStatus; qualityScore: number; viCoverage: number; imageCoverage: number; cefrRange: CefrRange | null; coverImage: string | null }
+interface QualitySub { publishStatus: PublishStatus; featuredEligible?: boolean; qualityScore: number; viCoverage: number; imageCoverage: number; cefrRange: CefrRange | null; coverImage: string | null }
 interface RawQuality { subtopics: Record<string, QualitySub>; topics: Record<string, { publishStatus: string; qualityScore: number }>; routes: Record<string, { publishStatus: string; publishedSubtopics: number; totalSubtopics: number }> }
 
 const artifact = catalogArtifact as unknown as RawArtifact;
@@ -61,7 +61,7 @@ export function resolvePack(packId: string): PackResolved | null {
 export interface CatalogPack { id: string; index: number; title: string; wordCount: number; words: string[] }
 export interface CatalogSubtopic {
   id: string; title: string; contentType: ContentType; wordCount: number; packCount: number;
-  cefrRange: CefrRange | null; coverImage: string | null; qualityScore: number; previewWords: string[]; packs: CatalogPack[];
+  cefrRange: CefrRange | null; coverImage: string | null; qualityScore: number; featuredEligible: boolean; previewWords: string[]; packs: CatalogPack[];
 }
 export interface CatalogTopic { id: string; title: string; subtopics: CatalogSubtopic[] }
 export interface CatalogRoute { id: string; title: string; icon: string; coverImage: string; description: string; featured: boolean; topics: CatalogTopic[]; subtopicCount: number }
@@ -90,9 +90,11 @@ export function getCatalogTree(): CatalogRoute[] {
             return {
               id: s.id, title: s.title, contentType: s.contentType, wordCount: s.wordCount, packCount: packs.length,
               cefrRange: q?.cefrRange ?? s.cefrRange, coverImage: q?.coverImage ?? s.coverImage,
-              qualityScore: q?.qualityScore ?? 0, previewWords: s.previewWords, packs,
+              qualityScore: q?.qualityScore ?? 0, featuredEligible: q?.featuredEligible ?? false, previewWords: s.previewWords, packs,
             };
-          });
+          })
+          // Ảnh nhiều / chất lượng cao lên đầu (eligible trước, rồi qualityScore desc).
+          .sort((a, b) => Number(b.featuredEligible) - Number(a.featuredEligible) || b.qualityScore - a.qualityScore || a.title.localeCompare(b.title, 'vi'));
         return { id: topic.id, title: topic.title, subtopics };
       })
       .filter((t) => t.subtopics.length > 0);
