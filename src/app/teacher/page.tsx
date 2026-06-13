@@ -9,11 +9,12 @@ import {
   Brain, Plus, Users, BookOpen, BarChart3, LogOut, Copy,
   CheckCircle2, Zap, Loader2, Trash2, TrendingUp, GraduationCap,
   ChevronRight, Star, Activity, Target, AlertTriangle, Clock,
-  ThumbsUp, ThumbsDown, Inbox, Flame
+  ThumbsUp, ThumbsDown, Inbox, Flame, HelpCircle
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
 import { authFetch } from '@/lib/auth-fetch';
+import { StudyGuideModal, TEACHER_METHOD_KEY } from '@/components/StudyGuideModal';
 
 // --- Analytics types ---
 interface ClassStats {
@@ -90,6 +91,8 @@ export default function TeacherDashboard() {
   const [newClassDesc, setNewClassDesc] = useState('');
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [copiedCode, setCopiedCode] = useState('');
+  // Modal giải thích phương pháp học cho GV — tự hiện lần đầu, mở lại qua nút "Phương pháp"
+  const [showMethod, setShowMethod] = useState(false);
   const router = useRouter();
 
   const loadAnalytics = useCallback(async (teacherId: string, classroomId: string) => {
@@ -114,6 +117,14 @@ export default function TeacherDashboard() {
   useEffect(() => {
     if (selectedClass) loadStudents(selectedClass.id);
   }, [selectedClass]);
+
+  useEffect(() => {
+    if (localStorage.getItem(TEACHER_METHOD_KEY) !== '1') setShowMethod(true);
+  }, []);
+  const closeMethod = () => {
+    localStorage.setItem(TEACHER_METHOD_KEY, '1');
+    setShowMethod(false);
+  };
 
   const loadData = async (classId?: string) => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -372,22 +383,32 @@ export default function TeacherDashboard() {
               </div>
             )}
           </div>
-          {selectedClass && (
-            <div className="flex gap-2">
-              <Link href={`/teacher/words/${selectedClass.id}`} className="flex items-center gap-2 text-sm font-semibold bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-xl transition-colors">
-                <Plus className="h-4 w-4" /> Add Words
-              </Link>
-              <Link href={`/teacher/grammar/${selectedClass.id}`} className="flex items-center gap-2 text-sm font-semibold bg-muted text-foreground hover:bg-muted/80 px-4 py-2 rounded-xl transition-colors">
-                <Zap className="h-4 w-4" /> Grammar
-              </Link>
-              <button
-                onClick={() => handleDeleteClass(selectedClass.id)}
-                className="p-2 text-muted-foreground hover:text-destructive hover:bg-destructive/5 rounded-xl transition-colors"
-              >
-                <Trash2 className="h-4 w-4" />
-              </button>
-            </div>
-          )}
+          <div className="flex gap-2">
+            {/* Giải thích cơ chế học cho GV — luôn hiện, kể cả chưa có lớp */}
+            <button
+              onClick={() => setShowMethod(true)}
+              title="Phương pháp học của học sinh"
+              className="flex items-center gap-1.5 text-sm font-semibold text-muted-foreground hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-xl transition-colors"
+            >
+              <HelpCircle className="h-4 w-4" /> <span className="hidden sm:inline">Phương pháp</span>
+            </button>
+            {selectedClass && (
+              <>
+                <Link href={`/teacher/words/${selectedClass.id}`} className="flex items-center gap-2 text-sm font-semibold bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-xl transition-colors">
+                  <Plus className="h-4 w-4" /> Add Words
+                </Link>
+                <Link href={`/teacher/grammar/${selectedClass.id}`} className="flex items-center gap-2 text-sm font-semibold bg-muted text-foreground hover:bg-muted/80 px-4 py-2 rounded-xl transition-colors">
+                  <Zap className="h-4 w-4" /> Grammar
+                </Link>
+                <button
+                  onClick={() => handleDeleteClass(selectedClass.id)}
+                  className="p-2 text-muted-foreground hover:text-destructive hover:bg-destructive/5 rounded-xl transition-colors"
+                >
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </>
+            )}
+          </div>
         </header>
 
         <main className="flex-1 p-6 space-y-6">
@@ -851,6 +872,9 @@ export default function TeacherDashboard() {
           </div>
         </div>
       )}
+
+      {/* Modal giải thích phương pháp học (Spaced Repetition) cho giáo viên */}
+      <StudyGuideModal open={showMethod} onClose={closeMethod} variant="teacher" />
     </div>
   );
 }
