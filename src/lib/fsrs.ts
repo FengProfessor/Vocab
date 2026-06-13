@@ -19,13 +19,15 @@ import {
   type Grade,
 } from 'ts-fsrs';
 
-/** Cấu hình lịch ôn — chuẩn Anki-like, retention 90%. */
+/** Cấu hình lịch ôn — tinh chỉnh cho HS: ôn DÀY mức "khá", ra kết quả nhanh, vẫn bền.
+ *  retention 0.92 (dày hơn ~35% vs 0.90; KHÔNG lên 0.95 vì gấp đôi tải → kiệt sức).
+ *  max_interval 365 (trần 1 năm → từ luôn quay vòng, Easy hết nhảy nhiều năm). */
 const params = generatorParameters({
-  request_retention: 0.9,
-  maximum_interval: 36500,
+  request_retention: 0.92,
+  maximum_interval: 365,
   enable_fuzz: true,          // chống dồn cục (Anki default)
   enable_short_term: true,    // BẬT learning/relearning steps
-  learning_steps: ['1m', '10m'],
+  learning_steps: ['10m'],          // bỏ bước 1m (quá sát, từ mới lặp dồn cục) → drill 1 lần 10' rồi giãn ngày
   relearning_steps: ['10m', '30m'], // Quên → khắc lại 2 lần (10' rồi 30') trước khi giãn theo ngày
 });
 const scheduler = fsrs(params);
