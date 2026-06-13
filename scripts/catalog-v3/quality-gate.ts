@@ -1,6 +1,6 @@
 /**
  * Catalog V3 — quality pipeline. Đọc artifact + global_dictionary (READ-ONLY) → tính:
- *   - viCoverage (100% nghĩa tiếng Việt hợp lệ là hard gate)
+ *   - meaningCoverage (100% nghĩa vượt kiểm tra lỗi rõ ràng là hard gate)
  *   - imageCoverage (featured ≥90%, extended ≥80%)
  *   - cefrRange (từ data.openVocab nếu đã apply; hiện thường null)
  *   - publishStatus per subtopic/topic/route, quality score, quarantine
@@ -29,6 +29,8 @@ const FEATURED_IMG_GATE = 0.9;
 const EXTENDED_IMG_GATE = 0.8;
 const SUBTOPIC_MIN = 30;
 const SUBTOPIC_MAX = 90;
+const MOJIBAKE = /[─-╿]|ß[╗║╔╝┤┐]|├[│¼┤]|─[ä]/;
+const VN_CHARS = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i;
 
 function loadEnv() {
   const p = path.join(process.cwd(), '.env.local');
@@ -72,9 +74,10 @@ async function main() {
     for (const r of (data ?? []) as GdRow[]) dict.set(r.word.toLowerCase(), r);
   }
 
-  const validVi = (r?: GdRow): boolean => {
+  const validMeaning = (r?: GdRow): boolean => {
     const def = r?.data?.results?.[0]?.meanings?.[0]?.definition?.trim();
-    return !!def && !def.includes('⏳') && def.length >= 1;
+    if (!def || def.includes('⏳') || MOJIBAKE.test(def)) return false;
+    return VN_CHARS.test(def) || !(/[a-z]/i.test(def) && def.split(/\s+/).length >= 3);
   };
   // Ảnh hợp lệ = có URL và (chưa chấm điểm = null → chấp nhận ảnh legacy) hoặc (đã chấm ≥ ngưỡng).
   // Chỉ confidence THẤP RÕ RÀNG (<70) mới bị loại.
@@ -98,38 +101,38 @@ async function main() {
 
   for (const sub of art.subtopics) {
     const words = packsBySub.get(sub.id) ?? [];
-    let viOk = 0, imgOk = 0;
+    let meaningOk = 0, imgOk = 0;
     const missingImages: string[] = [];
     const cefrs: number[] = [];
     let coverImage: string | null = null;
     for (const w of words) {
       const r = dict.get(w);
-      if (validVi(r)) viOk++; else quarantine.push({ type: 'word', word: w, subtopicId: sub.id, reason: r ? 'thiếu nghĩa tiếng Việt' : 'không có trong global_dictionary' });
+      if (validMeaning(r)) meaningOk++; else quarantine.push({ type: 'word', word: w, subtopicId: sub.id, reason: r ? 'nghĩa rỗng, lỗi mã hóa hoặc chưa dịch rõ ràng' : 'không có trong global_dictionary' });
       if (validImg(r)) { imgOk++; if (!coverImage) coverImage = r!.image_url; } else { missingImages.push(w); }
       cefrs.push(...cefrBounds(r));
     }
     missingImagesAll.push(...missingImages);
-    const viCov = words.length ? viOk / words.length : 0;
+    const meaningCov = words.length ? meaningOk / words.length : 0;
     const imgCov = words.length ? imgOk / words.length : 0;
     const imgGate = routeFeatured.get(sub.routeId) ? FEATURED_IMG_GATE : EXTENDED_IMG_GATE;
     const inSubRange = sub.wordCount >= SUBTOPIC_MIN && sub.wordCount <= SUBTOPIC_MAX;
     const cefrRange = cefrs.length ? { min: CEFR_ORDER[Math.min(...cefrs)], max: CEFR_ORDER[Math.max(...cefrs)] } : null;
 
-    // Hard gate publish = TOÀN VẸN NỘI DUNG: 100% nghĩa VN + ≥10 từ. (Mọi từ học được dù thiếu ảnh.)
+    // Hard gate publish = TOÀN VẸN NỘI DUNG: 100% nghĩa vượt kiểm tra lỗi rõ ràng + ≥10 từ.
     // Ảnh KHÔNG ẩn subtopic nữa — nó vào qualityScore để xếp hạng nổi bật.
     // featuredEligible = đạt ngưỡng ảnh (featured≥90%/extended≥80%) → ưu tiên hiển thị đầu.
-    const published = viCov >= 1 && words.length >= 10;
-    const status: 'published' | 'draft' | 'quarantine' = viCov < 0.5 ? 'quarantine' : published ? 'published' : 'draft';
+    const published = meaningCov >= 1 && words.length >= 10;
+    const status: 'published' | 'draft' | 'quarantine' = meaningCov < 0.5 ? 'quarantine' : published ? 'published' : 'draft';
     const featuredEligible = imgCov >= imgGate;
     if (status === 'published') publishedSub++; else draftSub++;
-    const qualityScore = Math.round(100 * (0.5 * viCov + 0.4 * imgCov + 0.1 * (inSubRange ? 1 : 0.6)));
+    const qualityScore = Math.round(100 * (0.5 * meaningCov + 0.4 * imgCov + 0.1 * (inSubRange ? 1 : 0.6)));
 
     subQuality[sub.id] = {
-      publishStatus: status, featuredEligible, qualityScore, viCoverage: +viCov.toFixed(3), imageCoverage: +imgCov.toFixed(3),
+      publishStatus: status, featuredEligible, qualityScore, meaningCoverage: +meaningCov.toFixed(3), imageCoverage: +imgCov.toFixed(3),
       wordCount: words.length, inSubtopicRange: inSubRange, cefrRange, coverImage,
       missingImageCount: missingImages.length, missingImages: missingImages.slice(0, 50),
       failReasons: [
-        viCov < 1 ? `nghĩa VN ${Math.round(viCov * 100)}% (<100%) — CHẶN publish` : null,
+        meaningCov < 1 ? `nghĩa hợp lệ ${Math.round(meaningCov * 100)}% (<100%) — CHẶN publish` : null,
         imgCov < imgGate ? `ảnh ${Math.round(imgCov * 100)}% (<${Math.round(imgGate * 100)}%) — chưa nổi bật` : null,
         !inSubRange ? `số từ ${sub.wordCount} ngoài ${SUBTOPIC_MIN}-${SUBTOPIC_MAX}` : null,
       ].filter(Boolean),
@@ -175,7 +178,7 @@ async function main() {
     `- catalogVersion: \`${art.catalogVersion}\``,
     `- Subtopic: ${summary.subtopics} · published **${publishedSub}** · draft ${draftSub}`,
     `- Từ: ${summary.words} · trong global_dictionary ${summary.wordsInDict}`,
-    `- Quarantine (từ thiếu nghĩa/không có dict): **${summary.quarantineWords}**`,
+    `- Quarantine (từ thiếu nghĩa/lỗi mã hóa/chưa dịch rõ ràng/không có dict): **${summary.quarantineWords}**`,
     `- Ảnh thiếu (conf<${IMG_CONF_MIN} hoặc trống): **${summary.missingImages}**`,
     ``,
     `## Subtopic CHƯA đạt publish (${failing.length})`,
@@ -184,7 +187,7 @@ async function main() {
     `| --- | --- | --- | --- |`,
     ...failing.map((x) => `| ${x.q.qualityScore} | ${x.q.publishStatus} | ${x.s.title} | ${x.q.failReasons.join('; ')} |`),
     ``,
-    `> Hard gate publish: 100% nghĩa VN + ảnh featured≥90%/extended≥80%. "Số từ ngoài 30-90" chỉ là cảnh báo mềm (không chặn publish).`,
+    `> Hard gate publish: 100% nghĩa vượt kiểm tra lỗi rõ ràng (không rỗng, placeholder, mojibake hoặc câu English dài). Ảnh và khoảng 30-90 từ là tín hiệu xếp hạng/cảnh báo mềm.`,
   ].join('\n');
   writeFileSync(REPORT_MD, md + '\n', 'utf8');
 

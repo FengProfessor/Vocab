@@ -13,18 +13,18 @@ import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ROUTES, EXTENDED_ROUTE, CURRICULUM_ROUTES, GRADE_SET_ROUTE, ROUTE_OVERRIDES, EXTENDED_ROUTE_ID, type RouteDef, type RouteGroup } from './routes.ts';
+import { ROUTES, EXTENDED_ROUTE, CURRICULUM_ROUTES, EXAM_ROUTES, GRADE_SET_ROUTE, ROUTE_OVERRIDES, EXTENDED_ROUTE_ID, type RouteDef, type RouteGroup } from './routes.ts';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(DIR, '../..');
 const OUT_FILE = path.join(ROOT, 'src/data/vocab/catalog-v3.json');
 
-export const CATALOG_VERSION = '2026-06-12-v3';
+export const CATALOG_VERSION = '2026-06-13-v4';
 const MICRO_PACK_SIZE = 15;
 const MIN_PACK = 10;
 const MAX_PACK = 20;
 
-type SourcePackage = 'pro3m' | 'pro3m-plus';
+type SourcePackage = 'pro3m' | 'pro3m-plus' | 'exam-toeic' | 'exam-ielts';
 type ContentType = 'word' | 'phrase' | 'idiom' | 'phrasal_verb';
 
 interface LessonInfo { words?: string[] }
@@ -32,7 +32,20 @@ type VocabJson = Record<string, LessonInfo>;
 
 const pro3m = JSON.parse(readFileSync(path.join(ROOT, 'src/data/vocab/pro3m.json'), 'utf8')) as VocabJson;
 const pro3mPlus = JSON.parse(readFileSync(path.join(ROOT, 'src/data/vocab/pro3m-plus.json'), 'utf8')) as VocabJson;
-const PACKAGES: Record<SourcePackage, VocabJson> = { 'pro3m': pro3m, 'pro3m-plus': pro3mPlus };
+const PACKAGES: Record<'pro3m' | 'pro3m-plus', VocabJson> = { 'pro3m': pro3m, 'pro3m-plus': pro3mPlus };
+
+interface ExamSubtopicSource {
+  sourcePackage: 'exam-toeic' | 'exam-ielts';
+  sourceKey: string;
+  routeId: string;
+  topicKey: string;
+  title: string;
+  sourceNames: string[];
+  attribution: string;
+  words: string[];
+}
+interface ExamManifest { schemaVersion: number; generatedFrom: string[]; subtopics: ExamSubtopicSource[] }
+const examManifest = JSON.parse(readFileSync(path.join(ROOT, 'src/data/vocab/exam-vocab.json'), 'utf8')) as ExamManifest;
 
 const sha = (s: string) => createHash('sha1').update(s).digest('hex');
 
@@ -97,6 +110,28 @@ function makePacks(words: string[]): string[][] {
   return out;
 }
 
+function validateExamManifest(routeById: Map<string, RouteDef>): void {
+  if (examManifest.schemaVersion !== 2) throw new Error(`exam-vocab schemaVersion không hỗ trợ: ${examManifest.schemaVersion}`);
+  const sourceKeys = new Set<string>();
+  for (const source of examManifest.subtopics) {
+    if (sourceKeys.has(source.sourceKey)) throw new Error(`exam-vocab trùng sourceKey: ${source.sourceKey}`);
+    sourceKeys.add(source.sourceKey);
+    const route = routeById.get(source.routeId);
+    if (!route || route.group !== 'exam') throw new Error(`exam-vocab routeId không hợp lệ: ${source.routeId}`);
+    if ((source.routeId === 'toeic' && source.sourcePackage !== 'exam-toeic') || (source.routeId === 'ielts' && source.sourcePackage !== 'exam-ielts')) {
+      throw new Error(`exam-vocab sourcePackage không khớp route: ${source.sourceKey}`);
+    }
+    if (!route.topics.some((topic) => topic.key === source.topicKey)) throw new Error(`exam-vocab topicKey không hợp lệ: ${source.routeId}/${source.topicKey}`);
+    if (!Array.isArray(source.sourceNames) || source.sourceNames.length === 0) throw new Error(`exam-vocab thiếu sourceNames: ${source.sourceKey}`);
+    const missingSources = source.sourceNames.filter((name) => !pro3m[name]);
+    if (missingSources.length > 0) throw new Error(`exam-vocab thiếu lesson nguồn: ${source.sourceKey} -> ${missingSources.join(', ')}`);
+    if (!source.attribution.trim()) throw new Error(`exam-vocab thiếu attribution: ${source.sourceKey}`);
+    const cleanedWords = cleanLessonWords(source.words);
+    if (cleanedWords.length !== source.words.length) throw new Error(`exam-vocab chứa từ trùng/rỗng/không hợp lệ: ${source.sourceKey}`);
+    if (cleanedWords.length < 30 || cleanedWords.length > 90) throw new Error(`exam-vocab số từ ngoài 30-90: ${source.sourceKey}=${cleanedWords.length}`);
+  }
+}
+
 // ── Output shapes ──
 interface PackArt { id: string; subtopicId: string; index: number; title: string; wordCount: number; words: { word: string; contentType: ContentType }[] }
 interface SubtopicArt {
@@ -109,8 +144,9 @@ interface TopicArt { id: string; routeId: string; key: string; title: string; su
 interface RouteArt { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; topicIds: string[] }
 
 function main() {
-  const allRoutes = [...CURRICULUM_ROUTES, ...ROUTES, EXTENDED_ROUTE];
+  const allRoutes = [...CURRICULUM_ROUTES, ...EXAM_ROUTES, ...ROUTES, EXTENDED_ROUTE];
   const routeById = new Map(allRoutes.map((r) => [r.id, r]));
+  validateExamManifest(routeById);
 
   // 0) Phát hiện lớp của các Unit (Global Success) bằng Unit-number reset (chỉ pro3m, theo thứ tự nguồn).
   //    Set 1 = Lớp 10, set 2 = Lớp 11, set 3 = Lớp 12, set 4 (16 unit hệ cũ) = bỏ.
@@ -126,7 +162,7 @@ function main() {
   }
 
   // 1) Gom lesson hợp lệ. Unit (lớp 1-3) → track THPT (KHÔNG dedup). Còn lại → 7 route, dedup theo title.
-  interface Raw { pkg: SourcePackage; name: string; title: string; words: string[]; routeId: string; topicKey: string }
+  interface Raw { pkg: SourcePackage; name: string; title: string; words: string[]; routeId: string; topicKey: string; attribution: string }
   const curriculumRaws: Raw[] = [];
   const byTitle = new Map<string, Raw>();
   for (const pkg of ['pro3m', 'pro3m-plus'] as const) {
@@ -142,18 +178,27 @@ function main() {
         const routeId = GRADE_SET_ROUTE[grade];
         if (!routeId) continue; // set 4 (hệ cũ) → bỏ
         const unitNum = Number(name.match(/unit\s+(\d+)/i)?.[1] ?? 0);
-        curriculumRaws.push({ pkg, name, title, words, routeId, topicKey: unitNum <= 5 ? 'hk1' : 'hk2' });
+        curriculumRaws.push({ pkg, name, title, words, routeId, topicKey: unitNum <= 5 ? 'hk1' : 'hk2', attribution: 'Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).' });
         continue;
       }
 
       const route = resolveRoute(name);
-      const raw: Raw = { pkg, name, title, words, routeId: route.id, topicKey: resolveTopic(route, name) };
+      const raw: Raw = { pkg, name, title, words, routeId: route.id, topicKey: resolveTopic(route, name), attribution: 'Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).' };
       const key = title.toLowerCase();
       const cur = byTitle.get(key);
       if (!cur || words.length > cur.words.length) byTitle.set(key, raw);
     }
   }
-  const allRaws: Raw[] = [...curriculumRaws, ...byTitle.values()];
+  const examRaws: Raw[] = examManifest.subtopics.map((source) => ({
+    pkg: source.sourcePackage,
+    name: source.sourceKey,
+    title: source.title,
+    words: cleanLessonWords(source.words),
+    routeId: source.routeId,
+    topicKey: source.topicKey,
+    attribution: source.attribution,
+  }));
+  const allRaws: Raw[] = [...curriculumRaws, ...examRaws, ...byTitle.values()];
 
   const subtopics: SubtopicArt[] = [];
   const packs: PackArt[] = [];
@@ -167,7 +212,8 @@ function main() {
     const topicId = `tp-${sha(topicUid).slice(0, 10)}`;
 
     if (!topicMap.has(topicUid)) {
-      const tdef = routeById.get(raw.routeId)!.topics.find((t) => t.key === raw.topicKey)!;
+      const tdef = routeById.get(raw.routeId)?.topics.find((t) => t.key === raw.topicKey);
+      if (!tdef) throw new Error(`Không tìm thấy route/topic: ${raw.routeId}/${raw.topicKey}`);
       topicMap.set(topicUid, { id: topicId, routeId: raw.routeId, key: raw.topicKey, title: tdef.title, subtopicIds: [], qualityScore: 0, publishStatus: 'draft' });
     }
     topicMap.get(topicUid)!.subtopicIds.push(subtopicId);
@@ -188,7 +234,7 @@ function main() {
       sourcePackage: raw.pkg, sourceName: raw.name,
       contentType: lessonType ?? 'word', wordCount: raw.words.length, packIds,
       previewWords: raw.words.slice(0, 5), cefrRange: null, coverImage: null,
-      attribution: 'Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).',
+      attribution: raw.attribution,
       qualityScore: 0, publishStatus: 'draft',
     });
   }
@@ -214,7 +260,7 @@ function main() {
 
   const artifact = {
     catalogVersion: CATALOG_VERSION,
-    generatedFrom: ['pro3m', 'pro3m-plus'],
+    generatedFrom: ['pro3m', 'pro3m-plus', 'src/data/vocab/exam-vocab.json', ...examManifest.generatedFrom],
     microPackSize: MICRO_PACK_SIZE,
     counts: { routes: routesArt.length, topics: topics.length, subtopics: subtopics.length, packs: packs.length, words: subtopics.reduce((s, x) => s + x.wordCount, 0) },
     routes: routesArt,

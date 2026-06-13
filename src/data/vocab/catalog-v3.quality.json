@@ -1,14 +1,14 @@
 {
-  "catalogVersion": "2026-06-12-v3",
+  "catalogVersion": "2026-06-13-v4",
   "summary": {
-    "catalogVersion": "2026-06-12-v3",
-    "subtopics": 117,
-    "publishedSubtopics": 117,
+    "catalogVersion": "2026-06-13-v4",
+    "subtopics": 166,
+    "publishedSubtopics": 166,
     "draftSubtopics": 0,
     "words": 4490,
     "wordsInDict": 4490,
     "quarantineWords": 0,
-    "missingImages": 527
+    "missingImages": 813
   },
   "routes": {
     "thpt-lop-10": {
@@ -25,6 +25,16 @@
       "publishStatus": "published",
       "publishedSubtopics": 7,
       "totalSubtopics": 7
+    },
+    "toeic": {
+      "publishStatus": "published",
+      "publishedSubtopics": 17,
+      "totalSubtopics": 17
+    },
+    "ielts": {
+      "publishStatus": "published",
+      "publishedSubtopics": 32,
+      "totalSubtopics": 32
     },
     "di-lam": {
       "publishStatus": "published",
@@ -74,6 +84,12 @@
       "totalSubtopics": 4,
       "qualityScore": 92
     },
+    "tp-0ea6d77d9c": {
+      "publishStatus": "published",
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 96
+    },
     "tp-0f31eb90c4": {
       "publishStatus": "published",
       "publishedSubtopics": 5,
@@ -85,6 +101,12 @@
       "publishedSubtopics": 1,
       "totalSubtopics": 1,
       "qualityScore": 92
+    },
+    "tp-13fd944d94": {
+      "publishStatus": "published",
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 95
     },
     "tp-2a8542b1aa": {
       "publishStatus": "published",
@@ -98,6 +120,12 @@
       "totalSubtopics": 1,
       "qualityScore": 92
     },
+    "tp-30c3738995": {
+      "publishStatus": "published",
+      "publishedSubtopics": 1,
+      "totalSubtopics": 1,
+      "qualityScore": 94
+    },
     "tp-32dabe9530": {
       "publishStatus": "published",
       "publishedSubtopics": 2,
@@ -110,11 +138,23 @@
       "totalSubtopics": 1,
       "qualityScore": 91
     },
+    "tp-5328f6eb82": {
+      "publishStatus": "published",
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6,
+      "qualityScore": 94
+    },
     "tp-56648ca5ac": {
       "publishStatus": "published",
       "publishedSubtopics": 4,
       "totalSubtopics": 4,
       "qualityScore": 94
+    },
+    "tp-5805d2352e": {
+      "publishStatus": "published",
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 96
     },
     "tp-5f78a5826b": {
       "publishStatus": "published",
@@ -128,11 +168,29 @@
       "totalSubtopics": 8,
       "qualityScore": 94
     },
+    "tp-69803ac72a": {
+      "publishStatus": "published",
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 96
+    },
+    "tp-70b7eb83b6": {
+      "publishStatus": "published",
+      "publishedSubtopics": 2,
+      "totalSubtopics": 2,
+      "qualityScore": 94
+    },
     "tp-70cf7f7227": {
       "publishStatus": "published",
       "publishedSubtopics": 9,
       "totalSubtopics": 9,
       "qualityScore": 93
+    },
+    "tp-7190624fbe": {
+      "publishStatus": "published",
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 97
     },
     "tp-7a934ad2a7": {
       "publishStatus": "published",
@@ -158,6 +216,18 @@
       "totalSubtopics": 16,
       "qualityScore": 94
     },
+    "tp-901f19ba64": {
+      "publishStatus": "published",
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 95
+    },
+    "tp-9225cff2c0": {
+      "publishStatus": "published",
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 97
+    },
     "tp-9275f23d61": {
       "publishStatus": "published",
       "publishedSubtopics": 6,
@@ -182,6 +252,12 @@
       "totalSubtopics": 3,
       "qualityScore": 92
     },
+    "tp-c029b2cbd7": {
+      "publishStatus": "published",
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6,
+      "qualityScore": 95
+    },
     "tp-cc12b088fb": {
       "publishStatus": "published",
       "publishedSubtopics": 4,
@@ -193,6 +269,12 @@
       "publishedSubtopics": 5,
       "totalSubtopics": 5,
       "qualityScore": 89
+    },
+    "tp-d85ca72651": {
+      "publishStatus": "published",
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 96
     },
     "tp-e848339aa6": {
       "publishStatus": "published",
@@ -224,6 +306,12 @@
       "totalSubtopics": 4,
       "qualityScore": 92
     },
+    "tp-fa4bd905ce": {
+      "publishStatus": "published",
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 98
+    },
     "tp-ffa0a73f9c": {
       "publishStatus": "published",
       "publishedSubtopics": 3,
@@ -236,7 +324,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.824,
       "wordCount": 34,
       "inSubtopicRange": true,
@@ -259,7 +347,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.875,
       "wordCount": 16,
       "inSubtopicRange": false,
@@ -279,7 +367,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.889,
       "wordCount": 18,
       "inSubtopicRange": false,
@@ -299,7 +387,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 86,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.75,
       "wordCount": 16,
       "inSubtopicRange": false,
@@ -321,7 +409,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 15,
       "inSubtopicRange": false,
@@ -337,7 +425,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.958,
       "wordCount": 24,
       "inSubtopicRange": false,
@@ -355,7 +443,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 90,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.857,
       "wordCount": 91,
       "inSubtopicRange": false,
@@ -382,11 +470,25 @@
         "số từ 91 ngoài 30-90"
       ]
     },
+    "st-0d666fe79091": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 56,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://tranhsondau79.com/wp-content/uploads/2023/01/tranh-truu-tuong-.jpeg",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
     "st-105c10b92c25": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 13,
       "inSubtopicRange": false,
@@ -402,7 +504,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.929,
       "wordCount": 14,
       "inSubtopicRange": false,
@@ -420,7 +522,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.924,
       "wordCount": 118,
       "inSubtopicRange": false,
@@ -442,11 +544,31 @@
         "số từ 118 ngoài 30-90"
       ]
     },
+    "st-14298612d5ae": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.902,
+      "wordCount": 51,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/132687/pexels-photo-132687.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 5,
+      "missingImages": [
+        "vegetation",
+        "volcano",
+        "vulnerable",
+        "vapor",
+        "wildlife conservation"
+      ],
+      "failReasons": []
+    },
     "st-14866d46c554": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 29,
       "inSubtopicRange": false,
@@ -458,11 +580,30 @@
         "số từ 29 ngoài 30-90"
       ]
     },
+    "st-166b7d2ce6e5": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 97,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.922,
+      "wordCount": 51,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://i.pinimg.com/originals/63/cf/5e/63cf5e7ed3e81abbcee86f10bf75a9e8.jpg",
+      "missingImageCount": 4,
+      "missingImages": [
+        "territory",
+        "thrive",
+        "wreak havoc on",
+        "to make compost"
+      ],
+      "failReasons": []
+    },
     "st-16e51553fca8": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 98,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.95,
       "wordCount": 60,
       "inSubtopicRange": true,
@@ -480,7 +621,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 97,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.914,
       "wordCount": 35,
       "inSubtopicRange": true,
@@ -498,7 +639,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.889,
       "wordCount": 18,
       "inSubtopicRange": false,
@@ -518,7 +659,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.821,
       "wordCount": 39,
       "inSubtopicRange": true,
@@ -542,7 +683,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 95,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.863,
       "wordCount": 51,
       "inSubtopicRange": true,
@@ -564,7 +705,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.923,
       "wordCount": 26,
       "inSubtopicRange": false,
@@ -583,7 +724,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 90,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.86,
       "wordCount": 129,
       "inSubtopicRange": false,
@@ -619,7 +760,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 89,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.83,
       "wordCount": 94,
       "inSubtopicRange": false,
@@ -653,7 +794,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.95,
       "wordCount": 20,
       "inSubtopicRange": false,
@@ -671,7 +812,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.903,
       "wordCount": 31,
       "inSubtopicRange": true,
@@ -685,11 +826,27 @@
       ],
       "failReasons": []
     },
+    "st-2435fc0fd3e4": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.979,
+      "wordCount": 47,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://photo.znews.vn/w1250/Uploaded/sgtnrn/2025_10_27/B1_2.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "destination"
+      ],
+      "failReasons": []
+    },
     "st-25a2ca74645f": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 18,
       "inSubtopicRange": false,
@@ -705,7 +862,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.917,
       "wordCount": 12,
       "inSubtopicRange": false,
@@ -719,11 +876,31 @@
         "số từ 12 ngoài 30-90"
       ]
     },
+    "st-27cdc231c2d5": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.902,
+      "wordCount": 51,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/5355779/pexels-photo-5355779.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 5,
+      "missingImages": [
+        "tame",
+        "wipe out",
+        "waterway",
+        "tsunami",
+        "temperate"
+      ],
+      "failReasons": []
+    },
     "st-2b6e2d54c321": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.909,
       "wordCount": 11,
       "inSubtopicRange": false,
@@ -737,11 +914,49 @@
         "số từ 11 ngoài 30-90"
       ]
     },
+    "st-2f74935176ed": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 85,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.625,
+      "wordCount": 56,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdn9.dissolve.com/p/D2115_224_437/D2115_224_437_1200.jpg",
+      "missingImageCount": 21,
+      "missingImages": [
+        "supervisor",
+        "taylor",
+        "telemarketer",
+        "temporary",
+        "ticket conductor",
+        "travel agent",
+        "vacancy",
+        "vet",
+        "wages",
+        "waitress",
+        "workplace",
+        "well paid job",
+        "welder",
+        "voluntary work",
+        "brain drain",
+        "tricks of the trade",
+        "waiting in the wings",
+        "walking papers",
+        "work to rule",
+        "worth one's salt",
+        "xerox subsidy"
+      ],
+      "failReasons": [
+        "ảnh 63% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-31fde43dd7f5": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.947,
       "wordCount": 19,
       "inSubtopicRange": false,
@@ -759,7 +974,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.95,
       "wordCount": 20,
       "inSubtopicRange": false,
@@ -777,7 +992,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 88,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.8,
       "wordCount": 25,
       "inSubtopicRange": false,
@@ -800,7 +1015,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 97,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.922,
       "wordCount": 77,
       "inSubtopicRange": true,
@@ -817,11 +1032,45 @@
       ],
       "failReasons": []
     },
+    "st-3fb14a2c6942": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 87,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.673,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://media.suckhoecong.vn/thumb_x800x450/Images/Uploaded/Share/2022/03/08/dan-ong-xay-nha-dan-ba-xay-to-am-hai-trong-mot-triet-ly-cua-cuoc-song11646708752.jpg",
+      "missingImageCount": 17,
+      "missingImages": [
+        "to make out with someone",
+        "tie the knot",
+        "trial marriage",
+        "the apple of one's eyes",
+        "take the initiative in doing",
+        "to be in charge of",
+        "take turns in doing",
+        "trial separation",
+        "upbringing",
+        "ups and downs",
+        "unrequited love",
+        "to wind somebody up",
+        "to work at a relationship",
+        "where's the trousers",
+        "whisper sweet nothings",
+        "well to do",
+        "until the cow comes home"
+      ],
+      "failReasons": [
+        "ảnh 67% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-4563e2072fde": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 85,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.731,
       "wordCount": 26,
       "inSubtopicRange": false,
@@ -842,11 +1091,29 @@
         "số từ 26 ngoài 30-90"
       ]
     },
+    "st-46201479320d": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.943,
+      "wordCount": 53,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/20670596/pexels-photo-20670596.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 3,
+      "missingImages": [
+        "conducive",
+        "take a course",
+        "write an essay"
+      ],
+      "failReasons": []
+    },
     "st-49fe4f58fae1": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.92,
       "wordCount": 150,
       "inSubtopicRange": false,
@@ -875,7 +1142,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 98,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.951,
       "wordCount": 41,
       "inSubtopicRange": true,
@@ -892,7 +1159,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 98,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.956,
       "wordCount": 45,
       "inSubtopicRange": true,
@@ -909,7 +1176,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.893,
       "wordCount": 159,
       "inSubtopicRange": false,
@@ -944,7 +1211,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 16,
       "inSubtopicRange": false,
@@ -960,7 +1227,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 88,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.81,
       "wordCount": 21,
       "inSubtopicRange": false,
@@ -982,7 +1249,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.882,
       "wordCount": 17,
       "inSubtopicRange": false,
@@ -998,11 +1265,25 @@
         "số từ 17 ngoài 30-90"
       ]
     },
+    "st-5363da1ba5ac": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 47,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://img.freepik.com/premium-vector/microsoft-access-logo-relational-database-management-system-microsoft-office-365-logotype-microsoft-corporation-software-editorial_661108-17070.jpg?w=1480",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
     "st-543f143800bd": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 98,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.94,
       "wordCount": 67,
       "inSubtopicRange": true,
@@ -1021,7 +1302,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 92,
       "inSubtopicRange": false,
@@ -1033,11 +1314,87 @@
         "số từ 92 ngoài 30-90"
       ]
     },
+    "st-561560e64207": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 88,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.696,
+      "wordCount": 46,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNjAwIDMwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzFjMGEwMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMzZDFhMDAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmUiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y5NzMxNjtzdG9wLW9wYWNpdHk6MCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y5NzMxNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmOTczMTY7c3RvcC1vcGFjaXR5OjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8ZmlsdGVyIGlkPSJnbG93Ij4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMyIgcmVzdWx0PSJjb2xvcmVkQmx1ciIvPgogICAgICA8ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImNvbG9yZWRCbHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIAogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIERlY29yYXRpdmUgY2lyY2xlcyAtLT4KICA8Y2lyY2xlIGN4PSI1MjAiIGN5PSI1MCIgcj0iODAiIGZpbGw9IiNmOTczMTYiIG9wYWNpdHk9IjAuMDYiLz4KICA8Y2lyY2xlIGN4PSI4MCIgY3k9IjI1MCIgcj0iNjAiIGZpbGw9IiNmOTczMTYiIG9wYWNpdHk9IjAuMDUiLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxNTAiIHI9IjEyMCIgZmlsbD0iI2Y5NzMxNiIgb3BhY2l0eT0iMC4wNCIvPgogIAogIDwhLS0gRW1vamkgZGVjb3JhdGlvbnMgKGJhY2tncm91bmQpIC0tPgogIDx0ZXh0IHg9IjUwIiB5PSIxMDAiIGZvbnQtc2l6ZT0iNDAiIG9wYWNpdHk9IjAuMTUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSBFbW9qaSxBcHBsZSBDb2xvciBFbW9qaSxzYW5zLXNlcmlmIj7wn5SlPC90ZXh0PgogIDx0ZXh0IHg9IjUyMCIgeT0iMjQwIiBmb250LXNpemU9IjM2IiBvcGFjaXR5PSIwLjEyIiBmb250LWZhbWlseT0iU2Vnb2UgVUkgRW1vamksQXBwbGUgQ29sb3IgRW1vamksc2Fucy1zZXJpZiI+8J+OrzwvdGV4dD4KICAKICA8IS0tIE1haW4gZW1vamkgLS0+CiAgPHRleHQgeD0iMzAwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iNjQiIGZpbHRlcj0idXJsKCNnbG93KSIgZm9udC1mYW1pbHk9IlNlZ29lIFVJIEVtb2ppLEFwcGxlIENvbG9yIEVtb2ppLHNhbnMtc2VyaWYiPuKaoTwvdGV4dD4KICAKICA8IS0tIEFjY2VudCBsaW5lIC0tPgogIDxyZWN0IHg9IjEwMCIgeT0iMTM1IiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjEuNSIgZmlsbD0idXJsKCNsaW5lKSIgb3BhY2l0eT0iMC41Ii8+CiAgCiAgPCEtLSBQT1MgYmFkZ2UgLS0+CiAgPHJlY3QgeD0iMjQ1IiB5PSIxNDUiIHdpZHRoPSIxMTAiIGhlaWdodD0iMjIiIHJ4PSIxMSIgZmlsbD0iI2Y5NzMxNiIgb3BhY2l0eT0iMC4xNSIvPgogIDx0ZXh0IHg9IjMwMCIgeT0iMTYxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iI2Y5NzMxNiIgbGV0dGVyLXNwYWNpbmc9IjIiPlZFUkI8L3RleHQ+CiAgCiAgPCEtLSBXb3JkIC0tPgogIDx0ZXh0IHg9IjMwMCIgeT0iMjA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2ssQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzNiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iI2ZmZmZmZiI+c3VzdGFpbjwvdGV4dD4KICAKICA8IS0tIERlZmluaXRpb24gLS0+CiAgPHRleHQgeD0iMzAwIiB5PSIyMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjOTRhM2I4Ij5UbyBjYXVzZSBvciBhbGxvdyBzb21ldGhpbmcgdG8gY29udGludWUgZm9yIGEgcGVyaW9kLi4uPC90ZXh0PgogIAogIDwhLS0gQnJhbmQgLS0+CiAgPHRleHQgeD0iMzAwIiB5PSIyNjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBmaWxsPSIjZjk3MzE2IiBvcGFjaXR5PSIwLjYiIGxldHRlci1zcGFjaW5nPSIxIj5MSU5HT1BSTyBESUNUSU9OQVJZPC90ZXh0Pgo8L3N2Zz4=",
+      "missingImageCount": 14,
+      "missingImages": [
+        "superconductor",
+        "telecommunication cable",
+        "touch technology",
+        "topology",
+        "two-dimensional",
+        "trigonometry",
+        "virtual reality",
+        "yeast",
+        "wireless hotspot",
+        "wireless network",
+        "versatile",
+        "traffic jam",
+        "incredible",
+        "unbelievable"
+      ],
+      "failReasons": [
+        "ảnh 70% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-5714147ec801": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.847,
+      "wordCount": 59,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://imgv2-2-f.scribdassets.com/img/document/786297481/original/f544fc8a23/1?v=1",
+      "missingImageCount": 9,
+      "missingImages": [
+        "the sky's the limit",
+        "wait in the wings",
+        "with a heavy hand",
+        "tail wagging the dog",
+        "take it upon yourself",
+        "top dog",
+        "under your thumb",
+        "wear the trousers",
+        "where the power is"
+      ],
+      "failReasons": [
+        "ảnh 85% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-59ba3726558b": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 97,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.93,
+      "wordCount": 57,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://grammarapex.com/wp-content/uploads/2025/11/attain-vs-obtain.webp",
+      "missingImageCount": 4,
+      "missingImages": [
+        "technological advancement",
+        "unveil a plan",
+        "supplement one's income",
+        "to be your own boss"
+      ],
+      "failReasons": []
+    },
     "st-59fae6f6f141": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.916,
       "wordCount": 143,
       "inSubtopicRange": false,
@@ -1066,7 +1423,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 99,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.977,
       "wordCount": 88,
       "inSubtopicRange": true,
@@ -1079,11 +1436,27 @@
       ],
       "failReasons": []
     },
+    "st-5b3eac675006": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.978,
+      "wordCount": 46,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://photo.znews.vn/w1250/Uploaded/sgtnrn/2025_10_27/B1_2.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "destination"
+      ],
+      "failReasons": []
+    },
     "st-5bad759d4837": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 17,
       "inSubtopicRange": false,
@@ -1099,7 +1472,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.794,
       "wordCount": 34,
       "inSubtopicRange": true,
@@ -1119,11 +1492,49 @@
         "ảnh 79% (<90%) — chưa nổi bật"
       ]
     },
+    "st-5ea51d4fca10": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.848,
+      "wordCount": 46,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://img.thuthuattinhoc.vn/uploads/2019/08/15/hinh-anh-con-duong-dai_064458636.jpg",
+      "missingImageCount": 7,
+      "missingImages": [
+        "travel arrangements",
+        "terminal",
+        "tour guide",
+        "trolley",
+        "two wrist strap",
+        "tourist attraction",
+        "travel agency"
+      ],
+      "failReasons": [
+        "ảnh 85% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-5ec4358a6f48": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 56,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://www.chicagotribune.com/wp-content/uploads/migration/2023/07/08/K6UXOOAPDBAS5NEXYD2GFHVE5A.jpg",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
     "st-5fd6a2ec020d": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 84,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.688,
       "wordCount": 16,
       "inSubtopicRange": false,
@@ -1142,11 +1553,37 @@
         "số từ 16 ngoài 30-90"
       ]
     },
+    "st-65f1286dcb33": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 93,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.833,
+      "wordCount": 54,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://aramex.vn/wp-content/uploads/2020/04/chuoi-cung-ung-nhanh-nhay-2-1.png",
+      "missingImageCount": 9,
+      "missingImages": [
+        "whole bag of tricks",
+        "to the best of one's ability",
+        "think on your feet",
+        "tricks of the trade",
+        "tried and tested",
+        "walk and chew gum",
+        "ways and means",
+        "work like a charm",
+        "take out a loan"
+      ],
+      "failReasons": [
+        "ảnh 83% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-68f128dc5dc2": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.938,
       "wordCount": 16,
       "inSubtopicRange": false,
@@ -1164,7 +1601,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 89,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.813,
       "wordCount": 155,
       "inSubtopicRange": false,
@@ -1207,11 +1644,35 @@
         "số từ 155 ngoài 30-90"
       ]
     },
+    "st-6a4db7d16b64": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 95,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.873,
+      "wordCount": 55,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://i.ytimg.com/vi/HN_rJI71Tao/maxresdefault.jpg",
+      "missingImageCount": 7,
+      "missingImages": [
+        "tough competition",
+        "terminate a contract",
+        "the underprivileged",
+        "titan security",
+        "violate the contract",
+        "wins the respect",
+        "went under"
+      ],
+      "failReasons": [
+        "ảnh 87% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-6b0f849ec0cf": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.844,
       "wordCount": 32,
       "inSubtopicRange": true,
@@ -1233,7 +1694,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 12,
       "inSubtopicRange": false,
@@ -1249,7 +1710,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 89,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.818,
       "wordCount": 11,
       "inSubtopicRange": false,
@@ -1269,7 +1730,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 89,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.833,
       "wordCount": 18,
       "inSubtopicRange": false,
@@ -1286,11 +1747,94 @@
         "số từ 18 ngoài 30-90"
       ]
     },
+    "st-70abcef1c606": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 93,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.822,
+      "wordCount": 45,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdnphoto.dantri.com.vn/a7ucpiDUzhqQ_jxCVxpTSZonuWM=/2026/02/02/tinppp-edited-1770029000966.jpg",
+      "missingImageCount": 8,
+      "missingImages": [
+        "travel agency",
+        "voyage",
+        "wreckage",
+        "turbulence",
+        "take someone for a ride",
+        "train of thought",
+        "wheels fall off",
+        "traffic chaos"
+      ],
+      "failReasons": [
+        "ảnh 82% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-75df7cdbe347": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.967,
+      "wordCount": 60,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://myneuropathway.com/wp-content/uploads/2025/07/Sudden-Unexpected-Death-In-Epilepsy-SUDEP.jpg",
+      "missingImageCount": 2,
+      "missingImages": [
+        "boost one's confidence",
+        "devious"
+      ],
+      "failReasons": []
+    },
+    "st-765cb826d99c": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 91,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.783,
+      "wordCount": 46,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://static.vecteezy.com/system/resources/previews/011/513/269/original/3r-of-recruitment-which-is-recruit-retain-and-retire-vector.jpg",
+      "missingImageCount": 10,
+      "missingImages": [
+        "sustainable",
+        "tendency to",
+        "upsurge",
+        "vibrant",
+        "time consuming",
+        "thought provoking",
+        "up market",
+        "weather beaten",
+        "well-established",
+        "traffic congestion"
+      ],
+      "failReasons": [
+        "ảnh 78% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-77dde8cc2e0f": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 57,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cafefcdn.com/203337114487263232/2022/6/29/thu-nhap-thap-nhat-2021-1656485240223825079992.png",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
     "st-7995eb63923b": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 90,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.75,
       "wordCount": 32,
       "inSubtopicRange": true,
@@ -1315,7 +1859,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 87,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.675,
       "wordCount": 80,
       "inSubtopicRange": true,
@@ -1358,7 +1902,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 90,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.857,
       "wordCount": 21,
       "inSubtopicRange": false,
@@ -1379,7 +1923,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 100,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 72,
       "inSubtopicRange": true,
@@ -1393,7 +1937,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.921,
       "wordCount": 101,
       "inSubtopicRange": false,
@@ -1418,7 +1962,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 90,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.85,
       "wordCount": 20,
       "inSubtopicRange": false,
@@ -1439,7 +1983,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.909,
       "wordCount": 11,
       "inSubtopicRange": false,
@@ -1457,7 +2001,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.903,
       "wordCount": 103,
       "inSubtopicRange": false,
@@ -1480,11 +2024,30 @@
         "số từ 103 ngoài 30-90"
       ]
     },
+    "st-83fd5bea9e9a": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 97,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.925,
+      "wordCount": 53,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://imgv2-2-f.scribdassets.com/img/document/919879817/original/ef989e537e/1?v=1",
+      "missingImageCount": 4,
+      "missingImages": [
+        "wrote learning",
+        "the alarm goes off",
+        "universalization of education",
+        "there is precious little chance of"
+      ],
+      "failReasons": []
+    },
     "st-86b9261ccfb5": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.912,
       "wordCount": 91,
       "inSubtopicRange": false,
@@ -1505,11 +2068,31 @@
         "số từ 91 ngoài 30-90"
       ]
     },
+    "st-86f699c611b7": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.904,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://langgo.edu.vn/storage/upload/default/images/web-SEO/LangGo-T1/Lam-the-nao-de-co-the-thanh-thao-Tieng-Anh.jpg",
+      "missingImageCount": 5,
+      "missingImages": [
+        "tremendous",
+        "unstable",
+        "watcher",
+        "be worlds apart",
+        "oppose"
+      ],
+      "failReasons": []
+    },
     "st-8953ab47236a": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.92,
       "wordCount": 25,
       "inSubtopicRange": false,
@@ -1528,7 +2111,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.917,
       "wordCount": 12,
       "inSubtopicRange": false,
@@ -1546,7 +2129,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.905,
       "wordCount": 21,
       "inSubtopicRange": false,
@@ -1565,7 +2148,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 87,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.769,
       "wordCount": 13,
       "inSubtopicRange": false,
@@ -1586,7 +2169,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 97,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.915,
       "wordCount": 71,
       "inSubtopicRange": true,
@@ -1603,11 +2186,27 @@
       ],
       "failReasons": []
     },
+    "st-95dd6b08b586": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.981,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://imgv2-2-f.scribdassets.com/img/document/770557092/original/86e11822be/1?v=1",
+      "missingImageCount": 1,
+      "missingImages": [
+        "episode"
+      ],
+      "failReasons": []
+    },
     "st-980877fc1fb0": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.887,
       "wordCount": 97,
       "inSubtopicRange": false,
@@ -1632,11 +2231,34 @@
         "số từ 97 ngoài 30-90"
       ]
     },
+    "st-9a606737b35f": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 95,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.87,
+      "wordCount": 46,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://statics.vinpearl.com/phong-cho-san-bay-tan-son-nhat%204_1683879827.jpg",
+      "missingImageCount": 6,
+      "missingImages": [
+        "travel arrangements",
+        "terminal",
+        "tour guide",
+        "trolley",
+        "two wrist strap",
+        "tourist attraction"
+      ],
+      "failReasons": [
+        "ảnh 87% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-9d2657755a0c": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.867,
       "wordCount": 15,
       "inSubtopicRange": false,
@@ -1656,7 +2278,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.9,
       "wordCount": 10,
       "inSubtopicRange": false,
@@ -1670,11 +2292,38 @@
         "số từ 10 ngoài 30-90"
       ]
     },
+    "st-a02f582937b5": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 92,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.808,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://moitruongsonggiang.com/upload/default/images/Y%E1%BA%BFu%20t%E1%BB%91%20%E1%BA%A3nh%20h%C6%B0%E1%BB%9Fng%20%C4%91%E1%BA%BFn%20vi%20sinh%20v%E1%BA%ADt%20x%E1%BB%AD%20l%C3%BD%20n%C6%B0%E1%BB%9Bc.jpg",
+      "missingImageCount": 10,
+      "missingImages": [
+        "suicide",
+        "tax evasion",
+        "terrorism",
+        "thorny issue",
+        "traffic congestion",
+        "pursue",
+        "sue",
+        "unwelcome",
+        "complicated",
+        "unnecessary"
+      ],
+      "failReasons": [
+        "ảnh 81% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-a1c09644b1f2": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 100,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 84,
       "inSubtopicRange": true,
@@ -1688,7 +2337,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 15,
       "inSubtopicRange": false,
@@ -1700,11 +2349,59 @@
         "số từ 15 ngoài 30-90"
       ]
     },
+    "st-a68f2a5f22ed": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.846,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://www.science-sparks.com/wp-content/uploads/2023/09/PH-Scale-image-universal-indicator-scaled.jpg",
+      "missingImageCount": 8,
+      "missingImages": [
+        "brain drain",
+        "yield the pressure",
+        "practical",
+        "pursue",
+        "widen",
+        "touch screen",
+        "adequate",
+        "temptation"
+      ],
+      "failReasons": [
+        "ảnh 85% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-a6d004423d89": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 95,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.87,
+      "wordCount": 46,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdnphoto.dantri.com.vn/a7ucpiDUzhqQ_jxCVxpTSZonuWM=/2026/02/02/tinppp-edited-1770029000966.jpg",
+      "missingImageCount": 6,
+      "missingImages": [
+        "voyage",
+        "wreckage",
+        "turbulence",
+        "to lead to",
+        "regardless of",
+        "to result in"
+      ],
+      "failReasons": [
+        "ảnh 87% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-a6d639f5ebfc": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.83,
       "wordCount": 53,
       "inSubtopicRange": true,
@@ -1730,7 +2427,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.941,
       "wordCount": 17,
       "inSubtopicRange": false,
@@ -1748,7 +2445,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 98,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.946,
       "wordCount": 37,
       "inSubtopicRange": true,
@@ -1761,11 +2458,30 @@
       ],
       "failReasons": []
     },
+    "st-abcc256a82d3": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 97,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.93,
+      "wordCount": 57,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdn.thuvienphapluat.vn/uploads/laodongtienluong/20230301/BY/2024/18-06-24/hinh-anh-3922.jpg",
+      "missingImageCount": 4,
+      "missingImages": [
+        "decent",
+        "tip",
+        "tutelage",
+        "upmarket"
+      ],
+      "failReasons": []
+    },
     "st-ac190da5560c": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 98,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.946,
       "wordCount": 37,
       "inSubtopicRange": true,
@@ -1782,7 +2498,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 90,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.857,
       "wordCount": 21,
       "inSubtopicRange": false,
@@ -1799,11 +2515,39 @@
         "số từ 21 ngoài 30-90"
       ]
     },
+    "st-aef8a336633e": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 92,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.792,
+      "wordCount": 53,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://meeymap.com/tin-tuc/wp-content/uploads/2023/05/qd-146-ngay-12.6.2020.png",
+      "missingImageCount": 11,
+      "missingImages": [
+        "must",
+        "to play truant",
+        "syllabus",
+        "tuition fees",
+        "take in",
+        "teacher's pet",
+        "undergraduate",
+        "undergraduate course",
+        "vivid",
+        "vocational",
+        "with flying colors"
+      ],
+      "failReasons": [
+        "ảnh 79% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-b4ae7e1ea3ac": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 86,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.75,
       "wordCount": 16,
       "inSubtopicRange": false,
@@ -1825,7 +2569,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 21,
       "inSubtopicRange": false,
@@ -1841,7 +2585,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 14,
       "inSubtopicRange": false,
@@ -1853,11 +2597,41 @@
         "số từ 14 ngoài 30-90"
       ]
     },
+    "st-b6278382031b": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 90,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.75,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://image.slidesharecdn.com/thuyettrinhmangmaytinh-231002152158-59021493/75/Thuyet-trinh-mang-may-tinh-ppt-5-2048.jpg",
+      "missingImageCount": 13,
+      "missingImages": [
+        "press",
+        "pop",
+        "recommend",
+        "review",
+        "tragic",
+        "talk show",
+        "tabloid",
+        "thriller",
+        "the mass media",
+        "thai",
+        "vivid",
+        "voyage",
+        "weather forecast"
+      ],
+      "failReasons": [
+        "ảnh 75% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-b6bfd44386d1": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 89,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.813,
       "wordCount": 16,
       "inSubtopicRange": false,
@@ -1874,11 +2648,28 @@
         "số từ 16 ngoài 30-90"
       ]
     },
+    "st-b7fee5ad71e0": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.961,
+      "wordCount": 51,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/811587/pexels-photo-811587.jpeg?cs=srgb&dl=pexels-fotios-photos-811587.jpg&fm=jpg",
+      "missingImageCount": 2,
+      "missingImages": [
+        "the movie",
+        "widespread support"
+      ],
+      "failReasons": []
+    },
     "st-b9f07f3086f7": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.913,
       "wordCount": 104,
       "inSubtopicRange": false,
@@ -1900,11 +2691,29 @@
         "số từ 104 ngoài 30-90"
       ]
     },
+    "st-ba58afa78dfd": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.942,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdn.thuvienphapluat.vn/phap-luat/2022-2/LNH/dinh-chi-loi-ich.jpg",
+      "missingImageCount": 3,
+      "missingImages": [
+        "water under the bridge",
+        "wipe the slate clean",
+        "word of mouth"
+      ],
+      "failReasons": []
+    },
     "st-ba80bd8e6e7f": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 18,
       "inSubtopicRange": false,
@@ -1916,11 +2725,29 @@
         "số từ 18 ngoài 30-90"
       ]
     },
+    "st-bbd191487b9e": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.942,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://langgo.edu.vn/storage/upload/default/images/web-SEO/LangGo-T1/Lam-the-nao-de-co-the-thanh-thao-Tieng-Anh.jpg",
+      "missingImageCount": 3,
+      "missingImages": [
+        "tremendous",
+        "unstable",
+        "watcher"
+      ],
+      "failReasons": []
+    },
     "st-bc7d42b18c7b": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 13,
       "inSubtopicRange": false,
@@ -1936,7 +2763,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 95,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.885,
       "wordCount": 87,
       "inSubtopicRange": true,
@@ -1959,11 +2786,34 @@
         "ảnh 89% (<90%) — chưa nổi bật"
       ]
     },
+    "st-be7e9c790366": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.891,
+      "wordCount": 55,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://supportconnection.org/wp-content/uploads/balance_scale.jpg",
+      "missingImageCount": 6,
+      "missingImages": [
+        "to be over the worst",
+        "to be under the weather",
+        "to go down with a cold",
+        "to have a feeling",
+        "nutritious",
+        "patient"
+      ],
+      "failReasons": [
+        "ảnh 89% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-bee654c1d0b9": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 20,
       "inSubtopicRange": false,
@@ -1975,11 +2825,28 @@
         "số từ 20 ngoài 30-90"
       ]
     },
+    "st-c26a16e45a74": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.961,
+      "wordCount": 51,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://imgv2-1-f.scribdassets.com/img/document/896184212/original/f22a0b7be3/1?v=1",
+      "missingImageCount": 2,
+      "missingImages": [
+        "to put a ban on",
+        "comprehensive"
+      ],
+      "failReasons": []
+    },
     "st-c33d58ef5f9a": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.864,
       "wordCount": 22,
       "inSubtopicRange": false,
@@ -2000,7 +2867,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 89,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.833,
       "wordCount": 12,
       "inSubtopicRange": false,
@@ -2020,7 +2887,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.933,
       "wordCount": 15,
       "inSubtopicRange": false,
@@ -2038,7 +2905,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.864,
       "wordCount": 110,
       "inSubtopicRange": false,
@@ -2071,7 +2938,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.867,
       "wordCount": 15,
       "inSubtopicRange": false,
@@ -2091,7 +2958,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.95,
       "wordCount": 20,
       "inSubtopicRange": false,
@@ -2109,7 +2976,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.947,
       "wordCount": 19,
       "inSubtopicRange": false,
@@ -2127,7 +2994,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 95,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.873,
       "wordCount": 71,
       "inSubtopicRange": true,
@@ -2149,11 +3016,38 @@
         "ảnh 87% (<90%) — chưa nổi bật"
       ]
     },
+    "st-ce53b369a174": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 93,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.818,
+      "wordCount": 55,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdn.diag.vn/2024/08/a0ecc5a7-vac-xin-viem-gan-a-cua-viet-nam-havax-700x525.jpg",
+      "missingImageCount": 10,
+      "missingImages": [
+        "to be in the mood for a home-cooked meal",
+        "suffer from",
+        "syndrome",
+        "therapeutic",
+        "take effect",
+        "watch portion sizes",
+        "workout",
+        "ulcer",
+        "vaccine",
+        "to be on the mend"
+      ],
+      "failReasons": [
+        "ảnh 82% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-d2b50749cec7": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.903,
       "wordCount": 62,
       "inSubtopicRange": true,
@@ -2174,7 +3068,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.944,
       "wordCount": 18,
       "inSubtopicRange": false,
@@ -2192,7 +3086,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.81,
       "wordCount": 42,
       "inSubtopicRange": true,
@@ -2217,7 +3111,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 86,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.75,
       "wordCount": 28,
       "inSubtopicRange": false,
@@ -2242,7 +3136,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 89,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.813,
       "wordCount": 16,
       "inSubtopicRange": false,
@@ -2259,11 +3153,39 @@
         "số từ 16 ngoài 30-90"
       ]
     },
+    "st-d769d0814b68": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 92,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.807,
+      "wordCount": 57,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdn-images.vtv.vn/2022/10/15/vnapotalthuathienhuenhieutuyenduongtaithanhphohuebingapsautrongnuoc6386700-16658113816011481459630.jpg",
+      "missingImageCount": 11,
+      "missingImages": [
+        "work oneself into a rage",
+        "unprecedented",
+        "work oneself into a lather",
+        "supplementary",
+        "white-collar",
+        "unremarkable",
+        "the public sector",
+        "throw a sickie",
+        "undertake a study",
+        "uncharted territory",
+        "waters"
+      ],
+      "failReasons": [
+        "ảnh 81% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-d7951b075968": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 12,
       "inSubtopicRange": false,
@@ -2275,11 +3197,28 @@
         "số từ 12 ngoài 30-90"
       ]
     },
+    "st-d7bda5edd047": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.962,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "http://tuyengiao.hagiang.gov.vn/upload/64711/20221229/grabeddf2giao_luu_nghe_thuat_asian21122022090807.jpg",
+      "missingImageCount": 2,
+      "missingImages": [
+        "well-preserved",
+        "the global village"
+      ],
+      "failReasons": []
+    },
     "st-db7787575149": {
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 88,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.8,
       "wordCount": 10,
       "inSubtopicRange": false,
@@ -2299,7 +3238,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.775,
       "wordCount": 80,
       "inSubtopicRange": true,
@@ -2334,7 +3273,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.896,
       "wordCount": 106,
       "inSubtopicRange": false,
@@ -2359,11 +3298,31 @@
         "số từ 106 ngoài 30-90"
       ]
     },
+    "st-dc87fe700dee": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.904,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://sieuthibanve.com/upload/images/202201/221043-mau-nha-pho-2-tang-co-chi-phi-700-trieu-dep.jpg",
+      "missingImageCount": 5,
+      "missingImages": [
+        "to drift apart",
+        "to fall out with",
+        "to get on like a house on fire",
+        "to grow apart",
+        "to know somebody inside out"
+      ],
+      "failReasons": []
+    },
     "st-df43209db5de": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.909,
       "wordCount": 11,
       "inSubtopicRange": false,
@@ -2377,11 +3336,29 @@
         "số từ 11 ngoài 30-90"
       ]
     },
+    "st-e07352fe742c": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.943,
+      "wordCount": 53,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://media.barchart.com/contributors-admin/common-images/images/S%26P%20500%20Companies/Technology%20(names%20J%20-%20Z)/Meta%20by%20creativeneko%20via%20Shutterstock.jpg",
+      "missingImageCount": 3,
+      "missingImages": [
+        "grant",
+        "take a gap year",
+        "tertiary education"
+      ],
+      "failReasons": []
+    },
     "st-e34d6d0ed072": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.917,
       "wordCount": 133,
       "inSubtopicRange": false,
@@ -2409,7 +3386,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.895,
       "wordCount": 19,
       "inSubtopicRange": false,
@@ -2429,7 +3406,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.895,
       "wordCount": 19,
       "inSubtopicRange": false,
@@ -2449,7 +3426,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.86,
       "wordCount": 43,
       "inSubtopicRange": true,
@@ -2470,7 +3447,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 92,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.909,
       "wordCount": 22,
       "inSubtopicRange": false,
@@ -2485,11 +3462,29 @@
         "số từ 22 ngoài 30-90"
       ]
     },
+    "st-ea46d1b2611f": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.949,
+      "wordCount": 59,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://miri.com.vn/wp-content/uploads/2024/01/thoi-quen-khien-mat-ban-trong-gia-hon-tuoi-miri.com_.vn-5.jpg",
+      "missingImageCount": 3,
+      "missingImages": [
+        "particular",
+        "supremely confident",
+        "warm oneself into one's confidence"
+      ],
+      "failReasons": []
+    },
     "st-ebfad9b20a2b": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 95,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.986,
       "wordCount": 146,
       "inSubtopicRange": false,
@@ -2508,7 +3503,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.874,
       "wordCount": 103,
       "inSubtopicRange": false,
@@ -2539,7 +3534,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 93,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.933,
       "wordCount": 15,
       "inSubtopicRange": false,
@@ -2553,11 +3548,53 @@
         "số từ 15 ngoài 30-90"
       ]
     },
+    "st-eff92eff33ca": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.981,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://imgv2-2-f.scribdassets.com/img/document/770557092/original/86e11822be/1?v=1",
+      "missingImageCount": 1,
+      "missingImages": [
+        "episode"
+      ],
+      "failReasons": []
+    },
+    "st-f0ef05be515d": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.842,
+      "wordCount": 57,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://truongca.com/images/sheet/nhac/22946-a-nh-ban-mai/22946-a-nh-ban-mai-0.jpg",
+      "missingImageCount": 9,
+      "missingImages": [
+        "uphold enforce the law",
+        "war breaks out",
+        "take bribes",
+        "the death penalty",
+        "the optimal solution",
+        "want someone's head on a platter",
+        "take cover",
+        "tit for tat",
+        "up in arms"
+      ],
+      "failReasons": [
+        "ảnh 84% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-f2e8ccd2308d": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.944,
       "wordCount": 18,
       "inSubtopicRange": false,
@@ -2571,11 +3608,35 @@
         "số từ 18 ngoài 30-90"
       ]
     },
+    "st-f2f6c51e131e": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 95,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.865,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/11455958/pexels-photo-11455958.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 7,
+      "missingImages": [
+        "at first sight",
+        "to be through thick and thin",
+        "to be well matched",
+        "to break up",
+        "to be birds of a feather",
+        "to be reconciled with sb",
+        "to be in a hurry"
+      ],
+      "failReasons": [
+        "ảnh 87% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-f4a389d821bf": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 13,
       "inSubtopicRange": false,
@@ -2591,7 +3652,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 90,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.857,
       "wordCount": 14,
       "inSubtopicRange": false,
@@ -2607,11 +3668,81 @@
         "số từ 14 ngoài 30-90"
       ]
     },
+    "st-f53351b75944": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 97,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.922,
+      "wordCount": 51,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://media.sciencephoto.com/image/a3500109/800wm/A3500109-Example_of_a_solute_dissolving_in_solvent.jpg",
+      "missingImageCount": 4,
+      "missingImages": [
+        "to get back to nature",
+        "the greenhouse effect",
+        "the ozone layer",
+        "protect"
+      ],
+      "failReasons": []
+    },
+    "st-f63c0a3eb175": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.904,
+      "wordCount": 52,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://imgv2-2-f.scribdassets.com/img/document/988509682/original/0093b16fe4/1?v=1",
+      "missingImageCount": 5,
+      "missingImages": [
+        "superstition",
+        "unite",
+        "waiting ceremony",
+        "worship",
+        "brain drain"
+      ],
+      "failReasons": []
+    },
+    "st-f7f57c654882": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 90,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.745,
+      "wordCount": 55,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://png.pngtree.com/png-clipart/20201209/original/pngtree-medicine-capsule-png-image_5630677.jpg",
+      "missingImageCount": 14,
+      "missingImages": [
+        "spot",
+        "sunburn",
+        "travel sick",
+        "toothache",
+        "triathlon",
+        "tuberculosis",
+        "typhoid",
+        "vegetarian",
+        "sustain serious injury",
+        "to be diagnosed with",
+        "terminally ill",
+        "vigorous exercise",
+        "to overdose on a drug",
+        "take an overdose"
+      ],
+      "failReasons": [
+        "ảnh 75% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-f95858dee93e": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.949,
       "wordCount": 98,
       "inSubtopicRange": false,
@@ -2629,11 +3760,27 @@
         "số từ 98 ngoài 30-90"
       ]
     },
+    "st-f9d5103cf2a4": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.978,
+      "wordCount": 46,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdn.thuvienphapluat.vn/phap-luat/2022-2/LVPD/toi-gay-roi-trat-tu-noi-cong-cong-moi-nhat-2025.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "the equation"
+      ],
+      "failReasons": []
+    },
     "st-fa66697d8627": {
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 97,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.927,
       "wordCount": 55,
       "inSubtopicRange": true,
@@ -2652,7 +3799,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 94,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.962,
       "wordCount": 26,
       "inSubtopicRange": false,
@@ -2670,7 +3817,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 90,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.862,
       "wordCount": 94,
       "inSubtopicRange": false,
@@ -2701,7 +3848,7 @@
       "publishStatus": "published",
       "featuredEligible": true,
       "qualityScore": 96,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 1,
       "wordCount": 15,
       "inSubtopicRange": false,
@@ -2717,7 +3864,7 @@
       "publishStatus": "published",
       "featuredEligible": false,
       "qualityScore": 91,
-      "viCoverage": 1,
+      "meaningCoverage": 1,
       "imageCoverage": 0.882,
       "wordCount": 17,
       "inSubtopicRange": false,

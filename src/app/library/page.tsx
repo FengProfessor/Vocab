@@ -21,7 +21,7 @@ interface Subtopic {
   cefrRange: { min: string; max: string } | null; coverImage: string | null; qualityScore: number; previewWords: string[]; packs: Pack[];
 }
 interface Topic { id: string; title: string; subtopics: Subtopic[] }
-type RouteGroup = 'curriculum' | 'communication' | 'extended';
+type RouteGroup = 'curriculum' | 'exam' | 'communication' | 'extended';
 interface Route { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; subtopicCount: number; topics: Topic[] }
 interface CatalogResponse { success: boolean; routes?: Route[]; microPackSize?: number; catalogVersion?: string; error?: string }
 interface ImportResponse { success: boolean; imported?: number; classroomId?: string; packId?: string; wordIds?: string[]; message?: string; error?: string }
@@ -85,6 +85,7 @@ export default function LibraryPage() {
   }, [importingPack, previewPack]);
 
   const curriculum = useMemo(() => routes.filter((r) => r.group === 'curriculum'), [routes]);
+  const exams = useMemo(() => routes.filter((r) => r.group === 'exam'), [routes]);
   const communication = useMemo(() => routes.filter((r) => r.group === 'communication'), [routes]);
   const extended = useMemo(() => routes.find((r) => r.group === 'extended') ?? null, [routes]);
   const activeRoute = useMemo(() => routes.find((r) => r.id === activeRouteId) ?? null, [routes, activeRouteId]);
@@ -224,6 +225,19 @@ export default function LibraryPage() {
                 </div>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {curriculum.map((r) => <RouteCard key={r.id} r={r} big />)}
+                </div>
+              </section>
+            )}
+
+            {/* ── Luyện thi TOEIC & IELTS ── */}
+            {exams.length > 0 && (
+              <section aria-labelledby="exam-title">
+                <div className="mb-4 px-1">
+                  <h2 id="exam-title" className="text-xl font-black">🎯 Luyện thi TOEIC & IELTS</h2>
+                  <p className="text-sm text-slate-500">Chọn mục tiêu, sau đó học từng chặng nhỏ khoảng {microPackSize} từ.</p>
+                </div>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {exams.map((r) => <RouteCard key={r.id} r={r} big />)}
                 </div>
               </section>
             )}
