@@ -97,8 +97,8 @@ export function getCatalogTree(): CatalogRoute[] {
               qualityScore: q?.qualityScore ?? 0, featuredEligible: q?.featuredEligible ?? false, previewWords: s.previewWords, packs,
             };
           });
-        // Route luyện thi giữ đúng thứ tự chặng; route khám phá ưu tiên nội dung chất lượng cao.
-        if (route.group !== 'exam') {
+        // Curriculum/exam giữ đúng thứ tự bài/chặng; route khám phá ưu tiên nội dung chất lượng cao.
+        if (route.group === 'communication' || route.group === 'extended') {
           subtopics.sort((a, b) => Number(b.featuredEligible) - Number(a.featuredEligible) || b.qualityScore - a.qualityScore || a.title.localeCompare(b.title, 'vi'));
         }
         return { id: topic.id, title: topic.title, subtopics };

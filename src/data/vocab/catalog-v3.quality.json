@@ -2,13 +2,13 @@
   "catalogVersion": "2026-06-13-v4",
   "summary": {
     "catalogVersion": "2026-06-13-v4",
-    "subtopics": 166,
-    "publishedSubtopics": 166,
+    "subtopics": 177,
+    "publishedSubtopics": 177,
     "draftSubtopics": 0,
-    "words": 4490,
-    "wordsInDict": 4490,
+    "words": 4717,
+    "wordsInDict": 4717,
     "quarantineWords": 0,
-    "missingImages": 813
+    "missingImages": 847
   },
   "routes": {
     "thpt-lop-10": {
@@ -38,8 +38,8 @@
     },
     "di-lam": {
       "publishStatus": "published",
-      "publishedSubtopics": 10,
-      "totalSubtopics": 10
+      "publishedSubtopics": 12,
+      "totalSubtopics": 12
     },
     "du-lich": {
       "publishStatus": "published",
@@ -53,8 +53,8 @@
     },
     "suc-khoe": {
       "publishStatus": "published",
-      "publishedSubtopics": 5,
-      "totalSubtopics": 5
+      "publishedSubtopics": 7,
+      "totalSubtopics": 7
     },
     "cong-nghe": {
       "publishStatus": "published",
@@ -63,18 +63,18 @@
     },
     "hoc-tap": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
-      "totalSubtopics": 2
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4
     },
     "hoc-thuat": {
       "publishStatus": "published",
-      "publishedSubtopics": 35,
-      "totalSubtopics": 35
+      "publishedSubtopics": 36,
+      "totalSubtopics": 36
     },
     "extended": {
       "publishStatus": "published",
-      "publishedSubtopics": 8,
-      "totalSubtopics": 8
+      "publishedSubtopics": 12,
+      "totalSubtopics": 12
     }
   },
   "topics": {
@@ -98,9 +98,9 @@
     },
     "tp-132448072e": {
       "publishStatus": "published",
-      "publishedSubtopics": 1,
-      "totalSubtopics": 1,
-      "qualityScore": 92
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 91
     },
     "tp-13fd944d94": {
       "publishStatus": "published",
@@ -128,9 +128,9 @@
     },
     "tp-32dabe9530": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
-      "totalSubtopics": 2,
-      "qualityScore": 94
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 95
     },
     "tp-47d3a045c5": {
       "publishStatus": "published",
@@ -164,8 +164,8 @@
     },
     "tp-63e89bc3a4": {
       "publishStatus": "published",
-      "publishedSubtopics": 8,
-      "totalSubtopics": 8,
+      "publishedSubtopics": 12,
+      "totalSubtopics": 12,
       "qualityScore": 94
     },
     "tp-69803ac72a": {
@@ -194,9 +194,9 @@
     },
     "tp-7a934ad2a7": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 93
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 94
     },
     "tp-7c7631f3bd": {
       "publishStatus": "published",
@@ -230,8 +230,8 @@
     },
     "tp-9275f23d61": {
       "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6,
+      "publishedSubtopics": 7,
+      "totalSubtopics": 7,
       "qualityScore": 93
     },
     "tp-95e3b28bf2": {
@@ -296,8 +296,8 @@
     },
     "tp-f06a497f6f": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
-      "totalSubtopics": 2,
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
       "qualityScore": 92
     },
     "tp-f9b50ef195": {
@@ -826,6 +826,27 @@
       ],
       "failReasons": []
     },
+    "st-239ce0bcaa81": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 89,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.833,
+      "wordCount": 18,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://hoc365.vn/images/huongdan/huongdandangkidangnhap.png",
+      "missingImageCount": 3,
+      "missingImages": [
+        "tertiary education",
+        "tutorial",
+        "undergraduate"
+      ],
+      "failReasons": [
+        "ảnh 83% (<90%) — chưa nổi bật",
+        "số từ 18 ngoài 30-90"
+      ]
+    },
     "st-2435fc0fd3e4": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -913,6 +934,22 @@
       "failReasons": [
         "số từ 11 ngoài 30-90"
       ]
+    },
+    "st-2df01493d07e": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.97,
+      "wordCount": 33,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://cdn.justfly.vn/1200x800/media/b0/89/dbcf-66da-41de-8c44-ff43322a1272.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "textile"
+      ],
+      "failReasons": []
     },
     "st-2f74935176ed": {
       "publishStatus": "published",
@@ -1155,6 +1192,25 @@
       ],
       "failReasons": []
     },
+    "st-4c0b35f14ebc": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 93,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.917,
+      "wordCount": 24,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/20670596/pexels-photo-20670596.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 2,
+      "missingImages": [
+        "tear away",
+        "well-behaved"
+      ],
+      "failReasons": [
+        "số từ 24 ngoài 30-90"
+      ]
+    },
     "st-4c1878609dfb": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1243,6 +1299,30 @@
       "failReasons": [
         "ảnh 81% (<90%) — chưa nổi bật",
         "số từ 21 ngoài 30-90"
+      ]
+    },
+    "st-50d3c0be95b2": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.848,
+      "wordCount": 46,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://sasuke.asia/uploads/images/image(25).png",
+      "missingImageCount": 7,
+      "missingImages": [
+        "preserve",
+        "subtropical",
+        "swamp",
+        "timely",
+        "vulnerable",
+        "wetland",
+        "worm"
+      ],
+      "failReasons": [
+        "ảnh 85% (<90%) — chưa nổi bật"
       ]
     },
     "st-51a74a734c86": {
@@ -1343,6 +1423,29 @@
       ],
       "failReasons": [
         "ảnh 70% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-56c676568318": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 87,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.783,
+      "wordCount": 23,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://unica.vn/upload/landingpage/120813_cach-ve-bieu-do-cot-chong-trong-excel-nhanh-gon_thumb.png",
+      "missingImageCount": 5,
+      "missingImages": [
+        "synchronize swimming",
+        "vertical",
+        "water polo",
+        "wetsuit",
+        "windsurfing"
+      ],
+      "failReasons": [
+        "ảnh 78% (<90%) — chưa nổi bật",
+        "số từ 23 ngoài 30-90"
       ]
     },
     "st-5714147ec801": {
@@ -1579,6 +1682,24 @@
         "ảnh 83% (<90%) — chưa nổi bật"
       ]
     },
+    "st-67a3bea1636b": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 97,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.919,
+      "wordCount": 37,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/7654190/pexels-photo-7654190.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 3,
+      "missingImages": [
+        "do",
+        "supplementary",
+        "workforce"
+      ],
+      "failReasons": []
+    },
     "st-68f128dc5dc2": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1596,6 +1717,22 @@
       "failReasons": [
         "số từ 16 ngoài 30-90"
       ]
+    },
+    "st-695a27b533b1": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.973,
+      "wordCount": 37,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://kangenktb.vn/wp-content/uploads/2017/08/phan-biet-nuoc-khoang-nuoc-suoi-va-nuoc-tinh-khiet.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "varied"
+      ],
+      "failReasons": []
     },
     "st-6a1d7b1df8e4": {
       "publishStatus": "published",
@@ -1726,6 +1863,28 @@
         "số từ 11 ngoài 30-90"
       ]
     },
+    "st-6fa84c853836": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 89,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.828,
+      "wordCount": 29,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/11982319/pexels-photo-11982319.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 5,
+      "missingImages": [
+        "decent",
+        "superior",
+        "superiority",
+        "verbal",
+        "whistle"
+      ],
+      "failReasons": [
+        "số từ 29 ngoài 30-90"
+      ]
+    },
     "st-6fe862e82f1f": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -1854,6 +2013,23 @@
       "failReasons": [
         "ảnh 75% (<90%) — chưa nổi bật"
       ]
+    },
+    "st-7a178959b21b": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 97,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.935,
+      "wordCount": 31,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/30556362/pexels-photo-30556362.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 2,
+      "missingImages": [
+        "overall",
+        "rational"
+      ],
+      "failReasons": []
     },
     "st-7a5fe5c927a0": {
       "publishStatus": "published",
@@ -2252,6 +2428,26 @@
       ],
       "failReasons": [
         "ảnh 87% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-9a7430ce8e4c": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 91,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.87,
+      "wordCount": 23,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/16350067/pexels-photo-16350067.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 3,
+      "missingImages": [
+        "odd",
+        "temper",
+        "thinker"
+      ],
+      "failReasons": [
+        "số từ 23 ngoài 30-90"
       ]
     },
     "st-9d2657755a0c": {
@@ -3858,6 +4054,25 @@
       "missingImages": [],
       "failReasons": [
         "số từ 15 ngoài 30-90"
+      ]
+    },
+    "st-fed7e3c93f9a": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 93,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.923,
+      "wordCount": 26,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://thumbs.dreamstime.com/z/girl-violence-hands-bound-portrait-young-red-haired-background-gray-plaster-wall-79068276.jpg",
+      "missingImageCount": 2,
+      "missingImages": [
+        "terrorism",
+        "urgent"
+      ],
+      "failReasons": [
+        "số từ 26 ngoài 30-90"
       ]
     },
     "st-ff585f467a16": {

@@ -113,6 +113,7 @@ function makePacks(words: string[]): string[][] {
 function validateExamManifest(routeById: Map<string, RouteDef>): void {
   if (examManifest.schemaVersion !== 2) throw new Error(`exam-vocab schemaVersion không hỗ trợ: ${examManifest.schemaVersion}`);
   const sourceKeys = new Set<string>();
+  const topicWords = new Map<string, { expected: Set<string>; actual: Set<string>; sourceNames: string }>();
   for (const source of examManifest.subtopics) {
     if (sourceKeys.has(source.sourceKey)) throw new Error(`exam-vocab trùng sourceKey: ${source.sourceKey}`);
     sourceKeys.add(source.sourceKey);
@@ -129,6 +130,22 @@ function validateExamManifest(routeById: Map<string, RouteDef>): void {
     const cleanedWords = cleanLessonWords(source.words);
     if (cleanedWords.length !== source.words.length) throw new Error(`exam-vocab chứa từ trùng/rỗng/không hợp lệ: ${source.sourceKey}`);
     if (cleanedWords.length < 30 || cleanedWords.length > 90) throw new Error(`exam-vocab số từ ngoài 30-90: ${source.sourceKey}=${cleanedWords.length}`);
+
+    const topicKey = `${source.routeId}:${source.topicKey}`;
+    const expected = new Set(cleanLessonWords(source.sourceNames.flatMap((name) => pro3m[name].words ?? [])));
+    const sourceNames = JSON.stringify(source.sourceNames);
+    const aggregate = topicWords.get(topicKey) ?? { expected, actual: new Set<string>(), sourceNames };
+    if (aggregate.sourceNames !== sourceNames) throw new Error(`exam-vocab sourceNames không nhất quán: ${topicKey}`);
+    for (const word of cleanedWords) {
+      if (!expected.has(word)) throw new Error(`exam-vocab có từ ngoài lesson nguồn: ${source.sourceKey} -> ${word}`);
+      if (aggregate.actual.has(word)) throw new Error(`exam-vocab trùng từ giữa các chặng: ${topicKey} -> ${word}`);
+      aggregate.actual.add(word);
+    }
+    topicWords.set(topicKey, aggregate);
+  }
+  for (const [topicKey, aggregate] of topicWords) {
+    const missing = [...aggregate.expected].filter((word) => !aggregate.actual.has(word));
+    if (missing.length > 0) throw new Error(`exam-vocab thiếu từ từ lesson nguồn: ${topicKey} -> ${missing.slice(0, 10).join(', ')}`);
   }
 }
 
@@ -149,7 +166,7 @@ function main() {
   validateExamManifest(routeById);
 
   // 0) Phát hiện lớp của các Unit (Global Success) bằng Unit-number reset (chỉ pro3m, theo thứ tự nguồn).
-  //    Set 1 = Lớp 10, set 2 = Lớp 11, set 3 = Lớp 12, set 4 (16 unit hệ cũ) = bỏ.
+  //    Set 1 = Lớp 10, set 2 = Lớp 11, set 3 = Lớp 12. Set 4 giữ ở các route cũ để không mất progress.
   const unitGrade = new Map<string, number>();
   let lastNum = 0, gradeSet = 0;
   for (const name of Object.keys(pro3m)) {
@@ -176,10 +193,11 @@ function main() {
       const grade = pkg === 'pro3m' ? unitGrade.get(name) : undefined;
       if (grade !== undefined) {
         const routeId = GRADE_SET_ROUTE[grade];
-        if (!routeId) continue; // set 4 (hệ cũ) → bỏ
-        const unitNum = Number(name.match(/unit\s+(\d+)/i)?.[1] ?? 0);
-        curriculumRaws.push({ pkg, name, title, words, routeId, topicKey: unitNum <= 5 ? 'hk1' : 'hk2', attribution: 'Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).' });
-        continue;
+        if (routeId) {
+          const unitNum = Number(name.match(/unit\s+(\d+)/i)?.[1] ?? 0);
+          curriculumRaws.push({ pkg, name, title, words, routeId, topicKey: unitNum <= 5 ? 'hk1' : 'hk2', attribution: 'Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).' });
+          continue;
+        }
       }
 
       const route = resolveRoute(name);
@@ -239,10 +257,15 @@ function main() {
     });
   }
 
-  // 2) Topics: sort subtopic theo title; sort topic theo thứ tự định nghĩa trong route.
+  // 2) Curriculum/exam giữ thứ tự nguồn; route khám phá sort theo title.
   const subById = new Map(subtopics.map((s) => [s.id, s]));
   const topics = [...topicMap.values()];
-  for (const t of topics) t.subtopicIds.sort((a, b) => (subById.get(a)!.title).localeCompare(subById.get(b)!.title, 'vi'));
+  for (const t of topics) {
+    const group = routeById.get(t.routeId)?.group ?? (t.routeId === EXTENDED_ROUTE_ID ? 'extended' : 'communication');
+    if (group === 'communication' || group === 'extended') {
+      t.subtopicIds.sort((a, b) => (subById.get(a)!.title).localeCompare(subById.get(b)!.title, 'vi'));
+    }
+  }
 
   // 3) Routes: gắn topicIds theo thứ tự topic định nghĩa.
   const routesArt: RouteArt[] = allRoutes.map((r) => {

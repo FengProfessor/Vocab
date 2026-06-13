@@ -22,6 +22,8 @@ function loadEnv() {
 
 const MOJIBAKE = /[─-╿]|ß[╗║╔╝┤┐]|├[│¼┤]|─[ä]/; // box-drawing hoặc chuỗi mis-decode đặc trưng
 const VN_CHARS = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i;
+interface CatalogArtifact { packs: { words: { word: string }[] }[] }
+interface DictionaryRow { word: string; data: { results?: { meanings?: { definition?: string }[] }[] } | null }
 
 function classify(def: string | undefined): 'ok' | 'empty' | 'mojibake' | 'untranslated' {
   const d = (def ?? '').trim();
@@ -35,8 +37,8 @@ function classify(def: string | undefined): 'ok' | 'empty' | 'mojibake' | 'untra
 async function main() {
   loadEnv();
   const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, { auth: { persistSession: false } });
-  const cat = JSON.parse(readFileSync(path.join(process.cwd(), 'src/data/vocab/catalog-v3.json'), 'utf8'));
-  const words: string[] = [...new Set((cat.packs as any[]).flatMap((p) => p.words.map((w: any) => w.word)))];
+  const cat = JSON.parse(readFileSync(path.join(process.cwd(), 'src/data/vocab/catalog-v3.json'), 'utf8')) as CatalogArtifact;
+  const words = [...new Set(cat.packs.flatMap((pack) => pack.words.map((item) => item.word)))];
 
   const bad: { word: string; reason: string; def: string }[] = [];
   const counts: Record<string, number> = { ok: 0, empty: 0, mojibake: 0, untranslated: 0, missing: 0 };
@@ -45,9 +47,9 @@ async function main() {
     const slice = words.slice(i, i + CH);
     const { data, error } = await sb.from('global_dictionary').select('word, data').in('word', slice);
     if (error) throw new Error(error.message);
-    const m = new Map((data ?? []).map((r: any) => [r.word.toLowerCase(), r]));
+    const m = new Map<string, DictionaryRow>(((data ?? []) as DictionaryRow[]).map((row) => [row.word.toLowerCase(), row]));
     for (const w of slice) {
-      const r: any = m.get(w);
+      const r = m.get(w);
       if (!r) { counts.missing++; bad.push({ word: w, reason: 'missing', def: '' }); continue; }
       const def = r.data?.results?.[0]?.meanings?.[0]?.definition;
       const c = classify(def);

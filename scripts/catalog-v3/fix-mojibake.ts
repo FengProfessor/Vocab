@@ -17,6 +17,7 @@ const DRY = !process.argv.includes('--apply');
 const MOJIBAKE = /[─-╿]|ß[╗║╔╝┤┐]|├[│¼┤]/;
 const VN_CHARS = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i;
 const REPLACEMENT = /�/;
+interface DictionaryData { results?: { meanings?: { definition?: string }[] }[] }
 
 function loadEnv() {
   const p = path.join(process.cwd(), '.env.local');
@@ -65,8 +66,8 @@ async function main() {
     for (const row of data ?? []) {
       const r = deepFix(row.data);
       if (!r.changed) { unrecoverable++; continue; }
-      const before = (row.data as any)?.results?.[0]?.meanings?.[0]?.definition;
-      const after = (r.value as any)?.results?.[0]?.meanings?.[0]?.definition;
+      const before = (row.data as DictionaryData | null)?.results?.[0]?.meanings?.[0]?.definition;
+      const after = (r.value as DictionaryData | null)?.results?.[0]?.meanings?.[0]?.definition;
       if (samples.length < 8) samples.push(`${row.word}: "${before}" → "${after}"`);
       backup.push({ word: row.word, data: row.data });
       fixed++;

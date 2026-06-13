@@ -18,10 +18,13 @@ function loadEnv() {
 }
 let KEYS: string[] = [];
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const errorMessage = (error: unknown): string => error instanceof Error ? error.message : String(error);
+interface GeminiTranslation { vi?: Record<string, string> }
+interface DictionaryData { results?: { meanings?: { definition?: string; [key: string]: unknown }[]; [key: string]: unknown }[]; [key: string]: unknown }
 async function gemini(prompt: string, attempt = 0): Promise<string> {
   const g = new GoogleGenerativeAI(KEYS[attempt % KEYS.length]).getGenerativeModel({ model: 'gemini-flash-lite-latest', generationConfig: { responseMimeType: 'application/json' } });
   try { const r = await g.generateContent({ contents: [{ role: 'user', parts: [{ text: prompt }] }] }, { signal: AbortSignal.timeout(45000) }); return r.response.text(); }
-  catch (e: any) { if (/429|quota|rate/i.test(String(e?.message)) && attempt < 6) { await sleep(5000 * (attempt + 1)); return gemini(prompt, attempt + 1); } throw e; }
+  catch (error: unknown) { if (/429|quota|rate/i.test(errorMessage(error)) && attempt < 6) { await sleep(5000 * (attempt + 1)); return gemini(prompt, attempt + 1); } throw error; }
 }
 
 async function main() {
@@ -39,8 +42,9 @@ async function main() {
   for (let i = 0; i < words.length; i += B) {
     const group = words.slice(i, i + B);
     const prompt = `Dịch mỗi từ/cụm tiếng Anh sang nghĩa tiếng Việt NGẮN GỌN (2-6 từ, có thể vài nghĩa cách nhau dấu phẩy). Trả JSON {"vi":{"<word>":"nghĩa"}} đúng mọi từ. Từ: ${JSON.stringify(group)}`;
-    let raw: string; try { raw = await gemini(prompt); } catch (e: any) { console.log('✗ batch: ' + e.message); continue; }
-    let obj: any; try { obj = JSON.parse(raw).vi; } catch { const mm = raw.match(/\{[\s\S]*\}/); if (mm) try { obj = JSON.parse(mm[0]).vi; } catch {} }
+    let raw: string; try { raw = await gemini(prompt); } catch (error: unknown) { console.log('✗ batch: ' + errorMessage(error)); continue; }
+    let obj: Record<string, string> = {};
+    try { obj = (JSON.parse(raw) as GeminiTranslation).vi ?? {}; } catch { const mm = raw.match(/\{[\s\S]*\}/); if (mm) try { obj = (JSON.parse(mm[0]) as GeminiTranslation).vi ?? {}; } catch {} }
     for (const w of group) if (obj?.[w]) trans.set(w, String(obj[w]));
     await sleep(2000);
   }
@@ -53,7 +57,7 @@ async function main() {
     const { data } = await sb.from('global_dictionary').select('word, data').in('word', slice);
     for (const row of data ?? []) {
       const vi = trans.get(row.word); if (!vi) continue;
-      const d: any = row.data ?? {};
+      const d = structuredClone(row.data ?? {}) as DictionaryData;
       d.results = d.results ?? [{}]; d.results[0] = d.results[0] ?? {}; d.results[0].meanings = d.results[0].meanings ?? [{}];
       const oldDef = d.results[0].meanings[0]?.definition;
       backup.push({ word: row.word, data: JSON.parse(JSON.stringify(row.data)) });
