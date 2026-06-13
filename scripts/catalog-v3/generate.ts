@@ -13,7 +13,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ROUTES, EXTENDED_ROUTE, ROUTE_OVERRIDES, EXTENDED_ROUTE_ID, type RouteDef } from './routes.ts';
+import { ROUTES, EXTENDED_ROUTE, CURRICULUM_ROUTES, GRADE_SET_ROUTE, ROUTE_OVERRIDES, EXTENDED_ROUTE_ID, type RouteDef, type RouteGroup } from './routes.ts';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(DIR, '../..');
@@ -106,14 +106,28 @@ interface SubtopicArt {
   attribution: string; qualityScore: number; publishStatus: 'published' | 'draft' | 'quarantine';
 }
 interface TopicArt { id: string; routeId: string; key: string; title: string; subtopicIds: string[]; qualityScore: number; publishStatus: 'published' | 'draft' }
-interface RouteArt { id: string; title: string; icon: string; coverImage: string; description: string; featured: boolean; topicIds: string[] }
+interface RouteArt { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; topicIds: string[] }
 
 function main() {
-  const allRoutes = [...ROUTES, EXTENDED_ROUTE];
+  const allRoutes = [...CURRICULUM_ROUTES, ...ROUTES, EXTENDED_ROUTE];
   const routeById = new Map(allRoutes.map((r) => [r.id, r]));
 
-  // 1) Gom lesson hợp lệ → subtopic thô; dedup theo title (giữ wordCount cao nhất).
-  interface Raw { pkg: SourcePackage; name: string; title: string; words: string[]; route: RouteDef; topicKey: string }
+  // 0) Phát hiện lớp của các Unit (Global Success) bằng Unit-number reset (chỉ pro3m, theo thứ tự nguồn).
+  //    Set 1 = Lớp 10, set 2 = Lớp 11, set 3 = Lớp 12, set 4 (16 unit hệ cũ) = bỏ.
+  const unitGrade = new Map<string, number>();
+  let lastNum = 0, gradeSet = 0;
+  for (const name of Object.keys(pro3m)) {
+    const m = name.trim().match(/^unit\s+(\d+)\s*:/i);
+    if (!m) continue;
+    const num = Number(m[1]);
+    if (lastNum === 0 || num <= lastNum) gradeSet++;
+    lastNum = num;
+    unitGrade.set(name, gradeSet);
+  }
+
+  // 1) Gom lesson hợp lệ. Unit (lớp 1-3) → track THPT (KHÔNG dedup). Còn lại → 7 route, dedup theo title.
+  interface Raw { pkg: SourcePackage; name: string; title: string; words: string[]; routeId: string; topicKey: string }
+  const curriculumRaws: Raw[] = [];
   const byTitle = new Map<string, Raw>();
   for (const pkg of ['pro3m', 'pro3m-plus'] as const) {
     const data = PACKAGES[pkg];
@@ -122,28 +136,39 @@ function main() {
       const words = cleanLessonWords(data[name].words ?? []);
       if (words.length < MIN_PACK || words.length > 200) continue;
       const title = getTopicTitle(name);
+
+      const grade = pkg === 'pro3m' ? unitGrade.get(name) : undefined;
+      if (grade !== undefined) {
+        const routeId = GRADE_SET_ROUTE[grade];
+        if (!routeId) continue; // set 4 (hệ cũ) → bỏ
+        const unitNum = Number(name.match(/unit\s+(\d+)/i)?.[1] ?? 0);
+        curriculumRaws.push({ pkg, name, title, words, routeId, topicKey: unitNum <= 5 ? 'hk1' : 'hk2' });
+        continue;
+      }
+
       const route = resolveRoute(name);
-      const raw: Raw = { pkg, name, title, words, route, topicKey: resolveTopic(route, name) };
+      const raw: Raw = { pkg, name, title, words, routeId: route.id, topicKey: resolveTopic(route, name) };
       const key = title.toLowerCase();
       const cur = byTitle.get(key);
       if (!cur || words.length > cur.words.length) byTitle.set(key, raw);
     }
   }
+  const allRaws: Raw[] = [...curriculumRaws, ...byTitle.values()];
 
   const subtopics: SubtopicArt[] = [];
   const packs: PackArt[] = [];
   // topicKey duy nhất = `${routeId}:${topicKey}`
   const topicMap = new Map<string, TopicArt>();
 
-  for (const raw of byTitle.values()) {
+  for (const raw of allRaws) {
     const subtopicId = `st-${sha(`${raw.pkg}::${raw.name}`).slice(0, 12)}`;
     const lessonType = detectLessonContentType(raw.name);
-    const topicUid = `${raw.route.id}:${raw.topicKey}`;
+    const topicUid = `${raw.routeId}:${raw.topicKey}`;
     const topicId = `tp-${sha(topicUid).slice(0, 10)}`;
 
     if (!topicMap.has(topicUid)) {
-      const tdef = raw.route.topics.find((t) => t.key === raw.topicKey)!;
-      topicMap.set(topicUid, { id: topicId, routeId: raw.route.id, key: raw.topicKey, title: tdef.title, subtopicIds: [], qualityScore: 0, publishStatus: 'draft' });
+      const tdef = routeById.get(raw.routeId)!.topics.find((t) => t.key === raw.topicKey)!;
+      topicMap.set(topicUid, { id: topicId, routeId: raw.routeId, key: raw.topicKey, title: tdef.title, subtopicIds: [], qualityScore: 0, publishStatus: 'draft' });
     }
     topicMap.get(topicUid)!.subtopicIds.push(subtopicId);
 
@@ -159,7 +184,7 @@ function main() {
     });
 
     subtopics.push({
-      id: subtopicId, topicId, routeId: raw.route.id, title: raw.title,
+      id: subtopicId, topicId, routeId: raw.routeId, title: raw.title,
       sourcePackage: raw.pkg, sourceName: raw.name,
       contentType: lessonType ?? 'word', wordCount: raw.words.length, packIds,
       previewWords: raw.words.slice(0, 5), cefrRange: null, coverImage: null,
@@ -178,7 +203,8 @@ function main() {
     const topicIds = r.topics
       .map((td) => topicMap.get(`${r.id}:${td.key}`)?.id)
       .filter((id): id is string => Boolean(id));
-    return { id: r.id, title: r.title, icon: r.icon, coverImage: r.coverImage, description: r.description, featured: r.id !== EXTENDED_ROUTE_ID, topicIds };
+    const group: RouteGroup = r.group ?? (r.id === EXTENDED_ROUTE_ID ? 'extended' : 'communication');
+    return { id: r.id, title: r.title, icon: r.icon, coverImage: r.coverImage, description: r.description, group, featured: r.id !== EXTENDED_ROUTE_ID, topicIds };
   });
 
   // 4) Sort ổn định cho output.

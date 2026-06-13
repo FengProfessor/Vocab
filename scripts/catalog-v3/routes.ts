@@ -12,18 +12,54 @@ export interface TopicDef {
   match: string[];
 }
 
+export type RouteGroup = 'curriculum' | 'communication' | 'extended';
+
 export interface RouteDef {
   id: string;
   title: string;
   icon: string;
   coverImage: string;
   description: string;
+  /** nhóm hiển thị: curriculum (chương trình/luyện thi) lên đầu, rồi communication, rồi extended.
+   *  Bỏ trống = 'communication' (7 route giao tiếp). */
+  group?: RouteGroup;
   /** keyword route-level (lowercase) — subtopic khớp sẽ vào route này nếu chưa bị override */
   match: string[];
   topics: TopicDef[];
 }
 
 export const EXTENDED_ROUTE_ID = 'extended';
+
+/**
+ * Track theo chương trình THPT Global Success — gán bằng Unit-number reset (KHÔNG dùng keyword).
+ * Lớp 10 = set Unit 1-10 đầu, Lớp 11 = set thứ 2, Lớp 12 = set thứ 3. Bộ 16-unit hệ cũ (set 4) bị bỏ.
+ * Topic = Học kỳ 1 (Unit 1-5) / Học kỳ 2 (Unit 6-10).
+ */
+export const CURRICULUM_ROUTES: RouteDef[] = [
+  {
+    id: 'thpt-lop-10', title: 'Lớp 10 — Global Success', icon: '🟢', group: 'curriculum',
+    coverImage: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80',
+    description: 'Từ vựng 10 Unit Tiếng Anh 10 (bộ Global Success).',
+    match: [],
+    topics: [{ key: 'hk1', title: 'Học kỳ 1 (Unit 1-5)', match: [] }, { key: 'hk2', title: 'Học kỳ 2 (Unit 6-10)', match: [] }],
+  },
+  {
+    id: 'thpt-lop-11', title: 'Lớp 11 — Global Success', icon: '🔵', group: 'curriculum',
+    coverImage: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80',
+    description: 'Từ vựng 10 Unit Tiếng Anh 11 (bộ Global Success).',
+    match: [],
+    topics: [{ key: 'hk1', title: 'Học kỳ 1 (Unit 1-5)', match: [] }, { key: 'hk2', title: 'Học kỳ 2 (Unit 6-10)', match: [] }],
+  },
+  {
+    id: 'thpt-lop-12', title: 'Lớp 12 — Global Success', icon: '🟣', group: 'curriculum',
+    coverImage: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',
+    description: 'Từ vựng 10 Unit Tiếng Anh 12 (bộ Global Success).',
+    match: [],
+    topics: [{ key: 'hk1', title: 'Học kỳ 1 (Unit 1-5)', match: [] }, { key: 'hk2', title: 'Học kỳ 2 (Unit 6-10)', match: [] }],
+  },
+];
+/** Map gradeSet (1,2,3) → route id. Set 4 (hệ cũ 16 unit) = bỏ. */
+export const GRADE_SET_ROUTE: Record<number, string> = { 1: 'thpt-lop-10', 2: 'thpt-lop-11', 3: 'thpt-lop-12' };
 
 /** Override cứng theo tên lesson đã normalize (lowercase, trim) → routeId. Cho ca mơ hồ. */
 export const ROUTE_OVERRIDES: Record<string, string> = {

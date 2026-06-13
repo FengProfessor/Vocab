@@ -21,7 +21,8 @@ interface Subtopic {
   cefrRange: { min: string; max: string } | null; coverImage: string | null; qualityScore: number; previewWords: string[]; packs: Pack[];
 }
 interface Topic { id: string; title: string; subtopics: Subtopic[] }
-interface Route { id: string; title: string; icon: string; coverImage: string; description: string; featured: boolean; subtopicCount: number; topics: Topic[] }
+type RouteGroup = 'curriculum' | 'communication' | 'extended';
+interface Route { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; subtopicCount: number; topics: Topic[] }
 interface CatalogResponse { success: boolean; routes?: Route[]; microPackSize?: number; catalogVersion?: string; error?: string }
 interface ImportResponse { success: boolean; imported?: number; classroomId?: string; packId?: string; wordIds?: string[]; message?: string; error?: string }
 
@@ -83,8 +84,9 @@ export default function LibraryPage() {
     return () => document.removeEventListener('keydown', onEsc);
   }, [importingPack, previewPack]);
 
-  const featured = useMemo(() => routes.filter((r) => r.featured), [routes]);
-  const extended = useMemo(() => routes.find((r) => !r.featured) ?? null, [routes]);
+  const curriculum = useMemo(() => routes.filter((r) => r.group === 'curriculum'), [routes]);
+  const communication = useMemo(() => routes.filter((r) => r.group === 'communication'), [routes]);
+  const extended = useMemo(() => routes.find((r) => r.group === 'extended') ?? null, [routes]);
   const activeRoute = useMemo(() => routes.find((r) => r.id === activeRouteId) ?? null, [routes, activeRouteId]);
   const totals = useMemo(() => routes.reduce((acc, r) => {
     for (const t of r.topics) for (const s of t.subtopics) { acc.subs++; acc.packs += s.packCount; acc.words += s.wordCount; }
@@ -213,16 +215,27 @@ export default function LibraryPage() {
           </div>
         ) : (
           <>
-            {/* ── Lộ trình nổi bật ── */}
-            <section aria-labelledby="featured-title">
-              <div className="mb-4 flex items-end justify-between gap-4 px-1">
-                <div>
-                  <h2 id="featured-title" className="text-xl font-black">Lộ trình nổi bật</h2>
-                  <p className="text-sm text-slate-500">7 lộ trình theo mục tiêu giao tiếp & học tập.</p>
+            {/* ── Theo chương trình học (THPT) ── */}
+            {curriculum.length > 0 && (
+              <section aria-labelledby="curriculum-title">
+                <div className="mb-4 px-1">
+                  <h2 id="curriculum-title" className="text-xl font-black">🎒 Theo chương trình học</h2>
+                  <p className="text-sm text-slate-500">Từ vựng bám sát sách giáo khoa THPT (Global Success).</p>
                 </div>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {curriculum.map((r) => <RouteCard key={r.id} r={r} big />)}
+                </div>
+              </section>
+            )}
+
+            {/* ── Lộ trình giao tiếp ── */}
+            <section aria-labelledby="featured-title">
+              <div className="mb-4 px-1">
+                <h2 id="featured-title" className="text-xl font-black">💬 Lộ trình giao tiếp</h2>
+                <p className="text-sm text-slate-500">7 lộ trình theo mục tiêu giao tiếp & đời sống.</p>
               </div>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {featured.map((r) => <RouteCard key={r.id} r={r} big />)}
+                {communication.map((r) => <RouteCard key={r.id} r={r} big />)}
               </div>
             </section>
 

@@ -14,7 +14,8 @@ export type ContentType = 'word' | 'phrase' | 'idiom' | 'phrasal_verb';
 export type PublishStatus = 'published' | 'draft' | 'quarantine';
 export interface CefrRange { min: string; max: string }
 
-interface RawRoute { id: string; title: string; icon: string; coverImage: string; description: string; featured: boolean; topicIds: string[] }
+export type RouteGroup = 'curriculum' | 'communication' | 'extended';
+interface RawRoute { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; topicIds: string[] }
 interface RawTopic { id: string; routeId: string; key: string; title: string; subtopicIds: string[] }
 interface RawSubtopic {
   id: string; topicId: string; routeId: string; title: string; sourcePackage: 'pro3m' | 'pro3m-plus'; sourceName: string;
@@ -64,7 +65,7 @@ export interface CatalogSubtopic {
   cefrRange: CefrRange | null; coverImage: string | null; qualityScore: number; featuredEligible: boolean; previewWords: string[]; packs: CatalogPack[];
 }
 export interface CatalogTopic { id: string; title: string; subtopics: CatalogSubtopic[] }
-export interface CatalogRoute { id: string; title: string; icon: string; coverImage: string; description: string; featured: boolean; topics: CatalogTopic[]; subtopicCount: number }
+export interface CatalogRoute { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; topics: CatalogTopic[]; subtopicCount: number }
 
 let cachedTree: CatalogRoute[] | null = null;
 
@@ -100,7 +101,7 @@ export function getCatalogTree(): CatalogRoute[] {
       .filter((t) => t.subtopics.length > 0);
 
     const subtopicCount = topics.reduce((n, t) => n + t.subtopics.length, 0);
-    return { id: route.id, title: route.title, icon: route.icon, coverImage: route.coverImage, description: route.description, featured: route.featured, topics, subtopicCount };
+    return { id: route.id, title: route.title, icon: route.icon, coverImage: route.coverImage, description: route.description, group: route.group, featured: route.featured, topics, subtopicCount };
   }).filter((r) => r.subtopicCount > 0);
 
   cachedTree = tree;
