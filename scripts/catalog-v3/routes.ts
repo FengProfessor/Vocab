@@ -12,7 +12,7 @@ export interface TopicDef {
   match: string[];
 }
 
-export type RouteGroup = 'curriculum' | 'communication' | 'extended';
+export type RouteGroup = 'curriculum' | 'exam' | 'communication' | 'extended';
 
 export interface RouteDef {
   id: string;
@@ -56,6 +56,38 @@ export const CURRICULUM_ROUTES: RouteDef[] = [
     description: 'Từ vựng 10 Unit Tiếng Anh 12 (bộ Global Success).',
     match: [],
     topics: [{ key: 'hk1', title: 'Học kỳ 1 (Unit 1-5)', match: [] }, { key: 'hk2', title: 'Học kỳ 2 (Unit 6-10)', match: [] }],
+  },
+];
+
+export const EXAM_ROUTES: RouteDef[] = [
+  {
+    id: 'toeic', title: 'TOEIC', icon: '💼', group: 'exam',
+    coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
+    description: 'Từ vựng theo ngữ cảnh công sở, kinh doanh và dịch vụ thường gặp trong TOEIC.',
+    match: [],
+    topics: [
+      { key: 'work-employment', title: 'Công việc & tuyển dụng', match: [] },
+      { key: 'business-finance', title: 'Kinh doanh & tài chính', match: [] },
+      { key: 'communication-office', title: 'Giao tiếp công sở', match: [] },
+      { key: 'travel-service', title: 'Du lịch & dịch vụ', match: [] },
+      { key: 'people-leadership', title: 'Nhân sự & lãnh đạo', match: [] },
+    ],
+  },
+  {
+    id: 'ielts', title: 'IELTS', icon: '🎓', group: 'exam',
+    coverImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=900&q=80',
+    description: 'Từ vựng theo các chủ đề thường dùng khi luyện IELTS Reading, Writing và Speaking.',
+    match: [],
+    topics: [
+      { key: 'education', title: 'Education', match: [] },
+      { key: 'environment', title: 'Environment & Climate', match: [] },
+      { key: 'technology', title: 'Science & Technology', match: [] },
+      { key: 'health', title: 'Health & Medicine', match: [] },
+      { key: 'society-culture', title: 'Society & Culture', match: [] },
+      { key: 'media-entertainment', title: 'Media & Entertainment', match: [] },
+      { key: 'travel-urbanization', title: 'Travel & Urbanization', match: [] },
+      { key: 'law-problems', title: 'Law & Social Problems', match: [] },
+    ],
   },
 ];
 /** Map gradeSet (1,2,3) → route id. Set 4 (hệ cũ 16 unit) = bỏ. */

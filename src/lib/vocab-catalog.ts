@@ -14,21 +14,24 @@ export type ContentType = 'word' | 'phrase' | 'idiom' | 'phrasal_verb';
 export type PublishStatus = 'published' | 'draft' | 'quarantine';
 export interface CefrRange { min: string; max: string }
 
-export type RouteGroup = 'curriculum' | 'communication' | 'extended';
+export type RouteGroup = 'curriculum' | 'exam' | 'communication' | 'extended';
 interface RawRoute { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; topicIds: string[] }
 interface RawTopic { id: string; routeId: string; key: string; title: string; subtopicIds: string[] }
 interface RawSubtopic {
-  id: string; topicId: string; routeId: string; title: string; sourcePackage: 'pro3m' | 'pro3m-plus'; sourceName: string;
+  id: string; topicId: string; routeId: string; title: string; sourcePackage: 'pro3m' | 'pro3m-plus' | 'exam-toeic' | 'exam-ielts'; sourceName: string;
   contentType: ContentType; wordCount: number; packIds: string[]; previewWords: string[];
   cefrRange: CefrRange | null; coverImage: string | null; attribution: string;
 }
 interface RawPack { id: string; subtopicId: string; index: number; title: string; wordCount: number; words: { word: string; contentType: ContentType }[] }
 interface RawArtifact { catalogVersion: string; microPackSize: number; routes: RawRoute[]; topics: RawTopic[]; subtopics: RawSubtopic[]; packs: RawPack[] }
-interface QualitySub { publishStatus: PublishStatus; featuredEligible?: boolean; qualityScore: number; viCoverage: number; imageCoverage: number; cefrRange: CefrRange | null; coverImage: string | null }
-interface RawQuality { subtopics: Record<string, QualitySub>; topics: Record<string, { publishStatus: string; qualityScore: number }>; routes: Record<string, { publishStatus: string; publishedSubtopics: number; totalSubtopics: number }> }
+interface QualitySub { publishStatus: PublishStatus; featuredEligible?: boolean; qualityScore: number; meaningCoverage: number; imageCoverage: number; cefrRange: CefrRange | null; coverImage: string | null }
+interface RawQuality { catalogVersion: string; subtopics: Record<string, QualitySub>; topics: Record<string, { publishStatus: string; qualityScore: number }>; routes: Record<string, { publishStatus: string; publishedSubtopics: number; totalSubtopics: number }> }
 
 const artifact = catalogArtifact as unknown as RawArtifact;
 const quality = catalogQuality as unknown as RawQuality;
+if (artifact.catalogVersion !== quality.catalogVersion) {
+  throw new Error(`Catalog quality version mismatch: artifact=${artifact.catalogVersion}, quality=${quality.catalogVersion}`);
+}
 
 export const CATALOG_VERSION = artifact.catalogVersion;
 export const MICRO_PACK_SIZE = artifact.microPackSize;
@@ -93,9 +96,11 @@ export function getCatalogTree(): CatalogRoute[] {
               cefrRange: q?.cefrRange ?? s.cefrRange, coverImage: q?.coverImage ?? s.coverImage,
               qualityScore: q?.qualityScore ?? 0, featuredEligible: q?.featuredEligible ?? false, previewWords: s.previewWords, packs,
             };
-          })
-          // Ảnh nhiều / chất lượng cao lên đầu (eligible trước, rồi qualityScore desc).
-          .sort((a, b) => Number(b.featuredEligible) - Number(a.featuredEligible) || b.qualityScore - a.qualityScore || a.title.localeCompare(b.title, 'vi'));
+          });
+        // Route luyện thi giữ đúng thứ tự chặng; route khám phá ưu tiên nội dung chất lượng cao.
+        if (route.group !== 'exam') {
+          subtopics.sort((a, b) => Number(b.featuredEligible) - Number(a.featuredEligible) || b.qualityScore - a.qualityScore || a.title.localeCompare(b.title, 'vi'));
+        }
         return { id: topic.id, title: topic.title, subtopics };
       })
       .filter((t) => t.subtopics.length > 0);
