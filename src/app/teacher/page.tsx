@@ -6,75 +6,26 @@ import type { Classroom, Profile, StudentProgress } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  Brain, Plus, Users, BookOpen, BarChart3, LogOut, Copy,
-  CheckCircle2, Zap, Loader2, Trash2, TrendingUp, GraduationCap,
-  ChevronRight, Star, Activity, Target, AlertTriangle, Clock,
-  ThumbsUp, ThumbsDown, Inbox, Flame, HelpCircle
+  Brain, Plus, Users, BookOpen, LogOut, Copy, CheckCircle2, Zap,
+  Loader2, Trash2, TrendingUp, GraduationCap, ChevronRight, Clock,
+  BarChart3, HelpCircle,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
 import { authFetch } from '@/lib/auth-fetch';
+import { track } from '@/lib/analytics';
+import WordsPanel from '@/components/teacher/WordsPanel';
+import GrammarPanel from '@/components/teacher/GrammarPanel';
+import AnalyticsPanel from '@/components/teacher/AnalyticsPanel';
 import { StudyGuideModal, TEACHER_METHOD_KEY } from '@/components/StudyGuideModal';
+import type { AnalyticsData, PendingWord, TeacherTab } from '@/components/teacher/types';
 
-// --- Analytics types ---
-interface ClassStats {
-  active_students: number;
-  total_enrolled: number;
-  total_class_words: number;
-  avg_accuracy: number;
-  words_due_today: number;
-}
-
-interface StudentSummary {
-  student_id: string;
-  student_name: string;
-  email: string;
-  vms: number;
-  avg_accuracy?: number; // cho struggling students (% đã round)
-  words_reviewed: number;
-  lcs: number;
-  last_active?: string;
-}
-
-interface WordDifficulty {
-  word_id: string;
-  word: string;
-  fail_rate: number;
-}
-
-interface WordCoverage {
-  word_id: string;
-  word: string;
-  students_reviewed: number;
-  coverage_pct: number;
-}
-
-interface ActivityItem {
-  type: 'quiz' | 'review';
-  student_id: string;
-  student_name: string;
-  detail: string;
-  timestamp: string;
-}
-
-interface AnalyticsData {
-  classStats: ClassStats;
-  topStudents: StudentSummary[];
-  strugglingStudents: StudentSummary[];
-  wordCoverage: WordCoverage[];
-  wordDifficulty: WordDifficulty[];
-  activityFeed: ActivityItem[];
-}
-
-interface PendingWord {
-  id: string;
-  word: string;
-  translation?: string;
-  pos?: string;
-  added_by?: string;
-  created_at: string;
-  adder_name?: string;
-}
+const TABS: { key: TeacherTab; label: string; icon: typeof Users }[] = [
+  { key: 'students', label: 'Học sinh', icon: Users },
+  { key: 'words', label: 'Từ vựng', icon: BookOpen },
+  { key: 'grammar', label: 'Ngữ pháp', icon: Zap },
+  { key: 'analytics', label: 'Phân tích', icon: BarChart3 },
+];
 
 export default function TeacherDashboard() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -91,32 +42,11 @@ export default function TeacherDashboard() {
   const [newClassDesc, setNewClassDesc] = useState('');
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [copiedCode, setCopiedCode] = useState('');
+  const [activeTab, setActiveTab] = useState<TeacherTab>('students');
+  const [userId, setUserId] = useState<string | null>(null);
   // Modal giải thích phương pháp học cho GV — tự hiện lần đầu, mở lại qua nút "Phương pháp"
   const [showMethod, setShowMethod] = useState(false);
   const router = useRouter();
-
-  const loadAnalytics = useCallback(async (teacherId: string, classroomId: string) => {
-    setIsLoadingAnalytics(true);
-    try {
-      const res = await authFetch(`/api/teacher/analytics?classroomId=${classroomId}`);
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      setAnalytics(data as AnalyticsData);
-    } catch (err: unknown) {
-      console.error('[TeacherDashboard] analytics error:', err);
-      // Non-fatal: analytics is a bonus, don't toast
-    } finally {
-      setIsLoadingAnalytics(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  useEffect(() => {
-    if (selectedClass) loadStudents(selectedClass.id);
-  }, [selectedClass]);
 
   useEffect(() => {
     if (localStorage.getItem(TEACHER_METHOD_KEY) !== '1') setShowMethod(true);
@@ -126,32 +56,92 @@ export default function TeacherDashboard() {
     setShowMethod(false);
   };
 
-  const loadData = async (classId?: string) => {
+  // Đồng bộ tab vào URL để link cũ (?class=&tab=) hoạt động và F5 giữ vị trí
+  const changeTab = useCallback((tab: TeacherTab, classId?: string) => {
+    setActiveTab(tab);
+    const params = new URLSearchParams(window.location.search);
+    params.set('tab', tab);
+    if (classId) params.set('class', classId);
+    window.history.replaceState({}, '', `/teacher?${params.toString()}`);
+  }, []);
+
+  const loadAnalytics = useCallback(async (classroomId: string) => {
+    setIsLoadingAnalytics(true);
+    try {
+      const res = await authFetch(`/api/teacher/analytics?classroomId=${classroomId}`);
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      setAnalytics(data as AnalyticsData);
+    } catch (err: unknown) {
+      console.error('[TeacherDashboard] analytics error:', err);
+    } finally {
+      setIsLoadingAnalytics(false);
+    }
+  }, []);
+
+  const loadPendingWords = useCallback(async (classroomId: string) => {
+    try {
+      const res = await fetch(`/api/words?classroomId=${classroomId}&status=pending`);
+      const data = await res.json() as { success?: boolean; data?: PendingWord[] };
+      if (data.success) setPendingWords(data.data ?? []);
+    } catch { /* non-fatal */ }
+  }, []);
+
+  const loadStudents = useCallback(async (classroomId: string) => {
+    try {
+      const res = await authFetch(`/api/teacher/stats?classroomId=${classroomId}`);
+      const data = await res.json();
+      setStudents(data.students || []);
+      void loadAnalytics(classroomId);
+      void loadPendingWords(classroomId);
+    } catch {
+      toast.error('Failed to load students');
+    }
+  }, [loadAnalytics, loadPendingWords]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('pilot_signup') === '1') {
+      track('teacher_signup_completed', {
+        plan: params.get('pilot') ?? undefined,
+        source: params.get('source') ?? 'teacher_landing',
+      });
+    }
+    const urlTab = params.get('tab') as TeacherTab | null;
+    if (urlTab && TABS.some(t => t.key === urlTab)) setActiveTab(urlTab);
+    loadData(params.get('class') ?? undefined);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (selectedClass) loadStudents(selectedClass.id);
+  }, [selectedClass, loadStudents]);
+
+  const loadData = async (preferClassId?: string) => {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) { router.push('/auth'); return; }
+    setUserId(user.id);
 
     try {
-      const url = `/api/teacher/stats${classId ? `?classroomId=${classId}` : ''}`;
-      const res = await authFetch(url);
+      const res = await authFetch('/api/teacher/stats');
       const data = await res.json();
-      
       if (data.error) throw new Error(data.error);
 
-      setProfile({ id: user.id } as Profile);
-
-      // Handle profile fetching separately or just use what we have
       const { data: prof } = await supabase.from('profiles').select('*').eq('id', user.id).single();
-      if (prof) setProfile(prof);
+      setProfile(prof ?? ({ id: user.id } as Profile));
 
-      setClassrooms(data.classrooms || []);
-      
-      // Select first classroom if not already selected
-      if (!classId && data.classrooms?.length > 0) {
-        setSelectedClass(data.classrooms[0]);
-        // Re-run to load students for the first classroom
-        loadData(data.classrooms[0].id);
-      } else if (classId) {
-        setStudents(data.students || []);
+      const loadedClasses = (data.classrooms || []) as Classroom[];
+      setClassrooms(loadedClasses);
+      track('teacher_dashboard_viewed', {
+        classroom_count: loadedClasses.length,
+        student_count: loadedClasses.reduce((sum, c) => sum + (c.enrollment_count || 0), 0),
+      });
+
+      if (loadedClasses.length > 0) {
+        const preferred = preferClassId
+          ? loadedClasses.find(c => c.id === preferClassId)
+          : undefined;
+        setSelectedClass(preferred ?? loadedClasses[0]);
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
@@ -159,21 +149,6 @@ export default function TeacherDashboard() {
       toast.error('Failed to load classes: ' + msg);
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const loadStudents = async (classroomId: string) => {
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
-      const res = await authFetch(`/api/teacher/stats?classroomId=${classroomId}`);
-      const data = await res.json();
-      setStudents(data.students || []);
-      // Load analytics + pending words in parallel
-      void loadAnalytics(user.id, classroomId);
-      void loadPendingWords(classroomId);
-    } catch {
-      toast.error('Failed to load students');
     }
   };
 
@@ -191,8 +166,9 @@ export default function TeacherDashboard() {
       console.error('Create classroom error:', error);
       toast.error(`Failed to create classroom: ${error.message}`);
     } else {
-      toast.success(`Classroom "${data.name}" created!`);
+      toast.success(`Đã tạo lớp "${data.name}"!`);
       setClassrooms([{ ...data, enrollment_count: 0 }, ...classrooms]);
+      track('teacher_class_created', { classroom_id: data.id, classroom_count: classrooms.length + 1 });
       setSelectedClass({ ...data, enrollment_count: 0 });
       setShowCreateModal(false);
       setNewClassName('');
@@ -201,31 +177,20 @@ export default function TeacherDashboard() {
     setIsCreating(false);
   };
 
-
   const handleDeleteClass = async (id: string) => {
-    if (!confirm('Delete this classroom? All data will be lost.')) return;
+    if (!confirm('Xóa lớp này? Toàn bộ dữ liệu sẽ mất.')) return;
     await supabase.from('classrooms').delete().eq('id', id);
     const updated = classrooms.filter(c => c.id !== id);
     setClassrooms(updated);
     setSelectedClass(updated[0] || null);
-    toast.success('Classroom deleted.');
+    toast.success('Đã xóa lớp.');
   };
 
   const copyInviteCode = (code: string) => {
     navigator.clipboard.writeText(code);
     setCopiedCode(code);
-    toast.success('Invite code copied!');
+    toast.success('Đã copy mã mời!');
     setTimeout(() => setCopiedCode(''), 2000);
-  };
-
-  const loadPendingWords = async (classroomId: string) => {
-    try {
-      const res = await fetch(`/api/words?classroomId=${classroomId}&status=pending`);
-      const data = await res.json() as { success?: boolean; data?: PendingWord[] };
-      if (data.success) setPendingWords(data.data ?? []);
-    } catch {
-      // non-fatal
-    }
   };
 
   const handleWordStatus = async (wordId: string, status: 'approved' | 'rejected') => {
@@ -256,31 +221,21 @@ export default function TeacherDashboard() {
   if (isLoading) {
     return (
       <div className="min-h-dvh bg-muted/40 font-sans">
-        <header className="h-14 border-b bg-background px-6 flex items-center justify-between lg:hidden">
+        <header className="h-14 border-b bg-background px-6 flex items-center justify-between sm:hidden">
           <Skeleton className="h-6 w-32" />
           <Skeleton className="h-9 w-9 rounded-full" />
         </header>
-        <div className="flex flex-col lg:flex-row min-h-dvh">
-          <aside className="hidden lg:flex w-64 border-r bg-background flex-col p-6 space-y-6">
+        <div className="flex flex-col sm:flex-row min-h-dvh">
+          <aside className="hidden sm:flex w-64 border-r bg-background flex-col p-6 space-y-6">
             <Skeleton className="h-10 w-full" />
             <Skeleton className="h-10 w-full" />
             <Skeleton className="h-10 w-full" />
           </aside>
           <main className="flex-1 p-4 lg:p-8 space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <Skeleton className="h-32 w-full rounded-2xl" />
-              <Skeleton className="h-32 w-full rounded-2xl" />
-              <Skeleton className="h-32 w-full rounded-2xl" />
-              <Skeleton className="h-32 w-full rounded-2xl" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[0, 1, 2, 3].map(i => <Skeleton key={i} className="h-24 w-full rounded-2xl" />)}
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2 space-y-6">
-                <Skeleton className="h-[500px] w-full rounded-2xl" />
-              </div>
-              <div className="space-y-6">
-                <Skeleton className="h-[500px] w-full rounded-2xl" />
-              </div>
-            </div>
+            <Skeleton className="h-[500px] w-full rounded-2xl" />
           </main>
         </div>
       </div>
@@ -292,9 +247,22 @@ export default function TeacherDashboard() {
     ? Math.round(students.reduce((s, st) => s + (st.avg_quiz_accuracy || 0), 0) / students.length * 100)
     : 0;
 
+  // Stat strip — dùng analytics.classStats khi có, fallback số liệu cơ bản
+  const stats = selectedClass && analytics ? [
+    { label: 'Hoạt động (7 ngày)', val: `${analytics.classStats.active_students}/${analytics.classStats.total_enrolled}`, icon: Users, color: 'text-sky-500', bg: 'bg-sky-500/10' },
+    { label: 'Từ đã học', val: analytics.classStats.total_class_words, icon: BookOpen, color: 'text-violet-500', bg: 'bg-violet-500/10' },
+    { label: 'Độ chính xác TB', val: `${analytics.classStats.avg_accuracy}%`, icon: TrendingUp, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+    { label: 'Cần ôn hôm nay', val: analytics.classStats.words_due_today, icon: Clock, color: 'text-amber-500', bg: 'bg-amber-500/10' },
+  ] : [
+    { label: 'Tổng học sinh', val: totalStudents, icon: Users, color: 'text-sky-500', bg: 'bg-sky-500/10' },
+    { label: 'Số lớp', val: classrooms.length, icon: BookOpen, color: 'text-violet-500', bg: 'bg-violet-500/10' },
+    { label: 'HS trong lớp', val: selectedClass?.enrollment_count || 0, icon: GraduationCap, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+    { label: 'Điểm quiz TB', val: `${avgAccuracy}%`, icon: TrendingUp, color: 'text-amber-500', bg: 'bg-amber-500/10' },
+  ];
+
   return (
     <div className="flex min-h-dvh bg-muted/40 font-sans">
-      {/* Sidebar */}
+      {/* Sidebar (desktop) */}
       <aside className="fixed inset-y-0 left-0 z-10 w-64 flex-col border-r bg-background hidden sm:flex">
         <div className="flex h-14 items-center border-b px-5">
           <Link href="/" className="flex items-center gap-2 font-bold text-primary">
@@ -303,7 +271,6 @@ export default function TeacherDashboard() {
           </Link>
         </div>
 
-        {/* Profile */}
         <div className="p-4 border-b">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center font-bold text-primary text-sm">
@@ -312,16 +279,15 @@ export default function TeacherDashboard() {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold truncate">{profile?.full_name}</p>
               <p className="text-xs text-muted-foreground flex items-center gap-1">
-                <GraduationCap className="h-3 w-3" /> Teacher
+                <GraduationCap className="h-3 w-3" /> Giáo viên
               </p>
             </div>
           </div>
         </div>
 
-        {/* Classes list */}
         <div className="flex-1 overflow-y-auto py-3 px-2">
           <div className="flex items-center justify-between px-2 mb-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">My Classes</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Lớp của tôi</p>
             <button
               onClick={() => setShowCreateModal(true)}
               className="w-7 h-7 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 flex items-center justify-center transition-colors"
@@ -346,17 +312,17 @@ export default function TeacherDashboard() {
               </button>
             ))}
             {classrooms.length === 0 && (
-              <p className="text-xs text-muted-foreground text-center py-4">No classes yet. Create one!</p>
+              <p className="text-xs text-muted-foreground text-center py-4">Chưa có lớp. Tạo mới!</p>
             )}
           </nav>
         </div>
 
         <div className="p-4 border-t space-y-1">
           <Link href="/teacher/grammar" className="flex items-center gap-3 px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-xl transition-all">
-            <BookOpen className="h-4 w-4" /> Grammar Lessons
+            <BookOpen className="h-4 w-4" /> Thư viện Ngữ pháp
           </Link>
           <button onClick={handleSignOut} className="w-full flex items-center gap-3 px-3 py-2.5 text-sm text-muted-foreground hover:text-destructive hover:bg-destructive/5 rounded-xl transition-all">
-            <LogOut className="h-4 w-4" /> Sign Out
+            <LogOut className="h-4 w-4" /> Đăng xuất
           </button>
         </div>
       </aside>
@@ -364,45 +330,60 @@ export default function TeacherDashboard() {
       {/* Main content */}
       <div className="flex-1 flex flex-col sm:pl-64">
         {/* Header */}
-        <header className="sticky top-0 z-30 flex items-center justify-between h-14 border-b bg-background/80 backdrop-blur px-6">
-          <div>
-            <h1 className="font-bold text-lg">{selectedClass?.name || 'Teacher Dashboard'}</h1>
-            {selectedClass && (
-              <div className="flex items-center gap-2">
-                <p className="text-xs text-muted-foreground">Invite code:</p>
-                <button
-                  onClick={() => copyInviteCode(selectedClass.invite_code)}
-                  className="flex items-center gap-1.5 text-xs font-mono font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-md hover:bg-primary/20 transition-colors"
-                >
-                  {selectedClass.invite_code}
-                  {copiedCode === selectedClass.invite_code
-                    ? <CheckCircle2 className="h-3 w-3" />
-                    : <Copy className="h-3 w-3" />
-                  }
-                </button>
-              </div>
-            )}
+        <header className="sticky top-0 z-30 flex items-center justify-between gap-3 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6">
+          <div className="flex items-center gap-3 min-w-0">
+            {/* Mobile class selector — sidebar bị ẩn trên mobile */}
+            <select
+              value={selectedClass?.id ?? ''}
+              onChange={e => {
+                const cls = classrooms.find(c => c.id === e.target.value);
+                if (cls) setSelectedClass(cls);
+              }}
+              className="sm:hidden border rounded-lg px-2 py-1.5 text-sm font-semibold bg-muted/30 max-w-[160px]"
+            >
+              {classrooms.length === 0 && <option value="">Chưa có lớp</option>}
+              {classrooms.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+            </select>
+
+            <div className="min-w-0 hidden sm:block">
+              <h1 className="font-bold text-lg truncate">{selectedClass?.name || 'Bảng điều khiển'}</h1>
+              {selectedClass && (
+                <div className="flex items-center gap-2">
+                  <p className="text-xs text-muted-foreground">Mã mời:</p>
+                  <button
+                    onClick={() => copyInviteCode(selectedClass.invite_code)}
+                    className="flex items-center gap-1.5 text-xs font-mono font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-md hover:bg-primary/20 transition-colors"
+                  >
+                    {selectedClass.invite_code}
+                    {copiedCode === selectedClass.invite_code ? <CheckCircle2 className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             {/* Giải thích cơ chế học cho GV — luôn hiện, kể cả chưa có lớp */}
             <button
               onClick={() => setShowMethod(true)}
               title="Phương pháp học của học sinh"
-              className="flex items-center gap-1.5 text-sm font-semibold text-muted-foreground hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-xl transition-colors"
+              className="flex items-center gap-1.5 px-2 sm:px-3 py-2 text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-xl transition-colors text-sm font-semibold"
             >
               <HelpCircle className="h-4 w-4" /> <span className="hidden sm:inline">Phương pháp</span>
             </button>
             {selectedClass && (
               <>
-                <Link href={`/teacher/words/${selectedClass.id}`} className="flex items-center gap-2 text-sm font-semibold bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-xl transition-colors">
-                  <Plus className="h-4 w-4" /> Add Words
-                </Link>
-                <Link href={`/teacher/grammar/${selectedClass.id}`} className="flex items-center gap-2 text-sm font-semibold bg-muted text-foreground hover:bg-muted/80 px-4 py-2 rounded-xl transition-colors">
-                  <Zap className="h-4 w-4" /> Grammar
-                </Link>
+                {/* Mobile: nút copy mã mời gọn */}
+                <button
+                  onClick={() => copyInviteCode(selectedClass.invite_code)}
+                  className="sm:hidden flex items-center gap-1 text-xs font-mono font-bold bg-primary/10 text-primary px-2 py-1.5 rounded-lg"
+                >
+                  {selectedClass.invite_code}
+                  {copiedCode === selectedClass.invite_code ? <CheckCircle2 className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                </button>
                 <button
                   onClick={() => handleDeleteClass(selectedClass.id)}
                   className="p-2 text-muted-foreground hover:text-destructive hover:bg-destructive/5 rounded-xl transition-colors"
+                  title="Xóa lớp"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -411,421 +392,177 @@ export default function TeacherDashboard() {
           </div>
         </header>
 
-        <main className="flex-1 p-6 space-y-6">
-          {/* Stats cards — context-aware when class selected */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {selectedClass && analytics ? (
-              <>
-                {[
-                  {
-                    label: 'Active (7 days)',
-                    val: `${analytics.classStats.active_students}/${analytics.classStats.total_enrolled}`,
-                    icon: Users, color: 'text-sky-500', bg: 'bg-sky-500/10'
-                  },
-                  {
-                    label: 'Total Words Studied',
-                    val: analytics.classStats.total_class_words,
-                    icon: BookOpen, color: 'text-violet-500', bg: 'bg-violet-500/10'
-                  },
-                  {
-                    label: 'Avg. Quiz Accuracy',
-                    val: `${analytics.classStats.avg_accuracy}%`,
-                    icon: TrendingUp, color: 'text-emerald-500', bg: 'bg-emerald-500/10'
-                  },
-                  {
-                    label: 'Words Due Today',
-                    val: analytics.classStats.words_due_today,
-                    icon: Clock, color: 'text-amber-500', bg: 'bg-amber-500/10'
-                  },
-                ].map(stat => (
-                  <div key={stat.label} className="bg-background border rounded-2xl p-4 flex items-center gap-4 shadow-sm">
-                    <div className={`${stat.bg} p-2.5 rounded-xl`}>
-                      <stat.icon className={`h-5 w-5 ${stat.color}`} />
-                    </div>
-                    <div>
-                      <p className="text-2xl font-bold">{stat.val}</p>
-                      <p className="text-xs text-muted-foreground">{stat.label}</p>
-                    </div>
-                  </div>
-                ))}
-              </>
-            ) : (
-              <>
-                {[
-                  { label: 'Total Students', val: totalStudents, icon: Users, color: 'text-sky-500', bg: 'bg-sky-500/10' },
-                  { label: 'Classrooms', val: classrooms.length, icon: BookOpen, color: 'text-violet-500', bg: 'bg-violet-500/10' },
-                  { label: 'Students in Class', val: selectedClass ? (selectedClass.enrollment_count || 0) : 0, icon: GraduationCap, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
-                  { label: 'Avg. Quiz Score', val: `${avgAccuracy}%`, icon: TrendingUp, color: 'text-amber-500', bg: 'bg-amber-500/10' },
-                ].map(stat => (
-                  <div key={stat.label} className="bg-background border rounded-2xl p-4 flex items-center gap-4 shadow-sm">
-                    <div className={`${stat.bg} p-2.5 rounded-xl`}>
-                      <stat.icon className={`h-5 w-5 ${stat.color}`} />
-                    </div>
-                    <div>
-                      <p className="text-2xl font-bold">{stat.val}</p>
-                      <p className="text-xs text-muted-foreground">{stat.label}</p>
-                    </div>
-                  </div>
-                ))}
-              </>
-            )}
+        {/* Tab bar — chỉ hiện khi có lớp được chọn */}
+        {selectedClass && (
+          <div className="sticky top-14 z-20 border-b bg-background/80 backdrop-blur px-2 sm:px-6">
+            <nav className="flex gap-1 overflow-x-auto">
+              {TABS.map(t => {
+                const isPending = t.key === 'analytics' && pendingWords.length > 0;
+                return (
+                  <button
+                    key={t.key}
+                    onClick={() => changeTab(t.key, selectedClass.id)}
+                    className={`relative flex items-center gap-2 px-4 py-3 text-sm font-semibold whitespace-nowrap border-b-2 transition-colors ${
+                      activeTab === t.key
+                        ? 'border-primary text-primary'
+                        : 'border-transparent text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    <t.icon className="h-4 w-4" />
+                    {t.label}
+                    {isPending && (
+                      <span className="ml-1 flex items-center justify-center min-w-4 h-4 px-1 rounded-full bg-amber-500 text-white text-[10px] font-bold">
+                        {pendingWords.length}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </nav>
           </div>
+        )}
 
-          {/* Student Progress Table */}
-          {selectedClass ? (
-            <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-              <div className="px-6 py-4 border-b flex items-center justify-between">
-                <h2 className="font-bold">Student Progress — {selectedClass.name}</h2>
-                <span className="text-xs text-muted-foreground">{students.length} enrolled</span>
-              </div>
-              {students.length === 0 ? (
-                <div className="p-12 text-center">
-                  <Users className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
-                  <p className="font-semibold text-muted-foreground">No students yet</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Share the invite code <span className="font-mono font-bold text-primary">{selectedClass.invite_code}</span> with your students.
-                  </p>
-                </div>
-              ) : (
-                <div className="divide-y overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
-                    <thead className="bg-muted/50 border-b text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      <tr>
-                        <th className="px-6 py-3 w-12">#</th>
-                        <th className="px-6 py-3 min-w-[200px]">Student</th>
-                        <th className="px-6 py-3 text-center">CEFR</th>
-                        <th className="px-6 py-3 text-center">Mastery (P/A)</th>
-                        <th className="px-6 py-3 text-center">Consistency (LCS)</th>
-                        <th className="px-6 py-3 text-center">Status</th>
-                        <th className="px-6 py-3 w-10"></th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y">
-                      {students.map((s, i) => {
-                        const isDormant = s.last_active && (new Date().getTime() - new Date(s.last_active).getTime() > 3 * 24 * 60 * 60 * 1000);
-                        const isCramming = (s.lcs || 0) < 30 && (s.avg_quiz_accuracy || 0) > 0.8 && (s.quizzes_taken || 0) > 2;
-                        const isRisingStar = (s.lcs || 0) > 80 && (s.avg_quiz_accuracy || 0) > 0.8;
-                        const isAtRisk = (s.vms || 0) < 30 && (s.words_reviewed || 0) > 10;
-
-                        return (
-                          <tr key={s.student_id} className="group hover:bg-muted/30 transition-colors">
-                            <td className="px-6 py-4">
-                              <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center font-bold text-primary text-xs shrink-0">
-                                {i + 1}
-                              </div>
-                            </td>
-                            <td className="px-6 py-4">
-                              <div className="flex-1 min-w-0">
-                                <p className="font-semibold text-sm truncate">{s.student_name || 'Anonymous'}</p>
-                                <p className="text-xs text-muted-foreground truncate">{s.email}</p>
-                              </div>
-                            </td>
-                            <td className="px-6 py-4 text-center">
-                              <span className={`px-2 py-0.5 rounded-md text-[10px] font-black tracking-tighter ${
-                                s.cefr_level?.startsWith('C') ? 'bg-amber-100 text-amber-700 border border-amber-200' :
-                                s.cefr_level?.startsWith('B') ? 'bg-sky-100 text-sky-700 border border-sky-200' :
-                                'bg-slate-100 text-slate-600 border border-slate-200'
-                              }`}>
-                                {s.cefr_level || 'A1'}
-                              </span>
-                            </td>
-                            <td className="px-6 py-4 text-center">
-                              <div className="inline-flex flex-col items-center">
-                                <div className="flex items-baseline gap-1">
-                                  <span className="text-sm font-bold text-emerald-500">{s.active_vms || 0}%</span>
-                                  <span className="text-[10px] text-muted-foreground uppercase font-medium">Active</span>
-                                </div>
-                                <div className="w-20 h-1 bg-muted rounded-full mt-1 overflow-hidden flex">
-                                  <div
-                                    className="h-full bg-emerald-500"
-                                    style={{ width: `${s.active_vms || 0}%` }}
-                                  />
-                                  <div
-                                    className="h-full bg-emerald-200 opacity-50"
-                                    style={{ width: `${(s.vms || 0) - (s.active_vms || 0)}%` }}
-                                  />
-                                </div>
-                                <p className="text-[10px] text-muted-foreground mt-1 opacity-70">P: {s.vms || 0}%</p>
-                              </div>
-                            </td>
-                            <td className="px-6 py-4 text-center">
-                              <div className="flex justify-center">
-                                {isDormant ? (
-                                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-600 border border-rose-200 uppercase">Dormant</span>
-                                ) : isRisingStar ? (
-                                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-600 border border-emerald-200 uppercase">Rising Star</span>
-                                ) : isCramming ? (
-                                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-600 border border-amber-200 uppercase">Cramming</span>
-                                ) : isAtRisk ? (
-                                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-600 border border-rose-200 uppercase">At Risk</span>
-                                ) : (
-                                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-500 border border-slate-200 uppercase">Normal</span>
-                                )}
-                              </div>
-                            </td>
-                            <td className="px-6 py-4">
-                              <Link href={`/teacher/student/${s.student_id}?class=${selectedClass.id}`}>
-                                <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                              </Link>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
-
-          ) : (
+        <main className="flex-1 p-4 sm:p-6 space-y-6">
+          {!selectedClass ? (
             <div className="bg-background border rounded-2xl p-12 text-center shadow-sm">
               <BookOpen className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">Create your first classroom</h3>
-              <p className="text-muted-foreground mb-6 text-sm">Set up a classroom, add vocabulary, and invite your students.</p>
+              <h3 className="font-bold text-lg mb-2">Tạo lớp học đầu tiên</h3>
+              <p className="text-muted-foreground mb-6 text-sm">Lập lớp, thêm từ vựng và mời học sinh tham gia.</p>
               <button
                 onClick={() => setShowCreateModal(true)}
                 className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
               >
-                <Plus className="h-4 w-4" /> Create Classroom
+                <Plus className="h-4 w-4" /> Tạo lớp học
               </button>
             </div>
-          )}
-
-          {/* Analytics sections — shown only when class selected and analytics loaded */}
-          {selectedClass && (
+          ) : (
             <>
-              {isLoadingAnalytics ? (
-                <div className="space-y-4">
-                  <div className="animate-pulse bg-white/5 rounded h-4 w-3/4" />
-                  <div className="animate-pulse bg-white/5 rounded h-4 w-1/2" />
-                  <div className="animate-pulse bg-white/5 rounded h-4 w-2/3" />
+              {/* Stat strip — luôn hiện trên cùng để có ngữ cảnh nhanh */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {stats.map(stat => (
+                  <div key={stat.label} className="bg-background border rounded-2xl p-4 flex items-center gap-4 shadow-sm">
+                    <div className={`${stat.bg} p-2.5 rounded-xl`}>
+                      <stat.icon className={`h-5 w-5 ${stat.color}`} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-2xl font-bold">{stat.val}</p>
+                      <p className="text-xs text-muted-foreground truncate">{stat.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Tab content */}
+              {activeTab === 'students' && (
+                <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
+                  <div className="px-6 py-4 border-b flex items-center justify-between">
+                    <h2 className="font-bold">Tiến độ học sinh</h2>
+                    <span className="text-xs text-muted-foreground">{students.length} đã tham gia</span>
+                  </div>
+                  {students.length === 0 ? (
+                    <div className="p-12 text-center">
+                      <Users className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
+                      <p className="font-semibold text-muted-foreground">Chưa có học sinh</p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Chia sẻ mã mời <span className="font-mono font-bold text-primary">{selectedClass.invite_code}</span> cho học sinh.
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left border-collapse">
+                        <thead className="bg-muted/50 border-b text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                          <tr>
+                            <th className="px-6 py-3 w-12">#</th>
+                            <th className="px-6 py-3 min-w-[200px]">Học sinh</th>
+                            <th className="px-6 py-3 text-center">CEFR</th>
+                            <th className="px-6 py-3 text-center">Thành thạo (P/A)</th>
+                            <th className="px-6 py-3 text-center">Tình trạng</th>
+                            <th className="px-6 py-3 w-10"></th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y">
+                          {students.map((s, i) => {
+                            const isDormant = s.last_active && (Date.now() - new Date(s.last_active).getTime() > 3 * 86_400_000);
+                            const isCramming = (s.lcs || 0) < 30 && (s.avg_quiz_accuracy || 0) > 0.8 && (s.quizzes_taken || 0) > 2;
+                            const isRisingStar = (s.lcs || 0) > 80 && (s.avg_quiz_accuracy || 0) > 0.8;
+                            const isAtRisk = (s.vms || 0) < 30 && (s.words_reviewed || 0) > 10;
+                            return (
+                              <tr key={s.student_id} className="group hover:bg-muted/30 transition-colors">
+                                <td className="px-6 py-4">
+                                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center font-bold text-primary text-xs shrink-0">{i + 1}</div>
+                                </td>
+                                <td className="px-6 py-4">
+                                  <p className="font-semibold text-sm truncate">{s.student_name || 'Ẩn danh'}</p>
+                                  <p className="text-xs text-muted-foreground truncate">{s.email}</p>
+                                </td>
+                                <td className="px-6 py-4 text-center">
+                                  <span className={`px-2 py-0.5 rounded-md text-[10px] font-black tracking-tighter ${
+                                    s.cefr_level?.startsWith('C') ? 'bg-amber-100 text-amber-700 border border-amber-200' :
+                                    s.cefr_level?.startsWith('B') ? 'bg-sky-100 text-sky-700 border border-sky-200' :
+                                    'bg-slate-100 text-slate-600 border border-slate-200'
+                                  }`}>
+                                    {s.cefr_level || 'A1'}
+                                  </span>
+                                </td>
+                                <td className="px-6 py-4 text-center">
+                                  <div className="inline-flex flex-col items-center">
+                                    <div className="flex items-baseline gap-1">
+                                      <span className="text-sm font-bold text-emerald-500">{s.active_vms || 0}%</span>
+                                      <span className="text-[10px] text-muted-foreground uppercase font-medium">Active</span>
+                                    </div>
+                                    <div className="w-20 h-1 bg-muted rounded-full mt-1 overflow-hidden flex">
+                                      <div className="h-full bg-emerald-500" style={{ width: `${s.active_vms || 0}%` }} />
+                                      <div className="h-full bg-emerald-200 opacity-50" style={{ width: `${(s.vms || 0) - (s.active_vms || 0)}%` }} />
+                                    </div>
+                                    <p className="text-[10px] text-muted-foreground mt-1 opacity-70">P: {s.vms || 0}%</p>
+                                  </div>
+                                </td>
+                                <td className="px-6 py-4">
+                                  <div className="flex justify-center">
+                                    {isDormant ? (
+                                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-600 border border-rose-200 uppercase">Ngủ đông</span>
+                                    ) : isRisingStar ? (
+                                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-600 border border-emerald-200 uppercase">Ngôi sao</span>
+                                    ) : isCramming ? (
+                                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-600 border border-amber-200 uppercase">Học tủ</span>
+                                    ) : isAtRisk ? (
+                                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-600 border border-rose-200 uppercase">Cần giúp</span>
+                                    ) : (
+                                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-500 border border-slate-200 uppercase">Bình thường</span>
+                                    )}
+                                  </div>
+                                </td>
+                                <td className="px-6 py-4">
+                                  <Link href={`/teacher/student/${s.student_id}?class=${selectedClass.id}`}>
+                                    <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                  </Link>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </div>
-              ) : analytics && (
-                <>
-                  {/* Row 1: Top Students + Needs Help — two-column grid */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* Top Students */}
-                    <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-                      <div className="px-5 py-4 border-b flex items-center gap-2">
-                        <Star className="h-4 w-4 text-amber-500" />
-                        <h3 className="font-bold text-sm">Top Students</h3>
-                        <span className="ml-auto text-xs text-muted-foreground">by mastery</span>
-                      </div>
-                      {analytics.topStudents.length === 0 ? (
-                        <div className="p-6 text-center text-xs text-muted-foreground">No data yet</div>
-                      ) : (
-                        <ul className="divide-y">
-                          {analytics.topStudents.map((s, i) => {
-                            const initials = (s.student_name || s.email || '?')
-                              .split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
-                            return (
-                              <li key={s.student_id} className="flex items-center gap-3 px-5 py-3">
-                                <span className="w-5 text-xs font-bold text-muted-foreground shrink-0">{i + 1}</span>
-                                <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
-                                  <span className="text-[11px] font-bold text-emerald-600">{initials}</span>
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-semibold truncate">{s.student_name || s.email}</p>
-                                  <p className="text-[10px] text-muted-foreground">{s.words_reviewed} từ đã học</p>
-                                </div>
-                                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 shrink-0">
-                                  {s.vms}%
-                                </span>
-                                {s.lcs > 70 && <span className="text-sm shrink-0" title="Streak cao">🔥</span>}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      )}
-                    </div>
-
-                    {/* Struggling Students */}
-                    <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-                      <div className="px-5 py-4 border-b flex items-center gap-2">
-                        <AlertTriangle className="h-4 w-4 text-rose-500" />
-                        <h3 className="font-bold text-sm">Học sinh cần chú ý</h3>
-                        <span className="ml-auto text-xs text-muted-foreground">accuracy &lt; 60%</span>
-                      </div>
-                      {analytics.strugglingStudents.length === 0 ? (
-                        <div className="p-6 text-center text-xs text-muted-foreground">Tất cả học sinh đang ổn</div>
-                      ) : (
-                        <ul className="divide-y">
-                          {analytics.strugglingStudents.map(s => {
-                            const daysSince = s.last_active
-                              ? Math.floor((Date.now() - new Date(s.last_active).getTime()) / 86_400_000)
-                              : null;
-                            const initials = (s.student_name || s.email || '?')
-                              .split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
-                            const accuracy = s.avg_accuracy ?? s.vms;
-                            return (
-                              <li key={s.student_id} className="flex items-center gap-3 px-5 py-3">
-                                <div className="w-8 h-8 rounded-full bg-rose-500/10 flex items-center justify-center shrink-0">
-                                  <span className="text-[11px] font-bold text-rose-600">{initials}</span>
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-semibold truncate">{s.student_name || s.email}</p>
-                                  {daysSince !== null && (
-                                    <p className={`text-[10px] ${daysSince > 3 ? 'text-rose-500' : 'text-muted-foreground'}`}>
-                                      {daysSince === 0 ? 'Active hôm nay' : `${daysSince} ngày trước`}
-                                    </p>
-                                  )}
-                                </div>
-                                <span className="text-xs font-bold px-2 py-0.5 rounded-full shrink-0 bg-rose-100 text-rose-700">
-                                  {accuracy}%
-                                </span>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Row 2: Activity Feed — full width */}
-                  <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-                    <div className="px-5 py-4 border-b flex items-center gap-2">
-                      <Activity className="h-4 w-4 text-sky-500" />
-                      <h3 className="font-bold text-sm">Recent Activity</h3>
-                      <span className="ml-auto text-xs text-muted-foreground">last 7 days</span>
-                    </div>
-                    {analytics.activityFeed.length === 0 ? (
-                      <div className="p-6 text-center text-xs text-muted-foreground">No recent activity</div>
-                    ) : (
-                      <ul className="divide-y">
-                        {analytics.activityFeed.slice(0, 10).map((item, idx) => {
-                          const now = Date.now();
-                          const diff = now - new Date(item.timestamp).getTime();
-                          const mins = Math.floor(diff / 60_000);
-                          const hrs = Math.floor(diff / 3_600_000);
-                          const days = Math.floor(diff / 86_400_000);
-                          const timeLabel = mins < 1 ? 'vừa xong'
-                            : mins < 60 ? `${mins} phút trước`
-                            : hrs < 24 ? `${hrs} giờ trước`
-                            : `${days} ngày trước`;
-                          return (
-                            <li key={idx} className="px-5 py-3 flex items-start gap-3">
-                              <span className={`mt-0.5 shrink-0 w-2 h-2 rounded-full ${item.type === 'quiz' ? 'bg-violet-500' : 'bg-sky-400'}`} />
-                              <div className="flex-1 min-w-0">
-                                <p className="text-xs font-semibold truncate">{item.student_name}</p>
-                                <p className="text-[11px] text-muted-foreground">{item.detail}</p>
-                              </div>
-                              <span className="text-[10px] text-muted-foreground shrink-0 whitespace-nowrap">{timeLabel}</span>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
-                  </div>
-
-                  {/* Row 3: Word Difficulty + Vocabulary Coverage — side by side */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* Word Difficulty */}
-                    {analytics.wordDifficulty && analytics.wordDifficulty.length > 0 && (
-                      <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-                        <div className="px-5 py-4 border-b flex items-center gap-2">
-                          <Flame className="h-4 w-4 text-orange-500" />
-                          <h3 className="font-bold text-sm">Từ khó nhất</h3>
-                          <span className="ml-auto text-xs text-muted-foreground">fail rate cao</span>
-                        </div>
-                        <div className="p-5 space-y-2.5">
-                          {analytics.wordDifficulty.map((wd, idx) => {
-                            // Normalize fail_rate thành bar width (tương đối so với max)
-                            const maxRate = analytics.wordDifficulty[0]?.fail_rate || 1;
-                            const pct = Math.round((wd.fail_rate / maxRate) * 100);
-                            return (
-                              <div key={wd.word_id} className="flex items-center gap-3">
-                                <span className="text-[10px] font-bold text-muted-foreground w-4 shrink-0">{idx + 1}</span>
-                                <span className="text-sm font-semibold w-24 truncate shrink-0">{wd.word}</span>
-                                <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                                  <div
-                                    className="h-full rounded-full bg-orange-400 transition-all"
-                                    style={{ width: `${pct}%` }}
-                                  />
-                                </div>
-                                <span className="text-[11px] text-muted-foreground w-12 text-right shrink-0">
-                                  {wd.fail_rate.toFixed(1)}x
-                                </span>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Vocabulary Coverage */}
-                    {analytics.wordCoverage.length > 0 && (
-                      <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-                        <div className="px-5 py-4 border-b flex items-center gap-2">
-                          <Target className="h-4 w-4 text-violet-500" />
-                          <h3 className="font-bold text-sm">Vocabulary Coverage</h3>
-                          <span className="ml-auto text-xs text-muted-foreground">
-                            % học sinh đã ôn
-                          </span>
-                        </div>
-                        <div className="p-5 space-y-2.5">
-                          {analytics.wordCoverage.slice(0, 10).map(wc => (
-                            <div key={wc.word_id} className="flex items-center gap-3">
-                              <span className="text-sm font-semibold w-24 truncate shrink-0">{wc.word}</span>
-                              <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                                <div
-                                  className={`h-full rounded-full transition-all ${
-                                    wc.coverage_pct >= 80 ? 'bg-emerald-500'
-                                    : wc.coverage_pct >= 50 ? 'bg-amber-400'
-                                    : 'bg-rose-400'
-                                  }`}
-                                  style={{ width: `${wc.coverage_pct}%` }}
-                                />
-                              </div>
-                              <span className="text-[11px] text-muted-foreground w-8 text-right shrink-0">{wc.coverage_pct}%</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </>
               )}
 
-              {/* Pending words section — always shown when classroom selected */}
-              {pendingWords.length > 0 && (
-                <div className="bg-background border border-amber-200 rounded-2xl shadow-sm overflow-hidden">
-                  <div className="px-5 py-4 border-b border-amber-100 bg-amber-50/50 flex items-center gap-2">
-                    <Inbox className="h-4 w-4 text-amber-600" />
-                    <h3 className="font-bold text-sm text-amber-800">Từ chờ duyệt</h3>
-                    <span className="ml-auto bg-amber-100 text-amber-700 text-xs font-bold px-2 py-0.5 rounded-full border border-amber-200">
-                      {pendingWords.length}
-                    </span>
-                  </div>
-                  <ul className="divide-y">
-                    {pendingWords.map(w => (
-                      <li key={w.id} className="flex items-center gap-3 px-5 py-3">
-                        <div className="flex-1 min-w-0">
-                          <p className="font-bold text-sm">{w.word}
-                            {w.pos && <span className="ml-1.5 text-[10px] font-normal text-muted-foreground uppercase">{w.pos}</span>}
-                          </p>
-                          <p className="text-xs text-muted-foreground truncate">{w.translation || '—'}</p>
-                        </div>
-                        <div className="flex items-center gap-2 shrink-0">
-                          <button
-                            onClick={() => void handleWordStatus(w.id, 'approved')}
-                            disabled={approvingId === w.id}
-                            className="flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-lg bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-colors border border-emerald-200 disabled:opacity-50"
-                          >
-                            {approvingId === w.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <ThumbsUp className="h-3 w-3" />}
-                            Duyệt
-                          </button>
-                          <button
-                            onClick={() => void handleWordStatus(w.id, 'rejected')}
-                            disabled={approvingId === w.id}
-                            className="flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-lg bg-rose-100 text-rose-600 hover:bg-rose-200 transition-colors border border-rose-200 disabled:opacity-50"
-                          >
-                            <ThumbsDown className="h-3 w-3" /> Từ chối
-                          </button>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {activeTab === 'words' && (
+                <WordsPanel key={selectedClass.id} classroomId={selectedClass.id} userId={userId} />
+              )}
+
+              {activeTab === 'grammar' && (
+                <GrammarPanel key={selectedClass.id} classroomId={selectedClass.id} />
+              )}
+
+              {activeTab === 'analytics' && (
+                <AnalyticsPanel
+                  analytics={analytics}
+                  isLoading={isLoadingAnalytics}
+                  pendingWords={pendingWords}
+                  approvingId={approvingId}
+                  onWordStatus={handleWordStatus}
+                />
               )}
             </>
           )}
@@ -836,36 +573,36 @@ export default function TeacherDashboard() {
       {showCreateModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-background border rounded-2xl p-6 w-full max-w-md shadow-2xl">
-            <h2 className="text-xl font-bold mb-4">Create New Classroom</h2>
+            <h2 className="text-xl font-bold mb-4">Tạo lớp học mới</h2>
             <form onSubmit={handleCreateClass} className="space-y-4">
               <div>
-                <label className="text-sm font-medium mb-1 block">Class Name *</label>
+                <label className="text-sm font-medium mb-1 block">Tên lớp *</label>
                 <input
                   type="text"
                   value={newClassName}
                   onChange={e => setNewClassName(e.target.value)}
-                  placeholder="e.g. IELTS Preparation 2026"
+                  placeholder="vd: Luyện thi IELTS 2026"
                   required
                   className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
                 />
               </div>
               <div>
-                <label className="text-sm font-medium mb-1 block">Description (optional)</label>
+                <label className="text-sm font-medium mb-1 block">Mô tả (tùy chọn)</label>
                 <textarea
                   value={newClassDesc}
                   onChange={e => setNewClassDesc(e.target.value)}
-                  placeholder="e.g. Class for intermediate students targeting band 7.0"
+                  placeholder="vd: Lớp trung cấp mục tiêu band 7.0"
                   rows={2}
                   className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
                 />
               </div>
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setShowCreateModal(false)} className="flex-1 border rounded-xl py-2.5 text-sm font-semibold hover:bg-muted transition-colors">
-                  Cancel
+                  Hủy
                 </button>
                 <button type="submit" disabled={isCreating} className="flex-1 bg-primary text-white rounded-xl py-2.5 text-sm font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
                   {isCreating ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
-                  Create Class
+                  Tạo lớp
                 </button>
               </div>
             </form>
