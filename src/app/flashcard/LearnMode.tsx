@@ -7,11 +7,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
-  ChevronLeft, Volume2, Snail, ArrowRight, RotateCcw, BookOpen, GraduationCap, Sparkles,
+  ChevronLeft, Volume2, Snail, ArrowRight, RotateCcw, BookOpen, GraduationCap, Sparkles, HelpCircle,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
+import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
 
 interface WordItem {
@@ -36,6 +37,8 @@ type Phase = 'loading' | 'empty' | 'ready' | 'introduce' | 'recall' | 'done';
 
 export function LearnMode({ classroomId: initialClassroomId }: { classroomId: string | null }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const idsParam = searchParams.get('ids');
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
   const [phase, setPhase] = useState<Phase>('loading');
   const [batch, setBatch] = useState<WordItem[]>([]);
@@ -52,6 +55,16 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const inputRef = useRef<HTMLInputElement>(null);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Hướng dẫn cơ chế — tự hiện lần đầu (dùng chung key với /flashcard ôn), mở lại qua nút "?"
+  const [showGuide, setShowGuide] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem(STUDY_GUIDE_KEY) !== '1') setShowGuide(true);
+  }, []);
+  const closeGuide = () => {
+    localStorage.setItem(STUDY_GUIDE_KEY, '1');
+    setShowGuide(false);
+  };
+
   // ── Load từ mới (chưa học) đã enrich ──
   useEffect(() => {
     (async () => {
@@ -60,18 +73,23 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         if (!session?.user) { router.push('/auth'); return; }
 
         // filter=new: server lọc từ CHƯA học trên toàn bộ words (không kẹt 300 từ mới nhất)
-        const url = initialClassroomId
-          ? `/api/words?classroomId=${initialClassroomId}&filter=new&limit=100`
-          : `/api/words?filter=new&limit=100`;
-        const res = await authFetch(url);
+        const query = new URLSearchParams({
+          filter: 'new',
+          limit: idsParam === null ? '100' : '20',
+        });
+        if (initialClassroomId) query.set('classroomId', initialClassroomId);
+        if (idsParam !== null) query.set('ids', idsParam);
+
+        const res = await authFetch(`/api/words?${query.toString()}`);
         const data = await res.json();
 
         if (data.success && data.data) {
           if (!initialClassroomId && data.classroomId) setClassroomId(data.classroomId);
           const fresh: WordItem[] = data.data;
           if (fresh.length === 0) { setPhase('empty'); return; }
-          setBatch(fresh.slice(0, NEW_BATCH));
-          setRemainingNew(Math.max(0, fresh.length - NEW_BATCH));
+          const batchLimit = idsParam === null ? NEW_BATCH : 20;
+          setBatch(fresh.slice(0, batchLimit));
+          setRemainingNew(Math.max(0, fresh.length - batchLimit));
           setPhase('ready');
         } else {
           setPhase('empty');
@@ -82,8 +100,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         setPhase('empty');
       }
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialClassroomId]);
+  }, [initialClassroomId, idsParam, router]);
 
   // Tự phát âm khi đổi thẻ ở bước Giới thiệu
   useEffect(() => {
@@ -231,6 +248,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   if (phase === 'ready') {
     return (
       <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans text-center">
+        <StudyGuideModal open={showGuide} onClose={closeGuide} />
         <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-600 px-4 py-1.5 rounded-full text-xs font-black">
           <Sparkles className="h-4 w-4" /> Phiên học mới
         </div>
@@ -246,7 +264,12 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         >
           <BookOpen className="mr-2 h-6 w-6" /> Bắt đầu học
         </Button>
-        <Link href="/student" className="text-sm font-bold text-slate-400 hover:text-slate-600">← Về Dashboard</Link>
+        <div className="flex items-center gap-4">
+          <button onClick={() => setShowGuide(true)} className="inline-flex items-center gap-1.5 text-sm font-bold text-indigo-500 hover:text-indigo-700">
+            <HelpCircle className="h-4 w-4" /> Cách học hiệu quả
+          </button>
+          <Link href="/student" className="text-sm font-bold text-slate-400 hover:text-slate-600">← Về Dashboard</Link>
+        </div>
       </div>
     );
   }
@@ -256,7 +279,8 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     const w = batch[introIndex];
     return (
       <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
-        <Header label="Học từ mới" badge={`${introIndex + 1} / ${batch.length}`} />
+        <StudyGuideModal open={showGuide} onClose={closeGuide} />
+        <Header label="Học từ mới" badge={`${introIndex + 1} / ${batch.length}`} onHelp={() => setShowGuide(true)} />
         <ProgressBar value={(introIndex / batch.length) * 100} />
 
         <div className="flex-1 flex flex-col items-center justify-center p-6 gap-8">
@@ -268,7 +292,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
               {w.image_url && (
                 <div className="relative w-full h-40 rounded-3xl overflow-hidden border border-slate-100 shadow-inner">
-                  <img src={w.image_url} alt={w.word} loading="lazy" decoding="async"
+                  <img src={`/api/image-proxy?url=${encodeURIComponent(w.image_url)}`} alt={w.word} loading="lazy" decoding="async"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const img = e.currentTarget as HTMLImageElement;
@@ -336,7 +360,8 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
     return (
       <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
-        <Header label="Nhớ lại" badge={`${recallIndex + 1} / ${batch.length}`} />
+        <StudyGuideModal open={showGuide} onClose={closeGuide} />
+        <Header label="Nhớ lại" badge={`${recallIndex + 1} / ${batch.length}`} onHelp={() => setShowGuide(true)} />
         <ProgressBar value={(recallIndex / batch.length) * 100} />
 
         <div className="flex-1 flex flex-col items-center justify-center p-6 gap-8">
@@ -454,7 +479,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 }
 
 // ── Sub-components dùng lại trong các bước ──
-function Header({ label, badge }: { label: string; badge: string }) {
+function Header({ label, badge, onHelp }: { label: string; badge: string; onHelp?: () => void }) {
   return (
     <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10 gap-3">
       <Link href="/student">
@@ -465,7 +490,15 @@ function Header({ label, badge }: { label: string; badge: string }) {
       <div className="flex items-center gap-2 font-black text-slate-700">
         <BookOpen className="h-4 w-4 text-indigo-500" /> {label}
       </div>
-      <div className="px-4 py-1.5 bg-primary text-white rounded-full text-xs font-black tracking-widest">{badge}</div>
+      <div className="flex items-center gap-2">
+        {onHelp && (
+          <button onClick={onHelp} aria-label="Hướng dẫn cách học"
+            className="p-2 rounded-full text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-colors">
+            <HelpCircle className="h-5 w-5" />
+          </button>
+        )}
+        <div className="px-4 py-1.5 bg-primary text-white rounded-full text-xs font-black tracking-widest">{badge}</div>
+      </div>
     </header>
   );
 }

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { ChevronLeft, Volume2, RotateCcw, Loader2, RefreshCw, Snail, ChevronDown } from 'lucide-react';
+import { ChevronLeft, Volume2, RotateCcw, Loader2, RefreshCw, Snail, ChevronDown, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { useGamification } from '@/hooks/useGamification';
@@ -16,6 +16,7 @@ import { Celebration } from '@/components/gamification/Celebration';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { DailyGoalRing } from '@/components/gamification/DailyGoalRing';
 import { LearnMode } from './LearnMode';
+import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, parseIpa, canAutoFocus } from '@/lib/study';
 
 interface WordItem {
@@ -71,6 +72,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   // Đọc localStorage sau mount để tránh hydration mismatch.
   const [typingMode, setTypingMode] = useState(true);
   const [autoAdvanceTime, setAutoAdvanceTime] = useState<number | null>(null);
+  // Hướng dẫn bấm nút — tự hiện lần đầu (localStorage), mở lại qua nút "?"
+  const [showGuide, setShowGuide] = useState(false);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { data: gamification, refresh: refreshGamification } = useGamification(userId);
 
@@ -129,6 +132,16 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   useEffect(() => {
     setTypingMode(localStorage.getItem('lingopro_typing_mode') !== 'off');
   }, []);
+
+  // Hiện hướng dẫn lần đầu vào ôn tập
+  useEffect(() => {
+    if (localStorage.getItem(STUDY_GUIDE_KEY) !== '1') setShowGuide(true);
+  }, []);
+
+  const closeGuide = () => {
+    localStorage.setItem(STUDY_GUIDE_KEY, '1');
+    setShowGuide(false);
+  };
 
   const toggleTypingMode = () => {
     setTypingMode((prev) => {
@@ -393,6 +406,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
   return (
     <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
+      <StudyGuideModal open={showGuide} onClose={closeGuide} />
       <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10 gap-3">
         <Link href="/student">
           <Button variant="ghost" size="sm" className="gap-2 text-slate-500 hover:text-primary font-bold rounded-xl transition-colors">
@@ -400,6 +414,13 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           </Button>
         </Link>
         <div className="flex items-center gap-3">
+          <button
+            onClick={() => setShowGuide(true)}
+            aria-label="Hướng dẫn cách học"
+            className="p-2 rounded-full text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-colors"
+          >
+            <HelpCircle className="h-5 w-5" />
+          </button>
           <StreakCounter streak={gamification.current_streak} />
           <DailyGoalRing todayXp={gamification.today_xp} dailyGoal={gamification.daily_goal} size={36} />
         </div>
@@ -455,7 +476,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                 {current.image_url && (
                   <div className="w-full h-40 rounded-3xl overflow-hidden border border-slate-100 shadow-inner relative group/img">
                     <img
-                      src={current.image_url}
+                      src={`/api/image-proxy?url=${encodeURIComponent(current.image_url)}`}
                       alt={current.word}
                       loading="lazy"
                       decoding="async"
