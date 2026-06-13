@@ -2,62 +2,89 @@
   "catalogVersion": "2026-06-12-v3",
   "summary": {
     "catalogVersion": "2026-06-12-v3",
-    "subtopics": 124,
-    "publishedSubtopics": 124,
+    "subtopics": 117,
+    "publishedSubtopics": 117,
     "draftSubtopics": 0,
-    "words": 4671,
-    "wordsInDict": 4671,
+    "words": 4490,
+    "wordsInDict": 4490,
     "quarantineWords": 0,
-    "missingImages": 552
+    "missingImages": 527
   },
   "routes": {
-    "di-lam": {
+    "thpt-lop-10": {
       "publishStatus": "published",
-      "publishedSubtopics": 13,
-      "totalSubtopics": 13
+      "publishedSubtopics": 10,
+      "totalSubtopics": 10
     },
-    "du-lich": {
-      "publishStatus": "published",
-      "publishedSubtopics": 9,
-      "totalSubtopics": 9
-    },
-    "doi-song": {
-      "publishStatus": "published",
-      "publishedSubtopics": 25,
-      "totalSubtopics": 25
-    },
-    "suc-khoe": {
+    "thpt-lop-11": {
       "publishStatus": "published",
       "publishedSubtopics": 9,
       "totalSubtopics": 9
     },
-    "cong-nghe": {
-      "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6
-    },
-    "hoc-tap": {
+    "thpt-lop-12": {
       "publishStatus": "published",
       "publishedSubtopics": 7,
       "totalSubtopics": 7
     },
+    "di-lam": {
+      "publishStatus": "published",
+      "publishedSubtopics": 10,
+      "totalSubtopics": 10
+    },
+    "du-lich": {
+      "publishStatus": "published",
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5
+    },
+    "doi-song": {
+      "publishStatus": "published",
+      "publishedSubtopics": 22,
+      "totalSubtopics": 22
+    },
+    "suc-khoe": {
+      "publishStatus": "published",
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5
+    },
+    "cong-nghe": {
+      "publishStatus": "published",
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4
+    },
+    "hoc-tap": {
+      "publishStatus": "published",
+      "publishedSubtopics": 2,
+      "totalSubtopics": 2
+    },
     "hoc-thuat": {
       "publishStatus": "published",
-      "publishedSubtopics": 36,
-      "totalSubtopics": 36
+      "publishedSubtopics": 35,
+      "totalSubtopics": 35
     },
     "extended": {
       "publishStatus": "published",
-      "publishedSubtopics": 19,
-      "totalSubtopics": 19
+      "publishedSubtopics": 8,
+      "totalSubtopics": 8
     }
   },
   "topics": {
-    "tp-132448072e": {
+    "tp-0e76343d08": {
       "publishStatus": "published",
       "publishedSubtopics": 4,
       "totalSubtopics": 4,
-      "qualityScore": 90
+      "qualityScore": 92
+    },
+    "tp-0f31eb90c4": {
+      "publishStatus": "published",
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 92
+    },
+    "tp-132448072e": {
+      "publishStatus": "published",
+      "publishedSubtopics": 1,
+      "totalSubtopics": 1,
+      "qualityScore": 92
     },
     "tp-2a8542b1aa": {
       "publishStatus": "published",
@@ -67,21 +94,21 @@
     },
     "tp-2d1dddc93a": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
+      "publishedSubtopics": 1,
+      "totalSubtopics": 1,
       "qualityScore": 92
     },
     "tp-32dabe9530": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 95
+      "publishedSubtopics": 2,
+      "totalSubtopics": 2,
+      "qualityScore": 94
     },
     "tp-47d3a045c5": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 93
+      "publishedSubtopics": 1,
+      "totalSubtopics": 1,
+      "qualityScore": 91
     },
     "tp-56648ca5ac": {
       "publishStatus": "published",
@@ -93,13 +120,13 @@
       "publishStatus": "published",
       "publishedSubtopics": 2,
       "totalSubtopics": 2,
-      "qualityScore": 96
+      "qualityScore": 97
     },
     "tp-63e89bc3a4": {
       "publishStatus": "published",
-      "publishedSubtopics": 19,
-      "totalSubtopics": 19,
-      "qualityScore": 93
+      "publishedSubtopics": 8,
+      "totalSubtopics": 8,
+      "qualityScore": 94
     },
     "tp-70cf7f7227": {
       "publishStatus": "published",
@@ -109,9 +136,9 @@
     },
     "tp-7a934ad2a7": {
       "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6,
-      "qualityScore": 94
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 93
     },
     "tp-7c7631f3bd": {
       "publishStatus": "published",
@@ -121,9 +148,9 @@
     },
     "tp-87971d0e5c": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
-      "totalSubtopics": 2,
-      "qualityScore": 94
+      "publishedSubtopics": 1,
+      "totalSubtopics": 1,
+      "qualityScore": 97
     },
     "tp-8cd90ef97c": {
       "publishStatus": "published",
@@ -133,21 +160,27 @@
     },
     "tp-9275f23d61": {
       "publishStatus": "published",
-      "publishedSubtopics": 7,
-      "totalSubtopics": 7,
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6,
       "qualityScore": 93
     },
     "tp-95e3b28bf2": {
       "publishStatus": "published",
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 92
+    },
+    "tp-9d1303f771": {
+      "publishStatus": "published",
       "publishedSubtopics": 5,
       "totalSubtopics": 5,
-      "qualityScore": 92
+      "qualityScore": 94
     },
     "tp-a0358154bf": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 91
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 92
     },
     "tp-cc12b088fb": {
       "publishStatus": "published",
@@ -155,23 +188,41 @@
       "totalSubtopics": 4,
       "qualityScore": 96
     },
-    "tp-e90a33ab98": {
+    "tp-ce6687b070": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 92
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 89
     },
-    "tp-f06a497f6f": {
+    "tp-e848339aa6": {
       "publishStatus": "published",
       "publishedSubtopics": 4,
       "totalSubtopics": 4,
       "qualityScore": 92
     },
+    "tp-e90a33ab98": {
+      "publishStatus": "published",
+      "publishedSubtopics": 1,
+      "totalSubtopics": 1,
+      "qualityScore": 97
+    },
+    "tp-eb5ba63431": {
+      "publishStatus": "published",
+      "publishedSubtopics": 3,
+      "totalSubtopics": 3,
+      "qualityScore": 90
+    },
+    "tp-f06a497f6f": {
+      "publishStatus": "published",
+      "publishedSubtopics": 2,
+      "totalSubtopics": 2,
+      "qualityScore": 92
+    },
     "tp-f9b50ef195": {
       "publishStatus": "published",
-      "publishedSubtopics": 7,
-      "totalSubtopics": 7,
-      "qualityScore": 91
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 92
     },
     "tp-ffa0a73f9c": {
       "publishStatus": "published",
@@ -329,6 +380,22 @@
       "failReasons": [
         "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 91 ngoài 30-90"
+      ]
+    },
+    "st-105c10b92c25": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "viCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 13,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/9872962/pexels-photo-9872962.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 13 ngoài 30-90"
       ]
     },
     "st-11737267bc3e": {
@@ -618,27 +685,6 @@
       ],
       "failReasons": []
     },
-    "st-239ce0bcaa81": {
-      "publishStatus": "published",
-      "featuredEligible": false,
-      "qualityScore": 89,
-      "viCoverage": 1,
-      "imageCoverage": 0.833,
-      "wordCount": 18,
-      "inSubtopicRange": false,
-      "cefrRange": null,
-      "coverImage": "https://hoc365.vn/images/huongdan/huongdandangkidangnhap.png",
-      "missingImageCount": 3,
-      "missingImages": [
-        "tertiary education",
-        "tutorial",
-        "undergraduate"
-      ],
-      "failReasons": [
-        "ảnh 83% (<90%) — chưa nổi bật",
-        "số từ 18 ngoài 30-90"
-      ]
-    },
     "st-25a2ca74645f": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -691,22 +737,6 @@
         "số từ 11 ngoài 30-90"
       ]
     },
-    "st-2df01493d07e": {
-      "publishStatus": "published",
-      "featuredEligible": true,
-      "qualityScore": 99,
-      "viCoverage": 1,
-      "imageCoverage": 0.97,
-      "wordCount": 33,
-      "inSubtopicRange": true,
-      "cefrRange": null,
-      "coverImage": "https://cdn.justfly.vn/1200x800/media/b0/89/dbcf-66da-41de-8c44-ff43322a1272.jpg",
-      "missingImageCount": 1,
-      "missingImages": [
-        "textile"
-      ],
-      "failReasons": []
-    },
     "st-31fde43dd7f5": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -741,6 +771,29 @@
       ],
       "failReasons": [
         "số từ 20 ngoài 30-90"
+      ]
+    },
+    "st-3a58bb8d2d4a": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 88,
+      "viCoverage": 1,
+      "imageCoverage": 0.8,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://hoinongnghieptuanhoanvietnam.org.vn/wp-content/uploads/2024/02/img_5731.jpeg",
+      "missingImageCount": 5,
+      "missingImages": [
+        "time consuming",
+        "thought provoking",
+        "up market",
+        "weather beaten",
+        "well-established"
+      ],
+      "failReasons": [
+        "ảnh 80% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-3f6ff8d69c24": {
@@ -835,25 +888,6 @@
       ],
       "failReasons": []
     },
-    "st-4c0b35f14ebc": {
-      "publishStatus": "published",
-      "featuredEligible": true,
-      "qualityScore": 93,
-      "viCoverage": 1,
-      "imageCoverage": 0.917,
-      "wordCount": 24,
-      "inSubtopicRange": false,
-      "cefrRange": null,
-      "coverImage": "https://images.pexels.com/photos/20670596/pexels-photo-20670596.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      "missingImageCount": 2,
-      "missingImages": [
-        "tear away",
-        "well-behaved"
-      ],
-      "failReasons": [
-        "số từ 24 ngoài 30-90"
-      ]
-    },
     "st-4c1878609dfb": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -944,30 +978,6 @@
         "số từ 21 ngoài 30-90"
       ]
     },
-    "st-50d3c0be95b2": {
-      "publishStatus": "published",
-      "featuredEligible": false,
-      "qualityScore": 94,
-      "viCoverage": 1,
-      "imageCoverage": 0.848,
-      "wordCount": 46,
-      "inSubtopicRange": true,
-      "cefrRange": null,
-      "coverImage": "https://sasuke.asia/uploads/images/image(25).png",
-      "missingImageCount": 7,
-      "missingImages": [
-        "preserve",
-        "subtropical",
-        "swamp",
-        "timely",
-        "vulnerable",
-        "wetland",
-        "worm"
-      ],
-      "failReasons": [
-        "ảnh 85% (<90%) — chưa nổi bật"
-      ]
-    },
     "st-51a74a734c86": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -1021,29 +1031,6 @@
       "missingImages": [],
       "failReasons": [
         "số từ 92 ngoài 30-90"
-      ]
-    },
-    "st-56c676568318": {
-      "publishStatus": "published",
-      "featuredEligible": false,
-      "qualityScore": 87,
-      "viCoverage": 1,
-      "imageCoverage": 0.783,
-      "wordCount": 23,
-      "inSubtopicRange": false,
-      "cefrRange": null,
-      "coverImage": "https://unica.vn/upload/landingpage/120813_cach-ve-bieu-do-cot-chong-trong-excel-nhanh-gon_thumb.png",
-      "missingImageCount": 5,
-      "missingImages": [
-        "synchronize swimming",
-        "vertical",
-        "water polo",
-        "wetsuit",
-        "windsurfing"
-      ],
-      "failReasons": [
-        "ảnh 78% (<90%) — chưa nổi bật",
-        "số từ 23 ngoài 30-90"
       ]
     },
     "st-59fae6f6f141": {
@@ -1155,24 +1142,6 @@
         "số từ 16 ngoài 30-90"
       ]
     },
-    "st-67a3bea1636b": {
-      "publishStatus": "published",
-      "featuredEligible": true,
-      "qualityScore": 97,
-      "viCoverage": 1,
-      "imageCoverage": 0.919,
-      "wordCount": 37,
-      "inSubtopicRange": true,
-      "cefrRange": null,
-      "coverImage": "https://images.pexels.com/photos/7654190/pexels-photo-7654190.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      "missingImageCount": 3,
-      "missingImages": [
-        "do",
-        "supplementary",
-        "workforce"
-      ],
-      "failReasons": []
-    },
     "st-68f128dc5dc2": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1190,22 +1159,6 @@
       "failReasons": [
         "số từ 16 ngoài 30-90"
       ]
-    },
-    "st-695a27b533b1": {
-      "publishStatus": "published",
-      "featuredEligible": true,
-      "qualityScore": 99,
-      "viCoverage": 1,
-      "imageCoverage": 0.973,
-      "wordCount": 37,
-      "inSubtopicRange": true,
-      "cefrRange": null,
-      "coverImage": "https://kangenktb.vn/wp-content/uploads/2017/08/phan-biet-nuoc-khoang-nuoc-suoi-va-nuoc-tinh-khiet.jpg",
-      "missingImageCount": 1,
-      "missingImages": [
-        "varied"
-      ],
-      "failReasons": []
     },
     "st-6a1d7b1df8e4": {
       "publishStatus": "published",
@@ -1312,31 +1265,9 @@
         "số từ 11 ngoài 30-90"
       ]
     },
-    "st-6fa84c853836": {
-      "publishStatus": "published",
-      "featuredEligible": true,
-      "qualityScore": 89,
-      "viCoverage": 1,
-      "imageCoverage": 0.828,
-      "wordCount": 29,
-      "inSubtopicRange": false,
-      "cefrRange": null,
-      "coverImage": "https://images.pexels.com/photos/11982319/pexels-photo-11982319.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      "missingImageCount": 5,
-      "missingImages": [
-        "decent",
-        "superior",
-        "superiority",
-        "verbal",
-        "whistle"
-      ],
-      "failReasons": [
-        "số từ 29 ngoài 30-90"
-      ]
-    },
     "st-6fe862e82f1f": {
       "publishStatus": "published",
-      "featuredEligible": true,
+      "featuredEligible": false,
       "qualityScore": 89,
       "viCoverage": 1,
       "imageCoverage": 0.833,
@@ -1351,6 +1282,7 @@
         "vegetation"
       ],
       "failReasons": [
+        "ảnh 83% (<90%) — chưa nổi bật",
         "số từ 18 ngoài 30-90"
       ]
     },
@@ -1378,23 +1310,6 @@
       "failReasons": [
         "ảnh 75% (<90%) — chưa nổi bật"
       ]
-    },
-    "st-7a178959b21b": {
-      "publishStatus": "published",
-      "featuredEligible": true,
-      "qualityScore": 97,
-      "viCoverage": 1,
-      "imageCoverage": 0.935,
-      "wordCount": 31,
-      "inSubtopicRange": true,
-      "cefrRange": null,
-      "coverImage": "https://images.pexels.com/photos/30556362/pexels-photo-30556362.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      "missingImageCount": 2,
-      "missingImages": [
-        "overall",
-        "rational"
-      ],
-      "failReasons": []
     },
     "st-7a5fe5c927a0": {
       "publishStatus": "published",
@@ -1499,6 +1414,27 @@
         "số từ 101 ngoài 30-90"
       ]
     },
+    "st-7fb88c92b8d6": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 90,
+      "viCoverage": 1,
+      "imageCoverage": 0.85,
+      "wordCount": 20,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://worksheets.clipart-library.com/images2/triangle-similarity-proofs-worksheet/triangle-similarity-proofs-worksheet-15.png",
+      "missingImageCount": 3,
+      "missingImages": [
+        "complicated",
+        "unnecessary",
+        "superstition"
+      ],
+      "failReasons": [
+        "ảnh 85% (<90%) — chưa nổi bật",
+        "số từ 20 ngoài 30-90"
+      ]
+    },
     "st-8038b4976663": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1586,6 +1522,24 @@
       ],
       "failReasons": [
         "số từ 25 ngoài 30-90"
+      ]
+    },
+    "st-902882381d6b": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 93,
+      "viCoverage": 1,
+      "imageCoverage": 0.917,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://hoc24.vn/source/KHTN%206/KHTN%206%20-%20Ch%C3%A2n%20tr%E1%BB%9Di%20s%C3%A1ng%20t%E1%BA%A1o/Ch%E1%BB%A7%20%C4%91%E1%BB%81%208/B%C3%A0i%2033/DDSH.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "vulnerable"
+      ],
+      "failReasons": [
+        "số từ 12 ngoài 30-90"
       ]
     },
     "st-91b0331e72ff": {
@@ -1676,26 +1630,6 @@
       "failReasons": [
         "ảnh 89% (<90%) — chưa nổi bật",
         "số từ 97 ngoài 30-90"
-      ]
-    },
-    "st-9a7430ce8e4c": {
-      "publishStatus": "published",
-      "featuredEligible": true,
-      "qualityScore": 91,
-      "viCoverage": 1,
-      "imageCoverage": 0.87,
-      "wordCount": 23,
-      "inSubtopicRange": false,
-      "cefrRange": null,
-      "coverImage": "https://images.pexels.com/photos/16350067/pexels-photo-16350067.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      "missingImageCount": 3,
-      "missingImages": [
-        "odd",
-        "temper",
-        "thinker"
-      ],
-      "failReasons": [
-        "số từ 23 ngoài 30-90"
       ]
     },
     "st-9d2657755a0c": {
@@ -1846,7 +1780,7 @@
     },
     "st-ac67ec2b5817": {
       "publishStatus": "published",
-      "featuredEligible": true,
+      "featuredEligible": false,
       "qualityScore": 90,
       "viCoverage": 1,
       "imageCoverage": 0.857,
@@ -1861,6 +1795,7 @@
         "unwelcome"
       ],
       "failReasons": [
+        "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 21 ngoài 30-90"
       ]
     },
@@ -2776,25 +2711,6 @@
       "missingImages": [],
       "failReasons": [
         "số từ 15 ngoài 30-90"
-      ]
-    },
-    "st-fed7e3c93f9a": {
-      "publishStatus": "published",
-      "featuredEligible": true,
-      "qualityScore": 93,
-      "viCoverage": 1,
-      "imageCoverage": 0.923,
-      "wordCount": 26,
-      "inSubtopicRange": false,
-      "cefrRange": null,
-      "coverImage": "https://thumbs.dreamstime.com/z/girl-violence-hands-bound-portrait-young-red-haired-background-gray-plaster-wall-79068276.jpg",
-      "missingImageCount": 2,
-      "missingImages": [
-        "terrorism",
-        "urgent"
-      ],
-      "failReasons": [
-        "số từ 26 ngoài 30-90"
       ]
     },
     "st-ff585f467a16": {
