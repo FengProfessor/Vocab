@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import confetti from 'canvas-confetti';
 
 export type CelebrationIntensity = 'light' | 'strong' | 'epic';
 
@@ -30,39 +29,47 @@ export function Celebration({ trigger, triggerKey, intensity = 'light' }: Props)
     if (lastKey.current === key) return;
     lastKey.current = key;
 
-    if (intensity === 'epic') {
-      // 5 burst dạng pháo hoa
-      confetti({ particleCount: 180, spread: 100, origin: { y: 0.5 } });
-      const colors = ['#fbbf24', '#f59e0b', '#10b981', '#6366f1', '#ec4899'];
-      const fire = (delay: number, x: number, angle: number) => {
-        setTimeout(() => {
-          confetti({
-            particleCount: 100,
-            angle,
-            spread: 70,
-            origin: { x, y: 0.6 },
-            colors,
-            startVelocity: 55,
-          });
-        }, delay);
-      };
-      fire(200, 0, 60);
-      fire(400, 1, 120);
-      fire(700, 0.5, 90);
-      fire(1000, 0.2, 75);
-    } else if (intensity === 'strong') {
-      confetti({ particleCount: 160, spread: 90, origin: { y: 0.55 } });
-      setTimeout(
-        () => confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 } }),
-        200,
-      );
-      setTimeout(
-        () => confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 } }),
-        400,
-      );
-    } else {
-      confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
-    }
+    let cancelled = false;
+    // Lazy-load canvas-confetti chỉ khi thật sự bắn → khỏi initial bundle các trang học.
+    void import('canvas-confetti').then(({ default: confetti }) => {
+      if (cancelled) return;
+      if (intensity === 'epic') {
+        // 5 burst dạng pháo hoa
+        confetti({ particleCount: 180, spread: 100, origin: { y: 0.5 } });
+        const colors = ['#fbbf24', '#f59e0b', '#10b981', '#6366f1', '#ec4899'];
+        const fire = (delay: number, x: number, angle: number) => {
+          setTimeout(() => {
+            confetti({
+              particleCount: 100,
+              angle,
+              spread: 70,
+              origin: { x, y: 0.6 },
+              colors,
+              startVelocity: 55,
+            });
+          }, delay);
+        };
+        fire(200, 0, 60);
+        fire(400, 1, 120);
+        fire(700, 0.5, 90);
+        fire(1000, 0.2, 75);
+      } else if (intensity === 'strong') {
+        confetti({ particleCount: 160, spread: 90, origin: { y: 0.55 } });
+        setTimeout(
+          () => confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 } }),
+          200,
+        );
+        setTimeout(
+          () => confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 } }),
+          400,
+        );
+      } else {
+        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [trigger, triggerKey, intensity]);
 
   return null;
