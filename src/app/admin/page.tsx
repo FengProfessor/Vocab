@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
-import { Brain, Users, BookOpen, Target, TrendingUp, ChevronLeft, CreditCard } from 'lucide-react';
+import { Brain, Users, BookOpen, Target, TrendingUp, ChevronLeft, CreditCard, Building2 } from 'lucide-react';
 import Link from 'next/link';
+import { authFetch } from '@/lib/auth-fetch';
 
 interface UserStat {
   id: string;
@@ -31,7 +32,7 @@ export default function AdminPage() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) { router.push('/auth'); return; }
 
-      const res = await fetch('/api/admin/stats');
+      const res = await authFetch('/api/admin/stats');
       if (!res.ok) { router.push('/'); return; }
       const data = await res.json();
       if (data.success) {
@@ -64,7 +65,10 @@ export default function AdminPage() {
           <Brain className="h-5 w-5" />
           Admin Dashboard
         </div>
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-2">
+          <Link href="/admin/pilot-leads" className="flex items-center gap-1.5 text-sm font-semibold bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 px-4 py-2 rounded-xl transition-colors">
+            <Building2 className="h-4 w-4" /> Pilot Leads
+          </Link>
           <Link href="/admin/billing" className="flex items-center gap-1.5 text-sm font-semibold bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-xl transition-colors">
             <CreditCard className="h-4 w-4" /> Billing
           </Link>

@@ -4,9 +4,9 @@
  * Speed: ~0.3-0.5s/từ CPU. Cost: $0. Quota: ∞.
  *
  * Score logic:
- *   target probability ≥ 0.50 → KEEP (score 70+)
- *   target probability ≥ 0.25 → LOW (score 30-69)
- *   target probability < 0.25 → RESET (score 0-29)
+ *   target probability ≥ 0.45 → KEEP
+ *   target probability ≥ 0.08 → LOW
+ *   target probability < 0.08 → RESET
  *
  * Chạy: cd web-app && node scripts/clip-verify-batch.mjs [--limit N]
  */
@@ -74,7 +74,7 @@ async function main() {
 
     const { data: rows, error } = await supabase
       .from('global_dictionary')
-      .select('word, image_url, image_source')
+      .select('word, image_url, image_source, data')
       .is('image_confidence', null)
       .not('image_url', 'is', null)
       .not('image_source', 'in', '(skip-function,none,placeholder)')
@@ -96,27 +96,32 @@ async function main() {
     const t1 = Date.now();
 
     try {
-      // Labels: target + distractors. CLIP softmax → sum = 1.0
+      const meaning = r.data?.results?.[0]?.meanings?.[0]?.definition || '';
+      const targetLabel = meaning
+        ? `a clear educational image illustrating "${r.word}", meaning: ${meaning.slice(0, 140)}`
+        : `a clear educational image illustrating "${r.word}"`;
+
+      // Siết nhãn đối chứng nhưng giữ ngưỡng reset rất thấp để tránh loại oan thành ngữ.
       const labels = [
-        `an image illustrating ${r.word}`,
-        'a random unrelated object',
-        'a dictionary text card with letters',
-        'a blank or empty image',
+        targetLabel,
+        'an unrelated image that does not illustrate the requested vocabulary meaning',
+        'a text-heavy dictionary card, screenshot, logo, watermark, or advertisement',
+        'a blank, corrupt, low-quality, or unusable image',
       ];
 
       const result = await classifier(r.image_url, labels);
-      const target = result.find((x) => x.label === labels[0]);
-      const prob = target ? target.score : 0;
+      const targetResult = result.find((x) => x.label === labels[0]);
+      const prob = targetResult ? targetResult.score : 0;
       const score = Math.round(prob * 100);
 
       let action = '';
       const update = { image_confidence: score, image_verified_at: new Date().toISOString() };
 
-      if (prob >= 0.50) {
+      if (prob >= 0.45) {
         update.image_source = r.image_source.replace(/-low$/, '');
         stats.kept++;
         action = `KEEP ${score}`;
-      } else if (prob >= 0.25) {
+      } else if (prob >= 0.08) {
         if (!r.image_source.endsWith('-low')) update.image_source = `${r.image_source}-low`;
         stats.downgraded++;
         action = `LOW  ${score}`;
@@ -153,9 +158,9 @@ async function main() {
   const totalSec = ((Date.now() - tStart) / 1000).toFixed(0);
   console.log(`\n${LOG} ============== KẾT THÚC ==============`);
   console.log(`${LOG} Thời gian: ${totalSec}s | Trung bình: ${(parseFloat(totalSec) / Math.max(processed, 1)).toFixed(2)}s/từ`);
-  console.log(`${LOG} KEEP   (≥50% prob, score≥50):  ${stats.kept}`);
-  console.log(`${LOG} LOW    (25-49%):              ${stats.downgraded}`);
-  console.log(`${LOG} RESET  (<25%):                ${stats.reset}`);
+  console.log(`${LOG} KEEP   (≥45%): ${stats.kept}`);
+  console.log(`${LOG} LOW    (8-44%): ${stats.downgraded}`);
+  console.log(`${LOG} RESET  (<8%):   ${stats.reset}`);
   console.log(`${LOG} ERROR: ${stats.error}`);
 }
 

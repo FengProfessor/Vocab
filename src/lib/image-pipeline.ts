@@ -16,9 +16,11 @@ import { search as searchWikipedia } from './image-sources/wikipedia';
 import { search as searchOpenverse } from './image-sources/openverse';
 import { search as searchPollinations } from './image-sources/pollinations';
 import { search as searchGemini } from './image-sources/gemini';
+import { search as searchSdWebui } from './image-sources/sd-webui';
 import { classifyWord, isNSFWUrl } from './word-classifier';
+import { verifyImageMulti } from './vision-providers/orchestrator';
 
-export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'gemini' | 'pollinations' | 'skip-function' | 'none';
+export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'gemini' | 'pollinations' | 'sd-webui' | 'skip-function' | 'none';
 
 export interface ResolveImageInput {
   word: string;
@@ -82,6 +84,10 @@ const ABSTRACT_DEF_HINTS = [
   'manner of',
 ];
 
+export function isVietnamese(text: string): boolean {
+  return /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(text);
+}
+
 /** Phân loại từ là cụ thể (chụp được ảnh thực) hay trừu tượng. */
 export function classifyConcreteness(pos = '', definition = ''): 'concrete' | 'abstract' {
   const p = pos.toLowerCase();
@@ -94,8 +100,9 @@ export function classifyConcreteness(pos = '', definition = ''): 'concrete' | 'a
 /** Lấy cụm mô tả ngắn từ definition (cho từ trừu tượng khi thiếu query Gemini). */
 function extractDescriptor(definition: string): string {
   if (!definition) return '';
-  return definition
-    .replace(/[^\w\s]/g, ' ')
+  const primary = definition.split(/[;,]/)[0].trim();
+  return primary
+    .replace(/[^\w\sàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/gi, ' ')
     .split(/\s+/)
     .filter(Boolean)
     .slice(0, 6)
@@ -110,11 +117,19 @@ export function buildImageQueries(input: ResolveImageInput): string[] {
   const concreteness = classifyConcreteness(pos, definition);
 
   // 1. Query Gemini sinh — ưu tiên cao nhất (đã bám ngữ cảnh nghĩa cụ thể)
-  if (imageSearchQuery && imageSearchQuery.trim()) {
-    queries.push(imageSearchQuery.trim());
+  const imgSearchQuery = typeof imageSearchQuery === 'string' ? imageSearchQuery : '';
+  if (imgSearchQuery && imgSearchQuery.trim()) {
+    queries.push(imgSearchQuery.trim());
   }
 
-  // 2. Query phái sinh theo POS
+  // 2. Query từ định nghĩa tiếng Việt để tìm ảnh đúng ngữ cảnh nghĩa tiếng Việt
+  const descriptor = extractDescriptor(definition);
+  if (descriptor && isVietnamese(descriptor)) {
+    queries.push(descriptor);
+    queries.push(`${descriptor} ảnh`);
+  }
+
+  // 3. Query phái sinh theo POS làm fallback
   if (concreteness === 'concrete') {
     queries.push(word);
     queries.push(`${word} photo`);
@@ -122,8 +137,10 @@ export function buildImageQueries(input: ResolveImageInput): string[] {
     queries.push(`person ${word}`);
     queries.push(`${word} action`);
   } else {
-    const descriptor = extractDescriptor(definition);
-    if (descriptor) queries.push(descriptor);
+    // Nếu chưa có descriptor ở bước 2 thì add descriptor tiếng Anh ở đây
+    if (!descriptor || !isVietnamese(descriptor)) {
+      if (descriptor) queries.push(descriptor);
+    }
     queries.push(`${word} concept illustration`);
   }
 
@@ -134,7 +151,6 @@ export function buildImageQueries(input: ResolveImageInput): string[] {
 // GIAI ĐOẠN C — Validate HTTP
 // =============================================
 
-/** Kiểm ảnh thực sự truy cập được, đúng content-type, không phải ảnh rác 1x1. */
 export async function validateImageUrl(url: string): Promise<boolean> {
   if (!url || !/^https?:\/\//.test(url)) return false;
   try {
@@ -187,6 +203,16 @@ export async function verifyImageMeaning(
   imageUrl: string,
   ctx: { word: string; pos?: string; definition?: string }
 ): Promise<{ score: number; reason: string }> {
+  try {
+    const orchRes = await verifyImageMulti(imageUrl, ctx);
+    if (orchRes.score !== -1) {
+      return { score: orchRes.score, reason: orchRes.reason };
+    }
+    console.warn('[ImagePipeline] Orchestrator failed, falling back to legacy Gemini:', orchRes.reason);
+  } catch (e) {
+    console.error('[ImagePipeline] Orchestrator exception:', (e as Error).message);
+  }
+
   try {
     const key = pickGeminiKey();
     if (!key) return { score: -1, reason: 'no api key' };
@@ -261,18 +287,32 @@ export async function resolveWordImage(input: ResolveImageInput): Promise<Resolv
   // GIAI ĐOẠN B — thu thập ứng viên ảnh theo tier
   const candidates: { url: string; source: ImageSource }[] = [];
 
-  // Tier 1: Pixabay + Pexels — ảnh thật, license thương mại rõ ràng (ưu tiên, an toàn pháp lý)
-  for (const q of queries) {
-    for (const u of await searchPixabay(q, 3)) candidates.push({ url: u, source: 'pixabay' });
-    for (const u of await searchPexels(q, 3)) candidates.push({ url: u, source: 'pexels' });
-    if (candidates.length >= 5) break;
-  }
+  const viQueries = queries.filter((q) => isVietnamese(q));
+  const enQueries = queries.filter((q) => !isVietnamese(q));
 
-  // Tier 2: DuckDuckGo — thử từng query
-  for (const q of queries) {
+  // A. Thu thập ứng viên từ các query tiếng Việt trên DuckDuckGo trước (độ chính xác cao nhất cho từ đa nghĩa)
+  for (const q of viQueries) {
     const urls = await searchDuckDuckGo(q, 4);
     for (const u of urls) candidates.push({ url: u, source: 'duckduckgo' });
-    if (candidates.length >= 5) break;
+    if (candidates.length >= 3) break;
+  }
+
+  // B. Tier 1: Pixabay + Pexels — ảnh thật, chỉ chạy các query tiếng Anh để tránh phí API
+  if (candidates.length < 5) {
+    for (const q of enQueries) {
+      for (const u of await searchPixabay(q, 3)) candidates.push({ url: u, source: 'pixabay' });
+      for (const u of await searchPexels(q, 3)) candidates.push({ url: u, source: 'pexels' });
+      if (candidates.length >= 5) break;
+    }
+  }
+
+  // C. Tier 2: DuckDuckGo — cho các query tiếng Anh còn lại
+  if (candidates.length < 5) {
+    for (const q of enQueries) {
+      const urls = await searchDuckDuckGo(q, 4);
+      for (const u of urls) candidates.push({ url: u, source: 'duckduckgo' });
+      if (candidates.length >= 5) break;
+    }
   }
   // Tier 3: Wikipedia — tra theo word gốc
   if (candidates.length < 5) {
@@ -285,10 +325,17 @@ export async function resolveWordImage(input: ResolveImageInput): Promise<Resolv
     for (const u of urls) candidates.push({ url: u, source: 'openverse' });
   }
 
+  // Tier 4.5: Stable Diffusion WebUI Local — sinh ảnh local miễn phí chất lượng cao
+  const isLocalSdEnabled = process.env.ENABLE_LOCAL_SD === 'true';
+  const generativeQuery = String(imageSearchQuery || extractDescriptor(definition) || word);
+  if (isLocalSdEnabled && candidates.length < 3) {
+    const sdUrls = await searchSdWebui(generativeQuery, 2);
+    for (const u of sdUrls) candidates.push({ url: u, source: 'sd-webui' });
+  }
+
   // Tier 5: Gemini Image (Nano Banana) — generative chất lượng cao, tốn quota
   // Chỉ gọi khi ứng viên thực còn ít (< 3) để tiết kiệm quota API
   // SKIP khi DISABLE_GEMINI_TIER=true (Google project bị suspended hoặc ToS warning)
-  const generativeQuery = imageSearchQuery || extractDescriptor(definition) || word;
   if (!DISABLE_GEMINI_TIER && candidates.length < 3) {
     const geminiUrls = await searchGemini(generativeQuery, 1, word);
     for (const u of geminiUrls) candidates.push({ url: u, source: 'gemini' });

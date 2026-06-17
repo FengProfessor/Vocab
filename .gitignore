@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+/tmp/
 
 # production
 /build
@@ -54,6 +55,7 @@ scraper-*.txt
 
 # local one-off debug scripts (không phải app, không commit)
 /scratch/
+/.claude/
 /check-db.ts
 /check_grammar_tables.js
 /extract-pdf-content.ts
@@ -61,6 +63,7 @@ scraper-*.txt
 /verify_env.js
 
 # One-off local artifacts
+/public/icons/icon-email.png
 tmp-*
 tampermonkey-*
 inspect_all_columns.js

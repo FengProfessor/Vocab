@@ -2,28 +2,81 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { confirmOrder } from '@/lib/billing';
 import { safeErrorResponse } from '@/lib/api-security';
+import crypto from 'crypto';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
+function verifyPayOSSignature(data: Record<string, unknown>, signature: string, checksumKey: string): boolean {
+  try {
+    const sortedKeys = Object.keys(data).sort();
+    const queryString = sortedKeys
+      .map((key) => {
+        let val = data[key];
+        if (val === null || val === undefined) val = '';
+        return `${key}=${val}`;
+      })
+      .join('&');
+
+    const calculatedSignature = crypto
+      .createHmac('sha256', checksumKey)
+      .update(queryString)
+      .digest('hex');
+
+    return calculatedSignature === signature;
+  } catch (err) {
+    console.error('[Webhook] PayOS signature verification error:', err);
+    return false;
+  }
+}
+
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    // 1. Authorization Check
-    // Webhook auth can use custom headers like X-Webhook-Secret or Secure-Token (Casso)
-    // Or standard Bearer Token in authorization header
-    const token = req.headers.get('secure-token') ||
-                  req.headers.get('x-webhook-secret') ||
-                  req.headers.get('x-api-key') ||
-                  req.headers.get('authorization')?.replace('Bearer ', '');
-
-    const webhookSecret = process.env.WEBHOOK_SECRET || process.env.CRON_SECRET;
-
-    if (!webhookSecret || token !== webhookSecret) {
-      console.warn('[Webhook] Unauthorized webhook call. Provided token:', token ? '***' : 'none');
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    const body = await req.json().catch(() => null);
+    if (!body) {
+      console.warn('[Webhook] Empty body received.');
+      return NextResponse.json({ success: false, error: 'Empty body' }, { status: 400 });
     }
 
-    const body = await req.json();
+    // 1. Authorization Check (Dual-auth: PayOS Signature or Casso Secure-Token)
+    let isAuthorized = false;
+
+    // Check PayOS signature first if signature & data are present in body
+    if (body.signature && body.data && typeof body.data === 'object') {
+      const checksumKey = process.env.PAYOS_CHECKSUM_KEY;
+      if (!checksumKey) {
+        console.warn('[Webhook] PayOS payload received but PAYOS_CHECKSUM_KEY is not configured in env.');
+      } else {
+        const isValidSignature = verifyPayOSSignature(body.data, body.signature, checksumKey);
+        if (isValidSignature) {
+          console.log('[Webhook] PayOS signature verification succeeded.');
+          isAuthorized = true;
+        } else {
+          console.warn('[Webhook] PayOS signature verification failed.');
+        }
+      }
+    }
+
+    // If not authorized by PayOS signature, fallback to Casso / secure token check
+    if (!isAuthorized) {
+      const token = req.headers.get('secure-token') ||
+                    req.headers.get('x-webhook-secret') ||
+                    req.headers.get('x-api-key') ||
+                    req.headers.get('authorization')?.replace('Bearer ', '');
+
+      const webhookSecret = process.env.WEBHOOK_SECRET || process.env.CRON_SECRET;
+
+      if (webhookSecret && token === webhookSecret) {
+        console.log('[Webhook] Secure-token/secret validation succeeded.');
+        isAuthorized = true;
+      } else {
+        console.warn('[Webhook] Unauthorized webhook call. Provided token:', token ? '***' : 'none');
+      }
+    }
+
+    if (!isAuthorized) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
     // Log gọn — không ghi full payload giao dịch ngân hàng vào log
     console.log('[Webhook] Received payload keys:', Object.keys(body || {}).join(','), 'size:', JSON.stringify(body).length);
 

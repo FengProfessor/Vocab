@@ -1,10 +1,14 @@
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
+import { createServiceClient } from '@/lib/supabase';
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');
+  const requestedRole = requestUrl.searchParams.get('role');
+  const pilot = requestUrl.searchParams.get('pilot');
+  const source = requestUrl.searchParams.get('source');
   
   if (code) {
     const cookieStore = await cookies();
@@ -21,7 +25,7 @@ export async function GET(request: Request) {
               cookiesToSet.forEach(({ name, value, options }) =>
                 cookieStore.set(name, value, options)
               );
-            } catch (error) {
+            } catch {
               // This can be ignored if you have middleware refreshing sessions
             }
           },
@@ -35,18 +39,24 @@ export async function GET(request: Request) {
     if (!error) {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
+        if (requestedRole === 'teacher') {
+          await createServiceClient().from('profiles').update({ role: 'teacher' }).eq('id', user.id);
+        }
         const { data: profile } = await supabase
           .from('profiles')
           .select('role')
           .eq('id', user.id)
           .single();
         
-        const redirectTo = profile?.role === 'teacher' ? '/teacher' : '/student';
-        return NextResponse.redirect(new URL(redirectTo, requestUrl.origin));
+        const role = requestedRole === 'teacher' ? 'teacher' : profile?.role;
+        const redirectUrl = new URL(role === 'teacher' ? '/teacher' : '/student', requestUrl.origin);
+        if (requestedRole === 'teacher') redirectUrl.searchParams.set('pilot_signup', '1');
+        if (pilot) redirectUrl.searchParams.set('pilot', pilot.slice(0, 40));
+        if (source) redirectUrl.searchParams.set('source', source.slice(0, 80));
+        return NextResponse.redirect(redirectUrl);
       }
     }
   }
   
   return NextResponse.redirect(new URL('/auth', requestUrl.origin));
 }
-

@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Brain, Mail, Lock, Eye, EyeOff, User, Loader2, GraduationCap, BookOpen, AlertCircle, ArrowRight } from 'lucide-react';
 import type { UserRole } from '@/lib/supabase';
 import { toast } from 'sonner';
+import { track } from '@/lib/analytics';
 
 type Mode = 'login' | 'signup';
 
@@ -21,7 +21,6 @@ export default function AuthPage() {
   const [status, setStatus] = useState('');
   const [debugError, setDebugError] = useState('');
   const [showManualRedirect, setShowManualRedirect] = useState(false);
-  const router = useRouter();
 
   // Diagnostic check
   useEffect(() => {
@@ -30,6 +29,9 @@ export default function AuthPage() {
     if (!url || !key) {
       setDebugError('Missing Supabase configuration. Please check environment variables.');
     }
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('mode') === 'signup') setMode('signup');
+    if (params.get('role') === 'teacher') setRole('teacher');
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -60,6 +62,13 @@ export default function AuthPage() {
           },
         });
         if (error) throw error;
+        if (role === 'teacher') {
+          const params = new URLSearchParams(window.location.search);
+          track('teacher_signup_completed', {
+            plan: params.get('pilot') ?? sessionStorage.getItem('teacher_pilot_plan') ?? undefined,
+            source: params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source') ?? 'teacher_landing',
+          });
+        }
         toast.success('Account created! Please check your email to confirm.');
         setMode('login');
       } else {
@@ -107,9 +116,16 @@ export default function AuthPage() {
 
   const handleGoogleSignIn = async () => {
     setStatus('Initializing Google sign-in...');
+    const params = new URLSearchParams(window.location.search);
+    const redirectUrl = new URL(`${window.location.origin}/auth/callback`);
+    redirectUrl.searchParams.set('role', role);
+    const pilot = params.get('pilot') ?? sessionStorage.getItem('teacher_pilot_plan');
+    const source = params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source');
+    if (pilot) redirectUrl.searchParams.set('pilot', pilot);
+    if (source) redirectUrl.searchParams.set('source', source);
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
+      options: { redirectTo: redirectUrl.toString() },
     });
     if (error) {
       setDebugError(error.message);

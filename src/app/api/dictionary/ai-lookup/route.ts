@@ -43,11 +43,17 @@ export async function POST(req: NextRequest) {
     }
 
     // 2. Gọi AI với router — tier 'normal' (short generation, definition lookup)
-    const prompt = `You are an English-Vietnamese dictionary. Provide the dictionary entry for the English word "${cleanWord}".
-Return ONLY a valid JSON object with this exact structure:
+    const prompt = `You are an English-Vietnamese dictionary. Your task is to look up the English word or phrase "${cleanWord}".
+
+IMPORTANT: If the input is NOT a real English word or phrase (e.g. random characters, gibberish, typos, or non-English text), you MUST return ONLY this exact JSON and nothing else:
+{"exists": false}
+
+If it IS a real English word or phrase, return ONLY a valid JSON object with this exact structure:
 {
+  "exists": true,
   "pronunciations": [
-    { "ipa": "/IPA pronunciation here/" }
+    { "ipa": "/British IPA/", "region": "UK" },
+    { "ipa": "/American IPA/", "region": "US" }
   ],
   "results": [
     {
@@ -62,7 +68,7 @@ Return ONLY a valid JSON object with this exact structure:
     }
   ]
 }
-Include the 3 most common meanings. Do not include markdown tags like \`\`\`json. Just the raw JSON.`;
+Include the 3 most common meanings. Always include both UK and US pronunciation entries in "pronunciations" — even if the IPA is identical, still return two separate objects with "region": "UK" and "region": "US". Do not include markdown tags like \`\`\`json. Just the raw JSON.`;
 
     let text = (await getRouter().generate(prompt, 'normal', true)).trim();
 
@@ -70,9 +76,25 @@ Include the 3 most common meanings. Do not include markdown tags like \`\`\`json
     if (text.startsWith('```')) text = text.replace(/```/g, '');
     text = text.trim();
 
-    const data = JSON.parse(text) as unknown;
+    const parsed = JSON.parse(text) as Record<string, unknown>;
 
-    // 3. Lưu vào Cache (fire-and-forget)
+    // Kiểm tra AI báo từ không tồn tại
+    if (parsed.exists === false) {
+      console.log(`[ai-lookup] Word not found (AI): "${cleanWord}"`);
+      return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
+    }
+
+    // Kiểm tra kết quả rác: IPA chứa ký tự "[" (dạng placeholder) hoặc không có nghĩa nào
+    const firstIpa = (parsed.pronunciations as Array<{ ipa?: string }> | undefined)?.[0]?.ipa ?? '';
+    const hasMeanings = ((parsed.results as Array<{ meanings?: unknown[] }> | undefined)?.[0]?.meanings?.length ?? 0) > 0;
+    if (firstIpa.includes('[') || !hasMeanings) {
+      console.log(`[ai-lookup] Garbage result for "${cleanWord}" — skipping cache`);
+      return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
+    }
+
+    const data = parsed;
+
+    // 3. Lưu vào Cache (fire-and-forget) — chỉ khi kết quả hợp lệ
     supabase.from('global_dictionary').insert({
       word: cleanWord,
       data: data,

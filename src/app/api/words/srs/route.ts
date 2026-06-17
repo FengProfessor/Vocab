@@ -27,6 +27,29 @@ export async function POST(req: Request) {
 
     const supabase = createServiceClient();
 
+    const { data: word } = await supabase
+      .from('words')
+      .select('added_by, classroom_id, classroom:classrooms(teacher_id)')
+      .eq('id', wordId)
+      .maybeSingle();
+    if (!word) {
+      return NextResponse.json({ success: false, error: 'Word not found' }, { status: 404 });
+    }
+    const classroom = word.classroom as { teacher_id?: string } | { teacher_id?: string }[] | null;
+    const teacherId = Array.isArray(classroom) ? classroom[0]?.teacher_id : classroom?.teacher_id;
+    const ownsWord = word.added_by === userId || teacherId === userId;
+    const { data: enrollment } = ownsWord
+      ? { data: true }
+      : await supabase
+          .from('enrollments')
+          .select('id')
+          .eq('classroom_id', word.classroom_id)
+          .eq('student_id', userId)
+          .maybeSingle();
+    if (!ownsWord && !enrollment) {
+      return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
+    }
+
     // Get current SRS entry if exists
     const { data: existing } = await supabase
       .from('srs_progress')
@@ -69,6 +92,9 @@ export async function POST(req: Request) {
     // Award XP (fire-and-forget, không block response)
     const xp = XP_BY_QUALITY[quality] ?? 5;
     void supabase.rpc('award_xp', { p_user_id: userId, p_xp: xp });
+    const { error: progressError } = await supabase
+      .rpc('refresh_vocab_pack_progress', { p_user_id: userId, p_word_id: wordId });
+    if (progressError) console.error('[VocabPack] Progress refresh failed:', progressError.message);
 
     return NextResponse.json(
       { success: true, srs: newSRS, data, xpAwarded: xp },

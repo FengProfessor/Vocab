@@ -10,6 +10,7 @@ export const maxDuration = 60;
 // Body: { classroomId: string, userId: string }
 // Re-runs AI enrichment for all words still showing "Analyzing" or "failed"
 type PendingWordRow = { id: string; word: string; translation: string | null };
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 type AIEnrichedWord = {
   original?: string;
   english?: string;
@@ -39,10 +40,25 @@ export async function POST(req: Request): Promise<NextResponse> {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
 
-    const { classroomId } = await req.json();
+    const { classroomId, wordIds } = (await req.json()) as {
+      classroomId?: string;
+      wordIds?: unknown;
+    };
     if (!classroomId) {
       return NextResponse.json({ success: false, error: 'classroomId is required' }, { status: 400 });
     }
+    if (wordIds !== undefined && (
+      !Array.isArray(wordIds)
+      || wordIds.length === 0
+      || wordIds.length > 20
+      || wordIds.some((id) => typeof id !== 'string' || !UUID_PATTERN.test(id))
+    )) {
+      return NextResponse.json(
+        { success: false, error: 'wordIds must contain 1-20 valid UUIDs' },
+        { status: 400 },
+      );
+    }
+    const requestedIds = Array.isArray(wordIds) ? [...new Set(wordIds as string[])] : null;
 
     const supabase = createServiceClient();
 
@@ -58,10 +74,12 @@ export async function POST(req: Request): Promise<NextResponse> {
     console.log(`[Refresh] Refreshing classroom: ${classroomId}`);
 
     // Find words that still need analysis
-    const { data: pendingWords, error } = await supabase
+    let pendingQuery = supabase
       .from('words')
       .select('id, word, translation')
       .eq('classroom_id', classroomId);
+    if (requestedIds) pendingQuery = pendingQuery.in('id', requestedIds);
+    const { data: pendingWords, error } = await pendingQuery;
 
     if (error) throw error;
 

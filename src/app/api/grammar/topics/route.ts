@@ -2,11 +2,21 @@ import { NextResponse } from 'next/server';
 import { createServiceClient, type GrammarTopic } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 
-/** Caller có role teacher mới được tạo/sửa chủ đề. */
-async function isTeacher(userId: string): Promise<boolean> {
+/** Chỉ admin trong whitelist mới được tạo/sửa chủ đề. */
+const ADMIN_EMAILS = new Set(
+  (process.env.ADMIN_EMAILS ?? '')
+    .split(',')
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean)
+);
+
+async function isAdmin(userId: string): Promise<boolean> {
+  if (ADMIN_EMAILS.size === 0) return false;
+
   const supabase = createServiceClient();
-  const { data } = await supabase.from('profiles').select('role').eq('id', userId).single();
-  return data?.role === 'teacher';
+  const { data, error } = await supabase.auth.admin.getUserById(userId);
+  const email = data.user?.email?.trim().toLowerCase();
+  return !error && Boolean(email && ADMIN_EMAILS.has(email));
 }
 
 type GrammarTopicJoined = GrammarTopic & { grammar_lessons?: { count: number }[] };
@@ -48,13 +58,13 @@ export async function GET(): Promise<NextResponse> {
   }
 }
 
-/** POST /api/grammar/topics — tạo/cập nhật 1 chủ đề (teacher). */
+/** POST /api/grammar/topics — tạo/cập nhật 1 chủ đề (admin). */
 export async function POST(req: Request): Promise<NextResponse> {
   try {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    if (!(await isTeacher(auth.userId))) {
-      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    if (!(await isAdmin(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
     const { slug, title, title_vi, level = 'beginner', order_index = 0, parent_id = null } =
       await req.json();

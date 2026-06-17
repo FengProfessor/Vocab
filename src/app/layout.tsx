@@ -9,7 +9,7 @@ import InstallPrompt from '@/components/InstallPrompt';
 import { PostHogProvider } from '@/components/PostHogProvider';
 
 const inter = Inter({
-  subsets: ['latin'],
+  subsets: ['latin', 'vietnamese'],
   display: 'swap',
   variable: '--font-inter',
 });

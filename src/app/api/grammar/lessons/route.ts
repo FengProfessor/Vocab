@@ -3,11 +3,21 @@ import { createServiceClient } from '@/lib/supabase';
 import type { GrammarExample } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 
-/** Caller có role teacher (elevated) mới được tạo/sửa/xoá lesson. */
-async function isTeacher(userId: string): Promise<boolean> {
+/** Chỉ admin trong whitelist mới được tạo/sửa/xoá lesson. */
+const ADMIN_EMAILS = new Set(
+  (process.env.ADMIN_EMAILS ?? '')
+    .split(',')
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean)
+);
+
+async function isAdmin(userId: string): Promise<boolean> {
+  if (ADMIN_EMAILS.size === 0) return false;
+
   const supabase = createServiceClient();
-  const { data } = await supabase.from('profiles').select('role').eq('id', userId).single();
-  return data?.role === 'teacher';
+  const { data, error } = await supabase.auth.admin.getUserById(userId);
+  const email = data.user?.email?.trim().toLowerCase();
+  return !error && Boolean(email && ADMIN_EMAILS.has(email));
 }
 
 /**
@@ -49,13 +59,13 @@ export async function GET(req: Request) {
   }
 }
 
-/** POST /api/grammar/lessons — tạo bài học mới (teacher). */
+/** POST /api/grammar/lessons — tạo bài học mới (admin). */
 export async function POST(req: Request) {
   try {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    if (!(await isTeacher(auth.userId))) {
-      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    if (!(await isAdmin(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
     const body = await req.json();
     const {
@@ -109,11 +119,11 @@ export async function PATCH(req: Request) {
     if (!auth) return unauthorized();
     const body = await req.json() as { lessonId?: string; examples?: GrammarExample[] };
     // User thường chỉ được persist annotation: body đúng 2 field { lessonId, examples }.
-    // Body chạm field khác → bắt buộc role teacher.
+    // Body chạm field khác → bắt buộc admin trong whitelist.
     const keys = Object.keys(body);
     const isAnnotationOnly = keys.length === 2 && keys.includes('lessonId') && keys.includes('examples');
-    if (!isAnnotationOnly && !(await isTeacher(auth.userId))) {
-      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    if (!isAnnotationOnly && !(await isAdmin(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
     const { lessonId, examples } = body;
     if (!lessonId || !Array.isArray(examples)) {
@@ -134,13 +144,13 @@ export async function PATCH(req: Request) {
   }
 }
 
-/** PUT /api/grammar/lessons — cập nhật 1 bài học (teacher). */
+/** PUT /api/grammar/lessons — cập nhật 1 bài học (admin). */
 export async function PUT(req: Request) {
   try {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    if (!(await isTeacher(auth.userId))) {
-      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    if (!(await isAdmin(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
     const { id, ...fields } = await req.json();
     if (!id) return NextResponse.json({ success: false, error: 'id is required' }, { status: 400 });
@@ -161,13 +171,13 @@ export async function PUT(req: Request) {
   }
 }
 
-/** DELETE /api/grammar/lessons?id=<lessonId> — xoá 1 bài học (teacher). */
+/** DELETE /api/grammar/lessons?id=<lessonId> — xoá 1 bài học (admin). */
 export async function DELETE(req: Request) {
   try {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    if (!(await isTeacher(auth.userId))) {
-      return NextResponse.json({ success: false, error: 'Teacher role required' }, { status: 403 });
+    if (!(await isAdmin(auth.userId))) {
+      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');

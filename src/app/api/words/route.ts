@@ -27,6 +27,7 @@ async function userOwnsWord(
 
 type SRSProgressWithStability = SRSProgress & { stability?: number };
 type WordWithSrsList = Word & { srs_progress?: SRSProgressWithStability[] };
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -176,6 +177,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
       .from('words')
       .select('image_url, image_source, image_confidence')
       .eq('word', updateData.word)
+      .eq('translation', updateData.translation) // Khớp nghĩa tiếng Việt để tránh sao chép nhầm ảnh của nghĩa khác
       .not('image_url', 'is', null)
       .neq('id', wordId)
       .limit(1)
@@ -396,6 +398,15 @@ export async function GET(req: Request): Promise<NextResponse> {
     const filter = searchParams.get('filter'); // 'review' = từ đã học & đến hạn | 'new' = từ chưa học (review_count=0)
     const limit = Math.min(500, Math.max(1, parseInt(searchParams.get('limit') || '100', 10)));
     const offset = Math.max(0, parseInt(searchParams.get('offset') || '0', 10));
+    const idsParam = searchParams.get('ids');
+    const parsedIds = idsParam === null
+      ? null
+      : idsParam.split(',').map((id) => id.trim().toLowerCase()).filter((id) => id.length > 0);
+
+    if (parsedIds && (parsedIds.length === 0 || parsedIds.length > 20 || parsedIds.some((id) => !UUID_PATTERN.test(id)))) {
+      return NextResponse.json({ success: false, error: 'ids must contain at most 20 valid UUIDs' }, { status: 400 });
+    }
+    const requestedIds = parsedIds ? [...new Set(parsedIds)] : null;
 
     const supabase = createServiceClient();
 
@@ -435,7 +446,10 @@ export async function GET(req: Request): Promise<NextResponse> {
         .limit(1000);
       if (dueErr) throw dueErr;
 
-      const dueIds = (dueSrs || []).map((s) => s.word_id);
+      const requestedIdSet = requestedIds ? new Set(requestedIds) : null;
+      const dueIds = (dueSrs || [])
+        .map((s) => s.word_id)
+        .filter((id) => !requestedIdSet || requestedIdSet.has(id));
       if (dueIds.length === 0) {
         return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
           headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -444,10 +458,14 @@ export async function GET(req: Request): Promise<NextResponse> {
 
       // Lấy MỌI từ due của user (không lọc classroom) → khớp tuyệt đối reviewDueCount ở dashboard.
       // An toàn: dueIds đến từ srs_progress của CHÍNH user (đã học = đã có quyền tiếp cận).
-      const { data: wordsData, error: wErr } = await supabase
+      let dueWordsQuery = supabase
         .from('words')
         .select('*, srs_progress(*)')
         .in('id', dueIds);
+      if (requestedIds) {
+        dueWordsQuery = dueWordsQuery.eq('classroom_id', classroomId);
+      }
+      const { data: wordsData, error: wErr } = await dueWordsQuery;
       if (wErr) throw wErr;
 
       const order = new Map(dueIds.map((id, i) => [id, i])); // giữ thứ tự due lâu nhất trước
@@ -488,10 +506,14 @@ export async function GET(req: Request): Promise<NextResponse> {
       const learnedIds = new Set((learnedRows || []).map((r) => r.word_id));
 
       // 2. Id mọi từ trong classroom (nhẹ — chỉ id) theo thứ tự mới nhất trước
-      const { data: idRows, error: idErr } = await supabase
+      let wordIdsQuery = supabase
         .from('words')
         .select('id')
-        .eq('classroom_id', classroomId)
+        .eq('classroom_id', classroomId);
+      if (requestedIds) {
+        wordIdsQuery = wordIdsQuery.in('id', requestedIds);
+      }
+      const { data: idRows, error: idErr } = await wordIdsQuery
         .order('created_at', { ascending: false })
         .limit(5000);
       if (idErr) throw idErr;
@@ -592,15 +614,22 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     // Lấy total count song song với fetch words
+    let countQuery = supabase
+      .from('words')
+      .select('id', { count: 'exact', head: true })
+      .eq('classroom_id', classroomId);
+    let wordsQuery = supabase
+      .from('words')
+      .select('*, srs_progress(*)')
+      .eq('classroom_id', classroomId);
+    if (requestedIds) {
+      countQuery = countQuery.in('id', requestedIds);
+      wordsQuery = wordsQuery.in('id', requestedIds);
+    }
+
     const [countResult, wordsResult] = await Promise.all([
-      supabase
-        .from('words')
-        .select('id', { count: 'exact', head: true })
-        .eq('classroom_id', classroomId),
-      supabase
-        .from('words')
-        .select('*, srs_progress(*)')
-        .eq('classroom_id', classroomId)
+      countQuery,
+      wordsQuery
         .order('created_at', { ascending: false })
         .range(offset, offset + limit - 1),
     ]);

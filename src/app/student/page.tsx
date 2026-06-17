@@ -4,13 +4,14 @@ import { useState, useEffect, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
+import { track } from '@/lib/analytics';
 import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   Brain, BookOpen, Zap, LayoutDashboard, LogOut, Loader2, Plus,
   CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw,
-  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles, MessageSquare
+  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles, MessageSquare, Users
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -34,6 +35,16 @@ const Celebration = dynamic(
   { ssr: false }
 );
 
+interface ActiveVocabPack {
+  pack_id: string;
+  topic_title: string;
+  pack_index: number;
+  status: 'not_started' | 'in_progress' | 'completed';
+  word_count: number;
+  reviewed_count: number;
+  words: Array<{ word_id: string; position: number }>;
+}
+
 export default function StudentDashboard() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [words, setWords] = useState<Word[]>([]);
@@ -44,6 +55,7 @@ export default function StudentDashboard() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [countdown, setCountdown] = useState<string>('');
   const [grammarDue, setGrammarDue] = useState(0);
+  const [activeVocabPack, setActiveVocabPack] = useState<ActiveVocabPack | null>(null);
   const [selectedWord, setSelectedWord] = useState<Word | null>(null);
   const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
   // Join classroom modal
@@ -109,6 +121,14 @@ export default function StudentDashboard() {
       authFetch(`/api/grammar/progress`)
         .then((r) => r.json())
         .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
+        .catch(() => {});
+
+      authFetch('/api/vocab/packs')
+        .then((response) => response.json())
+        .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
+          if (!packData.success || !packData.packs) return;
+          setActiveVocabPack(packData.packs.find((pack) => pack.status === 'in_progress') ?? null);
+        })
         .catch(() => {});
 
       // Fetch trang đầu với limit để tránh load toàn bộ
@@ -367,7 +387,11 @@ export default function StudentDashboard() {
     setIsJoining(true);
     setJoinError(null);
     try {
-      interface JoinResponse { success: boolean; data?: { name: string }; error?: string }
+      interface JoinResponse {
+        success: boolean;
+        data?: { id: string; name: string; teacher_id: string; enrollment_count: number | null };
+        error?: string;
+      }
       const res = await authFetch('/api/classrooms/join', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -383,6 +407,13 @@ export default function StudentDashboard() {
         return;
       }
       toast.success(`Đã tham gia lớp ${result.data?.name ?? ''}!`);
+      if (result.data) {
+        track('student_joined_teacher_class', {
+          classroom_id: result.data.id,
+          teacher_id: result.data.teacher_id,
+          ...(typeof result.data.enrollment_count === 'number' ? { enrollment_count: result.data.enrollment_count } : {}),
+        });
+      }
       setIsJoinModalOpen(false);
       setJoinCode('');
       if (profile?.id) loadData(profile.id);
@@ -459,7 +490,7 @@ export default function StudentDashboard() {
               <nav className="flex-1 space-y-4">
                 <Link href="/student" className="flex items-center gap-3 font-bold text-primary bg-primary/5 p-3 rounded-xl"><LayoutDashboard /> Dashboard</Link>
                 <Link href="/library" className="flex items-center gap-3 font-semibold p-3"><Library /> Thư viện từ vựng</Link>
-                <Link href="/import" className="flex items-center gap-3 font-semibold p-3"><Plus /> Import Words</Link>
+                <Link href="/import" className="flex items-center gap-3 font-semibold p-3"><Plus /> Nhập danh sách riêng</Link>
                 <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} className="flex items-center gap-3 font-semibold p-3"><Sparkles /> Học từ mới</Link>
                 <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Ôn tập</Link>
                 <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
@@ -508,8 +539,11 @@ export default function StudentDashboard() {
           <Link href="/library" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Library className="h-5 w-5" /> Thư viện từ vựng
           </Link>
+          <Link href="/dictionary" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <Search className="h-5 w-5" /> Tra từ điển
+          </Link>
           <Link href="/import" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Plus className="h-5 w-5" /> Import Words
+            <Plus className="h-5 w-5" /> Nhập danh sách riêng
           </Link>
           <Link href="/student/stats" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <BarChart3 className="h-5 w-5" /> Thống kê
@@ -533,6 +567,9 @@ export default function StudentDashboard() {
             {profile?.plan && profile.plan !== 'free' && (
               <span className="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-violet-100 text-violet-600 font-black uppercase">{profile.plan}</span>
             )}
+          </Link>
+          <Link href="/group" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+            <Users className="h-5 w-5" /> Nhóm của tôi
           </Link>
           <button onClick={handleSignOut} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:text-destructive rounded-xl transition-all font-semibold w-full text-left">
             <LogOut className="h-5 w-5" /> Sign Out
@@ -586,6 +623,37 @@ export default function StudentDashboard() {
 
           {/* Banner bật push (chỉ hiện khi chưa cấp quyền) */}
           <EnableNotifications />
+
+          {activeVocabPack && (
+            <Link
+              href={`/flashcard?mode=learn&ids=${activeVocabPack.words
+                .slice()
+                .sort((a, b) => a.position - b.position)
+                .map((word) => encodeURIComponent(word.word_id))
+                .join(',')}`}
+              className="group flex items-center gap-4 rounded-3xl border border-indigo-200 bg-gradient-to-r from-indigo-600 to-violet-600 p-5 text-white shadow-lg shadow-indigo-200 transition hover:brightness-105"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/15">
+                <Sparkles className="h-6 w-6" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs font-black uppercase tracking-wide text-indigo-200">Tiếp tục chặng đang học</div>
+                <div className="mt-1 truncate text-lg font-black">
+                  {activeVocabPack.topic_title} · Chặng {activeVocabPack.pack_index + 1}
+                </div>
+                <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/20">
+                  <div
+                    className="h-full rounded-full bg-amber-300"
+                    style={{ width: `${Math.round((activeVocabPack.reviewed_count / activeVocabPack.word_count) * 100)}%` }}
+                  />
+                </div>
+                <div className="mt-1 text-xs font-bold text-indigo-100">
+                  {activeVocabPack.reviewed_count}/{activeVocabPack.word_count} từ đã học
+                </div>
+              </div>
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          )}
 
           {/* ═══ Tách bạch: HỌC TỪ MỚI vs ÔN TẬP ═══ */}
           {totalWords > 0 && (
@@ -862,10 +930,10 @@ export default function StudentDashboard() {
               <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
                 <div className="text-muted-foreground opacity-40"><LayoutGrid className="h-12 w-12 mx-auto" /></div>
                 <h4 className="text-lg font-black text-slate-700">Chưa có từ vựng nào</h4>
-                <p className="text-sm text-muted-foreground max-w-xs">Thêm từ mới hoặc tham gia lớp học để bắt đầu học với AI và Spaced Repetition.</p>
+                <p className="text-sm text-muted-foreground max-w-xs">Chọn một chủ đề. LingoPro chuẩn bị gói 10-20 từ có hình ảnh để bạn học trong 5-8 phút.</p>
                 <div className="flex flex-wrap gap-3 justify-center">
-                  <Link href="/import" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl font-bold text-sm hover:brightness-110 transition-all">
-                    <Plus className="h-4 w-4" /> Thêm từ ngay
+                  <Link href="/library" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl font-bold text-sm hover:brightness-110 transition-all">
+                    <Sparkles className="h-4 w-4" /> Chọn chủ đề đầu tiên
                   </Link>
                   <button
                     onClick={() => { setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
@@ -1097,8 +1165,9 @@ export default function StudentDashboard() {
       {/* MOBILE BOTTOM NAV */}
       <nav className="fixed bottom-0 inset-x-0 h-16 bg-background border-t md:hidden flex items-center justify-around z-[90]">
         <Link href="/student" className="p-3 text-primary"><LayoutDashboard /></Link>
-        <Link href="/library" className="p-3 text-muted-foreground"><Library /></Link>
-        <Link href="/import" className="p-4 -mt-10 bg-primary text-white rounded-2xl shadow-lg shadow-primary/40"><Plus /></Link>
+        <Link href="/import" className="p-3 text-muted-foreground"><Plus /></Link>
+        <Link href="/dictionary" className="p-3 text-muted-foreground"><Search /></Link>
+        <Link href="/library" className="p-4 -mt-10 bg-primary text-white rounded-2xl shadow-lg shadow-primary/40"><Sparkles /></Link>
         <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="p-3 text-muted-foreground"><BookOpen /></Link>
       </nav>
     </div>

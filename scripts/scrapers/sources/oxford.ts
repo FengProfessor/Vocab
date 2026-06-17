@@ -20,6 +20,8 @@ export async function scrapeWord(word: string): Promise<RawEntry | null> {
   const ipa =
     entry.find('.phons_br .phon').first().text().trim() ||
     entry.find('.phon').first().text().trim();
+  // Lấy thêm IPA giọng Mỹ (.phons_n_am) nếu có
+  const ipaUS = entry.find('.phons_n_am .phon').first().text().trim();
   const pos = entry.find('.pos').first().text().trim();
 
   const meanings: RawMeaning[] = [];
@@ -44,5 +46,5 @@ export async function scrapeWord(word: string): Promise<RawEntry | null> {
     if (t) familyWords.push(t);
   });
 
-  return { word, ipa, meanings, familyWords };
+  return { word, ipa, ipaUS: ipaUS || undefined, meanings, familyWords };
 }

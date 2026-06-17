@@ -5,7 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { createOrder } from '@/lib/billing';
+import { createOrder, isValidPeriodMonths } from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
 
 // Fail-closed: env rỗng → mảng rỗng → mọi request đều 403 (tránh [''].includes('') = true)
@@ -27,19 +27,41 @@ export async function POST(req: NextRequest) {
       periodMonths?: number;
       paymentMethod?: string;
       couponCode?: string;
+      orderKind?: string;
+      seats?: number;
     };
 
-    const plan = body.plan as Exclude<Plan, 'free'>;
-    if (!plan || !['pro', 'premium'].includes(plan)) {
+    const isGroup = body.orderKind === 'group';
+
+    // Gói nhóm: plan do server ép = GROUP_PLAN; chỉ validate seats.
+    let plan = body.plan as Exclude<Plan, 'free'>;
+    if (isGroup) {
+      plan = 'pro'; // placeholder — createOrder sẽ ép GROUP_PLAN
+      const seats = body.seats;
+      if (typeof seats !== 'number' || seats < 2 || seats > 20) {
+        return NextResponse.json({ error: 'Invalid seats. Must be 2-20.' }, { status: 400 });
+      }
+    } else if (!plan || !['pro', 'premium'].includes(plan)) {
       return NextResponse.json({ error: 'Invalid plan. Must be pro or premium.' }, { status: 400 });
+    }
+
+    const periodMonths = body.periodMonths ?? 1;
+    if (!isValidPeriodMonths(periodMonths)) {
+      return NextResponse.json({ error: 'Invalid periodMonths. Must be one of 1, 3, 6, 12.' }, { status: 400 });
+    }
+    const paymentMethod = body.paymentMethod || 'bank_transfer';
+    if (!['vnpay', 'momo', 'bank_transfer', 'manual'].includes(paymentMethod)) {
+      return NextResponse.json({ error: 'Invalid paymentMethod.' }, { status: 400 });
     }
 
     const result = await createOrder(supabase, {
       userId: user.id,
       plan,
-      periodMonths: body.periodMonths || 1,
-      paymentMethod: body.paymentMethod || 'bank_transfer',
+      periodMonths,
+      paymentMethod,
       couponCode: body.couponCode,
+      orderKind: isGroup ? 'group' : 'individual',
+      seats: isGroup ? body.seats : undefined,
     });
 
     return NextResponse.json({ success: true, ...result });

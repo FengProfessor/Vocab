@@ -4,8 +4,9 @@
  * Centralises all monetary calculations so API routes stay lean.
  */
 
-import type { Plan } from '@/lib/supabase';
+import type { Plan, OrderKind } from '@/lib/supabase';
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { getEffectivePlan } from '@/lib/entitlement';
 
 // ─────────────────────────────────────────
 // Pricing
@@ -27,12 +28,25 @@ export const PLAN_ANNUAL_PRICES: Record<Exclude<Plan, 'free'>, number> = {
 export const SCHOOL_PRICE = 499_000;
 
 /** Kỳ hạn mua + % giảm. 12 tháng = null → dùng giá năm cố định (PLAN_ANNUAL_PRICES). */
-export const PERIOD_OPTIONS: { months: number; label: string; discountPct: number | null }[] = [
+export const VALID_PERIOD_MONTHS = [1, 3, 6, 12] as const;
+export type BillingPeriodMonths = (typeof VALID_PERIOD_MONTHS)[number];
+
+export const PERIOD_OPTIONS: { months: BillingPeriodMonths; label: string; discountPct: number | null }[] = [
   { months: 1, label: '1 tháng', discountPct: 0 },
   { months: 3, label: '3 tháng', discountPct: 10 },
   { months: 6, label: '6 tháng', discountPct: 20 },
   { months: 12, label: '1 năm', discountPct: null },
 ];
+
+export function isValidPeriodMonths(value: unknown): value is BillingPeriodMonths {
+  return typeof value === 'number' && VALID_PERIOD_MONTHS.includes(value as BillingPeriodMonths);
+}
+
+export function normalizePeriodMonths(value: unknown): BillingPeriodMonths {
+  if (value === undefined || value === null) return 1;
+  if (isValidPeriodMonths(value)) return value;
+  throw new Error('Invalid periodMonths. Must be one of 1, 3, 6, 12.');
+}
 
 /**
  * Giá gốc (trước coupon) theo gói + số tháng. NGUỒN DUY NHẤT cho cả client lẫn server.
@@ -40,15 +54,16 @@ export const PERIOD_OPTIONS: { months: number; label: string; discountPct: numbe
  * - Khác → giá tháng × số tháng × (1 - % giảm kỳ hạn).
  */
 export function computeBasePrice(plan: Exclude<Plan, 'free'>, periodMonths: number): number {
-  if (periodMonths === 12) return PLAN_ANNUAL_PRICES[plan];
-  const opt = PERIOD_OPTIONS.find((o) => o.months === periodMonths);
+  const normalizedPeriod = normalizePeriodMonths(periodMonths);
+  if (normalizedPeriod === 12) return PLAN_ANNUAL_PRICES[plan];
+  const opt = PERIOD_OPTIONS.find((o) => o.months === normalizedPeriod);
   const pct = opt?.discountPct ?? 0;
-  return Math.round(PLAN_PRICES[plan] * periodMonths * (1 - pct / 100));
+  return Math.round(PLAN_PRICES[plan] * normalizedPeriod * (1 - pct / 100));
 }
 
 /** Giá niêm yết (giá tháng × số tháng, KHÔNG giảm) — để hiển thị "tiết kiệm bao nhiêu". */
 export function listPrice(plan: Exclude<Plan, 'free'>, periodMonths: number): number {
-  return PLAN_PRICES[plan] * periodMonths;
+  return PLAN_PRICES[plan] * normalizePeriodMonths(periodMonths);
 }
 
 /** Nhãn gói cho UI. */
@@ -57,6 +72,46 @@ export const PLAN_LABELS: Record<Plan, string> = {
   pro: 'Pro',
   premium: 'Premium',
 };
+
+// ─────────────────────────────────────────
+// Gói Nhóm (Group Plan)
+// ─────────────────────────────────────────
+
+/** Giá mỗi ghế/tháng của gói nhóm (VNĐ). Owner trả gộp seats × giá. */
+export const GROUP_SEAT_PRICE = 39_000;
+/** Tier thành viên nhóm nhận được. ĐỔI TIER tại đây (pro ↔ premium). */
+export const GROUP_PLAN: Exclude<Plan, 'free'> = 'pro';
+export const GROUP_SEATS_MIN = 2;
+export const GROUP_SEATS_MAX = 20;
+export const GROUP_SEATS_DEFAULT = 10;
+
+const PLAN_RANK: Record<Plan, number> = { free: 0, pro: 1, premium: 2 };
+
+export function normalizeSeats(value: unknown): number {
+  const n = typeof value === 'number' ? Math.floor(value) : NaN;
+  if (!Number.isFinite(n) || n < GROUP_SEATS_MIN || n > GROUP_SEATS_MAX) {
+    throw new Error(`Invalid seats. Must be ${GROUP_SEATS_MIN}-${GROUP_SEATS_MAX}.`);
+  }
+  return n;
+}
+
+/**
+ * Giá gói nhóm = ghế × 39k × số tháng × (1 - % giảm kỳ hạn).
+ * 12 tháng (discountPct=null) → coi như giảm 20% (đồng bộ mốc 6 tháng).
+ */
+export function computeGroupPrice(seats: number, periodMonths: number): number {
+  const s = normalizeSeats(seats);
+  const months = normalizePeriodMonths(periodMonths);
+  const opt = PERIOD_OPTIONS.find((o) => o.months === months);
+  const pct = opt?.discountPct ?? 0;
+  const effectivePct = pct === null ? 20 : pct;
+  return Math.round(GROUP_SEAT_PRICE * s * months * (1 - effectivePct / 100));
+}
+
+/** Giá niêm yết gói nhóm (ghế × 39k × tháng, KHÔNG giảm). */
+export function listGroupPrice(seats: number, periodMonths: number): number {
+  return GROUP_SEAT_PRICE * normalizeSeats(seats) * normalizePeriodMonths(periodMonths);
+}
 
 // ─────────────────────────────────────────
 // Coupon
@@ -97,6 +152,20 @@ export interface CreateOrderInput {
   periodMonths?: number;
   paymentMethod?: string;
   couponCode?: string;
+  /** 'group' → gói nhóm: bỏ qua plan, dùng GROUP_PLAN + seats. */
+  orderKind?: OrderKind;
+  /** Số ghế khi orderKind='group'. */
+  seats?: number;
+}
+
+interface OrderSummary {
+  id: string;
+  amount: number;
+  plan: Exclude<Plan, 'free'>;
+  period_months: number;
+  status: string;
+  coupon_code: string | null;
+  created_at: string;
 }
 
 /**
@@ -107,10 +176,19 @@ export async function createOrder(
   supabase: SupabaseClient,
   input: CreateOrderInput,
 ) {
-  const { userId, plan, periodMonths = 1, paymentMethod = 'bank_transfer', couponCode } = input;
+  const { userId, paymentMethod = 'bank_transfer' } = input;
+  const periodMonths = normalizePeriodMonths(input.periodMonths);
+  const couponCode = input.couponCode?.trim().toUpperCase() || '';
+
+  // Gói nhóm: ép plan = GROUP_PLAN, tính giá theo ghế.
+  const orderKind: OrderKind = input.orderKind === 'group' ? 'group' : 'individual';
+  const seats = orderKind === 'group' ? normalizeSeats(input.seats ?? GROUP_SEATS_DEFAULT) : 1;
+  const plan: Exclude<Plan, 'free'> = orderKind === 'group' ? GROUP_PLAN : input.plan;
 
   // Áp giảm giá kỳ hạn ngay tại server → số tiền order luôn khớp giá hiển thị ở /upgrade
-  const basePrice = computeBasePrice(plan, periodMonths);
+  const basePrice = orderKind === 'group'
+    ? computeGroupPrice(seats, periodMonths)
+    : computeBasePrice(plan, periodMonths);
 
   // Validate + apply coupon
   let coupon: Coupon | null = null;
@@ -118,7 +196,7 @@ export async function createOrder(
     const { data } = await supabase
       .from('coupons')
       .select('*')
-      .eq('code', couponCode.toUpperCase())
+      .eq('code', couponCode)
       .eq('is_active', true)
       .maybeSingle();
 
@@ -138,6 +216,34 @@ export async function createOrder(
   }
 
   const amount = applyDiscount(basePrice, coupon);
+  // Gói nhóm không cho redeem free qua coupon (RPC chỉ tạo entitlement cá nhân, không dựng group).
+  if (amount === 0 && orderKind === 'group') {
+    throw new Error('Group orders cannot be zero-value.');
+  }
+  if (amount === 0 && coupon) {
+    const { data: rpcData, error: rpcError } = await supabase.rpc('redeem_free_coupon_order', {
+      p_user_id: userId,
+      p_plan: plan,
+      p_period_months: periodMonths,
+      p_payment_method: paymentMethod,
+      p_coupon_code: coupon.code,
+      p_base_amount: basePrice,
+    });
+
+    if (rpcError) {
+      throw new Error(`Failed to redeem free coupon order: ${rpcError.message}`);
+    }
+
+    const rows = rpcData as unknown as OrderSummary[] | null;
+    const order = rows?.[0];
+    if (!order) throw new Error('Failed to redeem free coupon order: empty response');
+
+    return { order, discount: basePrice };
+  }
+
+  if (amount === 0) {
+    throw new Error('Zero-value orders require a valid coupon redemption.');
+  }
 
   const { data: order, error } = await supabase
     .from('orders')
@@ -149,8 +255,10 @@ export async function createOrder(
       period_months: periodMonths,
       coupon_code: coupon?.code ?? null,
       status: 'pending',
+      order_kind: orderKind,
+      seats,
     })
-    .select('id, amount, plan, period_months, status, coupon_code, created_at')
+    .select('id, amount, plan, period_months, status, coupon_code, created_at, order_kind, seats')
     .single();
 
   if (error) throw new Error(`Failed to create order: ${error.message}`);
@@ -185,18 +293,10 @@ export async function confirmOrder(
   const now = new Date();
   const startsAt = now;
   const expiresAt = new Date(now);
-  expiresAt.setMonth(expiresAt.getMonth() + (order.period_months || 1));
+  const periodMonths = normalizePeriodMonths(order.period_months);
+  expiresAt.setMonth(expiresAt.getMonth() + periodMonths);
 
-  // 2. Fetch old plan
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('plan')
-    .eq('id', order.user_id)
-    .single();
-
-  const oldPlan = profile?.plan ?? 'free';
-
-  // 3. Update order
+  // 2. Update order → paid (chung cho mọi loại)
   const { error: updateOrderErr } = await supabase
     .from('orders')
     .update({
@@ -212,26 +312,38 @@ export async function confirmOrder(
 
   if (updateOrderErr) throw new Error(`Failed to update order: ${updateOrderErr.message}`);
 
-  // 4. Update user profile
-  const { error: updateProfileErr } = await supabase
-    .from('profiles')
-    .update({
-      plan: order.plan,
-      plan_expires_at: expiresAt.toISOString(),
-    })
-    .eq('id', order.user_id);
+  // 3. Kích hoạt entitlement — rẽ nhánh theo loại order
+  if (order.order_kind === 'group') {
+    // Gói nhóm: dựng/gia hạn group + cấp Pro cho owner & mọi member.
+    await activateGroup(supabase, order, startsAt, expiresAt, adminId);
+  } else {
+    // Cá nhân: cập nhật trực tiếp profile của user mua.
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('plan')
+      .eq('id', order.user_id)
+      .single();
+    const oldPlan = profile?.plan ?? 'free';
 
-  if (updateProfileErr) throw new Error(`Failed to update profile: ${updateProfileErr.message}`);
+    const { error: updateProfileErr } = await supabase
+      .from('profiles')
+      .update({
+        plan: order.plan,
+        plan_expires_at: expiresAt.toISOString(),
+      })
+      .eq('id', order.user_id);
 
-  // 5. Log subscription history
-  await supabase.from('subscription_history').insert({
-    user_id: order.user_id,
-    old_plan: oldPlan,
-    new_plan: order.plan,
-    reason: 'payment',
-    order_id: orderId,
-    changed_by: adminId,
-  });
+    if (updateProfileErr) throw new Error(`Failed to update profile: ${updateProfileErr.message}`);
+
+    await supabase.from('subscription_history').insert({
+      user_id: order.user_id,
+      old_plan: oldPlan,
+      new_plan: order.plan,
+      reason: 'payment',
+      order_id: orderId,
+      changed_by: adminId,
+    });
+  }
 
   // 6. Increment coupon used_count (non-fatal nếu lỗi)
   if (order.coupon_code) {
@@ -265,5 +377,169 @@ export function formatExpiry(expiresAt: string | null | undefined): string {
   if (!expiresAt) return 'Lifetime';
   return new Date(expiresAt).toLocaleDateString('vi-VN', {
     day: '2-digit', month: '2-digit', year: 'numeric',
+  });
+}
+
+// ─────────────────────────────────────────
+// Gói Nhóm — kích hoạt & entitlement
+// ─────────────────────────────────────────
+
+interface GroupOrderRow {
+  id: string;
+  user_id: string;
+  plan: Exclude<Plan, 'free'>;
+  seats?: number | null;
+}
+
+/** Mã mời 6 ký tự (bỏ ký tự dễ nhầm 0/O/1/I). */
+function randomInviteCode(len = 6): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let s = '';
+  for (let i = 0; i < len; i++) s += chars[Math.floor(Math.random() * chars.length)];
+  return s;
+}
+
+async function genUniqueInviteCode(supabase: SupabaseClient): Promise<string> {
+  for (let i = 0; i < 8; i++) {
+    const code = randomInviteCode(6);
+    const { data } = await supabase.from('groups').select('id').eq('invite_code', code).maybeSingle();
+    if (!data) return code;
+  }
+  throw new Error('Failed to generate unique invite code');
+}
+
+/**
+ * Cấp entitlement nhóm cho 1 user — KHÔNG hạ cấp gói/hết hạn đang tốt hơn.
+ * Chọn gói = rank cao hơn giữa (gói hiệu lực hiện tại, plan nhóm); expiry = max(hiện tại, nhóm).
+ */
+export async function grantGroupEntitlement(
+  supabase: SupabaseClient,
+  userId: string,
+  plan: Exclude<Plan, 'free'>,
+  expiresAtISO: string,
+): Promise<void> {
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('plan, plan_expires_at')
+    .eq('id', userId)
+    .maybeSingle();
+
+  const curEffective = getEffectivePlan(
+    profile?.plan as Plan | undefined,
+    profile?.plan_expires_at as string | null | undefined,
+  );
+  const curExpMs = profile?.plan_expires_at ? new Date(profile.plan_expires_at as string).getTime() : 0;
+  const newExpMs = new Date(expiresAtISO).getTime();
+
+  const chosenPlan: Plan = PLAN_RANK[curEffective] >= PLAN_RANK[plan] ? curEffective : plan;
+  const chosenExpMs = Math.max(curExpMs, newExpMs);
+
+  await supabase
+    .from('profiles')
+    .update({ plan: chosenPlan, plan_expires_at: new Date(chosenExpMs).toISOString() })
+    .eq('id', userId);
+}
+
+/**
+ * Gỡ entitlement nhóm khi member rời/bị xóa — chỉ reset nếu entitlement đến TỪ nhóm này
+ * (heuristic: plan_expires_at khớp expiry nhóm). Member tự mua gói riêng không bị đụng.
+ */
+export async function revertGroupEntitlement(
+  supabase: SupabaseClient,
+  userId: string,
+  groupExpiresAt: string | null | undefined,
+): Promise<void> {
+  if (!groupExpiresAt) return;
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('plan_expires_at')
+    .eq('id', userId)
+    .maybeSingle();
+  const exp = profile?.plan_expires_at as string | null | undefined;
+  if (exp && Math.abs(new Date(exp).getTime() - new Date(groupExpiresAt).getTime()) < 60_000) {
+    await supabase.from('profiles').update({ plan: 'free', plan_expires_at: null }).eq('id', userId);
+  }
+}
+
+/**
+ * Dựng (hoặc gia hạn) group sau khi order nhóm được thanh toán, rồi cấp Pro cho owner + mọi member.
+ * Gia hạn: owner đã có group active → extend expiry + (có thể) tăng ghế, re-propagate entitlement.
+ */
+export async function activateGroup(
+  supabase: SupabaseClient,
+  order: GroupOrderRow,
+  startsAt: Date,
+  expiresAt: Date,
+  adminId: string | null,
+): Promise<void> {
+  const plan: Exclude<Plan, 'free'> = (order.plan as Exclude<Plan, 'free'>) || GROUP_PLAN;
+  const seatLimit = order.seats && order.seats > 1 ? order.seats : GROUP_SEATS_DEFAULT;
+
+  // Owner đã có group active? → gia hạn thay vì tạo mới.
+  const { data: existing } = await supabase
+    .from('groups')
+    .select('*')
+    .eq('owner_id', order.user_id)
+    .eq('status', 'active')
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  let groupId: string;
+  if (existing) {
+    const newSeatLimit = Math.max(existing.seat_limit, seatLimit);
+    await supabase
+      .from('groups')
+      .update({
+        expires_at: expiresAt.toISOString(),
+        seat_limit: newSeatLimit,
+        order_id: order.id,
+        status: 'active',
+      })
+      .eq('id', existing.id);
+    groupId = existing.id;
+  } else {
+    const inviteCode = await genUniqueInviteCode(supabase);
+    const { data: created, error } = await supabase
+      .from('groups')
+      .insert({
+        owner_id: order.user_id,
+        plan,
+        seat_limit: seatLimit,
+        invite_code: inviteCode,
+        status: 'active',
+        starts_at: startsAt.toISOString(),
+        expires_at: expiresAt.toISOString(),
+        order_id: order.id,
+      })
+      .select('id')
+      .single();
+    if (error || !created) throw new Error(`Failed to create group: ${error?.message}`);
+    groupId = created.id;
+
+    // Owner = member đầu tiên.
+    await supabase.from('group_members').insert({ group_id: groupId, user_id: order.user_id });
+  }
+
+  // Cấp/đồng bộ entitlement cho mọi member (gồm owner) tới expiry mới.
+  const { data: members } = await supabase
+    .from('group_members')
+    .select('user_id')
+    .eq('group_id', groupId);
+  const userIds = new Set<string>((members ?? []).map((m) => m.user_id as string));
+  userIds.add(order.user_id);
+
+  for (const uid of userIds) {
+    await grantGroupEntitlement(supabase, uid, plan, expiresAt.toISOString());
+  }
+
+  // Log history cho owner.
+  await supabase.from('subscription_history').insert({
+    user_id: order.user_id,
+    old_plan: null,
+    new_plan: plan,
+    reason: 'payment',
+    order_id: order.id,
+    changed_by: adminId,
   });
 }

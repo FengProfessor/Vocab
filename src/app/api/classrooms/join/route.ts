@@ -55,7 +55,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'Failed to join classroom' }, { status: 500 });
     }
 
-    return NextResponse.json({ success: true, data: classroom });
+    const { count: enrollmentCount, error: countError } = await supabase
+      .from('enrollments')
+      .select('student_id', { count: 'exact', head: true })
+      .eq('classroom_id', classroom.id);
+    if (countError) console.error('[Join] Enrollment count error:', countError.message);
+
+    return NextResponse.json({
+      success: true,
+      data: { ...classroom, enrollment_count: countError ? null : enrollmentCount },
+    });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('[Join] Unexpected error:', msg);

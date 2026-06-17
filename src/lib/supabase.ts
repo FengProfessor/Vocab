@@ -62,6 +62,36 @@ export interface Classroom {
   enrollment_count?: number;
 }
 
+export type OrderKind = 'individual' | 'group';
+export type GroupStatus = 'active' | 'expired' | 'cancelled';
+
+/** Gói nhóm đã kích hoạt: 1 owner trả gộp, chia ghế Pro cho nhóm bạn. */
+export interface Group {
+  id: string;
+  owner_id: string;
+  plan: Exclude<Plan, 'free'>;
+  seat_limit: number;        // gồm cả owner (owner = 1 ghế)
+  invite_code: string;
+  status: GroupStatus;
+  starts_at?: string | null;
+  expires_at?: string | null;
+  order_id?: string | null;
+  created_at: string;
+  // Joined fields
+  owner?: Profile;
+  members?: GroupMember[];
+  seats_used?: number;
+}
+
+export interface GroupMember {
+  id: string;
+  group_id: string;
+  user_id: string;
+  joined_at: string;
+  // Joined fields
+  profile?: Profile;
+}
+
 export interface Word {
   id: string;
   classroom_id: string;

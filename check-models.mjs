@@ -1,6 +1,12 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyCWmTLSwGkWb4CUfesYjxK55klRCMjwRhg';
+const apiKey = process.env.GEMINI_API_KEY;
+
+if (!apiKey) {
+    console.error('[CheckModels] Missing required GEMINI_API_KEY environment variable.');
+    process.exit(1);
+}
+
 const genAI = new GoogleGenerativeAI(apiKey);
 
 async function listModels() {
@@ -8,9 +14,9 @@ async function listModels() {
         const url = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
         const response = await fetch(url);
         const data = await response.json();
-        console.log(JSON.stringify(data, null, 2));
+        console.log('[CheckModels] Models response:', JSON.stringify(data, null, 2));
     } catch (error) {
-        console.error("Error fetching models:", error);
+        console.error('[CheckModels] Error fetching models:', error);
     }
 }
 

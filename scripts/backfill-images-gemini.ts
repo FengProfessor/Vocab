@@ -31,6 +31,8 @@ function parseArgs() {
   return {
     limit: parseInt(get('--limit', '0'), 10),
     throttle: parseInt(get('--throttle', '7000'), 10),
+    workers: parseInt(get('--workers', '1'), 10),
+    range: get('--range', ''),
     onlyNone: args.includes('--only-none'),
     dryRun: args.includes('--dry-run'),
   };
@@ -55,8 +57,21 @@ async function main() {
     console.warn(`${LOG} ⚠ cột image_confidence chưa migrate → chỉ update image_url + image_source`);
   }
 
-  const { limit, throttle, onlyNone, dryRun } = parseArgs();
-  console.log(`${LOG} cấu hình: limit=${limit || '∞'} throttle=${throttle}ms only-none=${onlyNone} dry-run=${dryRun}`);
+  const { limit, throttle, workers, range, onlyNone, dryRun } = parseArgs();
+  console.log(`${LOG} cấu hình: limit=${limit || '∞'} throttle=${throttle}ms workers=${workers} range=${range || 'all'} only-none=${onlyNone} dry-run=${dryRun}`);
+
+  // Phân tích range chữ cái đầu (vd: a-f)
+  let rangeStart = '';
+  let rangeEnd = '';
+  if (range && range.includes('-')) {
+    const parts = range.split('-');
+    if (parts.length === 2 && parts[0].length === 1 && parts[1].length === 1) {
+      rangeStart = parts[0].toLowerCase();
+      const endChar = parts[1].toLowerCase();
+      rangeEnd = String.fromCharCode(endChar.charCodeAt(0) + 1); // Cận trên exclusive
+      console.log(`${LOG} lọc từ theo range chữ cái: >= "${rangeStart}" và < "${rangeEnd}"`);
+    }
+  }
 
   const keyCount = (process.env.GEMINI_API_KEY || '').split(',').filter(Boolean).length;
   console.log(`${LOG} Gemini keys phát hiện: ${keyCount}`);
@@ -67,6 +82,10 @@ async function main() {
   let cntQuery = supabase
     .from('global_dictionary')
     .select('*', { count: 'exact', head: true });
+  if (rangeStart && rangeEnd) {
+    cntQuery = cntQuery.gte('word', rangeStart).lt('word', rangeEnd);
+  }
+  cntQuery = cntQuery.not('image_source', 'eq', 'skip-function');
   cntQuery = onlyNone
     ? cntQuery.or('image_url.is.null,image_source.eq.none')
     : cntQuery.or('image_url.is.null,image_source.eq.none,image_source.eq.placeholder');
@@ -91,6 +110,10 @@ async function main() {
     let q = supabase
       .from('global_dictionary')
       .select('word, data, image_source');
+    if (rangeStart && rangeEnd) {
+      q = q.gte('word', rangeStart).lt('word', rangeEnd);
+    }
+    q = q.not('image_source', 'eq', 'skip-function');
     q = onlyNone
       ? q.or('image_url.is.null,image_source.eq.none')
       : q.or('image_url.is.null,image_source.eq.none,image_source.eq.placeholder');
@@ -106,8 +129,10 @@ async function main() {
       break;
     }
 
-    for (const row of batch) {
-      if (done + fail >= target) break;
+    const queue = [...batch];
+
+    const processOne = async (row: any) => {
+      if (done + fail >= target) return;
       const word = row.word as string;
       const wd = row.data as DictionaryData | null;
       const meanings = wd?.results?.[0]?.meanings || [];
@@ -159,7 +184,7 @@ async function main() {
             if (upErr) {
               fail++;
               console.error(`${LOG} [${idx}/${target}] update FAIL "${word}":`, upErr.message);
-              continue;
+              return;
             }
           }
           done++;
@@ -177,7 +202,20 @@ async function main() {
       const elapsed = Date.now() - t1;
       const wait = Math.max(0, throttle - elapsed);
       if (wait > 0) await new Promise((r) => setTimeout(r, wait));
-    }
+    };
+
+    const workerThread = async () => {
+      while (queue.length > 0) {
+        const row = queue.shift();
+        if (!row) break;
+        await processOne(row);
+      }
+    };
+
+    // Chạy song song các worker
+    await Promise.all(
+      Array.from({ length: Math.min(workers, queue.length) }, () => workerThread())
+    );
   }
 
   const totalSec = ((Date.now() - t0) / 1000).toFixed(0);

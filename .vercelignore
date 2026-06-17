@@ -1,0 +1,10 @@
+node_modules
+.next
+scripts/scrapers/decks
+scripts/scrapers/.checkpoints
+*.pdf
+*.apkg
+*.checkpoint.json
+scratch
+tmp-*
+/tmp/

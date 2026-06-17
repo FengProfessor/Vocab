@@ -7,18 +7,23 @@ import Link from 'next/link';
 import {
   Brain, ChevronLeft, CheckCircle2, Crown, Sparkles,
   Zap, Shield, BookOpen, Star, Loader2, ArrowRight,
-  Copy, Clock, CreditCard
+  Copy, Clock, CreditCard, Users, Minus, Plus
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { PLAN_PRICES, PLAN_LABELS, PERIOD_OPTIONS, computeBasePrice, listPrice, formatVND, getRemainingDays, formatExpiry, applyDiscount, type Coupon } from '@/lib/billing';
+import {
+  PLAN_PRICES, PLAN_LABELS, PERIOD_OPTIONS, computeBasePrice, listPrice,
+  formatVND, getRemainingDays, formatExpiry, applyDiscount, type Coupon,
+  computeGroupPrice, listGroupPrice, GROUP_SEAT_PRICE,
+  GROUP_SEATS_MIN, GROUP_SEATS_MAX, GROUP_SEATS_DEFAULT,
+} from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
 
 // ─── Constants ───
 const BANK_INFO = {
-  bank: 'MB Bank',
-  accountNumber: '0369 xxx xxx',
-  accountName: 'NGUYEN VAN A',
-  // Thay thế bằng thông tin thật
+  bank: process.env.NEXT_PUBLIC_BANK_NAME || 'MB Bank',
+  bankId: process.env.NEXT_PUBLIC_BANK_ID || 'MB',
+  accountNumber: process.env.NEXT_PUBLIC_BANK_ACCOUNT || '0369 xxx xxx',
+  accountName: process.env.NEXT_PUBLIC_BANK_OWNER || 'NGUYEN VAN A',
 };
 
 interface PlanOption {
@@ -75,6 +80,8 @@ export default function UpgradePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedPlan, setSelectedPlan] = useState<Exclude<Plan, 'free'>>('pro');
   const [periodMonths, setPeriodMonths] = useState(1);
+  const [billingMode, setBillingMode] = useState<'individual' | 'group'>('individual');
+  const [seats, setSeats] = useState(GROUP_SEATS_DEFAULT);
   const [couponCode, setCouponCode] = useState('');
   const [couponValid, setCouponValid] = useState<Coupon | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -82,6 +89,7 @@ export default function UpgradePage() {
     orderId: string;
     amount: number;
     plan: string;
+    status?: string;
   } | null>(null);
 
   useEffect(() => {
@@ -99,10 +107,53 @@ export default function UpgradePage() {
     })();
   }, [router]);
 
+  // Real-time polling for order status
+  useEffect(() => {
+    if (!orderCreated || orderCreated.status === 'paid' || orderCreated.amount === 0) return;
+
+    const interval = setInterval(async () => {
+      try {
+        const { data, error } = await supabase
+          .from('orders')
+          .select('status, plan, expires_at')
+          .eq('id', orderCreated.orderId)
+          .single();
+
+        if (error) throw error;
+
+        if (data?.status === 'paid') {
+          // Play celebration confetti
+          import('canvas-confetti').then((confetti) => {
+            confetti.default({
+              particleCount: 150,
+              spread: 80,
+              origin: { y: 0.6 }
+            });
+          }).catch(err => console.error(err));
+
+          setOrderCreated(prev => prev ? { ...prev, status: 'paid' } : null);
+          setCurrentPlan((data.plan as Plan) ?? 'free');
+          setExpiresAt(data.expires_at ?? null);
+          toast.success('Kích hoạt gói thành công!');
+          clearInterval(interval);
+        }
+      } catch (err) {
+        console.error('[Billing Polling] Error checking order status:', err);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [orderCreated]);
+
   // Calculate price — dùng chung computeBasePrice/listPrice với server (billing.ts) để luôn khớp
+  const isGroupMode = billingMode === 'group';
   const selectedOption = PLAN_OPTIONS.find(p => p.plan === selectedPlan)!;
-  const basePrice = listPrice(selectedPlan, periodMonths);            // giá niêm yết (chưa giảm)
-  const afterPeriodDiscount = computeBasePrice(selectedPlan, periodMonths); // sau giảm kỳ hạn
+  const basePrice = isGroupMode                                        // giá niêm yết (chưa giảm)
+    ? listGroupPrice(seats, periodMonths)
+    : listPrice(selectedPlan, periodMonths);
+  const afterPeriodDiscount = isGroupMode                             // sau giảm kỳ hạn
+    ? computeGroupPrice(seats, periodMonths)
+    : computeBasePrice(selectedPlan, periodMonths);
   const afterCoupon = couponValid
     ? applyDiscount(afterPeriodDiscount, couponValid)
     : afterPeriodDiscount;
@@ -119,7 +170,13 @@ export default function UpgradePage() {
           Authorization: `Bearer ${session?.access_token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
+        body: JSON.stringify(isGroupMode ? {
+          orderKind: 'group',
+          seats,
+          periodMonths,
+          paymentMethod: 'bank_transfer',
+          couponCode: couponValid?.code ?? undefined,
+        } : {
           plan: selectedPlan,
           periodMonths,
           paymentMethod: 'bank_transfer',
@@ -133,8 +190,9 @@ export default function UpgradePage() {
         orderId: data.order.id,
         amount: data.order.amount,
         plan: data.order.plan,
+        status: data.order.status,
       });
-      toast.success('Đơn hàng đã được tạo thành công!');
+      toast.success(data.order.status === 'paid' ? 'Kích hoạt gói thành công!' : 'Đơn hàng đã được tạo thành công!');
     } catch (err) {
       toast.error(`Lỗi: ${err instanceof Error ? err.message : String(err)}`);
     } finally {
@@ -199,67 +257,147 @@ export default function UpgradePage() {
 
         {/* If order created — show payment instructions */}
         {orderCreated ? (
-          <div className="space-y-6">
-            <div className="text-center mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle2 className="h-8 w-8 text-emerald-500" />
+          orderCreated.status === 'paid' || orderCreated.amount === 0 ? (
+            <div className="space-y-6 text-center max-w-md mx-auto">
+              <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-4 animate-bounce">
+                <CheckCircle2 className="h-8 w-8 text-emerald-400" />
               </div>
-              <h1 className="text-3xl font-extrabold mb-2">Đơn hàng đã tạo!</h1>
-              <p className="text-slate-400">Vui lòng chuyển khoản theo thông tin bên dưới</p>
+              <h1 className="text-3xl font-extrabold mb-2 text-emerald-400">Kích hoạt thành công!</h1>
+              <p className="text-slate-300">
+                Tài khoản của bạn đã được nâng cấp lên gói <span className="font-bold text-primary">{PLAN_LABELS[orderCreated.plan as Plan]}</span> miễn phí bằng mã ưu đãi.
+              </p>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3 text-left">
+                <div className="flex justify-between text-sm">
+                  <span className="text-slate-400">Gói nâng cấp</span>
+                  <span className="font-bold">{PLAN_LABELS[orderCreated.plan as Plan]}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-slate-400">Trạng thái</span>
+                  <span className="font-bold text-emerald-400">Đã kích hoạt</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-slate-400">Mã đơn hàng</span>
+                  <span className="font-mono text-xs text-slate-400">{orderCreated.orderId}</span>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <Link
+                  href="/student"
+                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-primary/20 w-full justify-center group"
+                >
+                  Bắt đầu học ngay
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
+          ) : (
+            <div className="space-y-6">
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-4 animate-pulse">
+                  <Clock className="h-8 w-8 text-primary" />
+                </div>
+                <h1 className="text-3xl font-extrabold mb-2">Đơn hàng đã tạo!</h1>
+                <p className="text-slate-400">Vui lòng quét mã QR hoặc chuyển khoản thủ công để hoàn tất thanh toán</p>
+              </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
-              <h3 className="font-bold text-lg flex items-center gap-2">
-                <CreditCard className="h-5 w-5 text-primary" />
-                Thông tin chuyển khoản
-              </h3>
-
-              <div className="grid gap-3">
-                {[
-                  { label: 'Ngân hàng', value: BANK_INFO.bank },
-                  { label: 'Số tài khoản', value: BANK_INFO.accountNumber },
-                  { label: 'Chủ tài khoản', value: BANK_INFO.accountName },
-                  { label: 'Số tiền', value: formatVND(orderCreated.amount) },
-                  { label: 'Nội dung CK', value: `LINGOPRO ${orderCreated.orderId.slice(0, 8).toUpperCase()}` },
-                ].map(item => (
-                  <div key={item.label} className="flex items-center justify-between bg-white/5 rounded-xl px-4 py-3">
-                    <span className="text-sm text-slate-400">{item.label}</span>
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold text-sm">{item.value}</span>
-                      <button
-                        onClick={() => copyBankInfo(item.value)}
-                        className="text-slate-500 hover:text-primary transition-colors"
-                      >
-                        <Copy className="h-3.5 w-3.5" />
-                      </button>
+              <div className="grid md:grid-cols-5 gap-6 items-start">
+                {/* Left Column: VietQR Code (2/5 width) */}
+                <div className="md:col-span-2 flex flex-col items-center justify-center bg-white/3 border border-white/10 rounded-3xl p-6 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+                  
+                  {/* Outer gradient glow for QR */}
+                  <div className="relative w-full max-w-[220px] aspect-square bg-gradient-to-tr from-primary/30 to-purple-500/30 p-1 rounded-2xl overflow-hidden shadow-xl shadow-black/50">
+                    <div className="absolute inset-0 bg-[#070711] rounded-[14px]" />
+                    <div className="relative bg-white p-2 rounded-[14px] w-full h-full flex items-center justify-center">
+                      <img 
+                        src={`https://img.vietqr.io/image/${BANK_INFO.bankId}-${BANK_INFO.accountNumber}-compact.png?amount=${orderCreated.amount}&addInfo=LINGOPRO%20${orderCreated.orderId.slice(0, 8).toUpperCase()}&accountName=${encodeURIComponent(BANK_INFO.accountName)}`} 
+                        alt="VietQR Code" 
+                        className="w-full h-full object-contain rounded"
+                      />
+                      {/* Scanline overlay */}
+                      <div className="absolute left-2 right-2 top-2 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80 animate-scan pointer-events-none" />
                     </div>
                   </div>
-                ))}
-              </div>
 
-              <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 mt-4">
-                <div className="flex items-start gap-2">
-                  <Clock className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold text-amber-400">Chờ xác nhận</p>
-                    <p className="text-xs text-slate-400 mt-1">
-                      Sau khi chuyển khoản, gói sẽ được kích hoạt trong vòng 2-24 giờ.
-                      Admin sẽ kiểm tra và xác nhận thanh toán.
+                  <div className="mt-4 text-center space-y-1.5 z-10">
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
+                      <Sparkles className="h-3 w-3 animate-pulse" /> Auto VietQR
+                    </span>
+                    <p className="text-[11px] text-slate-400">
+                      Mở app ngân hàng quét mã để thanh toán tự động
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="text-center">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
-              >
-                Quay về trang chính
-              </Link>
+                {/* Right Column: Order Details (3/5 width) */}
+                <div className="md:col-span-3 bg-white/5 border border-white/10 rounded-3xl p-6 space-y-4">
+                  <h3 className="font-bold text-lg flex items-center gap-2">
+                    <CreditCard className="h-5 w-5 text-primary" />
+                    Thông tin tài khoản
+                  </h3>
+
+                  <div className="grid gap-2.5">
+                    {[
+                      { label: 'Ngân hàng', value: BANK_INFO.bank },
+                      { label: 'Số tài khoản', value: BANK_INFO.accountNumber },
+                      { label: 'Chủ tài khoản', value: BANK_INFO.accountName },
+                      { label: 'Số tiền', value: formatVND(orderCreated.amount) },
+                      { label: 'Nội dung CK', value: `LINGOPRO ${orderCreated.orderId.slice(0, 8).toUpperCase()}` },
+                    ].map(item => (
+                      <div key={item.label} className="flex items-center justify-between bg-white/5 rounded-xl px-4 py-2.5 hover:bg-white/8 transition-colors">
+                        <span className="text-xs text-slate-400">{item.label}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-sm">{item.value}</span>
+                          <button
+                            onClick={() => copyBankInfo(item.value)}
+                            className="text-slate-500 hover:text-primary transition-colors cursor-pointer p-1 rounded hover:bg-white/10"
+                          >
+                            <Copy className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 mt-4">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping mt-1.5 shrink-0" />
+                      <div>
+                        <p className="text-sm font-semibold text-emerald-400">Hệ thống đang chờ thanh toán</p>
+                        <p className="text-xs text-slate-400 mt-1">
+                          Vui lòng giữ nguyên trang này. Tài khoản sẽ tự động kích hoạt ngay sau khi chuyển khoản thành công (thông thường chỉ mất 3-10 giây).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center pt-4">
+                <Link
+                  href="/"
+                  className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
+                >
+                  Quay về trang chính
+                </Link>
+              </div>
+
+              {/* Scanline keyframes style */}
+              <style jsx global>{`
+                @keyframes scan {
+                  0%, 100% { transform: translateY(0); opacity: 0; }
+                  10%, 90% { opacity: 0.8; }
+                  50% { transform: translateY(200px); opacity: 0.8; }
+                }
+                .animate-scan {
+                  animation: scan 2.5s ease-in-out infinite;
+                }
+              `}</style>
             </div>
-          </div>
+          )
         ) : (
           <>
             {/* Title */}
@@ -275,7 +413,28 @@ export default function UpgradePage() {
               </p>
             </div>
 
-            {/* Plan cards */}
+            {/* Billing mode toggle: Cá nhân ↔ Nhóm */}
+            <div className="grid grid-cols-2 gap-3 mb-6 bg-white/3 border border-white/10 rounded-2xl p-1.5">
+              <button
+                onClick={() => setBillingMode('individual')}
+                className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${
+                  !isGroupMode ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <Crown className="h-4 w-4" /> Gói cá nhân
+              </button>
+              <button
+                onClick={() => setBillingMode('group')}
+                className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${
+                  isGroupMode ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <Users className="h-4 w-4" /> Gói nhóm
+              </button>
+            </div>
+
+            {/* Plan cards (cá nhân) */}
+            {!isGroupMode && (
             <div className="grid sm:grid-cols-2 gap-5 mb-8">
               {PLAN_OPTIONS.map(opt => {
                 const isSelected = selectedPlan === opt.plan;
@@ -321,6 +480,53 @@ export default function UpgradePage() {
                 );
               })}
             </div>
+            )}
+
+            {/* Group seats selector (nhóm) */}
+            {isGroupMode && (
+              <div className="bg-gradient-to-br from-violet-500/15 to-purple-500/15 border border-violet-500/30 rounded-2xl p-6 mb-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-2 rounded-xl bg-white/10">
+                    <Users className="h-5 w-5 text-violet-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">Gói Nhóm — chia sẻ với bạn bè</h3>
+                    <p className="text-sm text-slate-400">
+                      {formatVND(GROUP_SEAT_PRICE)}/ghế/tháng · mỗi thành viên được đủ quyền <span className="text-violet-300 font-semibold">{PLAN_LABELS.pro}</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-5 flex items-center justify-between bg-white/5 rounded-xl p-4">
+                  <div>
+                    <p className="font-bold">Số ghế</p>
+                    <p className="text-xs text-slate-400">Gồm cả bạn (chủ nhóm = 1 ghế)</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => setSeats(s => Math.max(GROUP_SEATS_MIN, s - 1))}
+                      disabled={seats <= GROUP_SEATS_MIN}
+                      className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center disabled:opacity-30"
+                    >
+                      <Minus className="h-4 w-4" />
+                    </button>
+                    <span className="font-extrabold text-2xl w-10 text-center">{seats}</span>
+                    <button
+                      onClick={() => setSeats(s => Math.min(GROUP_SEATS_MAX, s + 1))}
+                      disabled={seats >= GROUP_SEATS_MAX}
+                      className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center disabled:opacity-30"
+                    >
+                      <Plus className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-400 mt-3 leading-relaxed">
+                  Bạn trả gộp 1 lần, nhận <span className="font-semibold text-white">mã mời</span> để chia cho tối đa {seats} người.
+                  Quản lý nhóm tại trang <Link href="/group" className="text-violet-300 underline">Nhóm của tôi</Link>.
+                </p>
+              </div>
+            )}
 
             {/* Period selector */}
             <div className="bg-white/3 border border-white/10 rounded-2xl p-6 mb-6">
@@ -391,7 +597,9 @@ export default function UpgradePage() {
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-slate-400">
-                    {selectedOption.name} × {periodMonths} tháng
+                    {isGroupMode
+                      ? `Gói Nhóm · ${seats} ghế × ${periodMonths} tháng`
+                      : `${selectedOption.name} × ${periodMonths} tháng`}
                   </span>
                   <span>{formatVND(basePrice)}</span>
                 </div>

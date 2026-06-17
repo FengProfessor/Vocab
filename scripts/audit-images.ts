@@ -70,7 +70,7 @@ async function audit() {
       const src = r.image_source || 'none';
       bySource[src] = (bySource[src] || 0) + 1;
 
-      if (!r.image_url || src === 'none') {
+      if ((!r.image_url && src !== 'skip-function') || src === 'none') {
         noImage++;
       } else if (src === 'placeholder') {
         placeholderImage++;

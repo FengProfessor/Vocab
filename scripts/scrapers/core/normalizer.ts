@@ -13,6 +13,7 @@ export interface RawMeaning {
 export interface RawEntry {
   word: string;
   ipa?: string;
+  ipaUS?: string;
   meanings: RawMeaning[];
   familyWords?: string[];
 }
@@ -26,7 +27,7 @@ export interface NormMeaning {
 
 export interface NormData {
   word: string;
-  pronunciations: { ipa: string }[];
+  pronunciations: { ipa: string; region?: 'UK' | 'US' }[];
   results: { meanings: NormMeaning[] }[];
   familyWords: string[];
 }
@@ -60,7 +61,13 @@ export function normalizeToGlobalDict(raw: RawEntry): { word: string; data: Norm
   const word = raw.word.trim().toLowerCase();
   const data: NormData = {
     word,
-    pronunciations: raw.ipa ? [{ ipa: cleanText(raw.ipa) }] : [],
+    pronunciations: (() => {
+      const uk = cleanText(raw.ipa);
+      const us = cleanText(raw.ipaUS);
+      if (uk && us) return [{ ipa: uk, region: 'UK' as const }, { ipa: us, region: 'US' as const }];
+      if (uk) return [{ ipa: uk, region: 'UK' as const }];
+      return [];
+    })(),
     results: [{ meanings }],
     familyWords: [...new Set((raw.familyWords || []).map(cleanText).filter(Boolean))],
   };

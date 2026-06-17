@@ -14,6 +14,14 @@ import {
 type Tab = 'text' | 'file' | 'ocr' | 'csv';
 type WordStatus = 'pending' | 'saving' | 'saved' | 'duplicate' | 'error';
 
+const WORD_STATUS_LABELS: Record<WordStatus, string> = {
+  pending: 'chờ nhập',
+  saving: 'đang lưu',
+  saved: 'đã lưu',
+  duplicate: 'đã có',
+  error: 'lỗi',
+};
+
 interface ImportWord {
   id: string;
   word: string;
@@ -26,6 +34,33 @@ interface CsvRow {
   id: string;
   word: string;
   translation: string;
+}
+
+const MAX_IMPORT_WORDS = 30;
+
+function limitUniqueWords<T extends { word: string }>(items: T[]): { items: T[]; overflow: number } {
+  const seen = new Set<string>();
+  const unique = items.filter((item) => {
+    const key = item.word.trim().toLocaleLowerCase('vi');
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  return {
+    items: unique.slice(0, MAX_IMPORT_WORDS),
+    overflow: Math.max(0, unique.length - MAX_IMPORT_WORDS),
+  };
+}
+
+function extractOcrWords(data: unknown): string[] {
+  if (!data || typeof data !== 'object' || !('words' in data)) return [];
+  const words = (data as { words?: unknown }).words;
+  if (!Array.isArray(words)) return [];
+  return words
+    .filter((word): word is string => typeof word === 'string')
+    .map((word) => word.trim())
+    .filter((word) => word.length > 0 && word.length < 80);
 }
 
 function parseCSV(text: string): Array<{ word: string; translation: string }> {
@@ -44,6 +79,7 @@ export default function ImportPage() {
   // Text import
   const [bulkText, setBulkText] = useState('');
   const [wordList, setWordList] = useState<ImportWord[]>([]);
+  const [wordOverflow, setWordOverflow] = useState(0);
   const [isImporting, setIsImporting] = useState(false);
   const [importProgress, setImportProgress] = useState(0);
 
@@ -56,6 +92,7 @@ export default function ImportPage() {
   const [csvFileName, setCsvFileName] = useState('');
   const [csvSkipHeader, setCsvSkipHeader] = useState(true);
   const [csvRows, setCsvRows] = useState<CsvRow[]>([]);
+  const [csvOverflow, setCsvOverflow] = useState(0);
   const [csvIsDragging, setCsvIsDragging] = useState(false);
   const [csvImporting, setCsvImporting] = useState(false);
   const [csvProgress, setCsvProgress] = useState(0);
@@ -66,6 +103,7 @@ export default function ImportPage() {
   const [ocrImageFile, setOcrImageFile] = useState<File | null>(null);
   const [isOcrProcessing, setIsOcrProcessing] = useState(false);
   const [ocrWords, setOcrWords] = useState<ImportWord[]>([]);
+  const [ocrOverflow, setOcrOverflow] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -77,13 +115,15 @@ export default function ImportPage() {
       const data = await res.json();
       if (data.classroomId) setClassroomId(data.classroomId);
     })();
-  }, []);
+  }, [router]);
 
   // ── CSV handlers ──
   const processCsvText = (text: string, skipHeader: boolean) => {
     const parsed = parseCSV(text);
     const rows = skipHeader ? parsed.slice(1) : parsed;
-    setCsvRows(rows.map((r, i) => ({ id: `csv-${i}`, word: r.word, translation: r.translation })));
+    const limited = limitUniqueWords(rows);
+    setCsvRows(limited.items.map((r, i) => ({ id: `csv-${i}`, word: r.word, translation: r.translation })));
+    setCsvOverflow(limited.overflow);
   };
 
   const handleCsvFile = (file: File) => {
@@ -114,13 +154,14 @@ export default function ImportPage() {
 
   const importCsvWords = async () => {
     if (!userId || csvRows.length === 0) return;
+    const rowsToImport = limitUniqueWords(csvRows).items;
     setCsvImporting(true);
     setCsvProgress(0);
 
     let done = 0;
     let errors = 0;
 
-    for (const row of csvRows) {
+    for (const row of rowsToImport) {
       try {
         const res = await authFetch('/api/words', {
           method: 'POST',
@@ -138,11 +179,11 @@ export default function ImportPage() {
         errors++;
       }
       done++;
-      setCsvProgress(Math.round((done / csvRows.length) * 100));
+      setCsvProgress(Math.round((done / rowsToImport.length) * 100));
     }
 
     if (done > 0 && classroomId) {
-      toast.loading(`Chạy AI phân tích ${done} từ...`, { id: 'csv-batch-toast' });
+      toast.loading(`Đang chạy AI phân tích ${done} từ...`, { id: 'csv-batch-toast' });
       try {
         const { data: { session } } = await supabase.auth.getSession();
         const refreshRes = await fetch('/api/words/refresh', {
@@ -152,19 +193,20 @@ export default function ImportPage() {
         });
         const refreshData = await refreshRes.json();
         if (refreshData.success) {
-          toast.success(`Đã import ${done - errors} từ, ${errors} lỗi. AI đã phân tích ${refreshData.refreshed} từ.`, { id: 'csv-batch-toast' });
+          toast.success(`Đã nhập ${done - errors} từ, ${errors} lỗi. AI đã phân tích ${refreshData.refreshed} từ.`, { id: 'csv-batch-toast' });
         } else {
           throw new Error();
         }
       } catch {
-        toast.success(`Đã import ${done - errors} từ, ${errors} lỗi.`, { id: 'csv-batch-toast' });
+        toast.success(`Đã nhập ${done - errors} từ, ${errors} lỗi.`, { id: 'csv-batch-toast' });
       }
     } else {
-      toast.success(`Đã import ${done - errors} từ, ${errors} lỗi.`);
+      toast.success(`Đã nhập ${done - errors} từ, ${errors} lỗi.`);
     }
 
     setCsvImporting(false);
     setCsvRows([]);
+    setCsvOverflow(0);
     setCsvFileName('');
     setCsvProgress(0);
     if (csvFileRef.current) csvFileRef.current.value = '';
@@ -174,8 +216,9 @@ export default function ImportPage() {
   const parseText = () => {
     if (!bulkText.trim()) return;
     const lines = bulkText.split(/[\n,;]+/).map(l => l.trim()).filter(l => l.length > 0 && l.length < 80);
-    const unique = [...new Set(lines.map(l => l.toLowerCase()))];
-    setWordList(unique.map((w, i) => ({ id: String(i), word: w, status: 'pending' })));
+    const limited = limitUniqueWords(lines.map((word) => ({ word })));
+    setWordList(limited.items.map(({ word }, i) => ({ id: String(i), word, status: 'pending' })));
+    setWordOverflow(limited.overflow);
   };
 
   // ── Parse Excel/CSV ──
@@ -212,27 +255,19 @@ export default function ImportPage() {
         })
         .filter((item) => item.word.length > 0 && item.word.length < 80);
 
-      // Unique by word
-      const seen = new Set<string>();
-      const unique: typeof importedList = [];
-      for (const item of importedList) {
-        const key = item.word.toLowerCase();
-        if (!seen.has(key)) {
-          seen.add(key);
-          unique.push(item);
-        }
-      }
+      const limited = limitUniqueWords(importedList);
 
-      setWordList(unique.map((item, i) => ({
+      setWordList(limited.items.map((item, i) => ({
         id: String(i),
         word: item.word,
         translation: item.translation || undefined,
         status: 'pending'
       })));
-      toast.success(`Found ${unique.length} words in ${file.name}`);
+      setWordOverflow(limited.overflow);
+      toast.success(`Đã đọc ${limited.items.length} từ từ ${file.name}`);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
-      toast.error('Failed to read file: ' + msg);
+      toast.error('Không thể đọc file: ' + msg);
     }
   };
 
@@ -291,15 +326,16 @@ export default function ImportPage() {
     if (!ocrImageFile) return;
     setIsOcrProcessing(true);
     setOcrWords([]);
+    setOcrOverflow(0);
     
     try {
       // Compress right before sending
-      toast.info('Preparing image...', { id: 'ocr-toast' });
+      toast.info('Đang chuẩn bị ảnh...', { id: 'ocr-toast' });
       const compressedDataUrl = await compressImage(ocrImageFile);
       const base64 = compressedDataUrl.split(',')[1];
       const mimeType = 'image/jpeg';
 
-      toast.loading('AI is scanning for vocabulary...', { id: 'ocr-toast' });
+      toast.loading('AI đang quét từ vựng...', { id: 'ocr-toast' });
       
       const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch('/api/import/ocr', {
@@ -309,25 +345,28 @@ export default function ImportPage() {
       });
       
       if (!res.ok) {
-         if (res.status === 413) throw new Error('Image is still too large. Try taking a photo from further away.');
+         if (res.status === 413) throw new Error('Ảnh vẫn quá lớn. Hãy chụp lại từ xa hơn.');
          try {
            const errData = await res.json();
-           throw new Error(errData.error || `HTTP Error ${res.status}`);
-         } catch(e) {
-           throw new Error(`Server returned an error (${res.status}).`);
+           throw new Error(errData.error || `Lỗi HTTP ${res.status}`);
+         } catch {
+           throw new Error(`Máy chủ trả về lỗi (${res.status}).`);
          }
       }
 
-      const data = await res.json();
-      if (data.words && data.words.length > 0) {
-        setOcrWords(data.words.map((w: string, i: number) => ({ id: `ocr-${i}`, word: w, status: 'pending' })));
-        toast.success(`Found ${data.words.length} words!`, { id: 'ocr-toast' });
+      const data: unknown = await res.json();
+      const limited = limitUniqueWords(extractOcrWords(data).map((word) => ({ word })));
+      if (limited.items.length > 0) {
+        setOcrWords(limited.items.map(({ word }, i) => ({ id: `ocr-${i}`, word, status: 'pending' })));
+        setOcrOverflow(limited.overflow);
+        toast.success(`Đã tìm thấy ${limited.items.length} từ.`, { id: 'ocr-toast' });
       } else {
-        toast.info('No vocabulary found. Try a clearer image.', { id: 'ocr-toast' });
+        setOcrOverflow(0);
+        toast.info('Không tìm thấy từ vựng. Hãy thử ảnh rõ hơn.', { id: 'ocr-toast' });
       }
     } catch (err: unknown) {
-      console.error('OCR Error:', err);
-      const msg = err instanceof Error ? err.message : 'Failed to scan image';
+      console.error('[OCR] Lỗi quét ảnh:', err);
+      const msg = err instanceof Error ? err.message : 'Không thể quét ảnh';
       toast.error(msg, { id: 'ocr-toast' });
     } finally {
       setIsOcrProcessing(false);
@@ -340,7 +379,7 @@ export default function ImportPage() {
     setIsImporting(true);
     setImportProgress(0);
 
-    const pending = words.filter(w => w.status === 'pending');
+    const pending = limitUniqueWords(words.filter(w => w.status === 'pending')).items;
     let done = 0;
 
     for (const w of pending) {
@@ -369,7 +408,7 @@ export default function ImportPage() {
     }
 
     if (done > 0 && classroomId) {
-      toast.loading(`Running AI batch analysis for ${done} words...`, { id: 'batch-toast' });
+      toast.loading(`Đang chạy AI phân tích ${done} từ...`, { id: 'batch-toast' });
       try {
         const { data: { session } } = await supabase.auth.getSession();
         const refreshRes = await fetch('/api/words/refresh', {
@@ -379,15 +418,15 @@ export default function ImportPage() {
         });
         const refreshData = await refreshRes.json();
         if (refreshData.success) {
-          toast.success(`Import complete! AI analyzed ${refreshData.refreshed} words.`, { id: 'batch-toast' });
+          toast.success(`Nhập hoàn tất. AI đã phân tích ${refreshData.refreshed} từ.`, { id: 'batch-toast' });
         } else {
-          throw new Error('AI analysis failed');
+          throw new Error('AI phân tích thất bại');
         }
-      } catch (err) {
-        toast.error(`Imported ${done} words. AI analysis failed, please click "Retry AI" in Dashboard.`, { id: 'batch-toast' });
+      } catch {
+        toast.error(`Đã nhập ${done} từ. AI phân tích thất bại; hãy chọn "Thử lại AI" trong trang học.`, { id: 'batch-toast' });
       }
     } else if (done > 0) {
-      toast.success(`Import complete! ${done} words saved.`);
+      toast.success(`Nhập hoàn tất: đã lưu ${done} từ.`);
     }
 
     setIsImporting(false);
@@ -409,18 +448,27 @@ export default function ImportPage() {
     words,
     setWords,
     label,
+    overflowCount,
+    onClear,
   }: {
     words: ImportWord[];
     setWords: React.Dispatch<React.SetStateAction<ImportWord[]>>;
     label: string;
+    overflowCount: number;
+    onClear: () => void;
   }) => (
     <div className="space-y-3">
+      {overflowCount > 0 && (
+        <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-800">
+          Có {overflowCount} từ vượt giới hạn {MAX_IMPORT_WORDS} từ/lượt. Đã giữ {MAX_IMPORT_WORDS} từ đầu tiên sau khi loại trùng; hãy chia phần còn lại thành lô khác.
+        </div>
+      )}
       {words.length > 0 && (
         <>
           {isImporting && (
             <div className="space-y-1">
               <div className="flex justify-between text-xs text-muted-foreground font-medium">
-                <span>Importing...</span><span>{importProgress}%</span>
+                <span>Đang nhập...</span><span>{importProgress}%</span>
               </div>
               <div className="h-2 bg-muted rounded-full overflow-hidden">
                 <div className="h-full bg-indigo-500 transition-all duration-300 rounded-full" style={{ width: `${importProgress}%` }} />
@@ -429,19 +477,19 @@ export default function ImportPage() {
           )}
 
           <div className="flex items-center justify-between">
-            <span className="text-sm font-bold text-muted-foreground">{words.length} words ready</span>
+            <span className="text-sm font-bold text-muted-foreground">{label}: {words.length}/{MAX_IMPORT_WORDS} từ</span>
             <div className="flex gap-2">
               <button
-                onClick={() => setWords([])}
+                onClick={onClear}
                 className="text-xs text-red-500 hover:underline"
-              >Clear</button>
+              >Xóa</button>
               <button
                 onClick={() => importWords(words, setWords)}
                 disabled={isImporting || words.every(w => w.status !== 'pending')}
                 className="flex items-center gap-1.5 bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
               >
                 {isImporting ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Plus className="h-3.5 w-3.5" />}
-                {isImporting ? 'Importing...' : `Import ${words.filter(w => w.status === 'pending').length}`}
+                {isImporting ? 'Đang nhập...' : `Nhập ${words.filter(w => w.status === 'pending').length} từ`}
               </button>
             </div>
           </div>
@@ -451,7 +499,7 @@ export default function ImportPage() {
               <div key={w.id} className="flex items-center gap-3 px-4 py-3 border-b last:border-0 hover:bg-muted/30">
                 <StatusIcon status={w.status} />
                 <span className={`flex-1 text-sm font-medium ${w.status === 'duplicate' ? 'text-muted-foreground line-through' : ''}`}>{w.word}</span>
-                <span className="text-[10px] text-muted-foreground capitalize">{w.status}</span>
+                <span className="text-[10px] text-muted-foreground">{WORD_STATUS_LABELS[w.status]}</span>
                 {w.status === 'pending' && (
                   <button onClick={() => removeWord(w.id, setWords)} className="text-muted-foreground hover:text-red-500 transition-colors">
                     <Trash2 className="h-3.5 w-3.5" />
@@ -471,12 +519,12 @@ export default function ImportPage() {
       <header className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b px-4 sm:px-6 h-16 flex items-center gap-4">
         <Link href="/student">
           <button className="flex items-center gap-2 text-muted-foreground hover:text-indigo-600 font-bold text-sm transition-colors">
-            <ChevronLeft className="h-5 w-5" /> Dashboard
+            <ChevronLeft className="h-5 w-5" /> Trang học
           </button>
         </Link>
         <div className="flex items-center gap-2 font-black text-slate-800">
           <Brain className="h-6 w-6 text-indigo-600" />
-          <span>Import Words</span>
+          <span>Nhập từ thủ công</span>
         </div>
       </header>
 
@@ -490,8 +538,8 @@ export default function ImportPage() {
             <BookMarked className="h-6 w-6" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-black text-sm sm:text-base">Thư viện từ vựng theo chuyên đề</p>
-            <p className="text-xs text-white/80 font-medium">Từ vựng SGK, chủ điểm, phrasal verbs, thành ngữ — gom sẵn, nhập 1 chạm.</p>
+            <p className="font-black text-sm sm:text-base">Ưu tiên học từ Thư viện theo chủ đề</p>
+            <p className="text-xs text-white/80 font-medium">Chọn micro-pack ngắn, đúng mục tiêu và nhập một chạm. Công cụ thủ công chỉ dành cho lô nhỏ.</p>
           </div>
           <ArrowRight className="h-5 w-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
         </Link>
@@ -499,10 +547,10 @@ export default function ImportPage() {
         {/* Tab switcher */}
         <div className="bg-white border rounded-2xl p-1.5 flex gap-1 shadow-sm flex-wrap">
           {([
-            { key: 'text', icon: FileText, label: 'Paste Text' },
+            { key: 'text', icon: FileText, label: 'Dán văn bản' },
             { key: 'file', icon: Upload, label: 'Excel / CSV' },
             { key: 'csv', icon: FileText, label: 'CSV + Nghĩa' },
-            { key: 'ocr', icon: Camera, label: 'Scan Image' },
+            { key: 'ocr', icon: Camera, label: 'Quét ảnh' },
           ] as const).map(t => (
             <button
               key={t.key}
@@ -523,15 +571,15 @@ export default function ImportPage() {
         {tab === 'text' && (
           <div className="bg-white border rounded-2xl p-6 space-y-4 shadow-sm">
             <div>
-              <h2 className="font-black text-lg">Paste or type words</h2>
+              <h2 className="font-black text-lg">Dán hoặc nhập danh sách từ</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                One word per line, or separate with commas. You can also paste a whole paragraph — AI will extract the words.
+                Mỗi dòng một từ, hoặc phân tách bằng dấu phẩy/chấm phẩy. Tối đa {MAX_IMPORT_WORDS} từ duy nhất mỗi lượt.
               </p>
             </div>
             <textarea
               value={bulkText}
               onChange={e => setBulkText(e.target.value)}
-              placeholder={"apple\nbanana, cherry\nOr paste any paragraph here..."}
+              placeholder={"apple\nbanana, cherry\nMỗi dòng một từ..."}
               className="w-full h-48 border rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400 font-mono"
             />
             <button
@@ -539,9 +587,15 @@ export default function ImportPage() {
               disabled={!bulkText.trim()}
               className="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
             >
-              Parse Words →
+              Tách danh sách từ →
             </button>
-            <WordListPanel words={wordList} setWords={setWordList} label="Words to import" />
+            <WordListPanel
+              words={wordList}
+              setWords={setWordList}
+              label="Từ sẵn sàng"
+              overflowCount={wordOverflow}
+              onClear={() => { setWordList([]); setWordOverflow(0); }}
+            />
           </div>
         )}
 
@@ -549,9 +603,9 @@ export default function ImportPage() {
         {tab === 'file' && (
           <div className="bg-white border rounded-2xl p-6 space-y-4 shadow-sm">
             <div>
-              <h2 className="font-black text-lg">Upload Excel or CSV</h2>
+              <h2 className="font-black text-lg">Tải lên Excel hoặc CSV</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                File should have a column named <code className="bg-muted px-1 rounded text-xs">word</code> or <code className="bg-muted px-1 rounded text-xs">từ</code>. If not found, the first column is used.
+                Dùng cột <code className="bg-muted px-1 rounded text-xs">word</code> hoặc <code className="bg-muted px-1 rounded text-xs">từ</code>; nếu không có, hệ thống dùng cột đầu tiên. Tối đa {MAX_IMPORT_WORDS} từ duy nhất mỗi lượt.
               </p>
             </div>
 
@@ -563,12 +617,18 @@ export default function ImportPage() {
                 <Upload className="h-7 w-7 text-indigo-500" />
               </div>
               <div className="text-center">
-                <p className="font-bold text-sm">{fileName || 'Click to upload file'}</p>
-                <p className="text-xs text-muted-foreground mt-1">.xlsx, .xls, .csv supported</p>
+                <p className="font-bold text-sm">{fileName || 'Chọn file để tải lên'}</p>
+                <p className="text-xs text-muted-foreground mt-1">Hỗ trợ .xlsx, .xls, .csv</p>
               </div>
             </button>
             <input ref={fileRef} type="file" accept=".xlsx,.xls,.csv" className="hidden" onChange={handleFileUpload} />
-            <WordListPanel words={wordList} setWords={setWordList} label="Words from file" />
+            <WordListPanel
+              words={wordList}
+              setWords={setWordList}
+              label="Từ từ file"
+              overflowCount={wordOverflow}
+              onClear={() => { setWordList([]); setWordOverflow(0); }}
+            />
           </div>
         )}
 
@@ -576,9 +636,9 @@ export default function ImportPage() {
         {tab === 'csv' && (
           <div className="bg-white border rounded-2xl p-6 space-y-4 shadow-sm">
             <div>
-              <h2 className="font-black text-lg">Import CSV có dịch nghĩa</h2>
+              <h2 className="font-black text-lg">Nhập CSV có dịch nghĩa</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                File CSV 2 cột: <code className="bg-muted px-1 rounded text-xs">word,translation</code>. Mỗi dòng một từ.
+                File CSV gồm 2 cột: <code className="bg-muted px-1 rounded text-xs">word,translation</code>. Tối đa {MAX_IMPORT_WORDS} từ duy nhất mỗi lượt.
               </p>
             </div>
 
@@ -598,7 +658,7 @@ export default function ImportPage() {
                 <Upload className="h-7 w-7 text-indigo-500" />
               </div>
               <div className="text-center">
-                <p className="font-bold text-sm">{csvFileName || 'Kéo thả hoặc click để chọn file'}</p>
+                <p className="font-bold text-sm">{csvFileName || 'Kéo thả hoặc bấm để chọn file'}</p>
                 <p className="text-xs text-muted-foreground mt-1">.csv, .tsv</p>
               </div>
             </div>
@@ -628,6 +688,12 @@ export default function ImportPage() {
               <span className="text-sm font-medium text-slate-700">Bỏ qua dòng đầu (header)</span>
             </label>
 
+            {csvOverflow > 0 && (
+              <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-800">
+                Có {csvOverflow} từ vượt giới hạn {MAX_IMPORT_WORDS} từ/lượt. Đã giữ {MAX_IMPORT_WORDS} từ đầu tiên sau khi loại trùng; hãy chia phần còn lại thành lô khác.
+              </div>
+            )}
+
             {/* Preview table */}
             {csvRows.length > 0 && (
               <div className="space-y-3">
@@ -635,7 +701,7 @@ export default function ImportPage() {
                 {csvImporting && (
                   <div className="space-y-1">
                     <div className="flex justify-between text-xs text-muted-foreground font-medium">
-                      <span>Đang import... {Math.round((csvProgress / 100) * csvRows.length)}/{csvRows.length}</span>
+                      <span>Đang nhập... {Math.round((csvProgress / 100) * csvRows.length)}/{csvRows.length}</span>
                       <span>{csvProgress}%</span>
                     </div>
                     <div className="h-2 bg-muted rounded-full overflow-hidden">
@@ -649,13 +715,11 @@ export default function ImportPage() {
 
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-bold text-muted-foreground">
-                    {csvRows.length > 50
-                      ? `Hiển thị 50/${csvRows.length} từ`
-                      : `${csvRows.length} từ sẵn sàng`}
+                    {csvRows.length}/{MAX_IMPORT_WORDS} từ sẵn sàng
                   </span>
                   <div className="flex gap-2">
                     <button
-                      onClick={() => { setCsvRows([]); setCsvFileName(''); if (csvFileRef.current) csvFileRef.current.value = ''; }}
+                      onClick={() => { setCsvRows([]); setCsvOverflow(0); setCsvFileName(''); if (csvFileRef.current) csvFileRef.current.value = ''; }}
                       className="text-xs text-red-500 hover:underline"
                     >
                       Xóa tất cả
@@ -670,7 +734,7 @@ export default function ImportPage() {
                       ) : (
                         <Plus className="h-3.5 w-3.5" />
                       )}
-                      {csvImporting ? 'Đang import...' : `Import ${csvRows.length} từ`}
+                      {csvImporting ? 'Đang nhập...' : `Nhập ${csvRows.length} từ`}
                     </button>
                   </div>
                 </div>
@@ -683,7 +747,7 @@ export default function ImportPage() {
                     <span className="w-6" />
                   </div>
                   <div className="max-h-72 overflow-y-auto">
-                    {csvRows.slice(0, 50).map(row => (
+                    {csvRows.map(row => (
                       <div
                         key={row.id}
                         className="grid grid-cols-[1fr_1fr_auto] gap-2 items-center px-4 py-2.5 border-b last:border-0 hover:bg-muted/30"
@@ -710,9 +774,9 @@ export default function ImportPage() {
         {tab === 'ocr' && (
           <div className="bg-white border rounded-2xl p-6 space-y-4 shadow-sm">
             <div>
-              <h2 className="font-black text-lg">📸 Scan Image (AI OCR)</h2>
+              <h2 className="font-black text-lg">Quét ảnh bằng AI OCR</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                Upload a photo of a textbook, worksheet, or any document. AI will extract all vocabulary words — including underlined or highlighted ones.
+                Tải ảnh sách hoặc bài tập để AI tách từ vựng. Tối đa {MAX_IMPORT_WORDS} từ duy nhất mỗi lượt.
               </p>
             </div>
 
@@ -721,15 +785,16 @@ export default function ImportPage() {
               className="w-full border-2 border-dashed border-purple-200 hover:border-purple-400 rounded-2xl overflow-hidden transition-colors"
             >
               {ocrImage ? (
-                <img src={ocrImage} alt="Preview" className="w-full max-h-64 object-contain" />
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={ocrImage} alt="Xem trước ảnh OCR" className="w-full max-h-64 object-contain" />
               ) : (
                 <div className="p-10 flex flex-col items-center gap-3 group">
                   <div className="w-14 h-14 bg-purple-50 group-hover:bg-purple-100 rounded-2xl flex items-center justify-center transition-colors">
                     <Camera className="h-7 w-7 text-purple-500" />
                   </div>
                   <div className="text-center">
-                    <p className="font-bold text-sm">Click to upload photo</p>
-                    <p className="text-xs text-muted-foreground mt-1">jpg, png, webp — max 10MB</p>
+                    <p className="font-bold text-sm">Chọn ảnh để tải lên</p>
+                    <p className="text-xs text-muted-foreground mt-1">jpg, png, webp — tối đa 10MB</p>
                   </div>
                 </div>
               )}
@@ -743,11 +808,17 @@ export default function ImportPage() {
                 className="w-full flex items-center justify-center gap-2 bg-purple-600 text-white font-bold py-3 rounded-xl hover:bg-purple-700 transition-colors disabled:opacity-50"
               >
                 {isOcrProcessing ? <Loader2 className="h-4 w-4 animate-spin" /> : <Brain className="h-4 w-4" />}
-                {isOcrProcessing ? 'AI is scanning...' : 'Extract Words with AI'}
+                {isOcrProcessing ? 'AI đang quét...' : 'Tách từ bằng AI'}
               </button>
             )}
 
-            <WordListPanel words={ocrWords} setWords={setOcrWords} label="Words from image" />
+            <WordListPanel
+              words={ocrWords}
+              setWords={setOcrWords}
+              label="Từ từ ảnh"
+              overflowCount={ocrOverflow}
+              onClear={() => { setOcrWords([]); setOcrOverflow(0); }}
+            />
           </div>
         )}
 

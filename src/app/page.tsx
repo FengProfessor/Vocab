@@ -47,12 +47,20 @@ export default function LandingPage() {
             <Brain className="h-6 w-6 text-indigo-400" />
             LingoPro
           </Link>
-          <Link
-            href="/auth"
-            className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-sm transition-colors"
-          >
-            Đăng nhập
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/for-teachers"
+              className="hidden text-sm font-bold text-slate-300 transition-colors hover:text-white sm:block"
+            >
+              Dành cho giáo viên
+            </Link>
+            <Link
+              href="/auth"
+              className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-sm transition-colors"
+            >
+              Đăng nhập
+            </Link>
+          </div>
         </div>
       </header>
 
