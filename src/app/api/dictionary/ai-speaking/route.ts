@@ -13,7 +13,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    const userId = auth.userId;
 
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
     const rl = checkRateLimit(`ai-speaking:${ip}`, 15, 60_000); // 15 req/min per IP

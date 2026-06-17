@@ -6,7 +6,6 @@ import { supabase, type SRSProgress } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
 import { ChevronLeft, Volume2, RotateCcw, Loader2, RefreshCw, Snail, ChevronDown, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
@@ -58,8 +57,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   const [isLoading, setIsLoading] = useState(true);
   const [done, setDone] = useState(false);
   const [sessionResults, setSessionResults] = useState({ easy: 0, hard: 0, forgot: 0 });
-  const [isRetryingAI, setIsRetryingAI] = useState(false);
-  
+
   const [spellingInput, setSpellingInput] = useState('');
   const [spellingError, setSpellingError] = useState(false);
   const [hasSpelledCorrectly, setHasSpelledCorrectly] = useState(false);
@@ -304,27 +302,6 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
       }
     })();
 
-  };
-
-  const handleRetryAI = async () => {
-    if (!classroomId || isRetryingAI) return;
-    setIsRetryingAI(true);
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) { toast.error('Please sign in again.'); return; }
-      const res = await fetch('/api/words/refresh', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
-        body: JSON.stringify({ classroomId }),
-      });
-      const data = await res.json();
-      toast.success(`✅ AI refreshed ${data.refreshed} word(s)! Reloading...`);
-      setTimeout(() => window.location.reload(), 1500);
-    } catch {
-      toast.error('Retry failed. Please try again.');
-    } finally {
-      setIsRetryingAI(false);
-    }
   };
 
   if (isLoading) {

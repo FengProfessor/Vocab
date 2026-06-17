@@ -5,8 +5,8 @@ import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
-  Brain, ChevronLeft, DollarSign, Users, TrendingUp, Clock,
-  CheckCircle2, XCircle, Loader2, Search, Download, CreditCard,
+  ChevronLeft, DollarSign, Users, TrendingUp, Clock,
+  CheckCircle2, XCircle, Loader2, Search, CreditCard,
   ArrowUpRight, ShoppingBag, Eye, Percent, Plus, Trash2, Copy
 } from 'lucide-react';
 import {

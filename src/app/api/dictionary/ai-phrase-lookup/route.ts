@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { getRouter } from "@/lib/ai-router";
-import { getAuthUser, unauthorized, isValidString, sanitizeForPrompt, checkRateLimit, safeErrorResponse } from "@/lib/api-security";
+import { getAuthUser, unauthorized, sanitizeForPrompt, checkRateLimit, safeErrorResponse } from "@/lib/api-security";
 
 export const maxDuration = 30;
 

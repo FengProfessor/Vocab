@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { authFetch } from "@/lib/auth-fetch";
 import {
-  Brain, ChevronLeft, Loader2, Volume2, Bot, User, Sparkles,
-  MessageSquare, VolumeX, Send, RefreshCw, Award
+  ChevronLeft, Loader2, Volume2, Bot, User, Sparkles,
+  MessageSquare, VolumeX, Send, RefreshCw
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SpeechRecorder } from "@/components/speaking/SpeechRecorder";
@@ -29,7 +29,7 @@ const TOPICS = [
 
 export default function StudentSpeakingPage() {
   const router = useRouter();
-  const [userId, setUserId] = useState<string | null>(null);
+  const [, setUserId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTopic, setActiveTopic] = useState(TOPICS[0]);
   const [messages, setMessages] = useState<Message[]>([]);

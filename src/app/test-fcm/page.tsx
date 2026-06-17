@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 
 export default function FCMTestPage() {
-  const [token, setToken] = useState<string | null>(null);
+  const [, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [pushLoading, setPushLoading] = useState(false);
 

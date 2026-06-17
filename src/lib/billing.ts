@@ -24,9 +24,6 @@ export const PLAN_ANNUAL_PRICES: Record<Exclude<Plan, 'free'>, number> = {
   premium: 899_000, // ~42% off so với 129k×12 = 1.548tr
 };
 
-/** Giá gói School (dùng cho landing, riêng vì ngoài Plan type hiện tại). */
-export const SCHOOL_PRICE = 499_000;
-
 /** Kỳ hạn mua + % giảm. 12 tháng = null → dùng giá năm cố định (PLAN_ANNUAL_PRICES). */
 export const VALID_PERIOD_MONTHS = [1, 3, 6, 12] as const;
 export type BillingPeriodMonths = (typeof VALID_PERIOD_MONTHS)[number];

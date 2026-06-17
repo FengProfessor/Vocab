@@ -402,24 +402,24 @@ export default function GrammarLearnPage() {
           <div className="prose prose-slate max-w-none bg-background border rounded-3xl p-6 sm:p-8 shadow-sm">
             <ReactMarkdown
               components={{
-                h2: ({ node, ...props }) => (
+                h2: ({ node: _node, ...props }) => (
                   <h2 className="text-xl font-extrabold text-slate-800 border-b border-slate-100 pb-2.5 mb-4 mt-6 flex items-center gap-2" {...props} />
                 ),
-                h3: ({ node, ...props }) => (
+                h3: ({ node: _node, ...props }) => (
                   <h3 className="text-lg font-extrabold text-slate-700 mb-3 mt-4" {...props} />
                 ),
-                blockquote: ({ node, ...props }) => (
+                blockquote: ({ node: _node, ...props }) => (
                   <blockquote className="my-4 p-4 bg-amber-50/50 border-l-4 border-amber-500 rounded-r-2xl text-amber-900 text-sm leading-relaxed" {...props} />
                 ),
-                table: ({ node, ...props }) => (
+                table: ({ node: _node, ...props }) => (
                   <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200 shadow-sm bg-white">
                     <table className="w-full text-left text-sm text-slate-600 border-collapse" {...props} />
                   </div>
                 ),
-                thead: ({ node, ...props }) => <thead className="bg-slate-50/80 text-xs text-slate-700 uppercase font-black" {...props} />,
-                th: ({ node, ...props }) => <th className="px-4 py-3 border-b font-bold tracking-wider text-slate-700" {...props} />,
-                td: ({ node, ...props }) => <td className="px-4 py-3 border-b border-slate-100 font-medium" {...props} />,
-                code: ({ node, inline, className, children, ...props }: {
+                thead: ({ node: _node, ...props }) => <thead className="bg-slate-50/80 text-xs text-slate-700 uppercase font-black" {...props} />,
+                th: ({ node: _node, ...props }) => <th className="px-4 py-3 border-b font-bold tracking-wider text-slate-700" {...props} />,
+                td: ({ node: _node, ...props }) => <td className="px-4 py-3 border-b border-slate-100 font-medium" {...props} />,
+                code: ({ node: _node, inline, className: _className, children, ...props }: {
                   node?: unknown;
                   inline?: boolean;
                   className?: string;

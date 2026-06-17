@@ -27,7 +27,6 @@ const W = [
 ];
 
 const TARGET_RETENTION = 0.9; // Aim for 90% recall probability
-const DECAY = -0.1; // -log10(0.9) approx for power law or exp
 
 /**
  * Ratings mapping:

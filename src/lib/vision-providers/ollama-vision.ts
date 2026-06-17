@@ -14,7 +14,6 @@
 
 const ENDPOINT = process.env.OLLAMA_ENDPOINT || 'http://localhost:11434/api/generate';
 const MODEL = process.env.OLLAMA_VISION_MODEL || 'llava-phi3';
-const LOG = '[OllamaVision]';
 
 const BROWSER_HEADERS = {
   'User-Agent':

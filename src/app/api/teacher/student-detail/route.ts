@@ -40,7 +40,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (curErr) throw curErr;
 
     // 2. Fetch history (last 30 days)
-    const { data: history, error: histErr } = await supabase
+    const { data: history } = await supabase
       .from('student_daily_stats')
       .select('recorded_at, vms, lcs')
       .eq('student_id', studentId)
@@ -49,7 +49,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       .limit(30);
 
     // 3. Fetch recent quiz results
-    const { data: quizzes, error: quizErr } = await supabase
+    const { data: quizzes } = await supabase
       .from('quiz_results')
       .select('completed_at, score, total_questions, accuracy')
       .eq('user_id', studentId)

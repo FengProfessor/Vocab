@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
   Brain, ChevronLeft, CheckCircle2, Crown, Sparkles,
-  Zap, Shield, BookOpen, Star, Loader2, ArrowRight,
+  Zap, Shield, Star, Loader2, ArrowRight,
   Copy, Clock, CreditCard, Users, Minus, Plus
 } from 'lucide-react';
 import { toast } from 'sonner';

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Clock, Info, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Clock, Info, CheckCircle2 } from 'lucide-react';
 
 interface TenseTimelineProps {
   lessonTitle: string;

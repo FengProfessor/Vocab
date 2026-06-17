@@ -62,7 +62,7 @@ function QuizContent() {
   const searchParams = useSearchParams();
   const initialClassroomId = searchParams.get('class');
 
-  const [userId, setUserId] = useState<string | null>(null);
+  const [, setUserId] = useState<string | null>(null);
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
   const [words, setWords] = useState<WordItem[]>([]);
   const [queue, setQueue] = useState<WordItem[]>([]);

@@ -88,7 +88,7 @@ export async function sendPushNotificationToUser(
   }
 }
 
-export const sendPushNotification = async (title: string, message: string, url: string = '/') => {
+export const sendPushNotification = async (title: string, message: string, _url: string = '/') => {
   if (typeof window !== 'undefined') return null;
   // ... broadcast logic ...
 };

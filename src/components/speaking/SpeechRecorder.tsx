@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Mic, MicOff, Square, Loader2, AlertCircle } from "lucide-react";
+import { Mic, MicOff, Square, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Web Speech API không có sẵn trong lib TS — khai báo structural type tối thiểu

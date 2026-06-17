@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
-import { Skeleton } from '@/components/ui/skeleton';
 import { WordCardSkeleton } from '@/components/ui/WordCardSkeleton';
 import { useGamification } from '@/hooks/useGamification';
 import { earnedBadges, xpToLevel } from '@/lib/gamification';
@@ -190,7 +189,7 @@ export default function StudentDashboard() {
   };
 
   // Auto-refresh nhẹ: chỉ dùng summary endpoint để cập nhật dueCount
-  const refreshSummary = async (userId: string) => {
+  const refreshSummary = async (_userId: string) => {
     try {
       const res = await authFetch(`/api/words?summary=1`);
       const data = await res.json();
@@ -337,7 +336,7 @@ export default function StudentDashboard() {
       } else {
         throw new Error('Update failed');
       }
-    } catch (err) {
+    } catch {
       toast.error('❌ Failed to update meaning');
     }
   };
@@ -354,7 +353,7 @@ export default function StudentDashboard() {
         toast.success('Word deleted');
         if (profile?.id) loadData(profile.id);
       }
-    } catch (err) {
+    } catch {
       toast.error('Failed to delete word');
     }
   };
@@ -374,7 +373,7 @@ export default function StudentDashboard() {
         toast.success(`✅ AI analyzed ${data.refreshed} word(s)!`);
         setTimeout(() => { if (profile?.id) loadData(profile.id); }, 2000);
       }
-    } catch (err) {
+    } catch {
       // Background maintenance failed - silently log without toast
       console.warn('Background AI retry failed, will try again next cycle.');
     } finally {

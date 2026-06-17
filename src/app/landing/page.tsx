@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {
-  Brain, BookOpen, Users, BarChart3, Zap, CheckCircle2, Star,
+  Brain, BarChart3, Zap, CheckCircle2, Star,
   GraduationCap, MessageSquare, Globe, ArrowRight, Sparkles, Shield
 } from 'lucide-react';
 

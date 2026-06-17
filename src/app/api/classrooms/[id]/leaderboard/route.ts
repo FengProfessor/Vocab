@@ -105,17 +105,7 @@ export async function GET(
     }
 
     // Lấy gamification data
-    let gamifQuery = supabase
-      .from('user_gamification')
-      .select('user_id, total_xp, today_xp, current_streak, last_active_date, today_date')
-      .in('user_id', studentIds);
-
     const periodStart = getPeriodStartDate(period);
-
-    // Filter by last_active_date cho week/month (chỉ tính user active trong kỳ)
-    if (periodStart) {
-      gamifQuery = gamifQuery.gte('last_active_date', periodStart);
-    }
 
     const { data: gamifRows } = await supabase
       .from('user_gamification')

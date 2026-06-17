@@ -191,7 +191,6 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
   const stability = srs?.stability ?? 0;
   const level = stabilityToLevel(stability);
   const levelColor = LEVEL_COLORS[level];
-  const stabilityPct = Math.min(100, Math.round((stability / 90) * 100));
   // interval_days progress bar: max 30 ngày = 100%
   const intervalDays = srs?.interval_days ?? 0;
   const intervalPct = Math.min(100, Math.round((intervalDays / 30) * 100));
