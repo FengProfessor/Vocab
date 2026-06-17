@@ -228,13 +228,40 @@ export default function ImportPage() {
     setFileName(file.name);
 
     try {
-      const XLSX = await import('xlsx');
-      const buffer = await file.arrayBuffer();
-      const wb = XLSX.read(buffer);
-      const ws = wb.Sheets[wb.SheetNames[0]];
       // Sheet rows: mỗi hàng là mảng cells (string | number | boolean | Date | null)
       type SheetCell = string | number | boolean | Date | null | undefined;
-      const rows = XLSX.utils.sheet_to_json<SheetCell[]>(ws, { header: 1 });
+      const rows: SheetCell[][] = [];
+
+      if (/\.csv$/i.test(file.name)) {
+        // CSV: parse text thuần (không cần thư viện) — tránh parser nhị phân có lỗ hổng.
+        const text = await file.text();
+        text
+          .split(/\r?\n/)
+          .filter((line) => line.trim().length > 0)
+          .forEach((line) => rows.push(line.split(',').map((c) => c.trim().replace(/^"(.*)"$/, '$1'))));
+      } else {
+        // .xlsx: exceljs (load động — chỉ tải khi user upload, khỏi initial bundle).
+        const ExcelJS = await import('exceljs');
+        const wb = new ExcelJS.Workbook();
+        await wb.xlsx.load(await file.arrayBuffer());
+        const ws = wb.worksheets[0];
+        const cellText = (v: unknown): SheetCell => {
+          if (v == null) return '';
+          if (typeof v === 'object') {
+            const o = v as Record<string, unknown>;
+            if (typeof o.text === 'string') return o.text; // hyperlink cell
+            if (Array.isArray(o.richText)) return (o.richText as { text?: string }[]).map((t) => t.text ?? '').join('');
+            if ('result' in o) return String(o.result ?? ''); // formula cell
+            return String(v);
+          }
+          return v as SheetCell;
+        };
+        // exceljs row.values là mảng 1-based (index 0 = null) → slice(1) để khớp cột 0-based.
+        ws?.eachRow({ includeEmpty: false }, (row) => {
+          const vals = Array.isArray(row.values) ? (row.values as unknown[]).slice(1) : [];
+          rows.push(vals.map(cellText));
+        });
+      }
 
       // Find a column named "word" or use the first column
       const header = rows[0]?.map((h) => String(h ?? '').toLowerCase()) || [];
@@ -618,10 +645,10 @@ export default function ImportPage() {
               </div>
               <div className="text-center">
                 <p className="font-bold text-sm">{fileName || 'Chọn file để tải lên'}</p>
-                <p className="text-xs text-muted-foreground mt-1">Hỗ trợ .xlsx, .xls, .csv</p>
+                <p className="text-xs text-muted-foreground mt-1">Hỗ trợ .xlsx, .csv</p>
               </div>
             </button>
-            <input ref={fileRef} type="file" accept=".xlsx,.xls,.csv" className="hidden" onChange={handleFileUpload} />
+            <input ref={fileRef} type="file" accept=".xlsx,.csv" className="hidden" onChange={handleFileUpload} />
             <WordListPanel
               words={wordList}
               setWords={setWordList}
