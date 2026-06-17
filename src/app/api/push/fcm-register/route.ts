@@ -56,29 +56,38 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (!auth) return unauthorized();
 
     const supabase = createServiceClient();
-    const { count, error } = await supabase
+    // Lấy last_used_at để tính tuổi token tươi nhất (banner reconnect dùng cả count=0 LẪN token cũ).
+    const { data, error } = await supabase
       .from('fcm_tokens')
-      .select('id', { count: 'exact', head: true })
-      .eq('user_id', auth.userId);
+      .select('last_used_at')
+      .eq('user_id', auth.userId)
+      .order('last_used_at', { ascending: false });
 
     if (error) {
       // Bảng thiếu / lỗi → coi như không xác định được, trả -1 để client KHÔNG hiện banner sai
       console.warn('[FCM] count tokens failed:', error.message);
-      return NextResponse.json({ success: true, count: -1 });
+      return NextResponse.json({ success: true, count: -1, staleDays: null });
     }
 
-    // Fallback legacy: fcm_tokens trống nhưng profiles.fcm_token còn → vẫn tính là 1
-    let total = count ?? 0;
+    let total = data?.length ?? 0;
+    // Tuổi (ngày) của token được dùng gần nhất = MAX(last_used_at). Token cũ → nguy cơ chết.
+    let staleDays: number | null = null;
+    const freshest = data?.[0]?.last_used_at;
+    if (freshest) {
+      staleDays = Math.floor((Date.now() - new Date(freshest).getTime()) / 86_400_000);
+    }
+
+    // Fallback legacy: fcm_tokens trống nhưng profiles.fcm_token còn → tính 1, tuổi không xác định
     if (total === 0) {
       const { data: prof } = await supabase
         .from('profiles')
         .select('fcm_token')
         .eq('id', auth.userId)
         .maybeSingle();
-      if (prof?.fcm_token) total = 1;
+      if (prof?.fcm_token) { total = 1; staleDays = null; }
     }
 
-    return NextResponse.json({ success: true, count: total });
+    return NextResponse.json({ success: true, count: total, staleDays });
   } catch (err: unknown) {
     return safeErrorResponse(err, 'Internal Server Error');
   }

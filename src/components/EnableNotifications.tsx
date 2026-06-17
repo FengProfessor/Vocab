@@ -8,6 +8,7 @@ import { toast } from 'sonner';
 
 const DISMISS_KEY = 'lingopro_push_prompt_dismissed';
 const RECONNECT_DISMISS_KEY = 'lingopro_push_reconnect_dismissed'; // sessionStorage — hỏi lại phiên sau
+const STALE_DAYS = 5; // token tươi nhất cũ hơn mức này → mời kết nối lại (trước khi nó chết hẳn)
 
 /**
  * Banner mời bật Push trong luồng chính (dashboard).
@@ -43,8 +44,10 @@ export function EnableNotifications() {
           headers: { Authorization: `Bearer ${session.access_token}` },
         });
         const data = await res.json();
-        // count = -1: server không xác định được → không hiện banner sai
-        if (data?.success && data.count === 0) {
+        // count = -1: server không xác định được → không hiện banner sai.
+        // Reconnect khi: 0 token sống, HOẶC token tươi nhất đã cũ ≥ STALE_DAYS (nguy cơ chết).
+        const stale = typeof data?.staleDays === 'number' && data.staleDays >= STALE_DAYS;
+        if (data?.success && (data.count === 0 || stale)) {
           setMode('reconnect');
           setShow(true);
         }
