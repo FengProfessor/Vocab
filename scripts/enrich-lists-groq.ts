@@ -23,9 +23,20 @@ if (fs.existsSync(envPath)) {
 
 const SUPA_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPA_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const GROQ_KEY = (process.env.GROQ_API_KEY || '').split(',')[0].trim();
+const GROQ_KEYS = (process.env.GROQ_API_KEY || '').split(',').map(s => s.trim()).filter(Boolean);
 if (!SUPA_URL || !SUPA_KEY) { console.error('[groq-enrich] thiếu Supabase env'); process.exit(1); }
-if (!GROQ_KEY) { console.error('[groq-enrich] thiếu GROQ_API_KEY'); process.exit(1); }
+if (GROQ_KEYS.length === 0) { console.error('[groq-enrich] thiếu GROQ_API_KEY'); process.exit(1); }
+// pool xoay vòng + cooldown khi 429
+const keyState = GROQ_KEYS.map(k => ({ key: k, cooldownUntil: 0 }));
+let rr = 0;
+function pickKey(): { key: string } | null {
+  const now = Date.now();
+  const avail = keyState.filter(k => k.cooldownUntil < now);
+  if (avail.length === 0) return null;
+  rr = (rr + 1) % avail.length;
+  return avail[rr];
+}
+function coolKey(key: string, ms: number) { const e = keyState.find(k => k.key === key); if (e) e.cooldownUntil = Date.now() + ms; }
 
 const supabase = createClient(SUPA_URL, SUPA_KEY, { auth: { autoRefreshToken: false, persistSession: false } });
 
@@ -55,15 +66,18 @@ async function existingWords(words: string[]): Promise<Set<string>> {
 }
 
 async function groq(prompt: string): Promise<string> {
+  const picked = pickKey();
+  if (!picked) throw new Error('429 all keys in cooldown');
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), 30_000);
   try {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${GROQ_KEY}` },
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${picked.key}` },
       body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: 'json_object' } }),
       signal: ctrl.signal,
     });
+    if (res.status === 429) { coolKey(picked.key, 60_000); throw new Error('429 rate limit'); }
     if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
     const j = await res.json();
     return j?.choices?.[0]?.message?.content || '';
@@ -120,7 +134,7 @@ async function main() {
       if (/429|rate|quota|limit/i.test(msg)) { rl++; console.warn(`  ⚠️ rate-limit ${rl} ("${word}") → wait 20s`); await new Promise(r => setTimeout(r, 20000)); if (rl >= 8) { console.warn('🛑 quota Groq cạn, dừng'); break; } i--; continue; }
       console.error(`  ✗ "${word}":`, msg); fail++;
     }
-    await new Promise(r => setTimeout(r, 2100)); // ~28 req/min, dưới Groq free 30 RPM
+    await new Promise(r => setTimeout(r, Math.ceil(2100 / GROQ_KEYS.length))); // ~28 req/min mỗi key (Groq free 30 RPM/key)
   }
   console.log(`\n[groq-enrich] DONE: ${ok} enriched, ${fail} fail / ${todo.length}`);
 }
