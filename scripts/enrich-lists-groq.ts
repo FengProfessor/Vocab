@@ -12,7 +12,7 @@ import { createClient } from '@supabase/supabase-js';
 // --- load .env.local manual (top-level import an toàn) ---
 const envPath = path.resolve(__dirname, '../.env.local');
 if (fs.existsSync(envPath)) {
-  for (const line of fs.readFileSync(envPath, 'utf8').split('\n')) {
+  for (const line of fs.readFileSync(envPath, 'utf8').split(/\r?\n/)) {
     const m = line.match(/^\s*([^#=]+)\s*=\s*(.*)$/);
     if (!m) continue;
     let v = m[2].trim();
