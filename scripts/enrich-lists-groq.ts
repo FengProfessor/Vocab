@@ -77,7 +77,13 @@ async function groq(prompt: string): Promise<string> {
       body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: 'json_object' } }),
       signal: ctrl.signal,
     });
-    if (res.status === 429) { coolKey(picked.key, 25_000); throw new Error('429 rate limit'); }
+    if (res.status === 429) {
+      // dùng retry-after thật của Groq (header hoặc body "try again in Xs") thay vì chờ phẳng
+      let secs = parseFloat(res.headers.get('retry-after') || '0');
+      if (!secs) { const b = await res.text(); const m = b.match(/try again in ([\d.]+)s/i); secs = m ? parseFloat(m[1]) : 0; }
+      coolKey(picked.key, Math.min(Math.max((secs || 5) * 1000 + 500, 2000), 60_000));
+      throw new Error('429 rate limit');
+    }
     if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
     const j = await res.json();
     return j?.choices?.[0]?.message?.content || '';
