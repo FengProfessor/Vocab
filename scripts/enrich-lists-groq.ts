@@ -77,7 +77,7 @@ async function groq(prompt: string): Promise<string> {
       body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: 'json_object' } }),
       signal: ctrl.signal,
     });
-    if (res.status === 429) { coolKey(picked.key, 60_000); throw new Error('429 rate limit'); }
+    if (res.status === 429) { coolKey(picked.key, 25_000); throw new Error('429 rate limit'); }
     if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
     const j = await res.json();
     return j?.choices?.[0]?.message?.content || '';
@@ -131,10 +131,20 @@ async function main() {
       rl = 0;
     } catch (e: any) {
       const msg = e.message || String(e);
-      if (/429|rate|quota|limit/i.test(msg)) { rl++; console.warn(`  ⚠️ rate-limit ${rl} ("${word}") → wait 20s`); await new Promise(r => setTimeout(r, 20000)); if (rl >= 8) { console.warn('🛑 quota Groq cạn, dừng'); break; } i--; continue; }
+      if (/429|rate|quota|limit|cooldown/i.test(msg)) {
+        rl++;
+        // chờ tới khi key sớm nhất hết cooldown (không dừng sớm vì 429 RPM transient)
+        const now = Date.now();
+        const soon = Math.min(...keyState.map(k => k.cooldownUntil).filter(c => c > now));
+        const waitMs = Math.min(Math.max((Number.isFinite(soon) ? soon - now : 0), 3000), 30000);
+        console.warn(`  ⚠️ rate-limit ${rl} ("${word}") → wait ${Math.round(waitMs / 1000)}s`);
+        await new Promise(r => setTimeout(r, waitMs));
+        if (rl >= 30) { console.warn('🛑 30 RL liên tiếp → có thể hết quota ngày, dừng (resumable)'); break; }
+        i--; continue;
+      }
       console.error(`  ✗ "${word}":`, msg); fail++;
     }
-    await new Promise(r => setTimeout(r, Math.ceil(2100 / GROQ_KEYS.length))); // ~28 req/min mỗi key (Groq free 30 RPM/key)
+    await new Promise(r => setTimeout(r, Math.ceil(3000 / GROQ_KEYS.length))); // ~20 req/min mỗi key (an toàn dưới Groq 30 RPM/key)
   }
   console.log(`\n[groq-enrich] DONE: ${ok} enriched, ${fail} fail / ${todo.length}`);
 }
