@@ -54,6 +54,24 @@ Sources: `_staging/published-lists.sources.md`, `_staging/us-exams.sources.md`.
 
 **Tổng 2 batch: 2216 net-new** (812 + 1404).
 
+## Batch 3 — ESP + NLM grounded (added 2026-06-18)
+
+NLM CLI query grounded trên notebook **"English Vocabulary in Use Advanced"** (26 nguồn Cambridge/Barron's/Oxford uy tín).
+
+| File | Phạm vi | Tool | Net-new |
+|------|---------|------|---------|
+| `pte-academic.txt` | PTE Academic high-freq + collocations | Gemini 2.5-pro | 384 |
+| `esp-legal.txt` | Legal English ESP (contracts/litigation/IP) | Gemini 2.5-pro | 240 |
+| `esp-medical.txt` | Medical/healthcare ESP | Gemini 2.5-pro | 165 |
+| `collocations-advanced.txt` | English Collocations in Use Advanced | **NLM CLI** (grounded) | 149 |
+| `ielts-topic-vocab.txt` | IELTS topic (crime/tourism/art/food/sport/money) | **NLM CLI** (grounded) | 147 |
+| `phrasal-verbs-advanced.txt` | Phrasal verbs B2-C1 | Gemini 2.5-pro | 116 |
+| `ielts-speaking-idioms.txt` | Idioms For IELTS Speaking band 7+ | **NLM CLI** (grounded) | 99 |
+
+Notebook ID: `4b09c19e-ff19-4f1b-adf5-5407ad31ab12`. Query UTF-8: `PYTHONIOENCODING=utf-8 nlm notebook query <id> "<q>"`.
+
+**TỔNG 3 batch: 3516 net-new** (812 + 1404 + 1300), 18 list mới.
+
 ## Nạp vào DB (global_dictionary)
 
 ```bash
