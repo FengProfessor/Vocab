@@ -33,6 +33,7 @@ const arg = (n: string) => { const p = process.argv.find(a => a.startsWith(`--${
 const LISTS = (arg('list') || '').split(',').map(s => s.trim()).filter(Boolean);
 const LIMIT = parseInt(arg('limit') || '100000', 10);
 const MODEL = arg('model') || 'llama-3.1-8b-instant';
+const WORDS = arg('words') || 'all'; // all | single | multi (theo số từ trong entry)
 const LISTS_DIR = path.resolve(__dirname, 'lists');
 if (LISTS.length === 0) { console.error('[groq-enrich] cần --list=a,b,c'); process.exit(1); }
 
@@ -86,7 +87,9 @@ async function main() {
   const all = [...new Set(LISTS.flatMap(readList))];
   console.log(`[groq-enrich] ${LISTS.length} list → ${all.length} từ unique. Model=${MODEL}`);
   const present = await existingWords(all);
-  const todo = all.filter(w => !present.has(w)).slice(0, LIMIT);
+  const byType = (w: string) => WORDS === 'all' || (WORDS === 'multi' ? w.includes(' ') : !w.includes(' '));
+  const todo = all.filter(w => !present.has(w) && byType(w)).slice(0, LIMIT);
+  console.log(`[groq-enrich] filter words=${WORDS}`);
   console.log(`[groq-enrich] ${present.size} đã có DB, ${todo.length} cần enrich.`);
 
   let ok = 0, fail = 0, rl = 0;
