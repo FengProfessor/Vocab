@@ -72,6 +72,18 @@ Notebook ID: `4b09c19e-ff19-4f1b-adf5-5407ad31ab12`. Query UTF-8: `PYTHONIOENCOD
 
 **TỔNG 3 batch: 3516 net-new** (812 + 1404 + 1300), 18 list mới.
 
+## Batch 4 — ESP finance + IELTS task1 + linking (added 2026-06-18)
+
+| File | Phạm vi | Tool | Net-new |
+|------|---------|------|---------|
+| `esp-finance.txt` | Banking/investment/accounting/economics ESP | Gemini 2.5-pro | 141 |
+| `ielts-task1-data.txt` | IELTS Writing Task 1: mô tả trend/chart/data | Gemini 2.5-pro | 122 |
+| `linking-words.txt` | Linking words/discourse markers formal | **NLM CLI** (grounded) | 53 |
+
+> Bỏ: `coca-academic` (2 net-new — trùng AWL/oxford), `academic-verbs` (14 — trùng), `nlm-toeic-barron` (NLM grounding hỏng, source = scan → trả meta-word junk). Độ trùng cao = coverage đã rộng (bão hòa lành mạnh).
+
+**TỔNG 4 batch: 3832 net-new** (812+1404+1300+316), 21 list mới.
+
 ## Nạp vào DB (global_dictionary)
 
 ```bash
