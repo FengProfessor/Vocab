@@ -65,8 +65,10 @@ export async function POST(req: Request) {
       return safeErrorResponse(error, 'Failed to save quiz results to database');
     }
 
-    // Award XP cho số câu đúng
-    void supabase.rpc('award_xp', { p_user_id: userId, p_xp: score * XP_PER_CORRECT_QUIZ });
+    // Award XP + streak. PHẢI await: supabase builder lazy thenable,
+    // `void` không trigger `.then` → request không bao giờ gửi (XP/streak mất).
+    const { error: xpError } = await supabase.rpc('award_xp', { p_user_id: userId, p_xp: score * XP_PER_CORRECT_QUIZ });
+    if (xpError) console.error('[Gamification] award_xp failed:', xpError.message);
 
     return NextResponse.json({ success: true, data, xpAwarded: score * XP_PER_CORRECT_QUIZ });
   } catch (error: unknown) {
