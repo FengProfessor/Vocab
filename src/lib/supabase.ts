@@ -123,11 +123,19 @@ export interface DictionaryMeaning {
   collocations?: string[];
 }
 
+/** Một từ trong word family (từ phái sinh) kèm nghĩa Việt. */
+export interface WordFamilyEntry {
+  word: string;
+  pos?: string;
+  meaning?: string;
+}
+
 export interface DictionaryData {
   word?: string;
   pronunciations?: { ipa?: string; region?: 'UK' | 'US' | null }[];
   results?: { meanings?: DictionaryMeaning[] }[];
-  familyWords?: string[];
+  /** Dạng cũ: string[] ("word (pos)"). Dạng mới: WordFamilyEntry[] (có nghĩa Việt). Reader phải chấp nhận cả hai. */
+  familyWords?: (string | WordFamilyEntry)[];
   image_search_query?: string;
 }
 

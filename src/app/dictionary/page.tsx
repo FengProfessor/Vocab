@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
-import type { DictionaryData, DictionaryMeaning } from '@/lib/supabase';
+import type { DictionaryData, DictionaryMeaning, WordFamilyEntry } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { toast } from 'sonner';
@@ -56,6 +56,18 @@ function speakWord(word: string, lang: 'en-GB' | 'en-US') {
   if (v) u.voice = v;
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
+}
+
+/** Chuẩn hóa familyWords (string cũ hoặc object mới) → WordFamilyEntry[]. Parse "word (pos)" nếu là string. */
+function normalizeFamilyWords(raw: DictionaryData['familyWords']): WordFamilyEntry[] {
+  if (!raw?.length) return [];
+  return raw.map((item): WordFamilyEntry => {
+    if (typeof item === 'string') {
+      const m = item.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
+      return m ? { word: m[1].trim(), pos: m[2].trim() } : { word: item.trim() };
+    }
+    return item;
+  }).filter(e => e.word);
 }
 
 /** Kiểm tra data có phải kết quả rác không (IPA placeholder hoặc nghĩa bịa) */
@@ -386,6 +398,7 @@ export default function DictionaryPage() {
     }
   }
 
+  const familyWords = normalizeFamilyWords(result?.data.familyWords);
   const hasPronunciations = (result?.data.pronunciations?.length ?? 0) > 0;
   const ukPron = result?.data.pronunciations?.find(p => p.region === 'UK');
   const usPron = result?.data.pronunciations?.find(p => p.region === 'US');
@@ -593,6 +606,36 @@ export default function DictionaryPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {/* Word family — các từ phái sinh kèm nghĩa */}
+            {familyWords.length > 0 && (
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
+                  Họ từ vựng
+                </h2>
+                <div className="space-y-2">
+                  {familyWords.map((fw, i) => (
+                    <button
+                      key={`${fw.word}-${i}`}
+                      type="button"
+                      onClick={() => { setQuery(fw.word); lookup(fw.word); }}
+                      className="w-full bg-muted/40 rounded-xl p-3 flex gap-3 items-center border border-border/50 text-left hover:bg-muted transition-colors"
+                    >
+                      <div className="flex-1 min-w-0">
+                        <span className="font-semibold text-sm">{fw.word}</span>
+                        {fw.pos && (
+                          <span className="text-xs text-muted-foreground italic ml-2">{fw.pos}</span>
+                        )}
+                        {fw.meaning && (
+                          <p className="text-sm text-muted-foreground leading-snug mt-0.5">{fw.meaning}</p>
+                        )}
+                      </div>
+                      <Search className="h-4 w-4 text-muted-foreground shrink-0" />
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
 
