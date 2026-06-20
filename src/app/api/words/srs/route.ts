@@ -89,9 +89,11 @@ export async function POST(req: Request) {
       return safeErrorResponse(error, 'Failed to save progress');
     }
 
-    // Award XP (fire-and-forget, không block response)
+    // Award XP + streak. PHẢI await: supabase builder lazy thenable,
+    // `void` không trigger `.then` → request không bao giờ gửi (XP/streak mất).
     const xp = XP_BY_QUALITY[quality] ?? 5;
-    void supabase.rpc('award_xp', { p_user_id: userId, p_xp: xp });
+    const { error: xpError } = await supabase.rpc('award_xp', { p_user_id: userId, p_xp: xp });
+    if (xpError) console.error('[Gamification] award_xp failed:', xpError.message);
     const { error: progressError } = await supabase
       .rpc('refresh_vocab_pack_progress', { p_user_id: userId, p_word_id: wordId });
     if (progressError) console.error('[VocabPack] Progress refresh failed:', progressError.message);
