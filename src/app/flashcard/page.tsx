@@ -575,7 +575,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                 ) : (
                   // Passive Recognition Mode (Level 1) or After Spelled Correctly
                   <>
-                    <h2 className="text-5xl font-black tracking-tight text-slate-900 break-words w-full px-2">
+                    <h2 className="text-[clamp(1.75rem,7vw,3rem)] font-black tracking-tight text-slate-900 break-words w-full px-2">
                       {current.translation}
                     </h2>
                     
@@ -599,8 +599,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
             <Card className="absolute inset-0 border-none shadow-2xl shadow-indigo-100 flex flex-col items-center justify-center p-10 text-center rounded-[40px] bg-indigo-600 border-b-8 border-indigo-800"
               style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
               <CardContent className="p-0 w-full flex flex-col items-center gap-4 text-white">
-                <div className="flex flex-col items-center gap-2">
-                   <h3 className="text-7xl font-black tracking-tight leading-tight mb-2">
+                <div className="flex flex-col items-center gap-2 w-full">
+                   <h3 className="text-[clamp(2rem,9vw,3.75rem)] font-black tracking-tight leading-tight mb-2 break-words w-full px-2">
                      {current.word}
                    </h3>
                    {current.ipa && <p className="text-2xl text-indigo-200 font-mono tracking-widest">{parseIpa(current.ipa)}</p>}
