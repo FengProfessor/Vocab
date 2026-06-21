@@ -8,12 +8,12 @@ import puppeteer from 'puppeteer-core';
  * synonyms/antonyms qua aistudio/gemini (LLM FREE, 0 quota API). Node làm hết
  * phần HTTP/DB (không CORS, không cần dev server); browser chỉ sinh text.
  *
- * QUY TRÌNH:
- *   1) Chạy launch-chrome-bots.cmd để mở K Chrome (profile + debug port riêng).
- *      Lần đầu: login Google + mở 1 chat aistudio.google.com ở mỗi cửa sổ.
- *   2) cd web-app && npx tsx scripts/auto-chrome-bot.ts --ports=9222,9223,9224,9225
+ * QUY TRÌNH (1 Chrome profile "ta phong", 8 tab = 8 nick qua /u/0../u/7):
+ *   1) ĐÓNG hết Chrome. Chạy launch-chrome-bots.cmd → mở Profile 1 + 8 tab aistudio.
+ *   2) cd web-app && npx tsx scripts/auto-chrome-bot.ts --ports=9222
+ *      → connect, gom MỌI tab aistudio/gemini, mỗi tab (nick) là 1 worker, chia pending.
  *
- * Cờ: --ports=9222,... (bắt buộc) · --batch=10 · --dry
+ * Cờ: --ports=9222 (mặc định 9222) · --batch=10 · --dry
  */
 
 const envPath = path.resolve(__dirname, '../.env.local');
@@ -118,17 +118,9 @@ async function saveResult(parsed: any[], byWord: Map<string, Row>) {
   return n;
 }
 
-async function driveInstance(port: string, shard: Row[], byWord: Map<string, Row>, tag: string) {
-  let browser;
-  try { browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${port}`, defaultViewport: null }); }
-  catch (e: any) { console.error(`[${tag}] connect ${port} fail: ${e.message}`); return 0; }
-
-  const pages = await browser.pages();
-  let page = pages.find((p) => /aistudio\.google|gemini\.google/.test(p.url()));
-  if (!page) { console.error(`[${tag}] không thấy tab aistudio/gemini ở port ${port}. Mở 1 chat trước.`); browser.disconnect(); return 0; }
-  const isAI = /aistudio/.test(page.url());
-  console.log(`[${tag}] connected port ${port} (${isAI ? 'aistudio' : 'gemini'}), shard ${shard.length} từ.`);
-
+/** Lái 1 tab (1 nick) qua hết shard của nó. */
+async function driveTab(page: any, isAI: boolean, shard: Row[], byWord: Map<string, Row>, tag: string) {
+  console.log(`[${tag}] ${isAI ? 'aistudio' : 'gemini'} — shard ${shard.length} từ.`);
   let saved = 0; let batchN = 0;
   for (let i = 0; i < shard.length; i += BATCH) {
     const batch = shard.slice(i, i + BATCH).filter((r) => needsWork(r).family || needsWork(r).synant);
@@ -145,7 +137,7 @@ async function driveInstance(port: string, shard: Row[], byWord: Map<string, Row
     while (Date.now() - t0 < 120000) {
       await new Promise((r) => setTimeout(r, 1500));
       const text = await page.evaluate(() => document.body.innerText).catch(() => '');
-      if (/reached your quota|rate limit|try again later|you've reached/i.test(text)) { console.warn(`[${tag}] HẾT QUOTA ở port ${port} — dừng instance.`); browser.disconnect(); return saved; }
+      if (/reached your quota|rate limit|try again later|you've reached/i.test(text)) { console.warn(`[${tag}] HẾT QUOTA — dừng tab này.`); return saved; }
       parsed = findResultJSON(text, expected);
       if (parsed) break;
     }
@@ -158,26 +150,40 @@ async function driveInstance(port: string, shard: Row[], byWord: Map<string, Row
     await new Promise((r) => setTimeout(r, 1500));
   }
   console.log(`[${tag}] XONG shard — ${saved} ghi.`);
-  browser.disconnect();
   return saved;
 }
 
 async function main() {
-  if (PORTS.length === 0) { console.error('❌ Cần --ports=9222,9223,... (mở Chrome bằng launch-chrome-bots.cmd trước).'); process.exit(1); }
+  const ports = PORTS.length ? PORTS : ['9222'];
   console.log('🔍 Fetching global_dictionary...');
   const rows = await fetchAll();
   const pending = rows.filter((r) => { const n = needsWork(r); return n.family || n.synant; });
-  console.log(`📊 ${pending.length} entry pending. ${PORTS.length} Chrome instance.`);
-  if (DRY) { console.log('[DRY] thoát.'); return; }
+
+  // Gom MỌI tab aistudio/gemini từ mọi port (mỗi /u/N/ = 1 nick = 1 worker)
+  const tabs: { page: any; isAI: boolean; tag: string }[] = [];
+  for (const port of ports) {
+    let browser;
+    try { browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${port}`, defaultViewport: null }); }
+    catch (e: any) { console.error(`❌ connect ${port} fail: ${e.message}`); continue; }
+    const matched = (await browser.pages()).filter((p) => /aistudio\.google|gemini\.google/.test(p.url()));
+    for (const p of matched) {
+      const u = p.url();
+      const acc = (u.match(/\/u\/(\d+)\//) || [])[1] ?? '?';
+      tabs.push({ page: p, isAI: /aistudio/.test(u), tag: `u${acc}` });
+    }
+  }
+  console.log(`📊 ${pending.length} entry pending. ${tabs.length} tab (nick) sẵn sàng.`);
+  if (DRY) { tabs.forEach((t) => console.log(`   tab ${t.tag} (${t.isAI ? 'aistudio' : 'gemini'})`)); console.log('[DRY] thoát.'); return; }
   if (pending.length === 0) { console.log('✅ Không còn gì.'); return; }
+  if (tabs.length === 0) { console.error('❌ Không thấy tab aistudio/gemini nào. Chạy launch-chrome-bots.cmd + mở chat trước.'); return; }
 
   const byWord = new Map<string, Row>(); for (const r of rows) byWord.set(r.word.toLowerCase(), r);
 
-  // chia shard theo index
-  const shards: Row[][] = PORTS.map(() => []);
-  pending.forEach((r, i) => shards[i % PORTS.length].push(r));
+  // chia shard cho từng tab
+  const shards: Row[][] = tabs.map(() => []);
+  pending.forEach((r, i) => shards[i % tabs.length].push(r));
 
-  const results = await Promise.all(PORTS.map((port, i) => driveInstance(port, shards[i], byWord, `bot${i}`)));
+  const results = await Promise.all(tabs.map((t, i) => driveTab(t.page, t.isAI, shards[i], byWord, t.tag).catch((e) => { console.error(`[${t.tag}] lỗi:`, e.message); return 0; })));
   console.log(`\n🏁 Tổng: ${results.reduce((a, b) => a + b, 0)} ghi.`);
 }
 
