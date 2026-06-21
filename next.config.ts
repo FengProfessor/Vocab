@@ -25,6 +25,12 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   poweredByHeader: false, // security: ẩn header X-Powered-By
+  // 301 redirect: gộp /landing về trang chủ (tránh trùng nội dung, dồn SEO về /)
+  async redirects() {
+    return [
+      { source: '/landing', destination: '/', permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

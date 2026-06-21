@@ -18,7 +18,7 @@ export default function LandingPage() {
       color: 'text-amber-400',
       bg: 'bg-amber-400/10',
       title: 'Spaced Repetition (SRS)',
-      desc: 'Scientific SM-2 algorithm schedules reviews at the exact moment before forgetting.'
+      desc: 'Scientific FSRS v5 algorithm schedules reviews at the exact moment before forgetting.'
     },
     {
       icon: GraduationCap,

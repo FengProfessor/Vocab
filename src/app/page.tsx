@@ -1,9 +1,5 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
 import {
   Brain,
   Repeat2,
@@ -12,34 +8,59 @@ import {
   Zap,
   BookOpen,
   Chrome,
-  Loader2,
+  Star,
+  Check,
 } from 'lucide-react';
+import {
+  PLAN_PRICES,
+  PLAN_ANNUAL_PRICES,
+  PLAN_LABELS,
+  formatVND,
+} from '@/lib/billing';
+import AuthRedirectGate from './_components/AuthRedirectGate';
+
+export const metadata: Metadata = {
+  title: 'LingoPro — Học từ vựng tiếng Anh thông minh hơn với AI + FSRS',
+  description:
+    'Nền tảng học từ vựng tiếng Anh dùng AI (Gemini) + Spaced Repetition FSRS v5. Nhớ lâu hơn 5x, nhắc ôn đúng lúc bạn sắp quên. Miễn phí cho học sinh và gia sư.',
+  openGraph: {
+    title: 'LingoPro — Học từ vựng tiếng Anh thông minh hơn',
+    description:
+      'AI + Spaced Repetition giúp bạn nhớ lâu hơn 5x. Ngữ pháp có hệ thống, Chrome Extension tra từ, gamification XP & streak.',
+    type: 'website',
+    locale: 'vi_VN',
+    siteName: 'LingoPro',
+  },
+};
+
+// Social proof — bê từ /landing (Nguyễn Linh / Trần Minh / Ms. Phương)
+const TESTIMONIALS = [
+  {
+    name: 'Nguyễn Linh',
+    role: 'English Tutor, HCM',
+    text: 'LingoPro giúp tôi tiết kiệm 3 tiếng mỗi tuần. Học sinh học hiệu quả gấp đôi nhờ thuật toán ôn tập theo khoa học.',
+    stars: 5,
+  },
+  {
+    name: 'Trần Minh',
+    role: 'IELTS Student',
+    text: 'Tôi học được 500 từ trong 1 tháng. App nhắc ôn đúng lúc, không bao giờ quên từ nữa. Điểm IELTS từ 6.0 lên 7.5.',
+    stars: 5,
+  },
+  {
+    name: 'Ms. Phương',
+    role: 'School Teacher, Hà Nội',
+    text: 'Dashboard thầy cô rất trực quan. Tôi biết ngay học sinh nào cần giúp thêm mà không cần hỏi từng em.',
+    stars: 5,
+  },
+] as const;
 
 export default function LandingPage() {
-  const router = useRouter();
-  const [checking, setChecking] = useState(true);
-
-  // Auto-redirect nếu đã đăng nhập
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        router.replace('/student');
-      } else {
-        setChecking(false);
-      }
-    });
-  }, [router]);
-
-  if (checking) {
-    return (
-      <div className="min-h-dvh flex items-center justify-center bg-slate-950">
-        <Loader2 className="h-8 w-8 animate-spin text-indigo-400" />
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-dvh bg-slate-950 text-white font-sans">
+      {/* Side-effect: đã đăng nhập → redirect /student. Không render gì → bot vẫn index. */}
+      <AuthRedirectGate />
+
       {/* ── NAVBAR ── */}
       <header className="sticky top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
@@ -195,6 +216,113 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── TESTIMONIALS (social proof) ── */}
+      <section id="testimonials" className="py-24 px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black text-center mb-4">
+            Học viên & giáo viên nói gì?
+          </h2>
+          <p className="text-center text-slate-400 font-medium mb-16 max-w-lg mx-auto">
+            Hàng nghìn học sinh và gia sư tiếng Anh đang học hiệu quả hơn cùng LingoPro.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((t) => (
+              <div
+                key={t.name}
+                className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4"
+              >
+                <div className="flex gap-0.5">
+                  {Array.from({ length: t.stars }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-slate-300 text-sm leading-relaxed flex-1">“{t.text}”</p>
+                <div>
+                  <div className="font-black text-white">{t.name}</div>
+                  <div className="text-slate-500 text-sm">{t.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRICING (Free vs Pro rút gọn) ── */}
+      <section id="pricing" className="py-24 px-4 sm:px-6 border-t border-white/5 bg-white/[0.02]">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black text-center mb-4">
+            Giá đơn giản, minh bạch
+          </h2>
+          <p className="text-center text-slate-400 font-medium mb-16 max-w-lg mx-auto">
+            Bắt đầu miễn phí. Nâng cấp {PLAN_LABELS.pro} khi cần học không giới hạn.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Free */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-5">
+              <div>
+                <div className="font-black text-lg">{PLAN_LABELS.free}</div>
+                <div className="mt-2 text-3xl font-black">
+                  0₫
+                  <span className="text-base font-medium text-slate-500"> /tháng</span>
+                </div>
+              </div>
+              <ul className="space-y-2.5 text-sm text-slate-300 flex-1">
+                {['Lưu & học từ vựng cơ bản', 'Flashcard FSRS v5', 'Ngữ pháp có hệ thống', 'Chrome Extension tra từ'].map(
+                  (f) => (
+                    <li key={f} className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" /> {f}
+                    </li>
+                  ),
+                )}
+              </ul>
+              <Link
+                href="/auth"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 font-bold text-sm transition-colors"
+              >
+                Bắt đầu miễn phí
+              </Link>
+            </div>
+
+            {/* Pro */}
+            <div className="relative bg-indigo-600/10 border border-indigo-500/40 rounded-2xl p-7 flex flex-col gap-5">
+              <div className="absolute -top-3 left-7 px-3 py-1 rounded-full bg-indigo-600 text-xs font-black">
+                Phổ biến nhất
+              </div>
+              <div>
+                <div className="font-black text-lg text-indigo-300">{PLAN_LABELS.pro}</div>
+                <div className="mt-2 text-3xl font-black">
+                  {formatVND(PLAN_PRICES.pro)}
+                  <span className="text-base font-medium text-slate-500"> /tháng</span>
+                </div>
+                <div className="text-sm text-slate-400 mt-1">
+                  hoặc {formatVND(PLAN_ANNUAL_PRICES.pro)}/năm — tiết kiệm hơn
+                </div>
+              </div>
+              <ul className="space-y-2.5 text-sm text-slate-200 flex-1">
+                {[
+                  'Tất cả tính năng Free',
+                  'Học từ vựng không giới hạn',
+                  'AI làm giàu từ vựng nâng cao',
+                  'Thống kê & leaderboard đầy đủ',
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-indigo-400 shrink-0 mt-0.5" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/auth"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-black text-sm border-b-4 border-indigo-800 hover:brightness-110 active:translate-y-0.5 active:border-b-0 transition-all"
+              >
+                Nâng cấp {PLAN_LABELS.pro} <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA BOTTOM ── */}
       <section className="py-28 px-4 sm:px-6 text-center">
         <div className="max-w-xl mx-auto space-y-6">
@@ -217,12 +345,26 @@ export default function LandingPage() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="border-t border-white/5 py-8 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <footer className="border-t border-white/5 py-10 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-slate-500">
           <div className="flex items-center gap-2 font-bold text-slate-400">
             <Brain className="h-4 w-4 text-indigo-400" /> LingoPro
           </div>
-          <span>© 2026 LingoPro. Học thông minh, nhớ lâu hơn.</span>
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <Link href="/for-teachers" className="hover:text-white transition-colors">
+              Dành cho giáo viên
+            </Link>
+            <Link href="/auth" className="hover:text-white transition-colors">
+              Đăng nhập
+            </Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Bảo mật
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Điều khoản
+            </Link>
+          </nav>
+          <span className="text-slate-600">© 2026 LingoPro. Học thông minh, nhớ lâu hơn.</span>
         </div>
       </footer>
     </div>
