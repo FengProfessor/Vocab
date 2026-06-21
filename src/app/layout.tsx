@@ -22,9 +22,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  // metadataBase: cần thiết để Next resolve URL tuyệt đối cho OG image & canonical
+  metadataBase: new URL('https://lingopro.online'),
   title: 'LingoPro — AI English Vocabulary & Grammar',
   description: 'Nền tảng học tiếng Anh thông minh với AI, SRS, và quản lý lớp học cho gia sư & học sinh.',
   keywords: ['học tiếng anh', 'vocabulary', 'spaced repetition', 'grammar', 'edtech', 'AI'],
+  alternates: { canonical: '/' },
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
@@ -37,8 +40,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'LingoPro',
-    description: 'Học từ vựng & ngữ pháp tiếng Anh với AI',
+    description: 'Nền tảng học tiếng Anh thông minh với AI, SRS, và quản lý lớp học cho gia sư & học sinh.',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 
