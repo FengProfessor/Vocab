@@ -62,7 +62,7 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
 
 // Shape JSONB của global_dictionary.data (Vietnamese definitions + IPA)
 type GdMeaning = { pos?: string; definition?: string; example?: string; collocations?: string[] };
-type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[] };
+type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[]; synonyms?: string[]; antonyms?: string[] };
 
 type EnrichResult = {
   word: string; translation: string; ipa: string; pos: string;
@@ -103,8 +103,8 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
           ipa: gdData?.pronunciations?.[0]?.ipa || '',
           pos: gdMeaning.pos || '',
           example: gdMeaning.example || '',
-          synonyms: [],
-          antonyms: [],
+          synonyms: gdData?.synonyms || [],
+          antonyms: gdData?.antonyms || [],
         };
         source = 'global_dict';
       } else {

@@ -609,6 +609,50 @@ export default function DictionaryPage() {
               </div>
             )}
 
+            {/* Synonyms / Antonyms */}
+            {((result.data.synonyms?.length ?? 0) > 0 || (result.data.antonyms?.length ?? 0) > 0) && (
+              <div className="flex flex-col gap-3">
+                {(result.data.synonyms?.length ?? 0) > 0 && (
+                  <div>
+                    <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
+                      Đồng nghĩa
+                    </h2>
+                    <div className="flex flex-wrap gap-2">
+                      {result.data.synonyms!.slice(0, 8).map((s, i) => (
+                        <button
+                          key={`syn-${i}`}
+                          type="button"
+                          onClick={() => { setQuery(s); lookup(s); }}
+                          className="px-3 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-sm hover:opacity-80 transition-opacity"
+                        >
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {(result.data.antonyms?.length ?? 0) > 0 && (
+                  <div>
+                    <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
+                      Trái nghĩa
+                    </h2>
+                    <div className="flex flex-wrap gap-2">
+                      {result.data.antonyms!.slice(0, 8).map((s, i) => (
+                        <button
+                          key={`ant-${i}`}
+                          type="button"
+                          onClick={() => { setQuery(s); lookup(s); }}
+                          className="px-3 py-1 rounded-full bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-sm hover:opacity-80 transition-opacity"
+                        >
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Word family — các từ phái sinh kèm nghĩa */}
             {familyWords.length > 0 && (
               <div>
