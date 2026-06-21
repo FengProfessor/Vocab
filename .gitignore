@@ -67,3 +67,6 @@ scraper-*.txt
 tmp-*
 tampermonkey-*
 inspect_all_columns.js
+
+# Chrome bot profiles (auto-chrome-bot)
+.chrome-bot-profiles/
