@@ -136,6 +136,8 @@ export interface DictionaryData {
   results?: { meanings?: DictionaryMeaning[] }[];
   /** Dạng cũ: string[] ("word (pos)"). Dạng mới: WordFamilyEntry[] (có nghĩa Việt). Reader phải chấp nhận cả hai. */
   familyWords?: (string | WordFamilyEntry)[];
+  synonyms?: string[];
+  antonyms?: string[];
   image_search_query?: string;
 }
 
