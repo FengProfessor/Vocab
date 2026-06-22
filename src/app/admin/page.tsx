@@ -66,6 +66,9 @@ export default function AdminPage() {
           Admin Dashboard
         </div>
         <div className="ml-auto flex items-center gap-2">
+          <Link href="/admin/crm" className="flex items-center gap-1.5 text-sm font-semibold bg-blue-500/10 text-blue-700 hover:bg-blue-500/20 px-4 py-2 rounded-xl transition-colors">
+            <Users className="h-4 w-4" /> CRM
+          </Link>
           <Link href="/admin/pilot-leads" className="flex items-center gap-1.5 text-sm font-semibold bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 px-4 py-2 rounded-xl transition-colors">
             <Building2 className="h-4 w-4" /> Pilot Leads
           </Link>
