@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LingoPro Synonym/Antonym Bot (aistudio + gemini) V1.0
 // @namespace    http://tampermonkey.net/
-// @version      1.1.0
+// @version      1.2.0
 // @description  Cào SYNONYMS + ANTONYMS qua aistudio.google.com VÀ gemini.google.com. Nhiều tab/nick song song (shard). Menu Tampermonkey.
 // @author       LingoPro
 // @match        *://aistudio.google.com/*
@@ -19,7 +19,7 @@
         SECRET: '',
         BATCH_SIZE: 40,
         MAX_BATCHES: 30,
-        SHARDS: 8, // TỔNG số tab (8 nick /u/0../u/7)
+        SHARDS: 1, // 1 = KHÔNG shard cứng → mọi tab rút ngẫu nhiên pool chung (tự cân bằng, tab chết không kẹt phần)
     };
 
     const isAI = location.hostname.includes('aistudio');
