@@ -59,10 +59,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     // If not authorized by PayOS signature, fallback to Casso / secure token check
     if (!isAuthorized) {
+      // SePay gửi `Authorization: Apikey <key>`; các nguồn khác dùng Bearer / header riêng.
       const token = req.headers.get('secure-token') ||
                     req.headers.get('x-webhook-secret') ||
                     req.headers.get('x-api-key') ||
-                    req.headers.get('authorization')?.replace('Bearer ', '');
+                    req.headers.get('authorization')?.replace(/^Bearer\s+/i, '').replace(/^Apikey\s+/i, '');
 
       const webhookSecret = process.env.WEBHOOK_SECRET || process.env.CRON_SECRET;
 
@@ -111,6 +112,16 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           description: data.description,
           amount: data.amount,
           reference: data.reference || data.tid || String(data.orderCode || ''),
+        });
+      }
+    } else if (typeof body.transferAmount === 'number' && (body.content || body.description)) {
+      // SePay format: { transferType: 'in'|'out', content, transferAmount, referenceCode, id }
+      // Chỉ xử lý tiền VÀO; tiền ra (transferType='out') bỏ qua.
+      if (body.transferType === undefined || body.transferType === 'in') {
+        transactions.push({
+          description: String(body.content || body.description || ''),
+          amount: body.transferAmount,
+          reference: String(body.referenceCode || body.id || ''),
         });
       }
     } else if (body.description && typeof body.amount === 'number') {
