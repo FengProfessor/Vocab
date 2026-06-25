@@ -33,27 +33,38 @@ function Card({ tag, icon, title, children }: { tag: string; icon: string; title
   );
 }
 
-function Exercise({ ex, idx }: { ex: GrammarExerciseItem; idx: number }) {
+function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) {
+  // Normalize legacy and new schema formats
+  const type = rawEx.type === 'multiple_choice' ? 'mcq' :
+               rawEx.type === 'fill_blank' ? 'fill' :
+               rawEx.type === 'error_correction' ? 'error' :
+               rawEx.type; // mcq, fill, tf, error
+               
+  const q = rawEx.question || rawEx.q || '';
+  const opts = rawEx.options || rawEx.opts || [];
+  const answer = rawEx.correct_answer !== undefined ? rawEx.correct_answer : rawEx.answer;
+  const fb = rawEx.explanation || rawEx.fb || '';
+
   const [done, setDone] = useState(false);
   const [val, setVal] = useState('');
   const [picked, setPicked] = useState<string | null>(null);
   const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ').replace(/[’]/g, "'");
-  const badge = { mcq: 'Trắc nghiệm', fill: 'Điền từ', tf: 'Đúng / Sai', error: 'Sửa lỗi' }[ex.type];
-  const bcol = { mcq: 'bg-indigo-50 text-indigo-700', fill: 'bg-emerald-50 text-emerald-700', tf: 'bg-amber-50 text-amber-700', error: 'bg-rose-50 text-rose-700' }[ex.type];
+  const badge = { mcq: 'Trắc nghiệm', fill: 'Điền từ', tf: 'Đúng / Sai', error: 'Sửa lỗi' }[type];
+  const bcol = { mcq: 'bg-indigo-50 text-indigo-700', fill: 'bg-emerald-50 text-emerald-700', tf: 'bg-amber-50 text-amber-700', error: 'bg-rose-50 text-rose-700' }[type];
 
-  const correctText = Array.isArray(ex.answer) ? ex.answer[0] : ex.type === 'tf' ? (ex.answer ? 'Đúng' : 'Sai') : String(ex.answer);
+  const correctText = Array.isArray(answer) ? answer[0] : type === 'tf' ? (answer ? 'Đúng' : 'Sai') : String(answer);
 
   return (
     <div className="bg-background border rounded-xl p-4">
       <div className="flex items-center gap-2 mb-2">
         <span className={`text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded ${bcol}`}>{badge}</span>
       </div>
-      <div className="font-semibold text-slate-800 mb-2.5">{idx + 1}. {ex.q}</div>
+      <div className="font-semibold text-slate-800 mb-2.5">{idx + 1}. {q}</div>
 
-      {(ex.type === 'mcq' || ex.type === 'error') && (
+      {(type === 'mcq' || type === 'error') && (
         <div className="flex flex-col gap-2">
-          {(ex.opts ?? []).map((o) => {
-            const isCorrect = o === ex.answer;
+          {(opts ?? []).map((o) => {
+            const isCorrect = o === answer;
             const show = done && (picked === o || isCorrect);
             return (
               <button key={o} disabled={done}
@@ -68,10 +79,10 @@ function Exercise({ ex, idx }: { ex: GrammarExerciseItem; idx: number }) {
         </div>
       )}
 
-      {ex.type === 'tf' && (
+      {type === 'tf' && (
         <div className="flex gap-2">
           {[{ l: 'Đúng', v: true }, { l: 'Sai', v: false }].map((opt) => {
-            const isCorrect = opt.v === ex.answer;
+            const isCorrect = opt.v === answer;
             const show = done && (picked === opt.l || isCorrect);
             return (
               <button key={opt.l} disabled={done}
@@ -86,7 +97,7 @@ function Exercise({ ex, idx }: { ex: GrammarExerciseItem; idx: number }) {
         </div>
       )}
 
-      {ex.type === 'fill' && (
+      {type === 'fill' && (
         <div className="flex gap-2">
           <input value={val} disabled={done} onChange={(e) => setVal(e.target.value)}
             onKeyDown={(e) => { if (e.key === 'Enter' && val.trim()) setDone(true); }}
@@ -99,17 +110,17 @@ function Exercise({ ex, idx }: { ex: GrammarExerciseItem; idx: number }) {
 
       {done && (
         <div className={`mt-2.5 text-sm font-semibold ${
-          (ex.type === 'fill'
-            ? (Array.isArray(ex.answer) && ex.answer.some((a) => norm(a) === norm(val)))
-            : ex.type === 'tf'
-              ? (picked === (ex.answer ? 'Đúng' : 'Sai'))
-              : picked === ex.answer)
+          (type === 'fill'
+            ? (Array.isArray(answer) && answer.some((a) => norm(a) === norm(val)))
+            : type === 'tf'
+              ? (picked === (answer ? 'Đúng' : 'Sai'))
+              : picked === answer)
             ? 'text-emerald-700' : 'text-rose-700'}`}>
-          {(ex.type === 'fill'
-            ? (Array.isArray(ex.answer) && ex.answer.some((a) => norm(a) === norm(val)))
-            : ex.type === 'tf' ? (picked === (ex.answer ? 'Đúng' : 'Sai')) : picked === ex.answer)
+          {(type === 'fill'
+            ? (Array.isArray(answer) && answer.some((a) => norm(a) === norm(val)))
+            : type === 'tf' ? (picked === (answer ? 'Đúng' : 'Sai')) : picked === answer)
             ? '✓ Chính xác! ' : `✗ Đáp án: ${correctText}. `}
-          <span className="font-normal text-slate-600">{ex.fb}</span>
+          <span className="font-normal text-slate-600">{fb}</span>
         </div>
       )}
     </div>
