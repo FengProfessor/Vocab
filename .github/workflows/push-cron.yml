@@ -27,7 +27,7 @@ jobs:
           fi
           code=$(curl -sS -o /tmp/resp.json -w "%{http_code}" \
             -H "Authorization: Bearer $CRON_SECRET" \
-            "https://vocab-taupe.vercel.app/api/cron/push-due")
+            "https://lingopro.online/api/cron/push-due")
           echo "HTTP $code"
           cat /tmp/resp.json
           test "$code" = "200"

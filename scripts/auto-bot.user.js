@@ -24,7 +24,7 @@
     // ── CONFIG ────────────────────────────────────────────────
     const CFG = {
         // Đổi thành localhost:3000 khi chạy dev local
-        BASE_URL:         GM_getValue('base_url', 'https://vocab-taupe.vercel.app'),
+        BASE_URL:         GM_getValue('base_url', 'https://lingopro.online'),
         BATCH_SIZE:       35,
         MAX_BATCHES:      40,
         POLL_INTERVAL_MS: 1500,

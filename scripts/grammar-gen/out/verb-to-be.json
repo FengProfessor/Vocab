@@ -360,115 +360,1278 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "I ___ from Vietnam.",
-      "opts": [
+      "type": "multiple_choice",
+      "question": "Choose the correct **to be**: I ___ from Vietnam.",
+      "options": [
         "am",
         "is",
-        "are"
+        "are",
+        "be"
       ],
-      "answer": "am",
-      "fb": "Chủ ngữ I luôn đi với am."
+      "correct_answer": "am",
+      "explanation": "Chủ ngữ I luôn đi với am. Is dùng với he/she/it hoặc một người/vật; are dùng với you/we/they hoặc số nhiều; be không dùng trực tiếp ở hiện tại đơn như câu này.",
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "My brother ___ twelve years old.",
-      "opts": [
+      "type": "multiple_choice",
+      "question": "Choose the correct **to be**: She ___ my teacher.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "She là ngôi thứ ba số ít nên dùng is. Am chỉ dùng với I; are dùng với you/we/they hoặc danh từ số nhiều; be không phù hợp trong câu khẳng định hiện tại đơn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **question form**: ___ you a student?",
+      "options": [
+        "Are",
+        "Is",
+        "Am",
+        "Be"
+      ],
+      "correct_answer": "Are",
+      "explanation": "Với chủ ngữ you, câu hỏi dùng Are đứng trước chủ ngữ. Is dùng với he/she/it; am dùng với I; be không dùng làm trợ động từ trực tiếp ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **verb form**: My parents ___ at home.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "My parents là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ dùng với I; be không đúng trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative form**: The door ___ not open.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "The door là một vật số ít nên dùng is not. Are not dùng cho số nhiều hoặc you/we/they; am not chỉ đi với I; be not không đúng ở hiện tại đơn này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **short answer**: Are they ready? Yes, they ___.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "Câu hỏi bắt đầu bằng Are they nên câu trả lời ngắn khẳng định là they are. Is và am không hòa hợp với they; be không dùng trong short answer này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **contraction**: She is my sister. = ___ my sister.",
+      "options": [
+        "She's",
+        "She're",
+        "She'm",
+        "She"
+      ],
+      "correct_answer": "She's",
+      "explanation": "She is có dạng rút gọn là She's. She're và She'm sai vì she không đi với are hoặc am; She thiếu động từ to be.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **to be**: This book ___ interesting.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "This book là một vật số ít nên dùng is. Are dùng cho số nhiều; am chỉ dùng với I; be không đúng trong câu hiện tại đơn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **subject agreement**: You and Mai ___ classmates.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "You and Mai chỉ hai người nên là chủ ngữ số nhiều, dùng are. Is dùng cho số ít; am chỉ dùng với I; be không phù hợp ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **verb form**: I ___ eleven years old.",
+      "options": [
         "am",
         "is",
-        "are"
+        "are",
+        "be"
       ],
-      "answer": "is",
-      "fb": "My brother là một người, tương đương he, nên dùng is."
+      "correct_answer": "am",
+      "explanation": "Khi nói tuổi với chủ ngữ I, ta dùng I am. Is, are và be không hòa hợp với I trong câu này.",
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The children ___ in the garden. (be)",
-      "answer": [
-        "are"
+      "type": "fill_blank",
+      "question": "Fill in the correct **to be**: The cats ___ under the chair.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
       ],
-      "fb": "The children là số nhiều nên dùng are."
+      "correct_answer": "are",
+      "explanation": "The cats là danh từ số nhiều nên dùng are. Is dùng với một con mèo hoặc một vật/người số ít; am chỉ dùng với I; be không đúng ở đây.",
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "She ___ not busy today. (be)",
-      "answer": [
-        "is"
+      "type": "fill_blank",
+      "question": "Fill in the correct **negative form**: We ___ not tired.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
       ],
-      "fb": "She đi với is; phủ định đầy đủ là is not."
+      "correct_answer": "are",
+      "explanation": "We đi với are, nên câu đúng là We are not tired. Is dùng với he/she/it; am dùng với I; be không dùng trực tiếp sau we trong câu hiện tại đơn này.",
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "___ you ready? (be)",
-      "answer": [
-        "are"
+      "type": "fill_blank",
+      "question": "Fill in the correct **question form**: ___ he your brother?",
+      "options": [
+        "Is",
+        "Are",
+        "Am",
+        "Be"
       ],
-      "fb": "Câu hỏi với you bắt đầu bằng Are."
+      "correct_answer": "Is",
+      "explanation": "He là ngôi thứ ba số ít nên câu hỏi dùng Is he. Are dùng với you/we/they hoặc số nhiều; am dùng với I; be không đúng trong câu hỏi này.",
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"He are my friend.\"",
-      "answer": false,
-      "fb": "SAI. He đi với is: \"He is my friend.\""
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"We aren't late.\"",
-      "answer": true,
-      "fb": "ĐÚNG. Aren't là dạng rút gọn của are not."
-    },
-    {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "I am hungry.",
-        "They are at school.",
-        "She am happy."
+      "type": "fill_blank",
+      "question": "Fill in the correct **verb form**: These pencils ___ new.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
       ],
-      "answer": "She am happy.",
-      "fb": "She phải đi với is, không đi với am."
+      "correct_answer": "are",
+      "explanation": "These pencils là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ dùng với I; be không phù hợp trong câu này.",
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Dạng câu hỏi của \"Tom is at home.\" là:",
-      "opts": [
-        "Does Tom is at home?",
-        "Is Tom at home?",
-        "Tom is at home?"
+      "type": "fill_blank",
+      "question": "Fill in the correct **to be**: It ___ a sunny day.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
       ],
-      "answer": "Is Tom at home?",
-      "fb": "Đưa is lên trước Tom để tạo câu hỏi."
+      "correct_answer": "is",
+      "explanation": "It là chủ ngữ số ít nên dùng is. Are dùng cho số nhiều hoặc you/we/they; am chỉ dùng với I; be không đúng ở hiện tại đơn này.",
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Viết dạng rút gọn: They are my classmates. → ___ my classmates.",
-      "answer": [
+      "type": "fill_blank",
+      "question": "Fill in the correct **short answer**: Is your mother a doctor? No, she ___.",
+      "options": [
+        "isn't",
+        "aren't",
+        "am not",
+        "be not"
+      ],
+      "correct_answer": "isn't",
+      "explanation": "Câu hỏi dùng Is your mother, nên câu trả lời phủ định ngắn là she isn't. Aren't dùng với are; am not dùng với I; be not không tự nhiên trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **contraction**: They are in the classroom. = ___ in the classroom.",
+      "options": [
         "They're",
-        "they're"
+        "They's",
+        "They'm",
+        "They is"
       ],
-      "fb": "They are rút gọn thành they're."
+      "correct_answer": "They're",
+      "explanation": "They are được rút gọn thành They're. They's, They'm và They is đều sai vì they phải đi với are.",
+      "difficulty": 2
     },
     {
-      "type": "mcq",
-      "q": "Dạng phủ định đúng của \"It is hot.\" là:",
-      "opts": [
-        "It not is hot.",
-        "It doesn't hot.",
-        "It isn't hot."
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: I is happy today.",
+      "options": [
+        "I",
+        "is",
+        "happy",
+        "today"
       ],
-      "answer": "It isn't hot.",
-      "fb": "Thêm not sau is; is not có thể rút gọn thành isn't."
+      "correct_answer": "is",
+      "explanation": "Lỗi là is vì chủ ngữ I phải đi với am: I am happy today. Các từ I, happy và today không sai trong câu này.",
+      "difficulty": 1
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "Are they students?",
-        "Is your mother a doctor?",
-        "Do you are tired?"
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: They is in the park.",
+      "options": [
+        "They",
+        "is",
+        "in",
+        "the park"
       ],
-      "answer": "Do you are tired?",
-      "fb": "To be không dùng do. Câu đúng là \"Are you tired?\""
+      "correct_answer": "is",
+      "explanation": "They phải đi với are, nên câu đúng là They are in the park. They, in và the park không phải lỗi ngữ pháp ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: She are very kind.",
+      "options": [
+        "She",
+        "are",
+        "very",
+        "kind"
+      ],
+      "correct_answer": "are",
+      "explanation": "She là số ít nên phải dùng is: She is very kind. She, very và kind đều phù hợp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: We am classmates.",
+      "options": [
+        "We",
+        "am",
+        "classmates",
+        "."
+      ],
+      "correct_answer": "am",
+      "explanation": "We phải đi với are, nên câu đúng là We are classmates. We và classmates đúng; dấu chấm không phải lỗi ngữ pháp cần sửa.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: Are she your friend?",
+      "options": [
+        "Are",
+        "she",
+        "your",
+        "friend"
+      ],
+      "correct_answer": "Are",
+      "explanation": "Với she, câu hỏi phải bắt đầu bằng Is: Is she your friend? She, your và friend không sai trong câu hỏi này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: My bags is heavy.",
+      "options": [
+        "My bags",
+        "is",
+        "heavy",
+        "."
+      ],
+      "correct_answer": "is",
+      "explanation": "My bags là số nhiều nên phải dùng are: My bags are heavy. My bags và heavy đúng; dấu chấm không phải lỗi cần sửa.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: You is not late.",
+      "options": [
+        "You",
+        "is not",
+        "late",
+        "."
+      ],
+      "correct_answer": "is not",
+      "explanation": "You phải đi với are, nên dạng phủ định đúng là are not: You are not late. You và late không sai; dấu chấm không phải lỗi ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: He's are my cousin.",
+      "options": [
+        "He's",
+        "are",
+        "my",
+        "cousin"
+      ],
+      "correct_answer": "are",
+      "explanation": "He's đã có nghĩa là He is, nên không được thêm are sau đó. Câu đúng là He's my cousin hoặc He is my cousin; my và cousin đúng trong câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **to be**: I ___ a little hungry.",
+      "options": [
+        "am",
+        "is",
+        "are",
+        "be"
+      ],
+      "correct_answer": "am",
+      "explanation": "Với chủ ngữ I, ta dùng am. Is dùng cho he/she/it hoặc một danh từ số ít; are dùng cho you/we/they hoặc số nhiều; be không dùng trực tiếp trong câu hiện tại đơn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **verb form**: Tom ___ in the kitchen.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "Tom là một người số ít, tương đương he, nên dùng is. Am chỉ đi với I, are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp ở hiện tại đơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **agreement**: The windows ___ clean.",
+      "options": [
+        "are",
+        "am",
+        "is",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "The windows là danh từ số nhiều nên dùng are. Is dùng cho danh từ số ít, am chỉ dùng với I, be không phải dạng chia đúng trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **question form**: ___ your name Anna?",
+      "options": [
+        "Is",
+        "Are",
+        "Am",
+        "Be"
+      ],
+      "correct_answer": "Is",
+      "explanation": "Your name là danh từ số ít, nên câu hỏi dùng Is ở đầu câu. Are dùng với số nhiều/you, Am dùng với I, Be không dùng để bắt đầu câu hỏi hiện tại đơn như vậy.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative form**: His shoes ___ not blue.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "His shoes là danh từ số nhiều nên dùng are not. Is not dùng cho số ít, am not chỉ đi với I, còn be not không đúng ở hiện tại đơn.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **short answer**: Is the baby asleep? Yes, it ___.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "The baby có thể thay bằng it, nên câu trả lời ngắn là Yes, it is. Are và am không hợp với it, còn be không dùng trong short answer này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **contraction**: We are on the bus. = ___ on the bus.",
+      "options": [
+        "We're",
+        "They're",
+        "You're",
+        "I'm"
+      ],
+      "correct_answer": "We're",
+      "explanation": "We are rút gọn thành We're. They're là they are, You're là you are, còn I'm là I am nên không đúng nghĩa chủ ngữ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **to be**: These oranges ___ sweet.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "These oranges là nhiều quả cam, nên dùng are. Is dùng cho một vật/người số ít, am chỉ dùng với I, be không phải dạng chia ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **word order**: ___ cold today?",
+      "options": [
+        "Is it",
+        "It is",
+        "Are it",
+        "Am it"
+      ],
+      "correct_answer": "Is it",
+      "explanation": "Câu hỏi với it dùng cấu trúc Is + it + tính từ. It is là câu khẳng định, còn Are it và Am it sai vì it đi với is.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **to be**: My phone ___ on the desk.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "My phone là một vật số ít nên dùng is. Am chỉ dùng với I, are dùng cho số nhiều hoặc you/we/they, còn be không phù hợp trong câu hiện tại đơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **verb form**: You ___ my best friend.",
+      "options": [
+        "are",
+        "am",
+        "is",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "Chủ ngữ you luôn đi với are trong hiện tại đơn. Am chỉ đi với I, is đi với he/she/it hoặc số ít, be không đúng dạng chia.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **negative form**: I ___ not afraid.",
+      "options": [
+        "am",
+        "is",
+        "are",
+        "be"
+      ],
+      "correct_answer": "am",
+      "explanation": "Với I ở câu phủ định, ta dùng am not. Is not và are not dùng cho chủ ngữ khác, còn be not không phải cách chia đúng ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **question form**: ___ the girls in the garden?",
+      "options": [
+        "Are",
+        "Is",
+        "Am",
+        "Be"
+      ],
+      "correct_answer": "Are",
+      "explanation": "The girls là danh từ số nhiều nên câu hỏi bắt đầu bằng Are. Is dùng cho số ít, Am dùng với I, Be không dùng trực tiếp trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **short answer**: Are your socks white? No, they ___.",
+      "options": [
+        "aren't",
+        "isn't",
+        "am not",
+        "be not"
+      ],
+      "correct_answer": "aren't",
+      "explanation": "Your socks là số nhiều, thay bằng they, nên phủ định ngắn là they aren't. Isn't dùng cho số ít, am not dùng với I, be not không đúng trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **contraction**: It is a red apple. = ___ a red apple.",
+      "options": [
+        "It's",
+        "He's",
+        "She's",
+        "They're"
+      ],
+      "correct_answer": "It's",
+      "explanation": "It is rút gọn thành It's. He's là he is, She's là she is, They're là they are nên không thay thế được it is.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **to be**: Ben and I ___ neighbors.",
+      "options": [
+        "are",
+        "am",
+        "is",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "Ben and I nghĩa là chúng tôi, tương đương we, nên dùng are. Am chỉ đi với I đứng một mình, is dùng cho số ít, be không phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **verb form**: The soup ___ hot.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "The soup là danh từ không đếm được và được xem như số ít, nên dùng is. Are dùng cho số nhiều, am dùng với I, be không đúng dạng chia.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: He am seven years old.",
+      "options": [
+        "He",
+        "am",
+        "seven years old",
+        "old"
+      ],
+      "correct_answer": "am",
+      "explanation": "He phải đi với is, nên lỗi là am. He là chủ ngữ đúng, seven years old là cụm nói tuổi đúng, và old không sai trong cụm này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: The flowers is beautiful.",
+      "options": [
+        "The flowers",
+        "is",
+        "beautiful",
+        "flowers"
+      ],
+      "correct_answer": "is",
+      "explanation": "The flowers là danh từ số nhiều nên phải dùng are. The flowers và flowers đúng về nghĩa số nhiều, beautiful là tính từ đúng sau to be.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: Am you okay now?",
+      "options": [
+        "Am",
+        "you",
+        "okay",
+        "now"
+      ],
+      "correct_answer": "Am",
+      "explanation": "Với chủ ngữ you, câu hỏi phải bắt đầu bằng Are, không phải Am. You là chủ ngữ đúng, okay là tính từ đúng, now là trạng từ thời gian đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: I are at the supermarket.",
+      "options": [
+        "I",
+        "are",
+        "at",
+        "the supermarket"
+      ],
+      "correct_answer": "are",
+      "explanation": "I luôn đi với am, nên are là lỗi. I là chủ ngữ đúng, at chỉ vị trí đúng, và the supermarket là địa điểm đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: The rice are in the bowl.",
+      "options": [
+        "The rice",
+        "are",
+        "in",
+        "the bowl"
+      ],
+      "correct_answer": "are",
+      "explanation": "Rice là danh từ không đếm được, thường xem như số ít, nên dùng is. The rice là chủ ngữ đúng, in và the bowl tạo cụm vị trí đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: Your eyes is green.",
+      "options": [
+        "Your eyes",
+        "is",
+        "green",
+        "eyes"
+      ],
+      "correct_answer": "is",
+      "explanation": "Your eyes là số nhiều nên phải dùng are. Your eyes là chủ ngữ đúng, green là tính từ đúng, và eyes thể hiện số nhiều đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: They am not from Korea.",
+      "options": [
+        "They",
+        "am not",
+        "from",
+        "Korea"
+      ],
+      "correct_answer": "am not",
+      "explanation": "They phải đi với are not, nên am not là lỗi. They là chủ ngữ đúng, from dùng để nói nguồn gốc đúng, và Korea là tên quốc gia đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: Mia and Leo is twins.",
+      "options": [
+        "Mia and Leo",
+        "is",
+        "twins",
+        "Leo"
+      ],
+      "correct_answer": "is",
+      "explanation": "Mia and Leo là hai người, tương đương they, nên dùng are. Mia and Leo là chủ ngữ số nhiều đúng, twins là danh từ số nhiều đúng, Leo không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **verb form**: Sarah ___ my sister.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "Sarah là một người số ít nên dùng is. Am chỉ đi với I, are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **agreement**: The chairs ___ in the classroom.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "The chairs là danh từ số nhiều nên dùng are. Is dùng cho số ít, am dùng với I, be không phải dạng chia đúng ở hiện tại đơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **question form**: ___ your father a doctor?",
+      "options": [
+        "Is",
+        "Are",
+        "Am",
+        "Be"
+      ],
+      "correct_answer": "Is",
+      "explanation": "Your father là một người số ít nên câu hỏi bắt đầu bằng Is. Are dùng với you/we/they hoặc số nhiều; Am chỉ dùng với I; Be không đứng đầu câu hỏi kiểu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **short answer**: Are the children noisy? Yes, they ___.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "Câu hỏi dùng Are với the children, nên câu trả lời ngắn là Yes, they are. Is và am không khớp với they; be không phải dạng trả lời đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **contraction**: You are early. = ___ early.",
+      "options": [
+        "You're",
+        "I'm",
+        "She's",
+        "They're"
+      ],
+      "correct_answer": "You're",
+      "explanation": "You are rút gọn thành You're. I'm là I am, She's là She is, They're là They are nên không đúng với chủ ngữ you.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **word order**: ___ the tickets on the table?",
+      "options": [
+        "Are",
+        "Is",
+        "Am",
+        "Be"
+      ],
+      "correct_answer": "Are",
+      "explanation": "The tickets là danh từ số nhiều nên câu hỏi dùng Are. Is dùng cho số ít, Am dùng với I, Be không dùng để mở câu hỏi hiện tại đơn như vậy.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **to be**: This cake ___ delicious.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "This cake là một vật số ít nên dùng is. Are dùng cho số nhiều, am dùng với I, còn be không được chia theo chủ ngữ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **to be**: We ___ ready for class.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "We luôn đi với are ở hiện tại. Is dùng với he/she/it hoặc danh từ số ít, am dùng với I, be không phải dạng chia đúng trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **verb form**: The dog ___ under the bed.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "The dog là một con vật số ít nên dùng is. Are dùng cho số nhiều, am dùng với I, be không phù hợp sau chủ ngữ này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **negative form**: They ___ not at school today.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "They đi với are, nên phủ định là are not. Is not dùng với số ít, am not dùng với I, be not không đúng trong câu hiện tại đơn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **question form**: ___ I late for the meeting?",
+      "options": [
+        "Am",
+        "Is",
+        "Are",
+        "Be"
+      ],
+      "correct_answer": "Am",
+      "explanation": "Trong câu hỏi với chủ ngữ I, ta dùng Am I. Is và Are không đi trực tiếp với I trong cấu trúc này; Be không đúng dạng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **short answer**: Is your room clean? No, it ___.",
+      "options": [
+        "isn't",
+        "aren't",
+        "am not",
+        "be not"
+      ],
+      "correct_answer": "isn't",
+      "explanation": "Your room là it, nên câu trả lời phủ định ngắn là No, it isn't. Aren't dùng với are, am not dùng với I, be not không tự nhiên và không đúng ở mức này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **contraction**: They are my neighbors. = ___ my neighbors.",
+      "options": [
+        "They're",
+        "We're",
+        "You're",
+        "He's"
+      ],
+      "correct_answer": "They're",
+      "explanation": "They are rút gọn thành They're. We're là We are, You're là You are, He's là He is nên không đúng chủ ngữ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **agreement**: Anna and Mark ___ in the park.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "Anna and Mark là hai người, tức chủ ngữ số nhiều, nên dùng are. Is dùng cho một người/vật số ít, am dùng với I, be không chia đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **to be**: My mother ___ very kind.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "My mother là một người số ít nên dùng is. Are dùng với số nhiều hoặc you; am chỉ dùng với I; be không đúng trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: The students is in the library.",
+      "options": [
+        "The students",
+        "is",
+        "in",
+        "the library"
+      ],
+      "correct_answer": "is",
+      "explanation": "The students là số nhiều nên phải dùng are, không dùng is. Các phần còn lại đúng về nghĩa và vị trí trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: Is they your classmates?",
+      "options": [
+        "Is",
+        "they",
+        "your",
+        "classmates"
+      ],
+      "correct_answer": "Is",
+      "explanation": "They phải đi với are trong câu hỏi: Are they your classmates? Các từ they, your, classmates đều phù hợp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: I is twelve years old.",
+      "options": [
+        "I",
+        "is",
+        "twelve",
+        "years old"
+      ],
+      "correct_answer": "is",
+      "explanation": "Chủ ngữ I phải đi với am, nên câu đúng là I am twelve years old. Các phần khác không sai trong câu nói tuổi.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: Her brothers am tall.",
+      "options": [
+        "Her brothers",
+        "am",
+        "tall",
+        "Her"
+      ],
+      "correct_answer": "am",
+      "explanation": "Her brothers là số nhiều nên phải dùng are, không dùng am. Tall là tính từ đúng, và Her brothers là chủ ngữ phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: You am welcome here.",
+      "options": [
+        "You",
+        "am",
+        "welcome",
+        "here"
+      ],
+      "correct_answer": "am",
+      "explanation": "You luôn đi với are ở hiện tại, nên câu đúng là You are welcome here. Các từ còn lại đúng về nghĩa và trật tự.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: The milk are cold.",
+      "options": [
+        "The milk",
+        "are",
+        "cold",
+        "milk"
+      ],
+      "correct_answer": "are",
+      "explanation": "The milk được xem là danh từ không đếm được số ít nên dùng is. Cold là tính từ đúng, và The milk là chủ ngữ đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: Are it your pencil?",
+      "options": [
+        "Are",
+        "it",
+        "your",
+        "pencil"
+      ],
+      "correct_answer": "Are",
+      "explanation": "It phải đi với is trong câu hỏi: Is it your pencil? Các từ it, your, pencil đều phù hợp với nghĩa câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: We're is at home now.",
+      "options": [
+        "We're",
+        "is",
+        "at home",
+        "now"
+      ],
+      "correct_answer": "is",
+      "explanation": "We're đã có nghĩa là We are, nên không thêm is sau đó. At home và now là các cụm đúng để nói vị trí và thời gian.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **to be**: I ___ in grade six.",
+      "options": [
+        "am",
+        "is",
+        "are",
+        "be"
+      ],
+      "correct_answer": "am",
+      "explanation": "Với chủ ngữ I, ta dùng am. Is dùng với he/she/it hoặc một người/vật; are dùng với you/we/they hoặc số nhiều; be không dùng trực tiếp ở thì hiện tại đơn như câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **verb form**: My backpack ___ blue.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "My backpack là một vật số ít nên dùng is. Am chỉ đi với I; are dùng với chủ ngữ số nhiều hoặc you/we/they; be không phù hợp trong câu khẳng định hiện tại đơn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **agreement**: You and I ___ in the same class.",
+      "options": [
+        "are",
+        "am",
+        "is",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "You and I tương đương we, nên dùng are. Am chỉ dùng với I đứng một mình; is dùng với chủ ngữ số ít; be không phải dạng chia đúng ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **question form**: ___ your grandparents at home?",
+      "options": [
+        "Are",
+        "Is",
+        "Am",
+        "Be"
+      ],
+      "correct_answer": "Are",
+      "explanation": "Your grandparents là chủ ngữ số nhiều nên câu hỏi dùng Are ở đầu câu. Is dùng cho số ít; Am dùng với I; Be không đứng đầu câu hỏi hiện tại đơn như vậy.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative form**: The soup ___ hot.",
+      "options": [
+        "is not",
+        "are not",
+        "am not",
+        "be not"
+      ],
+      "correct_answer": "is not",
+      "explanation": "The soup là danh từ không đếm được, xem như số ít nên dùng is not. Are not dùng với số nhiều; am not chỉ đi với I; be not không tự nhiên trong mẫu câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **short answer**: Is Tom from Canada? Yes, he ___.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "isn't"
+      ],
+      "correct_answer": "is",
+      "explanation": "Câu hỏi bắt đầu bằng Is và chủ ngữ là Tom = he, nên câu trả lời ngắn là Yes, he is. Are và am không hợp với he; isn't là phủ định nên sai với Yes.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **contraction**: She is my teacher. = ___ my teacher.",
+      "options": [
+        "She's",
+        "She're",
+        "She'm",
+        "Shes"
+      ],
+      "correct_answer": "She's",
+      "explanation": "She is được rút gọn thành She's. She're và She'm không tồn tại; Shes thiếu dấu nháy và không phải dạng rút gọn chuẩn.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **word order**: ___ your new shoes expensive?",
+      "options": [
+        "Are",
+        "Is",
+        "Am",
+        "Do"
+      ],
+      "correct_answer": "Are",
+      "explanation": "Your new shoes là số nhiều nên dùng Are trong câu hỏi. Is dùng cho số ít; Am dùng với I; Do không dùng để tạo câu hỏi với động từ to be.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **to be**: My best friend and I ___ from Vietnam.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "My best friend and I là hai người, nghĩa là we, nên dùng are. Is dùng cho một người/vật; am chỉ dùng với I đứng riêng; be không phải dạng chia đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **to be**: It ___ sunny today.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "It đi với is trong thì hiện tại. Am chỉ dùng với I; are dùng với you/we/they hoặc số nhiều; be không phù hợp sau It trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **verb form**: I ___ not tired.",
+      "options": [
+        "am",
+        "is",
+        "are",
+        "be"
+      ],
+      "correct_answer": "am",
+      "explanation": "Với chủ ngữ I, dạng phủ định là I am not. Is not và are not dùng với chủ ngữ khác; be not không phải cấu trúc cơ bản trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **agreement**: These oranges ___ sweet.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "correct_answer": "are",
+      "explanation": "These oranges là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ đi với I; be không phải dạng chia đúng ở hiện tại đơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **question form**: ___ she your cousin?",
+      "options": [
+        "Is",
+        "Are",
+        "Am",
+        "Be"
+      ],
+      "correct_answer": "Is",
+      "explanation": "She là chủ ngữ ngôi thứ ba số ít nên câu hỏi bắt đầu bằng Is. Are không đi với she; Am chỉ dùng với I; Be không đúng trong câu hỏi hiện tại đơn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **negative form**: We ___ at the bus stop.",
+      "options": [
+        "are not",
+        "is not",
+        "am not",
+        "be not"
+      ],
+      "correct_answer": "are not",
+      "explanation": "We đi với are, nên dạng phủ định là are not. Is not dùng với số ít; am not dùng với I; be not không phải mẫu câu cơ bản ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **short answer**: Are you hungry? No, I ___.",
+      "options": [
+        "am not",
+        "is not",
+        "are not",
+        "be not"
+      ],
+      "correct_answer": "am not",
+      "explanation": "Khi trả lời về you nhưng người nói nói về bản thân, ta dùng I am not. Is not không đi với I; are not đi với you/we/they; be not sai trong mẫu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **contraction**: We are on the train. = ___ on the train.",
+      "options": [
+        "We're",
+        "We's",
+        "I'm",
+        "They're"
+      ],
+      "correct_answer": "We're",
+      "explanation": "We are được rút gọn thành We're. We's không đúng; I'm nghĩa là I am; They're nghĩa là they are nên không giữ đúng chủ ngữ we.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **to be**: His new phone ___ very small.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "His new phone là một vật số ít nên dùng is. Are dùng với số nhiều; am dùng với I; be không được chia theo chủ ngữ ở câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: My hands is cold.",
+      "options": [
+        "My hands",
+        "is",
+        "cold",
+        "My"
+      ],
+      "correct_answer": "is",
+      "explanation": "My hands là số nhiều nên phải dùng are, không dùng is. Cold là tính từ đúng; My hands là chủ ngữ đúng về nghĩa; My không phải lỗi ngữ pháp trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: Are your sister at school?",
+      "options": [
+        "Are",
+        "your sister",
+        "at school",
+        "school"
+      ],
+      "correct_answer": "Are",
+      "explanation": "Your sister là một người số ít nên câu hỏi phải là Is your sister at school? Your sister và at school đúng; school chỉ là danh từ trong cụm vị trí.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: I am not a doctor?",
+      "options": [
+        "I",
+        "am not",
+        "a doctor",
+        "?"
+      ],
+      "correct_answer": "?",
+      "explanation": "Đây là trật tự câu khẳng định/phủ định, không phải câu hỏi, nên không nên dùng dấu hỏi. Nếu muốn hỏi, phải viết Am I not a doctor? Các phần I, am not, a doctor đều đúng trong câu phủ định.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: The baby are asleep.",
+      "options": [
+        "The baby",
+        "are",
+        "asleep",
+        "baby"
+      ],
+      "correct_answer": "are",
+      "explanation": "The baby là một người số ít nên phải dùng is. Asleep là tính từ đúng; The baby là chủ ngữ đúng; baby không phải lỗi riêng trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: We is in the kitchen.",
+      "options": [
+        "We",
+        "is",
+        "in",
+        "the kitchen"
+      ],
+      "correct_answer": "is",
+      "explanation": "We phải đi với are, nên is là lỗi. We là chủ ngữ đúng; in và the kitchen tạo cụm chỉ vị trí đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** phrase: Is the socks in your bag?",
+      "options": [
+        "Is",
+        "the socks",
+        "in",
+        "your bag"
+      ],
+      "correct_answer": "Is",
+      "explanation": "The socks là danh từ số nhiều nên câu hỏi phải dùng Are. The socks, in và your bag đều đúng về nghĩa và cấu trúc vị trí.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: He's are my uncle.",
+      "options": [
+        "He's",
+        "are",
+        "my",
+        "uncle"
+      ],
+      "correct_answer": "are",
+      "explanation": "He's đã có nghĩa là He is, nên không được thêm are sau đó. My và uncle đúng trong cụm my uncle; lỗi chính là dùng thừa are.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word: Their house am near the river.",
+      "options": [
+        "Their house",
+        "am",
+        "near",
+        "the river"
+      ],
+      "correct_answer": "am",
+      "explanation": "Their house là một vật số ít nên phải dùng is. Am chỉ dùng với I; near the river là cụm chỉ vị trí đúng.",
+      "difficulty": 2
     }
   ]
 }

@@ -513,6 +513,1150 @@
       ],
       "answer": "The project needs to be completed by Friday.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reporting passive** for a formal report.",
+      "options": [
+        "It is widely believed that the bridge is unsafe.",
+        "The bridge widely believes that it is unsafe.",
+        "It widely is believed the bridge unsafe.",
+        "People is widely believed that the bridge is unsafe."
+      ],
+      "correct_answer": "It is widely believed that the bridge is unsafe.",
+      "explanation": "Cấu trúc đúng là “It is + V3 + that + clause” để nêu thông tin khách quan. Các lựa chọn khác sai vì dùng sai chủ ngữ, sai trật tự từ hoặc thiếu mệnh đề hoàn chỉnh.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **to-infinitive** passive form.",
+      "options": [
+        "The mayor is reported to be considering a new policy.",
+        "The mayor is reported that considering a new policy.",
+        "The mayor reports to be considered a new policy.",
+        "The mayor is report to consider a new policy."
+      ],
+      "correct_answer": "The mayor is reported to be considering a new policy.",
+      "explanation": "Sau “is reported” có thể dùng “to be + V-ing” để nói hành động đang diễn ra. Các câu khác sai vì thiếu “to be”, dùng sai dạng phân từ, hoặc đảo nghĩa bị động/chủ động không đúng.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **perfect passive** meaning: People think the witness lied earlier.",
+      "options": [
+        "The witness is thought to have lied earlier.",
+        "The witness is thought to lie earlier.",
+        "It is thought the witness to have lied earlier.",
+        "The witness was thought lying earlier."
+      ],
+      "correct_answer": "The witness is thought to have lied earlier.",
+      "explanation": "Khi hành động được tường thuật xảy ra trước hiện tại, dùng “is thought to have + V3/Ved”. Các lựa chọn khác sai vì không thể hiện đúng thời điểm trước đó hoặc sai cấu trúc sau reporting verb.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the sentence with correct **double object** passive.",
+      "options": [
+        "The interns were offered free training.",
+        "Free training were offered the interns.",
+        "The interns offered free training.",
+        "The interns were offered to free training."
+      ],
+      "correct_answer": "The interns were offered free training.",
+      "explanation": "Với động từ có hai tân ngữ, người nhận có thể làm chủ ngữ bị động: “The interns were offered free training.” Các câu khác sai hòa hợp số, thiếu “be + V3”, hoặc thêm “to” không cần thiết.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best formal **impersonal passive** sentence.",
+      "options": [
+        "It has been suggested that the rules should be revised.",
+        "It has suggested that the rules should be revised.",
+        "The rules have suggested to be revised.",
+        "It is been suggested revising the rules."
+      ],
+      "correct_answer": "It has been suggested that the rules should be revised.",
+      "explanation": "Dạng đúng là “It has been + V3 + that + clause” trong văn trang trọng. Các lựa chọn sai vì thiếu “been”, dùng chủ ngữ không hợp logic, hoặc ghép sai dạng động từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **modal passive** form.",
+      "options": [
+        "The documents must be submitted by noon.",
+        "The documents must submit by noon.",
+        "The documents must be submit by noon.",
+        "The documents must submitted by noon."
+      ],
+      "correct_answer": "The documents must be submitted by noon.",
+      "explanation": "Sau modal trong bị động dùng “modal + be + V3”. Các lựa chọn khác sai vì thiếu “be”, dùng động từ nguyên mẫu sau “be”, hoặc thiếu “be” trước V3.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **passive infinitive** after “need”.",
+      "options": [
+        "The contract needs to be signed today.",
+        "The contract needs signing to be today.",
+        "The contract needs to sign today.",
+        "The contract needs be signed today."
+      ],
+      "correct_answer": "The contract needs to be signed today.",
+      "explanation": "“Need” có thể đi với “to be + V3” để diễn đạt việc cần được làm. Các lựa chọn khác sai vì biến hợp đồng thành người ký, thiếu “to”, hoặc sai trật tự từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **get passive** sentence.",
+      "options": [
+        "Several files got deleted during the update.",
+        "Several files got deleting during the update.",
+        "Several files got delete during the update.",
+        "Several files were got deleted during the update."
+      ],
+      "correct_answer": "Several files got deleted during the update.",
+      "explanation": "“Get + V3” là dạng bị động tự nhiên hơn trong văn nói hoặc tình huống nhấn mạnh sự cố. Các câu khác sai vì sau “get” phải dùng V3 và không dùng “were got”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **agent omission** in formal writing.",
+      "options": [
+        "The decision was approved after a long discussion.",
+        "Approved the decision after a long discussion.",
+        "The decision approved after a long discussion.",
+        "The decision was approving after a long discussion."
+      ],
+      "correct_answer": "The decision was approved after a long discussion.",
+      "explanation": "Bị động có thể bỏ tác nhân khi không quan trọng: “was approved”. Các lựa chọn khác thiếu “be”, sai trật tự câu, hoặc dùng V-ing thay vì V3.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reporting passive**: It ___ claimed that the data was inaccurate.",
+      "options": [
+        "was",
+        "were",
+        "did",
+        "had"
+      ],
+      "correct_answer": "was",
+      "explanation": "Chủ ngữ giả “It” đi với “was” trong cấu trúc “It was claimed that...”. “Were” sai hòa hợp, còn “did” và “had” không tạo được bị động với V3 “claimed”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **perfect infinitive**: The suspect is believed ___ escaped through the back door.",
+      "options": [
+        "to have",
+        "to be",
+        "having",
+        "have"
+      ],
+      "correct_answer": "to have",
+      "explanation": "Hành động “escaped” xảy ra trước nhận định hiện tại nên dùng “is believed to have + V3/Ved”. Các lựa chọn khác không diễn đạt đúng quan hệ thời gian hoặc sai cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **passive verb**: The proposal ___ expected to face strong opposition.",
+      "options": [
+        "is",
+        "has",
+        "does",
+        "will"
+      ],
+      "correct_answer": "is",
+      "explanation": "Cấu trúc đúng là “S + be + expected + to V”, nên cần “is”. “Has/does/will” không đứng trực tiếp trước V3 “expected” trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **double object** passive: Maria was ___ a scholarship by the university.",
+      "options": [
+        "awarded",
+        "awarding",
+        "award",
+        "awards"
+      ],
+      "correct_answer": "awarded",
+      "explanation": "Bị động cần “was + V3”, nên “awarded” là đúng. Các dạng “awarding”, “award”, “awards” không phải phân từ quá khứ sau “was”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **modal passive**: The error should ___ corrected before publication.",
+      "options": [
+        "be",
+        "been",
+        "being",
+        "is"
+      ],
+      "correct_answer": "be",
+      "explanation": "Sau modal “should” trong bị động dùng “be + V3”. “Been”, “being”, và “is” không theo đúng mẫu “modal + be + V3”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **past passive**: The guests were ___ a detailed explanation of the delay.",
+      "options": [
+        "given",
+        "gave",
+        "giving",
+        "give"
+      ],
+      "correct_answer": "given",
+      "explanation": "Sau “were” trong bị động cần V3, nên “given” đúng. “Gave” là quá khứ chủ động, “giving” là V-ing, và “give” là nguyên mẫu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **continuous passive**: The policy is said ___ causing confusion among employees.",
+      "options": [
+        "to be",
+        "to have",
+        "being",
+        "be"
+      ],
+      "correct_answer": "to be",
+      "explanation": "Để diễn tả hành động đang xảy ra sau reporting passive, dùng “is said to be + V-ing”. Các lựa chọn khác không kết hợp đúng với “causing” trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **impersonal passive**: It has ___ estimated that the repairs will cost over $10,000.",
+      "options": [
+        "been",
+        "being",
+        "be",
+        "was"
+      ],
+      "correct_answer": "been",
+      "explanation": "Hiện tại hoàn thành bị động dùng “has been + V3”. Các lựa chọn khác sai vì không tạo được cấu trúc “has been estimated”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The results **are believed** **to has** **been affected** **by noise**.",
+      "options": [
+        "are believed",
+        "to has",
+        "been affected",
+        "by noise"
+      ],
+      "correct_answer": "to has",
+      "explanation": "Sau “to” phải dùng động từ nguyên mẫu “have”, nên đúng là “to have been affected”. Các cụm còn lại phù hợp với cấu trúc bị động hoàn thành.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **is expect** **that** **the figures** **will rise** next year.",
+      "options": [
+        "is expect",
+        "that",
+        "the figures",
+        "will rise"
+      ],
+      "correct_answer": "is expect",
+      "explanation": "Bị động cần “is expected”, không phải “is expect”. Các phần còn lại tạo thành mệnh đề đúng sau “that”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The students **were explained** **the rules** **by** **the coordinator**.",
+      "options": [
+        "were explained",
+        "the rules",
+        "by",
+        "the coordinator"
+      ],
+      "correct_answer": "were explained",
+      "explanation": "Với “explain”, không dùng người nhận làm chủ ngữ trực tiếp kiểu “were explained the rules”; nên viết “The rules were explained to the students.” Các cụm còn lại không sai riêng lẻ.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The missing laptop **is thought** **to have been** **steal** **from the office**.",
+      "options": [
+        "is thought",
+        "to have been",
+        "steal",
+        "from the office"
+      ],
+      "correct_answer": "steal",
+      "explanation": "Sau “have been” trong bị động cần V3 “stolen”. “Is thought” và “to have been” đúng cho cấu trúc reporting passive hoàn thành.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The manager **was given** **to** **a final warning** **yesterday**.",
+      "options": [
+        "was given",
+        "to",
+        "a final warning",
+        "yesterday"
+      ],
+      "correct_answer": "to",
+      "explanation": "Khi người nhận làm chủ ngữ bị động, nói “was given a final warning”, không thêm “to”. Các phần khác đúng về thì, nghĩa và vị trí.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was reported** **the train** **to arrive** **late**.",
+      "options": [
+        "was reported",
+        "the train",
+        "to arrive",
+        "late"
+      ],
+      "correct_answer": "to arrive",
+      "explanation": "Sau “It was reported” cần mệnh đề “that the train arrived/was late”, không dùng “the train to arrive”. Các cụm còn lại chỉ sai khi ghép với cấu trúc “to arrive”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The new vaccine **is expected** **be approved** **before** **summer**.",
+      "options": [
+        "is expected",
+        "be approved",
+        "before",
+        "summer"
+      ],
+      "correct_answer": "be approved",
+      "explanation": "Sau “is expected” cần “to be approved”. Các cụm khác đúng về nghĩa và vị trí trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Several employees **got** **promote** **after** **the merger**.",
+      "options": [
+        "got",
+        "promote",
+        "after",
+        "the merger"
+      ],
+      "correct_answer": "promote",
+      "explanation": "Dạng “get passive” cần “got + V3”, nên phải là “got promoted”. “Got”, “after”, và “the merger” đều phù hợp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **impersonal passive** sentence for a news report.",
+      "options": [
+        "It is understood that the mayor will resign next month.",
+        "It understands that the mayor will resign next month.",
+        "It is understanding that the mayor will resign next month.",
+        "It is understood the mayor to resign next month."
+      ],
+      "correct_answer": "It is understood that the mayor will resign next month.",
+      "explanation": "Cấu trúc đúng là “It is understood that + mệnh đề” để diễn đạt thông tin được cho là đúng. Các lựa chọn khác sai vì thiếu dạng bị động “is understood”, dùng sai dạng V-ing, hoặc trộn sai với cấu trúc “to-infinitive”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reported infinitive** form.",
+      "options": [
+        "The mayor is reported to have resigned last night.",
+        "The mayor is reported resigning last night.",
+        "The mayor is reported to resign last night.",
+        "The mayor reported to have resigned last night."
+      ],
+      "correct_answer": "The mayor is reported to have resigned last night.",
+      "explanation": "Vì hành động “resigned” xảy ra trước thời điểm được tường thuật, ta dùng “is reported to have + V3”. “To resign” không thể hiện rõ hành động đã xảy ra trước, còn các lựa chọn khác sai cấu trúc hoặc thiếu “be”.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **double object** passive sentence.",
+      "options": [
+        "The interns were offered free training after the interview.",
+        "The interns were offered to free training after the interview.",
+        "Free training offered the interns after the interview.",
+        "The interns were offer free training after the interview."
+      ],
+      "correct_answer": "The interns were offered free training after the interview.",
+      "explanation": "Với động từ hai tân ngữ, người nhận có thể làm chủ ngữ: “The interns were offered free training”. Các câu còn lại sai vì thêm “to” không cần thiết, thiếu “be”, hoặc dùng sai dạng quá khứ phân từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **formal passive** version.",
+      "options": [
+        "It has been suggested that the schedule be revised.",
+        "Someone has suggested revising the schedule.",
+        "They suggested that we revise the schedule.",
+        "People are suggesting a revised schedule."
+      ],
+      "correct_answer": "It has been suggested that the schedule be revised.",
+      "explanation": "Câu đúng dùng bị động trang trọng “It has been suggested that...” và phù hợp văn viết học thuật. Các câu còn lại nêu tác nhân chung hoặc dùng dạng chủ động, kém trang trọng hơn.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **passive causative** sentence.",
+      "options": [
+        "The documents had to be signed before noon.",
+        "The documents had to signed before noon.",
+        "The documents had been to sign before noon.",
+        "The documents were had to sign before noon."
+      ],
+      "correct_answer": "The documents had to be signed before noon.",
+      "explanation": "Sau “had to” cần “be + V3” để tạo bị động: “had to be signed”. Các lựa chọn khác thiếu “be” hoặc dùng cấu trúc sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **prepositional passive** sentence.",
+      "options": [
+        "The issue was referred to during the meeting.",
+        "The issue was referred during the meeting.",
+        "The issue was referred to discuss during the meeting.",
+        "The issue referred to during the meeting."
+      ],
+      "correct_answer": "The issue was referred to during the meeting.",
+      "explanation": "Với cụm động từ “refer to”, giới từ “to” phải được giữ lại trong bị động. Các câu khác thiếu “to”, thêm động từ sai, hoặc thiếu “was”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **ongoing passive** meaning.",
+      "options": [
+        "The bridge is believed to be being repaired this week.",
+        "The bridge is believed to being repaired this week.",
+        "The bridge is believed being repaired this week.",
+        "The bridge is believed to be repaired this week."
+      ],
+      "correct_answer": "The bridge is believed to be being repaired this week.",
+      "explanation": "Khi hành động đang diễn ra, cấu trúc là “is believed to be being + V3”. “To be repaired” thường chỉ tương lai hoặc trạng thái, còn các lựa chọn khác thiếu thành phần cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **agent omission** sentence.",
+      "options": [
+        "The decision was made after several meetings.",
+        "The decision was made by people after several meetings.",
+        "The decision made after several meetings.",
+        "The decision was make after several meetings."
+      ],
+      "correct_answer": "The decision was made after several meetings.",
+      "explanation": "Trong văn trang trọng, có thể bỏ tác nhân nếu không quan trọng: “The decision was made...”. Các câu khác nêu tác nhân mơ hồ không cần thiết, thiếu “was”, hoặc dùng sai V3.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **perfect passive** infinitive.",
+      "options": [
+        "The manuscript is thought to have been written in 1820.",
+        "The manuscript is thought to be written in 1820.",
+        "The manuscript is thought to have wrote in 1820.",
+        "The manuscript is thought having been written in 1820."
+      ],
+      "correct_answer": "The manuscript is thought to have been written in 1820.",
+      "explanation": "Vì việc viết xảy ra trong quá khứ trước nhận định hiện tại, dùng “to have been + V3”. Các lựa chọn khác sai thời, sai phân từ, hoặc sai cấu trúc sau “is thought”.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reporting passive**: It ___ rumored that the director will step down.",
+      "options": [
+        "is",
+        "be",
+        "has",
+        "was been"
+      ],
+      "correct_answer": "is",
+      "explanation": "Cấu trúc đúng là “It is rumored that + mệnh đề”. “Be” không chia theo chủ ngữ, “has” thiếu “been”, và “was been” sai ngữ pháp.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **infinitive passive**: The plan is expected ___ reduce costs significantly.",
+      "options": [
+        "to",
+        "for",
+        "that",
+        "being"
+      ],
+      "correct_answer": "to",
+      "explanation": "Sau “is expected” khi chủ ngữ thực hiện hành động, dùng “to + V”: “is expected to reduce”. “For”, “that”, và “being” không phù hợp với cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **perfect infinitive**: The files are believed ___ been deleted accidentally.",
+      "options": [
+        "to have",
+        "to has",
+        "having",
+        "have"
+      ],
+      "correct_answer": "to have",
+      "explanation": "Cấu trúc đúng là “are believed to have been + V3” cho hành động đã xảy ra trước. Các đáp án khác sai dạng sau “to” hoặc thiếu “to”.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **double object** passive: Liam was ___ an official apology after the mistake.",
+      "options": [
+        "sent",
+        "sent to",
+        "sending",
+        "send"
+      ],
+      "correct_answer": "sent",
+      "explanation": "Bị động với hai tân ngữ dùng “was + V3 + object”: “was sent an official apology”. “Sent to” không phù hợp khi người nhận đã là chủ ngữ, còn “sending/send” sai dạng động từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **modal passive**: The application must ___ submitted online.",
+      "options": [
+        "be",
+        "been",
+        "being",
+        "to be"
+      ],
+      "correct_answer": "be",
+      "explanation": "Sau modal “must” dùng nguyên mẫu: “must be + V3”. “Been”, “being”, và “to be” đều sai sau modal trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **prepositional passive**: The complaint was not properly ___ with.",
+      "options": [
+        "dealt",
+        "dealing",
+        "deal",
+        "deals"
+      ],
+      "correct_answer": "dealt",
+      "explanation": "Cụm “deal with” khi chuyển bị động là “was dealt with”. Các lựa chọn khác không phải quá khứ phân từ phù hợp sau “was”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **passive gerund**: She dislikes ___ treated as a beginner.",
+      "options": [
+        "being",
+        "been",
+        "be",
+        "to being"
+      ],
+      "correct_answer": "being",
+      "explanation": "Sau “dislikes” cần danh động từ; bị động là “being + V3”. Các đáp án khác sai dạng hoặc thừa “to”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **formal passive**: It has ___ argued that the policy is unfair.",
+      "options": [
+        "been",
+        "being",
+        "be",
+        "was"
+      ],
+      "correct_answer": "been",
+      "explanation": "Hiện tại hoàn thành bị động dùng “has been + V3”: “has been argued”. Các lựa chọn khác không tạo được cấu trúc hoàn thành bị động đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **future passive**: The results are likely ___ announced tomorrow.",
+      "options": [
+        "to be",
+        "being",
+        "be",
+        "to have"
+      ],
+      "correct_answer": "to be",
+      "explanation": "Sau “are likely” dùng “to be + V3” để diễn tả bị động trong tương lai. Các lựa chọn còn lại thiếu “to be” hoặc sai nghĩa thời gian.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The CEO **is said** **to be** **step down** **next quarter**.",
+      "options": [
+        "is said",
+        "to be",
+        "step down",
+        "next quarter"
+      ],
+      "correct_answer": "step down",
+      "explanation": "Sau “is said to be” cần V-ing nếu diễn tả kế hoạch đang được nói tới: “to be stepping down”. “Is said”, “to be”, và “next quarter” đều phù hợp trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **has reported** **that** **several accounts** **were closed**.",
+      "options": [
+        "has reported",
+        "that",
+        "several accounts",
+        "were closed"
+      ],
+      "correct_answer": "has reported",
+      "explanation": "Cần dạng bị động “has been reported”, không phải “has reported”. Các phần còn lại đúng trong mệnh đề “that”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The applicant **was asked** **to being** **present** **at 9 a.m.**",
+      "options": [
+        "was asked",
+        "to being",
+        "present",
+        "at 9 a.m."
+      ],
+      "correct_answer": "to being",
+      "explanation": "Sau “was asked” dùng “to be present”, không dùng “to being”. Các cụm còn lại đúng về nghĩa và vị trí.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The contract **is understood** **to have** **sign** **last week**.",
+      "options": [
+        "is understood",
+        "to have",
+        "sign",
+        "last week"
+      ],
+      "correct_answer": "sign",
+      "explanation": "Sau “to have” trong bị động cần “been + V3”: “to have been signed”. “Sign” là động từ nguyên mẫu nên sai ở vị trí này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The visitors **were shown** **around** **the museum** **by noon**.",
+      "options": [
+        "were shown",
+        "around",
+        "the museum",
+        "by noon"
+      ],
+      "correct_answer": "by noon",
+      "explanation": "“By noon” thường nghĩa là trước hoặc không muộn hơn buổi trưa, nhưng câu cần mốc thời gian xảy ra hoạt động nên tự nhiên hơn là “at noon” hoặc “in the afternoon”. Các cụm “were shown around the museum” đúng trong bị động với tân ngữ kép/cụm động từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The proposal **is supposed** **to** **approved** **today**.",
+      "options": [
+        "is supposed",
+        "to",
+        "approved",
+        "today"
+      ],
+      "correct_answer": "approved",
+      "explanation": "Cấu trúc đúng là “is supposed to be approved”. “Approved” cần có “be” phía trước để tạo bị động sau “to”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: He **got** **inviting** **to speak** **at the conference**.",
+      "options": [
+        "got",
+        "inviting",
+        "to speak",
+        "at the conference"
+      ],
+      "correct_answer": "inviting",
+      "explanation": "Get passive dùng “get + V3”, nên phải là “got invited”. “To speak” và “at the conference” đúng để bổ nghĩa cho lời mời.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reporting passive** for: People believe the mayor knew about the problem.",
+      "options": [
+        "It is believed that the mayor knew about the problem.",
+        "It believes that the mayor knew about the problem.",
+        "The mayor is believed knew about the problem.",
+        "It is believed the mayor to know about the problem."
+      ],
+      "correct_answer": "It is believed that the mayor knew about the problem.",
+      "explanation": "Đáp án đúng dùng cấu trúc trang trọng 'It is believed that + clause'. Các lựa chọn khác sai vì thiếu 'is', dùng sai dạng sau 'believed', hoặc trộn sai cấu trúc 'It is believed that' với 'to-infinitive'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **perfect infinitive** meaning: People say the scientist discovered the method years ago.",
+      "options": [
+        "The scientist is said to have discovered the method years ago.",
+        "The scientist is said to discover the method years ago.",
+        "The scientist is said having discovered the method years ago.",
+        "The scientist was said to discovering the method years ago."
+      ],
+      "correct_answer": "The scientist is said to have discovered the method years ago.",
+      "explanation": "Hành động 'discovered' xảy ra trước thời điểm hiện tại nên dùng 'to have + V3'. Các đáp án còn lại sai vì không dùng perfect infinitive hoặc dùng sai dạng sau 'to'.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **double passive** sentence.",
+      "options": [
+        "The interns were assigned several urgent tasks.",
+        "Several urgent tasks assigned the interns.",
+        "The interns were assigned to several urgent tasks.",
+        "The interns were assigning several urgent tasks."
+      ],
+      "correct_answer": "The interns were assigned several urgent tasks.",
+      "explanation": "Với động từ hai tân ngữ như 'assign', người nhận có thể làm chủ ngữ bị động: 'were assigned + object'. Các câu khác sai vì thiếu 'be + V3', thêm 'to' không cần thiết, hoặc dùng dạng chủ động tiếp diễn.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **causative passive** sentence.",
+      "options": [
+        "We had the report checked by an external auditor.",
+        "We had checked the report by an external auditor.",
+        "We had the report check by an external auditor.",
+        "We had an external auditor checked the report."
+      ],
+      "correct_answer": "We had the report checked by an external auditor.",
+      "explanation": "Cấu trúc nhờ ai làm gì ở dạng bị động là 'have + object + V3'. Các đáp án khác sai vì biến nghĩa thành chủ động hoặc dùng sai dạng động từ sau tân ngữ/người thực hiện.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **modal perfect** passive sentence.",
+      "options": [
+        "The invoice should have been sent last Friday.",
+        "The invoice should be sent last Friday.",
+        "The invoice should have sent last Friday.",
+        "The invoice should have been send last Friday."
+      ],
+      "correct_answer": "The invoice should have been sent last Friday.",
+      "explanation": "Với nghĩa lẽ ra đã được làm trong quá khứ, dùng 'should have been + V3'. Các đáp án khác sai vì không có 'have been', thiếu 'been', hoặc dùng động từ nguyên mẫu 'send' thay vì V3.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **passive gerund** form.",
+      "options": [
+        "He avoids being photographed at private events.",
+        "He avoids to be photographed at private events.",
+        "He avoids been photographed at private events.",
+        "He avoids being photograph at private events."
+      ],
+      "correct_answer": "He avoids being photographed at private events.",
+      "explanation": "Sau 'avoid' dùng gerund, và bị động là 'being + V3'. Các lựa chọn khác sai vì dùng to-infinitive, dùng 'been' sai vị trí, hoặc dùng động từ chưa chia V3.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **formal passive** rewrite: Experts generally consider the data reliable.",
+      "options": [
+        "The data is generally considered reliable.",
+        "The data generally considers reliable.",
+        "It is generally considered the data reliable.",
+        "The data is generally considered to reliable."
+      ],
+      "correct_answer": "The data is generally considered reliable.",
+      "explanation": "Với 'consider + object + adjective', bị động đúng là 'object + be considered + adjective'. Các câu khác sai vì dùng chủ động sai chủ ngữ, cấu trúc 'It is considered' thiếu 'that', hoặc thêm 'to' trước tính từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **impersonal passive**: It ___ widely believed that sleep affects memory.",
+      "options": [
+        "is",
+        "does",
+        "has",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "Cấu trúc đúng là 'It is widely believed that + clause'. 'Does' không tạo bị động, 'has' thiếu 'been', và 'be' không hòa hợp với chủ ngữ 'It' ở hiện tại đơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reported infinitive**: The minister is alleged ___ received illegal payments.",
+      "options": [
+        "to have",
+        "having",
+        "to has",
+        "have"
+      ],
+      "correct_answer": "to have",
+      "explanation": "Khi hành động bị cáo buộc xảy ra trước hiện tại, dùng 'is alleged to have + V3'. Các lựa chọn khác sai vì không đúng cấu trúc infinitive hoặc sai dạng của 'have'.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **passive infinitive**: The documents need ___ signed before noon.",
+      "options": [
+        "to be",
+        "being",
+        "to have",
+        "be"
+      ],
+      "correct_answer": "to be",
+      "explanation": "Sau 'need' trong cấu trúc này dùng 'to be + V3': 'need to be signed'. 'Being' không phù hợp sau 'need', 'to have' đổi nghĩa, và 'be' thiếu 'to'.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **double object** passive: Nora was ___ a travel allowance for the project.",
+      "options": [
+        "granted",
+        "granting",
+        "grant",
+        "grants"
+      ],
+      "correct_answer": "granted",
+      "explanation": "Bị động cần 'was + V3', nên 'granted' là đúng. Các đáp án khác là dạng V-ing, nguyên mẫu hoặc hiện tại đơn nên không đi sau 'was' để tạo bị động.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **get passive**: The old factory got ___ into apartments.",
+      "options": [
+        "converted",
+        "converting",
+        "convert",
+        "converts"
+      ],
+      "correct_answer": "converted",
+      "explanation": "'Get passive' dùng 'get/got + V3', nên 'converted' là đúng. Các dạng còn lại không phải quá khứ phân từ nên không tạo nghĩa bị động.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **perfect passive**: The decision may have ___ influenced by public pressure.",
+      "options": [
+        "been",
+        "being",
+        "be",
+        "was"
+      ],
+      "correct_answer": "been",
+      "explanation": "Sau 'may have' để tạo bị động hoàn thành, dùng 'been + V3'. 'Being' dùng cho tiếp diễn/gerund, 'be' thiếu perfect form, và 'was' không đi sau modal perfect.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **prepositional passive**: The safety rules were finally agreed ___ by all departments.",
+      "options": [
+        "on",
+        "with",
+        "at",
+        "for"
+      ],
+      "correct_answer": "on",
+      "explanation": "Cụm đúng là 'agree on rules', nên bị động là 'rules were agreed on'. Các giới từ 'with', 'at', 'for' không phù hợp với nghĩa thống nhất về quy tắc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **object complement** passive: The suspect was declared ___ after new evidence appeared.",
+      "options": [
+        "innocent",
+        "to innocent",
+        "innocently",
+        "being innocent"
+      ],
+      "correct_answer": "innocent",
+      "explanation": "Sau 'declare' ở bị động có thể dùng bổ ngữ tính từ: 'was declared innocent'. Các đáp án khác sai vì thêm 'to' trước tính từ, dùng trạng từ, hoặc dùng gerund không cần thiết.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **continuous passive**: The road is currently ___ widened to reduce traffic jams.",
+      "options": [
+        "being",
+        "been",
+        "be",
+        "was"
+      ],
+      "correct_answer": "being",
+      "explanation": "Bị động tiếp diễn dùng 'be + being + V3', nên 'is currently being widened' là đúng. Các lựa chọn khác không tạo được thì hiện tại tiếp diễn bị động.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The stolen documents **are believed** **to have been** **hide** **in a warehouse**.",
+      "options": [
+        "are believed",
+        "to have been",
+        "hide",
+        "in a warehouse"
+      ],
+      "correct_answer": "hide",
+      "explanation": "Sau 'to have been' trong bị động cần V3, nên phải là 'hidden'. Các phần còn lại đúng: 'are believed' là reporting passive, 'to have been' là perfect passive infinitive, và cụm nơi chốn dùng hợp lý.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **is claimed** **that** **the figures** **to be inaccurate**.",
+      "options": [
+        "is claimed",
+        "that",
+        "the figures",
+        "to be inaccurate"
+      ],
+      "correct_answer": "to be inaccurate",
+      "explanation": "Sau 'It is claimed that' phải là một mệnh đề đầy đủ: 'the figures are inaccurate'. Các phần 'It is claimed that' và chủ ngữ 'the figures' đều đúng, lỗi nằm ở việc dùng 'to be' thay cho động từ chia thì.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The patients **were explained** **the risks** **before** **the surgery**.",
+      "options": [
+        "were explained",
+        "the risks",
+        "before",
+        "the surgery"
+      ],
+      "correct_answer": "were explained",
+      "explanation": "'Explain' thường cần 'to' trước người nghe trong bị động: 'The risks were explained to the patients'. Không nói tự nhiên là 'patients were explained the risks'; các phần còn lại không sai về ngữ pháp chính.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The article **is expected** **to have** **publish** **next month**.",
+      "options": [
+        "is expected",
+        "to have",
+        "publish",
+        "next month"
+      ],
+      "correct_answer": "publish",
+      "explanation": "Vì 'next month' nói về tương lai, cấu trúc đúng là 'is expected to be published'. 'Publish' sai vì bài báo không tự xuất bản; các phần khác chỉ cần điều chỉnh theo cấu trúc bị động đúng.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She **was made** **apologize** **for** **the delay**.",
+      "options": [
+        "was made",
+        "apologize",
+        "for",
+        "the delay"
+      ],
+      "correct_answer": "apologize",
+      "explanation": "Ở bị động với 'make', ta dùng 'be made to + V', nên phải là 'to apologize'. 'Was made' đúng dạng bị động, còn 'for the delay' là cụm giới từ đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The rumor **is said** **that** **started** **online**.",
+      "options": [
+        "is said",
+        "that",
+        "started",
+        "online"
+      ],
+      "correct_answer": "that",
+      "explanation": "Với chủ ngữ 'The rumor', cấu trúc đúng là 'is said to have started online' hoặc 'It is said that the rumor started online'. 'That' sai vì trộn hai kiểu reporting passive; các phần khác có thể đúng nếu đổi cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The software update **is supposed** **to be** **installing** **overnight**.",
+      "options": [
+        "is supposed",
+        "to be",
+        "installing",
+        "overnight"
+      ],
+      "correct_answer": "installing",
+      "explanation": "Sau 'to be' trong bị động cần V3, nên phải là 'installed'. 'Is supposed to be' đúng cho dự kiến/nghĩa bị động, và 'overnight' là trạng từ thời gian phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reported passive**: People think the ancient wall was built by local workers.",
+      "options": [
+        "The ancient wall is thought to have been built by local workers.",
+        "The ancient wall is thought to build by local workers.",
+        "It is thought the ancient wall to have been built by local workers.",
+        "The ancient wall is thought that local workers built it."
+      ],
+      "correct_answer": "The ancient wall is thought to have been built by local workers.",
+      "explanation": "Đáp án đúng dùng S + is thought + to have been + V3 để nói hành động xây xảy ra trước hiện tại. Các lựa chọn khác sai vì thiếu dạng bị động, sai cấu trúc với 'it is thought', hoặc trộn hai cấu trúc trong một câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **impersonal passive** rewrite: Analysts expect that the talks will resume on Friday.",
+      "options": [
+        "It is expected that the talks will resume on Friday.",
+        "It expects that the talks will resume on Friday.",
+        "The talks are expected that they will resume on Friday.",
+        "It is expected the talks to resume on Friday."
+      ],
+      "correct_answer": "It is expected that the talks will resume on Friday.",
+      "explanation": "Cấu trúc trang trọng đúng là It is expected that + mệnh đề. Các câu còn lại sai vì 'it' không tự 'expect', hoặc dùng sai sự kết hợp giữa chủ ngữ thật và mệnh đề 'that'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **double-object** passive: They sent the students temporary passwords.",
+      "options": [
+        "The students were sent temporary passwords.",
+        "Temporary passwords were sent the students.",
+        "The students were sent to temporary passwords.",
+        "Temporary passwords sent to the students."
+      ],
+      "correct_answer": "The students were sent temporary passwords.",
+      "explanation": "Với động từ hai tân ngữ, người nhận có thể làm chủ ngữ bị động: The students were sent passwords. Các câu khác thiếu 'were', sai giới từ, hoặc dùng cấu trúc không tự nhiên.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **modal passive** form: Someone must have repaired the leak before we arrived.",
+      "options": [
+        "The leak must have been repaired before we arrived.",
+        "The leak must be repaired before we arrived.",
+        "The leak must have repaired before we arrived.",
+        "The leak must have been repairing before we arrived."
+      ],
+      "correct_answer": "The leak must have been repaired before we arrived.",
+      "explanation": "'Must have been + V3' diễn tả suy luận về một hành động bị động đã xảy ra trong quá khứ. Các lựa chọn khác sai thì, thiếu 'been', hoặc dùng dạng tiếp diễn không phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reported passive**: The vaccine is believed ___ reduced the spread of the disease.",
+      "options": [
+        "to have",
+        "to has",
+        "having",
+        "have"
+      ],
+      "correct_answer": "to have",
+      "explanation": "Sau 'is believed' dùng 'to have + V3' khi hành động xảy ra trước thời điểm nói. Các đáp án khác sai vì không đúng dạng nguyên mẫu hoặc thiếu 'to'.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **impersonal passive**: It ___ now understood that stress can affect digestion.",
+      "options": [
+        "is",
+        "has",
+        "be",
+        "being"
+      ],
+      "correct_answer": "is",
+      "explanation": "Cấu trúc đúng là It is understood that + mệnh đề. 'Has', 'be' và 'being' không tạo được dạng bị động hoàn chỉnh trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **passive infinitive**: The report appears ___ based on incomplete data.",
+      "options": [
+        "to have been",
+        "to have",
+        "having been",
+        "to being"
+      ],
+      "correct_answer": "to have been",
+      "explanation": "Sau 'appears' dùng 'to have been + V3' để nói báo cáo có vẻ đã được dựa trên dữ liệu thiếu. Các lựa chọn khác thiếu bị động hoặc sai dạng động từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **double passive**: Each intern was ___ a mentor during the training program.",
+      "options": [
+        "assigned",
+        "assigning",
+        "assign",
+        "been assigned"
+      ],
+      "correct_answer": "assigned",
+      "explanation": "Cấu trúc đúng là was + V3, nên cần 'assigned'. Các đáp án khác là V-ing, nguyên thể, hoặc thừa 'been' sau 'was'.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **object complement** passive: The missing files were considered ___ after the audit.",
+      "options": [
+        "lost",
+        "lose",
+        "to lose",
+        "losing"
+      ],
+      "correct_answer": "lost",
+      "explanation": "Sau 'were considered' cần tính từ hoặc bổ ngữ phù hợp, ở đây 'lost' nghĩa là bị mất. Các lựa chọn còn lại là dạng động từ không phù hợp với cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The witness **is believed** **to have** **see** **the accident** clearly.",
+      "options": [
+        "is believed",
+        "to have",
+        "see",
+        "the accident"
+      ],
+      "correct_answer": "see",
+      "explanation": "Sau 'to have' cần quá khứ phân từ, nên phải là 'seen'. Các cụm còn lại đúng trong cấu trúc reported passive.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **is assumed** **that** **the results** **to be final**.",
+      "options": [
+        "is assumed",
+        "that",
+        "the results",
+        "to be final"
+      ],
+      "correct_answer": "to be final",
+      "explanation": "Sau 'It is assumed that' phải là một mệnh đề đầy đủ: 'the results are final'. 'To be final' là cụm nguyên mẫu nên không hoàn thành mệnh đề sau 'that'.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The guests **were offered** **with** **free drinks** **on arrival**.",
+      "options": [
+        "were offered",
+        "with",
+        "free drinks",
+        "on arrival"
+      ],
+      "correct_answer": "with",
+      "explanation": "'Offer' trong bị động hai tân ngữ không dùng 'with' ở cấu trúc này: The guests were offered free drinks. Các phần còn lại đúng về thì và nghĩa.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The new policy **is thought** **will reduce** **costs** **significantly**.",
+      "options": [
+        "is thought",
+        "will reduce",
+        "costs",
+        "significantly"
+      ],
+      "correct_answer": "will reduce",
+      "explanation": "Với chủ ngữ thật 'The new policy', cần dùng 'is thought to reduce'. 'Will reduce' chỉ đúng trong cấu trúc 'It is thought that the policy will reduce costs'.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The painting **was reported** **to have been** **stealing** **from a private collection**.",
+      "options": [
+        "was reported",
+        "to have been",
+        "stealing",
+        "from a private collection"
+      ],
+      "correct_answer": "stealing",
+      "explanation": "Sau 'to have been' trong bị động cần V3, nên phải là 'stolen'. 'Stealing' là dạng chủ động/tiếp diễn, không phù hợp với nghĩa bức tranh bị đánh cắp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reported passive**: People believe the committee is reviewing the proposal.",
+      "options": [
+        "The committee is believed to be reviewing the proposal.",
+        "The committee is believed that is reviewing the proposal.",
+        "It is believed the committee to be reviewing the proposal.",
+        "The committee believes to be reviewing the proposal."
+      ],
+      "correct_answer": "The committee is believed to be reviewing the proposal.",
+      "explanation": "Đáp án đúng dùng cấu trúc S + be believed + to be V-ing để diễn tả hành động đang diễn ra theo lời tin/nhận định chung. Các lựa chọn khác sai vì dùng sai mệnh đề sau 'believed', sai cấu trúc 'it is believed', hoặc biến chủ ngữ thành người thực hiện hành động tin tưởng.",
+      "difficulty": 2
     }
   ]
 }

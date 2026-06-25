@@ -1,0 +1,19 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+[ExtensionManager] Error loading agent from caveman: Failed to load agent from C:\Users\tapho\.gemini\extensions\caveman\agents\cavecrew-builder.md: Validation failed: Agent Definition:
+tools.0: Invalid tool name
+tools.1: Invalid tool name
+tools.2: Invalid tool name
+tools.3: Invalid tool name
+tools.4: Invalid tool name
+[ExtensionManager] Error loading agent from caveman: Failed to load agent from C:\Users\tapho\.gemini\extensions\caveman\agents\cavecrew-investigator.md: Validation failed: Agent Definition:
+tools.0: Invalid tool name
+tools.1: Invalid tool name
+tools.2: Invalid tool name
+tools.3: Invalid tool name
+[ExtensionManager] Error loading agent from caveman: Failed to load agent from C:\Users\tapho\.gemini\extensions\caveman\agents\cavecrew-reviewer.md: Validation failed: Agent Definition:
+tools.0: Invalid tool name
+tools.1: Invalid tool name
+tools.2: Invalid tool name
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.

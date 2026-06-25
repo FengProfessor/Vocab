@@ -518,6 +518,656 @@
       ],
       "answer": "I thought the journey would be easy.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reported future**: Maria told me she ___ the report by Friday.",
+      "options": [
+        "would finish",
+        "will finish",
+        "finishes",
+        "finished"
+      ],
+      "correct_answer": "would finish",
+      "explanation": "Sau động từ quá khứ “told”, ý tương lai được lùi thì thành “would + V”. “Will finish” không hòa hợp thì, “finishes” là hiện tại đơn, còn “finished” diễn tả hành động đã xong trong quá khứ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **past plan** form: We ___ visit the museum, but it was closed.",
+      "options": [
+        "were going to",
+        "will",
+        "are going to",
+        "would to"
+      ],
+      "correct_answer": "were going to",
+      "explanation": "“Were going to + V” diễn tả một dự định trong quá khứ. “Will” và “are going to” nhìn từ hiện tại, còn “would to” sai cấu trúc vì “would” đi trực tiếp với động từ nguyên mẫu.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **near future** in the past: The train ___ depart when the alarm sounded.",
+      "options": [
+        "was about to",
+        "is about to",
+        "would about to",
+        "was about"
+      ],
+      "correct_answer": "was about to",
+      "explanation": "“Was about to + V” diễn tả việc sắp xảy ra tại một thời điểm trong quá khứ. “Is about to” là hiện tại, “would about to” sai cấu trúc, còn “was about” thiếu “to”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the natural **would** sentence.",
+      "options": [
+        "He believed the plan would work.",
+        "He believed the plan will worked.",
+        "He believed the plan would worked.",
+        "He believes the plan would work yesterday."
+      ],
+      "correct_answer": "He believed the plan would work.",
+      "explanation": "Câu đúng dùng “believed” ở quá khứ và “would + V” để diễn tả tương lai nhìn từ quá khứ. Các lựa chọn khác sai dạng động từ sau “will/would” hoặc trộn mốc thời gian không tự nhiên.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **intention** from the past: I bought flour because I ___ bake a cake that evening.",
+      "options": [
+        "was going to",
+        "would going to",
+        "am going to",
+        "will bake"
+      ],
+      "correct_answer": "was going to",
+      "explanation": "“Was going to bake” diễn tả ý định đã có trong quá khứ. “Would going to” sai cấu trúc, “am going to” và “will bake” đặt góc nhìn ở hiện tại.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **time viewpoint**: In 2015, nobody knew the company ___ become so successful.",
+      "options": [
+        "would",
+        "will",
+        "is going to",
+        "be going to"
+      ],
+      "correct_answer": "would",
+      "explanation": "Mốc nhìn là “In 2015” trong quá khứ, nên tương lai sau đó dùng “would + V”. “Will” và “is going to” nhìn từ hiện tại, còn “be going to” thiếu chia động từ “be”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **promise** form: Liam promised that he ___ send the documents before noon.",
+      "options": [
+        "would",
+        "will",
+        "was going",
+        "would to"
+      ],
+      "correct_answer": "would",
+      "explanation": "Sau “promised” ở quá khứ, lời hứa về tương lai thường dùng “would + V”. “Will” không lùi thì, “was going” thiếu “to + V”, còn “would to” sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **scheduled future** in the past: The ceremony ___ begin at nine, but the storm delayed it.",
+      "options": [
+        "was to",
+        "is to",
+        "will to",
+        "would to"
+      ],
+      "correct_answer": "was to",
+      "explanation": "“Was to + V” diễn tả lịch trình hoặc sắp xếp chính thức nhìn từ quá khứ. “Is to” là hiện tại, còn “will to” và “would to” sai vì không dùng “to” sau will/would theo cách này.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative form**: She said she ___ attend the meeting after all.",
+      "options": [
+        "would not",
+        "will not",
+        "did not would",
+        "was not would"
+      ],
+      "correct_answer": "would not",
+      "explanation": "Phủ định của “would + V” là “would not + V”. “Will not” không lùi thì, còn “did not would” và “was not would” sai cấu trúc trợ động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **future-in-past** sentence: Tom realized he ___ miss the last bus.",
+      "options": [
+        "would",
+        "will",
+        "does",
+        "is"
+      ],
+      "correct_answer": "would",
+      "explanation": "“Realized” đặt câu ở góc nhìn quá khứ, nên dự đoán tương lai dùng “would + V”. “Will” là tương lai từ hiện tại, còn “does” và “is” không phù hợp trước động từ nguyên mẫu “miss”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **going to** form: They ___ going to announce the results, but the director stopped them.",
+      "options": [
+        "were",
+        "was",
+        "are",
+        "be"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ ngữ “They” cần “were” trong cấu trúc “were going to + V” ở quá khứ. “Was” sai hòa hợp chủ ngữ, “are” là hiện tại, còn “be” chưa được chia.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **about to** structure: I was ___ to leave when my manager called.",
+      "options": [
+        "about",
+        "going",
+        "would",
+        "will"
+      ],
+      "correct_answer": "about",
+      "explanation": "Cấu trúc đúng là “was about to + V”, diễn tả hành động sắp xảy ra trong quá khứ. “Going” cần “to” nhưng nghĩa là dự định, còn “would” và “will” không đi sau “was” trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reported speech** sentence: Dad said the repair ___ take longer than expected.",
+      "options": [
+        "would",
+        "will",
+        "takes",
+        "took"
+      ],
+      "correct_answer": "would",
+      "explanation": "Trong lời nói gián tiếp với “said” ở quá khứ, “will take” thường lùi thành “would take”. “Takes” là hiện tại, “took” là quá khứ đơn, còn “will” không hòa hợp với mốc quá khứ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **past intention** sentence: She had packed a swimsuit because she ___ going to swim after lunch.",
+      "options": [
+        "was",
+        "were",
+        "is",
+        "would"
+      ],
+      "correct_answer": "was",
+      "explanation": "Chủ ngữ “she” đi với “was” trong “was going to + V”. “Were” sai hòa hợp chủ ngữ, “is” là hiện tại, còn “would going to” không đúng cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **would** clause: We hoped the weather ___ improve before the match.",
+      "options": [
+        "would",
+        "will",
+        "was",
+        "did"
+      ],
+      "correct_answer": "would",
+      "explanation": "“Hoped” là động từ quá khứ, nên điều được mong đợi xảy ra sau đó dùng “would + V”. “Will” nhìn từ hiện tại, “was improve” và “did improve” không phù hợp trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **official plan** form: The guests were ___ arrive at 7 p.m., but traffic was terrible.",
+      "options": [
+        "to",
+        "about",
+        "going",
+        "would"
+      ],
+      "correct_answer": "to",
+      "explanation": "“Were to arrive” diễn tả lịch trình hoặc kế hoạch chính thức trong quá khứ. “About” cần “to” nhưng nghĩa là sắp xảy ra ngay, “going” cần “to”, còn “would arrive” không nhấn mạnh lịch trình chính thức.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **interrupted plan**: Ben ___ going to explain everything, but Anna changed the subject.",
+      "options": [
+        "was",
+        "were",
+        "will",
+        "would"
+      ],
+      "correct_answer": "was",
+      "explanation": "“Ben” là chủ ngữ số ít nên dùng “was going to explain”. “Were” sai hòa hợp chủ ngữ, “will going to” và “would going to” đều sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **verb form** error: Nina said she will call us after dinner.",
+      "options": [
+        "said",
+        "will call",
+        "us",
+        "after dinner"
+      ],
+      "correct_answer": "will call",
+      "explanation": "Sau “said” ở quá khứ, tương lai trong quá khứ cần “would call”. “Said”, “us” và “after dinner” đều đúng trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **past plan** error: We was going to ask for help, but the office was closed.",
+      "options": [
+        "We",
+        "was going to",
+        "ask for help",
+        "was closed"
+      ],
+      "correct_answer": "was going to",
+      "explanation": "Chủ ngữ “We” phải đi với “were going to”, không phải “was going to”. Các cụm còn lại phù hợp về nghĩa và ngữ pháp.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **about to** error: He was about speak when the teacher entered.",
+      "options": [
+        "He",
+        "was about speak",
+        "when",
+        "entered"
+      ],
+      "correct_answer": "was about speak",
+      "explanation": "Cấu trúc đúng là “was about to speak”, phải có “to” trước động từ nguyên mẫu. “He”, “when” và “entered” không sai trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **reported future** error: They believed the new bridge will reduce traffic in the area.",
+      "options": [
+        "believed",
+        "will reduce",
+        "traffic",
+        "in the area"
+      ],
+      "correct_answer": "will reduce",
+      "explanation": "Với “believed” ở quá khứ, ý tương lai sau đó nên dùng “would reduce”. Các phần còn lại đúng và không cần sửa.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **future-in-past** error: I knew that Sarah would arrives late because her train was delayed.",
+      "options": [
+        "knew",
+        "would arrives",
+        "because",
+        "was delayed"
+      ],
+      "correct_answer": "would arrives",
+      "explanation": "Sau “would” phải dùng động từ nguyên mẫu “arrive”, không thêm “s”. “Knew”, “because” và “was delayed” đều đúng trong ngữ cảnh này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **intention** error: Mark was going to joined the gym, but he changed his mind.",
+      "options": [
+        "Mark",
+        "was going to joined",
+        "the gym",
+        "changed his mind"
+      ],
+      "correct_answer": "was going to joined",
+      "explanation": "Sau “was going to” phải dùng động từ nguyên mẫu “join”, không dùng quá khứ “joined”. Các cụm khác đúng về nghĩa và cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **scheduled future** error: The flight was to leaving at six, but it was canceled.",
+      "options": [
+        "The flight",
+        "was to leaving",
+        "at six",
+        "was canceled"
+      ],
+      "correct_answer": "was to leaving",
+      "explanation": "Cấu trúc lịch trình trong quá khứ là “was to leave”, không dùng V-ing sau “was to”. Các phần còn lại đều hợp ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **time shift** error: She thought the interview is going to be difficult.",
+      "options": [
+        "She thought",
+        "is going to be",
+        "difficult",
+        "interview"
+      ],
+      "correct_answer": "is going to be",
+      "explanation": "Sau “thought” ở quá khứ, dự đoán tương lai nên là “was going to be” hoặc “would be”. “She thought”, “difficult” và “interview” không phải lỗi chính.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **future past** form: At that moment, I was sure the plan ___ fail.",
+      "options": [
+        "would",
+        "will",
+        "is going to",
+        "has to"
+      ],
+      "correct_answer": "would",
+      "explanation": "Sau một mốc nhìn trong quá khứ (“At that moment, I was sure”), ta dùng “would + V” để nói về tương lai được nhìn từ quá khứ. “Will” và “is going to” là góc nhìn hiện tại; “has to” diễn tả nghĩa bắt buộc, không phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **past intention** form: Chloe saved some money because she ___ buy a new laptop later that year.",
+      "options": [
+        "was going to",
+        "will",
+        "is going to",
+        "would to"
+      ],
+      "correct_answer": "was going to",
+      "explanation": "“Was going to + V” diễn tả dự định đã có trong quá khứ cho một thời điểm sau đó. “Will/is going to” không phù hợp với mốc quá khứ, còn “would to” sai cấu trúc vì sau “would” không có “to”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **about to** structure: The speaker ___ start his presentation when the lights went out.",
+      "options": [
+        "was about to",
+        "would about to",
+        "is about to",
+        "was about"
+      ],
+      "correct_answer": "was about to",
+      "explanation": "“Was about to + V” diễn tả việc sắp xảy ra trong quá khứ thì bị một sự kiện khác chen vào. Các lựa chọn còn lại sai thì hoặc thiếu “to”, hoặc kết hợp sai với “would”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reported plan**: Emma said they ___ move into the apartment the following week.",
+      "options": [
+        "were going to",
+        "are going to",
+        "will",
+        "would going to"
+      ],
+      "correct_answer": "were going to",
+      "explanation": "Trong lời thuật lại từ quá khứ, “are going to” thường lùi thành “were going to”. “Will” không lùi thì; “would going to” sai vì không kết hợp “would” với “going to” như vậy.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **base verb** form: The coach believed the team would ___ stronger after the break.",
+      "options": [
+        "become",
+        "became",
+        "becomes",
+        "becoming"
+      ],
+      "correct_answer": "become",
+      "explanation": "Sau “would” phải dùng động từ nguyên mẫu không “to”: “would become”. “Became”, “becomes” và “becoming” đều sai dạng sau modal verb.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **official arrangement**: The delegates ___ meet the mayor at noon, but the visit was postponed.",
+      "options": [
+        "were to",
+        "were going",
+        "would to",
+        "are to"
+      ],
+      "correct_answer": "were to",
+      "explanation": "“Were to + V” diễn tả một kế hoạch/lịch trình chính thức được nhìn từ quá khứ. “Were going” thiếu “to + V”, “would to” sai cấu trúc, còn “are to” là thì hiện tại.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the natural **prediction**: In 1998, few people imagined that online banking ___ become normal.",
+      "options": [
+        "would",
+        "will",
+        "was going",
+        "is about to"
+      ],
+      "correct_answer": "would",
+      "explanation": "Với dự đoán từ một thời điểm trong quá khứ, ta dùng “would + V”. “Will” là dự đoán từ hiện tại; “was going” thiếu “to + V”; “is about to” chỉ việc sắp xảy ra ở hiện tại.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative plan**: I was tired, so I told them I ___ stay for the whole concert.",
+      "options": [
+        "wasn't going to",
+        "am not going to",
+        "wouldn't to",
+        "didn't going to"
+      ],
+      "correct_answer": "wasn't going to",
+      "explanation": "“Wasn’t going to + V” diễn tả dự định không làm gì trong quá khứ. “Am not going to” là hiện tại; “wouldn’t to” và “didn’t going to” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **future clause**: We suspected the road ___ be closed after the heavy snow.",
+      "options": [
+        "would",
+        "will",
+        "was",
+        "has"
+      ],
+      "correct_answer": "would",
+      "explanation": "Sau động từ quá khứ “suspected”, tương lai nhìn từ quá khứ thường dùng “would + V”. “Will” giữ góc nhìn hiện tại; “was/has” không tạo cấu trúc tương lai trong quá khứ ở câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **would** sentence: Maya believed her brother ___ apologize before the evening ended.",
+      "options": [
+        "would",
+        "will",
+        "was going",
+        "is going"
+      ],
+      "correct_answer": "would",
+      "explanation": "“Believed” đặt câu trong quá khứ, nên dự đoán sau đó dùng “would apologize”. “Will/is going” không lùi thì, còn “was going” thiếu “to” trước động từ chính.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **going to** form: The workers ___ going to repair the roof, but the owner changed the schedule.",
+      "options": [
+        "were",
+        "was",
+        "are",
+        "be"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ ngữ số nhiều “The workers” cần “were going to + V” trong quá khứ. “Was” sai hòa hợp, “are” là hiện tại, còn “be” không đứng trực tiếp sau chủ ngữ như vậy.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **about to** phrase: She was about ___ press send when she noticed a mistake.",
+      "options": [
+        "to",
+        "for",
+        "with",
+        "at"
+      ],
+      "correct_answer": "to",
+      "explanation": "Cấu trúc đúng là “was about to + V” để nói việc sắp xảy ra. Các giới từ “for/with/at” không tạo được cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **past schedule**: The new policy was ___ take effect in April, but it was delayed.",
+      "options": [
+        "to",
+        "about",
+        "going",
+        "would"
+      ],
+      "correct_answer": "to",
+      "explanation": "“Was to take effect” diễn tả kế hoạch/lịch trình chính thức trong quá khứ. “About” cần “about to” và nghĩa là sắp xảy ra ngay; “going” cần “going to”; “would” không đi sau “was” ở đây.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reported future** sentence: The guide explained that the tour ___ end near the old market.",
+      "options": [
+        "would",
+        "will",
+        "is going to",
+        "has to"
+      ],
+      "correct_answer": "would",
+      "explanation": "“Explained” là động từ quá khứ, nên tương lai trong lời giải thích được lùi thành “would end”. “Will/is going to” không phù hợp góc nhìn quá khứ; “has to” đổi nghĩa thành sự bắt buộc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **interrupted intention**: I ___ going to ask a question, but the meeting ended suddenly.",
+      "options": [
+        "was",
+        "were",
+        "am",
+        "be"
+      ],
+      "correct_answer": "was",
+      "explanation": "Chủ ngữ “I” đi với “was going to + V” trong quá khứ. “Were” thường không dùng với “I” trong câu khẳng định thông thường này, “am” là hiện tại, còn “be” sai dạng.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **verb form**: They thought the software would ___ the problem automatically.",
+      "options": [
+        "solve",
+        "solved",
+        "solves",
+        "solving"
+      ],
+      "correct_answer": "solve",
+      "explanation": "Sau “would” phải dùng động từ nguyên mẫu “solve”. Các dạng “solved/solves/solving” đều sai sau modal verb.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **future past** sentence: The doctor warned that the pain ___ get worse without treatment.",
+      "options": [
+        "would",
+        "will",
+        "is going to",
+        "does"
+      ],
+      "correct_answer": "would",
+      "explanation": "“Warned” là mốc quá khứ, nên điều sẽ xảy ra sau đó được diễn đạt bằng “would get worse”. “Will/is going to” là góc nhìn hiện tại; “does” không diễn tả tương lai trong quá khứ.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **time shift** error: I believed the package will arrive before the weekend.",
+      "options": [
+        "believed",
+        "will arrive",
+        "before",
+        "the weekend"
+      ],
+      "correct_answer": "will arrive",
+      "explanation": "Sau “believed” ở quá khứ, cần dùng “would arrive” để diễn tả tương lai trong quá khứ. “Before the weekend” chỉ thời gian và không sai; “believed” là mốc quá khứ đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **going to** error: The students was going to present their project, but the projector failed.",
+      "options": [
+        "The students",
+        "was going to",
+        "present",
+        "the projector"
+      ],
+      "correct_answer": "was going to",
+      "explanation": "Chủ ngữ “The students” là số nhiều nên phải dùng “were going to”. “Present” là động từ nguyên mẫu đúng sau “going to”; các cụm còn lại không gây lỗi ngữ pháp chính.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **modal verb** error: Lena hoped the medicine would helps her sleep better.",
+      "options": [
+        "hoped",
+        "would helps",
+        "her",
+        "sleep better"
+      ],
+      "correct_answer": "would helps",
+      "explanation": "Sau “would” phải dùng động từ nguyên mẫu, nên đúng là “would help”. “Hoped” đặt mốc quá khứ đúng, còn “her” và “sleep better” phù hợp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **about to** error: We were about leaving the cafe when Sam called.",
+      "options": [
+        "were",
+        "about leaving",
+        "the cafe",
+        "called"
+      ],
+      "correct_answer": "about leaving",
+      "explanation": "Cấu trúc đúng là “were about to leave”, không dùng “about leaving” cho nghĩa sắp làm gì. “Were” hòa hợp với “We”, và “called” là hành động xen vào trong quá khứ.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **past plan** error: I was going buy tickets online, but the website crashed.",
+      "options": [
+        "was going",
+        "buy tickets",
+        "online",
+        "crashed"
+      ],
+      "correct_answer": "was going",
+      "explanation": "Cần có “to” trong cấu trúc “was going to buy”. “Buy tickets” là động từ chính đúng nếu có “to” trước nó; “online” và “crashed” không sai trong ngữ cảnh này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **reported promise** error: Daniel promised he will return the camera the next day.",
+      "options": [
+        "promised",
+        "will return",
+        "the camera",
+        "the next day"
+      ],
+      "correct_answer": "will return",
+      "explanation": "Vì “promised” ở quá khứ, lời hứa về tương lai nên lùi thành “would return”. Các cụm còn lại đúng nghĩa và đúng vị trí trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **official plan** error: The conference was to starts after lunch, but the keynote ran late.",
+      "options": [
+        "The conference",
+        "was to starts",
+        "after lunch",
+        "ran late"
+      ],
+      "correct_answer": "was to starts",
+      "explanation": "Sau “was to” phải dùng động từ nguyên mẫu: “was to start”. “After lunch” và “ran late” diễn tả thời gian và sự kiện quá khứ đúng.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the **future past** error: She realized the decision is going to affect everyone in the team.",
+      "options": [
+        "realized",
+        "is going to affect",
+        "everyone",
+        "in the team"
+      ],
+      "correct_answer": "is going to affect",
+      "explanation": "Sau “realized” ở quá khứ, nên dùng “was going to affect” hoặc “would affect”. “Everyone” và “in the team” không sai; lỗi nằm ở việc chưa lùi “is going to”.",
+      "difficulty": 2
     }
   ]
 }

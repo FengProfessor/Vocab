@@ -5,14 +5,15 @@ import type { NextRequest } from 'next/server';
  * Proxy — Dynamic CORS for API routes in Next.js 16.
  * 
  * Allowed origins:
- *   - Production domain (vocab-taupe.vercel.app)
+ *   - Production domain (lingopro.online)
  *   - Vercel preview deployments (*.vercel.app)
  *   - localhost dev (http://localhost:3000)
  *   - Chrome Extension (chrome-extension://*)
  */
 
 const ALLOWED_ORIGINS = [
-  'https://vocab-taupe.vercel.app',
+  'https://lingopro.online',
+  'https://www.lingopro.online',
   'http://localhost:3000',
   'http://localhost:3001',
 ];

@@ -95,6 +95,9 @@ export const GRADE_SET_ROUTE: Record<number, string> = { 1: 'thpt-lop-10', 2: 't
 
 /** Override cứng theo tên lesson đã normalize (lowercase, trim) → routeId. Cho ca mơ hồ. */
 export const ROUTE_OVERRIDES: Record<string, string> = {
+  '200 collocations toeic cần thiết': 'di-lam',
+  '150 phrasal verbs đời sống': 'hoc-thuat',
+  '100 idioms tự nhiên': 'hoc-thuat',
   'topic 7: cultural diversity': 'du-lich',
   'theme 7: cultural diversity': 'du-lich',
   'unit 2: cultural diversity': 'du-lich',

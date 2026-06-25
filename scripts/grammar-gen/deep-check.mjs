@@ -24,10 +24,23 @@ for(const f of files){
   // exercise integrity
   let badXr=0;
   for(const e of xr){
-    if(!e.q||!e.fb)badXr++;
-    else if((e.type==='mcq'||e.type==='error')&&(!e.opts||!e.opts.includes(e.answer)))badXr++;
-    else if(e.type==='fill'&&!Array.isArray(e.answer))badXr++;
-    else if(e.type==='tf'&&typeof e.answer!=='boolean')badXr++;
+    const qText = e.question || e.q;
+    const fbText = e.explanation || e.fb;
+    const type = e.type;
+    const opts = e.options || e.opts;
+    const ans = e.correct_answer !== undefined ? e.correct_answer : e.answer;
+
+    if(!qText || fbText === undefined || fbText === null || String(fbText).trim() === '') {
+      badXr++;
+    } else if (['multiple_choice', 'fill_blank', 'error_correction', 'mcq', 'error'].includes(type)) {
+      if (!opts || !opts.includes(ans)) badXr++;
+    } else if (type === 'fill') {
+      if (!Array.isArray(ans)) badXr++;
+    } else if (type === 'tf') {
+      if (typeof ans !== 'boolean') badXr++;
+    } else {
+      badXr++;
+    }
   }
   if(badXr)fl.push('badXr:'+badXr);
   // mojibake

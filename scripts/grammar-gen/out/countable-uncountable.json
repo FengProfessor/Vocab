@@ -426,6 +426,1137 @@
       ],
       "answer": "Tôi có sách không?",
       "fb": "Sử dụng 'có' với danh từ đếm được."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: I saw ___ dog in the park.",
+      "options": [
+        "a",
+        "an",
+        "some",
+        "any"
+      ],
+      "correct_answer": "a",
+      "explanation": "“Dog” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm, còn “some/any” không phù hợp với danh từ đếm được số ít ở câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **plural noun**: There are three ___ on the table.",
+      "options": [
+        "cup",
+        "cups",
+        "milk",
+        "rice"
+      ],
+      "correct_answer": "cups",
+      "explanation": "Sau số đếm “three”, cần danh từ đếm được số nhiều, nên “cups” đúng. “Cup” là số ít, còn “milk” và “rice” là danh từ không đếm được nên không dùng trực tiếp với số đếm.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier**: We don't have ___ rice for dinner.",
+      "options": [
+        "many",
+        "any",
+        "a",
+        "an"
+      ],
+      "correct_answer": "any",
+      "explanation": "“Rice” là danh từ không đếm được; trong câu phủ định thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với danh từ không đếm được.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantity word**: Can I have a ___ of coffee?",
+      "options": [
+        "cup",
+        "many",
+        "rice",
+        "chairs"
+      ],
+      "correct_answer": "cup",
+      "explanation": "“Coffee” là danh từ không đếm được, nên cần đơn vị đo như “a cup of coffee”. Các lựa chọn còn lại không tạo cụm danh từ đúng trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **noun form**: I need two ___ for the classroom.",
+      "options": [
+        "chair",
+        "chairs",
+        "furniture",
+        "air"
+      ],
+      "correct_answer": "chairs",
+      "explanation": "Sau số đếm “two”, dùng danh từ đếm được số nhiều: “chairs”. “Chair” là số ít, còn “furniture” và “air” là danh từ không đếm được.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **question word**: How ___ sugar do you want?",
+      "options": [
+        "many",
+        "much",
+        "a",
+        "an"
+      ],
+      "correct_answer": "much",
+      "explanation": "“Sugar” là danh từ không đếm được, nên hỏi số lượng bằng “How much”. “How many” dùng với danh từ đếm được số nhiều, còn “a/an” không phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier**: There are ___ students in the room.",
+      "options": [
+        "some",
+        "much",
+        "a",
+        "an"
+      ],
+      "correct_answer": "some",
+      "explanation": "“Students” là danh từ đếm được số nhiều, nên có thể dùng “some”. “Much” dùng với danh từ không đếm được, còn “a/an” chỉ đi với danh từ đếm được số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **measure phrase**: She bought two ___ of bread.",
+      "options": [
+        "loaves",
+        "bread",
+        "many",
+        "informations"
+      ],
+      "correct_answer": "loaves",
+      "explanation": "“Bread” thường là danh từ không đếm được, nên cần đơn vị đếm như “loaves”. “Bread” không dùng trực tiếp sau “two” ở nghĩa này; “many” và “informations” sai ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **noun type**: Which noun is uncountable?",
+      "options": [
+        "music",
+        "banana",
+        "ticket",
+        "window"
+      ],
+      "correct_answer": "music",
+      "explanation": "“Music” là danh từ không đếm được trong tiếng Anh. “Banana”, “ticket” và “window” là danh từ đếm được vì có thể nói “one banana”, “two tickets”, “three windows”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **article**: She has ___ umbrella.",
+      "options": [
+        "a",
+        "an",
+        "some",
+        "many"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Umbrella” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm; “some/many” không dùng cho danh từ số ít trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **quantifier**: There isn't ___ milk in the fridge.",
+      "options": [
+        "any",
+        "many",
+        "a",
+        "an"
+      ],
+      "correct_answer": "any",
+      "explanation": "“Milk” là danh từ không đếm được; trong câu phủ định thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với “milk”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **plural form**: We need five ___ for the game.",
+      "options": [
+        "ball",
+        "balls",
+        "water",
+        "homework"
+      ],
+      "correct_answer": "balls",
+      "explanation": "Sau số đếm “five”, danh từ đếm được phải ở dạng số nhiều: “balls”. “Ball” là số ít, còn “water” và “homework” là danh từ không đếm được.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **quantity word**: I ate a ___ of cheese.",
+      "options": [
+        "piece",
+        "many",
+        "few",
+        "cheeses"
+      ],
+      "correct_answer": "piece",
+      "explanation": "“Cheese” thường là danh từ không đếm được, nên dùng đơn vị như “a piece of cheese”. “Many/few” dùng với danh từ đếm được số nhiều; “cheeses” không phù hợp với nghĩa thông thường ở câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **question word**: How ___ oranges are in the bag?",
+      "options": [
+        "many",
+        "much",
+        "some",
+        "any"
+      ],
+      "correct_answer": "many",
+      "explanation": "“Oranges” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng với danh từ không đếm được; “some/any” không dùng để hỏi số lượng theo mẫu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **noun form**: I have a lot of ___ today.",
+      "options": [
+        "homework",
+        "homeworks",
+        "chair",
+        "chairs"
+      ],
+      "correct_answer": "homework",
+      "explanation": "“Homework” là danh từ không đếm được, không thêm “s”. “Homeworks” sai trong cách dùng thông thường; “chair/chairs” không hợp nghĩa với câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **quantifier**: Do you have ___ money?",
+      "options": [
+        "any",
+        "many",
+        "an",
+        "a"
+      ],
+      "correct_answer": "any",
+      "explanation": "“Money” là danh từ không đếm được; trong câu hỏi thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không đứng trực tiếp trước “money”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **measure phrase**: Please buy a ___ of juice.",
+      "options": [
+        "bottle",
+        "many",
+        "few",
+        "juices"
+      ],
+      "correct_answer": "bottle",
+      "explanation": "“Juice” là danh từ không đếm được, nên dùng đơn vị chứa như “a bottle of juice”. “Many/few” dùng với danh từ đếm được số nhiều; “juices” không phù hợp trong câu cơ bản này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: He has three **furniture** in his room.",
+      "options": [
+        "He",
+        "has",
+        "three furniture",
+        "in his room"
+      ],
+      "correct_answer": "three furniture",
+      "explanation": "“Furniture” là danh từ không đếm được, nên không nói “three furniture”. Có thể sửa thành “three pieces of furniture”; các phần còn lại không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I need an **orange juice** after lunch.",
+      "options": [
+        "I",
+        "need",
+        "an orange juice",
+        "after lunch"
+      ],
+      "correct_answer": "an orange juice",
+      "explanation": "“Orange juice” thường là danh từ không đếm được, nên không dùng “an” trực tiếp. Có thể nói “some orange juice” hoặc “a glass of orange juice”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: There is **many** salt in the soup.",
+      "options": [
+        "There is",
+        "many",
+        "salt",
+        "in the soup"
+      ],
+      "correct_answer": "many",
+      "explanation": "“Salt” là danh từ không đếm được, nên dùng “much” hoặc “a lot of”, không dùng “many”. Các phần khác đúng cấu trúc cơ bản của câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She bought two **bread** at the bakery.",
+      "options": [
+        "She",
+        "bought",
+        "two bread",
+        "at the bakery"
+      ],
+      "correct_answer": "two bread",
+      "explanation": "“Bread” là danh từ không đếm được, nên không dùng trực tiếp với số đếm “two”. Có thể sửa thành “two loaves of bread” hoặc “two pieces of bread”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: We saw a lot of **child** in the park.",
+      "options": [
+        "We",
+        "saw",
+        "a lot of child",
+        "in the park"
+      ],
+      "correct_answer": "a lot of child",
+      "explanation": "“A lot of” đi với danh từ đếm được số nhiều hoặc danh từ không đếm được; “child” số nhiều bất quy tắc là “children”. Câu đúng là “a lot of children”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Can you give me a **advice**?",
+      "options": [
+        "Can you",
+        "give me",
+        "a advice",
+        "?"
+      ],
+      "correct_answer": "a advice",
+      "explanation": "“Advice” là danh từ không đếm được, nên không dùng “a” trực tiếp. Có thể nói “some advice” hoặc “a piece of advice”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: There are **much** eggs in the basket.",
+      "options": [
+        "There are",
+        "much",
+        "eggs",
+        "in the basket"
+      ],
+      "correct_answer": "much",
+      "explanation": "“Eggs” là danh từ đếm được số nhiều, nên dùng “many”, không dùng “much”. “Much” dùng với danh từ không đếm được.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This **news** are very important.",
+      "options": [
+        "This",
+        "news",
+        "are",
+        "very important"
+      ],
+      "correct_answer": "are",
+      "explanation": "“News” là danh từ không đếm được và đi với động từ số ít. Câu đúng là “This news is very important”; các từ còn lại không phải lỗi chính.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: My brother wants ___ new bike.",
+      "options": [
+        "a",
+        "an",
+        "some",
+        "many"
+      ],
+      "correct_answer": "a",
+      "explanation": "“Bike” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm; “some” và “many” không dùng trước danh từ số ít dạng này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: Anna has ___ egg for breakfast.",
+      "options": [
+        "an",
+        "a",
+        "some",
+        "any"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Egg” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm; “some/any” không phù hợp với danh từ số ít ở câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **plural noun**: I can see four ___ in the photo.",
+      "options": [
+        "cats",
+        "cat",
+        "water",
+        "milks"
+      ],
+      "correct_answer": "cats",
+      "explanation": "Sau số đếm “four”, danh từ đếm được phải ở dạng số nhiều: “cats”. “Cat” là số ít; “water” không đếm được; “milks” không dùng theo nghĩa thông thường ở trình độ này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier**: There is ___ tea in the cup.",
+      "options": [
+        "some",
+        "a",
+        "many",
+        "an"
+      ],
+      "correct_answer": "some",
+      "explanation": "“Tea” là danh từ không đếm được, nên có thể dùng “some”. “A/an” không đứng trực tiếp trước danh từ không đếm được; “many” dùng với danh từ đếm được số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **noun type**: Which noun is countable?",
+      "options": [
+        "pencil",
+        "milk",
+        "music",
+        "snow"
+      ],
+      "correct_answer": "pencil",
+      "explanation": "“Pencil” là danh từ đếm được vì có thể nói “one pencil, two pencils”. “Milk”, “music” và “snow” thường là danh từ không đếm được.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **question word**: How ___ bottles of water do we need?",
+      "options": [
+        "many",
+        "much",
+        "some",
+        "any"
+      ],
+      "correct_answer": "many",
+      "explanation": "“Bottles” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng với danh từ không đếm được; “some/any” không dùng để hỏi số lượng theo mẫu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **measure phrase**: Please buy a ___ of soap.",
+      "options": [
+        "bar",
+        "slice",
+        "bowl",
+        "pair"
+      ],
+      "correct_answer": "bar",
+      "explanation": "Cụm đúng là “a bar of soap” để chỉ một bánh xà phòng. “Slice” dùng cho lát, “bowl” dùng cho bát, “pair” dùng cho một đôi.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **noun form**: We have six ___ in our kitchen.",
+      "options": [
+        "plates",
+        "plate",
+        "oil",
+        "waters"
+      ],
+      "correct_answer": "plates",
+      "explanation": "Sau số đếm “six”, danh từ đếm được phải ở dạng số nhiều: “plates”. “Plate” là số ít; “oil” không đếm được; “waters” không phù hợp trong ngữ cảnh cơ bản này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier**: I don't have ___ time today.",
+      "options": [
+        "much",
+        "many",
+        "a",
+        "an"
+      ],
+      "correct_answer": "much",
+      "explanation": "“Time” trong nghĩa thời gian là danh từ không đếm được, nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “time” theo nghĩa này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **article**: We need ___ table for the living room.",
+      "options": [
+        "a",
+        "an",
+        "some",
+        "many"
+      ],
+      "correct_answer": "a",
+      "explanation": "“Table” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm; “some/many” không phù hợp với danh từ số ít này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **article**: He is eating ___ ice cream.",
+      "options": [
+        "an",
+        "a",
+        "many",
+        "any"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Ice cream” ở đây là một phần/que kem đếm được trong ngữ cảnh đơn giản, bắt đầu bằng âm nguyên âm nên dùng “an”. “A” sai vì không đi với âm nguyên âm; “many/any” không phù hợp với câu khẳng định số ít.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **plural form**: There are seven ___ near the school.",
+      "options": [
+        "buses",
+        "bus",
+        "busies",
+        "buss"
+      ],
+      "correct_answer": "buses",
+      "explanation": "Danh từ “bus” thêm “-es” khi ở số nhiều: “buses”. “Bus” là số ít; “busies” và “buss” là dạng sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **quantifier**: There is ___ soup in the bowl.",
+      "options": [
+        "some",
+        "many",
+        "a",
+        "an"
+      ],
+      "correct_answer": "some",
+      "explanation": "“Soup” là danh từ không đếm được, nên dùng “some” trong câu khẳng định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “soup”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **question word**: How ___ homework do you have tonight?",
+      "options": [
+        "much",
+        "many",
+        "a",
+        "some"
+      ],
+      "correct_answer": "much",
+      "explanation": "“Homework” là danh từ không đếm được, nên hỏi bằng “How much”. “Many” dùng với danh từ đếm được số nhiều; “a/some” không tạo câu hỏi đúng ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **measure phrase**: She drinks a ___ of milk every morning.",
+      "options": [
+        "glass",
+        "piece",
+        "slice",
+        "pair"
+      ],
+      "correct_answer": "glass",
+      "explanation": "Cụm tự nhiên là “a glass of milk” để chỉ một ly sữa. “Piece”, “slice” và “pair” không dùng để đo lượng sữa.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **noun form**: My sister bought three ___ yesterday.",
+      "options": [
+        "dresses",
+        "dress",
+        "cloth",
+        "luggage"
+      ],
+      "correct_answer": "dresses",
+      "explanation": "Sau số đếm “three”, danh từ đếm được phải ở dạng số nhiều: “dresses”. “Dress” là số ít; “cloth” và “luggage” không phù hợp với cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **quantifier**: Do you need ___ help with this exercise?",
+      "options": [
+        "any",
+        "many",
+        "a",
+        "an"
+      ],
+      "correct_answer": "any",
+      "explanation": "“Help” là danh từ không đếm được và trong câu hỏi thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “help” theo nghĩa này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She has two **luggages** for the trip.",
+      "options": [
+        "She",
+        "has",
+        "two luggages",
+        "for the trip"
+      ],
+      "correct_answer": "two luggages",
+      "explanation": "“Luggage” là danh từ không đếm được, không dùng trực tiếp với số đếm hoặc thêm “-s”; nên nói “two bags” hoặc “some luggage”. Các phần còn lại đúng về ngữ pháp trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I bought a **milk** at the shop.",
+      "options": [
+        "I",
+        "bought",
+        "a milk",
+        "at the shop"
+      ],
+      "correct_answer": "a milk",
+      "explanation": "“Milk” thường là danh từ không đếm được, nên không dùng “a” trực tiếp. Có thể nói “some milk” hoặc “a bottle of milk”; các phần khác không sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: There are three **juice** on the table.",
+      "options": [
+        "There are",
+        "three juice",
+        "on",
+        "the table"
+      ],
+      "correct_answer": "three juice",
+      "explanation": "“Juice” là danh từ không đếm được, không dùng trực tiếp với số đếm. Nên nói “three glasses of juice” hoặc “some juice”; các phần còn lại phù hợp với cấu trúc câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: We need much **chairs** for the party.",
+      "options": [
+        "We",
+        "need",
+        "much chairs",
+        "for the party"
+      ],
+      "correct_answer": "much chairs",
+      "explanation": "“Chairs” là danh từ đếm được số nhiều, nên dùng “many chairs”, không dùng “much”. “Much” dùng với danh từ không đếm được; các phần khác đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: He gave me an **information** about the bus.",
+      "options": [
+        "He",
+        "gave me",
+        "an information",
+        "about the bus"
+      ],
+      "correct_answer": "an information",
+      "explanation": "“Information” là danh từ không đếm được, không dùng “an” trực tiếp. Nên nói “some information” hoặc “a piece of information”; các cụm khác đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I have five **toothbrush** in my bag.",
+      "options": [
+        "I",
+        "have",
+        "five toothbrush",
+        "in my bag"
+      ],
+      "correct_answer": "five toothbrush",
+      "explanation": "Sau số đếm “five”, danh từ đếm được phải ở dạng số nhiều: “toothbrushes”. “I”, “have” và “in my bag” đều đúng trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: There is many **sand** on the beach.",
+      "options": [
+        "There is",
+        "many sand",
+        "on",
+        "the beach"
+      ],
+      "correct_answer": "many sand",
+      "explanation": "“Sand” là danh từ không đếm được, nên không dùng “many”; dùng “much sand” hoặc “a lot of sand”. Các phần còn lại có thể đúng khi nói về một lượng cát.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She needs a **paper** to write a note.",
+      "options": [
+        "She",
+        "needs",
+        "a paper",
+        "to write a note"
+      ],
+      "correct_answer": "a paper",
+      "explanation": "“Paper” nghĩa là giấy viết thường không đếm được, nên không dùng “a” trực tiếp. Nên nói “a piece of paper”; các phần khác đúng về nghĩa và cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: I need ___ umbrella today.",
+      "options": [
+        "a",
+        "an",
+        "some",
+        "many"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Umbrella” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm /ʌ/, nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “many” không phù hợp với danh từ số ít này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **noun form**: There are two ___ on the desk.",
+      "options": [
+        "pen",
+        "pens",
+        "water",
+        "rice"
+      ],
+      "correct_answer": "pens",
+      "explanation": "Sau số đếm “two”, danh từ đếm được phải ở dạng số nhiều: “pens”. “Pen” là số ít, còn “water” và “rice” là danh từ không đếm được nên không đi trực tiếp với “two”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier**: We need ___ sugar for the cake.",
+      "options": [
+        "some",
+        "a",
+        "many",
+        "one"
+      ],
+      "correct_answer": "some",
+      "explanation": "“Sugar” là danh từ không đếm được, nên có thể dùng “some” để nói một lượng không xác định. “A”, “one” dùng với danh từ đếm được số ít; “many” dùng với danh từ đếm được số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **question word**: How ___ apples are in the bag?",
+      "options": [
+        "many",
+        "much",
+        "some",
+        "any"
+      ],
+      "correct_answer": "many",
+      "explanation": "“Apples” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng cho danh từ không đếm được; “some” và “any” không tạo câu hỏi số lượng theo cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **measure phrase**: I want a ___ of coffee.",
+      "options": [
+        "cup",
+        "piece",
+        "slice",
+        "bottle"
+      ],
+      "correct_answer": "cup",
+      "explanation": "Với “coffee” không đếm được, ta thường dùng đơn vị đo như “a cup of coffee”. “Piece” thường dùng với advice/information/furniture, “slice” với bánh hoặc bánh mì lát, “bottle” không tự nhiên bằng “cup” trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **plural form**: She has three ___.",
+      "options": [
+        "boxs",
+        "boxes",
+        "box",
+        "boxies"
+      ],
+      "correct_answer": "boxes",
+      "explanation": "Danh từ “box” kết thúc bằng “x”, nên dạng số nhiều là “boxes”. “Boxs” và “boxies” sai chính tả; “box” là số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier**: There isn't ___ cheese in the fridge.",
+      "options": [
+        "much",
+        "many",
+        "a",
+        "one"
+      ],
+      "correct_answer": "much",
+      "explanation": "“Cheese” thường là danh từ không đếm được, nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều, còn “a” và “one” cần danh từ đếm được số ít.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **sentence**: Which sentence is correct?",
+      "options": [
+        "I have a banana.",
+        "I have a water.",
+        "I have two rice.",
+        "I have many money."
+      ],
+      "correct_answer": "I have a banana.",
+      "explanation": "“Banana” là danh từ đếm được số ít nên dùng được với “a”. “Water”, “rice” và “money” là danh từ không đếm được nên không dùng trực tiếp với “a”, “two”, hoặc “many” trong nghĩa thông thường.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **article**: She has ___ orange in her lunch box.",
+      "options": [
+        "an",
+        "a",
+        "some",
+        "many"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Orange” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “many” không phù hợp với danh từ số ít này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **plural noun**: I can see five ___ in the garden.",
+      "options": [
+        "flowers",
+        "flower",
+        "grass",
+        "air"
+      ],
+      "correct_answer": "flowers",
+      "explanation": "Sau số đếm “five”, cần danh từ đếm được số nhiều: “flowers”. “Flower” là số ít, còn “grass” và “air” là danh từ không đếm được.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **quantifier**: Do you have ___ salt?",
+      "options": [
+        "any",
+        "a",
+        "many",
+        "one"
+      ],
+      "correct_answer": "any",
+      "explanation": "Trong câu hỏi với danh từ không đếm được “salt”, ta thường dùng “any”. “A”, “one” dùng với danh từ đếm được số ít; “many” dùng với danh từ đếm được số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **question word**: How ___ water is in the bottle?",
+      "options": [
+        "much",
+        "many",
+        "a",
+        "an"
+      ],
+      "correct_answer": "much",
+      "explanation": "“Water” là danh từ không đếm được, nên dùng “How much”. “How many” dùng với danh từ đếm được số nhiều; “a” và “an” là mạo từ, không dùng để hỏi số lượng như vậy.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **measure phrase**: Please give me a ___ of bread.",
+      "options": [
+        "slice",
+        "cup",
+        "bowl",
+        "bag"
+      ],
+      "correct_answer": "slice",
+      "explanation": "“Bread” thường là danh từ không đếm được, nên dùng cụm đo lường như “a slice of bread”. “Cup”, “bowl” và “bag” không phù hợp tự nhiên bằng “slice” trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **noun form**: My mother bought four ___ for the kitchen.",
+      "options": [
+        "plates",
+        "plate",
+        "oil",
+        "flour"
+      ],
+      "correct_answer": "plates",
+      "explanation": "Sau số đếm “four”, cần danh từ đếm được số nhiều: “plates”. “Plate” là số ít, còn “oil” và “flour” là danh từ không đếm được.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **quantifier**: There are ___ tomatoes in the fridge.",
+      "options": [
+        "some",
+        "much",
+        "a",
+        "one"
+      ],
+      "correct_answer": "some",
+      "explanation": "“Tomatoes” là danh từ đếm được số nhiều, nên có thể dùng “some”. “Much” dùng với danh từ không đếm được; “a” và “one” dùng với danh từ số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **article**: He is reading ___ interesting book.",
+      "options": [
+        "an",
+        "a",
+        "some",
+        "any"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Book” là danh từ đếm được số ít, và tính từ “interesting” bắt đầu bằng âm nguyên âm nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “any” không đi với danh từ số ít trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I need two **waters** after the game.",
+      "options": [
+        "I",
+        "need",
+        "two waters",
+        "after the game"
+      ],
+      "correct_answer": "two waters",
+      "explanation": "“Water” là danh từ không đếm được, không dùng trực tiếp với số đếm “two”. Có thể sửa thành “two bottles of water” hoặc “some water”; các phần còn lại trong câu đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: There is a lot of **cars** on the street.",
+      "options": [
+        "There is",
+        "a lot of",
+        "cars",
+        "on the street"
+      ],
+      "correct_answer": "There is",
+      "explanation": "“Cars” là danh từ đếm được số nhiều, nên động từ phải là “There are”. “A lot of cars” đúng, và cụm “on the street” cũng đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She wants many **butter** on her toast.",
+      "options": [
+        "She",
+        "wants",
+        "many butter",
+        "on her toast"
+      ],
+      "correct_answer": "many butter",
+      "explanation": "“Butter” là danh từ không đếm được, nên không dùng “many”. Nên dùng “some butter” hoặc “much butter”; các phần khác của câu đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: We have three **mouse** in the classroom.",
+      "options": [
+        "We",
+        "have",
+        "three mouse",
+        "in the classroom"
+      ],
+      "correct_answer": "three mouse",
+      "explanation": "Sau “three”, danh từ đếm được phải ở số nhiều; dạng số nhiều của “mouse” là “mice”. “We have” và “in the classroom” đều đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: He gave me a **homework** yesterday.",
+      "options": [
+        "He",
+        "gave",
+        "me",
+        "a homework"
+      ],
+      "correct_answer": "a homework",
+      "explanation": "“Homework” là danh từ không đếm được, nên không dùng “a”. Có thể sửa thành “some homework” hoặc “a piece of homework”; các phần còn lại đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I don't have many **money** today.",
+      "options": [
+        "I",
+        "don't have",
+        "many money",
+        "today"
+      ],
+      "correct_answer": "many money",
+      "explanation": "“Money” là danh từ không đếm được, nên không dùng “many”. Cần dùng “much money” trong câu phủ định; các phần khác đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: There are two **person** at the door.",
+      "options": [
+        "There are",
+        "two person",
+        "at",
+        "the door"
+      ],
+      "correct_answer": "two person",
+      "explanation": "Sau số đếm “two”, danh từ “person” phải đổi sang số nhiều là “people”. “There are” đúng vì chủ ngữ là số nhiều, và phần còn lại không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Can I have an **cup** of tea?",
+      "options": [
+        "Can I have",
+        "an cup",
+        "of tea",
+        "?"
+      ],
+      "correct_answer": "an cup",
+      "explanation": "“Cup” bắt đầu bằng âm phụ âm /k/, nên dùng “a cup”, không dùng “an cup”. “Of tea” đúng vì “tea” là danh từ không đếm được và cần đơn vị đo như “cup”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier**: There are ___ eggs in the box.",
+      "options": [
+        "many",
+        "much",
+        "a little",
+        "a"
+      ],
+      "correct_answer": "many",
+      "explanation": "“Eggs” là danh từ đếm được số nhiều nên dùng “many”. “Much” và “a little” dùng với danh từ không đếm được; “a” chỉ dùng với danh từ đếm được số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: I saw ___ elephant at the zoo.",
+      "options": [
+        "an",
+        "a",
+        "some",
+        "any"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Elephant” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm nên dùng “an”. “A” dùng trước âm phụ âm; “some/any” không phù hợp với danh từ số ít trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **measure phrase**: Please buy a ___ of toothpaste.",
+      "options": [
+        "tube",
+        "slice",
+        "bowl",
+        "cup"
+      ],
+      "correct_answer": "tube",
+      "explanation": "Kem đánh răng thường được đếm bằng “a tube of toothpaste”. “Slice”, “bowl” và “cup” dùng cho đồ ăn/thức uống khác, không tự nhiên với toothpaste.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier**: There is ___ rice in the bowl.",
+      "options": [
+        "some",
+        "many",
+        "a",
+        "an"
+      ],
+      "correct_answer": "some",
+      "explanation": "“Rice” là danh từ không đếm được nên có thể dùng “some”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với “rice”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **article**: She wants ___ sandwich for lunch.",
+      "options": [
+        "a",
+        "an",
+        "some",
+        "much"
+      ],
+      "correct_answer": "a",
+      "explanation": "“Sandwich” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm nên dùng “a”. “An” dùng trước âm nguyên âm; “some/much” không phù hợp với danh từ số ít này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **plural noun**: Two ___ stop here every morning.",
+      "options": [
+        "buses",
+        "bus",
+        "buss",
+        "busies"
+      ],
+      "correct_answer": "buses",
+      "explanation": "Sau số “two” cần danh từ số nhiều, và số nhiều của “bus” là “buses”. “Bus” là số ít; “buss” và “busies” là dạng sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **quantifier**: There isn't ___ coffee in the pot.",
+      "options": [
+        "much",
+        "many",
+        "a",
+        "an"
+      ],
+      "correct_answer": "much",
+      "explanation": "“Coffee” là danh từ không đếm được nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không dùng trực tiếp với “coffee”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **measure phrase**: He eats a ___ of soup for dinner.",
+      "options": [
+        "bowl",
+        "can",
+        "slice",
+        "bar"
+      ],
+      "correct_answer": "bowl",
+      "explanation": "Với “soup”, ta thường nói “a bowl of soup”. “Slice” và “bar” dùng cho đồ có dạng miếng/thanh; “can” không tự nhiên trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the correct **noun form**: Put the two ___ on the table.",
+      "options": [
+        "knives",
+        "knife",
+        "knifes",
+        "knive"
+      ],
+      "correct_answer": "knives",
+      "explanation": "Sau “two” cần danh từ số nhiều, và số nhiều của “knife” là “knives”. “Knife” là số ít; “knifes” và “knive” là dạng sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I bought three **bread** at the bakery.",
+      "options": [
+        "I",
+        "bought",
+        "three",
+        "bread"
+      ],
+      "correct_answer": "bread",
+      "explanation": "“Bread” là danh từ không đếm được nên không đứng trực tiếp sau số đếm; nên nói “three loaves of bread” hoặc “three pieces of bread”. Các phần “I”, “bought” và “three” không sai nếu có đơn vị đếm phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: There aren't **much** bananas in the basket.",
+      "options": [
+        "There aren't",
+        "much",
+        "bananas",
+        "in the basket"
+      ],
+      "correct_answer": "much",
+      "explanation": "“Bananas” là danh từ đếm được số nhiều nên cần “many”, không phải “much”. Các cụm còn lại đúng về ngữ pháp trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She has a lot of **furnitures** in her room.",
+      "options": [
+        "She has",
+        "a lot of",
+        "furnitures",
+        "in her room"
+      ],
+      "correct_answer": "furnitures",
+      "explanation": "“Furniture” là danh từ không đếm được nên không thêm “s”. “A lot of” dùng được với danh từ không đếm được, còn các cụm khác không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This **luggage** are heavy at the airport.",
+      "options": [
+        "This luggage",
+        "are",
+        "heavy",
+        "at the airport"
+      ],
+      "correct_answer": "are",
+      "explanation": "“Luggage” là danh từ không đếm được và được xem như số ít, nên phải dùng “is”. “This luggage”, “heavy” và “at the airport” đều phù hợp trong câu.",
+      "difficulty": 2
     }
   ]
 }

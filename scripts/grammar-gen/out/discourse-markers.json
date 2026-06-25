@@ -483,6 +483,1150 @@
       ],
       "answer": "Admittedly, the evidence is limited.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **concession marker**: The data set is relatively small; ___, the trend is statistically robust.",
+      "options": [
+        "nevertheless",
+        "for instance",
+        "namely",
+        "by the way"
+      ],
+      "correct_answer": "nevertheless",
+      "explanation": "“Nevertheless” diễn tả sự nhượng bộ: dù dữ liệu nhỏ, xu hướng vẫn đáng tin cậy. “For instance” đưa ví dụ, “namely” giải thích cụ thể, còn “by the way” chuyển sang chuyện phụ nên không phù hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reformulation marker**: The policy would centralize decision-making; ___, local teams would lose much of their autonomy.",
+      "options": [
+        "in other words",
+        "on the contrary",
+        "meanwhile",
+        "all the same"
+      ],
+      "correct_answer": "in other words",
+      "explanation": "“In other words” dùng để nói lại cùng ý theo cách rõ hơn. “On the contrary” phản bác, “meanwhile” chỉ sự đồng thời, “all the same” diễn tả tương phản/nhượng bộ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the most natural **topic shift**: The budget figures look stable. ___, has the client approved the new timeline?",
+      "options": [
+        "Incidentally",
+        "Therefore",
+        "Likewise",
+        "For that reason"
+      ],
+      "correct_answer": "Incidentally",
+      "explanation": "“Incidentally” dùng để chuyển nhẹ sang thông tin liên quan hoặc phụ thêm. “Therefore” và “For that reason” nêu kết quả, còn “Likewise” nêu sự tương đồng.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **ordering marker**: ___, the committee must define what counts as a successful outcome.",
+      "options": [
+        "To begin with",
+        "Conversely",
+        "Be that as it may",
+        "In the meantime"
+      ],
+      "correct_answer": "To begin with",
+      "explanation": "“To begin with” mở đầu chuỗi lập luận hoặc bước đầu tiên. Các lựa chọn còn lại lần lượt chỉ tương phản, nhượng bộ/chuyển hướng, và khoảng thời gian xen giữa.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **emphasis marker**: The method is not merely convenient; ___, it reduces measurement bias.",
+      "options": [
+        "more importantly",
+        "otherwise",
+        "instead",
+        "for example"
+      ],
+      "correct_answer": "more importantly",
+      "explanation": "“More importantly” nhấn mạnh ý sau là quan trọng hơn. “Otherwise” nêu điều kiện/kết quả trái lại, “instead” thay thế, “for example” đưa ví dụ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **contrast marker**: The first report blamed poor training. ___, the second pointed to flawed incentives.",
+      "options": [
+        "By contrast",
+        "In short",
+        "As a result",
+        "In particular"
+      ],
+      "correct_answer": "By contrast",
+      "explanation": "“By contrast” so sánh hai ý trái chiều. “In short” tóm tắt, “As a result” nêu kết quả, “In particular” làm rõ một phần cụ thể.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the appropriate **generalizing marker**: The interviews varied in detail, but ___, participants supported the reform.",
+      "options": [
+        "on the whole",
+        "after all",
+        "for one thing",
+        "that is to say"
+      ],
+      "correct_answer": "on the whole",
+      "explanation": "“On the whole” nghĩa là xét tổng thể, phù hợp khi rút ra nhận định chung. “After all” đưa lý do nhắc lại, “for one thing” mở lý do đầu tiên, “that is to say” diễn giải lại.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **clarification marker**: The contract excludes consequential loss, ___ losses that arise indirectly from the breach.",
+      "options": [
+        "that is",
+        "meanwhile",
+        "still",
+        "otherwise"
+      ],
+      "correct_answer": "that is",
+      "explanation": "“That is” dùng để làm rõ hoặc định nghĩa lại cụm trước. “Meanwhile” chỉ đồng thời, “still” nhượng bộ, “otherwise” nêu hệ quả trái lại.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the best **result marker**: The deadline was brought forward; ___, several teams had to reassign staff.",
+      "options": [
+        "as a result",
+        "for example",
+        "in contrast",
+        "to put it mildly"
+      ],
+      "correct_answer": "as a result",
+      "explanation": "“As a result” nối nguyên nhân với kết quả: hạn chót đổi nên các nhóm phải điều phối lại nhân sự. Các đáp án khác lần lượt đưa ví dụ, tương phản, hoặc giảm nhẹ sắc thái đánh giá.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with a **limiting marker**: The proposal is persuasive. ___, it says little about long-term maintenance costs.",
+      "options": [
+        "Having said that",
+        "Similarly",
+        "In fact",
+        "For instance"
+      ],
+      "correct_answer": "Having said that",
+      "explanation": "“Having said that” dùng để giới hạn hoặc cân bằng nhận xét vừa nêu. “Similarly” chỉ tương đồng, “In fact” bổ sung/nhấn mạnh sự thật, “For instance” đưa ví dụ.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with an **additive marker**: The model is cheaper to run. ___, it can be audited more easily.",
+      "options": [
+        "Moreover",
+        "Conversely",
+        "Instead",
+        "Hence"
+      ],
+      "correct_answer": "Moreover",
+      "explanation": "“Moreover” thêm một luận điểm cùng chiều và có tính tăng cường. “Conversely” là tương phản, “Instead” là thay thế, “Hence” là kết quả.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **stance marker**: ___, I find the evidence too anecdotal to support such a strong conclusion.",
+      "options": [
+        "Frankly",
+        "Consequently",
+        "For example",
+        "In the meantime"
+      ],
+      "correct_answer": "Frankly",
+      "explanation": "“Frankly” thể hiện thái độ thẳng thắn của người nói trước nhận định. Các lựa chọn khác không diễn tả stance cá nhân mà chỉ kết quả, ví dụ hoặc thời gian xen giữa.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **summary marker**: The figures are volatile, the sample is narrow, and the controls are weak. ___, the claim is premature.",
+      "options": [
+        "In short",
+        "On the contrary",
+        "By the way",
+        "In the same vein"
+      ],
+      "correct_answer": "In short",
+      "explanation": "“In short” dùng để tóm tắt kết luận từ các ý trước. “On the contrary” phản bác, “By the way” chuyển chủ đề, “In the same vein” nối ý tương tự.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with a **counterargument marker**: The software is expensive. ___, the cost of manual processing is higher.",
+      "options": [
+        "Then again",
+        "For instance",
+        "Likewise",
+        "To begin with"
+      ],
+      "correct_answer": "Then again",
+      "explanation": "“Then again” đưa một góc nhìn đối lập để cân bằng nhận định trước. “For instance” đưa ví dụ, “Likewise” chỉ tương đồng, “To begin with” mở đầu lập luận.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the best **example marker**: Several safeguards are missing; ___, there is no independent appeal process.",
+      "options": [
+        "for one thing",
+        "nevertheless",
+        "therefore",
+        "in brief"
+      ],
+      "correct_answer": "for one thing",
+      "explanation": "“For one thing” giới thiệu một lý do hoặc ví dụ đầu tiên trong chuỗi lập luận. “Nevertheless” nhượng bộ, “therefore” kết luận, “in brief” tóm tắt.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with an **inference marker**: The witness changed his account three times; ___, the jury may doubt his reliability.",
+      "options": [
+        "accordingly",
+        "incidentally",
+        "in particular",
+        "all the same"
+      ],
+      "correct_answer": "accordingly",
+      "explanation": "“Accordingly” diễn tả kết quả hoặc suy luận hợp lý từ thông tin trước. “Incidentally” chuyển ý phụ, “in particular” nêu chi tiết cụ thể, “all the same” nhượng bộ.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the best **return marker**: The funding issue can wait. ___, the immediate question is whether the pilot is safe.",
+      "options": [
+        "To return to the point",
+        "On top of that",
+        "For that matter",
+        "In comparison"
+      ],
+      "correct_answer": "To return to the point",
+      "explanation": "“To return to the point” đưa cuộc nói chuyện quay lại trọng tâm. Các đáp án khác thêm ý, mở rộng liên quan, hoặc so sánh.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The evidence is preliminary; **therefore**, the authors wisely avoid firm conclusions.",
+      "options": [
+        "The evidence",
+        "therefore",
+        "wisely avoid",
+        "firm conclusions"
+      ],
+      "correct_answer": "therefore",
+      "explanation": "Ý sau không phải kết quả logic của “preliminary” mà là sự nhượng bộ/cân bằng, nên nên dùng “nevertheless” hoặc “even so”. “Therefore” chỉ kết quả trực tiếp, làm quan hệ ý nghĩa bị sai.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: **For example**, the study has two main limitations: sample size and selection bias.",
+      "options": [
+        "For example",
+        "two main limitations",
+        "sample size",
+        "selection bias"
+      ],
+      "correct_answer": "For example",
+      "explanation": "Sau dấu hai chấm là liệt kê/định danh hai hạn chế, không phải đưa ví dụ. Marker tự nhiên hơn là “Specifically” hoặc “Namely”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The merger may reduce costs; **similarly**, it could eliminate hundreds of jobs.",
+      "options": [
+        "The merger",
+        "may reduce costs",
+        "similarly",
+        "could eliminate"
+      ],
+      "correct_answer": "similarly",
+      "explanation": "Hai ý không tương đồng về tác động mà có sắc thái bổ sung gây bất lợi hoặc chuyển hướng đánh giá. Nên dùng “however”, “at the same time” hoặc “more worryingly” tùy ý định.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The experiment failed to replicate; **in other words**, the hypothesis remains fully confirmed.",
+      "options": [
+        "failed to replicate",
+        "in other words",
+        "the hypothesis",
+        "fully confirmed"
+      ],
+      "correct_answer": "in other words",
+      "explanation": "“In other words” phải diễn giải lại cùng ý, nhưng mệnh đề sau lại nói điều trái với “failed to replicate”. Cần dùng marker tương phản mạnh như “despite this” nếu muốn giữ ý sau, hoặc sửa nội dung sau cho phù hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The city expanded the subway network; **by the way**, average commute times fell.",
+      "options": [
+        "expanded",
+        "by the way",
+        "average commute times",
+        "fell"
+      ],
+      "correct_answer": "by the way",
+      "explanation": "Ý sau là kết quả hoặc hệ quả liên quan trực tiếp, không phải thông tin chen ngang. Nên dùng “as a result” hoặc “consequently”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: **On the contrary**, I agree with most of your analysis, although I question the conclusion.",
+      "options": [
+        "On the contrary",
+        "agree with",
+        "most of",
+        "the conclusion"
+      ],
+      "correct_answer": "On the contrary",
+      "explanation": "“On the contrary” dùng để bác bỏ điều vừa nói, nhưng câu này chỉ giới hạn mức độ đồng ý. Marker phù hợp hơn là “By and large” hoặc “For the most part”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The report is concise; **namely**, it omits the methodology section.",
+      "options": [
+        "The report",
+        "concise",
+        "namely",
+        "omits"
+      ],
+      "correct_answer": "namely",
+      "explanation": "“Namely” dùng để nêu tên hoặc giải thích cụ thể, không diễn tả mặt hạn chế trái chiều. Nên dùng “however” hoặc “that said”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: **Meanwhile**, the CEO resigned last night, the board has appointed an interim chair.",
+      "options": [
+        "Meanwhile",
+        "resigned",
+        "last night",
+        "has appointed"
+      ],
+      "correct_answer": "Meanwhile",
+      "explanation": "Câu đang nối hai mệnh đề theo quan hệ kết quả/tiếp nối, không phải hai sự kiện đồng thời độc lập. Cần dùng “Subsequently” hoặc tách câu; nếu giữ “Meanwhile”, phải làm rõ hành động xảy ra song song.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **concession marker**: The archive is incomplete; ___, it remains the only source that records the negotiations in detail.",
+      "options": [
+        "even so",
+        "therefore",
+        "for instance",
+        "in the meantime"
+      ],
+      "correct_answer": "even so",
+      "explanation": "“Even so” diễn đạt nhượng bộ: dù hồ sơ không đầy đủ, nó vẫn có giá trị. “Therefore” chỉ kết quả, “for instance” nêu ví dụ, còn “in the meantime” chỉ thời gian song song nên không phù hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **dismissal marker**: The legal issue is complex. ___, the real obstacle is political will, not interpretation.",
+      "options": [
+        "In any case",
+        "Likewise",
+        "That is to say",
+        "For this reason"
+      ],
+      "correct_answer": "In any case",
+      "explanation": "“In any case” chuyển hướng và gạt bớt chi tiết trước đó để nhấn mạnh điểm chính hơn. “Likewise” so sánh tương đồng, “that is to say” diễn giải lại, “for this reason” nêu nguyên nhân-kết quả.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **balancing marker**: The treatment is costly and uncomfortable; ___, it has produced unusually durable results.",
+      "options": [
+        "on the other hand",
+        "namely",
+        "as a result",
+        "by the same token"
+      ],
+      "correct_answer": "on the other hand",
+      "explanation": "“On the other hand” đặt hai mặt trái chiều của cùng vấn đề lên bàn cân. “Namely” nêu cụ thể, “as a result” chỉ kết quả, “by the same token” dùng cho lập luận tương tự.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the most natural **stance marker**: ___, the committee underestimated how strongly residents would oppose the rezoning plan.",
+      "options": [
+        "If anything",
+        "Meanwhile",
+        "For example",
+        "In short"
+      ],
+      "correct_answer": "If anything",
+      "explanation": "“If anything” dùng để điều chỉnh hoặc nhấn mạnh nhận định theo hướng mạnh hơn: nếu có gì thì họ còn đánh giá thấp mức phản đối. Các lựa chọn khác lần lượt chỉ thời gian, ví dụ, hoặc tóm tắt.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **qualification marker**: The survey suggests broad approval. ___, its respondents were mostly urban professionals.",
+      "options": [
+        "That said",
+        "Consequently",
+        "More specifically",
+        "To begin with"
+      ],
+      "correct_answer": "That said",
+      "explanation": "“That said” đưa ra giới hạn hoặc điểm làm mềm nhận định trước đó. “Consequently” là kết quả, “more specifically” làm rõ chi tiết, “to begin with” mở đầu chuỗi ý.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **correction marker**: The witness did not contradict herself; ___, she supplied details that were absent from her first statement.",
+      "options": [
+        "rather",
+        "similarly",
+        "after all",
+        "on top of that"
+      ],
+      "correct_answer": "rather",
+      "explanation": "“Rather” dùng để sửa hoặc thay thế cách hiểu trước đó. “Similarly” chỉ tương đồng, “after all” củng cố lý do đã biết, “on top of that” thêm thông tin.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the most suitable **comparison marker**: The new policy rewards short-term output. ___, the old system rewarded long-term mentoring.",
+      "options": [
+        "By contrast",
+        "In particular",
+        "All the same",
+        "In effect"
+      ],
+      "correct_answer": "By contrast",
+      "explanation": "“By contrast” đối chiếu trực tiếp hai hệ thống khác nhau. “In particular” nêu cụ thể, “all the same” nhượng bộ, còn “in effect” nói về tác động thực chất.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **concluding marker**: The samples were contaminated, the logs were incomplete, and the protocol was changed mid-trial. ___, the findings cannot be treated as decisive.",
+      "options": [
+        "Taken together",
+        "Incidentally",
+        "In the first place",
+        "For one thing"
+      ],
+      "correct_answer": "Taken together",
+      "explanation": "“Taken together” gom nhiều dữ kiện lại để rút ra kết luận chung. “Incidentally” thêm ý phụ, “in the first place” quay về điểm nền tảng, “for one thing” mở một lý do trong danh sách.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **digression marker**: The manuscript needs stronger evidence. ___, did the journal ever reply to your appeal?",
+      "options": [
+        "On a separate note",
+        "Accordingly",
+        "In the same vein",
+        "That is"
+      ],
+      "correct_answer": "On a separate note",
+      "explanation": "“On a separate note” báo hiệu chuyển sang vấn đề khác nhưng vẫn trong mạch hội thoại. “Accordingly” chỉ hệ quả, “in the same vein” giữ cùng hướng ý, “that is” diễn giải lại.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with a **hedging marker**: The figures are encouraging; ___, they should be interpreted with caution because the follow-up period was short.",
+      "options": [
+        "nevertheless",
+        "arguably",
+        "for example",
+        "instead"
+      ],
+      "correct_answer": "nevertheless",
+      "explanation": "“Nevertheless” phù hợp vì câu sau làm giảm sức mạnh của nhận định tích cực trước đó. “Arguably” thể hiện lập trường tranh luận nhưng không nối quan hệ nhượng bộ rõ bằng; “for example” nêu ví dụ, “instead” thay thế.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **return marker**: The staffing problem is serious, but it is not urgent today. ___, the immediate decision concerns whether to publish the audit.",
+      "options": [
+        "To return to the point",
+        "As a result",
+        "For comparison",
+        "In other respects"
+      ],
+      "correct_answer": "To return to the point",
+      "explanation": "“To return to the point” đưa cuộc thảo luận quay lại vấn đề chính sau một đoạn lệch hướng. Các lựa chọn còn lại chỉ kết quả, so sánh hoặc phạm vi khác nên sai quan hệ diễn ngôn.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with an **amplifying marker**: The proposal would reduce paperwork. ___, it would make the approval process transparent to applicants.",
+      "options": [
+        "More importantly",
+        "On the contrary",
+        "For that reason",
+        "Meanwhile"
+      ],
+      "correct_answer": "More importantly",
+      "explanation": "“More importantly” thêm một ý có trọng lượng lớn hơn ý trước. “On the contrary” phủ định ý trước, “for that reason” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reframing marker**: The reform is not a cost-cutting exercise. ___, it is an attempt to change how risk is distributed.",
+      "options": [
+        "Put differently",
+        "Moreover",
+        "Otherwise",
+        "At first"
+      ],
+      "correct_answer": "Put differently",
+      "explanation": "“Put differently” diễn đạt lại vấn đề theo khung nhìn khác. “Moreover” thêm ý, “otherwise” nêu điều kiện trái lại, “at first” chỉ thời điểm ban đầu.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the best **sequencing marker**: ___, the board should decide whether the complaint falls within its mandate at all.",
+      "options": [
+        "Before anything else",
+        "In the same way",
+        "As it happens",
+        "On balance"
+      ],
+      "correct_answer": "Before anything else",
+      "explanation": "“Before anything else” nhấn mạnh việc cần làm đầu tiên trong trình tự xử lý. Các lựa chọn khác lần lượt chỉ tương đồng, tình cờ xảy ra, hoặc cân nhắc tổng thể.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **illustration marker**: Some safeguards are merely symbolic; ___, the review panel can advise ministers but cannot block a decision.",
+      "options": [
+        "for one",
+        "thereby",
+        "conversely",
+        "still"
+      ],
+      "correct_answer": "for one",
+      "explanation": "“For one” đưa ra một ví dụ tiêu biểu trong số nhiều khả năng. “Thereby” chỉ phương tiện/kết quả, “conversely” đảo chiều đối lập, “still” nhượng bộ.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with a **causal marker**: The regulator had ignored repeated warnings. ___, public confidence collapsed after the breach became known.",
+      "options": [
+        "Unsurprisingly",
+        "Alternatively",
+        "To be precise",
+        "Likewise"
+      ],
+      "correct_answer": "Unsurprisingly",
+      "explanation": "“Unsurprisingly” nối nguyên nhân ngầm với kết quả dễ đoán, đồng thời thể hiện thái độ của người nói. “Alternatively” nêu phương án khác, “to be precise” làm chính xác hơn, “likewise” chỉ tương tự.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **limiting marker**: The model predicts demand well in stable markets. ___, it performs poorly during sudden regulatory changes.",
+      "options": [
+        "Even then",
+        "In addition",
+        "For example",
+        "In brief"
+      ],
+      "correct_answer": "Even then",
+      "explanation": "“Even then” giới hạn hiệu lực của nhận định trước: ngay cả trong/ở trường hợp đó vẫn có vấn đề. “In addition” thêm ý, “for example” nêu ví dụ, “in brief” tóm tắt.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The court accepted the evidence; **alternatively**, it dismissed the defendant's appeal.",
+      "options": [
+        "The court",
+        "accepted",
+        "alternatively",
+        "dismissed"
+      ],
+      "correct_answer": "alternatively",
+      "explanation": "“Alternatively” dùng để nêu lựa chọn thay thế, không phù hợp khi câu sau là hệ quả hoặc diễn biến tiếp theo. Có thể dùng “subsequently” nếu nhấn mạnh trình tự, hoặc “therefore” nếu muốn chỉ kết quả.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: **To sum up**, the first objection concerns cost, while the second concerns legality.",
+      "options": [
+        "To sum up",
+        "first objection",
+        "while",
+        "second concerns"
+      ],
+      "correct_answer": "To sum up",
+      "explanation": "“To sum up” dùng để kết luận sau khi đã trình bày các ý, không tự nhiên khi bắt đầu liệt kê hai điểm mới. Ở đây nên dùng “To begin with” hoặc “First”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The amendment protects tenants; **for one thing**, it also caps annual rent increases.",
+      "options": [
+        "amendment",
+        "protects tenants",
+        "for one thing",
+        "also caps"
+      ],
+      "correct_answer": "for one thing",
+      "explanation": "“For one thing” mở một lý do hoặc ví dụ, nhưng “also” cho thấy đây là ý bổ sung trực tiếp. “Moreover” hoặc “in addition” tự nhiên hơn trong quan hệ này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The product was marketed as sustainable; **indeed**, later tests found unsafe levels of lead.",
+      "options": [
+        "marketed",
+        "sustainable",
+        "indeed",
+        "unsafe levels"
+      ],
+      "correct_answer": "indeed",
+      "explanation": "“Indeed” thường củng cố hoặc nhấn mạnh ý trước, trong khi câu sau lại bác bỏ hình ảnh “sustainable”. Nên dùng “however” hoặc “in fact” tùy ý muốn nhấn mạnh sự trái ngược.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The committee postponed the vote; **to be precise**, members had not yet received the legal opinion.",
+      "options": [
+        "postponed",
+        "to be precise",
+        "members",
+        "legal opinion"
+      ],
+      "correct_answer": "to be precise",
+      "explanation": "“To be precise” dùng để làm chính xác một thông tin vừa nêu, không nối lý do giải thích cho việc hoãn. “Because” hoặc “as” phù hợp hơn để chỉ nguyên nhân.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: **Conversely**, both departments reported higher productivity after the new system was introduced.",
+      "options": [
+        "Conversely",
+        "both departments",
+        "higher productivity",
+        "was introduced"
+      ],
+      "correct_answer": "Conversely",
+      "explanation": "“Conversely” cần quan hệ đảo ngược hoặc đối lập với ý trước, nhưng câu này chỉ nói hai bộ phận có cùng kết quả. Nên dùng “Similarly” hoặc “Likewise” nếu muốn nhấn mạnh sự tương đồng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The contract is valid until June; **hence**, either party may terminate it without notice before then.",
+      "options": [
+        "contract",
+        "valid until June",
+        "hence",
+        "without notice"
+      ],
+      "correct_answer": "hence",
+      "explanation": "“Hence” chỉ kết quả logic, nhưng quyền chấm dứt không báo trước không suy ra tự nhiên từ việc hợp đồng còn hiệu lực đến tháng Sáu. Cần một marker đối lập như “however” nếu điều khoản sau là ngoại lệ.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The minister denied receiving the memo; **in fact**, she had never been briefed on the issue.",
+      "options": [
+        "denied receiving",
+        "in fact",
+        "never been briefed",
+        "on the issue"
+      ],
+      "correct_answer": "in fact",
+      "explanation": "“In fact” thường củng cố hoặc sửa thông tin trước bằng sự thật mạnh hơn, và ở đây câu sau lại phù hợp với việc bà ấy phủ nhận nhận memo nên không phải lỗi rõ về nghĩa? Trong ngữ cảnh muốn bổ sung cùng hướng, “indeed” tự nhiên hơn; “in fact” vẫn có thể đúng, nhưng nếu câu hỏi yêu cầu lỗi thì marker này là điểm kém chính xác nhất.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **contrast marker**: The policy was designed to reduce inequality; ___, its benefits have flowed mainly to households that were already secure.",
+      "options": [
+        "paradoxically",
+        "similarly",
+        "for example",
+        "meanwhile"
+      ],
+      "correct_answer": "paradoxically",
+      "explanation": "“Paradoxically” đúng vì diễn tả kết quả trái ngược với mục tiêu ban đầu của chính sách. “Similarly” chỉ sự tương đồng, “for example” đưa ví dụ, còn “meanwhile” nhấn mạnh sự việc xảy ra cùng lúc hoặc chuyển sang diễn biến khác.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reformulation marker**: The proposal does not abolish oversight. ___, it moves oversight from the ministry to an independent panel.",
+      "options": [
+        "Rather",
+        "Besides",
+        "Consequently",
+        "Meanwhile"
+      ],
+      "correct_answer": "Rather",
+      "explanation": "“Rather” đúng vì câu sau sửa lại hoặc diễn đạt chính xác hơn điều vừa phủ định. “Besides” thêm ý, “consequently” chỉ kết quả, còn “meanwhile” không phù hợp với quan hệ cải chính này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the most natural **resumption marker**: We can discuss the budget later. ___, the urgent question is whether the safety review should be released today.",
+      "options": [
+        "To return to the point",
+        "For instance",
+        "All the same",
+        "In comparison"
+      ],
+      "correct_answer": "To return to the point",
+      "explanation": "“To return to the point” đúng vì đưa cuộc thảo luận quay lại vấn đề chính. “For instance” nêu ví dụ, “all the same” chỉ nhượng bộ, còn “in comparison” dùng để so sánh.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **emphasis marker**: The witness was not merely uncertain; ___, she gave three mutually incompatible accounts of the meeting.",
+      "options": [
+        "more importantly",
+        "otherwise",
+        "by contrast",
+        "incidentally"
+      ],
+      "correct_answer": "more importantly",
+      "explanation": "“More importantly” đúng vì nhấn mạnh thông tin nghiêm trọng hơn sau đó. “Otherwise” chỉ điều kiện trái lại, “by contrast” đối lập hai đối tượng, còn “incidentally” thêm thông tin ngoài lề.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **exemplification marker**: The platform rewards superficial engagement. ___, posts with provocative headlines are promoted even when users do not read them.",
+      "options": [
+        "For example",
+        "Nevertheless",
+        "Instead",
+        "In short"
+      ],
+      "correct_answer": "For example",
+      "explanation": "“For example” đúng vì câu sau minh họa cho nhận định chung ở câu trước. “Nevertheless” chỉ tương phản, “instead” chỉ thay thế, còn “in short” dùng để tóm tắt.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the most suitable **qualification marker**: The data support the claim in broad terms. ___, they say little about poorer regions where sampling was sparse.",
+      "options": [
+        "Even so",
+        "Specifically",
+        "Conversely",
+        "To begin with"
+      ],
+      "correct_answer": "Even so",
+      "explanation": "“Even so” đúng vì thừa nhận ý trước nhưng giới hạn sức mạnh của kết luận. “Specifically” làm rõ chi tiết, “conversely” chỉ sự đối lập đảo chiều, còn “to begin with” dùng để mở đầu chuỗi lập luận.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **transition marker**: The paper explains why the reform failed. ___, it considers what future legislation might learn from that failure.",
+      "options": [
+        "Having said that",
+        "Next",
+        "On the contrary",
+        "After all"
+      ],
+      "correct_answer": "Next",
+      "explanation": "“Next” đúng vì chuyển sang phần tiếp theo trong trình tự trình bày. “Having said that” thường mở ý nhượng bộ, “on the contrary” bác bỏ ý trước, còn “after all” đưa lý do củng cố.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **inference marker**: No minutes were kept, and the participants now disagree about what was promised. ___, the committee cannot reconstruct the decision with confidence.",
+      "options": [
+        "Accordingly",
+        "Likewise",
+        "Incidentally",
+        "Alternatively"
+      ],
+      "correct_answer": "Accordingly",
+      "explanation": "“Accordingly” đúng vì câu sau là kết luận hợp lý từ các dữ kiện trước. “Likewise” chỉ tương tự, “incidentally” thêm ý phụ, còn “alternatively” đưa lựa chọn khác.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **clarification marker**: The author uses “community” in a narrow sense. ___, she means residents with voting rights, not all people who live nearby.",
+      "options": [
+        "That is",
+        "Still",
+        "Meanwhile",
+        "For one thing"
+      ],
+      "correct_answer": "That is",
+      "explanation": "“That is” đúng vì câu sau giải thích chính xác nghĩa của thuật ngữ trước đó. “Still” chỉ tương phản nhẹ, “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “for one thing” đưa lý do đầu tiên.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with a **concession marker**: The interview sample was small; ___, the responses were unusually detailed and internally consistent.",
+      "options": [
+        "nonetheless",
+        "therefore",
+        "for instance",
+        "similarly"
+      ],
+      "correct_answer": "nonetheless",
+      "explanation": "“Nonetheless” đúng vì diễn tả sự nhượng bộ: dù mẫu nhỏ, dữ liệu vẫn có giá trị. “Therefore” chỉ kết quả, “for instance” nêu ví dụ, còn “similarly” chỉ sự tương đồng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **topic shift**: The merger still requires regulatory approval. ___, have you seen the revised timetable for staff consultations?",
+      "options": [
+        "By the way",
+        "In conclusion",
+        "As a result",
+        "For this reason"
+      ],
+      "correct_answer": "By the way",
+      "explanation": "“By the way” đúng vì chuyển sang thông tin liên quan nhưng không phải trọng tâm ban đầu. “In conclusion” kết luận, còn “as a result” và “for this reason” chỉ quan hệ kết quả.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with a **corrective marker**: The speaker did not promise immediate reform; ___, she promised to appoint a commission to study it.",
+      "options": [
+        "rather",
+        "therefore",
+        "meanwhile",
+        "similarly"
+      ],
+      "correct_answer": "rather",
+      "explanation": "“Rather” đúng vì sửa lại một cách hiểu sai ở mệnh đề trước. “Therefore” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “similarly” chỉ sự giống nhau.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **summative marker**: The proposal is legally uncertain, administratively costly, and politically fragile. ___, it is unlikely to survive in its present form.",
+      "options": [
+        "In short",
+        "For example",
+        "On the other hand",
+        "Incidentally"
+      ],
+      "correct_answer": "In short",
+      "explanation": "“In short” đúng vì tóm tắt các lý do trước thành một kết luận ngắn gọn. “For example” nêu ví dụ, “on the other hand” đưa mặt đối lập, còn “incidentally” thêm ý phụ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with an **additive marker**: The new archive preserves official correspondence. ___, it includes private diaries that reveal how decisions were negotiated informally.",
+      "options": [
+        "Moreover",
+        "Nevertheless",
+        "Otherwise",
+        "In contrast"
+      ],
+      "correct_answer": "Moreover",
+      "explanation": "“Moreover” đúng vì bổ sung một lợi ích quan trọng hơn hoặc thêm vào cùng hướng lập luận. “Nevertheless” chỉ nhượng bộ, “otherwise” chỉ điều kiện trái lại, còn “in contrast” chỉ đối lập.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **stance marker**: ___, the report treats a political compromise as if it were a neutral technical solution.",
+      "options": [
+        "To my mind",
+        "For example",
+        "In the meantime",
+        "As a result"
+      ],
+      "correct_answer": "To my mind",
+      "explanation": "“To my mind” đúng vì báo hiệu quan điểm hoặc đánh giá của người nói. “For example” đưa ví dụ, “in the meantime” chỉ thời gian chờ đợi, còn “as a result” chỉ kết quả.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with a **causal marker**: The instructions were ambiguous and the deadline changed twice. ___, several teams submitted incompatible versions of the form.",
+      "options": [
+        "As a result",
+        "By comparison",
+        "In other words",
+        "At any rate"
+      ],
+      "correct_answer": "As a result",
+      "explanation": "“As a result” đúng vì câu sau là hệ quả của các vấn đề nêu trước. “By comparison” dùng để so sánh, “in other words” diễn đạt lại, còn “at any rate” chuyển sang hoặc chốt lại ý chính.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **counterargument marker**: The law may discourage some frivolous claims. ___, it could also deter legitimate complaints from workers who fear retaliation.",
+      "options": [
+        "On the other hand",
+        "Namely",
+        "To put it briefly",
+        "Meanwhile"
+      ],
+      "correct_answer": "On the other hand",
+      "explanation": "“On the other hand” đúng vì đưa mặt trái hoặc lập luận đối trọng với lợi ích vừa nêu. “Namely” nêu cụ thể, “to put it briefly” tóm tắt, còn “meanwhile” không thể hiện đối trọng lập luận rõ ràng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The grant was not renewed; **for example**, the laboratory had to suspend two long-term projects.",
+      "options": [
+        "The grant",
+        "for example",
+        "had to suspend",
+        "long-term projects"
+      ],
+      "correct_answer": "for example",
+      "explanation": "“For example” sai vì câu sau là hệ quả, không phải ví dụ minh họa cho câu trước. Nên dùng “therefore” hoặc “as a result”; các cụm còn lại đúng về ngữ pháp và nghĩa.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: **Nevertheless**, the report is comprehensive, it overlooks how rural clinics collect patient data.",
+      "options": [
+        "Nevertheless",
+        "the report",
+        "it overlooks",
+        "patient data"
+      ],
+      "correct_answer": "Nevertheless",
+      "explanation": "“Nevertheless” không phù hợp khi hai mệnh đề được nối trực tiếp bằng dấu phẩy như vậy; cần cấu trúc “The report is comprehensive; nevertheless, it overlooks...” hoặc “Although the report is comprehensive, it overlooks...”. Các lựa chọn còn lại không phải lỗi chính của câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The algorithm performs well on curated images; **similarly**, it fails on noisy images from mobile phones.",
+      "options": [
+        "performs well",
+        "similarly",
+        "fails on",
+        "mobile phones"
+      ],
+      "correct_answer": "similarly",
+      "explanation": "“Similarly” sai vì hai ý đối lập: hoạt động tốt trên ảnh chọn lọc nhưng thất bại trên ảnh nhiễu. Nên dùng “however” hoặc “by contrast”; các cụm khác phù hợp với nội dung câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The committee rejected the first option; **in addition**, it chose the second instead.",
+      "options": [
+        "rejected",
+        "in addition",
+        "chose",
+        "instead"
+      ],
+      "correct_answer": "in addition",
+      "explanation": "“In addition” sai vì câu sau không chỉ thêm thông tin cùng hướng mà nêu lựa chọn thay thế. “Instead” đã báo hiệu quan hệ thay thế, nên marker phù hợp hơn là bỏ “in addition” hoặc dùng “instead” ở vị trí nối.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The figures look impressive at first sight; **that is**, the underlying measurements are too inconsistent to support them.",
+      "options": [
+        "figures",
+        "that is",
+        "underlying measurements",
+        "support them"
+      ],
+      "correct_answer": "that is",
+      "explanation": "“That is” sai vì câu sau không giải thích lại câu trước mà phủ định độ tin cậy của nó. Nên dùng “however” hoặc “on closer inspection”; các cụm còn lại không sai trong ngữ cảnh.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: **For this reason**, I am not convinced by the proposal, although several of its assumptions seem plausible.",
+      "options": [
+        "For this reason",
+        "not convinced",
+        "proposal",
+        "several of"
+      ],
+      "correct_answer": "For this reason",
+      "explanation": "“For this reason” sai vì trước đó không có lý do nào được nêu để “vì lý do này”. Trong câu độc lập này, marker phù hợp hơn là “Overall” hoặc “Still”; các phần còn lại đúng.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The museum has expanded its public programs; **to be sure**, attendance has increased by nearly forty percent.",
+      "options": [
+        "has expanded",
+        "to be sure",
+        "attendance",
+        "forty percent"
+      ],
+      "correct_answer": "to be sure",
+      "explanation": "“To be sure” thường thừa nhận một điểm trước khi đưa ý đối lập hoặc giới hạn, nhưng ở đây câu sau là hệ quả hoặc bằng chứng cùng hướng. Nên dùng “indeed” hoặc “as a result”; các cụm khác phù hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The regulation applies to commercial operators; **in particular**, it does not apply to private households.",
+      "options": [
+        "applies to",
+        "commercial operators",
+        "in particular",
+        "private households"
+      ],
+      "correct_answer": "in particular",
+      "explanation": "“In particular” sai vì câu sau không nêu một trường hợp cụ thể thuộc nhóm trước mà loại trừ một nhóm khác. Nên dùng “however” hoặc “by contrast”; các lựa chọn còn lại đúng trong câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **concession marker**: The manuscript contains several factual errors; ___, its central argument remains difficult to dismiss.",
+      "options": [
+        "all the same",
+        "as a result",
+        "by the same token",
+        "in the meantime"
+      ],
+      "correct_answer": "all the same",
+      "explanation": "“All the same” diễn tả sự nhượng bộ: dù có lỗi, lập luận chính vẫn mạnh. “As a result” chỉ kết quả, “by the same token” chỉ sự tương đồng về lập luận, còn “in the meantime” chỉ thời gian xen giữa.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **specification marker**: The funding will support public-interest technology; ___, tools that improve access to legal and medical information.",
+      "options": [
+        "namely",
+        "meanwhile",
+        "nevertheless",
+        "otherwise"
+      ],
+      "correct_answer": "namely",
+      "explanation": "“Namely” dùng để nêu cụ thể điều vừa nói: các công cụ cải thiện khả năng tiếp cận thông tin. “Meanwhile” nói về thời gian/đối chiếu, “nevertheless” là nhượng bộ, “otherwise” là điều kiện hoặc hậu quả khác.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the most natural **focus marker**: The design is visually elegant, but ___, it can be maintained by a small engineering team.",
+      "options": [
+        "more to the point",
+        "for instance",
+        "on the contrary",
+        "in passing"
+      ],
+      "correct_answer": "more to the point",
+      "explanation": "“More to the point” chuyển sự chú ý sang điểm quan trọng hơn: khả năng bảo trì. “For instance” đưa ví dụ, “on the contrary” phủ định ý trước, còn “in passing” chỉ ý được nhắc thoáng qua.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **reconsideration marker**: The witness sounded confident. ___, confidence is not the same as accuracy.",
+      "options": [
+        "Then again",
+        "Accordingly",
+        "To begin with",
+        "Likewise"
+      ],
+      "correct_answer": "Then again",
+      "explanation": "“Then again” dùng khi người nói xem xét lại hoặc thêm một ý làm suy yếu nhận định trước. “Accordingly” chỉ kết quả, “to begin with” mở đầu lập luận, còn “likewise” chỉ sự tương tự.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **digression marker**: The lecture will focus on judicial independence. ___, the speaker trained as a historian before studying law.",
+      "options": [
+        "Incidentally",
+        "Consequently",
+        "Even so",
+        "That is to say"
+      ],
+      "correct_answer": "Incidentally",
+      "explanation": "“Incidentally” dùng để thêm một thông tin phụ bên lề. “Consequently” chỉ hệ quả, “even so” chỉ nhượng bộ, còn “that is to say” dùng để giải thích lại.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with a **limiting marker**: The clinical trial shows promise in adults; ___, its relevance to children remains untested.",
+      "options": [
+        "even so",
+        "in this respect",
+        "as a rule",
+        "for that matter"
+      ],
+      "correct_answer": "even so",
+      "explanation": "“Even so” tạo quan hệ nhượng bộ và giới hạn: dù có triển vọng, phạm vi áp dụng vẫn chưa chắc. “In this respect” chỉ một khía cạnh cụ thể, “as a rule” nói quy luật chung, “for that matter” thêm một điểm liên quan.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **resumption marker**: The historical background is useful, but we cannot cover every detail today. ___, the central issue is how the treaty was interpreted afterward.",
+      "options": [
+        "At any rate",
+        "By contrast",
+        "For example",
+        "As such"
+      ],
+      "correct_answer": "At any rate",
+      "explanation": "“At any rate” đưa cuộc thảo luận trở lại điểm chính hoặc chốt lại hướng nói. “By contrast” so sánh đối lập, “for example” nêu ví dụ, còn “as such” chỉ tư cách/bản chất đã nêu.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with a **stance marker**: ___, the editorial mistakes administrative convenience for democratic legitimacy.",
+      "options": [
+        "If anything",
+        "In the meantime",
+        "On the other hand",
+        "For instance"
+      ],
+      "correct_answer": "If anything",
+      "explanation": "“If anything” nhấn mạnh rằng nếu có kết luận nào thì nó còn theo hướng mạnh hơn hoặc khác kỳ vọng. “In the meantime” nói về thời gian, “on the other hand” nêu mặt đối lập, còn “for instance” đưa ví dụ.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **temporal marker**: The archive will not be digitized until next year. ___, researchers must request physical copies in advance.",
+      "options": [
+        "In the interim",
+        "On balance",
+        "To put it differently",
+        "All things considered"
+      ],
+      "correct_answer": "In the interim",
+      "explanation": "“In the interim” nghĩa là trong thời gian chờ đợi giữa hai mốc. “On balance” và “all things considered” dùng để đánh giá tổng hợp, còn “to put it differently” dùng để diễn đạt lại.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The satellite images are unusually clear; **on the contrary**, they reveal damage that earlier surveys had missed.",
+      "options": [
+        "unusually clear",
+        "on the contrary",
+        "reveal damage",
+        "earlier surveys"
+      ],
+      "correct_answer": "on the contrary",
+      "explanation": "“On the contrary” dùng để bác bỏ hoặc phủ định ý trước, nhưng câu sau bổ sung hệ quả tích cực của độ rõ nét. Cần dùng “indeed” hoặc “in fact”; các cụm còn lại đúng về nghĩa và ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The novelist rarely discusses politics directly; **moreover**, her private letters show a deep concern with censorship.",
+      "options": [
+        "rarely discusses",
+        "moreover",
+        "private letters",
+        "deep concern"
+      ],
+      "correct_answer": "moreover",
+      "explanation": "“Moreover” chỉ bổ sung cùng hướng, nhưng ở đây ý sau tạo sự điều chỉnh/đối lập với việc bà hiếm khi nói trực tiếp. Nên dùng “however” hoặc “nevertheless”; các phần còn lại không sai.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The app does not store precise location data; **namely**, it records only the city selected by the user.",
+      "options": [
+        "does not store",
+        "precise location data",
+        "namely",
+        "selected by the user"
+      ],
+      "correct_answer": "namely",
+      "explanation": "“Namely” nêu tên hoặc liệt kê chính xác cho danh từ trước, nhưng câu sau đang làm rõ bằng cách diễn đạt lại giới hạn dữ liệu. “That is” hoặc “in other words” tự nhiên hơn; các cụm khác đúng.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The gallery is closed for restoration; **by the same token**, online tours will remain available throughout the summer.",
+      "options": [
+        "closed for restoration",
+        "by the same token",
+        "online tours",
+        "throughout the summer"
+      ],
+      "correct_answer": "by the same token",
+      "explanation": "“By the same token” dùng khi cùng một lý do dẫn tới kết luận tương tự, nhưng ở đây ý sau là thông tin bù lại hoặc chuyển hướng. Nên dùng “nevertheless” hoặc “meanwhile”; các lựa chọn khác phù hợp trong câu.",
+      "difficulty": 3
     }
   ]
 }

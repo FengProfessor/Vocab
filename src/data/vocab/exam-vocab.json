@@ -1205,7 +1205,7 @@
       "sourceKey": "ielts-education-1",
       "routeId": "ielts",
       "topicKey": "education",
-      "title": "Education 1/5",
+      "title": "Education 1/6",
       "sourceNames": [
         "Topic 1: Education",
         "Topic 26: Study",
@@ -1266,8 +1266,7 @@
         "disruptive",
         "dissertation",
         "deprive of",
-        "deter somebody from",
-        "do detention"
+        "deter somebody from"
       ]
     },
     {
@@ -1275,7 +1274,7 @@
       "sourceKey": "ielts-education-2",
       "routeId": "ielts",
       "topicKey": "education",
-      "title": "Education 2/5",
+      "title": "Education 2/6",
       "sourceNames": [
         "Topic 1: Education",
         "Topic 26: Study",
@@ -1285,6 +1284,7 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
+        "do detention",
         "enhance",
         "embark on",
         "a spouse",
@@ -1335,9 +1335,7 @@
         "lecture",
         "learn by heart",
         "learn by rote",
-        "left-handed",
-        "like a duck to water",
-        "make sacrifices"
+        "left-handed"
       ]
     },
     {
@@ -1345,7 +1343,7 @@
       "sourceKey": "ielts-education-3",
       "routeId": "ielts",
       "topicKey": "education",
-      "title": "Education 3/5",
+      "title": "Education 3/6",
       "sourceNames": [
         "Topic 1: Education",
         "Topic 26: Study",
@@ -1355,6 +1353,8 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
+        "like a duck to water",
+        "make sacrifices",
         "make up one's mind",
         "make sense of",
         "make a case for something",
@@ -1403,11 +1403,7 @@
         "take in",
         "teacher's pet",
         "undergraduate",
-        "undergraduate course",
-        "vivid",
-        "vocational",
-        "with flying colors",
-        "drop the course"
+        "undergraduate course"
       ]
     },
     {
@@ -1415,7 +1411,7 @@
       "sourceKey": "ielts-education-4",
       "routeId": "ielts",
       "topicKey": "education",
-      "title": "Education 4/5",
+      "title": "Education 4/6",
       "sourceNames": [
         "Topic 1: Education",
         "Topic 26: Study",
@@ -1425,6 +1421,10 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
+        "vivid",
+        "vocational",
+        "with flying colors",
+        "drop the course",
         "cram for an exam",
         "wrote learning",
         "an academic journal",
@@ -1471,13 +1471,7 @@
         "amount to",
         "facilitate learning",
         "boost the spirits of",
-        "there is precious little chance of",
-        "a convincing victory",
-        "acknowledge one's error",
-        "pursue one's interests",
-        "passion",
-        "interpersonal skills",
-        "employee method"
+        "there is precious little chance of"
       ]
     },
     {
@@ -1485,7 +1479,7 @@
       "sourceKey": "ielts-education-5",
       "routeId": "ielts",
       "topicKey": "education",
-      "title": "Education 5/5",
+      "title": "Education 5/6",
       "sourceNames": [
         "Topic 1: Education",
         "Topic 26: Study",
@@ -1495,6 +1489,12 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
+        "a convincing victory",
+        "acknowledge one's error",
+        "pursue one's interests",
+        "passion",
+        "interpersonal skills",
+        "employee method",
         "employ a method",
         "specialized schools",
         "schools for gifted students",
@@ -1532,8 +1532,69 @@
         "touch screen",
         "inappropriate",
         "application",
-        "adequate",
+        "pedagogy",
         "e-learning",
+        "curriculum design",
+        "interactive whiteboard",
+        "blended learning",
+        "flipped classroom",
+        "online tutorial",
+        "virtual mentor"
+      ]
+    },
+    {
+      "sourcePackage": "exam-ielts",
+      "sourceKey": "ielts-education-6",
+      "routeId": "ielts",
+      "topicKey": "education",
+      "title": "Education 6/6",
+      "sourceNames": [
+        "Topic 1: Education",
+        "Topic 26: Study",
+        "Unit 7: Further Education",
+        "Unit 8: New Ways To Learn",
+        "Unit 10: Lifelong Learning"
+      ],
+      "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "words": [
+        "digital literacy",
+        "information retrieval",
+        "problem-solving skills",
+        "collaborative learning",
+        "project-based assessment",
+        "formative evaluation",
+        "summative feedback",
+        "educational software",
+        "learning management system",
+        "academic integrity",
+        "plagiarism detection",
+        "authentic assessment",
+        "self-directed learning",
+        "personalized education",
+        "adaptive technology",
+        "gamification",
+        "simulation-based learning",
+        "microlearning",
+        "mobile learning",
+        "bring your own device",
+        "one-to-one computing",
+        "digital citizenship",
+        "cyberbullying prevention",
+        "online safety",
+        "media literacy",
+        "information architecture",
+        "knowledge management",
+        "cognitive load",
+        "learning analytics",
+        "data-driven instruction",
+        "educational gaming",
+        "virtual reality",
+        "augmented reality",
+        "artificial intelligence",
+        "machine learning",
+        "natural language processing",
+        "human-computer interaction",
+        "adequate",
         "employable",
         "facilitate",
         "flexibility",
@@ -1615,7 +1676,13 @@
         "notorious",
         "organism",
         "on the brink of",
-        "pose a threat to"
+        "pose a threat to",
+        "perilously",
+        "predator",
+        "prey on",
+        "proponent",
+        "premise",
+        "pioneer"
       ]
     },
     {
@@ -1634,12 +1701,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "perilously",
-        "predator",
-        "prey on",
-        "proponent",
-        "premise",
-        "pioneer",
         "purify",
         "plunging",
         "replenish",
@@ -1684,7 +1745,19 @@
         "pollutant",
         "reforestation",
         "reconstruction",
-        "rainfall"
+        "rainfall",
+        "recycle",
+        "renew",
+        "run out of",
+        "run on",
+        "stretch",
+        "tame",
+        "wipe out",
+        "waterway",
+        "accumulate",
+        "accelerate",
+        "combat",
+        "catastrophic"
       ]
     },
     {
@@ -1703,18 +1776,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "recycle",
-        "renew",
-        "run out of",
-        "run on",
-        "stretch",
-        "tame",
-        "wipe out",
-        "waterway",
-        "accumulate",
-        "accelerate",
-        "combat",
-        "catastrophic",
         "clear up",
         "deflect",
         "demise",
@@ -1753,7 +1814,25 @@
         "decompose",
         "deforestation",
         "desertification",
-        "develop"
+        "develop",
+        "dissolve",
+        "disposal",
+        "dump",
+        "dust",
+        "earthquake",
+        "ecosystem",
+        "ecotourism",
+        "enact",
+        "extinction",
+        "environment",
+        "environmentalist",
+        "energy conservation",
+        "endangered species",
+        "eruption",
+        "exhaust",
+        "evolution",
+        "fertile",
+        "fossil fuel"
       ]
     },
     {
@@ -1772,24 +1851,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "dissolve",
-        "disposal",
-        "dump",
-        "dust",
-        "earthquake",
-        "ecosystem",
-        "ecotourism",
-        "enact",
-        "extinction",
-        "environment",
-        "environmentalist",
-        "energy conservation",
-        "endangered species",
-        "eruption",
-        "exhaust",
-        "evolution",
-        "fertile",
-        "fossil fuel",
         "forecast",
         "to get back to nature",
         "global warming",
@@ -1822,25 +1883,7 @@
         "solar panel",
         "spoil",
         "storm",
-        "survive"
-      ]
-    },
-    {
-      "sourcePackage": "exam-ielts",
-      "sourceKey": "ielts-environment-5",
-      "routeId": "ielts",
-      "topicKey": "environment",
-      "title": "Environment & Climate 5/5",
-      "sourceNames": [
-        "Topic 2: Enviroment and Climate Change",
-        "Theme 2: Enviroment",
-        "Unit 6: Endangered Species",
-        "Unit 6: Global Warning",
-        "Unit 9: Preserving The Enviroment",
-        "Topic 24: Consevation"
-      ],
-      "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
-      "words": [
+        "survive",
         "tornado",
         "toxic liquid",
         "trade",
@@ -1863,7 +1906,25 @@
         "irresponsible",
         "suffer",
         "infectious disease",
-        "spread",
+        "spread"
+      ]
+    },
+    {
+      "sourcePackage": "exam-ielts",
+      "sourceKey": "ielts-environment-5",
+      "routeId": "ielts",
+      "topicKey": "environment",
+      "title": "Environment & Climate 5/5",
+      "sourceNames": [
+        "Topic 2: Enviroment and Climate Change",
+        "Theme 2: Enviroment",
+        "Unit 6: Endangered Species",
+        "Unit 6: Global Warning",
+        "Unit 9: Preserving The Enviroment",
+        "Topic 24: Consevation"
+      ],
+      "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "words": [
         "severe",
         "ecological",
         "drought",
@@ -1875,6 +1936,34 @@
         "inorganic",
         "psychological",
         "detergent",
+        "biodegradable",
+        "conservation efforts",
+        "ecological balance",
+        "environmental degradation",
+        "environmental impact",
+        "environmental protection",
+        "environmental regulations",
+        "environmental sustainability",
+        "fossil fuels",
+        "green building",
+        "green energy",
+        "greenhouse gas emissions",
+        "habitat destruction",
+        "hazardous waste",
+        "industrial pollution",
+        "landfill",
+        "non-renewable resources",
+        "organic farming",
+        "ozone layer depletion",
+        "pollution control",
+        "recycling initiative",
+        "renewable energy sources",
+        "resource management",
+        "smog",
+        "soil contamination",
+        "sustainable development",
+        "toxic waste",
+        "water pollution",
         "wildlife conservation",
         "conserve resources",
         "raise awareness",
@@ -1953,7 +2042,19 @@
         "deform",
         "disassemble",
         "differentiation",
-        "discover"
+        "discover",
+        "disorder",
+        "digital divide",
+        "dimension",
+        "exponentially",
+        "epicenter",
+        "encode",
+        "embryo",
+        "excrete",
+        "the equation",
+        "efficient",
+        "exponent",
+        "explore"
       ]
     },
     {
@@ -1969,18 +2070,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "disorder",
-        "digital divide",
-        "dimension",
-        "exponentially",
-        "epicenter",
-        "encode",
-        "embryo",
-        "excrete",
-        "the equation",
-        "efficient",
-        "exponent",
-        "explore",
         "fuel injection system",
         "flat land",
         "fracture",
@@ -2014,22 +2103,7 @@
         "revolution",
         "reform",
         "reinforce",
-        "science"
-      ]
-    },
-    {
-      "sourcePackage": "exam-ielts",
-      "sourceKey": "ielts-technology-3",
-      "routeId": "ielts",
-      "topicKey": "technology",
-      "title": "Science & Technology 3/3",
-      "sourceNames": [
-        "Theme 4: Science and Technology",
-        "Unit 5: Inventions",
-        "Unit 7: Artificial Intelligence"
-      ],
-      "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
-      "words": [
+        "science",
         "sustain",
         "superconductor",
         "technique",
@@ -2053,7 +2127,22 @@
         "invention",
         "research",
         "face-to-face",
-        "inspiration",
+        "inspiration"
+      ]
+    },
+    {
+      "sourcePackage": "exam-ielts",
+      "sourceKey": "ielts-technology-3",
+      "routeId": "ielts",
+      "topicKey": "technology",
+      "title": "Science & Technology 3/3",
+      "sourceNames": [
+        "Theme 4: Science and Technology",
+        "Unit 5: Inventions",
+        "Unit 7: Artificial Intelligence"
+      ],
+      "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "words": [
         "airplane",
         "imitate",
         "submarine",
@@ -2062,8 +2151,44 @@
         "space suit",
         "solid",
         "traffic jam",
-        "algorithm",
+        "innovate",
+        "prototype",
         "artificial intelligence",
+        "robotics",
+        "cybernetics",
+        "microchip",
+        "circuitry",
+        "interface",
+        "telecommute",
+        "digitize",
+        "streamline",
+        "optimize",
+        "technophile",
+        "luddite",
+        "gadgetry",
+        "mechatronics",
+        "nanotechnology",
+        "biometrics",
+        "augmented reality",
+        "laser cutting",
+        "precision engineering",
+        "mechanization",
+        "computer vision",
+        "natural language processing",
+        "machine learning",
+        "data mining",
+        "cloud computing",
+        "internet of things",
+        "wearable technology",
+        "geospatial analysis",
+        "cryptocurrency",
+        "blockchain",
+        "neural network",
+        "algorithmic thinking",
+        "coding",
+        "debugging",
+        "hacking",
+        "algorithm",
         "call",
         "cyber attack",
         "exterminate",
@@ -2368,7 +2493,7 @@
       "sourceKey": "ielts-society-culture-1",
       "routeId": "ielts",
       "topicKey": "society-culture",
-      "title": "Society & Culture 1/6",
+      "title": "Society & Culture 1/7",
       "sourceNames": [
         "Topic 8: Family and Relationships",
         "Theme 7: Cultural Diversity",
@@ -2430,7 +2555,8 @@
         "circle of friends",
         "complete stranger",
         "close confidant",
-        "confess something to somebody"
+        "confess something to somebody",
+        "to drift apart"
       ]
     },
     {
@@ -2438,7 +2564,7 @@
       "sourceKey": "ielts-society-culture-2",
       "routeId": "ielts",
       "topicKey": "society-culture",
-      "title": "Society & Culture 2/6",
+      "title": "Society & Culture 2/7",
       "sourceNames": [
         "Topic 8: Family and Relationships",
         "Theme 7: Cultural Diversity",
@@ -2449,7 +2575,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "to drift apart",
         "deprived home",
         "distant relative",
         "divorce settlement",
@@ -2500,7 +2625,9 @@
         "kept somebody on a tight rein",
         "to know somebody inside out",
         "look alike",
-        "land of sympathetic ear"
+        "land of sympathetic ear",
+        "to make out with someone",
+        "men build the house and women make it home"
       ]
     },
     {
@@ -2508,7 +2635,7 @@
       "sourceKey": "ielts-society-culture-3",
       "routeId": "ielts",
       "topicKey": "society-culture",
-      "title": "Society & Culture 3/6",
+      "title": "Society & Culture 3/7",
       "sourceNames": [
         "Topic 8: Family and Relationships",
         "Theme 7: Cultural Diversity",
@@ -2519,8 +2646,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "to make out with someone",
-        "men build the house and women make it home",
         "match made in heaven",
         "messy divorce",
         "mutual divorce",
@@ -2570,7 +2695,10 @@
         "whisper sweet nothings",
         "well to do",
         "until the cow comes home",
-        "alder"
+        "alder",
+        "acculturation",
+        "assimilate",
+        "ancient monument"
       ]
     },
     {
@@ -2578,7 +2706,7 @@
       "sourceKey": "ielts-society-culture-4",
       "routeId": "ielts",
       "topicKey": "society-culture",
-      "title": "Society & Culture 4/6",
+      "title": "Society & Culture 4/7",
       "sourceNames": [
         "Topic 8: Family and Relationships",
         "Theme 7: Cultural Diversity",
@@ -2589,9 +2717,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "acculturation",
-        "assimilate",
-        "ancient monument",
         "attire",
         "buddhist culture",
         "blind man's buff",
@@ -2640,7 +2765,11 @@
         "honeymoon",
         "horoscope",
         "manners",
-        "marshall spirit"
+        "marshall spirit",
+        "martial spirit",
+        "multicultural",
+        "national cause",
+        "national costume"
       ]
     },
     {
@@ -2648,7 +2777,7 @@
       "sourceKey": "ielts-society-culture-5",
       "routeId": "ielts",
       "topicKey": "society-culture",
-      "title": "Society & Culture 5/6",
+      "title": "Society & Culture 5/7",
       "sourceNames": [
         "Topic 8: Family and Relationships",
         "Theme 7: Cultural Diversity",
@@ -2659,10 +2788,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "martial spirit",
-        "multicultural",
-        "national cause",
-        "national costume",
         "national pride",
         "proceed",
         "proposal",
@@ -2710,7 +2835,12 @@
         "run down",
         "salt water",
         "social welfare",
-        "same-sex marriage"
+        "same-sex marriage",
+        "social security",
+        "social fabric",
+        "social hierarchy",
+        "social campaign",
+        "smuggling"
       ]
     },
     {
@@ -2718,7 +2848,7 @@
       "sourceKey": "ielts-society-culture-6",
       "routeId": "ielts",
       "topicKey": "society-culture",
-      "title": "Society & Culture 6/6",
+      "title": "Society & Culture 6/7",
       "sourceNames": [
         "Topic 8: Family and Relationships",
         "Theme 7: Cultural Diversity",
@@ -2729,11 +2859,6 @@
       ],
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
       "words": [
-        "social security",
-        "social fabric",
-        "social hierarchy",
-        "social campaign",
-        "smuggling",
         "social inequality",
         "healthcare",
         "suicide",
@@ -2762,9 +2887,49 @@
         "aware",
         "unwelcome",
         "courage",
+        "parity",
+        "equity",
+        "empowerment",
+        "patriarchy",
+        "matriarchy",
+        "subordination",
+        "enfranchisement",
+        "suffrage",
+        "intersectionality",
+        "gender roles",
+        "gender stereotypes",
+        "wage gap",
+        "glass ceiling",
+        "sexual harassment",
+        "gender-based violence",
+        "affirmative action",
+        "quid pro quo",
+        "hostile work environment",
+        "reproductive rights",
+        "bodily autonomy",
+        "feminism",
+        "machismo",
         "identity",
         "cultural practice",
-        "custom",
+        "custom"
+      ]
+    },
+    {
+      "sourcePackage": "exam-ielts",
+      "sourceKey": "ielts-society-culture-7",
+      "routeId": "ielts",
+      "topicKey": "society-culture",
+      "title": "Society & Culture 7/7",
+      "sourceNames": [
+        "Topic 8: Family and Relationships",
+        "Theme 7: Cultural Diversity",
+        "Theme 11: Socical Issues",
+        "Unit 6: Gender Equality",
+        "Unit 5: Cultural Identity",
+        "Unit 7: Cultural Diversity"
+      ],
+      "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "words": [
         "diversity",
         "flock",
         "similarity",
@@ -2780,7 +2945,44 @@
         "favorable",
         "originate",
         "descendant",
-        "alter"
+        "alter",
+        "assimilation",
+        "diversity awareness",
+        "ethnicity",
+        "folklore",
+        "customary",
+        "intercultural",
+        "multiculturalism",
+        "pluralism",
+        "secular",
+        "sacred ritual",
+        "taboo",
+        "tolerance",
+        "tribal",
+        "vested interest",
+        "ancestral land",
+        "diaspora",
+        "endogamy",
+        "exogamy",
+        "genealogy",
+        "heterogeneous",
+        "homogeneous",
+        "inclusivity",
+        "indigenous culture",
+        "lineage",
+        "matrilineal",
+        "patrilineal",
+        "polygamy",
+        "prejudice",
+        "reconciliation",
+        "regional identity",
+        "social cohesion",
+        "symbolic expression",
+        "transcultural",
+        "tribalism",
+        "universal values",
+        "xenophobia",
+        "youth culture"
       ]
     },
     {

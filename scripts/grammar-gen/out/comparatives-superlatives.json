@@ -500,6 +500,1150 @@
       ],
       "answer": "Your bag is as heavy as mine.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative**: My bike is ___ than yours.",
+      "options": [
+        "faster",
+        "fast",
+        "fastest",
+        "the faster"
+      ],
+      "correct_answer": "faster",
+      "explanation": "Đáp án đúng là “faster” vì tính từ ngắn “fast” thêm “-er” khi so sánh hơn và đi với “than”. “fast” là dạng gốc, “fastest” là so sánh nhất, còn “the faster” không phù hợp trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **superlative**: Today is ___ day of the week.",
+      "options": [
+        "the coldest",
+        "colder",
+        "more cold",
+        "coldest than"
+      ],
+      "correct_answer": "the coldest",
+      "explanation": "Đáp án đúng là “the coldest” vì so sánh nhất cần “the” + tính từ ngắn thêm “-est”. “colder” là so sánh hơn, “more cold” không tự nhiên ở mức này, và “coldest than” sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **more form**: This book is ___ than that one.",
+      "options": [
+        "more interesting",
+        "interestinger",
+        "the most interesting",
+        "most interesting than"
+      ],
+      "correct_answer": "more interesting",
+      "explanation": "Đáp án đúng là “more interesting” vì “interesting” là tính từ dài nên dùng “more” trong so sánh hơn. “interestinger” sai dạng, “the most interesting” là so sánh nhất, và “most interesting than” sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **most form**: This is ___ song on the album.",
+      "options": [
+        "the most popular",
+        "more popular",
+        "popularer",
+        "the popularest"
+      ],
+      "correct_answer": "the most popular",
+      "explanation": "Đáp án đúng là “the most popular” vì “popular” là tính từ dài nên dùng “the most” cho so sánh nhất. “more popular” là so sánh hơn, còn “popularer” và “the popularest” là dạng sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **as...as** form: Mia is as ___ as her sister.",
+      "options": [
+        "kind",
+        "kinder",
+        "the kindest",
+        "more kind"
+      ],
+      "correct_answer": "kind",
+      "explanation": "Đáp án đúng là “kind” vì cấu trúc ngang bằng là “as + adjective + as”. “kinder”, “the kindest” và “more kind” là các dạng so sánh, không dùng trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative**: A rabbit is ___ than a turtle.",
+      "options": [
+        "quicker",
+        "quick",
+        "the quickest",
+        "most quick"
+      ],
+      "correct_answer": "quicker",
+      "explanation": "Đáp án đúng là “quicker” vì “quick” là tính từ ngắn nên thêm “-er” khi so sánh hơn. “quick” là dạng gốc, “the quickest” là so sánh nhất, và “most quick” không phải lựa chọn chuẩn ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **superlative**: That is ___ chair in the room.",
+      "options": [
+        "the smallest",
+        "smaller",
+        "more small",
+        "smallest than"
+      ],
+      "correct_answer": "the smallest",
+      "explanation": "Đáp án đúng là “the smallest” vì so sánh nhất dùng “the” + “-est” với tính từ ngắn. “smaller” là so sánh hơn, “more small” không phù hợp, và “smallest than” sai vì so sánh nhất không đi với “than”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **irregular form**: This test is ___ than the last one.",
+      "options": [
+        "better",
+        "gooder",
+        "best",
+        "the best"
+      ],
+      "correct_answer": "better",
+      "explanation": "Đáp án đúng là “better” vì “good” có dạng so sánh hơn bất quy tắc là “better”. “gooder” sai, còn “best” và “the best” là so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **spelling change**: This box is ___ than that box.",
+      "options": [
+        "heavier",
+        "heavyer",
+        "more heavy",
+        "the heaviest"
+      ],
+      "correct_answer": "heavier",
+      "explanation": "Đáp án đúng là “heavier” vì tính từ kết thúc bằng phụ âm + “y” đổi “y” thành “i” rồi thêm “-er”. “heavyer” sai chính tả, “more heavy” không phù hợp ở mức cơ bản, và “the heaviest” là so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **comparative**: My phone is ___ than my old phone.",
+      "options": [
+        "newer",
+        "newest",
+        "new",
+        "the newest"
+      ],
+      "correct_answer": "newer",
+      "explanation": "Đáp án đúng là “newer” vì câu so sánh hai chiếc điện thoại và có “than”. “newest” và “the newest” là so sánh nhất, còn “new” là dạng gốc.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **superlative**: Anna is ___ person in our group.",
+      "options": [
+        "the youngest",
+        "younger",
+        "young",
+        "more young"
+      ],
+      "correct_answer": "the youngest",
+      "explanation": "Đáp án đúng là “the youngest” vì câu nói về một người nổi bật nhất trong cả nhóm. “younger” dùng để so sánh hai đối tượng, “young” là dạng gốc, và “more young” không chuẩn ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **long adjective**: This sofa is ___ than that chair.",
+      "options": [
+        "more comfortable",
+        "comfortabler",
+        "the most comfortable",
+        "comfortable"
+      ],
+      "correct_answer": "more comfortable",
+      "explanation": "Đáp án đúng là “more comfortable” vì “comfortable” là tính từ dài nên dùng “more” trong so sánh hơn. “comfortabler” sai dạng, “the most comfortable” là so sánh nhất, và “comfortable” thiếu ý so sánh.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **superlative**: It is ___ restaurant near my house.",
+      "options": [
+        "the cheapest",
+        "cheaper",
+        "cheap",
+        "more cheap"
+      ],
+      "correct_answer": "the cheapest",
+      "explanation": "Đáp án đúng là “the cheapest” vì đang nói nhà hàng rẻ nhất trong khu vực. “cheaper” cần so sánh với một đối tượng khác, “cheap” là dạng gốc, và “more cheap” không phù hợp với tính từ ngắn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **as...as** sentence: This pencil is as ___ as that one.",
+      "options": [
+        "long",
+        "longer",
+        "the longest",
+        "more long"
+      ],
+      "correct_answer": "long",
+      "explanation": "Đáp án đúng là “long” vì cấu trúc ngang bằng dùng tính từ dạng gốc: “as long as”. “longer” và “the longest” là dạng so sánh, còn “more long” sai với tính từ ngắn.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **irregular comparative**: My English is ___ than before.",
+      "options": [
+        "better",
+        "gooder",
+        "best",
+        "the best"
+      ],
+      "correct_answer": "better",
+      "explanation": "Đáp án đúng là “better” vì dạng so sánh hơn của “good” là “better”. “gooder” sai, còn “best” và “the best” dùng cho so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **double consonant** form: This bag is ___ than mine.",
+      "options": [
+        "bigger",
+        "biger",
+        "more big",
+        "the biggest"
+      ],
+      "correct_answer": "bigger",
+      "explanation": "Đáp án đúng là “bigger” vì “big” kết thúc bằng phụ âm-nguyên âm-phụ âm nên gấp đôi “g” rồi thêm “-er”. “biger” sai chính tả, “more big” không chuẩn, và “the biggest” là so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **far form**: The library is ___ than the park.",
+      "options": [
+        "farther",
+        "farthest",
+        "the farthest",
+        "more far"
+      ],
+      "correct_answer": "farther",
+      "explanation": "Đáp án đúng là “farther” vì câu so sánh khoảng cách giữa hai nơi và có “than”. “farthest” và “the farthest” là so sánh nhất, còn “more far” không phải dạng chuẩn cơ bản.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This cake is **more sweet** than that cookie.",
+      "options": [
+        "This cake",
+        "is",
+        "more sweet",
+        "than that cookie"
+      ],
+      "correct_answer": "more sweet",
+      "explanation": "Lỗi là “more sweet” vì “sweet” là tính từ ngắn, nên dùng “sweeter”. Các phần còn lại đúng cấu trúc câu so sánh hơn với “than”.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Ben is **the taller** boy in his family.",
+      "options": [
+        "Ben",
+        "is",
+        "the taller",
+        "in his family"
+      ],
+      "correct_answer": "the taller",
+      "explanation": "Lỗi là “the taller” vì đang nói nổi bật nhất trong gia đình nên cần so sánh nhất: “the tallest”. “Ben”, “is” và “in his family” đều phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: My room is **cleanest** than your room.",
+      "options": [
+        "My room",
+        "is",
+        "cleanest",
+        "than your room"
+      ],
+      "correct_answer": "cleanest",
+      "explanation": "Lỗi là “cleanest” vì có “than” nên phải dùng so sánh hơn: “cleaner”. “My room”, “is” và “than your room” đúng trong cấu trúc so sánh hơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This exercise is **the most easy** in the book.",
+      "options": [
+        "This exercise",
+        "is",
+        "the most easy",
+        "in the book"
+      ],
+      "correct_answer": "the most easy",
+      "explanation": "Lỗi là “the most easy” vì “easy” đổi “y” thành “i” rồi thêm “-est”: “the easiest”. Các phần còn lại đúng cho câu so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Lisa is as **taller** as her brother.",
+      "options": [
+        "Lisa",
+        "is as",
+        "taller",
+        "as her brother"
+      ],
+      "correct_answer": "taller",
+      "explanation": "Lỗi là “taller” vì cấu trúc “as...as” dùng tính từ dạng gốc: “as tall as”. Các phần khác tạo đúng khung câu so sánh ngang bằng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This road is **narrower from** the main road.",
+      "options": [
+        "This road",
+        "is",
+        "narrower from",
+        "the main road"
+      ],
+      "correct_answer": "narrower from",
+      "explanation": "Lỗi là “narrower from” vì so sánh hơn phải dùng “than”: “narrower than”. “This road”, “is” và “the main road” là các phần còn lại hợp lý.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: That was **the worse** meal today.",
+      "options": [
+        "That",
+        "was",
+        "the worse",
+        "meal today"
+      ],
+      "correct_answer": "the worse",
+      "explanation": "Lỗi là “the worse” vì so sánh nhất của “bad” là “the worst”. “worse” chỉ dùng cho so sánh hơn giữa hai đối tượng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: July is **hotterest** month in my city.",
+      "options": [
+        "July",
+        "is",
+        "hotterest",
+        "month in my city"
+      ],
+      "correct_answer": "hotterest",
+      "explanation": "Lỗi là “hotterest” vì so sánh nhất của “hot” là “the hottest”. Cần thêm “the” và không được ghép cả “-er” lẫn “-est”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative**: The blue car is ___ than the red car.",
+      "options": [
+        "faster",
+        "fastest",
+        "the fastest",
+        "more faster"
+      ],
+      "correct_answer": "faster",
+      "explanation": "Với tính từ ngắn 'fast', ta thêm '-er' để tạo so sánh hơn: 'faster than'. 'Fastest' và 'the fastest' là so sánh nhất, còn 'more faster' sai vì không dùng 'more' với dạng '-er'.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **superlative**: This is ___ building on our street.",
+      "options": [
+        "the tallest",
+        "taller",
+        "more tall",
+        "tallest than"
+      ],
+      "correct_answer": "the tallest",
+      "explanation": "So sánh nhất cần 'the + tính từ ngắn + -est': 'the tallest'. 'Taller' là so sánh hơn, 'more tall' không tự nhiên với tính từ ngắn, và 'tallest than' sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **long adjective** form: My new shoes are ___ than my old ones.",
+      "options": [
+        "more comfortable",
+        "comfortabler",
+        "the most comfortable",
+        "most comfortable than"
+      ],
+      "correct_answer": "more comfortable",
+      "explanation": "Với tính từ dài 'comfortable', dùng 'more + adjective + than' để so sánh hơn. 'Comfortabler' sai dạng, 'the most comfortable' là so sánh nhất, và 'most comfortable than' thiếu 'the' và sai nghĩa.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **irregular** form: Her coffee is ___ than mine.",
+      "options": [
+        "better",
+        "best",
+        "gooder",
+        "the best"
+      ],
+      "correct_answer": "better",
+      "explanation": "'Good' có dạng so sánh hơn bất quy tắc là 'better'. 'Best' và 'the best' là so sánh nhất, còn 'gooder' không đúng tiếng Anh chuẩn.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **as...as** form: Tom is as ___ as his dad.",
+      "options": [
+        "strong",
+        "stronger",
+        "the strongest",
+        "more strong"
+      ],
+      "correct_answer": "strong",
+      "explanation": "Cấu trúc bằng nhau là 'as + adjective + as', nên dùng tính từ gốc 'strong'. 'Stronger' là so sánh hơn, 'the strongest' là so sánh nhất, và 'more strong' không phù hợp ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **superlative**: Monday is ___ day for me.",
+      "options": [
+        "the busiest",
+        "busier",
+        "more busy",
+        "busy than"
+      ],
+      "correct_answer": "the busiest",
+      "explanation": "Với tính từ kết thúc bằng phụ âm + y, đổi 'y' thành 'i' rồi thêm '-est': 'the busiest'. 'Busier' là so sánh hơn, 'more busy' ít chuẩn ở cấp cơ bản, và 'busy than' sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative**: This street is ___ than our street.",
+      "options": [
+        "wider",
+        "the widest",
+        "more wide",
+        "wide than"
+      ],
+      "correct_answer": "wider",
+      "explanation": "'Wide' là tính từ ngắn nên dạng so sánh hơn là 'wider than'. 'The widest' là so sánh nhất, 'more wide' không phải lựa chọn chuẩn ở mức cơ bản, và 'wide than' thiếu dạng so sánh.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **most form**: This movie is ___ than the first movie.",
+      "options": [
+        "more exciting",
+        "the most exciting",
+        "excitinger",
+        "most exciting"
+      ],
+      "correct_answer": "more exciting",
+      "explanation": "Với tính từ dài 'exciting', so sánh hơn dùng 'more exciting than'. 'The most exciting' là so sánh nhất, 'excitinger' sai, và 'most exciting' thiếu 'the' khi dùng so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **least form**: This road is ___ dangerous than that road.",
+      "options": [
+        "less",
+        "least",
+        "the least",
+        "little"
+      ],
+      "correct_answer": "less",
+      "explanation": "So sánh kém hơn dùng 'less + adjective + than': 'less dangerous than'. 'Least' và 'the least' là so sánh nhất, còn 'little' không tạo cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **comparative**: My sister is ___ than me.",
+      "options": [
+        "younger",
+        "youngest",
+        "the youngest",
+        "more young"
+      ],
+      "correct_answer": "younger",
+      "explanation": "'Young' là tính từ ngắn nên thêm '-er' khi so sánh hai người: 'younger than'. 'Youngest' và 'the youngest' là so sánh nhất, còn 'more young' không chuẩn ở mức cơ bản.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **superlative**: This is ___ question in the quiz.",
+      "options": [
+        "the hardest",
+        "harder",
+        "more hard",
+        "hardest than"
+      ],
+      "correct_answer": "the hardest",
+      "explanation": "So sánh nhất dùng 'the + adjective + -est': 'the hardest'. 'Harder' là so sánh hơn, 'more hard' không chuẩn với tính từ ngắn, và 'hardest than' sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **more form**: This story is ___ than that story.",
+      "options": [
+        "more interesting",
+        "interestinger",
+        "the most interesting",
+        "most interesting"
+      ],
+      "correct_answer": "more interesting",
+      "explanation": "'Interesting' là tính từ dài nên dùng 'more interesting than'. 'Interestinger' sai, còn 'the most interesting' và 'most interesting' dùng cho so sánh nhất.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **superlative**: She is ___ player on the team.",
+      "options": [
+        "the best",
+        "better",
+        "gooder",
+        "best than"
+      ],
+      "correct_answer": "the best",
+      "explanation": "'Good' có dạng so sánh nhất bất quy tắc là 'the best'. 'Better' là so sánh hơn, 'gooder' sai, và 'best than' không đúng cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **double consonant** form: This dog is ___ than that dog.",
+      "options": [
+        "bigger",
+        "biger",
+        "biggest",
+        "more big"
+      ],
+      "correct_answer": "bigger",
+      "explanation": "Với 'big', ta gấp đôi phụ âm cuối rồi thêm '-er': 'bigger'. 'Biger' sai chính tả, 'biggest' là so sánh nhất, và 'more big' không chuẩn ở mức cơ bản.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **as...as** sentence: The water is as ___ as ice.",
+      "options": [
+        "cold",
+        "colder",
+        "the coldest",
+        "more cold"
+      ],
+      "correct_answer": "cold",
+      "explanation": "Sau 'as' đầu tiên dùng tính từ gốc: 'as cold as'. 'Colder' là so sánh hơn, 'the coldest' là so sánh nhất, và 'more cold' không phù hợp với cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **far comparative**: My school is ___ than your school.",
+      "options": [
+        "farther",
+        "farthest",
+        "the farthest",
+        "more far"
+      ],
+      "correct_answer": "farther",
+      "explanation": "'Far' có dạng so sánh hơn là 'farther' hoặc 'further'; trong các lựa chọn, 'farther' đúng. 'Farthest' và 'the farthest' là so sánh nhất, còn 'more far' không chuẩn.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **least form**: This bag is ___ expensive in the shop.",
+      "options": [
+        "the least",
+        "less",
+        "least than",
+        "more less"
+      ],
+      "correct_answer": "the least",
+      "explanation": "So sánh nhất mức thấp nhất dùng 'the least + adjective': 'the least expensive'. 'Less' là so sánh hơn, 'least than' và 'more less' sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: My brother is **more old** than me.",
+      "options": [
+        "My brother",
+        "is",
+        "more old",
+        "than me"
+      ],
+      "correct_answer": "more old",
+      "explanation": "Lỗi là 'more old' vì 'old' là tính từ ngắn, dạng đúng là 'older'. Các phần còn lại tạo câu so sánh hơn đúng: 'My brother is older than me.'",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This is **coldest** drink on the menu.",
+      "options": [
+        "This",
+        "is",
+        "coldest",
+        "on the menu"
+      ],
+      "correct_answer": "coldest",
+      "explanation": "So sánh nhất cần mạo từ 'the', nên phải là 'the coldest drink'. Các phần khác không sai trong cấu trúc câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: My desk is **more tidy** than yours.",
+      "options": [
+        "My desk",
+        "is",
+        "more tidy",
+        "than yours"
+      ],
+      "correct_answer": "more tidy",
+      "explanation": "'Tidy' thường đổi 'y' thành 'i' rồi thêm '-er': 'tidier'. 'More tidy' không phải dạng cơ bản được mong đợi trong bài này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This hotel is **the most cheap** in town.",
+      "options": [
+        "This hotel",
+        "is",
+        "the most cheap",
+        "in town"
+      ],
+      "correct_answer": "the most cheap",
+      "explanation": "'Cheap' là tính từ ngắn nên so sánh nhất là 'the cheapest'. 'The most cheap' sai theo quy tắc cơ bản; các phần khác đúng nghĩa và vị trí.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The red dress is **prettier as** the blue dress.",
+      "options": [
+        "The red dress",
+        "is",
+        "prettier as",
+        "the blue dress"
+      ],
+      "correct_answer": "prettier as",
+      "explanation": "So sánh hơn phải dùng 'than', nên đúng là 'prettier than'. 'As' chỉ dùng trong cấu trúc bằng nhau 'as pretty as'.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Jack is **the shorter** student in our class.",
+      "options": [
+        "Jack",
+        "is",
+        "the shorter",
+        "student in our class"
+      ],
+      "correct_answer": "the shorter",
+      "explanation": "Khi nói một người nổi bật nhất trong cả lớp, dùng so sánh nhất: 'the shortest student'. 'The shorter' chỉ phù hợp khi so sánh giữa hai người.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This lesson is **easier than** in the book.",
+      "options": [
+        "This lesson",
+        "is",
+        "easier than",
+        "in the book"
+      ],
+      "correct_answer": "easier than",
+      "explanation": "Sau 'than' cần có đối tượng được so sánh rõ ràng, ví dụ 'easier than the lesson in the book'. Cụm 'easier than in the book' thiếu danh từ hoặc đại từ so sánh.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Today is **more sunny** than yesterday.",
+      "options": [
+        "Today",
+        "is",
+        "more sunny",
+        "than yesterday"
+      ],
+      "correct_answer": "more sunny",
+      "explanation": "'Sunny' đổi 'y' thành 'i' rồi thêm '-er': 'sunnier'. 'More sunny' không phải dạng chuẩn trong bài so sánh cơ bản.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative**: The cat is ___ than the mouse.",
+      "options": [
+        "bigger",
+        "biger",
+        "biggest",
+        "more big"
+      ],
+      "correct_answer": "bigger",
+      "explanation": "Đáp án đúng là “bigger” vì tính từ ngắn “big” gấp đôi phụ âm cuối rồi thêm -er. “biger” sai chính tả, “biggest” là so sánh nhất, còn “more big” không tự nhiên với tính từ ngắn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **superlative**: Anna is ___ girl in her family.",
+      "options": [
+        "the youngest",
+        "younger",
+        "the younger",
+        "most young"
+      ],
+      "correct_answer": "the youngest",
+      "explanation": "Đáp án đúng là “the youngest” vì so sánh nhất với tính từ ngắn dùng “the + -est”. “younger” là so sánh hơn, “the younger” dùng khi so hai người, và “most young” không đúng dạng cơ bản.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **more form**: This sofa is ___ than that chair.",
+      "options": [
+        "more comfortable",
+        "comfortabler",
+        "the most comfortable",
+        "as comfortable"
+      ],
+      "correct_answer": "more comfortable",
+      "explanation": "Đáp án đúng là “more comfortable” vì “comfortable” là tính từ dài nên dùng “more + adjective” khi so sánh hơn. “comfortabler” sai dạng, “the most comfortable” là so sánh nhất, “as comfortable” cần cấu trúc “as...as”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **irregular** form: Your answer is ___ than mine.",
+      "options": [
+        "better",
+        "gooder",
+        "best",
+        "more good"
+      ],
+      "correct_answer": "better",
+      "explanation": "Đáp án đúng là “better” vì so sánh hơn của “good” là bất quy tắc. “gooder” và “more good” sai, còn “best” là so sánh nhất.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **than** form: The kitchen is cleaner ___ the bathroom.",
+      "options": [
+        "than",
+        "as",
+        "from",
+        "to"
+      ],
+      "correct_answer": "than",
+      "explanation": "Đáp án đúng là “than” vì so sánh hơn thường đi với “than”. “as” dùng trong “as...as”, còn “from” và “to” không dùng trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **as...as** form: This pencil is as ___ as that one.",
+      "options": [
+        "short",
+        "shorter",
+        "shortest",
+        "more short"
+      ],
+      "correct_answer": "short",
+      "explanation": "Đáp án đúng là “short” vì cấu trúc ngang bằng là “as + adjective + as”. “shorter” là so sánh hơn, “shortest” là so sánh nhất, và “more short” không đúng ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **superlative**: This is ___ phone in the store.",
+      "options": [
+        "the most expensive",
+        "more expensive",
+        "expensiver",
+        "the expensivest"
+      ],
+      "correct_answer": "the most expensive",
+      "explanation": "Đáp án đúng là “the most expensive” vì “expensive” là tính từ dài nên so sánh nhất dùng “the most”. “more expensive” là so sánh hơn, còn hai dạng còn lại sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **ending**: Today is ___ than last Friday.",
+      "options": [
+        "busier",
+        "busyier",
+        "more busy",
+        "the busiest"
+      ],
+      "correct_answer": "busier",
+      "explanation": "Đáp án đúng là “busier” vì tính từ kết thúc bằng phụ âm + y đổi “y” thành “i” rồi thêm -er. “busyier” sai chính tả, “more busy” không phải dạng ưu tiên ở trình độ cơ bản, và “the busiest” là so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **least** form: This room is ___ noisy in the house.",
+      "options": [
+        "the least",
+        "less",
+        "least than",
+        "the less"
+      ],
+      "correct_answer": "the least",
+      "explanation": "Đáp án đúng là “the least noisy” vì so sánh nhất mức độ thấp nhất dùng “the least + adjective”. “less” là so sánh hơn, “least than” sai cấu trúc, và “the less” không dùng cho so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **comparative**: My bag is ___ than yours.",
+      "options": [
+        "heavier",
+        "heavyer",
+        "the heaviest",
+        "more heavy"
+      ],
+      "correct_answer": "heavier",
+      "explanation": "Đáp án đúng là “heavier” vì “heavy” đổi “y” thành “i” rồi thêm -er. “heavyer” sai chính tả, “the heaviest” là so sánh nhất, còn “more heavy” không phải dạng cơ bản nên tránh dùng.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **superlative**: This is ___ cake at the party.",
+      "options": [
+        "the sweetest",
+        "sweeter",
+        "sweetest than",
+        "more sweet"
+      ],
+      "correct_answer": "the sweetest",
+      "explanation": "Đáp án đúng là “the sweetest” vì so sánh nhất của tính từ ngắn dùng “the + -est”. “sweeter” là so sánh hơn, “sweetest than” sai vì so sánh nhất không đi với “than”, và “more sweet” không phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **long adjective** form: The park is ___ than the station.",
+      "options": [
+        "more beautiful",
+        "beautifuller",
+        "the most beautiful",
+        "beautifulest"
+      ],
+      "correct_answer": "more beautiful",
+      "explanation": "Đáp án đúng là “more beautiful” vì “beautiful” là tính từ dài. “beautifuller” và “beautifulest” sai dạng, còn “the most beautiful” là so sánh nhất.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **irregular** comparative: This test is ___ than the last test.",
+      "options": [
+        "worse",
+        "badder",
+        "worst",
+        "more bad"
+      ],
+      "correct_answer": "worse",
+      "explanation": "Đáp án đúng là “worse” vì so sánh hơn của “bad” là bất quy tắc. “badder” và “more bad” sai, còn “worst” là so sánh nhất.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **superlative**: He is ___ person in the room.",
+      "options": [
+        "the oldest",
+        "older",
+        "more old",
+        "oldest than"
+      ],
+      "correct_answer": "the oldest",
+      "explanation": "Đáp án đúng là “the oldest” vì so sánh nhất cần “the” và đuôi -est với tính từ ngắn. “older” là so sánh hơn, “more old” không đúng dạng cơ bản, và “oldest than” sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **double consonant** form: My room is ___ than yours.",
+      "options": [
+        "bigger",
+        "biger",
+        "biggest",
+        "more bigger"
+      ],
+      "correct_answer": "bigger",
+      "explanation": "Đáp án đúng là “bigger” vì “big” gấp đôi “g” rồi thêm -er. “biger” sai chính tả, “biggest” là so sánh nhất, và “more bigger” bị lặp ý so sánh hơn.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **not as** sentence: The bus is not as fast ___ the train.",
+      "options": [
+        "as",
+        "than",
+        "to",
+        "from"
+      ],
+      "correct_answer": "as",
+      "explanation": "Đáp án đúng là “as” vì cấu trúc là “not as + adjective + as”. “than” dùng với so sánh hơn, còn “to” và “from” không đúng trong mẫu câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **far** comparative: The airport is ___ than the market.",
+      "options": [
+        "farther",
+        "far",
+        "farthest",
+        "more far"
+      ],
+      "correct_answer": "farther",
+      "explanation": "Đáp án đúng là “farther” vì đây là dạng so sánh hơn của “far” khi nói về khoảng cách. “far” là dạng gốc, “farthest” là so sánh nhất, và “more far” không dùng trong mẫu cơ bản.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **most** form: This game is ___ than that puzzle.",
+      "options": [
+        "more interesting",
+        "the most interesting",
+        "interestinger",
+        "most interesting"
+      ],
+      "correct_answer": "more interesting",
+      "explanation": "Đáp án đúng là “more interesting” vì câu có “than” nên cần so sánh hơn. “the most interesting” và “most interesting” là so sánh nhất, còn “interestinger” sai dạng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This box is **more small** than that box.",
+      "options": [
+        "This box",
+        "is",
+        "more small",
+        "than that box"
+      ],
+      "correct_answer": "more small",
+      "explanation": "Lỗi là “more small” vì “small” là tính từ ngắn, dạng đúng là “smaller”. Các phần còn lại phù hợp với cấu trúc so sánh hơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Sarah is **the more friendly** girl in our group.",
+      "options": [
+        "Sarah",
+        "is",
+        "the more friendly",
+        "in our group"
+      ],
+      "correct_answer": "the more friendly",
+      "explanation": "Lỗi là “the more friendly” vì câu nói về một người nổi bật nhất trong nhóm nên cần so sánh nhất: “the friendliest” hoặc “the most friendly”. “Sarah”, “is” và “in our group” không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: My house is **farer** than the library.",
+      "options": [
+        "My house",
+        "is",
+        "farer",
+        "than the library"
+      ],
+      "correct_answer": "farer",
+      "explanation": "Lỗi là “farer” vì so sánh hơn của “far” là “farther” hoặc “further”. Các phần khác đúng với cấu trúc “comparative + than”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This is **the goodest** song on the album.",
+      "options": [
+        "This",
+        "is",
+        "the goodest",
+        "on the album"
+      ],
+      "correct_answer": "the goodest",
+      "explanation": "Lỗi là “the goodest” vì so sánh nhất của “good” là “the best”. “This is” và “on the album” đều đúng trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The café is **more near** than the bank.",
+      "options": [
+        "The café",
+        "is",
+        "more near",
+        "than the bank"
+      ],
+      "correct_answer": "more near",
+      "explanation": "Lỗi là “more near” vì với nghĩa khoảng cách ở mức cơ bản, nên dùng “nearer”. “than the bank” đúng vì so sánh hơn đi với “than”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Ben is **tallest** than Mark.",
+      "options": [
+        "Ben",
+        "is",
+        "tallest",
+        "than Mark"
+      ],
+      "correct_answer": "tallest",
+      "explanation": "Lỗi là “tallest” vì có “than” nên phải dùng so sánh hơn: “taller”. “Ben” và “is” đúng, “than Mark” phù hợp với dạng so sánh hơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This bag is **as light than** that one.",
+      "options": [
+        "This bag",
+        "is",
+        "as light than",
+        "that one"
+      ],
+      "correct_answer": "as light than",
+      "explanation": "Lỗi là “as light than” vì cấu trúc đúng là “as light as”. “than” dùng cho so sánh hơn, không dùng trong cấu trúc ngang bằng “as...as”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative**: My brother is ___ than me.",
+      "options": [
+        "older",
+        "oldest",
+        "more old",
+        "the oldest"
+      ],
+      "correct_answer": "older",
+      "explanation": "Đáp án đúng là \"older\" vì so sánh hai người dùng tính từ ngắn + -er và có \"than\". \"oldest\" và \"the oldest\" là so sánh nhất; \"more old\" không tự nhiên với tính từ ngắn \"old\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **superlative**: This is ___ street in our town.",
+      "options": [
+        "the longest",
+        "longer",
+        "more long",
+        "longest than"
+      ],
+      "correct_answer": "the longest",
+      "explanation": "Đáp án đúng là \"the longest\" vì so sánh nhất dùng \"the + tính từ ngắn + -est\". \"longer\" là so sánh hơn; \"more long\" và \"longest than\" sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **more form**: English is ___ than math for me.",
+      "options": [
+        "more interesting",
+        "interestinger",
+        "the most interesting",
+        "interesting than"
+      ],
+      "correct_answer": "more interesting",
+      "explanation": "Đáp án đúng là \"more interesting\" vì \"interesting\" là tính từ dài nên dùng \"more + adjective + than\". \"interestinger\" sai dạng; \"the most interesting\" là so sánh nhất; \"interesting than\" thiếu \"more\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **irregular** form: This problem is ___ than that one.",
+      "options": [
+        "worse",
+        "badder",
+        "the worst",
+        "more bad"
+      ],
+      "correct_answer": "worse",
+      "explanation": "Đáp án đúng là \"worse\" vì so sánh hơn của \"bad\" là bất quy tắc: \"worse\". \"badder\" và \"more bad\" sai; \"the worst\" là so sánh nhất.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **as...as** form: The white shirt is ___ the black shirt.",
+      "options": [
+        "as clean as",
+        "cleaner as",
+        "as cleaner as",
+        "clean than"
+      ],
+      "correct_answer": "as clean as",
+      "explanation": "Đáp án đúng là \"as clean as\" vì cấu trúc so sánh bằng là \"as + adjective + as\". \"cleaner as\" và \"clean than\" trộn sai cấu trúc; \"as cleaner as\" không dùng dạng -er trong so sánh bằng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **comparative**: This apple is ___ than that orange.",
+      "options": [
+        "sweeter",
+        "sweetest",
+        "more sweet",
+        "the sweetest"
+      ],
+      "correct_answer": "sweeter",
+      "explanation": "Đáp án đúng là \"sweeter\" vì \"sweet\" là tính từ ngắn, so sánh hơn dùng \"-er\". \"sweetest\" và \"the sweetest\" là so sánh nhất; \"more sweet\" không phải dạng chuẩn ở trình độ cơ bản.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **superlative**: Tom is ___ boy on the team.",
+      "options": [
+        "the youngest",
+        "younger",
+        "more young",
+        "youngest than"
+      ],
+      "correct_answer": "the youngest",
+      "explanation": "Đáp án đúng là \"the youngest\" vì đang nói người nhỏ tuổi nhất trong một nhóm. \"younger\" là so sánh hơn; \"more young\" và \"youngest than\" sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **long adjective** form: This movie is ___ than the old one.",
+      "options": [
+        "more exciting",
+        "excitinger",
+        "the most exciting",
+        "excited than"
+      ],
+      "correct_answer": "more exciting",
+      "explanation": "Đáp án đúng là \"more exciting\" vì \"exciting\" là tính từ dài, so sánh hơn dùng \"more\". \"excitinger\" sai dạng; \"the most exciting\" là so sánh nhất; \"excited than\" dùng sai tính từ và thiếu \"more\".",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **double consonant** form: The river is ___ here than there.",
+      "options": [
+        "deeper",
+        "deepper",
+        "the deepest",
+        "more deep"
+      ],
+      "correct_answer": "deeper",
+      "explanation": "Đáp án đúng là \"deeper\" vì \"deep\" chỉ thêm \"-er\", không gấp đôi phụ âm cuối. \"deepper\" sai chính tả; \"the deepest\" là so sánh nhất; \"more deep\" không phải dạng thông dụng cho tính từ ngắn này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: These shoes are **more big** than my old shoes.",
+      "options": [
+        "These shoes",
+        "are",
+        "more big",
+        "my old shoes"
+      ],
+      "correct_answer": "more big",
+      "explanation": "Lỗi là \"more big\" vì \"big\" là tính từ ngắn, dạng đúng là \"bigger\". Các phần còn lại đúng trong câu so sánh hơn với \"than\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: July is **the hotter** month of the year here.",
+      "options": [
+        "July",
+        "is",
+        "the hotter",
+        "of the year"
+      ],
+      "correct_answer": "the hotter",
+      "explanation": "Lỗi là \"the hotter\" vì đang nói tháng nóng nhất trong năm, cần so sánh nhất: \"the hottest\". \"hotter\" chỉ dùng khi so sánh hai đối tượng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This chair is **comfortabler** than that chair.",
+      "options": [
+        "This chair",
+        "is",
+        "comfortabler",
+        "than that chair"
+      ],
+      "correct_answer": "comfortabler",
+      "explanation": "Lỗi là \"comfortabler\" vì \"comfortable\" là tính từ dài, dạng đúng là \"more comfortable\". Các phần khác đúng cho cấu trúc so sánh hơn.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It is **the most easy** question in the quiz.",
+      "options": [
+        "It",
+        "is",
+        "the most easy",
+        "in the quiz"
+      ],
+      "correct_answer": "the most easy",
+      "explanation": "Lỗi là \"the most easy\" vì \"easy\" dùng so sánh nhất là \"the easiest\". \"It\", \"is\" và \"in the quiz\" đều phù hợp với câu này.",
+      "difficulty": 2
     }
   ]
 }
