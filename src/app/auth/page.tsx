@@ -34,6 +34,34 @@ export default function AuthPage() {
     if (params.get('role') === 'teacher') setRole('teacher');
   }, []);
 
+  // OAuth bounce guard: Google login có thể đáp về /auth (implicit flow #hash hoặc
+  // Supabase Site URL fallback). detectSessionInUrl đã lưu session vào localStorage,
+  // nhưng trang này không redirect → kẹt. Phát hiện session → đẩy vào dashboard.
+  useEffect(() => {
+    const redirectIfLoggedIn = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+      const params = new URLSearchParams(window.location.search);
+      const wantTeacher = params.get('role') === 'teacher';
+      if (wantTeacher) {
+        await supabase.from('profiles').update({ role: 'teacher' }).eq('id', session.user.id);
+      }
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', session.user.id)
+        .single();
+      const role = wantTeacher ? 'teacher' : profile?.role;
+      window.location.href = role === 'teacher' ? '/teacher' : '/student';
+    };
+    // SIGNED_IN bắn sau khi detectSessionInUrl xử lý xong hash → bắt chắc chắn.
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_IN') void redirectIfLoggedIn();
+    });
+    void redirectIfLoggedIn();
+    return () => subscription.unsubscribe();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
