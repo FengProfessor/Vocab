@@ -239,6 +239,78 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
     const supabase = createServiceClient();
 
+    // 1. Tự học (Self-practice) - không có classroomId:
+    // Load trực tiếp từ kho câu hỏi có sẵn trong grammar_lessons.exercises
+    if (lessonId && !classroomId) {
+      const { data: lesson, error: lessonErr } = await supabase
+        .from('grammar_lessons')
+        .select('exercises, topic:grammar_topics(title, level)')
+        .eq('id', lessonId)
+        .maybeSingle();
+
+      if (lessonErr) throw lessonErr;
+
+      if (lesson && lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length > 0) {
+        const topic = lesson.topic as unknown as { title: string; level: string } | null;
+        const topicTitle = topic?.title ?? 'English Grammar';
+        const level = topic?.level ?? 'intermediate';
+
+        const fallbackData = lesson.exercises.map((ex: any, i: number) => {
+          const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
+          
+          let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
+          if (ex.type === 'error' || ex.type === 'error_correction') {
+            qType = 'error_correction';
+          } else if (ex.type === 'fill' || ex.type === 'fill_blank') {
+            qType = 'fill_blank';
+          } else if (ex.type === 'tf') {
+            qType = 'multiple_choice';
+          }
+
+          const questionText = String(ex.question || ex.q || '').trim();
+          const explanationText = String(ex.explanation || ex.fb || '').trim();
+
+          let optionsList: string[] = [];
+          let correctAnswer = '';
+
+          if (ex.type === 'tf') {
+            optionsList = ['Đúng', 'Sai'];
+            const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
+            correctAnswer = (rawAns === true || String(rawAns).trim().toLowerCase() === 'true' || String(rawAns).trim() === 'Đúng') ? 'Đúng' : 'Sai';
+          } else {
+            const rawOpts = ex.options || ex.opts;
+            if (Array.isArray(rawOpts)) {
+              optionsList = rawOpts.map((o: any) => String(o).trim());
+            }
+            const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
+            if (Array.isArray(rawAns)) {
+              correctAnswer = String(rawAns[0] || '').trim();
+            } else {
+              correctAnswer = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim();
+            }
+          }
+
+          return {
+            id: `pre-${lessonId}-${i}`,
+            lesson_id: lessonId,
+            question: questionText,
+            options: optionsList,
+            correct_answer: correctAnswer,
+            explanation: explanationText,
+            topic: topicTitle,
+            level,
+            type: qType,
+            difficulty,
+          };
+        });
+
+        return NextResponse.json({ success: true, data: fallbackData });
+      }
+
+      return NextResponse.json({ success: true, data: [] });
+    }
+
+    // 2. Lớp học (Classroom mode):
     // Đọc theo classroom → phải là giáo viên của lớp HOẶC học sinh đã enroll
     if (classroomId && auth) {
       const [{ data: cls }, { data: enrollment }] = await Promise.all([
@@ -250,7 +322,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         return NextResponse.json({ success: false, error: 'Not a member of this classroom' }, { status: 403 });
       }
     }
-    // Sort easy → hard cho drill, fallback created_at để stable
+
     let query = supabase
       .from('grammar_exercises')
       .select('*')
@@ -262,7 +334,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const { data, error } = await query;
     if (error) throw error;
 
-    // Fallback: If self-practice (no classroomId) or classroom exercises are empty, load from pre-populated exercises
+    // Fallback nếu classroom chưa có bài tập nào
     if (lessonId && (!data || data.length === 0)) {
       const { data: lesson } = await supabase
         .from('grammar_lessons')
@@ -277,20 +349,46 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
         const fallbackData = lesson.exercises.map((ex: any, i: number) => {
           const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
-          const qType = typeof ex.type === 'string' && VALID_TYPES.has(ex.type) ? ex.type : 'multiple_choice';
+          
+          let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
+          if (ex.type === 'error' || ex.type === 'error_correction') {
+            qType = 'error_correction';
+          } else if (ex.type === 'fill' || ex.type === 'fill_blank') {
+            qType = 'fill_blank';
+          } else if (ex.type === 'tf') {
+            qType = 'multiple_choice';
+          }
 
-          const questionText = ex.question || ex.q || '';
-          const optionsList = ex.options || ex.opts || [];
-          const correctAnswer = ex.correct_answer || ex.answer || '';
-          const explanationText = ex.explanation || ex.fb || '';
+          const questionText = String(ex.question || ex.q || '').trim();
+          const explanationText = String(ex.explanation || ex.fb || '').trim();
+
+          let optionsList: string[] = [];
+          let correctAnswer = '';
+
+          if (ex.type === 'tf') {
+            optionsList = ['Đúng', 'Sai'];
+            const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
+            correctAnswer = (rawAns === true || String(rawAns).trim().toLowerCase() === 'true' || String(rawAns).trim() === 'Đúng') ? 'Đúng' : 'Sai';
+          } else {
+            const rawOpts = ex.options || ex.opts;
+            if (Array.isArray(rawOpts)) {
+              optionsList = rawOpts.map((o: any) => String(o).trim());
+            }
+            const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
+            if (Array.isArray(rawAns)) {
+              correctAnswer = String(rawAns[0] || '').trim();
+            } else {
+              correctAnswer = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim();
+            }
+          }
 
           return {
             id: `pre-${lessonId}-${i}`,
             lesson_id: lessonId,
-            question: questionText.trim(),
-            options: optionsList.map((o: any) => String(o).trim()),
-            correct_answer: correctAnswer.trim(),
-            explanation: explanationText.trim(),
+            question: questionText,
+            options: optionsList,
+            correct_answer: correctAnswer,
+            explanation: explanationText,
             topic: topicTitle,
             level,
             type: qType,

@@ -99,22 +99,48 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
       const questions: QuizQuestion[] = selected.map((ex: any, i: number) => {
         const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
-        const qType = typeof ex.type === 'string' && VALID_TYPES.has(ex.type) ? ex.type : 'multiple_choice';
+        
+        let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
+        if (ex.type === 'error' || ex.type === 'error_correction') {
+          qType = 'error_correction';
+        } else if (ex.type === 'fill' || ex.type === 'fill_blank') {
+          qType = 'fill_blank';
+        } else if (ex.type === 'tf') {
+          qType = 'multiple_choice';
+        }
 
-        const questionText = ex.question || ex.q || '';
-        const optionsList = ex.options || ex.opts || [];
-        const correctAnswer = ex.correct_answer || ex.answer || '';
-        const explanationText = ex.explanation || ex.fb || '';
+        const questionText = String(ex.question || ex.q || '').trim();
+        const explanationText = String(ex.explanation || ex.fb || '').trim();
+
+        let optionsList: string[] = [];
+        let correctAnswer = '';
+
+        if (ex.type === 'tf') {
+          optionsList = ['Đúng', 'Sai'];
+          const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
+          correctAnswer = (rawAns === true || String(rawAns).trim().toLowerCase() === 'true' || String(rawAns).trim() === 'Đúng') ? 'Đúng' : 'Sai';
+        } else {
+          const rawOpts = ex.options || ex.opts;
+          if (Array.isArray(rawOpts)) {
+            optionsList = rawOpts.map((o: any) => String(o).trim());
+          }
+          const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
+          if (Array.isArray(rawAns)) {
+            correctAnswer = String(rawAns[0] || '').trim();
+          } else {
+            correctAnswer = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim();
+          }
+        }
 
         return {
           id: `pre-${lessonId}-${i}-${Math.random().toString(36).substring(2, 11)}`,
-          question: questionText.trim(),
-          options: optionsList.map((o: any) => String(o).trim()),
-          correct_answer: correctAnswer.trim(),
-          explanation: explanationText.trim(),
+          question: questionText,
+          options: optionsList,
+          correct_answer: correctAnswer,
+          explanation: explanationText,
           topic: topicTitle,
           level,
-          type: qType as 'multiple_choice' | 'fill_blank' | 'error_correction',
+          type: qType,
           difficulty,
         };
       });

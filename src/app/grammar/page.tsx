@@ -276,6 +276,7 @@ function GrammarContent() {
   const [current, setCurrent] = useState<GrammarExercise | null>(null);
   const [qIndex, setQIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
+  const [typedAnswer, setTypedAnswer] = useState('');
   const [showExplanation, setShowExplanation] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [score, setScore] = useState({ correct: 0, wrong: 0 });
@@ -341,11 +342,12 @@ function GrammarContent() {
   }, [classroomId, lessonId, reviewMode]);
 
   const startSession = (source: GrammarExercise[]) => {
-    const shuffled = [...source].sort(() => Math.random() - 0.5).slice(0, 10);
+    const shuffled = [...source].sort(() => Math.random() - 0.5);
     setExercises(shuffled);
     setCurrent(shuffled[0]);
     setQIndex(0);
     setSelected(null);
+    setTypedAnswer('');
     setShowExplanation(false);
     setScore({ correct: 0, wrong: 0 });
     setDone(false);
@@ -407,9 +409,16 @@ function GrammarContent() {
 
   const handleAnswer = async (choice: string) => {
     if (selected) return;
-    setSelected(choice);
+
+    const isCorrect = current?.options && current.options.length === 0
+      ? choice.trim().toLowerCase() === current.correct_answer.trim().toLowerCase()
+      : choice === current?.correct_answer;
+
+    // Gán selected thành correct_answer nếu đúng để UI chuyển màu xanh lá đồng bộ
+    const finalChoice = isCorrect ? current.correct_answer : choice;
+    setSelected(finalChoice);
     setShowExplanation(true);
-    const isCorrect = choice === current?.correct_answer;
+
     setScore(prev => ({
       correct: prev.correct + (isCorrect ? 1 : 0),
       wrong: prev.wrong + (isCorrect ? 0 : 1),
@@ -422,7 +431,7 @@ function GrammarContent() {
       await supabase.from('grammar_results').insert({
         user_id: userId,
         exercise_id: current.id,
-        chosen_answer: choice,
+        chosen_answer: finalChoice,
         time_taken_ms: Date.now() - startTime,
       });
     }
@@ -463,6 +472,7 @@ function GrammarContent() {
       setQIndex(nextIdx);
       setCurrent(exercises[nextIdx]);
       setSelected(null);
+      setTypedAnswer('');
       setShowExplanation(false);
       setStartTime(Date.now());
     }
@@ -502,23 +512,12 @@ function GrammarContent() {
         ) : lessonId ? (
           <>
             <p className="text-muted-foreground text-sm text-center max-w-xs">
-              Bài học này chưa có câu hỏi. Dùng AI để tạo 5 câu hỏi từ nội dung bài ngay bây giờ!
+              Bài học này chưa có bài tập ngữ pháp được tải lên.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
-              <button
-                onClick={generateAIQuiz}
-                disabled={generatingQuiz}
-                className="flex-1 bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                {generatingQuiz ? (
-                  <><Loader2 className="h-4 w-4 animate-spin" /> Đang tạo bài tập...</>
-                ) : (
-                  <><Sparkles className="h-4 w-4" /> AI Tạo bài tập</>
-                )}
-              </button>
-              <Link href="/grammar/learn">
+              <Link href="/grammar/learn" className="w-full">
                 <button className="w-full border px-6 py-3 rounded-xl font-semibold hover:bg-muted transition-colors text-sm">
-                  ← Quay lại
+                  ← Quay lại trang học
                 </button>
               </Link>
             </div>
@@ -657,46 +656,74 @@ function GrammarContent() {
 
         {/* Choices — chỉ hiển thị cho multiple_choice và fill_blank, không cho error_correction */}
         {current.type !== 'error_correction' && (
-          <div className="grid grid-cols-1 gap-3 w-full max-w-lg">
-            {current.options.map((opt, i) => {
-              const isCorrect = opt === current.correct_answer;
-              const isSelected = selected === opt;
-              let cn = 'w-full text-left h-auto py-4 px-5 rounded-xl border text-sm font-medium transition-all duration-200 ';
-              if (selected) {
-                if (isCorrect) {
-                  cn += 'bg-emerald-50 border-emerald-400 text-emerald-800 shadow-sm ';
-                } else if (isSelected) {
-                  cn += 'bg-red-50 border-red-400 text-red-800 ';
-                } else {
-                  cn += 'opacity-40 border-muted bg-background ';
-                }
-              } else {
-                cn += 'bg-background hover:bg-primary/5 hover:border-primary/40 border-muted hover:shadow-sm cursor-pointer ';
-              }
-
-              return (
+          current.options.length === 0 ? (
+            <div className="w-full max-w-lg space-y-3">
+              <input
+                type="text"
+                className="w-full px-5 py-4 rounded-xl border border-muted bg-background text-sm font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                placeholder="Nhập đáp án của bạn..."
+                value={typedAnswer}
+                onChange={(e) => setTypedAnswer(e.target.value)}
+                disabled={!!selected}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && typedAnswer.trim()) {
+                    handleAnswer(typedAnswer.trim());
+                  }
+                }}
+              />
+              {!selected && (
                 <button
-                  key={`${opt}-${i}`}
-                  className={cn}
-                  onClick={() => handleAnswer(opt)}
-                  disabled={!!selected}
+                  type="button"
+                  onClick={() => handleAnswer(typedAnswer.trim())}
+                  disabled={!typedAnswer.trim()}
+                  className="w-full bg-primary text-white font-bold py-3.5 rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-muted-foreground w-5 shrink-0">
-                      {String.fromCharCode(65 + i)}
-                    </span>
-                    <span className="flex-1">{opt}</span>
-                    {selected && isCorrect && (
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                    )}
-                    {selected && isSelected && !isCorrect && (
-                      <XCircle className="h-4 w-4 text-red-600 shrink-0" />
-                    )}
-                  </div>
+                  Xác nhận
                 </button>
-              );
-            })}
-          </div>
+              )}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-3 w-full max-w-lg">
+              {current.options.map((opt, i) => {
+                const isCorrect = opt === current.correct_answer;
+                const isSelected = selected === opt;
+                let cn = 'w-full text-left h-auto py-4 px-5 rounded-xl border text-sm font-medium transition-all duration-200 ';
+                if (selected) {
+                  if (isCorrect) {
+                    cn += 'bg-emerald-50 border-emerald-400 text-emerald-800 shadow-sm ';
+                  } else if (isSelected) {
+                    cn += 'bg-red-50 border-red-400 text-red-800 ';
+                  } else {
+                    cn += 'opacity-40 border-muted bg-background ';
+                  }
+                } else {
+                  cn += 'bg-background hover:bg-primary/5 hover:border-primary/40 border-muted hover:shadow-sm cursor-pointer ';
+                }
+
+                return (
+                  <button
+                    key={`${opt}-${i}`}
+                    className={cn}
+                    onClick={() => handleAnswer(opt)}
+                    disabled={!!selected}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-bold text-muted-foreground w-5 shrink-0">
+                        {String.fromCharCode(65 + i)}
+                      </span>
+                      <span className="flex-1">{opt}</span>
+                      {selected && isCorrect && (
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                      )}
+                      {selected && isSelected && !isCorrect && (
+                        <XCircle className="h-4 w-4 text-red-600 shrink-0" />
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )
         )}
 
         {/* Explanation — sau khi đã chọn, ưu tiên hiển thị comparison nếu sai */}
