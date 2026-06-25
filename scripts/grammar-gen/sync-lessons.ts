@@ -59,10 +59,19 @@ function loadEnv(): void {
   }
 }
 
-function getOnlySlugs(): string[] {
+function getSlugs(): string[] {
+  const hasAll = process.argv.includes('--all');
   const index = process.argv.indexOf('--only');
+  
+  if (hasAll) {
+    const fs = require('node:fs');
+    return fs.readdirSync(OUT)
+      .filter((f: string) => f.endsWith('.json'))
+      .map((f: string) => f.replace('.json', ''));
+  }
+  
   if (index < 0 || !process.argv[index + 1]) {
-    throw new Error('Bắt buộc truyền --only <slug,slug>. Script không cho phép sync toàn bộ.');
+    throw new Error('Bắt buộc truyền --only <slug,slug> hoặc --all để đồng bộ bài học.');
   }
   return process.argv[index + 1].split(',').map((slug) => slug.trim()).filter(Boolean);
 }
@@ -101,7 +110,7 @@ async function main(): Promise<void> {
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) throw new Error('Thiếu NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY');
 
-  const slugs = getOnlySlugs();
+  const slugs = getSlugs();
   const client = createClient(url, key, { auth: { persistSession: false } });
   let inserted = 0;
   let updated = 0;

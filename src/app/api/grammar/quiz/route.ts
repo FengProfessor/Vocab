@@ -79,12 +79,47 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const { data: lesson, error: lessonErr } = await supabase
       .from('grammar_lessons')
-      .select('title, theory, theory_vi, examples, topic:grammar_topics(title, level)')
+      .select('title, theory, theory_vi, examples, exercises, topic:grammar_topics(title, level)')
       .eq('id', lessonId)
       .maybeSingle();
 
     if (lessonErr || !lesson) {
       return NextResponse.json({ success: false, error: 'Lesson not found' }, { status: 404 });
+    }
+
+    // ── Pre-populated exercises: Bốc ngẫu nhiên từ kho câu hỏi offline nếu có sẵn (>= 10 câu) ──
+    if (lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length >= 10) {
+      const topic = lesson.topic as unknown as { title: string; level: string } | null;
+      const topicTitle = topic?.title ?? 'English Grammar';
+      const level = topic?.level ?? 'intermediate';
+
+      // Bốc ngẫu nhiên 10 câu để drill phong phú hơn (thay vì 5 câu)
+      const shuffled = [...lesson.exercises].sort(() => Math.random() - 0.5);
+      const selected = shuffled.slice(0, 10);
+
+      const questions: QuizQuestion[] = selected.map((ex: any, i: number) => {
+        const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
+        const qType = typeof ex.type === 'string' && VALID_TYPES.has(ex.type) ? ex.type : 'multiple_choice';
+
+        const questionText = ex.question || ex.q || '';
+        const optionsList = ex.options || ex.opts || [];
+        const correctAnswer = ex.correct_answer || ex.answer || '';
+        const explanationText = ex.explanation || ex.fb || '';
+
+        return {
+          id: `pre-${lessonId}-${i}-${Math.random().toString(36).substring(2, 11)}`,
+          question: questionText.trim(),
+          options: optionsList.map((o: any) => String(o).trim()),
+          correct_answer: correctAnswer.trim(),
+          explanation: explanationText.trim(),
+          topic: topicTitle,
+          level,
+          type: qType as 'multiple_choice' | 'fill_blank' | 'error_correction',
+          difficulty,
+        };
+      });
+
+      return NextResponse.json({ success: true, data: questions, cached: false, prePopulated: true });
     }
 
     const topic = lesson.topic as unknown as { title: string; level: string } | null;
