@@ -10,6 +10,15 @@ import {
   Chrome,
   Star,
   Check,
+  X,
+  Sparkles,
+  Clock3,
+  Bell,
+  Play,
+  Library,
+  GraduationCap,
+  Target,
+  MessageSquare,
 } from 'lucide-react';
 import {
   PLAN_PRICES,
@@ -18,6 +27,36 @@ import {
   formatVND,
 } from '@/lib/billing';
 import AuthRedirectGate from './_components/AuthRedirectGate';
+import DictionaryDemo from './_components/DictionaryDemo';
+
+// ── Video giới thiệu ── Paste YouTube ID vào đây (vd 'dQw4w9WgXcQ'). Để trống → hiện poster placeholder.
+const INTRO_VIDEO_ID = '';
+
+// Số liệu kho từ vựng — gõ cứng (cập nhật tay khi catalog đổi)
+const VOCAB_STATS = {
+  words: '9.000+',
+  packs: '660+',
+  routes: '30+',
+};
+
+// Lộ trình kho từ vựng (showcase tĩnh)
+const VOCAB_ROUTES = [
+  { icon: GraduationCap, color: 'text-emerald-400', bg: 'bg-emerald-500/15', title: 'Theo chương trình THPT', desc: 'Bám sát sách Global Success — học đúng từ thầy cô dạy trên lớp.' },
+  { icon: Target, color: 'text-amber-400', bg: 'bg-amber-500/15', title: 'Luyện thi TOEIC & IELTS', desc: 'Từ vựng theo band điểm, chia chặng nhỏ ~15 từ học trong 5–8 phút.' },
+  { icon: MessageSquare, color: 'text-sky-400', bg: 'bg-sky-500/15', title: 'Giao tiếp & đời sống', desc: '7 lộ trình theo tình huống thực: du lịch, công việc, đời sống hằng ngày.' },
+] as const;
+
+// So sánh LingoPro vs Anki
+const COMPARE_ROWS: { label: string; lingo: string; anki: string; lingoWin: boolean }[] = [
+  { label: 'Bắt đầu học', lingo: 'Mở web là học ngay', anki: 'Cài app + tự tải bộ thẻ', lingoWin: true },
+  { label: 'Nội dung có sẵn', lingo: '9.000+ từ theo lộ trình THPT/TOEIC/IELTS', anki: 'Deck rời rạc, chất lượng tùy người tạo', lingoWin: true },
+  { label: 'Tra & lưu từ 1 chạm', lingo: 'Tra 3 nguồn + AI, lưu 1 nút', anki: 'Phải tự gõ nghĩa vào thẻ', lingoWin: true },
+  { label: 'AI làm giàu từ', lingo: 'Tự thêm nghĩa, IPA, ví dụ, ảnh', anki: 'Không có', lingoWin: true },
+  { label: 'Tiếng Việt', lingo: 'Giao diện + nghĩa Việt sẵn', anki: 'Tiếng Anh, cộng đồng tự dịch', lingoWin: true },
+  { label: 'Thuật toán ôn tập', lingo: 'FSRS v5 (mới nhất)', anki: 'SM-2 mặc định (FSRS phải cài add-on)', lingoWin: true },
+  { label: 'Nhắc ôn', lingo: 'Tự nhắc qua thông báo đúng giờ', anki: 'Phải nhớ tự mở app', lingoWin: true },
+  { label: 'Miễn phí & offline', lingo: 'Có bản free (cần mạng)', anki: 'Miễn phí, mã nguồn mở, chạy offline', lingoWin: false },
+];
 
 export const metadata: Metadata = {
   title: 'LingoPro — Học từ vựng tiếng Anh thông minh hơn với AI + FSRS',
@@ -116,12 +155,201 @@ export default function LandingPage() {
               Bắt đầu miễn phí <ArrowRight className="h-5 w-5" />
             </Link>
             <a
-              href="#features"
+              href="#try"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 font-bold text-base transition-colors"
             >
-              Xem tính năng
+              Thử tra từ ngay
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ── LIVE DICTIONARY DEMO ── */}
+      <section id="try" className="relative scroll-mt-16 border-y border-white/5 bg-white/[0.02] py-24 px-4 sm:px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-semibold text-emerald-300">
+            <Sparkles className="h-3.5 w-3.5" /> Thử ngay — không cần tài khoản
+          </div>
+          <h2 className="text-3xl font-black sm:text-4xl">
+            Tra & lưu từ{' '}
+            <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              ngay trên web
+            </span>
+          </h2>
+          <p className="mx-auto mt-4 mb-10 max-w-lg font-medium text-slate-400">
+            Gõ bất kỳ từ tiếng Anh nào — nhận nghĩa, phiên âm, phát âm UK/US và ví dụ tức thì. Đăng nhập để lưu vào sổ và ôn theo lịch.
+          </p>
+        </div>
+        <DictionaryDemo />
+      </section>
+
+      {/* ── KHO TỪ VỰNG ── */}
+      <section id="library" className="scroll-mt-16 py-24 px-4 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-12 text-center">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm font-semibold text-indigo-300">
+              <Library className="h-3.5 w-3.5" /> Kho từ vựng dựng sẵn
+            </div>
+            <h2 className="text-3xl font-black sm:text-4xl">Không biết học từ gì? Có lộ trình sẵn.</h2>
+            <p className="mx-auto mt-4 max-w-xl font-medium text-slate-400">
+              Hàng nghìn từ được biên soạn theo lộ trình, chia thành chặng nhỏ. Chọn mục tiêu rồi học từng chặng 5–8 phút.
+            </p>
+          </div>
+
+          {/* Stats */}
+          <div className="mb-10 grid grid-cols-3 gap-4">
+            {[
+              { value: VOCAB_STATS.words, label: 'từ vựng' },
+              { value: VOCAB_STATS.packs, label: 'chặng học' },
+              { value: VOCAB_STATS.routes, label: 'lộ trình' },
+            ].map((s) => (
+              <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 py-6 text-center">
+                <div className="text-3xl font-black text-indigo-400 sm:text-4xl">{s.value}</div>
+                <div className="mt-1 text-sm font-medium text-slate-400">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Route cards */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {VOCAB_ROUTES.map((r) => (
+              <div key={r.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:bg-white/[0.07]">
+                <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${r.bg}`}>
+                  <r.icon className={`h-6 w-6 ${r.color}`} />
+                </div>
+                <h3 className="mb-2 text-lg font-black">{r.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-400">{r.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex items-center justify-center gap-2 text-sm text-slate-400">
+            <Clock3 className="h-4 w-4 text-indigo-400" /> Mỗi chặng ~15 từ · học gọn trong 5–8 phút
+          </div>
+        </div>
+      </section>
+
+      {/* ── PHƯƠNG PHÁP HỌC ── */}
+      <section id="method" className="scroll-mt-16 border-y border-white/5 bg-white/[0.02] py-24 px-4 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-12 text-center">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-300">
+              <Repeat2 className="h-3.5 w-3.5" /> Phương pháp học
+            </div>
+            <h2 className="text-3xl font-black sm:text-4xl">Học ít, nhớ lâu — nhờ khoa học trí nhớ</h2>
+            <p className="mx-auto mt-4 max-w-xl font-medium text-slate-400">
+              LingoPro dùng thuật toán Spaced Repetition FSRS v5: tính đúng thời điểm bạn sắp quên và nhắc ôn ngay lúc đó. Nhớ lâu hơn, ôn ít lần hơn.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/15">
+                <Repeat2 className="h-6 w-6 text-purple-400" />
+              </div>
+              <h3 className="mb-2 text-lg font-black">1 · Lặp lại ngắt quãng</h3>
+              <p className="text-sm leading-relaxed text-slate-400">
+                Mỗi từ có lịch ôn riêng theo tốc độ nhớ của bạn. Nhớ tốt → giãn xa; quên → ôn lại sau ~10 phút.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/15">
+                <Clock3 className="h-6 w-6 text-indigo-400" />
+              </div>
+              <h3 className="mb-2 text-lg font-black">2 · Chặng học siêu ngắn</h3>
+              <p className="text-sm leading-relaxed text-slate-400">
+                ~15 từ mỗi chặng, gọn trong 5–8 phút. Học mọi lúc rảnh, không ngộp, dễ duy trì thói quen.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/15">
+                <Bell className="h-6 w-6 text-amber-400" />
+              </div>
+              <h3 className="mb-2 text-lg font-black">3 · Nhắc đúng lúc</h3>
+              <p className="text-sm leading-relaxed text-slate-400">
+                App tự gửi thông báo khi tới hạn ôn. Không phải tự nhớ, không bỏ sót từ nào.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VIDEO GIỚI THIỆU ── */}
+      <section id="video" className="scroll-mt-16 py-24 px-4 sm:px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-4 text-3xl font-black sm:text-4xl">Xem LingoPro hoạt động trong 60 giây</h2>
+          <p className="mx-auto mb-10 max-w-lg font-medium text-slate-400">
+            Tra từ, lưu vào sổ, học flashcard theo lịch — toàn bộ luồng học chỉ trong một video ngắn.
+          </p>
+
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-indigo-950/40">
+            {INTRO_VIDEO_ID ? (
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={`https://www.youtube.com/embed/${INTRO_VIDEO_ID}`}
+                title="Giới thiệu LingoPro"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/10" />
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-indigo-600 shadow-lg shadow-indigo-900/50">
+                  <Play className="h-7 w-7 translate-x-0.5 fill-white text-white" />
+                </div>
+                <p className="relative text-sm font-bold text-slate-300">Video giới thiệu sắp ra mắt</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SO SÁNH VỚI ANKI ── */}
+      <section id="compare" className="scroll-mt-16 border-y border-white/5 bg-white/[0.02] py-24 px-4 sm:px-6">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-black sm:text-4xl">LingoPro so với Anki</h2>
+            <p className="mx-auto mt-4 max-w-xl font-medium text-slate-400">
+              Anki mạnh nhưng phải tự dựng mọi thứ. LingoPro làm sẵn nội dung, tra từ và tiếng Việt cho người Việt — vào là học.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-white/10">
+            <div className="grid grid-cols-[1.1fr_1.4fr_1.4fr] bg-white/5 text-sm font-black">
+              <div className="p-4 text-slate-400" />
+              <div className="flex items-center gap-2 p-4 text-indigo-300">
+                <Brain className="h-4 w-4" /> LingoPro
+              </div>
+              <div className="p-4 text-slate-400">Anki</div>
+            </div>
+            {COMPARE_ROWS.map((row, i) => (
+              <div
+                key={row.label}
+                className={`grid grid-cols-[1.1fr_1.4fr_1.4fr] text-sm ${i % 2 === 0 ? 'bg-transparent' : 'bg-white/[0.02]'}`}
+              >
+                <div className="border-t border-white/5 p-4 font-bold text-slate-300">{row.label}</div>
+                <div className="flex items-start gap-2 border-t border-white/5 bg-indigo-500/[0.06] p-4 text-slate-200">
+                  {row.lingoWin ? (
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                  ) : (
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />
+                  )}
+                  {row.lingo}
+                </div>
+                <div className="flex items-start gap-2 border-t border-white/5 p-4 text-slate-400">
+                  {row.lingoWin ? (
+                    <X className="mt-0.5 h-4 w-4 shrink-0 text-slate-600" />
+                  ) : (
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                  )}
+                  {row.anki}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-center text-xs text-slate-500">
+            Anki là phần mềm tuyệt vời cho người thích tự tùy biến. LingoPro hợp với học sinh muốn vào là học ngay, bằng tiếng Việt.
+          </p>
         </div>
       </section>
 

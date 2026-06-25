@@ -1649,6 +1649,19 @@
       "correct_answer": "will be writeing",
       "explanation": "Động từ 'write' bỏ 'e' trước khi thêm '-ing', nên dạng đúng là 'will be writing'. Các cụm còn lại không có lỗi ngữ pháp trong câu này.",
       "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error related to the **auxiliary verb phrase** in the sentence: \"At this time next year, I will being studying abroad.\"",
+      "options": [
+        "A. \"At this time next year\"",
+        "B. \"I will being studying\"",
+        "C. \"studying abroad\"",
+        "D. No error"
+      ],
+      "correct_answer": "B. \"I will being studying\"",
+      "explanation": "Lỗi sai nằm ở cụm \"will being studying\". Cấu trúc đúng của thì Tương lai tiếp diễn là S + will be + V-ing. Trong câu này, \"being\" đã bị dùng sai thay vì \"be\". Câu đúng phải là \"At this time next year, I will be studying abroad.\"",
+      "difficulty": 2
     }
   ]
 }

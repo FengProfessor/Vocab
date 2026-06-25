@@ -1558,6 +1558,19 @@
       "correct_answer": "are",
       "explanation": "“This” là số ít nên đi với “is”, không đi với “are”. Nếu muốn giữ “headphones” số nhiều, câu nên là “These are my headphones.”",
       "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **demonstrative**: My keys are lost. I think I left them on ___ table over there.",
+      "options": [
+        "this",
+        "that",
+        "these",
+        "those"
+      ],
+      "correct_answer": "that",
+      "explanation": "Từ 'table' là danh từ số ít, nên ta cần dùng từ chỉ định số ít (this/that). Vì cái bàn ở 'over there' (đằng kia, xa), ta dùng 'that' để chỉ vật ở xa và số ít. Các lựa chọn 'these' và 'those' dùng cho danh từ số nhiều.",
+      "difficulty": 1
     }
   ]
 }

@@ -1590,6 +1590,19 @@
       "correct_answer": "a",
       "explanation": "Lỗi là “a” vì “hour” có chữ h câm và bắt đầu bằng âm nguyên âm /aʊ/, nên phải dùng “an hour-long class”. Các phần còn lại đúng trong câu này.",
       "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: Look! ___ sun is shining brightly today.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "the",
+      "explanation": "Chúng ta dùng mạo từ 'the' trước những danh từ chỉ vật thể duy nhất trong vũ trụ hoặc trong ngữ cảnh (ví dụ: the sun, the moon, the sky). 'A' và 'an' dùng cho danh từ không xác định, số ít. Trong trường hợp này, 'sun' là một vật thể duy nhất nên ta dùng 'the'.",
+      "difficulty": 1
     }
   ]
 }

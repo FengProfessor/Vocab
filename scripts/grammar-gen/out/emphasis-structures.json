@@ -1608,6 +1608,19 @@
       "correct_answer": "were unable",
       "explanation": "Chủ ngữ “The consultant” là số ít, dù có “himself” để nhấn mạnh, nên động từ phải là “was unable”. “Were unable” sai hòa hợp chủ ngữ - động từ.",
       "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error in the following sentence related to **negative inversion**: \"Under no circumstances the security team allows unauthorized personnel to access the server room.\"",
+      "options": [
+        "Under no circumstances",
+        "the security team allows",
+        "unauthorized personnel",
+        "to access the server room"
+      ],
+      "correct_answer": "the security team allows",
+      "explanation": "Cụm từ phủ định \"Under no circumstances\" khi đặt ở đầu câu đòi hỏi phải có đảo ngữ (inversion). Cấu trúc đúng phải là \"Under no circumstances + trợ động từ + chủ ngữ + động từ chính\". Do đó, \"the security team allows\" cần được sửa thành \"does the security team allow\" để tuân thủ quy tắc đảo ngữ.",
+      "difficulty": 3
     }
   ]
 }

@@ -1575,6 +1575,58 @@
       "correct_answer": "boil",
       "explanation": "The soup là danh từ số ít nên hiện tại đơn phải là boils. Makes đúng vì chủ ngữ it là số ít; các cụm còn lại không sai.",
       "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct sentence for a **general truth** about colors.",
+      "options": [
+        "If you mix red and blue, you get purple.",
+        "If you will mix red and blue, you get purple.",
+        "If you mix red and blue, you will get purple.",
+        "If you mixed red and blue, you got purple."
+      ],
+      "correct_answer": "If you mix red and blue, you get purple.",
+      "explanation": "Câu điều kiện loại 0 dùng thì hiện tại đơn ở cả hai mệnh đề để diễn tả một sự thật hiển nhiên hoặc một điều luôn đúng. Cấu trúc là \"If + S + V(hiện tại đơn), S + V(hiện tại đơn)\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence: If my brother **studies** hard, he ___ the exam easily.",
+      "options": [
+        "passes",
+        "will pass",
+        "passed",
+        "is passing"
+      ],
+      "correct_answer": "will pass",
+      "explanation": "Đây là câu điều kiện loại 1, diễn tả một khả năng có thật trong tương lai. Mệnh đề If dùng thì hiện tại đơn (\"studies\"), còn mệnh đề chính dùng thì tương lai đơn (\"will + động từ nguyên mẫu\").",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the **incorrect** word/phrase: If you **don't eats** breakfast, you feel hungry.",
+      "options": [
+        "don't eats",
+        "breakfast",
+        "feel",
+        "hungry"
+      ],
+      "correct_answer": "don't eats",
+      "explanation": "Trong câu điều kiện loại 0, mệnh đề If dùng thì hiện tại đơn. Với chủ ngữ \"you\", động từ phủ định phải là \"don't eat\" (dạng nguyên mẫu), không phải \"don't eats\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **main clause** for the first conditional: If it rains tomorrow, ___.",
+      "options": [
+        "we stay home",
+        "we stayed home",
+        "we will stay home",
+        "we are staying home"
+      ],
+      "correct_answer": "we will stay home",
+      "explanation": "Đây là câu điều kiện loại 1, diễn tả một khả năng có thể xảy ra trong tương lai. Mệnh đề If dùng thì hiện tại đơn (\"rains\"), và mệnh đề chính phải dùng thì tương lai đơn (\"will + động từ nguyên mẫu\").",
+      "difficulty": 1
     }
   ]
 }

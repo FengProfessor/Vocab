@@ -1557,6 +1557,19 @@
       "correct_answer": "are",
       "explanation": "“Luggage” là danh từ không đếm được và được xem như số ít, nên phải dùng “is”. “This luggage”, “heavy” và “at the airport” đều phù hợp trong câu.",
       "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the **error**: She gave me an **advice** about my studies.",
+      "options": [
+        "She gave",
+        "me",
+        "an advice",
+        "about my studies"
+      ],
+      "correct_answer": "an advice",
+      "explanation": "Danh từ 'advice' (lời khuyên) là danh từ không đếm được, vì vậy không thể sử dụng mạo từ 'an' (hoặc 'a') trực tiếp trước nó. Chúng ta có thể nói 'some advice' hoặc 'a piece of advice'.",
+      "difficulty": 1
     }
   ]
 }

@@ -530,6 +530,1150 @@
       ],
       "answer": "Do they have got a car?",
       "fb": "Không dùng do với have got. Câu đúng là \"Have they got a car?\""
+    },
+    {
+      "type": "multiple_choice",
+      "question": "My parents ___ got a big house. Choose the correct **form**.",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "have",
+      "explanation": "Chủ ngữ \"My parents\" (bố mẹ tôi) là số nhiều (tương đương \"they\"), vì vậy chúng ta dùng \"have got\". \"Has got\" dùng cho chủ ngữ số ít (he/she/it).",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The old car ___ got a flat tire. Choose the correct **verb**.",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ \"The old car\" (chiếc ô tô cũ) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "We ___ got enough time for the movie. Choose the correct **negative form**.",
+      "options": [
+        "haven't",
+        "hasn't",
+        "don't",
+        "doesn't"
+      ],
+      "correct_answer": "haven't",
+      "explanation": "Chủ ngữ \"We\" (chúng tôi) đi với \"have got\", dạng phủ định là \"haven't got\". Các lựa chọn khác không đúng với chủ ngữ \"We\" hoặc không phải cấu trúc \"have got\".",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "My sister ___ got a new phone. Choose the correct **short form**.",
+      "options": [
+        "'ve",
+        "'s",
+        "have",
+        "has"
+      ],
+      "correct_answer": "'s",
+      "explanation": "Chủ ngữ \"My sister\" (chị gái tôi) là số ít (tương đương \"she\"), vì vậy dùng \"has got\". Dạng rút gọn của \"has got\" là \"'s got\".",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ you got any plans for the weekend? Choose the correct **auxiliary verb**.",
+      "options": [
+        "Has",
+        "Have",
+        "Do",
+        "Does"
+      ],
+      "correct_answer": "Have",
+      "explanation": "Chủ ngữ \"you\" (bạn) đi với \"have got\". Trong câu hỏi, \"Have\" đứng đầu câu. \"Do/Does\" không dùng với cấu trúc \"have got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She ___ got long, blonde hair. Choose the correct **verb**.",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ \"She\" (cô ấy) là số ít, vì vậy chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "I ___ got a lot of work to do today. Choose the correct **short form**.",
+      "options": [
+        "has",
+        "have",
+        "'s",
+        "'ve"
+      ],
+      "correct_answer": "'ve",
+      "explanation": "Chủ ngữ \"I\" (tôi) đi với \"have got\". Dạng rút gọn của \"I have got\" là \"I've got\".",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the **correct sentence**.",
+      "options": [
+        "He has got a new job.",
+        "He have got a new job.",
+        "He got a new job.",
+        "He has get a new job."
+      ],
+      "correct_answer": "He has got a new job.",
+      "explanation": "Chủ ngữ \"He\" (anh ấy) đi với \"has got\". Các lựa chọn khác sai ngữ pháp vì dùng \"have\" với \"he\" hoặc dùng sai dạng động từ \"get\".",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "They ___ got any money. Choose the correct **negative short form**.",
+      "options": [
+        "haven't",
+        "hasn't",
+        "don't have",
+        "doesn't have"
+      ],
+      "correct_answer": "haven't",
+      "explanation": "Chủ ngữ \"They\" (họ) đi với \"have got\". Dạng phủ định rút gọn là \"haven't got\".",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "My brother and I ___ got many comic books. Fill in the **blank**.",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "have",
+      "explanation": "Chủ ngữ \"My brother and I\" (anh trai tôi và tôi) là số nhiều (tương đương \"we\"), vì vậy chúng ta dùng \"have got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "The dog ___ got a fluffy tail. Fill in the **blank**.",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ \"The dog\" (con chó) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ your friend got a car? Fill in the **blank** with 'Have' or 'Has'.",
+      "options": [
+        "Have",
+        "Has",
+        "Do",
+        "Does"
+      ],
+      "correct_answer": "Has",
+      "explanation": "Chủ ngữ \"your friend\" (bạn của bạn) là số ít (tương đương \"he\" hoặc \"she\"), vì vậy chúng ta dùng \"Has\" trong câu hỏi.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "We ___ got any milk in the fridge. Complete the sentence with the **negative form**.",
+      "options": [
+        "haven't",
+        "hasn't",
+        "don't have",
+        "doesn't have"
+      ],
+      "correct_answer": "haven't",
+      "explanation": "Chủ ngữ \"We\" (chúng tôi) đi với \"have got\". Dạng phủ định của \"have got\" là \"haven't got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "She ___ got a beautiful voice. Fill in the **blank** with the short form.",
+      "options": [
+        "'ve",
+        "'s",
+        "have",
+        "has"
+      ],
+      "correct_answer": "'s",
+      "explanation": "Chủ ngữ \"She\" (cô ấy) đi với \"has got\". Dạng rút gọn của \"has got\" là \"'s got\".",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ got a terrible cold. Fill in the **blank** with the **short form**.",
+      "options": [
+        "'ve",
+        "'s",
+        "have",
+        "has"
+      ],
+      "correct_answer": "'ve",
+      "explanation": "Chủ ngữ \"I\" (tôi) đi với \"have got\". Dạng rút gọn của \"I have got\" là \"I've got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "The students ___ got a test tomorrow. Fill in the **blank**.",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "have",
+      "explanation": "Chủ ngữ \"The students\" (các học sinh) là số nhiều (tương đương \"they\"), vì vậy chúng ta dùng \"have got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "My phone ___ got a low battery. Fill in the **blank**.",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ \"My phone\" (điện thoại của tôi) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "My sister have got a new bicycle. Identify the **error**.",
+      "options": [
+        "My",
+        "sister",
+        "have",
+        "got"
+      ],
+      "correct_answer": "have",
+      "explanation": "Chủ ngữ \"My sister\" (chị gái tôi) là số ít, nên phải dùng \"has got\" thay vì \"have got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "They hasn't got a big garden. Correct the **negative form**.",
+      "options": [
+        "They haven't got a big garden.",
+        "They don't have a big garden.",
+        "They doesn't got a big garden.",
+        "They hasn't have a big garden."
+      ],
+      "correct_answer": "They haven't got a big garden.",
+      "explanation": "Chủ ngữ \"They\" (họ) là số nhiều, nên dạng phủ định của \"have got\" là \"haven't got\". \"Hasn't\" dùng cho chủ ngữ số ít.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Has you got a pen? Correct the **question form**.",
+      "options": [
+        "Have you got a pen?",
+        "Do you got a pen?",
+        "Does you got a pen?",
+        "You has got a pen?"
+      ],
+      "correct_answer": "Have you got a pen?",
+      "explanation": "Chủ ngữ \"you\" (bạn) đi với \"have got\", vì vậy trong câu hỏi phải dùng \"Have\" thay vì \"Has\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "I's got a new job. Correct the **short form**.",
+      "options": [
+        "I've got a new job.",
+        "I has got a new job.",
+        "I have got a new job.",
+        "I is got a new job."
+      ],
+      "correct_answer": "I've got a new job.",
+      "explanation": "Dạng rút gọn của \"I have got\" là \"I've got\". \"I's\" là sai ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "We has got a problem. Correct the **subject-verb agreement**.",
+      "options": [
+        "We have got a problem.",
+        "We has get a problem.",
+        "We got a problem.",
+        "We haven't got a problem."
+      ],
+      "correct_answer": "We have got a problem.",
+      "explanation": "Chủ ngữ \"We\" (chúng tôi) là số nhiều, nên phải dùng \"have got\" thay vì \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "He has get a lot of books. Correct the **verb form**.",
+      "options": [
+        "He has got a lot of books.",
+        "He have got a lot of books.",
+        "He got a lot of books.",
+        "He has getting a lot of books."
+      ],
+      "correct_answer": "He has got a lot of books.",
+      "explanation": "Cấu trúc đúng là \"has got\". \"Get\" là dạng nguyên thể, không dùng sau \"has\" trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "She don't got any money. Correct the **negative structure**.",
+      "options": [
+        "She hasn't got any money.",
+        "She doesn't have any money.",
+        "She haven't got any money.",
+        "She not got any money."
+      ],
+      "correct_answer": "She hasn't got any money.",
+      "explanation": "Với cấu trúc \"have got\", dạng phủ định là \"haven't got\" hoặc \"hasn't got\". Chủ ngữ \"She\" là số ít nên phải dùng \"hasn't got\".",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Do you have got a pet? Correct the **question structure**.",
+      "options": [
+        "Have you got a pet?",
+        "Do you have a pet?",
+        "Are you got a pet?",
+        "You have got a pet?"
+      ],
+      "correct_answer": "Have you got a pet?",
+      "explanation": "Trong cấu trúc \"have got\", chúng ta không dùng \"Do/Does\" để tạo câu hỏi. Thay vào đó, \"Have/Has\" được đảo lên trước chủ ngữ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ đúng để hoàn thành câu: \"They ___ got a big family.\"",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "are"
+      ],
+      "correct_answer": "have",
+      "explanation": "Với chủ ngữ số nhiều 'They', chúng ta dùng 'have got'. 'Has got' dùng cho chủ ngữ số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền từ thích hợp vào chỗ trống: \"My friend ___ got a new laptop.\"",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "are"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ 'My friend' là ngôi thứ ba số ít, vì vậy chúng ta dùng 'has got'.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"Our teacher have got a lot of experience.\"",
+      "options": [
+        "Our teacher has got a lot of experience.",
+        "Our teacher is got a lot of experience.",
+        "Our teacher have got a lots of experience.",
+        "Our teacher got a lot of experience."
+      ],
+      "correct_answer": "Our teacher has got a lot of experience.",
+      "explanation": "Chủ ngữ 'Our teacher' là ngôi thứ ba số ít, nên phải dùng 'has got' thay vì 'have got'.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn dạng phủ định đúng của câu: \"I have got a lot of free time.\"",
+      "options": [
+        "I haven't got a lot of free time.",
+        "I don't got a lot of free time.",
+        "I hasn't got a lot of free time.",
+        "I am not got a lot of free time."
+      ],
+      "correct_answer": "I haven't got a lot of free time.",
+      "explanation": "Dạng phủ định của 'have got' là 'haven't got'. Các lựa chọn khác không đúng ngữ pháp với cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu với dạng phủ định rút gọn: \"He ___ got any money for lunch.\"",
+      "options": [
+        "hasn't",
+        "haven't",
+        "don't",
+        "doesn't"
+      ],
+      "correct_answer": "hasn't",
+      "explanation": "Với chủ ngữ 'He', dạng phủ định rút gọn của 'has got' là 'hasn't got'.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"The children doesn't got many toys.\"",
+      "options": [
+        "The children haven't got many toys.",
+        "The children hasn't got many toys.",
+        "The children don't got many toys.",
+        "The children not got many toys."
+      ],
+      "correct_answer": "The children haven't got many toys.",
+      "explanation": "Với chủ ngữ số nhiều 'The children', chúng ta dùng 'haven't got' cho dạng phủ định, không dùng 'doesn't got'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn câu có dạng rút gọn đúng: \"She has got a beautiful smile.\"",
+      "options": [
+        "She's got a beautiful smile.",
+        "She've got a beautiful smile.",
+        "She got a beautiful smile.",
+        "She'd got a beautiful smile."
+      ],
+      "correct_answer": "She's got a beautiful smile.",
+      "explanation": "Dạng rút gọn của 'has got' là 's got'. 'She's' là viết tắt của 'She has'.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền dạng rút gọn vào chỗ trống: \"We'___ got an important meeting tomorrow.\"",
+      "options": [
+        "ve",
+        "s",
+        "re",
+        "d"
+      ],
+      "correct_answer": "ve",
+      "explanation": "Với chủ ngữ 'We', dạng rút gọn của 'have got' là 'We've got'.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"You's got to finish your homework.\"",
+      "options": [
+        "You've got to finish your homework.",
+        "You has got to finish your homework.",
+        "You got to finish your homework.",
+        "You're got to finish your homework."
+      ],
+      "correct_answer": "You've got to finish your homework.",
+      "explanation": "Với chủ ngữ 'You', dạng rút gọn của 'have got' là 'You've got', không phải 'You's got'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn dạng câu hỏi đúng cho \"They have got a new car.\"",
+      "options": [
+        "Have they got a new car?",
+        "Do they have got a new car?",
+        "Has they got a new car?",
+        "Are they got a new car?"
+      ],
+      "correct_answer": "Have they got a new car?",
+      "explanation": "Để tạo câu hỏi với 'have got', chúng ta đảo 'have' lên trước chủ ngữ. 'Have they got...?' là cấu trúc đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu hỏi: \"___ it got enough power?\"",
+      "options": [
+        "Has",
+        "Have",
+        "Is",
+        "Does"
+      ],
+      "correct_answer": "Has",
+      "explanation": "Với chủ ngữ 'it', chúng ta dùng 'Has' để tạo câu hỏi với 'has got'.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"Do he has got a pet?\"",
+      "options": [
+        "Has he got a pet?",
+        "Does he has got a pet?",
+        "Do he have got a pet?",
+        "Is he got a pet?"
+      ],
+      "correct_answer": "Has he got a pet?",
+      "explanation": "Khi dùng 'have got/has got' trong câu hỏi, chúng ta không dùng trợ động từ 'Do/Does'. Thay vào đó, chúng ta đảo 'Has' lên trước chủ ngữ 'he'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ đúng để hoàn thành câu: \"The school ___ got a new library.\"",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "are"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ 'The school' là danh từ số ít, nên chúng ta dùng 'has got'.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền từ thích hợp vào chỗ trống: \"My grandmother ___ got white hair.\"",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "are"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ 'My grandmother' là ngôi thứ ba số ít, nên dùng 'has got' để miêu tả đặc điểm cơ thể.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"I has got a terrible cold.\"",
+      "options": [
+        "I have got a terrible cold.",
+        "I am got a terrible cold.",
+        "I has gets a terrible cold.",
+        "I got a terrible cold."
+      ],
+      "correct_answer": "I have got a terrible cold.",
+      "explanation": "Với chủ ngữ 'I', chúng ta luôn dùng 'have got' để nói về tình trạng hiện tại.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn câu đúng ngữ pháp:",
+      "options": [
+        "He have got a bicycle.",
+        "They has got a dog.",
+        "She has got a cat.",
+        "We hasn't got time."
+      ],
+      "correct_answer": "She has got a cat.",
+      "explanation": "Chủ ngữ 'She' đi với 'has got'. Các lựa chọn khác sai về sự hòa hợp chủ ngữ-động từ hoặc dạng phủ định.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu với dạng phủ định: \"We ___ got any plans for the holiday yet.\"",
+      "options": [
+        "haven't",
+        "hasn't",
+        "don't",
+        "doesn't"
+      ],
+      "correct_answer": "haven't",
+      "explanation": "Với chủ ngữ 'We', dạng phủ định của 'have got' là 'haven't got'.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"My brother has get a new car.\"",
+      "options": [
+        "My brother has got a new car.",
+        "My brother have get a new car.",
+        "My brother has getting a new car.",
+        "My brother got a new car."
+      ],
+      "correct_answer": "My brother has got a new car.",
+      "explanation": "Cấu trúc đúng là 'has got', không phải 'has get'.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ đúng để hoàn thành câu: \"My cousin ___ got a baby sister.\"",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "are"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ 'My cousin' là ngôi thứ ba số ít, vì vậy chúng ta dùng 'has got'.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền từ thích hợp vào chỗ trống để tạo câu hỏi: \"___ your parents got a big garden?\"",
+      "options": [
+        "Have",
+        "Has",
+        "Do",
+        "Are"
+      ],
+      "correct_answer": "Have",
+      "explanation": "Chủ ngữ 'your parents' là số nhiều, nên chúng ta dùng 'Have' để hỏi với 'have got'.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"It've got a strange smell.\"",
+      "options": [
+        "It's got a strange smell.",
+        "It have got a strange smell.",
+        "It got a strange smell.",
+        "It is got a strange smell."
+      ],
+      "correct_answer": "It's got a strange smell.",
+      "explanation": "Với chủ ngữ 'It', dạng rút gọn của 'has got' là 'It's got', không phải 'It've got'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Câu nào sau đây **SAI** ngữ pháp?",
+      "options": [
+        "I've got a lot of friends.",
+        "She's got a new job.",
+        "They has got a big house.",
+        "We haven't got much time."
+      ],
+      "correct_answer": "They has got a big house.",
+      "explanation": "Với chủ ngữ 'They' (số nhiều), chúng ta phải dùng 'have got' hoặc 'haven't got', không phải 'has got'.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu với dạng phủ định rút gọn: \"The old TV ___ got a remote control.\"",
+      "options": [
+        "hasn't",
+        "haven't",
+        "don't",
+        "doesn't"
+      ],
+      "correct_answer": "hasn't",
+      "explanation": "Chủ ngữ 'The old TV' tương đương với 'it', nên chúng ta dùng 'hasn't got' cho dạng phủ định rút gọn.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"Lan and Mai has got new bicycles.\"",
+      "options": [
+        "Lan and Mai have got new bicycles.",
+        "Lan and Mai has gets new bicycles.",
+        "Lan and Mai got new bicycles.",
+        "Lan and Mai is got new bicycles."
+      ],
+      "correct_answer": "Lan and Mai have got new bicycles.",
+      "explanation": "Khi có hai chủ ngữ nối với 'and' ('Lan and Mai'), chúng ta coi đó là chủ ngữ số nhiều, nên phải dùng 'have got' thay vì 'has got'.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ thích hợp nhất để hoàn thành câu: \"Oh no! I ___ got a flat tire on my bike.\"",
+      "options": [
+        "have",
+        "has",
+        "am",
+        "is"
+      ],
+      "correct_answer": "have",
+      "explanation": "Chủ ngữ 'I' luôn đi với 'have got'. Đây là cách diễn đạt một vấn đề hoặc tình trạng hiện tại.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ đúng để hoàn thành câu: \"My cat ___ got green eyes.\"",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ \"My cat\" (con mèo của tôi) là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền từ thích hợp vào chỗ trống: \"I ___ got a lot of homework tonight.\"",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "have",
+      "explanation": "Với chủ ngữ \"I\", chúng ta dùng \"have got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"He have got a lot of friends.\"",
+      "options": [
+        "He have got",
+        "He has got",
+        "He haven't got",
+        "He hasn't got"
+      ],
+      "correct_answer": "He has got",
+      "explanation": "Chủ ngữ \"He\" là số ít, vì vậy phải dùng \"has got\" chứ không phải \"have got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn câu có dạng **rút gọn** đúng:",
+      "options": [
+        "She've got a new dress.",
+        "They's got a nice house.",
+        "We've got a big dog.",
+        "He's have got a cold."
+      ],
+      "correct_answer": "We've got a big dog.",
+      "explanation": "Dạng rút gọn của \"We have got\" là \"We've got\". Các lựa chọn khác sai ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu với dạng phủ định rút gọn: \"My parents ___ got any free time today.\"",
+      "options": [
+        "haven't",
+        "hasn't",
+        "don't have",
+        "not have"
+      ],
+      "correct_answer": "haven't",
+      "explanation": "Chủ ngữ \"My parents\" (bố mẹ tôi) là số nhiều, tương đương với \"they\", vì vậy chúng ta dùng \"haven't got\" (dạng phủ định rút gọn).",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"We hasn't got enough time for the project.\"",
+      "options": [
+        "We hasn't got",
+        "We haven't got",
+        "We don't got",
+        "We has got"
+      ],
+      "correct_answer": "We haven't got",
+      "explanation": "Với chủ ngữ \"We\", dạng phủ định phải là \"haven't got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ đúng để hoàn thành câu: \"They ___ got a beautiful garden.\"",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "have",
+      "explanation": "Chủ ngữ \"They\" (họ) là số nhiều, vì vậy chúng ta dùng \"have got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền từ thích hợp vào chỗ trống: \"She ___ got long, blonde hair.\"",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Với chủ ngữ \"She\", chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"Have she got a new phone?\"",
+      "options": [
+        "Have she got",
+        "Has she got",
+        "Does she have got",
+        "Is she got"
+      ],
+      "correct_answer": "Has she got",
+      "explanation": "Với chủ ngữ \"She\", dạng câu hỏi phải dùng \"Has\" chứ không phải \"Have\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Câu nào sau đây sử dụng **have got / has got** đúng ngữ pháp?",
+      "options": [
+        "I has got a big family.",
+        "He have got a red car.",
+        "They've got a lot of books.",
+        "She haven't got any sisters."
+      ],
+      "correct_answer": "They've got a lot of books.",
+      "explanation": "Với chủ ngữ \"They\", chúng ta dùng \"have got\", và dạng rút gọn \"'ve got\" là đúng. Các câu còn lại sai ở sự hòa hợp chủ ngữ-động từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu hỏi: \"___ you got any plans for the weekend?\"",
+      "options": [
+        "Have",
+        "Has",
+        "Do",
+        "Are"
+      ],
+      "correct_answer": "Have",
+      "explanation": "Với chủ ngữ \"you\" trong cấu trúc \"have got\", dạng câu hỏi bắt đầu bằng \"Have\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"It've got a comfortable bed.\"",
+      "options": [
+        "It've got",
+        "It's got",
+        "It has got",
+        "It have got"
+      ],
+      "correct_answer": "It's got",
+      "explanation": "Dạng rút gọn của \"It has got\" là \"It's got\". \"It've got\" là sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ đúng để hoàn thành câu: \"The new restaurant ___ got delicious food.\"",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ \"The new restaurant\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền dạng rút gọn vào chỗ trống: \"My brother'___ got a new job.\"",
+      "options": [
+        "ve",
+        "s",
+        "re",
+        "m"
+      ],
+      "correct_answer": "s",
+      "explanation": "Chủ ngữ \"My brother\" là số ít, tương đương với \"he\", vì vậy dạng rút gọn của \"has got\" là \"'s got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"The children hasn't got many toys.\"",
+      "options": [
+        "The children hasn't got",
+        "The children haven't got",
+        "The children don't got",
+        "The children not got"
+      ],
+      "correct_answer": "The children haven't got",
+      "explanation": "Chủ ngữ \"The children\" (những đứa trẻ) là số nhiều, tương đương với \"they\", vì vậy phải dùng \"haven't got\".",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn dạng phủ định đúng của câu: \"He has got a lot of energy.\"",
+      "options": [
+        "He haven't got a lot of energy.",
+        "He hasn't got a lot of energy.",
+        "He don't got a lot of energy.",
+        "He not got a lot of energy."
+      ],
+      "correct_answer": "He hasn't got a lot of energy.",
+      "explanation": "Với chủ ngữ \"He\", dạng phủ định của \"has got\" là \"hasn't got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu với dạng phủ định: \"We ___ got any milk left.\"",
+      "options": [
+        "haven't",
+        "hasn't",
+        "don't have",
+        "not have"
+      ],
+      "correct_answer": "haven't",
+      "explanation": "Với chủ ngữ \"We\", dạng phủ định của \"have got\" là \"haven't got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"You's got a very busy schedule.\"",
+      "options": [
+        "You's got",
+        "You've got",
+        "You have got",
+        "You has got"
+      ],
+      "correct_answer": "You've got",
+      "explanation": "Dạng rút gọn của \"You have got\" là \"You've got\". \"You's got\" là sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn câu hỏi đúng ngữ pháp:",
+      "options": [
+        "Has you got a problem?",
+        "Have he got a car?",
+        "Have they got any food?",
+        "Does she has got a pet?"
+      ],
+      "correct_answer": "Have they got any food?",
+      "explanation": "Với chủ ngữ \"they\", dạng câu hỏi đúng là \"Have they got...\". Các lựa chọn khác sai ở sự hòa hợp chủ ngữ-động từ hoặc cấu trúc câu hỏi.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền từ thích hợp vào chỗ trống: \"My new phone ___ got a great camera.\"",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ \"My new phone\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"I has got a lot of things to do.\"",
+      "options": [
+        "I has got",
+        "I have got",
+        "I haven't got",
+        "I am got"
+      ],
+      "correct_answer": "I have got",
+      "explanation": "Với chủ ngữ \"I\", chúng ta phải dùng \"have got\" chứ không phải \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn câu có dạng rút gọn **phủ định** đúng:",
+      "options": [
+        "She's not got a passport.",
+        "They haven't got a map.",
+        "He hasn't got any brothers.",
+        "We've not got much time."
+      ],
+      "correct_answer": "He hasn't got any brothers.",
+      "explanation": "Dạng rút gọn phủ định của \"He has got\" là \"He hasn't got\". \"She's not got\" và \"We've not got\" không phải là dạng rút gọn phủ định chuẩn. \"They haven't got\" cũng đúng nhưng câu hỏi yêu cầu chọn câu có dạng rút gọn phủ định đúng, và \"He hasn't got\" là một ví dụ rõ ràng.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu: \"The old house ___ got a beautiful garden.\"",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "has",
+      "explanation": "Chủ ngữ \"The old house\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"My parents has got two cars.\"",
+      "options": [
+        "My parents has got",
+        "My parents have got",
+        "My parents haven't got",
+        "My parents is got"
+      ],
+      "correct_answer": "My parents have got",
+      "explanation": "Chủ ngữ \"My parents\" (bố mẹ tôi) là số nhiều, vì vậy phải dùng \"have got\" chứ không phải \"has got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ thích hợp nhất để hoàn thành câu: \"Oh no! I ___ got a headache.\"",
+      "options": [
+        "have",
+        "has",
+        "haven't",
+        "hasn't"
+      ],
+      "correct_answer": "have",
+      "explanation": "Với chủ ngữ \"I\", chúng ta dùng \"have got\" để nói về tình trạng sức khỏe hiện tại.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ đúng để hoàn thành câu: \"My friend and I **___** a lot of fun together.\"",
+      "options": [
+        "have got",
+        "has got",
+        "got",
+        "are got"
+      ],
+      "correct_answer": "have got",
+      "explanation": "Chủ ngữ \"My friend and I\" là số nhiều (tương đương \"we\"), nên dùng \"have got\". \"Has got\" dùng cho chủ ngữ số ít (he/she/it). \"Got\" đứng một mình không đúng ngữ pháp trong cấu trúc này. \"Are got\" không phải cấu trúc ngữ pháp đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu với dạng phủ định: \"The school **___** a big library.\"",
+      "options": [
+        "hasn't got",
+        "haven't got",
+        "didn't got",
+        "not got"
+      ],
+      "correct_answer": "hasn't got",
+      "explanation": "Chủ ngữ \"The school\" là số ít (tương đương \"it\"), nên dùng \"hasn't got\" cho dạng phủ định. \"Haven't got\" dùng cho chủ ngữ số nhiều. Các lựa chọn khác không đúng ngữ pháp.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"My parents **has got** a new car last month.\"",
+      "options": [
+        "has got -> have got",
+        "has got -> had got",
+        "has got -> have gets",
+        "has got -> got"
+      ],
+      "correct_answer": "has got -> have got",
+      "explanation": "Chủ ngữ \"My parents\" là số nhiều, nên phải dùng \"have got\", không phải \"has got\". Mặc dù có \"last month\" nhưng cấu trúc \"have got\" vẫn dùng để nói về sở hữu hiện tại (vẫn có xe mới).",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ thích hợp để hoàn thành câu: \"I **___** a blue backpack for school.\"",
+      "options": [
+        "have got",
+        "has got",
+        "got",
+        "am got"
+      ],
+      "correct_answer": "have got",
+      "explanation": "Chủ ngữ \"I\" luôn đi với \"have got\". \"Has got\" dùng cho ngôi thứ ba số ít. \"Got\" đứng một mình không đúng cấu trúc. \"Am got\" không đúng ngữ pháp.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu với dạng rút gọn khẳng định: \"She**___** a beautiful voice.\"",
+      "options": [
+        "'s got",
+        "'ve got",
+        "is got",
+        "has get"
+      ],
+      "correct_answer": "'s got",
+      "explanation": "Chủ ngữ \"She\" là ngôi thứ ba số ít, nên dùng \"has got\". Dạng rút gọn của \"has got\" là \"'s got\". \"'ve got\" dùng cho I/you/we/they.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"They **haven't gets** a lot of homework today.\"",
+      "options": [
+        "haven't gets -> haven't got",
+        "haven't gets -> hasn't got",
+        "haven't gets -> don't got",
+        "haven't gets -> hasn't gets"
+      ],
+      "correct_answer": "haven't gets -> haven't got",
+      "explanation": "Cấu trúc phủ định là \"haven't got\" hoặc \"hasn't got\". Động từ chính luôn là \"got\", không phải \"gets\". Vì chủ ngữ là \"They\" nên dùng \"haven't got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Câu nào sau đây sử dụng **have got / has got** đúng để miêu tả đặc điểm cơ thể?",
+      "options": [
+        "He has got brown eyes.",
+        "She have got long hair.",
+        "They has got short legs.",
+        "I's got a small nose."
+      ],
+      "correct_answer": "He has got brown eyes.",
+      "explanation": "Chủ ngữ \"He\" là ngôi thứ ba số ít, đi với \"has got\". Các câu khác sai ngữ pháp: \"She\" phải đi với \"has got\"; \"They\" phải đi với \"have got\"; \"I\" phải đi với \"I've got\" hoặc \"I have got\".",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Điền dạng rút gọn vào chỗ trống: \"We**___** a new teacher this year.\"",
+      "options": [
+        "'ve got",
+        "'s got",
+        "are got",
+        "have get"
+      ],
+      "correct_answer": "'ve got",
+      "explanation": "Chủ ngữ \"We\" đi với \"have got\". Dạng rút gọn của \"have got\" là \"'ve got\". \"'s got\" dùng cho he/she/it.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Tìm và sửa lỗi sai trong câu: \"The children **has got** many toys to play with.\"",
+      "options": [
+        "has got -> have got",
+        "has got -> gets",
+        "has got -> haven't got",
+        "has got -> has gets"
+      ],
+      "correct_answer": "has got -> have got",
+      "explanation": "Chủ ngữ \"The children\" là số nhiều, nên phải dùng \"have got\", không phải \"has got\". \"Gets\" hoặc \"haven't got\" không phù hợp với ý nghĩa khẳng định và số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn từ đúng để hoàn thành câu về tình trạng hiện tại: \"I **___** a terrible cold, I need to rest.\"",
+      "options": [
+        "have got",
+        "has got",
+        "got",
+        "am having"
+      ],
+      "correct_answer": "have got",
+      "explanation": "Chủ ngữ \"I\" đi với \"have got\". Cấu trúc \"have got\" được dùng để nói về tình trạng hoặc vấn đề hiện tại (như bị ốm). \"Has got\" dùng cho ngôi thứ ba số ít. \"Got\" đứng một mình không đúng cấu trúc. \"Am having\" cũng đúng ngữ pháp nhưng \"have got\" là cấu trúc được yêu cầu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hoàn thành câu với dạng phủ định: \"My brother **___** a mustache.\" (miêu tả đặc điểm cơ thể)",
+      "options": [
+        "hasn't got",
+        "haven't got",
+        "don't got",
+        "not got"
+      ],
+      "correct_answer": "hasn't got",
+      "explanation": "Chủ ngữ \"My brother\" là số ít (tương đương \"he\"), nên dùng \"hasn't got\" cho dạng phủ định. \"Haven't got\" dùng cho chủ ngữ số nhiều. Các lựa chọn khác không đúng ngữ pháp.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Sửa lỗi trong câu: \"It **have got** a beautiful view from the window.\"",
+      "options": [
+        "have got -> has got",
+        "have got -> got",
+        "have got -> is got",
+        "have got -> have gets"
+      ],
+      "correct_answer": "have got -> has got",
+      "explanation": "Chủ ngữ \"It\" là ngôi thứ ba số ít, nên phải dùng \"has got\", không phải \"have got\". \"Got\", \"is got\" hoặc \"have gets\" không đúng ngữ pháp.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Câu nào sau đây là dạng phủ định đúng của \"We have got a lot of time\"?",
+      "options": [
+        "We haven't got a lot of time.",
+        "We hasn't got a lot of time.",
+        "We don't got a lot of time.",
+        "We not got a lot of time."
+      ],
+      "correct_answer": "We haven't got a lot of time.",
+      "explanation": "Dạng phủ định của \"have got\" là \"haven't got\". Vì chủ ngữ là \"We\" (số nhiều), nên dùng \"haven't got\". \"Hasn't got\" dùng cho chủ ngữ số ít. Các lựa chọn khác không đúng cấu trúc phủ định của \"have got\".",
+      "difficulty": 1
     }
   ]
 }
