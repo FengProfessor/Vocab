@@ -44,7 +44,7 @@ export async function sendPushNotificationToUser(
 
     if (tokens.size === 0) return { error: `No token for user ${userId}` };
 
-    const link = `https://vocab-taupe.vercel.app${url}`;
+    const link = `https://lingopro.online${url}`;
     const tokenArr = Array.from(tokens);
     const deadTokens: string[] = [];
 

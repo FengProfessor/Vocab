@@ -63,7 +63,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
 
       {(type === 'mcq' || type === 'error') && (
         <div className="flex flex-col gap-2">
-          {(opts ?? []).map((o) => {
+          {(opts ?? []).map((o: string) => {
             const isCorrect = o === answer;
             const show = done && (picked === o || isCorrect);
             return (

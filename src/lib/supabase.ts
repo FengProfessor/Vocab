@@ -263,11 +263,15 @@ export interface GrammarSections {
 }
 
 export interface GrammarExerciseItem {
-  type: 'mcq' | 'fill' | 'tf' | 'error';
-  q: string;
+  type: 'mcq' | 'fill' | 'tf' | 'error' | 'multiple_choice' | 'fill_blank' | 'error_correction';
+  q?: string;
   opts?: string[];
-  answer: string | string[] | boolean;
+  answer?: string | string[] | boolean;
   fb?: string;
+  question?: string;
+  options?: string[];
+  correct_answer?: string | string[] | boolean;
+  explanation?: string;
 }
 
 export interface GrammarProgress {

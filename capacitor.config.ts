@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'LingoPro',
   webDir: 'out',
   server: {
-    url: 'https://vocab-taupe.vercel.app',
+    url: 'https://lingopro.online',
     cleartext: false,
   },
   ios: {

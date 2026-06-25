@@ -32,7 +32,7 @@ export async function sendEmail(to: string, subject: string, html: string): Prom
 }
 
 /** Template nhắc ôn tập — logo PNG tuyệt đối (email client không load webp/relative). */
-export function dueReminderHtml(name: string, dueCount: number, appUrl = 'https://vocab-taupe.vercel.app'): string {
+export function dueReminderHtml(name: string, dueCount: number, appUrl = 'https://lingopro.online'): string {
   const firstName = (name || 'bạn').split(' ').pop();
   return `<!DOCTYPE html><html lang="vi"><body style="margin:0;background:#f1f5f9;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f9;padding:24px 0">

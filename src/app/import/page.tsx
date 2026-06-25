@@ -257,7 +257,7 @@ export default function ImportPage() {
           return v as SheetCell;
         };
         // exceljs row.values là mảng 1-based (index 0 = null) → slice(1) để khớp cột 0-based.
-        ws?.eachRow({ includeEmpty: false }, (row) => {
+        ws?.eachRow({ includeEmpty: false }, (row: any) => {
           const vals = Array.isArray(row.values) ? (row.values as unknown[]).slice(1) : [];
           rows.push(vals.map(cellText));
         });
