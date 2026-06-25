@@ -226,11 +226,12 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
     // Auth bắt buộc — service client bypass RLS, không auth = ai cũng đọc được bài của mọi lớp
     const auth = await getAuthUser(req);
-    if (!auth) return unauthorized();
-
     const { searchParams } = new URL(req.url);
     const classroomId = searchParams.get('classroomId');
     const lessonId = searchParams.get('lessonId');
+
+    // Auth chỉ bắt buộc khi truy cập theo classroomId (lớp học riêng tư)
+    if (!auth && classroomId) return unauthorized();
 
     if (!classroomId && !lessonId) {
       return NextResponse.json({ success: false, error: 'classroomId or lessonId is required' }, { status: 400 });
@@ -239,7 +240,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const supabase = createServiceClient();
 
     // Đọc theo classroom → phải là giáo viên của lớp HOẶC học sinh đã enroll
-    if (classroomId) {
+    if (classroomId && auth) {
       const [{ data: cls }, { data: enrollment }] = await Promise.all([
         supabase.from('classrooms').select('teacher_id').eq('id', classroomId).maybeSingle(),
         supabase.from('enrollments').select('id').eq('classroom_id', classroomId).eq('student_id', auth.userId).maybeSingle(),
