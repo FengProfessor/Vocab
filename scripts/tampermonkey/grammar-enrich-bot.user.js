@@ -46,32 +46,55 @@
 
     const platform = PLATFORMS[PLATFORM];
 
-    // STATE
-    let isRunning  = GM_getValue('gbot_running', false);
-    let activeLesson = GM_getValue('gbot_active_lesson', null);
+    // STATE (Tab-specific to support sharding)
+    let isRunning  = sessionStorage.getItem('gbot_running') === 'true';
+    let activeLesson = sessionStorage.getItem('gbot_active_lesson') ? JSON.parse(sessionStorage.getItem('gbot_active_lesson')) : null;
+    let shards = GM_getValue('shards', 1);
+    let shard = parseInt(sessionStorage.getItem('gbot_shard') || '0', 10);
 
-    GM_registerMenuCommand(`🚀 ${isRunning ? 'ĐANG CHẠY' : 'BẮT ĐẦU CHẠY'} [${PLATFORM}]`, startBot);
+    GM_registerMenuCommand(`🚀 ${isRunning ? 'ĐANG CHẠY' : 'BẮT ĐẦU CHẠY'} [Grammar#${shard}/${shards}]`, startBot);
     GM_registerMenuCommand('🛑 DỪNG', stopBot);
+    GM_registerMenuCommand(`🔢 Đặt Shard ID (hiện: ${shard})`, changeShardId);
+    GM_registerMenuCommand(`📊 Đặt tổng số Shards (hiện: ${shards})`, changeTotalShards);
     GM_registerMenuCommand('🔧 Đổi Server URL', changeUrl);
     GM_registerMenuCommand('🔑 Đổi Secret Key', changeSecret);
 
     // Auto resume
     if (isRunning) {
-        console.log('[GrammarBot] Resume active session...');
+        console.log(`[GrammarBot] Resume active session for Shard #${shard}...`);
         setTimeout(processNext, 2500);
     }
 
     function startBot() {
         if (isRunning) { alert('Bot đang chạy rồi!'); return; }
-        GM_setValue('gbot_running', true);
+        sessionStorage.setItem('gbot_running', 'true');
         isRunning = true;
         processNext();
     }
 
     function stopBot() {
-        GM_setValue('gbot_running', false);
+        sessionStorage.setItem('gbot_running', 'false');
         isRunning = false;
-        document.title = '[DỪNG] LingoPro Grammar';
+        document.title = `[DỪNG] Grammar#${shard}`;
+        location.reload();
+    }
+
+    function changeShardId() {
+        const v = prompt(`Tab này là shard số mấy? (0 đến ${shards - 1})`, String(shard));
+        if (v === null) return;
+        const n = parseInt(v, 10);
+        if (Number.isNaN(n) || n < 0 || n >= shards) { alert(`Số không hợp lệ (phải từ 0 đến ${shards - 1})`); return; }
+        sessionStorage.setItem('gbot_shard', String(n));
+        location.reload();
+    }
+
+    function changeTotalShards() {
+        const v = prompt('Tổng số Shards (số tab mở song song):', String(shards));
+        if (v === null) return;
+        const n = parseInt(v, 10);
+        if (Number.isNaN(n) || n < 1) { alert('Số lượng không hợp lệ'); return; }
+        GM_setValue('shards', n);
+        location.reload();
     }
 
     function changeUrl() {
@@ -120,10 +143,10 @@
     async function processNext() {
         if (!isRunning) return;
 
-        document.title = '⏳ Đang gọi local API...';
+        document.title = `[Grammar#${shard}] ⏳ Đang gọi local API...`;
         
         try {
-            const res = await apiGet(`${CFG.BASE_URL}/api/bot/grammar/next`);
+            const res = await apiGet(`${CFG.BASE_URL}/api/bot/grammar/next?shard=${shard}&shards=${shards}`);
             const data = JSON.parse(res.responseText);
 
             if (!data.success) {
@@ -133,19 +156,19 @@
             }
 
             if (data.finished) {
-                document.title = '✅ XONG!';
+                document.title = `[Grammar#${shard}] ✅ XONG!`;
                 stopBot();
-                alert('Tất cả bài học grammar đã được làm giàu đủ 100 câu hỏi!');
+                alert('Tất cả bài học grammar thuộc shard này đã được làm giàu đủ 100 câu hỏi!');
                 return;
             }
 
-            GM_setValue('gbot_active_lesson', JSON.stringify(data));
+            sessionStorage.setItem('gbot_active_lesson', JSON.stringify(data));
             activeLesson = data;
 
             await injectPrompt(data);
         } catch (err) {
-            console.error('[GrammarBot] Connection error:', err);
-            document.title = '❌ Lỗi kết nối -> Thử lại trong 5s...';
+            console.error(`[GrammarBot#${shard}] Connection error:`, err);
+            document.title = `[Grammar#${shard}] ❌ Lỗi kết nối -> Thử lại trong 5s...`;
             setTimeout(processNext, 5000);
         }
     }
@@ -155,7 +178,7 @@
         const need = 100 - currentCount;
         const currentBatchSize = Math.min(CFG.BATCH_SIZE, need);
 
-        document.title = `📝 Soạn bài: ${lesson.slug} (còn ${lesson.remaining} bài)`;
+        document.title = `[Grammar#${shard}] 📝 Soạn bài: ${lesson.slug} (còn ${lesson.remaining} bài)`;
 
         const existingBrief = lesson.exercises.map((e) => ({
             question: e.question || e.q || '',
@@ -209,7 +232,7 @@ Quy tắc tạo câu hỏi:
         await new Promise((r) => setTimeout(r, 1000));
         platform.submit();
 
-        document.title = `🧠 AI đang xử lý... ${lesson.slug} (+${currentBatchSize})`;
+        document.title = `[Grammar#${shard}] 🧠 AI đang xử lý... ${lesson.slug} (+${currentBatchSize})`;
         pollResult(lesson, currentBatchSize);
     }
 
@@ -224,15 +247,15 @@ Quy tắc tạo câu hỏi:
             // Kiểm tra quota
             const lowerText = document.body.innerText.toLowerCase();
             if (platform.quota.some(q => lowerText.includes(q))) {
-                document.title = '⚠️ HẾT QUOTA!';
+                document.title = `[Grammar#${shard}] ⚠️ HẾT QUOTA!`;
                 stopBot();
-                GM_notification({ title: 'LingoPro', text: 'Hết quota trình duyệt! Vui lòng đổi tài khoản Google.', timeout: 10000 });
+                GM_notification({ title: `LingoPro Grammar#${shard}`, text: 'Hết quota trình duyệt! Vui lòng đổi tài khoản Google.', timeout: 10000 });
                 return;
             }
 
             const json = findJSON(document.body.innerText);
             if (json) {
-                document.title = '💾 Lưu câu hỏi vào database...';
+                document.title = `[Grammar#${shard}] 💾 Lưu câu hỏi vào database...`;
                 try {
                     const saveRes = await apiPost(`${CFG.BASE_URL}/api/bot/grammar/save`, {
                         lessonId: lesson.lessonId,
@@ -240,12 +263,12 @@ Quy tắc tạo câu hỏi:
                     });
                     const resultData = JSON.parse(saveRes.responseText);
                     if (resultData.success) {
-                        console.log(`[GrammarBot] Saved ${resultData.added} new questions. Total: ${resultData.total}/100.`);
+                        console.log(`[GrammarBot#${shard}] Saved ${resultData.added} new questions. Total: ${resultData.total}/100.`);
                     } else {
-                        console.error('[GrammarBot] Save failed:', resultData.error);
+                        console.error(`[GrammarBot#${shard}] Save failed:`, resultData.error);
                     }
                 } catch (saveErr) {
-                    console.error('[GrammarBot] Save connection error:', saveErr);
+                    console.error(`[GrammarBot#${shard}] Save connection error:`, saveErr);
                 }
                 
                 await new Promise((r) => setTimeout(r, CFG.BATCH_DELAY_MS));

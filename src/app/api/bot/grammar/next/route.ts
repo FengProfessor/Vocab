@@ -20,10 +20,21 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     if (fetchErr) throw fetchErr;
 
+    // Read query parameters for sharding
+    const { searchParams } = new URL(req.url);
+    let shard = parseInt(searchParams.get('shard') || '0', 10);
+    let shards = parseInt(searchParams.get('shards') || '1', 10);
+    if (isNaN(shard) || shard < 0) shard = 0;
+    if (isNaN(shards) || shards < 1) shards = 1;
+    if (shard >= shards) shard = shards - 1;
+
     // Filter to find the first lesson that has < 100 exercises
     const sorted = (lessons || []).sort((a, b) => (a.order_index ?? 0) - (b.order_index ?? 0));
-    const target = sorted.find((l) => !l.exercises || !Array.isArray(l.exercises) || l.exercises.length < 100);
-    const remaining = sorted.filter((l) => !l.exercises || !Array.isArray(l.exercises) || l.exercises.length < 100).length;
+    const incomplete = sorted.filter((l) => !l.exercises || !Array.isArray(l.exercises) || l.exercises.length < 100);
+
+    // Find the first target that belongs to this shard
+    const target = incomplete.find((_, idx) => idx % shards === shard);
+    const remaining = incomplete.filter((_, idx) => idx % shards === shard).length;
 
     if (!target) {
       return NextResponse.json({ success: true, finished: true, remaining: 0 });
