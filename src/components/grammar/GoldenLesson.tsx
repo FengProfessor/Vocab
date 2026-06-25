@@ -52,7 +52,16 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
   const badge = { mcq: 'Trắc nghiệm', fill: 'Điền từ', tf: 'Đúng / Sai', error: 'Sửa lỗi' }[type];
   const bcol = { mcq: 'bg-indigo-50 text-indigo-700', fill: 'bg-emerald-50 text-emerald-700', tf: 'bg-amber-50 text-amber-700', error: 'bg-rose-50 text-rose-700' }[type];
 
-  const correctText = Array.isArray(answer) ? answer[0] : type === 'tf' ? (answer ? 'Đúng' : 'Sai') : String(answer);
+  const isAnswerTrue = answer === true || String(answer).trim().toLowerCase() === 'true' || String(answer).trim().toLowerCase() === 'đúng' || String(answer).trim().toLowerCase() === 'yes';
+  const correctText = Array.isArray(answer) ? answer[0] : type === 'tf' ? (isAnswerTrue ? 'Đúng' : 'Sai') : String(answer);
+
+  const isOptionCorrect = (opt: string) => {
+    const cleanOpt = opt.trim().toLowerCase();
+    if (Array.isArray(answer)) {
+      return answer.some((a) => String(a).trim().toLowerCase() === cleanOpt);
+    }
+    return cleanOpt === String(answer !== undefined && answer !== null ? answer : '').trim().toLowerCase();
+  };
 
   return (
     <div className="bg-background border rounded-xl p-4">
@@ -64,7 +73,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
       {(type === 'mcq' || type === 'error') && (
         <div className="flex flex-col gap-2">
           {(opts ?? []).map((o: string) => {
-            const isCorrect = o === answer;
+            const isCorrect = isOptionCorrect(o);
             const show = done && (picked === o || isCorrect);
             return (
               <button key={o} disabled={done}
@@ -82,7 +91,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
       {type === 'tf' && (
         <div className="flex gap-2">
           {[{ l: 'Đúng', v: true }, { l: 'Sai', v: false }].map((opt) => {
-            const isCorrect = opt.v === answer;
+            const isCorrect = opt.v === isAnswerTrue;
             const show = done && (picked === opt.l || isCorrect);
             return (
               <button key={opt.l} disabled={done}
@@ -113,12 +122,12 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
           (type === 'fill'
             ? (Array.isArray(answer) && answer.some((a) => norm(a) === norm(val)))
             : type === 'tf'
-              ? (picked === (answer ? 'Đúng' : 'Sai'))
-              : picked === answer)
+              ? (picked === (isAnswerTrue ? 'Đúng' : 'Sai'))
+              : (picked && isOptionCorrect(picked)))
             ? 'text-emerald-700' : 'text-rose-700'}`}>
           {(type === 'fill'
             ? (Array.isArray(answer) && answer.some((a) => norm(a) === norm(val)))
-            : type === 'tf' ? (picked === (answer ? 'Đúng' : 'Sai')) : picked === answer)
+            : type === 'tf' ? (picked === (isAnswerTrue ? 'Đúng' : 'Sai')) : (picked && isOptionCorrect(picked)))
             ? '✓ Chính xác! ' : `✗ Đáp án: ${correctText}. `}
           <span className="font-normal text-slate-600">{fb}</span>
         </div>

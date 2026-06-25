@@ -41,7 +41,15 @@ function normalizeExercise(raw: unknown): Omit<GeneratedExercise, 'difficulty'> 
   if (new Set(opts).size !== 4) return null;
 
   const correct = item.correct_answer.trim();
-  if (!opts.includes(correct)) return null;
+  let finalCorrect = correct;
+  if (!opts.includes(correct)) {
+    const matchedOpt = opts.find((o) => o.toLowerCase() === correct.toLowerCase());
+    if (matchedOpt) {
+      finalCorrect = matchedOpt;
+    } else {
+      return null;
+    }
+  }
 
   const type = typeof item.type === 'string' && VALID_TYPES.has(item.type) ? item.type : 'multiple_choice';
   const difficulty = typeof item.difficulty === 'number' && [1, 2, 3].includes(item.difficulty) ? item.difficulty : 2;
@@ -49,7 +57,7 @@ function normalizeExercise(raw: unknown): Omit<GeneratedExercise, 'difficulty'> 
   return {
     question: item.question.trim(),
     options: opts,
-    correct_answer: correct,
+    correct_answer: finalCorrect,
     explanation: typeof item.explanation === 'string' ? item.explanation : '',
     type,
     difficulty,
@@ -153,7 +161,7 @@ Explanation language: TIẾNG VIỆT (vì người học là người Việt). M
 2. Giải thích ngắn vì sao MỖI distractor sai.
 Tối đa 3 câu, súc tích, không dài dòng.
 
-correct_answer phải khớp CHÍNH XÁC (case-sensitive, no extra spaces) với 1 trong 4 options.
+correct_answer phải khớp CHÍNH XÁC (case-sensitive, no extra spaces) with 1 of the 4 options.
 Return JSON array only, no other text.`;
 
     const result = await getGeminiModel().generateContent(
@@ -276,7 +284,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           if (ex.type === 'tf') {
             optionsList = ['Đúng', 'Sai'];
             const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
-            correctAnswer = (rawAns === true || String(rawAns).trim().toLowerCase() === 'true' || String(rawAns).trim() === 'Đúng') ? 'Đúng' : 'Sai';
+            const rawAnsStr = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim().toLowerCase();
+            correctAnswer = (rawAns === true || rawAnsStr === 'true' || rawAnsStr === 'đúng' || rawAnsStr === 'yes' || rawAnsStr === 'correct') ? 'Đúng' : 'Sai';
           } else {
             const rawOpts = ex.options || ex.opts;
             if (Array.isArray(rawOpts)) {
@@ -368,7 +377,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           if (ex.type === 'tf') {
             optionsList = ['Đúng', 'Sai'];
             const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
-            correctAnswer = (rawAns === true || String(rawAns).trim().toLowerCase() === 'true' || String(rawAns).trim() === 'Đúng') ? 'Đúng' : 'Sai';
+            const rawAnsStr = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim().toLowerCase();
+            correctAnswer = (rawAns === true || rawAnsStr === 'true' || rawAnsStr === 'đúng' || rawAnsStr === 'yes' || rawAnsStr === 'correct') ? 'Đúng' : 'Sai';
           } else {
             const rawOpts = ex.options || ex.opts;
             if (Array.isArray(rawOpts)) {

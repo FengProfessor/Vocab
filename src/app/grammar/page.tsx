@@ -291,6 +291,7 @@ function GrammarContent() {
   const rawExercises = useRef<GrammarExercise[]>([]);
   // State cho AI quiz generation (student self-practice)
   const [generatingQuiz, setGeneratingQuiz] = useState(false);
+  const answering = useRef(false);
 
   useEffect(() => {
     const init = async () => {
@@ -353,6 +354,7 @@ function GrammarContent() {
     setDone(false);
     setStartTime(Date.now());
     setFlash(null);
+    answering.current = false;
   };
 
   const handleRetry = () => {
@@ -408,11 +410,10 @@ function GrammarContent() {
   };
 
   const handleAnswer = async (choice: string) => {
-    if (selected) return;
+    if (!current || selected || answering.current) return;
+    answering.current = true;
 
-    const isCorrect = current?.options && current.options.length === 0
-      ? choice.trim().toLowerCase() === current.correct_answer.trim().toLowerCase()
-      : choice === current?.correct_answer;
+    const isCorrect = choice.trim().toLowerCase() === (current.correct_answer || '').trim().toLowerCase();
 
     // Gán selected thành correct_answer nếu đúng để UI chuyển màu xanh lá đồng bộ
     const finalChoice = isCorrect ? current.correct_answer : choice;
@@ -475,6 +476,7 @@ function GrammarContent() {
       setTypedAnswer('');
       setShowExplanation(false);
       setStartTime(Date.now());
+      answering.current = false;
     }
   };
 
@@ -660,7 +662,14 @@ function GrammarContent() {
             <div className="w-full max-w-lg space-y-3">
               <input
                 type="text"
-                className="w-full px-5 py-4 rounded-xl border border-muted bg-background text-sm font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                className={[
+                  "w-full px-5 py-4 rounded-xl border text-sm font-medium focus:outline-none focus:ring-2 transition-all duration-200",
+                  selected
+                    ? selected === current.correct_answer
+                      ? "border-emerald-400 bg-emerald-50 text-emerald-950 focus:ring-emerald-200"
+                      : "border-red-400 bg-red-50 text-red-950 focus:ring-red-200"
+                    : "border-muted bg-background text-foreground focus:border-primary focus:ring-primary/20"
+                ].join(' ')}
                 placeholder="Nhập đáp án của bạn..."
                 value={typedAnswer}
                 onChange={(e) => setTypedAnswer(e.target.value)}
@@ -685,8 +694,9 @@ function GrammarContent() {
           ) : (
             <div className="grid grid-cols-1 gap-3 w-full max-w-lg">
               {current.options.map((opt, i) => {
-                const isCorrect = opt === current.correct_answer;
-                const isSelected = selected === opt;
+                const cleanOpt = opt.trim().toLowerCase();
+                const isCorrect = cleanOpt === (current.correct_answer || '').trim().toLowerCase();
+                const isSelected = selected ? selected.trim().toLowerCase() === cleanOpt : false;
                 let cn = 'w-full text-left h-auto py-4 px-5 rounded-xl border text-sm font-medium transition-all duration-200 ';
                 if (selected) {
                   if (isCorrect) {

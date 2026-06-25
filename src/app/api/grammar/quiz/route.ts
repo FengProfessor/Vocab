@@ -87,15 +87,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'Lesson not found' }, { status: 404 });
     }
 
-    // ── Pre-populated exercises: Bốc ngẫu nhiên từ kho câu hỏi offline nếu có sẵn (>= 10 câu) ──
-    if (lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length >= 10) {
+    // ── Pre-populated exercises: Bốc ngẫu nhiên từ kho câu hỏi offline nếu có sẵn (>= 1 câu) ──
+    if (lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length > 0) {
       const topic = lesson.topic as unknown as { title: string; level: string } | null;
       const topicTitle = topic?.title ?? 'English Grammar';
       const level = topic?.level ?? 'intermediate';
 
-      // Bốc ngẫu nhiên 10 câu để drill phong phú hơn (thay vì 5 câu)
+      // Bốc ngẫu nhiên tối đa 10 câu để drill phong phú hơn
       const shuffled = [...lesson.exercises].sort(() => Math.random() - 0.5);
-      const selected = shuffled.slice(0, 10);
+      const selected = shuffled.slice(0, Math.min(10, shuffled.length));
 
       const questions: QuizQuestion[] = selected.map((ex: any, i: number) => {
         const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
@@ -118,7 +118,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         if (ex.type === 'tf') {
           optionsList = ['Đúng', 'Sai'];
           const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
-          correctAnswer = (rawAns === true || String(rawAns).trim().toLowerCase() === 'true' || String(rawAns).trim() === 'Đúng') ? 'Đúng' : 'Sai';
+          const rawAnsStr = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim().toLowerCase();
+          correctAnswer = (rawAns === true || rawAnsStr === 'true' || rawAnsStr === 'đúng' || rawAnsStr === 'yes' || rawAnsStr === 'correct') ? 'Đúng' : 'Sai';
         } else {
           const rawOpts = ex.options || ex.opts;
           if (Array.isArray(rawOpts)) {
@@ -270,7 +271,15 @@ Constraints:
         if (new Set(opts).size !== 4) return null;
 
         const correct = item.correct_answer.trim();
-        if (!opts.includes(correct)) return null;
+        let finalCorrect = correct;
+        if (!opts.includes(correct)) {
+          const matchedOpt = opts.find((o) => o.toLowerCase() === correct.toLowerCase());
+          if (matchedOpt) {
+            finalCorrect = matchedOpt;
+          } else {
+            return null;
+          }
+        }
 
         const difficulty = typeof item.difficulty === 'number' && [1, 2, 3].includes(item.difficulty)
           ? item.difficulty
@@ -282,7 +291,7 @@ Constraints:
         return {
           question: item.question.trim(),
           options: opts,
-          correct_answer: correct,
+          correct_answer: finalCorrect,
           explanation: typeof item.explanation === 'string' ? item.explanation : '',
           type: qType,
           difficulty,
