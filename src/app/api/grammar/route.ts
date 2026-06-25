@@ -261,6 +261,46 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const { data, error } = await query;
     if (error) throw error;
 
+    // Fallback: If self-practice (no classroomId) or classroom exercises are empty, load from pre-populated exercises
+    if (lessonId && (!data || data.length === 0)) {
+      const { data: lesson } = await supabase
+        .from('grammar_lessons')
+        .select('exercises, topic:grammar_topics(title, level)')
+        .eq('id', lessonId)
+        .maybeSingle();
+
+      if (lesson && lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length > 0) {
+        const topic = lesson.topic as unknown as { title: string; level: string } | null;
+        const topicTitle = topic?.title ?? 'English Grammar';
+        const level = topic?.level ?? 'intermediate';
+
+        const fallbackData = lesson.exercises.map((ex: any, i: number) => {
+          const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
+          const qType = typeof ex.type === 'string' && VALID_TYPES.has(ex.type) ? ex.type : 'multiple_choice';
+
+          const questionText = ex.question || ex.q || '';
+          const optionsList = ex.options || ex.opts || [];
+          const correctAnswer = ex.correct_answer || ex.answer || '';
+          const explanationText = ex.explanation || ex.fb || '';
+
+          return {
+            id: `pre-${lessonId}-${i}`,
+            lesson_id: lessonId,
+            question: questionText.trim(),
+            options: optionsList.map((o: any) => String(o).trim()),
+            correct_answer: correctAnswer.trim(),
+            explanation: explanationText.trim(),
+            topic: topicTitle,
+            level,
+            type: qType,
+            difficulty,
+          };
+        });
+
+        return NextResponse.json({ success: true, data: fallbackData });
+      }
+    }
+
     return NextResponse.json({ success: true, data });
   } catch (error: unknown) {
     return safeErrorResponse(error, 'Failed to fetch exercises');
