@@ -519,6 +519,1150 @@
       ],
       "answer": "He ordered the red shirt, not the blue one.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **substitution**: The committee has not endorsed the plan, and the board is unlikely to ___ before Friday.",
+      "options": [
+        "do so",
+        "make so",
+        "do it",
+        "endorse"
+      ],
+      "correct_answer": "do so",
+      "explanation": "“Do so” thay cho cả cụm động từ “endorse the plan” trong văn phong trang trọng. “Make so” sai cấu trúc, “do it” kém tự nhiên trong ngữ cảnh này, còn “endorse” lặp thiếu tân ngữ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **ellipsis**: The first proposal was practical; the second, ___.",
+      "options": [
+        "visionary",
+        "was visionary",
+        "it was visionary",
+        "being visionary"
+      ],
+      "correct_answer": "visionary",
+      "explanation": "Sau dấu chấm phẩy, ta có thể lược bỏ “was” khi cấu trúc song song đã rõ. Các lựa chọn còn lại không sai tuyệt đối trong câu khác, nhưng không thể hiện ellipsis gọn và tự nhiên như yêu cầu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the most natural **one** substitution: These leather gloves are too tight; could I try the woollen ___?",
+      "options": [
+        "ones",
+        "one",
+        "so",
+        "do"
+      ],
+      "correct_answer": "ones",
+      "explanation": "“Gloves” là danh từ số nhiều đếm được nên thay bằng “ones”. “One” dùng cho số ít, còn “so/do” không thay danh từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **so** substitution: The report suggests demand will fall, and market analysts believe ___.",
+      "options": [
+        "so",
+        "it",
+        "that",
+        "do"
+      ],
+      "correct_answer": "so",
+      "explanation": "“Believe so” thay cho cả mệnh đề “that demand will fall”. “It/that” không tự nhiên sau “believe” trong cấu trúc này, còn “do” thay động từ chứ không thay mệnh đề.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **not** substitution: Will the hearing be postponed? I hope ___.",
+      "options": [
+        "not",
+        "no",
+        "so not",
+        "it not"
+      ],
+      "correct_answer": "not",
+      "explanation": "Sau “hope”, dùng “not” để thay cho mệnh đề phủ định “that it will not be postponed”. “No”, “so not”, và “it not” đều sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **auxiliary**: Maya will submit the abstract if Karim ___.",
+      "options": [
+        "does",
+        "will",
+        "submits",
+        "so"
+      ],
+      "correct_answer": "does",
+      "explanation": "Trong mệnh đề điều kiện, “does” thay cho “submits the abstract” để tránh lặp. “Will” thường không dùng trong if-clause kiểu này, “submits” không phải substitution, còn “so” không thay cụm động từ ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative ellipsis**: The negotiations proved more complex than anyone had expected ___.",
+      "options": [
+        "them to be",
+        "to",
+        "so",
+        "it"
+      ],
+      "correct_answer": "them to be",
+      "explanation": "Trong so sánh, có thể dùng “expected them to be” với phần “complex” được hiểu ngầm. “To”, “so”, và “it” không hoàn chỉnh hoặc không đúng quan hệ cú pháp trong câu này.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **reduced clause**: Although ___ by several reviewers, the article was eventually accepted.",
+      "options": [
+        "criticised",
+        "it was criticised",
+        "criticising",
+        "to criticise"
+      ],
+      "correct_answer": "criticised",
+      "explanation": "“Although criticised” là mệnh đề trạng ngữ được rút gọn, chủ ngữ ngầm là “the article”. Các lựa chọn khác hoặc không rút gọn, hoặc làm sai quan hệ bị động.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **do so** form: The minister denied leaking the memo, but several aides claimed she had ___.",
+      "options": [
+        "done so",
+        "did so",
+        "done it",
+        "so done"
+      ],
+      "correct_answer": "done so",
+      "explanation": "Sau “had” cần quá khứ phân từ, nên “done so” thay cho “leaked the memo”. “Did so” sai thì sau “had”, “done it” kém trang trọng và dễ ám chỉ hành động cụ thể khác, còn “so done” sai trật tự.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **ellipsis**: Some delegates backed reform; others, ___.",
+      "options": [
+        "resignation",
+        "did resignation",
+        "were resignation",
+        "so"
+      ],
+      "correct_answer": "resignation",
+      "explanation": "Câu lược bỏ động từ “backed”: “others [backed] resignation”. Các lựa chọn còn lại sai vì thêm trợ động từ không phù hợp hoặc dùng “so” không thay được danh từ này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **substitution**: I have not read the full judgment, but my supervisor has ___ .",
+      "options": [
+        "done so",
+        "read so",
+        "done it",
+        "so read"
+      ],
+      "correct_answer": "done so",
+      "explanation": "“Done so” thay cho “read the full judgment” và giữ câu gọn. “Read so” và “so read” sai cấu trúc, còn “done it” không trang trọng và không chính xác bằng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with **one**: The old printer is unreliable, so we should buy a new ___ before term starts.",
+      "options": [
+        "one",
+        "ones",
+        "so",
+        "do"
+      ],
+      "correct_answer": "one",
+      "explanation": "“Printer” là danh từ đếm được số ít, nên dùng “one”. “Ones” dùng cho số nhiều, còn “so/do” không thay danh từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with **so/not**: Is the archive open on Sundays? I believe ___, but check the website.",
+      "options": [
+        "so",
+        "not",
+        "it",
+        "yes"
+      ],
+      "correct_answer": "so",
+      "explanation": "“I believe so” thay cho mệnh đề “that the archive is open on Sundays”. “Not” tạo nghĩa phủ định, “it” không phù hợp sau “believe” ở đây, còn “yes” không kết hợp tự nhiên với cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **auxiliary ellipsis**: The researchers predicted a decline, and the data eventually ___ too.",
+      "options": [
+        "did",
+        "were",
+        "so",
+        "done"
+      ],
+      "correct_answer": "did",
+      "explanation": "“Did” thay cho cụm “showed a decline” hoặc “declined” tùy ngữ cảnh, giúp tránh lặp động từ. “Were”, “so”, và “done” không phù hợp với cấu trúc trợ động từ này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **bare infinitive** ellipsis: You can attend the briefing if you want ___ .",
+      "options": [
+        "to",
+        "so",
+        "it",
+        "do"
+      ],
+      "correct_answer": "to",
+      "explanation": "Sau “want”, có thể dùng “to” thay cho “to attend the briefing”. “So”, “it”, và “do” không thay được cụm động từ nguyên mẫu trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **than-clause** ellipsis: The solution was less elegant than we had hoped ___ .",
+      "options": [
+        "for",
+        "so",
+        "it",
+        "one"
+      ],
+      "correct_answer": "for",
+      "explanation": "“Hoped for” giữ đúng giới từ của động từ “hope for”, phần “an elegant solution” được hiểu ngầm. Các lựa chọn khác không tạo cụm đúng nghĩa sau “hoped”.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **substitute** form: If the director refuses to apologise, the chair may have to ___ instead.",
+      "options": [
+        "do so",
+        "do",
+        "make so",
+        "one"
+      ],
+      "correct_answer": "do so",
+      "explanation": "“Do so” thay cho hành động “apologise” trong ngữ cảnh trang trọng. “Do” thiếu rõ nghĩa, “make so” sai cấu trúc, còn “one” chỉ thay danh từ đếm được.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The first version was persuasive, but the revised **one** was even more so.",
+      "options": [
+        "first version",
+        "persuasive",
+        "revised one",
+        "more so"
+      ],
+      "correct_answer": "revised one",
+      "explanation": "“Version” là danh từ số ít đếm được nên “one” có thể đúng, nhưng khi đã có “the revised one” thì câu không lỗi; tuy nhiên ở dạng bài này lỗi nằm ở “revised one” vì cần “revision” để tránh tham chiếu nhập nhằng. Các cụm còn lại đúng trong cấu trúc so sánh và substitution.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If Clara will endorse the proposal, the trustees probably **will do so** as well.",
+      "options": [
+        "If Clara will endorse",
+        "the proposal",
+        "trustees",
+        "will do so"
+      ],
+      "correct_answer": "If Clara will endorse",
+      "explanation": "Trong mệnh đề điều kiện loại 1, không dùng “will” sau “if”; cần “If Clara endorses”. “Will do so” đúng vì thay cho “endorse the proposal”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The blue files are archived, but the red **one** are still on my desk.",
+      "options": [
+        "blue files",
+        "archived",
+        "red one",
+        "are still"
+      ],
+      "correct_answer": "red one",
+      "explanation": "“Files” là danh từ số nhiều nên phải dùng “red ones”. “Archived” và “are still” phù hợp với chủ ngữ số nhiều, còn “blue files” đúng nghĩa.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She expected the merger to fail, and most investors feared **it** too.",
+      "options": [
+        "expected",
+        "merger to fail",
+        "feared it",
+        "too"
+      ],
+      "correct_answer": "feared it",
+      "explanation": "Sau “fear” để thay cả mệnh đề “that the merger would fail”, tự nhiên hơn là “feared so” thường cũng không chuẩn; nên viết “feared that too” hoặc lặp mệnh đề. “Expected” và “merger to fail” đúng cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The witness refused to answer, although repeatedly **asking** to do so.",
+      "options": [
+        "witness",
+        "refused",
+        "although repeatedly asking",
+        "to do so"
+      ],
+      "correct_answer": "although repeatedly asking",
+      "explanation": "Chủ ngữ “the witness” là người bị yêu cầu, nên cần dạng bị động rút gọn “although repeatedly asked”. “To do so” đúng vì thay cho “answer”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I have not submitted the appendix, but Daniel has **done** yesterday.",
+      "options": [
+        "have not submitted",
+        "appendix",
+        "has done",
+        "yesterday"
+      ],
+      "correct_answer": "has done",
+      "explanation": "Với thời điểm quá khứ cụ thể “yesterday”, phải dùng “did so”, không dùng present perfect “has done”. Các cụm khác đúng về nghĩa và cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: A few candidates chose statistics; the rest **did** philosophy.",
+      "options": [
+        "few candidates",
+        "chose statistics",
+        "the rest",
+        "did philosophy"
+      ],
+      "correct_answer": "did philosophy",
+      "explanation": "Khi lược bỏ động từ song song, cần “the rest, philosophy” hoặc “the rest chose philosophy”; “did philosophy” không thay đúng động từ “chose”. Các phần còn lại đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The committee believed the figures were reliable, but the auditors did **not so**.",
+      "options": [
+        "committee believed",
+        "figures were reliable",
+        "auditors",
+        "not so"
+      ],
+      "correct_answer": "not so",
+      "explanation": "Với “believe”, phủ định thay mệnh đề là “did not believe so” hoặc “believed otherwise”, không dùng “did not so”. Các cụm còn lại đúng nghĩa.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The laptop I bought is faster than the **one** you did last year.",
+      "options": [
+        "laptop",
+        "faster than",
+        "one",
+        "you did"
+      ],
+      "correct_answer": "you did",
+      "explanation": "“Did” không thay được “bought” khi tân ngữ đã là “the one”; cần “the one you bought last year”. “One” đúng vì thay cho “laptop”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **ellipsis**: Elena may brief the donors before noon, and Omar certainly ___.",
+      "options": [
+        "may",
+        "may brief",
+        "may do",
+        "may so"
+      ],
+      "correct_answer": "may",
+      "explanation": "Đáp án đúng là “may” vì trợ động từ có thể thay cho toàn bộ cụm “brief the donors before noon” khi ý đã rõ. “may brief” lặp thiếu tự nhiên, “may do” không dùng cho động từ chính như vậy trong câu này, và “may so” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **substitute**: I need a sharper scalpel; this ___ is too blunt for the procedure.",
+      "options": [
+        "one",
+        "it",
+        "so",
+        "do"
+      ],
+      "correct_answer": "one",
+      "explanation": "“One” thay cho danh từ đếm được số ít “scalpel” khi nói đến một cái khác cùng loại. “It” sẽ chỉ chính cái dao mổ đã nhắc tới, còn “so” và “do” không thay danh từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the most natural **so** substitution: The curator insists the painting is authentic, and the insurance experts seem to think ___.",
+      "options": [
+        "so",
+        "it",
+        "such",
+        "that"
+      ],
+      "correct_answer": "so",
+      "explanation": "“Think so” thay cho cả mệnh đề “the painting is authentic”. “It/that” không tự nhiên sau “think” trong cấu trúc thay thế này, còn “such” không thay mệnh đề.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **do so** form: The company promised to disclose the defect, but it failed to ___ until regulators intervened.",
+      "options": [
+        "do so",
+        "do it",
+        "do that",
+        "so do"
+      ],
+      "correct_answer": "do so",
+      "explanation": "“Do so” thay cho hành động đã nêu trước: “disclose the defect”. “Do it/do that” kém trang trọng và có thể ám chỉ một hành động cụ thể khác, còn “so do” đảo sai vị trí.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **gapping**: The chief economist favoured austerity; her deputy, ___.",
+      "options": [
+        "stimulus",
+        "did stimulus",
+        "favoured stimulus",
+        "was stimulus"
+      ],
+      "correct_answer": "stimulus",
+      "explanation": "Trong gapping, động từ “favoured” được lược bỏ ở vế sau: “her deputy [favoured] stimulus”. Các lựa chọn còn lại hoặc lặp không cần thiết, hoặc sai ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative** ellipsis: The review was harsher than the editor had intended ___.",
+      "options": [
+        "it to be",
+        "to",
+        "it",
+        "so"
+      ],
+      "correct_answer": "it to be",
+      "explanation": "Sau “intended”, cấu trúc đầy đủ là “intended it to be”, trong đó “it” chỉ “the review”. “To” một mình thiếu bổ ngữ trong câu này, còn “it/so” không hoàn chỉnh sau “intended”.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **not** substitution: Are the archives likely to release the letters this year? The historian suspects ___.",
+      "options": [
+        "not",
+        "no",
+        "not so",
+        "it not"
+      ],
+      "correct_answer": "not",
+      "explanation": "Sau các động từ như “suspect”, “believe”, “hope”, có thể dùng “not” để thay cho mệnh đề phủ định. “No” không thay mệnh đề, “not so” không tự nhiên ở đây, và “it not” sai trật tự.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **ones** substitution: These case studies are outdated; the newer ___ include much richer data.",
+      "options": [
+        "ones",
+        "one",
+        "it",
+        "so"
+      ],
+      "correct_answer": "ones",
+      "explanation": "“Ones” thay cho danh từ đếm được số nhiều “case studies”. “One” là số ít, “it” chỉ một vật/sự việc cụ thể số ít, còn “so” thay mệnh đề chứ không thay danh từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **reduced clause**: Once ___ in peer-reviewed journals, the findings attracted global attention.",
+      "options": [
+        "published",
+        "publishing",
+        "they published",
+        "publish"
+      ],
+      "correct_answer": "published",
+      "explanation": "“Once published” là mệnh đề rút gọn bị động, nghĩa là “once the findings were published”. “Publishing” tạo nghĩa chủ động sai, “they published” thiếu tân ngữ phù hợp, và “publish” sai dạng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **auxiliary** ellipsis: I have never questioned her integrity, though several colleagues ___ during the inquiry.",
+      "options": [
+        "have",
+        "did",
+        "were",
+        "do"
+      ],
+      "correct_answer": "have",
+      "explanation": "“Have” thay cho cụm “have questioned her integrity” trong thì hiện tại hoàn thành. “Did/do” đổi thì, còn “were” không thay được cụm động từ này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with **one**: The synthetic fabric tore easily, whereas the natural ___ proved surprisingly durable.",
+      "options": [
+        "one",
+        "it",
+        "so",
+        "do"
+      ],
+      "correct_answer": "one",
+      "explanation": "“One” thay cho “fabric” khi nói đến loại vải khác đã được xác định bằng tính từ “natural”. “It” sẽ chỉ lại cùng loại vải đã nhắc, còn “so/do” không thay danh từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **so** substitution: The witness claimed the door had been locked, and the security footage appears to confirm ___.",
+      "options": [
+        "so",
+        "it",
+        "that so",
+        "do"
+      ],
+      "correct_answer": "so",
+      "explanation": "“Confirm so” có thể dùng trang trọng để thay cho mệnh đề đã nêu: “the door had been locked”. “It” không tự nhiên nếu không có tân ngữ rõ, “that so” sai cấu trúc, và “do” thay động từ chứ không thay mệnh đề.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **to** ellipsis: I did not attend the seminar, although I had intended ___.",
+      "options": [
+        "to",
+        "so",
+        "it",
+        "do"
+      ],
+      "correct_answer": "to",
+      "explanation": "Sau “intend”, “to” có thể đứng lại để thay cho cụm “to attend the seminar”. “So/it/do” không thay được cụm nguyên mẫu trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **gapping**: The legal team requested mediation; the plaintiffs, ___ .",
+      "options": [
+        "arbitration",
+        "did arbitration",
+        "requested to arbitrate",
+        "were arbitration"
+      ],
+      "correct_answer": "arbitration",
+      "explanation": "Vế sau lược bỏ động từ “requested”: “the plaintiffs [requested] arbitration”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc phá vỡ phép gapping.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **do so** substitution: If the agency revises the guidelines, it must ___ transparently.",
+      "options": [
+        "do so",
+        "do it",
+        "so do",
+        "do"
+      ],
+      "correct_answer": "do so",
+      "explanation": "“Do so” thay cho hành động “revise the guidelines” và phù hợp văn phong trang trọng. “Do it” kém tự nhiên trong văn bản học thuật, “so do” sai trật tự, còn “do” thiếu bổ nghĩa.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **than** ellipsis: The apology sounded less sincere than we had expected ___ .",
+      "options": [
+        "it to",
+        "so",
+        "it",
+        "to do"
+      ],
+      "correct_answer": "it to",
+      "explanation": "Cấu trúc đầy đủ là “than we had expected it to [sound]”, trong đó động từ chính được lược bỏ sau “to”. “So/it” không hoàn chỉnh sau “expected”, còn “to do” sai vì “sound” không được thay bằng “do”.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with **not**: Will the grant cover fieldwork expenses? I assume ___, given the new restrictions.",
+      "options": [
+        "not",
+        "no",
+        "not so",
+        "it not"
+      ],
+      "correct_answer": "not",
+      "explanation": "“Assume not” thay cho mệnh đề phủ định “that it will not cover fieldwork expenses”. “No” là câu trả lời ngắn chứ không hợp sau “assume”, “not so” không tự nhiên, và “it not” sai ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **nominal** substitution: The Oxford edition is annotated, but the Cambridge ___ is more affordable.",
+      "options": [
+        "one",
+        "it",
+        "so",
+        "do"
+      ],
+      "correct_answer": "one",
+      "explanation": "“One” thay cho “edition” khi so sánh một ấn bản khác. “It” sẽ chỉ cùng ấn bản Oxford, còn “so/do” không thay danh từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The policy was controversial, and the minister admitted that it was **so** during the debate.",
+      "options": [
+        "policy",
+        "controversial",
+        "so",
+        "debate"
+      ],
+      "correct_answer": "so",
+      "explanation": "Sau “admitted that”, không dùng “so” để thay cho bổ ngữ tính từ trong cấu trúc này; nên nói “admitted that it was controversial”. Các từ còn lại đều phù hợp với câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The Spanish samples were labelled, but the Italian **one** remained unidentified.",
+      "options": [
+        "Spanish samples",
+        "labelled",
+        "Italian one",
+        "unidentified"
+      ],
+      "correct_answer": "Italian one",
+      "explanation": "“Samples” là danh từ số nhiều, nên phải dùng “Italian ones”. “Labelled” và “unidentified” đúng dạng, còn cụm chủ ngữ đầu câu không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Nora said she would review the contract, and she actually **did so** it before lunch.",
+      "options": [
+        "would review",
+        "contract",
+        "did so",
+        "before lunch"
+      ],
+      "correct_answer": "did so",
+      "explanation": "“Do so” đã thay cho cả cụm “review the contract”, nên không thể thêm tân ngữ “it” sau đó. Các phần khác đúng về nghĩa và ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The mayor refused to resign, though repeatedly **urged** doing so by party leaders.",
+      "options": [
+        "refused",
+        "resign",
+        "urged",
+        "doing so"
+      ],
+      "correct_answer": "doing so",
+      "explanation": "Sau “urge someone to”, dạng đúng là “urged to do so”, không phải “urged doing so” trong câu bị động rút gọn này. Các từ “refused”, “resign” và “urged” đều có thể đúng trong cấu trúc thích hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If the first hypothesis proves false, the second may **do so** as well.",
+      "options": [
+        "first hypothesis",
+        "proves",
+        "second",
+        "do so"
+      ],
+      "correct_answer": "do so",
+      "explanation": "“Do so” thay cho hành động có chủ ý, không tự nhiên với động từ nối/trạng thái “prove false”. Nên dùng “may be false as well” hoặc “may prove false as well”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The museum acquired two early sketches and sold three later **one** to a private collector.",
+      "options": [
+        "acquired",
+        "sketches",
+        "one",
+        "collector"
+      ],
+      "correct_answer": "one",
+      "explanation": "“Three” yêu cầu danh từ thay thế số nhiều, nên phải là “ones”. Các từ còn lại đúng trong cấu trúc câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The researchers expected the enzyme to stabilise, but it never **did** under extreme heat.",
+      "options": [
+        "expected",
+        "enzyme",
+        "did",
+        "extreme heat"
+      ],
+      "correct_answer": "did",
+      "explanation": "“Did” không thay tự nhiên cho động từ nguyên mẫu có “to” sau “expected”; nên dùng “did so” nếu thay hành động, hoặc rõ hơn là “stabilised”. Các phần khác không sai.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **one** substitution: The revised constitution is clearer than the original ___.",
+      "options": [
+        "one",
+        "ones",
+        "so",
+        "it"
+      ],
+      "correct_answer": "one",
+      "explanation": "“One” thay cho danh từ đếm được số ít “constitution” để tránh lặp lại. “Ones” dùng cho số nhiều, “so” thay mệnh đề, còn “it” thường chỉ chính vật đã nói trước đó chứ không phải một phiên bản khác.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **do so** substitution: The panel may reopen the investigation, but it will ___ only if new evidence emerges.",
+      "options": [
+        "do so",
+        "do it",
+        "do one",
+        "do"
+      ],
+      "correct_answer": "do so",
+      "explanation": "“Do so” thay cho cả cụm hành động “reopen the investigation” trong văn phong trang trọng. “Do it” kém tự nhiên hơn với hành động đã nêu trong ngữ cảnh này; “do one” sai cấu trúc, còn “do” thiếu bổ ngữ/thành phần thay thế.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **so** substitution: The minister denied that the report had been altered, but several aides privately admitted ___.",
+      "options": [
+        "so",
+        "it",
+        "one",
+        "done"
+      ],
+      "correct_answer": "so",
+      "explanation": "“So” thay cho mệnh đề “that the report had been altered” sau động từ như “admitted”. “It” không tự nhiên khi thay một mệnh đề that-clause ở đây; “one” thay danh từ đếm được, còn “done” không thay được mệnh đề.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **ellipsis**: No one expected the negotiations to collapse, but they eventually ___.",
+      "options": [
+        "did",
+        "did so",
+        "were",
+        "so"
+      ],
+      "correct_answer": "did",
+      "explanation": "“Did” thay cho cụm động từ “collapse” trong ellipsis. “Did so” thường thay hành động có chủ ý hơn, không hợp với “collapse”; “were” sai trợ động từ, còn “so” không đứng một mình sau chủ ngữ như vậy.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **not** substitution: Will the amendment survive judicial review? Most scholars believe ___.",
+      "options": [
+        "not",
+        "no",
+        "not so",
+        "none"
+      ],
+      "correct_answer": "not",
+      "explanation": "Sau “believe”, ta có thể dùng “not” để thay cho mệnh đề phủ định “that it will not survive”. “No” và “none” không thay mệnh đề; “not so” có thể tồn tại trong vài cấu trúc nhưng không tự nhiên sau “believe” ở câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **gapping**: The finance team reviewed the domestic accounts; the external auditors, ___.",
+      "options": [
+        "the overseas ones",
+        "did the overseas ones",
+        "reviewed the overseas ones",
+        "so the overseas ones"
+      ],
+      "correct_answer": "the overseas ones",
+      "explanation": "Đây là gapping: động từ “reviewed” được lược bỏ ở vế sau. Các lựa chọn có “did/reviewed/so” phá cấu trúc gapping hoặc làm câu dư thừa.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **to** ellipsis: The board did not publish the minutes, though it had promised ___.",
+      "options": [
+        "to",
+        "to do",
+        "so",
+        "doing so"
+      ],
+      "correct_answer": "to",
+      "explanation": "Sau “promised”, “to” có thể đứng một mình thay cho “to publish the minutes”. “To do” thiếu tân ngữ hoặc “so”; “so” không đi trực tiếp sau “promised” theo cách này, còn “doing so” sai dạng sau “promised”.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **ones** substitution: The older manuscripts were digitised first; the fragile ___ were handled later.",
+      "options": [
+        "ones",
+        "one",
+        "so",
+        "it"
+      ],
+      "correct_answer": "ones",
+      "explanation": "“Ones” thay cho danh từ đếm được số nhiều “manuscripts”. “One” là số ít, “so” thay mệnh đề, còn “it” chỉ một vật cụ thể số ít.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comparative** ellipsis: The statute proved more ambiguous than the drafters had meant ___.",
+      "options": [
+        "it to",
+        "so",
+        "one",
+        "doing"
+      ],
+      "correct_answer": "it to",
+      "explanation": "Trong so sánh, “meant it to” lược bỏ phần tính từ đã hiểu: “meant it to be ambiguous”. “So” không hợp sau “meant” ở đây; “one” thay danh từ, còn “doing” sai cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **auxiliary** ellipsis: The first witness could not recall the conversation, but the second ___ clearly.",
+      "options": [
+        "could",
+        "could do",
+        "did so",
+        "was"
+      ],
+      "correct_answer": "could",
+      "explanation": "“Could” thay cho “could recall the conversation” để tránh lặp cụm động từ. “Could do” không tự nhiên trong tiếng Anh chuẩn ở đây; “did so” lệch thì/khả năng, còn “was” không thay được động từ “recall”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with **so**: The reviewers suspected that the data had been selectively reported, and the footnotes strongly suggest ___.",
+      "options": [
+        "so",
+        "it",
+        "one",
+        "such"
+      ],
+      "correct_answer": "so",
+      "explanation": "“So” thay cho cả mệnh đề “that the data had been selectively reported”. “It” không thay mệnh đề một cách tự nhiên sau “suggest” trong cấu trúc này; “one” thay danh từ, còn “such” cần danh từ theo sau.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **nominal** substitution: This edition includes the correspondence, whereas the earlier ___ omits it entirely.",
+      "options": [
+        "one",
+        "ones",
+        "so",
+        "that"
+      ],
+      "correct_answer": "one",
+      "explanation": "“One” thay cho “edition” số ít. “Ones” dùng cho số nhiều; “so” thay mệnh đề, còn “that” không tự nhiên để thay một danh từ cụ thể trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **do so** substitution: If either party terminates the agreement, it must ___ in writing.",
+      "options": [
+        "do so",
+        "do it",
+        "so do",
+        "does so"
+      ],
+      "correct_answer": "do so",
+      "explanation": "“Do so” thay cho hành động “terminate the agreement”. “Do it” kém trang trọng và không hợp văn pháp lý bằng; “so do” đảo trật tự sai, còn “does so” sai hòa hợp với “must”.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **ellipsis**: Several directors supported the acquisition, and the chair apparently ___ as well.",
+      "options": [
+        "did",
+        "was",
+        "so",
+        "one"
+      ],
+      "correct_answer": "did",
+      "explanation": "“Did” thay cho cụm động từ “supported the acquisition”. “Was” không thay được động từ chính “supported”; “so” không đứng một mình sau chủ ngữ, còn “one” thay danh từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **gapping**: The northern branch reported a surplus; the southern branch, ___ .",
+      "options": [
+        "a deficit",
+        "did a deficit",
+        "reported it",
+        "so"
+      ],
+      "correct_answer": "a deficit",
+      "explanation": "Câu dùng gapping: động từ “reported” được lược bỏ, chỉ giữ phần tương phản “a deficit”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc không tạo được ellipsis tự nhiên.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with **not**: Is the clause enforceable under current law? The solicitor thinks ___ .",
+      "options": [
+        "not",
+        "no",
+        "none",
+        "not it"
+      ],
+      "correct_answer": "not",
+      "explanation": "“Thinks not” là cách rút gọn trang trọng, thay cho “thinks it is not enforceable”. “No” và “none” không thay được mệnh đề; “not it” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reduced clause**: When ___ by independent labs, the vaccine batches showed no contamination.",
+      "options": [
+        "tested",
+        "testing",
+        "to test",
+        "were testing"
+      ],
+      "correct_answer": "tested",
+      "explanation": "“When tested” là mệnh đề bị động rút gọn từ “when they were tested”. “Testing” tạo nghĩa chủ động sai; “to test” không hợp sau “when”, còn “were testing” thiếu chủ ngữ rõ ràng trong mệnh đề phụ.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The first proposal was rejected, and the revised **one** was so too.",
+      "options": [
+        "first proposal",
+        "rejected",
+        "revised one",
+        "so too"
+      ],
+      "correct_answer": "so too",
+      "explanation": "Lỗi là “so too”; cần dùng “was too” hoặc “was rejected too” để thay cho trạng thái bị động. “Revised one” đúng vì “one” thay cho “proposal”; các phần còn lại không sai.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The committee expected the consultant to revise the draft, and she did **so** it overnight.",
+      "options": [
+        "expected",
+        "to revise",
+        "did so",
+        "it overnight"
+      ],
+      "correct_answer": "did so",
+      "explanation": "“Do so” đã thay cho cả hành động “revise the draft”, nên không được thêm tân ngữ “it”. Câu đúng là “she did so overnight” hoặc “she revised it overnight”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Several objections were dismissed, but the most serious **ones** was considered in detail.",
+      "options": [
+        "Several objections",
+        "dismissed",
+        "most serious ones",
+        "was considered"
+      ],
+      "correct_answer": "was considered",
+      "explanation": "“Ones” là số nhiều nên động từ bị động phải là “were considered”. Các cụm còn lại đúng: “ones” thay cho “objections” số nhiều.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The defendant claimed the contract was void, and the judge appeared to accept **it**.",
+      "options": [
+        "defendant",
+        "contract was void",
+        "appeared",
+        "it"
+      ],
+      "correct_answer": "it",
+      "explanation": "Ở đây cần “accept so” không tự nhiên; cách đúng là “accept that” hoặc “accept the claim”. “It” có thể gây hiểu nhầm là chấp nhận “the contract”, không phải mệnh đề “the contract was void”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The director will brief the investors if the legal team advises **doing so**.",
+      "options": [
+        "will brief",
+        "investors",
+        "advises",
+        "doing so"
+      ],
+      "correct_answer": "doing so",
+      "explanation": "Sau “advise” với nghĩa khuyên ai làm gì, cấu trúc đúng là “advises her to” hoặc “advises doing so” khi không có tân ngữ người nhận lời khuyên rõ ràng. Trong câu này chủ thể “the director” cần được nêu: “advises her to”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The newer cameras capture finer detail than the older **one** can.",
+      "options": [
+        "newer cameras",
+        "capture",
+        "older one",
+        "can"
+      ],
+      "correct_answer": "older one",
+      "explanation": "“Cameras” là số nhiều nên phải dùng “older ones”. “One” chỉ thay cho danh từ đếm được số ít, còn các phần khác đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I would have attended the hearing if I had been allowed **to do**.",
+      "options": [
+        "would have attended",
+        "hearing",
+        "had been allowed",
+        "to do"
+      ],
+      "correct_answer": "to do",
+      "explanation": "Sau “allowed”, ellipsis đúng là “allowed to”, thay cho “allowed to attend the hearing”. “To do” cần “so” hoặc tân ngữ phù hợp, nên sai trong câu này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The report says the river is polluted, and the satellite images confirm **it**.",
+      "options": [
+        "report says",
+        "river is polluted",
+        "satellite images",
+        "it"
+      ],
+      "correct_answer": "it",
+      "explanation": "Khi thay cho cả mệnh đề “the river is polluted” sau “confirm”, cách tự nhiên và trang trọng hơn là “confirm this/that” hoặc “confirm so” trong một số ngữ cảnh. “It” dễ bị hiểu là xác nhận “the river”, không phải nội dung mệnh đề.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **auxiliary** ellipsis: The encryption tool processes large archives faster than the older platform ___.",
+      "options": [
+        "does",
+        "is",
+        "one",
+        "does so them"
+      ],
+      "correct_answer": "does",
+      "explanation": "Đáp án đúng là “does” vì trợ động từ thay cho cả cụm “processes large archives”. “is” sai vì không thay được động từ hành động; “one” thay danh từ; “does so them” sai vì “do so” không đi kèm tân ngữ trực tiếp như vậy.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **so** substitution: The editor suspected the quotation had been fabricated, and the source notes appear to confirm ___.",
+      "options": [
+        "so",
+        "one",
+        "doing so",
+        "not"
+      ],
+      "correct_answer": "so",
+      "explanation": "“So” thay cho cả mệnh đề “the quotation had been fabricated”. “One” thay danh từ đếm được; “doing so” thay hành động; “not” diễn tả phủ định nên trái nghĩa.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **nominal** substitution: We need a precedent from a higher court, preferably ___ from the Supreme Court.",
+      "options": [
+        "one",
+        "so",
+        "do",
+        "such"
+      ],
+      "correct_answer": "one",
+      "explanation": "“One” thay cho danh từ đếm được số ít “a precedent”. “So” thay mệnh đề; “do” thay cụm động từ; “such” cần cấu trúc khác như “such a precedent”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **to** ellipsis: The agency did not release the raw files, although it was legally required ___.",
+      "options": [
+        "to",
+        "to do so it",
+        "doing so",
+        "so"
+      ],
+      "correct_answer": "to",
+      "explanation": "Sau “required”, ta có thể lược bỏ phần đã rõ và giữ lại “to” thay cho “to release the raw files”. “To do so it” sai vì thừa tân ngữ; “doing so” sai dạng sau “required”; “so” không thay được động từ nguyên mẫu trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **do so** substitution: Any applicant wishing to challenge the result must ___ within ten working days.",
+      "options": [
+        "do so",
+        "do it",
+        "so do",
+        "one"
+      ],
+      "correct_answer": "do so",
+      "explanation": "“Do so” thay cho hành động “challenge the result” một cách trang trọng và tự nhiên. “Do it” kém phù hợp trong văn bản quy định; “so do” là đảo trợ động từ; “one” thay danh từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with **not**: Will the merger be approved before September? Analysts increasingly think ___.",
+      "options": [
+        "not",
+        "so",
+        "one",
+        "do"
+      ],
+      "correct_answer": "not",
+      "explanation": "“Think not” nghĩa là “nghĩ là không”, thay cho cả mệnh đề phủ định “it will not be approved”. “So” mang nghĩa khẳng định; “one” thay danh từ; “do” thay động từ hành động.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **gapping**: The ethics board examined the complaint; the legal office, ___ .",
+      "options": [
+        "the settlement",
+        "examined",
+        "so",
+        "one"
+      ],
+      "correct_answer": "the settlement",
+      "explanation": "Trong gapping, động từ “examined” được lược bỏ ở vế sau: “the legal office [examined] the settlement”. “Examined” không tạo ellipsis; “so” thay mệnh đề; “one” thay danh từ số ít đã nhắc trước.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **ones** substitution: The inexpensive sensors failed first; the military-grade ___ lasted much longer.",
+      "options": [
+        "ones",
+        "one",
+        "so",
+        "did"
+      ],
+      "correct_answer": "ones",
+      "explanation": "“Ones” thay cho danh từ đếm được số nhiều “sensors”. “One” là số ít; “so” thay mệnh đề; “did” thay cụm động từ chứ không thay danh từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The first algorithm detected most anomalies, and the second **one** did **so** them even faster.",
+      "options": [
+        "one",
+        "did",
+        "so",
+        "them"
+      ],
+      "correct_answer": "them",
+      "explanation": "Lỗi là “them” vì “did so” đã thay cho cả cụm “detected most anomalies”, không nhận thêm tân ngữ trực tiếp. “One” đúng vì thay cho “algorithm”; “did so” là cấu trúc thay thế hành động hợp lệ khi không thêm “them”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The witnesses denied seeing the documents, but the auditor believed they **had** **done so**.",
+      "options": [
+        "witnesses",
+        "denied",
+        "had",
+        "done so"
+      ],
+      "correct_answer": "done so",
+      "explanation": "Lỗi là “done so” vì hành động bị phủ định trước đó là “seeing the documents”; sau “believed they had” nên dùng ellipsis “had” hoặc “had seen them”, không dùng “done so” cho trải nghiệm/tri giác trong ngữ cảnh này. Các từ còn lại đúng về nghĩa và cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Several clauses were ambiguous, but the arbitration **one** was especially difficult to interpret.",
+      "options": [
+        "Several clauses",
+        "were",
+        "one",
+        "to interpret"
+      ],
+      "correct_answer": "one",
+      "explanation": "Lỗi là “one” vì danh từ gốc “clauses” số nhiều, còn “the arbitration clause” là một loại cụ thể chưa cần thay thế bằng “one” sau tính từ như vậy. Cách tự nhiên là “the arbitration clause”; các phần khác đúng ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The report predicts a downturn, and so **does** the central bank's latest forecast **predict**.",
+      "options": [
+        "predicts",
+        "does",
+        "forecast",
+        "predict"
+      ],
+      "correct_answer": "predict",
+      "explanation": "Lỗi là “predict” vì “does” đã thay cho động từ “predicts”, nên thêm “predict” là lặp và sai cấu trúc. “Predicts”, “does”, và “forecast” đều có thể đúng trong câu nếu bỏ động từ cuối.",
+      "difficulty": 3
     }
   ]
 }

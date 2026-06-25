@@ -513,6 +513,1137 @@
       ],
       "answer": "It was yesterday that they announced the result.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **it-cleft** version of: The committee rejected the proposal because of its hidden costs.",
+      "options": [
+        "It was because of its hidden costs that the committee rejected the proposal.",
+        "It was the committee that rejected because of its hidden costs the proposal.",
+        "What rejected the proposal was because of its hidden costs.",
+        "The proposal was because of its hidden costs that the committee rejected."
+      ],
+      "correct_answer": "It was because of its hidden costs that the committee rejected the proposal.",
+      "explanation": "Đáp án đúng dùng cấu trúc It was + cụm được nhấn mạnh + that + mệnh đề còn lại. Các lựa chọn khác sai trật tự, thiếu tân ngữ, hoặc dùng what-cleft không tự nhiên với cụm nguyên nhân.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **pseudo-cleft** sentence.",
+      "options": [
+        "What the witnesses described was a sudden flash of light.",
+        "What did the witnesses describe was a sudden flash of light.",
+        "What the witnesses described it was a sudden flash of light.",
+        "What described the witnesses was a sudden flash of light."
+      ],
+      "correct_answer": "What the witnesses described was a sudden flash of light.",
+      "explanation": "Trong pseudo-cleft, mệnh đề What + S + V đứng như chủ ngữ, sau đó là be + phần nhấn mạnh. Các phương án khác sai vì đảo trợ động từ, thừa it, hoặc làm sai vai trò chủ-tân ngữ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the natural **reversed cleft** sentence.",
+      "options": [
+        "A formal apology is what the residents are demanding.",
+        "A formal apology what the residents are demanding is.",
+        "A formal apology is that the residents are demanding.",
+        "A formal apology is what are the residents demanding."
+      ],
+      "correct_answer": "A formal apology is what the residents are demanding.",
+      "explanation": "Reversed pseudo-cleft đặt phần nhấn mạnh trước: focus + be + what-clause. Các câu còn lại sai vì thiếu be đúng vị trí, dùng that thay cho what-clause, hoặc đảo câu hỏi không cần thiết.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reason cleft** sentence.",
+      "options": [
+        "The reason why she withdrew was that the terms had changed.",
+        "The reason why she withdrew was because the terms had changed.",
+        "The reason she withdrew it was that the terms had changed.",
+        "The reason why did she withdraw was that the terms had changed."
+      ],
+      "correct_answer": "The reason why she withdrew was that the terms had changed.",
+      "explanation": "Cấu trúc trang trọng là The reason why + clause + be + that-clause. Because sau reason bị xem là dư trong văn phong chuẩn; hai đáp án còn lại sai do thừa it hoặc đảo trợ động từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the sentence with correct **focus** on the recipient.",
+      "options": [
+        "It was to the interns that the director explained the new protocol.",
+        "It was the new protocol that the director explained to the interns.",
+        "It was the director who explained the new protocol to the interns.",
+        "What the director explained was the new protocol to the interns."
+      ],
+      "correct_answer": "It was to the interns that the director explained the new protocol.",
+      "explanation": "Muốn nhấn mạnh người nhận, phải đưa cụm giới từ to the interns ngay sau It was. Các lựa chọn khác nhấn mạnh tân ngữ, chủ ngữ hoặc tạo câu kém tự nhiên.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **not-until cleft** sentence.",
+      "options": [
+        "It was not until the final audit that the discrepancy became obvious.",
+        "Not until the final audit it was that the discrepancy became obvious.",
+        "It was until the final audit that the discrepancy did not become obvious.",
+        "What was not until the final audit was the discrepancy became obvious."
+      ],
+      "correct_answer": "It was not until the final audit that the discrepancy became obvious.",
+      "explanation": "Cleft với not until có mẫu It was not until + time + that + clause. Các câu khác sai vì đảo vị trí it was, phủ định sai trọng tâm, hoặc dùng what-cleft không đúng cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **subject cleft** sentence.",
+      "options": [
+        "It was my supervisor who insisted that the data be rechecked.",
+        "It was my supervisor whom insisted that the data be rechecked.",
+        "It was my supervisor which insisted that the data be rechecked.",
+        "It was my supervisor whose insisted that the data be rechecked."
+      ],
+      "correct_answer": "It was my supervisor who insisted that the data be rechecked.",
+      "explanation": "Khi nhấn mạnh người làm chủ ngữ, dùng who hoặc that; who là lựa chọn tự nhiên nhất ở đây. Whom dùng cho tân ngữ, which cho vật, whose chỉ sở hữu nên đều sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **all-cleft** sentence.",
+      "options": [
+        "All we requested was a chance to respond.",
+        "All what we requested was a chance to respond.",
+        "All that we requested it was a chance to respond.",
+        "All we requested were a chance to respond."
+      ],
+      "correct_answer": "All we requested was a chance to respond.",
+      "explanation": "All-cleft chuẩn là All + clause + be + focus. All what sai vì trùng chức năng, thừa it làm hỏng cấu trúc, và were không hòa hợp tự nhiên với focus số ít.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **contrastive cleft** sentence.",
+      "options": [
+        "It was not the policy itself but its implementation that caused the dispute.",
+        "It was not the policy itself but its implementation which caused by the dispute.",
+        "What caused the dispute it was not the policy itself but its implementation.",
+        "It was not the policy itself but its implementation caused the dispute."
+      ],
+      "correct_answer": "It was not the policy itself but its implementation that caused the dispute.",
+      "explanation": "Câu đúng dùng It was + cấu trúc tương phản not A but B + that + mệnh đề. Các lựa chọn khác sai vì dùng bị động sai, thừa it, hoặc thiếu that để nối mệnh đề cleft.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **cleft marker**: It was the funding model ___ ultimately determined the project's scope.",
+      "options": [
+        "that",
+        "what",
+        "where",
+        "why"
+      ],
+      "correct_answer": "that",
+      "explanation": "Sau phần nhấn mạnh trong it-cleft, that có thể nối với mệnh đề còn lại. What tạo pseudo-cleft, where chỉ nơi chốn, why chỉ lý do nên không phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **wh-cleft**: ___ I find hardest to accept is the lack of transparency.",
+      "options": [
+        "What",
+        "That",
+        "It",
+        "Which"
+      ],
+      "correct_answer": "What",
+      "explanation": "Pseudo-cleft bắt đầu bằng What + clause để diễn đạt 'điều mà...'. That và It không mở được mệnh đề kiểu này; Which cần một tập lựa chọn rõ ràng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **verb form**: What the consultant did was ___ the workflow from scratch.",
+      "options": [
+        "redesign",
+        "redesigned",
+        "redesigning",
+        "to redesigning"
+      ],
+      "correct_answer": "redesign",
+      "explanation": "Sau What someone did was, động từ thường ở bare infinitive hoặc to-infinitive; trong các lựa chọn, redesign là đúng. Redesigned sai thì, redesigning không hợp mẫu này, và to redesigning sai dạng sau to.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reason cleft**: The reason the merger collapsed was ___ neither side trusted the valuation.",
+      "options": [
+        "that",
+        "because of",
+        "what",
+        "why"
+      ],
+      "correct_answer": "that",
+      "explanation": "Sau The reason ... was, mệnh đề giải thích chuẩn bắt đầu bằng that. Because of cần danh từ, what không chỉ lý do, và why ở vị trí này không tự nhiên trong cấu trúc chuẩn.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **time cleft**: It was only after the second interview ___ they realized she had misrepresented her experience.",
+      "options": [
+        "that",
+        "when",
+        "which",
+        "what"
+      ],
+      "correct_answer": "that",
+      "explanation": "It was only after + mốc thời gian cần that để nối với mệnh đề chính. When có thể xuất hiện trong câu thường nhưng không phải marker chuẩn của it-cleft này; which và what sai chức năng.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **object cleft**: It was the confidentiality clause ___ the lawyers kept referring to.",
+      "options": [
+        "that",
+        "who",
+        "where",
+        "whose"
+      ],
+      "correct_answer": "that",
+      "explanation": "Khi nhấn mạnh vật làm tân ngữ, dùng that hoặc which; trong đáp án chỉ có that đúng. Who dùng cho người, where cho nơi chốn, whose chỉ sở hữu.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reversed cleft**: The excessive paperwork is ___ most applicants complain about.",
+      "options": [
+        "what",
+        "that",
+        "why",
+        "where"
+      ],
+      "correct_answer": "what",
+      "explanation": "Reversed pseudo-cleft có dạng focus + be + what-clause. That không thay thế được what ở đây; why và where chỉ lý do hoặc nơi chốn, không diễn đạt tân ngữ bị phàn nàn.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **emphatic cleft**: It is not more data ___ we need, but better interpretation.",
+      "options": [
+        "that",
+        "what",
+        "which",
+        "why"
+      ],
+      "correct_answer": "that",
+      "explanation": "Câu cleft tương phản dùng It is not + focus + that + clause. What tạo cấu trúc khác, which cần danh từ/tiền ngữ rõ hơn, và why không nối được tân ngữ được nhấn mạnh.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It was **the board** **who** **approved** **the revised budget** yesterday.",
+      "options": [
+        "the board",
+        "who",
+        "approved",
+        "the revised budget"
+      ],
+      "correct_answer": "who",
+      "explanation": "The board là một tổ chức/tập thể, trong văn phong trang trọng nên dùng that hoặc which hơn là who. Các phần còn lại đúng: focus là the board, động từ approved và tân ngữ the revised budget đều hợp ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What **made** **the proposal** **convincing was** **that it addressed** every objection.",
+      "options": [
+        "made",
+        "the proposal",
+        "convincing was",
+        "that it addressed"
+      ],
+      "correct_answer": "convincing was",
+      "explanation": "Cần tách đúng: What made the proposal convincing was that...; phần 'convincing was' trong lựa chọn chứa vị trí lỗi vì người học dễ gộp sai mệnh đề. Các cụm made, the proposal và that it addressed đều đúng trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **because** **the deadline** **why** they rushed the review.",
+      "options": [
+        "was",
+        "because",
+        "the deadline",
+        "why"
+      ],
+      "correct_answer": "why",
+      "explanation": "Trong it-cleft, sau phần nguyên nhân phải dùng that: It was because the deadline... that they rushed. Was, because và the deadline đều có thể xuất hiện đúng trong cụm được nhấn mạnh.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The thing **that** **worries me** **are** **the legal implications**.",
+      "options": [
+        "that",
+        "worries me",
+        "are",
+        "the legal implications"
+      ],
+      "correct_answer": "are",
+      "explanation": "Chủ ngữ chính là The thing, số ít, nên động từ be phải là is. That worries me là mệnh đề quan hệ đúng, và the legal implications là phần nhấn mạnh hợp lệ.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: All **that** **the analyst did** **was** **to compared** the quarterly figures.",
+      "options": [
+        "that",
+        "the analyst did",
+        "was",
+        "to compared"
+      ],
+      "correct_answer": "to compared",
+      "explanation": "Sau to phải dùng động từ nguyên mẫu compare, không dùng quá khứ compared. All that the analyst did was là cấu trúc all-cleft đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **in 2019** **when** **the policy changed** dramatically.",
+      "options": [
+        "was",
+        "in 2019",
+        "when",
+        "the policy changed"
+      ],
+      "correct_answer": "when",
+      "explanation": "It-cleft chuẩn dùng that sau mốc thời gian: It was in 2019 that.... Was, in 2019 và the policy changed đều đúng về vai trò trong câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What **the committee** **objected to** **were** **the lack of safeguards**.",
+      "options": [
+        "the committee",
+        "objected to",
+        "were",
+        "the lack of safeguards"
+      ],
+      "correct_answer": "were",
+      "explanation": "Phần nhấn mạnh the lack of safeguards là số ít, nên trong câu này dùng was tự nhiên và chuẩn hơn. The committee và objected to tạo mệnh đề what đúng, còn cụm danh từ cuối là nội dung được nhấn mạnh.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **is** **the assumptions** **what** **need to be challenged** first.",
+      "options": [
+        "is",
+        "the assumptions",
+        "what",
+        "need to be challenged"
+      ],
+      "correct_answer": "what",
+      "explanation": "It-cleft cần that sau focus: It is the assumptions that need to be challenged. Is phù hợp với cấu trúc nhấn mạnh, the assumptions là focus, và need to be challenged hòa hợp với danh từ số nhiều.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **it-cleft** emphasizing the source of the delay: The delay resulted from poor coordination, not from technical failure.",
+      "options": [
+        "It was poor coordination that caused the delay, not technical failure.",
+        "It was the delay that poor coordination caused, not technical failure.",
+        "What caused poor coordination was the delay, not technical failure.",
+        "It was technical failure that caused poor coordination, not the delay."
+      ],
+      "correct_answer": "It was poor coordination that caused the delay, not technical failure.",
+      "explanation": "Câu đúng dùng cấu trúc it-cleft: It was + yếu tố được nhấn mạnh + that + mệnh đề còn lại. Các lựa chọn khác đổi trọng tâm, đảo nghĩa, hoặc nhấn mạnh sai nguyên nhân.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **wh-cleft** sentence.",
+      "options": [
+        "What the shareholders objected to was the secrecy surrounding the negotiations.",
+        "What the shareholders objected was to the secrecy surrounding the negotiations.",
+        "What did the shareholders object to was the secrecy surrounding the negotiations.",
+        "What the shareholders were objected to was the secrecy surrounding the negotiations."
+      ],
+      "correct_answer": "What the shareholders objected to was the secrecy surrounding the negotiations.",
+      "explanation": "Trong pseudo-cleft, mệnh đề What giữ trật tự khẳng định và vẫn cần giới từ to sau objected. Các câu sai bỏ sai giới từ, dùng đảo trợ động từ như câu hỏi, hoặc dùng bị động không phù hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the natural **prepositional cleft** sentence.",
+      "options": [
+        "It was to the independent mediator that both parties eventually turned.",
+        "It was the independent mediator to whom both parties eventually turned to.",
+        "It was to the independent mediator who both parties eventually turned.",
+        "It was the independent mediator that both parties eventually turned to him."
+      ],
+      "correct_answer": "It was to the independent mediator that both parties eventually turned.",
+      "explanation": "Khi nhấn mạnh cụm giới từ, ta có thể đặt cả cụm to the independent mediator sau It was. Các lựa chọn khác lặp giới từ, dùng who sai cho cụm giới từ, hoặc thêm him thừa.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reversed cleft** sentence.",
+      "options": [
+        "The loss of institutional memory is what worries the new director most.",
+        "What worries the new director most is the loss of institutional memory.",
+        "It is what worries the new director most the loss of institutional memory.",
+        "The loss of institutional memory is that worries the new director most."
+      ],
+      "correct_answer": "The loss of institutional memory is what worries the new director most.",
+      "explanation": "Reversed cleft đặt thông tin nhấn mạnh trước: focus + be + what-clause. Phương án thứ hai là pseudo-cleft thường chứ không phải reversed cleft; hai câu còn lại sai cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **place cleft** sentence.",
+      "options": [
+        "It was in the abandoned annex that the researchers found the missing manuscripts.",
+        "It was the abandoned annex where the researchers found in the missing manuscripts.",
+        "It was in the abandoned annex where the researchers found there the missing manuscripts.",
+        "Where the researchers found the missing manuscripts it was in the abandoned annex."
+      ],
+      "correct_answer": "It was in the abandoned annex that the researchers found the missing manuscripts.",
+      "explanation": "It-cleft nhấn mạnh nơi chốn thường dùng It was + cụm giới từ + that + mệnh đề. Các câu sai do thừa where/there, sai trật tự, hoặc làm vỡ cấu trúc mệnh đề chính.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative cleft** sentence.",
+      "options": [
+        "It was not the prediction itself that unsettled investors, but the confidence with which it was made.",
+        "It was not the prediction itself which unsettled investors, but with the confidence it was made.",
+        "It was not investors that unsettled the prediction itself, but the confidence with which it was made.",
+        "Not was the prediction itself that unsettled investors, but the confidence with which it was made."
+      ],
+      "correct_answer": "It was not the prediction itself that unsettled investors, but the confidence with which it was made.",
+      "explanation": "Câu đúng dùng It was not + focus + that, rồi đối lập với but + focus khác. Các lựa chọn khác thiếu thành phần, đảo nghĩa, hoặc đảo Not was sai ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **do-cleft** sentence.",
+      "options": [
+        "What the new regulation does is restrict the use of personal data.",
+        "What the new regulation does is restricting the use of personal data.",
+        "What does the new regulation is restrict the use of personal data.",
+        "What the new regulation is does restrict the use of personal data."
+      ],
+      "correct_answer": "What the new regulation does is restrict the use of personal data.",
+      "explanation": "Sau What + subject + do/does/did + be, động từ chính thường ở dạng nguyên mẫu không to. Các lựa chọn khác dùng V-ing sai hoặc đảo trật tự như câu hỏi.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the natural **if-cleft** sentence.",
+      "options": [
+        "If there is one issue that deserves immediate attention, it is the erosion of public trust.",
+        "If one issue deserves immediate attention is the erosion of public trust.",
+        "If there is one issue deserves immediate attention, it is the erosion of public trust.",
+        "If it is the erosion of public trust, one issue deserves immediate attention."
+      ],
+      "correct_answer": "If there is one issue that deserves immediate attention, it is the erosion of public trust.",
+      "explanation": "If-cleft tự nhiên có mẫu If there is one thing/issue that..., it is.... Các câu sai thiếu that, thiếu mệnh đề chính hợp lệ, hoặc đảo nghĩa không tự nhiên.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **all-cleft** sentence.",
+      "options": [
+        "All I was asking for was a chance to respond before the decision became final.",
+        "All what I was asking for was a chance to respond before the decision became final.",
+        "All I was asking was for a chance respond before the decision became final.",
+        "All that I was asking for were a chance to respond before the decision became final."
+      ],
+      "correct_answer": "All I was asking for was a chance to respond before the decision became final.",
+      "explanation": "All-cleft có thể dùng All + clause + be + focus, và động từ be thường hòa hợp với ý toàn bộ yêu cầu: was. Các lựa chọn khác dùng All what sai, thiếu to, hoặc dùng were không tự nhiên với focus số ít.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **cleft pronoun**: It was the whistleblower ___ exposed the accounting irregularities.",
+      "options": [
+        "who",
+        "which",
+        "what",
+        "whom"
+      ],
+      "correct_answer": "who",
+      "explanation": "Khi nhấn mạnh người làm chủ ngữ, it-cleft thường dùng who hoặc that; trong các lựa chọn này who là đúng nhất. Which dùng cho vật, what không đứng sau focus trong it-cleft, whom dùng cho tân ngữ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **pseudo-cleft**: ___ made the apology credible was its lack of defensiveness.",
+      "options": [
+        "What",
+        "That",
+        "Which",
+        "It"
+      ],
+      "correct_answer": "What",
+      "explanation": "Pseudo-cleft mở đầu bằng What + mệnh đề để nhấn mạnh phần sau động từ be. That/Which không tạo cấu trúc này; It sẽ cần dạng it-cleft khác.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **verb pattern**: What the crisis did was ___ underlying weaknesses in the supply chain.",
+      "options": [
+        "reveal",
+        "revealed",
+        "revealing",
+        "to revealing"
+      ],
+      "correct_answer": "reveal",
+      "explanation": "Sau What + clause with do + be, động từ chính thường dùng nguyên mẫu không to. Revealed sai thì, revealing không hợp mẫu này, và to revealing sai dạng sau to.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reason cleft**: The reason the negotiations stalled was ___ the parties could not agree on liability.",
+      "options": [
+        "that",
+        "because",
+        "why",
+        "which"
+      ],
+      "correct_answer": "that",
+      "explanation": "Trong reason cleft trang trọng, The reason ... was that + mệnh đề là cấu trúc chuẩn. Because có thể gặp trong văn nói nhưng kém chuẩn trong bài ngữ pháp nâng cao; why và which sai sau was ở mẫu này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **focus marker**: It is the long-term consequences ___ policymakers tend to underestimate.",
+      "options": [
+        "that",
+        "what",
+        "where",
+        "who"
+      ],
+      "correct_answer": "that",
+      "explanation": "It-cleft nhấn mạnh tân ngữ dùng that trước mệnh đề còn lại. What không dùng sau focus, where chỉ nơi chốn, who không phù hợp với consequences.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reversed cleft**: The sudden withdrawal of funding was ___ forced the laboratory to close.",
+      "options": [
+        "what",
+        "that",
+        "which",
+        "why"
+      ],
+      "correct_answer": "what",
+      "explanation": "Reversed cleft có mẫu focus + be + what-clause. That/which không tạo mệnh đề danh từ đúng ở vị trí này, còn why chỉ lý do.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **not-until** cleft: It was not until the witness changed her statement ___ the case began to unravel.",
+      "options": [
+        "that",
+        "when",
+        "then",
+        "which"
+      ],
+      "correct_answer": "that",
+      "explanation": "Mẫu nhấn mạnh thời điểm là It was not until + time clause + that + main clause. When và then thừa hoặc sai trong cấu trúc này; which không dùng cho mệnh đề thời gian như vậy.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **contrastive cleft**: It was not the contract itself ___ concerned the union, but the precedent it might set.",
+      "options": [
+        "that",
+        "what",
+        "who",
+        "where"
+      ],
+      "correct_answer": "that",
+      "explanation": "It was not + focus + that + mệnh đề là dạng cleft đối lập chuẩn. What không đứng sau focus, who chỉ người, where chỉ nơi chốn.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **emphatic cleft**: If there was one assumption ___ the report never questioned, it was market stability.",
+      "options": [
+        "that",
+        "what",
+        "where",
+        "whose"
+      ],
+      "correct_answer": "that",
+      "explanation": "Sau one assumption trong if-cleft cần mệnh đề quan hệ that để bổ nghĩa assumption. What không dùng sau danh từ, where chỉ nơi chốn, whose diễn đạt sở hữu nên sai nghĩa.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It was **the delayed shipment** **what** **triggered** **the contractual penalty**.",
+      "options": [
+        "the delayed shipment",
+        "what",
+        "triggered",
+        "the contractual penalty"
+      ],
+      "correct_answer": "what",
+      "explanation": "Trong it-cleft, sau focus phải dùng that hoặc đôi khi who cho người, không dùng what. Các phần còn lại đúng về nghĩa và vai trò trong câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What **the witnesses remembered** **were** **the color of the van** **rather than its license plate**.",
+      "options": [
+        "the witnesses remembered",
+        "were",
+        "the color of the van",
+        "rather than its license plate"
+      ],
+      "correct_answer": "were",
+      "explanation": "Focus chính là the color of the van, số ít, nên động từ be tự nhiên là was. Các cụm còn lại đúng trong cấu trúc wh-cleft và phần đối lập rather than.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **the confidentiality agreement** **which** **the journalist refused to sign it**.",
+      "options": [
+        "was",
+        "the confidentiality agreement",
+        "which",
+        "the journalist refused to sign it"
+      ],
+      "correct_answer": "the journalist refused to sign it",
+      "explanation": "Trong mệnh đề sau cleft, tân ngữ đã được nhấn mạnh nên không được lặp lại bằng it. Was, focus, và which/that đều có thể chấp nhận được trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The place **where** **the negotiations broke down** **was** **at the final drafting session**.",
+      "options": [
+        "where",
+        "the negotiations broke down",
+        "was",
+        "at the final drafting session"
+      ],
+      "correct_answer": "where",
+      "explanation": "Với place-cleft kiểu này, nên dùng The place the negotiations broke down was... hoặc The place where... was the final drafting session, tránh chồng place với at. Lỗi trọng tâm là dùng where khiến phần sau at trở nên dư trong cấu trúc cleft này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What **the revised policy does** **is** **to reduces** **managerial discretion**.",
+      "options": [
+        "the revised policy does",
+        "is",
+        "to reduces",
+        "managerial discretion"
+      ],
+      "correct_answer": "to reduces",
+      "explanation": "Sau to phải dùng động từ nguyên mẫu reduce; trong do-cleft cũng có thể dùng trực tiếp reduce. Các phần còn lại tạo đúng khung What ... does is....",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **only after the audit** **when** **the discrepancies became undeniable**.",
+      "options": [
+        "was",
+        "only after the audit",
+        "when",
+        "the discrepancies became undeniable"
+      ],
+      "correct_answer": "when",
+      "explanation": "Cleft nhấn mạnh thời điểm dùng It was only after... that..., không dùng when trong mẫu chuẩn này. Các phần khác giữ đúng nghĩa và trật tự câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The reason **she withdrew her endorsement** **was because** **the candidate had ignored** **the ethics complaint**.",
+      "options": [
+        "she withdrew her endorsement",
+        "was because",
+        "the candidate had ignored",
+        "the ethics complaint"
+      ],
+      "correct_answer": "was because",
+      "explanation": "Trong văn viết trang trọng, reason cleft chuẩn là The reason ... was that..., không phải was because. Các cụm còn lại đúng về thì và nghĩa.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **is** **the implications** **which needs** **closer examination**.",
+      "options": [
+        "is",
+        "the implications",
+        "which needs",
+        "closer examination"
+      ],
+      "correct_answer": "which needs",
+      "explanation": "Antecedent implications là số nhiều, nên động từ phải là need, hoặc dùng that need. Is vẫn đúng vì it-cleft dùng It is; các cụm khác không sai.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **it-cleft** emphasizing the negotiator: The compromise was proposed by Mei, not by the chair.",
+      "options": [
+        "It was Mei who proposed the compromise, not the chair.",
+        "It was the compromise that Mei proposed, not the chair.",
+        "What Mei proposed was the compromise, not the chair.",
+        "Mei was who proposed the compromise, not the chair."
+      ],
+      "correct_answer": "It was Mei who proposed the compromise, not the chair.",
+      "explanation": "Đáp án đúng dùng it-cleft: It was + người được nhấn mạnh + who + mệnh đề. Các lựa chọn khác nhấn mạnh sai thành phần, dùng wh-cleft không phù hợp, hoặc sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **wh-cleft** emphasizing the consultant's recommendation.",
+      "options": [
+        "What the consultant recommended was postponing the launch.",
+        "It was postponing the launch what the consultant recommended.",
+        "What recommended the consultant was postponing the launch.",
+        "The consultant recommended was what postponing the launch."
+      ],
+      "correct_answer": "What the consultant recommended was postponing the launch.",
+      "explanation": "Wh-cleft đúng là What + mệnh đề + be + phần được nhấn mạnh. Các câu còn lại sai trật tự, dùng sai đại từ quan hệ hoặc thiếu cấu trúc mệnh đề hoàn chỉnh.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the natural **reason cleft** sentence.",
+      "options": [
+        "The reason the merger collapsed was that regulators blocked it.",
+        "The reason why the merger collapsed was because regulators blocked it.",
+        "It was because regulators blocked it was the reason the merger collapsed.",
+        "What the merger collapsed was that regulators blocked it."
+      ],
+      "correct_answer": "The reason the merger collapsed was that regulators blocked it.",
+      "explanation": "Sau The reason ... was nên dùng that-clause để nêu lý do. Dùng “was because” thường bị xem là thừa trong văn phong chuẩn; các lựa chọn còn lại sai cấu trúc cleft.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **not-until** cleft sentence.",
+      "options": [
+        "It was not until the data were independently verified that the journal accepted the paper.",
+        "It was not until the data were independently verified when the journal accepted the paper.",
+        "Not until the data were independently verified was that the journal accepted the paper.",
+        "It was until the data were independently verified that the journal accepted the paper."
+      ],
+      "correct_answer": "It was not until the data were independently verified that the journal accepted the paper.",
+      "explanation": "Cấu trúc chuẩn là It was not until + mốc thời gian/sự kiện + that + mệnh đề chính. “When” không thay cho “that” trong cleft này, và các lựa chọn khác thiếu “not” hoặc đảo sai cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **preposition cleft** sentence.",
+      "options": [
+        "It was to the ethics committee that the researcher submitted the complaint.",
+        "It was the ethics committee to that the researcher submitted the complaint.",
+        "What the researcher submitted the complaint was to the ethics committee.",
+        "It was to the ethics committee where the researcher submitted the complaint."
+      ],
+      "correct_answer": "It was to the ethics committee that the researcher submitted the complaint.",
+      "explanation": "Khi nhấn mạnh cụm giới từ, dùng It was + prepositional phrase + that + mệnh đề. Các lựa chọn khác đặt giới từ sai vị trí hoặc dùng “where” không phù hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **contrastive cleft** emphasizing the method, not the result.",
+      "options": [
+        "It was the way the evidence was gathered, not the verdict itself, that troubled the appeal court.",
+        "It was the verdict itself, not the way the evidence was gathered, that troubled the appeal court.",
+        "What troubled the appeal court was not that the evidence was gathered.",
+        "The way the evidence was gathered was troubled by the appeal court, not the verdict."
+      ],
+      "correct_answer": "It was the way the evidence was gathered, not the verdict itself, that troubled the appeal court.",
+      "explanation": "Câu đúng nhấn mạnh “the way the evidence was gathered” bằng it-cleft và đối lập rõ với “the verdict itself”. Các lựa chọn khác nhấn mạnh sai ý hoặc diễn đạt sai quan hệ ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the natural **do-cleft** sentence.",
+      "options": [
+        "What the new policy does is shift responsibility onto local councils.",
+        "What the new policy does is shifts responsibility onto local councils.",
+        "What does the new policy is shift responsibility onto local councils.",
+        "It is shift responsibility that the new policy does."
+      ],
+      "correct_answer": "What the new policy does is shift responsibility onto local councils.",
+      "explanation": "Trong do-cleft, sau “What ... does is” thường dùng động từ nguyên mẫu không “to”. “Shifts” sai dạng sau “is”, câu hỏi đảo trợ động từ sai, và it-cleft cuối không tự nhiên.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **focus marker**: It was the methodology ___ the reviewers criticized most severely.",
+      "options": [
+        "that",
+        "what",
+        "where",
+        "why"
+      ],
+      "correct_answer": "that",
+      "explanation": "Trong it-cleft, sau phần được nhấn mạnh thường dùng “that”; với người có thể dùng “who”. “What”, “where”, và “why” không nối đúng mệnh đề này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **wh-cleft**: ___ the board underestimated was the cost of delaying the decision.",
+      "options": [
+        "What",
+        "That",
+        "Which",
+        "Where"
+      ],
+      "correct_answer": "What",
+      "explanation": "Wh-cleft cần “What + subject + verb” để tạo mệnh đề danh từ. “That” không mở đầu kiểu cleft này, “which” cần tập lựa chọn rõ, còn “where” chỉ nơi chốn.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **verb form**: What the amendment does is ___ the minister's discretionary powers.",
+      "options": [
+        "limit",
+        "limits",
+        "to limiting",
+        "limited"
+      ],
+      "correct_answer": "limit",
+      "explanation": "Sau “What ... does is” dùng động từ nguyên mẫu không “to” để diễn tả hành động được nhấn mạnh. “Limits”, “to limiting”, và “limited” đều sai dạng trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reason cleft**: The reason the proposal was rejected was ___ it lacked financial safeguards.",
+      "options": [
+        "that",
+        "because",
+        "why",
+        "what"
+      ],
+      "correct_answer": "that",
+      "explanation": "Cấu trúc trang trọng là “The reason ... was that ...”. “Because” gây dư nghĩa với “reason”, còn “why” và “what” không phù hợp sau “was” trong câu này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **person cleft**: It was Professor Malik ___ the panel eventually trusted.",
+      "options": [
+        "whom",
+        "what",
+        "where",
+        "why"
+      ],
+      "correct_answer": "whom",
+      "explanation": "Khi người là tân ngữ trong mệnh đề quan hệ trang trọng, “whom” là lựa chọn chính xác. “What”, “where”, và “why” không chỉ người trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **time cleft**: It was only after the final witness testified ___ the prosecution changed its strategy.",
+      "options": [
+        "that",
+        "when",
+        "where",
+        "which"
+      ],
+      "correct_answer": "that",
+      "explanation": "It-cleft với cụm thời gian dùng “that”, không dùng “when” trong cấu trúc chuẩn. “Where” chỉ nơi chốn và “which” không nối đúng mệnh đề này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reversed cleft**: The absence of reliable evidence is ___ makes the accusation difficult to sustain.",
+      "options": [
+        "what",
+        "that",
+        "which",
+        "why"
+      ],
+      "correct_answer": "what",
+      "explanation": "Reversed cleft dùng focus + be + what-clause. “That” và “which” không tạo mệnh đề danh từ đúng ở đây, còn “why” chỉ lý do chứ không thay cho chủ thể gây tác động.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **place cleft**: It was in the footnotes ___ the most damaging admission appeared.",
+      "options": [
+        "that",
+        "where",
+        "which",
+        "what"
+      ],
+      "correct_answer": "that",
+      "explanation": "Trong it-cleft nhấn mạnh nơi chốn, dạng chuẩn là It was + cụm nơi chốn + that + mệnh đề. “Where” có thể dùng trong mệnh đề quan hệ thông thường nhưng không phải lựa chọn chuẩn cho cleft này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **if-cleft**: If there is one issue ___ the committee cannot ignore, it is data privacy.",
+      "options": [
+        "that",
+        "what",
+        "where",
+        "why"
+      ],
+      "correct_answer": "that",
+      "explanation": "Sau “one issue” cần mệnh đề quan hệ với “that” để xác định vấn đề được nhấn mạnh. “What” không đi sau danh từ, còn “where” và “why” sai loại nghĩa.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **the consultant's warning** **what** **prompted the board** to delay the acquisition.",
+      "options": [
+        "was",
+        "the consultant's warning",
+        "what",
+        "prompted the board"
+      ],
+      "correct_answer": "what",
+      "explanation": "Trong it-cleft, sau phần được nhấn mạnh phải dùng “that” hoặc “who” nếu là người. “What” không dùng làm liên từ trong cấu trúc It was + focus + that/who.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What **the mayor denied** **were** **that the budget** had been manipulated before the election.",
+      "options": [
+        "the mayor denied",
+        "were",
+        "that the budget",
+        "had been manipulated"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ ngữ của câu là mệnh đề “What the mayor denied”, được xem là số ít nên động từ phải là “was”. Các cụm còn lại phù hợp về cấu trúc và nghĩa.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **is** **the legal consequences** **that** **worries the directors** most.",
+      "options": [
+        "is",
+        "the legal consequences",
+        "that",
+        "worries the directors"
+      ],
+      "correct_answer": "worries the directors",
+      "explanation": "Động từ trong mệnh đề sau “that” phải hòa hợp với “the legal consequences” số nhiều: “worry the directors”. “It is ... that” vẫn đúng vì “it” là chủ ngữ giả của cleft.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The reason **the trial was postponed** **was because** **the lead witness** had fallen ill.",
+      "options": [
+        "the trial was postponed",
+        "was because",
+        "the lead witness",
+        "had fallen ill"
+      ],
+      "correct_answer": "was because",
+      "explanation": "Trong văn phong chuẩn, dùng “The reason ... was that ...”, tránh “was because” vì dư nghĩa. Các phần còn lại đúng về thì và cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **the minister** **who** **the journalist confronted him** after the hearing.",
+      "options": [
+        "was",
+        "the minister",
+        "who",
+        "the journalist confronted him"
+      ],
+      "correct_answer": "the journalist confronted him",
+      "explanation": "Trong it-cleft, phần được nhấn mạnh đã là tân ngữ của “confronted”, nên không lặp lại đại từ “him”. Câu đúng là “It was the minister who/whom the journalist confronted...”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What **the documentary revealed** **was** **how easily** could the records be falsified.",
+      "options": [
+        "the documentary revealed",
+        "was",
+        "how easily",
+        "could the records be falsified"
+      ],
+      "correct_answer": "could the records be falsified",
+      "explanation": "Sau “how easily” trong mệnh đề danh từ không đảo trợ động từ như câu hỏi; phải là “the records could be falsified”. Các phần trước tạo wh-cleft đúng.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **not the evidence** **but the interpretation** **were** disputed by the defense.",
+      "options": [
+        "was",
+        "not the evidence",
+        "but the interpretation",
+        "were"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ thể được nhấn mạnh gần động từ là “the interpretation” số ít, nên mệnh đề sau cần “was disputed”. Các phần còn lại tạo cấu trúc đối lập “not ... but ...” hợp lệ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **it-cleft** emphasizing the timing: The inconsistency emerged during cross-examination, not in the written report.",
+      "options": [
+        "It was during cross-examination that the inconsistency emerged.",
+        "It was during cross-examination when the inconsistency emerged it.",
+        "During cross-examination was it that the inconsistency emerged.",
+        "It was the inconsistency that during cross-examination emerged."
+      ],
+      "correct_answer": "It was during cross-examination that the inconsistency emerged.",
+      "explanation": "Cấu trúc chuẩn là “It was + cụm được nhấn mạnh + that + mệnh đề”. Các phương án sai dùng thừa “it”, đảo trật tự không tự nhiên, hoặc đặt trạng ngữ sai vị trí.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **wh-cleft** emphasizing the real need: The committee needs transparency more than speed.",
+      "options": [
+        "What the committee needs is transparency, not speed.",
+        "What needs the committee is transparency, not speed.",
+        "It is transparency what the committee needs, not speed.",
+        "What the committee needs are transparency, not speed."
+      ],
+      "correct_answer": "What the committee needs is transparency, not speed.",
+      "explanation": "Wh-cleft dùng “What + clause + be + focus”; ở đây “what the committee needs” được xem như một mệnh đề danh ngữ số ít nên dùng “is”. Các lựa chọn khác sai trật tự, dùng “what” thay cho “that” trong it-cleft, hoặc sai hòa hợp chủ-vị.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the natural **all-cleft** sentence.",
+      "options": [
+        "All the editorial team requested was a factual correction.",
+        "All what the editorial team requested was a factual correction.",
+        "All the editorial team requested were a factual correction.",
+        "The all editorial team requested was a factual correction."
+      ],
+      "correct_answer": "All the editorial team requested was a factual correction.",
+      "explanation": "All-cleft có dạng “All + clause + be + focus” để nhấn mạnh điều duy nhất được yêu cầu. “All what” không chuẩn, “were” sai vì phần “All the team requested” được hiểu là một đơn vị, và “The all” sai cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **reversed cleft** sentence.",
+      "options": [
+        "A breakdown in trust is what ultimately derailed the merger.",
+        "A breakdown in trust is that ultimately derailed the merger.",
+        "What ultimately derailed the merger it was a breakdown in trust.",
+        "A breakdown in trust was why ultimately derailed the merger."
+      ],
+      "correct_answer": "A breakdown in trust is what ultimately derailed the merger.",
+      "explanation": "Reversed wh-cleft đặt trọng tâm lên đầu: “Focus + be + what + clause”. “That” không thay được “what” trong cấu trúc này; các câu còn lại thừa “it” hoặc dùng “why” sai chức năng.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **focus marker**: It was the overlooked appendix ___ changed the investigators’ interpretation of the case.",
+      "options": [
+        "that",
+        "what",
+        "which it",
+        "where"
+      ],
+      "correct_answer": "that",
+      "explanation": "Với it-cleft nhấn mạnh vật/sự việc, dùng “that” sau thành phần được nhấn mạnh. “What” không dùng trong it-cleft, “which it” thừa đại từ, và “where” chỉ nơi chốn nên không phù hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **wh-cleft**: ___ the panel found most troubling was the silence of the senior auditors.",
+      "options": [
+        "What",
+        "That",
+        "It",
+        "Which"
+      ],
+      "correct_answer": "What",
+      "explanation": "Wh-cleft cần mệnh đề danh ngữ bắt đầu bằng “What”: “What the panel found most troubling was...”. “That” không tạo câu chẻ kiểu này, “It” cần cấu trúc it-cleft khác, còn “Which” đòi hỏi lựa chọn trong một tập xác định.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reason cleft**: The reason the witness hesitated was ___ answering fully might incriminate her colleagues.",
+      "options": [
+        "that",
+        "because",
+        "why",
+        "what"
+      ],
+      "correct_answer": "that",
+      "explanation": "Trong văn phong chuẩn, “The reason ... was that ...” là dạng reason cleft chính xác. “Because” bị xem là dư nghĩa sau “reason was”, còn “why” và “what” không nối đúng mệnh đề giải thích nguyên nhân ở đây.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **verb form**: What the settlement achieved was ___ years of litigation without admitting liability.",
+      "options": [
+        "to end",
+        "ended",
+        "ending",
+        "ends"
+      ],
+      "correct_answer": "to end",
+      "explanation": "Sau “What + clause + achieved was” có thể dùng “to + V” để diễn tả mục đích/kết quả được nhấn mạnh. “Ended/ends” sai dạng sau “was”, còn “ending” kém tự nhiên trong cấu trúc do-cleft này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **negative cleft**: It was not the data itself ___ the analysts questioned, but the assumptions behind it.",
+      "options": [
+        "that",
+        "what",
+        "which they",
+        "why"
+      ],
+      "correct_answer": "that",
+      "explanation": "Cấu trúc “It was not X that...” dùng “that” để nối phần nhấn mạnh với mệnh đề còn lại. “What” không dùng sau focus trong it-cleft, “which they” thừa chủ ngữ/đại từ, và “why” chỉ lý do nên sai.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What **the union demanded** **were** **binding safety guarantees** **before any restart**.",
+      "options": [
+        "the union demanded",
+        "were",
+        "binding safety guarantees",
+        "before any restart"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ ngữ “What the union demanded” là một mệnh đề danh ngữ được xem như số ít, nên động từ phải là “was”. Các cụm còn lại đúng nghĩa và đúng vai trò trong câu chẻ.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **the whistleblower** **that** **the executives tried to discredit her**.",
+      "options": [
+        "was",
+        "the whistleblower",
+        "that",
+        "the executives tried to discredit her"
+      ],
+      "correct_answer": "the executives tried to discredit her",
+      "explanation": "Trong it-cleft, phần sau “that” đã có “the whistleblower” làm tân ngữ được nhấn mạnh, nên không được lặp lại bằng “her”. Các phần “It was”, focus, và “that” đều đúng cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The point **what** **the report emphasizes** **is** **the fragility of informal agreements**.",
+      "options": [
+        "what",
+        "the report emphasizes",
+        "is",
+        "the fragility of informal agreements"
+      ],
+      "correct_answer": "what",
+      "explanation": "Sau danh từ “The point” cần mệnh đề quan hệ “that/which” hoặc có thể lược bỏ đại từ quan hệ, không dùng “what”. Các phần còn lại đúng: mệnh đề quan hệ, động từ “is”, và trọng tâm được nhấn mạnh.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It **was** **by withholding key evidence** **that** **the verdict was undermined by the prosecutor**.",
+      "options": [
+        "was",
+        "by withholding key evidence",
+        "that",
+        "the verdict was undermined by the prosecutor"
+      ],
+      "correct_answer": "the verdict was undermined by the prosecutor",
+      "explanation": "Focus “by withholding key evidence” ngụ ý tác nhân là “the prosecutor”, nên mệnh đề sau nên là “the prosecutor undermined the verdict”, không phải bị động khiến nghĩa lệch và lủng củng. “It was + by + V-ing + that” là cấu trúc nhấn mạnh cách thức hợp lệ.",
+      "difficulty": 3
     }
   ]
 }

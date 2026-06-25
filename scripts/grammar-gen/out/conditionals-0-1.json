@@ -483,6 +483,1098 @@
       ],
       "answer": "If she studies, she may pass.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **zero conditional** sentence.",
+      "options": [
+        "If water reaches 100°C, it boils.",
+        "If water reaches 100°C, it will boils.",
+        "If water will reach 100°C, it boils.",
+        "If water reach 100°C, it boil."
+      ],
+      "correct_answer": "If water reaches 100°C, it boils.",
+      "explanation": "Câu điều kiện loại 0 dùng If + hiện tại đơn, hiện tại đơn để nói sự thật chung. Các đáp án khác sai vì dùng “will” trong mệnh đề if hoặc chia sai động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **first conditional** sentence.",
+      "options": [
+        "If I finish work early, I will cook dinner.",
+        "If I will finish work early, I cook dinner.",
+        "If I finished work early, I will cook dinner.",
+        "If I finish work early, I cooked dinner."
+      ],
+      "correct_answer": "If I finish work early, I will cook dinner.",
+      "explanation": "Câu điều kiện loại 1 dùng If + hiện tại đơn, will + V cho khả năng thật trong tương lai. Không dùng “will” ngay sau “if”, và không dùng quá khứ ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **if-clause** form.",
+      "options": [
+        "If she studies tonight, she will understand the lesson.",
+        "If she will study tonight, she will understand the lesson.",
+        "If she studies tonight, she understands yesterday.",
+        "If she study tonight, she will understand the lesson."
+      ],
+      "correct_answer": "If she studies tonight, she will understand the lesson.",
+      "explanation": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn: “she studies”. Các lựa chọn khác sai vì dùng “will” sau if, sai thì, hoặc thiếu -s với chủ ngữ “she”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **meaning** of the sentence: If you press this button, the machine starts.",
+      "options": [
+        "This is a general result.",
+        "This is an unreal dream.",
+        "This happened only yesterday.",
+        "This must use past tense."
+      ],
+      "correct_answer": "This is a general result.",
+      "explanation": "Câu này là điều kiện loại 0: khi điều kiện xảy ra thì kết quả thường luôn đúng. Nó không nói về mơ ước không thật, quá khứ, hay bắt buộc dùng thì quá khứ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **unless** sentence.",
+      "options": [
+        "Unless you hurry, you will miss the bus.",
+        "Unless you will hurry, you miss the bus.",
+        "Unless you hurry, you missed the bus.",
+        "Unless you hurries, you will miss the bus."
+      ],
+      "correct_answer": "Unless you hurry, you will miss the bus.",
+      "explanation": "“Unless” nghĩa là “if not” và thường dùng cấu trúc Unless + hiện tại đơn, will + V. Các câu còn lại sai vì dùng “will” sau unless, sai thì, hoặc chia sai động từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **main clause**.",
+      "options": [
+        "If Dad comes home late, we will eat first.",
+        "If Dad comes home late, we eat yesterday.",
+        "If Dad comes home late, we will eats first.",
+        "If Dad comes home late, we eating first."
+      ],
+      "correct_answer": "If Dad comes home late, we will eat first.",
+      "explanation": "Mệnh đề chính của câu điều kiện loại 1 dùng “will + động từ nguyên mẫu”. “Will eats”, “eating”, và “eat yesterday” đều không đúng trong ngữ cảnh này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **word order**.",
+      "options": [
+        "I will text you if the meeting ends early.",
+        "I will if text you the meeting ends early.",
+        "If will the meeting ends early, I text you.",
+        "The meeting if ends early I will text you."
+      ],
+      "correct_answer": "I will text you if the meeting ends early.",
+      "explanation": "Mệnh đề if có thể đứng sau mệnh đề chính: will + V + if + hiện tại đơn. Các lựa chọn khác sai trật tự từ nên không tự nhiên hoặc sai ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **habit result** sentence.",
+      "options": [
+        "If my phone battery is low, I charge it.",
+        "If my phone battery will be low, I charge it.",
+        "If my phone battery is low, I will charged it.",
+        "If my phone battery low, I charges it."
+      ],
+      "correct_answer": "If my phone battery is low, I charge it.",
+      "explanation": "Câu này nói thói quen/kết quả thường xảy ra nên dùng điều kiện loại 0. Các đáp án khác sai vì dùng “will” trong mệnh đề if hoặc chia sai động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **future result** sentence.",
+      "options": [
+        "If the shop is open, we will buy milk.",
+        "If the shop will be open, we buy milk.",
+        "If the shop is open, we bought milk.",
+        "If the shop open, we will buys milk."
+      ],
+      "correct_answer": "If the shop is open, we will buy milk.",
+      "explanation": "Đây là khả năng thật trong tương lai nên dùng If + hiện tại đơn, will + V. Các lựa chọn khác sai vì dùng “will” sau if, sai thì, hoặc chia sai động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **verb form**: If salt mixes with water, it ___ .",
+      "options": [
+        "dissolves",
+        "will dissolves",
+        "dissolve",
+        "dissolved"
+      ],
+      "correct_answer": "dissolves",
+      "explanation": "Đây là sự thật chung nên dùng hiện tại đơn ở cả hai mệnh đề. “It” cần động từ thêm -s: “dissolves”; các lựa chọn còn lại sai dạng hoặc sai thì.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **first conditional**: If you call me, I ___ you the address.",
+      "options": [
+        "will send",
+        "send",
+        "sent",
+        "will sends"
+      ],
+      "correct_answer": "will send",
+      "explanation": "Câu điều kiện loại 1 dùng mệnh đề chính “will + V”. “Send” là hiện tại đơn, “sent” là quá khứ, còn “will sends” sai vì sau will dùng động từ nguyên mẫu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **if-clause**: I will wait here if the train ___ late.",
+      "options": [
+        "is",
+        "will be",
+        "be",
+        "was"
+      ],
+      "correct_answer": "is",
+      "explanation": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn, nên chọn “is”. “Will be” không dùng sau if; “be” và “was” sai dạng trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **zero conditional**: When people eat too much sugar, they often ___ tired later.",
+      "options": [
+        "feel",
+        "will feel",
+        "feels",
+        "felt"
+      ],
+      "correct_answer": "feel",
+      "explanation": "Với sự thật/thói quen chung, dùng hiện tại đơn: “people feel”. “Feels” sai hòa hợp chủ ngữ, còn “will feel” và “felt” không phù hợp với loại 0 ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **unless form**: Unless he leaves now, he ___ on time.",
+      "options": [
+        "will not arrive",
+        "does not arrive",
+        "will not arrives",
+        "did not arrive"
+      ],
+      "correct_answer": "will not arrive",
+      "explanation": "“Unless + hiện tại đơn” đi với kết quả tương lai “will + V”. Các đáp án khác sai vì không diễn đạt kết quả tương lai đúng hoặc chia sai sau “will”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **future result**: If we save enough money, we ___ a new laptop.",
+      "options": [
+        "will buy",
+        "buy",
+        "bought",
+        "will bought"
+      ],
+      "correct_answer": "will buy",
+      "explanation": "Đây là điều kiện có thể xảy ra trong tương lai nên mệnh đề chính dùng “will buy”. “Buy” là hiện tại đơn, “bought” là quá khứ, và “will bought” sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **present simple** form: If a child ___ hungry, he cries.",
+      "options": [
+        "is",
+        "will be",
+        "are",
+        "was"
+      ],
+      "correct_answer": "is",
+      "explanation": "Câu điều kiện loại 0 dùng hiện tại đơn để nói kết quả thường đúng. “A child” là số ít nên dùng “is”; các đáp án khác sai thì hoặc sai hòa hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **negative condition**: If you do not wear a coat, you ___ cold.",
+      "options": [
+        "will feel",
+        "feel",
+        "felt",
+        "will felt"
+      ],
+      "correct_answer": "will feel",
+      "explanation": "Câu này nói khả năng trong tương lai nên dùng “will + V” ở mệnh đề chính. “Feel” là hiện tại đơn, “felt” là quá khứ, còn “will felt” sai vì sau will phải là động từ nguyên mẫu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If she will arrive early, we will start the game.",
+      "options": [
+        "If",
+        "she will arrive",
+        "we will start",
+        "the game"
+      ],
+      "correct_answer": "she will arrive",
+      "explanation": "Sau “if” trong câu điều kiện loại 1 không dùng “will”; phải nói “If she arrives early”. Các phần còn lại đúng trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If water freeze, it becomes ice.",
+      "options": [
+        "If",
+        "water freeze",
+        "it becomes",
+        "ice"
+      ],
+      "correct_answer": "water freeze",
+      "explanation": "“Water” là danh từ không đếm được số ít nên hiện tại đơn cần “freezes”. Các phần khác đúng cho câu điều kiện loại 0.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If you touch fire, you will gets hurt.",
+      "options": [
+        "If you touch",
+        "fire",
+        "you will gets",
+        "hurt"
+      ],
+      "correct_answer": "you will gets",
+      "explanation": "Sau “will” phải dùng động từ nguyên mẫu: “will get”. “If you touch fire” đúng vì mệnh đề if dùng hiện tại đơn.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Unless it will stop soon, we will cancel the picnic.",
+      "options": [
+        "Unless",
+        "it will stop",
+        "soon",
+        "we will cancel"
+      ],
+      "correct_answer": "it will stop",
+      "explanation": "Sau “unless” dùng hiện tại đơn, không dùng “will”: “Unless it stops soon”. Mệnh đề chính “we will cancel” đúng cho kết quả tương lai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If I am late tomorrow, I call you.",
+      "options": [
+        "If I am",
+        "late tomorrow",
+        "I call",
+        "you"
+      ],
+      "correct_answer": "I call",
+      "explanation": "Vì có “tomorrow”, đây là khả năng tương lai nên mệnh đề chính cần “I will call”. “If I am” dùng hiện tại đơn sau if là đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If the baby sleeps, please you turn off the TV.",
+      "options": [
+        "If the baby sleeps",
+        "please you turn",
+        "off",
+        "the TV"
+      ],
+      "correct_answer": "please you turn",
+      "explanation": "Mệnh lệnh lịch sự dùng “please turn off”, không nói “please you turn”. Mệnh đề if dùng hiện tại đơn đúng cho tình huống thực tế.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If he does not drinks water, he will feel weak.",
+      "options": [
+        "If",
+        "he does not drinks",
+        "water",
+        "he will feel"
+      ],
+      "correct_answer": "he does not drinks",
+      "explanation": "Trong phủ định hiện tại đơn với “does not”, động từ chính phải ở dạng nguyên mẫu: “does not drink”. Mệnh đề chính “he will feel” đúng cho kết quả tương lai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If the class finishes early, we go to the cafe later today.",
+      "options": [
+        "If the class finishes",
+        "early",
+        "we go",
+        "later today"
+      ],
+      "correct_answer": "we go",
+      "explanation": "“Later today” cho thấy kết quả tương lai cụ thể, nên dùng “we will go”. Mệnh đề if dùng hiện tại đơn “finishes” là đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **meaning**: If water reaches 100°C, it boils.",
+      "options": [
+        "a general fact",
+        "an unreal dream",
+        "a past event",
+        "a future plan only"
+      ],
+      "correct_answer": "a general fact",
+      "explanation": "Đây là câu điều kiện loại 0: if + hiện tại đơn, hiện tại đơn, dùng cho sự thật luôn đúng. Các lựa chọn khác sai vì câu không nói về mơ ước, quá khứ hay chỉ một kế hoạch tương lai.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **future condition** sentence.",
+      "options": [
+        "If we leave now, we will catch the bus.",
+        "If we will leave now, we catch the bus.",
+        "If we leave now, we catches the bus.",
+        "If we left now, we will catch the bus."
+      ],
+      "correct_answer": "If we leave now, we will catch the bus.",
+      "explanation": "Câu đúng dùng loại 1: If + hiện tại đơn, will + V. Không dùng will trong mệnh đề if; “catches” sai sau will, và “left” không phù hợp với loại 1 cơ bản.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **zero conditional** sentence for a school rule.",
+      "options": [
+        "If students are late, the teacher marks them absent.",
+        "If students will be late, the teacher marks them absent.",
+        "If students are late, the teacher will marked them absent.",
+        "If students late, the teacher marks them absent."
+      ],
+      "correct_answer": "If students are late, the teacher marks them absent.",
+      "explanation": "Quy tắc chung dùng loại 0: hiện tại đơn ở cả hai mệnh đề. Các câu còn lại sai vì dùng “will” trong if-clause, sai dạng “marked”, hoặc thiếu động từ “are”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **comma** placement.",
+      "options": [
+        "If you finish the quiz, I will check it.",
+        "If you finish, the quiz I will check it.",
+        "If, you finish the quiz I will check it.",
+        "If you finish the quiz I, will check it."
+      ],
+      "correct_answer": "If you finish the quiz, I will check it.",
+      "explanation": "Khi mệnh đề if đứng đầu câu, thường đặt dấu phẩy sau mệnh đề đó. Các lựa chọn khác đặt dấu phẩy sai vị trí nên làm câu khó hiểu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **unless** meaning: Unless you hurry, you will miss the bus.",
+      "options": [
+        "If you do not hurry, you will miss the bus.",
+        "If you hurry, you will miss the bus.",
+        "Because you hurry, you will miss the bus.",
+        "When you missed the bus, hurry."
+      ],
+      "correct_answer": "If you do not hurry, you will miss the bus.",
+      "explanation": "“Unless” nghĩa là “if not”, nên câu tương đương là “If you do not hurry…”. Các lựa chọn khác đảo nghĩa, dùng lý do sai, hoặc sai ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **main clause**: If Anna feels better tomorrow, ___",
+      "options": [
+        "she will come to class.",
+        "she comes to class yesterday.",
+        "she will comes to class.",
+        "she coming to class."
+      ],
+      "correct_answer": "she will come to class.",
+      "explanation": "Với điều kiện có thể xảy ra trong tương lai, mệnh đề chính dùng “will + động từ nguyên mẫu”. “Comes” sau will, “yesterday”, và “coming” đều sai trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **if position** sentence.",
+      "options": [
+        "I will text you if the meeting ends early.",
+        "I will text you if the meeting will end early.",
+        "I text you will if the meeting ends early.",
+        "I will text you if ends early the meeting."
+      ],
+      "correct_answer": "I will text you if the meeting ends early.",
+      "explanation": "Khi if-clause đứng sau, không cần dấu phẩy và vẫn dùng hiện tại đơn sau “if”. Các lựa chọn khác sai vì dùng “will” trong if-clause hoặc sai trật tự từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **real possibility** sentence.",
+      "options": [
+        "If Dad works late, we will eat without him.",
+        "If Dad will work late, we eat without him.",
+        "If Dad works late, we eating without him.",
+        "If Dad worked late, we will ate without him."
+      ],
+      "correct_answer": "If Dad works late, we will eat without him.",
+      "explanation": "Đây là khả năng thực tế trong tương lai, nên dùng If + hiện tại đơn, will + V. Các câu khác sai vì dùng “will” trong if-clause, thiếu “will + V”, hoặc sai dạng động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **general result** sentence.",
+      "options": [
+        "If phones lose battery, they turn off.",
+        "If phones will lose battery, they turn off.",
+        "If phones lose battery, they will turned off.",
+        "If phones loses battery, they turn off."
+      ],
+      "correct_answer": "If phones lose battery, they turn off.",
+      "explanation": "Sự thật chung dùng loại 0 với hiện tại đơn ở cả hai mệnh đề. “Will” trong if-clause, “will turned”, và “phones loses” đều sai ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **zero conditional**: If milk stays outside for too long, it ___ bad.",
+      "options": [
+        "goes",
+        "will go",
+        "going",
+        "go"
+      ],
+      "correct_answer": "goes",
+      "explanation": "Chủ ngữ “it” ở hiện tại đơn cần động từ thêm -s: “goes”. “Will go” là loại 1, “going” thiếu trợ động từ, và “go” không hòa hợp với “it”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **first conditional**: If I find your keys, I ___ you.",
+      "options": [
+        "will call",
+        "call",
+        "called",
+        "will calls"
+      ],
+      "correct_answer": "will call",
+      "explanation": "Kết quả tương lai dùng “will + động từ nguyên mẫu”. “Call” thiếu will trong ngữ cảnh tương lai, “called” là quá khứ, và “will calls” sai vì sau will dùng động từ nguyên mẫu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **if-clause** verb: I will open the window if the room ___ hot.",
+      "options": [
+        "gets",
+        "will get",
+        "get",
+        "getting"
+      ],
+      "correct_answer": "gets",
+      "explanation": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn, nên “the room gets” là đúng. Không dùng “will get” trong if-clause; “get” sai hòa hợp, còn “getting” thiếu trợ động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **zero conditional**: If you add sugar to tea, it ___ sweeter.",
+      "options": [
+        "tastes",
+        "will taste",
+        "taste",
+        "tasted"
+      ],
+      "correct_answer": "tastes",
+      "explanation": "Đây là kết quả chung, nên dùng hiện tại đơn: “it tastes”. “Will taste” nói về tương lai cụ thể, “taste” sai với “it”, và “tasted” là quá khứ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **unless clause**: Unless Mia studies tonight, she ___ ready for the test.",
+      "options": [
+        "will not be",
+        "is not",
+        "was not",
+        "will not is"
+      ],
+      "correct_answer": "will not be",
+      "explanation": "“Unless + hiện tại đơn” đi với kết quả tương lai “will + V”. “Is not” là hiện tại đơn, “was not” là quá khứ, và “will not is” sai vì sau will dùng “be”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **present simple** form: If a dog ___ a stranger, it often barks.",
+      "options": [
+        "sees",
+        "will see",
+        "see",
+        "saw"
+      ],
+      "correct_answer": "sees",
+      "explanation": "Loại 0 dùng hiện tại đơn; với chủ ngữ “a dog”, động từ là “sees”. “Will see” không dùng cho sự thật chung, “see” sai hòa hợp, và “saw” là quá khứ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **future result**: If the restaurant is full, we ___ another place.",
+      "options": [
+        "will try",
+        "try",
+        "tried",
+        "will trying"
+      ],
+      "correct_answer": "will try",
+      "explanation": "Kết quả có thể xảy ra trong tương lai dùng “will + V”. “Try” thiếu will trong ý tương lai, “tried” là quá khứ, và “will trying” sai dạng động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **negative condition**: If you don't charge your phone, it ___ work later.",
+      "options": [
+        "will not",
+        "does not",
+        "did not",
+        "will not to"
+      ],
+      "correct_answer": "will not",
+      "explanation": "Trong loại 1, kết quả tương lai phủ định là “will not + V”. “Does not” là hiện tại đơn, “did not” là quá khứ, và “will not to” sai vì sau will không dùng “to”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If the sun goes down, it will gets dark soon.",
+      "options": [
+        "If",
+        "goes down",
+        "will gets",
+        "soon"
+      ],
+      "correct_answer": "will gets",
+      "explanation": "Sau “will” phải dùng động từ nguyên mẫu, nên phải là “will get”. Các phần còn lại đúng trong câu điều kiện loại 1.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If coffee is too hot, I wait five minutes.",
+      "options": [
+        "If",
+        "is",
+        "too hot",
+        "wait"
+      ],
+      "correct_answer": "wait",
+      "explanation": "Nếu nói về một lần có thể xảy ra trong tương lai, mệnh đề chính nên là “will wait”. Các phần khác đúng: if + hiện tại đơn và tính từ sau “is”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If you will need help, ask your teacher.",
+      "options": [
+        "If",
+        "will need",
+        "help",
+        "ask"
+      ],
+      "correct_answer": "will need",
+      "explanation": "Trong mệnh đề if của loại 1, không dùng “will”; câu đúng là “If you need help…”. Các phần khác phù hợp với lời khuyên hoặc mệnh lệnh.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If my sister miss the bus, she will walk home.",
+      "options": [
+        "If",
+        "miss",
+        "will walk",
+        "home"
+      ],
+      "correct_answer": "miss",
+      "explanation": "Chủ ngữ “my sister” là ngôi thứ ba số ít nên hiện tại đơn phải là “misses”. “Will walk” đúng cho kết quả tương lai.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Unless the store opens soon, we will waits outside.",
+      "options": [
+        "Unless",
+        "opens",
+        "will waits",
+        "outside"
+      ],
+      "correct_answer": "will waits",
+      "explanation": "Sau “will” dùng động từ nguyên mẫu, nên phải là “will wait”. “Unless + hiện tại đơn” với “opens” là đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: If you mix yellow and blue, you will get green.",
+      "options": [
+        "If",
+        "mix",
+        "will get",
+        "green"
+      ],
+      "correct_answer": "will get",
+      "explanation": "Đây là sự thật chung, nên dùng loại 0: “you get green”. “Will get” biến câu thành kết quả tương lai cụ thể, không phù hợp với ý quy luật chung.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I will buy some fruit if the market will be open.",
+      "options": [
+        "will buy",
+        "fruit",
+        "if",
+        "will be"
+      ],
+      "correct_answer": "will be",
+      "explanation": "Sau “if” trong loại 1 dùng hiện tại đơn, nên phải là “is open”. “Will buy” đúng ở mệnh đề chính vì nói về kết quả tương lai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: When water gets cold enough, it turn into ice.",
+      "options": [
+        "When",
+        "gets",
+        "turn",
+        "ice"
+      ],
+      "correct_answer": "turn",
+      "explanation": "Chủ ngữ “it” cần động từ hiện tại đơn thêm -s: “turns”. “When” có thể dùng như “if” cho sự thật chung, và các phần khác đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **general fact** sentence.",
+      "options": [
+        "If people eat too much sugar, they often feel tired.",
+        "If people will eat too much sugar, they often feel tired.",
+        "If people eat too much sugar, they will often feels tired.",
+        "If people eats too much sugar, they often feel tired."
+      ],
+      "correct_answer": "If people eat too much sugar, they often feel tired.",
+      "explanation": "Đây là sự thật chung nên dùng điều kiện loại 0: If + hiện tại đơn, hiện tại đơn. People là số nhiều nên dùng eat, feel; không dùng will trong mệnh đề if.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **order** sentence.",
+      "options": [
+        "I will text you if the meeting ends early.",
+        "I text you if the meeting will end early.",
+        "I will text you if the meeting will ends early.",
+        "I will texts you if the meeting ends early."
+      ],
+      "correct_answer": "I will text you if the meeting ends early.",
+      "explanation": "Mệnh đề if có thể đứng sau mệnh đề chính và không cần dấu phẩy. Trong mệnh đề if vẫn dùng hiện tại đơn ends, còn mệnh đề chính dùng will text.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative condition** sentence.",
+      "options": [
+        "If you don't save the file, you will lose your work.",
+        "If you won't save the file, you lose your work.",
+        "If you don't save the file, you will loses your work.",
+        "If you doesn't save the file, you will lose your work."
+      ],
+      "correct_answer": "If you don't save the file, you will lose your work.",
+      "explanation": "Điều kiện tương lai dùng hiện tại đơn ở mệnh đề if: don't save. Sau will dùng động từ nguyên mẫu lose; you không đi với doesn't.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **request condition** sentence.",
+      "options": [
+        "If you finish the report, please send it to me.",
+        "If you will finish the report, please send it to me.",
+        "If you finish the report, please sends it to me.",
+        "If you finishes the report, please send it to me."
+      ],
+      "correct_answer": "If you finish the report, please send it to me.",
+      "explanation": "Trong câu điều kiện dùng để nhờ/yêu cầu, mệnh đề if vẫn dùng hiện tại đơn. Please + động từ nguyên mẫu là send, không phải sends; you đi với finish.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **zero conditional**: If metal gets very hot, it ___ larger.",
+      "options": [
+        "becomes",
+        "will become",
+        "become",
+        "became"
+      ],
+      "correct_answer": "becomes",
+      "explanation": "Đây là sự thật khoa học nên dùng hiện tại đơn ở mệnh đề kết quả. Metal là số ít nên động từ phải thêm -s: becomes; will become là loại 1, còn become/became sai dạng.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **first conditional**: If Dad comes home early, we ___ dinner together.",
+      "options": [
+        "will have",
+        "have",
+        "has",
+        "had"
+      ],
+      "correct_answer": "will have",
+      "explanation": "Câu nói về khả năng thật trong tương lai nên dùng will + V ở mệnh đề chính. Have là hiện tại đơn, has sai chủ ngữ we, còn had là quá khứ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **if-clause** verb: We will go swimming if the weather ___ warm.",
+      "options": [
+        "is",
+        "will be",
+        "are",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "Trong câu điều kiện loại 1, mệnh đề if dùng hiện tại đơn, không dùng will. Weather là danh từ số ít/không đếm được nên dùng is, không dùng are hoặc be.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **unless condition**: Unless the alarm rings, I ___ wake up early.",
+      "options": [
+        "won't",
+        "don't",
+        "am not",
+        "didn't"
+      ],
+      "correct_answer": "won't",
+      "explanation": "Unless the alarm rings nghĩa là nếu chuông không reo; kết quả tương lai cần won't + V. Don't/am not/didn't không phù hợp với ý tương lai trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **general truth**: If children don't sleep enough, they ___ tired.",
+      "options": [
+        "feel",
+        "will feels",
+        "feels",
+        "felt"
+      ],
+      "correct_answer": "feel",
+      "explanation": "Đây là sự thật chung nên dùng hiện tại đơn ở mệnh đề kết quả. Children là số nhiều nên dùng feel; feels sai chủ ngữ, felt là quá khứ, will feels sai vì sau will phải là động từ nguyên mẫu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **future plan**: If I see Lan at school, I ___ her your message.",
+      "options": [
+        "will give",
+        "give",
+        "gave",
+        "will gives"
+      ],
+      "correct_answer": "will give",
+      "explanation": "Câu nói về việc có thể xảy ra trong tương lai nên dùng will give ở mệnh đề chính. Give là hiện tại đơn, gave là quá khứ, và will gives sai vì sau will không thêm -s.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **present simple** form: If this app ___ slowly, restart your phone.",
+      "options": [
+        "runs",
+        "will run",
+        "run",
+        "running"
+      ],
+      "correct_answer": "runs",
+      "explanation": "Mệnh đề if trong câu chỉ lời khuyên dùng hiện tại đơn. This app là số ít nên dùng runs; không dùng will run, run hoặc running trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **real possibility**: If they invite us, we ___ to the party.",
+      "options": [
+        "will go",
+        "go",
+        "went",
+        "goes"
+      ],
+      "correct_answer": "will go",
+      "explanation": "Đây là khả năng thật trong tương lai nên mệnh đề chính dùng will + V. Go ở hiện tại đơn không nêu rõ kết quả tương lai trong cấu trúc loại 1; went và goes sai thì/dạng.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **zero conditional**: If you freeze water, it ___ ice.",
+      "options": [
+        "becomes",
+        "will become",
+        "become",
+        "is becoming"
+      ],
+      "correct_answer": "becomes",
+      "explanation": "Đây là sự thật luôn đúng nên dùng điều kiện loại 0: hiện tại đơn, hiện tại đơn. It là số ít nên dùng becomes; các lựa chọn khác sai thì hoặc sai dạng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If you will visit Grandma tomorrow, bring these photos.",
+      "options": [
+        "will visit",
+        "tomorrow",
+        "bring",
+        "these photos"
+      ],
+      "correct_answer": "will visit",
+      "explanation": "Trong mệnh đề if của điều kiện loại 1 không dùng will; cần sửa thành visit. Các phần còn lại đúng trong câu: tomorrow chỉ thời gian tương lai, bring là mệnh lệnh đúng, these photos là tân ngữ đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If the door is locked, you will needs a key.",
+      "options": [
+        "the door",
+        "is locked",
+        "will needs",
+        "a key"
+      ],
+      "correct_answer": "will needs",
+      "explanation": "Sau will phải dùng động từ nguyên mẫu, nên sửa will needs thành will need. The door, is locked và a key đều đúng trong ngữ cảnh này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: Unless Jack calls, we don't leave soon.",
+      "options": [
+        "Unless",
+        "Jack calls",
+        "don't leave",
+        "soon"
+      ],
+      "correct_answer": "don't leave",
+      "explanation": "Câu nói về kết quả tương lai nên cần won't leave, không phải don't leave. Unless và Jack calls đúng vì mệnh đề điều kiện dùng hiện tại đơn; soon là trạng từ thời gian phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If eggs are fresh, they will sink in water.",
+      "options": [
+        "eggs",
+        "are fresh",
+        "will sink",
+        "in water"
+      ],
+      "correct_answer": "will sink",
+      "explanation": "Câu này diễn tả một kết quả kiểm tra mang tính chung, nên dùng loại 0: they sink. Các phần eggs, are fresh và in water đều đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If Mark forgets his password, he reset it online.",
+      "options": [
+        "Mark",
+        "forgets",
+        "reset",
+        "online"
+      ],
+      "correct_answer": "reset",
+      "explanation": "Với chủ ngữ he ở hiện tại đơn, động từ phải là resets nếu nói quy trình chung, hoặc will reset nếu nói tương lai. Mark, forgets và online không sai trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If the shop closes before six, I won't bought bread.",
+      "options": [
+        "the shop",
+        "closes",
+        "won't bought",
+        "bread"
+      ],
+      "correct_answer": "won't bought",
+      "explanation": "Sau won't phải dùng động từ nguyên mẫu, nên sửa thành won't buy. The shop là chủ ngữ đúng, closes đúng hiện tại đơn trong mệnh đề if, và bread là tân ngữ đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: I stay at home if it will snow tonight.",
+      "options": [
+        "stay",
+        "at home",
+        "will snow",
+        "tonight"
+      ],
+      "correct_answer": "will snow",
+      "explanation": "Trong mệnh đề if của điều kiện loại 1 không dùng will, nên sửa thành snows. Stay at home có thể là mệnh đề chính hiện tại, nhưng để rõ ý tương lai thường nên nói will stay; lỗi ngữ pháp chính ở đây là will snow sau if.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If a student ask a question, the teacher answers it.",
+      "options": [
+        "a student",
+        "ask",
+        "the teacher",
+        "answers"
+      ],
+      "correct_answer": "ask",
+      "explanation": "A student là số ít nên động từ hiện tại đơn phải là asks. The teacher answers it đúng vì teacher là số ít và đây là câu điều kiện loại 0.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **general rule** sentence.",
+      "options": [
+        "If you press the red button, the machine stops.",
+        "If you press the red button, the machine will stopped.",
+        "If you will press the red button, the machine stops.",
+        "If you presses the red button, the machine stops."
+      ],
+      "correct_answer": "If you press the red button, the machine stops.",
+      "explanation": "Đây là quy tắc chung nên dùng câu điều kiện loại 0: hiện tại đơn ở cả hai mệnh đề. Các câu khác sai vì dùng sai dạng sau will, dùng will trong mệnh đề if, hoặc chia presses sai với you.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **sentence order**.",
+      "options": [
+        "The lights turn on if you open the door.",
+        "The lights will turns on if you open the door.",
+        "The lights turn on if you will open the door.",
+        "The lights turns on if you open the door."
+      ],
+      "correct_answer": "The lights turn on if you open the door.",
+      "explanation": "Mệnh đề if có thể đứng sau mệnh đề chính; với sự thật/hoạt động thường đúng, dùng hiện tại đơn ở cả hai vế. Các câu sai vì will turns không đúng, dùng will trong mệnh đề if, hoặc chia turns sai với lights số nhiều.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **zero conditional**: If bread gets wet, it ___ soft.",
+      "options": [
+        "becomes",
+        "will become",
+        "became",
+        "become"
+      ],
+      "correct_answer": "becomes",
+      "explanation": "Đây là kết quả thường đúng nên dùng hiện tại đơn: it becomes. Will become dùng cho tương lai cụ thể, became là quá khứ, còn become thiếu -s với it.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **first conditional**: If I finish work early, I ___ you a text.",
+      "options": [
+        "will send",
+        "send",
+        "sent",
+        "will sends"
+      ],
+      "correct_answer": "will send",
+      "explanation": "Câu loại 1 nói khả năng trong tương lai: If + hiện tại đơn, will + V. Send là hiện tại đơn không diễn tả rõ kết quả tương lai ở đây, sent là quá khứ, will sends sai vì sau will dùng động từ nguyên mẫu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **if-clause** verb: We will make tea if Mom ___ home soon.",
+      "options": [
+        "comes",
+        "will come",
+        "come",
+        "came"
+      ],
+      "correct_answer": "comes",
+      "explanation": "Trong mệnh đề if của câu loại 1, dùng hiện tại đơn: Mom comes. Will come không dùng sau if trong cấu trúc này, come thiếu -s, came là quá khứ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **unless clause**: Unless Ben studies tonight, he ___ the quiz.",
+      "options": [
+        "will fail",
+        "fails",
+        "failed",
+        "will fails"
+      ],
+      "correct_answer": "will fail",
+      "explanation": "Unless + hiện tại đơn diễn tả điều kiện; kết quả tương lai dùng will + V. Fails là hiện tại đơn không phù hợp bằng will fail trong kết quả tương lai, failed là quá khứ, will fails sai dạng động từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **general fact**: If people eat too much salt, they ___ thirsty.",
+      "options": [
+        "get",
+        "will got",
+        "gets",
+        "got"
+      ],
+      "correct_answer": "get",
+      "explanation": "Đây là sự thật chung nên dùng hiện tại đơn: people get. Gets sai vì people là số nhiều, got là quá khứ, will got sai vì sau will phải là get.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **future condition**: I won't go outside if it ___ very windy.",
+      "options": [
+        "is",
+        "will be",
+        "was",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "Trong mệnh đề if của câu loại 1, dùng hiện tại đơn: it is. Will be không dùng trong mệnh đề if, was là quá khứ, be thiếu chủ ngữ/dạng chia phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If the baby sleeps now, she will wakes up happy.",
+      "options": [
+        "sleeps",
+        "now",
+        "will wakes",
+        "happy"
+      ],
+      "correct_answer": "will wakes",
+      "explanation": "Sau will phải dùng động từ nguyên mẫu: will wake. Sleeps đúng vì mệnh đề if dùng hiện tại đơn; now và happy không sai ngữ pháp trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If you touches this wire, it hurts.",
+      "options": [
+        "you",
+        "touches",
+        "this wire",
+        "hurts"
+      ],
+      "correct_answer": "touches",
+      "explanation": "Với chủ ngữ you, động từ hiện tại đơn là touch, không thêm -es. It hurts đúng vì chủ ngữ it cần -s; các cụm còn lại không sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If Leo finds his keys, he call me.",
+      "options": [
+        "finds",
+        "his keys",
+        "call",
+        "me"
+      ],
+      "correct_answer": "call",
+      "explanation": "Đây là kết quả tương lai nên cần he will call me. Finds đúng trong mệnh đề if; his keys và me không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: Unless the children are quiet, the movie won't starts.",
+      "options": [
+        "Unless",
+        "are quiet",
+        "won't starts",
+        "the movie"
+      ],
+      "correct_answer": "won't starts",
+      "explanation": "Sau won't phải dùng động từ nguyên mẫu: won't start. Unless và are quiet đúng trong mệnh đề điều kiện; the movie là chủ ngữ hợp lý.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the **incorrect** word/phrase: If the soup boil, it makes bubbles.",
+      "options": [
+        "the soup",
+        "boil",
+        "makes",
+        "bubbles"
+      ],
+      "correct_answer": "boil",
+      "explanation": "The soup là danh từ số ít nên hiện tại đơn phải là boils. Makes đúng vì chủ ngữ it là số ít; các cụm còn lại không sai.",
+      "difficulty": 1
     }
   ]
 }

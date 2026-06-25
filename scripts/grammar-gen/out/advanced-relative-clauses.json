@@ -543,6 +543,1150 @@
       ],
       "answer": "Whatever you decide, I will support you.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **relative phrase**: The manager ___ I sent the report replied immediately.",
+      "options": [
+        "to whom",
+        "to which",
+        "who",
+        "whose"
+      ],
+      "correct_answer": "to whom",
+      "explanation": "Đáp án đúng là “to whom” vì ta gửi báo cáo cho một người: send something to someone. “To which” dùng cho vật/ý tưởng, “who” thiếu giới từ “to”, còn “whose” chỉ sở hữu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **clause connector**: The train was delayed for two hours, ___ made us miss the interview.",
+      "options": [
+        "which",
+        "that",
+        "what",
+        "who"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” sau dấu phẩy có thể thay cho cả mệnh đề trước: việc tàu trễ làm chúng tôi lỡ phỏng vấn. “That” không dùng trong mệnh đề quan hệ không xác định sau dấu phẩy; “what” và “who” không phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **of phrase**: The course has twelve modules, ___ focus on academic writing.",
+      "options": [
+        "several of which",
+        "several of whom",
+        "several which",
+        "several whom"
+      ],
+      "correct_answer": "several of which",
+      "explanation": "“Modules” là vật/khái niệm nên dùng “which”; sau lượng từ “several” cần cấu trúc “of which”. “Whom” dùng cho người, còn thiếu “of” là sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the formal **preposition** structure: This is the policy ___ our decision was based.",
+      "options": [
+        "on which",
+        "which on",
+        "where",
+        "what"
+      ],
+      "correct_answer": "on which",
+      "explanation": "Cụm đúng là “be based on”, nên dạng trang trọng là “on which”. “Which on” sai trật tự, “where” dùng cho nơi chốn, “what” không phải đại từ quan hệ ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **non-defining** clause: My sister lives in Da Nang, ___ she runs a small design studio.",
+      "options": [
+        "where",
+        "that",
+        "which",
+        "what"
+      ],
+      "correct_answer": "where",
+      "explanation": "“Where” thay cho địa điểm “in Da Nang” trong mệnh đề quan hệ không xác định. “That” không dùng sau dấu phẩy, “which” cần giới từ nếu chỉ nơi chốn, và “what” không phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **relative pronoun**: The scientist, ___ latest paper won an award, teaches at our university.",
+      "options": [
+        "whose",
+        "whom",
+        "which",
+        "that"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose” diễn tả sở hữu: bài báo của nhà khoa học. “Whom” là tân ngữ chỉ người, “which” chỉ vật, và “that” không dùng trong mệnh đề không xác định sau dấu phẩy.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier clause**: The applicants submitted portfolios, ___ were reviewed by two judges.",
+      "options": [
+        "all of which",
+        "all of whom",
+        "all which",
+        "which all"
+      ],
+      "correct_answer": "all of which",
+      "explanation": "“Portfolios” là vật nên dùng “which”, và sau “all” cần “of which”. “Whom” dùng cho người; “all which” và “which all” không đúng cấu trúc chuẩn.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **formal clause**: The committee interviewed three experts, ___ had worked abroad.",
+      "options": [
+        "two of whom",
+        "two of which",
+        "two whom",
+        "whom two"
+      ],
+      "correct_answer": "two of whom",
+      "explanation": "“Experts” là người nên dùng “whom” sau lượng từ “two of”. “Which” dùng cho vật; hai lựa chọn còn lại sai trật tự hoặc thiếu “of”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **preposition choice**: The topic ___ they disagreed was later removed from the agenda.",
+      "options": [
+        "about which",
+        "which about",
+        "to whom",
+        "whose"
+      ],
+      "correct_answer": "about which",
+      "explanation": "Ta nói “disagree about a topic”, nên dạng trang trọng là “about which”. “Which about” sai trật tự, “to whom” dùng cho người, còn “whose” chỉ sở hữu.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **relative clause**: The printer broke again, ___ delayed the whole project.",
+      "options": [
+        "which",
+        "that",
+        "who",
+        "whose"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” thay cho cả mệnh đề “The printer broke again”. “That” không dùng sau dấu phẩy trong mệnh đề không xác định; “who” dùng cho người, “whose” chỉ sở hữu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **formal phrase**: The client ___ we prepared the proposal was very demanding.",
+      "options": [
+        "for whom",
+        "for which",
+        "who for",
+        "whose"
+      ],
+      "correct_answer": "for whom",
+      "explanation": "“Prepare something for someone” nên dùng “for whom” với người. “For which” dùng cho vật, “who for” là dạng kém trang trọng/sai trong vị trí này, “whose” chỉ sở hữu.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **of whom** clause: She invited six colleagues, ___ had worked with her before.",
+      "options": [
+        "three of whom",
+        "three of which",
+        "three whom",
+        "whom three"
+      ],
+      "correct_answer": "three of whom",
+      "explanation": "“Colleagues” là người nên dùng “three of whom”. “Which” dùng cho vật, còn “three whom” và “whom three” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **of which** clause: The company opened five branches, ___ are in the north.",
+      "options": [
+        "two of which",
+        "two of whom",
+        "two which",
+        "which two"
+      ],
+      "correct_answer": "two of which",
+      "explanation": "“Branches” là vật/địa điểm nên dùng “two of which”. “Whom” dùng cho người, hai lựa chọn còn lại thiếu hoặc sai vị trí “of”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **preposition clause**: The contract ___ both sides referred was signed last year.",
+      "options": [
+        "to which",
+        "to whom",
+        "which to",
+        "that to"
+      ],
+      "correct_answer": "to which",
+      "explanation": "Ta nói “refer to a contract”, nên dạng trang trọng là “to which”. “Whom” dùng cho người, “which to” và “that to” sai trật tự/cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **whole-clause** reference: He forgot to attach the file, ___ meant we had to resend the email.",
+      "options": [
+        "which",
+        "what",
+        "that",
+        "who"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” tham chiếu cả việc anh ấy quên đính kèm file. “What” không dùng làm đại từ quan hệ kiểu này, “that” không dùng sau dấu phẩy, “who” dùng cho người.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **whose clause**: The author, ___ novel was translated into Vietnamese, visited Hanoi.",
+      "options": [
+        "whose",
+        "whom",
+        "which",
+        "that"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose novel” nghĩa là cuốn tiểu thuyết của tác giả. “Whom” là tân ngữ, “which” dùng cho vật, “that” không dùng trong mệnh đề không xác định sau dấu phẩy.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **formal object** clause: The candidate ___ the panel selected had excellent references.",
+      "options": [
+        "whom",
+        "which",
+        "whose",
+        "where"
+      ],
+      "correct_answer": "whom",
+      "explanation": "“Whom” là tân ngữ chỉ người của động từ “selected” trong văn phong trang trọng. “Which” dùng cho vật, “whose” chỉ sở hữu, “where” chỉ nơi chốn.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The article **to whom** I referred was published in 2021.",
+      "options": [
+        "The article",
+        "to whom",
+        "I referred",
+        "was published"
+      ],
+      "correct_answer": "to whom",
+      "explanation": "Sai ở “to whom” vì “article” là vật/ văn bản, phải dùng “to which”. “I referred” cần giới từ “to”, và các phần còn lại đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The seminar was postponed, **that** disappointed many students.",
+      "options": [
+        "The seminar",
+        "was postponed",
+        "that",
+        "many students"
+      ],
+      "correct_answer": "that",
+      "explanation": "Sau dấu phẩy, khi thay cho cả mệnh đề trước, phải dùng “which”, không dùng “that”. Các phần khác đúng về nghĩa và ngữ pháp.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The engineers, **many of which** had overseas experience, solved the issue quickly.",
+      "options": [
+        "The engineers",
+        "many of which",
+        "overseas experience",
+        "solved"
+      ],
+      "correct_answer": "many of which",
+      "explanation": "“Engineers” là người nên phải dùng “many of whom”. “Which” dùng cho vật; các cụm còn lại không sai trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The plan **which on** we relied failed after two months.",
+      "options": [
+        "The plan",
+        "which on",
+        "we relied",
+        "failed"
+      ],
+      "correct_answer": "which on",
+      "explanation": "Cụm đúng là “rely on”, nên dạng trang trọng phải là “on which we relied”. “The plan”, “we relied” và “failed” không phải lỗi chính.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Our office, **that** is near the station, closes at six.",
+      "options": [
+        "Our office",
+        "that",
+        "near the station",
+        "closes"
+      ],
+      "correct_answer": "that",
+      "explanation": "Mệnh đề không xác định sau dấu phẩy không dùng “that”; phải dùng “which”. Các phần còn lại đúng về nghĩa và cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The students submitted essays, **all of whom** were checked for plagiarism.",
+      "options": [
+        "The students",
+        "submitted essays",
+        "all of whom",
+        "were checked"
+      ],
+      "correct_answer": "all of whom",
+      "explanation": "Cụm này bổ nghĩa cho “essays”, là vật, nên phải dùng “all of which”. “Whom” chỉ người, còn các phần khác không sai trong câu này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The hotel **in whom** we stayed had a beautiful rooftop cafe.",
+      "options": [
+        "The hotel",
+        "in whom",
+        "we stayed",
+        "had"
+      ],
+      "correct_answer": "in whom",
+      "explanation": "“Hotel” là nơi chốn, nên dùng “where” hoặc “in which”, không dùng “whom”. Các cụm còn lại đúng trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The report, **whose** was submitted late, still received a high score.",
+      "options": [
+        "The report",
+        "whose",
+        "was submitted",
+        "a high score"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose” phải đi với một danh từ phía sau, ví dụ “whose findings”. Ở đây cần “which was submitted late” vì nói về bản báo cáo; các phần khác đúng.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **relative phrase**: The lawyer ___ we gave the documents explained the risks clearly.",
+      "options": [
+        "to whom",
+        "to which",
+        "whom to",
+        "which to"
+      ],
+      "correct_answer": "to whom",
+      "explanation": "Đáp án đúng là “to whom” vì “give documents to someone” và danh từ chỉ người là “the lawyer”. “To which” dùng cho vật/ý, còn “whom to” và “which to” sai trật tự trong mệnh đề quan hệ trang trọng.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **whole-clause** reference: He missed the final deadline, ___ put the team under pressure.",
+      "options": [
+        "which",
+        "that",
+        "what",
+        "who"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” có thể thay cho cả mệnh đề trước: việc anh ấy lỡ hạn chót gây áp lực cho nhóm. “That” không dùng sau dấu phẩy trong mệnh đề quan hệ không xác định, “what” không thay thế mệnh đề trước, và “who” chỉ người.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **of which** phrase: The project has four stages, ___ requires separate approval.",
+      "options": [
+        "each of which",
+        "each of whom",
+        "which each",
+        "each that"
+      ],
+      "correct_answer": "each of which",
+      "explanation": "“Stages” là vật/khái niệm nên dùng “each of which” để nói mỗi giai đoạn đều cần phê duyệt. “Each of whom” dùng cho người, còn “which each” và “each that” không đúng cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the formal **preposition** structure: The evidence ___ the conclusion depends is still incomplete.",
+      "options": [
+        "on which",
+        "which on",
+        "on whom",
+        "that on"
+      ],
+      "correct_answer": "on which",
+      "explanation": "Ta nói “depend on something”, nên cấu trúc trang trọng là “on which”. “Which on” sai vị trí giới từ, “on whom” dùng cho người, và “that on” không dùng trong cấu trúc giới từ + đại từ quan hệ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **whose clause**: The village, ___ roads were damaged by the storm, received emergency support.",
+      "options": [
+        "whose",
+        "which",
+        "where",
+        "that"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose” diễn tả sở hữu: roads của ngôi làng. “Which” không đứng trực tiếp trước danh từ để chỉ sở hữu, “where” chỉ nơi chốn, và “that” không dùng sau dấu phẩy trong mệnh đề không xác định.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **relative adverb**: The archive, ___ many rare letters are kept, is open to researchers.",
+      "options": [
+        "where",
+        "which",
+        "that",
+        "whose"
+      ],
+      "correct_answer": "where",
+      "explanation": "“Where” thay cho nơi chốn trong mệnh đề quan hệ: thư được lưu giữ ở kho lưu trữ đó. “Which” cần giới từ như “in which”, “that” không dùng sau dấu phẩy, và “whose” chỉ sở hữu.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **quantifier** clause: The volunteers brought ten laptops, ___ were donated to local schools.",
+      "options": [
+        "most of which",
+        "most of whom",
+        "which most",
+        "most that"
+      ],
+      "correct_answer": "most of which",
+      "explanation": "“Laptops” là vật nên dùng “most of which”. “Most of whom” dùng cho người, còn “which most” và “most that” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **formal clause**: The consultant ___ we turned for advice suggested a simpler solution.",
+      "options": [
+        "to whom",
+        "to which",
+        "whom to",
+        "who to"
+      ],
+      "correct_answer": "to whom",
+      "explanation": "Ta nói “turn to someone for advice”, nên dùng “to whom” với người. “To which” dùng cho vật/ý, còn “whom to” và “who to” sai cấu trúc mệnh đề quan hệ trang trọng.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **non-defining** clause: Our main server, ___ stores all customer records, will be upgraded tonight.",
+      "options": [
+        "which",
+        "that",
+        "who",
+        "where"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” dùng cho vật trong mệnh đề quan hệ không xác định sau dấu phẩy. “That” không dùng sau dấu phẩy, “who” dùng cho người, và “where” chỉ nơi chốn chứ không làm chủ ngữ cho “stores”.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **preposition phrase**: The research method ___ they objected was later revised.",
+      "options": [
+        "to which",
+        "which to",
+        "to whom",
+        "that to"
+      ],
+      "correct_answer": "to which",
+      "explanation": "Ta nói “object to something”, nên với “method” phải dùng “to which”. “Which to” sai trật tự, “to whom” dùng cho người, và “that to” không đúng trong cấu trúc trang trọng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **whole-clause** reference: The lights went out during the exam, ___ caused a short delay.",
+      "options": [
+        "which",
+        "that",
+        "what",
+        "where"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” thay cho toàn bộ sự việc đèn tắt trong lúc thi. “That” không dùng sau dấu phẩy kiểu này, “what” không tham chiếu mệnh đề trước, và “where” chỉ nơi chốn.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **of whom** clause: The panel included five judges, ___ had taught at international universities.",
+      "options": [
+        "three of whom",
+        "three of which",
+        "whom three",
+        "three that"
+      ],
+      "correct_answer": "three of whom",
+      "explanation": "“Judges” là người nên dùng “three of whom” để nói ba trong số họ. “Three of which” dùng cho vật, còn “whom three” và “three that” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **of which** clause: The report listed several causes, ___ was poor communication.",
+      "options": [
+        "one of which",
+        "one of whom",
+        "which one",
+        "one that"
+      ],
+      "correct_answer": "one of which",
+      "explanation": "“Causes” là ý/vật nên dùng “one of which”. “One of whom” dùng cho người, “which one” là dạng câu hỏi/lựa chọn, và “one that” không phù hợp sau dấu phẩy trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **formal relative** clause: The mentor ___ I owe much of my progress still teaches online.",
+      "options": [
+        "to whom",
+        "to which",
+        "whom to",
+        "who to"
+      ],
+      "correct_answer": "to whom",
+      "explanation": "Ta nói “owe something to someone”, nên cấu trúc đúng là “to whom”. “To which” dùng cho vật/ý, còn “whom to” và “who to” sai trật tự trong mệnh đề quan hệ.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **whose phrase**: The start-up, ___ founders met at university, has just raised new funding.",
+      "options": [
+        "whose",
+        "which",
+        "that",
+        "where"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose founders” nghĩa là những người sáng lập của công ty đó. “Which” không chỉ sở hữu trực tiếp trước danh từ, “that” không dùng sau dấu phẩy, và “where” chỉ nơi chốn.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **relative place** clause: The laboratory, ___ the samples were tested, follows strict safety rules.",
+      "options": [
+        "where",
+        "which",
+        "that",
+        "whose"
+      ],
+      "correct_answer": "where",
+      "explanation": "“Where” thay cho nơi chốn: các mẫu được kiểm tra trong phòng thí nghiệm. “Which” cần giới từ “in which”, “that” không dùng sau dấu phẩy, và “whose” diễn tả sở hữu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **quantifier phrase**: The company hired twelve interns, ___ were assigned to the data team.",
+      "options": [
+        "half of whom",
+        "half of which",
+        "whom half",
+        "half that"
+      ],
+      "correct_answer": "half of whom",
+      "explanation": "“Interns” là người nên dùng “half of whom”. “Half of which” dùng cho vật, còn “whom half” và “half that” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The conference, **that** attracted speakers from six countries, ended on Friday.",
+      "options": [
+        "conference",
+        "that",
+        "speakers",
+        "ended"
+      ],
+      "correct_answer": "that",
+      "explanation": "Sau dấu phẩy trong mệnh đề quan hệ không xác định, không dùng “that”; cần dùng “which” cho “conference”. Các từ còn lại đúng về vai trò trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The professor **to which** I sent my draft gave detailed comments.",
+      "options": [
+        "professor",
+        "to which",
+        "draft",
+        "comments"
+      ],
+      "correct_answer": "to which",
+      "explanation": "“Professor” là người nên dùng “to whom”, không phải “to which”. Các lựa chọn khác là danh từ đúng và không gây lỗi ngữ pháp trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The two solutions, **both of whom** seemed practical, were tested immediately.",
+      "options": [
+        "solutions",
+        "both of whom",
+        "practical",
+        "tested"
+      ],
+      "correct_answer": "both of whom",
+      "explanation": "“Solutions” là vật/ý nên phải dùng “both of which”. “Both of whom” chỉ dùng cho người; các phần còn lại đúng trong câu bị động và nghĩa của câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The deadline was moved forward, **what** upset several departments.",
+      "options": [
+        "deadline",
+        "moved forward",
+        "what",
+        "departments"
+      ],
+      "correct_answer": "what",
+      "explanation": "Khi tham chiếu cả mệnh đề trước sau dấu phẩy, dùng “which”, không dùng “what”. Các cụm còn lại đúng về nghĩa và cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The charity **for whom** the concert raised money supports children with disabilities.",
+      "options": [
+        "charity",
+        "for whom",
+        "concert",
+        "supports"
+      ],
+      "correct_answer": "for whom",
+      "explanation": "“Charity” là tổ chức/vật theo ngữ pháp nên dùng “for which”, không phải “for whom”. Các từ còn lại đúng trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The guidebook, **whose** explains local customs, is available at the airport.",
+      "options": [
+        "guidebook",
+        "whose",
+        "customs",
+        "available"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose” phải đi với một danh từ như “whose author”; ở đây cần “which explains”. Các lựa chọn khác không sai về ngữ pháp trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The survey included 800 responses, **many of whom** came from rural areas.",
+      "options": [
+        "survey",
+        "responses",
+        "many of whom",
+        "rural areas"
+      ],
+      "correct_answer": "many of whom",
+      "explanation": "“Responses” là vật/ý nên dùng “many of which”. “Many of whom” chỉ dùng cho người; các cụm còn lại phù hợp về nghĩa.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The issue **about whom** we were concerned has now been resolved.",
+      "options": [
+        "issue",
+        "about whom",
+        "concerned",
+        "resolved"
+      ],
+      "correct_answer": "about whom",
+      "explanation": "“Issue” là vấn đề, không phải người, nên dùng “about which”. Các phần khác đúng: “be concerned about” và “has been resolved” đều phù hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **formal phrase**: The committee ___ the grant was awarded had proposed a community garden.",
+      "options": [
+        "to which",
+        "for whom",
+        "to whom",
+        "at which"
+      ],
+      "correct_answer": "to which",
+      "explanation": "“Committee” là một tổ chức/nhóm nên dùng “which”, và động từ “award” đi với giới từ “to”. “Whom” dùng cho người, còn “for whom/at which” không đúng quan hệ ý nghĩa ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **whole-clause** reference: She ignored the safety warning, ___ led to a serious delay.",
+      "options": [
+        "which",
+        "that",
+        "what",
+        "whose"
+      ],
+      "correct_answer": "which",
+      "explanation": "Dấu phẩy + “which” có thể thay cho cả mệnh đề trước: việc cô ấy bỏ qua cảnh báo. “That” không dùng sau dấu phẩy trong mệnh đề không xác định, “what” và “whose” không phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **quantifier phrase**: The museum owns six paintings by the artist, ___ are rarely displayed.",
+      "options": [
+        "two of which",
+        "two of whom",
+        "two of that",
+        "two whose"
+      ],
+      "correct_answer": "two of which",
+      "explanation": "“Paintings” là vật nên dùng “which” trong cấu trúc “two of which”. “Whom” dùng cho người, còn “that” không đứng sau “of” trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **relative pronoun**: The translator, ___ native language is Korean, checked the final version.",
+      "options": [
+        "whose",
+        "who",
+        "whom",
+        "which"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose” diễn tả sở hữu: ngôn ngữ mẹ đẻ của người phiên dịch. “Who/whom” không đứng trực tiếp trước danh từ “native language”, còn “which” không dùng cho người trong ngữ cảnh này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **preposition clause**: The theory ___ the experiment was based has been questioned.",
+      "options": [
+        "on which",
+        "in whom",
+        "which on",
+        "on that"
+      ],
+      "correct_answer": "on which",
+      "explanation": "Cụm đúng là “be based on”, nên dạng trang trọng là “on which”. “In whom” sai vì “theory” không phải người, “which on” sai trật tự, và “on that” không dùng trong mệnh đề quan hệ trang trọng sau danh từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **time phrase**: The train arrived late, ___ most passengers had missed their connections.",
+      "options": [
+        "by which time",
+        "in which case",
+        "at which place",
+        "for which reason"
+      ],
+      "correct_answer": "by which time",
+      "explanation": "“By which time” nghĩa là “vào thời điểm đó thì”, phù hợp với việc hành khách đã lỡ chuyến nối. Các lựa chọn còn lại nói về trường hợp, nơi chốn hoặc lý do nên không đúng nghĩa.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **of whom** clause: The research team included three statisticians, ___ had worked in public health.",
+      "options": [
+        "one of whom",
+        "one of which",
+        "one whom",
+        "one whose"
+      ],
+      "correct_answer": "one of whom",
+      "explanation": "“Statisticians” là người nên dùng “one of whom”. “Which” dùng cho vật, còn “one whom/one whose” thiếu cấu trúc “of” hoặc sai quan hệ sở hữu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **place clause**: The courthouse, ___ the documents were signed, is now a museum.",
+      "options": [
+        "where",
+        "which",
+        "whose",
+        "whom"
+      ],
+      "correct_answer": "where",
+      "explanation": "“Where” thay cho nơi chốn: tại tòa án đó các tài liệu được ký. “Which” cần giới từ như “in which/at which”, còn “whose/whom” không phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reason phrase**: The data were incomplete, ___ the results should be treated carefully.",
+      "options": [
+        "for which reason",
+        "in whose case",
+        "at which point",
+        "of which reason"
+      ],
+      "correct_answer": "for which reason",
+      "explanation": "“For which reason” nối với cả ý trước và diễn tả lý do dẫn đến kết luận sau. Các lựa chọn khác không diễn đạt quan hệ nguyên nhân đúng hoặc sai cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **formal clause**: The client ___ we sent the invoice has requested a revision.",
+      "options": [
+        "to whom",
+        "to which",
+        "whom to",
+        "that to"
+      ],
+      "correct_answer": "to whom",
+      "explanation": "“Client” là người/tổ chức được xem như bên nhận, và “send something to someone” dùng “to whom” trong văn viết trang trọng. “To which” thường dùng cho vật/tổ chức theo nghĩa vật thể hơn, “whom to/that to” sai trật tự hoặc sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **whole-clause** reference: The software crashed twice during the demo, ___ made the investors nervous.",
+      "options": [
+        "which",
+        "that",
+        "what",
+        "who"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” sau dấu phẩy có thể thay cho cả sự việc phần trước. “That” không dùng trong mệnh đề không xác định sau dấu phẩy, còn “what/who” không đúng chức năng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **of which** phrase: The contract contains several conditions, ___ must be approved by the board.",
+      "options": [
+        "each of which",
+        "each of whom",
+        "each which",
+        "each of that"
+      ],
+      "correct_answer": "each of which",
+      "explanation": "“Conditions” là vật/ý nên dùng “each of which”. “Whom” dùng cho người, còn “each which/each of that” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **whose clause**: The novelist, ___ first book became a bestseller, avoids interviews.",
+      "options": [
+        "whose",
+        "who",
+        "whom",
+        "which"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose first book” nghĩa là “cuốn sách đầu tiên của nhà văn đó”. “Who/whom” không thể đứng trước danh từ “first book”, còn “which” không chỉ sở hữu người.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **preposition phrase**: The policy ___ many employees complained was changed last week.",
+      "options": [
+        "about which",
+        "about whom",
+        "which about",
+        "that about"
+      ],
+      "correct_answer": "about which",
+      "explanation": "Động từ “complain” đi với “about”, và “policy” là vật/ý nên dùng “about which”. “Whom” dùng cho người, còn “which about/that about” sai trật tự hoặc sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **relative phrase**: The candidate ___ the committee finally agreed withdrew yesterday.",
+      "options": [
+        "on whom",
+        "on which",
+        "whom on",
+        "that on"
+      ],
+      "correct_answer": "on whom",
+      "explanation": "“Agree on someone” nghĩa là thống nhất chọn ai, nên với “candidate” dùng “on whom”. “Which” không dùng cho người trong câu này, còn hai lựa chọn sau sai trật tự.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **case phrase**: You may need extra documents, ___ you should contact the embassy.",
+      "options": [
+        "in which case",
+        "by which time",
+        "for which place",
+        "of which case"
+      ],
+      "correct_answer": "in which case",
+      "explanation": "“In which case” nghĩa là “trong trường hợp đó”, nối với toàn bộ khả năng ở mệnh đề trước. Các cụm còn lại không phù hợp về nghĩa hoặc sai cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **non-defining** clause: My laptop, ___ I bought in 2021, still runs smoothly.",
+      "options": [
+        "which",
+        "that",
+        "what",
+        "whom"
+      ],
+      "correct_answer": "which",
+      "explanation": "Mệnh đề sau dấu phẩy là không xác định nên dùng “which” cho vật. “That” không dùng sau dấu phẩy trong loại mệnh đề này, còn “what/whom” sai chức năng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The manuscript, **that** was rejected twice, later won a national prize.",
+      "options": [
+        "The manuscript",
+        "that",
+        "was rejected",
+        "won"
+      ],
+      "correct_answer": "that",
+      "explanation": "Sau dấu phẩy trong mệnh đề quan hệ không xác định phải dùng “which”, không dùng “that”. Các phần còn lại đúng về ngữ pháp và nghĩa.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The engineer **to which** we described the problem suggested a quick fix.",
+      "options": [
+        "The engineer",
+        "to which",
+        "described",
+        "suggested"
+      ],
+      "correct_answer": "to which",
+      "explanation": "“Engineer” là người nên phải dùng “to whom”, không phải “to which”. Các động từ và chủ ngữ còn lại phù hợp với câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The devices, **several of whom** were brand new, stopped working after the update.",
+      "options": [
+        "The devices",
+        "several of whom",
+        "were brand new",
+        "stopped working"
+      ],
+      "correct_answer": "several of whom",
+      "explanation": "“Devices” là vật nên dùng “several of which”. “Whom” chỉ dùng cho người, còn các phần khác đúng trong ngữ cảnh này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The manager, **whose** approved the budget, asked for a shorter report.",
+      "options": [
+        "The manager",
+        "whose",
+        "approved",
+        "asked for"
+      ],
+      "correct_answer": "whose",
+      "explanation": "Ở đây cần đại từ chủ ngữ “who”: “the manager, who approved the budget”. “Whose” phải đi với danh từ phía sau để chỉ sở hữu, còn các phần khác đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The bridge **over whom** we drove was built in the 1930s.",
+      "options": [
+        "The bridge",
+        "over whom",
+        "we drove",
+        "was built"
+      ],
+      "correct_answer": "over whom",
+      "explanation": "“Bridge” là vật nên dùng “over which”, không dùng “whom”. Các phần còn lại đúng về thì và cấu trúc câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The announcement was delayed, **that** confused many applicants.",
+      "options": [
+        "The announcement",
+        "was delayed",
+        "that",
+        "confused"
+      ],
+      "correct_answer": "that",
+      "explanation": "Khi đại từ quan hệ thay cho cả mệnh đề trước sau dấu phẩy, phải dùng “which”. “That” không dùng cho mệnh đề không xác định kiểu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The workshop had twenty participants, **most of which** were teachers.",
+      "options": [
+        "The workshop",
+        "twenty participants",
+        "most of which",
+        "were teachers"
+      ],
+      "correct_answer": "most of which",
+      "explanation": "“Participants” là người nên dùng “most of whom”. “Which” dùng cho vật hoặc ý, còn các phần khác đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The town **in where** she grew up has become a tourist destination.",
+      "options": [
+        "The town",
+        "in where",
+        "she grew up",
+        "has become"
+      ],
+      "correct_answer": "in where",
+      "explanation": "Không dùng “in where”; phải dùng “where” hoặc “in which”. Các phần còn lại đúng về nghĩa và cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **preposition phrase**: The professor ___ the article was dedicated retired last year.",
+      "options": [
+        "to whom",
+        "for which",
+        "whose",
+        "that"
+      ],
+      "correct_answer": "to whom",
+      "explanation": "Ta dùng “to whom” vì cấu trúc là “dedicate something to someone”. “For which” dùng cho vật/ý tưởng, “whose” chỉ sở hữu, còn “that” không đứng sau giới từ trong lối viết trang trọng này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **whole-clause** reference: He submitted the application after the deadline, ___ meant he could not be considered.",
+      "options": [
+        "which",
+        "what",
+        "that",
+        "who"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” có thể thay cho cả mệnh đề trước: việc nộp muộn dẫn đến không được xét. “What” không dùng sau dấu phẩy kiểu này, “that” không dùng trong mệnh đề quan hệ không xác định, và “who” chỉ người.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **of which** phrase: The report listed five recommendations, ___ required immediate action.",
+      "options": [
+        "two of which",
+        "two of whom",
+        "two which",
+        "whose two"
+      ],
+      "correct_answer": "two of which",
+      "explanation": "“Recommendations” là vật/ý tưởng nên dùng “two of which”. “Whom” chỉ người, “two which” thiếu “of”, còn “whose two” sai cấu trúc trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **formal clause**: The legal principles ___ the decision rested were rarely discussed in class.",
+      "options": [
+        "on which",
+        "in whom",
+        "where",
+        "whose"
+      ],
+      "correct_answer": "on which",
+      "explanation": "Cụm đúng là “rest on principles”, nên dạng trang trọng là “on which”. “In whom” dùng cho người, “where” chỉ nơi chốn, và “whose” chỉ sở hữu.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **relative determiner**: The company, ___ overseas branches are expanding quickly, needs more bilingual staff.",
+      "options": [
+        "whose",
+        "which",
+        "of which",
+        "whom"
+      ],
+      "correct_answer": "whose",
+      "explanation": "“Whose” dùng để diễn đạt sở hữu: các chi nhánh của công ty. “Which” không đứng trực tiếp trước danh từ theo nghĩa sở hữu, “of which” cần cấu trúc khác, còn “whom” dùng cho người làm tân ngữ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **relative phrase**: The river ___ the village depends has become badly polluted.",
+      "options": [
+        "on which",
+        "to whom",
+        "where",
+        "whose"
+      ],
+      "correct_answer": "on which",
+      "explanation": "Ta nói “depend on something”, nên cần “on which” cho “the river”. “To whom” dùng cho người, “where” không diễn đạt quan hệ “depend on”, và “whose” chỉ sở hữu.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **whole-clause** reference: The speaker changed the topic suddenly, ___ made the audience uneasy.",
+      "options": [
+        "which",
+        "that",
+        "what",
+        "who"
+      ],
+      "correct_answer": "which",
+      "explanation": "“Which” thay cho toàn bộ hành động “changed the topic suddenly”. “That” không dùng sau dấu phẩy trong mệnh đề không xác định, “what” không phù hợp ở đây, và “who” chỉ người.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **quantifier phrase**: The candidates answered ten questions, ___ were about environmental policy.",
+      "options": [
+        "three of which",
+        "three of whom",
+        "which three",
+        "three whose"
+      ],
+      "correct_answer": "three of which",
+      "explanation": "“Questions” là vật nên dùng “three of which”. “Whom” chỉ người, “which three” sai trật tự, còn “three whose” sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **formal clause**: The witnesses ___ the lawyer referred were not present in court.",
+      "options": [
+        "to whom",
+        "for which",
+        "whose",
+        "that"
+      ],
+      "correct_answer": "to whom",
+      "explanation": "Cụm đúng là “refer to someone”, nên dạng trang trọng là “to whom”. “For which” dùng cho vật hoặc mục đích, “whose” chỉ sở hữu, còn “that” không đi sau giới từ trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The negotiations, **during which** lasted six months, finally produced an agreement.",
+      "options": [
+        "The negotiations",
+        "during which",
+        "lasted six months",
+        "an agreement"
+      ],
+      "correct_answer": "during which",
+      "explanation": "“During which” cần một mệnh đề đầy đủ sau nó, nhưng “lasted six months” đã dùng “lasted” trực tiếp cho “negotiations”. Câu đúng có thể là “which lasted six months” hoặc “during which several issues were discussed”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The interns, **each of which** received a certificate, completed the training program.",
+      "options": [
+        "The interns",
+        "each of which",
+        "received a certificate",
+        "the training program"
+      ],
+      "correct_answer": "each of which",
+      "explanation": "“Interns” là người nên phải dùng “each of whom”. “Which” dùng cho vật hoặc ý tưởng, không phù hợp khi nói về người trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The decision was announced without warning, **what** caused confusion among staff.",
+      "options": [
+        "The decision",
+        "without warning",
+        "what",
+        "among staff"
+      ],
+      "correct_answer": "what",
+      "explanation": "Sau dấu phẩy để nói cả mệnh đề trước gây ra kết quả, ta dùng “which”, không dùng “what”. Các cụm còn lại đúng về nghĩa và ngữ pháp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The apartment **in which** balcony faces the park is on the top floor.",
+      "options": [
+        "The apartment",
+        "in which",
+        "balcony faces",
+        "the top floor"
+      ],
+      "correct_answer": "in which",
+      "explanation": "Cần diễn đạt sở hữu “ban công của căn hộ”, nên phải dùng “whose balcony”. “In which” chỉ vị trí bên trong, không thể đứng trước danh từ “balcony” theo nghĩa sở hữu.",
+      "difficulty": 2
     }
   ]
 }

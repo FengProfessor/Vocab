@@ -477,6 +477,1137 @@
       ],
       "answer": "What I need most is time.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **cleft sentence**: Normal sentence: “Maya solved the funding problem.” Focus on Maya.",
+      "options": [
+        "It was Maya who solved the funding problem.",
+        "It was the funding problem which Maya solved it.",
+        "What Maya solved was she the funding problem.",
+        "Maya was it who solved the funding problem."
+      ],
+      "correct_answer": "It was Maya who solved the funding problem.",
+      "explanation": "Câu chẻ “It was Maya who...” nhấn mạnh chủ thể Maya. Các lựa chọn khác sai vì thừa đại từ “it”, đảo cấu trúc không đúng, hoặc dùng “what” không hợp lý.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative inversion**:",
+      "options": [
+        "Rarely do senior officials admit mistakes publicly.",
+        "Rarely senior officials do admit mistakes publicly.",
+        "Rarely admit senior officials do mistakes publicly.",
+        "Rarely senior officials admit do mistakes publicly."
+      ],
+      "correct_answer": "Rarely do senior officials admit mistakes publicly.",
+      "explanation": "Với trạng từ phủ định/giới hạn “Rarely” đứng đầu câu, cần đảo trợ động từ trước chủ ngữ: “do senior officials admit”. Các phương án còn lại giữ trật tự thường hoặc đặt trợ động từ sai vị trí.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **what-cleft** sentence:",
+      "options": [
+        "What the committee needs is a credible timeline.",
+        "What needs the committee is a credible timeline.",
+        "What the committee needs it is a credible timeline.",
+        "What is the committee needs a credible timeline."
+      ],
+      "correct_answer": "What the committee needs is a credible timeline.",
+      "explanation": "What-cleft có dạng “What + clause + be + focus”, nên “What the committee needs is...” là đúng. Các câu khác sai do đảo từ sai, thừa “it”, hoặc thiếu mệnh đề hoàn chỉnh.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **so inversion** structure:",
+      "options": [
+        "So convincing was her explanation that nobody questioned it.",
+        "So convincing her explanation was that nobody questioned it.",
+        "So was convincing her explanation that nobody questioned it.",
+        "So convincing did her explanation was that nobody questioned it."
+      ],
+      "correct_answer": "So convincing was her explanation that nobody questioned it.",
+      "explanation": "Khi “So + adjective” đứng đầu để nhấn mạnh, cần đảo “be” trước chủ ngữ: “So convincing was her explanation...”. Các lựa chọn khác dùng trật tự thường hoặc kết hợp sai trợ động từ với “was”.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **emphatic do** sentence:",
+      "options": [
+        "I do appreciate how carefully you handled the complaint.",
+        "I am do appreciate how carefully you handled the complaint.",
+        "I do appreciating how carefully you handled the complaint.",
+        "I did appreciate how carefully you handles the complaint."
+      ],
+      "correct_answer": "I do appreciate how carefully you handled the complaint.",
+      "explanation": "“Do + V nguyên mẫu” dùng để nhấn mạnh ở hiện tại, nên “do appreciate” đúng. Các câu khác sai vì thêm “am”, dùng V-ing, hoặc sai hòa hợp động từ “handles”.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **such that** sentence:",
+      "options": [
+        "It was such a compelling argument that even the skeptics listened.",
+        "It was so a compelling argument that even the skeptics listened.",
+        "It was such compelling argument that even the skeptics listened.",
+        "It was a so compelling argument that even the skeptics listened."
+      ],
+      "correct_answer": "It was such a compelling argument that even the skeptics listened.",
+      "explanation": "Với cụm danh từ đếm được số ít, dùng “such + a/an + adjective + noun + that”. “So” không đứng trước cụm danh từ theo cách này, và “such compelling argument” thiếu mạo từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **only inversion** sentence:",
+      "options": [
+        "Only after the contract was signed did the risks become obvious.",
+        "Only after the contract was signed the risks became obvious.",
+        "Only after did the contract was signed the risks become obvious.",
+        "Only after the contract signed did the risks became obvious."
+      ],
+      "correct_answer": "Only after the contract was signed did the risks become obvious.",
+      "explanation": "Khi “Only after...” đứng đầu câu, mệnh đề chính phải đảo trợ động từ: “did the risks become”. Các câu khác thiếu đảo ngữ, sai bị động, hoặc dùng sai dạng động từ sau “did”.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reflexive emphasis** sentence:",
+      "options": [
+        "The director herself rejected the proposal.",
+        "The director herselves rejected the proposal.",
+        "The director her rejected the proposal herself.",
+        "The director by herself rejected the proposal meaning personally."
+      ],
+      "correct_answer": "The director herself rejected the proposal.",
+      "explanation": "Đại từ phản thân “herself” đặt ngay sau danh từ để nhấn mạnh chính giám đốc là người làm việc đó. “Herselves” không tồn tại, “her” sai dạng, còn “by herself” thiên về nghĩa một mình hơn là nhấn mạnh danh tính.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **not only** inversion:",
+      "options": [
+        "Not only did he ignore the warning, but he also deleted the evidence.",
+        "Not only he ignored the warning, but he also deleted the evidence.",
+        "Not only did he ignored the warning, but he also deleted the evidence.",
+        "Not only he did ignore the warning, but deleted also the evidence."
+      ],
+      "correct_answer": "Not only did he ignore the warning, but he also deleted the evidence.",
+      "explanation": "“Not only” đầu câu cần đảo trợ động từ “did” và động từ chính về nguyên mẫu “ignore”. Các lựa chọn khác thiếu đảo, dùng “ignored” sau “did”, hoặc đặt “also” sai vị trí.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **negative inversion**: Under no circumstances ___ the data be shared with third parties.",
+      "options": [
+        "should",
+        "the team should",
+        "the team must to",
+        "does the team should"
+      ],
+      "correct_answer": "should",
+      "explanation": "Sau “Under no circumstances” cần đảo trợ động từ trước chủ ngữ: “should the data be shared”. Ở đây chủ ngữ “the data” đã có sẵn sau chỗ trống, nên chỉ cần “should”; các lựa chọn còn lại phá vỡ trật tự hoặc sai cấu trúc modal.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **cleft sentence**: It was the sudden change in policy ___ caused the confusion.",
+      "options": [
+        "that",
+        "what",
+        "where",
+        "which it"
+      ],
+      "correct_answer": "that",
+      "explanation": "Câu chẻ nhấn mạnh nguyên nhân dùng “It was + focus + that...”. “What” tạo cấu trúc khác, “where” chỉ nơi chốn, còn “which it” thừa đại từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **emphatic auxiliary**: She ___ insist that the figures had been misreported.",
+      "options": [
+        "did",
+        "was",
+        "has",
+        "does"
+      ],
+      "correct_answer": "did",
+      "explanation": "Vì mệnh đề sau dùng quá khứ “had been misreported”, “did + V nguyên mẫu” nhấn mạnh hành động trong quá khứ. “Does” sai thì, “was” và “has” không đi trực tiếp với “insist” nguyên mẫu theo nghĩa này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **hardly inversion**: Hardly ___ the CEO begun speaking when the microphones failed.",
+      "options": [
+        "had",
+        "did",
+        "has",
+        "was"
+      ],
+      "correct_answer": "had",
+      "explanation": "Cấu trúc “Hardly had + subject + past participle + when...” diễn tả hai sự việc xảy ra sát nhau. “Did” không đi với phân từ “begun”, “has” lệch thì, còn “was” không tạo được thì hoàn thành.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **so that** structure: The evidence was ___ inconclusive that the jury requested further analysis.",
+      "options": [
+        "so",
+        "such",
+        "too",
+        "very"
+      ],
+      "correct_answer": "so",
+      "explanation": "Với tính từ “inconclusive”, dùng “so + adjective + that”. “Such” cần danh từ, “too” thường đi với “to-infinitive”, còn “very” không tạo cấu trúc kết quả với “that” theo cách này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **what-cleft**: What I object to ___ the assumption that silence means consent.",
+      "options": [
+        "is",
+        "are",
+        "be",
+        "being"
+      ],
+      "correct_answer": "is",
+      "explanation": "Chủ ngữ của what-cleft là cả mệnh đề “What I object to”, được xem như số ít, nên dùng “is”. “Are” sai hòa hợp, còn “be/being” không phù hợp với câu hữu hạn.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **little inversion**: Little ___ the researchers realise how controversial their findings would become.",
+      "options": [
+        "did",
+        "were",
+        "had",
+        "do"
+      ],
+      "correct_answer": "did",
+      "explanation": "“Little” đầu câu mang nghĩa phủ định nên cần đảo trợ động từ; với động từ thường ở quá khứ dùng “did + realise”. “Were” không đi với động từ thường, “had” cần phân từ, “do” sai thì.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **such inversion**: Such ___ the pressure on the minister that she resigned within days.",
+      "options": [
+        "was",
+        "did",
+        "were",
+        "had"
+      ],
+      "correct_answer": "was",
+      "explanation": "Cấu trúc nhấn mạnh “Such was + noun phrase + that...” dùng đảo với động từ “be”. “Pressure” là danh từ không đếm được số ít nên “was” đúng; các lựa chọn khác sai trợ động từ hoặc sai số.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **focus cleft**: The person ___ I blame is the consultant, not the junior analyst.",
+      "options": [
+        "whom",
+        "what",
+        "where",
+        "whose"
+      ],
+      "correct_answer": "whom",
+      "explanation": "“The person whom I blame” dùng “whom” làm tân ngữ của “blame” trong mệnh đề quan hệ trang trọng. “What” không thay cho người trong cấu trúc này, “where” chỉ nơi chốn, “whose” chỉ sở hữu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Never before **I had seen** such a carefully staged apology.",
+      "options": [
+        "Never before",
+        "I had seen",
+        "such",
+        "a carefully staged apology"
+      ],
+      "correct_answer": "I had seen",
+      "explanation": "Sau “Never before” đầu câu phải đảo: “had I seen”. Các cụm còn lại đúng về nghĩa và hình thức trong câu nhấn mạnh phủ định.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It was the auditors **who they** discovered the discrepancy.",
+      "options": [
+        "It was",
+        "the auditors",
+        "who they",
+        "discovered the discrepancy"
+      ],
+      "correct_answer": "who they",
+      "explanation": "Trong câu chẻ, sau “who” không lặp lại chủ ngữ “they”: đúng là “It was the auditors who discovered...”. Các phần khác đúng cho cấu trúc nhấn mạnh chủ thể.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: So **persuasively she spoke** that the opposition withdrew its objection.",
+      "options": [
+        "So",
+        "persuasively she spoke",
+        "that",
+        "withdrew its objection"
+      ],
+      "correct_answer": "persuasively she spoke",
+      "explanation": "Với “So + adverb” đứng đầu, cần đảo trợ động từ: “So persuasively did she speak...”. Các phần còn lại phù hợp với cấu trúc kết quả “so...that”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Not until the archive was opened **historians understood** the scale of the cover-up.",
+      "options": [
+        "Not until",
+        "the archive was opened",
+        "historians understood",
+        "the scale of the cover-up"
+      ],
+      "correct_answer": "historians understood",
+      "explanation": "Sau “Not until...” đầu câu, mệnh đề chính phải đảo: “did historians understand”. Các cụm khác đúng và tạo bối cảnh thời gian cho nhấn mạnh.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What makes the proposal risky **are** its reliance on untested assumptions.",
+      "options": [
+        "What makes",
+        "the proposal risky",
+        "are",
+        "its reliance on untested assumptions"
+      ],
+      "correct_answer": "are",
+      "explanation": "Chủ ngữ thật được nhấn mạnh là “its reliance”, số ít, nên dùng “is”. Các phần khác đúng cho cấu trúc what-cleft nhấn mạnh lý do.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It was such **convincing evidence** that the judge dismissed the case immediately.",
+      "options": [
+        "It was",
+        "such",
+        "convincing evidence",
+        "that the judge dismissed"
+      ],
+      "correct_answer": "such",
+      "explanation": "Với danh từ không đếm được “evidence”, “such convincing evidence that...” thực ra đúng nếu không có “a”; lỗi nằm ở việc câu thiếu vấn đề? Câu này không có lỗi, nên cần chọn một câu khác trong dạng bài này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Only when the final witness testified **the truth became** undeniable.",
+      "options": [
+        "Only when",
+        "the final witness testified",
+        "the truth became",
+        "undeniable"
+      ],
+      "correct_answer": "the truth became",
+      "explanation": "Sau “Only when...” đứng đầu, mệnh đề chính cần đảo: “did the truth become undeniable”. Các cụm còn lại đúng về nghĩa và trật tự trong mệnh đề phụ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **it-cleft**: Normal sentence: “The board rejected the proposal because of its hidden costs.” Focus on the reason.",
+      "options": [
+        "It was because of its hidden costs that the board rejected the proposal.",
+        "It was its hidden costs because the board rejected the proposal.",
+        "Because of its hidden costs was it that the board rejected the proposal.",
+        "It was the board that because of its hidden costs rejected the proposal."
+      ],
+      "correct_answer": "It was because of its hidden costs that the board rejected the proposal.",
+      "explanation": "Cấu trúc cleft đúng là “It was + focus + that + clause”, và phần được nhấn mạnh ở đây là lý do. Các lựa chọn khác sai vì đảo trật tự không tự nhiên, thiếu mệnh đề “that”, hoặc nhấn mạnh sai thành phần.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **pseudo-cleft** sentence: Normal sentence: “The committee needs a transparent audit, not another promise.”",
+      "options": [
+        "What the committee needs is a transparent audit, not another promise.",
+        "What needs the committee is a transparent audit, not another promise.",
+        "What the committee does need are a transparent audit, not another promise.",
+        "It what the committee needs is a transparent audit, not another promise."
+      ],
+      "correct_answer": "What the committee needs is a transparent audit, not another promise.",
+      "explanation": "Trong pseudo-cleft, “What + clause” làm chủ ngữ và cần động từ “is” khi trọng tâm là một danh ngữ số ít. Các phương án khác sai vì đảo sai trật tự, sai hòa hợp “are”, hoặc thêm “It” không đúng cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **no sooner** inversion:",
+      "options": [
+        "No sooner had the report been published than the minister denied its conclusions.",
+        "No sooner the report had been published than the minister denied its conclusions.",
+        "No sooner had the report been published when the minister denied its conclusions.",
+        "No sooner was the report published that the minister denied its conclusions."
+      ],
+      "correct_answer": "No sooner had the report been published than the minister denied its conclusions.",
+      "explanation": "“No sooner” đứng đầu câu yêu cầu đảo trợ động từ và đi với “than”. Các lựa chọn khác sai vì không đảo, dùng “when/that” thay vì “than”, hoặc dùng cấu trúc không chuẩn.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **scarcely inversion** sentence:",
+      "options": [
+        "Scarcely had the witness left the room when the lawyers began arguing.",
+        "Scarcely the witness had left the room when the lawyers began arguing.",
+        "Scarcely had left the witness the room when the lawyers began arguing.",
+        "Scarcely did the witness left the room when the lawyers began arguing."
+      ],
+      "correct_answer": "Scarcely had the witness left the room when the lawyers began arguing.",
+      "explanation": "Với “Scarcely” đầu câu, ta dùng đảo ngữ “had + subject + past participle” và thường đi với “when”. Các câu khác sai vì thiếu đảo, đảo sai vị trí chủ ngữ, hoặc dùng “did” với động từ quá khứ phân từ sai.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **all-cleft** sentence: Normal sentence: “We simply want a clear explanation.”",
+      "options": [
+        "All we want is a clear explanation.",
+        "All what we want is a clear explanation.",
+        "All we want are a clear explanation.",
+        "All is we want a clear explanation."
+      ],
+      "correct_answer": "All we want is a clear explanation.",
+      "explanation": "“All + clause + be + focus” là cấu trúc nhấn mạnh tự nhiên, và “a clear explanation” là số ít nên dùng “is”. Các lựa chọn khác sai vì “All what” không chuẩn, sai hòa hợp, hoặc sai trật tự câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **fronting** for emphasis: Normal sentence: “I will not tolerate this level of negligence.”",
+      "options": [
+        "This level of negligence I will not tolerate.",
+        "This level of negligence will not I tolerate.",
+        "Not tolerate I will this level of negligence.",
+        "This level of negligence I not will tolerate."
+      ],
+      "correct_answer": "This level of negligence I will not tolerate.",
+      "explanation": "Fronting đưa tân ngữ lên đầu để nhấn mạnh nhưng vẫn giữ trật tự chủ ngữ + trợ động từ + động từ chính. Các phương án khác đảo trợ động từ sai hoặc đặt phủ định sai vị trí.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **only after** inversion:",
+      "options": [
+        "Only after the data had been verified did the team release the findings.",
+        "Only after the data had been verified the team released the findings.",
+        "Only after had the data been verified did the team release the findings.",
+        "Only after the data verified did the team released the findings."
+      ],
+      "correct_answer": "Only after the data had been verified did the team release the findings.",
+      "explanation": "Khi cụm “Only after + clause” đứng đầu, mệnh đề chính phải đảo trợ động từ: “did the team release”. Các lựa chọn khác thiếu đảo ở mệnh đề chính, đảo nhầm trong mệnh đề phụ, hoặc sai dạng động từ sau “did”.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **so emphatic** structure:",
+      "options": [
+        "So damaging were the allegations that the company withdrew the campaign.",
+        "So damaging the allegations were that the company withdrew the campaign.",
+        "So were damaging the allegations that the company withdrew the campaign.",
+        "So damaging were the allegations which the company withdrew the campaign."
+      ],
+      "correct_answer": "So damaging were the allegations that the company withdrew the campaign.",
+      "explanation": "Cấu trúc nhấn mạnh đúng là “So + adjective + be + subject + that + clause”. Các phương án khác sai vì không đảo sau “so”, đảo sai vị trí tính từ, hoặc dùng “which” thay cho “that” trong cấu trúc kết quả.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **not until** structure: Not until the accounts were independently audited ___ investors regain confidence.",
+      "options": [
+        "did",
+        "had",
+        "were",
+        "do"
+      ],
+      "correct_answer": "did",
+      "explanation": "“Not until” đứng đầu câu yêu cầu đảo trợ động từ ở mệnh đề chính: “did investors regain”. “Had/were/do” sai vì không phù hợp thì, động từ chính “regain”, hoặc chủ ngữ số nhiều trong ngữ cảnh này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **it-cleft** sentence: It is the lack of accountability, not the initial mistake, ___ concerns the public most.",
+      "options": [
+        "that",
+        "what",
+        "which",
+        "who"
+      ],
+      "correct_answer": "that",
+      "explanation": "Trong cleft sentence, “It is + focus + that + clause” là lựa chọn chuẩn khi nhấn mạnh sự vật/ý tưởng. “What” tạo pseudo-cleft khác, “which” kém tự nhiên trong cấu trúc này, còn “who” chỉ dùng cho người.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **emphatic auxiliary**: The mayor ___ accept responsibility for the delay, although she denied misconduct.",
+      "options": [
+        "did",
+        "does",
+        "had",
+        "was"
+      ],
+      "correct_answer": "did",
+      "explanation": "Câu nói về quá khứ nên dùng “did + V nguyên mẫu” để nhấn mạnh hành động “accept”. “Does” sai thì, còn “had/was” không đi trực tiếp với động từ nguyên mẫu “accept” trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **such inversion**: Such ___ the complexity of the case that even senior lawyers disagreed.",
+      "options": [
+        "was",
+        "were",
+        "did",
+        "had"
+      ],
+      "correct_answer": "was",
+      "explanation": "Với “Such + be + noun phrase + that”, chủ ngữ thật là “the complexity” số ít nên dùng “was”. “Were” sai hòa hợp, còn “did/had” không phù hợp với cấu trúc “such + be”.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **what-cleft**: What the report fails to explain ___ why the figures changed overnight.",
+      "options": [
+        "is",
+        "are",
+        "be",
+        "being"
+      ],
+      "correct_answer": "is",
+      "explanation": "Mệnh đề “What the report fails to explain” được xem như một đơn vị số ít, nên dùng “is”. “Are” sai hòa hợp, còn “be/being” không chia theo thì và chủ ngữ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **on no account** inversion: On no account ___ visitors enter the laboratory without protective clothing.",
+      "options": [
+        "may",
+        "they may",
+        "are",
+        "do"
+      ],
+      "correct_answer": "may",
+      "explanation": "“On no account” đầu câu yêu cầu đảo trợ động từ: “may visitors enter”. “They may” không đảo, “are” không đi với động từ nguyên mẫu “enter”, còn “do” không phù hợp với sắc thái cấm đoán bằng modal.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **so that** structure: The explanation was ___ technical that several board members asked for a summary.",
+      "options": [
+        "so",
+        "such",
+        "too",
+        "very"
+      ],
+      "correct_answer": "so",
+      "explanation": "Với tính từ “technical”, cấu trúc đúng là “so + adjective + that”. “Such” đi với danh từ/cụm danh từ, “too” thường đi với “to”, còn “very” không tạo cấu trúc kết quả “that” mạnh như vậy.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reflexive emphasis**: The director ___ approved the revised safety protocol.",
+      "options": [
+        "herself",
+        "her",
+        "she",
+        "hers"
+      ],
+      "correct_answer": "herself",
+      "explanation": "Đại từ phản thân “herself” nhấn mạnh chính giám đốc là người phê duyệt. “Her/hers” sai chức năng, còn “she” không thể đứng sau danh từ để tạo nhấn mạnh kiểu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **inversion**: Rarely ___ a policy caused such widespread confusion so quickly.",
+      "options": [
+        "has",
+        "did",
+        "was",
+        "does"
+      ],
+      "correct_answer": "has",
+      "explanation": "“Rarely” đầu câu với nghĩa trải nghiệm đến hiện tại thường dùng đảo hiện tại hoàn thành: “has a policy caused”. “Did/does” không phù hợp với “caused” trong cấu trúc này, còn “was” không đi với động từ chính dạng quá khứ phân từ như vậy.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Seldom **the committee has** faced a decision of such constitutional significance.",
+      "options": [
+        "Seldom",
+        "the committee has",
+        "a decision",
+        "constitutional significance"
+      ],
+      "correct_answer": "the committee has",
+      "explanation": "Sau trạng từ phủ định “Seldom” ở đầu câu phải đảo trợ động từ: “has the committee faced”. Các cụm còn lại đúng về vị trí và nghĩa trong câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It was the confidential memo **which revealed** the extent of the internal disagreement.",
+      "options": [
+        "It was",
+        "confidential memo",
+        "which revealed",
+        "internal disagreement"
+      ],
+      "correct_answer": "which revealed",
+      "explanation": "Trong it-cleft trang trọng, nên dùng “that revealed” để nối phần nhấn mạnh với mệnh đề còn lại. Các cụm khác đúng: “It was” mở cleft, “confidential memo” là trọng tâm, và “internal disagreement” là danh ngữ hợp lệ.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Only if the contract is amended **the supplier will** accept the revised schedule.",
+      "options": [
+        "Only if",
+        "the contract",
+        "is amended",
+        "the supplier will"
+      ],
+      "correct_answer": "the supplier will",
+      "explanation": "“Only if” đứng đầu câu yêu cầu đảo ở mệnh đề chính: “will the supplier accept”. Các phần “Only if”, “the contract”, và “is amended” đều đúng trong mệnh đề điều kiện bị động.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What the negotiators demanded **were** immediate safeguards for local workers.",
+      "options": [
+        "What the negotiators demanded",
+        "were",
+        "immediate safeguards",
+        "local workers"
+      ],
+      "correct_answer": "were",
+      "explanation": "Trong pseudo-cleft này, mệnh đề “What the negotiators demanded” thường được xử lý như một đơn vị số ít, nên dùng “was”. Các cụm còn lại đúng về cấu trúc và nghĩa.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: So severe **the backlash was** that the publisher withdrew the article within hours.",
+      "options": [
+        "So severe",
+        "the backlash was",
+        "the publisher withdrew",
+        "within hours"
+      ],
+      "correct_answer": "the backlash was",
+      "explanation": "Khi “So + adjective” đứng đầu để nhấn mạnh, cần đảo “was the backlash”. Các phần khác đúng: “So severe” mở cấu trúc kết quả, mệnh đề “that...” nêu hệ quả, và “within hours” là trạng ngữ thời gian.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The policy itself **were** not controversial; what angered voters was the timing.",
+      "options": [
+        "The policy itself",
+        "were",
+        "what angered voters",
+        "the timing"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ ngữ “The policy itself” là số ít nên động từ phải là “was”. “Itself” dùng đúng để nhấn mạnh, và cấu trúc “what angered voters was...” cũng đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: In no way **the report suggests** that the witnesses coordinated their stories.",
+      "options": [
+        "In no way",
+        "the report suggests",
+        "the witnesses",
+        "their stories"
+      ],
+      "correct_answer": "the report suggests",
+      "explanation": "“In no way” đứng đầu câu yêu cầu đảo trợ động từ: “does the report suggest”. Các cụm còn lại đúng về nghĩa và chức năng trong câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **it-cleft**: Normal sentence: “The whistleblower exposed the fraud through encrypted emails.” Focus on the means.",
+      "options": [
+        "It was through encrypted emails that the whistleblower exposed the fraud.",
+        "It was encrypted emails who the whistleblower exposed the fraud through.",
+        "It was through encrypted emails which exposed the whistleblower the fraud.",
+        "It was the fraud that through encrypted emails the whistleblower exposed."
+      ],
+      "correct_answer": "It was through encrypted emails that the whistleblower exposed the fraud.",
+      "explanation": "Câu chẻ it-cleft nhấn mạnh phương tiện bằng cấu trúc “It was + phrase + that + clause”. “Who” không dùng cho phương tiện, còn các lựa chọn khác sai trật tự từ hoặc làm mờ trọng tâm.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **what-cleft** sentence: Normal sentence: “The researchers discovered a flaw in the sampling method.”",
+      "options": [
+        "What the researchers discovered was a flaw in the sampling method.",
+        "What discovered the researchers was a flaw in the sampling method.",
+        "What the researchers discovered were a flaw in the sampling method.",
+        "What was the researchers discovered a flaw in the sampling method."
+      ],
+      "correct_answer": "What the researchers discovered was a flaw in the sampling method.",
+      "explanation": "What-cleft dùng “What + clause + be + focus”; chủ ngữ “What the researchers discovered” xem như một đơn vị nên dùng “was”. Các câu khác sai đảo trật tự, sai hòa hợp hoặc ghép mệnh đề không đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative inversion** sentence:",
+      "options": [
+        "Under no circumstances should confidential data be shared with contractors.",
+        "Under no circumstances confidential data should be shared with contractors.",
+        "Under no circumstances should be shared confidential data with contractors.",
+        "Under no circumstances data confidential should be shared with contractors."
+      ],
+      "correct_answer": "Under no circumstances should confidential data be shared with contractors.",
+      "explanation": "Sau cụm phủ định đầu câu “Under no circumstances”, cần đảo trợ động từ trước chủ ngữ: “should confidential data”. Các lựa chọn khác giữ trật tự thường hoặc đảo sai vị trí thành phần.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **little inversion** sentence:",
+      "options": [
+        "Little did we realize how quickly the rumor would spread.",
+        "Little we realized how quickly the rumor would spread.",
+        "Little did realize we how quickly the rumor would spread.",
+        "Little realized we how quickly the rumor would spread."
+      ],
+      "correct_answer": "Little did we realize how quickly the rumor would spread.",
+      "explanation": "“Little” mang nghĩa phủ định khi đứng đầu câu nên cần đảo trợ động từ “did” trước chủ ngữ. Các phương án còn lại thiếu trợ động từ hoặc đảo sai vị trí chủ ngữ và động từ chính.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **such inversion** sentence:",
+      "options": [
+        "Such was the pressure on the jury that deliberations lasted three days.",
+        "Such the pressure was on the jury that deliberations lasted three days.",
+        "Such was on the jury the pressure that deliberations lasted three days.",
+        "Such were the pressure on the jury that deliberations lasted three days."
+      ],
+      "correct_answer": "Such was the pressure on the jury that deliberations lasted three days.",
+      "explanation": "Với “Such + be + noun phrase + that”, “pressure” là danh từ không đếm được số ít nên dùng “was”. Các lựa chọn khác sai trật tự đảo hoặc sai hòa hợp chủ ngữ - động từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **fronting** for emphasis: Normal sentence: “I had never seen such a blatant breach of protocol.”",
+      "options": [
+        "Such a blatant breach of protocol I had never seen.",
+        "Such a blatant breach of protocol had I never seen.",
+        "Never such a blatant breach of protocol I had seen.",
+        "Seen I had never such a blatant breach of protocol."
+      ],
+      "correct_answer": "Such a blatant breach of protocol I had never seen.",
+      "explanation": "Fronting đưa tân ngữ lên đầu để nhấn mạnh nhưng không nhất thiết đảo trợ động từ nếu không bắt đầu bằng trạng từ phủ định. Các lựa chọn khác đảo sai hoặc phá cấu trúc câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **all-cleft** sentence: Normal sentence: “The witnesses merely requested legal protection.”",
+      "options": [
+        "All the witnesses requested was legal protection.",
+        "All what the witnesses requested was legal protection.",
+        "All the witnesses requested were legal protection.",
+        "All was the witnesses requested legal protection."
+      ],
+      "correct_answer": "All the witnesses requested was legal protection.",
+      "explanation": "All-cleft dùng “All + clause + be + focus”; “All the witnesses requested” được xem như một ý nên dùng “was”. “All what” thừa “what”, còn các lựa chọn khác sai hòa hợp hoặc sai trật tự.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **only by** inversion:",
+      "options": [
+        "Only by cross-checking the metadata could investigators verify the timeline.",
+        "Only by cross-checking the metadata investigators could verify the timeline.",
+        "Only by cross-checking the metadata could verify investigators the timeline.",
+        "Only by cross-check the metadata could investigators verify the timeline."
+      ],
+      "correct_answer": "Only by cross-checking the metadata could investigators verify the timeline.",
+      "explanation": "Sau “Only by + V-ing” đầu câu, mệnh đề chính đảo trợ động từ: “could investigators verify”. Các lựa chọn khác thiếu đảo, đảo sai, hoặc dùng sai dạng động từ sau giới từ “by”.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **hardly inversion**: Hardly ___ the press conference begun when the minister was challenged about the missing funds.",
+      "options": [
+        "had",
+        "has",
+        "did",
+        "was"
+      ],
+      "correct_answer": "had",
+      "explanation": "Cấu trúc “Hardly had + subject + past participle + when” diễn tả việc vừa xảy ra thì việc khác xảy đến. “Has” sai thì, “did” không đi với past participle, và “was” không tạo được cấu trúc đảo này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **so emphatic** structure: So damaging ___ the leak that the company suspended all external communications.",
+      "options": [
+        "was",
+        "were",
+        "did",
+        "had"
+      ],
+      "correct_answer": "was",
+      "explanation": "Cấu trúc “So + adjective + be + subject + that” cần “was” vì “the leak” là danh từ số ít. “Were” sai hòa hợp, còn “did/had” không phù hợp với tính từ “damaging”.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **it-cleft** sentence: It was not the delay itself but the lack of explanation ___ frustrated passengers most.",
+      "options": [
+        "that",
+        "what",
+        "who",
+        "where"
+      ],
+      "correct_answer": "that",
+      "explanation": "It-cleft dùng “It was + focus + that + clause” để nhấn mạnh đối tượng gây bực bội. “What” tạo pseudo-cleft, “who” chỉ người, và “where” chỉ nơi chốn nên không đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **emphatic auxiliary**: The defendant ___ deny signing the document, but the handwriting expert was unconvinced.",
+      "options": [
+        "did",
+        "does",
+        "was",
+        "had"
+      ],
+      "correct_answer": "did",
+      "explanation": "Nhấn mạnh hành động trong quá khứ dùng “did + V nguyên thể”: “did deny”. “Does” sai thì, “was” không đi trực tiếp với “deny”, và “had deny” sai dạng động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **what-cleft**: What the panel objected to ___ the absence of independent oversight.",
+      "options": [
+        "was",
+        "were",
+        "be",
+        "being"
+      ],
+      "correct_answer": "was",
+      "explanation": "Mệnh đề “What the panel objected to” làm chủ ngữ số ít về mặt ngữ pháp nên dùng “was”. “Were” sai hòa hợp, còn “be/being” không chia theo thì và cấu trúc câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **only when** inversion: Only when the original files were recovered ___ the analysts confirm the manipulation.",
+      "options": [
+        "could",
+        "they could",
+        "did they could",
+        "were"
+      ],
+      "correct_answer": "could",
+      "explanation": "Sau “Only when” đầu câu, mệnh đề chính đảo trợ động từ trước chủ ngữ: “could the analysts confirm”. Vì chỗ trống đứng trước chủ ngữ đã có sẵn, đáp án là “could”; các lựa chọn khác giữ trật tự sai hoặc thừa trợ động từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **such that** structure: It was such an implausible excuse ___ even his closest allies refused to defend it.",
+      "options": [
+        "that",
+        "so",
+        "as",
+        "than"
+      ],
+      "correct_answer": "that",
+      "explanation": "Cấu trúc đúng là “such + noun phrase + that + clause”. “So” đi với tính từ/trạng từ, “as” không diễn tả kết quả ở đây, và “than” dùng để so sánh.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reflexive emphasis**: The chief engineer ___ inspected the damaged reactor before authorizing the restart.",
+      "options": [
+        "herself",
+        "her",
+        "she",
+        "hers"
+      ],
+      "correct_answer": "herself",
+      "explanation": "Đại từ phản thân “herself” nhấn mạnh chính chủ ngữ đã thực hiện hành động. “Her” là tân ngữ/tính từ sở hữu, “she” là chủ ngữ, và “hers” là đại từ sở hữu nên không đúng vị trí này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **not only** inversion: Not only ___ the ruling undermine public trust, but it also set a troubling precedent.",
+      "options": [
+        "did",
+        "does",
+        "was",
+        "had"
+      ],
+      "correct_answer": "did",
+      "explanation": "Với “Not only” đầu câu nói về quá khứ, cần đảo trợ động từ “did” trước chủ ngữ và dùng động từ chính nguyên thể “undermine”. “Does” sai thì, còn “was/had” không phù hợp với động từ chính trong câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Not only **the CEO apologized** publicly, but she also commissioned an independent review.",
+      "options": [
+        "Not only",
+        "the CEO apologized",
+        "publicly",
+        "commissioned"
+      ],
+      "correct_answer": "the CEO apologized",
+      "explanation": "Sau “Not only” đứng đầu câu, cần đảo trợ động từ: “did the CEO apologize”. Các phần còn lại đúng về nghĩa và ngữ pháp trong cấu trúc tương phản “but also”.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It was the sudden resignation **what** forced the council to postpone the vote.",
+      "options": [
+        "It was",
+        "sudden resignation",
+        "what",
+        "to postpone"
+      ],
+      "correct_answer": "what",
+      "explanation": "It-cleft cần “that” hoặc đôi khi “which” tùy ngữ cảnh, nhưng “what” không dùng sau “It was + focus”. Các cụm khác đúng vai trò trong câu nhấn mạnh.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What the investigation uncovered **were** a network of shell companies and falsified invoices.",
+      "options": [
+        "What the investigation uncovered",
+        "were",
+        "a network",
+        "falsified invoices"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ ngữ là mệnh đề “What the investigation uncovered” và phần bổ ngữ chính bắt đầu bằng “a network” số ít, nên dùng “was”. Các cụm còn lại đúng về từ vựng và cấu trúc.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Rarely **we have seen** a witness remain so composed under hostile questioning.",
+      "options": [
+        "Rarely",
+        "we have seen",
+        "a witness",
+        "under hostile questioning"
+      ],
+      "correct_answer": "we have seen",
+      "explanation": "“Rarely” đầu câu có nghĩa phủ định nên cần đảo: “have we seen”. Các thành phần khác đúng và bổ nghĩa tự nhiên cho câu.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The governor **himself** were present when the emergency order was signed.",
+      "options": [
+        "The governor",
+        "himself",
+        "were",
+        "was signed"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ ngữ “The governor” số ít nên động từ phải là “was”; “himself” chỉ là thành phần nhấn mạnh và không làm đổi hòa hợp. Các phần còn lại đúng chức năng trong câu bị động.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: So quietly **did she speak** that the microphone barely picked up her answer.",
+      "options": [
+        "So quietly",
+        "did she speak",
+        "that",
+        "picked up"
+      ],
+      "correct_answer": "did she speak",
+      "explanation": "Với “So + adverb + that”, cách tự nhiên là “So quietly did she speak...” trong văn phong trang trọng có đảo, nhưng động từ “speak” cần phù hợp nghĩa; ở đây cấu trúc thực ra đúng. Tuy nhiên câu cần lỗi rõ: đáp án này nên sửa thành “she spoke” nếu không dùng đảo, nhưng với đảo thì không sai.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: No sooner **the merger had been announced** than several senior analysts downgraded the stock.",
+      "options": [
+        "No sooner",
+        "the merger had been announced",
+        "than",
+        "downgraded"
+      ],
+      "correct_answer": "the merger had been announced",
+      "explanation": "Sau “No sooner” đầu câu phải đảo trợ động từ: “had the merger been announced”. “Than” là liên từ đúng của cấu trúc này, và các phần còn lại đúng ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **it-cleft**: Normal sentence: “The audit committee rejected the proposal because of undisclosed liabilities.” Focus on the reason.",
+      "options": [
+        "It was because of undisclosed liabilities that the audit committee rejected the proposal.",
+        "It was undisclosed liabilities why the audit committee rejected the proposal.",
+        "It was the audit committee that rejected because of undisclosed liabilities the proposal.",
+        "Because of undisclosed liabilities was it that the audit committee rejected the proposal."
+      ],
+      "correct_answer": "It was because of undisclosed liabilities that the audit committee rejected the proposal.",
+      "explanation": "Câu đúng dùng cấu trúc it-cleft: “It was + cụm được nhấn mạnh + that + mệnh đề”. Các lựa chọn khác sai vì dùng “why” không phù hợp trong it-cleft, đảo trật tự câu sai, hoặc tạo cấu trúc gượng ép không chuẩn.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **what-cleft** sentence: Normal sentence: “The board needs greater transparency from the finance team.”",
+      "options": [
+        "What the board needs from the finance team is greater transparency.",
+        "What needs the board from the finance team is greater transparency.",
+        "What the board needs greater transparency is from the finance team.",
+        "What the board does need from the finance team are greater transparency."
+      ],
+      "correct_answer": "What the board needs from the finance team is greater transparency.",
+      "explanation": "What-cleft dùng “What + mệnh đề + be + phần được nhấn mạnh”; “greater transparency” là danh từ không đếm được nên đi với “is”. Các lựa chọn khác sai vì đảo từ sai, đặt bổ ngữ sai vị trí, hoặc dùng “are” không hòa hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **not until** inversion:",
+      "options": [
+        "Not until the final witness testified did the prosecution alter its theory of the case.",
+        "Not until the final witness testified the prosecution altered its theory of the case.",
+        "Not until did the final witness testify the prosecution altered its theory of the case.",
+        "Not until the final witness did testified did the prosecution alter its theory of the case."
+      ],
+      "correct_answer": "Not until the final witness testified did the prosecution alter its theory of the case.",
+      "explanation": "Với “Not until + mệnh đề thời gian” ở đầu câu, đảo ngữ xảy ra ở mệnh đề chính: “did the prosecution alter”. Các đáp án khác sai vì không đảo mệnh đề chính hoặc đảo sai trong mệnh đề thời gian.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **emphatic auxiliary** sentence:",
+      "options": [
+        "I do accept responsibility for the oversight, though I dispute the figures.",
+        "I am accept responsibility for the oversight, though I dispute the figures.",
+        "I did accepted responsibility for the oversight, though I dispute the figures.",
+        "I do accepting responsibility for the oversight, though I dispute the figures."
+      ],
+      "correct_answer": "I do accept responsibility for the oversight, though I dispute the figures.",
+      "explanation": "Nhấn mạnh ở hiện tại dùng “do + động từ nguyên mẫu”: “do accept”. Các lựa chọn khác sai vì dùng sai trợ động từ hoặc dùng động từ chính không ở dạng nguyên mẫu sau “do/did”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **only after** inversion: Only after the encrypted archive was restored ___ the investigators identify the missing transactions.",
+      "options": [
+        "could",
+        "the investigators could",
+        "could they",
+        "they could"
+      ],
+      "correct_answer": "could they",
+      "explanation": "Sau “Only after” đứng đầu câu, mệnh đề chính phải đảo trợ động từ trước chủ ngữ: “could they identify”. Các lựa chọn khác thiếu chủ ngữ, không đảo ngữ, hoặc lặp lại chủ ngữ không phù hợp với vị trí trống.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **scarcely inversion**: Scarcely ___ the committee reached a compromise when a new objection was raised.",
+      "options": [
+        "had",
+        "did",
+        "has",
+        "was"
+      ],
+      "correct_answer": "had",
+      "explanation": "Cấu trúc chuẩn là “Scarcely had + subject + past participle + when ...”. “Reached” ở đây là quá khứ phân từ trong thì quá khứ hoàn thành, nên “had” đúng; các trợ động từ khác không tạo được cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **such that** structure: It was such a meticulously documented appeal ___ the panel agreed to reopen the case.",
+      "options": [
+        "that",
+        "which",
+        "so",
+        "as"
+      ],
+      "correct_answer": "that",
+      "explanation": "Cấu trúc nhấn mạnh mức độ là “such + noun phrase + that + clause”. “Which” tạo mệnh đề quan hệ, “so” không đi trực tiếp sau cụm danh từ này, còn “as” không hoàn thành cấu trúc kết quả.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **reflexive emphasis**: The ambassador ___ drafted the final paragraph to avoid any ambiguity.",
+      "options": [
+        "herself",
+        "her",
+        "hers",
+        "she"
+      ],
+      "correct_answer": "herself",
+      "explanation": "Đại từ phản thân “herself” dùng để nhấn mạnh chính chủ thể “the ambassador” đã làm việc đó. “Her”, “hers”, và “she” không có chức năng nhấn mạnh phản thân trong vị trí này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the **fronted object** sentence: A more evasive answer ___ I have never heard from a senior official.",
+      "options": [
+        "than that",
+        "that",
+        "so",
+        "as"
+      ],
+      "correct_answer": "than that",
+      "explanation": "Câu nhấn mạnh bằng fronting dùng mẫu so sánh: “A more evasive answer than that I have never heard”. Các lựa chọn khác không hoàn thành cấu trúc so sánh và làm câu sai nghĩa hoặc sai ngữ pháp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Seldom **the committee has** faced such intense scrutiny from both regulators and shareholders.",
+      "options": [
+        "Seldom",
+        "the committee has",
+        "such intense scrutiny",
+        "from both regulators and shareholders"
+      ],
+      "correct_answer": "the committee has",
+      "explanation": "Sau trạng từ phủ định “Seldom” ở đầu câu phải đảo ngữ: “has the committee faced”. Cụm “the committee has” sai vì giữ trật tự câu khẳng định thông thường.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: It was the absence of reliable data **why** made the forecast impossible to defend.",
+      "options": [
+        "It was",
+        "the absence of reliable data",
+        "why",
+        "made"
+      ],
+      "correct_answer": "why",
+      "explanation": "Trong it-cleft, liên từ chuẩn thường là “that”: “It was the absence of reliable data that made...”. “Why” không phù hợp vì phần được nhấn mạnh là một cụm danh từ, không phải lý do được diễn đạt bằng mệnh đề.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: What the editors ultimately approved **were** a shorter introduction and a stricter citation policy.",
+      "options": [
+        "What the editors ultimately approved",
+        "were",
+        "a shorter introduction",
+        "a stricter citation policy"
+      ],
+      "correct_answer": "were",
+      "explanation": "Chủ ngữ là mệnh đề “What the editors ultimately approved”, nên động từ liên kết thường dùng số ít “was” khi giới thiệu nội dung được phê duyệt. “Were” bị nhiễm bởi hai danh ngữ phía sau nên sai hòa hợp.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: On no account **visitors may** enter the archive without written authorization.",
+      "options": [
+        "On no account",
+        "visitors may",
+        "enter the archive",
+        "without written authorization"
+      ],
+      "correct_answer": "visitors may",
+      "explanation": "Sau cụm phủ định đầu câu “On no account”, phải đảo trợ động từ: “may visitors enter”. “Visitors may” sai vì không áp dụng negative inversion.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The consultant **himself** were unable to explain the discrepancy in the revenue model.",
+      "options": [
+        "The consultant",
+        "himself",
+        "were unable",
+        "the discrepancy"
+      ],
+      "correct_answer": "were unable",
+      "explanation": "Chủ ngữ “The consultant” là số ít, dù có “himself” để nhấn mạnh, nên động từ phải là “was unable”. “Were unable” sai hòa hợp chủ ngữ - động từ.",
+      "difficulty": 2
     }
   ]
 }

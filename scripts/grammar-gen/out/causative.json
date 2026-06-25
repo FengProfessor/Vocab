@@ -465,6 +465,1150 @@
       ],
       "answer": "They had their car stolen.",
       "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **causative form**: My laptop was overheating, so I ___ yesterday.",
+      "options": [
+        "had it checked",
+        "checked it myself",
+        "had checked it",
+        "got check it"
+      ],
+      "correct_answer": "had it checked",
+      "explanation": "Đáp án đúng là 'had it checked' vì cấu trúc have + object + V3 diễn tả việc nhờ/thuê người khác kiểm tra máy. 'checked it myself' nghĩa là tự làm, không phải causative; 'had checked it' là thì quá khứ hoàn thành; 'got check it' thiếu object và V3/to V.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with the correct **past participle**: We need to get the contract ___ before Friday.",
+      "options": [
+        "signed",
+        "sign",
+        "to sign",
+        "signing"
+      ],
+      "correct_answer": "signed",
+      "explanation": "Sau get + object trong mẫu 'get something done' cần V3, nên 'signed' đúng. 'sign', 'to sign', và 'signing' không đúng dạng cho cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **verb form**: They had the broken window replace before the storm arrived.",
+      "options": [
+        "had",
+        "broken window",
+        "replace",
+        "arrived"
+      ],
+      "correct_answer": "replace",
+      "explanation": "Trong cấu trúc have + object + V3, động từ phải là 'replaced'. 'Had', 'broken window', và 'arrived' đều phù hợp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the sentence with correct **word order**:",
+      "options": [
+        "She got her passport renewed last week.",
+        "She got renewed her passport last week.",
+        "She got her passport renew last week.",
+        "She got to renew her passport last week."
+      ],
+      "correct_answer": "She got her passport renewed last week.",
+      "explanation": "Cấu trúc đúng là get + object + V3: 'got her passport renewed'. Các lựa chọn khác sai thứ tự, sai dạng động từ, hoặc đổi nghĩa thành cô ấy tự đi gia hạn.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the question using the correct **causative verb**: Where did you ___ your phone repaired?",
+      "options": [
+        "get",
+        "got",
+        "getting",
+        "gets"
+      ],
+      "correct_answer": "get",
+      "explanation": "Sau trợ động từ 'did', động từ chính phải ở dạng nguyên mẫu, nên 'get' đúng. 'Got', 'getting', và 'gets' sai dạng sau 'did'.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the wrong **causative pattern**: I got the mechanic to replaced the battery.",
+      "options": [
+        "got",
+        "the mechanic",
+        "to replaced",
+        "the battery"
+      ],
+      "correct_answer": "to replaced",
+      "explanation": "Với get + person + to V, động từ sau 'to' phải là nguyên mẫu: 'to replace'. 'Got', 'the mechanic', và 'the battery' đúng vai trò trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **person causative**: The manager ___ the technician restart the server.",
+      "options": [
+        "had",
+        "got",
+        "was had",
+        "had got"
+      ],
+      "correct_answer": "had",
+      "explanation": "Khi sai/bảo một người làm gì, dùng have + person + V nguyên mẫu: 'had the technician restart'. 'Got' cần 'to restart'; 'was had' và 'had got' không phù hợp ngữ pháp ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with correct **get pattern**: I finally got my landlord ___ the leak.",
+      "options": [
+        "to fix",
+        "fix",
+        "fixed",
+        "fixing"
+      ],
+      "correct_answer": "to fix",
+      "explanation": "Với get + person, ta dùng to V: 'got my landlord to fix'. 'Fix' hợp với have + person, 'fixed' hợp với get + thing, còn 'fixing' sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the incorrect **object position**: We had painted the office by a professional team.",
+      "options": [
+        "had painted",
+        "the office",
+        "by",
+        "a professional team"
+      ],
+      "correct_answer": "had painted",
+      "explanation": "Câu muốn nói thuê người sơn văn phòng thì phải là 'had the office painted'. 'Had painted' biến câu thành quá khứ hoàn thành chủ động, không phải causative.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **passive result** meaning: 'The company arranged for new software to be installed.'",
+      "options": [
+        "The company had new software installed.",
+        "The company installed new software itself.",
+        "The company had installed new software.",
+        "The company got new software install."
+      ],
+      "correct_answer": "The company had new software installed.",
+      "explanation": "'Had new software installed' nhấn mạnh kết quả do người khác thực hiện. Các câu còn lại hoặc nói công ty tự cài, hoặc là thì quá khứ hoàn thành, hoặc sai dạng V3.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with the correct **tense**: By the time clients arrive, we will have ___ the room cleaned.",
+      "options": [
+        "had",
+        "have",
+        "having",
+        "has"
+      ],
+      "correct_answer": "had",
+      "explanation": "Trong tương lai hoàn thành của causative, dùng 'will have had + object + V3'. 'Have', 'having', và 'has' không đúng sau 'will have' trong cấu trúc này.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the wrong **past participle**: She is getting her wedding dress alter this afternoon.",
+      "options": [
+        "is getting",
+        "her wedding dress",
+        "alter",
+        "this afternoon"
+      ],
+      "correct_answer": "alter",
+      "explanation": "Sau get + object phải dùng V3: 'altered'. 'Is getting' đúng cho hành động đã sắp xếp trong tương lai gần, các phần còn lại không sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **modal causative**: You should ___ before the trip.",
+      "options": [
+        "have your brakes checked",
+        "have checked your brakes",
+        "get your brakes check",
+        "had your brakes checked"
+      ],
+      "correct_answer": "have your brakes checked",
+      "explanation": "Sau modal 'should' dùng động từ nguyên mẫu 'have', và cấu trúc là have + object + V3. Các lựa chọn khác sai thứ tự, sai V3, hoặc sai dạng sau modal.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **have pattern**: The director had her assistant ___ the invitations.",
+      "options": [
+        "send",
+        "sent",
+        "to send",
+        "sending"
+      ],
+      "correct_answer": "send",
+      "explanation": "Với have + person + V, động từ sau người thực hiện ở dạng nguyên mẫu không 'to'. 'Sent' dùng cho have + object + V3, 'to send' hợp với get + person, còn 'sending' sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **to-infinitive** use: The chef had the waiter to bring extra plates.",
+      "options": [
+        "had",
+        "the waiter",
+        "to bring",
+        "extra plates"
+      ],
+      "correct_answer": "to bring",
+      "explanation": "Sau have + person phải dùng động từ nguyên mẫu không 'to': 'bring'. 'Had', 'the waiter', và 'extra plates' đều đúng trong cấu trúc này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative causative** sentence:",
+      "options": [
+        "I didn't have the documents translated.",
+        "I didn't had the documents translated.",
+        "I didn't have translated the documents.",
+        "I didn't have the documents translate."
+      ],
+      "correct_answer": "I didn't have the documents translated.",
+      "explanation": "Phủ định quá khứ dùng 'didn't have', sau đó object + V3. Các câu khác sai dạng 'had', sai thứ tự, hoặc sai dạng động từ chính.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **object form**: They got ___ redesigned by a local architect.",
+      "options": [
+        "their kitchen",
+        "redesign their kitchen",
+        "to redesign their kitchen",
+        "their kitchen redesign"
+      ],
+      "correct_answer": "their kitchen",
+      "explanation": "Mẫu đúng là get + object + V3: 'got their kitchen redesigned'. Các lựa chọn khác làm sai thứ tự hoặc dùng sai dạng động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the incorrect **causative verb**: Did you got your eyes tested last month?",
+      "options": [
+        "Did",
+        "got",
+        "your eyes",
+        "tested"
+      ],
+      "correct_answer": "got",
+      "explanation": "Trong câu hỏi quá khứ với 'Did', động từ chính phải là 'get': 'Did you get...?'. 'Did', 'your eyes', và 'tested' đều đúng vai trò.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the sentence that means someone else fixed it, focusing on the **service**:",
+      "options": [
+        "I got the air conditioner repaired.",
+        "I repaired the air conditioner.",
+        "I got to repair the air conditioner.",
+        "I had repaired the air conditioner."
+      ],
+      "correct_answer": "I got the air conditioner repaired.",
+      "explanation": "'Got the air conditioner repaired' nghĩa là tôi sắp xếp để người khác sửa máy lạnh. Các lựa chọn khác nói tự sửa, được phép/có cơ hội sửa, hoặc dùng quá khứ hoàn thành.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **perfect form**: Have you ever ___ your portrait painted?",
+      "options": [
+        "had",
+        "have",
+        "gotten to",
+        "having"
+      ],
+      "correct_answer": "had",
+      "explanation": "Trong hiện tại hoàn thành, dùng 'have/has + V3', nên 'Have you ever had...?' là đúng. 'Have' không phải V3 ở đây, 'gotten to' đổi nghĩa, và 'having' sai dạng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the wrong **word order**: Mark got checked his blood pressure at the clinic.",
+      "options": [
+        "Mark",
+        "got checked",
+        "his blood pressure",
+        "at the clinic"
+      ],
+      "correct_answer": "got checked",
+      "explanation": "Cấu trúc đúng là 'got his blood pressure checked'. 'Got checked his blood pressure' sai thứ tự giữa object và V3.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **reported plan**: Maria said she was going to ___ before the meeting.",
+      "options": [
+        "have the projector repaired",
+        "have repaired the projector",
+        "get the projector repair",
+        "had the projector repaired"
+      ],
+      "correct_answer": "have the projector repaired",
+      "explanation": "Sau 'was going to' dùng động từ nguyên mẫu 'have' và cấu trúc object + V3. Các đáp án còn lại sai nghĩa, sai V3, hoặc sai dạng sau 'to'.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **causative choice**: The teacher ___ the students rewrite the paragraph.",
+      "options": [
+        "had",
+        "got",
+        "was got",
+        "had to"
+      ],
+      "correct_answer": "had",
+      "explanation": "Với have + person + V, 'had the students rewrite' là đúng. 'Got' cần 'to rewrite', 'was got' sai ngữ pháp, còn 'had to' nghĩa là 'phải', không phải sai bảo ai làm.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **get pattern**: We got a photographer take our family photos.",
+      "options": [
+        "got",
+        "a photographer",
+        "take",
+        "our family photos"
+      ],
+      "correct_answer": "take",
+      "explanation": "Với get + person, cần 'to V': 'got a photographer to take'. 'Got', 'a photographer', và 'our family photos' không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **unpleasant event** causative:",
+      "options": [
+        "He had his wallet stolen on the bus.",
+        "He had stolen his wallet on the bus.",
+        "He got his wallet steal on the bus.",
+        "He had his wallet to steal on the bus."
+      ],
+      "correct_answer": "He had his wallet stolen on the bus.",
+      "explanation": "'Had his wallet stolen' diễn tả một việc không mong muốn xảy ra với anh ấy, dùng have + object + V3. Các câu còn lại hoặc đổi nghĩa thành anh ấy ăn cắp, hoặc sai dạng động từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **causative form**: After the accident, Nina ___ at the garage.",
+      "options": [
+        "had her scooter checked",
+        "checked her scooter by a garage",
+        "had checked her scooter",
+        "got checking her scooter"
+      ],
+      "correct_answer": "had her scooter checked",
+      "explanation": "Dùng 'have + object + V3' để nói Nina sắp xếp cho người khác kiểm tra xe. 'Had checked' dễ hiểu là Nina đã tự kiểm tra; hai đáp án còn lại sai cấu trúc sau 'have/get'.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with the correct **past participle**: I'm going to have the documents ___ and sent today.",
+      "options": [
+        "scanned",
+        "scan",
+        "to scan",
+        "scanning"
+      ],
+      "correct_answer": "scanned",
+      "explanation": "Sau 'have + object' trong nghĩa nhờ/dịch vụ phải dùng V3: 'have the documents scanned'. 'Scan', 'to scan', và 'scanning' không đúng mẫu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **verb form**: Olivia got the tailor shorten her sleeves before the interview.",
+      "options": [
+        "Olivia",
+        "got the tailor",
+        "shorten",
+        "her sleeves"
+      ],
+      "correct_answer": "shorten",
+      "explanation": "Với người thực hiện, cấu trúc đúng là 'get + person + to V', nên phải là 'got the tailor to shorten'. Các phần còn lại đúng vai trò trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **person pattern**: The coach ___ the players repeat the drill until it was perfect.",
+      "options": [
+        "had",
+        "got",
+        "got to",
+        "had to"
+      ],
+      "correct_answer": "had",
+      "explanation": "'Have + person + V' dùng động từ nguyên mẫu không 'to': 'had the players repeat'. 'Got' cần 'to repeat', còn 'got to' và 'had to' làm câu sai nghĩa hoặc sai cấu trúc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with the correct **get pattern**: The sales team got the designer ___ the brochure overnight.",
+      "options": [
+        "to update",
+        "update",
+        "updated",
+        "updating"
+      ],
+      "correct_answer": "to update",
+      "explanation": "'Get + person + to V' là cấu trúc đúng khi thuyết phục/nhờ ai làm gì. 'Update' thiếu 'to', còn 'updated' và 'updating' không đi với mẫu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the incorrect **causative form**: We are having our security cameras install next week.",
+      "options": [
+        "We are having",
+        "our security cameras",
+        "install",
+        "next week"
+      ],
+      "correct_answer": "install",
+      "explanation": "Với đồ vật/dịch vụ, dùng 'have + object + V3': 'having our security cameras installed'. 'Install' là động từ nguyên mẫu nên sai trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **future continuous** causative: At 3 p.m. tomorrow, Jason ___.",
+      "options": [
+        "will be getting his car washed",
+        "will get washing his car",
+        "will have washed his car by someone",
+        "will be gotten his car wash"
+      ],
+      "correct_answer": "will be getting his car washed",
+      "explanation": "Câu diễn tả một dịch vụ đang diễn ra trong tương lai: 'will be getting + object + V3'. Các lựa chọn khác sai dạng động từ hoặc sai trật tự từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **object**: After moving in, they had ___ fitted in every room.",
+      "options": [
+        "new blinds",
+        "fit new blinds",
+        "the installer",
+        "fitting"
+      ],
+      "correct_answer": "new blinds",
+      "explanation": "Trong 'have + object + V3', chỗ trống cần một tân ngữ danh từ: 'new blinds'. Các đáp án khác là động từ, người thực hiện, hoặc dạng -ing nên không phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the wrong **infinitive**: The producer had the sound engineer to adjust the volume during rehearsal.",
+      "options": [
+        "The producer",
+        "had",
+        "the sound engineer",
+        "to adjust"
+      ],
+      "correct_answer": "to adjust",
+      "explanation": "Sau 'have + person' phải dùng động từ nguyên mẫu không 'to': 'had the sound engineer adjust'. 'To adjust' là lỗi thường gặp do nhầm với 'get + person + to V'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **meaning**: Which sentence means Lan arranged for someone else to translate the email?",
+      "options": [
+        "Lan had the email translated.",
+        "Lan translated the email herself.",
+        "Lan had translated the email.",
+        "Lan was translated the email."
+      ],
+      "correct_answer": "Lan had the email translated.",
+      "explanation": "'Had the email translated' nhấn mạnh Lan sắp xếp để email được dịch. Các câu khác nói Lan tự dịch, dùng thì quá khứ hoàn thành, hoặc sai cấu trúc bị động.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **causative verb**: Before signing the lease, you should ___ the wiring inspected by an electrician.",
+      "options": [
+        "have",
+        "make",
+        "let",
+        "do"
+      ],
+      "correct_answer": "have",
+      "explanation": "'Should have + object + V3' diễn tả nên nhờ/thuê ai kiểm tra hệ thống dây điện. 'Make', 'let', và 'do' không tạo được cấu trúc dịch vụ này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **past participle**: Maya got her passport renew before the conference.",
+      "options": [
+        "Maya",
+        "got",
+        "her passport",
+        "renew"
+      ],
+      "correct_answer": "renew",
+      "explanation": "Sau 'get + object' trong nghĩa dịch vụ phải dùng V3: 'got her passport renewed'. 'Renew' là động từ nguyên mẫu nên sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative form**: The clinic didn't ___ before the test results were ready.",
+      "options": [
+        "have the samples analyzed",
+        "had the samples analyzed",
+        "got the samples analyze",
+        "have analyzed the samples by a lab"
+      ],
+      "correct_answer": "have the samples analyzed",
+      "explanation": "Sau 'didn't' dùng động từ nguyên mẫu 'have', và cấu trúc là 'have + object + V3'. Các đáp án khác sai thì, sai dạng sau 'get', hoặc đổi sang nghĩa chủ động không tự nhiên.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with the correct **perfect causative**: By next Monday, they will have had the hallway ___.",
+      "options": [
+        "repainted",
+        "repaint",
+        "to repaint",
+        "repainting"
+      ],
+      "correct_answer": "repainted",
+      "explanation": "'Will have had + object + V3' diễn tả dịch vụ sẽ hoàn tất trước một mốc tương lai. Chỉ 'repainted' là quá khứ phân từ đúng sau tân ngữ.",
+      "difficulty": 3
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the incorrect **question form**: Why did the school had the playground resurfaced?",
+      "options": [
+        "Why",
+        "did",
+        "had",
+        "the playground"
+      ],
+      "correct_answer": "had",
+      "explanation": "Trong câu hỏi quá khứ với 'did', động từ chính phải ở dạng nguyên mẫu: 'did the school have'. 'Had' sai vì đã có trợ động từ 'did'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **service verb**: After the breach, we ___ our passwords reset by IT.",
+      "options": [
+        "got",
+        "made",
+        "let",
+        "did"
+      ],
+      "correct_answer": "got",
+      "explanation": "'Got our passwords reset' diễn tả việc nhờ bộ phận IT đặt lại mật khẩu. 'Made', 'let', và 'did' không phù hợp với cấu trúc 'object + V3' trong nghĩa dịch vụ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **past participle**: The gallery had the painting ___ for the exhibition.",
+      "options": [
+        "restored",
+        "restore",
+        "to restore",
+        "restoring"
+      ],
+      "correct_answer": "restored",
+      "explanation": "Cấu trúc đúng là 'had + object + V3': 'had the painting restored'. Ba đáp án còn lại không phải quá khứ phân từ trong mẫu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the incorrect **object pattern**: They had their luggage to deliver to the hotel.",
+      "options": [
+        "They had",
+        "their luggage",
+        "to deliver",
+        "to the hotel"
+      ],
+      "correct_answer": "to deliver",
+      "explanation": "Với đồ vật được xử lý bởi người khác, dùng 'have + object + V3': 'had their luggage delivered'. 'To deliver' sai vì không dùng to-infinitive sau tân ngữ trong mẫu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **result focus**: The museum wanted to emphasize that the old coins became clean, not who cleaned them.",
+      "options": [
+        "The museum had the old coins cleaned.",
+        "The museum had specialists cleaned the old coins.",
+        "The museum got the old coins clean specialists.",
+        "The museum cleaned by the old coins."
+      ],
+      "correct_answer": "The museum had the old coins cleaned.",
+      "explanation": "'Had the old coins cleaned' tập trung vào kết quả/dịch vụ nhận được. Các lựa chọn khác sai dạng động từ, sai trật tự từ, hoặc sai nghĩa.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **agent phrase**: We had the menu translated ___ a professional interpreter.",
+      "options": [
+        "by",
+        "with",
+        "from",
+        "to"
+      ],
+      "correct_answer": "by",
+      "explanation": "Khi muốn nêu người thực hiện trong cấu trúc giống bị động, dùng 'by': 'translated by a professional interpreter'. Các giới từ khác không chỉ tác nhân đúng trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the wrong **participle**: Liam is getting his bicycle chain replace before the race.",
+      "options": [
+        "Liam",
+        "is getting",
+        "his bicycle chain",
+        "replace"
+      ],
+      "correct_answer": "replace",
+      "explanation": "Sau 'get + object' phải dùng V3: 'getting his bicycle chain replaced'. 'Replace' là động từ nguyên mẫu nên sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **get clause**: I couldn't solve the tax form, so I ___.",
+      "options": [
+        "got an accountant to check it",
+        "got an accountant check it",
+        "got it to check an accountant",
+        "got checking it by an accountant"
+      ],
+      "correct_answer": "got an accountant to check it",
+      "explanation": "Khi nhờ một người làm việc gì, dùng 'get + person + to V'. Các đáp án còn lại thiếu 'to', đảo sai tân ngữ, hoặc sai dạng động từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **bare infinitive**: The supervisor had the interns ___ the files by client name.",
+      "options": [
+        "sort",
+        "to sort",
+        "sorted",
+        "sorting"
+      ],
+      "correct_answer": "sort",
+      "explanation": "'Have + person + V' dùng động từ nguyên mẫu không 'to': 'had the interns sort'. 'To sort', 'sorted', và 'sorting' không đúng sau 'had the interns'.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **modal form**: Can we had the air conditioner serviced this afternoon?",
+      "options": [
+        "Can",
+        "we",
+        "had",
+        "serviced"
+      ],
+      "correct_answer": "had",
+      "explanation": "Sau modal 'can' phải dùng động từ nguyên mẫu: 'Can we have the air conditioner serviced?' 'Serviced' vẫn đúng vì thuộc mẫu 'have + object + V3'.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **perfect causative**: Before the audit started, the finance team ___.",
+      "options": [
+        "had had the receipts organized",
+        "had the receipts organize",
+        "had been the receipts organized",
+        "got organized the receipts"
+      ],
+      "correct_answer": "had had the receipts organized",
+      "explanation": "'Had had + object + V3' là quá khứ hoàn thành của cấu trúc causative, diễn tả việc đã nhờ sắp xếp xong trước cuộc kiểm toán. Các đáp án khác sai dạng V3 hoặc sai trật tự từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **causative form**: Daniel ___ after he dropped it.",
+      "options": [
+        "had his phone screen replaced",
+        "had replaced his phone screen",
+        "got his phone screen to replace",
+        "had his phone screen replace"
+      ],
+      "correct_answer": "had his phone screen replaced",
+      "explanation": "Đúng vì cấu trúc nhờ dịch vụ là have + object + V3: “had his phone screen replaced”. Các đáp án khác sai trật tự hoặc dùng sai dạng động từ sau object.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **past participle**: The manager got the presentation slides ___ before the client call.",
+      "options": [
+        "redesigned",
+        "redesign",
+        "to redesign",
+        "redesigning"
+      ],
+      "correct_answer": "redesigned",
+      "explanation": "Sau get + object trong nghĩa nhờ ai làm, động từ chính phải ở dạng quá khứ phân từ: “got the slides redesigned”. “redesign”, “to redesign”, và “redesigning” không đúng mẫu get + object + V3.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **verb form**: Emma had the plumber to fix the leaking sink.",
+      "options": [
+        "had",
+        "the plumber",
+        "to fix",
+        "the leaking sink"
+      ],
+      "correct_answer": "to fix",
+      "explanation": "Với have + person + V, động từ sau người phải là bare infinitive: “had the plumber fix”. “to fix” sai vì không dùng “to” sau have trong mẫu sai bảo này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **get pattern**: I finally ___ my landlord to replace the broken heater.",
+      "options": [
+        "got",
+        "had",
+        "made",
+        "was got"
+      ],
+      "correct_answer": "got",
+      "explanation": "Đúng vì get + person + to V diễn tả thuyết phục/nhờ ai làm: “got my landlord to replace”. “had” sẽ cần động từ nguyên mẫu không “to”, còn “made” đổi sắc thái ép buộc.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **causative verb**: We need to ___ the documents checked by a lawyer.",
+      "options": [
+        "have",
+        "make",
+        "let",
+        "do"
+      ],
+      "correct_answer": "have",
+      "explanation": "“have the documents checked” đúng cấu trúc have + object + V3, nhấn mạnh kết quả kiểm tra. “make/let/do” không tạo cấu trúc nhờ dịch vụ với V3 như câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the wrong **word order**: They got cleaned the carpets before the guests arrived.",
+      "options": [
+        "got cleaned",
+        "the carpets",
+        "before",
+        "arrived"
+      ],
+      "correct_answer": "got cleaned",
+      "explanation": "Trật tự đúng là get + object + V3: “got the carpets cleaned”. “got cleaned the carpets” đặt V3 trước object nên sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative form**: Sophie ___ her nails done because the salon was closed.",
+      "options": [
+        "didn't get",
+        "didn't got",
+        "wasn't get",
+        "hadn't get"
+      ],
+      "correct_answer": "didn't get",
+      "explanation": "Trong quá khứ phủ định, dùng did not + động từ nguyên mẫu: “didn't get her nails done”. “didn't got”, “wasn't get”, và “hadn't get” sai trợ động từ hoặc dạng động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the sentence with the correct **bare infinitive**: The director had the camera crew ___ the scene again.",
+      "options": [
+        "film",
+        "filmed",
+        "to film",
+        "filming"
+      ],
+      "correct_answer": "film",
+      "explanation": "Sau have + person, động từ theo sau ở dạng nguyên mẫu không “to”: “had the camera crew film”. Các dạng “filmed”, “to film”, “filming” không phù hợp mẫu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the incorrect **participle**: I got my laptop repair after it kept freezing.",
+      "options": [
+        "got",
+        "my laptop",
+        "repair",
+        "kept freezing"
+      ],
+      "correct_answer": "repair",
+      "explanation": "Cấu trúc get + object + V3 cần quá khứ phân từ: “got my laptop repaired”. “repair” là động từ nguyên mẫu nên sai trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **question form**: When ___ your eyes tested?",
+      "options": [
+        "did you last have",
+        "you last had",
+        "did you last had",
+        "were you have"
+      ],
+      "correct_answer": "did you last have",
+      "explanation": "Câu hỏi quá khứ đơn dùng did + subject + base verb: “When did you last have your eyes tested?” Các lựa chọn khác sai trật tự hoặc dùng sai dạng “had”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **object pattern**: My parents are having ___ installed this weekend.",
+      "options": [
+        "solar panels",
+        "install solar panels",
+        "to install solar panels",
+        "solar panels install"
+      ],
+      "correct_answer": "solar panels",
+      "explanation": "Câu cần object đứng giữa have và V3: “having solar panels installed”. Các đáp án còn lại làm câu dư hoặc sai dạng động từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **get pattern**: Rachel got her cousin drive her to the station.",
+      "options": [
+        "got",
+        "her cousin",
+        "drive",
+        "to the station"
+      ],
+      "correct_answer": "drive",
+      "explanation": "Với get + person, cần to V: “got her cousin to drive”. “drive” chỉ đúng sau have + person, không đúng sau get + person.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **passive result**: The office looks brighter because we ___ yesterday.",
+      "options": [
+        "had the windows cleaned",
+        "cleaned the windows by us",
+        "had cleaned the windows ourselves",
+        "got the windows to clean"
+      ],
+      "correct_answer": "had the windows cleaned",
+      "explanation": "Câu nhấn mạnh kết quả dịch vụ nên dùng have + object + V3. Các đáp án khác hoặc nói tự làm, hoặc sai cấu trúc causative.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **agent phrase**: Liam had his taxes prepared ___ an accountant.",
+      "options": [
+        "by",
+        "with",
+        "from",
+        "for"
+      ],
+      "correct_answer": "by",
+      "explanation": "Khi muốn nói người thực hiện trong cấu trúc bị động/causative, dùng “by”: “prepared by an accountant”. “with/from/for” không giới thiệu tác nhân thực hiện hành động trong câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the wrong **tense form**: By noon, we will have get the invitations printed.",
+      "options": [
+        "By noon",
+        "will have get",
+        "the invitations",
+        "printed"
+      ],
+      "correct_answer": "will have get",
+      "explanation": "Sau “will have” trong thì tương lai hoàn thành cần V3: “will have got/gotten” hoặc tự nhiên hơn “will have had”. “will have get” sai vì “get” chưa chia quá khứ phân từ.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **modal form**: You should ___ before buying that used car.",
+      "options": [
+        "have it inspected",
+        "have inspected it",
+        "get it inspect",
+        "have it to inspect"
+      ],
+      "correct_answer": "have it inspected",
+      "explanation": "Sau modal “should” dùng động từ nguyên mẫu “have”, rồi object + V3: “have it inspected”. Các lựa chọn khác sai trật tự hoặc sai dạng động từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **get clause**: After many emails, we got the supplier ___ the faulty parts.",
+      "options": [
+        "to replace",
+        "replace",
+        "replaced",
+        "replacing"
+      ],
+      "correct_answer": "to replace",
+      "explanation": "Khi object là người/tổ chức thực hiện hành động, dùng get + person + to V. “replace” hợp với have, còn “replaced” là mẫu get + object + V3 khi object là vật bị tác động.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the incorrect **object form**: The hotel had delivered our breakfast to the room.",
+      "options": [
+        "The hotel",
+        "had delivered",
+        "our breakfast",
+        "to the room"
+      ],
+      "correct_answer": "had delivered",
+      "explanation": "Nếu nghĩa là khách sạn sắp xếp để bữa sáng được giao, cần “had our breakfast delivered”. “had delivered” lại là quá khứ hoàn thành chủ động, không phải cấu trúc causative.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **person pattern**: The team leader ___ the analyst prepare a short summary.",
+      "options": [
+        "had",
+        "got",
+        "was had",
+        "gotten"
+      ],
+      "correct_answer": "had",
+      "explanation": "Have + person + bare infinitive là cấu trúc sai bảo/nhờ ai làm: “had the analyst prepare”. “got” cần “to prepare”, còn “was had/gotten” không đúng ngữ pháp ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **past participle**: I'm getting my winter coat ___ before the trip.",
+      "options": [
+        "dry-cleaned",
+        "dry-clean",
+        "to dry-clean",
+        "dry-cleaning"
+      ],
+      "correct_answer": "dry-cleaned",
+      "explanation": "Sau get + object, hành động được làm cho object phải ở dạng V3: “getting my coat dry-cleaned”. Các lựa chọn còn lại không phải quá khứ phân từ phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the wrong **question word**: Did you had your apartment painted last month?",
+      "options": [
+        "Did",
+        "had",
+        "your apartment",
+        "painted"
+      ],
+      "correct_answer": "had",
+      "explanation": "Trong câu hỏi quá khứ đơn với “Did”, động từ chính phải ở dạng nguyên mẫu: “Did you have...?” “had” sai vì đã có trợ động từ “Did”.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **continuous form**: At the moment, Grace ___ at the studio.",
+      "options": [
+        "is having her portrait taken",
+        "has her portrait take",
+        "is getting her portrait to take",
+        "had her portrait taking"
+      ],
+      "correct_answer": "is having her portrait taken",
+      "explanation": "Hiện tại tiếp diễn causative dùng be + having + object + V3. Các đáp án khác sai dạng participle hoặc sai cấu trúc sau object.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **causative form**: Before the launch, the company had its logo ___ on every box.",
+      "options": [
+        "printed",
+        "print",
+        "to print",
+        "printing"
+      ],
+      "correct_answer": "printed",
+      "explanation": "“Had its logo printed” dùng have + object + V3 để nói công ty sắp xếp việc in logo. “print/to print/printing” không đúng sau object trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the incorrect **causative verb**: We made the report proofread by a specialist.",
+      "options": [
+        "made",
+        "the report",
+        "proofread",
+        "by a specialist"
+      ],
+      "correct_answer": "made",
+      "explanation": "Với nghĩa nhờ dịch vụ cho vật được xử lý, dùng “had/got the report proofread”. “made” không kết hợp tự nhiên với object + V3 + by agent trong nghĩa này.",
+      "difficulty": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the sentence with correct **meaning**: Which sentence means Minh arranged for someone to frame the photo?",
+      "options": [
+        "Minh had the photo framed.",
+        "Minh framed the photo himself.",
+        "Minh had the photo frame.",
+        "Minh got the photo to frame."
+      ],
+      "correct_answer": "Minh had the photo framed.",
+      "explanation": "“Had the photo framed” nghĩa là Minh sắp xếp để người khác đóng khung ảnh. Các câu còn lại hoặc nói tự làm, hoặc sai vì “frame” chưa ở dạng V3/đặt sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **causative structure**: After the storm, Mr. Nguyen ___ by a professional.",
+      "options": [
+        "had the fence repaired",
+        "had repaired the fence",
+        "got the fence repair",
+        "had the fence to repair"
+      ],
+      "correct_answer": "had the fence repaired",
+      "explanation": "Đáp án đúng là “had the fence repaired” vì cấu trúc nhờ/sắp xếp cho người khác làm là have + object + V3. “had repaired the fence” nghĩa là tự ông ấy đã sửa; “repair” và “to repair” sai dạng sau object trong cấu trúc này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **past participle**: We're having the conference room ___ before Monday's meeting.",
+      "options": [
+        "repainted",
+        "repaint",
+        "to repaint",
+        "repainting"
+      ],
+      "correct_answer": "repainted",
+      "explanation": "Sau “have + object” để nói căn phòng được người khác sơn lại, động từ phải ở dạng V3: “repainted”. Các lựa chọn còn lại là nguyên mẫu, to-infinitive hoặc V-ing nên không đúng cấu trúc have something done.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the incorrect **verb form**: Maya got her passport renew before the business trip.",
+      "options": [
+        "got",
+        "her passport",
+        "renew",
+        "before"
+      ],
+      "correct_answer": "renew",
+      "explanation": "Sai ở “renew” vì sau get + object trong nghĩa nhờ làm phải dùng quá khứ phân từ: “got her passport renewed”. “got”, “her passport” và “before” đều phù hợp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **person pattern**: The hotel manager ___ the technician check the elevator immediately.",
+      "options": [
+        "had",
+        "got",
+        "was having",
+        "has gotten"
+      ],
+      "correct_answer": "had",
+      "explanation": "Khi theo sau là người + động từ nguyên mẫu không “to”, ta dùng “have + person + V”: “had the technician check”. “got” cần “to check”, còn “was having/has gotten” không phù hợp với cấu trúc và thời của câu này.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **to-infinitive**: Nina got the delivery driver ___ the package at the side door.",
+      "options": [
+        "to leave",
+        "leave",
+        "left",
+        "leaving"
+      ],
+      "correct_answer": "to leave",
+      "explanation": "Với cấu trúc “get + person + to V”, đáp án đúng là “to leave”. “leave” dùng với have + person + V, “left” là V3/quá khứ, còn “leaving” không phù hợp sau “got the driver”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mark the wrong **word order**: We had checked our smoke alarms by an electrician last Friday.",
+      "options": [
+        "had checked",
+        "our smoke alarms",
+        "by an electrician",
+        "last Friday"
+      ],
+      "correct_answer": "had checked",
+      "explanation": "Sai ở “had checked” vì câu muốn nói chúng tôi thuê/nhờ người khác kiểm tra, nên phải là “had our smoke alarms checked”. Cụm “by an electrician” chỉ người thực hiện dịch vụ, và các phần còn lại đúng ngữ cảnh.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **future causative**: Before we move in, we ___ professionally cleaned.",
+      "options": [
+        "will get the flat",
+        "will get the flat to",
+        "will have cleaned the flat",
+        "will get cleaned the flat"
+      ],
+      "correct_answer": "will get the flat",
+      "explanation": "Câu đầy đủ là “we will get the flat professionally cleaned”, đúng mẫu get + object + V3. “will get the flat to” thiếu động từ chính, “will have cleaned the flat” dễ hiểu là tự hoàn tất việc dọn, còn “will get cleaned the flat” sai trật tự từ.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **causative verb**: The director wants to ___ the contract reviewed before signing it.",
+      "options": [
+        "have",
+        "make",
+        "let",
+        "do"
+      ],
+      "correct_answer": "have",
+      "explanation": "“Have the contract reviewed” diễn đạt việc sắp xếp để hợp đồng được người khác xem xét. “Make/let/do” không tạo cấu trúc have/get + object + V3 trong nghĩa nhờ làm dịch vụ này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Identify the incorrect **get pattern**: Oliver got a designer redesign his website for the launch.",
+      "options": [
+        "got",
+        "a designer",
+        "redesign",
+        "his website"
+      ],
+      "correct_answer": "redesign",
+      "explanation": "Sai ở “redesign” vì với get + person phải dùng “to V”: “got a designer to redesign”. “got”, “a designer” và “his website” đều đúng vai trò trong câu.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **negative causative**: The tenants ___ until the owner approved the budget.",
+      "options": [
+        "couldn't get the heater fixed",
+        "couldn't got the heater fixed",
+        "couldn't get fixed the heater",
+        "couldn't have the heater fix"
+      ],
+      "correct_answer": "couldn't get the heater fixed",
+      "explanation": "Sau modal “couldn't” dùng động từ nguyên mẫu “get”, và mẫu đúng là get + object + V3. “got” sau modal sai, “get fixed the heater” sai trật tự từ, còn “fix” phải là “fixed”.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete with the correct **bare infinitive**: The coach had the players ___ their boots after training.",
+      "options": [
+        "clean",
+        "to clean",
+        "cleaned",
+        "cleaning"
+      ],
+      "correct_answer": "clean",
+      "explanation": "Khi “have” mang nghĩa sai/bảo ai làm gì, cấu trúc là have + person + V nguyên mẫu không “to”. “to clean” dùng sai với have, “cleaned” là V3, còn “cleaning” không đúng mẫu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Choose the wrong **participle**: I am getting my wedding dress alter for the ceremony.",
+      "options": [
+        "am getting",
+        "my wedding dress",
+        "alter",
+        "for the ceremony"
+      ],
+      "correct_answer": "alter",
+      "explanation": "Sai ở “alter” vì “get + object + V3” cần quá khứ phân từ: “altered”. “am getting” đúng cho hành động đang được sắp xếp, và các cụm còn lại đúng chức năng trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **perfect form**: By the time guests arrive, Karen ___ tested.",
+      "options": [
+        "will have had the sound system",
+        "will have the sound system have",
+        "will get the sound system testing",
+        "will have got the sound system to"
+      ],
+      "correct_answer": "will have had the sound system",
+      "explanation": "Câu hoàn chỉnh là “Karen will have had the sound system tested”, đúng dạng tương lai hoàn thành của have + object + V3. Các lựa chọn khác sai cấu trúc: dùng “have” lặp sai, dùng V-ing, hoặc thiếu động từ sau “to”.",
+      "difficulty": 3
     }
   ]
 }

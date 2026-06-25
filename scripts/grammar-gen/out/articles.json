@@ -459,6 +459,1137 @@
       ],
       "answer": "Đúng",
       "fb": "Đúng vì danh từ 'book' đã được nhắc đến trước đó, dùng **the**."
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: She has ___ umbrella.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "one"
+      ],
+      "correct_answer": "an",
+      "explanation": "Dùng \"an\" trước danh từ số ít bắt đầu bằng âm nguyên âm: \"umbrella\". \"a\" dùng trước âm phụ âm; \"the\" dùng khi chiếc ô đã xác định; \"one\" nhấn mạnh số lượng, không phải mạo từ phù hợp nhất ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct sentence with **a/an**.",
+      "options": [
+        "He is a engineer.",
+        "He is an engineer.",
+        "He is the engineer.",
+        "He is engineer."
+      ],
+      "correct_answer": "He is an engineer.",
+      "explanation": "\"Engineer\" bắt đầu bằng âm nguyên âm nên dùng \"an\". \"a engineer\" sai âm; \"the engineer\" chỉ một kỹ sư cụ thể; thiếu mạo từ trước danh từ đếm được số ít là sai trong ngữ cảnh này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: My sister wants **a** orange after lunch.",
+      "options": [
+        "My sister",
+        "wants",
+        "a",
+        "orange"
+      ],
+      "correct_answer": "a",
+      "explanation": "\"Orange\" bắt đầu bằng âm nguyên âm nên phải dùng \"an orange\". Các phần còn lại đúng ngữ pháp trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: We live in ___ small house.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "this"
+      ],
+      "correct_answer": "a",
+      "explanation": "\"Small\" bắt đầu bằng âm phụ âm /s/ nên dùng \"a\". \"an\" sai vì không đứng trước âm nguyên âm; \"the\" dùng khi căn nhà đã xác định; \"this\" không phải mạo từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct sentence with **the**.",
+      "options": [
+        "Please close a window near you.",
+        "Please close an window near you.",
+        "Please close the window near you.",
+        "Please close window near you."
+      ],
+      "correct_answer": "Please close the window near you.",
+      "explanation": "Cụm \"near you\" làm rõ cửa sổ cụ thể nào, nên dùng \"the\". \"a/an\" không phù hợp vì không nói chung chung; thiếu mạo từ trước danh từ số ít là sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I need **an** pencil for class.",
+      "options": [
+        "I",
+        "need",
+        "an",
+        "pencil"
+      ],
+      "correct_answer": "an",
+      "explanation": "\"Pencil\" bắt đầu bằng âm phụ âm /p/ nên phải dùng \"a pencil\". Các từ khác đúng trong cấu trúc câu đơn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Tom bought ___ new phone yesterday.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "these"
+      ],
+      "correct_answer": "a",
+      "explanation": "\"New\" bắt đầu bằng âm phụ âm /n/ nên dùng \"a new phone\" khi nói lần đầu. \"an\" sai âm; \"the\" chỉ điện thoại đã biết; \"these\" dùng cho số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **article**: There is ___ egg in the bowl.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "many"
+      ],
+      "correct_answer": "an",
+      "explanation": "\"Egg\" bắt đầu bằng âm nguyên âm nên dùng \"an egg\". \"a\" sai âm; \"the\" dùng khi quả trứng đã xác định; \"many\" không đi với danh từ số ít \"egg\".",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: They saw **the** bird in a tree for the first time.",
+      "options": [
+        "They",
+        "saw",
+        "the",
+        "bird"
+      ],
+      "correct_answer": "the",
+      "explanation": "Vì con chim được nhắc lần đầu và chưa xác định, nên dùng \"a bird\". \"The\" chỉ vật đã biết hoặc cụ thể rõ ràng, nên không phù hợp ở đây.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: I found a key. ___ key was under my chair.",
+      "options": [
+        "A",
+        "An",
+        "The",
+        "Some"
+      ],
+      "correct_answer": "The",
+      "explanation": "Sau khi đã nhắc \"a key\", lần sau ta dùng \"the key\" vì người nghe biết chìa khóa nào. \"A/An\" dùng khi giới thiệu lần đầu; \"Some\" không hợp với danh từ số ít \"key\".",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct sentence with **an**.",
+      "options": [
+        "It is a interesting story.",
+        "It is an interesting story.",
+        "It is the interesting story.",
+        "It is interesting story."
+      ],
+      "correct_answer": "It is an interesting story.",
+      "explanation": "\"Interesting\" bắt đầu bằng âm nguyên âm nên dùng \"an\". \"a\" sai âm; \"the\" chỉ câu chuyện cụ thể; thiếu mạo từ trước \"story\" là sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She has **a** old bike.",
+      "options": [
+        "She",
+        "has",
+        "a",
+        "old bike"
+      ],
+      "correct_answer": "a",
+      "explanation": "\"Old\" bắt đầu bằng âm nguyên âm nên phải dùng \"an old bike\". \"She has\" và danh từ \"old bike\" đều đúng nếu mạo từ được sửa.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Look at ___ moon tonight.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "one"
+      ],
+      "correct_answer": "the",
+      "explanation": "\"The moon\" là vật duy nhất và xác định, nên dùng \"the\". \"a/an\" không phù hợp vì không nói một mặt trăng bất kỳ; \"one\" chỉ số lượng.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct sentence with **a**.",
+      "options": [
+        "She is an doctor.",
+        "She is a doctor.",
+        "She is the doctor.",
+        "She is doctor."
+      ],
+      "correct_answer": "She is a doctor.",
+      "explanation": "\"Doctor\" bắt đầu bằng âm phụ âm /d/ nên dùng \"a doctor\" khi nói nghề nghiệp. \"an\" sai âm; \"the\" chỉ bác sĩ cụ thể; thiếu mạo từ trước danh từ số ít là sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Can you pass me **a** salt, please?",
+      "options": [
+        "Can you",
+        "pass",
+        "a",
+        "salt"
+      ],
+      "correct_answer": "a",
+      "explanation": "Trong ngữ cảnh bàn ăn, \"salt\" thường là lọ muối cụ thể mà cả hai người thấy, nên dùng \"the salt\". \"A salt\" không tự nhiên trong câu này; các phần còn lại đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: This is ___ easy question.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "those"
+      ],
+      "correct_answer": "an",
+      "explanation": "\"Easy\" bắt đầu bằng âm nguyên âm nên dùng \"an easy question\". \"a\" sai âm; \"the\" chỉ câu hỏi đã xác định; \"those\" dùng cho số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best sentence with **the**.",
+      "options": [
+        "I opened a door of my room.",
+        "I opened an door of my room.",
+        "I opened the door of my room.",
+        "I opened door of my room."
+      ],
+      "correct_answer": "I opened the door of my room.",
+      "explanation": "\"The door of my room\" là cánh cửa cụ thể, nên dùng \"the\". \"a/an\" không phù hợp vì đã xác định bằng \"of my room\"; thiếu mạo từ là sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: We visited **an** museum on Sunday.",
+      "options": [
+        "We",
+        "visited",
+        "an",
+        "museum"
+      ],
+      "correct_answer": "an",
+      "explanation": "\"Museum\" bắt đầu bằng âm phụ âm /m/ nên phải dùng \"a museum\". Các từ còn lại đúng với câu quá khứ đơn này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Anna is wearing ___ red dress today.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "these"
+      ],
+      "correct_answer": "a",
+      "explanation": "\"Red\" bắt đầu bằng âm phụ âm /r/ nên dùng \"a red dress\" khi nói lần đầu. \"an\" sai âm; \"the\" cần ngữ cảnh chiếc váy đã xác định; \"these\" dùng cho số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct sentence with **an**.",
+      "options": [
+        "I need a umbrella.",
+        "I need an umbrella.",
+        "I need the umbrella.",
+        "I need umbrella."
+      ],
+      "correct_answer": "I need an umbrella.",
+      "explanation": "\"Umbrella\" bắt đầu bằng âm nguyên âm nên dùng \"an umbrella\". \"a\" sai âm; \"the\" chỉ chiếc ô cụ thể; thiếu mạo từ trước danh từ số ít là sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: He bought **an** sandwich at the cafe.",
+      "options": [
+        "He",
+        "bought",
+        "an",
+        "sandwich"
+      ],
+      "correct_answer": "an",
+      "explanation": "\"Sandwich\" bắt đầu bằng âm phụ âm /s/ nên phải dùng \"a sandwich\". Các phần khác đúng trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: I see a cat. ___ cat is black.",
+      "options": [
+        "A",
+        "An",
+        "The",
+        "Any"
+      ],
+      "correct_answer": "The",
+      "explanation": "Con mèo đã được nhắc bằng \"a cat\", nên lần sau dùng \"the cat\". \"A/An\" dùng khi giới thiệu lần đầu; \"Any\" không phù hợp với câu khẳng định số ít này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct sentence with **a/an**.",
+      "options": [
+        "It is a apple.",
+        "It is an apple.",
+        "It is the apple.",
+        "It is apple."
+      ],
+      "correct_answer": "It is an apple.",
+      "explanation": "\"Apple\" bắt đầu bằng âm nguyên âm nên dùng \"an apple\". \"a\" sai âm; \"the\" chỉ quả táo cụ thể; thiếu mạo từ trước danh từ số ít là sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: The boy has **an** blue bag.",
+      "options": [
+        "The boy",
+        "has",
+        "an",
+        "blue bag"
+      ],
+      "correct_answer": "an",
+      "explanation": "\"Blue\" bắt đầu bằng âm phụ âm /b/ nên phải dùng \"a blue bag\". \"The boy has\" và cụm danh từ còn lại đúng nếu sửa mạo từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best **article** for a specific noun: Please put the cup on ___ table near the door.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "some"
+      ],
+      "correct_answer": "the",
+      "explanation": "\"Table near the door\" là cái bàn cụ thể, nên dùng \"the\". \"a/an\" dùng cho danh từ chưa xác định; \"some\" không hợp với danh từ số ít \"table\".",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Mike has ___ banana in his bag.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là 'a' vì 'banana' là danh từ đếm được số ít và bắt đầu bằng âm phụ âm /b/. 'an' dùng trước âm nguyên âm, 'the' dùng khi danh từ đã xác định, còn 'no article' không phù hợp với danh từ số ít này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: I want ___ ice cream, please.",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "Đáp án đúng là 'an' vì 'ice cream' bắt đầu bằng âm nguyên âm /aɪ/. 'a' dùng trước âm phụ âm, 'the' chỉ món kem cụ thể, còn 'no article' không phù hợp trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Close ___ window, please.",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "one"
+      ],
+      "correct_answer": "the",
+      "explanation": "Đáp án đúng là 'the' vì người nói đang nói về cửa sổ cụ thể mà cả hai người đều hiểu. 'a/an' dùng khi nhắc lần đầu hoặc không xác định, còn 'one' nhấn mạnh số lượng.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: She is ___ teacher at my school.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "this"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là 'a' vì 'teacher' là danh từ đếm được số ít và bắt đầu bằng âm phụ âm. 'an' sai vì không đứng trước âm phụ âm, 'the' cần danh từ xác định hơn, còn 'this' không phải mạo từ phù hợp ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: We saw ___ elephant at the zoo.",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "that"
+      ],
+      "correct_answer": "an",
+      "explanation": "Đáp án đúng là 'an' vì 'elephant' bắt đầu bằng âm nguyên âm /e/. 'a' sai vì dùng trước âm phụ âm, 'the' chỉ con voi đã xác định, còn 'that' không phù hợp với nghĩa nhắc lần đầu.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Dad opened a box. Inside ___ box was a toy.",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "some"
+      ],
+      "correct_answer": "the",
+      "explanation": "Đáp án đúng là 'the' vì 'box' đã được nhắc đến ở câu trước. 'a/an' dùng cho danh từ chưa xác định hoặc nhắc lần đầu, còn 'some' không dùng với danh từ số ít 'box'.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: My brother needs ___ jacket today.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "these"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là 'a' vì 'jacket' là danh từ đếm được số ít bắt đầu bằng âm phụ âm /dʒ/. 'an' dùng trước âm nguyên âm, 'the' dùng khi chiếc áo đã xác định, còn 'these' dùng cho số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: There is ___ apple on your desk.",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "one of"
+      ],
+      "correct_answer": "an",
+      "explanation": "Đáp án đúng là 'an' vì 'apple' bắt đầu bằng âm nguyên âm. 'a' sai vì không dùng trước âm nguyên âm, 'the' không phù hợp khi nhắc lần đầu, còn 'one of' cần danh từ số nhiều sau đó.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Please give me ___ map on the wall.",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "many"
+      ],
+      "correct_answer": "the",
+      "explanation": "Đáp án đúng là 'the' vì 'map on the wall' là bản đồ cụ thể. 'a/an' dùng cho một bản đồ bất kỳ hoặc chưa xác định, còn 'many' dùng với danh từ số nhiều.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: This is ___ notebook for class.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là 'a' vì 'notebook' là danh từ số ít bắt đầu bằng âm phụ âm. 'an' sai vì không đứng trước âm phụ âm, 'the' cần quyển vở xác định, còn 'no article' sai với danh từ đếm được số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: I can see ___ star in the sky.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "these"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là 'a' vì 'star' là danh từ đếm được số ít bắt đầu bằng âm phụ âm và chưa xác định. 'an' sai âm, 'the' chỉ một ngôi sao cụ thể, còn 'these' dùng cho số nhiều.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the best sentence with **a**.",
+      "options": [
+        "This is a lemon.",
+        "This is an lemon.",
+        "This is the lemon first time.",
+        "This is lemon."
+      ],
+      "correct_answer": "This is a lemon.",
+      "explanation": "Đáp án đúng là 'This is a lemon' vì 'lemon' bắt đầu bằng âm phụ âm và được nhắc lần đầu. 'an lemon' sai âm, 'the lemon first time' không đúng ngữ cảnh, còn 'This is lemon' thiếu mạo từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article** for a specific noun: Put your bag under ___ desk.",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "some"
+      ],
+      "correct_answer": "the",
+      "explanation": "Đáp án đúng là 'the' vì 'your bag' cần đặt dưới cái bàn cụ thể trong tình huống. 'a/an' chỉ một cái bàn bất kỳ, còn 'some' không dùng với danh từ số ít 'desk'.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Emma has **an** school bag.",
+      "options": [
+        "Emma",
+        "has",
+        "an",
+        "school bag"
+      ],
+      "correct_answer": "an",
+      "explanation": "Lỗi là 'an' vì 'school bag' bắt đầu bằng âm phụ âm /s/. Cần dùng 'a school bag'. Các phần còn lại đúng ngữ pháp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I found **a** umbrella near the door.",
+      "options": [
+        "I",
+        "found",
+        "a",
+        "umbrella"
+      ],
+      "correct_answer": "a",
+      "explanation": "Lỗi là 'a' vì 'umbrella' bắt đầu bằng âm nguyên âm /ʌ/. Cần dùng 'an umbrella'. Các từ khác không sai trong cấu trúc câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Please open **a** door on the left.",
+      "options": [
+        "Please",
+        "open",
+        "a",
+        "door on the left"
+      ],
+      "correct_answer": "a",
+      "explanation": "Lỗi là 'a' vì 'door on the left' là cánh cửa cụ thể. Cần dùng 'the door on the left'. Các phần khác đúng.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: He is **an** good student.",
+      "options": [
+        "He",
+        "is",
+        "an",
+        "good student"
+      ],
+      "correct_answer": "an",
+      "explanation": "Lỗi là 'an' vì 'good' bắt đầu bằng âm phụ âm /g/. Cần dùng 'a good student'. Các phần còn lại đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: We watched **a** interesting movie last night.",
+      "options": [
+        "We",
+        "watched",
+        "a",
+        "interesting movie"
+      ],
+      "correct_answer": "a",
+      "explanation": "Lỗi là 'a' vì 'interesting' bắt đầu bằng âm nguyên âm /ɪ/. Cần dùng 'an interesting movie'. Các phần khác đúng trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I have **the** question for you.",
+      "options": [
+        "I",
+        "have",
+        "the",
+        "question"
+      ],
+      "correct_answer": "the",
+      "explanation": "Lỗi là 'the' nếu đây là một câu hỏi chưa xác định được nêu lần đầu. Cần dùng 'a question'. 'I', 'have' và 'question' không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Lisa bought **an** yellow skirt.",
+      "options": [
+        "Lisa",
+        "bought",
+        "an",
+        "yellow skirt"
+      ],
+      "correct_answer": "an",
+      "explanation": "Lỗi là 'an' vì 'yellow' bắt đầu bằng âm phụ âm /j/. Cần dùng 'a yellow skirt'. Các phần còn lại đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: There is **the** chair in my room.",
+      "options": [
+        "There",
+        "is",
+        "the",
+        "chair"
+      ],
+      "correct_answer": "the",
+      "explanation": "Lỗi là 'the' nếu chiếc ghế được nhắc lần đầu và chưa xác định. Cần dùng 'a chair'. Các phần khác đúng với cấu trúc 'There is'.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: This is ___ orange pencil.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "Dùng “an” trước âm nguyên âm /ɒ/ trong “orange”. “a” dùng trước âm phụ âm; “the” chỉ vật đã xác định; “no article” không phù hợp với danh từ đếm được số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Ben has ___ small dog.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "a",
+      "explanation": "“Small dog” bắt đầu bằng âm phụ âm /s/, nên dùng “a”. “an” dùng trước âm nguyên âm; “the” chỉ con chó cụ thể đã biết; bỏ mạo từ là sai với danh từ đếm được số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: I found ___ old key in my coat.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Old” bắt đầu bằng âm nguyên âm /əʊ/, nên dùng “an”. “a” sai vì không đi trước âm nguyên âm; “the” chưa phù hợp vì chiếc chìa khóa được nhắc lần đầu; bỏ mạo từ là sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Can you pass me ___ salt on the table?",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "the",
+      "explanation": "Dùng “the” vì muối đã được xác định rõ: muối trên bàn. “a/an” không dùng với “salt” trong nghĩa không đếm được này; “no article” thiếu ý cụ thể.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: There is ___ egg in the bowl.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Egg” bắt đầu bằng âm nguyên âm /e/, nên dùng “an”. “a” sai về âm; “the” không phù hợp vì quả trứng chưa được xác định; bỏ mạo từ là sai với danh từ đếm được số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: I met a nurse. ___ nurse was very kind.",
+      "options": [
+        "A",
+        "An",
+        "The",
+        "No article"
+      ],
+      "correct_answer": "The",
+      "explanation": "Dùng “The” vì “nurse” đã được nhắc trước đó bằng “a nurse”. “A/An” sẽ làm như nói về một y tá mới; “No article” không đúng với danh từ đếm được số ít cụ thể.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: She wants ___ new phone for her birthday.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "a",
+      "explanation": "“New phone” bắt đầu bằng âm phụ âm /n/, nên dùng “a”. “an” sai vì không đi trước âm phụ âm; “the” chỉ chiếc điện thoại cụ thể; bỏ mạo từ là sai.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: My sister is ___ artist.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Artist” bắt đầu bằng âm nguyên âm /ɑː/, nên dùng “an”. “a” sai về âm; “the” chỉ một nghệ sĩ cụ thể; bỏ mạo từ là sai khi nói nghề nghiệp số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the sentence with the correct **article**.",
+      "options": [
+        "I need a pencil.",
+        "I need an pencil.",
+        "I need the pencil, any pencil.",
+        "I need no article pencil."
+      ],
+      "correct_answer": "I need a pencil.",
+      "explanation": "“Pencil” bắt đầu bằng âm phụ âm /p/, nên dùng “a” khi nói chung một cây bút chì. “an pencil” sai về âm; “the” không hợp nếu không chỉ cây bút cụ thể; “no article pencil” sai cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article** for the blank: We saw ___ owl in the tree.",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Owl” bắt đầu bằng âm nguyên âm /aʊ/, nên dùng “an”. “a” sai về âm; “the” chỉ con cú đã xác định; bỏ mạo từ là sai với danh từ đếm được số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the sentence with correct first and second **mention**.",
+      "options": [
+        "I saw a bird. The bird was green.",
+        "I saw the bird. A bird was green.",
+        "I saw an bird. The bird was green.",
+        "I saw a bird. An bird was green."
+      ],
+      "correct_answer": "I saw a bird. The bird was green.",
+      "explanation": "Lần đầu nhắc đến dùng “a bird”, lần sau dùng “the bird” vì đã xác định. “an bird” sai vì “bird” bắt đầu bằng âm phụ âm; đổi sang “a/an” ở câu hai làm mất ý đã nhắc trước đó.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article** for a job.",
+      "options": [
+        "He is a doctor.",
+        "He is an doctor.",
+        "He is the doctor, generally.",
+        "He is doctor."
+      ],
+      "correct_answer": "He is a doctor.",
+      "explanation": "Khi nói nghề nghiệp số ít, dùng “a/an”; “doctor” bắt đầu bằng âm phụ âm nên là “a doctor”. “an doctor” sai; “the doctor” chỉ bác sĩ cụ thể; “He is doctor” thiếu mạo từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article** for a specific place.",
+      "options": [
+        "The bank is next to the school.",
+        "A bank is next to the school we both know.",
+        "An bank is next to the school.",
+        "Bank is next to the school."
+      ],
+      "correct_answer": "The bank is next to the school.",
+      "explanation": "Dùng “the bank” khi ngân hàng cụ thể đã được xác định trong ngữ cảnh. “an bank” sai vì “bank” bắt đầu bằng âm phụ âm; “Bank is...” thiếu mạo từ; “a bank” không tốt nếu đang nói một nơi cụ thể.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Maria wants **an** cup of tea.",
+      "options": [
+        "Maria",
+        "wants",
+        "an",
+        "cup of tea"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Cup” bắt đầu bằng âm phụ âm /k/, nên phải dùng “a cup”. Các phần còn lại đúng trong câu đơn hiện tại.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I saw **a** eagle above the lake.",
+      "options": [
+        "I",
+        "saw",
+        "a",
+        "eagle"
+      ],
+      "correct_answer": "a",
+      "explanation": "“Eagle” bắt đầu bằng âm nguyên âm /iː/, nên phải dùng “an eagle”. Các từ còn lại không sai về ngữ pháp trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Tom opened **an** heavy door.",
+      "options": [
+        "Tom",
+        "opened",
+        "an",
+        "heavy door"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Heavy” bắt đầu bằng âm phụ âm /h/, nên dùng “a heavy door”. “Tom”, “opened” và “heavy door” đều phù hợp trong câu.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: We found **the** coin in the street for the first time.",
+      "options": [
+        "We",
+        "found",
+        "the",
+        "coin"
+      ],
+      "correct_answer": "the",
+      "explanation": "Vì đồng xu được nhắc lần đầu và chưa xác định, nên nên dùng “a coin”. “We found” và “coin” không sai; lỗi nằm ở mạo từ “the”.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: She has **a** English lesson today.",
+      "options": [
+        "She",
+        "has",
+        "a",
+        "English lesson"
+      ],
+      "correct_answer": "a",
+      "explanation": "“English” bắt đầu bằng âm nguyên âm /ɪ/, nên phải dùng “an English lesson”. Các phần khác đúng về cấu trúc.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Please turn off **a** light in your room.",
+      "options": [
+        "Please",
+        "turn off",
+        "a",
+        "light"
+      ],
+      "correct_answer": "a",
+      "explanation": "Trong ngữ cảnh yêu cầu tắt đèn trong phòng, thường nói về chiếc đèn cụ thể nên dùng “the light”. “Please”, “turn off” và “light” đều đúng; mạo từ “a” làm nghĩa thành một cái đèn bất kỳ.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Kevin is **an** police officer.",
+      "options": [
+        "Kevin",
+        "is",
+        "an",
+        "police officer"
+      ],
+      "correct_answer": "an",
+      "explanation": "“Police” bắt đầu bằng âm phụ âm /p/, nên dùng “a police officer”. “Kevin is” và cụm danh từ nghề nghiệp đều đúng, chỉ sai mạo từ.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I bought **the** sandwich because I was hungry.",
+      "options": [
+        "I",
+        "bought",
+        "the",
+        "sandwich"
+      ],
+      "correct_answer": "the",
+      "explanation": "Nếu chiếc bánh mì chưa được xác định trước, phải dùng “a sandwich”. “I bought” và “sandwich” đúng; “the” làm như người nghe đã biết chiếc bánh nào.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: I need ___ pencil to write my name.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là “a” vì “pencil” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm /p/. “an” dùng trước âm nguyên âm, “the” dùng khi cây bút đã xác định, còn “no article” không dùng với danh từ đếm được số ít trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: She is eating ___ apple after lunch.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "Đáp án đúng là “an” vì “apple” bắt đầu bằng âm nguyên âm /æ/. “a” dùng trước âm phụ âm, “the” chỉ quả táo cụ thể, còn “no article” không phù hợp với danh từ đếm được số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: Close ___ window behind you, please.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "the",
+      "explanation": "Đáp án đúng là “the” vì người nói đang nói đến cửa sổ cụ thể mà người nghe biết. “a/an” dùng khi chưa xác định, còn “no article” không phù hợp với danh từ đếm được số ít này.",
+      "difficulty": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: I saw a cat. ___ cat was black.",
+      "options": [
+        "A",
+        "An",
+        "The",
+        "No article"
+      ],
+      "correct_answer": "The",
+      "explanation": "Đáp án đúng là “The” vì con mèo đã được nhắc đến ở câu trước. “A/An” dùng cho lần nhắc đầu hoặc danh từ chưa xác định, còn “No article” không đúng ở đây.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: Dad bought ___ ice cream for me.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "Đáp án đúng là “an” vì “ice cream” bắt đầu bằng âm nguyên âm /aɪ/. “a” dùng trước âm phụ âm, “the” làm câu mang nghĩa cây kem đã xác định, còn “no article” không phù hợp với một cây kem số ít.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: There is ___ map on the wall.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là “a” vì “map” là danh từ đếm được số ít, chưa xác định và bắt đầu bằng âm phụ âm. “an” sai vì không đứng trước âm phụ âm, “the” dùng khi bản đồ đã xác định, còn “no article” không phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Choose the correct **article**: The teacher is standing near ___ board.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "the",
+      "explanation": "Đáp án đúng là “the” vì “board” là vật cụ thể trong lớp học mà người nghe có thể nhận ra. “a/an” làm nghĩa thành một cái bảng bất kỳ, còn “no article” không đúng với danh từ đếm được số ít.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: My brother has ___ red kite.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là “a” vì “red kite” bắt đầu bằng âm phụ âm /r/ và được nhắc lần đầu. “an” sai vì không đứng trước âm phụ âm, “the” chỉ vật đã xác định, còn “no article” không phù hợp.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: We need ___ eraser for this mistake.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "Đáp án đúng là “an” vì “eraser” bắt đầu bằng âm nguyên âm /ɪ/. “a” dùng trước âm phụ âm, “the” chỉ cục tẩy cụ thể, còn “no article” không dùng với danh từ đếm được số ít trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Please give me ___ cup beside your plate.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "the",
+      "explanation": "Đáp án đúng là “the” vì “cup beside your plate” là cái cốc cụ thể đã được xác định bằng vị trí. “a/an” dùng khi chưa xác định, còn “no article” không phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: I have ___ idea for our game.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "an",
+      "explanation": "Đáp án đúng là “an” vì “idea” bắt đầu bằng âm nguyên âm /aɪ/. “a” sai vì không đứng trước âm nguyên âm, “the” chỉ ý tưởng đã xác định, còn “no article” không phù hợp với danh từ số ít này.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: Mark found a wallet. ___ wallet was brown.",
+      "options": [
+        "A",
+        "An",
+        "The",
+        "No article"
+      ],
+      "correct_answer": "The",
+      "explanation": "Đáp án đúng là “The” vì “wallet” đã được nhắc đến ở câu trước. “A/An” dùng cho lần nhắc đầu, còn “No article” không đúng với danh từ đếm được số ít cụ thể.",
+      "difficulty": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Choose the correct **article**: She has ___ uniform for school.",
+      "options": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "correct_answer": "a",
+      "explanation": "Đáp án đúng là “a” vì “uniform” bắt đầu bằng âm /juː/, là âm phụ âm /j/ trong cách phát âm. “an” sai dù chữ cái đầu là u, “the” chỉ bộ đồng phục cụ thể, còn “no article” không phù hợp.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Lily has **an** green notebook.",
+      "options": [
+        "Lily",
+        "has",
+        "an",
+        "green notebook"
+      ],
+      "correct_answer": "an",
+      "explanation": "Lỗi là “an” vì “green” bắt đầu bằng âm phụ âm /g/, nên phải dùng “a green notebook”. “Lily”, “has” và “green notebook” không sai trong câu này.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: I saw **a** ant on my hand.",
+      "options": [
+        "I",
+        "saw",
+        "a",
+        "ant"
+      ],
+      "correct_answer": "a",
+      "explanation": "Lỗi là “a” vì “ant” bắt đầu bằng âm nguyên âm /æ/, nên phải dùng “an ant”. Các phần “I”, “saw” và “ant” đều đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Mom is reading **a** book on the sofa. **A** book is funny.",
+      "options": [
+        "Mom",
+        "is reading",
+        "A",
+        "book is funny"
+      ],
+      "correct_answer": "A",
+      "explanation": "Lỗi là “A” ở câu thứ hai vì quyển sách đã được nhắc trước đó, nên phải dùng “The book is funny”. Các phần còn lại đúng về ngữ pháp trong ngữ cảnh này.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: Please put the flowers in **a** vase on the table.",
+      "options": [
+        "Please put",
+        "the flowers",
+        "a",
+        "vase on the table"
+      ],
+      "correct_answer": "a",
+      "explanation": "Lỗi là “a” vì “vase on the table” là cái bình cụ thể được xác định bằng vị trí, nên dùng “the”. “Please put”, “the flowers” và cụm danh từ còn lại không phải lỗi chính.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: He wants **an** burger for lunch.",
+      "options": [
+        "He",
+        "wants",
+        "an",
+        "burger"
+      ],
+      "correct_answer": "an",
+      "explanation": "Lỗi là “an” vì “burger” bắt đầu bằng âm phụ âm /b/, nên phải dùng “a burger”. “He”, “wants” và “burger” đều đúng.",
+      "difficulty": 1
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: We saw **the** rabbit in the park for the first time.",
+      "options": [
+        "We",
+        "saw",
+        "the",
+        "rabbit"
+      ],
+      "correct_answer": "the",
+      "explanation": "Lỗi là “the” vì “for the first time” cho thấy con thỏ chưa được xác định trước đó, nên dùng “a rabbit”. “We”, “saw” và “rabbit” không sai.",
+      "difficulty": 2
+    },
+    {
+      "type": "error_correction",
+      "question": "Find the error: This is **a** hour-long class.",
+      "options": [
+        "This",
+        "is",
+        "a",
+        "hour-long class"
+      ],
+      "correct_answer": "a",
+      "explanation": "Lỗi là “a” vì “hour” có chữ h câm và bắt đầu bằng âm nguyên âm /aʊ/, nên phải dùng “an hour-long class”. Các phần còn lại đúng trong câu này.",
+      "difficulty": 3
     }
   ]
 }
