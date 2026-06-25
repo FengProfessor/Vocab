@@ -82,22 +82,33 @@ function ErrorCorrectionSentence({
 }) {
   // Bóc prefix "Find the error: " nếu có
   const cleanSentence = sentence.replace(/^find\s+the\s+error:\s*/i, '');
-  // Split giữ punctuation và whitespace
-  const tokens = cleanSentence.split(/(\s+|[,.!?;:"])/);
-  const optionSet = new Set(options);
-  const clickedFirstIdx = new Map<string, number>();
-  tokens.forEach((tok, i) => {
-    if (optionSet.has(tok) && !clickedFirstIdx.has(tok)) clickedFirstIdx.set(tok, i);
-  });
+
+  if (!options || options.length === 0) {
+    return <p className="text-xl font-semibold text-foreground leading-loose">{cleanSentence}</p>;
+  }
+
+  // Tạo regex từ options, sắp xếp theo độ dài giảm dần để khớp cụm dài trước
+  const escapedOptions = [...options]
+    .map((opt) => opt.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
+    .sort((a, b) => b.length - a.length);
+  const regex = new RegExp(`(${escapedOptions.join('|')})`, 'gi');
+
+  // Split câu dựa trên các options
+  const parts = cleanSentence.split(regex);
 
   return (
     <p className="text-xl font-semibold text-foreground leading-loose">
-      {tokens.map((tok, i) => {
-        const isClickable = optionSet.has(tok) && clickedFirstIdx.get(tok) === i;
-        if (!isClickable) return <span key={i}>{tok}</span>;
+      {parts.map((part, i) => {
+        const trimmed = part.trim();
+        const matchedOption = options.find((opt) => opt.toLowerCase() === trimmed.toLowerCase());
 
-        const isSel = selected === tok;
-        const isCorrect = tok === correctAnswer;
+        if (!matchedOption) {
+          return <span key={i}>{part}</span>;
+        }
+
+        const isSel = selected?.toLowerCase() === matchedOption.toLowerCase();
+        const isCorrect = correctAnswer.toLowerCase() === matchedOption.toLowerCase();
+
         let cn = 'inline-block mx-0.5 px-1.5 py-0.5 rounded-md border-b-2 transition-all ';
         if (selected) {
           if (isCorrect) cn += 'bg-emerald-100 border-emerald-500 text-emerald-900 font-bold ';
@@ -106,15 +117,16 @@ function ErrorCorrectionSentence({
         } else {
           cn += 'border-dashed border-primary/50 hover:bg-primary/10 hover:border-primary cursor-pointer ';
         }
+
         return (
           <button
             key={i}
             className={cn}
             disabled={!!selected}
-            onClick={() => onSelect(tok)}
+            onClick={() => onSelect(matchedOption)}
             type="button"
           >
-            {tok}
+            {part}
           </button>
         );
       })}
