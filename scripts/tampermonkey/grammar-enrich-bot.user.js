@@ -303,7 +303,6 @@ Quy tắc tạo câu hỏi:
                     const parsed = JSON.parse(subStr);
                     if (parsed && Array.isArray(parsed.exercises) && parsed.exercises.length > 0) {
                         found.push(parsed.exercises);
-                        break;
                     }
                 } catch (e) { /* keep scanning */ }
             }

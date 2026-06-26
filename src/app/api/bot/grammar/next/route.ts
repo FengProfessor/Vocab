@@ -32,9 +32,28 @@ export async function GET(req: Request): Promise<NextResponse> {
     const sorted = (lessons || []).sort((a, b) => (a.order_index ?? 0) - (b.order_index ?? 0));
     const incomplete = sorted.filter((l) => !l.exercises || !Array.isArray(l.exercises) || l.exercises.length < 100);
 
-    // Find the first target that belongs to this shard
-    const target = incomplete.find((_, idx) => idx % shards === shard);
-    const remaining = incomplete.filter((_, idx) => idx % shards === shard).length;
+    let target;
+    let remaining;
+
+    if (shards > 1) {
+      // Deterministic partitioning
+      target = incomplete.find((_, idx) => idx % shards === shard);
+      remaining = incomplete.filter((_, idx) => idx % shards === shard).length;
+    } else {
+      // Self-balancing: random pull from the shared pool of incomplete lessons
+      if (incomplete.length > 0) {
+        const shuffled = [...incomplete];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        target = shuffled[0];
+        remaining = shuffled.length;
+      } else {
+        target = undefined;
+        remaining = 0;
+      }
+    }
 
     if (!target) {
       return NextResponse.json({ success: true, finished: true, remaining: 0 });

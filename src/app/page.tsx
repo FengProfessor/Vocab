@@ -108,6 +108,12 @@ export default function LandingPage() {
             LingoPro
           </Link>
           <div className="flex items-center gap-4">
+            <nav className="hidden items-center gap-6 text-sm font-bold text-slate-300 md:flex">
+              <a href="#try" className="transition-colors hover:text-white">Tra từ</a>
+              <a href="#library" className="transition-colors hover:text-white">Kho từ vựng</a>
+              <a href="#method" className="transition-colors hover:text-white">Phương pháp</a>
+              <a href="#pricing" className="transition-colors hover:text-white">Giá</a>
+            </nav>
             <Link
               href="/for-teachers"
               className="hidden text-sm font-bold text-slate-300 transition-colors hover:text-white sm:block"
@@ -124,8 +130,8 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden pt-24 pb-32 px-4 sm:px-6 text-center">
+      {/* ── HERO + DEMO TRA TỪ ── */}
+      <section id="try" className="relative overflow-hidden pt-24 pb-24 px-4 sm:px-6 text-center scroll-mt-16">
         {/* Background glow */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px]" />
@@ -155,32 +161,21 @@ export default function LandingPage() {
               Bắt đầu miễn phí <ArrowRight className="h-5 w-5" />
             </Link>
             <a
-              href="#try"
+              href="#library"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 font-bold text-base transition-colors"
             >
-              Thử tra từ ngay
+              Xem kho từ vựng
             </a>
           </div>
         </div>
-      </section>
 
-      {/* ── LIVE DICTIONARY DEMO ── */}
-      <section id="try" className="relative scroll-mt-16 border-y border-white/5 bg-white/[0.02] py-24 px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-semibold text-emerald-300">
-            <Sparkles className="h-3.5 w-3.5" /> Thử ngay — không cần tài khoản
-          </div>
-          <h2 className="text-3xl font-black sm:text-4xl">
-            Tra & lưu từ{' '}
-            <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              ngay trên web
-            </span>
-          </h2>
-          <p className="mx-auto mt-4 mb-10 max-w-lg font-medium text-slate-400">
-            Gõ bất kỳ từ tiếng Anh nào — nhận nghĩa, phiên âm, phát âm UK/US và ví dụ tức thì. Đăng nhập để lưu vào sổ và ôn theo lịch.
+        {/* Demo tra từ ngay trong hero — màn hình đầu đã tương tác được */}
+        <div className="relative mt-16 text-left">
+          <p className="mb-4 flex items-center justify-center gap-2 text-center text-sm font-semibold text-emerald-300">
+            <Sparkles className="h-4 w-4" /> Thử ngay — gõ một từ, không cần tài khoản
           </p>
+          <DictionaryDemo />
         </div>
-        <DictionaryDemo />
       </section>
 
       {/* ── KHO TỪ VỰNG ── */}
@@ -304,6 +299,66 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── TÍNH NĂNG KHÁC (compact) ── */}
+      <section id="features" className="scroll-mt-16 py-24 px-4 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-black sm:text-4xl">Còn nhiều hơn thế</h2>
+            <p className="mx-auto mt-4 max-w-lg font-medium text-slate-400">
+              Mọi thứ một người học tiếng Anh cần, gói gọn trong một chỗ.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {[
+              { icon: Brain, color: 'text-indigo-400', bg: 'bg-indigo-500/15', title: 'AI làm giàu từ', desc: 'Tự thêm nghĩa, IPA, ví dụ, ảnh cho mỗi từ.' },
+              { icon: BookOpen, color: 'text-emerald-400', bg: 'bg-emerald-500/15', title: 'Ngữ pháp hệ thống', desc: '67 bài kèm bài tập AI, ôn theo lịch SRS.' },
+              { icon: Trophy, color: 'text-amber-400', bg: 'bg-amber-500/15', title: 'Game hóa', desc: 'XP, streak, bảng xếp hạng trong lớp.' },
+              { icon: Chrome, color: 'text-sky-400', bg: 'bg-sky-500/15', title: 'Chrome Extension', desc: 'Tra & lưu từ ngay khi đang duyệt web.' },
+            ].map((f) => (
+              <div key={f.title} className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/[0.07]">
+                <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${f.bg}`}>
+                  <f.icon className={`h-5 w-5 ${f.color}`} />
+                </div>
+                <h3 className="mb-1 font-black">{f.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-400">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS (social proof) ── */}
+      <section id="testimonials" className="py-24 px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black text-center mb-4">
+            Học viên & giáo viên nói gì?
+          </h2>
+          <p className="text-center text-slate-400 font-medium mb-16 max-w-lg mx-auto">
+            Hàng nghìn học sinh và gia sư tiếng Anh đang học hiệu quả hơn cùng LingoPro.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((t) => (
+              <div
+                key={t.name}
+                className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4"
+              >
+                <div className="flex gap-0.5">
+                  {Array.from({ length: t.stars }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-slate-300 text-sm leading-relaxed flex-1">“{t.text}”</p>
+                <div>
+                  <div className="font-black text-white">{t.name}</div>
+                  <div className="text-slate-500 text-sm">{t.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── SO SÁNH VỚI ANKI ── */}
       <section id="compare" className="scroll-mt-16 border-y border-white/5 bg-white/[0.02] py-24 px-4 sm:px-6">
         <div className="mx-auto max-w-4xl">
@@ -350,129 +405,6 @@ export default function LandingPage() {
           <p className="mt-4 text-center text-xs text-slate-500">
             Anki là phần mềm tuyệt vời cho người thích tự tùy biến. LingoPro hợp với học sinh muốn vào là học ngay, bằng tiếng Việt.
           </p>
-        </div>
-      </section>
-
-      {/* ── FEATURES ── */}
-      <section id="features" className="py-24 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-black text-center mb-4">
-            Tại sao LingoPro?
-          </h2>
-          <p className="text-center text-slate-400 font-medium mb-16 max-w-lg mx-auto">
-            Kết hợp khoa học não bộ và công nghệ AI để tối ưu quá trình ghi nhớ.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Feature 1 */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/[0.07] transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center mb-5">
-                <Brain className="h-6 w-6 text-indigo-400" />
-              </div>
-              <h3 className="text-lg font-black mb-2">AI tự động làm giàu từ vựng</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Gemini AI tự động cung cấp nghĩa, phiên âm IPA, ví dụ và hình ảnh minh hoạ cho mỗi từ bạn lưu.
-              </p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/[0.07] transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-5">
-                <Repeat2 className="h-6 w-6 text-purple-400" />
-              </div>
-              <h3 className="text-lg font-black mb-2">FSRS v5 — nhắc đúng lúc bạn sắp quên</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Thuật toán Spaced Repetition thế hệ mới nhất. Mỗi từ được lên lịch cá nhân hoá theo tốc độ học của bạn.
-              </p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/[0.07] transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center mb-5">
-                <Trophy className="h-6 w-6 text-amber-400" />
-              </div>
-              <h3 className="text-lg font-black mb-2">Gamification — XP, streak, leaderboard</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Kiếm điểm XP, duy trì chuỗi ngày học, mở khoá thành tích và cạnh tranh với bạn bè trong lớp.
-              </p>
-            </div>
-          </div>
-
-          {/* Extra features row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4 items-start hover:bg-white/[0.07] transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0">
-                <BookOpen className="h-5 w-5 text-emerald-400" />
-              </div>
-              <div>
-                <h3 className="font-black mb-1">Ngữ pháp có hệ thống</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  67 bài ngữ pháp với bài tập tự động từ AI. SRS nhắc ôn đúng trước khi bạn quên.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-4 items-start hover:bg-white/[0.07] transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-sky-500/20 flex items-center justify-center shrink-0">
-                <Chrome className="h-5 w-5 text-sky-400" />
-              </div>
-              <div>
-                <h3 className="font-black mb-1">Chrome Extension</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  Tra từ và lưu ngay khi duyệt web. Từ điển 3-tier với fallback AI, không cần rời trang.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── STATS ── */}
-      <section className="py-20 px-4 sm:px-6 border-y border-white/5 bg-white/[0.02]">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          {[
-            { value: '67', label: 'Bài ngữ pháp', sub: 'từ A1 đến B2' },
-            { value: 'FSRS v5', label: 'Thuật toán SRS', sub: 'state-of-the-art' },
-            { value: 'Chrome Ext', label: 'Extension', sub: 'tra từ & lưu ngay' },
-          ].map((s) => (
-            <div key={s.value} className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-black text-indigo-400">{s.value}</div>
-              <div className="font-bold text-white">{s.label}</div>
-              <div className="text-slate-500 text-sm">{s.sub}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS (social proof) ── */}
-      <section id="testimonials" className="py-24 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-black text-center mb-4">
-            Học viên & giáo viên nói gì?
-          </h2>
-          <p className="text-center text-slate-400 font-medium mb-16 max-w-lg mx-auto">
-            Hàng nghìn học sinh và gia sư tiếng Anh đang học hiệu quả hơn cùng LingoPro.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t) => (
-              <div
-                key={t.name}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4"
-              >
-                <div className="flex gap-0.5">
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-slate-300 text-sm leading-relaxed flex-1">“{t.text}”</p>
-                <div>
-                  <div className="font-black text-white">{t.name}</div>
-                  <div className="text-slate-500 text-sm">{t.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
