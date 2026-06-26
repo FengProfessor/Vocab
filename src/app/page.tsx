@@ -14,7 +14,6 @@ import {
   Sparkles,
   Clock3,
   Bell,
-  Play,
   Library,
   GraduationCap,
   Target,
@@ -28,9 +27,6 @@ import {
 } from '@/lib/billing';
 import AuthRedirectGate from './_components/AuthRedirectGate';
 import DictionaryDemo from './_components/DictionaryDemo';
-
-// ── Video giới thiệu ── Paste YouTube ID vào đây (vd 'dQw4w9WgXcQ'). Để trống → hiện poster placeholder.
-const INTRO_VIDEO_ID = '';
 
 // Số liệu kho từ vựng — gõ cứng (cập nhật tay khi catalog đổi)
 const VOCAB_STATS = {
@@ -271,30 +267,46 @@ export default function LandingPage() {
 
       {/* ── VIDEO GIỚI THIỆU ── */}
       <section id="video" className="scroll-mt-16 py-24 px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-3xl font-black sm:text-4xl">Xem LingoPro hoạt động trong 60 giây</h2>
-          <p className="mx-auto mb-10 max-w-lg font-medium text-slate-400">
-            Tra từ, lưu vào sổ, học flashcard theo lịch — toàn bộ luồng học chỉ trong một video ngắn.
-          </p>
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-10 text-center">
+            <h2 className="mb-4 text-3xl font-black sm:text-4xl">Xem LingoPro hoạt động</h2>
+            <p className="mx-auto max-w-lg font-medium text-slate-400">
+              Lưu từ ngay trên web, rồi ôn lại bằng flashcard, quiz, streak — tất cả trong một chỗ.
+            </p>
+          </div>
 
+          {/* Video chính — tổng quan có tiếng */}
+          <div className="mb-3 flex items-center gap-2 text-sm font-bold">
+            <span className="rounded-full bg-indigo-500/15 px-3 py-1 text-indigo-300">Tổng quan</span>
+            <span className="text-slate-500">~25 giây · bấm để xem (có tiếng)</span>
+          </div>
           <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-indigo-950/40">
-            {INTRO_VIDEO_ID ? (
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src={`https://www.youtube.com/embed/${INTRO_VIDEO_ID}`}
-                title="Giới thiệu LingoPro"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            ) : (
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/10" />
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-indigo-600 shadow-lg shadow-indigo-900/50">
-                  <Play className="h-7 w-7 translate-x-0.5 fill-white text-white" />
-                </div>
-                <p className="relative text-sm font-bold text-slate-300">Video giới thiệu sắp ra mắt</p>
-              </div>
-            )}
+            <video
+              className="absolute inset-0 h-full w-full"
+              src="/lingopro-demo.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              aria-label="Video giới thiệu tổng quan LingoPro"
+            />
+          </div>
+
+          {/* Video phụ — lưu từ trên web (loop im lặng) */}
+          <div className="mb-3 mt-12 flex items-center gap-2 text-sm font-bold">
+            <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-emerald-300">Lưu từ trên web</span>
+            <span className="text-slate-500">demo 10 giây · tự chạy</span>
+          </div>
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-indigo-950/40">
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/intro-save-word.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Demo lưu từ vựng ngay trên web LingoPro"
+            />
           </div>
         </div>
       </section>
