@@ -274,12 +274,23 @@ async function main() {
   const tabs: { page: any; isAI: boolean; tag: string }[] = [];
   for (const port of ports) {
     let browser;
-    try {
-      browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${port}`, defaultViewport: null });
-    } catch (e: any) {
-      console.error(`❌ Không kết nối được Chrome qua port ${port}: ${e.message}`);
-      continue;
+    let retries = 15;
+    while (retries > 0) {
+      try {
+        browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${port}`, defaultViewport: null });
+        break;
+      } catch (e: any) {
+        retries--;
+        if (retries === 0) {
+          console.error(`❌ Không kết nối được Chrome qua port ${port} sau nhiều lần thử: ${e.message}`);
+          break;
+        }
+        console.log(`⏳ Đang đợi Chrome khởi động và mở cổng debug trên port ${port}... (Còn ${retries} lần thử)`);
+        await new Promise((r) => setTimeout(r, 2000));
+      }
     }
+    if (!browser) continue;
+
     const matched = (await browser.pages()).filter((p) => /aistudio\.google|gemini\.google/.test(p.url()));
     for (const p of matched) {
       const u = p.url();
