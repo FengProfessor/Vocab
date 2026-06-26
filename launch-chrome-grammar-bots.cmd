@@ -3,6 +3,10 @@ REM Mo 1 Chrome profile "ta phong" (Profile 1) voi 8 tab aistudio, moi tab 1 nic
 REM QUAN TRONG: DONG HET Chrome dang mo truoc khi chay (neu khong se khong bat duoc debug port).
 REM Sau do chay: npx tsx scripts/auto-chrome-grammar-bot.ts --ports=9222
 
+echo Dang tat triet de cac tien trinh Chrome dang chay ngam...
+taskkill /f /im chrome.exe >nul 2>&1
+timeout /t 2 >nul
+
 set "CHROME=C:\Program Files\Google\Chrome\Application\chrome.exe"
 if not exist "%CHROME%" set "CHROME=C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 set "UD=%LOCALAPPDATA%\Google\Chrome\User Data"
