@@ -9,7 +9,8 @@
     "lint": "eslint",
     "open-vocab:stage": "npx tsx scripts/import-open-vocab-sources.ts",
     "open-vocab:validate": "npx tsx scripts/validate-open-vocab-sources.ts",
-    "open-vocab:apply": "npx tsx scripts/import-open-vocab-sources.ts --apply"
+    "open-vocab:apply": "npx tsx scripts/import-open-vocab-sources.ts --apply",
+    "force-onboarding": "node scripts/force-onboarding.js"
   },
   "dependencies": {
     "@auth/supabase-adapter": "^1.11.1",

@@ -62,29 +62,49 @@ interface Props {
   userId: string | null;
   /** Tên user để chào. */
   userName: string;
+  /** Metadata của user để đồng bộ trạng thái onboarding. */
+  userMetadata?: any;
 }
 
-export function OnboardingProvider({ children, userId, userName }: Props) {
+export function OnboardingProvider({ children, userId, userName, userMetadata }: Props) {
   const [isActive, setIsActive] = useState(false);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [hasChecked, setHasChecked] = useState(false);
 
-  // Kiểm tra localStorage khi mount
+  // Kiểm tra localStorage và userMetadata khi mount
   useEffect(() => {
     // Chờ 1.5s cho dashboard load xong data rồi mới hiện onboarding
     const timer = setTimeout(() => {
-      const done = localStorage.getItem(ONBOARDING_STORAGE_KEY);
-      if (!done) {
+      const localDone = localStorage.getItem(ONBOARDING_STORAGE_KEY);
+      const dbDone = userMetadata?.lingopro_onboarding_completed;
+      const isForced = userMetadata?.force_onboarding === true;
+
+      if (isForced) {
+        localStorage.removeItem(ONBOARDING_STORAGE_KEY);
+        setIsActive(true);
+      } else if (!localDone && !dbDone) {
         setIsActive(true);
       }
       setHasChecked(true);
     }, 1500);
     return () => clearTimeout(timer);
-  }, []);
+  }, [userMetadata]);
 
-  const markCompleted = useCallback(() => {
+  const markCompleted = useCallback(async () => {
     localStorage.setItem(ONBOARDING_STORAGE_KEY, new Date().toISOString());
-  }, []);
+    if (userId) {
+      try {
+        await supabase.auth.updateUser({
+          data: {
+            lingopro_onboarding_completed: new Date().toISOString(),
+            force_onboarding: false
+          }
+        });
+      } catch (err) {
+        console.warn('[Onboarding] Failed to update user metadata:', err);
+      }
+    }
+  }, [userId]);
 
   const awardXp = useCallback(
     async (xp: number) => {
@@ -125,7 +145,7 @@ export function OnboardingProvider({ children, userId, userName }: Props) {
 
   const skip = useCallback(() => {
     setIsActive(false);
-    markCompleted();
+    void markCompleted();
   }, [markCompleted]);
 
   const complete = useCallback(() => {
@@ -134,7 +154,7 @@ export function OnboardingProvider({ children, userId, userName }: Props) {
       void awardXp(step.xpReward);
     }
     setIsActive(false);
-    markCompleted();
+    void markCompleted();
   }, [currentStepIndex, awardXp, markCompleted]);
 
   const value: OnboardingContextValue = {

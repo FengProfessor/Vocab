@@ -47,6 +47,7 @@ interface ActiveVocabPack {
 
 export default function StudentDashboard() {
   const [profile, setProfile] = useState<Profile | null>(null);
+  const [userMetadata, setUserMetadata] = useState<any>(null);
   const [words, setWords] = useState<Word[]>([]);
   const [classroomId, setClassroomId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -89,6 +90,7 @@ export default function StudentDashboard() {
       const { data: { session } } = await supabase.auth.getSession();
       
       if (session?.user) {
+        setUserMetadata(session.user.user_metadata);
         loadData(session.user.id);
       } else {
         setIsLoading(false);
@@ -99,8 +101,10 @@ export default function StudentDashboard() {
     
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session?.user) {
+        setUserMetadata(session.user.user_metadata);
         loadData(session.user.id);
       } else if (event === 'SIGNED_OUT') {
+        setUserMetadata(null);
         router.push('/auth');
       }
     });
@@ -475,7 +479,7 @@ export default function StudentDashboard() {
   const badges = earnedBadges(gamification, masteredCount);
 
   return (
-    <OnboardingProvider userId={profile?.id ?? null} userName={profile?.full_name ?? ''}>
+    <OnboardingProvider userId={profile?.id ?? null} userName={profile?.full_name ?? ''} userMetadata={userMetadata}>
     <div className="flex min-h-dvh w-full bg-muted/40 font-sans relative">
       {/* Onboarding layers (spotlight, tooltips, modals) */}
       <OnboardingLayers />
