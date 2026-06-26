@@ -1,0 +1,133 @@
+/* ═══ Onboarding Animations ═══ */
+
+/* Overlay fade-in */
+@keyframes onboarding-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal scale entrance */
+@keyframes onboarding-zoom-in {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);    }
+}
+
+/* Modal exit */
+@keyframes onboarding-zoom-out {
+  from { opacity: 1; transform: scale(1)   translateY(0);    }
+  to   { opacity: 0; transform: scale(0.9) translateY(20px); }
+}
+
+/* Tooltip slide-in */
+@keyframes onboarding-slide-right {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes onboarding-slide-left {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes onboarding-slide-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes onboarding-slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* XP float-up animation */
+@keyframes onboarding-xp-float {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  50%  { opacity: 1; transform: translateY(-30px) scale(1.2); }
+  100% { opacity: 0; transform: translateY(-60px) scale(0.8); }
+}
+
+/* Pulse glow on spotlight target */
+@keyframes onboarding-pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3); }
+  50%      { box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.15); }
+}
+
+/* Mascot bounce */
+@keyframes onboarding-mascot-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* Shimmer for reward numbers */
+@keyframes onboarding-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center;  }
+}
+
+/* ═══ Utility classes ═══ */
+
+.onboarding-fade-in {
+  animation: onboarding-fade-in 0.3s ease-out both;
+}
+
+.onboarding-zoom-in {
+  animation: onboarding-zoom-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.onboarding-zoom-out {
+  animation: onboarding-zoom-out 0.2s ease-in both;
+}
+
+.onboarding-slide-right {
+  animation: onboarding-slide-right 0.3s ease-out both;
+}
+
+.onboarding-slide-left {
+  animation: onboarding-slide-left 0.3s ease-out both;
+}
+
+.onboarding-slide-down {
+  animation: onboarding-slide-down 0.3s ease-out both;
+}
+
+.onboarding-slide-up {
+  animation: onboarding-slide-up 0.3s ease-out both;
+}
+
+.onboarding-xp-float {
+  animation: onboarding-xp-float 1.2s ease-out both;
+}
+
+.onboarding-pulse-glow {
+  animation: onboarding-pulse-glow 2s ease-in-out infinite;
+}
+
+.onboarding-mascot-bounce {
+  animation: onboarding-mascot-bounce 1s ease-in-out infinite;
+}
+
+.onboarding-shimmer {
+  background: linear-gradient(90deg, #fbbf24 25%, #fef3c7 50%, #fbbf24 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: onboarding-shimmer 2s linear infinite;
+}
+
+/* ═══ Spotlight overlay ═══ */
+
+.onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 89;
+  pointer-events: auto;
+}
+
+.onboarding-spotlight-target {
+  position: relative;
+  z-index: 91;
+  border-radius: 16px;
+  onboarding-pulse-glow: ;
+  animation: onboarding-pulse-glow 2s ease-in-out infinite;
+}

@@ -1,5 +1,5 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
+import { getRouter } from "@/lib/ai-router";
 import { getAuthUser, unauthorized, checkRateLimit, tooManyRequests, sanitizeForPrompt, safeErrorResponse } from "@/lib/api-security";
 
 // Gemini call. Hobby mặc định 10s có thể kill sớm → đặt 30s headroom.
@@ -21,21 +21,12 @@ export async function POST(req: Request): Promise<NextResponse> {
       msg: string;
     };
 
-    const keys = (process.env.GEMINI_API_KEY || '').split(',').map(k => k.trim()).filter(Boolean);
-    if (keys.length === 0) {
-      return NextResponse.json({ success: false, error: "Gemini API key is not configured" }, { status: 500 });
-    }
-    const genAI = new GoogleGenerativeAI(keys[Math.floor(Math.random() * keys.length)]);
-
     // Sanitize inputs
     const safeName = sanitizeForPrompt(studentName || 'bạn', 60);
     const safeTag = sanitizeForPrompt(tag, 60);
     const safeMsg = sanitizeForPrompt(msg, 200);
     const safeVms = Number.isFinite(vms) ? Math.max(0, Math.min(100, Math.round(vms))) : 0;
     const safeLcs = Number.isFinite(lcs) ? Math.max(0, Math.min(100, Math.round(lcs))) : 0;
-
-    // Try gemini-flash-latest which often has higher free tier quota
-    const model = genAI.getGenerativeModel({ model: "models/gemini-flash-latest" });
 
     const prompt = `
       Bạn là một trợ lý giáo viên tiếng Anh cao cấp trên nền tảng LingoPro. 
@@ -56,9 +47,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     `;
 
     try {
-      const result = await model.generateContent(prompt, { signal: AbortSignal.timeout(25000) });
-      const response = await result.response;
-      const text = response.text();
+      const text = await getRouter().generate(prompt, 'normal', false);
       return NextResponse.json({ success: true, suggestion: text });
     } catch (apiError: unknown) {
       const apiMsg = apiError instanceof Error ? apiError.message : 'Unknown error';

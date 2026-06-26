@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { getRouter } from '@/lib/ai-router';
 import type { GrammarExample, GrammarLevel } from '@/lib/supabase';
 import { checkRateLimit, safeErrorResponse, sanitizeForPrompt } from '@/lib/api-security';
 
@@ -43,21 +43,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         ? (level as GrammarLevel)
         : 'intermediate';
 
-    // Multi-key rotation
-    let apiKey = process.env.GEMINI_API_KEY || '';
-    if (apiKey.includes(',')) {
-      const keys = apiKey.split(',').map((k) => k.trim()).filter(Boolean);
-      apiKey = keys[Math.floor(Math.random() * keys.length)];
-    }
-    if (!apiKey) {
-      return NextResponse.json({ success: false, error: 'Gemini API key not configured' }, { status: 500 });
-    }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-2.5-flash',
-      generationConfig: { responseMimeType: 'application/json' },
-    });
 
     const levelLabel = { beginner: 'cơ bản (A1-A2)', intermediate: 'trung cấp (B1-B2)', advanced: 'nâng cao (C1-C2)' }[resolvedLevel];
 
@@ -83,12 +69,7 @@ Yêu cầu:
 - Phù hợp cấp độ ${levelLabel}
 - ONLY valid JSON, no explanation outside JSON`;
 
-    const result = await model.generateContent(
-      { contents: [{ role: 'user', parts: [{ text: prompt }] }] },
-      { signal: AbortSignal.timeout(15000) }
-    );
-
-    const rawText = result.response.text();
+    const rawText = await getRouter().generate(prompt, 'normal', true);
 
     let parsed: unknown;
     try {

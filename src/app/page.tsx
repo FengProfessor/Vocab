@@ -14,6 +14,7 @@ import {
   Sparkles,
   Clock3,
   Bell,
+  ChevronDown,
   Library,
   GraduationCap,
   Target,
@@ -118,16 +119,22 @@ export default function LandingPage() {
             </Link>
             <Link
               href="/auth"
-              className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-sm transition-colors"
+              className="hidden text-sm font-bold text-slate-300 transition-colors hover:text-white sm:block"
             >
               Đăng nhập
+            </Link>
+            <Link
+              href="/auth"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-black text-white border-b-4 border-indigo-800 hover:brightness-110 active:translate-y-0.5 active:border-b-0 transition-all"
+            >
+              Đăng ký ngay <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </header>
 
-      {/* ── HERO + DEMO TRA TỪ ── */}
-      <section id="try" className="relative overflow-hidden pt-24 pb-24 px-4 sm:px-6 text-center scroll-mt-16">
+      {/* ── HERO ── */}
+      <section id="home" className="relative flex min-h-[88vh] flex-col items-center justify-center overflow-hidden pt-20 pb-28 px-4 sm:px-6 text-center">
         {/* Background glow */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px]" />
@@ -157,65 +164,139 @@ export default function LandingPage() {
               Bắt đầu miễn phí <ArrowRight className="h-5 w-5" />
             </Link>
             <a
-              href="#library"
+              href="#how"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 font-bold text-base transition-colors"
             >
-              Xem kho từ vựng
+              Xem cách hoạt động
             </a>
+          </div>
+
+          {/* Lợi ích nhanh — cho người ta lý do tin & cuộn tiếp */}
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-4 text-sm font-medium text-slate-400">
+            {['Tra & lưu từ chỉ 1 click', '9.000+ từ theo lộ trình', 'Nhắc ôn đúng lúc sắp quên'].map((t) => (
+              <span key={t} className="flex items-center gap-1.5">
+                <Check className="h-4 w-4 text-emerald-400" /> {t}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Demo tra từ ngay trong hero — màn hình đầu đã tương tác được */}
-        <div className="relative mt-16 text-left">
+        {/* Teaser cuộn xuống — hứa lợi ích cụ thể, không phải "cuộn xuống" suông */}
+        <a
+          href="#how"
+          aria-label="Xem tra từ chỉ 1 click khi đang lướt web"
+          className="group absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-center"
+        >
+          <span className="rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 text-sm font-semibold text-indigo-200 transition-colors group-hover:bg-indigo-500/20">
+            Xem tra từ <span className="text-white">chỉ 1 click</span> khi đang lướt web
+          </span>
+          <ChevronDown className="h-5 w-5 animate-bounce text-indigo-300" />
+        </a>
+      </section>
+
+      {/* ── SECTION A: TRA TỪ KHI LƯỚT WEB — cũ vs 1 click ── */}
+      <section id="how" className="scroll-mt-16 py-24 px-4 sm:px-6">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
+          {/* video trái — tự chạy */}
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-indigo-950/40">
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/extension-lookup.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Demo tra từ khi đang lướt web bằng LingoPro"
+            />
+          </div>
+          {/* nội dung phải */}
+          <div>
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-sm font-semibold text-sky-300">
+              <Chrome className="h-3.5 w-3.5" /> Tra từ khi đang lướt web
+            </div>
+            <h2 className="text-3xl font-black sm:text-4xl">Đang đọc web, gặp từ lạ?</h2>
+            <p className="mt-4 font-medium text-slate-400">Cách học cũ tốn cả đống bước cho mỗi từ:</p>
+            <ul className="mt-4 space-y-2.5">
+              {['Mở từ điển ở tab khác', 'Chép nghĩa ra vở', 'Tự tìm ảnh minh hoạ', 'Tự nhớ để ôn lại'].map((s) => (
+                <li key={s} className="flex items-center gap-3 text-slate-500">
+                  <X className="h-4 w-4 shrink-0 text-red-400/70" /> <span className="line-through">{s}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex items-start gap-3 rounded-2xl border border-indigo-500/30 bg-indigo-500/10 p-5">
+              <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-indigo-300" />
+              <div>
+                <div className="text-lg font-black text-white">Với LingoPro: bôi đen → 1 click. Xong.</div>
+                <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                  Nghĩa, phiên âm, ví dụ, ảnh minh hoạ + tự lên lịch ôn — tất cả tự động, không rời trang.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION B: TRA & LƯU TRÊN WEB + KHO TỪ VỰNG ── */}
+      <section id="library" className="scroll-mt-16 border-y border-white/5 bg-white/[0.02] py-24 px-4 sm:px-6">
+        {/* Demo tra từ tương tác — thử ngay, không cần tài khoản */}
+        <div id="try" className="mx-auto mb-16 max-w-2xl scroll-mt-16">
           <p className="mb-4 flex items-center justify-center gap-2 text-center text-sm font-semibold text-emerald-300">
             <Sparkles className="h-4 w-4" /> Thử ngay — gõ một từ, không cần tài khoản
           </p>
           <DictionaryDemo />
         </div>
-      </section>
 
-      {/* ── KHO TỪ VỰNG ── */}
-      <section id="library" className="scroll-mt-16 py-24 px-4 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-12 text-center">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
+          {/* video trái — tự chạy */}
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-indigo-950/40">
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/intro-save-word.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Demo tra và lưu từ ngay trên web LingoPro"
+            />
+          </div>
+          {/* kho từ vựng phải */}
+          <div>
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm font-semibold text-indigo-300">
-              <Library className="h-3.5 w-3.5" /> Kho từ vựng dựng sẵn
+              <Library className="h-3.5 w-3.5" /> Tra trên web · Kho từ vựng dựng sẵn
             </div>
-            <h2 className="text-3xl font-black sm:text-4xl">Không biết học từ gì? Có lộ trình sẵn.</h2>
-            <p className="mx-auto mt-4 max-w-xl font-medium text-slate-400">
-              Hàng nghìn từ được biên soạn theo lộ trình, chia thành chặng nhỏ. Chọn mục tiêu rồi học từng chặng 5–8 phút.
+            <h2 className="text-3xl font-black sm:text-4xl">Tra trên web mình — lưu vào kho của bạn</h2>
+            <p className="mt-4 font-medium text-slate-400">
+              Không biết học từ gì? Có sẵn lộ trình, chia chặng nhỏ học gọn 5–8 phút.
             </p>
-          </div>
 
-          {/* Stats */}
-          <div className="mb-10 grid grid-cols-3 gap-4">
-            {[
-              { value: VOCAB_STATS.words, label: 'từ vựng' },
-              { value: VOCAB_STATS.packs, label: 'chặng học' },
-              { value: VOCAB_STATS.routes, label: 'lộ trình' },
-            ].map((s) => (
-              <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 py-6 text-center">
-                <div className="text-3xl font-black text-indigo-400 sm:text-4xl">{s.value}</div>
-                <div className="mt-1 text-sm font-medium text-slate-400">{s.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Route cards */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {VOCAB_ROUTES.map((r) => (
-              <div key={r.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:bg-white/[0.07]">
-                <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${r.bg}`}>
-                  <r.icon className={`h-6 w-6 ${r.color}`} />
+            <div className="mt-6 grid grid-cols-3 gap-3">
+              {[
+                { value: VOCAB_STATS.words, label: 'từ vựng' },
+                { value: VOCAB_STATS.packs, label: 'chặng học' },
+                { value: VOCAB_STATS.routes, label: 'lộ trình' },
+              ].map((s) => (
+                <div key={s.label} className="rounded-xl border border-white/10 bg-white/5 py-4 text-center">
+                  <div className="text-2xl font-black text-indigo-400">{s.value}</div>
+                  <div className="mt-0.5 text-xs font-medium text-slate-400">{s.label}</div>
                 </div>
-                <h3 className="mb-2 text-lg font-black">{r.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-400">{r.desc}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="mt-10 flex items-center justify-center gap-2 text-sm text-slate-400">
-            <Clock3 className="h-4 w-4 text-indigo-400" /> Mỗi chặng ~15 từ · học gọn trong 5–8 phút
+            <ul className="mt-6 space-y-3">
+              {VOCAB_ROUTES.map((r) => (
+                <li key={r.title} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${r.bg}`}>
+                    <r.icon className={`h-5 w-5 ${r.color}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-black">{r.title}</h3>
+                    <p className="text-sm leading-relaxed text-slate-400">{r.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -229,8 +310,25 @@ export default function LandingPage() {
             </div>
             <h2 className="text-3xl font-black sm:text-4xl">Học ít, nhớ lâu — nhờ khoa học trí nhớ</h2>
             <p className="mx-auto mt-4 max-w-xl font-medium text-slate-400">
-              LingoPro dùng thuật toán Spaced Repetition FSRS v5: tính đúng thời điểm bạn sắp quên và nhắc ôn ngay lúc đó. Nhớ lâu hơn, ôn ít lần hơn.
+              <b className="text-white">Nhồi nhét, chép vẹt → quên rất nhanh.</b> LingoPro dùng Spaced Repetition FSRS v5: tính đúng thời điểm bạn sắp quên và nhắc ôn ngay lúc đó.
             </p>
+          </div>
+
+          {/* Video: 3 kiểu học sinh — vì sao đừng học dồn */}
+          <p className="mx-auto mb-5 max-w-2xl text-center font-medium text-slate-400">
+            Cùng một lớp, 3 cách học — 3 kết quả khác hẳn:
+          </p>
+          <div className="relative mx-auto mb-14 aspect-video max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-purple-950/40">
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/student-cases.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="So sánh 3 kiểu học: đều đặn, lười, nhồi nhét — chỉ ôn đúng lúc mới nhớ lâu"
+            />
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -275,8 +373,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* Video chính — tổng quan có tiếng */}
-          <div className="mb-3 flex items-center gap-2 text-sm font-bold">
+          <div className="mb-3 flex items-center justify-center gap-2 text-sm font-bold">
             <span className="rounded-full bg-indigo-500/15 px-3 py-1 text-indigo-300">Tổng quan</span>
             <span className="text-slate-500">~25 giây · bấm để xem (có tiếng)</span>
           </div>
@@ -289,52 +386,6 @@ export default function LandingPage() {
               preload="metadata"
               aria-label="Video giới thiệu tổng quan LingoPro"
             />
-          </div>
-
-          {/* Video phụ — lưu từ trên web (loop im lặng) */}
-          <div className="mb-3 mt-12 flex items-center gap-2 text-sm font-bold">
-            <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-emerald-300">Lưu từ trên web</span>
-            <span className="text-slate-500">demo 10 giây · tự chạy</span>
-          </div>
-          <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-indigo-950/40">
-            <video
-              className="absolute inset-0 h-full w-full object-cover"
-              src="/intro-save-word.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Demo lưu từ vựng ngay trên web LingoPro"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── TÍNH NĂNG KHÁC (compact) ── */}
-      <section id="features" className="scroll-mt-16 py-24 px-4 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-black sm:text-4xl">Còn nhiều hơn thế</h2>
-            <p className="mx-auto mt-4 max-w-lg font-medium text-slate-400">
-              Mọi thứ một người học tiếng Anh cần, gói gọn trong một chỗ.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {[
-              { icon: Brain, color: 'text-indigo-400', bg: 'bg-indigo-500/15', title: 'AI làm giàu từ', desc: 'Tự thêm nghĩa, IPA, ví dụ, ảnh cho mỗi từ.' },
-              { icon: BookOpen, color: 'text-emerald-400', bg: 'bg-emerald-500/15', title: 'Ngữ pháp hệ thống', desc: '67 bài kèm bài tập AI, ôn theo lịch SRS.' },
-              { icon: Trophy, color: 'text-amber-400', bg: 'bg-amber-500/15', title: 'Game hóa', desc: 'XP, streak, bảng xếp hạng trong lớp.' },
-              { icon: Chrome, color: 'text-sky-400', bg: 'bg-sky-500/15', title: 'Chrome Extension', desc: 'Tra & lưu từ ngay khi đang duyệt web.' },
-            ].map((f) => (
-              <div key={f.title} className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/[0.07]">
-                <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${f.bg}`}>
-                  <f.icon className={`h-5 w-5 ${f.color}`} />
-                </div>
-                <h3 className="mb-1 font-black">{f.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-400">{f.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

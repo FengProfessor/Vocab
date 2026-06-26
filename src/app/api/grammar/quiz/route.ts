@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase';
 import { checkRateLimit, safeErrorResponse } from '@/lib/api-security';
 import { resolveUserPlan, checkAccess } from '@/lib/entitlement';
@@ -21,7 +21,7 @@ export interface QuizQuestion {
 
 const VALID_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction']);
 
-const QUIZ_MODEL = 'gemini-2.5-flash';
+const QUIZ_MODEL = 'llama-3.1-8b-instant';
 const QUIZ_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 ngày
 
 /**
@@ -163,21 +163,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       )
       .join('\n');
 
-    // Multi-key rotation
-    let apiKey = process.env.GEMINI_API_KEY ?? '';
-    if (apiKey.includes(',')) {
-      const keys = apiKey.split(',').map((k) => k.trim()).filter(Boolean);
-      apiKey = keys[Math.floor(Math.random() * keys.length)];
-    }
-    if (!apiKey) {
-      return NextResponse.json({ success: false, error: 'Gemini API key not configured' }, { status: 500 });
-    }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: QUIZ_MODEL,
-      generationConfig: { responseMimeType: 'application/json' },
-    });
 
     const levelLabel = { beginner: 'cơ bản (A1-A2)', intermediate: 'trung cấp (B1-B2)', advanced: 'nâng cao (C1-C2)' }[level as 'beginner' | 'intermediate' | 'advanced'] ?? 'trung cấp (B1-B2)';
 
@@ -224,12 +210,7 @@ Constraints:
 - Match the level: ${levelLabel}.
 - Output JSON array only.`;
 
-    const result = await model.generateContent(
-      { contents: [{ role: 'user', parts: [{ text: prompt }] }] },
-      { signal: AbortSignal.timeout(15000) }
-    );
-
-    const rawText = result.response.text();
+    const rawText = await getRouter().generate(prompt, 'normal', true);
 
     let parsed: unknown;
     try {

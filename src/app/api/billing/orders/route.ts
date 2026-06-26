@@ -29,6 +29,7 @@ export async function POST(req: NextRequest) {
       couponCode?: string;
       orderKind?: string;
       seats?: number;
+      note?: string;
     };
 
     const isGroup = body.orderKind === 'group';
@@ -62,6 +63,7 @@ export async function POST(req: NextRequest) {
       couponCode: body.couponCode,
       orderKind: isGroup ? 'group' : 'individual',
       seats: isGroup ? body.seats : undefined,
+      note: body.note,
     });
 
     return NextResponse.json({ success: true, ...result });

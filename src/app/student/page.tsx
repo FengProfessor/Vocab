@@ -27,6 +27,7 @@ import type { CelebrationIntensity } from '@/components/gamification/Celebration
 import { WordDetailModal } from '@/components/student/WordDetailModal';
 import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
+import { OnboardingProvider, OnboardingLayers } from '@/components/onboarding';
 
 // Lazy load: canvas-confetti chỉ chạy client-side, không cần SSR + chỉ tải khi cần
 const Celebration = dynamic(
@@ -474,7 +475,10 @@ export default function StudentDashboard() {
   const badges = earnedBadges(gamification, masteredCount);
 
   return (
+    <OnboardingProvider userId={profile?.id ?? null} userName={profile?.full_name ?? ''}>
     <div className="flex min-h-dvh w-full bg-muted/40 font-sans relative">
+      {/* Onboarding layers (spotlight, tooltips, modals) */}
+      <OnboardingLayers />
       {/* ═══ MOBILE DRAWER ═══ */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] md:hidden">
@@ -517,25 +521,25 @@ export default function StudentDashboard() {
           <Link href="/student" className="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold transition-all">
             <LayoutDashboard className="h-5 w-5" /> Dashboard
           </Link>
-          <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+          <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} data-onboarding="learn" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Sparkles className="h-5 w-5" /> Học từ mới
           </Link>
-          <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+          <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} data-onboarding="review" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <BookOpen className="h-5 w-5" /> Ôn tập (Flashcards)
           </Link>
-          <Link href={classroomId ? `/quiz?class=${classroomId}` : '#'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+          <Link href={classroomId ? `/quiz?class=${classroomId}` : '#'} data-onboarding="quiz" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Zap className="h-5 w-5" /> Mini Quiz
           </Link>
-          <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+          <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} data-onboarding="writing" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Pencil className="h-5 w-5" /> Writing Practice
           </Link>
-          <Link href="/student/speaking" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+          <Link href="/student/speaking" data-onboarding="speaking" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <MessageSquare className="h-5 w-5" /> AI Speaking Tutor
           </Link>
-          <Link href="/grammar/learn" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+          <Link href="/grammar/learn" data-onboarding="grammar" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <GraduationCap className="h-5 w-5" /> Grammar
           </Link>
-          <Link href="/library" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
+          <Link href="/library" data-onboarding="library" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
             <Library className="h-5 w-5" /> Thư viện từ vựng
           </Link>
           <Link href="/dictionary" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
@@ -1170,5 +1174,6 @@ export default function StudentDashboard() {
         <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="p-3 text-muted-foreground"><BookOpen /></Link>
       </nav>
     </div>
+    </OnboardingProvider>
   );
 }

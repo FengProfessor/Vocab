@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { getRouter } from '@/lib/ai-router';
 import { checkRateLimit, safeErrorResponse, sanitizeForPrompt, getAuthUser, unauthorized } from '@/lib/api-security';
 
 // Gemini call dùng AbortSignal.timeout(10000). Mặc định Hobby cắt ở 10s → đặt 30s để có headroom.
@@ -56,23 +56,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'sentence contains invalid characters' }, { status: 400 });
     }
 
-    // Multi-key rotation — copy pattern từ ai-enrich.ts
-    let apiKey = process.env.GEMINI_API_KEY || '';
-    if (apiKey.includes(',')) {
-      const keys = apiKey.split(',').map((k) => k.trim()).filter(Boolean);
-      apiKey = keys[Math.floor(Math.random() * keys.length)];
-    }
-    if (!apiKey) {
-      return NextResponse.json({ success: false, error: 'Gemini API key not configured' }, { status: 500 });
-    }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-2.5-flash',
-      generationConfig: {
-        responseMimeType: 'application/json',
-      },
-    });
 
     const topicLine = typeof topic === 'string' && topic.trim() ? `Grammar topic context: ${sanitizeForPrompt(topic, 100)}` : '';
     const prompt = `You are an English linguist. Tag every meaningful token in this sentence with ITS PART OF SPEECH (not its syntactic function).
@@ -102,12 +86,7 @@ Rules:
 ${topicLine}
 Sentence: "${sentence}"`;
 
-    const result = await model.generateContent(
-      { contents: [{ role: 'user', parts: [{ text: prompt }] }] },
-      { signal: AbortSignal.timeout(10000) },
-    );
-
-    const rawText = result.response.text();
+    const rawText = await getRouter().generate(prompt, 'normal', true);
 
     // Parse với fallback regex
     let parsed: unknown;

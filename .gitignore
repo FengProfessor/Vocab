@@ -70,3 +70,8 @@ inspect_all_columns.js
 
 # Chrome bot profiles (auto-chrome-bot)
 .chrome-bot-profiles/
+
+# Local testing media and reports (onboarding test screenshots, debug clips)
+/public/onboarding-test/
+/public/student-cases.mp4
+/public/extension-lookup.mp4

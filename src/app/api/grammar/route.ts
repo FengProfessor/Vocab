@@ -1,19 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase';
 import { checkRateLimit, safeErrorResponse, getAuthUser, unauthorized, sanitizeForPrompt } from '@/lib/api-security';
 
-// Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
+// AI call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 30;
-
-function getGeminiModel() {
-  const keys = (process.env.GEMINI_API_KEY || '').split(',').map((k) => k.trim()).filter(Boolean);
-  const key = keys[Math.floor(Math.random() * keys.length)];
-  return new GoogleGenerativeAI(key).getGenerativeModel({
-    model: 'gemini-2.5-flash',
-    generationConfig: { responseMimeType: 'application/json' },
-  });
-}
 
 type GeneratedExercise = {
   question: string;
@@ -164,11 +155,7 @@ Tối đa 3 câu, súc tích, không dài dòng.
 correct_answer phải khớp CHÍNH XÁC (case-sensitive, no extra spaces) with 1 of the 4 options.
 Return JSON array only, no other text.`;
 
-    const result = await getGeminiModel().generateContent(
-      { contents: [{ role: 'user', parts: [{ text: prompt }] }] },
-      { signal: AbortSignal.timeout(15000) }
-    );
-    const rawText = result.response.text();
+    const rawText = await getRouter().generate(prompt, 'normal', true);
 
     let rawExercises: unknown[];
     try {

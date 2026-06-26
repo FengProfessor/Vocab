@@ -48,7 +48,18 @@ async function main() {
       valid_until: new Date(new Date().getFullYear() + 1, 0, 1).toISOString(),
       applicable_plans: ['pro', 'premium'],
       is_active: true
+    },
+    {
+      code: 'NEWBIE2W',
+      discount_pct: 100,
+      discount_amount: null,
+      max_uses: 10000,
+      valid_from: new Date().toISOString(),
+      valid_until: new Date(new Date().getFullYear() + 1, 0, 1).toISOString(),
+      applicable_plans: ['pro'],
+      is_active: true
     }
+
   ];
 
   for (const coupon of coupons) {

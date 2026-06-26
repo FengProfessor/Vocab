@@ -8,7 +8,6 @@
  *   C. validateImageUrl   — kiểm ảnh thực sự tồn tại (HTTP, content-type, size)
  *   D. verifyImageMeaning — AI Vision chấm ảnh có khớp nghĩa từ (chỉ cho từ trừu tượng/đa nghĩa)
  */
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { search as searchPixabay } from './image-sources/pixabay';
 import { search as searchPexels } from './image-sources/pexels';
 import { search as searchDuckDuckGo } from './image-sources/duckduckgo';
@@ -183,22 +182,6 @@ export async function validateImageUrl(url: string): Promise<boolean> {
 // GIAI ĐOẠN D — AI Vision kiểm chứng
 // =============================================
 
-function pickGeminiKey(): string {
-  let key = process.env.GEMINI_API_KEY || '';
-  if (key.includes(',')) {
-    const keys = key
-      .split(',')
-      .map((k) => k.trim())
-      .filter(Boolean);
-    key = keys[Math.floor(Math.random() * keys.length)];
-  }
-  return key;
-}
-
-/**
- * Dùng Gemini multimodal chấm điểm ảnh có khớp nghĩa từ không.
- * Trả score 0-100; score = -1 nghĩa là Vision lỗi (không reject ảnh, chỉ bỏ qua bước chấm).
- */
 export async function verifyImageMeaning(
   imageUrl: string,
   ctx: { word: string; pos?: string; definition?: string }
@@ -208,57 +191,13 @@ export async function verifyImageMeaning(
     if (orchRes.score !== -1) {
       return { score: orchRes.score, reason: orchRes.reason };
     }
-    console.warn('[ImagePipeline] Orchestrator failed, falling back to legacy Gemini:', orchRes.reason);
+    console.warn('[ImagePipeline] Orchestrator failed verification:', orchRes.reason);
   } catch (e) {
     console.error('[ImagePipeline] Orchestrator exception:', (e as Error).message);
   }
 
-  try {
-    const key = pickGeminiKey();
-    if (!key) return { score: -1, reason: 'no api key' };
-
-    const imgRes = await fetch(imageUrl, {
-      headers: BROWSER_HEADERS,
-      signal: AbortSignal.timeout(10000),
-    });
-    if (!imgRes.ok) return { score: 0, reason: 'image fetch failed' };
-
-    const mimeType = imgRes.headers.get('content-type')?.split(';')[0] || 'image/jpeg';
-    const base64 = Buffer.from(await imgRes.arrayBuffer()).toString('base64');
-
-    const genAI = new GoogleGenerativeAI(key);
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-2.5-flash',
-      generationConfig: { responseMimeType: 'application/json' },
-    });
-
-    const prompt = `You are verifying whether an image correctly illustrates an English vocabulary word on a learner's flashcard.
-Word: "${ctx.word}"${ctx.pos ? ` (${ctx.pos})` : ''}
-Meaning: "${ctx.definition || ''}"
-Look at the image. Does it clearly and unambiguously depict THIS specific meaning?
-Return ONLY valid JSON: { "match_score": <integer 0-100>, "reason": "<short explanation>" }`;
-
-    const result = await model.generateContent([
-      { text: prompt },
-      { inlineData: { mimeType, data: base64 } },
-    ]);
-    const raw = result.response.text();
-
-    let parsed: { match_score?: number; reason?: string } | null = null;
-    try {
-      parsed = JSON.parse(raw);
-    } catch {
-      const m = raw.match(/\{[\s\S]*\}/);
-      parsed = m ? JSON.parse(m[0]) : null;
-    }
-    if (!parsed) return { score: 0, reason: 'parse failed' };
-
-    const score = Math.max(0, Math.min(100, Number(parsed.match_score) || 0));
-    return { score, reason: String(parsed.reason || '') };
-  } catch (e) {
-    console.error('[ImagePipeline] verifyImageMeaning failed:', (e as Error).message);
-    return { score: -1, reason: 'vision error' };
-  }
+  // Legacy Gemini fallback is disabled
+  return { score: -1, reason: 'no api key' };
 }
 
 // =============================================

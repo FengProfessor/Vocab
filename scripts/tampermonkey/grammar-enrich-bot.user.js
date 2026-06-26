@@ -244,12 +244,13 @@ Quy tắc tạo câu hỏi:
 
             if (!isRunning) return;
 
-            // Kiểm tra quota
+            // Kiểm tra quota / rate limit
             const lowerText = document.body.innerText.toLowerCase();
             if (platform.quota.some(q => lowerText.includes(q))) {
-                document.title = `[Grammar#${shard}] ⚠️ HẾT QUOTA!`;
-                stopBot();
-                GM_notification({ title: `LingoPro Grammar#${shard}`, text: 'Hết quota trình duyệt! Vui lòng đổi tài khoản Google.', timeout: 10000 });
+                document.title = `[Grammar#${shard}] ⏳ Chờ 60s (Rate Limit)...`;
+                console.warn(`[GrammarBot#${shard}] Gặp lỗi giới hạn tốc độ (Rate Limit/Quota). Chờ 60s để tự động thử lại...`);
+                await new Promise((r) => setTimeout(r, 60000));
+                location.reload();
                 return;
             }
 

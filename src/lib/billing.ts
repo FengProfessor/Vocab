@@ -153,6 +153,7 @@ export interface CreateOrderInput {
   orderKind?: OrderKind;
   /** Số ghế khi orderKind='group'. */
   seats?: number;
+  note?: string;
 }
 
 interface OrderSummary {
@@ -218,22 +219,123 @@ export async function createOrder(
     throw new Error('Group orders cannot be zero-value.');
   }
   if (amount === 0 && coupon) {
-    const { data: rpcData, error: rpcError } = await supabase.rpc('redeem_free_coupon_order', {
-      p_user_id: userId,
-      p_plan: plan,
-      p_period_months: periodMonths,
-      p_payment_method: paymentMethod,
-      p_coupon_code: coupon.code,
-      p_base_amount: basePrice,
-    });
+    let order: OrderSummary | null = null;
+    let rpcErrorOccurred = false;
 
-    if (rpcError) {
-      throw new Error(`Failed to redeem free coupon order: ${rpcError.message}`);
+    try {
+      const { data: rpcData, error: rpcError } = await supabase.rpc('redeem_free_coupon_order', {
+        p_user_id: userId,
+        p_plan: plan,
+        p_period_months: periodMonths,
+        p_payment_method: paymentMethod,
+        p_coupon_code: coupon.code,
+        p_base_amount: basePrice,
+      });
+
+      if (rpcError) {
+        throw new Error(rpcError.message);
+      }
+
+      const rows = rpcData as unknown as OrderSummary[] | null;
+      order = rows?.[0] || null;
+      if (!order) throw new Error('Empty response from RPC');
+    } catch (err) {
+      console.warn('[Billing] RPC redeem_free_coupon_order failed, falling back to TypeScript implementation:', err instanceof Error ? err.message : String(err));
+      rpcErrorOccurred = true;
     }
 
-    const rows = rpcData as unknown as OrderSummary[] | null;
-    const order = rows?.[0];
-    if (!order) throw new Error('Failed to redeem free coupon order: empty response');
+    // Fallback: Direct database updates in TypeScript
+    if (rpcErrorOccurred || !order) {
+      const now = new Date();
+      const startsAt = now;
+      const expiresAt = new Date(now);
+      expiresAt.setMonth(expiresAt.getMonth() + periodMonths);
+
+      // Create paid order
+      const { data: newOrder, error: orderErr } = await supabase
+        .from('orders')
+        .insert({
+          user_id: userId,
+          plan: plan,
+          amount: 0,
+          payment_method: paymentMethod,
+          period_months: periodMonths,
+          coupon_code: coupon.code,
+          status: 'paid',
+          order_kind: 'individual',
+          seats: 1,
+          starts_at: startsAt.toISOString(),
+          expires_at: expiresAt.toISOString(),
+          paid_at: now.toISOString(),
+          note: input.note ?? null,
+        })
+        .select('id, amount, plan, period_months, status, coupon_code, created_at, order_kind, seats')
+        .single();
+
+      if (orderErr || !newOrder) {
+        throw new Error(`Failed to create fallback order: ${orderErr?.message || 'unknown error'}`);
+      }
+
+      order = newOrder as unknown as OrderSummary;
+
+      // Get current plan for history
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('plan')
+        .eq('id', userId)
+        .single();
+      const oldPlan = profile?.plan ?? 'free';
+
+      // Update profiles
+      const planExpiresAt = coupon.code === 'NEWBIE2W'
+        ? new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000)
+        : expiresAt;
+
+      const { error: profileErr } = await supabase
+        .from('profiles')
+        .update({
+          plan: plan,
+          plan_expires_at: planExpiresAt.toISOString(),
+        })
+        .eq('id', userId);
+
+      if (profileErr) {
+        throw new Error(`Failed to update fallback profile: ${profileErr.message}`);
+      }
+
+      // Write subscription history
+      await supabase.from('subscription_history').insert({
+        user_id: userId,
+        old_plan: oldPlan,
+        new_plan: plan,
+        reason: 'payment',
+        order_id: order.id,
+      });
+
+      // Increment coupon usage
+      await supabase.rpc('increment_coupon_usage', { p_code: coupon.code });
+    } else {
+      // If RPC succeeded, perform our custom overrides (like 14 days and custom note)
+      if (coupon.code === 'NEWBIE2W') {
+        const fourteenDaysLater = new Date();
+        fourteenDaysLater.setDate(fourteenDaysLater.getDate() + 14);
+
+        await supabase
+          .from('profiles')
+          .update({
+            plan: plan,
+            plan_expires_at: fourteenDaysLater.toISOString(),
+          })
+          .eq('id', userId);
+      }
+
+      if (input.note && order.id) {
+        await supabase
+          .from('orders')
+          .update({ note: input.note })
+          .eq('id', order.id);
+      }
+    }
 
     return { order, discount: basePrice };
   }
@@ -254,6 +356,7 @@ export async function createOrder(
       status: 'pending',
       order_kind: orderKind,
       seats,
+      note: input.note ?? null,
     })
     .select('id, amount, plan, period_months, status, coupon_code, created_at, order_kind, seats')
     .single();

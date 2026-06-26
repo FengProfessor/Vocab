@@ -275,19 +275,26 @@ async function main() {
   for (const port of ports) {
     let browser;
     let retries = 15;
+    const hosts = ['localhost', '127.0.0.1', '[::1]'];
     while (retries > 0) {
-      try {
-        browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${port}`, defaultViewport: null });
-        break;
-      } catch (e: any) {
-        retries--;
-        if (retries === 0) {
-          console.error(`❌ Không kết nối được Chrome qua port ${port} sau nhiều lần thử: ${e.message}`);
+      let lastError: any = null;
+      for (const host of hosts) {
+        try {
+          browser = await puppeteer.connect({ browserURL: `http://${host}:${port}`, defaultViewport: null });
           break;
+        } catch (e: any) {
+          lastError = e;
         }
-        console.log(`⏳ Đang đợi Chrome khởi động và mở cổng debug trên port ${port}... (Còn ${retries} lần thử)`);
-        await new Promise((r) => setTimeout(r, 2000));
       }
+      if (browser) break;
+
+      retries--;
+      if (retries === 0) {
+        console.error(`❌ Không kết nối được Chrome qua port ${port} sau nhiều lần thử. Lỗi cuối: ${lastError?.message}`);
+        break;
+      }
+      console.log(`⏳ Đang đợi Chrome khởi động và mở cổng debug trên port ${port}... (Còn ${retries} lần thử)`);
+      await new Promise((r) => setTimeout(r, 2000));
     }
     if (!browser) continue;
 
