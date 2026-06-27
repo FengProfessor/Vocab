@@ -49,6 +49,7 @@ export default function StudentDashboard() {
   const [userMetadata, setUserMetadata] = useState<any>(null);
   const [words, setWords] = useState<Word[]>([]);
   const [classroomId, setClassroomId] = useState<string | null>(null);
+  const [joinedClass, setJoinedClass] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const [quizStats, setQuizStats] = useState({ total: 0, avgAccuracy: 0 });
   const [isRetryingAI, setIsRetryingAI] = useState(false);
@@ -123,6 +124,13 @@ export default function StudentDashboard() {
         return;
       }
       if (prof) setProfile(prof);
+
+      // Check if user has joined any real classroom
+      const { data: enrollments } = await supabase
+        .from('enrollments')
+        .select('id')
+        .eq('student_id', userId);
+      setJoinedClass(enrollments && enrollments.length > 0);
 
       // Tiến độ ôn tập ngữ pháp
       authFetch(`/api/grammar/progress`)
@@ -506,7 +514,7 @@ export default function StudentDashboard() {
   })();
   const badges = earnedBadges(gamification, masteredCount);
 
-  const hasClass = !!classroomId;
+  const hasClass = joinedClass;
 
   // Sidebar nav — mỗi item có tile màu riêng; gate Thống kê/Bảng xếp hạng theo lớp
   type NavItem = { href: string; label: string; icon: typeof LayoutGrid; color: string; tile: string; onboardingId?: string };
@@ -746,55 +754,53 @@ export default function StudentDashboard() {
           )}
 
           {/* ═══ Tách bạch: HỌC TỪ MỚI vs ÔN TẬP ═══ */}
-          {totalWords > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Học từ mới: xem từ + nghĩa + phát âm, rồi điền lại */}
-              <Link
-                href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}
-                data-onboarding="learn"
-                className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
-                  newCount > 0 ? 'bg-white hover:shadow-md hover:border-indigo-300' : 'bg-slate-50 opacity-70 pointer-events-none'
-                }`}
-              >
-                <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center shrink-0">
-                  <BookOpen className="h-6 w-6 text-indigo-600" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Học từ mới: xem từ + nghĩa + phát âm, rồi điền lại */}
+            <Link
+              href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}
+              data-onboarding="learn"
+              className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
+                newCount > 0 ? 'bg-white hover:shadow-md hover:border-indigo-300' : 'bg-slate-50 opacity-70 pointer-events-none'
+              }`}
+            >
+              <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center shrink-0">
+                <BookOpen className="h-6 w-6 text-indigo-600" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 leading-snug">
+                  <span className="font-black text-slate-800 leading-snug">Học từ mới</span>
+                  {newCount > 0 && <span className="bg-indigo-600 text-white text-xs font-black px-2 py-0.5 rounded-full">{newCount}</span>}
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="font-black text-slate-800">Học từ mới</span>
-                    {newCount > 0 && <span className="bg-indigo-600 text-white text-xs font-black px-2 py-0.5 rounded-full">{newCount}</span>}
-                  </div>
-                  <div className="text-xs font-bold text-muted-foreground">
-                    {newCount > 0 ? 'Xem từ, nghĩa, nghe phát âm rồi điền lại' : 'Đã học hết từ mới 🎉'}
-                  </div>
+                <div className="text-xs font-bold text-muted-foreground">
+                  {newCount > 0 ? 'Xem từ, nghĩa, nghe phát âm rồi điền lại' : 'Đã học hết từ mới 🎉'}
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+              </div>
+              <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+            </Link>
 
-              {/* Ôn tập: từ đã học, đến hạn nhớ lại */}
-              <Link
-                href={reviewDueCount > 0 && classroomId ? `/flashcard?class=${classroomId}` : '#'}
-                data-onboarding="review"
-                className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
-                  reviewDueCount > 0 ? 'bg-white hover:shadow-md hover:border-emerald-300' : 'bg-slate-50 opacity-70 pointer-events-none'
-                }`}
-              >
-                <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                  <RefreshCw className="h-6 w-6 text-emerald-600" />
+            {/* Ôn tập: từ đã học, đến hạn nhớ lại */}
+            <Link
+              href={reviewDueCount > 0 && classroomId ? `/flashcard?class=${classroomId}` : '#'}
+              data-onboarding="review"
+              className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
+                reviewDueCount > 0 ? 'bg-white hover:shadow-md hover:border-emerald-300' : 'bg-slate-50 opacity-70 pointer-events-none'
+              }`}
+            >
+              <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
+                <RefreshCw className="h-6 w-6 text-emerald-600" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 leading-snug">
+                  <span className="font-black text-slate-800 leading-snug">Ôn tập</span>
+                  {reviewDueCount > 0 && <span className="bg-emerald-500 text-white text-xs font-black px-2 py-0.5 rounded-full">{reviewDueCount}</span>}
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="font-black text-slate-800">Ôn tập</span>
-                    {reviewDueCount > 0 && <span className="bg-emerald-500 text-white text-xs font-black px-2 py-0.5 rounded-full">{reviewDueCount}</span>}
-                  </div>
-                  <div className="text-xs font-bold text-muted-foreground">
-                    {reviewDueCount > 0 ? 'Từ đã học đến hạn nhớ lại' : 'Chưa có từ cần ôn'}
-                  </div>
+                <div className="text-xs font-bold text-muted-foreground">
+                  {reviewDueCount > 0 ? 'Từ đã học đến hạn nhớ lại' : 'Chưa có từ cần ôn'}
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-            </div>
-          )}
+              </div>
+              <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
 
           {/* Gamification row — streak lịch tháng + XP/mục tiêu nhỏ gọn */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px] items-stretch">
