@@ -23,6 +23,7 @@ language plpgsql
 security definer
 set search_path = pg_catalog, public
 as $function$
+#variable_conflict use_column
 declare
   v_coupon public.coupons%rowtype;
   v_old_plan text;

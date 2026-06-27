@@ -46,7 +46,7 @@ export function SpotlightOverlay() {
     };
   }, [isActive, currentStep]);
 
-  if (!isActive || currentStep.type !== 'spotlight' || !rect) return null;
+  if (!isActive || currentStep.type !== 'spotlight' || !rect || (rect.width === 0 && rect.height === 0)) return null;
 
   const padding = 8; // padding quanh target
   const borderRadius = 16;

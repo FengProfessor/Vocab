@@ -509,14 +509,14 @@ export default function StudentDashboard() {
   const hasClass = !!classroomId;
 
   // Sidebar nav — mỗi item có tile màu riêng; gate Thống kê/Bảng xếp hạng theo lớp
-  type NavItem = { href: string; label: string; icon: typeof LayoutGrid; color: string; tile: string };
+  type NavItem = { href: string; label: string; icon: typeof LayoutGrid; color: string; tile: string; onboardingId?: string };
   const navItems: NavItem[] = [
     { href: '/student', label: 'Dashboard', icon: LayoutGrid, color: '#4f46e5', tile: '#eef0ff' },
-    { href: classroomId ? `/quiz?class=${classroomId}` : '#', label: 'Mini Quiz', icon: HelpCircle, color: '#f59e0b', tile: '#fff3df' },
-    { href: classroomId ? `/writing?class=${classroomId}` : '/writing', label: 'Writing Practice', icon: Pencil, color: '#f43f5e', tile: '#ffe7ec' },
-    { href: '/student/speaking', label: 'AI Speaking Tutor', icon: MessageSquare, color: '#0ea5e9', tile: '#e2f5fe' },
-    { href: '/grammar/learn', label: 'Grammar', icon: GraduationCap, color: '#8b5cf6', tile: '#f1ecff' },
-    { href: '/library', label: 'Thư viện từ vựng', icon: Library, color: '#10b981', tile: '#e1f7ee' },
+    { href: classroomId ? `/quiz?class=${classroomId}` : '#', label: 'Mini Quiz', icon: HelpCircle, color: '#f59e0b', tile: '#fff3df', onboardingId: 'quiz' },
+    { href: classroomId ? `/writing?class=${classroomId}` : '/writing', label: 'Writing Practice', icon: Pencil, color: '#f43f5e', tile: '#ffe7ec', onboardingId: 'writing' },
+    { href: '/student/speaking', label: 'AI Speaking Tutor', icon: MessageSquare, color: '#0ea5e9', tile: '#e2f5fe', onboardingId: 'speaking' },
+    { href: '/grammar/learn', label: 'Grammar', icon: GraduationCap, color: '#8b5cf6', tile: '#f1ecff', onboardingId: 'grammar' },
+    { href: '/library', label: 'Thư viện từ vựng', icon: Library, color: '#10b981', tile: '#e1f7ee', onboardingId: 'library' },
     { href: '/dictionary', label: 'Tra từ điển', icon: Search, color: '#06b6d4', tile: '#defafd' },
     { href: '/import', label: 'Nhập danh sách riêng', icon: Plus, color: '#64748b', tile: '#eef1f5' },
     ...(hasClass ? [
@@ -546,13 +546,13 @@ export default function StudentDashboard() {
               </div>
               <nav className="flex-1 space-y-4">
                 <Link href="/student" className="flex items-center gap-3 font-bold text-primary bg-primary/5 p-3 rounded-xl"><LayoutDashboard /> Dashboard</Link>
-                <Link href="/library" className="flex items-center gap-3 font-semibold p-3"><Library /> Thư viện từ vựng</Link>
+                <Link href="/library" data-onboarding="library" className="flex items-center gap-3 font-semibold p-3"><Library /> Thư viện từ vựng</Link>
                 <Link href="/import" className="flex items-center gap-3 font-semibold p-3"><Plus /> Nhập danh sách riêng</Link>
-                <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} className="flex items-center gap-3 font-semibold p-3"><Sparkles /> Học từ mới</Link>
-                <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Ôn tập</Link>
-                <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
-                <Link href="/student/speaking" className="flex items-center gap-3 font-semibold p-3"><MessageSquare /> AI Speaking Tutor</Link>
-                <Link href="/grammar/learn" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
+                <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} data-onboarding="learn" className="flex items-center gap-3 font-semibold p-3"><Sparkles /> Học từ mới</Link>
+                <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} data-onboarding="review" className="flex items-center gap-3 font-semibold p-3"><BookOpen /> Ôn tập</Link>
+                <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} data-onboarding="writing" className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
+                <Link href="/student/speaking" data-onboarding="speaking" className="flex items-center gap-3 font-semibold p-3"><MessageSquare /> AI Speaking Tutor</Link>
+                <Link href="/grammar/learn" data-onboarding="grammar" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
                 <Link href="/student/profile" className="flex items-center gap-3 font-semibold p-3"><User /> Hồ sơ</Link>
                 <button
                   onClick={() => { setIsMenuOpen(false); setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
@@ -582,6 +582,7 @@ export default function StudentDashboard() {
               <Link
                 key={item.label}
                 href={item.href}
+                data-onboarding={item.onboardingId}
                 className={`flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors ${
                   active ? 'bg-[#eef0ff] font-extrabold text-[#4f46e5]' : 'font-bold text-[#525a68] hover:bg-muted'
                 }`}
@@ -750,6 +751,7 @@ export default function StudentDashboard() {
               {/* Học từ mới: xem từ + nghĩa + phát âm, rồi điền lại */}
               <Link
                 href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}
+                data-onboarding="learn"
                 className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
                   newCount > 0 ? 'bg-white hover:shadow-md hover:border-indigo-300' : 'bg-slate-50 opacity-70 pointer-events-none'
                 }`}
@@ -772,6 +774,7 @@ export default function StudentDashboard() {
               {/* Ôn tập: từ đã học, đến hạn nhớ lại */}
               <Link
                 href={reviewDueCount > 0 && classroomId ? `/flashcard?class=${classroomId}` : '#'}
+                data-onboarding="review"
                 className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
                   reviewDueCount > 0 ? 'bg-white hover:shadow-md hover:border-emerald-300' : 'bg-slate-50 opacity-70 pointer-events-none'
                 }`}
