@@ -74,7 +74,7 @@ export const PLAN_LABELS: Record<Plan, string> = {
 // Gói Nhóm (Group Plan)
 // ─────────────────────────────────────────
 
-/** Giá mỗi ghế/tháng của gói nhóm (VNĐ). Owner trả gộp seats × giá. */
+/** Giá mặc định mỗi ghế/tháng của gói nhóm (VNĐ). */
 export const GROUP_SEAT_PRICE = 39_000;
 /** Tier thành viên nhóm nhận được. ĐỔI TIER tại đây (pro ↔ premium). */
 export const GROUP_PLAN: Exclude<Plan, 'free'> = 'pro';
@@ -93,21 +93,39 @@ export function normalizeSeats(value: unknown): number {
 }
 
 /**
- * Giá gói nhóm = ghế × 39k × số tháng × (1 - % giảm kỳ hạn).
+ * Lấy giá tiền cho mỗi ghế của gói nhóm (đơn vị VNĐ/ghế/tháng) dựa trên số lượng ghế:
+ * - 2 ghế: 59k/ghế
+ * - 3 ghế: 49k/ghế
+ * - 4 ghế: 45k/ghế
+ * - 5+ ghế: 39k/ghế
+ */
+export function getGroupSeatPrice(seats: number): number {
+  const s = normalizeSeats(seats);
+  if (s === 2) return 59_000;
+  if (s === 3) return 49_000;
+  if (s === 4) return 45_000;
+  return 39_000;
+}
+
+/**
+ * Giá gói nhóm = ghế × (giá theo số ghế) × số tháng × (1 - % giảm kỳ hạn).
  * 12 tháng (discountPct=null) → coi như giảm 20% (đồng bộ mốc 6 tháng).
  */
 export function computeGroupPrice(seats: number, periodMonths: number): number {
   const s = normalizeSeats(seats);
+  const seatPrice = getGroupSeatPrice(s);
   const months = normalizePeriodMonths(periodMonths);
   const opt = PERIOD_OPTIONS.find((o) => o.months === months);
   const pct = opt?.discountPct ?? 0;
   const effectivePct = pct === null ? 20 : pct;
-  return Math.round(GROUP_SEAT_PRICE * s * months * (1 - effectivePct / 100));
+  return Math.round(seatPrice * s * months * (1 - effectivePct / 100));
 }
 
-/** Giá niêm yết gói nhóm (ghế × 39k × tháng, KHÔNG giảm). */
+/** Giá niêm yết gói nhóm (ghế × giá theo số ghế × tháng, KHÔNG giảm). */
 export function listGroupPrice(seats: number, periodMonths: number): number {
-  return GROUP_SEAT_PRICE * normalizeSeats(seats) * normalizePeriodMonths(periodMonths);
+  const s = normalizeSeats(seats);
+  const seatPrice = getGroupSeatPrice(s);
+  return seatPrice * s * normalizePeriodMonths(periodMonths);
 }
 
 // ─────────────────────────────────────────

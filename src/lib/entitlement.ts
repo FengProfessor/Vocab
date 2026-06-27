@@ -46,7 +46,7 @@ export const FEATURE_MIN_PLAN: Record<Feature, Plan> = {
   ai_quiz: 'pro',
   writing_practice: 'pro',
   grammar_read: 'pro',
-  grammar_ai: 'premium',
+  grammar_ai: 'pro',        // gộp từ premium → Pro là gói trả phí duy nhất, có đủ
 };
 
 /**

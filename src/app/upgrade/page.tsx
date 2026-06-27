@@ -13,7 +13,7 @@ import { toast } from 'sonner';
 import {
   PLAN_PRICES, PLAN_LABELS, PERIOD_OPTIONS, computeBasePrice, listPrice,
   formatVND, getRemainingDays, formatExpiry, applyDiscount, type Coupon,
-  computeGroupPrice, listGroupPrice, GROUP_SEAT_PRICE,
+  computeGroupPrice, listGroupPrice, GROUP_SEAT_PRICE, getGroupSeatPrice,
   GROUP_SEATS_MIN, GROUP_SEATS_MAX, GROUP_SEATS_DEFAULT,
 } from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
@@ -37,6 +37,14 @@ interface PlanOption {
   popular?: boolean;
 }
 
+// Tính năng gói Free hiện tại — để người dùng SO SÁNH với Pro.
+const FREE_FEATURES: string[] = [
+  'Học từ vựng + flashcard ôn tập thông minh (SRS)',
+  'Tra từ bằng AI — 5 lượt/ngày',
+  'Quiz từ vựng cơ bản',
+  'Tham gia lớp học bằng mã mời',
+];
+
 const PLAN_OPTIONS: PlanOption[] = [
   {
     plan: 'pro',
@@ -47,28 +55,13 @@ const PLAN_OPTIONS: PlanOption[] = [
     gradient: 'from-violet-500/20 to-purple-500/20 border-violet-500/30',
     popular: true,
     features: [
-      'Unlimited classrooms & students',
-      'Unlimited vocabulary',
-      'AI Grammar Module',
-      'Writing Practice',
-      'PDF Reports',
-      'Priority support',
-    ],
-  },
-  {
-    plan: 'premium',
-    name: 'Premium',
-    price: PLAN_PRICES.premium,
-    icon: Crown,
-    color: 'text-amber-500',
-    gradient: 'from-amber-500/20 to-orange-500/20 border-amber-500/30',
-    features: [
-      'Everything in Pro',
-      'AI Grammar: advanced analysis',
-      'Custom quizzes with AI',
-      'Advanced analytics',
-      'API access',
-      'Dedicated support',
+      'Tất cả tính năng Free — KHÔNG giới hạn',
+      'Tra từ AI không giới hạn (Free: 5 lượt/ngày)',
+      'AI tạo quiz từ vựng riêng cho bạn',
+      'Luyện viết + AI chấm & sửa lỗi',
+      'Học ngữ pháp + AI phân tích câu, ôn câu sai',
+      'Giáo viên: lớp học & học sinh không giới hạn',
+      'Báo cáo tiến độ PDF · Hỗ trợ ưu tiên',
     ],
   },
 ];
@@ -409,124 +402,191 @@ export default function UpgradePage() {
                 Chọn gói phù hợp
               </h1>
               <p className="text-lg text-slate-400 max-w-xl mx-auto">
-                Mở khóa toàn bộ tính năng AI, grammar, và analytics nâng cao
+                Nâng cấp Pro để mở khóa toàn bộ tính năng AI, ngữ pháp và luyện viết — không giới hạn
               </p>
             </div>
 
-            {/* Billing mode toggle: Cá nhân ↔ Nhóm */}
-            <div className="grid grid-cols-2 gap-3 mb-6 bg-white/3 border border-white/10 rounded-2xl p-1.5">
-              <button
+            {/* Split layout: Gói cá nhân bên trái, Gói nhóm bên phải */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative mb-8">
+              
+              {/* Cột trái: Gói cá nhân */}
+              <div 
                 onClick={() => setBillingMode('individual')}
-                className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${
-                  !isGroupMode ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-400 hover:text-white'
+                className={`border rounded-3xl p-6 transition-all space-y-6 ${
+                  !isGroupMode 
+                    ? 'border-violet-500/50 bg-gradient-to-br from-violet-500/10 to-transparent shadow-lg shadow-violet-500/5 ring-1 ring-violet-500/30' 
+                    : 'border-white/10 bg-white/3 opacity-70 hover:opacity-90 hover:border-white/20'
                 }`}
               >
-                <Crown className="h-4 w-4" /> Gói cá nhân
-              </button>
-              <button
-                onClick={() => setBillingMode('group')}
-                className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${
-                  isGroupMode ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Users className="h-4 w-4" /> Gói nhóm
-              </button>
-            </div>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-extrabold text-xl flex items-center gap-2">
+                    <Crown className="h-5 w-5 text-violet-400" />
+                    Gói Cá Nhân
+                  </h3>
+                  {!isGroupMode && (
+                    <span className="text-xs px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 font-bold border border-violet-500/30">
+                      Đang chọn
+                    </span>
+                  )}
+                </div>
 
-            {/* Plan cards (cá nhân) */}
-            {!isGroupMode && (
-            <div className="grid sm:grid-cols-2 gap-5 mb-8">
-              {PLAN_OPTIONS.map(opt => {
-                const isSelected = selectedPlan === opt.plan;
-                const Icon = opt.icon;
-                return (
-                  <button
-                    key={opt.plan}
-                    onClick={() => setSelectedPlan(opt.plan)}
-                    className={`relative text-left border rounded-2xl p-6 transition-all ${
-                      isSelected
-                        ? `bg-gradient-to-br ${opt.gradient} shadow-lg shadow-primary/10 ring-2 ring-primary/50`
-                        : 'bg-white/3 border-white/10 hover:border-white/20'
-                    }`}
-                  >
-                    {opt.popular && (
-                      <div className="absolute -top-3 right-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">
-                        Popular
-                      </div>
-                    )}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`p-2 rounded-xl ${isSelected ? 'bg-white/10' : 'bg-white/5'}`}>
-                        <Icon className={`h-5 w-5 ${opt.color}`} />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg">{opt.name}</h3>
-                        <p className="text-sm text-slate-400">
-                          {formatVND(opt.price)}<span className="text-xs">/tháng</span>
-                        </p>
-                      </div>
-                      {isSelected && (
-                        <CheckCircle2 className="ml-auto h-5 w-5 text-primary" />
-                      )}
+                {/* Sub-grid so sánh Free vs Pro */}
+                <div className="space-y-4">
+                  {/* Free Plan Card */}
+                  <div className="bg-white/5 border border-white/5 rounded-2xl p-4 space-y-3 relative overflow-hidden">
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold text-sm text-slate-300">Free Plan (Hiện tại)</span>
+                      <span className="font-extrabold text-sm text-slate-400">0₫</span>
                     </div>
-                    <ul className="space-y-2">
-                      {opt.features.map(f => (
-                        <li key={f} className="flex items-center gap-2 text-sm text-slate-300">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-                          {f}
-                        </li>
-                      ))}
+                    <ul className="space-y-1.5 text-xs text-slate-400">
+                      <li className="flex items-center gap-1.5">
+                        <span className="text-red-400">✕</span> Giới hạn 5 lượt tra cứu từ bằng AI / ngày
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <span className="text-emerald-400">✓</span> Học từ vựng & ôn tập Spaced Repetition (SRS)
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <span className="text-emerald-400">✓</span> Luyện nói phát âm cơ bản
+                      </li>
                     </ul>
-                  </button>
-                );
-              })}
-            </div>
-            )}
-
-            {/* Group seats selector (nhóm) */}
-            {isGroupMode && (
-              <div className="bg-gradient-to-br from-violet-500/15 to-purple-500/15 border border-violet-500/30 rounded-2xl p-6 mb-8">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-xl bg-white/10">
-                    <Users className="h-5 w-5 text-violet-400" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-lg">Gói Nhóm — chia sẻ với bạn bè</h3>
-                    <p className="text-sm text-slate-400">
-                      {formatVND(GROUP_SEAT_PRICE)}/ghế/tháng · mỗi thành viên được đủ quyền <span className="text-violet-300 font-semibold">{PLAN_LABELS.pro}</span>
-                    </p>
+
+                  {/* Pro Plan Card */}
+                  <div className="bg-violet-950/20 border border-violet-500/20 rounded-2xl p-5 space-y-4 relative overflow-hidden">
+                    <div className="absolute -top-6 -right-6 w-20 h-20 bg-violet-500/10 rounded-full blur-xl pointer-events-none" />
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="inline-flex items-center gap-1 bg-violet-500/20 text-violet-300 text-[10px] font-bold px-2 py-0.5 rounded-full mb-1">
+                          Popular
+                        </span>
+                        <h4 className="font-bold text-lg text-white">Pro Plan (Học Cao Cấp)</h4>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-black text-xl text-violet-400">79.000₫</p>
+                        <p className="text-[10px] text-slate-400">/tháng</p>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-2 text-xs text-slate-300">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>Tra cứu từ AI <strong>không giới hạn</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span><strong>AI Speaking Tutor</strong> (Luyện nói tương tác thoại)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span><strong>AI Writing Practice</strong> (Sửa bài viết chi tiết)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>Đầy đủ lý thuyết ngữ pháp + bài tập trắc nghiệm & điền từ</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>Tải file PDF báo cáo học tập chi tiết</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-
-                <div className="mt-5 flex items-center justify-between bg-white/5 rounded-xl p-4">
-                  <div>
-                    <p className="font-bold">Số ghế</p>
-                    <p className="text-xs text-slate-400">Gồm cả bạn (chủ nhóm = 1 ghế)</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <button
-                      onClick={() => setSeats(s => Math.max(GROUP_SEATS_MIN, s - 1))}
-                      disabled={seats <= GROUP_SEATS_MIN}
-                      className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center disabled:opacity-30"
-                    >
-                      <Minus className="h-4 w-4" />
-                    </button>
-                    <span className="font-extrabold text-2xl w-10 text-center">{seats}</span>
-                    <button
-                      onClick={() => setSeats(s => Math.min(GROUP_SEATS_MAX, s + 1))}
-                      disabled={seats >= GROUP_SEATS_MAX}
-                      className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center disabled:opacity-30"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
-
-                <p className="text-xs text-slate-400 mt-3 leading-relaxed">
-                  Bạn trả gộp 1 lần, nhận <span className="font-semibold text-white">mã mời</span> để chia cho tối đa {seats} người.
-                  Quản lý nhóm tại trang <Link href="/group" className="text-violet-300 underline">Nhóm của tôi</Link>.
-                </p>
               </div>
-            )}
+
+              {/* Đường gạch dọc chia đôi (chỉ hiện trên màn hình md trở lên) */}
+              <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-white/10 -translate-x-1/2 pointer-events-none" />
+
+              {/* Cột phải: Gói nhóm */}
+              <div 
+                onClick={() => setBillingMode('group')}
+                className={`border rounded-3xl p-6 transition-all space-y-6 ${
+                  isGroupMode 
+                    ? 'border-violet-500/50 bg-gradient-to-br from-violet-500/10 to-transparent shadow-lg shadow-violet-500/5 ring-1 ring-violet-500/30' 
+                    : 'border-white/10 bg-white/3 opacity-70 hover:opacity-90 hover:border-white/20'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <h3 className="font-extrabold text-xl flex items-center gap-2">
+                    <Users className="h-5 w-5 text-violet-400" />
+                    Gói Nhóm
+                  </h3>
+                  {isGroupMode && (
+                    <span className="text-xs px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 font-bold border border-violet-500/30">
+                      Đang chọn
+                    </span>
+                  )}
+                </div>
+
+                <div className="space-y-4">
+                  {/* Bảng giá gói nhóm */}
+                  <div className="bg-white/5 border border-white/5 rounded-2xl p-4 space-y-2.5">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Bảng giá gói nhóm tiết kiệm</p>
+                    <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                      <div className="bg-white/5 rounded-xl p-2">
+                        <p className="text-slate-400">Nhóm 2 người</p>
+                        <p className="font-bold text-white mt-1">59k<span className="text-[10px] text-slate-400">/người</span></p>
+                      </div>
+                      <div className="bg-white/5 rounded-xl p-2">
+                        <p className="text-slate-400">Nhóm 3-4 người</p>
+                        <p className="font-bold text-white mt-1">45k-49k<span className="text-[10px] text-slate-400">/người</span></p>
+                      </div>
+                      <div className="bg-white/5 rounded-xl p-2 border border-amber-500/30 bg-amber-500/5">
+                        <p className="text-amber-400 font-semibold">Nhóm ≥ 5 người</p>
+                        <p className="font-extrabold text-amber-300 mt-1">39k<span className="text-[10px] text-amber-500">/người</span></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Seat Stepper Selector */}
+                  <div className="bg-violet-950/20 border border-violet-500/20 rounded-2xl p-5 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="font-bold text-sm text-white">Chọn số thành viên</span>
+                        <p className="text-[10px] text-slate-400">Bao gồm bạn (1 trưởng nhóm)</p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSeats(s => Math.max(GROUP_SEATS_MIN, s - 1));
+                          }}
+                          disabled={seats <= GROUP_SEATS_MIN}
+                          className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center disabled:opacity-30 transition-colors"
+                        >
+                          <Minus className="h-4 w-4" />
+                        </button>
+                        <span className="font-extrabold text-xl w-8 text-center text-violet-400">{seats}</span>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSeats(s => Math.min(GROUP_SEATS_MAX, s + 1));
+                          }}
+                          disabled={seats >= GROUP_SEATS_MAX}
+                          className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center disabled:opacity-30 transition-colors"
+                        >
+                          <Plus className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/5 pt-3 space-y-2 text-xs">
+                      <div className="flex justify-between">
+                        <span className="text-slate-400">Đơn giá mỗi thành viên:</span>
+                        <span className="font-bold text-white">{formatVND(getGroupSeatPrice(seats))}/tháng</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-400">Tổng cộng (chưa giảm kỳ hạn):</span>
+                        <span className="font-bold text-violet-400">{formatVND(getGroupSeatPrice(seats) * seats)}/tháng</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-slate-400 leading-relaxed pl-1">
+                    💡 <strong>Cách hoạt động:</strong> Trưởng nhóm trả gộp một lần, hệ thống cấp ngay <strong>mã mời</strong> để kích hoạt Pro cho tối đa {seats} thành viên khác. Thành viên nhóm không cần đóng thêm phí.
+                  </p>
+                </div>
+              </div>
+            </div>
 
             {/* Period selector */}
             <div className="bg-white/3 border border-white/10 rounded-2xl p-6 mb-6">
