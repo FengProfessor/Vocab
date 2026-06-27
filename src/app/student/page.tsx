@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
@@ -9,9 +9,9 @@ import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  Brain, BookOpen, Zap, LayoutDashboard, LogOut, Loader2, Plus,
-  CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight, RotateCcw,
-  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles, MessageSquare, Users
+  Brain, BookOpen, LayoutDashboard, LogOut, Loader2, Plus,
+  CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight,
+  Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles, MessageSquare, Users, RefreshCw, HelpCircle
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -20,8 +20,7 @@ import { useGamification } from '@/hooks/useGamification';
 import { earnedBadges, xpToLevel } from '@/lib/gamification';
 import { Mascot, type MascotMood } from '@/components/gamification/Mascot';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
-import { XpBadge } from '@/components/gamification/XpBadge';
-import { DailyGoalRing } from '@/components/gamification/DailyGoalRing';
+import { XpGoalCard } from '@/components/gamification/XpGoalCard';
 import { BadgeGrid } from '@/components/gamification/BadgeGrid';
 import type { CelebrationIntensity } from '@/components/gamification/Celebration';
 import { WordDetailModal } from '@/components/student/WordDetailModal';
@@ -54,6 +53,10 @@ export default function StudentDashboard() {
   const [quizStats, setQuizStats] = useState({ total: 0, avgAccuracy: 0 });
   const [isRetryingAI, setIsRetryingAI] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const profileRef = useRef<HTMLDivElement>(null);
+  const [dailyActivity, setDailyActivity] = useState<{ date: string; count: number }[]>([]);
+  const [todayWords, setTodayWords] = useState(0);
   const [countdown, setCountdown] = useState<string>('');
   const [grammarDue, setGrammarDue] = useState(0);
   const [activeVocabPack, setActiveVocabPack] = useState<ActiveVocabPack | null>(null);
@@ -125,6 +128,18 @@ export default function StudentDashboard() {
       authFetch(`/api/grammar/progress`)
         .then((r) => r.json())
         .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
+        .catch(() => {});
+
+      // Hoạt động theo ngày (heatmap streak) + số từ học hôm nay
+      authFetch(`/api/student/stats`)
+        .then((r) => r.json())
+        .then((st) => {
+          if (!st?.success) return;
+          const activity: { date: string; count: number }[] = st.data?.dailyActivity ?? [];
+          setDailyActivity(activity);
+          const todayKey = new Date().toISOString().slice(0, 10);
+          setTodayWords(activity.find((a) => a.date === todayKey)?.count ?? 0);
+        })
         .catch(() => {});
 
       authFetch('/api/vocab/packs')
@@ -269,9 +284,10 @@ export default function StudentDashboard() {
     if (!profile?.id) return;
     const interval = setInterval(() => {
       refreshSummary(profile.id);
+      refreshGamification();
     }, 30000);
     return () => clearInterval(interval);
-  }, [profile?.id]);
+  }, [profile?.id, refreshGamification]);
 
   // === Detect milestones (level up / new badge / streak milestone) → trigger Celebration ===
   useEffect(() => {
@@ -321,6 +337,18 @@ export default function StudentDashboard() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: so sánh snapshot cũ vs mới, không re-run khi prevSnapshot đổi
   }, [gamification.total_xp, gamification.current_streak, words.length, profile?.id]);
+
+  // Đóng dropdown profile khi click ra ngoài
+  useEffect(() => {
+    if (!isProfileOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
+        setIsProfileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onClick);
+    return () => document.removeEventListener('mousedown', onClick);
+  }, [isProfileOpen]);
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
@@ -478,6 +506,28 @@ export default function StudentDashboard() {
   })();
   const badges = earnedBadges(gamification, masteredCount);
 
+  const hasClass = !!classroomId;
+
+  // Sidebar nav — mỗi item có tile màu riêng; gate Thống kê/Bảng xếp hạng theo lớp
+  type NavItem = { href: string; label: string; icon: typeof LayoutGrid; color: string; tile: string };
+  const navItems: NavItem[] = [
+    { href: '/student', label: 'Dashboard', icon: LayoutGrid, color: '#4f46e5', tile: '#eef0ff' },
+    { href: classroomId ? `/quiz?class=${classroomId}` : '#', label: 'Mini Quiz', icon: HelpCircle, color: '#f59e0b', tile: '#fff3df' },
+    { href: classroomId ? `/writing?class=${classroomId}` : '/writing', label: 'Writing Practice', icon: Pencil, color: '#f43f5e', tile: '#ffe7ec' },
+    { href: '/student/speaking', label: 'AI Speaking Tutor', icon: MessageSquare, color: '#0ea5e9', tile: '#e2f5fe' },
+    { href: '/grammar/learn', label: 'Grammar', icon: GraduationCap, color: '#8b5cf6', tile: '#f1ecff' },
+    { href: '/library', label: 'Thư viện từ vựng', icon: Library, color: '#10b981', tile: '#e1f7ee' },
+    { href: '/dictionary', label: 'Tra từ điển', icon: Search, color: '#06b6d4', tile: '#defafd' },
+    { href: '/import', label: 'Nhập danh sách riêng', icon: Plus, color: '#64748b', tile: '#eef1f5' },
+    ...(hasClass ? [
+      { href: '/student/stats', label: 'Thống kê', icon: BarChart3, color: '#3b82f6', tile: '#e7f0ff' },
+      { href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard', label: 'Bảng xếp hạng', icon: Trophy, color: '#f59e0b', tile: '#fff3df' },
+    ] as NavItem[] : []),
+    { href: '/student/profile', label: 'Hồ sơ', icon: User, color: '#64748b', tile: '#eef1f5' },
+  ];
+  const profileInitial = (profile?.full_name?.trim()?.[0] || 'U').toUpperCase();
+  const profileEmail = (userMetadata?.email as string) || '';
+
   return (
     <OnboardingProvider userId={profile?.id ?? null} userName={profile?.full_name ?? ''} userMetadata={userMetadata}>
     <div className="flex min-h-dvh w-full bg-muted/40 font-sans relative">
@@ -517,87 +567,83 @@ export default function StudentDashboard() {
       )}
 
       {/* ═══ SIDEBAR (md+) ═══ */}
-      <aside className="fixed inset-y-0 left-0 z-20 w-64 border-r bg-background hidden md:flex flex-col p-6">
-        <Link href="/student" className="flex items-center gap-2 font-black text-primary text-2xl mb-10">
-          <Brain className="h-8 w-8" /> LingoPro
+      <aside className="fixed inset-y-0 left-0 z-20 w-[248px] border-r border-[#ececf1] bg-white hidden md:flex flex-col px-4 py-[22px]">
+        <Link href="/student" className="flex items-center gap-2.5 px-2 pb-[22px] pt-1">
+          <span className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_12px_rgba(99,102,241,.35)]">
+            <Brain className="h-5 w-5 text-white" />
+          </span>
+          <span className="bg-gradient-to-br from-indigo-500 to-violet-500 bg-clip-text text-xl font-black tracking-tight text-transparent">LingoPro</span>
         </Link>
-        <nav className="flex-1 space-y-2">
-          <Link href="/student" className="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold transition-all">
-            <LayoutDashboard className="h-5 w-5" /> Dashboard
-          </Link>
-          <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} data-onboarding="learn" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Sparkles className="h-5 w-5" /> Học từ mới
-          </Link>
-          <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} data-onboarding="review" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <BookOpen className="h-5 w-5" /> Ôn tập (Flashcards)
-          </Link>
-          <Link href={classroomId ? `/quiz?class=${classroomId}` : '#'} data-onboarding="quiz" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Zap className="h-5 w-5" /> Mini Quiz
-          </Link>
-          <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} data-onboarding="writing" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Pencil className="h-5 w-5" /> Writing Practice
-          </Link>
-          <Link href="/student/speaking" data-onboarding="speaking" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <MessageSquare className="h-5 w-5" /> AI Speaking Tutor
-          </Link>
-          <Link href="/grammar/learn" data-onboarding="grammar" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <GraduationCap className="h-5 w-5" /> Grammar
-          </Link>
-          <Link href="/library" data-onboarding="library" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Library className="h-5 w-5" /> Thư viện từ vựng
-          </Link>
-          <Link href="/dictionary" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Search className="h-5 w-5" /> Tra từ điển
-          </Link>
-          <Link href="/import" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Plus className="h-5 w-5" /> Nhập danh sách riêng
-          </Link>
-          <Link href="/student/stats" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <BarChart3 className="h-5 w-5" /> Thống kê
-          </Link>
-          <Link href={classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard'} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Trophy className="h-5 w-5" /> Bảng xếp hạng
-          </Link>
-          <Link href="/student/profile" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <User className="h-5 w-5" /> Hồ sơ
-          </Link>
+        <nav className="flex flex-1 flex-col gap-0.5">
+          {navItems.map((item) => {
+            const active = item.href === '/student';
+            const Icon = item.icon;
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors ${
+                  active ? 'bg-[#eef0ff] font-extrabold text-[#4f46e5]' : 'font-bold text-[#525a68] hover:bg-muted'
+                }`}
+              >
+                <span
+                  className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg"
+                  style={active ? { background: '#fff', boxShadow: '0 1px 2px rgba(79,70,229,.2)' } : { background: item.tile }}
+                >
+                  <Icon className="h-[18px] w-[18px]" style={{ color: item.color }} strokeWidth={2} />
+                </span>
+                <span className="truncate">{item.label}</span>
+              </Link>
+            );
+          })}
           <button
             onClick={() => { setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
-            className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold w-full text-left"
+            className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted w-full text-left"
           >
-            <UserPlus className="h-5 w-5" /> Tham gia lớp
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg" style={{ background: '#eef1f5' }}>
+              <UserPlus className="h-[18px] w-[18px]" style={{ color: '#64748b' }} strokeWidth={2} />
+            </span>
+            <span className="truncate">Tham gia lớp</span>
           </button>
         </nav>
-        <div className="space-y-1">
-          <Link href="/upgrade" className="flex items-center gap-3 px-4 py-3 text-violet-600 hover:bg-violet-50 rounded-xl transition-all font-bold">
-            <Crown className="h-5 w-5" /> Nâng cấp
+        <div className="mt-2.5 border-t border-[#f0f0f4] pt-3 space-y-0.5">
+          <Link href="/upgrade" className="flex items-center gap-[11px] rounded-[11px] bg-[#f6f1ff] px-2.5 py-2 text-sm font-extrabold text-[#7c3aed]">
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white shadow-[0_1px_2px_rgba(124,58,237,.18)]">
+              <Crown className="h-[18px] w-[18px] text-[#7c3aed]" strokeWidth={2} />
+            </span>
+            <span>Nâng cấp Pro</span>
             {profile?.plan && profile.plan !== 'free' && (
-              <span className="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-violet-100 text-violet-600 font-black uppercase">{profile.plan}</span>
+              <span className="ml-auto rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black uppercase text-violet-600">{profile.plan}</span>
             )}
           </Link>
-          <Link href="/group" className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:bg-muted rounded-xl transition-all font-semibold">
-            <Users className="h-5 w-5" /> Nhóm của tôi
+          <Link href="/group" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg" style={{ background: '#eef1f5' }}>
+              <Users className="h-[18px] w-[18px]" style={{ color: '#64748b' }} strokeWidth={2} />
+            </span>
+            <span>Nhóm của tôi</span>
           </Link>
-          <button onClick={handleSignOut} className="flex items-center gap-3 px-4 py-3 text-muted-foreground hover:text-destructive rounded-xl transition-all font-semibold w-full text-left">
-            <LogOut className="h-5 w-5" /> Sign Out
-          </button>
         </div>
       </aside>
 
       {/* ═══ MAIN ═══ */}
-      <main className="flex-1 md:pl-64 flex flex-col min-h-dvh">
-        <header className="h-16 border-b bg-background/80 backdrop-blur sticky top-0 z-10 px-4 sm:px-6 flex items-center justify-between gap-3">
+      <main className="flex-1 md:pl-[248px] flex flex-col min-h-dvh">
+        <header className="h-[62px] border-b border-[#ececf1] bg-white/85 backdrop-blur sticky top-0 z-10 px-4 sm:px-7 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Menu className="h-6 w-6 md:hidden cursor-pointer shrink-0" onClick={() => setIsMenuOpen(true)} />
-            <h1 className="font-black text-lg sm:text-xl hidden sm:block">Dashboard</h1>
+            <h1 className="font-black text-[19px] tracking-tight hidden sm:block">Dashboard</h1>
           </div>
-          {/* Gamification bar */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-1 justify-center sm:justify-end max-w-sm">
-            <StreakCounter streak={gamification.current_streak} lastActiveDate={gamification.last_active_date} />
-            <XpBadge totalXp={gamification.total_xp} />
-            <DailyGoalRing todayXp={gamification.today_xp} dailyGoal={gamification.daily_goal} size={38} />
-          </div>
-          <div className="flex items-center gap-1 shrink-0">
+          <div className="flex items-center gap-3 shrink-0">
+            {/* Streak pill */}
+            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-2 pr-[11px]">
+              <span className="text-[15px] leading-none">🔥</span>
+              <span className="text-[13px] font-black text-[#ea7a23] tabular-nums">{gamification.current_streak}</span>
+            </div>
+            {/* XP pill */}
+            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1">
+              <span className="text-[13px] leading-none">⭐</span>
+              <span className="text-[13px] font-black text-[#b45309] tabular-nums">{gamification.total_xp} XP</span>
+              <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#d4a017]">Lv.{xpToLevel(gamification.total_xp)}</span>
+            </div>
             <NotificationBell
               dueCount={reviewDueCount}
               grammarDueCount={grammarDue}
@@ -606,13 +652,49 @@ export default function StudentDashboard() {
               dailyGoal={gamification.daily_goal}
               classroomId={classroomId}
             />
-            <button onClick={() => { if (profile?.id) { loadData(profile.id); refreshGamification(); } }} className="p-2 hover:bg-muted rounded-full transition-colors">
-              <RotateCcw className={`h-5 w-5 ${isLoading ? 'animate-spin' : ''}`} />
-            </button>
+            <div className="hidden sm:block h-[22px] w-px bg-[#e8e8ee]" />
+
+            {/* Profile button + dropdown (Đăng xuất nằm trong đây) */}
+            <div className="relative" ref={profileRef}>
+              <button
+                onClick={() => setIsProfileOpen((v) => !v)}
+                className="flex items-center gap-2 rounded-full py-[3px] pl-[3px] pr-1.5 transition-colors hover:bg-muted"
+              >
+                <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 text-sm font-black text-white">
+                  {profileInitial}
+                </span>
+                <span className="hidden sm:block text-[13.5px] font-extrabold text-[#0f172a] max-w-[120px] truncate">
+                  {profile?.full_name?.split(' ')[0] || 'bạn'}
+                </span>
+                <ChevronDown className={`h-[15px] w-[15px] text-slate-400 transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isProfileOpen && (
+                <div className="absolute right-0 top-12 w-[188px] rounded-[14px] border border-[#ececf1] bg-white p-1.5 shadow-[0_12px_32px_rgba(16,24,40,.14)] z-40">
+                  <div className="px-2.5 pb-1.5 pt-2">
+                    <div className="text-[13px] font-extrabold text-[#0f172a] truncate">{profile?.full_name || 'Học viên'}</div>
+                    {profileEmail && <div className="text-[11px] font-semibold text-[#9aa2b1] truncate">{profileEmail}</div>}
+                  </div>
+                  <div className="my-1 h-px bg-[#f1f1f5]" />
+                  <Link
+                    href="/student/profile"
+                    onClick={() => setIsProfileOpen(false)}
+                    className="flex items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-[13.5px] font-bold text-[#475569] hover:bg-muted"
+                  >
+                    <User className="h-[17px] w-[17px] text-[#64748b]" /> Hồ sơ của tôi
+                  </Link>
+                  <button
+                    onClick={handleSignOut}
+                    className="flex w-full items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-left text-[13.5px] font-extrabold text-[#e11d48] hover:bg-rose-50"
+                  >
+                    <LogOut className="h-[17px] w-[17px]" /> Đăng xuất
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </header>
 
-        <div className="p-6 sm:p-10 max-w-5xl mx-auto w-full space-y-8">
+        <div className="px-6 py-6 pb-10 sm:px-7 max-w-[920px] mx-auto w-full flex flex-col gap-[18px]">
           {/* Greeting */}
           <div className="flex items-center gap-4">
             <Mascot mood={mascotMood} size="lg" />
@@ -695,7 +777,7 @@ export default function StudentDashboard() {
                 }`}
               >
                 <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                  <GraduationCap className="h-6 w-6 text-emerald-600" />
+                  <RefreshCw className="h-6 w-6 text-emerald-600" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
@@ -711,27 +793,27 @@ export default function StudentDashboard() {
             </div>
           )}
 
-          {/* Gamification overview — 3 cards detailed */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <XpBadge totalXp={gamification.total_xp} variant="detailed" />
+          {/* Gamification row — streak lịch tháng + XP/mục tiêu nhỏ gọn */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px] items-stretch">
             <StreakCounter
               streak={gamification.current_streak}
-              lastActiveDate={gamification.last_active_date}
-              variant="detailed"
+              variant="calendar"
+              dailyCounts={dailyActivity}
             />
-            <DailyGoalRing
+            <XpGoalCard
+              totalXp={gamification.total_xp}
               todayXp={gamification.today_xp}
-              dailyGoal={gamification.daily_goal}
-              variant="detailed"
+              dailyXpGoal={gamification.daily_goal}
+              todayWords={todayWords}
             />
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { label: 'Total Words', val: totalWords, icon: LayoutGrid, color: 'text-blue-500', bg: 'bg-blue-50' },
-              { label: 'Ready Review', val: reviewDueCount, icon: Zap, color: 'text-amber-500', bg: 'bg-amber-50' },
-              { label: 'Mastered', val: masteredCount, icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-50' },
-              { label: 'Accuracy', val: `${quizStats.avgAccuracy}%`, icon: TrendingUp, color: 'text-purple-500', bg: 'bg-purple-50' },
+              { label: 'Tổng từ', val: totalWords, icon: LayoutGrid, color: 'text-blue-500', bg: 'bg-blue-50' },
+              { label: 'Cần ôn', val: reviewDueCount, icon: RefreshCw, color: 'text-amber-500', bg: 'bg-amber-50' },
+              { label: 'Thành thạo', val: masteredCount, icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-50' },
+              { label: 'Độ chính xác', val: `${quizStats.avgAccuracy}%`, icon: TrendingUp, color: 'text-purple-500', bg: 'bg-purple-50' },
             ].map(s => (
               <div key={s.label} className="bg-background border rounded-2xl p-5 shadow-sm">
                 <div className={`${s.bg} w-10 h-10 rounded-xl flex items-center justify-center mb-4`}>
