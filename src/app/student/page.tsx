@@ -9,7 +9,7 @@ import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  Brain, BookOpen, LayoutDashboard, LogOut, Loader2, Plus,
+  Brain, BookOpen, LayoutDashboard, LogOut, Loader2, Plus, Map,
   CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight,
   Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles, MessageSquare, Users, RefreshCw, HelpCircle
 } from 'lucide-react';
@@ -130,7 +130,7 @@ export default function StudentDashboard() {
         .from('enrollments')
         .select('id')
         .eq('student_id', userId);
-      setJoinedClass(enrollments && enrollments.length > 0);
+      setJoinedClass((enrollments?.length ?? 0) > 0);
 
       // Tiến độ ôn tập ngữ pháp
       authFetch(`/api/grammar/progress`)
@@ -520,6 +520,7 @@ export default function StudentDashboard() {
   type NavItem = { href: string; label: string; icon: typeof LayoutGrid; color: string; tile: string; onboardingId?: string };
   const navItems: NavItem[] = [
     { href: '/student', label: 'Dashboard', icon: LayoutGrid, color: '#4f46e5', tile: '#eef0ff' },
+    { href: '/journey', label: 'Lộ trình', icon: Map, color: '#059669', tile: '#dcfce7', onboardingId: 'journey' },
     { href: classroomId ? `/quiz?class=${classroomId}` : '#', label: 'Mini Quiz', icon: HelpCircle, color: '#f59e0b', tile: '#fff3df', onboardingId: 'quiz' },
     { href: classroomId ? `/writing?class=${classroomId}` : '/writing', label: 'Writing Practice', icon: Pencil, color: '#f43f5e', tile: '#ffe7ec', onboardingId: 'writing' },
     { href: '/student/speaking', label: 'AI Speaking Tutor', icon: MessageSquare, color: '#0ea5e9', tile: '#e2f5fe', onboardingId: 'speaking' },
@@ -554,6 +555,7 @@ export default function StudentDashboard() {
               </div>
               <nav className="flex-1 space-y-4">
                 <Link href="/student" className="flex items-center gap-3 font-bold text-primary bg-primary/5 p-3 rounded-xl"><LayoutDashboard /> Dashboard</Link>
+                <Link href="/journey" className="flex items-center gap-3 font-semibold p-3"><Map /> Lộ trình</Link>
                 <Link href="/library" data-onboarding="library" className="flex items-center gap-3 font-semibold p-3"><Library /> Thư viện từ vựng</Link>
                 <Link href="/import" className="flex items-center gap-3 font-semibold p-3"><Plus /> Nhập danh sách riêng</Link>
                 <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'} data-onboarding="learn" className="flex items-center gap-3 font-semibold p-3"><Sparkles /> Học từ mới</Link>

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useRef, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { completeRoadmapStep } from '@/lib/roadmap-client';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { supabase } from '@/lib/supabase';
@@ -139,8 +140,11 @@ function formatOcrTheory(text: string): string {
   return formatted;
 }
 
-export default function GrammarLearnPage() {
+function GrammarLearnContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const roadmapStepId = searchParams.get('roadmapStep');
+  const roadmapTopicSlug = searchParams.get('topic');
   const [userId, setUserId] = useState<string | null>(null);
   const [topics, setTopics] = useState<GrammarTopic[]>([]);
   const [lessonsByTopic, setLessonsByTopic] = useState<Record<string, GrammarLesson[]>>({});
@@ -217,6 +221,18 @@ export default function GrammarLearnPage() {
     }
   };
 
+  // Mở từ lộ trình (?topic=<slug>): tự expand + scroll tới topic tương ứng
+  const openedFromRoadmap = useRef(false);
+  useEffect(() => {
+    if (!roadmapTopicSlug || topics.length === 0 || openedFromRoadmap.current) return;
+    const target = topics.find((t) => t.slug === roadmapTopicSlug);
+    if (!target) return;
+    openedFromRoadmap.current = true;
+    void toggleTopic(target.id);
+    setTimeout(() => topicRefs.current[target.id]?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [roadmapTopicSlug, topics]);
+
   /**
    * Đánh dấu đã đọc / ôn lại bài học.
    * Sư phạm: chỉ đọc lý thuyết KHÔNG = đã thuộc.
@@ -250,6 +266,14 @@ export default function GrammarLearnPage() {
             ? 'Đã ôn lại bài học! Lịch ôn tiếp theo đã cập nhật.'
             : 'Đã ghi nhận bạn đọc xong. Hãy làm bài tập để củng cố!',
         );
+        // Bài này là step lộ trình + đúng topic đang được yêu cầu → báo hoàn thành step
+        if (roadmapStepId && roadmapTopicSlug && activeLesson.topic?.slug === roadmapTopicSlug) {
+          const result = await completeRoadmapStep(roadmapStepId);
+          if (result) {
+            toast.success(`+${result.xpAwarded} XP lộ trình — quay về hành trình để đi tiếp nhé!`);
+            router.push('/journey');
+          }
+        }
       } else {
         toast.error('Lỗi: ' + (data.error || 'không rõ'));
       }
@@ -773,5 +797,17 @@ export default function GrammarLearnPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function GrammarLearnPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-dvh flex items-center justify-center">
+        <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
+      </div>
+    }>
+      <GrammarLearnContent />
+    </Suspense>
   );
 }

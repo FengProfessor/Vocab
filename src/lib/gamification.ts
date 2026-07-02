@@ -80,7 +80,15 @@ export interface EarnedBadge extends BadgeDefinition {
   earned: boolean;
 }
 
-const BADGES: (BadgeDefinition & { check: (g: UserGamification & { masteredWords?: number }) => boolean })[] = [
+interface BadgeContext extends UserGamification {
+  masteredWords?: number;
+  /** Số unit lộ trình đã hoàn thành (checkpoint pass). */
+  roadmapUnitsDone?: number;
+  /** Cấp lộ trình cao nhất đã hoàn thành trọn vẹn ('A0'...'B2'). */
+  roadmapLevelsDone?: string[];
+}
+
+const BADGES: (BadgeDefinition & { check: (g: BadgeContext) => boolean })[] = [
   { id: 'streak_3',    label: '3 ngày',      emoji: '🔥', description: 'Streak 3 ngày liên tiếp',   check: g => g.current_streak >= 3 },
   { id: 'streak_7',    label: '7 ngày',      emoji: '🔥', description: 'Streak 7 ngày liên tiếp',   check: g => g.current_streak >= 7 },
   { id: 'streak_30',   label: '30 ngày',     emoji: '🔥', description: 'Streak 30 ngày liên tiếp',  check: g => g.current_streak >= 30 },
@@ -90,17 +98,31 @@ const BADGES: (BadgeDefinition & { check: (g: UserGamification & { masteredWords
   { id: 'words_10',    label: '10 từ',       emoji: '📚', description: 'Thành thạo 10 từ',           check: g => (g.masteredWords ?? 0) >= 10 },
   { id: 'words_50',    label: '50 từ',       emoji: '📖', description: 'Thành thạo 50 từ',           check: g => (g.masteredWords ?? 0) >= 50 },
   { id: 'words_100',   label: '100 từ',      emoji: '🏆', description: 'Thành thạo 100 từ',          check: g => (g.masteredWords ?? 0) >= 100 },
+  // Lộ trình học 5 cấp
+  { id: 'journey_unit_1',  label: 'Chặng đầu',  emoji: '🚩', description: 'Vượt chặng đầu tiên của lộ trình',  check: g => (g.roadmapUnitsDone ?? 0) >= 1 },
+  { id: 'journey_unit_10', label: '10 chặng',   emoji: '⛳', description: 'Vượt 10 chặng lộ trình',            check: g => (g.roadmapUnitsDone ?? 0) >= 10 },
+  { id: 'journey_a0',      label: 'Xong A0',    emoji: '🌱', description: 'Hoàn thành cấp A0 — thoát mất gốc', check: g => (g.roadmapLevelsDone ?? []).includes('A0') },
+  { id: 'journey_a1',      label: 'Xong A1',    emoji: '🌿', description: 'Hoàn thành cấp A1',                 check: g => (g.roadmapLevelsDone ?? []).includes('A1') },
+  { id: 'journey_a2',      label: 'Xong A2',    emoji: '🌳', description: 'Hoàn thành cấp A2',                 check: g => (g.roadmapLevelsDone ?? []).includes('A2') },
+  { id: 'journey_b1',      label: 'Xong B1',    emoji: '⛰️', description: 'Hoàn thành cấp B1',                 check: g => (g.roadmapLevelsDone ?? []).includes('B1') },
+  { id: 'journey_b2',      label: 'Xong B2',    emoji: '🏔️', description: 'Hoàn thành cấp B2 — trung cao!',    check: g => (g.roadmapLevelsDone ?? []).includes('B2') },
 ];
 
 export function earnedBadges(
   gamification: UserGamification,
   masteredWords = 0,
+  roadmap?: { unitsDone: number; levelsDone: string[] },
 ): EarnedBadge[] {
   return BADGES.map(b => ({
     id: b.id,
     label: b.label,
     emoji: b.emoji,
     description: b.description,
-    earned: b.check({ ...gamification, masteredWords }),
+    earned: b.check({
+      ...gamification,
+      masteredWords,
+      roadmapUnitsDone: roadmap?.unitsDone,
+      roadmapLevelsDone: roadmap?.levelsDone,
+    }),
   }));
 }

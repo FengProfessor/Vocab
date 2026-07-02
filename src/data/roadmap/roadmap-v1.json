@@ -1,0 +1,2236 @@
+{
+  "roadmapVersion": "roadmap-v1",
+  "catalogVersion": "2026-06-13-v4",
+  "levels": [
+    {
+      "id": "A0",
+      "title": "Foundation",
+      "titleVi": "Mất gốc",
+      "description": "Bắt đầu từ con số 0: câu tự giới thiệu, từ sinh tồn, âm cơ bản.",
+      "units": [
+        {
+          "id": "u-a0-1",
+          "index": 1,
+          "title": "Chặng 1 · Đại từ nhân xưng",
+          "steps": [
+            {
+              "id": "sv-st-cb942718c15f-p0",
+              "type": "vocab",
+              "ref": "st-cb942718c15f-p0",
+              "title": "Chặng 1",
+              "wordCount": 19
+            },
+            {
+              "id": "sv-st-0c026cf00ccb-p0",
+              "type": "vocab",
+              "ref": "st-0c026cf00ccb-p0",
+              "title": "Chặng 1",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-personal-pronouns",
+              "type": "grammar",
+              "ref": "personal-pronouns",
+              "title": "Đại từ nhân xưng"
+            },
+            {
+              "id": "sp-word-stress-basics",
+              "type": "pronunciation",
+              "ref": "word-stress-basics",
+              "title": "Trọng âm từ cơ bản"
+            },
+            {
+              "id": "sc-a0-1",
+              "type": "checkpoint",
+              "ref": "u-a0-1",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a0-2",
+          "index": 2,
+          "title": "Chặng 2 · Động từ to be (am / is / are)",
+          "steps": [
+            {
+              "id": "sv-st-0c026cf00ccb-p1",
+              "type": "vocab",
+              "ref": "st-0c026cf00ccb-p1",
+              "title": "Chặng 2",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-0c026cf00ccb-p2",
+              "type": "vocab",
+              "ref": "st-0c026cf00ccb-p2",
+              "title": "Chặng 3",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-verb-to-be",
+              "type": "grammar",
+              "ref": "verb-to-be",
+              "title": "Động từ to be (am / is / are)"
+            },
+            {
+              "id": "sp-final-stops-ptk",
+              "type": "pronunciation",
+              "ref": "final-stops-ptk",
+              "title": "Bật âm cuối /p/ /t/ /k/"
+            },
+            {
+              "id": "sc-a0-2",
+              "type": "checkpoint",
+              "ref": "u-a0-2",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a0-3",
+          "index": 3,
+          "title": "Chặng 3 · Từ chỉ định (this/that/these/those)",
+          "steps": [
+            {
+              "id": "sv-st-0c026cf00ccb-p3",
+              "type": "vocab",
+              "ref": "st-0c026cf00ccb-p3",
+              "title": "Chặng 4",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-0c026cf00ccb-p4",
+              "type": "vocab",
+              "ref": "st-0c026cf00ccb-p4",
+              "title": "Chặng 5",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-demonstratives",
+              "type": "grammar",
+              "ref": "demonstratives",
+              "title": "Từ chỉ định (this/that/these/those)"
+            },
+            {
+              "id": "sp-final-s-z",
+              "type": "pronunciation",
+              "ref": "final-s-z",
+              "title": "Âm cuối /s/ /z/ và đuôi -s/-es"
+            },
+            {
+              "id": "sc-a0-3",
+              "type": "checkpoint",
+              "ref": "u-a0-3",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a0-4",
+          "index": 4,
+          "title": "Chặng 4 · Tính từ & đại từ sở hữu",
+          "steps": [
+            {
+              "id": "sv-st-0c026cf00ccb-p5",
+              "type": "vocab",
+              "ref": "st-0c026cf00ccb-p5",
+              "title": "Chặng 6",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-0c026cf00ccb-p6",
+              "type": "vocab",
+              "ref": "st-0c026cf00ccb-p6",
+              "title": "Chặng 7",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-possessives",
+              "type": "grammar",
+              "ref": "possessives",
+              "title": "Tính từ & đại từ sở hữu"
+            },
+            {
+              "id": "sc-a0-4",
+              "type": "checkpoint",
+              "ref": "u-a0-4",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A1",
+      "title": "Beginner",
+      "titleVi": "Sơ cấp 1",
+      "description": "Nói về bản thân, gia đình, sinh hoạt hằng ngày bằng câu đơn.",
+      "units": [
+        {
+          "id": "u-a1-1",
+          "index": 1,
+          "title": "Chặng 1 · Danh từ số nhiều",
+          "steps": [
+            {
+              "id": "sv-st-6a1d7b1df8e4-p0",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-6a1d7b1df8e4-p1",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p1",
+              "title": "Chặng 2",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-plural-nouns",
+              "type": "grammar",
+              "ref": "plural-nouns",
+              "title": "Danh từ số nhiều"
+            },
+            {
+              "id": "sp-initial-p-b",
+              "type": "pronunciation",
+              "ref": "initial-p-b",
+              "title": "/p/ vs /b/ đầu từ"
+            },
+            {
+              "id": "sc-a1-1",
+              "type": "checkpoint",
+              "ref": "u-a1-1",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-2",
+          "index": 2,
+          "title": "Chặng 2 · Tính từ cơ bản",
+          "steps": [
+            {
+              "id": "sv-st-6a1d7b1df8e4-p2",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p2",
+              "title": "Chặng 3",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-6a1d7b1df8e4-p3",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p3",
+              "title": "Chặng 4",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-adjectives-basic",
+              "type": "grammar",
+              "ref": "adjectives-basic",
+              "title": "Tính từ cơ bản"
+            },
+            {
+              "id": "sc-a1-2",
+              "type": "checkpoint",
+              "ref": "u-a1-2",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-3",
+          "index": 3,
+          "title": "Chặng 3 · Cấu trúc There is / There are",
+          "steps": [
+            {
+              "id": "sv-st-6a1d7b1df8e4-p4",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p4",
+              "title": "Chặng 5",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-6a1d7b1df8e4-p5",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p5",
+              "title": "Chặng 6",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-there-is-there-are",
+              "type": "grammar",
+              "ref": "there-is-there-are",
+              "title": "Cấu trúc There is / There are"
+            },
+            {
+              "id": "sc-a1-3",
+              "type": "checkpoint",
+              "ref": "u-a1-3",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-4",
+          "index": 4,
+          "title": "Chặng 4 · Mạo từ (a / an / the)",
+          "steps": [
+            {
+              "id": "sv-st-6a1d7b1df8e4-p6",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p6",
+              "title": "Chặng 7",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-6a1d7b1df8e4-p7",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p7",
+              "title": "Chặng 8",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-articles",
+              "type": "grammar",
+              "ref": "articles",
+              "title": "Mạo từ (a / an / the)"
+            },
+            {
+              "id": "sc-a1-4",
+              "type": "checkpoint",
+              "ref": "u-a1-4",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-5",
+          "index": 5,
+          "title": "Chặng 5 · Cấu trúc have got / has got",
+          "steps": [
+            {
+              "id": "sv-st-6a1d7b1df8e4-p8",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p8",
+              "title": "Chặng 9",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-6a1d7b1df8e4-p9",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p9",
+              "title": "Chặng 10",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-have-got",
+              "type": "grammar",
+              "ref": "have-got",
+              "title": "Cấu trúc have got / has got"
+            },
+            {
+              "id": "sp-vowel-i-long-short",
+              "type": "pronunciation",
+              "ref": "vowel-i-long-short",
+              "title": "/iː/ dài vs /ɪ/ ngắn"
+            },
+            {
+              "id": "sc-a1-5",
+              "type": "checkpoint",
+              "ref": "u-a1-5",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-6",
+          "index": 6,
+          "title": "Chặng 6 · Thì Hiện tại đơn",
+          "steps": [
+            {
+              "id": "sv-st-6a1d7b1df8e4-p10",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p10",
+              "title": "Chặng 11",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-c502bcaa0aef-p0",
+              "type": "vocab",
+              "ref": "st-c502bcaa0aef-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-present-simple",
+              "type": "grammar",
+              "ref": "present-simple",
+              "title": "Thì Hiện tại đơn"
+            },
+            {
+              "id": "sc-a1-6",
+              "type": "checkpoint",
+              "ref": "u-a1-6",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-7",
+          "index": 7,
+          "title": "Chặng 7 · Câu hỏi với từ để hỏi (Wh-)",
+          "steps": [
+            {
+              "id": "sv-st-ebfad9b20a2b-p0",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-ebfad9b20a2b-p1",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p1",
+              "title": "Chặng 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-wh-questions",
+              "type": "grammar",
+              "ref": "wh-questions",
+              "title": "Câu hỏi với từ để hỏi (Wh-)"
+            },
+            {
+              "id": "sc-a1-7",
+              "type": "checkpoint",
+              "ref": "u-a1-7",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-8",
+          "index": 8,
+          "title": "Chặng 8 · Trạng từ chỉ tần suất",
+          "steps": [
+            {
+              "id": "sv-st-ebfad9b20a2b-p2",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p2",
+              "title": "Chặng 3",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-ebfad9b20a2b-p3",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p3",
+              "title": "Chặng 4",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-adverbs-frequency",
+              "type": "grammar",
+              "ref": "adverbs-frequency",
+              "title": "Trạng từ chỉ tần suất"
+            },
+            {
+              "id": "sc-a1-8",
+              "type": "checkpoint",
+              "ref": "u-a1-8",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-9",
+          "index": 9,
+          "title": "Chặng 9 · Thì Hiện tại tiếp diễn",
+          "steps": [
+            {
+              "id": "sv-st-ebfad9b20a2b-p4",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p4",
+              "title": "Chặng 5",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-ebfad9b20a2b-p5",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p5",
+              "title": "Chặng 6",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-present-continuous",
+              "type": "grammar",
+              "ref": "present-continuous",
+              "title": "Thì Hiện tại tiếp diễn"
+            },
+            {
+              "id": "sp-final-l-n",
+              "type": "pronunciation",
+              "ref": "final-l-n",
+              "title": "Âm cuối /l/ vs /n/"
+            },
+            {
+              "id": "sc-a1-9",
+              "type": "checkpoint",
+              "ref": "u-a1-9",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-10",
+          "index": 10,
+          "title": "Chặng 10 · Giới từ chỉ nơi chốn",
+          "steps": [
+            {
+              "id": "sv-st-ebfad9b20a2b-p6",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p6",
+              "title": "Chặng 7",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-ebfad9b20a2b-p7",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p7",
+              "title": "Chặng 8",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-prepositions-place",
+              "type": "grammar",
+              "ref": "prepositions-place",
+              "title": "Giới từ chỉ nơi chốn"
+            },
+            {
+              "id": "sc-a1-10",
+              "type": "checkpoint",
+              "ref": "u-a1-10",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-11",
+          "index": 11,
+          "title": "Chặng 11 · Câu mệnh lệnh",
+          "steps": [
+            {
+              "id": "sv-st-ebfad9b20a2b-p8",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p8",
+              "title": "Chặng 9",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-ebfad9b20a2b-p9",
+              "type": "vocab",
+              "ref": "st-ebfad9b20a2b-p9",
+              "title": "Chặng 10",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-imperatives",
+              "type": "grammar",
+              "ref": "imperatives",
+              "title": "Câu mệnh lệnh"
+            },
+            {
+              "id": "sc-a1-11",
+              "type": "checkpoint",
+              "ref": "u-a1-11",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a1-12",
+          "index": 12,
+          "title": "Chặng 12 · Động từ khuyết thiếu: khả năng (can/could)",
+          "steps": [
+            {
+              "id": "sv-st-6daaf99290d5-p0",
+              "type": "vocab",
+              "ref": "st-6daaf99290d5-p0",
+              "title": "Chặng 1",
+              "wordCount": 12
+            },
+            {
+              "id": "sv-st-27421a0fa2d9-p0",
+              "type": "vocab",
+              "ref": "st-27421a0fa2d9-p0",
+              "title": "Chặng 1",
+              "wordCount": 12
+            },
+            {
+              "id": "sg-modals-ability",
+              "type": "grammar",
+              "ref": "modals-ability",
+              "title": "Động từ khuyết thiếu: khả năng (can/could)"
+            },
+            {
+              "id": "sc-a1-12",
+              "type": "checkpoint",
+              "ref": "u-a1-12",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "title": "Elementary",
+      "titleVi": "Sơ cấp 2",
+      "description": "Giao tiếp tình huống: đi lại, mua sắm, khám bệnh, kể chuyện quá khứ.",
+      "units": [
+        {
+          "id": "u-a2-1",
+          "index": 1,
+          "title": "Chặng 1 · Danh từ đếm được & không đếm được",
+          "steps": [
+            {
+              "id": "sv-st-db7787575149-p0",
+              "type": "vocab",
+              "ref": "st-db7787575149-p0",
+              "title": "Chặng 1",
+              "wordCount": 10
+            },
+            {
+              "id": "sv-st-1809746c17f8-p0",
+              "type": "vocab",
+              "ref": "st-1809746c17f8-p0",
+              "title": "Chặng 1",
+              "wordCount": 12
+            },
+            {
+              "id": "sg-countable-uncountable",
+              "type": "grammar",
+              "ref": "countable-uncountable",
+              "title": "Danh từ đếm được & không đếm được"
+            },
+            {
+              "id": "sp-sentence-rhythm",
+              "type": "pronunciation",
+              "ref": "sentence-rhythm",
+              "title": "Trọng âm câu & nhịp điệu"
+            },
+            {
+              "id": "sc-a2-1",
+              "type": "checkpoint",
+              "ref": "u-a2-1",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-2",
+          "index": 2,
+          "title": "Chặng 2 · Lượng từ (some/any/much/many)",
+          "steps": [
+            {
+              "id": "sv-st-1809746c17f8-p1",
+              "type": "vocab",
+              "ref": "st-1809746c17f8-p1",
+              "title": "Chặng 2",
+              "wordCount": 12
+            },
+            {
+              "id": "sv-st-1809746c17f8-p2",
+              "type": "vocab",
+              "ref": "st-1809746c17f8-p2",
+              "title": "Chặng 3",
+              "wordCount": 11
+            },
+            {
+              "id": "sg-quantifiers",
+              "type": "grammar",
+              "ref": "quantifiers",
+              "title": "Lượng từ (some/any/much/many)"
+            },
+            {
+              "id": "sc-a2-2",
+              "type": "checkpoint",
+              "ref": "u-a2-2",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-3",
+          "index": 3,
+          "title": "Chặng 3 · Giới từ chỉ thời gian (in/on/at)",
+          "steps": [
+            {
+              "id": "sv-st-980877fc1fb0-p0",
+              "type": "vocab",
+              "ref": "st-980877fc1fb0-p0",
+              "title": "Chặng 1",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-980877fc1fb0-p1",
+              "type": "vocab",
+              "ref": "st-980877fc1fb0-p1",
+              "title": "Chặng 2",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-prepositions-time",
+              "type": "grammar",
+              "ref": "prepositions-time",
+              "title": "Giới từ chỉ thời gian (in/on/at)"
+            },
+            {
+              "id": "sp-s-vs-sh",
+              "type": "pronunciation",
+              "ref": "s-vs-sh",
+              "title": "/s/ vs /ʃ/"
+            },
+            {
+              "id": "sc-a2-3",
+              "type": "checkpoint",
+              "ref": "u-a2-3",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-4",
+          "index": 4,
+          "title": "Chặng 4 · Thì Quá khứ đơn",
+          "steps": [
+            {
+              "id": "sv-st-980877fc1fb0-p2",
+              "type": "vocab",
+              "ref": "st-980877fc1fb0-p2",
+              "title": "Chặng 3",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-980877fc1fb0-p3",
+              "type": "vocab",
+              "ref": "st-980877fc1fb0-p3",
+              "title": "Chặng 4",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-past-simple",
+              "type": "grammar",
+              "ref": "past-simple",
+              "title": "Thì Quá khứ đơn"
+            },
+            {
+              "id": "sc-a2-4",
+              "type": "checkpoint",
+              "ref": "u-a2-4",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-5",
+          "index": 5,
+          "title": "Chặng 5 · Thì Quá khứ tiếp diễn",
+          "steps": [
+            {
+              "id": "sv-st-980877fc1fb0-p4",
+              "type": "vocab",
+              "ref": "st-980877fc1fb0-p4",
+              "title": "Chặng 5",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-980877fc1fb0-p5",
+              "type": "vocab",
+              "ref": "st-980877fc1fb0-p5",
+              "title": "Chặng 6",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-past-continuous",
+              "type": "grammar",
+              "ref": "past-continuous",
+              "title": "Thì Quá khứ tiếp diễn"
+            },
+            {
+              "id": "sp-vowel-u-long-short",
+              "type": "pronunciation",
+              "ref": "vowel-u-long-short",
+              "title": "/uː/ dài vs /ʊ/ ngắn"
+            },
+            {
+              "id": "sc-a2-5",
+              "type": "checkpoint",
+              "ref": "u-a2-5",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-6",
+          "index": 6,
+          "title": "Chặng 6 · Tương lai gần (be going to)",
+          "steps": [
+            {
+              "id": "sv-st-980877fc1fb0-p6",
+              "type": "vocab",
+              "ref": "st-980877fc1fb0-p6",
+              "title": "Chặng 7",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-ff585f467a16-p0",
+              "type": "vocab",
+              "ref": "st-ff585f467a16-p0",
+              "title": "Chặng 1",
+              "wordCount": 17
+            },
+            {
+              "id": "sg-be-going-to",
+              "type": "grammar",
+              "ref": "be-going-to",
+              "title": "Tương lai gần (be going to)"
+            },
+            {
+              "id": "sc-a2-6",
+              "type": "checkpoint",
+              "ref": "u-a2-6",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-7",
+          "index": 7,
+          "title": "Chặng 7 · Thì Tương lai đơn (will)",
+          "steps": [
+            {
+              "id": "sv-st-3f6ff8d69c24-p0",
+              "type": "vocab",
+              "ref": "st-3f6ff8d69c24-p0",
+              "title": "Chặng 1",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-3f6ff8d69c24-p1",
+              "type": "vocab",
+              "ref": "st-3f6ff8d69c24-p1",
+              "title": "Chặng 2",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-future-will",
+              "type": "grammar",
+              "ref": "future-will",
+              "title": "Thì Tương lai đơn (will)"
+            },
+            {
+              "id": "sp-vowel-ae-e",
+              "type": "pronunciation",
+              "ref": "vowel-ae-e",
+              "title": "/æ/ vs /e/"
+            },
+            {
+              "id": "sc-a2-7",
+              "type": "checkpoint",
+              "ref": "u-a2-7",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-8",
+          "index": 8,
+          "title": "Chặng 8 · So sánh hơn & so sánh nhất",
+          "steps": [
+            {
+              "id": "sv-st-3f6ff8d69c24-p2",
+              "type": "vocab",
+              "ref": "st-3f6ff8d69c24-p2",
+              "title": "Chặng 3",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-3f6ff8d69c24-p3",
+              "type": "vocab",
+              "ref": "st-3f6ff8d69c24-p3",
+              "title": "Chặng 4",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-comparatives-superlatives",
+              "type": "grammar",
+              "ref": "comparatives-superlatives",
+              "title": "So sánh hơn & so sánh nhất"
+            },
+            {
+              "id": "sc-a2-8",
+              "type": "checkpoint",
+              "ref": "u-a2-8",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-9",
+          "index": 9,
+          "title": "Chặng 9 · Khuyết thiếu: xin phép & yêu cầu",
+          "steps": [
+            {
+              "id": "sv-st-3f6ff8d69c24-p4",
+              "type": "vocab",
+              "ref": "st-3f6ff8d69c24-p4",
+              "title": "Chặng 5",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-3f6ff8d69c24-p5",
+              "type": "vocab",
+              "ref": "st-3f6ff8d69c24-p5",
+              "title": "Chặng 6",
+              "wordCount": 12
+            },
+            {
+              "id": "sg-modals-permission",
+              "type": "grammar",
+              "ref": "modals-permission",
+              "title": "Khuyết thiếu: xin phép & yêu cầu"
+            },
+            {
+              "id": "sp-final-n-ng",
+              "type": "pronunciation",
+              "ref": "final-n-ng",
+              "title": "Âm cuối /n/ vs /ŋ/"
+            },
+            {
+              "id": "sc-a2-9",
+              "type": "checkpoint",
+              "ref": "u-a2-9",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-10",
+          "index": 10,
+          "title": "Chặng 10 · Khuyết thiếu: bắt buộc (must/have to)",
+          "steps": [
+            {
+              "id": "sv-st-b9f07f3086f7-p0",
+              "type": "vocab",
+              "ref": "st-b9f07f3086f7-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-b9f07f3086f7-p1",
+              "type": "vocab",
+              "ref": "st-b9f07f3086f7-p1",
+              "title": "Chặng 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-modals-obligation",
+              "type": "grammar",
+              "ref": "modals-obligation",
+              "title": "Khuyết thiếu: bắt buộc (must/have to)"
+            },
+            {
+              "id": "sc-a2-10",
+              "type": "checkpoint",
+              "ref": "u-a2-10",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-11",
+          "index": 11,
+          "title": "Chặng 11 · Khuyết thiếu: lời khuyên (should)",
+          "steps": [
+            {
+              "id": "sv-st-b9f07f3086f7-p2",
+              "type": "vocab",
+              "ref": "st-b9f07f3086f7-p2",
+              "title": "Chặng 3",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-b9f07f3086f7-p3",
+              "type": "vocab",
+              "ref": "st-b9f07f3086f7-p3",
+              "title": "Chặng 4",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-modals-advice",
+              "type": "grammar",
+              "ref": "modals-advice",
+              "title": "Khuyết thiếu: lời khuyên (should)"
+            },
+            {
+              "id": "sp-basic-intonation",
+              "type": "pronunciation",
+              "ref": "basic-intonation",
+              "title": "Ngữ điệu cơ bản ↘↗"
+            },
+            {
+              "id": "sc-a2-11",
+              "type": "checkpoint",
+              "ref": "u-a2-11",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-a2-12",
+          "index": 12,
+          "title": "Chặng 12 · Câu điều kiện loại 0 & loại 1",
+          "steps": [
+            {
+              "id": "sv-st-b9f07f3086f7-p4",
+              "type": "vocab",
+              "ref": "st-b9f07f3086f7-p4",
+              "title": "Chặng 5",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-b9f07f3086f7-p5",
+              "type": "vocab",
+              "ref": "st-b9f07f3086f7-p5",
+              "title": "Chặng 6",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-conditionals-0-1",
+              "type": "grammar",
+              "ref": "conditionals-0-1",
+              "title": "Câu điều kiện loại 0 & loại 1"
+            },
+            {
+              "id": "sc-a2-12",
+              "type": "checkpoint",
+              "ref": "u-a2-12",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "title": "Intermediate",
+      "titleVi": "Trung cấp",
+      "description": "Diễn đạt ý kiến, kể trải nghiệm, công việc và học tập độc lập.",
+      "units": [
+        {
+          "id": "u-b1-1",
+          "index": 1,
+          "title": "Chặng 1 · Thì Hiện tại hoàn thành",
+          "steps": [
+            {
+              "id": "sv-st-350ee406d40a-p0",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-350ee406d40a-p1",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p1",
+              "title": "Chặng 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-present-perfect",
+              "type": "grammar",
+              "ref": "present-perfect",
+              "title": "Thì Hiện tại hoàn thành"
+            },
+            {
+              "id": "sp-schwa",
+              "type": "pronunciation",
+              "ref": "schwa",
+              "title": "Âm schwa /ə/"
+            },
+            {
+              "id": "sc-b1-1",
+              "type": "checkpoint",
+              "ref": "u-b1-1",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-2",
+          "index": 2,
+          "title": "Chặng 2 · Hiện tại hoàn thành tiếp diễn",
+          "steps": [
+            {
+              "id": "sv-st-350ee406d40a-p2",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p2",
+              "title": "Chặng 3",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-350ee406d40a-p3",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p3",
+              "title": "Chặng 4",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-present-perfect-continuous",
+              "type": "grammar",
+              "ref": "present-perfect-continuous",
+              "title": "Hiện tại hoàn thành tiếp diễn"
+            },
+            {
+              "id": "sc-b1-2",
+              "type": "checkpoint",
+              "ref": "u-b1-2",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-3",
+          "index": 3,
+          "title": "Chặng 3 · Thì Quá khứ hoàn thành",
+          "steps": [
+            {
+              "id": "sv-st-350ee406d40a-p4",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p4",
+              "title": "Chặng 5",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-350ee406d40a-p5",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p5",
+              "title": "Chặng 6",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-past-perfect",
+              "type": "grammar",
+              "ref": "past-perfect",
+              "title": "Thì Quá khứ hoàn thành"
+            },
+            {
+              "id": "sp-weak-forms",
+              "type": "pronunciation",
+              "ref": "weak-forms",
+              "title": "Weak forms — dạng yếu của từ ngữ pháp"
+            },
+            {
+              "id": "sc-b1-3",
+              "type": "checkpoint",
+              "ref": "u-b1-3",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-4",
+          "index": 4,
+          "title": "Chặng 4 · Cấu trúc Used to",
+          "steps": [
+            {
+              "id": "sv-st-350ee406d40a-p6",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p6",
+              "title": "Chặng 7",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-350ee406d40a-p7",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p7",
+              "title": "Chặng 8",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-used-to",
+              "type": "grammar",
+              "ref": "used-to",
+              "title": "Cấu trúc Used to"
+            },
+            {
+              "id": "sc-b1-4",
+              "type": "checkpoint",
+              "ref": "u-b1-4",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-5",
+          "index": 5,
+          "title": "Chặng 5 · Thì Tương lai tiếp diễn",
+          "steps": [
+            {
+              "id": "sv-st-350ee406d40a-p8",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p8",
+              "title": "Chặng 9",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-350ee406d40a-p9",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p9",
+              "title": "Chặng 10",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-future-continuous",
+              "type": "grammar",
+              "ref": "future-continuous",
+              "title": "Thì Tương lai tiếp diễn"
+            },
+            {
+              "id": "sc-b1-5",
+              "type": "checkpoint",
+              "ref": "u-b1-5",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-6",
+          "index": 6,
+          "title": "Chặng 6 · Liên từ & từ nối",
+          "steps": [
+            {
+              "id": "sv-st-350ee406d40a-p10",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p10",
+              "title": "Chặng 11",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-350ee406d40a-p11",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p11",
+              "title": "Chặng 12",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-conjunctions-linking",
+              "type": "grammar",
+              "ref": "conjunctions-linking",
+              "title": "Liên từ & từ nối"
+            },
+            {
+              "id": "sp-linking",
+              "type": "pronunciation",
+              "ref": "linking",
+              "title": "Nối âm (linking)"
+            },
+            {
+              "id": "sc-b1-6",
+              "type": "checkpoint",
+              "ref": "u-b1-6",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-7",
+          "index": 7,
+          "title": "Chặng 7 · Danh động từ & động từ nguyên mẫu",
+          "steps": [
+            {
+              "id": "sv-st-350ee406d40a-p12",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p12",
+              "title": "Chặng 13",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-350ee406d40a-p13",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p13",
+              "title": "Chặng 14",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-gerunds-infinitives",
+              "type": "grammar",
+              "ref": "gerunds-infinitives",
+              "title": "Danh động từ & động từ nguyên mẫu"
+            },
+            {
+              "id": "sc-b1-7",
+              "type": "checkpoint",
+              "ref": "u-b1-7",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-8",
+          "index": 8,
+          "title": "Chặng 8 · Câu bị động",
+          "steps": [
+            {
+              "id": "sv-st-5e535ace91c2-p0",
+              "type": "vocab",
+              "ref": "st-5e535ace91c2-p0",
+              "title": "Chặng 1",
+              "wordCount": 12
+            },
+            {
+              "id": "sv-st-5e535ace91c2-p1",
+              "type": "vocab",
+              "ref": "st-5e535ace91c2-p1",
+              "title": "Chặng 2",
+              "wordCount": 11
+            },
+            {
+              "id": "sg-passive-voice",
+              "type": "grammar",
+              "ref": "passive-voice",
+              "title": "Câu bị động"
+            },
+            {
+              "id": "sp-v-f-final",
+              "type": "pronunciation",
+              "ref": "v-f-final",
+              "title": "/v/ vs /f/ (nhất là cuối từ)"
+            },
+            {
+              "id": "sc-b1-8",
+              "type": "checkpoint",
+              "ref": "u-b1-8",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-9",
+          "index": 9,
+          "title": "Chặng 9 · Câu tường thuật",
+          "steps": [
+            {
+              "id": "sv-st-5e535ace91c2-p2",
+              "type": "vocab",
+              "ref": "st-5e535ace91c2-p2",
+              "title": "Chặng 3",
+              "wordCount": 11
+            },
+            {
+              "id": "sv-st-67a3bea1636b-p0",
+              "type": "vocab",
+              "ref": "st-67a3bea1636b-p0",
+              "title": "Chặng 1",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-reported-speech",
+              "type": "grammar",
+              "ref": "reported-speech",
+              "title": "Câu tường thuật"
+            },
+            {
+              "id": "sc-b1-9",
+              "type": "checkpoint",
+              "ref": "u-b1-9",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-10",
+          "index": 10,
+          "title": "Chặng 10 · Mệnh đề quan hệ",
+          "steps": [
+            {
+              "id": "sv-st-67a3bea1636b-p1",
+              "type": "vocab",
+              "ref": "st-67a3bea1636b-p1",
+              "title": "Chặng 2",
+              "wordCount": 12
+            },
+            {
+              "id": "sv-st-67a3bea1636b-p2",
+              "type": "vocab",
+              "ref": "st-67a3bea1636b-p2",
+              "title": "Chặng 3",
+              "wordCount": 12
+            },
+            {
+              "id": "sg-relative-clauses",
+              "type": "grammar",
+              "ref": "relative-clauses",
+              "title": "Mệnh đề quan hệ"
+            },
+            {
+              "id": "sc-b1-10",
+              "type": "checkpoint",
+              "ref": "u-b1-10",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-11",
+          "index": 11,
+          "title": "Chặng 11 · Câu điều kiện loại 2",
+          "steps": [
+            {
+              "id": "sv-st-c54e304f5b1d-p0",
+              "type": "vocab",
+              "ref": "st-c54e304f5b1d-p0",
+              "title": "Chặng 1",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-c54e304f5b1d-p1",
+              "type": "vocab",
+              "ref": "st-c54e304f5b1d-p1",
+              "title": "Chặng 2",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-second-conditional",
+              "type": "grammar",
+              "ref": "second-conditional",
+              "title": "Câu điều kiện loại 2"
+            },
+            {
+              "id": "sp-th-voiceless",
+              "type": "pronunciation",
+              "ref": "th-voiceless",
+              "title": "/θ/ — \"th\" điếc (think)"
+            },
+            {
+              "id": "sc-b1-11",
+              "type": "checkpoint",
+              "ref": "u-b1-11",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-12",
+          "index": 12,
+          "title": "Chặng 12 · Câu điều kiện loại 3",
+          "steps": [
+            {
+              "id": "sv-st-c54e304f5b1d-p2",
+              "type": "vocab",
+              "ref": "st-c54e304f5b1d-p2",
+              "title": "Chặng 3",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-c54e304f5b1d-p3",
+              "type": "vocab",
+              "ref": "st-c54e304f5b1d-p3",
+              "title": "Chặng 4",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-third-conditional",
+              "type": "grammar",
+              "ref": "third-conditional",
+              "title": "Câu điều kiện loại 3"
+            },
+            {
+              "id": "sc-b1-12",
+              "type": "checkpoint",
+              "ref": "u-b1-12",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-13",
+          "index": 13,
+          "title": "Chặng 13 · Khuyết thiếu: suy đoán (must/might/can't)",
+          "steps": [
+            {
+              "id": "sv-st-c54e304f5b1d-p4",
+              "type": "vocab",
+              "ref": "st-c54e304f5b1d-p4",
+              "title": "Chặng 5",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-c54e304f5b1d-p5",
+              "type": "vocab",
+              "ref": "st-c54e304f5b1d-p5",
+              "title": "Chặng 6",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-modals-deduction",
+              "type": "grammar",
+              "ref": "modals-deduction",
+              "title": "Khuyết thiếu: suy đoán (must/might/can't)"
+            },
+            {
+              "id": "sp-final-clusters-ed",
+              "type": "pronunciation",
+              "ref": "final-clusters-ed",
+              "title": "Cụm phụ âm cuối & đuôi -ed"
+            },
+            {
+              "id": "sc-b1-13",
+              "type": "checkpoint",
+              "ref": "u-b1-13",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-14",
+          "index": 14,
+          "title": "Chặng 14 · Câu hỏi đuôi",
+          "steps": [
+            {
+              "id": "sv-st-c54e304f5b1d-p6",
+              "type": "vocab",
+              "ref": "st-c54e304f5b1d-p6",
+              "title": "Chặng 7",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-c54e304f5b1d-p7",
+              "type": "vocab",
+              "ref": "st-c54e304f5b1d-p7",
+              "title": "Chặng 8",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-question-tags",
+              "type": "grammar",
+              "ref": "question-tags",
+              "title": "Câu hỏi đuôi"
+            },
+            {
+              "id": "sc-b1-14",
+              "type": "checkpoint",
+              "ref": "u-b1-14",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b1-15",
+          "index": 15,
+          "title": "Chặng 15 · Cụm động từ (nhập môn)",
+          "steps": [
+            {
+              "id": "sv-st-59fae6f6f141-p0",
+              "type": "vocab",
+              "ref": "st-59fae6f6f141-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-59fae6f6f141-p1",
+              "type": "vocab",
+              "ref": "st-59fae6f6f141-p1",
+              "title": "Chặng 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-phrasal-verbs",
+              "type": "grammar",
+              "ref": "phrasal-verbs",
+              "title": "Cụm động từ (nhập môn)"
+            },
+            {
+              "id": "sc-b1-15",
+              "type": "checkpoint",
+              "ref": "u-b1-15",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "title": "Upper-Intermediate",
+      "titleVi": "Trung cao",
+      "description": "Tranh luận, đọc hiểu sâu, nền tảng học thuật và luyện thi.",
+      "units": [
+        {
+          "id": "u-b2-1",
+          "index": 1,
+          "title": "Chặng 1 · Quá khứ hoàn thành tiếp diễn",
+          "steps": [
+            {
+              "id": "sv-st-a97e4f9ea6c8-p0",
+              "type": "vocab",
+              "ref": "st-a97e4f9ea6c8-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-a97e4f9ea6c8-p1",
+              "type": "vocab",
+              "ref": "st-a97e4f9ea6c8-p1",
+              "title": "Chặng 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-past-perfect-continuous",
+              "type": "grammar",
+              "ref": "past-perfect-continuous",
+              "title": "Quá khứ hoàn thành tiếp diễn"
+            },
+            {
+              "id": "sp-th-voiced",
+              "type": "pronunciation",
+              "ref": "th-voiced",
+              "title": "/ð/ — \"th\" kêu (this)"
+            },
+            {
+              "id": "sc-b2-1",
+              "type": "checkpoint",
+              "ref": "u-b2-1",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-2",
+          "index": 2,
+          "title": "Chặng 2 · Thì Tương lai hoàn thành",
+          "steps": [
+            {
+              "id": "sv-st-a97e4f9ea6c8-p2",
+              "type": "vocab",
+              "ref": "st-a97e4f9ea6c8-p2",
+              "title": "Chặng 3",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-a97e4f9ea6c8-p3",
+              "type": "vocab",
+              "ref": "st-a97e4f9ea6c8-p3",
+              "title": "Chặng 4",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-future-perfect",
+              "type": "grammar",
+              "ref": "future-perfect",
+              "title": "Thì Tương lai hoàn thành"
+            },
+            {
+              "id": "sc-b2-2",
+              "type": "checkpoint",
+              "ref": "u-b2-2",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-3",
+          "index": 3,
+          "title": "Chặng 3 · Tương lai trong quá khứ",
+          "steps": [
+            {
+              "id": "sv-st-a97e4f9ea6c8-p4",
+              "type": "vocab",
+              "ref": "st-a97e4f9ea6c8-p4",
+              "title": "Chặng 5",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-a97e4f9ea6c8-p5",
+              "type": "vocab",
+              "ref": "st-a97e4f9ea6c8-p5",
+              "title": "Chặng 6",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-future-in-the-past",
+              "type": "grammar",
+              "ref": "future-in-the-past",
+              "title": "Tương lai trong quá khứ"
+            },
+            {
+              "id": "sc-b2-3",
+              "type": "checkpoint",
+              "ref": "u-b2-3",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-4",
+          "index": 4,
+          "title": "Chặng 4 · Câu điều kiện hỗn hợp",
+          "steps": [
+            {
+              "id": "sv-st-a97e4f9ea6c8-p6",
+              "type": "vocab",
+              "ref": "st-a97e4f9ea6c8-p6",
+              "title": "Chặng 7",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-9e25cf31a37e-p0",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-mixed-conditionals",
+              "type": "grammar",
+              "ref": "mixed-conditionals",
+              "title": "Câu điều kiện hỗn hợp"
+            },
+            {
+              "id": "sp-vowel-uh-ah",
+              "type": "pronunciation",
+              "ref": "vowel-uh-ah",
+              "title": "/ʌ/ vs /ɑː/ (và /ɒ/)"
+            },
+            {
+              "id": "sc-b2-4",
+              "type": "checkpoint",
+              "ref": "u-b2-4",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-5",
+          "index": 5,
+          "title": "Chặng 5 · Cấu trúc Wish / If only",
+          "steps": [
+            {
+              "id": "sv-st-9e25cf31a37e-p1",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p1",
+              "title": "Chặng 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-9e25cf31a37e-p2",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p2",
+              "title": "Chặng 3",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-wish-if-only",
+              "type": "grammar",
+              "ref": "wish-if-only",
+              "title": "Cấu trúc Wish / If only"
+            },
+            {
+              "id": "sc-b2-5",
+              "type": "checkpoint",
+              "ref": "u-b2-5",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-6",
+          "index": 6,
+          "title": "Chặng 6 · Khuyết thiếu hoàn thành (should have...)",
+          "steps": [
+            {
+              "id": "sv-st-9e25cf31a37e-p3",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p3",
+              "title": "Chặng 4",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-9e25cf31a37e-p4",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p4",
+              "title": "Chặng 5",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-modals-perfect",
+              "type": "grammar",
+              "ref": "modals-perfect",
+              "title": "Khuyết thiếu hoàn thành (should have...)"
+            },
+            {
+              "id": "sc-b2-6",
+              "type": "checkpoint",
+              "ref": "u-b2-6",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-7",
+          "index": 7,
+          "title": "Chặng 7 · Thể nhờ/sai bảo (have/get sth done)",
+          "steps": [
+            {
+              "id": "sv-st-9e25cf31a37e-p5",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p5",
+              "title": "Chặng 6",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-9e25cf31a37e-p6",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p6",
+              "title": "Chặng 7",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-causative",
+              "type": "grammar",
+              "ref": "causative",
+              "title": "Thể nhờ/sai bảo (have/get sth done)"
+            },
+            {
+              "id": "sp-diphthongs",
+              "type": "pronunciation",
+              "ref": "diphthongs",
+              "title": "Nguyên âm đôi /eɪ aɪ oʊ aʊ/ + giữ âm cuối"
+            },
+            {
+              "id": "sc-b2-7",
+              "type": "checkpoint",
+              "ref": "u-b2-7",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-8",
+          "index": 8,
+          "title": "Chặng 8 · Bị động nâng cao",
+          "steps": [
+            {
+              "id": "sv-st-9e25cf31a37e-p7",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p7",
+              "title": "Chặng 8",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-9e25cf31a37e-p8",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p8",
+              "title": "Chặng 9",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-advanced-passive",
+              "type": "grammar",
+              "ref": "advanced-passive",
+              "title": "Bị động nâng cao"
+            },
+            {
+              "id": "sc-b2-8",
+              "type": "checkpoint",
+              "ref": "u-b2-8",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-9",
+          "index": 9,
+          "title": "Chặng 9 · Mệnh đề quan hệ nâng cao",
+          "steps": [
+            {
+              "id": "sv-st-9e25cf31a37e-p9",
+              "type": "vocab",
+              "ref": "st-9e25cf31a37e-p9",
+              "title": "Chặng 10",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-7f4a3733b49b-p0",
+              "type": "vocab",
+              "ref": "st-7f4a3733b49b-p0",
+              "title": "Chặng 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-advanced-relative-clauses",
+              "type": "grammar",
+              "ref": "advanced-relative-clauses",
+              "title": "Mệnh đề quan hệ nâng cao"
+            },
+            {
+              "id": "sc-b2-9",
+              "type": "checkpoint",
+              "ref": "u-b2-9",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-10",
+          "index": 10,
+          "title": "Chặng 10 · Mệnh đề phân từ",
+          "steps": [
+            {
+              "id": "sv-st-7f4a3733b49b-p1",
+              "type": "vocab",
+              "ref": "st-7f4a3733b49b-p1",
+              "title": "Chặng 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-st-7f4a3733b49b-p2",
+              "type": "vocab",
+              "ref": "st-7f4a3733b49b-p2",
+              "title": "Chặng 3",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-participle-clauses",
+              "type": "grammar",
+              "ref": "participle-clauses",
+              "title": "Mệnh đề phân từ"
+            },
+            {
+              "id": "sp-r-l-z",
+              "type": "pronunciation",
+              "ref": "r-l-z",
+              "title": "/r/ vs /l/ vs /z/ (d/gi/r giọng Bắc)"
+            },
+            {
+              "id": "sc-b2-10",
+              "type": "checkpoint",
+              "ref": "u-b2-10",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-11",
+          "index": 11,
+          "title": "Chặng 11 · Lược bỏ & thay thế",
+          "steps": [
+            {
+              "id": "sv-st-7f4a3733b49b-p3",
+              "type": "vocab",
+              "ref": "st-7f4a3733b49b-p3",
+              "title": "Chặng 4",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-7f4a3733b49b-p4",
+              "type": "vocab",
+              "ref": "st-7f4a3733b49b-p4",
+              "title": "Chặng 5",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-ellipsis-substitution",
+              "type": "grammar",
+              "ref": "ellipsis-substitution",
+              "title": "Lược bỏ & thay thế"
+            },
+            {
+              "id": "sc-b2-11",
+              "type": "checkpoint",
+              "ref": "u-b2-11",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-12",
+          "index": 12,
+          "title": "Chặng 12 · Thức giả định",
+          "steps": [
+            {
+              "id": "sv-st-550fab2fd1aa-p0",
+              "type": "vocab",
+              "ref": "st-550fab2fd1aa-p0",
+              "title": "Chặng 1",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-550fab2fd1aa-p1",
+              "type": "vocab",
+              "ref": "st-550fab2fd1aa-p1",
+              "title": "Chặng 2",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-subjunctive",
+              "type": "grammar",
+              "ref": "subjunctive",
+              "title": "Thức giả định"
+            },
+            {
+              "id": "sc-b2-12",
+              "type": "checkpoint",
+              "ref": "u-b2-12",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-13",
+          "index": 13,
+          "title": "Chặng 13 · Cấu trúc nhấn mạnh",
+          "steps": [
+            {
+              "id": "sv-st-550fab2fd1aa-p2",
+              "type": "vocab",
+              "ref": "st-550fab2fd1aa-p2",
+              "title": "Chặng 3",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-550fab2fd1aa-p3",
+              "type": "vocab",
+              "ref": "st-550fab2fd1aa-p3",
+              "title": "Chặng 4",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-emphasis-structures",
+              "type": "grammar",
+              "ref": "emphasis-structures",
+              "title": "Cấu trúc nhấn mạnh"
+            },
+            {
+              "id": "sp-ch-j",
+              "type": "pronunciation",
+              "ref": "ch-j",
+              "title": "/tʃ/ vs /dʒ/"
+            },
+            {
+              "id": "sc-b2-13",
+              "type": "checkpoint",
+              "ref": "u-b2-13",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-14",
+          "index": 14,
+          "title": "Chặng 14 · Câu chẻ (nhấn mạnh)",
+          "steps": [
+            {
+              "id": "sv-st-550fab2fd1aa-p4",
+              "type": "vocab",
+              "ref": "st-550fab2fd1aa-p4",
+              "title": "Chặng 5",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-550fab2fd1aa-p5",
+              "type": "vocab",
+              "ref": "st-550fab2fd1aa-p5",
+              "title": "Chặng 6",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-cleft-sentences",
+              "type": "grammar",
+              "ref": "cleft-sentences",
+              "title": "Câu chẻ (nhấn mạnh)"
+            },
+            {
+              "id": "sc-b2-14",
+              "type": "checkpoint",
+              "ref": "u-b2-14",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-15",
+          "index": 15,
+          "title": "Chặng 15 · Đảo ngữ",
+          "steps": [
+            {
+              "id": "sv-st-550fab2fd1aa-p6",
+              "type": "vocab",
+              "ref": "st-550fab2fd1aa-p6",
+              "title": "Chặng 7",
+              "wordCount": 13
+            },
+            {
+              "id": "sv-st-a1c09644b1f2-p0",
+              "type": "vocab",
+              "ref": "st-a1c09644b1f2-p0",
+              "title": "Chặng 1",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-inversion",
+              "type": "grammar",
+              "ref": "inversion",
+              "title": "Đảo ngữ"
+            },
+            {
+              "id": "sc-b2-15",
+              "type": "checkpoint",
+              "ref": "u-b2-15",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-16",
+          "index": 16,
+          "title": "Chặng 16 · Từ nối diễn ngôn",
+          "steps": [
+            {
+              "id": "sv-st-a1c09644b1f2-p1",
+              "type": "vocab",
+              "ref": "st-a1c09644b1f2-p1",
+              "title": "Chặng 2",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-a1c09644b1f2-p2",
+              "type": "vocab",
+              "ref": "st-a1c09644b1f2-p2",
+              "title": "Chặng 3",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-discourse-markers",
+              "type": "grammar",
+              "ref": "discourse-markers",
+              "title": "Từ nối diễn ngôn"
+            },
+            {
+              "id": "sp-vowel-aw-o",
+              "type": "pronunciation",
+              "ref": "vowel-aw-o",
+              "title": "/ɔː/ vs /ɒ/"
+            },
+            {
+              "id": "sc-b2-16",
+              "type": "checkpoint",
+              "ref": "u-b2-16",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-17",
+          "index": 17,
+          "title": "Chặng 17 · Danh từ hóa",
+          "steps": [
+            {
+              "id": "sv-st-a1c09644b1f2-p3",
+              "type": "vocab",
+              "ref": "st-a1c09644b1f2-p3",
+              "title": "Chặng 4",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-a1c09644b1f2-p4",
+              "type": "vocab",
+              "ref": "st-a1c09644b1f2-p4",
+              "title": "Chặng 5",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-nominalisation",
+              "type": "grammar",
+              "ref": "nominalisation",
+              "title": "Danh từ hóa"
+            },
+            {
+              "id": "sc-b2-17",
+              "type": "checkpoint",
+              "ref": "u-b2-17",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-18",
+          "index": 18,
+          "title": "Chặng 18 · Ngôn ngữ rào đón (hedging)",
+          "steps": [
+            {
+              "id": "sv-st-a1c09644b1f2-p5",
+              "type": "vocab",
+              "ref": "st-a1c09644b1f2-p5",
+              "title": "Chặng 6",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-7a5fe5c927a0-p0",
+              "type": "vocab",
+              "ref": "st-7a5fe5c927a0-p0",
+              "title": "Chặng 1",
+              "wordCount": 14
+            },
+            {
+              "id": "sg-hedging-language",
+              "type": "grammar",
+              "ref": "hedging-language",
+              "title": "Ngôn ngữ rào đón (hedging)"
+            },
+            {
+              "id": "sc-b2-18",
+              "type": "checkpoint",
+              "ref": "u-b2-18",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        },
+        {
+          "id": "u-b2-19",
+          "index": 19,
+          "title": "Chặng 19 · Kết hợp ngữ pháp (collocations)",
+          "steps": [
+            {
+              "id": "sv-st-7a5fe5c927a0-p1",
+              "type": "vocab",
+              "ref": "st-7a5fe5c927a0-p1",
+              "title": "Chặng 2",
+              "wordCount": 14
+            },
+            {
+              "id": "sv-st-7a5fe5c927a0-p2",
+              "type": "vocab",
+              "ref": "st-7a5fe5c927a0-p2",
+              "title": "Chặng 3",
+              "wordCount": 13
+            },
+            {
+              "id": "sg-grammatical-collocations",
+              "type": "grammar",
+              "ref": "grammatical-collocations",
+              "title": "Kết hợp ngữ pháp (collocations)"
+            },
+            {
+              "id": "sc-b2-19",
+              "type": "checkpoint",
+              "ref": "u-b2-19",
+              "title": "Checkpoint — Vượt chặng"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

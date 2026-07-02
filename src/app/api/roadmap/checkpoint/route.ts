@@ -1,0 +1,170 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { createServiceClient } from '@/lib/supabase';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { resolveUnit, getPronunciationLesson } from '@/lib/roadmap';
+import { resolvePack } from '@/lib/vocab-catalog';
+
+// Shape JSONB của global_dictionary.data (như /api/import/packages)
+type GdMeaning = { pos?: string; definition?: string };
+type GdData = { results?: { meanings?: GdMeaning[] }[] };
+type LessonExercise = {
+  type?: string;
+  q?: string; question?: string;
+  opts?: string[]; options?: string[];
+  answer?: string | string[] | boolean; correct_answer?: string;
+  fb?: string; explanation?: string;
+};
+
+export type CheckpointQuestionType = 'meaning-to-word' | 'word-to-meaning' | 'typing' | 'grammar-mcq' | 'minimal-pair' | 'listening-choice';
+export interface CheckpointQuestion {
+  id: string;
+  type: CheckpointQuestionType;
+  prompt: string;
+  /** Từ cần phát audio (listening/minimal-pair). */
+  audioWord?: string;
+  options?: string[];
+  answer: string;
+  explanation?: string;
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/**
+ * GET /api/roadmap/checkpoint?unit=<unitId> — lắp bộ câu hỏi tổng hợp chặng.
+ * Trộn loại: vocab 2 chiều + typing + grammar + minimal pair (nếu chặng có bài phát âm).
+ * Mỗi lần gọi trả bộ trộn khác nhau (làm lại = câu khác).
+ * Câu CUỐI luôn là MCQ vocab dễ (scaffold ending — kết thúc bằng cảm giác thắng).
+ */
+export async function GET(req: NextRequest) {
+  try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    const unitId = req.nextUrl.searchParams.get('unit') ?? '';
+    const resolved = resolveUnit(unitId);
+    if (!resolved) return NextResponse.json({ success: false, error: 'Chặng không tồn tại' }, { status: 400 });
+
+    const supabase = createServiceClient();
+    const { unit } = resolved;
+
+    // ── Vocab: gom từ + nghĩa từ global_dictionary ──
+    const packIds = unit.steps.filter((s) => s.type === 'vocab').map((s) => s.ref);
+    const words: string[] = [];
+    for (const packId of packIds) {
+      const pack = resolvePack(packId);
+      if (pack) words.push(...pack.words);
+    }
+    const { data: gdRows } = words.length > 0
+      ? await supabase.from('global_dictionary').select('word, data').in('word', words)
+      : { data: [] as { word: string; data: unknown }[] };
+    const meaningOf = new Map<string, string>();
+    for (const row of gdRows ?? []) {
+      const meaning = ((row.data ?? {}) as GdData).results?.[0]?.meanings?.[0]?.definition ?? '';
+      if (meaning) meaningOf.set(row.word, meaning);
+    }
+    const vocabPool = shuffle(words.filter((w) => meaningOf.has(w)));
+
+    const questions: CheckpointQuestion[] = [];
+
+    // 3 câu meaning→word
+    for (const w of vocabPool.slice(0, 3)) {
+      const distractors = shuffle(vocabPool.filter((x) => x !== w)).slice(0, 3);
+      questions.push({
+        id: `cq-mw-${w}`, type: 'meaning-to-word',
+        prompt: `Từ nào nghĩa là "${meaningOf.get(w)}"?`,
+        options: shuffle([w, ...distractors]), answer: w,
+      });
+    }
+    // 2 câu word→meaning
+    for (const w of vocabPool.slice(3, 5)) {
+      const distractors = shuffle(vocabPool.filter((x) => x !== w)).slice(0, 3).map((x) => meaningOf.get(x)!);
+      questions.push({
+        id: `cq-wm-${w}`, type: 'word-to-meaning',
+        prompt: `"${w}" nghĩa là gì?`,
+        options: shuffle([meaningOf.get(w)!, ...distractors]), answer: meaningOf.get(w)!,
+      });
+    }
+    // 1 câu typing (nghĩa → gõ từ)
+    const typingWord = vocabPool[5];
+    if (typingWord) {
+      questions.push({
+        id: `cq-ty-${typingWord}`, type: 'typing',
+        prompt: `Gõ từ tiếng Anh có nghĩa: "${meaningOf.get(typingWord)}"`,
+        answer: typingWord,
+      });
+    }
+    // 1 câu listening: nghe audio → chọn từ
+    const listenWord = vocabPool[6];
+    if (listenWord) {
+      const distractors = shuffle(vocabPool.filter((x) => x !== listenWord)).slice(0, 3);
+      questions.push({
+        id: `cq-ls-${listenWord}`, type: 'listening-choice',
+        prompt: 'Nghe và chọn từ bạn nghe được:',
+        audioWord: listenWord,
+        options: shuffle([listenWord, ...distractors]), answer: listenWord,
+      });
+    }
+
+    // ── Grammar: lấy exercises từ lesson của topic trong chặng ──
+    const grammarSlug = unit.steps.find((s) => s.type === 'grammar')?.ref;
+    if (grammarSlug) {
+      const { data: topic } = await supabase.from('grammar_topics').select('id').eq('slug', grammarSlug).maybeSingle();
+      if (topic) {
+        const { data: lessons } = await supabase.from('grammar_lessons').select('exercises').eq('topic_id', topic.id).limit(1);
+        const exercises = ((lessons?.[0]?.exercises ?? []) as LessonExercise[])
+          .filter((e) => {
+            const type = e.type ?? '';
+            const opts = e.options ?? e.opts;
+            const ans = e.correct_answer !== undefined ? e.correct_answer : e.answer;
+            return (type === 'mcq' || type === 'error' || type === 'multiple_choice' || type === 'error_correction')
+              && Array.isArray(opts) && typeof ans === 'string' && opts.includes(ans);
+          });
+        for (const [i, e] of shuffle(exercises).slice(0, 4).entries()) {
+          questions.push({
+            id: `cq-gr-${grammarSlug}-${i}`, type: 'grammar-mcq',
+            prompt: String(e.question ?? e.q),
+            options: (e.options ?? e.opts) as string[],
+            answer: String(e.correct_answer !== undefined ? e.correct_answer : e.answer),
+            explanation: String(e.explanation ?? e.fb ?? ''),
+          });
+        }
+      }
+    }
+
+    // ── Minimal pair (nếu chặng có bài phát âm) ──
+    const pronId = unit.steps.find((s) => s.type === 'pronunciation')?.ref;
+    if (pronId) {
+      const lesson = getPronunciationLesson(pronId);
+      const pairs = (lesson?.minimalPairs ?? []).filter((p) => /^[a-zA-Z' ]+$/.test(p.a) && /^[a-zA-Z' ]+$/.test(p.b));
+      for (const [i, pair] of shuffle(pairs).slice(0, 2).entries()) {
+        const target = Math.random() < 0.5 ? pair.a : pair.b;
+        questions.push({
+          id: `cq-mp-${pronId}-${i}`, type: 'minimal-pair',
+          prompt: 'Nghe và chọn đúng từ bạn nghe được:',
+          audioWord: target,
+          options: shuffle([pair.a, pair.b]), answer: target,
+          explanation: pair.note || undefined,
+        });
+      }
+    }
+
+    // Trộn tất cả nhưng giữ câu CUỐI là MCQ vocab dễ (scaffold ending)
+    const easyLast = questions.find((q) => q.type === 'meaning-to-word');
+    const rest = shuffle(questions.filter((q) => q !== easyLast));
+    const finalQuestions = easyLast ? [...rest, easyLast] : rest;
+
+    return NextResponse.json({
+      success: true,
+      data: { unitId, title: unit.title, questions: finalQuestions, passPct: 80 },
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Server error';
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
+  }
+}

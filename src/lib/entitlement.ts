@@ -49,6 +49,27 @@ export const FEATURE_MIN_PLAN: Record<Feature, Plan> = {
   grammar_ai: 'pro',        // gộp từ premium → Pro là gói trả phí duy nhất, có đủ
 };
 
+// ── Lộ trình học (level-gate thay vì on/off) ──
+// Free: trọn A0 + A1 (máy retention — tạo thói quen trước khi thu phí).
+// Pro trở lên: mở hết A2→B2.
+// LƯU Ý: grammar lesson đi QUA lộ trình free A0/A1 không bị chặn bởi grammar_read
+// (gate lộ trình kiểm ở /api/roadmap/progress theo cấp, không theo feature grammar).
+export type RoadmapLevel = 'A0' | 'A1' | 'A2' | 'B1' | 'B2';
+const ROADMAP_LEVEL_RANK: Record<RoadmapLevel, number> = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4 };
+export const ROADMAP_FREE_MAX_LEVEL: RoadmapLevel = 'A1';
+
+/** Cấp lộ trình cao nhất gói này được học. */
+export function roadmapMaxLevel(plan: Plan): RoadmapLevel {
+  return plan === 'free' ? ROADMAP_FREE_MAX_LEVEL : 'B2';
+}
+
+/** User gói `plan` có được học cấp `level` trong lộ trình không (theo cờ enforce). */
+export function checkRoadmapLevelAccess(plan: Plan, level: RoadmapLevel): AccessResult {
+  if (!ENTITLEMENT_ENFORCED) return { allowed: true };
+  if (ROADMAP_LEVEL_RANK[level] <= ROADMAP_LEVEL_RANK[roadmapMaxLevel(plan)]) return { allowed: true };
+  return { allowed: false, upgradeTo: 'pro' };
+}
+
 /**
  * Tính gói hiệu lực: nếu đã hết hạn → tụt về 'free'.
  * @param plan      gói lưu trong profiles

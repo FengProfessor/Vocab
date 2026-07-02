@@ -299,6 +299,26 @@ export interface UserGamification {
   today_date: string | null;
 }
 
+// Lộ trình học 5 cấp (bảng user_roadmap / user_roadmap_steps — migration 20260703)
+export type RoadmapDbLevelId = 'A0' | 'A1' | 'A2' | 'B1' | 'B2';
+export interface UserRoadmap {
+  user_id: string;
+  roadmap_version: string;
+  level_id: RoadmapDbLevelId;
+  current_unit_id: string | null;
+  placement: Record<string, unknown> | null;
+  started_at: string;
+  updated_at: string;
+}
+export interface UserRoadmapStep {
+  user_id: string;
+  step_id: string;
+  status: 'in_progress' | 'completed';
+  score: number | null;
+  completed_at: string | null;
+  created_at: string;
+}
+
 export interface StudentProgress {
   student_id: string;
   student_name: string;
