@@ -74,7 +74,14 @@
         "example": "He apologized for being late."
       }
     ],
-    "signals": [],
+    "signals": [
+      "interested in",
+      "good at",
+      "depend on",
+      "reason for",
+      "listen to",
+      "afraid of"
+    ],
     "examples": [
       {
         "en": "She is interested in design.",
@@ -332,10 +339,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "He apologized for being late.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "She is interested about music.",
+        "right": "She is interested in music.",
+        "why": "Interested luôn đi với IN — collocation cố định, không dùng about."
+      },
+      {
+        "wrong": "It depends of the weather.",
+        "right": "It depends on the weather.",
+        "why": "Depend luôn đi với ON; \"depends of\" là dịch word-by-word sai."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **adjective + preposition** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** collocation phải học theo cụm; giới từ đúng trong tiếng Việt không dự đoán được giới từ tiếng Anh.",
+    "comparison": "**Collocation ngữ pháp vs dịch word-by-word:** Cặp từ + giới từ trong tiếng Anh là CỐ ĐỊNH, không suy ra từ tiếng Việt: *listen TO music* (nghe nhạc — tiếng Việt không có \"to\"), *depend ON* (phụ thuộc VÀO — không phải of). Học cả cụm, đừng dịch từng chữ.",
     "timeline": null
   },
   "exercises": [

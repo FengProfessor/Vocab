@@ -1,0 +1,414 @@
+{
+  "version": "2026-07-03-v1",
+  "source": "NLM LingoPro Pronunciation VN (99 nguồn) — docs/roadmap-research/01-pronunciation-vn.md",
+  "lessons": [
+    {
+      "id": "word-stress-basics",
+      "level": "A0",
+      "title": "Trọng âm từ cơ bản",
+      "ipa": "ˈ●○",
+      "whyHard": "Tiếng Việt đơn âm tiết, mọi âm đều nhau nên người Việt đọc tiếng Anh kiểu \"máy đánh chữ\" — mỗi âm một nhịp bằng nhau. Tiếng Anh bắt buộc có âm tiết NHẤN dài-to-cao hơn hẳn.",
+      "mouthTip": "Tưởng tượng kéo dây thun: âm nhấn = kéo CĂNG (dài, to, cao giọng), âm còn lại thả lỏng đọc lướt.",
+      "exampleWords": ["hello", "teacher", "banana", "computer", "photograph", "photography"],
+      "drillType": "stress",
+      "minimalPairs": [
+        { "a": "PHOtograph", "b": "phoTOgraphy", "note": "Trọng âm nhảy vị trí khi thêm hậu tố" },
+        { "a": "REcord (n)", "b": "reCORD (v)", "note": "Danh từ nhấn đầu, động từ nhấn sau" },
+        { "a": "PREsent (n)", "b": "preSENT (v)", "note": "Món quà vs trao tặng" },
+        { "a": "PROject (n)", "b": "proJECT (v)", "note": "Dự án vs chiếu/phóng" },
+        { "a": "DRAma", "b": "draMAtic", "note": "Gốc từ vs tính từ" }
+      ]
+    },
+    {
+      "id": "final-stops-ptk",
+      "level": "A0",
+      "title": "Bật âm cuối /p/ /t/ /k/",
+      "ipa": "-p -t -k",
+      "whyHard": "Âm cuối tiếng Việt KHÔNG bật hơi (họng đóng lại là xong), nên tai người Anh nghe như bạn NUỐT MẤT âm cuối: \"like\" thành \"lai\", \"stop\" thành \"sto\".",
+      "mouthTip": "Cuối từ, đẩy một luồng hơi NHỎ ra ngoài — nghe được tiếng \"bật\" khẽ là đúng.",
+      "exampleWords": ["stop", "cat", "book", "like", "hot", "cup"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "like", "b": "lie", "note": "Có /k/ cuối vs không" },
+        { "a": "cape", "b": "cake", "note": "/p/ cuối vs /k/ cuối" },
+        { "a": "cap", "b": "cab", "note": "/p/ điếc vs /b/ kêu" },
+        { "a": "cup", "b": "cub", "note": "/p/ vs /b/ cuối" },
+        { "a": "rope", "b": "robe", "note": "/p/ vs /b/ cuối" }
+      ]
+    },
+    {
+      "id": "final-s-z",
+      "level": "A0",
+      "title": "Âm cuối /s/ /z/ và đuôi -s/-es",
+      "ipa": "-s -z -ɪz",
+      "whyHard": "Tiếng Việt không có phụ âm rung /z/ ở cuối từ, và không có hậu tố ngữ pháp — nên người Việt bỏ hẳn đuôi -s (books → book) hoặc đọc /z/ thành /s/.",
+      "mouthTip": "Đặt tay lên cổ họng: /z/ phải RUNG như tiếng ong, /s/ im hoàn toàn như tiếng rắn.",
+      "exampleWords": ["books", "plays", "buses", "rice", "rise", "peas"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "rice", "b": "rise", "note": "/s/ điếc vs /z/ rung" },
+        { "a": "peace", "b": "peas", "note": "/s/ vs /z/" },
+        { "a": "price", "b": "prize", "note": "/s/ vs /z/" },
+        { "a": "face", "b": "phase", "note": "/s/ vs /z/" },
+        { "a": "bus", "b": "buzz", "note": "/s/ vs /z/" }
+      ]
+    },
+    {
+      "id": "initial-p-b",
+      "level": "A1",
+      "title": "/p/ vs /b/ đầu từ",
+      "ipa": "p b",
+      "whyHard": "Tiếng Việt không có /p/ đứng đầu từ thuần Việt (chỉ có trong từ mượn), nên người Việt hay đọc \"party\" thành \"barty\", \"pen\" thành \"ben\".",
+      "mouthTip": "/p/ phải BẬT HƠI mạnh — để tờ giấy trước miệng, giấy phải bay; /b/ rung dây thanh ngay, giấy không bay.",
+      "exampleWords": ["pen", "pet", "pig", "party", "picture", "people"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "pet", "b": "bet", "note": "Bật hơi vs rung" },
+        { "a": "pat", "b": "bat", "note": "/p/ vs /b/" },
+        { "a": "pin", "b": "bin", "note": "/p/ vs /b/" },
+        { "a": "pig", "b": "big", "note": "/p/ vs /b/" },
+        { "a": "pack", "b": "back", "note": "/p/ vs /b/" }
+      ]
+    },
+    {
+      "id": "vowel-i-long-short",
+      "level": "A1",
+      "title": "/iː/ dài vs /ɪ/ ngắn",
+      "ipa": "iː ɪ",
+      "whyHard": "Tiếng Việt chỉ có MỘT âm /i/, không phân biệt căng-chùng dài-ngắn — nên \"sheep\" (cừu) và \"ship\" (tàu) nghe y hệt nhau khi người Việt nói.",
+      "mouthTip": "/iː/ cười rộng, căng cơ má, kéo dài; /ɪ/ thả lỏng toàn mặt, hạ hàm nhẹ, đọc cực ngắn.",
+      "exampleWords": ["sheep", "ship", "beach", "sit", "feel", "fill"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "sheep", "b": "ship", "note": "Dài căng vs ngắn chùng" },
+        { "a": "beat", "b": "bit", "note": "/iː/ vs /ɪ/" },
+        { "a": "feel", "b": "fill", "note": "/iː/ vs /ɪ/" },
+        { "a": "seat", "b": "sit", "note": "/iː/ vs /ɪ/" },
+        { "a": "sleep", "b": "slip", "note": "/iː/ vs /ɪ/" }
+      ]
+    },
+    {
+      "id": "final-l-n",
+      "level": "A1",
+      "title": "Âm cuối /l/ vs /n/",
+      "ipa": "-l -n",
+      "whyHard": "Tiếng Việt cấm /l/ đứng cuối âm tiết, nên người Việt thay /l/ cuối bằng /n/ hoặc bỏ hẳn: \"all\" thành \"awn\", \"school\" thành \"schoo\".",
+      "mouthTip": "Với /l/ cuối: đầu lưỡi CHẠM lợi sau răng trên, hai BÊN lưỡi hạ xuống cho hơi thoát ra hông.",
+      "exampleWords": ["all", "school", "small", "feel", "pull", "table"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "pill", "b": "pin", "note": "/l/ cuối vs /n/ cuối" },
+        { "a": "coal", "b": "cone", "note": "/l/ vs /n/" },
+        { "a": "deal", "b": "dean", "note": "/l/ vs /n/" },
+        { "a": "while", "b": "wine", "note": "/l/ vs /n/" },
+        { "a": "ball", "b": "ban", "note": "/l/ vs /n/" }
+      ]
+    },
+    {
+      "id": "sentence-rhythm",
+      "level": "A2",
+      "title": "Trọng âm câu & nhịp điệu",
+      "ipa": "●○○●",
+      "whyHard": "Tiếng Việt tính nhịp theo ÂM TIẾT (câu dài = đọc lâu hơn đều đều). Tiếng Anh tính nhịp theo TRỌNG ÂM — các từ ngữ pháp bị nén lại giữa các phách nhấn.",
+      "mouthTip": "Vỗ tay CHỈ vào từ nội dung (danh/động/tính từ), các từ ngữ pháp (a, the, of, is) đọc lướt nhét vào giữa hai nhịp vỗ.",
+      "exampleWords": ["Dogs chase cats", "The dogs chase the cats", "The dogs are chasing the cats"],
+      "drillType": "stress",
+      "minimalPairs": [
+        { "a": "I didn't say he stole the money", "b": "(nhấn I = người khác nói)", "note": "Đổi từ nhấn = đổi nghĩa" },
+        { "a": "I DIDN'T say he stole the money", "b": "(phủ nhận mạnh)", "note": "" },
+        { "a": "I didn't SAY he stole the money", "b": "(chỉ ám chỉ thôi)", "note": "" },
+        { "a": "I didn't say HE stole the money", "b": "(người khác trộm)", "note": "" },
+        { "a": "I didn't say he stole the MONEY", "b": "(trộm thứ khác)", "note": "" }
+      ]
+    },
+    {
+      "id": "s-vs-sh",
+      "level": "A2",
+      "title": "/s/ vs /ʃ/",
+      "ipa": "s ʃ",
+      "whyHard": "Giọng Bắc đọc cả \"s\" lẫn \"x\" thành /s/, không có âm /ʃ/ chuẩn — nên \"see\" và \"she\" nghe giống hệt nhau.",
+      "mouthTip": "/ʃ/ CHU MÔI tròn về phía trước (như suỵt em bé); /s/ môi bẹt, kéo khóe miệng.",
+      "exampleWords": ["she", "ship", "shoe", "wash", "sea", "sun"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "she", "b": "sea", "note": "/ʃ/ vs /s/" },
+        { "a": "ship", "b": "sip", "note": "/ʃ/ vs /s/" },
+        { "a": "sheet", "b": "seat", "note": "/ʃ/ vs /s/" },
+        { "a": "shoot", "b": "suit", "note": "/ʃ/ vs /s/" },
+        { "a": "shells", "b": "sells", "note": "/ʃ/ vs /s/" }
+      ]
+    },
+    {
+      "id": "vowel-u-long-short",
+      "level": "A2",
+      "title": "/uː/ dài vs /ʊ/ ngắn",
+      "ipa": "uː ʊ",
+      "whyHard": "Tiếng Việt chỉ có /u/ tròn môi chặt, không có âm /ʊ/ lỏng — nên \"fool\" và \"full\", \"pool\" và \"pull\" bị đọc giống nhau.",
+      "mouthTip": "/uː/ chu môi chặt thành vòng nhỏ, kéo dài; /ʊ/ môi tròn LỎNG, lưỡi thả lỏng, đọc ngắn.",
+      "exampleWords": ["blue", "food", "book", "full", "look", "school"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "fool", "b": "full", "note": "/uː/ vs /ʊ/" },
+        { "a": "pool", "b": "pull", "note": "/uː/ vs /ʊ/" },
+        { "a": "Luke", "b": "look", "note": "/uː/ vs /ʊ/" },
+        { "a": "suit", "b": "soot", "note": "/uː/ vs /ʊ/" },
+        { "a": "wooed", "b": "wood", "note": "/uː/ vs /ʊ/" }
+      ]
+    },
+    {
+      "id": "vowel-ae-e",
+      "level": "A2",
+      "title": "/æ/ vs /e/",
+      "ipa": "æ e",
+      "whyHard": "Tiếng Việt hoàn toàn không có âm /æ/ (mở rộng hàm), nên người Việt thay bằng \"e\" quen thuộc: \"cat\" đọc thành \"két\", \"man\" thành \"men\".",
+      "mouthTip": "/æ/ HẠ HÀM mạnh, miệng mở rộng gần vuông, lưỡi chạm răng dưới; /e/ miệng he hé nửa chừng.",
+      "exampleWords": ["cat", "bad", "hat", "bed", "pen", "man"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "bat", "b": "bet", "note": "/æ/ vs /e/" },
+        { "a": "pat", "b": "pet", "note": "/æ/ vs /e/" },
+        { "a": "man", "b": "men", "note": "/æ/ vs /e/ — số ít vs số nhiều!" },
+        { "a": "sad", "b": "said", "note": "/æ/ vs /e/" },
+        { "a": "tan", "b": "ten", "note": "/æ/ vs /e/" }
+      ]
+    },
+    {
+      "id": "final-n-ng",
+      "level": "A2",
+      "title": "Âm cuối /n/ vs /ŋ/",
+      "ipa": "-n -ŋ",
+      "whyHard": "Người Việt lẫn hai âm mũi cuối khi nói tiếng Anh: \"thin\" (mỏng) và \"thing\" (thứ) — một âm đầu lưỡi, một âm gốc lưỡi.",
+      "mouthTip": "/n/ ĐẦU lưỡi chạm lợi trên; /ŋ/ GỐC lưỡi nâng chạm vòm mềm (như âm \"ng\" tiếng Việt), miệng vẫn mở.",
+      "exampleWords": ["thin", "thing", "sing", "sun", "ring", "rain"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "thin", "b": "thing", "note": "/n/ vs /ŋ/" },
+        { "a": "sin", "b": "sing", "note": "/n/ vs /ŋ/" },
+        { "a": "ban", "b": "bang", "note": "/n/ vs /ŋ/" },
+        { "a": "win", "b": "wing", "note": "/n/ vs /ŋ/" },
+        { "a": "ran", "b": "rang", "note": "/n/ vs /ŋ/" }
+      ]
+    },
+    {
+      "id": "basic-intonation",
+      "level": "A2",
+      "title": "Ngữ điệu cơ bản ↘↗",
+      "ipa": "↘ ↗",
+      "whyHard": "Tiếng Việt là ngôn ngữ thanh điệu — cao độ đổi theo TỪNG TỪ và đổi nghĩa từ (ma/má/mà). Tiếng Anh đổi cao độ theo CẢ CÂU để thể hiện thái độ và loại câu.",
+      "mouthTip": "Giữ từng từ phẳng, để cả câu trôi như con sóng: câu kể hạ giọng cuối câu ↘, câu hỏi Yes/No nâng giọng cuối câu ↗.",
+      "exampleWords": ["He's a doctor. ↘", "Is he a doctor? ↗", "What does he do? ↘", "Thank you. ↘", "Really? ↗"],
+      "drillType": "intonation",
+      "minimalPairs": [
+        { "a": "It's ready. ↘", "b": "It's ready? ↗", "note": "Câu kể vs hỏi ngạc nhiên" },
+        { "a": "You like coffee. ↘", "b": "Do you like coffee? ↗", "note": "Kể vs hỏi Yes/No" },
+        { "a": "No. ↘", "b": "No? ↗", "note": "Dứt khoát vs nghi ngờ" },
+        { "a": "They arrived. ↘", "b": "Did they arrive? ↗", "note": "" },
+        { "a": "Mom! ↘", "b": "Mom? ↗", "note": "Gọi to vs hỏi tìm" }
+      ]
+    },
+    {
+      "id": "schwa",
+      "level": "B1",
+      "title": "Âm schwa /ə/",
+      "ipa": "ə",
+      "whyHard": "Tiếng Việt phát âm ĐẦY ĐỦ mọi nguyên âm, không có khái niệm \"giảm âm\". Tiếng Anh giảm gần hết nguyên âm không nhấn thành /ə/ mờ — âm xuất hiện nhiều nhất tiếng Anh.",
+      "mouthTip": "Thả lỏng TOÀN BỘ miệng-hàm-lưỡi ở vị trí nghỉ, bật ra tiếng \"ơ\" cực ngắn, cực khẽ.",
+      "exampleWords": ["about", "banana", "computer", "tomorrow", "vegetable", "comfortable"],
+      "drillType": "stress",
+      "minimalPairs": [
+        { "a": "a-BOUT", "b": "(âm đầu là /ə/ mờ)", "note": "Chọn âm tiết nhấn" },
+        { "a": "ba-NA-na", "b": "(2 âm /ə/ bao quanh)", "note": "" },
+        { "a": "com-PU-ter", "b": "(đầu + cuối đều /ə/)", "note": "" },
+        { "a": "VEG-ta-ble", "b": "(chỉ 3 âm tiết!)", "note": "" },
+        { "a": "COMF-ta-ble", "b": "(không đọc for-ta)", "note": "" }
+      ]
+    },
+    {
+      "id": "weak-forms",
+      "level": "B1",
+      "title": "Weak forms — dạng yếu của từ ngữ pháp",
+      "ipa": "kən tə ən əv",
+      "whyHard": "Người Việt đọc mọi từ với nguyên âm đầy: \"can\" luôn là /kæn/. Người bản xứ đọc từ ngữ pháp bằng DẠNG YẾU /kən/ trong câu thường — không nghe được dạng yếu = không nghe được người bản xứ.",
+      "mouthTip": "Từ ngữ pháp (can, to, and, of, for) đọc lướt bằng /ə/; chỉ dùng dạng mạnh khi nhấn mạnh hoặc đứng cuối câu.",
+      "exampleWords": ["I can swim", "cup of tea", "fish and chips", "want to go", "thanks for coming"],
+      "drillType": "listening",
+      "minimalPairs": [
+        { "a": "can /kən/ (I can HELP)", "b": "can /kæn/ (Yes, I CAN!)", "note": "Yếu trong câu, mạnh cuối câu" },
+        { "a": "to /tə/ (want to go)", "b": "to /tuː/ (talking TO?)", "note": "" },
+        { "a": "and /ən/ (fish and chips)", "b": "and /ænd/ (nhấn mạnh)", "note": "" },
+        { "a": "of /əv/ (cup of tea)", "b": "of /ɒv/ (made OF?)", "note": "" },
+        { "a": "for /fər/ (thanks for...)", "b": "for /fɔːr/ (who FOR?)", "note": "" }
+      ]
+    },
+    {
+      "id": "linking",
+      "level": "B1",
+      "title": "Nối âm (linking)",
+      "ipa": "C‿V",
+      "whyHard": "Tiếng Việt từng âm tiết tách rời tuyệt đối. Tiếng Anh dán phụ âm cuối vào nguyên âm đầu từ sau — không nối âm thì nghe rời rạc kiểu robot, và không nghe kịp người bản xứ nói.",
+      "mouthTip": "Coi phụ âm cuối từ trước là phụ âm ĐẦU của từ sau: \"turn it off\" → \"tur-ni-toff\".",
+      "exampleWords": ["turn it off", "find out", "an apple", "come in", "hold on"],
+      "drillType": "listening",
+      "minimalPairs": [
+        { "a": "tur-ni-toff", "b": "turn / it / off (tách rời)", "note": "Bản nối vs bản tách" },
+        { "a": "fin-dout", "b": "find / out", "note": "" },
+        { "a": "a-napple", "b": "an / apple", "note": "" },
+        { "a": "cu-min", "b": "come / in", "note": "" },
+        { "a": "hol-don", "b": "hold / on", "note": "" }
+      ]
+    },
+    {
+      "id": "v-f-final",
+      "level": "B1",
+      "title": "/v/ vs /f/ (nhất là cuối từ)",
+      "ipa": "v f",
+      "whyHard": "Tiếng Việt không có /v/ hay /f/ đứng cuối. Người Việt (đặc biệt giọng Nam) bỏ /v/ cuối hoặc đổi thành âm lướt: \"leave\" thành \"lea\", \"five\" thành \"fai\".",
+      "mouthTip": "Răng trên chạm nhẹ môi dưới; /v/ RUNG dây thanh (tay chạm cổ thấy rung), /f/ chỉ có hơi.",
+      "exampleWords": ["five", "leave", "have", "love", "safe", "life"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "leave", "b": "leaf", "note": "/v/ rung vs /f/ điếc" },
+        { "a": "save", "b": "safe", "note": "/v/ vs /f/" },
+        { "a": "believe", "b": "belief", "note": "/v/ vs /f/" },
+        { "a": "van", "b": "fan", "note": "/v/ vs /f/ đầu từ" },
+        { "a": "vast", "b": "fast", "note": "/v/ vs /f/" }
+      ]
+    },
+    {
+      "id": "th-voiceless",
+      "level": "B1",
+      "title": "/θ/ — \"th\" điếc (think)",
+      "ipa": "θ",
+      "whyHard": "Tiếng Việt hoàn toàn không có âm đặt lưỡi giữa răng. Chữ \"th\" tiếng Việt là /tʰ/ (thờ) — nên \"three\" thành \"tree\", \"think\" thành \"tink\" hoặc \"sink\".",
+      "mouthTip": "Đầu lưỡi đặt NHẸ GIỮA hai hàm răng (soi gương phải thấy lưỡi), thổi hơi qua khe — không rung.",
+      "exampleWords": ["think", "three", "thank", "thin", "bath", "mouth"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "thank", "b": "tank", "note": "/θ/ vs /t/" },
+        { "a": "three", "b": "tree", "note": "/θ/ vs /t/" },
+        { "a": "thin", "b": "tin", "note": "/θ/ vs /t/" },
+        { "a": "think", "b": "sink", "note": "/θ/ vs /s/" },
+        { "a": "thought", "b": "taught", "note": "/θ/ vs /t/" }
+      ]
+    },
+    {
+      "id": "final-clusters-ed",
+      "level": "B1",
+      "title": "Cụm phụ âm cuối & đuôi -ed",
+      "ipa": "-st -kt -ɪd",
+      "whyHard": "Tiếng Việt CẤM cụm phụ âm ở mọi vị trí. Người Việt chèn \"ơ\" vào giữa (\"stop\" → \"sờ-top\") hoặc bỏ hẳn đuôi (-ed biến mất: \"liked\" → \"like\") — mất luôn thì quá khứ khi nói.",
+      "mouthTip": "Tập backchaining: đọc từ ÂM CUỐI ngược lên (t → kt → ikt → liked). Đuôi /ɪd/ (wanted) mới là một âm tiết riêng; /t/ /d/ thì không.",
+      "exampleWords": ["stopped", "liked", "played", "wanted", "street", "desks"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "play", "b": "played", "note": "Có đuôi /d/ vs không" },
+        { "a": "check", "b": "checked", "note": "Đuôi /t/" },
+        { "a": "like", "b": "liked", "note": "Đuôi /t/" },
+        { "a": "want", "b": "wanted", "note": "Đuôi /ɪd/ = thêm âm tiết" },
+        { "a": "miss", "b": "missed", "note": "Đuôi /t/ — không đọc mít-xịt" }
+      ]
+    },
+    {
+      "id": "th-voiced",
+      "level": "B2",
+      "title": "/ð/ — \"th\" kêu (this)",
+      "ipa": "ð",
+      "whyHard": "Cùng vị trí lưỡi với /θ/ nhưng RUNG dây thanh. Người Bắc thay bằng /z/ (\"they\" → \"zây\"), người Nam thay bằng /d/ (\"this\" → \"dít\").",
+      "mouthTip": "Lưỡi giữa răng như /θ/ nhưng BẬT tiếng rung từ cổ họng — tay chạm cổ phải thấy rung.",
+      "exampleWords": ["this", "that", "they", "mother", "brother", "breathe"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "they", "b": "day", "note": "/ð/ vs /d/" },
+        { "a": "then", "b": "den", "note": "/ð/ vs /d/" },
+        { "a": "there", "b": "dare", "note": "/ð/ vs /d/" },
+        { "a": "breathe", "b": "breeze", "note": "/ð/ vs /z/" },
+        { "a": "bathe", "b": "baize", "note": "/ð/ vs /z/" }
+      ]
+    },
+    {
+      "id": "vowel-uh-ah",
+      "level": "B2",
+      "title": "/ʌ/ vs /ɑː/ (và /ɒ/)",
+      "ipa": "ʌ ɑː ɒ",
+      "whyHard": "Tiếng Việt không tách cặp âm này — \"luck\" (may mắn) và \"lock\" (ổ khóa) bị đọc giống nhau, \"come\" và \"calm\" lẫn lộn.",
+      "mouthTip": "/ɑː/ hạ hàm HẾT CỠ, lưỡi thấp về sau, kéo dài \"aa\"; /ʌ/ miệng chỉ mở nửa, âm bật ngắn từ ngực như \"ă\".",
+      "exampleWords": ["cup", "luck", "come", "father", "car", "hot"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "luck", "b": "lock", "note": "/ʌ/ vs /ɒ/" },
+        { "a": "cup", "b": "cop", "note": "/ʌ/ vs /ɒ/" },
+        { "a": "hut", "b": "hot", "note": "/ʌ/ vs /ɒ/" },
+        { "a": "come", "b": "calm", "note": "/ʌ/ vs /ɑː/" },
+        { "a": "cut", "b": "cart", "note": "/ʌ/ vs /ɑː/" }
+      ]
+    },
+    {
+      "id": "diphthongs",
+      "level": "B2",
+      "title": "Nguyên âm đôi /eɪ aɪ oʊ aʊ/ + giữ âm cuối",
+      "ipa": "eɪ aɪ oʊ aʊ",
+      "whyHard": "Người Việt đọc phẳng nguyên âm đôi thành đơn (\"pay\" → \"pê\", \"boat\" → \"bôt\"), và tiếng Việt cấm phụ âm cuối sau âm lướt nên \"like\" thành \"lai\", \"house\" thành \"hao\".",
+      "mouthTip": "TRƯỢT khẩu hình từ âm đầu sang âm sau (ei = e→i), rồi vẫn GIỮ phụ âm cuối sau đó.",
+      "exampleWords": ["pay", "like", "boat", "house", "five", "gate"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "pay", "b": "pen", "note": "/eɪ/ trượt vs /e/ phẳng" },
+        { "a": "gate", "b": "get", "note": "/eɪ/ vs /e/" },
+        { "a": "like", "b": "lie", "note": "Giữ /k/ cuối vs mất" },
+        { "a": "boat", "b": "boot", "note": "/oʊ/ vs /uː/" },
+        { "a": "down", "b": "dawn", "note": "/aʊ/ vs /ɔː/" }
+      ]
+    },
+    {
+      "id": "r-l-z",
+      "level": "B2",
+      "title": "/r/ vs /l/ vs /z/ (d/gi/r giọng Bắc)",
+      "ipa": "r l z",
+      "whyHard": "Giọng Bắc đọc d = gi = r thành /z/ — nên \"run\" thành \"zun\", \"rice\" thành \"zice\". Ngoài ra /r/ và /l/ đầu từ cũng dễ lẫn.",
+      "mouthTip": "/r/ cuộn hai bên lưỡi lên, đầu lưỡi LƠ LỬNG không chạm vòm miệng; /l/ đầu lưỡi CHẠM lợi; /z/ lưỡi gần răng, rung.",
+      "exampleWords": ["run", "red", "rice", "light", "zoo", "river"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "right", "b": "light", "note": "/r/ vs /l/" },
+        { "a": "rice", "b": "lice", "note": "/r/ vs /l/" },
+        { "a": "road", "b": "load", "note": "/r/ vs /l/" },
+        { "a": "rip", "b": "zip", "note": "/r/ vs /z/" },
+        { "a": "rue", "b": "zoo", "note": "/r/ vs /z/" }
+      ]
+    },
+    {
+      "id": "ch-j",
+      "level": "B2",
+      "title": "/tʃ/ vs /dʒ/",
+      "ipa": "tʃ dʒ",
+      "whyHard": "Tiếng Việt có \"ch\" nhưng hoàn toàn KHÔNG có /dʒ/ hữu thanh — nên \"jump\" thành \"zăm\" (Bắc) hoặc \"giăm\" (Nam), \"rich\" và \"ridge\" không phân biệt được.",
+      "mouthTip": "Cả hai: ép lưỡi sau răng trên rồi bật; /dʒ/ BẬT + RUNG dây thanh cùng lúc, /tʃ/ chỉ bật hơi.",
+      "exampleWords": ["chair", "church", "jump", "juice", "rich", "bridge"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "rich", "b": "ridge", "note": "/tʃ/ vs /dʒ/ cuối" },
+        { "a": "cheer", "b": "jeer", "note": "/tʃ/ vs /dʒ/" },
+        { "a": "choke", "b": "joke", "note": "/tʃ/ vs /dʒ/" },
+        { "a": "chain", "b": "train", "note": "/tʃ/ vs /tr/" },
+        { "a": "chin", "b": "gin", "note": "/tʃ/ vs /dʒ/" }
+      ]
+    },
+    {
+      "id": "vowel-aw-o",
+      "level": "B2",
+      "title": "/ɔː/ vs /ɒ/",
+      "ipa": "ɔː ɒ",
+      "whyHard": "Cả hai bị gộp về âm \"o\" tiếng Việt — \"caught\" (bắt) và \"cot\" (cũi) đọc y nhau. Cặp tinh chỉnh cuối cùng của hệ nguyên âm sau.",
+      "mouthTip": "/ɔː/ tròn môi chặt hình chữ O, giữ DÀI; /ɒ/ hạ hàm thấp, môi tròn lỏng gần như mở, đọc NGẮN.",
+      "exampleWords": ["caught", "law", "saw", "hot", "boss", "rock"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "caught", "b": "cot", "note": "/ɔː/ vs /ɒ/" },
+        { "a": "port", "b": "pot", "note": "/ɔː/ vs /ɒ/" },
+        { "a": "dawn", "b": "don", "note": "/ɔː/ vs /ɒ/" },
+        { "a": "chord", "b": "cod", "note": "/ɔː/ vs /ɒ/" },
+        { "a": "born", "b": "bond", "note": "/ɔː/ vs /ɒ/" }
+      ]
+    }
+  ]
+}

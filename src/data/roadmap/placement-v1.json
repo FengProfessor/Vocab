@@ -1,0 +1,100 @@
+{
+  "version": "placement-v1",
+  "rule": {
+    "note": "15 câu leo thang A0→B2, 3 câu/cấp. Chấm: đúng ≥2/3 câu của cấp → tiếp tục cấp sau; sai ≥2/3 → dừng, xếp vào cấp ĐÓ (cấp đang sai). Đúng hết 15 câu → B2. Kết thúc luôn bằng câu dễ hơn của cấp kế (scaffold ending — không áp dụng khi dừng sớm).",
+    "passPerLevel": 2,
+    "questionsPerLevel": 3
+  },
+  "questions": [
+    {
+      "id": "p-a0-1", "level": "A0", "kind": "vocab",
+      "prompt": "Từ nào nghĩa là \"con mèo\"?",
+      "options": ["cat", "dog", "bird", "fish"],
+      "answer": "cat"
+    },
+    {
+      "id": "p-a0-2", "level": "A0", "kind": "grammar",
+      "prompt": "I ___ a student.",
+      "options": ["am", "is", "are", "be"],
+      "answer": "am"
+    },
+    {
+      "id": "p-a0-3", "level": "A0", "kind": "vocab",
+      "prompt": "\"Xin chào\" tiếng Anh là gì?",
+      "options": ["Hello", "Goodbye", "Thanks", "Sorry"],
+      "answer": "Hello"
+    },
+    {
+      "id": "p-a1-1", "level": "A1", "kind": "grammar",
+      "prompt": "She ___ to school every day.",
+      "options": ["goes", "go", "going", "gone"],
+      "answer": "goes"
+    },
+    {
+      "id": "p-a1-2", "level": "A1", "kind": "vocab",
+      "prompt": "Từ nào nghĩa là \"bữa sáng\"?",
+      "options": ["breakfast", "dinner", "kitchen", "morning"],
+      "answer": "breakfast"
+    },
+    {
+      "id": "p-a1-3", "level": "A1", "kind": "grammar",
+      "prompt": "___ there a book on the table?",
+      "options": ["Is", "Are", "Do", "Have"],
+      "answer": "Is"
+    },
+    {
+      "id": "p-a2-1", "level": "A2", "kind": "grammar",
+      "prompt": "Yesterday I ___ a new phone.",
+      "options": ["bought", "buy", "buyed", "have bought"],
+      "answer": "bought"
+    },
+    {
+      "id": "p-a2-2", "level": "A2", "kind": "grammar",
+      "prompt": "This hotel is ___ than that one.",
+      "options": ["cheaper", "more cheap", "cheapest", "cheap"],
+      "answer": "cheaper"
+    },
+    {
+      "id": "p-a2-3", "level": "A2", "kind": "vocab",
+      "prompt": "\"Tôi bị đau đầu\" — I have a ___.",
+      "options": ["headache", "toothbrush", "holiday", "temperature"],
+      "answer": "headache"
+    },
+    {
+      "id": "p-b1-1", "level": "B1", "kind": "grammar",
+      "prompt": "I ___ in Hanoi since 2020.",
+      "options": ["have lived", "lived", "live", "am living"],
+      "answer": "have lived"
+    },
+    {
+      "id": "p-b1-2", "level": "B1", "kind": "grammar",
+      "prompt": "This bridge ___ in 1975.",
+      "options": ["was built", "built", "is built", "was building"],
+      "answer": "was built"
+    },
+    {
+      "id": "p-b1-3", "level": "B1", "kind": "vocab",
+      "prompt": "\"apply ___ a job\" — điền giới từ đúng:",
+      "options": ["for", "to", "on", "with"],
+      "answer": "for"
+    },
+    {
+      "id": "p-b2-1", "level": "B2", "kind": "grammar",
+      "prompt": "If I had saved money, I ___ rich now.",
+      "options": ["would be", "would have been", "will be", "was"],
+      "answer": "would be"
+    },
+    {
+      "id": "p-b2-2", "level": "B2", "kind": "grammar",
+      "prompt": "Never ___ such a beautiful sunset.",
+      "options": ["have I seen", "I have seen", "I saw", "did I saw"],
+      "answer": "have I seen"
+    },
+    {
+      "id": "p-b2-3", "level": "B2", "kind": "vocab",
+      "prompt": "Từ nào gần nghĩa nhất với \"significant\"?",
+      "options": ["important", "small", "strange", "simple"],
+      "answer": "important"
+    }
+  ]
+}

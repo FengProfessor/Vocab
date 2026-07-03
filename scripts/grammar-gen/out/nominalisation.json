@@ -74,7 +74,15 @@
         "example": "The rapid expansion caused concern."
       }
     ],
-    "signals": [],
+    "signals": [
+      "-tion",
+      "-ment",
+      "-ity",
+      "-ance",
+      "decision",
+      "solution",
+      "explanation"
+    ],
     "examples": [
       {
         "en": "The committee decided to postpone the vote.",
@@ -356,10 +364,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "The rapid expansion caused concern.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I blocked out a few hours for to bike.",
+        "right": "I blocked out a few hours to bike.",
+        "why": "Không đặt giới từ for trước to-infinitive chỉ mục đích."
+      },
+      {
+        "wrong": "I had no trouble to find a place to stay.",
+        "right": "I had no trouble finding a place to stay.",
+        "why": "Cụm have trouble bắt buộc đi với V-ING, không đi với to-infinitive."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **verb → noun** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** danh từ hóa trang trọng hơn nhưng dùng quá nhiều làm câu nặng và che khuất người thực hiện.",
+    "comparison": "**Danh hóa vs mệnh đề động từ:** Danh hóa biến động từ/tính từ thành danh từ để câu trang trọng, học thuật: *APOLOGIZING to them is important* (V-ing làm chủ ngữ) thay vì *To apologize...* Văn academic chuộng danh hóa: decide → decision, explain → explanation.",
     "timeline": null
   },
   "exercises": [

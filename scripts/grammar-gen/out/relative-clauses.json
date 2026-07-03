@@ -3,7 +3,7 @@
   "title": "Relative Clauses",
   "title_vi": "Mệnh đề quan hệ",
   "level": "intermediate",
-  "order": 41,
+  "order": 38,
   "sections": {
     "definition": "Relative Clauses dùng **mệnh đề quan hệ** để bổ sung thông tin cho danh từ mà không phải mở câu mới. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -74,7 +74,14 @@
         "example": "The café where we met has closed."
       }
     ],
-    "signals": [],
+    "signals": [
+      "who",
+      "that",
+      "which",
+      "whose",
+      "whom",
+      "where"
+    ],
     "examples": [
       {
         "en": "The woman who called is my aunt.",

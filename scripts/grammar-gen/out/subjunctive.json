@@ -3,7 +3,7 @@
   "title": "Subjunctive",
   "title_vi": "Thức giả định",
   "level": "advanced",
-  "order": 58,
+  "order": 55,
   "sections": {
     "definition": "Thức **giả định** (Subjunctive) là một dạng động từ đặc biệt, thường ở dạng nguyên thể không 'to' (bare infinitive), được dùng sau các động từ như *insist, suggest, demand* hoặc trong các cấu trúc như *It is important that...*. Nó diễn tả sự cần thiết, yêu cầu, ước muốn hoặc tình huống không có thật.",
     "usage": [
@@ -74,7 +74,14 @@
         "example": "They insisted that she apologize."
       }
     ],
-    "signals": [],
+    "signals": [
+      "insist that",
+      "demand that",
+      "recommend that",
+      "suggest that",
+      "propose that",
+      "It is essential that"
+    ],
     "examples": [
       {
         "en": "The doctor suggested that he rest.",
@@ -368,10 +375,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "They insisted that she apologize.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I insisted that he apologises.",
+        "right": "I insisted that he apologize.",
+        "why": "Sau insist that, động từ ở thức giả định — DẠNG GỐC, không chia theo ngôi."
+      },
+      {
+        "wrong": "It is essential that everyone is here on time.",
+        "right": "It is essential that everyone be here on time.",
+        "why": "Tính từ cấp thiết (essential/important) + that kích hoạt subjunctive: dùng BE thay is/are."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **suggest/insist that + S + V nguyên thể** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** thức giả định dùng V nguyên thể kể cả với he/she/it; văn nói Anh-Anh có thể dùng should.",
+    "comparison": "**Subjunctive vs chỉ định thường:** Sau động từ yêu cầu/đề nghị (insist, demand, suggest) + that, động từ về DẠNG GỐC không chia: *I insisted that he APOLOGIZE* (không phải apologizes). Phương án thay thế kiểu Anh-Anh: thêm should (*that he should apologize*). Không chia -s, không is/are — dùng be.",
     "timeline": null
   },
   "exercises": [

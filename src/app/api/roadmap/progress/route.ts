@@ -1,0 +1,124 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { createServiceClient } from '@/lib/supabase';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { resolveStep, orderedStepIds, getRoadmapLevels, ROADMAP_LEVEL_ORDER, type RoadmapLevelId } from '@/lib/roadmap';
+import { checkRoadmapLevelAccess, getEffectivePlan, type Plan } from '@/lib/entitlement';
+
+const XP_PER_STEP = 15;
+const XP_CHECKPOINT_BONUS = 30;
+const CHECKPOINT_PASS_PCT = 80;
+
+/**
+ * POST /api/roadmap/progress — hoàn thành 1 step.
+ * Body: { stepId: string, score?: number } — score % cho checkpoint (bắt buộc ≥80 mới pass).
+ * Validate tuần tự server-side: mọi step TRƯỚC stepId (trong phạm vi từ cấp bắt đầu) phải completed.
+ * XP: fire-and-forget rpc award_xp (không tạo route award riêng).
+ */
+export async function POST(req: NextRequest) {
+  try {
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+    const body = await req.json();
+    const stepId = typeof body?.stepId === 'string' ? body.stepId : '';
+    const score = typeof body?.score === 'number' ? Math.round(body.score) : null;
+
+    const entry = resolveStep(stepId);
+    if (!entry) return NextResponse.json({ success: false, error: 'Step không tồn tại' }, { status: 400 });
+
+    const supabase = createServiceClient();
+    const { data: enrollment } = await supabase
+      .from('user_roadmap')
+      .select('level_id')
+      .eq('user_id', auth.userId)
+      .maybeSingle();
+    if (!enrollment) return NextResponse.json({ success: false, error: 'Chưa ghi danh lộ trình' }, { status: 400 });
+
+    // Level-gate theo gói (chỉ chặn khi ENTITLEMENT_ENFORCED=true): Free = hết A1
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('plan, plan_expires_at')
+      .eq('id', auth.userId)
+      .maybeSingle();
+    const plan = getEffectivePlan(profile?.plan as Plan | undefined, profile?.plan_expires_at as string | null | undefined);
+    const levelAccess = checkRoadmapLevelAccess(plan, entry.level.id);
+    if (!levelAccess.allowed) {
+      return NextResponse.json({
+        success: false,
+        error: `Cấp ${entry.level.id} thuộc gói Pro. Nâng cấp để mở toàn bộ lộ trình A2 → B2 nhé!`,
+        data: { upgradeTo: levelAccess.upgradeTo },
+      }, { status: 403 });
+    }
+
+    // Checkpoint phải đủ điểm pass
+    if (entry.step.type === 'checkpoint' && (score === null || score < CHECKPOINT_PASS_PCT)) {
+      return NextResponse.json({
+        success: false,
+        error: `Checkpoint cần đạt ≥${CHECKPOINT_PASS_PCT}% (hiện tại ${score ?? 0}%). Ôn lại chặng rồi thử lại nhé!`,
+      }, { status: 422 });
+    }
+
+    // Validate tuần tự trong phạm vi từ cấp bắt đầu (cấp thấp hơn = ôn tự do, không chặn)
+    const startIdx = ROADMAP_LEVEL_ORDER.indexOf(enrollment.level_id as RoadmapLevelId);
+    const stepLevelIdx = ROADMAP_LEVEL_ORDER.indexOf(entry.level.id);
+    if (stepLevelIdx >= startIdx) {
+      const levels = getRoadmapLevels();
+      const levelOfStep = new Map<string, number>();
+      for (const level of levels) {
+        const idx = ROADMAP_LEVEL_ORDER.indexOf(level.id);
+        for (const unit of level.units) for (const step of unit.steps) levelOfStep.set(step.id, idx);
+      }
+      const scoped = orderedStepIds().filter((id) => (levelOfStep.get(id) ?? 0) >= startIdx);
+      const position = scoped.indexOf(stepId);
+      const priorIds = scoped.slice(0, position);
+      if (priorIds.length > 0) {
+        const { data: doneRows } = await supabase
+          .from('user_roadmap_steps')
+          .select('step_id')
+          .eq('user_id', auth.userId)
+          .eq('status', 'completed')
+          .in('step_id', priorIds);
+        const doneSet = new Set((doneRows ?? []).map((r) => r.step_id));
+        const missing = priorIds.filter((id) => !doneSet.has(id));
+        if (missing.length > 0) {
+          return NextResponse.json({
+            success: false,
+            error: 'Chặng này chưa mở — hoàn thành các bước trước đã nhé!',
+            data: { missingSteps: missing.slice(0, 5) },
+          }, { status: 400 });
+        }
+      }
+    }
+
+    const { error: upsertErr } = await supabase.from('user_roadmap_steps').upsert({
+      user_id: auth.userId,
+      step_id: stepId,
+      status: 'completed',
+      score,
+      completed_at: new Date().toISOString(),
+    }, { onConflict: 'user_id,step_id' });
+    if (upsertErr) throw new Error(upsertErr.message);
+
+    // Cập nhật current_unit_id (builder lazy — PHẢI await mới gửi request)
+    const { error: unitErr } = await supabase.from('user_roadmap').update({
+      current_unit_id: entry.unit.id,
+      updated_at: new Date().toISOString(),
+    }).eq('user_id', auth.userId);
+    if (unitErr) console.error('[Roadmap] update current_unit failed:', unitErr.message);
+
+    const xp = entry.step.type === 'checkpoint' ? XP_PER_STEP + XP_CHECKPOINT_BONUS : XP_PER_STEP;
+    const { error: xpError } = await supabase.rpc('award_xp', { p_user_id: auth.userId, p_xp: xp });
+    if (xpError) console.error('[Gamification] award_xp failed:', xpError.message);
+
+    // Unit hoàn thành? (checkpoint là step cuối của unit)
+    const unitCompleted = entry.step.type === 'checkpoint';
+    const levelCompleted = unitCompleted && entry.unit.index === entry.level.units.length;
+
+    return NextResponse.json({
+      success: true,
+      data: { stepId, xpAwarded: xp, unitCompleted, levelCompleted, levelId: entry.level.id },
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Server error';
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
+  }
+}

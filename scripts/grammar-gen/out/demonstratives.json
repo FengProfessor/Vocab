@@ -3,7 +3,7 @@
   "title": "Demonstratives (this/that/these/those)",
   "title_vi": "Từ chỉ định (this/that/these/those)",
   "level": "beginner",
-  "order": 5,
+  "order": 3,
   "sections": {
     "definition": "**Từ chỉ định** (Demonstratives: *this, that, these, those*) được dùng để xác định, chỉ ra một người, vật hoặc ý tưởng cụ thể mà ta đang nói đến. Chúng chỉ rõ danh từ được nhắc đến là số ít hay số nhiều, và khoảng cách gần hay xa so với người nói.",
     "usage": [
@@ -313,6 +313,16 @@
         "wrong": "This is a my bag.",
         "right": "This is my bag.",
         "why": "Không dùng a trước cụm my bag."
+      },
+      {
+        "wrong": "This books are mine.",
+        "right": "These books are mine.",
+        "why": "Danh từ số nhiều đi với THESE/THOSE; this/that chỉ cho số ít."
+      },
+      {
+        "wrong": "That is my keys.",
+        "right": "Those are my keys.",
+        "why": "Keys số nhiều → those are, không dùng that is."
       }
     ],
     "tips": "**Mẹo 2×2:** gần: **this/these**; xa: **that/those**. Số ít kết thúc bằng **-t** (this, that); số nhiều có âm /z/ ở cuối (these, those). Luôn kiểm tra is/are và danh từ số ít/số nhiều.",

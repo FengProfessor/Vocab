@@ -2,8 +2,8 @@
   "slug": "wish-if-only",
   "title": "Wish / If only",
   "title_vi": "Cấu trúc Wish / If only",
-  "level": "intermediate",
-  "order": 46,
+  "level": "advanced",
+  "order": 48,
   "sections": {
     "definition": "**Cấu trúc wish / if only** được sử dụng để diễn đạt những mong muốn không có thực hoặc sự nuối tiếc về một trạng thái ở hiện tại hoặc quá khứ. Đây là công cụ ngữ pháp then chốt để thể hiện các giả định mang tính giả tưởng hoặc những cảm xúc mang tính trái ngược với thực tế khách quan.",
     "usage": [
@@ -74,7 +74,12 @@
         "example": "She wishes she had studied harder."
       }
     ],
-    "signals": [],
+    "signals": [
+      "wish",
+      "if only",
+      "I wish I knew",
+      "I wish I had"
+    ],
     "examples": [
       {
         "en": "I wish I knew the answer.",
@@ -350,11 +355,33 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "She wishes she had studied harder.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I wish my English becomes better with practice.",
+        "right": "I hope my English becomes better with practice.",
+        "why": "Mong ước thực tế cho tương lai dùng HOPE + hiện tại; wish không đi với hiện tại đơn kiểu này."
+      },
+      {
+        "wrong": "John wishes he wouldn't be so busy.",
+        "right": "John wishes he wasn't so busy.",
+        "why": "Không dùng would khi wish về CHÍNH MÌNH hoặc với động từ trạng thái — dùng quá khứ đơn."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **wish + past simple (hiện tại)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** wish + past nói điều trái hiện tại; wish + past perfect nói tiếc nuối quá khứ.",
-    "timeline": null
+    "comparison": "**Wish vs Hope:** *Hope* = mong muốn THỰC TẾ, có thể xảy ra, dùng thì hiện tại (*I hope Anna is here*). *Wish/if only* = tiếc nuối điều KHÔNG có thật/khó xảy ra, dùng thì quá khứ (*I wish Anna were here* — cô ấy không ở đây). Mong điều khả thi → hope; than điều ngược sự thật → wish.",
+    "timeline": {
+      "caption": "Wish kéo sự thật hiện tại về \"thế giới ngược\": thực tế NOW = busy, wish = not busy (dùng thì QUÁ KHỨ để đánh dấu không có thật).",
+      "points": [
+        {
+          "label": "Thực tế: he IS busy",
+          "note": "hiện tại"
+        },
+        {
+          "label": "Wish: he WASN'T busy",
+          "note": "giả định ngược"
+        }
+      ]
+    }
   },
   "exercises": [
     {

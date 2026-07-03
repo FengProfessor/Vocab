@@ -3,7 +3,7 @@
   "title": "Modals: Ability (can/could)",
   "title_vi": "Động từ khuyết thiếu: khả năng (can/could)",
   "level": "beginner",
-  "order": 15,
+  "order": 16,
   "sections": {
     "definition": "Động từ khuyết thiếu **'can'** dùng để diễn tả khả năng, sự cho phép hoặc điều có thể xảy ra ở hiện tại. Dạng quá khứ của nó là **'could'**, dùng cho khả năng chung trong quá khứ hoặc lời đề nghị lịch sự, trong khi **'was/were able to'** hoặc **'managed to'** thường dùng cho thành công ở một tình huống cụ thể.",
     "usage": [
@@ -74,7 +74,14 @@
         "example": "Can you hear me?"
       }
     ],
-    "signals": [],
+    "signals": [
+      "can",
+      "can't",
+      "could",
+      "couldn't",
+      "be able to",
+      "managed to"
+    ],
     "examples": [
       {
         "en": "Mai can speak Japanese.",
@@ -337,10 +344,20 @@
         "wrong": "She can sings.",
         "right": "She can sing.",
         "why": "Sau động từ khuyết thiếu can, động từ chính giữ nguyên thể không to."
+      },
+      {
+        "wrong": "The fire spread quickly, but everybody could escape.",
+        "right": "The fire spread quickly, but everybody was able to escape.",
+        "why": "Thành công trong tình huống cụ thể quá khứ dùng WAS/WERE ABLE TO, không dùng could."
+      },
+      {
+        "wrong": "I haven't can sleep recently.",
+        "right": "I haven't been able to sleep recently.",
+        "why": "Can không có dạng hoàn thành — các thì perfect phải dùng BE ABLE TO."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + can/could + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** could nói khả năng chung quá khứ; was/were able to thường nói một lần thành công cụ thể.",
+    "comparison": "**Could vs Was able to:** *Could* = khả năng CHUNG trong quá khứ (*My grandfather could swim* — biết bơi nói chung). *Was/were able to / managed to* = THÀNH CÔNG trong một tình huống cụ thể (*He was able to swim to safety* — thoát được lần đó). Tình huống cụ thể thành công → không dùng could.",
     "timeline": null
   },
   "exercises": [

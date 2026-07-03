@@ -74,7 +74,12 @@
         "example": "Having finished the report, she went home."
       }
     ],
-    "signals": [],
+    "signals": [
+      "V-ing đầu câu",
+      "P2 đầu câu",
+      "Having + P2",
+      "when + V-ing"
+    ],
     "examples": [
       {
         "en": "Walking home, I saw an accident.",
@@ -374,10 +379,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Having finished the report, she went home.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Feeling tired, the bed was very comfortable.",
+        "right": "Feeling tired, I went to bed early.",
+        "why": "Chủ ngữ ngầm của mệnh đề phân từ phải TRÙNG chủ ngữ mệnh đề chính (người mệt là tôi, không phải cái giường)."
+      },
+      {
+        "wrong": "The police never found the money stealing in the robbery.",
+        "right": "The police never found the money stolen in the robbery.",
+        "why": "Nghĩa bị động/hoàn tất dùng P2 (stolen); V-ing chỉ dùng cho nghĩa chủ động đang diễn ra."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **V-ing ..., main clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** chủ ngữ ngầm của mệnh đề phân từ phải trùng chủ ngữ mệnh đề chính.",
+    "comparison": "**Participle clause vs mệnh đề trạng ngữ:** Mệnh đề phân từ rút gọn thời gian/lý do bằng V-ing/P2 nhưng CHỈ đúng khi hai vế CÙNG chủ ngữ: *Being a vegetarian, he doesn't eat meat* = *Because HE is a vegetarian, HE doesn't eat meat.* Khác chủ ngữ mà rút gọn → lỗi dangling modifier.",
     "timeline": null
   },
   "exercises": [

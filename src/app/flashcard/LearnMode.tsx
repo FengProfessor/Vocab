@@ -14,6 +14,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
+import { completeRoadmapStep } from '@/lib/roadmap-client';
 
 interface WordItem {
   id: string;
@@ -192,7 +193,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     }
   };
 
-  // Lưu accuracy phiên khi xong
+  // Lưu accuracy phiên khi xong + báo hoàn thành step lộ trình (nếu mở từ /journey)
   useEffect(() => {
     if (phase !== 'done') return;
     authFetch('/api/quiz/save', {
@@ -205,6 +206,13 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         quizType: 'vocabulary',
       }),
     }).catch((err) => console.error('[Learn] save session failed:', err));
+
+    const roadmapStep = searchParams.get('roadmapStep');
+    if (roadmapStep) {
+      void completeRoadmapStep(roadmapStep).then((result) => {
+        if (result) toast.success(`+${result.xpAwarded} XP lộ trình — bạn đã đi hết bước này, đều đặn thế là quý lắm!`);
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
@@ -460,8 +468,9 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       </Card>
 
       <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
-        <Button variant="outline" className="flex-1 h-14 rounded-2xl font-bold border-2" onClick={() => router.push('/student')}>
-          <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
+        <Button variant="outline" className="flex-1 h-14 rounded-2xl font-bold border-2"
+          onClick={() => router.push(searchParams.get('roadmapStep') ? '/journey' : '/student')}>
+          <ChevronLeft className="mr-2 h-5 w-5" /> {searchParams.get('roadmapStep') ? 'Về lộ trình' : 'Dashboard'}
         </Button>
         {remainingNew > 0 ? (
           <Button className="flex-1 h-14 rounded-2xl bg-indigo-600 text-white font-bold border-b-4 border-indigo-800 active:translate-y-0.5 active:border-b-0" onClick={() => window.location.reload()}>

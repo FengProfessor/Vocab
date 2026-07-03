@@ -3,7 +3,7 @@
   "title": "Cleft Sentences",
   "title_vi": "Câu chẻ (nhấn mạnh)",
   "level": "advanced",
-  "order": 56,
+  "order": 57,
   "sections": {
     "definition": "**Câu chẻ** là cấu trúc câu được thiết kế đặc biệt để nhấn mạnh vào một thành phần thông tin cụ thể (chủ ngữ, tân ngữ, trạng ngữ) bằng cách tách câu gốc thành hai mệnh đề. Ví dụ: *It was John who broke the window.*, làm nổi bật 'John'.",
     "usage": [
@@ -74,7 +74,12 @@
         "example": "What I want is a quiet weekend."
       }
     ],
-    "signals": [],
+    "signals": [
+      "It was ... that",
+      "It is ... who",
+      "What ... is",
+      "All ... is"
+    ],
     "examples": [
       {
         "en": "It was Lan who solved the problem.",
@@ -398,10 +403,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "What I want is a quiet weekend.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "It was you whom invited me to the party.",
+        "right": "It was you who invited me to the party.",
+        "why": "Đại từ quan hệ làm CHỦ NGỮ của mệnh đề sau phải là WHO, không dùng whom."
+      },
+      {
+        "wrong": "It was yesterday when you invited me to the party.",
+        "right": "It was yesterday that you invited me to the party.",
+        "why": "Cleft nhấn mạnh trạng ngữ thời gian vẫn dùng THAT, không dùng when."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **It is/was + focus + that/who ...** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** câu thường truyền thông tin trung tính; câu chẻ đặt trọng tâm rõ lên một thành phần.",
+    "comparison": "**Cleft vs mệnh đề quan hệ:** Câu chẻ tách một thông điệp thành hai vế để NHẤN MẠNH một yếu tố: *It was the party that you invited me to* (nhấn: chính bữa tiệc đó). Mệnh đề quan hệ chỉ bổ nghĩa bình thường: *The party that you invited me to was fun.* Cùng dùng that/who nhưng mục đích khác nhau.",
     "timeline": null
   },
   "exercises": [

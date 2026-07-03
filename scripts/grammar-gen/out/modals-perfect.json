@@ -2,8 +2,8 @@
   "slug": "modals-perfect",
   "title": "Perfect Modals (should have, etc.)",
   "title_vi": "Khuyết thiếu hoàn thành (should have...)",
-  "level": "intermediate",
-  "order": 48,
+  "level": "advanced",
+  "order": 49,
   "sections": {
     "definition": "**Động từ khuyết thiếu dạng hoàn thành** (modal + have + V3/ed) dùng để đánh giá, suy đoán hoặc thể hiện sự tiếc nuối về những sự việc đã xảy ra trong quá khứ. Cấu trúc này đóng vai trò then chốt giúp người nói nhìn nhận lại các sự kiện đã qua dưới góc độ phê phán hoặc xác suất logic.",
     "usage": [
@@ -74,7 +74,13 @@
         "example": "They might have taken the wrong bus."
       }
     ],
-    "signals": [],
+    "signals": [
+      "must have + P2",
+      "should have + P2",
+      "could have + P2",
+      "might have + P2",
+      "needn't have + P2"
+    ],
     "examples": [
       {
         "en": "You should have called me.",
@@ -314,11 +320,33 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "They might have taken the wrong bus.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "You should come to the party last night.",
+        "right": "You should have come to the party last night.",
+        "why": "Tiếc nuối/trách về việc QUÁ KHỨ không xảy ra phải dùng should HAVE + P2."
+      },
+      {
+        "wrong": "She can't saw me yesterday.",
+        "right": "She can't have seen me yesterday.",
+        "why": "Phủ định suy đoán về quá khứ dùng can't HAVE + P2, không chia động từ quá khứ sau modal."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **modal + have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** didn't need to có thể là không làm vì không cần; needn't have done là đã làm nhưng hóa ra không cần.",
-    "timeline": null
+    "comparison": "**Perfect modal vs modal thường:** Modal + have + P2 nói về QUÁ KHỨ đã kết thúc — suy đoán hoặc tiếc nuối: *He must have had a party* (chắc đã tổ chức). Modal thường nói hiện tại/tương lai: *He must be having a party* (chắc đang tổ chức). Have + P2 = đã xong; be + V-ing = đang diễn ra.",
+    "timeline": {
+      "caption": "Modal perfect luôn trỏ ngược về quá khứ: đứng ở NOW nhìn lại sự kiện ĐÃ xong để suy đoán/tiếc nuối.",
+      "points": [
+        {
+          "label": "sự kiện (last night)",
+          "note": "quá khứ đã xong"
+        },
+        {
+          "label": "NOW: must have / should have",
+          "note": "suy đoán, tiếc nuối"
+        }
+      ]
+    }
   },
   "exercises": [
     {

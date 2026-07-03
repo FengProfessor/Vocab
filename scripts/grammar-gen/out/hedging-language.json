@@ -74,7 +74,15 @@
         "example": "It is likely that prices will rise."
       }
     ],
-    "signals": [],
+    "signals": [
+      "would",
+      "might",
+      "may",
+      "perhaps",
+      "possibly",
+      "tend to",
+      "It seems that"
+    ],
     "examples": [
       {
         "en": "This may indicate a broader problem.",
@@ -380,10 +388,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "It is likely that prices will rise.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "If the weather changes, I hope you would remember.",
+        "right": "If the weather changes, I hope you'll remember.",
+        "why": "Hope nói về khả năng thực tế tương lai → dùng WILL, không dùng would giả định."
+      },
+      {
+        "wrong": "They would likely to benefit.",
+        "right": "They would likely benefit.",
+        "why": "Likely ở đây là trạng từ trong cụm modal — không chèn to trước động từ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **modal + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** hedging không phải mơ hồ tùy tiện; nó điều chỉnh phát biểu theo đúng mức bằng chứng.",
+    "comparison": "**Hedging vs khẳng định thẳng:** Ngôn ngữ rào đón dùng would/might/perhaps để mềm hóa nhận định, dễ được đồng tình: *Many WOULD think he is too young* (nhiều người có lẽ sẽ nghĩ...). Khẳng định thẳng dùng will/hiện tại đơn: *Many WILL think...* Văn học thuật và giao tiếp lịch sự chuộng hedging.",
     "timeline": null
   },
   "exercises": [

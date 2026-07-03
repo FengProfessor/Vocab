@@ -3,7 +3,7 @@
   "title": "Prepositions of Place",
   "title_vi": "Giới từ chỉ nơi chốn",
   "level": "beginner",
-  "order": 13,
+  "order": 14,
   "sections": {
     "definition": "**Giới từ chỉ nơi chốn** (Prepositions of Place) như *in, on, at* mô tả vị trí hoặc phương hướng của người hoặc vật trong không gian. Mỗi giới từ có cách dùng riêng biệt để chỉ sự ở bên trong, trên bề mặt, hay tại một điểm cụ thể.",
     "usage": [
@@ -74,7 +74,16 @@
         "example": "Meet me at the entrance."
       }
     ],
-    "signals": [],
+    "signals": [
+      "in",
+      "on",
+      "at",
+      "under",
+      "behind",
+      "in front of",
+      "next to",
+      "between"
+    ],
     "examples": [
       {
         "en": "The keys are in my bag.",
@@ -350,10 +359,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Meet me at the entrance.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Our apartment is in the second floor.",
+        "right": "Our apartment is on the second floor.",
+        "why": "Tầng của tòa nhà dùng ON, không dùng in."
+      },
+      {
+        "wrong": "I saw Steve on a conference.",
+        "right": "I saw Steve at a conference.",
+        "why": "Tham dự sự kiện/cuộc họp dùng AT, không dùng on."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **in + không gian bao quanh** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** in/on/at: chọn theo cách nhìn không gian, không chỉ dịch máy móc từ tiếng Việt.",
+    "comparison": "**In vs On vs At:** *In* = bên trong không gian 3 chiều (in the bottle, in Hanoi). *On* = trên bề mặt phẳng, tầng nhà (on the table, on the second floor). *At* = tại một điểm/sự kiện (at the bus stop, at a conference). Cặp ví dụ: *water IN the bottle* vs *a label ON the bottle*.",
     "timeline": null
   },
   "exercises": [

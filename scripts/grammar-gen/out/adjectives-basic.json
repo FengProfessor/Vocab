@@ -3,7 +3,7 @@
   "title": "Adjectives (basic)",
   "title_vi": "Tính từ cơ bản",
   "level": "beginner",
-  "order": 8,
+  "order": 6,
   "sections": {
     "definition": "**Tính từ** (Adjectives) là những từ dùng để mô tả, bổ sung thông tin về đặc điểm, tính chất của danh từ hoặc đại từ. Chúng thường đứng trước danh từ mà chúng bổ nghĩa hoặc sau động từ nối để làm rõ nghĩa.",
     "usage": [
@@ -74,7 +74,16 @@
         "example": "This exercise is easy."
       }
     ],
-    "signals": [],
+    "signals": [
+      "nice",
+      "beautiful",
+      "tall",
+      "young",
+      "old",
+      "wooden",
+      "round",
+      "interesting"
+    ],
     "examples": [
       {
         "en": "She bought a beautiful dress.",
@@ -290,10 +299,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "This exercise is easy.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Sam is a carefully driver.",
+        "right": "Sam is a careful driver.",
+        "why": "Trước danh từ phải dùng TÍNH TỪ (careful), không dùng trạng từ."
+      },
+      {
+        "wrong": "Sam drove careful.",
+        "right": "Sam drove carefully.",
+        "why": "Mô tả cách thực hiện hành động phải dùng TRẠNG TỪ (carefully), không dùng tính từ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **adjective + noun** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** adjective vs adverb: tính từ bổ nghĩa danh từ/trạng thái; trạng từ thường bổ nghĩa động từ.",
+    "comparison": "**Tính từ vs Trạng từ:** Tính từ mô tả DANH TỪ, đứng trước danh từ hoặc sau động từ nối (be, look, seem): *Sam is a careful driver.* Trạng từ mô tả cách hành động diễn ra, bổ nghĩa cho ĐỘNG TỪ: *Sam drove carefully.* Nhớ: nói về NGƯỜI/VẬT → tính từ; nói về CÁCH LÀM → trạng từ.",
     "timeline": null
   },
   "exercises": [

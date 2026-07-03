@@ -3,7 +3,7 @@
   "title": "Phrasal Verbs (intro)",
   "title_vi": "Cụm động từ (nhập môn)",
   "level": "intermediate",
-  "order": 44,
+  "order": 43,
   "sections": {
     "definition": "**Cụm động từ** là sự kết hợp của một động từ với một hoặc hai tiểu từ (trạng từ hoặc giới từ) để tạo thành một đơn vị nghĩa mới, thường khác biệt với nghĩa gốc của động từ. Ví dụ: *look up*, *give in*. Chúng đóng vai trò quan trọng trong giao tiếp tiếng Anh tự nhiên.",
     "usage": [
@@ -74,7 +74,15 @@
         "example": "She looked after the children."
       }
     ],
-    "signals": [],
+    "signals": [
+      "give up",
+      "take off",
+      "find out",
+      "look out",
+      "get on",
+      "break down",
+      "put off"
+    ],
     "examples": [
       {
         "en": "Please turn off the lights.",
@@ -314,10 +322,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "She looked after the children.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Don't throw away it.",
+        "right": "Don't throw it away.",
+        "why": "Tân ngữ là ĐẠI TỪ (it/them) phải đứng GIỮA động từ và particle."
+      },
+      {
+        "wrong": "Why did you run away of me?",
+        "right": "Why did you run away from me?",
+        "why": "Phrasal verb 3 từ run away FROM cố định giới từ from, không thay bằng of."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **verb + particle** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** cụm tách được đặt đại từ ở giữa: pick it up, không phải pick up it.",
+    "comparison": "**Phrasal verb vs Prepositional verb:** Phrasal verb (verb + particle) cho phép tân ngữ danh từ đứng trước HOẶC sau particle (*throw the box away / throw away the box*) — nhưng đại từ BẮT BUỘC đứng giữa (*throw it away*). Prepositional verb có giới từ cố định, tân ngữ luôn đứng sau (*look at it*, không tách được).",
     "timeline": null
   },
   "exercises": [

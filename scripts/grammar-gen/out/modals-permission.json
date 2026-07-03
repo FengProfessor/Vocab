@@ -74,7 +74,14 @@
         "example": "Can I borrow your pen?"
       }
     ],
-    "signals": [],
+    "signals": [
+      "can",
+      "could",
+      "may",
+      "allowed to",
+      "Do you mind if",
+      "Is it OK if"
+    ],
     "examples": [
       {
         "en": "May I come in?",
@@ -326,10 +333,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Can I borrow your pen?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "He said we might wait in the hallway.",
+        "right": "He said we could wait in the hallway.",
+        "why": "Trong câu tường thuật, may (xin phép) lùi thành COULD, không phải might."
+      },
+      {
+        "wrong": "You mustn't lock the door; it is OK to leave it unlocked.",
+        "right": "You don't need to lock the door; it is OK to leave it unlocked.",
+        "why": "Mustn't = CẤM làm; don't need to/needn't = KHÔNG CẦN làm — hai nghĩa khác hẳn."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **Can/Could/May + S + V?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** may trang trọng hơn can; could/would làm yêu cầu mềm và lịch sự hơn.",
+    "comparison": "**Can vs May (xin phép):** Cả hai đều xin phép nhưng *may* trang trọng, lịch sự hơn; *can* dùng trong tình huống thân mật. *Can I use your phone?* (bạn bè) vs *May I use your phone?* (trang trọng). Trong reported speech, may → could.",
     "timeline": null
   },
   "exercises": [

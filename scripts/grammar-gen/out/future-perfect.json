@@ -2,7 +2,7 @@
   "slug": "future-perfect",
   "title": "Future Perfect",
   "title_vi": "Thì Tương lai hoàn thành",
-  "level": "intermediate",
+  "level": "advanced",
   "order": 45,
   "sections": {
     "definition": "Thì **Tương lai hoàn thành** (Future Perfect) được sử dụng để diễn tả một hành động sẽ hoàn tất trước một thời điểm hoặc sự kiện cụ thể trong tương lai. Nó thường đi kèm với các cụm từ chỉ thời gian như 'by...', 'until...', 'by the time'.",
@@ -423,10 +423,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Will they have arrived by then?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "By next month, she will have finish the project.",
+        "right": "By next month, she will have finished the project.",
+        "why": "Sau will have phải là QUÁ KHỨ PHÂN TỪ (finished)."
+      },
+      {
+        "wrong": "By next year, I work here for ten years.",
+        "right": "By next year, I will have worked here for ten years.",
+        "why": "Mốc by + tương lai đòi future perfect để diễn tả quãng thời gian tích lũy đến mốc đó."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + will have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** future perfect nhấn mạnh hoàn tất trước mốc; future continuous nhấn mạnh đang diễn ra tại mốc.",
+    "comparison": "**Tương lai hoàn thành vs Tương lai đơn:** Future perfect nhìn NGƯỢC từ một mốc tương lai — việc sẽ ĐÃ XONG trước mốc đó: *By 2030, I will have finished my degree* (trước 2030 là xong). Future simple chỉ nói việc sẽ xảy ra: *I will finish my degree in 2030.* Có \"by + mốc thời gian\" → nghĩ ngay đến will have + P2.",
     "timeline": {
       "caption": "Đặt một mốc tham chiếu và quan sát hành động của Future Perfect diễn ra trước, tại hoặc hướng tới mốc đó.",
       "points": [

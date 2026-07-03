@@ -3,7 +3,7 @@
   "title": "Future Continuous",
   "title_vi": "Thì Tương lai tiếp diễn",
   "level": "intermediate",
-  "order": 37,
+  "order": 33,
   "sections": {
     "definition": "Thì **Tương lai tiếp diễn** (Future Continuous) được dùng để diễn tả một hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai, hoặc một hành động xảy ra theo diễn biến tự nhiên của sự việc và nằm trong kế hoạch, lịch trình tương lai.",
     "usage": [
@@ -387,10 +387,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Will you be using the car tonight?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I can read a book while I'll be waiting.",
+        "right": "I can read a book while I'm waiting.",
+        "why": "Mệnh đề thời gian (while/when/before) KHÔNG dùng will — dùng thì hiện tại thay thế."
+      },
+      {
+        "wrong": "The meeting will be start at half past seven.",
+        "right": "The meeting will be starting at half past seven.",
+        "why": "Sau will be phải là V-ING (dạng tiếp diễn), không phải động từ nguyên thể."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + will be + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** future simple nói quyết định/dự đoán; future continuous nhìn hành động đang diễn tiến.",
+    "comparison": "**Tương lai tiếp diễn vs Tương lai đơn:** Future continuous tả hành động ĐANG DIỄN RA tại một thời điểm tương lai: *At 8pm tonight, I will be having dinner* (8 giờ đang ăn dở). Future simple là quyết định/lời hứa trọn vẹn: *I will have dinner at 8pm* (sẽ ăn lúc 8 giờ). Đang giữa chừng → will be V-ing.",
     "timeline": {
       "caption": "Đặt một mốc tham chiếu và quan sát hành động của Future Continuous diễn ra trước, tại hoặc hướng tới mốc đó.",
       "points": [

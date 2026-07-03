@@ -3,7 +3,7 @@
   "title": "Zero & First Conditional",
   "title_vi": "Câu điều kiện loại 0 & loại 1",
   "level": "beginner",
-  "order": 29,
+  "order": 28,
   "sections": {
     "definition": "Zero & First Conditional dùng **điều kiện loại 0 và loại 1** cho sự thật luôn đúng và khả năng thực tế trong tương lai. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -74,7 +74,13 @@
         "example": "Plants die if they don't get water."
       }
     ],
-    "signals": [],
+    "signals": [
+      "if",
+      "unless",
+      "when",
+      "as soon as",
+      "will"
+    ],
     "examples": [
       {
         "en": "If you heat ice, it melts.",
@@ -368,11 +374,33 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Plants die if they don't get water.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "If it rains tomorrow, the ground gets wet.",
+        "right": "If it rains tomorrow, the ground will get wet.",
+        "why": "Dự đoán tương lai cụ thể dùng loại 1 với WILL; loại 0 chỉ cho chân lý chung."
+      },
+      {
+        "wrong": "We won't be able to go out if it will rain.",
+        "right": "We won't be able to go out if it rains.",
+        "why": "Mệnh đề IF không dùng will — dùng hiện tại đơn thay thế."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **If + present, present (loại 0)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "comparison": "**Điều kiện loại 1 vs loại 0:** Loại 1 = khả năng CỤ THỂ trong tương lai (*If you are late, I will be angry* — có thể xảy ra). Loại 0 = chân lý / quy luật luôn đúng, không dùng will (*If you mix blue and yellow, you get green* — sự thật).",
-    "timeline": null
+    "timeline": {
+      "caption": "Loại 0 = vòng lặp luôn đúng (mọi lần mưa → ướt). Loại 1 = một nhánh tương lai (NẾU mai mưa → sẽ ở nhà).",
+      "points": [
+        {
+          "label": "Loại 0: rain → wet",
+          "note": "luôn luôn, mọi lúc"
+        },
+        {
+          "label": "Loại 1: rain tomorrow? → will stay home",
+          "note": "một khả năng tương lai"
+        }
+      ]
+    }
   },
   "exercises": [
     {

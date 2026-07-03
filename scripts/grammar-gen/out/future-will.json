@@ -344,11 +344,33 @@
         "wrong": "Will you will come?",
         "right": "Will you come?",
         "why": "Trong câu hỏi chỉ dùng một will trước chủ ngữ."
+      },
+      {
+        "wrong": "I'll to help you with the homework.",
+        "right": "I'll help you with the homework.",
+        "why": "Sau will/'ll là động từ NGUYÊN THỂ KHÔNG TO."
+      },
+      {
+        "wrong": "He wills come tomorrow.",
+        "right": "He will come tomorrow.",
+        "why": "Will là modal — không chia -s theo ngôi."
       }
     ],
     "tips": "**Mẹo:** Sau **will/won’t** luôn đặt động từ nguyên thể. Gặp quyết định tức thời, lời hứa, đề nghị giúp hoặc cụm **I think/probably**, hãy cân nhắc dùng will.",
     "comparison": "**Will vs Be going to:** Will = quyết định BỘT PHÁT ngay lúc nói (*I'll turn on the light* — vừa nghĩ ra). Be going to = dự định đã có TRƯỚC khi nói (*I'm going to clean my shoes* — đã định từ trước).",
-    "timeline": null
+    "timeline": {
+      "caption": "Will = đứng ở NOW quyết định/dự đoán ngay tại chỗ cho việc phía trước — chưa có kế hoạch từ trước.",
+      "points": [
+        {
+          "label": "NOW: quyết định 💡",
+          "note": "I'll help you!"
+        },
+        {
+          "label": "→ hành động",
+          "note": "tương lai"
+        }
+      ]
+    }
   },
   "exercises": [
     {

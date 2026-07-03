@@ -3,7 +3,7 @@
   "title": "Gerunds & Infinitives",
   "title_vi": "Danh động từ & động từ nguyên mẫu",
   "level": "intermediate",
-  "order": 32,
+  "order": 35,
   "sections": {
     "definition": "Gerunds & Infinitives dùng **V-ing và to-infinitive** sau các động từ/cấu trúc nhất định; lựa chọn đôi khi làm đổi nghĩa. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -74,7 +74,16 @@
         "example": "Thank you for helping me."
       }
     ],
-    "signals": [],
+    "signals": [
+      "enjoy",
+      "mind",
+      "avoid",
+      "suggest",
+      "decide",
+      "promise",
+      "learn",
+      "fail"
+    ],
     "examples": [
       {
         "en": "I enjoy reading before bed.",

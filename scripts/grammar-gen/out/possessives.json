@@ -331,6 +331,16 @@
         "wrong": "The dog is eating it’s food.",
         "right": "The dog is eating its food.",
         "why": "its là sở hữu; it’s là dạng rút gọn của it is/it has."
+      },
+      {
+        "wrong": "This is the book of my brother.",
+        "right": "This is my brother's book.",
+        "why": "Sở hữu của NGƯỜI dùng 's, không dùng cấu trúc of kiểu dịch từ tiếng Việt."
+      },
+      {
+        "wrong": "Its a beautiful day.",
+        "right": "It's a beautiful day.",
+        "why": "It's = it is; ITS (không phẩy) là tính từ sở hữu — hai từ khác hẳn nhau."
       }
     ],
     "tips": "**Mẹo:** Có danh từ ngay sau chỗ trống → chọn tính từ sở hữu. Không có danh từ sau chỗ trống → chọn đại từ sở hữu. Riêng **his** giống nhau ở cả hai vai trò; **its** không có dạng đại từ sở hữu thông dụng.",

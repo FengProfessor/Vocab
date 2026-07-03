@@ -3,7 +3,7 @@
   "title": "Future: be going to",
   "title_vi": "Tương lai gần (be going to)",
   "level": "beginner",
-  "order": 24,
+  "order": 22,
   "sections": {
     "definition": "**Tương lai gần** (Future: be going to) là một trong những cách nói về tương lai trong tiếng Anh. Nó được sử dụng để nói về kế hoạch, dự định, hoặc những sự kiện sắp xảy ra trong tương lai gần. **Be going to** thường được dùng khi chúng ta đã có kế hoạch hoặc dự định từ trước, hoặc khi có một số dấu hiệu cho thấy một sự kiện sẽ xảy ra.",
     "usage": [
@@ -569,7 +569,23 @@
     ],
     "tips": "**Mẹo nhớ:** Luôn nhớ sử dụng **am/is/are** trước **going to** khi nói về kế hoạch hoặc dự định trong tương lai gần.",
     "comparison": "**Be going to vs Hiện tại tiếp diễn (nói về tương lai):** Going to = DỰ ĐỊNH / ý định, chưa chắc đã sắp xếp (*We're going to have a party* — định tổ chức). Tiếp diễn = lịch đã SẮP XẾP cố định với người khác (*We're having a party next week* — đã chốt, mời khách rồi).",
-    "timeline": null
+    "timeline": {
+      "caption": "Going to = kế hoạch/dấu hiệu CÓ TỪ TRƯỚC now, mũi tên đã giương sẵn về tương lai (khác will = quyết định ngay tại chỗ).",
+      "points": [
+        {
+          "label": "đã lên kế hoạch 📋",
+          "note": "trước now"
+        },
+        {
+          "label": "NOW: going to...",
+          "note": ""
+        },
+        {
+          "label": "→ hành động",
+          "note": "tương lai"
+        }
+      ]
+    }
   },
   "exercises": [
     {

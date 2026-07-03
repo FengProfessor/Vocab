@@ -74,7 +74,12 @@
         "example": "Had we known, we would have helped."
       }
     ],
-    "signals": [],
+    "signals": [
+      "If + had + P2",
+      "would have + P2",
+      "yesterday",
+      "last year"
+    ],
     "examples": [
       {
         "en": "If I had left earlier, I would have caught the train.",
@@ -446,11 +451,33 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Had we known, we would have helped.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "If I would have studied, I would have passed.",
+        "right": "If I had studied, I would have passed.",
+        "why": "Mệnh đề if loại 3 dùng PAST PERFECT (had + P2), không dùng would have."
+      },
+      {
+        "wrong": "If I had studied, I would passed.",
+        "right": "If I had studied, I would have passed.",
+        "why": "Vế kết quả loại 3 cần đủ WOULD HAVE + P2."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **If + had + V3, would have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "comparison": "**Điều kiện loại 3 vs loại 2:** Loại 3 = giả định trái với QUÁ KHỨ, không thể đổi (*If you had seen him, you could have spoken to him* — nhưng đã không gặp). Loại 2 = giả định trái với HIỆN TẠI / tương lai (*If I had his address, I could write to him* — giờ không có địa chỉ).",
-    "timeline": null
+    "timeline": {
+      "caption": "Cả điều kiện lẫn kết quả đều nằm trong quá khứ đã đóng — chỉ là dòng thời gian tưởng tượng chạy song song dòng thật.",
+      "points": [
+        {
+          "label": "Thực tế: không học → trượt",
+          "note": "quá khứ thật"
+        },
+        {
+          "label": "Giả định: had studied → would have passed",
+          "note": "quá khứ tưởng tượng"
+        }
+      ]
+    }
   },
   "exercises": [
     {

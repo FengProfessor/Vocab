@@ -74,7 +74,13 @@
         "example": "Should I call her now?"
       }
     ],
-    "signals": [],
+    "signals": [
+      "should",
+      "shouldn't",
+      "ought to",
+      "had better",
+      "I would suggest"
+    ],
     "examples": [
       {
         "en": "You should get more sleep.",
@@ -308,10 +314,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Should I call her now?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I think everybody had better learn a foreign language.",
+        "right": "I think everybody should learn a foreign language.",
+        "why": "Lời khuyên/quan điểm chung dùng SHOULD; had better chỉ cho tình huống cụ thể khẩn cấp."
+      },
+      {
+        "wrong": "I would suggest that you should to take this route.",
+        "right": "I would suggest that you take this route.",
+        "why": "Sau suggest that, dùng động từ NGUYÊN THỂ (bare form), không thêm should to."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + should/ought to + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** had better mang sắc thái cảnh báo/hậu quả mạnh hơn should.",
+    "comparison": "**Should vs Had better:** *Should* = lời khuyên chung, \"làm thế là tốt\" (*You should go out more often*). *Had better* CHỈ dùng cho tình huống cụ thể có nguy cơ nếu không nghe (*It's late. You'd better go*). Không dùng had better cho lời khuyên chung chung.",
     "timeline": null
   },
   "exercises": [

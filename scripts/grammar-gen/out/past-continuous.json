@@ -3,7 +3,7 @@
   "title": "Past Continuous",
   "title_vi": "Thì Quá khứ tiếp diễn",
   "level": "beginner",
-  "order": 22,
+  "order": 21,
   "sections": {
     "definition": "**Thì Quá khứ tiếp diễn** (Past Continuous) diễn tả hành động **đang diễn ra** tại một thời điểm cụ thể trong quá khứ. Nó thường được sử dụng để mô tả một hành động **đang xảy ra** khi một hành động khác **xảy ra**.",
     "usage": [
@@ -432,6 +432,16 @@
         "wrong": "She were not watching TV.",
         "right": "She was not watching TV.",
         "why": "Sử dụng sai **was** và **were** trong phủ định."
+      },
+      {
+        "wrong": "While I watched TV, the phone rang.",
+        "right": "While I was watching TV, the phone rang.",
+        "why": "Hành động NỀN đang kéo dài dùng quá khứ tiếp diễn; hành động xen vào dùng quá khứ đơn."
+      },
+      {
+        "wrong": "I was knowing the answer.",
+        "right": "I knew the answer.",
+        "why": "Động từ trạng thái (know, like, want) không dùng dạng tiếp diễn."
       }
     ],
     "tips": "**Mẹo nhớ:** Để tạo dạng **Past Continuous**, thêm **-ing** vào động từ thường. Với **I**, **he**, **she**, **it**, sử dụng **was**, và với **you**, **we**, **they**, sử dụng **were**.",

@@ -29,6 +29,16 @@ export const ONBOARDING_STEPS: OnboardingStep[] = [
     xpReward: 0,
   },
   {
+    id: 'journey',
+    type: 'spotlight',
+    targetSelector: '[data-onboarding="journey"]',
+    title: 'Lộ trình của bạn',
+    description: 'Bắt đầu từ đây! Làm bài kiểm tra 2 phút (hoặc tự chọn cấp) — hệ thống xếp lộ trình từ vựng + ngữ pháp + phát âm theo từng chặng cho bạn.',
+    emoji: '🗺️',
+    xpReward: 5,
+    position: 'right',
+  },
+  {
     id: 'library',
     type: 'spotlight',
     targetSelector: '[data-onboarding="library"]',

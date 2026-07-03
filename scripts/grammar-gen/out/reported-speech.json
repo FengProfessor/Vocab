@@ -3,7 +3,7 @@
   "title": "Reported Speech",
   "title_vi": "Câu tường thuật",
   "level": "intermediate",
-  "order": 43,
+  "order": 37,
   "sections": {
     "definition": "Reported Speech dùng **câu tường thuật** để kể lại lời nói mà không lặp nguyên văn. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -74,7 +74,15 @@
         "example": "Lan asked whether I was free."
       }
     ],
-    "signals": [],
+    "signals": [
+      "say",
+      "tell",
+      "ask",
+      "said that",
+      "told me",
+      "whether",
+      "if"
+    ],
     "examples": [
       {
         "en": "She said that she was tired.",

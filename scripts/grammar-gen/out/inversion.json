@@ -3,7 +3,7 @@
   "title": "Inversion",
   "title_vi": "Đảo ngữ",
   "level": "advanced",
-  "order": 55,
+  "order": 58,
   "sections": {
     "definition": "**Đảo ngữ** là cấu trúc đảo ngược trật tự chủ ngữ-động từ thông thường, thường xảy ra sau các trạng từ phủ định hoặc hạn định ở đầu câu như *never, rarely, not only*. Mục đích chính là để nhấn mạnh hoặc tạo sắc thái trang trọng, văn phong học thuật.",
     "usage": [
@@ -74,7 +74,14 @@
         "example": "Only then did I understand."
       }
     ],
-    "signals": [],
+    "signals": [
+      "Never",
+      "Rarely",
+      "Seldom",
+      "No sooner",
+      "Not only",
+      "Only then"
+    ],
     "examples": [
       {
         "en": "Never have I seen such a view.",
@@ -374,10 +381,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Only then did I understand.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Never I have been so happy.",
+        "right": "Never have I been so happy.",
+        "why": "Mở đầu bằng trạng ngữ phủ định (Never) bắt buộc ĐẢO trợ động từ lên trước chủ ngữ."
+      },
+      {
+        "wrong": "No sooner we had got inside than the concert ended.",
+        "right": "No sooner had we got inside than the concert ended.",
+        "why": "No sooner đầu câu yêu cầu đảo ngữ: had + chủ ngữ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **negative adverbial + auxiliary + S + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** đảo ngữ cần trợ động từ như câu hỏi nhưng toàn câu vẫn là câu trần thuật.",
+    "comparison": "**Đảo ngữ vs câu hỏi:** Cả hai đều đặt trợ động từ trước chủ ngữ, nhưng đảo ngữ là CÂU KỂ trang trọng nhấn mạnh, kết thúc bằng dấu chấm: *Never have I seen such beauty.* Câu hỏi thật kết thúc bằng dấu hỏi: *Have I ever seen such beauty?* Trạng ngữ phủ định đầu câu → bắt buộc đảo.",
     "timeline": null
   },
   "exercises": [
