@@ -3,7 +3,7 @@
   "title": "Conjunctions & Linking Words",
   "title_vi": "Liên từ & từ nối",
   "level": "intermediate",
-  "order": 31,
+  "order": 34,
   "sections": {
     "definition": "**Conjunctions & Linking Words** là các từ hoặc cụm từ đóng vai trò kết nối các mệnh đề và câu, thiết lập mối quan hệ logic như nguyên nhân-kết quả, sự đối lập hoặc trình tự thời gian. Công dụng chính của chúng là đảm bảo tính **gắn kết (cohesion)** và logic trong văn bản, giúp người đọc theo sát luồng tư duy của người viết.",
     "usage": [
@@ -74,7 +74,16 @@
         "example": "She studied hard; therefore, she passed."
       }
     ],
-    "signals": [],
+    "signals": [
+      "although",
+      "even though",
+      "despite",
+      "in spite of",
+      "unless",
+      "as long as",
+      "provided",
+      "in case"
+    ],
     "examples": [
       {
         "en": "I stayed home because I was ill.",
@@ -380,10 +389,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "She studied hard; therefore, she passed.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Because of he was late, he missed the bus.",
+        "right": "Because he was late, he missed the bus.",
+        "why": "Because of là giới từ, không đứng trước mệnh đề đủ chủ-vị; có mệnh đề thì dùng BECAUSE."
+      },
+      {
+        "wrong": "Although his tiredness, he kept working.",
+        "right": "Despite his tiredness, he kept working.",
+        "why": "Although phải đi với MỆNH ĐỀ có động từ; trước danh từ phải dùng DESPITE/in spite of."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **clause + coordinating conjunction + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** because nối nguyên nhân trong cùng câu; therefore là trạng từ nối và cần dấu câu phù hợp.",
+    "comparison": "**Although vs Despite:** *Although/even though* là LIÊN TỪ → theo sau là MỆNH ĐỀ đủ chủ-vị (*Because he was late, he missed the bus*). *Despite/in spite of/because of* là GIỚI TỪ → theo sau là DANH TỪ/V-ing (*Because of his lateness...*). Cùng nghĩa, khác cấu trúc theo sau.",
     "timeline": null
   },
   "exercises": [

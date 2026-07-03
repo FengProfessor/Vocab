@@ -2,7 +2,7 @@
   "slug": "mixed-conditionals",
   "title": "Mixed Conditionals",
   "title_vi": "Câu điều kiện hỗn hợp",
-  "level": "intermediate",
+  "level": "advanced",
   "order": 47,
   "sections": {
     "definition": "**Câu điều kiện hỗn hợp** kết hợp hai loại câu điều kiện khác nhau về thời gian, ví dụ: điều kiện ở quá khứ và kết quả ở hiện tại, hoặc ngược lại. Chúng giúp diễn tả những tình huống giả định phức tạp, không có thật hoặc khác với thực tế ở các mốc thời gian khác nhau.",
@@ -74,7 +74,12 @@
         "example": "Had we taken the map, we would know where we are."
       }
     ],
-    "signals": [],
+    "signals": [
+      "If + had + P2",
+      "would + V (now)",
+      "now",
+      "today"
+    ],
     "examples": [
       {
         "en": "If I had slept earlier, I wouldn't be tired now.",
@@ -530,11 +535,33 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Had we taken the map, we would know where we are.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "If I would have won the lottery, I would be rich now.",
+        "right": "If I had won the lottery, I would be rich now.",
+        "why": "Mệnh đề if không dùng would have — phải dùng quá khứ hoàn thành (had + P2)."
+      },
+      {
+        "wrong": "If we didn't spend all our money, we could take a holiday now.",
+        "right": "If we hadn't spent all our money, we could take a holiday now.",
+        "why": "Điều kiện xảy ra trong QUÁ KHỨ (đã tiêu tiền) phải dùng past perfect, dù kết quả ở hiện tại."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **If + had + V3, would + V (quá khứ → hiện tại)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** điều kiện loại 2/3 giữ cùng khung thời gian; mixed conditional nối hai thời điểm.",
-    "timeline": null
+    "comparison": "**Mixed vs Third conditional:** Câu điều kiện HỖN HỢP nối điều kiện quá khứ với kết quả HIỆN TẠI: *If I had won the lottery, I would be rich now.* Câu điều kiện loại 3 giữ cả hai vế trong QUÁ KHỨ: *If I had won the lottery, I would have bought a house last year.* Nhìn trạng ngữ thời gian (now vs last year) để chọn vế sau.",
+    "timeline": {
+      "caption": "Điều kiện nằm ở QUÁ KHỨ, kết quả ngược nằm ở HIỆN TẠI: hai mốc thời gian khác nhau trong một câu.",
+      "points": [
+        {
+          "label": "❌ had won (quá khứ)",
+          "note": "điều kiện không xảy ra"
+        },
+        {
+          "label": "→ would be rich NOW",
+          "note": "kết quả giả định hiện tại"
+        }
+      ]
+    }
   },
   "exercises": [
     {

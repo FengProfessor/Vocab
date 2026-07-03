@@ -2,8 +2,8 @@
   "slug": "causative",
   "title": "Causative (have/get something done)",
   "title_vi": "Thể nhờ/sai bảo (have/get sth done)",
-  "level": "intermediate",
-  "order": 49,
+  "level": "advanced",
+  "order": 50,
   "sections": {
     "definition": "**Thể nhờ vả (causative)** với cấu trúc 'have/get something done' được dùng khi chủ ngữ không trực tiếp thực hiện hành động mà sắp xếp, ủy thác cho người khác làm giúp mình. Cấu trúc này làm nổi bật kết quả hoặc dịch vụ nhận được, thay vì tập trung vào chính người thực hiện hành động đó.",
     "usage": [
@@ -74,7 +74,12 @@
         "example": "She had the assistant print the report."
       }
     ],
-    "signals": [],
+    "signals": [
+      "have something done",
+      "get something done",
+      "make somebody do",
+      "let somebody do"
+    ],
     "examples": [
       {
         "en": "I had my hair cut yesterday.",
@@ -350,10 +355,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "She had the assistant print the report.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "How often do you have serviced your car?",
+        "right": "How often do you have your car serviced?",
+        "why": "Trong have something done, TÂN NGỮ (your car) đứng trước quá khứ phân từ (serviced)."
+      },
+      {
+        "wrong": "I got him repair the roof.",
+        "right": "I got him to repair the roof.",
+        "why": "GET + người + TO-infinitive; chỉ have/make/let mới đi với nguyên thể không to."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **have/get + object + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** have something done thường là chủ động sắp xếp, nhưng cũng có thể nói trải nghiệm không mong muốn.",
+    "comparison": "**Causative vs chủ động thường:** *Lisa repaired the roof* = Lisa TỰ sửa. *Lisa had the roof repaired* = Lisa NHỜ/thuê người khác sửa. Cấu trúc have + TÂN NGỮ + P2 — tân ngữ luôn đứng trước quá khứ phân từ. Get thì cần to-infinitive khi có người thực hiện: *get him TO repair*.",
     "timeline": null
   },
   "exercises": [

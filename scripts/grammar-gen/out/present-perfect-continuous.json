@@ -3,7 +3,7 @@
   "title": "Present Perfect Continuous",
   "title_vi": "Hiện tại hoàn thành tiếp diễn",
   "level": "intermediate",
-  "order": 34,
+  "order": 30,
   "sections": {
     "definition": "Present Perfect Continuous dùng **hiện tại hoàn thành tiếp diễn** để nhấn mạnh quá trình bắt đầu trong quá khứ và còn tiếp tục hoặc vừa dừng nhưng có kết quả hiện tại. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -381,6 +381,16 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "We haven't been sleeping well lately.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I am learning English for five years.",
+        "right": "I have been learning English for five years.",
+        "why": "Quá trình bắt đầu trong quá khứ kéo dài đến nay + for/since → present perfect continuous, không dùng hiện tại tiếp diễn."
+      },
+      {
+        "wrong": "I have been knowing him since 2019.",
+        "right": "I have known him since 2019.",
+        "why": "Know là stative verb — dùng present perfect đơn, không dùng continuous."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + have/has been + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",

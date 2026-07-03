@@ -2,8 +2,8 @@
   "slug": "advanced-passive",
   "title": "Advanced Passive",
   "title_vi": "Bị động nâng cao",
-  "level": "intermediate",
-  "order": 50,
+  "level": "advanced",
+  "order": 51,
   "sections": {
     "definition": "**Thể bị động nâng cao** sử dụng các động từ tường thuật (reporting verbs) như 'it is said that' hoặc các cấu trúc nhiều tân ngữ để làm khách quan hóa thông tin và tránh nêu đích danh tác nhân gây hành động. Công cụ này đặc biệt quan trọng trong văn viết trang trọng, báo cáo hoặc học thuật để trình bày quan điểm chung của cộng đồng.",
     "usage": [
@@ -74,7 +74,13 @@
         "example": "He is said to have left the country."
       }
     ],
-    "signals": [],
+    "signals": [
+      "is said to",
+      "is thought to",
+      "is believed to",
+      "It is said that",
+      "is expected to"
+    ],
     "examples": [
       {
         "en": "It is believed that the painting is genuine.",
@@ -398,10 +404,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "He is said to have left the country.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "She is said that she is a talented musician.",
+        "right": "She is said to be a talented musician.",
+        "why": "Khung personal passive cần TO-infinitive sau động từ tường thuật bị động, không dùng mệnh đề that."
+      },
+      {
+        "wrong": "The old castle is thought to have built in the 15th century.",
+        "right": "The old castle is thought to have been built in the 15th century.",
+        "why": "Hành động bị động trong quá khứ cần perfect passive infinitive: to have BEEN + P2."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **It is said that + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** is said to do nói cùng/later time; is said to have done nói hành động xảy ra trước.",
+    "comparison": "**Personal vs Impersonal passive:** Bị động cá nhân đưa đối tượng lên làm chủ ngữ + TO-infinitive: *She is said TO BE rich.* Bị động vô nhân xưng dùng chủ ngữ giả it + mệnh đề that: *IT is said THAT she is rich.* Cùng nghĩa, hai khung câu — không trộn lẫn hai khung với nhau.",
     "timeline": null
   },
   "exercises": [

@@ -3,7 +3,7 @@
   "title": "Modals: Deduction (must/might/can't)",
   "title_vi": "Khuyết thiếu: suy đoán (must/might/can't)",
   "level": "intermediate",
-  "order": 38,
+  "order": 41,
   "sections": {
     "definition": "**Động từ khuyết thiếu chỉ sự suy đoán** (như must, might, can't) cho phép người nói đánh giá mức độ chắc chắn của một sự việc dựa trên các bằng chứng thực tế. Chúng giúp thiết lập phạm vi tin cậy của thông tin, từ khẳng định chắc chắn (must) đến khả năng có thể xảy ra (might/may) hoặc sự bất khả thi (can't).",
     "usage": [
@@ -74,7 +74,13 @@
         "example": "That can't be true."
       }
     ],
-    "signals": [],
+    "signals": [
+      "must",
+      "can't",
+      "might",
+      "could",
+      "may"
+    ],
     "examples": [
       {
         "en": "She must be at work; her car is gone.",
@@ -344,10 +350,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "That can't be true.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "You must to study hard.",
+        "right": "You must study hard.",
+        "why": "Modal verb đi thẳng với động từ NGUYÊN THỂ không to."
+      },
+      {
+        "wrong": "He must has heard the news.",
+        "right": "He must have heard the news.",
+        "why": "Sau modal luôn là HAVE nguyên thể, không chia has theo ngôi."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **must + V: gần như chắc chắn** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** must suy đoán không phải must bắt buộc; can't suy đoán phủ định mạnh.",
+    "comparison": "**Suy đoán (deduction) vs Điều kiện quá khứ:** *He must have heard the noise* = suy luận logic từ bằng chứng (chắc chắn anh ấy đã nghe). *He would have heard the noise (if he had been there)* = kết quả giả định của điều kiện không có thật. Must have = kết luận; would have = tưởng tượng.",
     "timeline": null
   },
   "exercises": [

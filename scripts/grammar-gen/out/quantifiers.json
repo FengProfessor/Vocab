@@ -74,7 +74,16 @@
         "example": "Do you need any help?"
       }
     ],
-    "signals": [],
+    "signals": [
+      "some",
+      "any",
+      "much",
+      "many",
+      "few",
+      "little",
+      "a lot of",
+      "plenty of"
+    ],
     "examples": [
       {
         "en": "We have a few questions.",
@@ -308,10 +317,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Do you need any help?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "We spent much money.",
+        "right": "We spent a lot of money.",
+        "why": "Trong câu khẳng định, much hiếm dùng — người bản xứ dùng a lot of."
+      },
+      {
+        "wrong": "I spent most of time in bed.",
+        "right": "I spent most of the time in bed.",
+        "why": "Sau most of phải có từ hạn định (the/my/this...) trước danh từ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **many/few + danh từ đếm được số nhiều** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** few/little mang nghĩa gần như không đủ; a few/a little mang nghĩa có một ít, thường tích cực hơn.",
+    "comparison": "**Many/Few vs Much/Little:** *many, few* đi với danh từ ĐẾM ĐƯỢC số nhiều (*few friends*); *much, little* đi với danh từ KHÔNG đếm được (*little time*). Câu khẳng định văn nói chuộng *a lot of* thay cho much/many.",
     "timeline": null
   },
   "exercises": [

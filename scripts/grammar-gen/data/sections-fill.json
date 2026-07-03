@@ -3,11 +3,158 @@
     "source": "NLM notebook LingoPro Grammar Reference (1cd182fd) — queries 2026-07-02/03, conversations e9d85e56/9f69e79c/a64295fc + 4 batch khác",
     "note": "Nội dung adapt tiếng Việt giọng golden-seed. Script update-sections-fill.ts áp surgical: signals chỉ khi hiện có <4; comparison chỉ khi hiện tại <120 chars; mistakes append dedupe; timeline chỉ khi chưa có."
   },
+  "be-going-to": {
+    "timeline": {
+      "caption": "Going to = kế hoạch/dấu hiệu CÓ TỪ TRƯỚC now, mũi tên đã giương sẵn về tương lai (khác will = quyết định ngay tại chỗ).",
+      "points": [
+        { "label": "đã lên kế hoạch 📋", "note": "trước now" },
+        { "label": "NOW: going to...", "note": "" },
+        { "label": "→ hành động", "note": "tương lai" }
+      ]
+    }
+  },
+  "future-will": {
+    "mistakes": [
+      { "wrong": "I'll to help you with the homework.", "right": "I'll help you with the homework.", "why": "Sau will/'ll là động từ NGUYÊN THỂ KHÔNG TO." },
+      { "wrong": "He wills come tomorrow.", "right": "He will come tomorrow.", "why": "Will là modal — không chia -s theo ngôi." }
+    ],
+    "timeline": {
+      "caption": "Will = đứng ở NOW quyết định/dự đoán ngay tại chỗ cho việc phía trước — chưa có kế hoạch từ trước.",
+      "points": [
+        { "label": "NOW: quyết định 💡", "note": "I'll help you!" },
+        { "label": "→ hành động", "note": "tương lai" }
+      ]
+    }
+  },
+  "personal-pronouns": {
+    "mistakes": [
+      { "wrong": "Me and him went to the party.", "right": "He and I went to the party.", "why": "Vị trí CHỦ NGỮ dùng đại từ chủ ngữ (he, I) — me/him chỉ làm tân ngữ." },
+      { "wrong": "Her is my best friend.", "right": "She is my best friend.", "why": "Chủ ngữ câu phải là SHE; her là dạng tân ngữ/sở hữu." }
+    ]
+  },
+  "possessives": {
+    "mistakes": [
+      { "wrong": "This is the book of my brother.", "right": "This is my brother's book.", "why": "Sở hữu của NGƯỜI dùng 's, không dùng cấu trúc of kiểu dịch từ tiếng Việt." },
+      { "wrong": "Its a beautiful day.", "right": "It's a beautiful day.", "why": "It's = it is; ITS (không phẩy) là tính từ sở hữu — hai từ khác hẳn nhau." }
+    ]
+  },
+  "demonstratives": {
+    "mistakes": [
+      { "wrong": "This books are mine.", "right": "These books are mine.", "why": "Danh từ số nhiều đi với THESE/THOSE; this/that chỉ cho số ít." },
+      { "wrong": "That is my keys.", "right": "Those are my keys.", "why": "Keys số nhiều → those are, không dùng that is." }
+    ]
+  },
+  "plural-nouns": {
+    "mistakes": [
+      { "wrong": "She has two childs.", "right": "She has two children.", "why": "Child là danh từ bất quy tắc — số nhiều là CHILDREN, không thêm -s." },
+      { "wrong": "He gave me many informations.", "right": "He gave me a lot of information.", "why": "Information KHÔNG đếm được — không có dạng số nhiều, không đi với many." }
+    ]
+  },
+  "imperatives": {
+    "mistakes": [
+      { "wrong": "You open the door, please!", "right": "Open the door, please!", "why": "Câu mệnh lệnh BỎ chủ ngữ — bắt đầu thẳng bằng động từ nguyên thể." },
+      { "wrong": "Don't to touch that button.", "right": "Don't touch that button.", "why": "Sau don't là động từ nguyên thể KHÔNG TO." }
+    ]
+  },
+  "past-continuous": {
+    "mistakes": [
+      { "wrong": "While I watched TV, the phone rang.", "right": "While I was watching TV, the phone rang.", "why": "Hành động NỀN đang kéo dài dùng quá khứ tiếp diễn; hành động xen vào dùng quá khứ đơn." },
+      { "wrong": "I was knowing the answer.", "right": "I knew the answer.", "why": "Động từ trạng thái (know, like, want) không dùng dạng tiếp diễn." }
+    ]
+  },
+  "present-perfect-continuous": {
+    "mistakes": [
+      { "wrong": "I am learning English for five years.", "right": "I have been learning English for five years.", "why": "Quá trình bắt đầu trong quá khứ kéo dài đến nay + for/since → present perfect continuous, không dùng hiện tại tiếp diễn." },
+      { "wrong": "I have been knowing him since 2019.", "right": "I have known him since 2019.", "why": "Know là stative verb — dùng present perfect đơn, không dùng continuous." }
+    ]
+  },
+  "past-perfect": {
+    "comparison": "**Quá khứ hoàn thành vs Quá khứ đơn:** Past perfect đánh dấu hành động xảy ra TRƯỚC một hành động quá khứ khác: *When we arrived, the film HAD STARTED* (phim chiếu trước khi tới — lỡ đoạn đầu). Quá khứ đơn cả hai vế = chuỗi sự kiện theo thứ tự: *When we arrived, the film STARTED* (tới xong phim mới chiếu). Một chữ had đổi cả trật tự thời gian.",
+    "mistakes": [
+      { "wrong": "I took the book back to the library when I read it.", "right": "I took the book back to the library when I had read it.", "why": "Hành động đọc xong xảy ra TRƯỚC việc trả sách → cần past perfect (had read)." },
+      { "wrong": "You could have stayed with us if you had came to London.", "right": "You could have stayed with us if you had come to London.", "why": "Sau had dùng QUÁ KHỨ PHÂN TỪ (come), không dùng quá khứ đơn (came)." }
+    ],
+    "timeline": {
+      "caption": "Hai mốc quá khứ: việc xa hơn (had started) đứng TRƯỚC việc gần hơn (arrived) — had là cờ hiệu \"chuyện này xảy ra trước\".",
+      "points": [
+        { "label": "phim HAD STARTED", "note": "quá khứ xa" },
+        { "label": "we ARRIVED", "note": "quá khứ gần" },
+        { "label": "NOW", "note": "hiện tại" }
+      ]
+    }
+  },
+  "past-perfect-continuous": {
+    "comparison": "**Quá khứ hoàn thành tiếp diễn vs Quá khứ hoàn thành:** Dạng tiếp diễn nhấn QUÁ TRÌNH kéo dài trước mốc quá khứ: *It had been raining for hours* (mưa suốt nhiều giờ — nhấn độ dài). Dạng đơn nhấn KẾT QUẢ đã xong: *The rain had stopped* (đã tạnh — nhấn trạng thái). Quá trình → been + V-ing; kết quả → P2.",
+    "mistakes": [
+      { "wrong": "I had been knowing him for years before we became partners.", "right": "I had known him for years before we became partners.", "why": "Động từ trạng thái (know, seem, believe) KHÔNG dùng dạng tiếp diễn — dùng past perfect đơn." },
+      { "wrong": "He had been seeming unwell for some time.", "right": "He had seemed unwell for some time.", "why": "Seem là stative verb — không có dạng continuous." }
+    ],
+    "timeline": {
+      "caption": "Dải hoạt động kéo dài (had been waiting) chạy sát tới mốc quá khứ rồi mới có sự kiện tiếp theo.",
+      "points": [
+        { "label": "▓▓▓ had been waiting 2 hours", "note": "quá trình kéo dài" },
+        { "label": "the bus CAME", "note": "mốc quá khứ" },
+        { "label": "NOW", "note": "" }
+      ]
+    }
+  },
+  "future-continuous": {
+    "comparison": "**Tương lai tiếp diễn vs Tương lai đơn:** Future continuous tả hành động ĐANG DIỄN RA tại một thời điểm tương lai: *At 8pm tonight, I will be having dinner* (8 giờ đang ăn dở). Future simple là quyết định/lời hứa trọn vẹn: *I will have dinner at 8pm* (sẽ ăn lúc 8 giờ). Đang giữa chừng → will be V-ing.",
+    "mistakes": [
+      { "wrong": "I can read a book while I'll be waiting.", "right": "I can read a book while I'm waiting.", "why": "Mệnh đề thời gian (while/when/before) KHÔNG dùng will — dùng thì hiện tại thay thế." },
+      { "wrong": "The meeting will be start at half past seven.", "right": "The meeting will be starting at half past seven.", "why": "Sau will be phải là V-ING (dạng tiếp diễn), không phải động từ nguyên thể." }
+    ],
+    "timeline": {
+      "caption": "Tại mốc 8pm tương lai, hành động đang ở GIỮA quá trình — bắt đầu trước, kết thúc sau mốc đó.",
+      "points": [
+        { "label": "NOW", "note": "" },
+        { "label": "bắt đầu ăn", "note": "" },
+        { "label": "8PM: will be having dinner", "note": "đang giữa chừng" }
+      ]
+    }
+  },
+  "future-perfect": {
+    "comparison": "**Tương lai hoàn thành vs Tương lai đơn:** Future perfect nhìn NGƯỢC từ một mốc tương lai — việc sẽ ĐÃ XONG trước mốc đó: *By 2030, I will have finished my degree* (trước 2030 là xong). Future simple chỉ nói việc sẽ xảy ra: *I will finish my degree in 2030.* Có \"by + mốc thời gian\" → nghĩ ngay đến will have + P2.",
+    "mistakes": [
+      { "wrong": "By next month, she will have finish the project.", "right": "By next month, she will have finished the project.", "why": "Sau will have phải là QUÁ KHỨ PHÂN TỪ (finished)." },
+      { "wrong": "By next year, I work here for ten years.", "right": "By next year, I will have worked here for ten years.", "why": "Mốc by + tương lai đòi future perfect để diễn tả quãng thời gian tích lũy đến mốc đó." }
+    ],
+    "timeline": {
+      "caption": "Đứng ở NOW phóng tới mốc tương lai (by 2030) rồi nhìn ngược lại: việc nằm TRỌN trước mốc.",
+      "points": [
+        { "label": "NOW", "note": "" },
+        { "label": "✓ will have finished", "note": "xong trước mốc" },
+        { "label": "BY 2030", "note": "mốc tương lai" }
+      ]
+    }
+  },
+  "future-in-the-past": {
+    "comparison": "**Tương lai trong quá khứ vs Quá khứ đơn:** Was/were going to + would tả dự định/dự đoán ĐỨNG TỪ QUÁ KHỨ nhìn tới: *He said he WOULD come* (lúc đó anh ấy nói sẽ đến — đến hay không chưa biết). Quá khứ đơn tả việc đã xảy ra: *He came.* Trong reported speech, will luôn lùi thành would.",
+    "mistakes": [
+      { "wrong": "He said he will come to the party.", "right": "He said he would come to the party.", "why": "Câu tường thuật quá khứ: WILL lùi thì thành WOULD." },
+      { "wrong": "I knew she is going to win.", "right": "I knew she was going to win.", "why": "Mệnh đề chính ở quá khứ (knew) kéo vế sau về WAS going to — tương lai nhìn từ quá khứ." }
+    ],
+    "timeline": {
+      "caption": "Đứng ở một điểm QUÁ KHỨ (he said) và chỉ tay về tương lai của thời điểm đó (would come) — tương lai ấy có thể đã qua so với NOW.",
+      "points": [
+        { "label": "he SAID", "note": "mốc quá khứ" },
+        { "label": "→ would come", "note": "tương lai của lúc đó" },
+        { "label": "NOW", "note": "hiện tại" }
+      ]
+    }
+  },
   "gerunds-infinitives": {
     "signals": ["enjoy", "mind", "avoid", "suggest", "decide", "promise", "learn", "fail"]
   },
   "second-conditional": {
-    "signals": ["if", "would", "could", "might", "were", "right now"]
+    "signals": ["if", "would", "could", "might", "were", "right now"],
+    "timeline": {
+      "caption": "Loại 2 = dòng thời gian TƯỞNG TƯỢNG chạy song song hiện tại: thực tế NOW không có, giả định thì khác (If I had wings, I would fly).",
+      "points": [
+        { "label": "Thực tế NOW: không có cánh", "note": "dòng thật" },
+        { "label": "Giả định: had wings → would fly", "note": "dòng tưởng tượng" }
+      ]
+    }
   },
   "relative-clauses": {
     "signals": ["who", "that", "which", "whose", "whom", "where"]

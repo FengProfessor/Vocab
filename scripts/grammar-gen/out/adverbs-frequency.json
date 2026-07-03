@@ -3,7 +3,7 @@
   "title": "Adverbs of Frequency",
   "title_vi": "Trạng từ chỉ tần suất",
   "level": "beginner",
-  "order": 10,
+  "order": 12,
   "sections": {
     "definition": "**Trạng từ chỉ tần suất** (như always, often, never) được sử dụng để xác định mức độ thường xuyên của một hành động, giúp người nói làm rõ thói quen hoặc tần suất xuất hiện của sự việc. Các từ này thường đứng trước động từ thường và sau động từ to-be, đóng vai trò then chốt trong việc mô tả tính quy luật của các hoạt động trong đời sống.",
     "usage": [
@@ -74,7 +74,15 @@
         "example": "We rarely eat out."
       }
     ],
-    "signals": [],
+    "signals": [
+      "always",
+      "usually",
+      "often",
+      "sometimes",
+      "seldom",
+      "rarely",
+      "never"
+    ],
     "examples": [
       {
         "en": "I usually walk to work.",
@@ -302,10 +310,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "We rarely eat out.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Emily drives always to work.",
+        "right": "Emily always drives to work.",
+        "why": "Với động từ thường (1 từ), trạng từ tần suất đứng TRƯỚC động từ."
+      },
+      {
+        "wrong": "You always are late.",
+        "right": "You are always late.",
+        "why": "Với động từ be (am/is/are/was/were), trạng từ tần suất đứng SAU be."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + adverb + động từ thường** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** every day là cụm tần suất thường đứng cuối câu; always/often/never thường đứng giữa câu.",
+    "comparison": "**Vị trí với động từ thường vs động từ be:** Trạng từ tần suất đứng TRƯỚC động từ thường (*Emily always drives to work*) nhưng đứng SAU am/is/are/was/were (*You are always late*). Đây là cặp vị trí học sinh hay đảo ngược nhất.",
     "timeline": null
   },
   "exercises": [

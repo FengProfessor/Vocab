@@ -74,7 +74,14 @@
         "example": "Visitors mustn't touch the paintings."
       }
     ],
-    "signals": [],
+    "signals": [
+      "must",
+      "mustn't",
+      "have to",
+      "don't have to",
+      "need to",
+      "had to"
+    ],
     "examples": [
       {
         "en": "You must wear a helmet.",
@@ -349,10 +356,20 @@
         "wrong": "You must to study hard.",
         "right": "You must study hard.",
         "why": "Sau động từ khuyết thiếu must, dùng động từ nguyên thể không to."
+      },
+      {
+        "wrong": "I couldn't get a taxi last night. I must walk home.",
+        "right": "I couldn't get a taxi last night. I had to walk home.",
+        "why": "Nghĩa vụ trong QUÁ KHỨ dùng HAD TO — must không có dạng quá khứ."
+      },
+      {
+        "wrong": "Julia must wear glasses since she was very young.",
+        "right": "Julia has had to wear glasses since she was very young.",
+        "why": "Nghĩa vụ kéo dài từ quá khứ đến nay (since) dùng HAS HAD TO (hiện tại hoàn thành)."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + must + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** mustn't = bị cấm; don't have to = không cần, hoàn toàn khác nghĩa.",
+    "comparison": "**Mustn't vs Don't have to:** Dạng khẳng định must/have to gần nghĩa nhau, nhưng phủ định KHÁC HẲN: *You mustn't go* = CẤM đi. *You don't have to go* = KHÔNG CẦN đi (đi hay không tùy bạn). Đây là cặp gây hiểu nhầm nguy hiểm nhất của modal.",
     "timeline": null
   },
   "exercises": [

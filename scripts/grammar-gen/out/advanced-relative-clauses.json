@@ -2,8 +2,8 @@
   "slug": "advanced-relative-clauses",
   "title": "Advanced Relative Clauses",
   "title_vi": "Mệnh đề quan hệ nâng cao",
-  "level": "intermediate",
-  "order": 51,
+  "level": "advanced",
+  "order": 52,
   "sections": {
     "definition": "**Mệnh đề quan hệ nâng cao** là một cấu trúc phức tạp, có thể bổ nghĩa cho cả một mệnh đề đứng trước thay vì chỉ một danh từ đơn lẻ. Chúng thường được giới thiệu bằng một dấu phẩy theo sau là 'which', hoặc dùng các cấu trúc trang trọng kết hợp giới từ với đại từ quan hệ, giúp diễn đạt ý nghĩa chính xác và tinh tế hơn trong văn viết học thuật.",
     "usage": [
@@ -74,7 +74,13 @@
         "example": "The meeting was cancelled, which surprised us."
       }
     ],
-    "signals": [],
+    "signals": [
+      "most of whom",
+      "some of which",
+      "none of which",
+      ", which",
+      "whom"
+    ],
     "examples": [
       {
         "en": "The person to whom I spoke was helpful.",
@@ -428,10 +434,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "The meeting was cancelled, which surprised us.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Anna told me about her new job that she's enjoying very much.",
+        "right": "Anna told me about her new job, which she's enjoying very much.",
+        "why": "Thông tin phụ về danh từ đã xác định phải dùng mệnh đề không xác định: phẩy + WHICH, không dùng that."
+      },
+      {
+        "wrong": "Where are the keys that we were looking for them?",
+        "right": "Where are the keys that we were looking for?",
+        "why": "Đại từ quan hệ that đã làm tân ngữ rồi — không lặp thêm them thừa."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **preposition + whom/which** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** giới từ + whom/which trang trọng; không dùng that ngay sau giới từ.",
+    "comparison": "**Defining vs Non-defining:** Mệnh đề xác định chỉ rõ danh từ nào đang nói, không có phẩy, được dùng that: *The book that I am reading is great.* Mệnh đề không xác định thêm thông tin phụ, BẮT BUỘC có phẩy và KHÔNG dùng that: *The book, which I am reading, is great.* Có phẩy = bỏ mệnh đề đi câu vẫn đủ nghĩa.",
     "timeline": null
   },
   "exercises": [

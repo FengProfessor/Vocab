@@ -3,7 +3,7 @@
   "title": "Discourse Markers",
   "title_vi": "Từ nối diễn ngôn",
   "level": "advanced",
-  "order": 54,
+  "order": 59,
   "sections": {
     "definition": "**Discourse Markers** là các từ hoặc cụm từ định hướng dùng để tổ chức và cấu trúc hóa giao tiếp, giúp người nghe hoặc người đọc nhận diện sự chuyển hướng chủ đề hoặc thái độ của người nói. Chúng đóng vai trò như các **tín hiệu chỉ dẫn (signposts)**, giúp việc điều phối thông tin trong cả văn viết lẫn văn nói trở nên tự nhiên và thuyết phục hơn.",
     "usage": [
@@ -74,7 +74,14 @@
         "example": "In other words, we need more time."
       }
     ],
-    "signals": [],
+    "signals": [
+      "however",
+      "moreover",
+      "therefore",
+      "nevertheless",
+      "on the other hand",
+      "in addition"
+    ],
     "examples": [
       {
         "en": "First of all, we need a clear goal.",
@@ -368,10 +375,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "In other words, we need more time.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Although he is tired, but he keeps working.",
+        "right": "Although he is tired, he keeps working.",
+        "why": "Không ghép đôi although + but — tiếng Anh chỉ dùng MỘT từ nối cho một quan hệ nhượng bộ."
+      },
+      {
+        "wrong": "I couldn't sleep despite I was very tired.",
+        "right": "I couldn't sleep despite being very tired.",
+        "why": "Despite là giới từ — theo sau là danh từ/V-ing, không phải mệnh đề đủ chủ-vị."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **marker + comma + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** discourse markers tổ chức lập luận; conjunctions thường nối trực tiếp cấu trúc ngữ pháp.",
+    "comparison": "**Liên từ nhượng bộ vs giới từ tương phản:** *Although it rained, we had a good time* (although + mệnh đề) vs *Despite the rain, we had a good time* (despite + danh từ). Và tiếng Anh chuẩn KHÔNG cho ghép đôi although...but trong cùng một câu như tiếng Việt \"mặc dù...nhưng\".",
     "timeline": null
   },
   "exercises": [

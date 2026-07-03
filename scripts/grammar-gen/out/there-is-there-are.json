@@ -3,7 +3,7 @@
   "title": "There is / There are",
   "title_vi": "Cấu trúc There is / There are",
   "level": "beginner",
-  "order": 12,
+  "order": 7,
   "sections": {
     "definition": "Cấu trúc **There is / There are** dùng để giới thiệu sự tồn tại hoặc hiện diện của một người, vật hoặc sự việc nào đó trong một ngữ cảnh cụ thể. **There is** đi với danh từ số ít hoặc danh từ không đếm được, còn **there are** đi với danh từ số nhiều.",
     "usage": [
@@ -74,7 +74,14 @@
         "example": "There isn't any milk left."
       }
     ],
-    "signals": [],
+    "signals": [
+      "there is",
+      "there are",
+      "there was",
+      "there were",
+      "there will be",
+      "there has been"
+    ],
     "examples": [
       {
         "en": "There is a pharmacy near my house.",
@@ -344,10 +351,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "There isn't any milk left.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "It was a lot of traffic.",
+        "right": "There was a lot of traffic.",
+        "why": "Giới thiệu sự tồn tại lần đầu phải dùng THERE, không dùng it."
+      },
+      {
+        "wrong": "There is a new restaurant. There is very good.",
+        "right": "There is a new restaurant. It is very good.",
+        "why": "Nhắc lại thứ đã đề cập thì dùng IT, không lặp lại there is."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **There is + danh từ số ít/không đếm được** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** have/has: *there is* giới thiệu sự tồn tại; *have/has* nói một chủ thể sở hữu.",
+    "comparison": "**There vs It:** Dùng *there is/are* khi giới thiệu một thứ TỒN TẠI lần đầu: *There is a new restaurant.* Dùng *it* khi nhắc lại thứ đã nói đến: *It is very good.* Người Việt hay dịch \"có\" và \"nó\" lẫn lộn thành *It was a lot of traffic* — sai.",
     "timeline": null
   },
   "exercises": [

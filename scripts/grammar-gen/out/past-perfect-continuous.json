@@ -2,8 +2,8 @@
   "slug": "past-perfect-continuous",
   "title": "Past Perfect Continuous",
   "title_vi": "Quá khứ hoàn thành tiếp diễn",
-  "level": "intermediate",
-  "order": 36,
+  "level": "advanced",
+  "order": 44,
   "sections": {
     "definition": "Thì **Quá khứ hoàn thành tiếp diễn** (Past Perfect Continuous) với cấu trúc 'had been' + V-ing, dùng để nhấn mạnh khoảng thời gian diễn ra liên tục của một hành động trong quá khứ cho đến trước một sự kiện hoặc kết quả khác trong quá khứ.",
     "usage": [
@@ -435,10 +435,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "They hadn't been living there long.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I had been knowing him for years before we became partners.",
+        "right": "I had known him for years before we became partners.",
+        "why": "Động từ trạng thái (know, seem, believe) KHÔNG dùng dạng tiếp diễn — dùng past perfect đơn."
+      },
+      {
+        "wrong": "He had been seeming unwell for some time.",
+        "right": "He had seemed unwell for some time.",
+        "why": "Seem là stative verb — không có dạng continuous."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + had been + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** past perfect nhấn mạnh hoàn tất; past perfect continuous nhấn mạnh thời lượng/nguyên nhân.",
+    "comparison": "**Quá khứ hoàn thành tiếp diễn vs Quá khứ hoàn thành:** Dạng tiếp diễn nhấn QUÁ TRÌNH kéo dài trước mốc quá khứ: *It had been raining for hours* (mưa suốt nhiều giờ — nhấn độ dài). Dạng đơn nhấn KẾT QUẢ đã xong: *The rain had stopped* (đã tạnh — nhấn trạng thái). Quá trình → been + V-ing; kết quả → P2.",
     "timeline": {
       "caption": "Đặt một mốc tham chiếu và quan sát hành động của Past Perfect Continuous diễn ra trước, tại hoặc hướng tới mốc đó.",
       "points": [

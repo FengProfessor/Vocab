@@ -2,8 +2,8 @@
   "slug": "future-in-the-past",
   "title": "Future in the Past",
   "title_vi": "Tương lai trong quá khứ",
-  "level": "intermediate",
-  "order": 52,
+  "level": "advanced",
+  "order": 46,
   "sections": {
     "definition": "**Future in the Past** diễn đạt các dự định, dự đoán hoặc sự kiện đã được xem là tương lai tại một thời điểm cụ thể trong quá khứ. Cấu trúc thường dùng **would** hoặc **was/were going to** để chuyển đổi góc nhìn thời gian, giúp việc kể chuyện hoặc thuật lại thông tin trở nên mạch lạc và chính xác về mặt ngữ pháp.",
     "usage": [
@@ -387,10 +387,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "He was about to speak when the phone rang.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "He said he will come to the party.",
+        "right": "He said he would come to the party.",
+        "why": "Câu tường thuật quá khứ: WILL lùi thì thành WOULD."
+      },
+      {
+        "wrong": "I knew she is going to win.",
+        "right": "I knew she was going to win.",
+        "why": "Mệnh đề chính ở quá khứ (knew) kéo vế sau về WAS going to — tương lai nhìn từ quá khứ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **would + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** will nhìn từ hiện tại; would nhìn tương lai từ một điểm trong quá khứ.",
+    "comparison": "**Tương lai trong quá khứ vs Quá khứ đơn:** Was/were going to + would tả dự định/dự đoán ĐỨNG TỪ QUÁ KHỨ nhìn tới: *He said he WOULD come* (lúc đó anh ấy nói sẽ đến — đến hay không chưa biết). Quá khứ đơn tả việc đã xảy ra: *He came.* Trong reported speech, will luôn lùi thành would.",
     "timeline": {
       "caption": "Đặt một mốc tham chiếu và quan sát hành động của Future in the Past diễn ra trước, tại hoặc hướng tới mốc đó.",
       "points": [

@@ -3,7 +3,7 @@
   "title": "Emphasis Structures",
   "title_vi": "Cấu trúc nhấn mạnh",
   "level": "advanced",
-  "order": 57,
+  "order": 56,
   "sections": {
     "definition": "**Emphasis Structures** là các dạng câu đặc biệt (như *cleft sentences* hoặc *negative inversion*) được sử dụng để làm nổi bật một thông tin cụ thể hoặc tạo sự kịch tính cho câu nói. Bằng cách thay đổi trật tự từ thông thường hoặc thêm các từ trợ ngữ, người dùng có thể điều hướng sự chú ý của người nghe đến **trọng tâm (focus)** của thông điệp một cách hiệu quả.",
     "usage": [
@@ -74,7 +74,14 @@
         "example": "The film was so moving that I cried."
       }
     ],
-    "signals": [],
+    "signals": [
+      "do + V",
+      "does + V",
+      "did + V",
+      "even",
+      "so",
+      "neither"
+    ],
     "examples": [
       {
         "en": "I do understand your concern.",
@@ -362,10 +369,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "The film was so moving that I cried.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "He does likes it.",
+        "right": "He does like it.",
+        "why": "Sau trợ động từ nhấn mạnh does, động từ chính về nguyên thể — không thêm -s."
+      },
+      {
+        "wrong": "We did enjoyed the concert.",
+        "right": "We did enjoy the concert.",
+        "why": "Sau did nhấn mạnh, động từ chính giữ nguyên thể — không chia quá khứ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **do/does/did + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** do nhấn mạnh chỉ đi với động từ nguyên thể; không dùng với động từ be.",
+    "comparison": "**Câu nhấn mạnh vs câu thường:** Thêm trợ động từ do/does/did trước động từ để KHẲNG ĐỊNH mạnh: *I DO like it* (tôi thích thật mà!) vs câu thường *I like it.* Sau do/does/did nhấn mạnh, động từ chính về NGUYÊN THỂ.",
     "timeline": null
   },
   "exercises": [

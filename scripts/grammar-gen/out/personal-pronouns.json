@@ -3,7 +3,7 @@
   "title": "Personal Pronouns",
   "title_vi": "Đại từ nhân xưng",
   "level": "beginner",
-  "order": 3,
+  "order": 1,
   "sections": {
     "definition": "**Đại từ nhân xưng** (Personal Pronouns) như *I, you, he, she, it, we, they* dùng để thay thế cho danh từ chỉ người hoặc vật đã được đề cập hoặc người nghe đã biết, giúp tránh lặp lại. Chúng thay đổi hình thức tùy thuộc vào việc chúng làm chủ ngữ hay tân ngữ trong câu.",
     "usage": [
@@ -337,6 +337,16 @@
         "wrong": "This is for they.",
         "right": "This is for them.",
         "why": "Sau giới từ for dùng đại từ tân ngữ."
+      },
+      {
+        "wrong": "Me and him went to the party.",
+        "right": "He and I went to the party.",
+        "why": "Vị trí CHỦ NGỮ dùng đại từ chủ ngữ (he, I) — me/him chỉ làm tân ngữ."
+      },
+      {
+        "wrong": "Her is my best friend.",
+        "right": "She is my best friend.",
+        "why": "Chủ ngữ câu phải là SHE; her là dạng tân ngữ/sở hữu."
       }
     ],
     "tips": "**Mẹo:** Đứng trước động từ chia thì → chọn đại từ chủ ngữ. Đứng sau động từ hoặc giới từ → chọn đại từ tân ngữ. Học theo cặp: I–me, he–him, she–her, we–us, they–them.",

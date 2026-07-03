@@ -74,7 +74,16 @@
         "example": "Who called you last night?"
       }
     ],
-    "signals": [],
+    "signals": [
+      "who",
+      "what",
+      "which",
+      "whose",
+      "where",
+      "when",
+      "why",
+      "how"
+    ],
     "examples": [
       {
         "en": "Where do you live?",
@@ -290,10 +299,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Who called you last night?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Who did phone Emma?",
+        "right": "Who phoned Emma?",
+        "why": "Khi từ để hỏi là CHỦ NGỮ của câu, không dùng trợ động từ do/does/did."
+      },
+      {
+        "wrong": "Who Emma phoned?",
+        "right": "Who did Emma phone?",
+        "why": "Khi từ để hỏi là TÂN NGỮ, phải đặt trợ động từ (did) trước chủ ngữ."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **Wh-word + auxiliary + S + V?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** câu hỏi chủ ngữ không dùng do/does/did; câu hỏi tân ngữ cần trợ động từ.",
+    "comparison": "**Wh-word làm CHỦ NGỮ vs làm TÂN NGỮ:** Khi từ để hỏi là chủ ngữ, giữ nguyên trật tự câu kể, KHÔNG dùng do/does/did: *Who phoned Emma?* (ai gọi?). Khi từ để hỏi là tân ngữ, phải có trợ động từ trước chủ ngữ: *Who did Emma phone?* (Emma gọi ai?). Cùng một chữ Who nhưng hai cấu trúc khác hẳn nhau.",
     "timeline": null
   },
   "exercises": [

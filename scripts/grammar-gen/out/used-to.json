@@ -3,7 +3,7 @@
   "title": "Used to / Be used to / Get used to",
   "title_vi": "Cấu trúc Used to",
   "level": "intermediate",
-  "order": 33,
+  "order": 32,
   "sections": {
     "definition": "Used to / Be used to / Get used to phân biệt **used to, be used to và get used to** khi nói thói quen cũ, sự quen thuộc và quá trình thích nghi. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -74,7 +74,13 @@
         "example": "Are you used to the heat?"
       }
     ],
-    "signals": [],
+    "signals": [
+      "used to",
+      "be used to",
+      "get used to",
+      "anymore",
+      "when I was young"
+    ],
     "examples": [
       {
         "en": "I used to live in Hue.",
@@ -380,11 +386,37 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Are you used to the heat?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Lisa is used to drive on the left.",
+        "right": "Lisa is used to driving on the left.",
+        "why": "Trong be/get used TO, chữ to là GIỚI TỪ → theo sau là V-ING."
+      },
+      {
+        "wrong": "I didn't used to like him.",
+        "right": "I didn't use to like him.",
+        "why": "Sau trợ động từ didn't, dùng USE TO nguyên thể (bỏ d)."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **used to + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "comparison": "**Used to do vs Be used to doing:** *used to do* = thói quen QUÁ KHỨ nay không còn (*I used to drive to work* — trước hay lái, giờ thì không). *be / get used to doing* = đã QUEN, không còn lạ lẫm ở hiện tại (*She is used to driving on the left* — quen rồi).",
-    "timeline": null
+    "timeline": {
+      "caption": "Used to vẽ một dải thói quen trong quá khứ rồi CẮT ĐỨT trước hiện tại: trước kia có, giờ không còn.",
+      "points": [
+        {
+          "label": "▓▓▓ used to live alone",
+          "note": "quá khứ kéo dài"
+        },
+        {
+          "label": "✂ đã thay đổi",
+          "note": ""
+        },
+        {
+          "label": "NOW: sống cùng gia đình",
+          "note": "hiện tại"
+        }
+      ]
+    }
   },
   "exercises": [
     {

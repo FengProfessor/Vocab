@@ -3,7 +3,7 @@
   "title": "Ellipsis & Substitution",
   "title_vi": "Lược bỏ & thay thế",
   "level": "advanced",
-  "order": 59,
+  "order": 54,
   "sections": {
     "definition": "**Ellipsis & Substitution** là những kỹ thuật ngôn ngữ giúp tránh sự lặp lại từ ngữ không cần thiết bằng cách lược bỏ các thành phần đã rõ nghĩa hoặc dùng từ thay thế (như *one, so, do*). Công dụng chính là tối ưu hóa câu văn, giúp diễn đạt trở nên **gọn gàng (concise)** và chuyên nghiệp hơn trong giao tiếp.",
     "usage": [
@@ -74,7 +74,14 @@
         "example": "She said it would rain, and I think so."
       }
     ],
-    "signals": [],
+    "signals": [
+      "one",
+      "ones",
+      "so",
+      "not",
+      "do",
+      "neither"
+    ],
     "examples": [
       {
         "en": "I can play chess, and Lan can too.",
@@ -404,10 +411,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "She said it would rain, and I think so.",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "Do you think it will rain? I don't hope so.",
+        "right": "Do you think it will rain? I hope not.",
+        "why": "Phủ định mệnh đề sau hope phải nói HOPE NOT, không dùng don't hope so."
+      },
+      {
+        "wrong": "...different from the ones I did liked.",
+        "right": "...different from the ones I did.",
+        "why": "Sau trợ động từ did (ellipsis), phải LƯỢC BỎ động từ lặp — không giữ liked thừa."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **auxiliary thay cụm động từ** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** lược bỏ chỉ dùng khi ý bị bỏ vẫn rõ; one/ones không thay danh từ không đếm được.",
+    "comparison": "**Substitution vs Ellipsis:** Thay thế dùng từ đại diện one/so/do cho phần lặp lại: *I like those ONES.* Tỉnh lược thì BỎ HẲN phần lặp khi ngữ cảnh đã rõ: *Do you like these shoes? — I DO.* Cả hai đều tránh lặp, một bên thay từ, một bên lược bỏ.",
     "timeline": null
   },
   "exercises": [

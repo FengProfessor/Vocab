@@ -2,8 +2,8 @@
   "slug": "question-tags",
   "title": "Question Tags",
   "title_vi": "Câu hỏi đuôi",
-  "level": "beginner",
-  "order": 30,
+  "level": "intermediate",
+  "order": 42,
   "sections": {
     "definition": "**Câu hỏi đuôi** là các cụm từ ngắn được thêm vào cuối câu khẳng định hoặc phủ định để xác nhận thông tin, bày tỏ sự ngạc nhiên hoặc mời người nghe đồng tình. Cấu trúc phổ biến là câu khẳng định đi với đuôi phủ định và ngược lại.",
     "usage": [
@@ -74,7 +74,13 @@
         "example": "They left early, didn't they?"
       }
     ],
-    "signals": [],
+    "signals": [
+      "isn't it?",
+      "aren't you?",
+      "don't you?",
+      "will you?",
+      "shall we?"
+    ],
     "examples": [
       {
         "en": "You're coming, aren't you?",
@@ -290,10 +296,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "They left early, didn't they?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "You travel a lot, travel you?",
+        "right": "You travel a lot, don't you?",
+        "why": "Động từ thường ở hiện tại đơn dùng trợ động từ do/does trong tag, không lặp lại động từ chính."
+      },
+      {
+        "wrong": "Kate won't be late, won't she?",
+        "right": "Kate won't be late, will she?",
+        "why": "Câu phủ định (won't) phải đi với tag KHẲNG ĐỊNH (will she) — ngược cực."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **mệnh đề khẳng định, trợ động từ phủ định + đại từ?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** đuôi thường trái dấu với mệnh đề chính và lặp đúng trợ động từ/thì.",
+    "comparison": "**Question tag vs câu hỏi thường:** Tag là câu hỏi mini gắn CUỐI câu kể để xác nhận/hỏi ý kiến (*He is Spanish, isn't he?*), còn câu hỏi thường đảo trợ động từ lên ĐẦU (*Is he Spanish?*). Quy tắc vàng: câu khẳng định → tag phủ định, câu phủ định → tag khẳng định.",
     "timeline": null
   },
   "exercises": [

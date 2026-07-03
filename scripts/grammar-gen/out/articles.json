@@ -3,7 +3,7 @@
   "title": "Articles (a / an / the)",
   "title_vi": "Mạo từ (a / an / the)",
   "level": "beginner",
-  "order": 6,
+  "order": 8,
   "sections": {
     "definition": "**Mạo từ** (Articles: a/an/the) là những từ đứng trước danh từ để chỉ định danh từ đó là **cụ thể** hay **không cụ thể**. Ta dùng **a/an** để nói về một danh từ đếm được, số ít, không xác định hoặc được đề cập lần đầu, còn **the** dùng cho danh từ đã xác định rõ ràng, đã được biết đến hoặc được đề cập trước đó.",
     "usage": [
@@ -69,7 +69,13 @@
     "signals": [
       "specific",
       "general",
-      "previously mentioned"
+      "previously mentioned",
+      "a",
+      "an",
+      "the",
+      "lần đầu nhắc đến",
+      "đã xác định",
+      "zero article"
     ],
     "examples": [
       {

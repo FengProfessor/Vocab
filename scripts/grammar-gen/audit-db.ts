@@ -39,6 +39,15 @@ const OUT = path.join(DIR, 'out');
 const CANON_TYPES = new Set(['mcq', 'fill', 'tf', 'error']);
 const LEGACY_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction']);
 
+/** Topic liên quan thì/thời gian — chỉ nhóm này bắt buộc có timeline. */
+const TENSE_TOPICS = new Set([
+  'present-simple', 'present-continuous', 'present-perfect', 'present-perfect-continuous',
+  'past-simple', 'past-continuous', 'past-perfect', 'past-perfect-continuous',
+  'future-will', 'be-going-to', 'future-continuous', 'future-perfect', 'future-in-the-past',
+  'used-to', 'conditionals-0-1', 'second-conditional', 'third-conditional', 'mixed-conditionals',
+  'wish-if-only', 'modals-perfect',
+]);
+
 function loadEnv(): void {
   const envPath = path.join(process.cwd(), '.env.local');
   if (!existsSync(envPath)) return;
@@ -113,7 +122,12 @@ function scoreLesson(slug: string, level: string, sections: Sections, exercises:
   if ((sections.mistakes?.length ?? 0) >= 4) score += 10; else flags.push('mistakes<4');
   if ((sections.tips ?? '').length >= 40) score += 5; else flags.push('tips-thin');
   if ((sections.comparison ?? '').length >= 120) score += 10; else flags.push('comparison-thin');
-  if (sections.timeline?.points?.length) score += 5; else flags.push('no-timeline');
+  // Timeline chỉ có nghĩa sư phạm với topic THÌ/thời gian — topic khác không bị phạt
+  if (TENSE_TOPICS.has(slug)) {
+    if (sections.timeline?.points?.length) score += 5; else flags.push('no-timeline');
+  } else {
+    score += 5;
+  }
 
   // Exercises (25đ): số lượng, hợp lệ, đa dạng
   if (exercises.length >= 12) score += 10; else flags.push(`xr<12:${exercises.length}`);
@@ -129,8 +143,11 @@ function scoreLesson(slug: string, level: string, sections: Sections, exercises:
   const legacyCount = exercises.filter((e) => LEGACY_TYPES.has(e.type ?? '')).length;
   if (legacyCount > 0 && legacyCount < exercises.length) flags.push('mixed-type-naming');
 
-  // Câu hỏi trùng
-  const qs = exercises.map((e) => (e.question ?? e.q ?? '').trim().toLowerCase()).filter(Boolean);
+  // Câu hỏi trùng: CÙNG text VÀ cùng options mới là trùng thật (text chung kiểu "Câu nào sai?" hợp lệ)
+  const qs = exercises.map((e) => [
+    (e.question ?? e.q ?? '').trim().toLowerCase(),
+    ...((e.options ?? e.opts ?? []).map((o) => o.trim().toLowerCase()).sort()),
+  ].join('|')).filter((k) => k !== '');
   const dup = qs.length - new Set(qs).size;
   if (dup > 0) flags.push(`dup-questions:${dup}`);
 
@@ -138,7 +155,9 @@ function scoreLesson(slug: string, level: string, sections: Sections, exercises:
   const raw = JSON.stringify(sections);
   if (/Ã¬|Ã©|â€|Ä‘|áº£/.test(raw)) flags.push('MOJIBAKE');
 
-  return { slug, level, score, flags, exCount: examples.length, xrCount: exercises.length, theoryLen, drift: '' };
+  // Chuẩn hóa về thang 100 (tổng điểm thô = 105: sections 80 + exercises 25)
+  const normalized = Math.round((score / 105) * 100);
+  return { slug, level, score: normalized, flags, exCount: examples.length, xrCount: exercises.length, theoryLen, drift: '' };
 }
 
 async function main(): Promise<void> {

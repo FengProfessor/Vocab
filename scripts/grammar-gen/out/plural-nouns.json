@@ -3,7 +3,7 @@
   "title": "Plural Nouns",
   "title_vi": "Danh từ số nhiều",
   "level": "beginner",
-  "order": 7,
+  "order": 5,
   "sections": {
     "definition": "**Danh từ số nhiều** (Plural Nouns) được sử dụng để chỉ có từ hai người, địa điểm, sự vật hoặc khái niệm trở lên. Phần lớn danh từ được tạo thành số nhiều bằng cách thêm '-s' hoặc '-es', nhưng cũng có những danh từ có dạng số nhiều bất quy tắc cần ghi nhớ.",
     "usage": [
@@ -319,6 +319,16 @@
         "wrong": "many citys",
         "right": "many cities",
         "why": "Phụ âm + y: đổi y thành ies."
+      },
+      {
+        "wrong": "She has two childs.",
+        "right": "She has two children.",
+        "why": "Child là danh từ bất quy tắc — số nhiều là CHILDREN, không thêm -s."
+      },
+      {
+        "wrong": "He gave me many informations.",
+        "right": "He gave me a lot of information.",
+        "why": "Information KHÔNG đếm được — không có dạng số nhiều, không đi với many."
       }
     ],
     "tips": "**Mẹo:** Trước tiên kiểm tra danh từ có bất quy tắc không. Nếu không, nhìn chữ cuối: s/x/z/ch/sh → **-es**; phụ âm + y → **-ies**; còn lại thường thêm **-s**. Sau số đếm lớn hơn một phải dùng số nhiều.",

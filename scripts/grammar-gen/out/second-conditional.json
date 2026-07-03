@@ -74,7 +74,14 @@
         "example": "What would you do if you lost your phone?"
       }
     ],
-    "signals": [],
+    "signals": [
+      "if",
+      "would",
+      "could",
+      "might",
+      "were",
+      "right now"
+    ],
     "examples": [
       {
         "en": "If I had more time, I would learn Korean.",
@@ -431,7 +438,19 @@
     ],
     "tips": "**Mẹo nhớ:** học mẫu **If + past simple, would + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "comparison": "**Điều kiện loại 2 vs loại 1:** Loại 2 = giả định KHÔNG có thật ở hiện tại / tương lai (*If Jack was playing, they would win* — Jack không chơi). Loại 1 = khả năng CÓ THẬT (*If you are late, I will be angry* — có thể xảy ra).",
-    "timeline": null
+    "timeline": {
+      "caption": "Loại 2 = dòng thời gian TƯỞNG TƯỢNG chạy song song hiện tại: thực tế NOW không có, giả định thì khác (If I had wings, I would fly).",
+      "points": [
+        {
+          "label": "Thực tế NOW: không có cánh",
+          "note": "dòng thật"
+        },
+        {
+          "label": "Giả định: had wings → would fly",
+          "note": "dòng tưởng tượng"
+        }
+      ]
+    }
   },
   "exercises": [
     {

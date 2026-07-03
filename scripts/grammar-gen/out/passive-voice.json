@@ -3,7 +3,7 @@
   "title": "Passive Voice",
   "title_vi": "Câu bị động",
   "level": "intermediate",
-  "order": 42,
+  "order": 36,
   "sections": {
     "definition": "Passive Voice dùng **câu bị động** khi muốn nhấn mạnh người/vật chịu tác động hoặc khi tác nhân không rõ/không quan trọng. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
@@ -74,7 +74,13 @@
         "example": "The package will be delivered tomorrow."
       }
     ],
-    "signals": [],
+    "signals": [
+      "be + P2",
+      "by",
+      "was made",
+      "is done",
+      "were built"
+    ],
     "examples": [
       {
         "en": "The bridge was built in 2010.",

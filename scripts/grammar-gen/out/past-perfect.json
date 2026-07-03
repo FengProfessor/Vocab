@@ -3,7 +3,7 @@
   "title": "Past Perfect",
   "title_vi": "Thì Quá khứ hoàn thành",
   "level": "intermediate",
-  "order": 35,
+  "order": 31,
   "sections": {
     "definition": "Thì **Quá khứ hoàn thành** (Past Perfect) được cấu tạo bởi 'had' và phân từ hai của động từ chính. Thì này dùng để diễn tả một hành động đã hoàn thành xong xuôi trước một thời điểm hoặc một hành động khác xảy ra trong quá khứ.",
     "usage": [
@@ -375,10 +375,20 @@
         "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
         "right": "Had you finished when he called?",
         "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+      },
+      {
+        "wrong": "I took the book back to the library when I read it.",
+        "right": "I took the book back to the library when I had read it.",
+        "why": "Hành động đọc xong xảy ra TRƯỚC việc trả sách → cần past perfect (had read)."
+      },
+      {
+        "wrong": "You could have stayed with us if you had came to London.",
+        "right": "You could have stayed with us if you had come to London.",
+        "why": "Sau had dùng QUÁ KHỨ PHÂN TỪ (come), không dùng quá khứ đơn (came)."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **S + had + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** past simple kể các sự kiện quá khứ; past perfect làm rõ sự kiện xảy ra sớm hơn.",
+    "comparison": "**Quá khứ hoàn thành vs Quá khứ đơn:** Past perfect đánh dấu hành động xảy ra TRƯỚC một hành động quá khứ khác: *When we arrived, the film HAD STARTED* (phim chiếu trước khi tới — lỡ đoạn đầu). Quá khứ đơn cả hai vế = chuỗi sự kiện theo thứ tự: *When we arrived, the film STARTED* (tới xong phim mới chiếu). Một chữ had đổi cả trật tự thời gian.",
     "timeline": {
       "caption": "Đặt một mốc tham chiếu và quan sát hành động của Past Perfect diễn ra trước, tại hoặc hướng tới mốc đó.",
       "points": [

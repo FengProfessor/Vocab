@@ -3,7 +3,7 @@
   "title": "Comparatives & Superlatives",
   "title_vi": "So sánh hơn & so sánh nhất",
   "level": "beginner",
-  "order": 19,
+  "order": 24,
   "sections": {
     "definition": "**So sánh hơn** (comparatives) dùng để đối chiếu sự khác biệt giữa hai đối tượng, thường dùng đuôi '-er' hoặc 'more' và đi với 'than'. **So sánh nhất** (superlatives) dùng với 'the' cùng đuôi '-est' hoặc 'most' để xác định đối tượng có đặc điểm cao nhất trong một nhóm.",
     "usage": [
@@ -74,7 +74,16 @@
         "example": "The train is more comfortable than the bus."
       }
     ],
-    "signals": [],
+    "signals": [
+      "than",
+      "as ... as",
+      "more",
+      "the most",
+      "-er",
+      "-est",
+      "less",
+      "least"
+    ],
     "examples": [
       {
         "en": "This room is brighter than mine.",
@@ -385,10 +394,20 @@
         "wrong": "The most shops accept credit cards.",
         "right": "Most shops accept credit cards.",
         "why": "Most không có the khi mang nghĩa phần lớn hoặc đa số nói chung."
+      },
+      {
+        "wrong": "She is more tall than him.",
+        "right": "She is taller than him.",
+        "why": "Tính từ ngắn 1 âm tiết thêm -ER, không dùng more."
+      },
+      {
+        "wrong": "That is the most biggest building.",
+        "right": "That is the biggest building.",
+        "why": "Không ghép most + -est — double superlative là lỗi."
       }
     ],
     "tips": "**Mẹo nhớ:** học mẫu **short adjective + -er / the + -est** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Phân biệt:** so sánh hơn thường có than; so sánh nhất thường có the và phạm vi so sánh.",
+    "comparison": "**So sánh hơn vs so sánh nhất:** So sánh HƠN giữa 2 đối tượng: -er/more + than (*This hotel is cheaper than that one*). So sánh NHẤT trong nhóm ≥3: the + -est/most (*the cheapest in town*). Tính từ ngắn thêm đuôi, tính từ dài dùng more/most — không dùng cả hai cùng lúc.",
     "timeline": null
   },
   "exercises": [

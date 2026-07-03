@@ -3,7 +3,7 @@
   "title": "Imperatives",
   "title_vi": "Câu mệnh lệnh",
   "level": "beginner",
-  "order": 14,
+  "order": 15,
   "sections": {
     "definition": "**Câu mệnh lệnh** (imperatives) sử dụng dạng nguyên thể của động từ để đưa ra mệnh lệnh, chỉ dẫn, yêu cầu hoặc lời khuyên trực tiếp. Cấu trúc này thường lược bỏ chủ ngữ và có thể kết thúc bằng dấu chấm hoặc dấu chấm than để thể hiện mức độ khẩn cấp.",
     "usage": [
@@ -325,6 +325,16 @@
         "wrong": "Let's to go home.",
         "right": "Let's go home.",
         "why": "Sau let's dùng động từ nguyên thể không to."
+      },
+      {
+        "wrong": "You open the door, please!",
+        "right": "Open the door, please!",
+        "why": "Câu mệnh lệnh BỎ chủ ngữ — bắt đầu thẳng bằng động từ nguyên thể."
+      },
+      {
+        "wrong": "Don't to touch that button.",
+        "right": "Don't touch that button.",
+        "why": "Sau don't là động từ nguyên thể KHÔNG TO."
       }
     ],
     "tips": "**Mẹo:** Bắt đầu thẳng bằng động từ nguyên thể. Muốn nói “đừng” dùng **Don’t + V**; muốn rủ “chúng ta cùng...” dùng **Let’s + V**; thêm **please** để giảm sắc thái ra lệnh.",
