@@ -30,8 +30,8 @@ const OUT_PATH = path.join(ROOT, 'src', 'data', 'roadmap', 'roadmap-v1.json');
 const ROADMAP_VERSION = 'roadmap-v1';
 const PACKS_PER_UNIT = 2;
 
-interface RawPack { id: string; subtopicId: string; index: number; title: string; wordCount: number; words: { word: string }[] }
-interface RawSubtopic { id: string; topicId: string; routeId: string; title: string; packIds: string[] }
+interface RawPack { id: string; subtopicId: string; index: number; title: string; wordCount: number; words: { word: string; contentType?: string }[] }
+interface RawSubtopic { id: string; topicId: string; routeId: string; title: string; contentType: string; packIds: string[] }
 interface RawArtifact { catalogVersion: string; routes: { id: string; topicIds: string[] }[]; topics: { id: string; subtopicIds: string[] }[]; subtopics: RawSubtopic[]; packs: RawPack[] }
 interface RawQuality { subtopics: Record<string, { publishStatus: string }> }
 interface PronLesson { id: string; level: string; title: string }
@@ -89,6 +89,8 @@ function main(): void {
 
   /** Pool pack theo cấp: duyệt route ưu tiên → topic → subtopic published → pack, thứ tự artifact (deterministic). */
   const usedPacks = new Set<string>();
+  // A0-A2 chỉ học TỪ ĐƠN (concrete words) — idiom/phrasal verb để B1+ (docs/roadmap-research/03: A0-A2 bỏ collocation/idiom tránh quá tải)
+  const WORD_ONLY_LEVELS = new Set<RoadmapLevelId>(['A0', 'A1', 'A2']);
   function packPool(level: RoadmapLevelId, count: number): RawPack[] {
     const result: RawPack[] = [];
     for (const routeId of VOCAB_ROUTE_PRIORITY[level]) {
@@ -101,10 +103,17 @@ function main(): void {
           if (quality.subtopics[subId]?.publishStatus !== 'published') continue;
           const sub = subById.get(subId);
           if (!sub) continue;
+          if (WORD_ONLY_LEVELS.has(level) && sub.contentType !== 'word') continue;
           for (const packId of sub.packIds) {
             if (usedPacks.has(packId)) continue;
             const pack = packById.get(packId);
             if (!pack) continue;
+            // Nhãn subtopic không đáng tin (ruột trộn phrase/idiom) → lọc ở mức TỪNG TỪ:
+            // A0-A2 chỉ nhận pack có ≥80% từ đơn (100% quá gắt — hầu hết pack dính vài cụm).
+            if (WORD_ONLY_LEVELS.has(level)) {
+              const singleWords = pack.words.filter((w) => (w.contentType ?? 'word') === 'word' && !w.word.includes(' ')).length;
+              if (singleWords / pack.words.length < 0.7) continue;
+            }
             usedPacks.add(packId);
             result.push(pack);
             if (result.length >= count) return result;
@@ -135,19 +144,33 @@ function main(): void {
       pronSlot.set(s, id);
     });
 
+    // Phân bổ pack đều các unit: pool thiếu → mỗi unit tối thiểu 1 pack (unit đầu ưu tiên nhận pack dư)
+    const perUnitCounts: number[] = [];
+    {
+      const base = Math.floor(packs.length / unitCount);
+      const extra = packs.length % unitCount;
+      for (let i = 0; i < unitCount; i++) perUnitCounts.push(Math.min(PACKS_PER_UNIT, base + (i < extra ? 1 : 0)));
+    }
+    const packOffsets: number[] = [];
+    perUnitCounts.reduce((acc, n, i) => { packOffsets[i] = acc; return acc + n; }, 0);
+
     const units: RoadmapUnit[] = grammarSlugs.map((slug, i) => {
       const grammar = grammarBySlug.get(slug)!;
       const unitId = `u-${level.toLowerCase()}-${i + 1}`;
-      const unitPacks = packs.slice(i * PACKS_PER_UNIT, (i + 1) * PACKS_PER_UNIT);
+      const unitPacks = packs.slice(packOffsets[i], packOffsets[i] + perUnitCounts[i]);
 
       const steps: RoadmapStep[] = [
-        ...unitPacks.map<RoadmapStep>((p) => ({
-          id: `sv-${p.id}`,
-          type: 'vocab',
-          ref: p.id,
-          title: p.title,
-          wordCount: p.wordCount,
-        })),
+        ...unitPacks.map<RoadmapStep>((p) => {
+          // Title pack gốc chỉ là "Chặng N" — gắn tên chủ đề subtopic cho có nghĩa
+          const subTitle = subById.get(p.subtopicId)?.title ?? '';
+          return {
+            id: `sv-${p.id}`,
+            type: 'vocab',
+            ref: p.id,
+            title: subTitle ? `${subTitle} · ${p.title}` : p.title,
+            wordCount: p.wordCount,
+          };
+        }),
         { id: `sg-${slug}`, type: 'grammar', ref: slug, title: grammar.title_vi },
       ];
       const pronId = pronSlot.get(i);

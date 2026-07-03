@@ -70,9 +70,10 @@ export const PRONUNCIATION_LEVEL_MAP: Record<RoadmapLevelId, string[]> = {
  * từ các route này theo thứ tự, lọc published). Chi tiết subtopic cụ thể chọn trong generate.ts.
  */
 export const VOCAB_ROUTE_PRIORITY: Record<RoadmapLevelId, string[]> = {
-  A0: ['doi-song'],
-  A1: ['doi-song', 'du-lich', 'hoc-tap'],
-  A2: ['du-lich', 'suc-khoe', 'hoc-tap', 'thpt-lop-10'],
+  // Route pool rộng cho A0-A1 vì generator lọc gắt pack ≥80% từ đơn (doi-song nhiều cụm/idiom)
+  A0: ['doi-song', 'du-lich', 'hoc-tap'],
+  A1: ['doi-song', 'du-lich', 'hoc-tap', 'suc-khoe', 'thpt-lop-10'],
+  A2: ['du-lich', 'suc-khoe', 'hoc-tap', 'thpt-lop-10', 'doi-song', 'cong-nghe'],
   B1: ['di-lam', 'cong-nghe', 'suc-khoe', 'thpt-lop-11', 'doi-song'],
   B2: ['hoc-thuat', 'thpt-lop-12', 'ielts', 'toeic', 'di-lam'],
 };
