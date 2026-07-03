@@ -152,7 +152,9 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     // ── Path V3: packId ──
     if (typeof body.packId === 'string' && body.packId) {
-      if (body.catalogVersion !== CATALOG_VERSION) {
+      // packId là ID ổn định không phụ thuộc version — chỉ chặn khi caller GỬI version mà lệch
+      // (bảo vệ tab /library cũ chưa reload); caller không gửi (vd /journey) thì tin packId.
+      if (body.catalogVersion !== undefined && body.catalogVersion !== CATALOG_VERSION) {
         return NextResponse.json({ success: false, error: 'Danh mục đã được cập nhật. Hãy tải lại trang trước khi bắt đầu học.' }, { status: 409 });
       }
       const pack = resolvePack(body.packId);
