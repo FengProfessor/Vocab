@@ -10,6 +10,7 @@ import {
   Brain, ChevronLeft, Upload, FileText, Camera, Loader2,
   CheckCircle2, XCircle, SkipForward, Trash2, Plus, BookMarked, ArrowRight
 } from 'lucide-react';
+import { StudentShell } from '@/components/student/StudentShell';
 
 type Tab = 'text' | 'file' | 'ocr' | 'csv';
 type WordStatus = 'pending' | 'saving' | 'saved' | 'duplicate' | 'error';
@@ -541,9 +542,10 @@ export default function ImportPage() {
   );
 
   return (
-    <div className="min-h-dvh bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/20 font-sans">
+    <StudentShell title="Nhập danh sách riêng" contentClassName="p-0">
+      <div className="min-h-[calc(100dvh-62px)] bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/20 font-sans">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b px-4 sm:px-6 h-16 flex items-center gap-4">
+      <header className="sticky top-[62px] z-10 flex h-16 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur sm:px-6">
         <Link href="/student">
           <button className="flex items-center gap-2 text-muted-foreground hover:text-indigo-600 font-bold text-sm transition-colors">
             <ChevronLeft className="h-5 w-5" /> Trang học
@@ -850,6 +852,7 @@ export default function ImportPage() {
         )}
 
       </div>
-    </div>
+      </div>
+    </StudentShell>
   );
 }

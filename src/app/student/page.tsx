@@ -529,7 +529,7 @@ export default function StudentDashboard() {
     { href: '/dictionary', label: 'Tra từ điển', icon: Search, color: '#06b6d4', tile: '#defafd' },
     { href: '/import', label: 'Nhập danh sách riêng', icon: Plus, color: '#64748b', tile: '#eef1f5' },
     ...(hasClass ? [
-      { href: '/student/stats', label: 'Thống kê', icon: BarChart3, color: '#3b82f6', tile: '#e7f0ff' },
+      { href: '/student/profile#stats', label: 'Thống kê', icon: BarChart3, color: '#3b82f6', tile: '#e7f0ff' },
       { href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard', label: 'Bảng xếp hạng', icon: Trophy, color: '#f59e0b', tile: '#fff3df' },
     ] as NavItem[] : []),
     { href: '/student/profile', label: 'Hồ sơ', icon: User, color: '#64748b', tile: '#eef1f5' },

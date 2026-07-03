@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { SpeechRecorder } from "@/components/speaking/SpeechRecorder";
 import { toast } from "sonner";
+import { StudentShell } from "@/components/student/StudentShell";
 
 interface Message {
   role: "user" | "model";
@@ -147,15 +148,16 @@ export default function StudentSpeakingPage() {
 
   if (isLoading) {
     return (
-      <main className="min-h-dvh flex items-center justify-center bg-slate-900">
+      <main className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-slate-900">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </main>
     );
   }
 
   return (
-    <main className="min-h-dvh bg-slate-900 text-slate-100 font-sans flex flex-col">
-      <header className="sticky top-0 z-30 h-14 border-b border-slate-800 bg-slate-900/90 backdrop-blur flex items-center justify-between px-4 sm:px-6">
+    <StudentShell title="AI Speaking Tutor" contentClassName="p-0">
+      <main className="min-h-[calc(100dvh-62px)] bg-slate-900 text-slate-100 font-sans flex flex-col">
+      <header className="sticky top-[62px] z-30 flex h-14 items-center justify-between border-b border-slate-800 bg-slate-900/90 px-4 backdrop-blur sm:px-6">
         <div className="flex items-center gap-3">
           <Link
             href="/student"
@@ -315,6 +317,7 @@ export default function StudentSpeakingPage() {
           </div>
         </div>
       </div>
-    </main>
+      </main>
+    </StudentShell>
   );
 }

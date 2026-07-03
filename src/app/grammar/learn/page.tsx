@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
 import Link from 'next/link';
+import { StudentShell } from '@/components/student/StudentShell';
 import ReactMarkdown from 'react-markdown';
 import { supabase } from '@/lib/supabase';
 import type { GrammarTopic, GrammarLesson, GrammarProgress } from '@/lib/supabase';
@@ -599,7 +600,7 @@ function GrammarLearnContent() {
 
   return (
     <main className="min-h-dvh bg-muted/40 font-sans">
-      <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 flex items-center justify-between px-4 sm:px-6">
+      <header className="sticky top-[62px] z-30 flex h-14 items-center justify-between border-b bg-background/80 px-4 backdrop-blur sm:px-6">
         <Link
           href="/student"
           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -802,12 +803,14 @@ function GrammarLearnContent() {
 
 export default function GrammarLearnPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-dvh flex items-center justify-center">
-        <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
-      </div>
-    }>
-      <GrammarLearnContent />
-    </Suspense>
+    <StudentShell title="Grammar" contentClassName="p-0">
+      <Suspense fallback={
+        <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center">
+          <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
+        </div>
+      }>
+        <GrammarLearnContent />
+      </Suspense>
+    </StudentShell>
   );
 }

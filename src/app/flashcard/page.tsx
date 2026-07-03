@@ -14,6 +14,7 @@ import { XP_BY_QUALITY } from '@/lib/gamification';
 import { Celebration } from '@/components/gamification/Celebration';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { DailyGoalRing } from '@/components/gamification/DailyGoalRing';
+import { StudentShell } from '@/components/student/StudentShell';
 import { LearnMode } from './LearnMode';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, parseIpa, canAutoFocus } from '@/lib/study';
@@ -384,7 +385,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   return (
     <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
       <StudyGuideModal open={showGuide} onClose={closeGuide} />
-      <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10 gap-3">
+      <header className="sticky top-[62px] z-10 flex items-center justify-between gap-3 bg-white/50 p-4 backdrop-blur-md sm:p-6">
         <Link href="/student">
           <Button variant="ghost" size="sm" className="gap-2 text-slate-500 hover:text-primary font-bold rounded-xl transition-colors">
             <ChevronLeft className="h-5 w-5" /> <span className="hidden sm:inline">Dashboard</span>
@@ -742,12 +743,14 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
 export default function FlashcardPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-dvh flex items-center justify-center bg-slate-50">
-        <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
-      </div>
-    }>
-      <FlashcardContent />
-    </Suspense>
+    <StudentShell title="Flashcards" contentClassName="p-0">
+      <Suspense fallback={
+        <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-slate-50">
+          <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
+        </div>
+      }>
+        <FlashcardContent />
+      </Suspense>
+    </StudentShell>
   );
 }

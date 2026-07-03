@@ -11,6 +11,7 @@ import {
   ChevronLeft, Search, Loader2, Volume2, BookOpen, X, CheckCircle2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { StudentShell } from '@/components/student/StudentShell';
 
 const HISTORY_KEY = 'lingo_dict_history';
 const MAX_HISTORY = 20;
@@ -407,9 +408,10 @@ export default function DictionaryPage() {
   const displayWord = result?.queriedWord ?? query;
 
   return (
-    <div className="min-h-screen bg-background">
+    <StudentShell title="Tra từ điển" contentClassName="p-0">
+      <div className="min-h-[calc(100dvh-62px)] bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b px-4 py-3 flex items-center gap-3">
+      <header className="sticky top-[62px] z-30 flex items-center gap-3 border-b bg-background/80 px-4 py-3 backdrop-blur">
         <Link href="/student" className="p-2 rounded-full hover:bg-muted transition-colors">
           <ChevronLeft className="h-5 w-5" />
         </Link>
@@ -718,6 +720,7 @@ export default function DictionaryPage() {
           </div>
         )}
       </div>
-    </div>
+      </div>
+    </StudentShell>
   );
 }

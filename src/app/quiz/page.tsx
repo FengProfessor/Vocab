@@ -11,6 +11,7 @@ import { Brain, ChevronLeft, CheckCircle2, XCircle, Loader2, RotateCcw, Lightbul
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { XP_PER_CORRECT_QUIZ } from '@/lib/gamification';
+import { StudentShell } from '@/components/student/StudentShell';
 
 // Quiz mode: 'meaning_to_word' = thấy nghĩa → chọn từ tiếng Anh
 //            'word_to_meaning' = thấy từ tiếng Anh → chọn nghĩa tiếng Việt
@@ -324,7 +325,7 @@ function QuizContent() {
   return (
     <div className="min-h-dvh flex flex-col bg-slate-900 font-sans text-white overflow-hidden">
       {/* Header */}
-      <header className="flex items-center justify-between p-4 sm:p-6 bg-slate-900/80 backdrop-blur-md sticky top-0 z-10 border-b border-slate-800">
+      <header className="sticky top-[62px] z-10 flex items-center justify-between border-b border-slate-800 bg-slate-900/80 p-4 backdrop-blur-md sm:p-6">
         <Link href="/student">
           <Button variant="ghost" size="sm" className="gap-2 text-slate-400 hover:text-violet-400 font-bold rounded-xl transition-colors">
             <ChevronLeft className="h-5 w-5" /> Quit
@@ -480,12 +481,14 @@ function QuizContent() {
 
 export default function QuizPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-dvh flex items-center justify-center bg-slate-900">
-        <Loader2 className="h-10 w-10 animate-spin text-violet-400" />
-      </div>
-    }>
-      <QuizContent />
-    </Suspense>
+    <StudentShell title="Mini Quiz" contentClassName="p-0">
+      <Suspense fallback={
+        <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-slate-900">
+          <Loader2 className="h-10 w-10 animate-spin text-violet-400" />
+        </div>
+      }>
+        <QuizContent />
+      </Suspense>
+    </StudentShell>
   );
 }

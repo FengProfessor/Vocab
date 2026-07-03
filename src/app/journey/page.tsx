@@ -17,6 +17,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Celebration } from '@/components/gamification/Celebration';
 import { ArrowLeft, BookOpen, CheckCircle2, Flag, GraduationCap, Headphones, Lock, Sparkles, Star } from 'lucide-react';
 import Link from 'next/link';
+import { StudentShell } from '@/components/student/StudentShell';
 
 interface PlacementQuestionView { id: string; level: string; kind: string; prompt: string; options: string[] }
 
@@ -252,7 +253,8 @@ export default function JourneyPage() {
 
   // ── Path map ──
   return (
-    <div className="mx-auto max-w-2xl p-4 pb-24 space-y-8">
+    <StudentShell title="Lộ trình">
+      <div className="mx-auto max-w-2xl p-4 pb-24 space-y-8">
       <Celebration trigger={Boolean(celebrate)} triggerKey={celebrate ?? undefined} intensity={celebrate === 'level' ? 'epic' : 'light'} />
       <div className="flex items-center justify-between">
         <div>
@@ -321,6 +323,7 @@ export default function JourneyPage() {
           </div>
         </details>
       )}
-    </div>
+      </div>
+    </StudentShell>
   );
 }

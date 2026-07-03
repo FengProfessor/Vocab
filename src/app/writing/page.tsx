@@ -11,6 +11,7 @@ import { ChevronLeft, Loader2, RotateCcw, Pencil, ArrowRight } from 'lucide-reac
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { levenshtein, verdictToQuality, parseIpa, canAutoFocus, speak, type Verdict } from '@/lib/study';
+import { StudentShell } from '@/components/student/StudentShell';
 
 interface WordItem {
   id: string;
@@ -318,7 +319,7 @@ function WritingContent() {
 
   return (
     <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
-      <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10 gap-3">
+      <header className="sticky top-[62px] z-10 flex items-center justify-between gap-3 bg-white/50 p-4 backdrop-blur-md sm:p-6">
         <Link href="/student">
           <Button
             variant="ghost"
@@ -444,14 +445,16 @@ function WritingContent() {
 
 export default function WritingPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-dvh flex items-center justify-center bg-slate-50">
-          <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
-        </div>
-      }
-    >
-      <WritingContent />
-    </Suspense>
+    <StudentShell title="Writing Practice" contentClassName="p-0">
+      <Suspense
+        fallback={
+          <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-slate-50">
+            <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
+          </div>
+        }
+      >
+        <WritingContent />
+      </Suspense>
+    </StudentShell>
   );
 }
