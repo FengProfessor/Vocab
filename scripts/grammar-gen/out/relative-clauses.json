@@ -8,28 +8,34 @@
     "definition": "Relative Clauses dùng **mệnh đề quan hệ** để bổ sung thông tin cho danh từ mà không phải mở câu mới. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
     "usage": [
       {
-        "icon": "🎯",
-        "label": "Diễn đạt ý chính",
+        "icon": "👩",
+        "label": "WHO — bổ nghĩa cho danh từ chỉ người",
         "en": "The woman who called is my aunt.",
-        "vi": "Người phụ nữ đã gọi là dì tôi."
+        "vi": "Người phụ nữ đã gọi điện là dì của tôi."
       },
       {
-        "icon": "🧭",
-        "label": "Dùng trong giao tiếp",
+        "icon": "📕",
+        "label": "THAT / WHICH — bổ nghĩa cho danh từ chỉ vật",
         "en": "This is the book that I mentioned.",
-        "vi": "Đây là cuốn sách tôi đã nhắc."
+        "vi": "Đây là cuốn sách mà tôi đã nhắc đến."
       },
       {
-        "icon": "💬",
-        "label": "Dùng ở dạng biến đổi",
+        "icon": "☕",
+        "label": "WHERE — bổ nghĩa cho danh từ chỉ nơi chốn",
         "en": "The café where we met has closed.",
-        "vi": "Quán cà phê nơi chúng ta gặp đã đóng cửa."
+        "vi": "Quán cà phê nơi chúng ta gặp nhau đã đóng cửa."
       },
       {
-        "icon": "📝",
-        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "icon": "🧑‍🎓",
+        "label": "WHOSE — chỉ sự sở hữu",
         "en": "Students whose work is late must email me.",
-        "vi": "Học sinh nộp bài muộn phải gửi email cho tôi."
+        "vi": "Những học sinh nộp bài muộn phải email cho tôi."
+      },
+      {
+        "icon": "✂️",
+        "label": "Lược bỏ đại từ quan hệ khi nó làm tân ngữ",
+        "en": "The film (that) we watched was great.",
+        "vi": "Bộ phim (mà) chúng tôi xem rất hay."
       }
     ],
     "formula": {

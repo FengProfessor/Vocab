@@ -8,28 +8,34 @@
     "definition": "**Câu hỏi đuôi** là các cụm từ ngắn được thêm vào cuối câu khẳng định hoặc phủ định để xác nhận thông tin, bày tỏ sự ngạc nhiên hoặc mời người nghe đồng tình. Cấu trúc phổ biến là câu khẳng định đi với đuôi phủ định và ngược lại.",
     "usage": [
       {
-        "icon": "🎯",
-        "label": "Diễn đạt ý chính",
-        "en": "You're coming, aren't you?",
-        "vi": "Bạn sẽ đến, phải không?"
+        "icon": "✅",
+        "label": "Câu khẳng định + đuôi phủ định",
+        "en": "You're coming to the party, aren't you?",
+        "vi": "Bạn sẽ đến bữa tiệc, đúng không?"
       },
       {
-        "icon": "🧭",
-        "label": "Dùng trong giao tiếp",
+        "icon": "❌",
+        "label": "Câu phủ định + đuôi khẳng định",
         "en": "She doesn't drive, does she?",
-        "vi": "Cô ấy không lái xe, đúng không?"
+        "vi": "Cô ấy không lái xe, phải không?"
       },
       {
-        "icon": "💬",
-        "label": "Dùng ở dạng biến đổi",
+        "icon": "🔁",
+        "label": "Đuôi lặp lại đúng trợ động từ và thì của mệnh đề chính",
         "en": "They left early, didn't they?",
-        "vi": "Họ đã rời đi sớm, phải không?"
+        "vi": "Họ về sớm, đúng không nhỉ?"
       },
       {
-        "icon": "📝",
-        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "icon": "🤝",
+        "label": "Trường hợp đặc biệt: Let's... đuôi là shall we?",
         "en": "Let's start, shall we?",
         "vi": "Chúng ta bắt đầu nhé?"
+      },
+      {
+        "icon": "🗣️",
+        "label": "Xuống giọng = xác nhận; lên giọng = hỏi thật",
+        "en": "It's cold today, isn't it?",
+        "vi": "Hôm nay trời lạnh nhỉ?"
       }
     ],
     "formula": {

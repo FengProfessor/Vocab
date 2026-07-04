@@ -8,28 +8,34 @@
     "definition": "**Thì Quá khứ đơn** (Past Simple) là thì dùng để diễn tả những hành động **đã xảy ra và kết thúc** trong quá khứ. Đây là một trong những thì cơ bản nhất trong tiếng Anh, thường được sử dụng để kể lại những sự kiện đã xảy ra trước đây.",
     "usage": [
       {
-        "icon": "🕰️",
-        "label": "Sự kiện đã xảy ra và kết thúc",
+        "icon": "🕐",
+        "label": "Hành động đã xảy ra và kết thúc tại thời điểm xác định trong quá khứ",
         "en": "I went to the store yesterday.",
-        "vi": "Tôi đã đi đến cửa hàng vào ngày hôm qua."
+        "vi": "Hôm qua tôi đã đi đến cửa hàng."
       },
       {
-        "icon": "📚",
-        "label": "Trình độ học vấn",
-        "en": "She studied English at university.",
-        "vi": "Cô ấy đã học tiếng Anh tại trường đại học."
+        "icon": "📖",
+        "label": "Chuỗi hành động nối tiếp nhau trong quá khứ (kể chuyện)",
+        "en": "She woke up, brushed her teeth, and left for work.",
+        "vi": "Cô ấy thức dậy, đánh răng rồi đi làm."
       },
       {
-        "icon": "🏆",
-        "label": "Thành tựu, giải thưởng",
-        "en": "He won the championship last year.",
-        "vi": "Anh ấy đã giành giải vô địch năm ngoái."
+        "icon": "🔁",
+        "label": "Thói quen hoặc trạng thái trong quá khứ (nay không còn)",
+        "en": "We played football every weekend when we were kids.",
+        "vi": "Hồi nhỏ, cuối tuần nào chúng tôi cũng chơi bóng đá."
       },
       {
-        "icon": "📝",
-        "label": "Trải nghiệm, kinh nghiệm",
-        "en": "They traveled to Europe in 2019.",
-        "vi": "Họ đã đi du lịch đến châu Âu vào năm 2019."
+        "icon": "⏳",
+        "label": "Sự việc kéo dài một khoảng thời gian trong quá khứ, nay đã chấm dứt",
+        "en": "He lived in Da Nang for five years before moving to Hanoi.",
+        "vi": "Anh ấy đã sống ở Đà Nẵng năm năm trước khi chuyển ra Hà Nội."
+      },
+      {
+        "icon": "📅",
+        "label": "Sự kiện lịch sử, mốc thời gian cụ thể trong quá khứ",
+        "en": "The company opened its first office in 2010.",
+        "vi": "Công ty mở văn phòng đầu tiên vào năm 2010."
       }
     ],
     "formula": {

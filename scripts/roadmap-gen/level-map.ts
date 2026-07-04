@@ -60,10 +60,42 @@ export const GRAMMAR_DB_LEVEL: Record<RoadmapLevelId, 'beginner' | 'intermediate
 export const PRONUNCIATION_LEVEL_MAP: Record<RoadmapLevelId, string[]> = {
   A0: ['word-stress-basics', 'final-stops-ptk', 'final-s-z'],
   A1: ['initial-p-b', 'vowel-i-long-short', 'final-l-n'],
-  A2: ['sentence-rhythm', 's-vs-sh', 'vowel-u-long-short', 'vowel-ae-e', 'final-n-ng', 'basic-intonation'],
-  B1: ['schwa', 'weak-forms', 'linking', 'v-f-final', 'th-voiceless', 'final-clusters-ed'],
+  // final-clusters-ed đặt vị trí #3 để slot rơi sát chặng past-simple (unit 4 A2) —
+  // dạy quá khứ phải dạy đọc -ed cùng lúc (teacher review 06, fix #2)
+  A2: ['sentence-rhythm', 's-vs-sh', 'final-clusters-ed', 'vowel-u-long-short', 'vowel-ae-e', 'final-n-ng', 'basic-intonation'],
+  B1: ['schwa', 'weak-forms', 'linking', 'v-f-final', 'th-voiceless'],
   B2: ['th-voiced', 'vowel-uh-ah', 'diphthongs', 'r-l-z', 'ch-j', 'vowel-aw-o'],
 };
+
+/**
+ * Rules lọc subtopic theo cấp (regex trên TITLE) — vá lỗi "gói lạc cấp" teacher review 06:
+ * A0 học "Higher Education", A1 dính 6 chặng thể thao, A2 "Gender Equality"...
+ * block ưu tiên hơn allow; không có allow = nhận mọi title không bị block.
+ */
+export const SUBTOPIC_LEVEL_RULES: Record<RoadmapLevelId, { allow?: RegExp; block?: RegExp }> = {
+  A0: {
+    allow: /family|friend|home|hous|food|drink|color|colour|number|greeting|animal|pet|body|cloth|time|day/i,
+    block: /education|cultural|diversity|university|sea games|system|academ/i,
+  },
+  A1: {
+    allow: /family|friend|home|hous|food|drink|cook|cloth|animal|pet|weather|hobb|music|time|day|school|daily|routine|body|health/i,
+    block: /sea games|gender|community|higher education|cultural|diversity|academ|water sports/i,
+  },
+  A2: {
+    block: /gender|better community|academ|undersea|space conquest|electronic|assessment|sea games|cultural|higher education|water sports/i,
+  },
+  B1: {
+    block: /idiom|sea games/i,
+  },
+  B2: {
+    // "Expression with X" = 22 subtopic thành ngữ vụn — chặn để idiom chỉ còn là gia vị,
+    // nhường chỗ cho kho học thuật IELTS (Education/Environment/Society/Law...)
+    block: /expression with/i,
+  },
+};
+
+/** Mỗi subtopic đóng góp tối đa N pack cho một cấp — chống độc canh 7 chặng cùng chủ đề. */
+export const MAX_PACKS_PER_SUBTOPIC = 4;
 
 /**
  * Vocab: catalog-v3 route ưu tiên theo cấp (dùng khi generate unit — chọn subtopic
@@ -75,5 +107,7 @@ export const VOCAB_ROUTE_PRIORITY: Record<RoadmapLevelId, string[]> = {
   A1: ['doi-song', 'du-lich', 'hoc-tap', 'suc-khoe', 'thpt-lop-10'],
   A2: ['du-lich', 'suc-khoe', 'hoc-tap', 'thpt-lop-10', 'doi-song', 'cong-nghe'],
   B1: ['di-lam', 'cong-nghe', 'suc-khoe', 'thpt-lop-11', 'doi-song'],
-  B2: ['hoc-thuat', 'thpt-lop-12', 'ielts', 'toeic', 'di-lam'],
+  // ielts đứng đầu: kho học thuật thật (Education/Environment/Science/Society/Law);
+  // hoc-thuat thực chất toàn idiom/phrasal — đẩy xuống cuối làm gia vị (teacher review 06)
+  B2: ['ielts', 'thpt-lop-12', 'toeic', 'hoc-thuat', 'di-lam'],
 };

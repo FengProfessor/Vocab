@@ -293,7 +293,7 @@
     },
     {
       "id": "final-clusters-ed",
-      "level": "B1",
+      "level": "A2",
       "title": "Cụm phụ âm cuối & đuôi -ed",
       "ipa": "-st -kt -ɪd",
       "whyHard": "Tiếng Việt CẤM cụm phụ âm ở mọi vị trí. Người Việt chèn \"ơ\" vào giữa (\"stop\" → \"sờ-top\") hoặc bỏ hẳn đuôi (-ed biến mất: \"liked\" → \"like\") — mất luôn thì quá khứ khi nói.",
@@ -352,7 +352,7 @@
       "exampleWords": ["pay", "like", "boat", "house", "five", "gate"],
       "drillType": "minimal-pair",
       "minimalPairs": [
-        { "a": "pay", "b": "pen", "note": "/eɪ/ trượt vs /e/ phẳng" },
+        { "a": "pain", "b": "pen", "note": "/eɪ/ trượt vs /e/ phẳng" },
         { "a": "gate", "b": "get", "note": "/eɪ/ vs /e/" },
         { "a": "like", "b": "lie", "note": "Giữ /k/ cuối vs mất" },
         { "a": "boat", "b": "boot", "note": "/oʊ/ vs /uː/" },
@@ -389,7 +389,7 @@
         { "a": "rich", "b": "ridge", "note": "/tʃ/ vs /dʒ/ cuối" },
         { "a": "cheer", "b": "jeer", "note": "/tʃ/ vs /dʒ/" },
         { "a": "choke", "b": "joke", "note": "/tʃ/ vs /dʒ/" },
-        { "a": "chain", "b": "train", "note": "/tʃ/ vs /tr/" },
+        { "a": "batch", "b": "badge", "note": "/tʃ/ vs /dʒ/ cuối" },
         { "a": "chin", "b": "gin", "note": "/tʃ/ vs /dʒ/" }
       ]
     },

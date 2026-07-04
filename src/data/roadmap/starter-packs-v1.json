@@ -1,0 +1,46 @@
+{
+  "version": "starter-v1",
+  "note": "Pack sinh tồn A0 — tạo tay theo docs/roadmap-research/03-vocab-level-map.md (A0: chào hỏi, số, màu, đồ vật lớp học, đồ dùng cá nhân) vì catalog-v3 không có pack nào đủ cơ bản (teacher review 06, fix #1). Import qua /api/import/packages với prefix starter-.",
+  "packs": [
+    {
+      "id": "starter-a0-greetings",
+      "title": "Chào hỏi & lịch sự",
+      "words": ["hello", "goodbye", "please", "sorry", "thanks", "yes", "no", "name", "morning", "night", "friend", "welcome"]
+    },
+    {
+      "id": "starter-a0-people",
+      "title": "Tôi & gia đình",
+      "words": ["mother", "father", "sister", "brother", "family", "baby", "man", "woman", "boy", "girl", "people", "love"]
+    },
+    {
+      "id": "starter-a0-numbers",
+      "title": "Số đếm & thời gian",
+      "words": ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "today", "tomorrow"]
+    },
+    {
+      "id": "starter-a0-colors",
+      "title": "Màu sắc",
+      "words": ["red", "blue", "green", "yellow", "black", "white", "orange", "pink", "brown", "purple", "color", "dark"]
+    },
+    {
+      "id": "starter-a0-classroom",
+      "title": "Đồ vật quanh ta",
+      "words": ["book", "pen", "pencil", "table", "chair", "bag", "phone", "key", "door", "window", "school", "house"]
+    },
+    {
+      "id": "starter-a0-food",
+      "title": "Đồ ăn thức uống cơ bản",
+      "words": ["water", "rice", "bread", "milk", "egg", "tea", "coffee", "fruit", "fish", "meat", "eat", "drink"]
+    },
+    {
+      "id": "starter-a0-body",
+      "title": "Cơ thể",
+      "words": ["head", "eye", "ear", "nose", "mouth", "hand", "foot", "hair", "face", "leg", "arm", "body"]
+    },
+    {
+      "id": "starter-a0-verbs",
+      "title": "Động từ sống còn",
+      "words": ["go", "come", "see", "have", "want", "like", "know", "make", "give", "take", "say", "help"]
+    }
+  ]
+}

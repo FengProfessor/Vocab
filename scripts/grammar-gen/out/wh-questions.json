@@ -8,28 +8,34 @@
     "definition": "**Câu hỏi Wh-** (Wh- questions) bắt đầu bằng các từ hỏi như 'who', 'what', 'where', 'when', 'why', 'which', 'whose' hoặc 'how' để yêu cầu thông tin cụ thể thay vì câu trả lời có/không. Trong câu hỏi Wh-, động từ trợ giúp thường được đảo lên trước chủ ngữ, trừ khi từ hỏi chính là chủ ngữ.",
     "usage": [
       {
-        "icon": "🎯",
-        "label": "Diễn đạt ý chính",
+        "icon": "📍",
+        "label": "Hỏi nơi chốn với Where",
         "en": "Where do you live?",
         "vi": "Bạn sống ở đâu?"
       },
       {
-        "icon": "🧭",
-        "label": "Dùng trong giao tiếp",
+        "icon": "🤔",
+        "label": "Hỏi lý do với Why",
         "en": "Why was she upset?",
         "vi": "Tại sao cô ấy buồn?"
       },
       {
-        "icon": "💬",
-        "label": "Dùng ở dạng biến đổi",
+        "icon": "🙋",
+        "label": "Hỏi chủ ngữ với Who (không cần trợ động từ)",
         "en": "Who called you last night?",
-        "vi": "Ai đã gọi bạn tối qua?"
+        "vi": "Ai đã gọi cho bạn tối qua?"
       },
       {
-        "icon": "📝",
-        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "icon": "💰",
+        "label": "Hỏi số lượng, giá cả với How much / How many",
         "en": "How much does it cost?",
-        "vi": "Nó giá bao nhiêu?"
+        "vi": "Cái này giá bao nhiêu?"
+      },
+      {
+        "icon": "⏰",
+        "label": "Hỏi thời gian với When",
+        "en": "When does the class start?",
+        "vi": "Khi nào lớp học bắt đầu?"
       }
     ],
     "formula": {

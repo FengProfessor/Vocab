@@ -8,28 +8,34 @@
     "definition": "**Lượng từ** như 'some', 'any', 'much' và 'many' là các từ hạn định giúp xác định số lượng của danh từ mà không cần con số cụ thể. Việc sử dụng chính xác các từ này phụ thuộc vào tính chất đếm được hay không đếm được của danh từ, cũng như loại câu (khẳng định, phủ định hay nghi vấn).",
     "usage": [
       {
-        "icon": "🎯",
-        "label": "Diễn đạt ý chính",
-        "en": "We have a few questions.",
-        "vi": "Chúng tôi có vài câu hỏi."
+        "icon": "➕",
+        "label": "SOME — câu khẳng định và lời mời",
+        "en": "She bought some apples. Would you like some tea?",
+        "vi": "Cô ấy mua vài quả táo. Bạn dùng chút trà nhé?"
       },
       {
-        "icon": "🧭",
-        "label": "Dùng trong giao tiếp",
-        "en": "There isn't much time.",
-        "vi": "Không còn nhiều thời gian."
-      },
-      {
-        "icon": "💬",
-        "label": "Dùng ở dạng biến đổi",
+        "icon": "❓",
+        "label": "ANY — câu phủ định và câu hỏi",
         "en": "Do you need any help?",
         "vi": "Bạn có cần giúp gì không?"
       },
       {
-        "icon": "📝",
-        "label": "Dùng trong ngữ cảnh tự nhiên",
-        "en": "She bought some apples.",
-        "vi": "Cô ấy mua vài quả táo."
+        "icon": "🥛",
+        "label": "MUCH — đi với danh từ không đếm được",
+        "en": "There isn't much time.",
+        "vi": "Không còn nhiều thời gian đâu."
+      },
+      {
+        "icon": "📚",
+        "label": "MANY — đi với danh từ đếm được số nhiều",
+        "en": "How many students are there?",
+        "vi": "Có bao nhiêu học sinh?"
+      },
+      {
+        "icon": "🤏",
+        "label": "A FEW / A LITTLE — số lượng nhỏ nhưng đủ dùng",
+        "en": "We have a few questions.",
+        "vi": "Chúng tôi có một vài câu hỏi."
       }
     ],
     "formula": {

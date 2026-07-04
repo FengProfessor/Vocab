@@ -21,7 +21,10 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { LEVELS, GRAMMAR_LEVEL_MAP, PRONUNCIATION_LEVEL_MAP, VOCAB_ROUTE_PRIORITY, type RoadmapLevelId } from './level-map';
+import {
+  LEVELS, GRAMMAR_LEVEL_MAP, PRONUNCIATION_LEVEL_MAP, VOCAB_ROUTE_PRIORITY,
+  SUBTOPIC_LEVEL_RULES, MAX_PACKS_PER_SUBTOPIC, type RoadmapLevelId,
+} from './level-map';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(DIR, '..', '..');
@@ -87,49 +90,105 @@ function main(): void {
     }
   }
 
-  /** Pool pack theo cấp: duyệt route ưu tiên → topic → subtopic published → pack, thứ tự artifact (deterministic). */
+  /**
+   * Pool pack theo cấp (deterministic). Vá theo teacher review 06:
+   * - Lọc subtopic theo SUBTOPIC_LEVEL_RULES (allow/block regex trên title) — chống lạc cấp.
+   * - Dedup subtopic trùng nội dung (title chuẩn hóa: "Jobs and Employment" ≈ "Job and Employment").
+   * - Cap MAX_PACKS_PER_SUBTOPIC pack/subtopic/cấp + ROUND-ROBIN xen kẽ subtopic — chống độc canh.
+   * - A0-A2 chỉ nhận pack ≥70% từ đơn; A0 dùng STARTER packs sinh tồn trước.
+   */
   const usedPacks = new Set<string>();
-  // A0-A2 chỉ học TỪ ĐƠN (concrete words) — idiom/phrasal verb để B1+ (docs/roadmap-research/03: A0-A2 bỏ collocation/idiom tránh quá tải)
+  const usedSubtopicKeys = new Set<string>();
   const WORD_ONLY_LEVELS = new Set<RoadmapLevelId>(['A0', 'A1', 'A2']);
+  // Key dedup = tập token đã bỏ stopword + số ít hóa, SORT — bắt "Employment - Jobs" ≈ "Jobs and Employment"
+  const normalizeTitle = (t: string) => t.toLowerCase()
+    .split(/[^a-z0-9à-ỹ]+/i)
+    .filter((tok) => tok && !['and', 'the', 'of', 'a', 'an'].includes(tok))
+    .map((tok) => tok.replace(/s$/, ''))
+    .sort()
+    .join('|');
+
   function packPool(level: RoadmapLevelId, count: number): RawPack[] {
-    const result: RawPack[] = [];
+    const rules = SUBTOPIC_LEVEL_RULES[level];
+    // Bước 1: gom pack hợp lệ THEO TỪNG TOPIC (nhóm chủ đề lớn — "Education" IELTS
+    // có 6 subtopic con, round-robin theo subtopic vẫn dồn 5 chặng Education liền)
+    const byGroup: RawPack[][] = [];
     for (const routeId of VOCAB_ROUTE_PRIORITY[level]) {
       const route = artifact.routes.find((r) => r.id === routeId);
       if (!route) continue;
       for (const topicId of route.topicIds) {
         const topic = topicById.get(topicId);
         if (!topic) continue;
+        const groupPacks: RawPack[] = [];
         for (const subId of topic.subtopicIds) {
           if (quality.subtopics[subId]?.publishStatus !== 'published') continue;
           const sub = subById.get(subId);
           if (!sub) continue;
           if (WORD_ONLY_LEVELS.has(level) && sub.contentType !== 'word') continue;
+          if (rules.block?.test(sub.title)) continue;
+          if (rules.allow && !rules.allow.test(sub.title)) continue;
+          const titleKey = normalizeTitle(sub.title);
+          if (usedSubtopicKeys.has(titleKey)) continue;
+
+          const subPacks: RawPack[] = [];
           for (const packId of sub.packIds) {
-            if (usedPacks.has(packId)) continue;
+            if (usedPacks.has(packId) || subPacks.length >= MAX_PACKS_PER_SUBTOPIC) continue;
             const pack = packById.get(packId);
             if (!pack) continue;
-            // Nhãn subtopic không đáng tin (ruột trộn phrase/idiom) → lọc ở mức TỪNG TỪ:
-            // A0-A2 chỉ nhận pack có ≥80% từ đơn (100% quá gắt — hầu hết pack dính vài cụm).
             if (WORD_ONLY_LEVELS.has(level)) {
               const singleWords = pack.words.filter((w) => (w.contentType ?? 'word') === 'word' && !w.word.includes(' ')).length;
               if (singleWords / pack.words.length < 0.7) continue;
             }
-            usedPacks.add(packId);
-            result.push(pack);
-            if (result.length >= count) return result;
+            subPacks.push(pack);
+          }
+          if (subPacks.length > 0) {
+            groupPacks.push(...subPacks);
+            usedSubtopicKeys.add(titleKey);
           }
         }
+        if (groupPacks.length > 0) byGroup.push(groupPacks);
       }
     }
-    return result; // có thể ít hơn count nếu cạn pool — generator báo warning bên dưới
+    // Bước 2: round-robin — mỗi vòng lấy tối đa 2 pack/NHÓM chủ đề rồi chuyển nhóm kế
+    const result: RawPack[] = [];
+    let round = 0;
+    while (result.length < count) {
+      let took = 0;
+      for (const subPacks of byGroup) {
+        for (let k = 0; k < 2 && result.length < count; k++) {
+          const pack = subPacks[round * 2 + k];
+          if (!pack || usedPacks.has(pack.id)) continue;
+          usedPacks.add(pack.id);
+          result.push(pack);
+          took++;
+        }
+        if (result.length >= count) break;
+      }
+      if (took === 0) break; // cạn pool
+      round++;
+    }
+    return result;
   }
+
+  // Starter packs sinh tồn A0 (tạo tay — catalog không có pack đủ cơ bản)
+  const starter = loadJson<{ packs: { id: string; title: string; words: string[] }[] }>(
+    path.join(ROOT, 'src', 'data', 'roadmap', 'starter-packs-v1.json'),
+  );
+  const starterAsRaw: RawPack[] = starter.packs.map((p, i) => ({
+    id: p.id, subtopicId: '', index: i, title: p.title, wordCount: p.words.length,
+    words: p.words.map((w) => ({ word: w, contentType: 'word' })),
+  }));
 
   const levels: RoadmapLevel[] = LEVELS.map((levelDef) => {
     const level = levelDef.id;
     const grammarSlugs = GRAMMAR_LEVEL_MAP[level];
     const pronIds = PRONUNCIATION_LEVEL_MAP[level];
     const unitCount = grammarSlugs.length;
-    const packs = packPool(level, unitCount * PACKS_PER_UNIT);
+    // A0: ưu tiên starter packs sinh tồn trước, thiếu mới lấy từ catalog
+    const need = unitCount * PACKS_PER_UNIT;
+    const packs = level === 'A0'
+      ? [...starterAsRaw.slice(0, need), ...packPool(level, Math.max(0, need - starterAsRaw.length))]
+      : packPool(level, need);
     if (packs.length < unitCount * PACKS_PER_UNIT) {
       console.warn(`[RoadmapGen] ⚠ ${level}: chỉ gom được ${packs.length}/${unitCount * PACKS_PER_UNIT} pack`);
     }

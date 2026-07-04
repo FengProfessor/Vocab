@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { CATALOG_VERSION, MICRO_PACK_SIZE, getCatalogTree, resolvePack } from '@/lib/vocab-catalog';
+import { getStarterPack } from '@/lib/roadmap';
 import pro3mData from '@/data/vocab/pro3m.json';
 import pro3mPlusData from '@/data/vocab/pro3m-plus.json';
 
@@ -149,6 +150,18 @@ export async function POST(req: Request): Promise<NextResponse> {
     const userId = auth.userId;
     const body = (await req.json()) as { packId?: string; catalogVersion?: string; package?: string; lessonName?: string; packIndex?: number };
     const supabase = createServiceClient();
+
+    // ── Starter pack A0 (pack sinh tồn ngoài catalog, roadmap tạo tay) ──
+    if (typeof body.packId === 'string' && body.packId.startsWith('starter-')) {
+      const starterPack = getStarterPack(body.packId);
+      if (!starterPack) return NextResponse.json({ success: false, error: 'Gói từ không tồn tại.' }, { status: 404 });
+      const result = await importPack(supabase, {
+        userId, packId: starterPack.id, words: starterPack.words, topicId: 'starter-a0',
+        topicTitle: starterPack.title, packIndex: 0, catalogVersion: 'starter-v1',
+      });
+      if (result.error) return NextResponse.json({ success: false, error: result.error.message }, { status: result.error.status });
+      return NextResponse.json({ success: true, ...result.ok, message: result.ok!.imported > 0 ? `Đã thêm ${result.ok!.imported} từ. Bắt đầu học ngay khi trí nhớ còn mới!` : 'Đã mở lại chặng học này.' });
+    }
 
     // ── Path V3: packId ──
     if (typeof body.packId === 'string' && body.packId) {

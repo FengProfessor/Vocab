@@ -8,28 +8,28 @@
     "definition": "**Discourse Markers** là các từ hoặc cụm từ định hướng dùng để tổ chức và cấu trúc hóa giao tiếp, giúp người nghe hoặc người đọc nhận diện sự chuyển hướng chủ đề hoặc thái độ của người nói. Chúng đóng vai trò như các **tín hiệu chỉ dẫn (signposts)**, giúp việc điều phối thông tin trong cả văn viết lẫn văn nói trở nên tự nhiên và thuyết phục hơn.",
     "usage": [
       {
-        "icon": "🎯",
-        "label": "Diễn đạt ý chính",
+        "icon": "1️⃣",
+        "label": "Mở đầu, sắp xếp trình tự ý (first of all, next, finally)",
         "en": "First of all, we need a clear goal.",
-        "vi": "Trước hết, chúng ta cần mục tiêu rõ ràng."
+        "vi": "Trước hết, chúng ta cần một mục tiêu rõ ràng."
       },
       {
-        "icon": "🧭",
-        "label": "Dùng trong giao tiếp",
-        "en": "However, the plan is expensive.",
-        "vi": "Tuy nhiên, kế hoạch tốn kém."
+        "icon": "⚖️",
+        "label": "Chuyển ý tương phản (however, on the other hand)",
+        "en": "However, the plan is too expensive.",
+        "vi": "Tuy nhiên, kế hoạch này quá tốn kém."
       },
       {
-        "icon": "💬",
-        "label": "Dùng ở dạng biến đổi",
+        "icon": "🔁",
+        "label": "Diễn đạt lại cho rõ (in other words, that is to say)",
         "en": "In other words, we need more time.",
         "vi": "Nói cách khác, chúng ta cần thêm thời gian."
       },
       {
-        "icon": "📝",
-        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "icon": "💬",
+        "label": "Đổi chủ đề trong hội thoại (by the way, anyway)",
         "en": "By the way, have you called Mai?",
-        "vi": "Nhân tiện, bạn đã gọi Mai chưa?"
+        "vi": "Nhân tiện, bạn đã gọi cho Mai chưa?"
       }
     ],
     "formula": {

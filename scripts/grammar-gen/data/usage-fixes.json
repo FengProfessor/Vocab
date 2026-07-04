@@ -1,0 +1,417 @@
+{
+  "adjectives-basic": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🎨", "label": "Đứng trước danh từ để miêu tả", "en": "She bought a beautiful dress.", "vi": "Cô ấy đã mua một chiếc váy đẹp." },
+      { "icon": "🔗", "label": "Đứng sau động từ nối (be, look, smell...)", "en": "The soup smells delicious.", "vi": "Món súp có mùi thơm ngon quá." },
+      { "icon": "😊", "label": "Miêu tả cảm xúc, trạng thái của người", "en": "I am tired after the long trip.", "vi": "Tôi mệt sau chuyến đi dài." },
+      { "icon": "🔍", "label": "Đứng sau đại từ bất định (something, anything...)", "en": "We need something cheaper.", "vi": "Chúng ta cần thứ gì đó rẻ hơn." }
+    ]
+  },
+  "there-is-there-are": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "📍", "label": "Giới thiệu sự tồn tại của một vật (số ít)", "en": "There is a pharmacy near my house.", "vi": "Có một hiệu thuốc gần nhà tôi." },
+      { "icon": "👥", "label": "Giới thiệu nhiều vật, nhiều người (số nhiều)", "en": "There are two messages for you.", "vi": "Có hai tin nhắn cho bạn." },
+      { "icon": "🚫", "label": "Phủ định sự tồn tại với not any / no", "en": "There isn't any milk left.", "vi": "Không còn chút sữa nào cả." },
+      { "icon": "❓", "label": "Hỏi xem có tồn tại hay không (đảo Is/Are lên trước)", "en": "Are there enough chairs for everyone?", "vi": "Có đủ ghế cho mọi người không?" }
+    ]
+  },
+  "wh-questions": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "📍", "label": "Hỏi nơi chốn với Where", "en": "Where do you live?", "vi": "Bạn sống ở đâu?" },
+      { "icon": "🤔", "label": "Hỏi lý do với Why", "en": "Why was she upset?", "vi": "Tại sao cô ấy buồn?" },
+      { "icon": "🙋", "label": "Hỏi chủ ngữ với Who (không cần trợ động từ)", "en": "Who called you last night?", "vi": "Ai đã gọi cho bạn tối qua?" },
+      { "icon": "💰", "label": "Hỏi số lượng, giá cả với How much / How many", "en": "How much does it cost?", "vi": "Cái này giá bao nhiêu?" },
+      { "icon": "⏰", "label": "Hỏi thời gian với When", "en": "When does the class start?", "vi": "Khi nào lớp học bắt đầu?" }
+    ]
+  },
+  "adverbs-frequency": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🔁", "label": "Đứng trước động từ thường", "en": "I usually walk to work.", "vi": "Tôi thường đi bộ đến chỗ làm." },
+      { "icon": "🧲", "label": "Đứng sau động từ to be", "en": "She is always helpful.", "vi": "Cô ấy lúc nào cũng nhiệt tình giúp đỡ." },
+      { "icon": "📉", "label": "Diễn tả tần suất thấp (rarely, seldom, never)", "en": "We rarely eat out.", "vi": "Chúng tôi hiếm khi ăn ngoài." },
+      { "icon": "❓", "label": "Dùng often/usually trong câu hỏi về thói quen", "en": "Do you often call your parents?", "vi": "Bạn có hay gọi điện cho bố mẹ không?" }
+    ]
+  },
+  "prepositions-place": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "📦", "label": "IN — bên trong một không gian kín", "en": "The keys are in my bag.", "vi": "Chìa khóa ở trong túi của tôi." },
+      { "icon": "🪑", "label": "ON — trên bề mặt", "en": "Your phone is on the desk.", "vi": "Điện thoại của bạn ở trên bàn." },
+      { "icon": "📌", "label": "AT — tại một điểm cụ thể", "en": "Meet me at the entrance.", "vi": "Gặp tôi ở lối vào nhé." },
+      { "icon": "🧭", "label": "Chỉ vị trí tương đối (opposite, next to, between)", "en": "The bank is opposite the post office.", "vi": "Ngân hàng nằm đối diện bưu điện." }
+    ]
+  },
+  "modals-ability": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "💪", "label": "CAN — khả năng ở hiện tại", "en": "Mai can speak Japanese.", "vi": "Mai có thể nói tiếng Nhật." },
+      { "icon": "⏪", "label": "COULD — khả năng chung trong quá khứ", "en": "I couldn't swim when I was five.", "vi": "Hồi năm tuổi tôi chưa biết bơi." },
+      { "icon": "👂", "label": "CAN với động từ tri giác (see, hear, smell)", "en": "Can you hear me?", "vi": "Bạn có nghe thấy tôi nói không?" },
+      { "icon": "🏆", "label": "WAS/WERE ABLE TO — làm được việc cụ thể một lần trong quá khứ", "en": "She was able to solve the problem.", "vi": "Cô ấy đã giải được bài toán đó." }
+    ]
+  },
+  "quantifiers": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "➕", "label": "SOME — câu khẳng định và lời mời", "en": "She bought some apples. Would you like some tea?", "vi": "Cô ấy mua vài quả táo. Bạn dùng chút trà nhé?" },
+      { "icon": "❓", "label": "ANY — câu phủ định và câu hỏi", "en": "Do you need any help?", "vi": "Bạn có cần giúp gì không?" },
+      { "icon": "🥛", "label": "MUCH — đi với danh từ không đếm được", "en": "There isn't much time.", "vi": "Không còn nhiều thời gian đâu." },
+      { "icon": "📚", "label": "MANY — đi với danh từ đếm được số nhiều", "en": "How many students are there?", "vi": "Có bao nhiêu học sinh?" },
+      { "icon": "🤏", "label": "A FEW / A LITTLE — số lượng nhỏ nhưng đủ dùng", "en": "We have a few questions.", "vi": "Chúng tôi có một vài câu hỏi." }
+    ]
+  },
+  "comparatives-superlatives": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "⚖️", "label": "So sánh hơn giữa hai đối tượng (-er + than)", "en": "This room is brighter than mine.", "vi": "Phòng này sáng hơn phòng của tôi." },
+      { "icon": "🥇", "label": "So sánh nhất trong một nhóm (the + -est)", "en": "Lan is the tallest student in the class.", "vi": "Lan là học sinh cao nhất lớp." },
+      { "icon": "📏", "label": "Tính từ dài: more + tính từ + than", "en": "The train is more comfortable than the bus.", "vi": "Đi tàu thoải mái hơn đi xe buýt." },
+      { "icon": "👑", "label": "Tính từ dài: the most + tính từ", "en": "That was the most useful lesson.", "vi": "Đó là bài học hữu ích nhất." },
+      { "icon": "🤝", "label": "So sánh bằng với as ... as", "en": "This bag is as expensive as that one.", "vi": "Chiếc túi này đắt ngang chiếc kia." }
+    ]
+  },
+  "modals-permission": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🎩", "label": "MAY — xin phép trang trọng, lịch sự", "en": "May I come in?", "vi": "Tôi vào được không ạ?" },
+      { "icon": "🙏", "label": "COULD YOU — nhờ vả lịch sự", "en": "Could you open the window, please?", "vi": "Bạn mở giúp cửa sổ được không?" },
+      { "icon": "😊", "label": "CAN — xin phép thân mật, suồng sã", "en": "Can I borrow your pen?", "vi": "Cho mình mượn bút nhé?" },
+      { "icon": "💼", "label": "WOULD YOU — yêu cầu rất lịch sự, trang trọng", "en": "Would you wait here for a moment?", "vi": "Phiền anh/chị đợi ở đây một lát được không?" }
+    ]
+  },
+  "modals-obligation": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🪖", "label": "MUST — bắt buộc do người nói tự đặt ra", "en": "You must wear a helmet.", "vi": "Bạn phải đội mũ bảo hiểm." },
+      { "icon": "🏢", "label": "HAVE TO — bắt buộc do quy định, hoàn cảnh bên ngoài", "en": "I have to submit this report today.", "vi": "Hôm nay tôi phải nộp báo cáo này." },
+      { "icon": "⛔", "label": "MUSTN'T — cấm, không được phép làm", "en": "Visitors mustn't touch the paintings.", "vi": "Khách tham quan không được chạm vào tranh." },
+      { "icon": "🆓", "label": "DON'T HAVE TO — không cần thiết phải làm", "en": "You don't have to come early.", "vi": "Bạn không cần phải đến sớm đâu." }
+    ]
+  },
+  "modals-advice": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "💡", "label": "SHOULD — khuyên nên làm điều gì", "en": "You should get more sleep.", "vi": "Bạn nên ngủ nhiều hơn." },
+      { "icon": "📜", "label": "OUGHT TO — lời khuyên mang tính đạo lý, đúng đắn", "en": "We ought to apologize to her.", "vi": "Chúng ta nên xin lỗi cô ấy mới phải." },
+      { "icon": "❓", "label": "SHOULD I...? — hỏi xin lời khuyên", "en": "Should I call her now?", "vi": "Tôi có nên gọi cho cô ấy bây giờ không?" },
+      { "icon": "🚭", "label": "SHOULDN'T — khuyên không nên làm", "en": "You shouldn't skip breakfast.", "vi": "Bạn không nên bỏ bữa sáng." }
+    ]
+  },
+  "conditionals-0-1": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🧊", "label": "Loại 0 — chân lý, quy luật tự nhiên luôn đúng", "en": "If you heat ice, it melts.", "vi": "Nếu bạn đun nóng đá, nó sẽ tan chảy." },
+      { "icon": "🌱", "label": "Loại 0 — kết quả tất yếu lặp đi lặp lại", "en": "Plants die if they don't get water.", "vi": "Cây sẽ chết nếu không được tưới nước." },
+      { "icon": "🌧️", "label": "Loại 1 — điều kiện có thật ở tương lai", "en": "If it rains, we'll stay home.", "vi": "Nếu trời mưa, chúng tôi sẽ ở nhà." },
+      { "icon": "🤝", "label": "Loại 1 — lời hứa, đề nghị kèm điều kiện", "en": "I'll call you if I arrive early.", "vi": "Tôi sẽ gọi cho bạn nếu tôi đến sớm." }
+    ]
+  },
+  "present-perfect-continuous": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "⏳", "label": "Hành động kéo dài từ quá khứ đến nay, nhấn mạnh quá trình", "en": "I have been studying for three hours.", "vi": "Tôi đã học suốt ba tiếng đồng hồ rồi." },
+      { "icon": "👀", "label": "Giải thích dấu vết, kết quả nhìn thấy ở hiện tại", "en": "She has been crying; her eyes are red.", "vi": "Cô ấy vừa khóc xong; mắt cô ấy đỏ hoe." },
+      { "icon": "😴", "label": "Tình trạng tạm thời gần đây (với lately, recently)", "en": "We haven't been sleeping well lately.", "vi": "Dạo này chúng tôi ngủ không ngon." },
+      { "icon": "❓", "label": "Hỏi khoảng thời gian với How long", "en": "How long have you been waiting?", "vi": "Bạn đã đợi bao lâu rồi?" }
+    ]
+  },
+  "past-perfect": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🚆", "label": "Hành động xảy ra TRƯỚC một hành động khác trong quá khứ", "en": "The train had left before we arrived.", "vi": "Tàu đã rời ga trước khi chúng tôi đến." },
+      { "icon": "🛫", "label": "Trải nghiệm tính đến một mốc trong quá khứ (never... before)", "en": "She had never flown before that trip.", "vi": "Trước chuyến đi đó, cô ấy chưa từng đi máy bay." },
+      { "icon": "❓", "label": "Hỏi xem việc đã xong chưa tại mốc quá khứ", "en": "Had you finished when he called?", "vi": "Lúc anh ấy gọi thì bạn đã làm xong chưa?" },
+      { "icon": "🧩", "label": "Giải thích nguyên nhân của sự việc quá khứ", "en": "I was hungry because I hadn't eaten anything.", "vi": "Tôi đói vì trước đó tôi chưa ăn gì cả." }
+    ]
+  },
+  "used-to": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🏠", "label": "USED TO + V — thói quen, tình trạng quá khứ nay không còn", "en": "I used to live in Hue.", "vi": "Tôi từng sống ở Huế (giờ không còn nữa)." },
+      { "icon": "☕", "label": "DIDN'T USE TO — phủ định thói quen quá khứ", "en": "She didn't use to drink coffee.", "vi": "Hồi trước cô ấy không uống cà phê." },
+      { "icon": "🌡️", "label": "BE USED TO + V-ing — đã quen với điều gì", "en": "Are you used to the heat in Saigon?", "vi": "Bạn đã quen với cái nóng ở Sài Gòn chưa?" },
+      { "icon": "🌙", "label": "GET USED TO + V-ing — dần dần quen với điều gì", "en": "I'm getting used to working late.", "vi": "Tôi đang dần quen với việc làm việc muộn." }
+    ]
+  },
+  "future-continuous": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "✈️", "label": "Hành động đang diễn ra tại một thời điểm xác định ở tương lai", "en": "This time tomorrow, I will be flying to Seoul.", "vi": "Giờ này ngày mai, tôi sẽ đang bay đến Seoul." },
+      { "icon": "📅", "label": "Việc sẽ diễn ra như một phần của lịch trình bình thường", "en": "She will be working at nine as usual.", "vi": "Chín giờ cô ấy sẽ đang làm việc như thường lệ." },
+      { "icon": "🚗", "label": "Hỏi lịch sự về kế hoạch của người khác", "en": "Will you be using the car tonight?", "vi": "Tối nay bạn có dùng xe không?" },
+      { "icon": "⏱️", "label": "Phủ định — việc sẽ không đang diễn ra", "en": "They won't be staying long.", "vi": "Họ sẽ không ở lại lâu đâu." }
+    ]
+  },
+  "conjunctions-linking": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🧩", "label": "Chỉ nguyên nhân với because / since", "en": "I stayed home because I was ill.", "vi": "Tôi ở nhà vì tôi bị ốm." },
+      { "icon": "🔄", "label": "Chỉ sự tương phản với although / but", "en": "Although it was late, we continued.", "vi": "Mặc dù đã muộn, chúng tôi vẫn tiếp tục." },
+      { "icon": "🎯", "label": "Chỉ kết quả với so / therefore", "en": "She studied hard; therefore, she passed.", "vi": "Cô ấy học chăm chỉ; vì vậy cô ấy đã đỗ." },
+      { "icon": "🔀", "label": "Nêu lựa chọn với or, bổ sung với and", "en": "You can call or send a message.", "vi": "Bạn có thể gọi điện hoặc nhắn tin." }
+    ]
+  },
+  "gerunds-infinitives": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "📖", "label": "V-ing sau động từ chỉ sở thích (enjoy, love, hate)", "en": "I enjoy reading before bed.", "vi": "Tôi thích đọc sách trước khi ngủ." },
+      { "icon": "🎯", "label": "To + V sau động từ chỉ quyết định, mong muốn (decide, want, hope)", "en": "She decided to leave early.", "vi": "Cô ấy quyết định về sớm." },
+      { "icon": "🔗", "label": "V-ing sau giới từ", "en": "Thank you for helping me.", "vi": "Cảm ơn bạn đã giúp tôi." },
+      { "icon": "⚠️", "label": "Động từ đổi nghĩa tùy theo V-ing hay to V (stop, remember, try)", "en": "He stopped smoking. / He stopped to smoke.", "vi": "Anh ấy bỏ thuốc lá. / Anh ấy dừng lại để hút thuốc." },
+      { "icon": "🏁", "label": "V-ing làm chủ ngữ của câu", "en": "Swimming is good for your health.", "vi": "Bơi lội tốt cho sức khỏe của bạn." }
+    ]
+  },
+  "passive-voice": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🌉", "label": "Nhấn mạnh đối tượng chịu tác động, không phải người làm", "en": "The bridge was built in 2010.", "vi": "Cây cầu được xây vào năm 2010." },
+      { "icon": "🌍", "label": "Khi người thực hiện không quan trọng hoặc ai cũng biết", "en": "English is spoken worldwide.", "vi": "Tiếng Anh được sử dụng trên toàn thế giới." },
+      { "icon": "📦", "label": "Bị động với thì tương lai (will be + V3)", "en": "The package will be delivered tomorrow.", "vi": "Gói hàng sẽ được giao vào ngày mai." },
+      { "icon": "🚧", "label": "Bị động tiếp diễn (is being + V3) — việc đang được thực hiện", "en": "The road is being repaired.", "vi": "Con đường đang được sửa chữa." },
+      { "icon": "👤", "label": "Thêm BY khi cần nêu rõ người thực hiện", "en": "This novel was written by a Vietnamese author.", "vi": "Cuốn tiểu thuyết này do một tác giả người Việt viết." }
+    ]
+  },
+  "reported-speech": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "💬", "label": "Tường thuật câu kể — lùi thì, đổi ngôi", "en": "\"I am tired.\" → She said that she was tired.", "vi": "\"Tôi mệt.\" → Cô ấy nói rằng cô ấy mệt." },
+      { "icon": "📢", "label": "Tường thuật mệnh lệnh với told + O + to V", "en": "He told me to wait outside.", "vi": "Anh ấy bảo tôi đợi ở ngoài." },
+      { "icon": "❓", "label": "Tường thuật câu hỏi Yes/No với whether / if", "en": "Lan asked whether I was free.", "vi": "Lan hỏi liệu tôi có rảnh không." },
+      { "icon": "⏪", "label": "Lùi quá khứ đơn thành quá khứ hoàn thành", "en": "\"We finished.\" → They said they had finished.", "vi": "\"Bọn tôi xong rồi.\" → Họ nói họ đã hoàn thành rồi." }
+    ]
+  },
+  "relative-clauses": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "👩", "label": "WHO — bổ nghĩa cho danh từ chỉ người", "en": "The woman who called is my aunt.", "vi": "Người phụ nữ đã gọi điện là dì của tôi." },
+      { "icon": "📕", "label": "THAT / WHICH — bổ nghĩa cho danh từ chỉ vật", "en": "This is the book that I mentioned.", "vi": "Đây là cuốn sách mà tôi đã nhắc đến." },
+      { "icon": "☕", "label": "WHERE — bổ nghĩa cho danh từ chỉ nơi chốn", "en": "The café where we met has closed.", "vi": "Quán cà phê nơi chúng ta gặp nhau đã đóng cửa." },
+      { "icon": "🧑‍🎓", "label": "WHOSE — chỉ sự sở hữu", "en": "Students whose work is late must email me.", "vi": "Những học sinh nộp bài muộn phải email cho tôi." },
+      { "icon": "✂️", "label": "Lược bỏ đại từ quan hệ khi nó làm tân ngữ", "en": "The film (that) we watched was great.", "vi": "Bộ phim (mà) chúng tôi xem rất hay." }
+    ]
+  },
+  "second-conditional": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🌈", "label": "Giả định trái với hiện tại — điều không có thật bây giờ", "en": "If I had more time, I would learn Korean.", "vi": "Nếu tôi có nhiều thời gian hơn, tôi sẽ học tiếng Hàn." },
+      { "icon": "💭", "label": "Mơ ước, tưởng tượng điều khó xảy ra", "en": "She would travel more if she were rich.", "vi": "Cô ấy sẽ đi du lịch nhiều hơn nếu cô ấy giàu." },
+      { "icon": "❓", "label": "Hỏi giả định 'nếu... thì bạn sẽ làm gì?'", "en": "What would you do if you lost your phone?", "vi": "Bạn sẽ làm gì nếu bạn làm mất điện thoại?" },
+      { "icon": "🧑‍🏫", "label": "Khuyên nhủ với If I were you", "en": "If I were you, I would accept the offer.", "vi": "Nếu tôi là bạn, tôi sẽ nhận lời đề nghị đó." }
+    ]
+  },
+  "third-conditional": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🚉", "label": "Giả định trái với quá khứ — việc đã không xảy ra", "en": "If I had left earlier, I would have caught the train.", "vi": "Nếu tôi rời đi sớm hơn, tôi đã bắt kịp chuyến tàu." },
+      { "icon": "😞", "label": "Bày tỏ tiếc nuối, trách móc về quá khứ", "en": "She would have passed if she had studied.", "vi": "Cô ấy đã đỗ rồi nếu cô ấy chịu học." },
+      { "icon": "🎩", "label": "Đảo ngữ trang trọng: Had + S + V3 (bỏ if)", "en": "Had we known, we would have helped.", "vi": "Nếu chúng tôi biết thì chúng tôi đã giúp rồi." },
+      { "icon": "🎲", "label": "Kết quả không chắc chắn với might/could have", "en": "If they hadn't called, I might have forgotten.", "vi": "Nếu họ không gọi, có lẽ tôi đã quên mất." }
+    ]
+  },
+  "modals-deduction": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🕵️", "label": "MUST — suy đoán gần như chắc chắn đúng", "en": "She must be at work; her car is gone.", "vi": "Chắc chắn cô ấy đang ở chỗ làm; xe cô ấy không còn ở đây." },
+      { "icon": "🤷", "label": "MIGHT / MAY — suy đoán có thể đúng, chưa chắc", "en": "He might know the answer.", "vi": "Có thể anh ấy biết câu trả lời." },
+      { "icon": "🙅", "label": "CAN'T — suy đoán chắc chắn KHÔNG thể đúng", "en": "That can't be true. He was with me all day.", "vi": "Điều đó không thể đúng được. Anh ấy ở với tôi cả ngày mà." },
+      { "icon": "🌦️", "label": "COULD — nêu một khả năng trong nhiều khả năng", "en": "The keys could be in the drawer.", "vi": "Chìa khóa có thể nằm trong ngăn kéo." }
+    ]
+  },
+  "question-tags": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "✅", "label": "Câu khẳng định + đuôi phủ định", "en": "You're coming to the party, aren't you?", "vi": "Bạn sẽ đến bữa tiệc, đúng không?" },
+      { "icon": "❌", "label": "Câu phủ định + đuôi khẳng định", "en": "She doesn't drive, does she?", "vi": "Cô ấy không lái xe, phải không?" },
+      { "icon": "🔁", "label": "Đuôi lặp lại đúng trợ động từ và thì của mệnh đề chính", "en": "They left early, didn't they?", "vi": "Họ về sớm, đúng không nhỉ?" },
+      { "icon": "🤝", "label": "Trường hợp đặc biệt: Let's... đuôi là shall we?", "en": "Let's start, shall we?", "vi": "Chúng ta bắt đầu nhé?" },
+      { "icon": "🗣️", "label": "Xuống giọng = xác nhận; lên giọng = hỏi thật", "en": "It's cold today, isn't it?", "vi": "Hôm nay trời lạnh nhỉ?" }
+    ]
+  },
+  "phrasal-verbs": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "💡", "label": "Cụm tách được — tân ngữ chen giữa động từ và tiểu từ", "en": "Please turn off the lights. / Turn them off.", "vi": "Làm ơn tắt đèn. / Tắt chúng đi." },
+      { "icon": "🤝", "label": "Cụm không tách được — tân ngữ luôn đứng sau", "en": "I ran into an old friend yesterday.", "vi": "Hôm qua tôi tình cờ gặp một người bạn cũ." },
+      { "icon": "👶", "label": "Nghĩa của cụm khác hẳn nghĩa động từ gốc", "en": "She looked after the children all day.", "vi": "Cô ấy chăm sóc bọn trẻ cả ngày." },
+      { "icon": "🚀", "label": "Cụm động từ không cần tân ngữ", "en": "Don't give up! Keep going.", "vi": "Đừng bỏ cuộc! Cứ tiếp tục đi." }
+    ]
+  },
+  "past-perfect-continuous": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🚌", "label": "Hành động kéo dài liên tục TRƯỚC một mốc quá khứ", "en": "I had been waiting for an hour when the bus came.", "vi": "Tôi đã đợi suốt một tiếng thì xe buýt mới đến." },
+      { "icon": "😩", "label": "Giải thích nguyên nhân của trạng thái trong quá khứ", "en": "She was tired because she had been working all night.", "vi": "Cô ấy mệt vì đã làm việc suốt đêm." },
+      { "icon": "🏠", "label": "Phủ định — quá trình chưa kéo dài lâu tính đến mốc quá khứ", "en": "They hadn't been living there long when the flood hit.", "vi": "Họ chưa sống ở đó được bao lâu thì lũ ập đến." },
+      { "icon": "🌧️", "label": "Hỏi về quá trình diễn ra trước mốc quá khứ", "en": "Had it been raining before you arrived?", "vi": "Trước khi bạn đến trời có mưa không?" }
+    ]
+  },
+  "future-perfect": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "📄", "label": "Việc sẽ hoàn tất TRƯỚC một mốc tương lai (thường với by)", "en": "By Friday, I will have finished the report.", "vi": "Trước thứ Sáu, tôi sẽ hoàn thành xong báo cáo." },
+      { "icon": "🕛", "label": "Việc kết thúc trước một sự kiện tương lai khác", "en": "She will have left before you arrive.", "vi": "Cô ấy sẽ đi khỏi trước khi bạn đến." },
+      { "icon": "❓", "label": "Hỏi xem việc đã xong chưa tính đến mốc tương lai", "en": "Will they have arrived by then?", "vi": "Đến lúc đó liệu họ đã tới nơi chưa?" },
+      { "icon": "💰", "label": "Phủ định — việc chưa kịp hoàn thành trước mốc", "en": "We won't have saved enough by June.", "vi": "Đến tháng Sáu chúng tôi vẫn chưa tiết kiệm đủ đâu." }
+    ]
+  },
+  "future-in-the-past": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🔮", "label": "WOULD — điều tương lai nhìn từ một thời điểm quá khứ", "en": "I knew she would succeed.", "vi": "Tôi đã biết cô ấy rồi sẽ thành công." },
+      { "icon": "🌧️", "label": "WAS/WERE GOING TO — dự định quá khứ (thường không thành)", "en": "They were going to leave, but it started raining.", "vi": "Họ đã định rời đi, nhưng trời bắt đầu mưa." },
+      { "icon": "📞", "label": "WAS ABOUT TO — sắp sửa làm gì thì bị gián đoạn", "en": "He was about to speak when the phone rang.", "vi": "Anh ấy vừa định nói thì điện thoại reo." },
+      { "icon": "🤙", "label": "WOULD trong lời hứa, lời nói được thuật lại", "en": "She promised she would call me back.", "vi": "Cô ấy hứa sẽ gọi lại cho tôi." }
+    ]
+  },
+  "mixed-conditionals": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "😪", "label": "Điều kiện quá khứ → kết quả hiện tại (had V3 → would V)", "en": "If I had slept earlier, I wouldn't be tired now.", "vi": "Nếu tối qua tôi ngủ sớm thì bây giờ tôi đã không mệt." },
+      { "icon": "🗂️", "label": "Điều kiện hiện tại → kết quả quá khứ (were → would have V3)", "en": "If she were more organized, she wouldn't have missed the deadline.", "vi": "Nếu cô ấy ngăn nắp hơn thì đã không lỡ hạn chót." },
+      { "icon": "🗺️", "label": "Đảo ngữ trang trọng với Had + S + V3", "en": "Had we taken the map, we would know where we are.", "vi": "Nếu chúng ta mang bản đồ thì giờ đã biết mình đang ở đâu." },
+      { "icon": "✈️", "label": "Tính cách/trạng thái hiện tại giải thích quyết định quá khứ", "en": "If he weren't afraid of flying, he would have joined us.", "vi": "Nếu anh ấy không sợ đi máy bay thì anh ấy đã đi cùng chúng tôi rồi." }
+    ]
+  },
+  "wish-if-only": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "💭", "label": "WISH + quá khứ đơn — ước trái với hiện tại", "en": "I wish I knew the answer.", "vi": "Ước gì tôi biết câu trả lời." },
+      { "icon": "🌧️", "label": "IF ONLY — như wish nhưng cảm xúc mạnh hơn", "en": "If only it weren't raining.", "vi": "Giá mà trời đừng mưa." },
+      { "icon": "⏪", "label": "WISH + quá khứ hoàn thành — tiếc nuối chuyện đã qua", "en": "She wishes she had studied harder.", "vi": "Cô ấy ước gì hồi đó mình học chăm hơn." },
+      { "icon": "🙉", "label": "WISH + would — phàn nàn, muốn người khác thay đổi", "en": "I wish you would stop shouting.", "vi": "Tôi mong bạn thôi la hét đi." }
+    ]
+  },
+  "modals-perfect": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "☎️", "label": "SHOULD HAVE V3 — trách móc việc lẽ ra nên làm", "en": "You should have called me.", "vi": "Lẽ ra bạn nên gọi cho tôi chứ." },
+      { "icon": "🧠", "label": "MUST HAVE V3 — suy đoán chắc chắn về quá khứ", "en": "She must have forgotten our meeting.", "vi": "Chắc chắn cô ấy đã quên cuộc hẹn của chúng ta." },
+      { "icon": "🚌", "label": "MIGHT HAVE V3 — suy đoán không chắc về quá khứ", "en": "They might have taken the wrong bus.", "vi": "Có lẽ họ đã lên nhầm xe buýt." },
+      { "icon": "🙅", "label": "CAN'T HAVE V3 — chắc chắn việc đó KHÔNG xảy ra", "en": "He can't have finished already.", "vi": "Không thể nào anh ấy đã làm xong rồi được." },
+      { "icon": "🍀", "label": "COULD HAVE V3 — việc đã có thể xảy ra nhưng không", "en": "You could have been hurt!", "vi": "Bạn đã có thể bị thương đấy!" }
+    ]
+  },
+  "causative": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "💇", "label": "HAVE + vật + V3 — nhờ dịch vụ làm cho mình", "en": "I had my hair cut yesterday.", "vi": "Hôm qua tôi đi cắt tóc." },
+      { "icon": "🏠", "label": "GET + vật + V3 — thuê/nhờ làm (thân mật hơn have)", "en": "We are getting the roof repaired.", "vi": "Chúng tôi đang cho sửa lại mái nhà." },
+      { "icon": "🖨️", "label": "HAVE + người + V nguyên thể — sai bảo ai làm gì", "en": "She had the assistant print the report.", "vi": "Cô ấy bảo trợ lý in báo cáo." },
+      { "icon": "🤝", "label": "GET + người + TO V — thuyết phục, nhờ ai làm gì", "en": "He got his brother to help with the move.", "vi": "Anh ấy nhờ được em trai giúp chuyển nhà." },
+      { "icon": "😖", "label": "HAVE/GET + vật + V3 chỉ sự cố ngoài ý muốn", "en": "She had her phone stolen on the bus.", "vi": "Cô ấy bị móc mất điện thoại trên xe buýt." }
+    ]
+  },
+  "advanced-passive": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🖼️", "label": "Bị động vô nhân xưng: It is believed/said that...", "en": "It is believed that the painting is genuine.", "vi": "Người ta tin rằng bức tranh này là thật." },
+      { "icon": "📰", "label": "S + be said/expected + to V — bị động với động từ tường thuật", "en": "The company is expected to announce job cuts.", "vi": "Công ty được dự đoán sẽ công bố cắt giảm nhân sự." },
+      { "icon": "🛫", "label": "Bị động với to have V3 — thuật lại việc đã xảy ra", "en": "He is said to have left the country.", "vi": "Nghe nói anh ta đã rời khỏi đất nước." },
+      { "icon": "🎁", "label": "Bị động với động từ hai tân ngữ (give, offer, send)", "en": "She was given a second chance.", "vi": "Cô ấy được trao cho cơ hội thứ hai." }
+    ]
+  },
+  "advanced-relative-clauses": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🎩", "label": "Giới từ + whom/which trong văn phong trang trọng", "en": "The person to whom I spoke was very helpful.", "vi": "Người mà tôi đã trao đổi rất nhiệt tình." },
+      { "icon": "👨‍👩‍👦", "label": "Lượng từ + of whom/which (all, some, most...)", "en": "She has three sons, all of whom are doctors.", "vi": "Bà ấy có ba người con trai, tất cả đều là bác sĩ." },
+      { "icon": "💬", "label": "WHICH bổ nghĩa cho cả mệnh đề đứng trước", "en": "The meeting was cancelled, which surprised us.", "vi": "Cuộc họp bị hủy, điều đó khiến chúng tôi ngạc nhiên." },
+      { "icon": "✂️", "label": "Rút gọn mệnh đề quan hệ bằng phân từ", "en": "The man standing by the door is my uncle.", "vi": "Người đàn ông đứng cạnh cửa là chú tôi." }
+    ]
+  },
+  "participle-clauses": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🚶", "label": "V-ing thay mệnh đề chủ động cùng chủ ngữ", "en": "Walking home, I saw an accident.", "vi": "Trên đường đi bộ về nhà, tôi thấy một vụ tai nạn." },
+      { "icon": "🏚️", "label": "V3 thay mệnh đề bị động", "en": "Built in 1890, the house needs major repairs.", "vi": "Được xây từ năm 1890, ngôi nhà cần sửa chữa lớn." },
+      { "icon": "✅", "label": "HAVING + V3 — hành động xảy ra trước hành động chính", "en": "Having finished the report, she went home.", "vi": "Sau khi hoàn thành báo cáo, cô ấy về nhà." },
+      { "icon": "🤐", "label": "NOT + phân từ — dạng phủ định", "en": "Not knowing the answer, I stayed silent.", "vi": "Vì không biết câu trả lời, tôi im lặng." }
+    ]
+  },
+  "ellipsis-substitution": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "♟️", "label": "Lược động từ sau trợ động từ (too, so, neither)", "en": "I can play chess, and Lan can too.", "vi": "Tôi biết chơi cờ, và Lan cũng biết." },
+      { "icon": "🖊️", "label": "ONE / ONES thay thế danh từ đã nhắc", "en": "I need a pen. Do you have one?", "vi": "Tôi cần một cây bút. Bạn có cây nào không?" },
+      { "icon": "💭", "label": "SO / NOT thay cả mệnh đề sau think, hope, believe", "en": "Will it rain? — I think so.", "vi": "Trời sẽ mưa à? — Tôi nghĩ vậy." },
+      { "icon": "☕", "label": "Lược động từ lặp trong cấu trúc song song", "en": "Some chose tea; others, coffee.", "vi": "Một số người chọn trà; số khác chọn cà phê." }
+    ]
+  },
+  "subjunctive": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🩺", "label": "Sau động từ yêu cầu/đề nghị (suggest, insist, demand) + that + V nguyên thể", "en": "The doctor suggested that he rest for a week.", "vi": "Bác sĩ đề nghị anh ấy nghỉ ngơi một tuần." },
+      { "icon": "📋", "label": "Sau tính từ quan trọng/cần thiết (essential, important) + that", "en": "It is essential that every member be present.", "vi": "Điều thiết yếu là mọi thành viên đều phải có mặt." },
+      { "icon": "🙇", "label": "V nguyên thể giữ nguyên với mọi chủ ngữ, kể cả ngôi ba số ít", "en": "They insisted that she apologize immediately.", "vi": "Họ nhất quyết yêu cầu cô ấy xin lỗi ngay lập tức." },
+      { "icon": "🧙", "label": "WERE cho mọi ngôi trong giả định trái hiện thực", "en": "If I were you, I would wait.", "vi": "Nếu tôi là bạn, tôi sẽ đợi." }
+    ]
+  },
+  "emphasis-structures": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "💪", "label": "Trợ động từ DO/DOES nhấn mạnh động từ ở hiện tại", "en": "I do understand your concern.", "vi": "Tôi thật sự hiểu mối lo của bạn." },
+      { "icon": "📞", "label": "DID nhấn mạnh động từ ở quá khứ", "en": "She did call you yesterday.", "vi": "Cô ấy thật sự đã gọi cho bạn hôm qua mà." },
+      { "icon": "😢", "label": "SO + tính từ/trạng từ + that — nhấn mạnh mức độ dẫn đến kết quả", "en": "The film was so moving that I cried.", "vi": "Bộ phim cảm động đến mức tôi đã khóc." },
+      { "icon": "📝", "label": "SUCH + (a/an) + danh từ + that — nhấn mạnh cụm danh từ", "en": "It was such a difficult test that many students failed.", "vi": "Bài kiểm tra khó đến nỗi nhiều học sinh trượt." }
+    ]
+  },
+  "cleft-sentences": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🎯", "label": "IT WAS + chủ ngữ + WHO — nhấn mạnh người thực hiện", "en": "It was Lan who solved the problem.", "vi": "Chính Lan là người đã giải quyết vấn đề." },
+      { "icon": "🧘", "label": "IT IS + tân ngữ + THAT — nhấn mạnh đối tượng", "en": "It is patience that you need most.", "vi": "Chính sự kiên nhẫn mới là thứ bạn cần nhất." },
+      { "icon": "🌴", "label": "WHAT + mệnh đề + IS — nhấn mạnh bằng mệnh đề danh ngữ", "en": "What I want is a quiet weekend.", "vi": "Điều tôi muốn là một cuối tuần yên tĩnh." },
+      { "icon": "✨", "label": "WHAT... WAS nhấn mạnh điều gây ấn tượng, cảm xúc", "en": "What surprised me was his honesty.", "vi": "Điều làm tôi ngạc nhiên chính là sự trung thực của anh ấy." }
+    ]
+  },
+  "inversion": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🏔️", "label": "Nhấn mạnh trang trọng khi mở đầu bằng trạng ngữ phủ định (Never, Rarely)", "en": "Never have I seen such a beautiful view.", "vi": "Chưa bao giờ tôi thấy cảnh đẹp đến vậy." },
+      { "icon": "🤐", "label": "Đảo trợ động từ lên trước chủ ngữ như câu hỏi", "en": "Rarely does he complain about anything.", "vi": "Hiếm khi nào anh ấy phàn nàn về điều gì." },
+      { "icon": "💡", "label": "Đảo ngữ sau Only then / Only when / Only after", "en": "Only then did I understand the truth.", "vi": "Chỉ đến lúc đó tôi mới hiểu ra sự thật." },
+      { "icon": "🎁", "label": "NOT ONLY... BUT ALSO với đảo ngữ ở vế đầu", "en": "Not only did she apologize, but she also paid for the damage.", "vi": "Cô ấy không những xin lỗi mà còn bồi thường thiệt hại." },
+      { "icon": "🚪", "label": "Đảo ngữ với Hardly... when / No sooner... than", "en": "Hardly had I sat down when the phone rang.", "vi": "Tôi vừa mới ngồi xuống thì điện thoại reo." }
+    ]
+  },
+  "discourse-markers": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "1️⃣", "label": "Mở đầu, sắp xếp trình tự ý (first of all, next, finally)", "en": "First of all, we need a clear goal.", "vi": "Trước hết, chúng ta cần một mục tiêu rõ ràng." },
+      { "icon": "⚖️", "label": "Chuyển ý tương phản (however, on the other hand)", "en": "However, the plan is too expensive.", "vi": "Tuy nhiên, kế hoạch này quá tốn kém." },
+      { "icon": "🔁", "label": "Diễn đạt lại cho rõ (in other words, that is to say)", "en": "In other words, we need more time.", "vi": "Nói cách khác, chúng ta cần thêm thời gian." },
+      { "icon": "💬", "label": "Đổi chủ đề trong hội thoại (by the way, anyway)", "en": "By the way, have you called Mai?", "vi": "Nhân tiện, bạn đã gọi cho Mai chưa?" }
+    ]
+  },
+  "nominalisation": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🏛️", "label": "Biến động từ thành danh từ để văn phong trang trọng hơn", "en": "They decided to postpone. → Their decision to postpone...", "vi": "Họ quyết định hoãn. → Quyết định hoãn của họ..." },
+      { "icon": "🔗", "label": "Danh từ hóa để nối ý giữa hai câu mạch lạc", "en": "The committee's decision led to a long delay.", "vi": "Quyết định của ủy ban dẫn đến sự trì hoãn kéo dài." },
+      { "icon": "📈", "label": "Biến tính từ, động từ thành danh từ trừu tượng (expand → expansion)", "en": "The rapid expansion of the city caused concern.", "vi": "Sự mở rộng nhanh chóng của thành phố gây lo ngại." },
+      { "icon": "📊", "label": "Cấu trúc There + be + danh từ hóa trong văn học thuật", "en": "There was a significant improvement in sales.", "vi": "Đã có sự cải thiện đáng kể về doanh số." }
+    ]
+  },
+  "hedging-language": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🌫️", "label": "Động từ khuyết thiếu giảm mức khẳng định (may, might, could)", "en": "This may indicate a broader problem.", "vi": "Điều này có thể cho thấy một vấn đề rộng hơn." },
+      { "icon": "🔬", "label": "Động từ rào đón (appear, seem, suggest) thay khẳng định trực tiếp", "en": "The results appear to support the theory.", "vi": "Các kết quả dường như ủng hộ lý thuyết này." },
+      { "icon": "📊", "label": "Cấu trúc vô nhân xưng It is likely/possible that...", "en": "It is likely that prices will rise.", "vi": "Nhiều khả năng giá cả sẽ tăng." },
+      { "icon": "🧪", "label": "Trạng từ và động từ giảm nhẹ (tend to, generally, relatively)", "en": "Some participants tended to respond slowly.", "vi": "Một số người tham gia có xu hướng phản hồi chậm." }
+    ]
+  },
+  "grammatical-collocations": {
+    "problems": ["boilerplate"],
+    "usage": [
+      { "icon": "🎨", "label": "Tính từ + giới từ cố định (interested in, good at)", "en": "She is interested in graphic design.", "vi": "Cô ấy quan tâm đến thiết kế đồ họa." },
+      { "icon": "🚌", "label": "Động từ + giới từ cố định (depend on, belong to)", "en": "We depend on public transport.", "vi": "Chúng tôi phụ thuộc vào phương tiện công cộng." },
+      { "icon": "🙏", "label": "Động từ + giới từ + V-ing (apologize for, insist on)", "en": "He apologized for being late.", "vi": "Anh ấy xin lỗi vì đã đến muộn." },
+      { "icon": "📈", "label": "Danh từ + giới từ cố định (increase in, reason for)", "en": "There has been an increase in demand.", "vi": "Nhu cầu đã có sự gia tăng." }
+    ]
+  }
+}

@@ -6,6 +6,7 @@
 import roadmapArtifact from '@/data/roadmap/roadmap-v1.json';
 import placementArtifact from '@/data/roadmap/placement-v1.json';
 import pronunciationArtifact from '@/data/pronunciation/lessons-v1.json';
+import starterPacksArtifact from '@/data/roadmap/starter-packs-v1.json';
 
 export type RoadmapLevelId = 'A0' | 'A1' | 'A2' | 'B1' | 'B2';
 export const ROADMAP_LEVEL_ORDER: RoadmapLevelId[] = ['A0', 'A1', 'A2', 'B1', 'B2'];
@@ -103,6 +104,16 @@ export function previousStepId(stepId: string): string | null {
     if (e.globalIndex === entry.globalIndex - 1) return id;
   }
   return null;
+}
+
+// ── Starter packs A0 (pack sinh tồn tạo tay, ngoài catalog-v3) ──
+export interface StarterPack { id: string; title: string; words: string[] }
+const starterPacks = (starterPacksArtifact as unknown as { packs: StarterPack[] }).packs;
+
+/** Tra starter pack theo id (prefix `starter-`); null nếu không phải/không có. */
+export function getStarterPack(packId: string): StarterPack | null {
+  if (!packId.startsWith('starter-')) return null;
+  return starterPacks.find((p) => p.id === packId) ?? null;
 }
 
 /** Tra unit theo id (u-<level>-<n>). */

@@ -1,0 +1,1366 @@
+[
+  {
+    "slug": "personal-pronouns",
+    "title": "Đại từ nhân xưng",
+    "usage": [
+      {
+        "label": "Làm chủ ngữ của câu",
+        "en": "She works here."
+      },
+      {
+        "label": "Làm tân ngữ của động từ",
+        "en": "I called him yesterday."
+      },
+      {
+        "label": "Đứng sau giới từ",
+        "en": "This gift is for them."
+      },
+      {
+        "label": "Thay danh từ để tránh lặp",
+        "en": "Mai has a cat. It is white."
+      }
+    ]
+  },
+  {
+    "slug": "verb-to-be",
+    "title": "Động từ to be (am / is / are)",
+    "usage": [
+      {
+        "label": "Giới thiệu tên, nghề nghiệp hoặc vai trò",
+        "en": "I am a student."
+      },
+      {
+        "label": "Miêu tả đặc điểm hoặc cảm xúc",
+        "en": "She is happy."
+      },
+      {
+        "label": "Nói vị trí",
+        "en": "The keys are on the table."
+      },
+      {
+        "label": "Nói tuổi, quốc tịch hoặc nguồn gốc",
+        "en": "He is ten years old."
+      }
+    ]
+  },
+  {
+    "slug": "demonstratives",
+    "title": "Từ chỉ định (this/that/these/those)",
+    "usage": [
+      {
+        "label": "Một vật ở gần",
+        "en": "This key is mine."
+      },
+      {
+        "label": "Một vật ở xa",
+        "en": "That building is a museum."
+      },
+      {
+        "label": "Nhiều vật ở gần",
+        "en": "These books are useful."
+      },
+      {
+        "label": "Nhiều vật ở xa",
+        "en": "Those mountains are beautiful."
+      }
+    ]
+  },
+  {
+    "slug": "possessives",
+    "title": "Tính từ & đại từ sở hữu",
+    "usage": [
+      {
+        "label": "Nói người nói sở hữu",
+        "en": "This is my notebook. It is mine."
+      },
+      {
+        "label": "Nói người nghe sở hữu",
+        "en": "Is this your seat or hers?"
+      },
+      {
+        "label": "Nói người hoặc vật khác sở hữu",
+        "en": "Their house is next to ours."
+      },
+      {
+        "label": "Tránh lặp lại danh từ",
+        "en": "My bag is blue; yours is black."
+      }
+    ]
+  },
+  {
+    "slug": "plural-nouns",
+    "title": "Danh từ số nhiều",
+    "usage": [
+      {
+        "label": "Nói số lượng từ hai trở lên",
+        "en": "I have two sisters."
+      },
+      {
+        "label": "Sau many, several, a few",
+        "en": "There are many boxes."
+      },
+      {
+        "label": "Chủ ngữ số nhiều đi với are/V nguyên thể",
+        "en": "The children are playing."
+      },
+      {
+        "label": "Nói chung về một loại",
+        "en": "Dogs are loyal animals."
+      }
+    ]
+  },
+  {
+    "slug": "adjectives-basic",
+    "title": "Tính từ cơ bản",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "She bought a beautiful dress."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "The soup smells delicious."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "This exercise is easy."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "We need something cheaper."
+      }
+    ]
+  },
+  {
+    "slug": "there-is-there-are",
+    "title": "Cấu trúc There is / There are",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "There is a pharmacy near my house."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "There are two messages for you."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "There isn't any milk left."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Are there enough chairs?"
+      }
+    ]
+  },
+  {
+    "slug": "articles",
+    "title": "Mạo từ (a / an / the)",
+    "usage": [
+      {
+        "label": "Dùng **a** trước danh từ bắt đầu bằng phụ âm",
+        "en": "I have a book."
+      },
+      {
+        "label": "Dùng **an** trước danh từ bắt đầu bằng nguyên âm",
+        "en": "I have an apple."
+      },
+      {
+        "label": "Dùng **the** cho danh từ cụ thể",
+        "en": "I am reading the book."
+      },
+      {
+        "label": "Dùng **the** cho danh từ đã được nhắc đến trước đó",
+        "en": "I saw a dog. The dog was very big."
+      }
+    ]
+  },
+  {
+    "slug": "have-got",
+    "title": "Cấu trúc have got / has got",
+    "usage": [
+      {
+        "label": "Nói về đồ vật mình sở hữu",
+        "en": "I have got a new bag."
+      },
+      {
+        "label": "Nói về gia đình và các mối quan hệ",
+        "en": "She has got two brothers."
+      },
+      {
+        "label": "Miêu tả đặc điểm cơ thể",
+        "en": "He has got brown eyes."
+      },
+      {
+        "label": "Nói tình trạng hoặc vấn đề hiện tại",
+        "en": "I have got a headache."
+      }
+    ]
+  },
+  {
+    "slug": "present-simple",
+    "title": "Thì Hiện tại đơn",
+    "usage": [
+      {
+        "label": "Thói quen, hành động lặp lại",
+        "en": "I drink coffee every morning."
+      },
+      {
+        "label": "Sự thật hiển nhiên, chân lý",
+        "en": "The Earth revolves around the Sun."
+      },
+      {
+        "label": "Lịch trình, thời gian biểu cố định",
+        "en": "The bus leaves at 7 a.m."
+      },
+      {
+        "label": "Cảm xúc, sở hữu, trạng thái",
+        "en": "She loves reading books. I have a pet cat."
+      }
+    ]
+  },
+  {
+    "slug": "wh-questions",
+    "title": "Câu hỏi với từ để hỏi (Wh-)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "Where do you live?"
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "Why was she upset?"
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Who called you last night?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "How much does it cost?"
+      }
+    ]
+  },
+  {
+    "slug": "adverbs-frequency",
+    "title": "Trạng từ chỉ tần suất",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I usually walk to work."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She is always helpful."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "We rarely eat out."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Do you often call your parents?"
+      }
+    ]
+  },
+  {
+    "slug": "present-continuous",
+    "title": "Thì Hiện tại tiếp diễn",
+    "usage": [
+      {
+        "label": "Hành động đang diễn ra ngay lúc nói",
+        "en": "I am studying English now."
+      },
+      {
+        "label": "Hành động tạm thời xung quanh hiện tại",
+        "en": "She is living with her aunt this month."
+      },
+      {
+        "label": "Kế hoạch, sắp xếp trong tương lai gần (đã định trước)",
+        "en": "We are flying to Japan next week."
+      },
+      {
+        "label": "Hành động lặp đi lặp lại gây khó chịu (thường với 'always')",
+        "en": "He is always complaining about something."
+      }
+    ]
+  },
+  {
+    "slug": "prepositions-place",
+    "title": "Giới từ chỉ nơi chốn",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "The keys are in my bag."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "Your phone is on the desk."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Meet me at the entrance."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "The bank is opposite the post office."
+      }
+    ]
+  },
+  {
+    "slug": "imperatives",
+    "title": "Câu mệnh lệnh",
+    "usage": [
+      {
+        "label": "Ra lệnh hoặc yêu cầu",
+        "en": "Close the door, please."
+      },
+      {
+        "label": "Hướng dẫn, chỉ đường",
+        "en": "Turn left at the bank."
+      },
+      {
+        "label": "Cảnh báo hoặc cấm đoán",
+        "en": "Don’t touch that wire."
+      },
+      {
+        "label": "Rủ cùng làm với Let’s",
+        "en": "Let’s take a short break."
+      }
+    ]
+  },
+  {
+    "slug": "modals-ability",
+    "title": "Động từ khuyết thiếu: khả năng (can/could)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "Mai can speak Japanese."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "I couldn't swim when I was five."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Can you hear me?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "She was able to solve the problem."
+      }
+    ]
+  },
+  {
+    "slug": "countable-uncountable",
+    "title": "Danh từ đếm được & không đếm được",
+    "usage": [
+      {
+        "label": "Danh từ đếm được",
+        "en": "I have two books."
+      },
+      {
+        "label": "Danh từ không đếm được",
+        "en": "I need water to drink."
+      },
+      {
+        "label": "Sử dụng 'a' hoặc 'an' với danh từ đếm được",
+        "en": "I have an apple."
+      },
+      {
+        "label": "Sử dụng 'some' hoặc 'any' với danh từ không đếm được",
+        "en": "I need some water."
+      }
+    ]
+  },
+  {
+    "slug": "quantifiers",
+    "title": "Lượng từ (some/any/much/many)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "We have a few questions."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "There isn't much time."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Do you need any help?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "She bought some apples."
+      }
+    ]
+  },
+  {
+    "slug": "prepositions-time",
+    "title": "Giới từ chỉ thời gian (in/on/at)",
+    "usage": [
+      {
+        "label": "Tháng, năm, thế kỷ",
+        "en": "I was born in June."
+      },
+      {
+        "label": "Giờ, thời điểm cụ thể",
+        "en": "The meeting starts at 5 o'clock."
+      },
+      {
+        "label": "Ngày trong tuần, ngày lễ",
+        "en": "I have a meeting on Monday."
+      },
+      {
+        "label": "Mùa",
+        "en": "I love swimming in summer."
+      }
+    ]
+  },
+  {
+    "slug": "past-simple",
+    "title": "Thì Quá khứ đơn",
+    "usage": [
+      {
+        "label": "Sự kiện đã xảy ra và kết thúc",
+        "en": "I went to the store yesterday."
+      },
+      {
+        "label": "Trình độ học vấn",
+        "en": "She studied English at university."
+      },
+      {
+        "label": "Thành tựu, giải thưởng",
+        "en": "He won the championship last year."
+      },
+      {
+        "label": "Trải nghiệm, kinh nghiệm",
+        "en": "They traveled to Europe in 2019."
+      }
+    ]
+  },
+  {
+    "slug": "past-continuous",
+    "title": "Thì Quá khứ tiếp diễn",
+    "usage": [
+      {
+        "label": "Mô tả hành động đang diễn ra",
+        "en": "I was studying English at 8 pm last night."
+      },
+      {
+        "label": "Diễn tả hai hành động cùng xảy ra",
+        "en": "She was cooking dinner while I was watching TV."
+      },
+      {
+        "label": "Truyền đạt thông tin về quá khứ",
+        "en": "They were talking on the phone when I arrived."
+      },
+      {
+        "label": "Mô tả hành động gây ra một sự kiện",
+        "en": "The car was speeding when it crashed."
+      }
+    ]
+  },
+  {
+    "slug": "be-going-to",
+    "title": "Tương lai gần (be going to)",
+    "usage": [
+      {
+        "label": "Kế hoạch, dự định",
+        "en": "I'm going to visit my friend next week."
+      },
+      {
+        "label": "Dấu hiệu cho thấy sự kiện sẽ xảy ra",
+        "en": "It's going to rain, so take an umbrella."
+      },
+      {
+        "label": "Dự định làm việc gì đó",
+        "en": "She's going to apply for a job."
+      },
+      {
+        "label": "Cảnh báo về một sự kiện không mong muốn",
+        "en": "Be careful, the road is going to be closed."
+      }
+    ]
+  },
+  {
+    "slug": "future-will",
+    "title": "Thì Tương lai đơn (will)",
+    "usage": [
+      {
+        "label": "Quyết định ngay lúc nói",
+        "en": "The phone is ringing. I’ll answer it."
+      },
+      {
+        "label": "Dự đoán hoặc ý kiến",
+        "en": "I think it will rain tomorrow."
+      },
+      {
+        "label": "Lời hứa hoặc đề nghị giúp",
+        "en": "I’ll help you with your bags."
+      },
+      {
+        "label": "Sự việc tương lai",
+        "en": "She will be twenty next month."
+      }
+    ]
+  },
+  {
+    "slug": "comparatives-superlatives",
+    "title": "So sánh hơn & so sánh nhất",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "This room is brighter than mine."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "Lan is the tallest student in the class."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "The train is more comfortable than the bus."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "That was the most useful lesson."
+      }
+    ]
+  },
+  {
+    "slug": "modals-permission",
+    "title": "Khuyết thiếu: xin phép & yêu cầu",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "May I come in?"
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "Could you open the window, please?"
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Can I borrow your pen?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Would you wait here for a moment?"
+      }
+    ]
+  },
+  {
+    "slug": "modals-obligation",
+    "title": "Khuyết thiếu: bắt buộc (must/have to)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "You must wear a helmet."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "I have to submit this today."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Visitors mustn't touch the paintings."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "You don't have to come early."
+      }
+    ]
+  },
+  {
+    "slug": "modals-advice",
+    "title": "Khuyết thiếu: lời khuyên (should)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "You should get more sleep."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "We ought to apologize."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Should I call her now?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "You shouldn't skip breakfast."
+      }
+    ]
+  },
+  {
+    "slug": "conditionals-0-1",
+    "title": "Câu điều kiện loại 0 & loại 1",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "If you heat ice, it melts."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "If it rains, we'll stay home."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Plants die if they don't get water."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "I'll call you if I arrive early."
+      }
+    ]
+  },
+  {
+    "slug": "present-perfect",
+    "title": "Thì Hiện tại hoàn thành",
+    "usage": [
+      {
+        "label": "Hành động bắt đầu từ quá khứ và kéo dài đến hiện tại",
+        "en": "I have been studying English for three years."
+      },
+      {
+        "label": "Hành động đã hoàn thành gần đây",
+        "en": "She has just finished her homework."
+      },
+      {
+        "label": "Hành động lặp lại nhiều lần từ quá khứ đến hiện tại",
+        "en": "They have visited Paris three times."
+      },
+      {
+        "label": "Hành động xảy ra tại một thời điểm không xác định trong quá khứ",
+        "en": "I have never been to the USA."
+      }
+    ]
+  },
+  {
+    "slug": "present-perfect-continuous",
+    "title": "Hiện tại hoàn thành tiếp diễn",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I have been studying for three hours."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She has been crying; her eyes are red."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "We haven't been sleeping well lately."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "How long have you been waiting?"
+      }
+    ]
+  },
+  {
+    "slug": "past-perfect",
+    "title": "Thì Quá khứ hoàn thành",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "The train had left before we arrived."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She had never flown before that trip."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Had you finished when he called?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "I hadn't seen the warning."
+      }
+    ]
+  },
+  {
+    "slug": "used-to",
+    "title": "Cấu trúc Used to",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I used to live in Hue."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She didn't use to drink coffee."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Are you used to the heat?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "I'm used to working late."
+      }
+    ]
+  },
+  {
+    "slug": "future-continuous",
+    "title": "Thì Tương lai tiếp diễn",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "This time tomorrow, I will be flying to Seoul."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She will be working at nine."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Will you be using the car tonight?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "They won't be staying long."
+      }
+    ]
+  },
+  {
+    "slug": "conjunctions-linking",
+    "title": "Liên từ & từ nối",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I stayed home because I was ill."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "Although it was late, we continued."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "She studied hard; therefore, she passed."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "You can call or send a message."
+      }
+    ]
+  },
+  {
+    "slug": "gerunds-infinitives",
+    "title": "Danh động từ & động từ nguyên mẫu",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I enjoy reading before bed."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She decided to leave early."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Thank you for helping me."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "He stopped smoking."
+      }
+    ]
+  },
+  {
+    "slug": "passive-voice",
+    "title": "Câu bị động",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "The bridge was built in 2010."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "English is spoken worldwide."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "The package will be delivered tomorrow."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "The road is being repaired."
+      }
+    ]
+  },
+  {
+    "slug": "reported-speech",
+    "title": "Câu tường thuật",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "She said that she was tired."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "He told me to wait."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Lan asked whether I was free."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "They said they had finished."
+      }
+    ]
+  },
+  {
+    "slug": "relative-clauses",
+    "title": "Mệnh đề quan hệ",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "The woman who called is my aunt."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "This is the book that I mentioned."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "The café where we met has closed."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Students whose work is late must email me."
+      }
+    ]
+  },
+  {
+    "slug": "second-conditional",
+    "title": "Câu điều kiện loại 2",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "If I had more time, I would learn Korean."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She would travel more if she were rich."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "What would you do if you lost your phone?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "If he lived closer, we could meet often."
+      }
+    ]
+  },
+  {
+    "slug": "third-conditional",
+    "title": "Câu điều kiện loại 3",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "If I had left earlier, I would have caught the train."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She would have passed if she had studied."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Had we known, we would have helped."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "If they hadn't called, I might have forgotten."
+      }
+    ]
+  },
+  {
+    "slug": "modals-deduction",
+    "title": "Khuyết thiếu: suy đoán (must/might/can't)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "She must be at work; her car is gone."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "He might know the answer."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "That can't be true."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "They may arrive late."
+      }
+    ]
+  },
+  {
+    "slug": "question-tags",
+    "title": "Câu hỏi đuôi",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "You're coming, aren't you?"
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She doesn't drive, does she?"
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "They left early, didn't they?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Let's start, shall we?"
+      }
+    ]
+  },
+  {
+    "slug": "phrasal-verbs",
+    "title": "Cụm động từ (nhập môn)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "Please turn off the lights."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "I ran into an old friend."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "She looked after the children."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Don't give up."
+      }
+    ]
+  },
+  {
+    "slug": "past-perfect-continuous",
+    "title": "Quá khứ hoàn thành tiếp diễn",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I had been waiting for an hour when the bus came."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She was tired because she had been working all night."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "They hadn't been living there long."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Had it been raining before you arrived?"
+      }
+    ]
+  },
+  {
+    "slug": "future-perfect",
+    "title": "Thì Tương lai hoàn thành",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "By Friday, I will have finished the report."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She will have left before noon."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Will they have arrived by then?"
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "We won't have saved enough by June."
+      }
+    ]
+  },
+  {
+    "slug": "future-in-the-past",
+    "title": "Tương lai trong quá khứ",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I knew she would succeed."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "They were going to leave, but it rained."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "He was about to speak when the phone rang."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "She promised she would call."
+      }
+    ]
+  },
+  {
+    "slug": "mixed-conditionals",
+    "title": "Câu điều kiện hỗn hợp",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "If I had slept earlier, I wouldn't be tired now."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "If she were more organized, she wouldn't have missed the deadline."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Had we taken the map, we would know where we are."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "If he weren't afraid of flying, he would have joined us."
+      }
+    ]
+  },
+  {
+    "slug": "wish-if-only",
+    "title": "Cấu trúc Wish / If only",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I wish I knew the answer."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "If only it weren't raining."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "She wishes she had studied harder."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "I wish you would stop shouting."
+      }
+    ]
+  },
+  {
+    "slug": "modals-perfect",
+    "title": "Khuyết thiếu hoàn thành (should have...)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "You should have called me."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She must have forgotten."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "They might have taken the wrong bus."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "He can't have finished already."
+      }
+    ]
+  },
+  {
+    "slug": "causative",
+    "title": "Thể nhờ/sai bảo (have/get sth done)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I had my hair cut yesterday."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "We are getting the roof repaired."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "She had the assistant print the report."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "He got his brother to help."
+      }
+    ]
+  },
+  {
+    "slug": "advanced-passive",
+    "title": "Bị động nâng cao",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "It is believed that the painting is genuine."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "The company is expected to announce cuts."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "He is said to have left the country."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "She was given a second chance."
+      }
+    ]
+  },
+  {
+    "slug": "advanced-relative-clauses",
+    "title": "Mệnh đề quan hệ nâng cao",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "The person to whom I spoke was helpful."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She has three sons, all of whom are doctors."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "The meeting was cancelled, which surprised us."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "This is the issue about which we argued."
+      }
+    ]
+  },
+  {
+    "slug": "participle-clauses",
+    "title": "Mệnh đề phân từ",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "Walking home, I saw an accident."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "Built in 1890, the house needs repairs."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Having finished the report, she went home."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Not knowing the answer, I stayed silent."
+      }
+    ]
+  },
+  {
+    "slug": "ellipsis-substitution",
+    "title": "Lược bỏ & thay thế",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I can play chess, and Lan can too."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "I need a pen. Do you have one?"
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "She said it would rain, and I think so."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Some chose tea; others, coffee."
+      }
+    ]
+  },
+  {
+    "slug": "subjunctive",
+    "title": "Thức giả định",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "The doctor suggested that he rest."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "It is essential that every member be present."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "They insisted that she apologize."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "If I were you, I would wait."
+      }
+    ]
+  },
+  {
+    "slug": "emphasis-structures",
+    "title": "Cấu trúc nhấn mạnh",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "I do understand your concern."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "She did call you yesterday."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "The film was so moving that I cried."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "It was such a difficult test that many failed."
+      }
+    ]
+  },
+  {
+    "slug": "cleft-sentences",
+    "title": "Câu chẻ (nhấn mạnh)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "It was Lan who solved the problem."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "It is patience that you need."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "What I want is a quiet weekend."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "What surprised me was his honesty."
+      }
+    ]
+  },
+  {
+    "slug": "inversion",
+    "title": "Đảo ngữ",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "Never have I seen such a view."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "Rarely does he complain."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "Only then did I understand."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Not only did she apologize, but she also paid."
+      }
+    ]
+  },
+  {
+    "slug": "discourse-markers",
+    "title": "Từ nối diễn ngôn",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "First of all, we need a clear goal."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "However, the plan is expensive."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "In other words, we need more time."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "By the way, have you called Mai?"
+      }
+    ]
+  },
+  {
+    "slug": "nominalisation",
+    "title": "Danh từ hóa",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "The committee decided to postpone the vote."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "The committee's decision led to a delay."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "The rapid expansion caused concern."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "There was a significant improvement in sales."
+      }
+    ]
+  },
+  {
+    "slug": "hedging-language",
+    "title": "Ngôn ngữ rào đón (hedging)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "This may indicate a broader problem."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "The results appear to support the theory."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "It is likely that prices will rise."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "Some participants tended to respond slowly."
+      }
+    ]
+  },
+  {
+    "slug": "grammatical-collocations",
+    "title": "Kết hợp ngữ pháp (collocations)",
+    "usage": [
+      {
+        "label": "Diễn đạt ý chính",
+        "en": "She is interested in design."
+      },
+      {
+        "label": "Dùng trong giao tiếp",
+        "en": "We depend on public transport."
+      },
+      {
+        "label": "Dùng ở dạng biến đổi",
+        "en": "He apologized for being late."
+      },
+      {
+        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "en": "There has been an increase in demand."
+      }
+    ]
+  }
+]

@@ -8,28 +8,34 @@
     "definition": "**So sánh hơn** (comparatives) dùng để đối chiếu sự khác biệt giữa hai đối tượng, thường dùng đuôi '-er' hoặc 'more' và đi với 'than'. **So sánh nhất** (superlatives) dùng với 'the' cùng đuôi '-est' hoặc 'most' để xác định đối tượng có đặc điểm cao nhất trong một nhóm.",
     "usage": [
       {
-        "icon": "🎯",
-        "label": "Diễn đạt ý chính",
+        "icon": "⚖️",
+        "label": "So sánh hơn giữa hai đối tượng (-er + than)",
         "en": "This room is brighter than mine.",
-        "vi": "Phòng này sáng hơn phòng tôi."
+        "vi": "Phòng này sáng hơn phòng của tôi."
       },
       {
-        "icon": "🧭",
-        "label": "Dùng trong giao tiếp",
+        "icon": "🥇",
+        "label": "So sánh nhất trong một nhóm (the + -est)",
         "en": "Lan is the tallest student in the class.",
         "vi": "Lan là học sinh cao nhất lớp."
       },
       {
-        "icon": "💬",
-        "label": "Dùng ở dạng biến đổi",
+        "icon": "📏",
+        "label": "Tính từ dài: more + tính từ + than",
         "en": "The train is more comfortable than the bus.",
-        "vi": "Tàu hỏa thoải mái hơn xe buýt."
+        "vi": "Đi tàu thoải mái hơn đi xe buýt."
       },
       {
-        "icon": "📝",
-        "label": "Dùng trong ngữ cảnh tự nhiên",
+        "icon": "👑",
+        "label": "Tính từ dài: the most + tính từ",
         "en": "That was the most useful lesson.",
         "vi": "Đó là bài học hữu ích nhất."
+      },
+      {
+        "icon": "🤝",
+        "label": "So sánh bằng với as ... as",
+        "en": "This bag is as expensive as that one.",
+        "vi": "Chiếc túi này đắt ngang chiếc kia."
       }
     ],
     "formula": {
