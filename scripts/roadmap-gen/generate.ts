@@ -149,14 +149,17 @@ function main(): void {
         if (groupPacks.length > 0) byGroup.push(groupPacks);
       }
     }
-    // Bước 2: round-robin — mỗi vòng lấy tối đa 2 pack/NHÓM chủ đề rồi chuyển nhóm kế
+    // Bước 2: round-robin — mỗi vòng lấy PACKS_PER_ROUND pack/nhóm rồi chuyển nhóm kế.
+    // 4 pack = 2 chặng cùng chủ đề liền nhau trước khi đảo → học viên kịp "ngấm" một
+    // trường từ vựng, tránh "chợ phiên" nhảy chủ đề mỗi chặng (teacher review 06 mục #3).
+    const PACKS_PER_ROUND = 4;
     const result: RawPack[] = [];
     let round = 0;
     while (result.length < count) {
       let took = 0;
       for (const subPacks of byGroup) {
-        for (let k = 0; k < 2 && result.length < count; k++) {
-          const pack = subPacks[round * 2 + k];
+        for (let k = 0; k < PACKS_PER_ROUND && result.length < count; k++) {
+          const pack = subPacks[round * PACKS_PER_ROUND + k];
           if (!pack || usedPacks.has(pack.id)) continue;
           usedPacks.add(pack.id);
           result.push(pack);

@@ -23,8 +23,10 @@ export const LEVELS: { id: RoadmapLevelId; title: string; titleVi: string; descr
 export const GRAMMAR_LEVEL_MAP: Record<RoadmapLevelId, string[]> = {
   A0: ['personal-pronouns', 'verb-to-be', 'demonstratives', 'possessives'],
   A1: [
-    'plural-nouns', 'adjectives-basic', 'there-is-there-are', 'articles', 'have-got',
-    'present-simple', 'wh-questions', 'adverbs-frequency', 'present-continuous',
+    // present-simple TRƯỚC have-got: dạy do-support xong mới tới "have got",
+    // tránh lỗi "Do you have got?" của học viên Việt (teacher review 06 mục A)
+    'plural-nouns', 'adjectives-basic', 'there-is-there-are', 'articles',
+    'present-simple', 'have-got', 'wh-questions', 'adverbs-frequency', 'present-continuous',
     'prepositions-place', 'imperatives', 'modals-ability',
   ],
   A2: [
