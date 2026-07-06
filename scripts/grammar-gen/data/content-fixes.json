@@ -1,0 +1,416 @@
+{
+  "possessives": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "This is the book of my brother.", "right": "This is my brother's book.", "why": "Sở hữu của người dùng 's, không dùng cấu trúc of kiểu dịch từ tiếng Việt." },
+      { "wrong": "Its a nice car.", "right": "It's a nice car.", "why": "It's = it is; ITS (không phẩy) mới là tính từ sở hữu." },
+      { "wrong": "This bag is my.", "right": "This bag is mine.", "why": "Cuối câu dùng đại từ sở hữu (mine), không dùng tính từ sở hữu (my)." },
+      { "wrong": "Their going home now.", "right": "They're going home now.", "why": "They're = they are; their là tính từ sở hữu — hai từ khác nghĩa." }
+    ]
+  },
+  "adjectives-basic": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "She has a car red.", "right": "She has a red car.", "why": "Tính từ đứng TRƯỚC danh từ trong tiếng Anh (ngược tiếng Việt)." },
+      { "wrong": "They are happys.", "right": "They are happy.", "why": "Tính từ không chia số nhiều — không thêm -s." },
+      { "wrong": "He is more tall than me.", "right": "He is taller than me.", "why": "Tính từ ngắn 1 âm tiết thêm -er, không dùng more." },
+      { "wrong": "It is a interesting book.", "right": "It is an interesting book.", "why": "Trước nguyên âm (i) dùng AN, không dùng a." }
+    ]
+  },
+  "there-is-there-are": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "There are a book on the table.", "right": "There is a book on the table.", "why": "Danh từ số ít (a book) đi với THERE IS." },
+      { "wrong": "There is three chairs here.", "right": "There are three chairs here.", "why": "Danh từ số nhiều (three chairs) đi với THERE ARE." },
+      { "wrong": "It is a park near my house.", "right": "There is a park near my house.", "why": "Giới thiệu sự tồn tại lần đầu dùng THERE, không dùng it." },
+      { "wrong": "Have many people in the room.", "right": "There are many people in the room.", "why": "Không dịch \"có\" thành have — dùng there are." }
+    ]
+  },
+  "wh-questions": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "Where you are from?", "right": "Where are you from?", "why": "Câu hỏi đảo trợ động từ/be lên trước chủ ngữ." },
+      { "wrong": "What you do yesterday?", "right": "What did you do yesterday?", "why": "Câu hỏi quá khứ cần trợ động từ DID + động từ nguyên thể." },
+      { "wrong": "Who did phone you?", "right": "Who phoned you?", "why": "Khi từ để hỏi là chủ ngữ, không dùng did." },
+      { "wrong": "How much you pay?", "right": "How much did you pay?", "why": "Thiếu trợ động từ did trong câu hỏi quá khứ." }
+    ]
+  },
+  "adverbs-frequency": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I go always to school by bike.", "right": "I always go to school by bike.", "why": "Trạng từ tần suất đứng TRƯỚC động từ thường." },
+      { "wrong": "She always is late.", "right": "She is always late.", "why": "Với động từ be, trạng từ tần suất đứng SAU be." },
+      { "wrong": "He usual watches TV.", "right": "He usually watches TV.", "why": "Dùng trạng từ (usually), không dùng tính từ (usual)." },
+      { "wrong": "Never I eat meat.", "right": "I never eat meat.", "why": "Never đứng giữa câu, trước động từ thường — không mở đầu câu (trừ đảo ngữ trang trọng)." }
+    ]
+  },
+  "prepositions-place": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "The cat is in the table.", "right": "The cat is on the table.", "why": "Trên bề mặt phẳng dùng ON, không dùng in." },
+      { "wrong": "I live at Hanoi.", "right": "I live in Hanoi.", "why": "Thành phố/quốc gia dùng IN, không dùng at." },
+      { "wrong": "She is standing in the bus stop.", "right": "She is standing at the bus stop.", "why": "Tại một điểm cụ thể dùng AT." },
+      { "wrong": "The picture is in the wall.", "right": "The picture is on the wall.", "why": "Treo trên bề mặt tường dùng ON." }
+    ]
+  },
+  "modals-ability": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I can to swim.", "right": "I can swim.", "why": "Sau can là động từ nguyên thể KHÔNG to." },
+      { "wrong": "She cans drive.", "right": "She can drive.", "why": "Can là modal — không chia -s theo ngôi." },
+      { "wrong": "He can't to come.", "right": "He can't come.", "why": "Sau can't cũng là động từ nguyên thể không to." },
+      { "wrong": "The fire spread, but everybody could escape.", "right": "The fire spread, but everybody was able to escape.", "why": "Thành công trong tình huống cụ thể quá khứ dùng was able to, không dùng could." }
+    ]
+  },
+  "quantifiers": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I have many money.", "right": "I have a lot of money.", "why": "Money không đếm được — không đi với many; dùng a lot of." },
+      { "wrong": "There are much cars.", "right": "There are many cars.", "why": "Cars đếm được số nhiều dùng many, không dùng much." },
+      { "wrong": "I don't have some time.", "right": "I don't have any time.", "why": "Câu phủ định dùng ANY, không dùng some." },
+      { "wrong": "She has few money.", "right": "She has little money.", "why": "Money không đếm được dùng little, không dùng few." }
+    ]
+  },
+  "comparatives-superlatives": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "She is more tall than him.", "right": "She is taller than him.", "why": "Tính từ ngắn thêm -er, không dùng more." },
+      { "wrong": "This is the most big house.", "right": "This is the biggest house.", "why": "Tính từ ngắn thêm -est, không dùng most." },
+      { "wrong": "He is more clever than me.", "right": "He is cleverer than me.", "why": "Tính từ 2 âm tiết kết thúc bằng -er/-y thường thêm -er." },
+      { "wrong": "That is the most cheapest one.", "right": "That is the cheapest one.", "why": "Không ghép most + -est (double superlative)." }
+    ]
+  },
+  "modals-permission": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "Can I to use your phone?", "right": "Can I use your phone?", "why": "Sau can là động từ nguyên thể không to." },
+      { "wrong": "May I borrowing your pen?", "right": "May I borrow your pen?", "why": "Sau may là động từ nguyên thể, không phải V-ing." },
+      { "wrong": "He said we might wait here.", "right": "He said we could wait here.", "why": "Trong câu tường thuật, may (xin phép) lùi thành could." },
+      { "wrong": "You mustn't go, it's optional.", "right": "You don't have to go, it's optional.", "why": "Mustn't = cấm; don't have to = không cần — không nhầm." }
+    ]
+  },
+  "modals-obligation": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I must to finish this today.", "right": "I must finish this today.", "why": "Sau must là động từ nguyên thể không to." },
+      { "wrong": "Yesterday I must walk home.", "right": "Yesterday I had to walk home.", "why": "Nghĩa vụ quá khứ dùng had to — must không có dạng quá khứ." },
+      { "wrong": "You mustn't come, it's not necessary.", "right": "You don't have to come, it's not necessary.", "why": "Không bắt buộc dùng don't have to; mustn't nghĩa là CẤM." },
+      { "wrong": "She must wears a uniform.", "right": "She must wear a uniform.", "why": "Sau must, động từ về nguyên thể — không chia -s." }
+    ]
+  },
+  "modals-advice": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "You should to see a doctor.", "right": "You should see a doctor.", "why": "Sau should là động từ nguyên thể không to." },
+      { "wrong": "He shoulds study harder.", "right": "He should study harder.", "why": "Should là modal — không chia -s." },
+      { "wrong": "You had better to go now.", "right": "You had better go now.", "why": "Sau had better là động từ nguyên thể không to." },
+      { "wrong": "I think everybody had better learn English.", "right": "I think everybody should learn English.", "why": "Lời khuyên chung dùng should; had better chỉ cho tình huống cụ thể." }
+    ]
+  },
+  "conditionals-0-1": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "If it will rain, I will stay home.", "right": "If it rains, I will stay home.", "why": "Mệnh đề if không dùng will — dùng hiện tại đơn." },
+      { "wrong": "If you heat ice, it melt.", "right": "If you heat ice, it melts.", "why": "Loại 0 dùng hiện tại đơn cả hai vế — ngôi 3 thêm -s." },
+      { "wrong": "If I have time, I visit you.", "right": "If I have time, I will visit you.", "why": "Loại 1 vế kết quả cần WILL cho dự định tương lai." },
+      { "wrong": "Unless you don't hurry, you will be late.", "right": "Unless you hurry, you will be late.", "why": "Unless đã mang nghĩa phủ định — không thêm don't." }
+    ]
+  },
+  "present-perfect-continuous": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I am learning English for five years.", "right": "I have been learning English for five years.", "why": "Quá trình kéo dài đến nay + for dùng present perfect continuous." },
+      { "wrong": "She has been knowing him for years.", "right": "She has known him for years.", "why": "Know là động từ trạng thái — dùng present perfect đơn." },
+      { "wrong": "He has been work all day.", "right": "He has been working all day.", "why": "Sau has been phải là V-ing." },
+      { "wrong": "They have been played since morning.", "right": "They have been playing since morning.", "why": "Dạng tiếp diễn dùng V-ing, không phải quá khứ phân từ." }
+    ]
+  },
+  "past-perfect": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "When I arrived, the train already left.", "right": "When I arrived, the train had already left.", "why": "Việc xảy ra trước một mốc quá khứ dùng past perfect (had + P2)." },
+      { "wrong": "She had went home before I called.", "right": "She had gone home before I called.", "why": "Sau had dùng quá khứ phân từ (gone), không dùng quá khứ đơn." },
+      { "wrong": "After he had ate, he slept.", "right": "After he had eaten, he slept.", "why": "P2 của eat là eaten, không phải ate." },
+      { "wrong": "I had never see snow before that trip.", "right": "I had never seen snow before that trip.", "why": "P2 của see là seen sau had." }
+    ]
+  },
+  "used-to": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I use to play football when I was young.", "right": "I used to play football when I was young.", "why": "Khẳng định dùng USED to (có d)." },
+      { "wrong": "I didn't used to like coffee.", "right": "I didn't use to like coffee.", "why": "Sau didn't dùng USE to (bỏ d)." },
+      { "wrong": "She is used to get up early now.", "right": "She is used to getting up early now.", "why": "Be used to + V-ing (đã quen với việc gì)." },
+      { "wrong": "He used to smoking a lot.", "right": "He used to smoke a lot.", "why": "Used to + động từ nguyên thể (thói quen quá khứ)." }
+    ]
+  },
+  "future-continuous": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "At 8pm I will have dinner (đang ăn dở).", "right": "At 8pm I will be having dinner.", "why": "Hành động đang diễn ra tại mốc tương lai dùng will be + V-ing." },
+      { "wrong": "This time tomorrow I will flying to Paris.", "right": "This time tomorrow I will be flying to Paris.", "why": "Thiếu BE trong cấu trúc will be + V-ing." },
+      { "wrong": "While I will be waiting, I will read.", "right": "While I am waiting, I will read.", "why": "Mệnh đề thời gian (while) không dùng will." },
+      { "wrong": "The meeting will be start at seven.", "right": "The meeting will be starting at seven.", "why": "Sau will be phải là V-ing, không phải nguyên thể." }
+    ]
+  },
+  "conjunctions-linking": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "Because of he was late, he missed the bus.", "right": "Because he was late, he missed the bus.", "why": "Because of đi với danh từ; có mệnh đề dùng because." },
+      { "wrong": "Although his tiredness, he kept working.", "right": "Despite his tiredness, he kept working.", "why": "Although đi với mệnh đề; trước danh từ dùng despite." },
+      { "wrong": "Although it was late, but we continued.", "right": "Although it was late, we continued.", "why": "Không ghép đôi although...but trong một câu." },
+      { "wrong": "I couldn't sleep despite I was tired.", "right": "I couldn't sleep despite being tired.", "why": "Despite là giới từ — theo sau là danh từ/V-ing, không phải mệnh đề." }
+    ]
+  },
+  "gerunds-infinitives": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I enjoy to read books.", "right": "I enjoy reading books.", "why": "Sau enjoy dùng V-ing, không dùng to-infinitive." },
+      { "wrong": "She wants going home.", "right": "She wants to go home.", "why": "Sau want dùng to-infinitive, không dùng V-ing." },
+      { "wrong": "He avoided to meet her.", "right": "He avoided meeting her.", "why": "Sau avoid dùng V-ing." },
+      { "wrong": "They decided buying a house.", "right": "They decided to buy a house.", "why": "Sau decide dùng to-infinitive." }
+    ]
+  },
+  "passive-voice": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "The house was build in 1990.", "right": "The house was built in 1990.", "why": "Bị động dùng quá khứ phân từ (built), không dùng nguyên thể." },
+      { "wrong": "English is speak here.", "right": "English is spoken here.", "why": "Sau is/are dùng P2 (spoken)." },
+      { "wrong": "The letter was wrote by Tom.", "right": "The letter was written by Tom.", "why": "P2 của write là written." },
+      { "wrong": "This song was sang by her.", "right": "This song was sung by her.", "why": "P2 của sing là sung, không phải sang." }
+    ]
+  },
+  "reported-speech": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "He said he will come.", "right": "He said he would come.", "why": "Câu tường thuật quá khứ: will lùi thành would." },
+      { "wrong": "She told that she was tired.", "right": "She said that she was tired.", "why": "Tell cần tân ngữ (told me); không tân ngữ dùng said." },
+      { "wrong": "He asked where do I live.", "right": "He asked where I lived.", "why": "Câu hỏi tường thuật dùng trật tự câu kể, lùi thì." },
+      { "wrong": "She said me she was busy.", "right": "She told me she was busy.", "why": "Có tân ngữ (me) dùng told, không dùng said me." }
+    ]
+  },
+  "relative-clauses": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "The man which lives here is kind.", "right": "The man who lives here is kind.", "why": "Chỉ người dùng who, không dùng which." },
+      { "wrong": "The book who I read was good.", "right": "The book which I read was good.", "why": "Chỉ vật dùng which/that, không dùng who." },
+      { "wrong": "This is the house where I live in it.", "right": "This is the house where I live.", "why": "Where đã thay cho \"in which\" — không lặp giới từ/đại từ." },
+      { "wrong": "The keys that we were looking for them are here.", "right": "The keys that we were looking for are here.", "why": "That đã làm tân ngữ — không lặp them thừa." }
+    ]
+  },
+  "second-conditional": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "If I was you, I would apologize.", "right": "If I were you, I would apologize.", "why": "Loại 2 dùng WERE cho mọi ngôi trong giả định." },
+      { "wrong": "If I had money, I will buy a car.", "right": "If I had money, I would buy a car.", "why": "Loại 2 vế kết quả dùng would, không dùng will." },
+      { "wrong": "If I would have time, I would help.", "right": "If I had time, I would help.", "why": "Mệnh đề if loại 2 dùng quá khứ đơn, không dùng would." },
+      { "wrong": "If she studied, she will pass.", "right": "If she studied, she would pass.", "why": "Giả định hiện tại không thực: vế kết quả dùng would." }
+    ]
+  },
+  "third-conditional": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "If I had studied, I would passed.", "right": "If I had studied, I would have passed.", "why": "Loại 3 vế kết quả cần would HAVE + P2." },
+      { "wrong": "If I would have known, I would have come.", "right": "If I had known, I would have come.", "why": "Mệnh đề if loại 3 dùng past perfect (had + P2), không dùng would have." },
+      { "wrong": "If she had came earlier, she would have seen him.", "right": "If she had come earlier, she would have seen him.", "why": "P2 của come là come sau had." },
+      { "wrong": "If they had left, they would catch the train.", "right": "If they had left, they would have caught the train.", "why": "Việc đã qua: vế kết quả loại 3 dùng would have + P2." }
+    ]
+  },
+  "modals-deduction": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "He must to be tired.", "right": "He must be tired.", "why": "Sau must là động từ nguyên thể không to." },
+      { "wrong": "She must has left already.", "right": "She must have left already.", "why": "Suy đoán quá khứ dùng must HAVE + P2 (have nguyên thể)." },
+      { "wrong": "It can't to be true.", "right": "It can't be true.", "why": "Sau can't là động từ nguyên thể không to." },
+      { "wrong": "He can't saw me yesterday.", "right": "He can't have seen me yesterday.", "why": "Phủ định suy đoán quá khứ dùng can't have + P2." }
+    ]
+  },
+  "question-tags": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "You are a student, are you?", "right": "You are a student, aren't you?", "why": "Câu khẳng định đi với tag PHỦ ĐỊNH." },
+      { "wrong": "She can swim, can she?", "right": "She can swim, can't she?", "why": "Câu khẳng định phải đi với tag phủ định." },
+      { "wrong": "You travel a lot, travel you?", "right": "You travel a lot, don't you?", "why": "Động từ thường hiện tại đơn dùng do/does trong tag." },
+      { "wrong": "He won't be late, won't he?", "right": "He won't be late, will he?", "why": "Câu phủ định đi với tag KHẲNG ĐỊNH." }
+    ]
+  },
+  "phrasal-verbs": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "Don't throw away it.", "right": "Don't throw it away.", "why": "Tân ngữ là đại từ (it) phải đứng GIỮA động từ và particle." },
+      { "wrong": "Please turn on it.", "right": "Please turn it on.", "why": "Đại từ (it) đứng giữa turn và on." },
+      { "wrong": "I gave up to smoke.", "right": "I gave up smoking.", "why": "Sau give up dùng V-ing, không dùng to-infinitive." },
+      { "wrong": "Why did you run away of me?", "right": "Why did you run away from me?", "why": "Phrasal verb run away đi với from, không dùng of." }
+    ]
+  },
+  "past-perfect-continuous": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "She was tired because she worked all night.", "right": "She was tired because she had been working all night.", "why": "Quá trình kéo dài trước một mốc quá khứ dùng had been + V-ing." },
+      { "wrong": "I had been knowing him for years.", "right": "I had known him for years.", "why": "Know là động từ trạng thái — dùng past perfect đơn." },
+      { "wrong": "They had been play for hours.", "right": "They had been playing for hours.", "why": "Sau had been dùng V-ing." },
+      { "wrong": "He had being working since noon.", "right": "He had been working since noon.", "why": "Cấu trúc là had BEEN + V-ing, không phải had being." }
+    ]
+  },
+  "future-perfect": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "By 2030 I will finish my degree.", "right": "By 2030 I will have finished my degree.", "why": "Việc sẽ xong TRƯỚC một mốc tương lai dùng will have + P2." },
+      { "wrong": "By next month she will have finish it.", "right": "By next month she will have finished it.", "why": "Sau will have dùng quá khứ phân từ (finished)." },
+      { "wrong": "By 6pm they will had left.", "right": "By 6pm they will have left.", "why": "Cấu trúc là will HAVE + P2, không phải will had." },
+      { "wrong": "By next year I will have work here for ten years.", "right": "By next year I will have worked here for ten years.", "why": "Sau will have dùng P2 (worked)." }
+    ]
+  },
+  "future-in-the-past": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "He said he will come.", "right": "He said he would come.", "why": "Nhìn tương lai từ quá khứ: will lùi thành would." },
+      { "wrong": "I knew she is going to win.", "right": "I knew she was going to win.", "why": "Mệnh đề chính quá khứ kéo vế sau về was going to." },
+      { "wrong": "We thought it will rain.", "right": "We thought it would rain.", "why": "Sau động từ quá khứ (thought), will → would." },
+      { "wrong": "She promised she will help.", "right": "She promised she would help.", "why": "Tường thuật lời hứa quá khứ dùng would." }
+    ]
+  },
+  "mixed-conditionals": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "If I had saved money, I will be rich now.", "right": "If I had saved money, I would be rich now.", "why": "Kết quả hiện tại của điều kiện quá khứ dùng would + V." },
+      { "wrong": "If I would have won, I would be happy now.", "right": "If I had won, I would be happy now.", "why": "Mệnh đề if dùng past perfect, không dùng would have." },
+      { "wrong": "If we didn't spend all our money, we could travel now.", "right": "If we hadn't spent all our money, we could travel now.", "why": "Điều kiện xảy ra trong quá khứ dùng past perfect dù kết quả ở hiện tại." },
+      { "wrong": "If she was more careful yesterday, she wouldn't be hurt now.", "right": "If she had been more careful yesterday, she wouldn't be hurt now.", "why": "Điều kiện quá khứ (yesterday) dùng had been." }
+    ]
+  },
+  "wish-if-only": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I wish I have more time.", "right": "I wish I had more time.", "why": "Wish về hiện tại không thực dùng quá khứ đơn." },
+      { "wrong": "I wish I would be taller.", "right": "I wish I were taller.", "why": "Wish về chính mình dùng were, không dùng would." },
+      { "wrong": "I wish I studied harder last year.", "right": "I wish I had studied harder last year.", "why": "Tiếc nuối quá khứ dùng past perfect (had + P2)." },
+      { "wrong": "I wish my English becomes better.", "right": "I hope my English becomes better.", "why": "Mong ước thực tế tương lai dùng hope, không dùng wish + hiện tại." }
+    ]
+  },
+  "modals-perfect": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "You should came to the party.", "right": "You should have come to the party.", "why": "Tiếc nuối quá khứ dùng should have + P2." },
+      { "wrong": "He must has left already.", "right": "He must have left already.", "why": "Suy đoán quá khứ dùng must have + P2 (have nguyên thể)." },
+      { "wrong": "She can't saw me.", "right": "She can't have seen me.", "why": "Phủ định suy đoán quá khứ dùng can't have + P2." },
+      { "wrong": "I needn't to buy it.", "right": "I needn't have bought it.", "why": "Việc quá khứ không cần thiết dùng needn't have + P2." }
+    ]
+  },
+  "causative": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I cut my hair yesterday (nhờ thợ).", "right": "I had my hair cut yesterday.", "why": "Nhờ người khác làm dùng have + vật + P2." },
+      { "wrong": "How often do you have serviced your car?", "right": "How often do you have your car serviced?", "why": "Tân ngữ (your car) đứng TRƯỚC quá khứ phân từ." },
+      { "wrong": "I got him repair the roof.", "right": "I got him to repair the roof.", "why": "Get + người + TO-infinitive." },
+      { "wrong": "She made me to wait.", "right": "She made me wait.", "why": "Make + người + động từ nguyên thể KHÔNG to." }
+    ]
+  },
+  "advanced-passive": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "She is said that she is rich.", "right": "She is said to be rich.", "why": "Personal passive dùng to-infinitive sau động từ tường thuật bị động." },
+      { "wrong": "It is said she to be rich.", "right": "It is said that she is rich.", "why": "Impersonal passive dùng it + that + mệnh đề." },
+      { "wrong": "The castle is thought to have built in 1500.", "right": "The castle is thought to have been built in 1500.", "why": "Hành động bị động quá khứ cần to have BEEN + P2." },
+      { "wrong": "He is believed be innocent.", "right": "He is believed to be innocent.", "why": "Cần TO trước động từ trong personal passive." }
+    ]
+  },
+  "advanced-relative-clauses": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "Anna told me about her job that she enjoys.", "right": "Anna told me about her job, which she enjoys.", "why": "Thông tin phụ về danh từ xác định dùng phẩy + which, không dùng that." },
+      { "wrong": "My father, that is a doctor, is retired.", "right": "My father, who is a doctor, is retired.", "why": "Mệnh đề không xác định về người dùng who, không dùng that." },
+      { "wrong": "The students, many of who passed, celebrated.", "right": "The students, many of whom passed, celebrated.", "why": "Sau giới từ/lượng từ dùng whom, không dùng who." },
+      { "wrong": "The house in that I live is old.", "right": "The house in which I live is old.", "why": "Sau giới từ dùng which, không dùng that." }
+    ]
+  },
+  "participle-clauses": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "Feeling tired, the bed was comfortable.", "right": "Feeling tired, I went to bed.", "why": "Chủ ngữ ngầm của mệnh đề phân từ phải trùng chủ ngữ chính (người mệt là tôi)." },
+      { "wrong": "The money stealing was never found.", "right": "The money stolen was never found.", "why": "Nghĩa bị động dùng P2 (stolen), không dùng V-ing." },
+      { "wrong": "Walked home, I saw an accident.", "right": "Walking home, I saw an accident.", "why": "Hành động chủ động đang diễn ra dùng V-ing." },
+      { "wrong": "Having finished the work, the report was submitted.", "right": "Having finished the work, she submitted the report.", "why": "Chủ ngữ sau phải là người thực hiện hành động phân từ." }
+    ]
+  },
+  "ellipsis-substitution": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I like these shoes but not that shoes.", "right": "I like these shoes but not those ones.", "why": "Thay danh từ lặp bằng ones để tránh lặp." },
+      { "wrong": "Do you think it will rain? I don't hope so.", "right": "Do you think it will rain? I hope not.", "why": "Phủ định sau hope dùng hope not, không dùng don't hope so." },
+      { "wrong": "She can swim and I can swim too.", "right": "She can swim and so can I.", "why": "Tránh lặp bằng so + trợ động từ + chủ ngữ." },
+      { "wrong": "He didn't come and I didn't come neither.", "right": "He didn't come and neither did I.", "why": "Phủ định đồng tình dùng neither + trợ động từ + chủ ngữ." }
+    ]
+  },
+  "subjunctive": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "I suggest that he goes now.", "right": "I suggest that he go now.", "why": "Sau suggest that dùng động từ nguyên thể (go) mọi ngôi." },
+      { "wrong": "It is essential that everyone is here.", "right": "It is essential that everyone be here.", "why": "Tính từ cấp thiết + that dùng be, không dùng is." },
+      { "wrong": "The doctor insisted that she rests.", "right": "The doctor insisted that she rest.", "why": "Sau insist that dùng dạng gốc động từ, không chia -s." },
+      { "wrong": "They demanded that he apologizes.", "right": "They demanded that he apologize.", "why": "Sau demand that dùng động từ nguyên thể." }
+    ]
+  },
+  "emphasis-structures": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "He does likes it.", "right": "He does like it.", "why": "Sau does nhấn mạnh, động từ về nguyên thể — không thêm -s." },
+      { "wrong": "We did enjoyed the trip.", "right": "We did enjoy the trip.", "why": "Sau did nhấn mạnh, động từ về nguyên thể." },
+      { "wrong": "I do wanted to help.", "right": "I did want to help.", "why": "Nhấn mạnh quá khứ dùng did + động từ nguyên thể." },
+      { "wrong": "She do love music.", "right": "She does love music.", "why": "Ngôi 3 số ít nhấn mạnh dùng DOES, không dùng do." }
+    ]
+  },
+  "cleft-sentences": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "It was you whom invited me.", "right": "It was you who invited me.", "why": "Đại từ làm chủ ngữ mệnh đề sau dùng who, không dùng whom." },
+      { "wrong": "It was yesterday when you called.", "right": "It was yesterday that you called.", "why": "Cleft nhấn trạng ngữ thời gian dùng that, không dùng when." },
+      { "wrong": "What I need it is a rest.", "right": "What I need is a rest.", "why": "Không lặp tân ngữ (it) trong cấu trúc What... is." },
+      { "wrong": "Is the noise that annoys me.", "right": "It is the noise that annoys me.", "why": "Cleft bắt đầu bằng chủ ngữ giả IT." }
+    ]
+  },
+  "inversion": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "Never I have seen such beauty.", "right": "Never have I seen such beauty.", "why": "Trạng ngữ phủ định đầu câu bắt buộc đảo trợ động từ lên trước chủ ngữ." },
+      { "wrong": "No sooner we had arrived than it rained.", "right": "No sooner had we arrived than it rained.", "why": "No sooner đầu câu yêu cầu đảo ngữ (had + chủ ngữ)." },
+      { "wrong": "Not only she sings, but she dances.", "right": "Not only does she sing, but she also dances.", "why": "Not only đầu câu yêu cầu đảo trợ động từ." },
+      { "wrong": "Rarely I go out at night.", "right": "Rarely do I go out at night.", "why": "Rarely đầu câu cần đảo ngữ với do/does." }
+    ]
+  },
+  "discourse-markers": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "Although he was tired, but he continued.", "right": "Although he was tired, he continued.", "why": "Không ghép although...but trong một câu." },
+      { "wrong": "I like it. However I won't buy it.", "right": "I like it. However, I won't buy it.", "why": "However đầu câu cần dấu phẩy sau nó." },
+      { "wrong": "Despite of the rain, we went out.", "right": "Despite the rain, we went out.", "why": "Despite không đi với of (khác in spite OF)." },
+      { "wrong": "On the other hands, it is cheaper.", "right": "On the other hand, it is cheaper.", "why": "Cụm cố định là on the other HAND (số ít)." }
+    ]
+  },
+  "nominalisation": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "The government decided to reduce tax. This decide was popular.", "right": "The government decided to reduce tax. This decision was popular.", "why": "Danh hóa động từ decide thành danh từ decision." },
+      { "wrong": "I had no trouble to find a place.", "right": "I had no trouble finding a place.", "why": "Have trouble + V-ing." },
+      { "wrong": "The analyse of the data took time.", "right": "The analysis of the data took time.", "why": "Danh từ của analyse là analysis." },
+      { "wrong": "Her explain was clear.", "right": "Her explanation was clear.", "why": "Danh hóa explain thành explanation." }
+    ]
+  },
+  "hedging-language": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "This is completely wrong.", "right": "This might not be entirely correct.", "why": "Văn học thuật dùng hedging để mềm hóa nhận định." },
+      { "wrong": "If the weather changes, I hope you would remember.", "right": "If the weather changes, I hope you'll remember.", "why": "Hope về khả năng thực tế dùng will, không dùng would." },
+      { "wrong": "They would likely to benefit.", "right": "They would likely benefit.", "why": "Likely ở đây là trạng từ — không chèn to trước động từ." },
+      { "wrong": "It is obvious true.", "right": "It seems to be true.", "why": "Diễn đạt rào đón dùng seem thay vì khẳng định tuyệt đối." }
+    ]
+  },
+  "grammatical-collocations": {
+    "problems": ["mistake template — thay bằng cặp câu cụ thể"],
+    "mistakes": [
+      { "wrong": "She is interested about music.", "right": "She is interested in music.", "why": "Interested luôn đi với IN." },
+      { "wrong": "It depends of the weather.", "right": "It depends on the weather.", "why": "Depend luôn đi với ON." },
+      { "wrong": "I am good in English.", "right": "I am good at English.", "why": "Good luôn đi với AT." },
+      { "wrong": "He listened the music.", "right": "He listened to the music.", "why": "Listen luôn đi với TO." }
+    ]
+  }
+}

@@ -5,53 +5,7 @@
   "level": "intermediate",
   "order": 32,
   "sections": {
-    "definition": "Used to / Be used to / Get used to phân biệt **used to, be used to và get used to** khi nói thói quen cũ, sự quen thuộc và quá trình thích nghi. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
-    "usage": [
-      {
-        "icon": "🏠",
-        "label": "USED TO + V — thói quen, tình trạng quá khứ nay không còn",
-        "en": "I used to live in Hue.",
-        "vi": "Tôi từng sống ở Huế (giờ không còn nữa)."
-      },
-      {
-        "icon": "☕",
-        "label": "DIDN'T USE TO — phủ định thói quen quá khứ",
-        "en": "She didn't use to drink coffee.",
-        "vi": "Hồi trước cô ấy không uống cà phê."
-      },
-      {
-        "icon": "🌡️",
-        "label": "BE USED TO + V-ing — đã quen với điều gì",
-        "en": "Are you used to the heat in Saigon?",
-        "vi": "Bạn đã quen với cái nóng ở Sài Gòn chưa?"
-      },
-      {
-        "icon": "🌙",
-        "label": "GET USED TO + V-ing — dần dần quen với điều gì",
-        "en": "I'm getting used to working late.",
-        "vi": "Tôi đang dần quen với việc làm việc muộn."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "used to + V",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "be used to + noun/V-ing",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "get used to + noun/V-ing",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **used to + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "Are you used to the heat?"
       }
     ],
+    "usage": [
+      {
+        "en": "I used to live in Hue.",
+        "vi": "Tôi từng sống ở Huế (giờ không còn nữa).",
+        "icon": "🏠",
+        "label": "USED TO + V — thói quen, tình trạng quá khứ nay không còn"
+      },
+      {
+        "en": "She didn't use to drink coffee.",
+        "vi": "Hồi trước cô ấy không uống cà phê.",
+        "icon": "☕",
+        "label": "DIDN'T USE TO — phủ định thói quen quá khứ"
+      },
+      {
+        "en": "Are you used to the heat in Saigon?",
+        "vi": "Bạn đã quen với cái nóng ở Sài Gòn chưa?",
+        "icon": "🌡️",
+        "label": "BE USED TO + V-ing — đã quen với điều gì"
+      },
+      {
+        "en": "I'm getting used to working late.",
+        "vi": "Tôi đang dần quen với việc làm việc muộn.",
+        "icon": "🌙",
+        "label": "GET USED TO + V-ing — dần dần quen với điều gì"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "used to + V",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "be used to + noun/V-ing",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "get used to + noun/V-ing",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "used to",
       "be used to",
@@ -88,40 +88,40 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "I",
-            "start": 0,
             "end": 1,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 0
           },
           {
-            "word": "used",
-            "start": 2,
             "end": 6,
-            "role": "verb"
+            "role": "verb",
+            "word": "used",
+            "start": 2
           },
           {
-            "word": "to",
-            "start": 7,
             "end": 9,
-            "role": "other"
+            "role": "other",
+            "word": "to",
+            "start": 7
           },
           {
-            "word": "live",
-            "start": 10,
             "end": 14,
-            "role": "verb"
+            "role": "verb",
+            "word": "live",
+            "start": 10
           },
           {
-            "word": "in",
-            "start": 15,
             "end": 17,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "in",
+            "start": 15
           },
           {
-            "word": "Hue",
-            "start": 18,
             "end": 21,
-            "role": "noun"
+            "role": "noun",
+            "word": "Hue",
+            "start": 18
           }
         ]
       },
@@ -131,40 +131,40 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "didn't",
-            "start": 4,
             "end": 10,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "didn't",
+            "start": 4
           },
           {
-            "word": "use",
-            "start": 11,
             "end": 14,
-            "role": "verb"
+            "role": "verb",
+            "word": "use",
+            "start": 11
           },
           {
-            "word": "to",
-            "start": 15,
             "end": 17,
-            "role": "other"
+            "role": "other",
+            "word": "to",
+            "start": 15
           },
           {
-            "word": "drink",
-            "start": 18,
             "end": 23,
-            "role": "verb"
+            "role": "verb",
+            "word": "drink",
+            "start": 18
           },
           {
-            "word": "coffee",
-            "start": 24,
             "end": 30,
-            "role": "noun"
+            "role": "noun",
+            "word": "coffee",
+            "start": 24
           }
         ]
       },
@@ -174,40 +174,40 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Are",
-            "start": 0,
             "end": 3,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "Are",
+            "start": 0
           },
           {
-            "word": "you",
-            "start": 4,
             "end": 7,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 4
           },
           {
-            "word": "used",
-            "start": 8,
             "end": 12,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "used",
+            "start": 8
           },
           {
-            "word": "to",
-            "start": 13,
             "end": 15,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 13
           },
           {
-            "word": "the",
-            "start": 16,
             "end": 19,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 16
           },
           {
-            "word": "heat",
-            "start": 20,
             "end": 24,
-            "role": "noun"
+            "role": "noun",
+            "word": "heat",
+            "start": 20
           }
         ]
       },
@@ -217,34 +217,34 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "I'm",
-            "start": 0,
             "end": 3,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "I'm",
+            "start": 0
           },
           {
-            "word": "used",
-            "start": 4,
             "end": 8,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "used",
+            "start": 4
           },
           {
-            "word": "to",
-            "start": 9,
             "end": 11,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 9
           },
           {
-            "word": "working",
-            "start": 12,
             "end": 19,
-            "role": "verb"
+            "role": "verb",
+            "word": "working",
+            "start": 12
           },
           {
-            "word": "late",
-            "start": 20,
             "end": 24,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "late",
+            "start": 20
           }
         ]
       },
@@ -254,52 +254,52 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "He",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "He",
+            "start": 0
           },
           {
-            "word": "is",
-            "start": 3,
             "end": 5,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "is",
+            "start": 3
           },
           {
-            "word": "getting",
-            "start": 6,
             "end": 13,
-            "role": "verb"
+            "role": "verb",
+            "word": "getting",
+            "start": 6
           },
           {
-            "word": "used",
-            "start": 14,
             "end": 18,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "used",
+            "start": 14
           },
           {
-            "word": "to",
-            "start": 19,
             "end": 21,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 19
           },
           {
-            "word": "his",
-            "start": 22,
             "end": 25,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "his",
+            "start": 22
           },
           {
-            "word": "new",
-            "start": 26,
             "end": 29,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "new",
+            "start": 26
           },
           {
-            "word": "job",
-            "start": 30,
             "end": 33,
-            "role": "noun"
+            "role": "noun",
+            "word": "job",
+            "start": 30
           }
         ]
       },
@@ -309,114 +309,109 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "It",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "It",
+            "start": 0
           },
           {
-            "word": "took",
-            "start": 3,
             "end": 7,
-            "role": "verb"
+            "role": "verb",
+            "word": "took",
+            "start": 3
           },
           {
-            "word": "me",
-            "start": 8,
             "end": 10,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "me",
+            "start": 8
           },
           {
-            "word": "weeks",
-            "start": 11,
             "end": 16,
-            "role": "noun"
+            "role": "noun",
+            "word": "weeks",
+            "start": 11
           },
           {
-            "word": "to",
-            "start": 17,
             "end": 19,
-            "role": "other"
-          },
-          {
-            "word": "get",
-            "start": 20,
-            "end": 23,
-            "role": "verb"
-          },
-          {
-            "word": "used",
-            "start": 24,
-            "end": 28,
-            "role": "adjective"
-          },
-          {
+            "role": "other",
             "word": "to",
-            "start": 29,
+            "start": 17
+          },
+          {
+            "end": 23,
+            "role": "verb",
+            "word": "get",
+            "start": 20
+          },
+          {
+            "end": 28,
+            "role": "adjective",
+            "word": "used",
+            "start": 24
+          },
+          {
             "end": 31,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 29
           },
           {
-            "word": "driving",
-            "start": 32,
             "end": 39,
-            "role": "verb"
+            "role": "verb",
+            "word": "driving",
+            "start": 32
           },
           {
-            "word": "here",
-            "start": 40,
             "end": 44,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "here",
+            "start": 40
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “used to + V”.",
-        "right": "I used to live in Hue.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "I use to play football when I was young.",
+        "right": "I used to play football when I was young.",
+        "why": "Khẳng định dùng USED to (có d)."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “be used to + noun/V-ing”.",
-        "right": "She didn't use to drink coffee.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "I didn't used to like coffee.",
+        "right": "I didn't use to like coffee.",
+        "why": "Sau didn't dùng USE to (bỏ d)."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "Are you used to the heat?",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "She is used to get up early now.",
+        "right": "She is used to getting up early now.",
+        "why": "Be used to + V-ing (đã quen với việc gì)."
       },
       {
-        "wrong": "Lisa is used to drive on the left.",
-        "right": "Lisa is used to driving on the left.",
-        "why": "Trong be/get used TO, chữ to là GIỚI TỪ → theo sau là V-ING."
-      },
-      {
-        "wrong": "I didn't used to like him.",
-        "right": "I didn't use to like him.",
-        "why": "Sau trợ động từ didn't, dùng USE TO nguyên thể (bỏ d)."
+        "wrong": "He used to smoking a lot.",
+        "right": "He used to smoke a lot.",
+        "why": "Used to + động từ nguyên thể (thói quen quá khứ)."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **used to + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Used to do vs Be used to doing:** *used to do* = thói quen QUÁ KHỨ nay không còn (*I used to drive to work* — trước hay lái, giờ thì không). *be / get used to doing* = đã QUEN, không còn lạ lẫm ở hiện tại (*She is used to driving on the left* — quen rồi).",
     "timeline": {
-      "caption": "Used to vẽ một dải thói quen trong quá khứ rồi CẮT ĐỨT trước hiện tại: trước kia có, giờ không còn.",
       "points": [
         {
-          "label": "▓▓▓ used to live alone",
-          "note": "quá khứ kéo dài"
+          "note": "quá khứ kéo dài",
+          "label": "▓▓▓ used to live alone"
         },
         {
-          "label": "✂ đã thay đổi",
-          "note": ""
+          "note": "",
+          "label": "✂ đã thay đổi"
         },
         {
-          "label": "NOW: sống cùng gia đình",
-          "note": "hiện tại"
+          "note": "hiện tại",
+          "label": "NOW: sống cùng gia đình"
         }
-      ]
-    }
+      ],
+      "caption": "Used to vẽ một dải thói quen trong quá khứ rồi CẮT ĐỨT trước hiện tại: trước kia có, giờ không còn."
+    },
+    "comparison": "**Used to do vs Be used to doing:** *used to do* = thói quen QUÁ KHỨ nay không còn (*I used to drive to work* — trước hay lái, giờ thì không). *be / get used to doing* = đã QUEN, không còn lạ lẫm ở hiện tại (*She is used to driving on the left* — quen rồi).",
+    "definition": "Used to / Be used to / Get used to phân biệt **used to, be used to và get used to** khi nói thói quen cũ, sự quen thuộc và quá trình thích nghi. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt."
   },
   "exercises": [
     {

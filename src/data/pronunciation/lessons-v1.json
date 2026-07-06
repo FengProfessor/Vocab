@@ -54,6 +54,40 @@
       ]
     },
     {
+      "id": "w-initial",
+      "level": "A1",
+      "title": "/w/ đầu từ (wet, want)",
+      "ipa": "w",
+      "whyHard": "Tiếng Việt không có /w/ đứng đầu độc lập — người Việt hay thêm /kw/ (\"wet\" → \"quét\") hoặc đọc thành /v/ (\"want\" → \"vần\"). /w/ là âm môi tròn, không có tiếng cọ xát.",
+      "mouthTip": "Chu môi TRÒN thật nhỏ như sắp huýt sáo, rồi bật nhanh sang nguyên âm — KHÔNG để răng chạm môi (đó là /v/).",
+      "exampleWords": ["wet", "want", "water", "week", "work", "world"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "wet", "b": "vet", "note": "/w/ môi tròn vs /v/ răng-môi" },
+        { "a": "west", "b": "vest", "note": "/w/ vs /v/" },
+        { "a": "wine", "b": "vine", "note": "/w/ vs /v/" },
+        { "a": "we", "b": "vee", "note": "/w/ vs /v/" },
+        { "a": "worse", "b": "verse", "note": "/w/ vs /v/" }
+      ]
+    },
+    {
+      "id": "j-glide",
+      "level": "A1",
+      "title": "/j/ đầu từ (yes, year)",
+      "ipa": "j",
+      "whyHard": "Người Việt (nhất là giọng Nam) lẫn /j/ với /z/ hoặc bỏ hẳn: \"year\" đọc thành \"ia\", \"yes\" thành \"gét\". /j/ là âm lướt nhẹ như \"i\" ngắn dính vào nguyên âm sau.",
+      "mouthTip": "Bắt đầu bằng khẩu hình \"i\", lưỡi nâng gần vòm miệng rồi TRƯỢT nhanh sang nguyên âm — đầu lưỡi KHÔNG chạm răng.",
+      "exampleWords": ["yes", "year", "you", "young", "yellow", "yesterday"],
+      "drillType": "minimal-pair",
+      "minimalPairs": [
+        { "a": "year", "b": "ear", "note": "Có /j/ đầu vs không" },
+        { "a": "yeast", "b": "east", "note": "/j/ vs không" },
+        { "a": "yell", "b": "ell", "note": "/j/ vs không" },
+        { "a": "use", "b": "ooze", "note": "/juː/ vs /uː/" },
+        { "a": "yolk", "b": "oak", "note": "/j/ vs không" }
+      ]
+    },
+    {
       "id": "initial-p-b",
       "level": "A1",
       "title": "/p/ vs /b/ đầu từ",

@@ -49,10 +49,11 @@
       "answer": "my"
     },
     {
-      "id": "p-a1-4", "level": "A1", "kind": "vocab",
-      "prompt": "Từ nào nghĩa là \"gia đình\"?",
-      "options": ["family", "friend", "father", "farmer"],
-      "answer": "family"
+      "id": "p-a1-4", "level": "A1", "kind": "listening",
+      "prompt": "Nghe và chọn từ bạn nghe được:",
+      "audioWord": "ship",
+      "options": ["ship", "sheep"],
+      "answer": "ship"
     },
     {
       "id": "p-a2-1", "level": "A2", "kind": "grammar",
@@ -73,10 +74,11 @@
       "answer": "can"
     },
     {
-      "id": "p-a2-4", "level": "A2", "kind": "vocab",
-      "prompt": "Từ nào nghĩa là \"bữa sáng\"?",
-      "options": ["breakfast", "dinner", "kitchen", "morning"],
-      "answer": "breakfast"
+      "id": "p-a2-4", "level": "A2", "kind": "listening",
+      "prompt": "Nghe và chọn từ bạn nghe được:",
+      "audioWord": "rise",
+      "options": ["rice", "rise"],
+      "answer": "rise"
     },
     {
       "id": "p-b1-1", "level": "B1", "kind": "grammar",
@@ -97,10 +99,11 @@
       "answer": "mustn't"
     },
     {
-      "id": "p-b1-4", "level": "B1", "kind": "vocab",
-      "prompt": "\"Tôi bị đau đầu\" — I have a ___.",
-      "options": ["headache", "toothbrush", "holiday", "temperature"],
-      "answer": "headache"
+      "id": "p-b1-4", "level": "B1", "kind": "listening",
+      "prompt": "Nghe và chọn từ bạn nghe được:",
+      "audioWord": "thing",
+      "options": ["thin", "thing"],
+      "answer": "thing"
     },
     {
       "id": "p-b2-1", "level": "B2", "kind": "grammar",

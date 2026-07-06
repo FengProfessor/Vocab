@@ -15,11 +15,12 @@ import { fetchRoadmap, type RoadmapLevelView, type RoadmapStepView } from '@/lib
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Celebration } from '@/components/gamification/Celebration';
-import { ArrowLeft, BookOpen, CheckCircle2, Flag, GraduationCap, Headphones, Lock, Sparkles, Star } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle2, Flag, GraduationCap, Headphones, Lock, Sparkles, Star, Volume2 } from 'lucide-react';
+import { playWordAudio } from '@/lib/audio';
 import Link from 'next/link';
 import { StudentShell } from '@/components/student/StudentShell';
 
-interface PlacementQuestionView { id: string; level: string; kind: string; prompt: string; options: string[] }
+interface PlacementQuestionView { id: string; level: string; kind: string; prompt: string; options: string[]; audioWord?: string }
 
 const LEVEL_COLORS: Record<string, string> = {
   A0: 'from-emerald-500 to-teal-500',
@@ -130,6 +131,13 @@ export default function JourneyPage() {
     }
   };
 
+  // Tự phát audio khi vào câu nghe trong placement
+  useEffect(() => {
+    if (mode !== 'test') return;
+    const q = questions[qIndex];
+    if (q?.kind === 'listening' && q.audioWord) void playWordAudio(q.audioWord, null, 0.9);
+  }, [mode, qIndex, questions]);
+
   const answerQuestion = (qid: string, choice: string): void => {
     const next = { ...answers, [qid]: choice };
     setAnswers(next);
@@ -192,6 +200,11 @@ export default function JourneyPage() {
         <div className="mx-auto max-w-xl p-6 space-y-6">
           <p className="text-sm text-muted-foreground">Câu {qIndex + 1}/{questions.length} · cấp {q.level}</p>
           <h1 className="text-xl font-bold">{q.prompt}</h1>
+          {q.kind === 'listening' && q.audioWord && (
+            <Button variant="outline" onClick={() => void playWordAudio(q.audioWord!, null, 0.9)}>
+              <Volume2 className="w-4 h-4 mr-2" /> Nghe lại
+            </Button>
+          )}
           <div className="grid gap-3">
             {q.options.map((opt) => (
               <Button key={opt} variant="outline" className="justify-start h-auto py-3 text-base" disabled={submitting}

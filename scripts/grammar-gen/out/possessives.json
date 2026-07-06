@@ -5,53 +5,7 @@
   "level": "beginner",
   "order": 4,
   "sections": {
-    "definition": "**Tính từ sở hữu** (*my, your, his, her, its, our, their*) đứng trước danh từ để chỉ sự sở hữu hoặc mối quan hệ với danh từ đó. **Đại từ sở hữu** (*mine, yours, his, hers, its, ours, theirs*) thì thay thế cho cả một cụm danh từ sở hữu, đứng độc lập và không đi kèm danh từ.",
-    "usage": [
-      {
-        "icon": "👤",
-        "label": "Nói người nói sở hữu",
-        "en": "This is my notebook. It is mine.",
-        "vi": "Đây là vở của tôi. Nó là của tôi."
-      },
-      {
-        "icon": "🤝",
-        "label": "Nói người nghe sở hữu",
-        "en": "Is this your seat or hers?",
-        "vi": "Đây là chỗ của bạn hay của cô ấy?"
-      },
-      {
-        "icon": "👨‍👩‍👧",
-        "label": "Nói người hoặc vật khác sở hữu",
-        "en": "Their house is next to ours.",
-        "vi": "Nhà của họ ở cạnh nhà của chúng tôi."
-      },
-      {
-        "icon": "🔁",
-        "label": "Tránh lặp lại danh từ",
-        "en": "My bag is blue; yours is black.",
-        "vi": "Túi của tôi màu xanh; túi của bạn màu đen."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Tính từ sở hữu",
-          "structure": "possessive adjective + noun",
-          "example": "my phone, their books"
-        },
-        {
-          "form": "Đại từ sở hữu",
-          "structure": "possessive pronoun (không + noun)",
-          "example": "The phone is mine."
-        },
-        {
-          "form": "Hỏi chủ sở hữu",
-          "structure": "Whose + noun + be ...?",
-          "example": "Whose coat is this?"
-        }
-      ],
-      "note": "Đọc cấu trúc cùng ví dụ và luôn kiểm tra vai trò, số lượng hoặc dạng động từ theo từng trường hợp."
-    },
+    "tips": "**Mẹo:** Có danh từ ngay sau chỗ trống → chọn tính từ sở hữu. Không có danh từ sau chỗ trống → chọn đại từ sở hữu. Riêng **his** giống nhau ở cả hai vai trò; **its** không có dạng đại từ sở hữu thông dụng.",
     "rules": [
       {
         "case": "I / we",
@@ -74,6 +28,52 @@
         "example": "their plan → The plan is theirs."
       }
     ],
+    "usage": [
+      {
+        "en": "This is my notebook. It is mine.",
+        "vi": "Đây là vở của tôi. Nó là của tôi.",
+        "icon": "👤",
+        "label": "Nói người nói sở hữu"
+      },
+      {
+        "en": "Is this your seat or hers?",
+        "vi": "Đây là chỗ của bạn hay của cô ấy?",
+        "icon": "🤝",
+        "label": "Nói người nghe sở hữu"
+      },
+      {
+        "en": "Their house is next to ours.",
+        "vi": "Nhà của họ ở cạnh nhà của chúng tôi.",
+        "icon": "👨‍👩‍👧",
+        "label": "Nói người hoặc vật khác sở hữu"
+      },
+      {
+        "en": "My bag is blue; yours is black.",
+        "vi": "Túi của tôi màu xanh; túi của bạn màu đen.",
+        "icon": "🔁",
+        "label": "Tránh lặp lại danh từ"
+      }
+    ],
+    "formula": {
+      "note": "Đọc cấu trúc cùng ví dụ và luôn kiểm tra vai trò, số lượng hoặc dạng động từ theo từng trường hợp.",
+      "rows": [
+        {
+          "form": "Tính từ sở hữu",
+          "example": "my phone, their books",
+          "structure": "possessive adjective + noun"
+        },
+        {
+          "form": "Đại từ sở hữu",
+          "example": "The phone is mine.",
+          "structure": "possessive pronoun (không + noun)"
+        },
+        {
+          "form": "Hỏi chủ sở hữu",
+          "example": "Whose coat is this?",
+          "structure": "Whose + noun + be ...?"
+        }
+      ]
+    },
     "signals": [
       "Whose...?",
       "belong to",
@@ -87,34 +87,34 @@
         "note": "my đứng trước danh từ brother.",
         "annotations": [
           {
-            "word": "My",
-            "start": 0,
             "end": 2,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "My",
+            "start": 0
           },
           {
-            "word": "brother",
-            "start": 3,
             "end": 10,
-            "role": "noun"
+            "role": "noun",
+            "word": "brother",
+            "start": 3
           },
           {
-            "word": "is",
-            "start": 11,
             "end": 13,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "is",
+            "start": 11
           },
           {
-            "word": "a",
-            "start": 14,
             "end": 15,
-            "role": "article"
+            "role": "article",
+            "word": "a",
+            "start": 14
           },
           {
-            "word": "doctor",
-            "start": 16,
             "end": 22,
-            "role": "noun"
+            "role": "noun",
+            "word": "doctor",
+            "start": 16
           }
         ]
       },
@@ -124,34 +124,34 @@
         "note": "hers thay cho her umbrella.",
         "annotations": [
           {
-            "word": "That",
-            "start": 0,
             "end": 4,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "That",
+            "start": 0
           },
           {
-            "word": "red",
-            "start": 5,
             "end": 8,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "red",
+            "start": 5
           },
           {
-            "word": "umbrella",
-            "start": 9,
             "end": 17,
-            "role": "noun"
+            "role": "noun",
+            "word": "umbrella",
+            "start": 9
           },
           {
-            "word": "is",
-            "start": 18,
             "end": 20,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "is",
+            "start": 18
           },
           {
-            "word": "hers",
-            "start": 21,
             "end": 25,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "hers",
+            "start": 21
           }
         ]
       },
@@ -161,40 +161,40 @@
         "note": "our + noun; theirs đứng độc lập.",
         "annotations": [
           {
-            "word": "Our",
-            "start": 0,
             "end": 3,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "Our",
+            "start": 0
           },
           {
-            "word": "classroom",
-            "start": 4,
             "end": 13,
-            "role": "noun"
+            "role": "noun",
+            "word": "classroom",
+            "start": 4
           },
           {
-            "word": "is",
-            "start": 14,
             "end": 16,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "is",
+            "start": 14
           },
           {
-            "word": "larger",
-            "start": 17,
             "end": 23,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "larger",
+            "start": 17
           },
           {
-            "word": "than",
-            "start": 24,
             "end": 28,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "than",
+            "start": 24
           },
           {
-            "word": "theirs",
-            "start": 29,
             "end": 35,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "theirs",
+            "start": 29
           }
         ]
       },
@@ -204,28 +204,28 @@
         "note": "yours không có danh từ theo sau.",
         "annotations": [
           {
-            "word": "Is",
-            "start": 0,
             "end": 2,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "Is",
+            "start": 0
           },
           {
-            "word": "this",
-            "start": 3,
             "end": 7,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "this",
+            "start": 3
           },
           {
-            "word": "pen",
-            "start": 8,
             "end": 11,
-            "role": "noun"
+            "role": "noun",
+            "word": "pen",
+            "start": 8
           },
           {
-            "word": "yours",
-            "start": 12,
             "end": 17,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "yours",
+            "start": 12
           }
         ]
       },
@@ -235,40 +235,40 @@
         "note": "its là tính từ sở hữu, không có dấu nháy.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "cat",
-            "start": 4,
             "end": 7,
-            "role": "noun"
+            "role": "noun",
+            "word": "cat",
+            "start": 4
           },
           {
-            "word": "is",
-            "start": 8,
             "end": 10,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "is",
+            "start": 8
           },
           {
-            "word": "washing",
-            "start": 11,
             "end": 18,
-            "role": "verb"
+            "role": "verb",
+            "word": "washing",
+            "start": 11
           },
           {
-            "word": "its",
-            "start": 19,
             "end": 22,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "its",
+            "start": 19
           },
           {
-            "word": "paws",
-            "start": 23,
             "end": 27,
-            "role": "noun"
+            "role": "noun",
+            "word": "paws",
+            "start": 23
           }
         ]
       },
@@ -278,74 +278,69 @@
         "note": "his có thể đứng trước noun; mine thay cả cụm my answer.",
         "annotations": [
           {
-            "word": "His",
-            "start": 0,
             "end": 3,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "His",
+            "start": 0
           },
           {
-            "word": "answer",
-            "start": 4,
             "end": 10,
-            "role": "noun"
+            "role": "noun",
+            "word": "answer",
+            "start": 4
           },
           {
-            "word": "is",
-            "start": 11,
             "end": 13,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "is",
+            "start": 11
           },
           {
-            "word": "different",
-            "start": 14,
             "end": 23,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "different",
+            "start": 14
           },
           {
-            "word": "from",
-            "start": 24,
             "end": 28,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "from",
+            "start": 24
           },
           {
-            "word": "mine",
-            "start": 29,
             "end": 33,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "mine",
+            "start": 29
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "This is mine book.",
-        "right": "This is my book.",
-        "why": "Trước danh từ book phải dùng tính từ sở hữu my."
-      },
-      {
-        "wrong": "That bicycle is her.",
-        "right": "That bicycle is hers.",
-        "why": "Đứng độc lập để chỉ sở hữu phải dùng hers."
-      },
-      {
-        "wrong": "The dog is eating it’s food.",
-        "right": "The dog is eating its food.",
-        "why": "its là sở hữu; it’s là dạng rút gọn của it is/it has."
-      },
-      {
         "wrong": "This is the book of my brother.",
         "right": "This is my brother's book.",
-        "why": "Sở hữu của NGƯỜI dùng 's, không dùng cấu trúc of kiểu dịch từ tiếng Việt."
+        "why": "Sở hữu của người dùng 's, không dùng cấu trúc of kiểu dịch từ tiếng Việt."
       },
       {
-        "wrong": "Its a beautiful day.",
-        "right": "It's a beautiful day.",
-        "why": "It's = it is; ITS (không phẩy) là tính từ sở hữu — hai từ khác hẳn nhau."
+        "wrong": "Its a nice car.",
+        "right": "It's a nice car.",
+        "why": "It's = it is; ITS (không phẩy) mới là tính từ sở hữu."
+      },
+      {
+        "wrong": "This bag is my.",
+        "right": "This bag is mine.",
+        "why": "Cuối câu dùng đại từ sở hữu (mine), không dùng tính từ sở hữu (my)."
+      },
+      {
+        "wrong": "Their going home now.",
+        "right": "They're going home now.",
+        "why": "They're = they are; their là tính từ sở hữu — hai từ khác nghĩa."
       }
     ],
-    "tips": "**Mẹo:** Có danh từ ngay sau chỗ trống → chọn tính từ sở hữu. Không có danh từ sau chỗ trống → chọn đại từ sở hữu. Riêng **his** giống nhau ở cả hai vai trò; **its** không có dạng đại từ sở hữu thông dụng.",
+    "timeline": null,
     "comparison": "**my vs mine:** *my book* cần danh từ; *the book is mine* không thêm danh từ. **its vs it’s:** *its tail* = cái đuôi của nó; *it’s long* = it is long.",
-    "timeline": null
+    "definition": "**Tính từ sở hữu** (*my, your, his, her, its, our, their*) đứng trước danh từ để chỉ sự sở hữu hoặc mối quan hệ với danh từ đó. **Đại từ sở hữu** (*mine, yours, his, hers, its, ours, theirs*) thì thay thế cho cả một cụm danh từ sở hữu, đứng độc lập và không đi kèm danh từ."
   },
   "exercises": [
     {

@@ -45,6 +45,8 @@ export default function CheckpointPage() {
   const [finished, setFinished] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const correctRef = useRef(0);
+  const wrongTypesRef = useRef<Set<string>>(new Set());
+  const [weakSkills, setWeakSkills] = useState<string[]>([]);
 
   const load = useCallback(async (): Promise<void> => {
     try {
@@ -53,7 +55,7 @@ export default function CheckpointPage() {
       if (!json.success || !json.data) throw new Error(json.error || 'Không tải được checkpoint');
       setTitle(json.data.title);
       setQuestions(json.data.questions);
-      setIndex(0); setCorrect(0); correctRef.current = 0;
+      setIndex(0); setCorrect(0); correctRef.current = 0; wrongTypesRef.current = new Set();
       setPicked(null); setTyped(''); setRevealed(false); setFinished(false);
     } catch (error: unknown) {
       toast.error(error instanceof Error ? error.message : 'Có lỗi kết nối');
@@ -91,6 +93,8 @@ export default function CheckpointPage() {
     if (isCorrect) {
       setCorrect((c) => c + 1);
       correctRef.current += 1;
+    } else {
+      wrongTypesRef.current.add(q.type);
     }
   };
 
@@ -100,6 +104,12 @@ export default function CheckpointPage() {
       setPicked(null); setTyped(''); setRevealed(false);
       return;
     }
+    // Chốt phần yếu (đọc ref ở đây, không đọc trong render)
+    const SKILL_VI: Record<string, string> = {
+      'meaning-to-word': 'Từ vựng', 'word-to-meaning': 'Từ vựng', 'typing': 'Từ vựng',
+      'listening-choice': 'Nghe từ vựng', 'grammar-mcq': 'Ngữ pháp', 'minimal-pair': 'Phát âm',
+    };
+    setWeakSkills([...new Set([...wrongTypesRef.current].map((t) => SKILL_VI[t] ?? t))]);
     setFinished(true);
     const scorePct = Math.round((correctRef.current / questions.length) * 100);
     if (scorePct >= 80 && stepId) {
@@ -135,11 +145,20 @@ export default function CheckpointPage() {
         <p className="text-muted-foreground text-sm">
           {passed ? encouragement('unit_complete') : encouragement('many_wrong')}
         </p>
+        {!passed && weakSkills.length > 0 && (
+          <div className="rounded-xl border border-amber-200 bg-amber-50 dark:bg-amber-950/20 p-3 text-sm">
+            <p className="font-semibold text-amber-700 dark:text-amber-400">Nên ôn lại phần: {weakSkills.join(', ')}</p>
+            <p className="text-muted-foreground mt-1">Về lộ trình mở lại các bước {weakSkills.join('/').toLowerCase()} của chặng này, rồi thử checkpoint lần nữa nhé.</p>
+          </div>
+        )}
         <div className="grid w-full gap-2">
           {passed
             ? <Button variant="chunky" size="lg" disabled={submitting} onClick={() => void next()}>Nhận thưởng & mở chặng mới</Button>
-            : <Button variant="chunky" size="lg" onClick={reload}>Làm lại (câu hỏi mới)</Button>}
-          <Link href="/journey"><Button variant="ghost" className="w-full">Về lộ trình</Button></Link>
+            : <>
+                <Button variant="chunky" size="lg" onClick={reload}>Làm lại (câu hỏi mới)</Button>
+                <Link href="/journey"><Button variant="outline" className="w-full">Ôn lại chặng trước khi thử lại</Button></Link>
+              </>}
+          {passed && <Link href="/journey"><Button variant="ghost" className="w-full">Về lộ trình</Button></Link>}
         </div>
       </div>
     );

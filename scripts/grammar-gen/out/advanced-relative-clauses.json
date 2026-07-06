@@ -5,53 +5,7 @@
   "level": "advanced",
   "order": 52,
   "sections": {
-    "definition": "**Mệnh đề quan hệ nâng cao** là một cấu trúc phức tạp, có thể bổ nghĩa cho cả một mệnh đề đứng trước thay vì chỉ một danh từ đơn lẻ. Chúng thường được giới thiệu bằng một dấu phẩy theo sau là 'which', hoặc dùng các cấu trúc trang trọng kết hợp giới từ với đại từ quan hệ, giúp diễn đạt ý nghĩa chính xác và tinh tế hơn trong văn viết học thuật.",
-    "usage": [
-      {
-        "icon": "🎩",
-        "label": "Giới từ + whom/which trong văn phong trang trọng",
-        "en": "The person to whom I spoke was very helpful.",
-        "vi": "Người mà tôi đã trao đổi rất nhiệt tình."
-      },
-      {
-        "icon": "👨‍👩‍👦",
-        "label": "Lượng từ + of whom/which (all, some, most...)",
-        "en": "She has three sons, all of whom are doctors.",
-        "vi": "Bà ấy có ba người con trai, tất cả đều là bác sĩ."
-      },
-      {
-        "icon": "💬",
-        "label": "WHICH bổ nghĩa cho cả mệnh đề đứng trước",
-        "en": "The meeting was cancelled, which surprised us.",
-        "vi": "Cuộc họp bị hủy, điều đó khiến chúng tôi ngạc nhiên."
-      },
-      {
-        "icon": "✂️",
-        "label": "Rút gọn mệnh đề quan hệ bằng phân từ",
-        "en": "The man standing by the door is my uncle.",
-        "vi": "Người đàn ông đứng cạnh cửa là chú tôi."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "preposition + whom/which",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "quantifier + of whom/which",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "which tham chiếu cả mệnh đề trước",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **preposition + whom/which** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "The meeting was cancelled, which surprised us."
       }
     ],
+    "usage": [
+      {
+        "en": "The person to whom I spoke was very helpful.",
+        "vi": "Người mà tôi đã trao đổi rất nhiệt tình.",
+        "icon": "🎩",
+        "label": "Giới từ + whom/which trong văn phong trang trọng"
+      },
+      {
+        "en": "She has three sons, all of whom are doctors.",
+        "vi": "Bà ấy có ba người con trai, tất cả đều là bác sĩ.",
+        "icon": "👨‍👩‍👦",
+        "label": "Lượng từ + of whom/which (all, some, most...)"
+      },
+      {
+        "en": "The meeting was cancelled, which surprised us.",
+        "vi": "Cuộc họp bị hủy, điều đó khiến chúng tôi ngạc nhiên.",
+        "icon": "💬",
+        "label": "WHICH bổ nghĩa cho cả mệnh đề đứng trước"
+      },
+      {
+        "en": "The man standing by the door is my uncle.",
+        "vi": "Người đàn ông đứng cạnh cửa là chú tôi.",
+        "icon": "✂️",
+        "label": "Rút gọn mệnh đề quan hệ bằng phân từ"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "preposition + whom/which",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "quantifier + of whom/which",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "which tham chiếu cả mệnh đề trước",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "most of whom",
       "some of which",
@@ -88,52 +88,52 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "person",
-            "start": 4,
             "end": 10,
-            "role": "noun"
+            "role": "noun",
+            "word": "person",
+            "start": 4
           },
           {
-            "word": "to",
-            "start": 11,
             "end": 13,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 11
           },
           {
-            "word": "whom",
-            "start": 14,
             "end": 18,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "whom",
+            "start": 14
           },
           {
-            "word": "I",
-            "start": 19,
             "end": 20,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 19
           },
           {
-            "word": "spoke",
-            "start": 21,
             "end": 26,
-            "role": "verb"
+            "role": "verb",
+            "word": "spoke",
+            "start": 21
           },
           {
-            "word": "was",
-            "start": 27,
             "end": 30,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "was",
+            "start": 27
           },
           {
-            "word": "helpful",
-            "start": 31,
             "end": 38,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "helpful",
+            "start": 31
           }
         ]
       },
@@ -143,58 +143,58 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "has",
-            "start": 4,
             "end": 7,
-            "role": "verb"
+            "role": "verb",
+            "word": "has",
+            "start": 4
           },
           {
-            "word": "three",
-            "start": 8,
             "end": 13,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "three",
+            "start": 8
           },
           {
-            "word": "sons",
-            "start": 14,
             "end": 18,
-            "role": "noun"
+            "role": "noun",
+            "word": "sons",
+            "start": 14
           },
           {
-            "word": "all",
-            "start": 20,
             "end": 23,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "all",
+            "start": 20
           },
           {
-            "word": "of",
-            "start": 24,
             "end": 26,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "of",
+            "start": 24
           },
           {
-            "word": "whom",
-            "start": 27,
             "end": 31,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "whom",
+            "start": 27
           },
           {
-            "word": "are",
-            "start": 32,
             "end": 35,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "are",
+            "start": 32
           },
           {
-            "word": "doctors",
-            "start": 36,
             "end": 43,
-            "role": "noun"
+            "role": "noun",
+            "word": "doctors",
+            "start": 36
           }
         ]
       },
@@ -204,46 +204,46 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "meeting",
-            "start": 4,
             "end": 11,
-            "role": "noun"
+            "role": "noun",
+            "word": "meeting",
+            "start": 4
           },
           {
-            "word": "was",
-            "start": 12,
             "end": 15,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "was",
+            "start": 12
           },
           {
-            "word": "cancelled",
-            "start": 16,
             "end": 25,
-            "role": "verb"
+            "role": "verb",
+            "word": "cancelled",
+            "start": 16
           },
           {
-            "word": "which",
-            "start": 27,
             "end": 32,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "which",
+            "start": 27
           },
           {
-            "word": "surprised",
-            "start": 33,
             "end": 42,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "surprised",
+            "start": 33
           },
           {
-            "word": "us",
-            "start": 43,
             "end": 45,
-            "role": "verb"
+            "role": "verb",
+            "word": "us",
+            "start": 43
           }
         ]
       },
@@ -253,52 +253,52 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "This",
-            "start": 0,
             "end": 4,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "This",
+            "start": 0
           },
           {
-            "word": "is",
-            "start": 5,
             "end": 7,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "is",
+            "start": 5
           },
           {
-            "word": "the",
-            "start": 8,
             "end": 11,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 8
           },
           {
-            "word": "issue",
-            "start": 12,
             "end": 17,
-            "role": "noun"
+            "role": "noun",
+            "word": "issue",
+            "start": 12
           },
           {
-            "word": "about",
-            "start": 18,
             "end": 23,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "about",
+            "start": 18
           },
           {
-            "word": "which",
-            "start": 24,
             "end": 29,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "which",
+            "start": 24
           },
           {
-            "word": "we",
-            "start": 30,
             "end": 32,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "we",
+            "start": 30
           },
           {
-            "word": "argued",
-            "start": 33,
             "end": 39,
-            "role": "verb"
+            "role": "verb",
+            "word": "argued",
+            "start": 33
           }
         ]
       },
@@ -308,64 +308,64 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "house",
-            "start": 4,
             "end": 9,
-            "role": "noun"
+            "role": "noun",
+            "word": "house",
+            "start": 4
           },
           {
-            "word": "the",
-            "start": 11,
             "end": 14,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 11
           },
           {
-            "word": "roof",
-            "start": 15,
             "end": 19,
-            "role": "noun"
+            "role": "noun",
+            "word": "roof",
+            "start": 15
           },
           {
-            "word": "of",
-            "start": 20,
             "end": 22,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "of",
+            "start": 20
           },
           {
-            "word": "which",
-            "start": 23,
             "end": 28,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "which",
+            "start": 23
           },
           {
-            "word": "was",
-            "start": 29,
             "end": 32,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "was",
+            "start": 29
           },
           {
-            "word": "damaged",
-            "start": 33,
             "end": 40,
-            "role": "verb"
+            "role": "verb",
+            "word": "damaged",
+            "start": 33
           },
           {
-            "word": "is",
-            "start": 42,
             "end": 44,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "is",
+            "start": 42
           },
           {
-            "word": "empty",
-            "start": 45,
             "end": 50,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "empty",
+            "start": 45
           }
         ]
       },
@@ -375,80 +375,75 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Whatever",
-            "start": 0,
             "end": 8,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "Whatever",
+            "start": 0
           },
           {
-            "word": "you",
-            "start": 9,
             "end": 12,
-            "role": "pronoun"
-          },
-          {
-            "word": "decide",
-            "start": 13,
-            "end": 19,
-            "role": "verb"
-          },
-          {
-            "word": "I",
-            "start": 21,
-            "end": 22,
-            "role": "pronoun"
-          },
-          {
-            "word": "will",
-            "start": 23,
-            "end": 27,
-            "role": "modal"
-          },
-          {
-            "word": "support",
-            "start": 28,
-            "end": 35,
-            "role": "verb"
-          },
-          {
+            "role": "pronoun",
             "word": "you",
-            "start": 36,
+            "start": 9
+          },
+          {
+            "end": 19,
+            "role": "verb",
+            "word": "decide",
+            "start": 13
+          },
+          {
+            "end": 22,
+            "role": "pronoun",
+            "word": "I",
+            "start": 21
+          },
+          {
+            "end": 27,
+            "role": "modal",
+            "word": "will",
+            "start": 23
+          },
+          {
+            "end": 35,
+            "role": "verb",
+            "word": "support",
+            "start": 28
+          },
+          {
             "end": 39,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 36
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “preposition + whom/which”.",
-        "right": "The person to whom I spoke was helpful.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "Anna told me about her job that she enjoys.",
+        "right": "Anna told me about her job, which she enjoys.",
+        "why": "Thông tin phụ về danh từ xác định dùng phẩy + which, không dùng that."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “quantifier + of whom/which”.",
-        "right": "She has three sons, all of whom are doctors.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "My father, that is a doctor, is retired.",
+        "right": "My father, who is a doctor, is retired.",
+        "why": "Mệnh đề không xác định về người dùng who, không dùng that."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "The meeting was cancelled, which surprised us.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "The students, many of who passed, celebrated.",
+        "right": "The students, many of whom passed, celebrated.",
+        "why": "Sau giới từ/lượng từ dùng whom, không dùng who."
       },
       {
-        "wrong": "Anna told me about her new job that she's enjoying very much.",
-        "right": "Anna told me about her new job, which she's enjoying very much.",
-        "why": "Thông tin phụ về danh từ đã xác định phải dùng mệnh đề không xác định: phẩy + WHICH, không dùng that."
-      },
-      {
-        "wrong": "Where are the keys that we were looking for them?",
-        "right": "Where are the keys that we were looking for?",
-        "why": "Đại từ quan hệ that đã làm tân ngữ rồi — không lặp thêm them thừa."
+        "wrong": "The house in that I live is old.",
+        "right": "The house in which I live is old.",
+        "why": "Sau giới từ dùng which, không dùng that."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **preposition + whom/which** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "timeline": null,
     "comparison": "**Defining vs Non-defining:** Mệnh đề xác định chỉ rõ danh từ nào đang nói, không có phẩy, được dùng that: *The book that I am reading is great.* Mệnh đề không xác định thêm thông tin phụ, BẮT BUỘC có phẩy và KHÔNG dùng that: *The book, which I am reading, is great.* Có phẩy = bỏ mệnh đề đi câu vẫn đủ nghĩa.",
-    "timeline": null
+    "definition": "**Mệnh đề quan hệ nâng cao** là một cấu trúc phức tạp, có thể bổ nghĩa cho cả một mệnh đề đứng trước thay vì chỉ một danh từ đơn lẻ. Chúng thường được giới thiệu bằng một dấu phẩy theo sau là 'which', hoặc dùng các cấu trúc trang trọng kết hợp giới từ với đại từ quan hệ, giúp diễn đạt ý nghĩa chính xác và tinh tế hơn trong văn viết học thuật."
   },
   "exercises": [
     {

@@ -5,59 +5,7 @@
   "level": "intermediate",
   "order": 42,
   "sections": {
-    "definition": "**Câu hỏi đuôi** là các cụm từ ngắn được thêm vào cuối câu khẳng định hoặc phủ định để xác nhận thông tin, bày tỏ sự ngạc nhiên hoặc mời người nghe đồng tình. Cấu trúc phổ biến là câu khẳng định đi với đuôi phủ định và ngược lại.",
-    "usage": [
-      {
-        "icon": "✅",
-        "label": "Câu khẳng định + đuôi phủ định",
-        "en": "You're coming to the party, aren't you?",
-        "vi": "Bạn sẽ đến bữa tiệc, đúng không?"
-      },
-      {
-        "icon": "❌",
-        "label": "Câu phủ định + đuôi khẳng định",
-        "en": "She doesn't drive, does she?",
-        "vi": "Cô ấy không lái xe, phải không?"
-      },
-      {
-        "icon": "🔁",
-        "label": "Đuôi lặp lại đúng trợ động từ và thì của mệnh đề chính",
-        "en": "They left early, didn't they?",
-        "vi": "Họ về sớm, đúng không nhỉ?"
-      },
-      {
-        "icon": "🤝",
-        "label": "Trường hợp đặc biệt: Let's... đuôi là shall we?",
-        "en": "Let's start, shall we?",
-        "vi": "Chúng ta bắt đầu nhé?"
-      },
-      {
-        "icon": "🗣️",
-        "label": "Xuống giọng = xác nhận; lên giọng = hỏi thật",
-        "en": "It's cold today, isn't it?",
-        "vi": "Hôm nay trời lạnh nhỉ?"
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "mệnh đề khẳng định, trợ động từ phủ định + đại từ?",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "mệnh đề phủ định, trợ động từ khẳng định + đại từ?",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "Let's ..., shall we?",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **mệnh đề khẳng định, trợ động từ phủ định + đại từ?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -80,6 +28,58 @@
         "example": "They left early, didn't they?"
       }
     ],
+    "usage": [
+      {
+        "en": "You're coming to the party, aren't you?",
+        "vi": "Bạn sẽ đến bữa tiệc, đúng không?",
+        "icon": "✅",
+        "label": "Câu khẳng định + đuôi phủ định"
+      },
+      {
+        "en": "She doesn't drive, does she?",
+        "vi": "Cô ấy không lái xe, phải không?",
+        "icon": "❌",
+        "label": "Câu phủ định + đuôi khẳng định"
+      },
+      {
+        "en": "They left early, didn't they?",
+        "vi": "Họ về sớm, đúng không nhỉ?",
+        "icon": "🔁",
+        "label": "Đuôi lặp lại đúng trợ động từ và thì của mệnh đề chính"
+      },
+      {
+        "en": "Let's start, shall we?",
+        "vi": "Chúng ta bắt đầu nhé?",
+        "icon": "🤝",
+        "label": "Trường hợp đặc biệt: Let's... đuôi là shall we?"
+      },
+      {
+        "en": "It's cold today, isn't it?",
+        "vi": "Hôm nay trời lạnh nhỉ?",
+        "icon": "🗣️",
+        "label": "Xuống giọng = xác nhận; lên giọng = hỏi thật"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "mệnh đề khẳng định, trợ động từ phủ định + đại từ?",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "mệnh đề phủ định, trợ động từ khẳng định + đại từ?",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "Let's ..., shall we?",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "isn't it?",
       "aren't you?",
@@ -94,28 +94,28 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "You're",
-            "start": 0,
             "end": 6,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "You're",
+            "start": 0
           },
           {
-            "word": "coming",
-            "start": 7,
             "end": 13,
-            "role": "verb"
+            "role": "verb",
+            "word": "coming",
+            "start": 7
           },
           {
-            "word": "aren't",
-            "start": 15,
             "end": 21,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "aren't",
+            "start": 15
           },
           {
-            "word": "you",
-            "start": 22,
             "end": 25,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 22
           }
         ]
       },
@@ -125,34 +125,34 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "doesn't",
-            "start": 4,
             "end": 11,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "doesn't",
+            "start": 4
           },
           {
-            "word": "drive",
-            "start": 12,
             "end": 17,
-            "role": "verb"
+            "role": "verb",
+            "word": "drive",
+            "start": 12
           },
           {
-            "word": "does",
-            "start": 19,
             "end": 23,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "does",
+            "start": 19
           },
           {
-            "word": "she",
-            "start": 24,
             "end": 27,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "she",
+            "start": 24
           }
         ]
       },
@@ -162,34 +162,34 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "They",
-            "start": 0,
             "end": 4,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "They",
+            "start": 0
           },
           {
-            "word": "left",
-            "start": 5,
             "end": 9,
-            "role": "verb"
+            "role": "verb",
+            "word": "left",
+            "start": 5
           },
           {
-            "word": "early",
-            "start": 10,
             "end": 15,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "early",
+            "start": 10
           },
           {
-            "word": "didn't",
-            "start": 17,
             "end": 23,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "didn't",
+            "start": 17
           },
           {
-            "word": "they",
-            "start": 24,
             "end": 28,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "they",
+            "start": 24
           }
         ]
       },
@@ -199,28 +199,28 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Let's",
-            "start": 0,
             "end": 5,
-            "role": "modal"
+            "role": "modal",
+            "word": "Let's",
+            "start": 0
           },
           {
-            "word": "start",
-            "start": 6,
             "end": 11,
-            "role": "verb"
+            "role": "verb",
+            "word": "start",
+            "start": 6
           },
           {
-            "word": "shall",
-            "start": 13,
             "end": 18,
-            "role": "modal"
+            "role": "modal",
+            "word": "shall",
+            "start": 13
           },
           {
-            "word": "we",
-            "start": 19,
             "end": 21,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "we",
+            "start": 19
           }
         ]
       },
@@ -230,28 +230,28 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "I'm",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I'm",
+            "start": 0
           },
           {
-            "word": "late",
-            "start": 4,
             "end": 8,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "late",
+            "start": 4
           },
           {
-            "word": "aren't",
-            "start": 10,
             "end": 16,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "aren't",
+            "start": 10
           },
           {
-            "word": "I",
-            "start": 17,
             "end": 18,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 17
           }
         ]
       },
@@ -261,62 +261,57 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Nobody",
-            "start": 0,
             "end": 6,
-            "role": "noun"
+            "role": "noun",
+            "word": "Nobody",
+            "start": 0
           },
           {
-            "word": "called",
-            "start": 7,
             "end": 13,
-            "role": "verb"
+            "role": "verb",
+            "word": "called",
+            "start": 7
           },
           {
-            "word": "did",
-            "start": 15,
             "end": 18,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "did",
+            "start": 15
           },
           {
-            "word": "they",
-            "start": 19,
             "end": 23,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "they",
+            "start": 19
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “mệnh đề khẳng định, trợ động từ phủ định + đại từ?”.",
-        "right": "You're coming, aren't you?",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "You are a student, are you?",
+        "right": "You are a student, aren't you?",
+        "why": "Câu khẳng định đi với tag PHỦ ĐỊNH."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “mệnh đề phủ định, trợ động từ khẳng định + đại từ?”.",
-        "right": "She doesn't drive, does she?",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
-      },
-      {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "They left early, didn't they?",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "She can swim, can she?",
+        "right": "She can swim, can't she?",
+        "why": "Câu khẳng định phải đi với tag phủ định."
       },
       {
         "wrong": "You travel a lot, travel you?",
         "right": "You travel a lot, don't you?",
-        "why": "Động từ thường ở hiện tại đơn dùng trợ động từ do/does trong tag, không lặp lại động từ chính."
+        "why": "Động từ thường hiện tại đơn dùng do/does trong tag."
       },
       {
-        "wrong": "Kate won't be late, won't she?",
-        "right": "Kate won't be late, will she?",
-        "why": "Câu phủ định (won't) phải đi với tag KHẲNG ĐỊNH (will she) — ngược cực."
+        "wrong": "He won't be late, won't he?",
+        "right": "He won't be late, will he?",
+        "why": "Câu phủ định đi với tag KHẲNG ĐỊNH."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **mệnh đề khẳng định, trợ động từ phủ định + đại từ?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "timeline": null,
     "comparison": "**Question tag vs câu hỏi thường:** Tag là câu hỏi mini gắn CUỐI câu kể để xác nhận/hỏi ý kiến (*He is Spanish, isn't he?*), còn câu hỏi thường đảo trợ động từ lên ĐẦU (*Is he Spanish?*). Quy tắc vàng: câu khẳng định → tag phủ định, câu phủ định → tag khẳng định.",
-    "timeline": null
+    "definition": "**Câu hỏi đuôi** là các cụm từ ngắn được thêm vào cuối câu khẳng định hoặc phủ định để xác nhận thông tin, bày tỏ sự ngạc nhiên hoặc mời người nghe đồng tình. Cấu trúc phổ biến là câu khẳng định đi với đuôi phủ định và ngược lại."
   },
   "exercises": [
     {

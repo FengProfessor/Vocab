@@ -5,53 +5,7 @@
   "level": "intermediate",
   "order": 37,
   "sections": {
-    "definition": "Reported Speech dùng **câu tường thuật** để kể lại lời nói mà không lặp nguyên văn. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
-    "usage": [
-      {
-        "icon": "💬",
-        "label": "Tường thuật câu kể — lùi thì, đổi ngôi",
-        "en": "\"I am tired.\" → She said that she was tired.",
-        "vi": "\"Tôi mệt.\" → Cô ấy nói rằng cô ấy mệt."
-      },
-      {
-        "icon": "📢",
-        "label": "Tường thuật mệnh lệnh với told + O + to V",
-        "en": "He told me to wait outside.",
-        "vi": "Anh ấy bảo tôi đợi ở ngoài."
-      },
-      {
-        "icon": "❓",
-        "label": "Tường thuật câu hỏi Yes/No với whether / if",
-        "en": "Lan asked whether I was free.",
-        "vi": "Lan hỏi liệu tôi có rảnh không."
-      },
-      {
-        "icon": "⏪",
-        "label": "Lùi quá khứ đơn thành quá khứ hoàn thành",
-        "en": "\"We finished.\" → They said they had finished.",
-        "vi": "\"Bọn tôi xong rồi.\" → Họ nói họ đã hoàn thành rồi."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "said (that) + clause",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "told + object + clause",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "asked + if/wh-clause",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **said (that) + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "Lan asked whether I was free."
       }
     ],
+    "usage": [
+      {
+        "en": "\"I am tired.\" → She said that she was tired.",
+        "vi": "\"Tôi mệt.\" → Cô ấy nói rằng cô ấy mệt.",
+        "icon": "💬",
+        "label": "Tường thuật câu kể — lùi thì, đổi ngôi"
+      },
+      {
+        "en": "He told me to wait outside.",
+        "vi": "Anh ấy bảo tôi đợi ở ngoài.",
+        "icon": "📢",
+        "label": "Tường thuật mệnh lệnh với told + O + to V"
+      },
+      {
+        "en": "Lan asked whether I was free.",
+        "vi": "Lan hỏi liệu tôi có rảnh không.",
+        "icon": "❓",
+        "label": "Tường thuật câu hỏi Yes/No với whether / if"
+      },
+      {
+        "en": "\"We finished.\" → They said they had finished.",
+        "vi": "\"Bọn tôi xong rồi.\" → Họ nói họ đã hoàn thành rồi.",
+        "icon": "⏪",
+        "label": "Lùi quá khứ đơn thành quá khứ hoàn thành"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "said (that) + clause",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "told + object + clause",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "asked + if/wh-clause",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "say",
       "tell",
@@ -90,40 +90,40 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "said",
-            "start": 4,
             "end": 8,
-            "role": "verb"
+            "role": "verb",
+            "word": "said",
+            "start": 4
           },
           {
-            "word": "that",
-            "start": 9,
             "end": 13,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "that",
+            "start": 9
           },
           {
-            "word": "she",
-            "start": 14,
             "end": 17,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "she",
+            "start": 14
           },
           {
-            "word": "was",
-            "start": 18,
             "end": 21,
-            "role": "verb"
+            "role": "verb",
+            "word": "was",
+            "start": 18
           },
           {
-            "word": "tired",
-            "start": 22,
             "end": 27,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "tired",
+            "start": 22
           }
         ]
       },
@@ -133,34 +133,34 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "He",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "He",
+            "start": 0
           },
           {
-            "word": "told",
-            "start": 3,
             "end": 7,
-            "role": "verb"
+            "role": "verb",
+            "word": "told",
+            "start": 3
           },
           {
-            "word": "me",
-            "start": 8,
             "end": 10,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "me",
+            "start": 8
           },
           {
-            "word": "to",
-            "start": 11,
             "end": 13,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 11
           },
           {
-            "word": "wait",
-            "start": 14,
             "end": 18,
-            "role": "verb"
+            "role": "verb",
+            "word": "wait",
+            "start": 14
           }
         ]
       },
@@ -170,40 +170,40 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Lan",
-            "start": 0,
             "end": 3,
-            "role": "noun"
+            "role": "noun",
+            "word": "Lan",
+            "start": 0
           },
           {
-            "word": "asked",
-            "start": 4,
             "end": 9,
-            "role": "verb"
+            "role": "verb",
+            "word": "asked",
+            "start": 4
           },
           {
-            "word": "whether",
-            "start": 10,
             "end": 17,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "whether",
+            "start": 10
           },
           {
-            "word": "I",
-            "start": 18,
             "end": 19,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 18
           },
           {
-            "word": "was",
-            "start": 20,
             "end": 23,
-            "role": "verb"
+            "role": "verb",
+            "word": "was",
+            "start": 20
           },
           {
-            "word": "free",
-            "start": 24,
             "end": 28,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "free",
+            "start": 24
           }
         ]
       },
@@ -213,34 +213,34 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "They",
-            "start": 0,
             "end": 4,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "They",
+            "start": 0
           },
           {
-            "word": "said",
-            "start": 5,
             "end": 9,
-            "role": "verb"
+            "role": "verb",
+            "word": "said",
+            "start": 5
           },
           {
-            "word": "they",
-            "start": 10,
             "end": 14,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "they",
+            "start": 10
           },
           {
-            "word": "had",
-            "start": 15,
             "end": 18,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "had",
+            "start": 15
           },
           {
-            "word": "finished",
-            "start": 19,
             "end": 27,
-            "role": "verb"
+            "role": "verb",
+            "word": "finished",
+            "start": 19
           }
         ]
       },
@@ -250,52 +250,52 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "My",
-            "start": 0,
             "end": 2,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "My",
+            "start": 0
           },
           {
-            "word": "boss",
-            "start": 3,
             "end": 7,
-            "role": "noun"
+            "role": "noun",
+            "word": "boss",
+            "start": 3
           },
           {
-            "word": "told",
-            "start": 8,
             "end": 12,
-            "role": "verb"
+            "role": "verb",
+            "word": "told",
+            "start": 8
           },
           {
-            "word": "me",
-            "start": 13,
             "end": 15,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "me",
+            "start": 13
           },
           {
-            "word": "not",
-            "start": 16,
             "end": 19,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "not",
+            "start": 16
           },
           {
-            "word": "to",
-            "start": 20,
             "end": 22,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 20
           },
           {
-            "word": "be",
-            "start": 23,
             "end": 25,
-            "role": "verb"
+            "role": "verb",
+            "word": "be",
+            "start": 23
           },
           {
-            "word": "late",
-            "start": 26,
             "end": 30,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "late",
+            "start": 26
           }
         ]
       },
@@ -305,63 +305,63 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "He",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "He",
+            "start": 0
           },
           {
-            "word": "asked",
-            "start": 3,
             "end": 8,
-            "role": "verb"
+            "role": "verb",
+            "word": "asked",
+            "start": 3
           },
           {
-            "word": "where",
-            "start": 9,
             "end": 14,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "where",
+            "start": 9
           },
           {
-            "word": "I",
-            "start": 15,
             "end": 16,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 15
           },
           {
-            "word": "lived",
-            "start": 17,
             "end": 22,
-            "role": "verb"
+            "role": "verb",
+            "word": "lived",
+            "start": 17
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “said (that) + clause”.",
+        "wrong": "He said he will come.",
+        "right": "He said he would come.",
+        "why": "Câu tường thuật quá khứ: will lùi thành would."
+      },
+      {
+        "wrong": "She told that she was tired.",
         "right": "She said that she was tired.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "why": "Tell cần tân ngữ (told me); không tân ngữ dùng said."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “told + object + clause”.",
-        "right": "He told me to wait.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "He asked where do I live.",
+        "right": "He asked where I lived.",
+        "why": "Câu hỏi tường thuật dùng trật tự câu kể, lùi thì."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "Lan asked whether I was free.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
-      },
-      {
-        "wrong": "She asked us what were we doing?",
-        "right": "She asked us what we were doing.",
-        "why": "Câu hỏi gián tiếp dùng trật tự câu kể: chủ ngữ đứng trước động từ."
+        "wrong": "She said me she was busy.",
+        "right": "She told me she was busy.",
+        "why": "Có tân ngữ (me) dùng told, không dùng said me."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **said (that) + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "timeline": null,
     "comparison": "**Câu tường thuật vs trực tiếp:** Trực tiếp = trích NGUYÊN VĂN, giữ thì gốc (*He said \"I have to go\"*). Tường thuật = thuật lại, LÙI THÌ về quá khứ khi không còn đúng ở hiện tại (*He said he had to go*).",
-    "timeline": null
+    "definition": "Reported Speech dùng **câu tường thuật** để kể lại lời nói mà không lặp nguyên văn. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt."
   },
   "exercises": [
     {

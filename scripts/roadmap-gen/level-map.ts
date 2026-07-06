@@ -35,10 +35,13 @@ export const GRAMMAR_LEVEL_MAP: Record<RoadmapLevelId, string[]> = {
     'modals-permission', 'modals-obligation', 'modals-advice', 'conditionals-0-1',
   ],
   B1: [
-    'present-perfect', 'present-perfect-continuous', 'past-perfect', 'used-to',
-    'future-continuous', 'conjunctions-linking', 'gerunds-infinitives', 'passive-voice',
-    'reported-speech', 'relative-clauses', 'second-conditional', 'third-conditional',
-    'modals-deduction', 'question-tags', 'phrasal-verbs',
+    // used-to làm CẦU NỐI từ past-simple (A2) sang perfect; chèn topic "dễ thở"
+    // (conjunctions, phrasal-verbs, question-tags) xen giữa cụm perfect để không dồn
+    // 3 thì hoàn thành liền nhau — cửa ải khó nhất của người Việt (teacher review mục A)
+    'used-to', 'present-perfect', 'conjunctions-linking', 'present-perfect-continuous',
+    'phrasal-verbs', 'past-perfect', 'future-continuous', 'passive-voice',
+    'gerunds-infinitives', 'reported-speech', 'relative-clauses', 'question-tags',
+    'second-conditional', 'third-conditional', 'modals-deduction',
   ],
   B2: [
     'past-perfect-continuous', 'future-perfect', 'future-in-the-past', 'mixed-conditionals',
@@ -61,7 +64,8 @@ export const GRAMMAR_DB_LEVEL: Record<RoadmapLevelId, 'beginner' | 'intermediate
 /** Pronunciation lesson id → cấp (id khớp src/data/pronunciation/lessons-v1.json). */
 export const PRONUNCIATION_LEVEL_MAP: Record<RoadmapLevelId, string[]> = {
   A0: ['word-stress-basics', 'final-stops-ptk', 'final-s-z'],
-  A1: ['initial-p-b', 'vowel-i-long-short', 'final-l-n'],
+  // A1 12 chặng: thêm /w/ /j/ (lỗi phổ biến người Việt) — 5 bài rải đều thay vì 3
+  A1: ['initial-p-b', 'w-initial', 'vowel-i-long-short', 'j-glide', 'final-l-n'],
   // final-clusters-ed đặt vị trí #3 để slot rơi sát chặng past-simple (unit 4 A2) —
   // dạy quá khứ phải dạy đọc -ed cùng lúc (teacher review 06, fix #2)
   A2: ['sentence-rhythm', 's-vs-sh', 'final-clusters-ed', 'vowel-u-long-short', 'vowel-ae-e', 'final-n-ng', 'basic-intonation'],
@@ -84,7 +88,9 @@ export const SUBTOPIC_LEVEL_RULES: Record<RoadmapLevelId, { allow?: RegExp; bloc
     block: /sea games|gender|community|higher education|cultural|diversity|academ|water sports/i,
   },
   A2: {
-    block: /gender|better community|academ|undersea|space conquest|electronic|assessment|sea games|cultural|higher education|water sports/i,
+    // Chỉ chặn chủ đề rõ ràng B1+; sports/entertainment vẫn cho (kho A2 mỏng nếu chặn hết)
+    // nhưng route priority đặt đời sống/sức khỏe/du lịch TRƯỚC nên thể thao không mở màn cấp
+    block: /gender|better community|academ|undersea|space conquest|electronic|assessment|sea games|cultural|higher education|water sports|mass media/i,
   },
   B1: {
     block: /idiom|sea games/i,
@@ -100,6 +106,71 @@ export const SUBTOPIC_LEVEL_RULES: Record<RoadmapLevelId, { allow?: RegExp; bloc
 export const MAX_PACKS_PER_SUBTOPIC = 4;
 
 /**
+ * Dịch tên subtopic tiếng Anh → tiếng Việt cho step title (teacher review: tên gói còn thô).
+ * Key = title đã bỏ hậu tố "1/6", so khớp không phân biệt hoa thường.
+ */
+export const SUBTOPIC_TITLE_VI: Record<string, string> = {
+  'actions - behaviour': 'Hành động & Ứng xử',
+  'artificial intelligence': 'Trí tuệ nhân tạo',
+  'business': 'Kinh doanh',
+  'clothes': 'Quần áo & Trang phục',
+  'communication - contact - information': 'Giao tiếp & Thông tin',
+  'ecotourism': 'Du lịch sinh thái',
+  'education': 'Giáo dục',
+  'endangered species': 'Loài vật nguy cấp',
+  'entertainment and media': 'Giải trí & Truyền thông',
+  'environment & climate': 'Môi trường & Khí hậu',
+  'family': 'Gia đình',
+  'family life': 'Đời sống gia đình',
+  'family and relationships': 'Gia đình & Các mối quan hệ',
+  'films and books': 'Phim & Sách',
+  'health & medicine': 'Sức khỏe & Y tế',
+  'health and lifestyle': 'Sức khỏe & Lối sống',
+  'health and sickness': 'Sức khỏe & Bệnh tật',
+  'health and diseases': 'Sức khỏe & Bệnh tật',
+  'inventions': 'Phát minh',
+  'law & social problems': 'Pháp luật & Vấn đề xã hội',
+  'life stories': 'Câu chuyện cuộc đời',
+  'media & entertainment': 'Truyền thông & Giải trí',
+  'music': 'Âm nhạc',
+  'new ways to learn': 'Cách học mới',
+  'preserving the environment': 'Bảo vệ môi trường',
+  'school education system': 'Hệ thống giáo dục',
+  'science & technology': 'Khoa học & Công nghệ',
+  'science and technology': 'Khoa học & Công nghệ',
+  'society & culture': 'Xã hội & Văn hóa',
+  'sports': 'Thể thao',
+  'sports and entertainment': 'Thể thao & Giải trí',
+  'the mass media': 'Truyền thông đại chúng',
+  'travel & urbanization': 'Du lịch & Đô thị hóa',
+  'urbanization': 'Đô thị hóa',
+  'water sports': 'Thể thao dưới nước',
+  'your body and you': 'Cơ thể của bạn',
+  'ambition and determination': 'Hoài bão & Quyết tâm',
+  'authority - power': 'Quyền lực',
+  'economic reforms': 'Cải cách kinh tế',
+  'money': 'Tiền bạc',
+  'work': 'Công việc',
+  'employment - jobs': 'Việc làm & Nghề nghiệp',
+  'future jobs': 'Nghề nghiệp tương lai',
+  'being independent': 'Sống tự lập',
+  'the generation gap': 'Khoảng cách thế hệ',
+  'global warming': 'Nóng lên toàn cầu',
+  'further education': 'Học lên cao',
+  'efficiency - competence': 'Hiệu quả & Năng lực',
+  'success and failure': 'Thành công & Thất bại',
+  'cultural identity': 'Bản sắc văn hóa',
+  'the world of work': 'Thế giới công việc',
+  'lifelong learning': 'Học tập suốt đời',
+};
+
+/** Trả tên tiếng Việt cho subtopic title (bỏ hậu tố phân số "1/6"); null nếu chưa có bản dịch. */
+export function subtopicTitleVi(title: string): string | null {
+  const base = title.replace(/\s*\d+\/\d+\s*$/, '').trim().toLowerCase();
+  return SUBTOPIC_TITLE_VI[base] ?? null;
+}
+
+/**
  * Vocab: catalog-v3 route ưu tiên theo cấp (dùng khi generate unit — chọn subtopic
  * từ các route này theo thứ tự, lọc published). Chi tiết subtopic cụ thể chọn trong generate.ts.
  */
@@ -107,8 +178,10 @@ export const VOCAB_ROUTE_PRIORITY: Record<RoadmapLevelId, string[]> = {
   // Route pool rộng cho A0-A1 vì generator lọc gắt pack ≥80% từ đơn (doi-song nhiều cụm/idiom)
   A0: ['doi-song', 'du-lich', 'hoc-tap'],
   A1: ['doi-song', 'du-lich', 'hoc-tap', 'suc-khoe', 'thpt-lop-10'],
-  A2: ['du-lich', 'suc-khoe', 'hoc-tap', 'thpt-lop-10', 'doi-song', 'cong-nghe'],
-  B1: ['di-lam', 'cong-nghe', 'suc-khoe', 'thpt-lop-11', 'doi-song'],
+  A2: ['du-lich', 'suc-khoe', 'doi-song', 'hoc-tap', 'thpt-lop-10', 'cong-nghe'],
+  // Mở màn B1 bằng đời sống/sức khỏe/công nghệ (chủ đề gần gũi) thay vì TOEIC collocations;
+  // di-lam (chứa "200 Collocations TOEIC") đẩy xuống giữa (teacher review mục B)
+  B1: ['doi-song', 'suc-khoe', 'cong-nghe', 'di-lam', 'thpt-lop-11'],
   // ielts đứng đầu: kho học thuật thật (Education/Environment/Science/Society/Law);
   // hoc-thuat thực chất toàn idiom/phrasal — đẩy xuống cuối làm gia vị (teacher review 06)
   B2: ['ielts', 'thpt-lop-12', 'toeic', 'hoc-thuat', 'di-lam'],

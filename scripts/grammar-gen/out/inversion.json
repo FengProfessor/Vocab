@@ -5,59 +5,7 @@
   "level": "advanced",
   "order": 58,
   "sections": {
-    "definition": "**Đảo ngữ** là cấu trúc đảo ngược trật tự chủ ngữ-động từ thông thường, thường xảy ra sau các trạng từ phủ định hoặc hạn định ở đầu câu như *never, rarely, not only*. Mục đích chính là để nhấn mạnh hoặc tạo sắc thái trang trọng, văn phong học thuật.",
-    "usage": [
-      {
-        "icon": "🏔️",
-        "label": "Nhấn mạnh trang trọng khi mở đầu bằng trạng ngữ phủ định (Never, Rarely)",
-        "en": "Never have I seen such a beautiful view.",
-        "vi": "Chưa bao giờ tôi thấy cảnh đẹp đến vậy."
-      },
-      {
-        "icon": "🤐",
-        "label": "Đảo trợ động từ lên trước chủ ngữ như câu hỏi",
-        "en": "Rarely does he complain about anything.",
-        "vi": "Hiếm khi nào anh ấy phàn nàn về điều gì."
-      },
-      {
-        "icon": "💡",
-        "label": "Đảo ngữ sau Only then / Only when / Only after",
-        "en": "Only then did I understand the truth.",
-        "vi": "Chỉ đến lúc đó tôi mới hiểu ra sự thật."
-      },
-      {
-        "icon": "🎁",
-        "label": "NOT ONLY... BUT ALSO với đảo ngữ ở vế đầu",
-        "en": "Not only did she apologize, but she also paid for the damage.",
-        "vi": "Cô ấy không những xin lỗi mà còn bồi thường thiệt hại."
-      },
-      {
-        "icon": "🚪",
-        "label": "Đảo ngữ với Hardly... when / No sooner... than",
-        "en": "Hardly had I sat down when the phone rang.",
-        "vi": "Tôi vừa mới ngồi xuống thì điện thoại reo."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "negative adverbial + auxiliary + S + V",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "Only + expression + auxiliary + S + V",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "Had/Were/Should + S ...",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **negative adverbial + auxiliary + S + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -80,6 +28,58 @@
         "example": "Only then did I understand."
       }
     ],
+    "usage": [
+      {
+        "en": "Never have I seen such a beautiful view.",
+        "vi": "Chưa bao giờ tôi thấy cảnh đẹp đến vậy.",
+        "icon": "🏔️",
+        "label": "Nhấn mạnh trang trọng khi mở đầu bằng trạng ngữ phủ định (Never, Rarely)"
+      },
+      {
+        "en": "Rarely does he complain about anything.",
+        "vi": "Hiếm khi nào anh ấy phàn nàn về điều gì.",
+        "icon": "🤐",
+        "label": "Đảo trợ động từ lên trước chủ ngữ như câu hỏi"
+      },
+      {
+        "en": "Only then did I understand the truth.",
+        "vi": "Chỉ đến lúc đó tôi mới hiểu ra sự thật.",
+        "icon": "💡",
+        "label": "Đảo ngữ sau Only then / Only when / Only after"
+      },
+      {
+        "en": "Not only did she apologize, but she also paid for the damage.",
+        "vi": "Cô ấy không những xin lỗi mà còn bồi thường thiệt hại.",
+        "icon": "🎁",
+        "label": "NOT ONLY... BUT ALSO với đảo ngữ ở vế đầu"
+      },
+      {
+        "en": "Hardly had I sat down when the phone rang.",
+        "vi": "Tôi vừa mới ngồi xuống thì điện thoại reo.",
+        "icon": "🚪",
+        "label": "Đảo ngữ với Hardly... when / No sooner... than"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "negative adverbial + auxiliary + S + V",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "Only + expression + auxiliary + S + V",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "Had/Were/Should + S ...",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "Never",
       "Rarely",
@@ -95,46 +95,46 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Never",
-            "start": 0,
             "end": 5,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "Never",
+            "start": 0
           },
           {
-            "word": "have",
-            "start": 6,
             "end": 10,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 6
           },
           {
-            "word": "I",
-            "start": 11,
             "end": 12,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 11
           },
           {
-            "word": "seen",
-            "start": 13,
             "end": 17,
-            "role": "verb"
+            "role": "verb",
+            "word": "seen",
+            "start": 13
           },
           {
-            "word": "such",
-            "start": 18,
             "end": 22,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "such",
+            "start": 18
           },
           {
-            "word": "a",
-            "start": 23,
             "end": 24,
-            "role": "article"
+            "role": "article",
+            "word": "a",
+            "start": 23
           },
           {
-            "word": "view",
-            "start": 25,
             "end": 29,
-            "role": "noun"
+            "role": "noun",
+            "word": "view",
+            "start": 25
           }
         ]
       },
@@ -144,28 +144,28 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Rarely",
-            "start": 0,
             "end": 6,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "Rarely",
+            "start": 0
           },
           {
-            "word": "does",
-            "start": 7,
             "end": 11,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "does",
+            "start": 7
           },
           {
-            "word": "he",
-            "start": 12,
             "end": 14,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "he",
+            "start": 12
           },
           {
-            "word": "complain",
-            "start": 15,
             "end": 23,
-            "role": "verb"
+            "role": "verb",
+            "word": "complain",
+            "start": 15
           }
         ]
       },
@@ -175,34 +175,34 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Only",
-            "start": 0,
             "end": 4,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "Only",
+            "start": 0
           },
           {
-            "word": "then",
-            "start": 5,
             "end": 9,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "then",
+            "start": 5
           },
           {
-            "word": "did",
-            "start": 10,
             "end": 13,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "did",
+            "start": 10
           },
           {
-            "word": "I",
-            "start": 14,
             "end": 15,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 14
           },
           {
-            "word": "understand",
-            "start": 16,
             "end": 26,
-            "role": "verb"
+            "role": "verb",
+            "word": "understand",
+            "start": 16
           }
         ]
       },
@@ -212,58 +212,58 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Not",
-            "start": 0,
             "end": 3,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "Not",
+            "start": 0
           },
           {
-            "word": "only",
-            "start": 4,
             "end": 8,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "only",
+            "start": 4
           },
           {
-            "word": "did",
-            "start": 9,
             "end": 12,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "did",
+            "start": 9
           },
           {
-            "word": "she",
-            "start": 13,
             "end": 16,
-            "role": "pronoun"
-          },
-          {
-            "word": "apologize",
-            "start": 17,
-            "end": 26,
-            "role": "verb"
-          },
-          {
-            "word": "but",
-            "start": 28,
-            "end": 31,
-            "role": "conjunction"
-          },
-          {
+            "role": "pronoun",
             "word": "she",
-            "start": 32,
+            "start": 13
+          },
+          {
+            "end": 26,
+            "role": "verb",
+            "word": "apologize",
+            "start": 17
+          },
+          {
+            "end": 31,
+            "role": "conjunction",
+            "word": "but",
+            "start": 28
+          },
+          {
             "end": 35,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "she",
+            "start": 32
           },
           {
-            "word": "also",
-            "start": 36,
             "end": 40,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "also",
+            "start": 36
           },
           {
-            "word": "paid",
-            "start": 41,
             "end": 45,
-            "role": "verb"
+            "role": "verb",
+            "word": "paid",
+            "start": 41
           }
         ]
       },
@@ -273,46 +273,46 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Had",
-            "start": 0,
             "end": 3,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "Had",
+            "start": 0
           },
           {
-            "word": "I",
-            "start": 4,
             "end": 5,
-            "role": "pronoun"
-          },
-          {
-            "word": "known",
-            "start": 6,
-            "end": 11,
-            "role": "verb"
-          },
-          {
+            "role": "pronoun",
             "word": "I",
-            "start": 13,
+            "start": 4
+          },
+          {
+            "end": 11,
+            "role": "verb",
+            "word": "known",
+            "start": 6
+          },
+          {
             "end": 14,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 13
           },
           {
-            "word": "would",
-            "start": 15,
             "end": 20,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 15
           },
           {
-            "word": "have",
-            "start": 21,
             "end": 25,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 21
           },
           {
-            "word": "stayed",
-            "start": 26,
             "end": 32,
-            "role": "verb"
+            "role": "verb",
+            "word": "stayed",
+            "start": 26
           }
         ]
       },
@@ -322,86 +322,81 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Under",
-            "start": 0,
             "end": 5,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "Under",
+            "start": 0
           },
           {
-            "word": "no",
-            "start": 6,
             "end": 8,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "no",
+            "start": 6
           },
           {
-            "word": "circumstances",
-            "start": 9,
             "end": 22,
-            "role": "noun"
+            "role": "noun",
+            "word": "circumstances",
+            "start": 9
           },
           {
-            "word": "should",
-            "start": 23,
             "end": 29,
-            "role": "modal"
+            "role": "modal",
+            "word": "should",
+            "start": 23
           },
           {
-            "word": "you",
-            "start": 30,
             "end": 33,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 30
           },
           {
-            "word": "open",
-            "start": 34,
             "end": 38,
-            "role": "verb"
+            "role": "verb",
+            "word": "open",
+            "start": 34
           },
           {
-            "word": "this",
-            "start": 39,
             "end": 43,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "this",
+            "start": 39
           },
           {
-            "word": "door",
-            "start": 44,
             "end": 48,
-            "role": "noun"
+            "role": "noun",
+            "word": "door",
+            "start": 44
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “negative adverbial + auxiliary + S + V”.",
-        "right": "Never have I seen such a view.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "Never I have seen such beauty.",
+        "right": "Never have I seen such beauty.",
+        "why": "Trạng ngữ phủ định đầu câu bắt buộc đảo trợ động từ lên trước chủ ngữ."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “Only + expression + auxiliary + S + V”.",
-        "right": "Rarely does he complain.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "No sooner we had arrived than it rained.",
+        "right": "No sooner had we arrived than it rained.",
+        "why": "No sooner đầu câu yêu cầu đảo ngữ (had + chủ ngữ)."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "Only then did I understand.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "Not only she sings, but she dances.",
+        "right": "Not only does she sing, but she also dances.",
+        "why": "Not only đầu câu yêu cầu đảo trợ động từ."
       },
       {
-        "wrong": "Never I have been so happy.",
-        "right": "Never have I been so happy.",
-        "why": "Mở đầu bằng trạng ngữ phủ định (Never) bắt buộc ĐẢO trợ động từ lên trước chủ ngữ."
-      },
-      {
-        "wrong": "No sooner we had got inside than the concert ended.",
-        "right": "No sooner had we got inside than the concert ended.",
-        "why": "No sooner đầu câu yêu cầu đảo ngữ: had + chủ ngữ."
+        "wrong": "Rarely I go out at night.",
+        "right": "Rarely do I go out at night.",
+        "why": "Rarely đầu câu cần đảo ngữ với do/does."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **negative adverbial + auxiliary + S + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "timeline": null,
     "comparison": "**Đảo ngữ vs câu hỏi:** Cả hai đều đặt trợ động từ trước chủ ngữ, nhưng đảo ngữ là CÂU KỂ trang trọng nhấn mạnh, kết thúc bằng dấu chấm: *Never have I seen such beauty.* Câu hỏi thật kết thúc bằng dấu hỏi: *Have I ever seen such beauty?* Trạng ngữ phủ định đầu câu → bắt buộc đảo.",
-    "timeline": null
+    "definition": "**Đảo ngữ** là cấu trúc đảo ngược trật tự chủ ngữ-động từ thông thường, thường xảy ra sau các trạng từ phủ định hoặc hạn định ở đầu câu như *never, rarely, not only*. Mục đích chính là để nhấn mạnh hoặc tạo sắc thái trang trọng, văn phong học thuật."
   },
   "exercises": [
     {

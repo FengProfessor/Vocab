@@ -175,14 +175,14 @@
               "id": "sv-st-4c0b35f14ebc-p0",
               "type": "vocab",
               "ref": "st-4c0b35f14ebc-p0",
-              "title": "School Education System · Chặng 1",
+              "title": "Hệ thống giáo dục · Phần 1",
               "wordCount": 12
             },
             {
               "id": "sv-st-4c0b35f14ebc-p1",
               "type": "vocab",
               "ref": "st-4c0b35f14ebc-p1",
-              "title": "School Education System · Chặng 2",
+              "title": "Hệ thống giáo dục · Phần 2",
               "wordCount": 12
             },
             {
@@ -214,14 +214,14 @@
               "id": "sv-st-b9f07f3086f7-p0",
               "type": "vocab",
               "ref": "st-b9f07f3086f7-p0",
-              "title": "Health and Diseases · Chặng 1",
+              "title": "Sức khỏe & Bệnh tật · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-2034de421f7d-p1",
               "type": "vocab",
               "ref": "st-2034de421f7d-p1",
-              "title": "Health And Lifestyle · Chặng 2",
+              "title": "Sức khỏe & Lối sống · Phần 2",
               "wordCount": 14
             },
             {
@@ -247,14 +247,14 @@
               "id": "sv-st-2034de421f7d-p2",
               "type": "vocab",
               "ref": "st-2034de421f7d-p2",
-              "title": "Health And Lifestyle · Chặng 3",
+              "title": "Sức khỏe & Lối sống · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-2034de421f7d-p4",
               "type": "vocab",
               "ref": "st-2034de421f7d-p4",
-              "title": "Health And Lifestyle · Chặng 5",
+              "title": "Sức khỏe & Lối sống · Phần 2",
               "wordCount": 13
             },
             {
@@ -262,6 +262,12 @@
               "type": "grammar",
               "ref": "there-is-there-are",
               "title": "Cấu trúc There is / There are"
+            },
+            {
+              "id": "sp-w-initial",
+              "type": "pronunciation",
+              "ref": "w-initial",
+              "title": "/w/ đầu từ (wet, want)"
             },
             {
               "id": "sc-a1-3",
@@ -280,14 +286,14 @@
               "id": "sv-st-fbf0dc671092-p0",
               "type": "vocab",
               "ref": "st-fbf0dc671092-p0",
-              "title": "Family Life · Chặng 1",
+              "title": "Đời sống gia đình · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-fbf0dc671092-p1",
               "type": "vocab",
               "ref": "st-fbf0dc671092-p1",
-              "title": "Family Life · Chặng 2",
+              "title": "Đời sống gia đình · Phần 2",
               "wordCount": 15
             },
             {
@@ -313,7 +319,7 @@
               "id": "sv-st-0bf9ebd8c770-p0",
               "type": "vocab",
               "ref": "st-0bf9ebd8c770-p0",
-              "title": "Your Body And You · Chặng 1",
+              "title": "Cơ thể của bạn · Phần 1",
               "wordCount": 15
             },
             {
@@ -345,7 +351,7 @@
               "id": "sv-st-0bf9ebd8c770-p2",
               "type": "vocab",
               "ref": "st-0bf9ebd8c770-p2",
-              "title": "Your Body And You · Chặng 3",
+              "title": "Cơ thể của bạn · Phần 1",
               "wordCount": 15
             },
             {
@@ -371,7 +377,7 @@
               "id": "sv-st-2034de421f7d-p6",
               "type": "vocab",
               "ref": "st-2034de421f7d-p6",
-              "title": "Health And Lifestyle · Chặng 7",
+              "title": "Sức khỏe & Lối sống · Phần 1",
               "wordCount": 13
             },
             {
@@ -397,7 +403,7 @@
               "id": "sv-st-0bf9ebd8c770-p3",
               "type": "vocab",
               "ref": "st-0bf9ebd8c770-p3",
-              "title": "Your Body And You · Chặng 4",
+              "title": "Cơ thể của bạn · Phần 1",
               "wordCount": 15
             },
             {
@@ -405,6 +411,12 @@
               "type": "grammar",
               "ref": "adverbs-frequency",
               "title": "Trạng từ chỉ tần suất"
+            },
+            {
+              "id": "sp-j-glide",
+              "type": "pronunciation",
+              "ref": "j-glide",
+              "title": "/j/ đầu từ (yes, year)"
             },
             {
               "id": "sc-a1-8",
@@ -423,7 +435,7 @@
               "id": "sv-st-a8f51e97eddb-p0",
               "type": "vocab",
               "ref": "st-a8f51e97eddb-p0",
-              "title": "Music · Chặng 1",
+              "title": "Âm nhạc · Phần 1",
               "wordCount": 15
             },
             {
@@ -431,12 +443,6 @@
               "type": "grammar",
               "ref": "present-continuous",
               "title": "Thì Hiện tại tiếp diễn"
-            },
-            {
-              "id": "sp-final-l-n",
-              "type": "pronunciation",
-              "ref": "final-l-n",
-              "title": "Âm cuối /l/ vs /n/"
             },
             {
               "id": "sc-a1-9",
@@ -455,7 +461,7 @@
               "id": "sv-st-a8f51e97eddb-p1",
               "type": "vocab",
               "ref": "st-a8f51e97eddb-p1",
-              "title": "Music · Chặng 2",
+              "title": "Âm nhạc · Phần 1",
               "wordCount": 15
             },
             {
@@ -463,6 +469,12 @@
               "type": "grammar",
               "ref": "prepositions-place",
               "title": "Giới từ chỉ nơi chốn"
+            },
+            {
+              "id": "sp-final-l-n",
+              "type": "pronunciation",
+              "ref": "final-l-n",
+              "title": "Âm cuối /l/ vs /n/"
             },
             {
               "id": "sc-a1-10",
@@ -481,7 +493,7 @@
               "id": "sv-st-a8f51e97eddb-p2",
               "type": "vocab",
               "ref": "st-a8f51e97eddb-p2",
-              "title": "Music · Chặng 3",
+              "title": "Âm nhạc · Phần 1",
               "wordCount": 15
             },
             {
@@ -507,7 +519,7 @@
               "id": "sv-st-a8f51e97eddb-p3",
               "type": "vocab",
               "ref": "st-a8f51e97eddb-p3",
-              "title": "Music · Chặng 4",
+              "title": "Âm nhạc · Phần 1",
               "wordCount": 14
             },
             {
@@ -541,14 +553,14 @@
               "id": "sv-st-eecf44a16fcb-p0",
               "type": "vocab",
               "ref": "st-eecf44a16fcb-p0",
-              "title": "Sports · Chặng 1",
+              "title": "Thể thao · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-eecf44a16fcb-p1",
               "type": "vocab",
               "ref": "st-eecf44a16fcb-p1",
-              "title": "Sports · Chặng 2",
+              "title": "Thể thao · Phần 2",
               "wordCount": 15
             },
             {
@@ -580,14 +592,14 @@
               "id": "sv-st-eecf44a16fcb-p4",
               "type": "vocab",
               "ref": "st-eecf44a16fcb-p4",
-              "title": "Sports · Chặng 5",
+              "title": "Thể thao · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-81bc6676876c-p4",
               "type": "vocab",
               "ref": "st-81bc6676876c-p4",
-              "title": "Sports and Entertainment · Chặng 5",
+              "title": "Thể thao & Giải trí · Phần 2",
               "wordCount": 15
             },
             {
@@ -619,14 +631,14 @@
               "id": "sv-st-4cd972d14bcb-p9",
               "type": "vocab",
               "ref": "st-4cd972d14bcb-p9",
-              "title": "Education · Chặng 10",
+              "title": "Giáo dục · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-e797d01716fd-p0",
               "type": "vocab",
               "ref": "st-e797d01716fd-p0",
-              "title": "Inventions · Chặng 1",
+              "title": "Phát minh · Phần 2",
               "wordCount": 15
             },
             {
@@ -652,14 +664,14 @@
               "id": "sv-st-e797d01716fd-p1",
               "type": "vocab",
               "ref": "st-e797d01716fd-p1",
-              "title": "Inventions · Chặng 2",
+              "title": "Phát minh · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-c4d557fe5580-p0",
               "type": "vocab",
               "ref": "st-c4d557fe5580-p0",
-              "title": "New Ways To Learn · Chặng 1",
+              "title": "Cách học mới · Phần 2",
               "wordCount": 15
             },
             {
@@ -691,14 +703,14 @@
               "id": "sv-st-6fe862e82f1f-p0",
               "type": "vocab",
               "ref": "st-6fe862e82f1f-p0",
-              "title": "Preserving The Environment · Chặng 1",
+              "title": "Bảo vệ môi trường · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-6e414416cd83-p0",
               "type": "vocab",
               "ref": "st-6e414416cd83-p0",
-              "title": "Ecotourism · Chặng 1",
+              "title": "Du lịch sinh thái · Phần 2",
               "wordCount": 15
             },
             {
@@ -724,14 +736,14 @@
               "id": "sv-st-dbdaa66610bc-p0",
               "type": "vocab",
               "ref": "st-dbdaa66610bc-p0",
-              "title": "Science and Technology · Chặng 1",
+              "title": "Khoa học & Công nghệ · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-dbdaa66610bc-p1",
               "type": "vocab",
               "ref": "st-dbdaa66610bc-p1",
-              "title": "Science and Technology · Chặng 2",
+              "title": "Khoa học & Công nghệ · Phần 2",
               "wordCount": 14
             },
             {
@@ -763,14 +775,14 @@
               "id": "sv-st-dbdaa66610bc-p2",
               "type": "vocab",
               "ref": "st-dbdaa66610bc-p2",
-              "title": "Science and Technology · Chặng 3",
+              "title": "Khoa học & Công nghệ · Phần 1",
               "wordCount": 13
             },
             {
               "id": "sv-st-dbdaa66610bc-p3",
               "type": "vocab",
               "ref": "st-dbdaa66610bc-p3",
-              "title": "Science and Technology · Chặng 4",
+              "title": "Khoa học & Công nghệ · Phần 2",
               "wordCount": 13
             },
             {
@@ -802,14 +814,14 @@
               "id": "sv-st-fc32593c8e8c-p0",
               "type": "vocab",
               "ref": "st-fc32593c8e8c-p0",
-              "title": "Entertainment and Media · Chặng 1",
+              "title": "Giải trí & Truyền thông · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-fc32593c8e8c-p1",
               "type": "vocab",
               "ref": "st-fc32593c8e8c-p1",
-              "title": "Entertainment and Media · Chặng 2",
+              "title": "Giải trí & Truyền thông · Phần 2",
               "wordCount": 14
             },
             {
@@ -835,15 +847,8 @@
               "id": "sv-st-fc32593c8e8c-p2",
               "type": "vocab",
               "ref": "st-fc32593c8e8c-p2",
-              "title": "Entertainment and Media · Chặng 3",
+              "title": "Giải trí & Truyền thông · Phần 1",
               "wordCount": 14
-            },
-            {
-              "id": "sv-st-fc32593c8e8c-p3",
-              "type": "vocab",
-              "ref": "st-fc32593c8e8c-p3",
-              "title": "Entertainment and Media · Chặng 4",
-              "wordCount": 13
             },
             {
               "id": "sg-modals-permission",
@@ -871,18 +876,11 @@
           "title": "Chặng 10 · Khuyết thiếu: bắt buộc (must/have to)",
           "steps": [
             {
-              "id": "sv-st-81bc6676876c-p5",
+              "id": "sv-st-fc32593c8e8c-p3",
               "type": "vocab",
-              "ref": "st-81bc6676876c-p5",
-              "title": "Sports and Entertainment · Chặng 6",
-              "wordCount": 14
-            },
-            {
-              "id": "sv-st-81bc6676876c-p6",
-              "type": "vocab",
-              "ref": "st-81bc6676876c-p6",
-              "title": "Sports and Entertainment · Chặng 7",
-              "wordCount": 14
+              "ref": "st-fc32593c8e8c-p3",
+              "title": "Giải trí & Truyền thông · Phần 1",
+              "wordCount": 13
             },
             {
               "id": "sg-modals-obligation",
@@ -904,10 +902,10 @@
           "title": "Chặng 11 · Khuyết thiếu: lời khuyên (should)",
           "steps": [
             {
-              "id": "sv-st-543f143800bd-p1",
+              "id": "sv-st-81bc6676876c-p5",
               "type": "vocab",
-              "ref": "st-543f143800bd-p1",
-              "title": "The Mass Media · Chặng 2",
+              "ref": "st-81bc6676876c-p5",
+              "title": "Thể thao & Giải trí · Phần 1",
               "wordCount": 14
             },
             {
@@ -936,11 +934,11 @@
           "title": "Chặng 12 · Câu điều kiện loại 0 & loại 1",
           "steps": [
             {
-              "id": "sv-st-543f143800bd-p4",
+              "id": "sv-st-81bc6676876c-p6",
               "type": "vocab",
-              "ref": "st-543f143800bd-p4",
-              "title": "The Mass Media · Chặng 5",
-              "wordCount": 13
+              "ref": "st-81bc6676876c-p6",
+              "title": "Thể thao & Giải trí · Phần 1",
+              "wordCount": 14
             },
             {
               "id": "sg-conditionals-0-1",
@@ -967,27 +965,27 @@
         {
           "id": "u-b1-1",
           "index": 1,
-          "title": "Chặng 1 · Thì Hiện tại hoàn thành",
+          "title": "Chặng 1 · Cấu trúc Used to",
           "steps": [
             {
-              "id": "sv-st-350ee406d40a-p0",
+              "id": "sv-st-cb942718c15f-p0",
               "type": "vocab",
-              "ref": "st-350ee406d40a-p0",
-              "title": "200 Collocations TOEIC Cần Thiết · Chặng 1",
+              "ref": "st-cb942718c15f-p0",
+              "title": "Gia đình · Phần 1",
+              "wordCount": 19
+            },
+            {
+              "id": "sv-st-6a1d7b1df8e4-p0",
+              "type": "vocab",
+              "ref": "st-6a1d7b1df8e4-p0",
+              "title": "Gia đình & Các mối quan hệ · Phần 2",
               "wordCount": 15
             },
             {
-              "id": "sv-st-350ee406d40a-p1",
-              "type": "vocab",
-              "ref": "st-350ee406d40a-p1",
-              "title": "200 Collocations TOEIC Cần Thiết · Chặng 2",
-              "wordCount": 15
-            },
-            {
-              "id": "sg-present-perfect",
+              "id": "sg-used-to",
               "type": "grammar",
-              "ref": "present-perfect",
-              "title": "Thì Hiện tại hoàn thành"
+              "ref": "used-to",
+              "title": "Cấu trúc Used to"
             },
             {
               "id": "sp-schwa",
@@ -1006,27 +1004,27 @@
         {
           "id": "u-b1-2",
           "index": 2,
-          "title": "Chặng 2 · Hiện tại hoàn thành tiếp diễn",
+          "title": "Chặng 2 · Thì Hiện tại hoàn thành",
           "steps": [
             {
-              "id": "sv-st-350ee406d40a-p2",
+              "id": "sv-st-6a1d7b1df8e4-p1",
               "type": "vocab",
-              "ref": "st-350ee406d40a-p2",
-              "title": "200 Collocations TOEIC Cần Thiết · Chặng 3",
-              "wordCount": 15
+              "ref": "st-6a1d7b1df8e4-p1",
+              "title": "Gia đình & Các mối quan hệ · Phần 1",
+              "wordCount": 14
             },
             {
-              "id": "sv-st-350ee406d40a-p3",
+              "id": "sv-st-6a1d7b1df8e4-p2",
               "type": "vocab",
-              "ref": "st-350ee406d40a-p3",
-              "title": "200 Collocations TOEIC Cần Thiết · Chặng 4",
-              "wordCount": 15
+              "ref": "st-6a1d7b1df8e4-p2",
+              "title": "Gia đình & Các mối quan hệ · Phần 2",
+              "wordCount": 14
             },
             {
-              "id": "sg-present-perfect-continuous",
+              "id": "sg-present-perfect",
               "type": "grammar",
-              "ref": "present-perfect-continuous",
-              "title": "Hiện tại hoàn thành tiếp diễn"
+              "ref": "present-perfect",
+              "title": "Thì Hiện tại hoàn thành"
             },
             {
               "id": "sc-b1-2",
@@ -1039,27 +1037,27 @@
         {
           "id": "u-b1-3",
           "index": 3,
-          "title": "Chặng 3 · Thì Quá khứ hoàn thành",
+          "title": "Chặng 3 · Liên từ & từ nối",
           "steps": [
             {
-              "id": "sv-st-6b0f849ec0cf-p0",
+              "id": "sv-st-ebfad9b20a2b-p0",
               "type": "vocab",
-              "ref": "st-6b0f849ec0cf-p0",
-              "title": "Business · Chặng 1",
-              "wordCount": 11
+              "ref": "st-ebfad9b20a2b-p0",
+              "title": "Hành động & Ứng xử · Phần 1",
+              "wordCount": 15
             },
             {
-              "id": "sv-st-6b0f849ec0cf-p1",
+              "id": "sv-st-ebfad9b20a2b-p1",
               "type": "vocab",
-              "ref": "st-6b0f849ec0cf-p1",
-              "title": "Business · Chặng 2",
-              "wordCount": 11
+              "ref": "st-ebfad9b20a2b-p1",
+              "title": "Hành động & Ứng xử · Phần 2",
+              "wordCount": 15
             },
             {
-              "id": "sg-past-perfect",
+              "id": "sg-conjunctions-linking",
               "type": "grammar",
-              "ref": "past-perfect",
-              "title": "Thì Quá khứ hoàn thành"
+              "ref": "conjunctions-linking",
+              "title": "Liên từ & từ nối"
             },
             {
               "id": "sc-b1-3",
@@ -1072,27 +1070,27 @@
         {
           "id": "u-b1-4",
           "index": 4,
-          "title": "Chặng 4 · Cấu trúc Used to",
+          "title": "Chặng 4 · Hiện tại hoàn thành tiếp diễn",
           "steps": [
             {
-              "id": "sv-st-6b0f849ec0cf-p2",
+              "id": "sv-st-ebfad9b20a2b-p2",
               "type": "vocab",
-              "ref": "st-6b0f849ec0cf-p2",
-              "title": "Business · Chặng 3",
-              "wordCount": 10
+              "ref": "st-ebfad9b20a2b-p2",
+              "title": "Hành động & Ứng xử · Phần 1",
+              "wordCount": 15
             },
             {
-              "id": "sv-st-7a178959b21b-p0",
+              "id": "sv-st-ebfad9b20a2b-p3",
               "type": "vocab",
-              "ref": "st-7a178959b21b-p0",
-              "title": "Economic Reforms · Chặng 1",
-              "wordCount": 11
+              "ref": "st-ebfad9b20a2b-p3",
+              "title": "Hành động & Ứng xử · Phần 2",
+              "wordCount": 15
             },
             {
-              "id": "sg-used-to",
+              "id": "sg-present-perfect-continuous",
               "type": "grammar",
-              "ref": "used-to",
-              "title": "Cấu trúc Used to"
+              "ref": "present-perfect-continuous",
+              "title": "Hiện tại hoàn thành tiếp diễn"
             },
             {
               "id": "sp-weak-forms",
@@ -1111,27 +1109,27 @@
         {
           "id": "u-b1-5",
           "index": 5,
-          "title": "Chặng 5 · Thì Tương lai tiếp diễn",
+          "title": "Chặng 5 · Cụm động từ (nhập môn)",
           "steps": [
             {
-              "id": "sv-st-4b24f6f562e8-p0",
+              "id": "sv-st-a6d639f5ebfc-p0",
               "type": "vocab",
-              "ref": "st-4b24f6f562e8-p0",
-              "title": "Ambition and Determination · Chặng 1",
+              "ref": "st-a6d639f5ebfc-p0",
+              "title": "Quần áo & Trang phục · Phần 1",
               "wordCount": 14
             },
             {
-              "id": "sv-st-4b24f6f562e8-p1",
+              "id": "sv-st-a6d639f5ebfc-p1",
               "type": "vocab",
-              "ref": "st-4b24f6f562e8-p1",
-              "title": "Ambition and Determination · Chặng 2",
-              "wordCount": 14
+              "ref": "st-a6d639f5ebfc-p1",
+              "title": "Quần áo & Trang phục · Phần 2",
+              "wordCount": 13
             },
             {
-              "id": "sg-future-continuous",
+              "id": "sg-phrasal-verbs",
               "type": "grammar",
-              "ref": "future-continuous",
-              "title": "Thì Tương lai tiếp diễn"
+              "ref": "phrasal-verbs",
+              "title": "Cụm động từ (nhập môn)"
             },
             {
               "id": "sc-b1-5",
@@ -1144,27 +1142,27 @@
         {
           "id": "u-b1-6",
           "index": 6,
-          "title": "Chặng 6 · Liên từ & từ nối",
+          "title": "Chặng 6 · Thì Quá khứ hoàn thành",
           "steps": [
             {
-              "id": "sv-st-4b24f6f562e8-p2",
+              "id": "sv-st-a6d639f5ebfc-p2",
               "type": "vocab",
-              "ref": "st-4b24f6f562e8-p2",
-              "title": "Ambition and Determination · Chặng 3",
+              "ref": "st-a6d639f5ebfc-p2",
+              "title": "Quần áo & Trang phục · Phần 1",
               "wordCount": 13
             },
             {
-              "id": "sv-st-18f7dc3853f8-p0",
+              "id": "sv-st-a6d639f5ebfc-p3",
               "type": "vocab",
-              "ref": "st-18f7dc3853f8-p0",
-              "title": "Authority - Power · Chặng 1",
+              "ref": "st-a6d639f5ebfc-p3",
+              "title": "Quần áo & Trang phục · Phần 2",
               "wordCount": 13
             },
             {
-              "id": "sg-conjunctions-linking",
+              "id": "sg-past-perfect",
               "type": "grammar",
-              "ref": "conjunctions-linking",
-              "title": "Liên từ & từ nối"
+              "ref": "past-perfect",
+              "title": "Thì Quá khứ hoàn thành"
             },
             {
               "id": "sc-b1-6",
@@ -1177,27 +1175,27 @@
         {
           "id": "u-b1-7",
           "index": 7,
-          "title": "Chặng 7 · Danh động từ & động từ nguyên mẫu",
+          "title": "Chặng 7 · Thì Tương lai tiếp diễn",
           "steps": [
             {
-              "id": "sv-st-31fde43dd7f5-p0",
+              "id": "sv-st-aa43fc15a9be-p0",
               "type": "vocab",
-              "ref": "st-31fde43dd7f5-p0",
-              "title": "Communication - Contact - Information · Chặng 1",
-              "wordCount": 19
+              "ref": "st-aa43fc15a9be-p0",
+              "title": "Phim & Sách · Phần 1",
+              "wordCount": 13
             },
             {
-              "id": "sv-st-0309de5a7285-p0",
+              "id": "sv-st-aa43fc15a9be-p1",
               "type": "vocab",
-              "ref": "st-0309de5a7285-p0",
-              "title": "Health And Sickness · Chặng 1",
+              "ref": "st-aa43fc15a9be-p1",
+              "title": "Phim & Sách · Phần 2",
               "wordCount": 12
             },
             {
-              "id": "sg-gerunds-infinitives",
+              "id": "sg-future-continuous",
               "type": "grammar",
-              "ref": "gerunds-infinitives",
-              "title": "Danh động từ & động từ nguyên mẫu"
+              "ref": "future-continuous",
+              "title": "Thì Tương lai tiếp diễn"
             },
             {
               "id": "sp-linking",
@@ -1219,18 +1217,18 @@
           "title": "Chặng 8 · Câu bị động",
           "steps": [
             {
-              "id": "sv-st-0309de5a7285-p1",
+              "id": "sv-st-aa43fc15a9be-p2",
               "type": "vocab",
-              "ref": "st-0309de5a7285-p1",
-              "title": "Health And Sickness · Chặng 2",
-              "wordCount": 11
+              "ref": "st-aa43fc15a9be-p2",
+              "title": "Phim & Sách · Phần 1",
+              "wordCount": 12
             },
             {
-              "id": "sv-st-0309de5a7285-p2",
+              "id": "sv-st-0309de5a7285-p0",
               "type": "vocab",
-              "ref": "st-0309de5a7285-p2",
-              "title": "Health And Sickness · Chặng 3",
-              "wordCount": 11
+              "ref": "st-0309de5a7285-p0",
+              "title": "Sức khỏe & Bệnh tật · Phần 2",
+              "wordCount": 12
             },
             {
               "id": "sg-passive-voice",
@@ -1249,27 +1247,27 @@
         {
           "id": "u-b1-9",
           "index": 9,
-          "title": "Chặng 9 · Câu tường thuật",
+          "title": "Chặng 9 · Danh động từ & động từ nguyên mẫu",
           "steps": [
             {
-              "id": "sv-st-56c676568318-p0",
+              "id": "sv-st-0309de5a7285-p1",
               "type": "vocab",
-              "ref": "st-56c676568318-p0",
-              "title": "Water Sports · Chặng 1",
-              "wordCount": 12
-            },
-            {
-              "id": "sv-st-56c676568318-p1",
-              "type": "vocab",
-              "ref": "st-56c676568318-p1",
-              "title": "Water Sports · Chặng 2",
+              "ref": "st-0309de5a7285-p1",
+              "title": "Sức khỏe & Bệnh tật · Phần 1",
               "wordCount": 11
             },
             {
-              "id": "sg-reported-speech",
+              "id": "sv-st-0309de5a7285-p2",
+              "type": "vocab",
+              "ref": "st-0309de5a7285-p2",
+              "title": "Sức khỏe & Bệnh tật · Phần 2",
+              "wordCount": 11
+            },
+            {
+              "id": "sg-gerunds-infinitives",
               "type": "grammar",
-              "ref": "reported-speech",
-              "title": "Câu tường thuật"
+              "ref": "gerunds-infinitives",
+              "title": "Danh động từ & động từ nguyên mẫu"
             },
             {
               "id": "sc-b1-9",
@@ -1282,27 +1280,27 @@
         {
           "id": "u-b1-10",
           "index": 10,
-          "title": "Chặng 10 · Mệnh đề quan hệ",
+          "title": "Chặng 10 · Câu tường thuật",
           "steps": [
             {
-              "id": "sv-st-b6bfd44386d1-p0",
+              "id": "sv-st-56c676568318-p0",
               "type": "vocab",
-              "ref": "st-b6bfd44386d1-p0",
-              "title": "The Generation Gap · Chặng 1",
-              "wordCount": 16
+              "ref": "st-56c676568318-p0",
+              "title": "Thể thao dưới nước · Phần 1",
+              "wordCount": 12
             },
             {
-              "id": "sv-st-d66cfe92885e-p0",
+              "id": "sv-st-56c676568318-p1",
               "type": "vocab",
-              "ref": "st-d66cfe92885e-p0",
-              "title": "Being Independent · Chặng 1",
-              "wordCount": 16
+              "ref": "st-56c676568318-p1",
+              "title": "Thể thao dưới nước · Phần 2",
+              "wordCount": 11
             },
             {
-              "id": "sg-relative-clauses",
+              "id": "sg-reported-speech",
               "type": "grammar",
-              "ref": "relative-clauses",
-              "title": "Mệnh đề quan hệ"
+              "ref": "reported-speech",
+              "title": "Câu tường thuật"
             },
             {
               "id": "sp-v-f-final",
@@ -1321,27 +1319,27 @@
         {
           "id": "u-b1-11",
           "index": 11,
-          "title": "Chặng 11 · Câu điều kiện loại 2",
+          "title": "Chặng 11 · Mệnh đề quan hệ",
           "steps": [
             {
-              "id": "sv-st-38bc8e24242b-p0",
+              "id": "sv-st-31fde43dd7f5-p0",
               "type": "vocab",
-              "ref": "st-38bc8e24242b-p0",
-              "title": "Calling For Those In Need · Chặng 1",
-              "wordCount": 10
+              "ref": "st-31fde43dd7f5-p0",
+              "title": "Giao tiếp & Thông tin · Phần 1",
+              "wordCount": 19
             },
             {
-              "id": "sv-st-38bc8e24242b-p1",
+              "id": "sv-st-543f143800bd-p0",
               "type": "vocab",
-              "ref": "st-38bc8e24242b-p1",
-              "title": "Calling For Those In Need · Chặng 2",
-              "wordCount": 10
+              "ref": "st-543f143800bd-p0",
+              "title": "Truyền thông đại chúng · Phần 2",
+              "wordCount": 14
             },
             {
-              "id": "sg-second-conditional",
+              "id": "sg-relative-clauses",
               "type": "grammar",
-              "ref": "second-conditional",
-              "title": "Câu điều kiện loại 2"
+              "ref": "relative-clauses",
+              "title": "Mệnh đề quan hệ"
             },
             {
               "id": "sc-b1-11",
@@ -1354,27 +1352,27 @@
         {
           "id": "u-b1-12",
           "index": 12,
-          "title": "Chặng 12 · Câu điều kiện loại 3",
+          "title": "Chặng 12 · Câu hỏi đuôi",
           "steps": [
             {
-              "id": "sv-st-ba80bd8e6e7f-p0",
+              "id": "sv-st-543f143800bd-p1",
               "type": "vocab",
-              "ref": "st-ba80bd8e6e7f-p0",
-              "title": "Global Warming · Chặng 1",
-              "wordCount": 18
+              "ref": "st-543f143800bd-p1",
+              "title": "Truyền thông đại chúng · Phần 1",
+              "wordCount": 14
             },
             {
-              "id": "sv-st-06a6a1f92f71-p0",
+              "id": "sv-st-543f143800bd-p2",
               "type": "vocab",
-              "ref": "st-06a6a1f92f71-p0",
-              "title": "Further Education · Chặng 1",
-              "wordCount": 16
+              "ref": "st-543f143800bd-p2",
+              "title": "Truyền thông đại chúng · Phần 2",
+              "wordCount": 13
             },
             {
-              "id": "sg-third-conditional",
+              "id": "sg-question-tags",
               "type": "grammar",
-              "ref": "third-conditional",
-              "title": "Câu điều kiện loại 3"
+              "ref": "question-tags",
+              "title": "Câu hỏi đuôi"
             },
             {
               "id": "sc-b1-12",
@@ -1387,27 +1385,27 @@
         {
           "id": "u-b1-13",
           "index": 13,
-          "title": "Chặng 13 · Khuyết thiếu: suy đoán (must/might/can't)",
+          "title": "Chặng 13 · Câu điều kiện loại 2",
           "steps": [
             {
-              "id": "sv-st-b5dd0dbf6d5b-p0",
+              "id": "sv-st-350ee406d40a-p0",
               "type": "vocab",
-              "ref": "st-b5dd0dbf6d5b-p0",
-              "title": "Our World Heritage Sites · Chặng 1",
-              "wordCount": 11
+              "ref": "st-350ee406d40a-p0",
+              "title": "200 Collocations TOEIC Cần Thiết · Phần 1",
+              "wordCount": 15
             },
             {
-              "id": "sv-st-b5dd0dbf6d5b-p1",
+              "id": "sv-st-350ee406d40a-p1",
               "type": "vocab",
-              "ref": "st-b5dd0dbf6d5b-p1",
-              "title": "Our World Heritage Sites · Chặng 2",
-              "wordCount": 10
+              "ref": "st-350ee406d40a-p1",
+              "title": "200 Collocations TOEIC Cần Thiết · Phần 2",
+              "wordCount": 15
             },
             {
-              "id": "sg-modals-deduction",
+              "id": "sg-second-conditional",
               "type": "grammar",
-              "ref": "modals-deduction",
-              "title": "Khuyết thiếu: suy đoán (must/might/can't)"
+              "ref": "second-conditional",
+              "title": "Câu điều kiện loại 2"
             },
             {
               "id": "sp-th-voiceless",
@@ -1426,27 +1424,27 @@
         {
           "id": "u-b1-14",
           "index": 14,
-          "title": "Chặng 14 · Câu hỏi đuôi",
+          "title": "Chặng 14 · Câu điều kiện loại 3",
           "steps": [
             {
-              "id": "sv-st-cb942718c15f-p0",
+              "id": "sv-st-350ee406d40a-p2",
               "type": "vocab",
-              "ref": "st-cb942718c15f-p0",
-              "title": "Family · Chặng 1",
-              "wordCount": 19
-            },
-            {
-              "id": "sv-st-6a1d7b1df8e4-p0",
-              "type": "vocab",
-              "ref": "st-6a1d7b1df8e4-p0",
-              "title": "Family and Relationships · Chặng 1",
+              "ref": "st-350ee406d40a-p2",
+              "title": "200 Collocations TOEIC Cần Thiết · Phần 1",
               "wordCount": 15
             },
             {
-              "id": "sg-question-tags",
+              "id": "sv-st-350ee406d40a-p3",
+              "type": "vocab",
+              "ref": "st-350ee406d40a-p3",
+              "title": "200 Collocations TOEIC Cần Thiết · Phần 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-third-conditional",
               "type": "grammar",
-              "ref": "question-tags",
-              "title": "Câu hỏi đuôi"
+              "ref": "third-conditional",
+              "title": "Câu điều kiện loại 3"
             },
             {
               "id": "sc-b1-14",
@@ -1459,27 +1457,27 @@
         {
           "id": "u-b1-15",
           "index": 15,
-          "title": "Chặng 15 · Cụm động từ (nhập môn)",
+          "title": "Chặng 15 · Khuyết thiếu: suy đoán (must/might/can't)",
           "steps": [
             {
-              "id": "sv-st-6a1d7b1df8e4-p1",
+              "id": "sv-st-6b0f849ec0cf-p0",
               "type": "vocab",
-              "ref": "st-6a1d7b1df8e4-p1",
-              "title": "Family and Relationships · Chặng 2",
-              "wordCount": 14
+              "ref": "st-6b0f849ec0cf-p0",
+              "title": "Kinh doanh · Phần 1",
+              "wordCount": 11
             },
             {
-              "id": "sv-st-6a1d7b1df8e4-p2",
+              "id": "sv-st-6b0f849ec0cf-p1",
               "type": "vocab",
-              "ref": "st-6a1d7b1df8e4-p2",
-              "title": "Family and Relationships · Chặng 3",
-              "wordCount": 14
+              "ref": "st-6b0f849ec0cf-p1",
+              "title": "Kinh doanh · Phần 2",
+              "wordCount": 11
             },
             {
-              "id": "sg-phrasal-verbs",
+              "id": "sg-modals-deduction",
               "type": "grammar",
-              "ref": "phrasal-verbs",
-              "title": "Cụm động từ (nhập môn)"
+              "ref": "modals-deduction",
+              "title": "Khuyết thiếu: suy đoán (must/might/can't)"
             },
             {
               "id": "sc-b1-15",
@@ -1506,14 +1504,14 @@
               "id": "sv-st-46201479320d-p0",
               "type": "vocab",
               "ref": "st-46201479320d-p0",
-              "title": "Education 1/6 · Chặng 1",
+              "title": "Giáo dục · Phần 1",
               "wordCount": 13
             },
             {
               "id": "sv-st-46201479320d-p1",
               "type": "vocab",
               "ref": "st-46201479320d-p1",
-              "title": "Education 1/6 · Chặng 2",
+              "title": "Giáo dục · Phần 2",
               "wordCount": 13
             },
             {
@@ -1545,14 +1543,14 @@
               "id": "sv-st-46201479320d-p2",
               "type": "vocab",
               "ref": "st-46201479320d-p2",
-              "title": "Education 1/6 · Chặng 3",
+              "title": "Giáo dục · Phần 1",
               "wordCount": 13
             },
             {
               "id": "sv-st-46201479320d-p3",
               "type": "vocab",
               "ref": "st-46201479320d-p3",
-              "title": "Education 1/6 · Chặng 4",
+              "title": "Giáo dục · Phần 2",
               "wordCount": 13
             },
             {
@@ -1578,14 +1576,14 @@
               "id": "sv-st-c26a16e45a74-p0",
               "type": "vocab",
               "ref": "st-c26a16e45a74-p0",
-              "title": "Environment & Climate 1/5 · Chặng 1",
+              "title": "Môi trường & Khí hậu · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-c26a16e45a74-p1",
               "type": "vocab",
               "ref": "st-c26a16e45a74-p1",
-              "title": "Environment & Climate 1/5 · Chặng 2",
+              "title": "Môi trường & Khí hậu · Phần 2",
               "wordCount": 14
             },
             {
@@ -1611,14 +1609,14 @@
               "id": "sv-st-c26a16e45a74-p2",
               "type": "vocab",
               "ref": "st-c26a16e45a74-p2",
-              "title": "Environment & Climate 1/5 · Chặng 3",
+              "title": "Môi trường & Khí hậu · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-c26a16e45a74-p3",
               "type": "vocab",
               "ref": "st-c26a16e45a74-p3",
-              "title": "Environment & Climate 1/5 · Chặng 4",
+              "title": "Môi trường & Khí hậu · Phần 2",
               "wordCount": 14
             },
             {
@@ -1650,14 +1648,14 @@
               "id": "sv-st-5363da1ba5ac-p0",
               "type": "vocab",
               "ref": "st-5363da1ba5ac-p0",
-              "title": "Science & Technology 1/3 · Chặng 1",
+              "title": "Khoa học & Công nghệ · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-5363da1ba5ac-p1",
               "type": "vocab",
               "ref": "st-5363da1ba5ac-p1",
-              "title": "Science & Technology 1/3 · Chặng 2",
+              "title": "Khoa học & Công nghệ · Phần 2",
               "wordCount": 15
             },
             {
@@ -1683,14 +1681,14 @@
               "id": "sv-st-5363da1ba5ac-p2",
               "type": "vocab",
               "ref": "st-5363da1ba5ac-p2",
-              "title": "Science & Technology 1/3 · Chặng 3",
+              "title": "Khoa học & Công nghệ · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-5363da1ba5ac-p3",
               "type": "vocab",
               "ref": "st-5363da1ba5ac-p3",
-              "title": "Science & Technology 1/3 · Chặng 4",
+              "title": "Khoa học & Công nghệ · Phần 2",
               "wordCount": 14
             },
             {
@@ -1716,14 +1714,14 @@
               "id": "sv-st-0d666fe79091-p0",
               "type": "vocab",
               "ref": "st-0d666fe79091-p0",
-              "title": "Health & Medicine 1/4 · Chặng 1",
+              "title": "Sức khỏe & Y tế · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-0d666fe79091-p1",
               "type": "vocab",
               "ref": "st-0d666fe79091-p1",
-              "title": "Health & Medicine 1/4 · Chặng 2",
+              "title": "Sức khỏe & Y tế · Phần 2",
               "wordCount": 14
             },
             {
@@ -1755,14 +1753,14 @@
               "id": "sv-st-0d666fe79091-p2",
               "type": "vocab",
               "ref": "st-0d666fe79091-p2",
-              "title": "Health & Medicine 1/4 · Chặng 3",
+              "title": "Sức khỏe & Y tế · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-0d666fe79091-p3",
               "type": "vocab",
               "ref": "st-0d666fe79091-p3",
-              "title": "Health & Medicine 1/4 · Chặng 4",
+              "title": "Sức khỏe & Y tế · Phần 2",
               "wordCount": 14
             },
             {
@@ -1788,14 +1786,14 @@
               "id": "sv-st-f2f6c51e131e-p0",
               "type": "vocab",
               "ref": "st-f2f6c51e131e-p0",
-              "title": "Society & Culture 1/7 · Chặng 1",
+              "title": "Xã hội & Văn hóa · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-f2f6c51e131e-p1",
               "type": "vocab",
               "ref": "st-f2f6c51e131e-p1",
-              "title": "Society & Culture 1/7 · Chặng 2",
+              "title": "Xã hội & Văn hóa · Phần 2",
               "wordCount": 13
             },
             {
@@ -1821,14 +1819,14 @@
               "id": "sv-st-f2f6c51e131e-p2",
               "type": "vocab",
               "ref": "st-f2f6c51e131e-p2",
-              "title": "Society & Culture 1/7 · Chặng 3",
+              "title": "Xã hội & Văn hóa · Phần 1",
               "wordCount": 13
             },
             {
               "id": "sv-st-f2f6c51e131e-p3",
               "type": "vocab",
               "ref": "st-f2f6c51e131e-p3",
-              "title": "Society & Culture 1/7 · Chặng 4",
+              "title": "Xã hội & Văn hóa · Phần 2",
               "wordCount": 13
             },
             {
@@ -1860,14 +1858,14 @@
               "id": "sv-st-eff92eff33ca-p0",
               "type": "vocab",
               "ref": "st-eff92eff33ca-p0",
-              "title": "Media & Entertainment 1/4 · Chặng 1",
+              "title": "Truyền thông & Giải trí · Phần 1",
               "wordCount": 13
             },
             {
               "id": "sv-st-eff92eff33ca-p1",
               "type": "vocab",
               "ref": "st-eff92eff33ca-p1",
-              "title": "Media & Entertainment 1/4 · Chặng 2",
+              "title": "Truyền thông & Giải trí · Phần 2",
               "wordCount": 13
             },
             {
@@ -1893,14 +1891,14 @@
               "id": "sv-st-eff92eff33ca-p2",
               "type": "vocab",
               "ref": "st-eff92eff33ca-p2",
-              "title": "Media & Entertainment 1/4 · Chặng 3",
+              "title": "Truyền thông & Giải trí · Phần 1",
               "wordCount": 13
             },
             {
               "id": "sv-st-eff92eff33ca-p3",
               "type": "vocab",
               "ref": "st-eff92eff33ca-p3",
-              "title": "Media & Entertainment 1/4 · Chặng 4",
+              "title": "Truyền thông & Giải trí · Phần 2",
               "wordCount": 13
             },
             {
@@ -1926,14 +1924,14 @@
               "id": "sv-st-2435fc0fd3e4-p0",
               "type": "vocab",
               "ref": "st-2435fc0fd3e4-p0",
-              "title": "Travel & Urbanization 1/4 · Chặng 1",
+              "title": "Du lịch & Đô thị hóa · Phần 1",
               "wordCount": 12
             },
             {
               "id": "sv-st-2435fc0fd3e4-p1",
               "type": "vocab",
               "ref": "st-2435fc0fd3e4-p1",
-              "title": "Travel & Urbanization 1/4 · Chặng 2",
+              "title": "Du lịch & Đô thị hóa · Phần 2",
               "wordCount": 12
             },
             {
@@ -1965,14 +1963,14 @@
               "id": "sv-st-2435fc0fd3e4-p2",
               "type": "vocab",
               "ref": "st-2435fc0fd3e4-p2",
-              "title": "Travel & Urbanization 1/4 · Chặng 3",
+              "title": "Du lịch & Đô thị hóa · Phần 1",
               "wordCount": 12
             },
             {
               "id": "sv-st-2435fc0fd3e4-p3",
               "type": "vocab",
               "ref": "st-2435fc0fd3e4-p3",
-              "title": "Travel & Urbanization 1/4 · Chặng 4",
+              "title": "Du lịch & Đô thị hóa · Phần 2",
               "wordCount": 11
             },
             {
@@ -1998,14 +1996,14 @@
               "id": "sv-st-f0ef05be515d-p0",
               "type": "vocab",
               "ref": "st-f0ef05be515d-p0",
-              "title": "Law & Social Problems 1/1 · Chặng 1",
+              "title": "Pháp luật & Vấn đề xã hội · Phần 1",
               "wordCount": 15
             },
             {
               "id": "sv-st-f0ef05be515d-p1",
               "type": "vocab",
               "ref": "st-f0ef05be515d-p1",
-              "title": "Law & Social Problems 1/1 · Chặng 2",
+              "title": "Pháp luật & Vấn đề xã hội · Phần 2",
               "wordCount": 14
             },
             {
@@ -2031,14 +2029,14 @@
               "id": "sv-st-f0ef05be515d-p2",
               "type": "vocab",
               "ref": "st-f0ef05be515d-p2",
-              "title": "Law & Social Problems 1/1 · Chặng 3",
+              "title": "Pháp luật & Vấn đề xã hội · Phần 1",
               "wordCount": 14
             },
             {
               "id": "sv-st-f0ef05be515d-p3",
               "type": "vocab",
               "ref": "st-f0ef05be515d-p3",
-              "title": "Law & Social Problems 1/1 · Chặng 4",
+              "title": "Pháp luật & Vấn đề xã hội · Phần 2",
               "wordCount": 14
             },
             {
@@ -2070,14 +2068,14 @@
               "id": "sv-st-91b0331e72ff-p0",
               "type": "vocab",
               "ref": "st-91b0331e72ff-p0",
-              "title": "Life Stories · Chặng 1",
+              "title": "Câu chuyện cuộc đời · Phần 1",
               "wordCount": 11
             },
             {
               "id": "sv-st-91b0331e72ff-p1",
               "type": "vocab",
               "ref": "st-91b0331e72ff-p1",
-              "title": "Life Stories · Chặng 2",
+              "title": "Câu chuyện cuộc đời · Phần 2",
               "wordCount": 10
             },
             {
@@ -2103,14 +2101,14 @@
               "id": "sv-st-3a58bb8d2d4a-p0",
               "type": "vocab",
               "ref": "st-3a58bb8d2d4a-p0",
-              "title": "Urbanization · Chặng 1",
+              "title": "Đô thị hóa · Phần 1",
               "wordCount": 13
             },
             {
               "id": "sv-st-3a58bb8d2d4a-p1",
               "type": "vocab",
               "ref": "st-3a58bb8d2d4a-p1",
-              "title": "Urbanization · Chặng 2",
+              "title": "Đô thị hóa · Phần 2",
               "wordCount": 12
             },
             {
@@ -2136,14 +2134,14 @@
               "id": "sv-st-902882381d6b-p0",
               "type": "vocab",
               "ref": "st-902882381d6b-p0",
-              "title": "Endangered Species · Chặng 1",
+              "title": "Loài vật nguy cấp · Phần 1",
               "wordCount": 12
             },
             {
               "id": "sv-st-cb18eb3ba80c-p0",
               "type": "vocab",
               "ref": "st-cb18eb3ba80c-p0",
-              "title": "Artificial Intelligence · Chặng 1",
+              "title": "Trí tuệ nhân tạo · Phần 2",
               "wordCount": 15
             },
             {

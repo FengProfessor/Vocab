@@ -5,53 +5,7 @@
   "level": "intermediate",
   "order": 39,
   "sections": {
-    "definition": "Second Conditional dùng **điều kiện loại 2** cho tình huống không có thật hoặc khó xảy ra ở hiện tại/tương lai. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
-    "usage": [
-      {
-        "icon": "🌈",
-        "label": "Giả định trái với hiện tại — điều không có thật bây giờ",
-        "en": "If I had more time, I would learn Korean.",
-        "vi": "Nếu tôi có nhiều thời gian hơn, tôi sẽ học tiếng Hàn."
-      },
-      {
-        "icon": "💭",
-        "label": "Mơ ước, tưởng tượng điều khó xảy ra",
-        "en": "She would travel more if she were rich.",
-        "vi": "Cô ấy sẽ đi du lịch nhiều hơn nếu cô ấy giàu."
-      },
-      {
-        "icon": "❓",
-        "label": "Hỏi giả định 'nếu... thì bạn sẽ làm gì?'",
-        "en": "What would you do if you lost your phone?",
-        "vi": "Bạn sẽ làm gì nếu bạn làm mất điện thoại?"
-      },
-      {
-        "icon": "🧑‍🏫",
-        "label": "Khuyên nhủ với If I were you",
-        "en": "If I were you, I would accept the offer.",
-        "vi": "Nếu tôi là bạn, tôi sẽ nhận lời đề nghị đó."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "If + past simple, would + V",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "If + past simple, could/might + V",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "Were + S ..., S + would ...",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **If + past simple, would + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "What would you do if you lost your phone?"
       }
     ],
+    "usage": [
+      {
+        "en": "If I had more time, I would learn Korean.",
+        "vi": "Nếu tôi có nhiều thời gian hơn, tôi sẽ học tiếng Hàn.",
+        "icon": "🌈",
+        "label": "Giả định trái với hiện tại — điều không có thật bây giờ"
+      },
+      {
+        "en": "She would travel more if she were rich.",
+        "vi": "Cô ấy sẽ đi du lịch nhiều hơn nếu cô ấy giàu.",
+        "icon": "💭",
+        "label": "Mơ ước, tưởng tượng điều khó xảy ra"
+      },
+      {
+        "en": "What would you do if you lost your phone?",
+        "vi": "Bạn sẽ làm gì nếu bạn làm mất điện thoại?",
+        "icon": "❓",
+        "label": "Hỏi giả định 'nếu... thì bạn sẽ làm gì?'"
+      },
+      {
+        "en": "If I were you, I would accept the offer.",
+        "vi": "Nếu tôi là bạn, tôi sẽ nhận lời đề nghị đó.",
+        "icon": "🧑‍🏫",
+        "label": "Khuyên nhủ với If I were you"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "If + past simple, would + V",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "If + past simple, could/might + V",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "Were + S ..., S + would ...",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "if",
       "would",
@@ -89,58 +89,58 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "I",
-            "start": 3,
             "end": 4,
-            "role": "pronoun"
-          },
-          {
-            "word": "had",
-            "start": 5,
-            "end": 8,
-            "role": "verb"
-          },
-          {
-            "word": "more",
-            "start": 9,
-            "end": 13,
-            "role": "determiner"
-          },
-          {
-            "word": "time",
-            "start": 14,
-            "end": 18,
-            "role": "noun"
-          },
-          {
+            "role": "pronoun",
             "word": "I",
-            "start": 20,
+            "start": 3
+          },
+          {
+            "end": 8,
+            "role": "verb",
+            "word": "had",
+            "start": 5
+          },
+          {
+            "end": 13,
+            "role": "determiner",
+            "word": "more",
+            "start": 9
+          },
+          {
+            "end": 18,
+            "role": "noun",
+            "word": "time",
+            "start": 14
+          },
+          {
             "end": 21,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 20
           },
           {
-            "word": "would",
-            "start": 22,
             "end": 27,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 22
           },
           {
-            "word": "learn",
-            "start": 28,
             "end": 33,
-            "role": "verb"
+            "role": "verb",
+            "word": "learn",
+            "start": 28
           },
           {
-            "word": "Korean",
-            "start": 34,
             "end": 40,
-            "role": "noun"
+            "role": "noun",
+            "word": "Korean",
+            "start": 34
           }
         ]
       },
@@ -150,52 +150,52 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "would",
-            "start": 4,
             "end": 9,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 4
           },
           {
-            "word": "travel",
-            "start": 10,
             "end": 16,
-            "role": "verb"
+            "role": "verb",
+            "word": "travel",
+            "start": 10
           },
           {
-            "word": "more",
-            "start": 17,
             "end": 21,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "more",
+            "start": 17
           },
           {
-            "word": "if",
-            "start": 22,
             "end": 24,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "if",
+            "start": 22
           },
           {
-            "word": "she",
-            "start": 25,
             "end": 28,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "she",
+            "start": 25
           },
           {
-            "word": "were",
-            "start": 29,
             "end": 33,
-            "role": "verb"
+            "role": "verb",
+            "word": "were",
+            "start": 29
           },
           {
-            "word": "rich",
-            "start": 34,
             "end": 38,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "rich",
+            "start": 34
           }
         ]
       },
@@ -205,58 +205,58 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "What",
-            "start": 0,
             "end": 4,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "What",
+            "start": 0
           },
           {
-            "word": "would",
-            "start": 5,
             "end": 10,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 5
           },
           {
-            "word": "you",
-            "start": 11,
             "end": 14,
-            "role": "pronoun"
-          },
-          {
-            "word": "do",
-            "start": 15,
-            "end": 17,
-            "role": "verb"
-          },
-          {
-            "word": "if",
-            "start": 18,
-            "end": 20,
-            "role": "preposition"
-          },
-          {
+            "role": "pronoun",
             "word": "you",
-            "start": 21,
+            "start": 11
+          },
+          {
+            "end": 17,
+            "role": "verb",
+            "word": "do",
+            "start": 15
+          },
+          {
+            "end": 20,
+            "role": "preposition",
+            "word": "if",
+            "start": 18
+          },
+          {
             "end": 24,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 21
           },
           {
-            "word": "lost",
-            "start": 25,
             "end": 29,
-            "role": "verb"
+            "role": "verb",
+            "word": "lost",
+            "start": 25
           },
           {
-            "word": "your",
-            "start": 30,
             "end": 34,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "your",
+            "start": 30
           },
           {
-            "word": "phone",
-            "start": 35,
             "end": 40,
-            "role": "noun"
+            "role": "noun",
+            "word": "phone",
+            "start": 35
           }
         ]
       },
@@ -266,52 +266,52 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "he",
-            "start": 3,
             "end": 5,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "he",
+            "start": 3
           },
           {
-            "word": "lived",
-            "start": 6,
             "end": 11,
-            "role": "verb"
+            "role": "verb",
+            "word": "lived",
+            "start": 6
           },
           {
-            "word": "closer",
-            "start": 12,
             "end": 18,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "closer",
+            "start": 12
           },
           {
-            "word": "we",
-            "start": 20,
             "end": 22,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "we",
+            "start": 20
           },
           {
-            "word": "could",
-            "start": 23,
             "end": 28,
-            "role": "modal"
+            "role": "modal",
+            "word": "could",
+            "start": 23
           },
           {
-            "word": "meet",
-            "start": 29,
             "end": 33,
-            "role": "verb"
+            "role": "verb",
+            "word": "meet",
+            "start": 29
           },
           {
-            "word": "often",
-            "start": 34,
             "end": 39,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "often",
+            "start": 34
           }
         ]
       },
@@ -321,40 +321,40 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Were",
-            "start": 0,
             "end": 4,
-            "role": "modal"
+            "role": "modal",
+            "word": "Were",
+            "start": 0
           },
           {
-            "word": "I",
-            "start": 5,
             "end": 6,
-            "role": "pronoun"
-          },
-          {
-            "word": "you",
-            "start": 7,
-            "end": 10,
-            "role": "noun"
-          },
-          {
+            "role": "pronoun",
             "word": "I",
-            "start": 12,
+            "start": 5
+          },
+          {
+            "end": 10,
+            "role": "noun",
+            "word": "you",
+            "start": 7
+          },
+          {
             "end": 13,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 12
           },
           {
-            "word": "would",
-            "start": 14,
             "end": 19,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 14
           },
           {
-            "word": "decline",
-            "start": 20,
             "end": 27,
-            "role": "verb"
+            "role": "verb",
+            "word": "decline",
+            "start": 20
           }
         ]
       },
@@ -364,93 +364,93 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "it",
-            "start": 3,
             "end": 5,
-            "role": "pronoun"
-          },
-          {
-            "word": "weren't",
-            "start": 6,
-            "end": 13,
-            "role": "auxiliary"
-          },
-          {
-            "word": "so",
-            "start": 14,
-            "end": 16,
-            "role": "adverb"
-          },
-          {
-            "word": "expensive",
-            "start": 17,
-            "end": 26,
-            "role": "adjective"
-          },
-          {
-            "word": "I'd",
-            "start": 28,
-            "end": 31,
-            "role": "pronoun"
-          },
-          {
-            "word": "buy",
-            "start": 32,
-            "end": 35,
-            "role": "verb"
-          },
-          {
+            "role": "pronoun",
             "word": "it",
-            "start": 36,
+            "start": 3
+          },
+          {
+            "end": 13,
+            "role": "auxiliary",
+            "word": "weren't",
+            "start": 6
+          },
+          {
+            "end": 16,
+            "role": "adverb",
+            "word": "so",
+            "start": 14
+          },
+          {
+            "end": 26,
+            "role": "adjective",
+            "word": "expensive",
+            "start": 17
+          },
+          {
+            "end": 31,
+            "role": "pronoun",
+            "word": "I'd",
+            "start": 28
+          },
+          {
+            "end": 35,
+            "role": "verb",
+            "word": "buy",
+            "start": 32
+          },
+          {
             "end": 38,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "it",
+            "start": 36
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “If + past simple, would + V”.",
-        "right": "If I had more time, I would learn Korean.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "If I was you, I would apologize.",
+        "right": "If I were you, I would apologize.",
+        "why": "Loại 2 dùng WERE cho mọi ngôi trong giả định."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “If + past simple, could/might + V”.",
-        "right": "She would travel more if she were rich.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "If I had money, I will buy a car.",
+        "right": "If I had money, I would buy a car.",
+        "why": "Loại 2 vế kết quả dùng would, không dùng will."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "What would you do if you lost your phone?",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "If I would have time, I would help.",
+        "right": "If I had time, I would help.",
+        "why": "Mệnh đề if loại 2 dùng quá khứ đơn, không dùng would."
       },
       {
-        "wrong": "It would be perfect if there are sockets for our phone chargers.",
-        "right": "It would be perfect if there were sockets for our phone chargers.",
-        "why": "Điều kiện giả định ở hiện tại dùng quá khứ đơn trong mệnh đề if."
+        "wrong": "If she studied, she will pass.",
+        "right": "If she studied, she would pass.",
+        "why": "Giả định hiện tại không thực: vế kết quả dùng would."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **If + past simple, would + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Điều kiện loại 2 vs loại 1:** Loại 2 = giả định KHÔNG có thật ở hiện tại / tương lai (*If Jack was playing, they would win* — Jack không chơi). Loại 1 = khả năng CÓ THẬT (*If you are late, I will be angry* — có thể xảy ra).",
     "timeline": {
-      "caption": "Loại 2 = dòng thời gian TƯỞNG TƯỢNG chạy song song hiện tại: thực tế NOW không có, giả định thì khác (If I had wings, I would fly).",
       "points": [
         {
-          "label": "Thực tế NOW: không có cánh",
-          "note": "dòng thật"
+          "note": "dòng thật",
+          "label": "Thực tế NOW: không có cánh"
         },
         {
-          "label": "Giả định: had wings → would fly",
-          "note": "dòng tưởng tượng"
+          "note": "dòng tưởng tượng",
+          "label": "Giả định: had wings → would fly"
         }
-      ]
-    }
+      ],
+      "caption": "Loại 2 = dòng thời gian TƯỞNG TƯỢNG chạy song song hiện tại: thực tế NOW không có, giả định thì khác (If I had wings, I would fly)."
+    },
+    "comparison": "**Điều kiện loại 2 vs loại 1:** Loại 2 = giả định KHÔNG có thật ở hiện tại / tương lai (*If Jack was playing, they would win* — Jack không chơi). Loại 1 = khả năng CÓ THẬT (*If you are late, I will be angry* — có thể xảy ra).",
+    "definition": "Second Conditional dùng **điều kiện loại 2** cho tình huống không có thật hoặc khó xảy ra ở hiện tại/tương lai. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt."
   },
   "exercises": [
     {

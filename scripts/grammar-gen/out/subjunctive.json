@@ -5,53 +5,7 @@
   "level": "advanced",
   "order": 55,
   "sections": {
-    "definition": "Thức **giả định** (Subjunctive) là một dạng động từ đặc biệt, thường ở dạng nguyên thể không 'to' (bare infinitive), được dùng sau các động từ như *insist, suggest, demand* hoặc trong các cấu trúc như *It is important that...*. Nó diễn tả sự cần thiết, yêu cầu, ước muốn hoặc tình huống không có thật.",
-    "usage": [
-      {
-        "icon": "🩺",
-        "label": "Sau động từ yêu cầu/đề nghị (suggest, insist, demand) + that + V nguyên thể",
-        "en": "The doctor suggested that he rest for a week.",
-        "vi": "Bác sĩ đề nghị anh ấy nghỉ ngơi một tuần."
-      },
-      {
-        "icon": "📋",
-        "label": "Sau tính từ quan trọng/cần thiết (essential, important) + that",
-        "en": "It is essential that every member be present.",
-        "vi": "Điều thiết yếu là mọi thành viên đều phải có mặt."
-      },
-      {
-        "icon": "🙇",
-        "label": "V nguyên thể giữ nguyên với mọi chủ ngữ, kể cả ngôi ba số ít",
-        "en": "They insisted that she apologize immediately.",
-        "vi": "Họ nhất quyết yêu cầu cô ấy xin lỗi ngay lập tức."
-      },
-      {
-        "icon": "🧙",
-        "label": "WERE cho mọi ngôi trong giả định trái hiện thực",
-        "en": "If I were you, I would wait.",
-        "vi": "Nếu tôi là bạn, tôi sẽ đợi."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "suggest/insist that + S + V nguyên thể",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "It is essential that + S + V nguyên thể",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "If I were ...",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **suggest/insist that + S + V nguyên thể** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "They insisted that she apologize."
       }
     ],
+    "usage": [
+      {
+        "en": "The doctor suggested that he rest for a week.",
+        "vi": "Bác sĩ đề nghị anh ấy nghỉ ngơi một tuần.",
+        "icon": "🩺",
+        "label": "Sau động từ yêu cầu/đề nghị (suggest, insist, demand) + that + V nguyên thể"
+      },
+      {
+        "en": "It is essential that every member be present.",
+        "vi": "Điều thiết yếu là mọi thành viên đều phải có mặt.",
+        "icon": "📋",
+        "label": "Sau tính từ quan trọng/cần thiết (essential, important) + that"
+      },
+      {
+        "en": "They insisted that she apologize immediately.",
+        "vi": "Họ nhất quyết yêu cầu cô ấy xin lỗi ngay lập tức.",
+        "icon": "🙇",
+        "label": "V nguyên thể giữ nguyên với mọi chủ ngữ, kể cả ngôi ba số ít"
+      },
+      {
+        "en": "If I were you, I would wait.",
+        "vi": "Nếu tôi là bạn, tôi sẽ đợi.",
+        "icon": "🧙",
+        "label": "WERE cho mọi ngôi trong giả định trái hiện thực"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "suggest/insist that + S + V nguyên thể",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "It is essential that + S + V nguyên thể",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "If I were ...",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "insist that",
       "demand that",
@@ -89,40 +89,40 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "doctor",
-            "start": 4,
             "end": 10,
-            "role": "noun"
+            "role": "noun",
+            "word": "doctor",
+            "start": 4
           },
           {
-            "word": "suggested",
-            "start": 11,
             "end": 20,
-            "role": "verb"
+            "role": "verb",
+            "word": "suggested",
+            "start": 11
           },
           {
-            "word": "that",
-            "start": 21,
             "end": 25,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "that",
+            "start": 21
           },
           {
-            "word": "he",
-            "start": 26,
             "end": 28,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "he",
+            "start": 26
           },
           {
-            "word": "rest",
-            "start": 29,
             "end": 33,
-            "role": "verb"
+            "role": "verb",
+            "word": "rest",
+            "start": 29
           }
         ]
       },
@@ -132,52 +132,52 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "It",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "It",
+            "start": 0
           },
           {
-            "word": "is",
-            "start": 3,
             "end": 5,
-            "role": "verb"
+            "role": "verb",
+            "word": "is",
+            "start": 3
           },
           {
-            "word": "essential",
-            "start": 6,
             "end": 15,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "essential",
+            "start": 6
           },
           {
-            "word": "that",
-            "start": 16,
             "end": 20,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "that",
+            "start": 16
           },
           {
-            "word": "every",
-            "start": 21,
             "end": 26,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "every",
+            "start": 21
           },
           {
-            "word": "member",
-            "start": 27,
             "end": 33,
-            "role": "noun"
+            "role": "noun",
+            "word": "member",
+            "start": 27
           },
           {
-            "word": "be",
-            "start": 34,
             "end": 36,
-            "role": "verb"
+            "role": "verb",
+            "word": "be",
+            "start": 34
           },
           {
-            "word": "present",
-            "start": 37,
             "end": 44,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "present",
+            "start": 37
           }
         ]
       },
@@ -187,34 +187,34 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "They",
-            "start": 0,
             "end": 4,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "They",
+            "start": 0
           },
           {
-            "word": "insisted",
-            "start": 5,
             "end": 13,
-            "role": "verb"
+            "role": "verb",
+            "word": "insisted",
+            "start": 5
           },
           {
-            "word": "that",
-            "start": 14,
             "end": 18,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "that",
+            "start": 14
           },
           {
-            "word": "she",
-            "start": 19,
             "end": 22,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "she",
+            "start": 19
           },
           {
-            "word": "apologize",
-            "start": 23,
             "end": 32,
-            "role": "verb"
+            "role": "verb",
+            "word": "apologize",
+            "start": 23
           }
         ]
       },
@@ -224,46 +224,46 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "I",
-            "start": 3,
             "end": 4,
-            "role": "pronoun"
-          },
-          {
-            "word": "were",
-            "start": 5,
-            "end": 9,
-            "role": "verb"
-          },
-          {
-            "word": "you",
-            "start": 10,
-            "end": 13,
-            "role": "noun"
-          },
-          {
+            "role": "pronoun",
             "word": "I",
-            "start": 15,
+            "start": 3
+          },
+          {
+            "end": 9,
+            "role": "verb",
+            "word": "were",
+            "start": 5
+          },
+          {
+            "end": 13,
+            "role": "noun",
+            "word": "you",
+            "start": 10
+          },
+          {
             "end": 16,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 15
           },
           {
-            "word": "would",
-            "start": 17,
             "end": 22,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 17
           },
           {
-            "word": "wait",
-            "start": 23,
             "end": 27,
-            "role": "verb"
+            "role": "verb",
+            "word": "wait",
+            "start": 23
           }
         ]
       },
@@ -273,52 +273,52 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "manager",
-            "start": 4,
             "end": 11,
-            "role": "noun"
+            "role": "noun",
+            "word": "manager",
+            "start": 4
           },
           {
-            "word": "requested",
-            "start": 12,
             "end": 21,
-            "role": "verb"
+            "role": "verb",
+            "word": "requested",
+            "start": 12
           },
           {
-            "word": "that",
-            "start": 22,
             "end": 26,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "that",
+            "start": 22
           },
           {
-            "word": "the",
-            "start": 27,
             "end": 30,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 27
           },
           {
-            "word": "form",
-            "start": 31,
             "end": 35,
-            "role": "noun"
+            "role": "noun",
+            "word": "form",
+            "start": 31
           },
           {
-            "word": "be",
-            "start": 36,
             "end": 38,
-            "role": "verb"
+            "role": "verb",
+            "word": "be",
+            "start": 36
           },
           {
-            "word": "signed",
-            "start": 39,
             "end": 45,
-            "role": "verb"
+            "role": "verb",
+            "word": "signed",
+            "start": 39
           }
         ]
       },
@@ -328,68 +328,63 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "I",
-            "start": 0,
             "end": 1,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 0
           },
           {
-            "word": "wish",
-            "start": 2,
             "end": 6,
-            "role": "verb"
+            "role": "verb",
+            "word": "wish",
+            "start": 2
           },
           {
-            "word": "it",
-            "start": 7,
             "end": 9,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "it",
+            "start": 7
           },
           {
-            "word": "were",
-            "start": 10,
             "end": 14,
-            "role": "verb"
+            "role": "verb",
+            "word": "were",
+            "start": 10
           },
           {
-            "word": "easier",
-            "start": 15,
             "end": 21,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "easier",
+            "start": 15
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “suggest/insist that + S + V nguyên thể”.",
-        "right": "The doctor suggested that he rest.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "I suggest that he goes now.",
+        "right": "I suggest that he go now.",
+        "why": "Sau suggest that dùng động từ nguyên thể (go) mọi ngôi."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “It is essential that + S + V nguyên thể”.",
-        "right": "It is essential that every member be present.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "It is essential that everyone is here.",
+        "right": "It is essential that everyone be here.",
+        "why": "Tính từ cấp thiết + that dùng be, không dùng is."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "They insisted that she apologize.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "The doctor insisted that she rests.",
+        "right": "The doctor insisted that she rest.",
+        "why": "Sau insist that dùng dạng gốc động từ, không chia -s."
       },
       {
-        "wrong": "I insisted that he apologises.",
-        "right": "I insisted that he apologize.",
-        "why": "Sau insist that, động từ ở thức giả định — DẠNG GỐC, không chia theo ngôi."
-      },
-      {
-        "wrong": "It is essential that everyone is here on time.",
-        "right": "It is essential that everyone be here on time.",
-        "why": "Tính từ cấp thiết (essential/important) + that kích hoạt subjunctive: dùng BE thay is/are."
+        "wrong": "They demanded that he apologizes.",
+        "right": "They demanded that he apologize.",
+        "why": "Sau demand that dùng động từ nguyên thể."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **suggest/insist that + S + V nguyên thể** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "timeline": null,
     "comparison": "**Subjunctive vs chỉ định thường:** Sau động từ yêu cầu/đề nghị (insist, demand, suggest) + that, động từ về DẠNG GỐC không chia: *I insisted that he APOLOGIZE* (không phải apologizes). Phương án thay thế kiểu Anh-Anh: thêm should (*that he should apologize*). Không chia -s, không is/are — dùng be.",
-    "timeline": null
+    "definition": "Thức **giả định** (Subjunctive) là một dạng động từ đặc biệt, thường ở dạng nguyên thể không 'to' (bare infinitive), được dùng sau các động từ như *insist, suggest, demand* hoặc trong các cấu trúc như *It is important that...*. Nó diễn tả sự cần thiết, yêu cầu, ước muốn hoặc tình huống không có thật."
   },
   "exercises": [
     {

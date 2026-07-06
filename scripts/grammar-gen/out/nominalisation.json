@@ -5,53 +5,7 @@
   "level": "advanced",
   "order": 60,
   "sections": {
-    "definition": "**Danh từ hóa (Nominalisation)** là quá trình biến đổi một động từ hoặc tính từ thành danh từ, giúp tóm lược ý tưởng và tạo ra một văn phong trang trọng, cô đọng hơn. Việc sử dụng cấu trúc này cho phép chúng ta diễn đạt các hành động, sự kiện hoặc khái niệm một cách trừu tượng và hàm súc trong câu.",
-    "usage": [
-      {
-        "icon": "🏛️",
-        "label": "Biến động từ thành danh từ để văn phong trang trọng hơn",
-        "en": "They decided to postpone. → Their decision to postpone...",
-        "vi": "Họ quyết định hoãn. → Quyết định hoãn của họ..."
-      },
-      {
-        "icon": "🔗",
-        "label": "Danh từ hóa để nối ý giữa hai câu mạch lạc",
-        "en": "The committee's decision led to a long delay.",
-        "vi": "Quyết định của ủy ban dẫn đến sự trì hoãn kéo dài."
-      },
-      {
-        "icon": "📈",
-        "label": "Biến tính từ, động từ thành danh từ trừu tượng (expand → expansion)",
-        "en": "The rapid expansion of the city caused concern.",
-        "vi": "Sự mở rộng nhanh chóng của thành phố gây lo ngại."
-      },
-      {
-        "icon": "📊",
-        "label": "Cấu trúc There + be + danh từ hóa trong văn học thuật",
-        "en": "There was a significant improvement in sales.",
-        "vi": "Đã có sự cải thiện đáng kể về doanh số."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "verb → noun",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "adjective → noun",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "the + noun + of ...",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **verb → noun** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "The rapid expansion caused concern."
       }
     ],
+    "usage": [
+      {
+        "en": "They decided to postpone. → Their decision to postpone...",
+        "vi": "Họ quyết định hoãn. → Quyết định hoãn của họ...",
+        "icon": "🏛️",
+        "label": "Biến động từ thành danh từ để văn phong trang trọng hơn"
+      },
+      {
+        "en": "The committee's decision led to a long delay.",
+        "vi": "Quyết định của ủy ban dẫn đến sự trì hoãn kéo dài.",
+        "icon": "🔗",
+        "label": "Danh từ hóa để nối ý giữa hai câu mạch lạc"
+      },
+      {
+        "en": "The rapid expansion of the city caused concern.",
+        "vi": "Sự mở rộng nhanh chóng của thành phố gây lo ngại.",
+        "icon": "📈",
+        "label": "Biến tính từ, động từ thành danh từ trừu tượng (expand → expansion)"
+      },
+      {
+        "en": "There was a significant improvement in sales.",
+        "vi": "Đã có sự cải thiện đáng kể về doanh số.",
+        "icon": "📊",
+        "label": "Cấu trúc There + be + danh từ hóa trong văn học thuật"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "verb → noun",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "adjective → noun",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "the + noun + of ...",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "-tion",
       "-ment",
@@ -90,46 +90,46 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "committee",
-            "start": 4,
             "end": 13,
-            "role": "noun"
+            "role": "noun",
+            "word": "committee",
+            "start": 4
           },
           {
-            "word": "decided",
-            "start": 14,
             "end": 21,
-            "role": "verb"
+            "role": "verb",
+            "word": "decided",
+            "start": 14
           },
           {
-            "word": "to",
-            "start": 22,
             "end": 24,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 22
           },
           {
-            "word": "postpone",
-            "start": 25,
             "end": 33,
-            "role": "verb"
+            "role": "verb",
+            "word": "postpone",
+            "start": 25
           },
           {
-            "word": "the",
-            "start": 34,
             "end": 37,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 34
           },
           {
-            "word": "vote",
-            "start": 38,
             "end": 42,
-            "role": "noun"
+            "role": "noun",
+            "word": "vote",
+            "start": 38
           }
         ]
       },
@@ -139,46 +139,46 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "committee's",
-            "start": 4,
             "end": 15,
-            "role": "noun"
+            "role": "noun",
+            "word": "committee's",
+            "start": 4
           },
           {
-            "word": "decision",
-            "start": 16,
             "end": 24,
-            "role": "noun"
+            "role": "noun",
+            "word": "decision",
+            "start": 16
           },
           {
-            "word": "led",
-            "start": 25,
             "end": 28,
-            "role": "verb"
+            "role": "verb",
+            "word": "led",
+            "start": 25
           },
           {
-            "word": "to",
-            "start": 29,
             "end": 31,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 29
           },
           {
-            "word": "a",
-            "start": 32,
             "end": 33,
-            "role": "article"
+            "role": "article",
+            "word": "a",
+            "start": 32
           },
           {
-            "word": "delay",
-            "start": 34,
             "end": 39,
-            "role": "noun"
+            "role": "noun",
+            "word": "delay",
+            "start": 34
           }
         ]
       },
@@ -188,34 +188,34 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "rapid",
-            "start": 4,
             "end": 9,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "rapid",
+            "start": 4
           },
           {
-            "word": "expansion",
-            "start": 10,
             "end": 19,
-            "role": "noun"
+            "role": "noun",
+            "word": "expansion",
+            "start": 10
           },
           {
-            "word": "caused",
-            "start": 20,
             "end": 26,
-            "role": "verb"
+            "role": "verb",
+            "word": "caused",
+            "start": 20
           },
           {
-            "word": "concern",
-            "start": 27,
             "end": 34,
-            "role": "noun"
+            "role": "noun",
+            "word": "concern",
+            "start": 27
           }
         ]
       },
@@ -225,46 +225,46 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "There",
-            "start": 0,
             "end": 5,
-            "role": "other"
+            "role": "other",
+            "word": "There",
+            "start": 0
           },
           {
-            "word": "was",
-            "start": 6,
             "end": 9,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "was",
+            "start": 6
           },
           {
-            "word": "a",
-            "start": 10,
             "end": 11,
-            "role": "article"
+            "role": "article",
+            "word": "a",
+            "start": 10
           },
           {
-            "word": "significant",
-            "start": 12,
             "end": 23,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "significant",
+            "start": 12
           },
           {
-            "word": "improvement",
-            "start": 24,
             "end": 35,
-            "role": "noun"
+            "role": "noun",
+            "word": "improvement",
+            "start": 24
           },
           {
-            "word": "in",
-            "start": 36,
             "end": 38,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "in",
+            "start": 36
           },
           {
-            "word": "sales",
-            "start": 39,
             "end": 44,
-            "role": "noun"
+            "role": "noun",
+            "word": "sales",
+            "start": 39
           }
         ]
       },
@@ -274,28 +274,28 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Their",
-            "start": 0,
             "end": 5,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "Their",
+            "start": 0
           },
           {
-            "word": "refusal",
-            "start": 6,
             "end": 13,
-            "role": "noun"
+            "role": "noun",
+            "word": "refusal",
+            "start": 6
           },
           {
-            "word": "surprised",
-            "start": 14,
             "end": 23,
-            "role": "verb"
+            "role": "verb",
+            "word": "surprised",
+            "start": 14
           },
           {
-            "word": "us",
-            "start": 24,
             "end": 26,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "us",
+            "start": 24
           }
         ]
       },
@@ -305,80 +305,75 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "implementation",
-            "start": 4,
             "end": 18,
-            "role": "noun"
+            "role": "noun",
+            "word": "implementation",
+            "start": 4
           },
           {
-            "word": "of",
-            "start": 19,
             "end": 21,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "of",
+            "start": 19
           },
           {
-            "word": "the",
-            "start": 22,
             "end": 25,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 22
           },
           {
-            "word": "policy",
-            "start": 26,
             "end": 32,
-            "role": "noun"
+            "role": "noun",
+            "word": "policy",
+            "start": 26
           },
           {
-            "word": "took",
-            "start": 33,
             "end": 37,
-            "role": "verb"
+            "role": "verb",
+            "word": "took",
+            "start": 33
           },
           {
-            "word": "months",
-            "start": 38,
             "end": 44,
-            "role": "noun"
+            "role": "noun",
+            "word": "months",
+            "start": 38
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “verb → noun”.",
-        "right": "The committee decided to postpone the vote.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "The government decided to reduce tax. This decide was popular.",
+        "right": "The government decided to reduce tax. This decision was popular.",
+        "why": "Danh hóa động từ decide thành danh từ decision."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “adjective → noun”.",
-        "right": "The committee's decision led to a delay.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "I had no trouble to find a place.",
+        "right": "I had no trouble finding a place.",
+        "why": "Have trouble + V-ing."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "The rapid expansion caused concern.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "The analyse of the data took time.",
+        "right": "The analysis of the data took time.",
+        "why": "Danh từ của analyse là analysis."
       },
       {
-        "wrong": "I blocked out a few hours for to bike.",
-        "right": "I blocked out a few hours to bike.",
-        "why": "Không đặt giới từ for trước to-infinitive chỉ mục đích."
-      },
-      {
-        "wrong": "I had no trouble to find a place to stay.",
-        "right": "I had no trouble finding a place to stay.",
-        "why": "Cụm have trouble bắt buộc đi với V-ING, không đi với to-infinitive."
+        "wrong": "Her explain was clear.",
+        "right": "Her explanation was clear.",
+        "why": "Danh hóa explain thành explanation."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **verb → noun** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "timeline": null,
     "comparison": "**Danh hóa vs mệnh đề động từ:** Danh hóa biến động từ/tính từ thành danh từ để câu trang trọng, học thuật: *APOLOGIZING to them is important* (V-ing làm chủ ngữ) thay vì *To apologize...* Văn academic chuộng danh hóa: decide → decision, explain → explanation.",
-    "timeline": null
+    "definition": "**Danh từ hóa (Nominalisation)** là quá trình biến đổi một động từ hoặc tính từ thành danh từ, giúp tóm lược ý tưởng và tạo ra một văn phong trang trọng, cô đọng hơn. Việc sử dụng cấu trúc này cho phép chúng ta diễn đạt các hành động, sự kiện hoặc khái niệm một cách trừu tượng và hàm súc trong câu."
   },
   "exercises": [
     {

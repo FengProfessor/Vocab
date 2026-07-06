@@ -5,53 +5,7 @@
   "level": "beginner",
   "order": 28,
   "sections": {
-    "definition": "Zero & First Conditional dùng **điều kiện loại 0 và loại 1** cho sự thật luôn đúng và khả năng thực tế trong tương lai. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
-    "usage": [
-      {
-        "icon": "🧊",
-        "label": "Loại 0 — chân lý, quy luật tự nhiên luôn đúng",
-        "en": "If you heat ice, it melts.",
-        "vi": "Nếu bạn đun nóng đá, nó sẽ tan chảy."
-      },
-      {
-        "icon": "🌱",
-        "label": "Loại 0 — kết quả tất yếu lặp đi lặp lại",
-        "en": "Plants die if they don't get water.",
-        "vi": "Cây sẽ chết nếu không được tưới nước."
-      },
-      {
-        "icon": "🌧️",
-        "label": "Loại 1 — điều kiện có thật ở tương lai",
-        "en": "If it rains, we'll stay home.",
-        "vi": "Nếu trời mưa, chúng tôi sẽ ở nhà."
-      },
-      {
-        "icon": "🤝",
-        "label": "Loại 1 — lời hứa, đề nghị kèm điều kiện",
-        "en": "I'll call you if I arrive early.",
-        "vi": "Tôi sẽ gọi cho bạn nếu tôi đến sớm."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "If + present, present (loại 0)",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "If + present, will + V (loại 1)",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "Unless + present, will + V",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **If + present, present (loại 0)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "Plants die if they don't get water."
       }
     ],
+    "usage": [
+      {
+        "en": "If you heat ice, it melts.",
+        "vi": "Nếu bạn đun nóng đá, nó sẽ tan chảy.",
+        "icon": "🧊",
+        "label": "Loại 0 — chân lý, quy luật tự nhiên luôn đúng"
+      },
+      {
+        "en": "Plants die if they don't get water.",
+        "vi": "Cây sẽ chết nếu không được tưới nước.",
+        "icon": "🌱",
+        "label": "Loại 0 — kết quả tất yếu lặp đi lặp lại"
+      },
+      {
+        "en": "If it rains, we'll stay home.",
+        "vi": "Nếu trời mưa, chúng tôi sẽ ở nhà.",
+        "icon": "🌧️",
+        "label": "Loại 1 — điều kiện có thật ở tương lai"
+      },
+      {
+        "en": "I'll call you if I arrive early.",
+        "vi": "Tôi sẽ gọi cho bạn nếu tôi đến sớm.",
+        "icon": "🤝",
+        "label": "Loại 1 — lời hứa, đề nghị kèm điều kiện"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "If + present, present (loại 0)",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "If + present, will + V (loại 1)",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "Unless + present, will + V",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "if",
       "unless",
@@ -88,40 +88,40 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "you",
-            "start": 3,
             "end": 6,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 3
           },
           {
-            "word": "heat",
-            "start": 7,
             "end": 11,
-            "role": "verb"
+            "role": "verb",
+            "word": "heat",
+            "start": 7
           },
           {
-            "word": "ice",
-            "start": 12,
             "end": 15,
-            "role": "noun"
+            "role": "noun",
+            "word": "ice",
+            "start": 12
           },
           {
-            "word": "it",
-            "start": 17,
             "end": 19,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "it",
+            "start": 17
           },
           {
-            "word": "melts",
-            "start": 20,
             "end": 25,
-            "role": "verb"
+            "role": "verb",
+            "word": "melts",
+            "start": 20
           }
         ]
       },
@@ -131,40 +131,40 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "it",
-            "start": 3,
             "end": 5,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "it",
+            "start": 3
           },
           {
-            "word": "rains",
-            "start": 6,
             "end": 11,
-            "role": "verb"
+            "role": "verb",
+            "word": "rains",
+            "start": 6
           },
           {
-            "word": "we'll",
-            "start": 13,
             "end": 18,
-            "role": "modal"
+            "role": "modal",
+            "word": "we'll",
+            "start": 13
           },
           {
-            "word": "stay",
-            "start": 19,
             "end": 23,
-            "role": "verb"
+            "role": "verb",
+            "word": "stay",
+            "start": 19
           },
           {
-            "word": "home",
-            "start": 24,
             "end": 28,
-            "role": "noun"
+            "role": "noun",
+            "word": "home",
+            "start": 24
           }
         ]
       },
@@ -174,46 +174,46 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Plants",
-            "start": 0,
             "end": 6,
-            "role": "noun"
+            "role": "noun",
+            "word": "Plants",
+            "start": 0
           },
           {
-            "word": "die",
-            "start": 7,
             "end": 10,
-            "role": "verb"
+            "role": "verb",
+            "word": "die",
+            "start": 7
           },
           {
-            "word": "if",
-            "start": 11,
             "end": 13,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "if",
+            "start": 11
           },
           {
-            "word": "they",
-            "start": 14,
             "end": 18,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "they",
+            "start": 14
           },
           {
-            "word": "don't",
-            "start": 19,
             "end": 24,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "don't",
+            "start": 19
           },
           {
-            "word": "get",
-            "start": 25,
             "end": 28,
-            "role": "verb"
+            "role": "verb",
+            "word": "get",
+            "start": 25
           },
           {
-            "word": "water",
-            "start": 29,
             "end": 34,
-            "role": "noun"
+            "role": "noun",
+            "word": "water",
+            "start": 29
           }
         ]
       },
@@ -223,46 +223,46 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "I'll",
-            "start": 0,
             "end": 4,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I'll",
+            "start": 0
           },
           {
-            "word": "call",
-            "start": 5,
             "end": 9,
-            "role": "modal"
+            "role": "modal",
+            "word": "call",
+            "start": 5
           },
           {
-            "word": "you",
-            "start": 10,
             "end": 13,
-            "role": "verb"
+            "role": "verb",
+            "word": "you",
+            "start": 10
           },
           {
-            "word": "if",
-            "start": 14,
             "end": 16,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "if",
+            "start": 14
           },
           {
-            "word": "I",
-            "start": 17,
             "end": 18,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "I",
+            "start": 17
           },
           {
-            "word": "arrive",
-            "start": 19,
             "end": 25,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "arrive",
+            "start": 19
           },
           {
-            "word": "early",
-            "start": 26,
             "end": 31,
-            "role": "verb"
+            "role": "verb",
+            "word": "early",
+            "start": 26
           }
         ]
       },
@@ -272,46 +272,46 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Unless",
-            "start": 0,
             "end": 6,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "Unless",
+            "start": 0
           },
           {
-            "word": "you",
-            "start": 7,
             "end": 10,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 7
           },
           {
-            "word": "hurry",
-            "start": 11,
             "end": 16,
-            "role": "verb"
+            "role": "verb",
+            "word": "hurry",
+            "start": 11
           },
           {
-            "word": "you'll",
-            "start": 18,
             "end": 24,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you'll",
+            "start": 18
           },
           {
-            "word": "miss",
-            "start": 25,
             "end": 29,
-            "role": "modal"
+            "role": "modal",
+            "word": "miss",
+            "start": 25
           },
           {
-            "word": "the",
-            "start": 30,
             "end": 33,
-            "role": "verb"
+            "role": "verb",
+            "word": "the",
+            "start": 30
           },
           {
-            "word": "bus",
-            "start": 34,
             "end": 37,
-            "role": "article"
+            "role": "article",
+            "word": "bus",
+            "start": 34
           }
         ]
       },
@@ -321,86 +321,81 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "she",
-            "start": 3,
             "end": 6,
-            "role": "pronoun"
-          },
-          {
-            "word": "studies",
-            "start": 7,
-            "end": 14,
-            "role": "verb"
-          },
-          {
+            "role": "pronoun",
             "word": "she",
-            "start": 16,
+            "start": 3
+          },
+          {
+            "end": 14,
+            "role": "verb",
+            "word": "studies",
+            "start": 7
+          },
+          {
             "end": 19,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "she",
+            "start": 16
           },
           {
-            "word": "may",
-            "start": 20,
             "end": 23,
-            "role": "modal"
+            "role": "modal",
+            "word": "may",
+            "start": 20
           },
           {
-            "word": "pass",
-            "start": 24,
             "end": 28,
-            "role": "verb"
+            "role": "verb",
+            "word": "pass",
+            "start": 24
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “If + present, present (loại 0)”.",
+        "wrong": "If it will rain, I will stay home.",
+        "right": "If it rains, I will stay home.",
+        "why": "Mệnh đề if không dùng will — dùng hiện tại đơn."
+      },
+      {
+        "wrong": "If you heat ice, it melt.",
         "right": "If you heat ice, it melts.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "why": "Loại 0 dùng hiện tại đơn cả hai vế — ngôi 3 thêm -s."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “If + present, will + V (loại 1)”.",
-        "right": "If it rains, we'll stay home.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "If I have time, I visit you.",
+        "right": "If I have time, I will visit you.",
+        "why": "Loại 1 vế kết quả cần WILL cho dự định tương lai."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "Plants die if they don't get water.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
-      },
-      {
-        "wrong": "If it rains tomorrow, the ground gets wet.",
-        "right": "If it rains tomorrow, the ground will get wet.",
-        "why": "Dự đoán tương lai cụ thể dùng loại 1 với WILL; loại 0 chỉ cho chân lý chung."
-      },
-      {
-        "wrong": "We won't be able to go out if it will rain.",
-        "right": "We won't be able to go out if it rains.",
-        "why": "Mệnh đề IF không dùng will — dùng hiện tại đơn thay thế."
+        "wrong": "Unless you don't hurry, you will be late.",
+        "right": "Unless you hurry, you will be late.",
+        "why": "Unless đã mang nghĩa phủ định — không thêm don't."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **If + present, present (loại 0)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Điều kiện loại 1 vs loại 0:** Loại 1 = khả năng CỤ THỂ trong tương lai (*If you are late, I will be angry* — có thể xảy ra). Loại 0 = chân lý / quy luật luôn đúng, không dùng will (*If you mix blue and yellow, you get green* — sự thật).",
     "timeline": {
-      "caption": "Loại 0 = vòng lặp luôn đúng (mọi lần mưa → ướt). Loại 1 = một nhánh tương lai (NẾU mai mưa → sẽ ở nhà).",
       "points": [
         {
-          "label": "Loại 0: rain → wet",
-          "note": "luôn luôn, mọi lúc"
+          "note": "luôn luôn, mọi lúc",
+          "label": "Loại 0: rain → wet"
         },
         {
-          "label": "Loại 1: rain tomorrow? → will stay home",
-          "note": "một khả năng tương lai"
+          "note": "một khả năng tương lai",
+          "label": "Loại 1: rain tomorrow? → will stay home"
         }
-      ]
-    }
+      ],
+      "caption": "Loại 0 = vòng lặp luôn đúng (mọi lần mưa → ướt). Loại 1 = một nhánh tương lai (NẾU mai mưa → sẽ ở nhà)."
+    },
+    "comparison": "**Điều kiện loại 1 vs loại 0:** Loại 1 = khả năng CỤ THỂ trong tương lai (*If you are late, I will be angry* — có thể xảy ra). Loại 0 = chân lý / quy luật luôn đúng, không dùng will (*If you mix blue and yellow, you get green* — sự thật).",
+    "definition": "Zero & First Conditional dùng **điều kiện loại 0 và loại 1** cho sự thật luôn đúng và khả năng thực tế trong tương lai. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt."
   },
   "exercises": [
     {

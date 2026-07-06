@@ -5,59 +5,7 @@
   "level": "advanced",
   "order": 50,
   "sections": {
-    "definition": "**Thể nhờ vả (causative)** với cấu trúc 'have/get something done' được dùng khi chủ ngữ không trực tiếp thực hiện hành động mà sắp xếp, ủy thác cho người khác làm giúp mình. Cấu trúc này làm nổi bật kết quả hoặc dịch vụ nhận được, thay vì tập trung vào chính người thực hiện hành động đó.",
-    "usage": [
-      {
-        "icon": "💇",
-        "label": "HAVE + vật + V3 — nhờ dịch vụ làm cho mình",
-        "en": "I had my hair cut yesterday.",
-        "vi": "Hôm qua tôi đi cắt tóc."
-      },
-      {
-        "icon": "🏠",
-        "label": "GET + vật + V3 — thuê/nhờ làm (thân mật hơn have)",
-        "en": "We are getting the roof repaired.",
-        "vi": "Chúng tôi đang cho sửa lại mái nhà."
-      },
-      {
-        "icon": "🖨️",
-        "label": "HAVE + người + V nguyên thể — sai bảo ai làm gì",
-        "en": "She had the assistant print the report.",
-        "vi": "Cô ấy bảo trợ lý in báo cáo."
-      },
-      {
-        "icon": "🤝",
-        "label": "GET + người + TO V — thuyết phục, nhờ ai làm gì",
-        "en": "He got his brother to help with the move.",
-        "vi": "Anh ấy nhờ được em trai giúp chuyển nhà."
-      },
-      {
-        "icon": "😖",
-        "label": "HAVE/GET + vật + V3 chỉ sự cố ngoài ý muốn",
-        "en": "She had her phone stolen on the bus.",
-        "vi": "Cô ấy bị móc mất điện thoại trên xe buýt."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "have/get + object + V3",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "have + person + V",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "get + person + to V",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **have/get + object + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -80,6 +28,58 @@
         "example": "She had the assistant print the report."
       }
     ],
+    "usage": [
+      {
+        "en": "I had my hair cut yesterday.",
+        "vi": "Hôm qua tôi đi cắt tóc.",
+        "icon": "💇",
+        "label": "HAVE + vật + V3 — nhờ dịch vụ làm cho mình"
+      },
+      {
+        "en": "We are getting the roof repaired.",
+        "vi": "Chúng tôi đang cho sửa lại mái nhà.",
+        "icon": "🏠",
+        "label": "GET + vật + V3 — thuê/nhờ làm (thân mật hơn have)"
+      },
+      {
+        "en": "She had the assistant print the report.",
+        "vi": "Cô ấy bảo trợ lý in báo cáo.",
+        "icon": "🖨️",
+        "label": "HAVE + người + V nguyên thể — sai bảo ai làm gì"
+      },
+      {
+        "en": "He got his brother to help with the move.",
+        "vi": "Anh ấy nhờ được em trai giúp chuyển nhà.",
+        "icon": "🤝",
+        "label": "GET + người + TO V — thuyết phục, nhờ ai làm gì"
+      },
+      {
+        "en": "She had her phone stolen on the bus.",
+        "vi": "Cô ấy bị móc mất điện thoại trên xe buýt.",
+        "icon": "😖",
+        "label": "HAVE/GET + vật + V3 chỉ sự cố ngoài ý muốn"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "have/get + object + V3",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "have + person + V",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "get + person + to V",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "have something done",
       "get something done",
@@ -93,40 +93,40 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "I",
-            "start": 0,
             "end": 1,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 0
           },
           {
-            "word": "had",
-            "start": 2,
             "end": 5,
-            "role": "verb"
+            "role": "verb",
+            "word": "had",
+            "start": 2
           },
           {
-            "word": "my",
-            "start": 6,
             "end": 8,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "my",
+            "start": 6
           },
           {
-            "word": "hair",
-            "start": 9,
             "end": 13,
-            "role": "noun"
+            "role": "noun",
+            "word": "hair",
+            "start": 9
           },
           {
-            "word": "cut",
-            "start": 14,
             "end": 17,
-            "role": "verb"
+            "role": "verb",
+            "word": "cut",
+            "start": 14
           },
           {
-            "word": "yesterday",
-            "start": 18,
             "end": 27,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "yesterday",
+            "start": 18
           }
         ]
       },
@@ -136,40 +136,40 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "We",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "We",
+            "start": 0
           },
           {
-            "word": "are",
-            "start": 3,
             "end": 6,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "are",
+            "start": 3
           },
           {
-            "word": "getting",
-            "start": 7,
             "end": 14,
-            "role": "verb"
+            "role": "verb",
+            "word": "getting",
+            "start": 7
           },
           {
-            "word": "the",
-            "start": 15,
             "end": 18,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "the",
+            "start": 15
           },
           {
-            "word": "roof",
-            "start": 19,
             "end": 23,
-            "role": "noun"
+            "role": "noun",
+            "word": "roof",
+            "start": 19
           },
           {
-            "word": "repaired",
-            "start": 24,
             "end": 32,
-            "role": "verb"
+            "role": "verb",
+            "word": "repaired",
+            "start": 24
           }
         ]
       },
@@ -179,46 +179,46 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "had",
-            "start": 4,
             "end": 7,
-            "role": "verb"
+            "role": "verb",
+            "word": "had",
+            "start": 4
           },
           {
-            "word": "the",
-            "start": 8,
             "end": 11,
-            "role": "determiner"
-          },
-          {
-            "word": "assistant",
-            "start": 12,
-            "end": 21,
-            "role": "noun"
-          },
-          {
-            "word": "print",
-            "start": 22,
-            "end": 27,
-            "role": "verb"
-          },
-          {
+            "role": "determiner",
             "word": "the",
-            "start": 28,
-            "end": 31,
-            "role": "determiner"
+            "start": 8
           },
           {
-            "word": "report",
-            "start": 32,
+            "end": 21,
+            "role": "noun",
+            "word": "assistant",
+            "start": 12
+          },
+          {
+            "end": 27,
+            "role": "verb",
+            "word": "print",
+            "start": 22
+          },
+          {
+            "end": 31,
+            "role": "determiner",
+            "word": "the",
+            "start": 28
+          },
+          {
             "end": 38,
-            "role": "noun"
+            "role": "noun",
+            "word": "report",
+            "start": 32
           }
         ]
       },
@@ -228,40 +228,40 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "He",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "He",
+            "start": 0
           },
           {
-            "word": "got",
-            "start": 3,
             "end": 6,
-            "role": "verb"
+            "role": "verb",
+            "word": "got",
+            "start": 3
           },
           {
-            "word": "his",
-            "start": 7,
             "end": 10,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "his",
+            "start": 7
           },
           {
-            "word": "brother",
-            "start": 11,
             "end": 18,
-            "role": "noun"
+            "role": "noun",
+            "word": "brother",
+            "start": 11
           },
           {
-            "word": "to",
-            "start": 19,
             "end": 21,
-            "role": "other"
+            "role": "other",
+            "word": "to",
+            "start": 19
           },
           {
-            "word": "help",
-            "start": 22,
             "end": 26,
-            "role": "verb"
+            "role": "verb",
+            "word": "help",
+            "start": 22
           }
         ]
       },
@@ -271,40 +271,40 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "You",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "You",
+            "start": 0
           },
           {
-            "word": "should",
-            "start": 4,
             "end": 10,
-            "role": "modal"
+            "role": "modal",
+            "word": "should",
+            "start": 4
           },
           {
-            "word": "have",
-            "start": 11,
             "end": 15,
-            "role": "verb"
+            "role": "verb",
+            "word": "have",
+            "start": 11
           },
           {
-            "word": "your",
-            "start": 16,
             "end": 20,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "your",
+            "start": 16
           },
           {
-            "word": "eyes",
-            "start": 21,
             "end": 25,
-            "role": "noun"
+            "role": "noun",
+            "word": "eyes",
+            "start": 21
           },
           {
-            "word": "tested",
-            "start": 26,
             "end": 32,
-            "role": "verb"
+            "role": "verb",
+            "word": "tested",
+            "start": 26
           }
         ]
       },
@@ -314,68 +314,63 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "They",
-            "start": 0,
             "end": 4,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "They",
+            "start": 0
           },
           {
-            "word": "had",
-            "start": 5,
             "end": 8,
-            "role": "verb"
+            "role": "verb",
+            "word": "had",
+            "start": 5
           },
           {
-            "word": "their",
-            "start": 9,
             "end": 14,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "their",
+            "start": 9
           },
           {
-            "word": "car",
-            "start": 15,
             "end": 18,
-            "role": "noun"
+            "role": "noun",
+            "word": "car",
+            "start": 15
           },
           {
-            "word": "stolen",
-            "start": 19,
             "end": 25,
-            "role": "verb"
+            "role": "verb",
+            "word": "stolen",
+            "start": 19
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “have/get + object + V3”.",
+        "wrong": "I cut my hair yesterday (nhờ thợ).",
         "right": "I had my hair cut yesterday.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
-      },
-      {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “have + person + V”.",
-        "right": "We are getting the roof repaired.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
-      },
-      {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "She had the assistant print the report.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "why": "Nhờ người khác làm dùng have + vật + P2."
       },
       {
         "wrong": "How often do you have serviced your car?",
         "right": "How often do you have your car serviced?",
-        "why": "Trong have something done, TÂN NGỮ (your car) đứng trước quá khứ phân từ (serviced)."
+        "why": "Tân ngữ (your car) đứng TRƯỚC quá khứ phân từ."
       },
       {
         "wrong": "I got him repair the roof.",
         "right": "I got him to repair the roof.",
-        "why": "GET + người + TO-infinitive; chỉ have/make/let mới đi với nguyên thể không to."
+        "why": "Get + người + TO-infinitive."
+      },
+      {
+        "wrong": "She made me to wait.",
+        "right": "She made me wait.",
+        "why": "Make + người + động từ nguyên thể KHÔNG to."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **have/get + object + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "timeline": null,
     "comparison": "**Causative vs chủ động thường:** *Lisa repaired the roof* = Lisa TỰ sửa. *Lisa had the roof repaired* = Lisa NHỜ/thuê người khác sửa. Cấu trúc have + TÂN NGỮ + P2 — tân ngữ luôn đứng trước quá khứ phân từ. Get thì cần to-infinitive khi có người thực hiện: *get him TO repair*.",
-    "timeline": null
+    "definition": "**Thể nhờ vả (causative)** với cấu trúc 'have/get something done' được dùng khi chủ ngữ không trực tiếp thực hiện hành động mà sắp xếp, ủy thác cho người khác làm giúp mình. Cấu trúc này làm nổi bật kết quả hoặc dịch vụ nhận được, thay vì tập trung vào chính người thực hiện hành động đó."
   },
   "exercises": [
     {

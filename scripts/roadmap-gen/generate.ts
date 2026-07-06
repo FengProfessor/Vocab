@@ -23,7 +23,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   LEVELS, GRAMMAR_LEVEL_MAP, PRONUNCIATION_LEVEL_MAP, VOCAB_ROUTE_PRIORITY,
-  SUBTOPIC_LEVEL_RULES, MAX_PACKS_PER_SUBTOPIC, type RoadmapLevelId,
+  SUBTOPIC_LEVEL_RULES, MAX_PACKS_PER_SUBTOPIC, subtopicTitleVi, type RoadmapLevelId,
 } from './level-map';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -222,14 +222,17 @@ function main(): void {
       const unitPacks = packs.slice(packOffsets[i], packOffsets[i] + perUnitCounts[i]);
 
       const steps: RoadmapStep[] = [
-        ...unitPacks.map<RoadmapStep>((p) => {
-          // Title pack gốc chỉ là "Chặng N" — gắn tên chủ đề subtopic cho có nghĩa
-          const subTitle = subById.get(p.subtopicId)?.title ?? '';
+        ...unitPacks.map<RoadmapStep>((p, k) => {
+          // Title pack gốc chỉ là "Chặng N" — gắn tên chủ đề subtopic (ưu tiên bản dịch VN)
+          const rawTitle = subById.get(p.subtopicId)?.title ?? p.title; // starter pack không có subtopic → dùng title sẵn (đã VN)
+          const viTitle = subtopicTitleVi(rawTitle) ?? rawTitle;
+          const isStarter = !p.subtopicId;
           return {
             id: `sv-${p.id}`,
             type: 'vocab',
             ref: p.id,
-            title: subTitle ? `${subTitle} · ${p.title}` : p.title,
+            // starter đã là tên VN; còn lại: "Chủ đề VN · Phần k" (bỏ "Chặng N" gốc khó hiểu)
+            title: isStarter ? p.title : `${viTitle} · Phần ${k + 1}`,
             wordCount: p.wordCount,
           };
         }),

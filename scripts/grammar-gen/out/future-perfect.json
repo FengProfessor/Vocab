@@ -5,53 +5,7 @@
   "level": "advanced",
   "order": 45,
   "sections": {
-    "definition": "Thì **Tương lai hoàn thành** (Future Perfect) được sử dụng để diễn tả một hành động sẽ hoàn tất trước một thời điểm hoặc sự kiện cụ thể trong tương lai. Nó thường đi kèm với các cụm từ chỉ thời gian như 'by...', 'until...', 'by the time'.",
-    "usage": [
-      {
-        "icon": "📄",
-        "label": "Việc sẽ hoàn tất TRƯỚC một mốc tương lai (thường với by)",
-        "en": "By Friday, I will have finished the report.",
-        "vi": "Trước thứ Sáu, tôi sẽ hoàn thành xong báo cáo."
-      },
-      {
-        "icon": "🕛",
-        "label": "Việc kết thúc trước một sự kiện tương lai khác",
-        "en": "She will have left before you arrive.",
-        "vi": "Cô ấy sẽ đi khỏi trước khi bạn đến."
-      },
-      {
-        "icon": "❓",
-        "label": "Hỏi xem việc đã xong chưa tính đến mốc tương lai",
-        "en": "Will they have arrived by then?",
-        "vi": "Đến lúc đó liệu họ đã tới nơi chưa?"
-      },
-      {
-        "icon": "💰",
-        "label": "Phủ định — việc chưa kịp hoàn thành trước mốc",
-        "en": "We won't have saved enough by June.",
-        "vi": "Đến tháng Sáu chúng tôi vẫn chưa tiết kiệm đủ đâu."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "S + will have + V3",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "S + will not have + V3",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "Will + S + have + V3?",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **S + will have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "Will they have arrived by then?"
       }
     ],
+    "usage": [
+      {
+        "en": "By Friday, I will have finished the report.",
+        "vi": "Trước thứ Sáu, tôi sẽ hoàn thành xong báo cáo.",
+        "icon": "📄",
+        "label": "Việc sẽ hoàn tất TRƯỚC một mốc tương lai (thường với by)"
+      },
+      {
+        "en": "She will have left before you arrive.",
+        "vi": "Cô ấy sẽ đi khỏi trước khi bạn đến.",
+        "icon": "🕛",
+        "label": "Việc kết thúc trước một sự kiện tương lai khác"
+      },
+      {
+        "en": "Will they have arrived by then?",
+        "vi": "Đến lúc đó liệu họ đã tới nơi chưa?",
+        "icon": "❓",
+        "label": "Hỏi xem việc đã xong chưa tính đến mốc tương lai"
+      },
+      {
+        "en": "We won't have saved enough by June.",
+        "vi": "Đến tháng Sáu chúng tôi vẫn chưa tiết kiệm đủ đâu.",
+        "icon": "💰",
+        "label": "Phủ định — việc chưa kịp hoàn thành trước mốc"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "S + will have + V3",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "S + will not have + V3",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "Will + S + have + V3?",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "by",
       "before",
@@ -89,52 +89,52 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "By",
-            "start": 0,
             "end": 2,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "By",
+            "start": 0
           },
           {
-            "word": "Friday",
-            "start": 3,
             "end": 9,
-            "role": "noun"
+            "role": "noun",
+            "word": "Friday",
+            "start": 3
           },
           {
-            "word": "I",
-            "start": 11,
             "end": 12,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 11
           },
           {
-            "word": "will",
-            "start": 13,
             "end": 17,
-            "role": "modal"
+            "role": "modal",
+            "word": "will",
+            "start": 13
           },
           {
-            "word": "have",
-            "start": 18,
             "end": 22,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 18
           },
           {
-            "word": "finished",
-            "start": 23,
             "end": 31,
-            "role": "verb"
+            "role": "verb",
+            "word": "finished",
+            "start": 23
           },
           {
-            "word": "the",
-            "start": 32,
             "end": 35,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 32
           },
           {
-            "word": "report",
-            "start": 36,
             "end": 42,
-            "role": "noun"
+            "role": "noun",
+            "word": "report",
+            "start": 36
           }
         ]
       },
@@ -144,40 +144,40 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "will",
-            "start": 4,
             "end": 8,
-            "role": "modal"
+            "role": "modal",
+            "word": "will",
+            "start": 4
           },
           {
-            "word": "have",
-            "start": 9,
             "end": 13,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 9
           },
           {
-            "word": "left",
-            "start": 14,
             "end": 18,
-            "role": "verb"
+            "role": "verb",
+            "word": "left",
+            "start": 14
           },
           {
-            "word": "before",
-            "start": 19,
             "end": 25,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "before",
+            "start": 19
           },
           {
-            "word": "noon",
-            "start": 26,
             "end": 30,
-            "role": "noun"
+            "role": "noun",
+            "word": "noon",
+            "start": 26
           }
         ]
       },
@@ -187,40 +187,40 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Will",
-            "start": 0,
             "end": 4,
-            "role": "modal"
+            "role": "modal",
+            "word": "Will",
+            "start": 0
           },
           {
-            "word": "they",
-            "start": 5,
             "end": 9,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "they",
+            "start": 5
           },
           {
-            "word": "have",
-            "start": 10,
             "end": 14,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 10
           },
           {
-            "word": "arrived",
-            "start": 15,
             "end": 22,
-            "role": "verb"
+            "role": "verb",
+            "word": "arrived",
+            "start": 15
           },
           {
-            "word": "by",
-            "start": 23,
             "end": 25,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "by",
+            "start": 23
           },
           {
-            "word": "then",
-            "start": 26,
             "end": 30,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "then",
+            "start": 26
           }
         ]
       },
@@ -230,46 +230,46 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "We",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "We",
+            "start": 0
           },
           {
-            "word": "won't",
-            "start": 3,
             "end": 8,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "won't",
+            "start": 3
           },
           {
-            "word": "have",
-            "start": 9,
             "end": 13,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 9
           },
           {
-            "word": "saved",
-            "start": 14,
             "end": 19,
-            "role": "verb"
+            "role": "verb",
+            "word": "saved",
+            "start": 14
           },
           {
-            "word": "enough",
-            "start": 20,
             "end": 26,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "enough",
+            "start": 20
           },
           {
-            "word": "by",
-            "start": 27,
             "end": 29,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "by",
+            "start": 27
           },
           {
-            "word": "June",
-            "start": 30,
             "end": 34,
-            "role": "noun"
+            "role": "noun",
+            "word": "June",
+            "start": 30
           }
         ]
       },
@@ -279,70 +279,70 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "By",
-            "start": 0,
             "end": 2,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "By",
+            "start": 0
           },
           {
-            "word": "next",
-            "start": 3,
             "end": 7,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "next",
+            "start": 3
           },
           {
-            "word": "year",
-            "start": 8,
             "end": 12,
-            "role": "noun"
+            "role": "noun",
+            "word": "year",
+            "start": 8
           },
           {
-            "word": "he",
-            "start": 14,
             "end": 16,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "he",
+            "start": 14
           },
           {
-            "word": "will",
-            "start": 17,
             "end": 21,
-            "role": "modal"
+            "role": "modal",
+            "word": "will",
+            "start": 17
           },
           {
-            "word": "have",
-            "start": 22,
             "end": 26,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 22
           },
           {
-            "word": "worked",
-            "start": 27,
             "end": 33,
-            "role": "verb"
+            "role": "verb",
+            "word": "worked",
+            "start": 27
           },
           {
-            "word": "here",
-            "start": 34,
             "end": 38,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "here",
+            "start": 34
           },
           {
-            "word": "for",
-            "start": 39,
             "end": 42,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "for",
+            "start": 39
           },
           {
-            "word": "a",
-            "start": 43,
             "end": 44,
-            "role": "article"
+            "role": "article",
+            "word": "a",
+            "start": 43
           },
           {
-            "word": "decade",
-            "start": 45,
             "end": 51,
-            "role": "noun"
+            "role": "noun",
+            "word": "decade",
+            "start": 45
           }
         ]
       },
@@ -352,108 +352,103 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "guests",
-            "start": 4,
             "end": 10,
-            "role": "noun"
+            "role": "noun",
+            "word": "guests",
+            "start": 4
           },
           {
-            "word": "will",
-            "start": 11,
             "end": 15,
-            "role": "modal"
+            "role": "modal",
+            "word": "will",
+            "start": 11
           },
           {
-            "word": "have",
-            "start": 16,
             "end": 20,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 16
           },
           {
-            "word": "eaten",
-            "start": 21,
             "end": 26,
-            "role": "verb"
+            "role": "verb",
+            "word": "eaten",
+            "start": 21
           },
           {
-            "word": "before",
-            "start": 27,
             "end": 33,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "before",
+            "start": 27
           },
           {
-            "word": "the",
-            "start": 34,
             "end": 37,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 34
           },
           {
-            "word": "show",
-            "start": 38,
             "end": 42,
-            "role": "noun"
+            "role": "noun",
+            "word": "show",
+            "start": 38
           },
           {
-            "word": "starts",
-            "start": 43,
             "end": 49,
-            "role": "verb"
+            "role": "verb",
+            "word": "starts",
+            "start": 43
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + will have + V3”.",
-        "right": "By Friday, I will have finished the report.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "By 2030 I will finish my degree.",
+        "right": "By 2030 I will have finished my degree.",
+        "why": "Việc sẽ xong TRƯỚC một mốc tương lai dùng will have + P2."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + will not have + V3”.",
-        "right": "She will have left before noon.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "By next month she will have finish it.",
+        "right": "By next month she will have finished it.",
+        "why": "Sau will have dùng quá khứ phân từ (finished)."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "Will they have arrived by then?",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "By 6pm they will had left.",
+        "right": "By 6pm they will have left.",
+        "why": "Cấu trúc là will HAVE + P2, không phải will had."
       },
       {
-        "wrong": "By next month, she will have finish the project.",
-        "right": "By next month, she will have finished the project.",
-        "why": "Sau will have phải là QUÁ KHỨ PHÂN TỪ (finished)."
-      },
-      {
-        "wrong": "By next year, I work here for ten years.",
-        "right": "By next year, I will have worked here for ten years.",
-        "why": "Mốc by + tương lai đòi future perfect để diễn tả quãng thời gian tích lũy đến mốc đó."
+        "wrong": "By next year I will have work here for ten years.",
+        "right": "By next year I will have worked here for ten years.",
+        "why": "Sau will have dùng P2 (worked)."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **S + will have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Tương lai hoàn thành vs Tương lai đơn:** Future perfect nhìn NGƯỢC từ một mốc tương lai — việc sẽ ĐÃ XONG trước mốc đó: *By 2030, I will have finished my degree* (trước 2030 là xong). Future simple chỉ nói việc sẽ xảy ra: *I will finish my degree in 2030.* Có \"by + mốc thời gian\" → nghĩ ngay đến will have + P2.",
     "timeline": {
-      "caption": "Đặt một mốc tham chiếu và quan sát hành động của Future Perfect diễn ra trước, tại hoặc hướng tới mốc đó.",
       "points": [
         {
-          "label": "quá khứ",
-          "note": "mốc trước"
+          "note": "mốc trước",
+          "label": "quá khứ"
         },
         {
-          "label": "điểm tham chiếu",
-          "note": "trọng tâm"
+          "note": "trọng tâm",
+          "label": "điểm tham chiếu"
         },
         {
-          "label": "tương lai",
-          "note": "mốc sau"
+          "note": "mốc sau",
+          "label": "tương lai"
         }
-      ]
-    }
+      ],
+      "caption": "Đặt một mốc tham chiếu và quan sát hành động của Future Perfect diễn ra trước, tại hoặc hướng tới mốc đó."
+    },
+    "comparison": "**Tương lai hoàn thành vs Tương lai đơn:** Future perfect nhìn NGƯỢC từ một mốc tương lai — việc sẽ ĐÃ XONG trước mốc đó: *By 2030, I will have finished my degree* (trước 2030 là xong). Future simple chỉ nói việc sẽ xảy ra: *I will finish my degree in 2030.* Có \"by + mốc thời gian\" → nghĩ ngay đến will have + P2.",
+    "definition": "Thì **Tương lai hoàn thành** (Future Perfect) được sử dụng để diễn tả một hành động sẽ hoàn tất trước một thời điểm hoặc sự kiện cụ thể trong tương lai. Nó thường đi kèm với các cụm từ chỉ thời gian như 'by...', 'until...', 'by the time'."
   },
   "exercises": [
     {

@@ -5,53 +5,7 @@
   "level": "intermediate",
   "order": 33,
   "sections": {
-    "definition": "Thì **Tương lai tiếp diễn** (Future Continuous) được dùng để diễn tả một hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai, hoặc một hành động xảy ra theo diễn biến tự nhiên của sự việc và nằm trong kế hoạch, lịch trình tương lai.",
-    "usage": [
-      {
-        "icon": "✈️",
-        "label": "Hành động đang diễn ra tại một thời điểm xác định ở tương lai",
-        "en": "This time tomorrow, I will be flying to Seoul.",
-        "vi": "Giờ này ngày mai, tôi sẽ đang bay đến Seoul."
-      },
-      {
-        "icon": "📅",
-        "label": "Việc sẽ diễn ra như một phần của lịch trình bình thường",
-        "en": "She will be working at nine as usual.",
-        "vi": "Chín giờ cô ấy sẽ đang làm việc như thường lệ."
-      },
-      {
-        "icon": "🚗",
-        "label": "Hỏi lịch sự về kế hoạch của người khác",
-        "en": "Will you be using the car tonight?",
-        "vi": "Tối nay bạn có dùng xe không?"
-      },
-      {
-        "icon": "⏱️",
-        "label": "Phủ định — việc sẽ không đang diễn ra",
-        "en": "They won't be staying long.",
-        "vi": "Họ sẽ không ở lại lâu đâu."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "S + will be + V-ing",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "S + will not be + V-ing",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "Will + S + be + V-ing?",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **S + will be + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "Will you be using the car tonight?"
       }
     ],
+    "usage": [
+      {
+        "en": "This time tomorrow, I will be flying to Seoul.",
+        "vi": "Giờ này ngày mai, tôi sẽ đang bay đến Seoul.",
+        "icon": "✈️",
+        "label": "Hành động đang diễn ra tại một thời điểm xác định ở tương lai"
+      },
+      {
+        "en": "She will be working at nine as usual.",
+        "vi": "Chín giờ cô ấy sẽ đang làm việc như thường lệ.",
+        "icon": "📅",
+        "label": "Việc sẽ diễn ra như một phần của lịch trình bình thường"
+      },
+      {
+        "en": "Will you be using the car tonight?",
+        "vi": "Tối nay bạn có dùng xe không?",
+        "icon": "🚗",
+        "label": "Hỏi lịch sự về kế hoạch của người khác"
+      },
+      {
+        "en": "They won't be staying long.",
+        "vi": "Họ sẽ không ở lại lâu đâu.",
+        "icon": "⏱️",
+        "label": "Phủ định — việc sẽ không đang diễn ra"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "S + will be + V-ing",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "S + will not be + V-ing",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "Will + S + be + V-ing?",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "by",
       "before",
@@ -89,58 +89,58 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "This",
-            "start": 0,
             "end": 4,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "This",
+            "start": 0
           },
           {
-            "word": "time",
-            "start": 5,
             "end": 9,
-            "role": "noun"
+            "role": "noun",
+            "word": "time",
+            "start": 5
           },
           {
-            "word": "tomorrow",
-            "start": 10,
             "end": 18,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "tomorrow",
+            "start": 10
           },
           {
-            "word": "I",
-            "start": 20,
             "end": 21,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 20
           },
           {
-            "word": "will",
-            "start": 22,
             "end": 26,
-            "role": "modal"
+            "role": "modal",
+            "word": "will",
+            "start": 22
           },
           {
-            "word": "be",
-            "start": 27,
             "end": 29,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "be",
+            "start": 27
           },
           {
-            "word": "flying",
-            "start": 30,
             "end": 36,
-            "role": "verb"
+            "role": "verb",
+            "word": "flying",
+            "start": 30
           },
           {
-            "word": "to",
-            "start": 37,
             "end": 39,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 37
           },
           {
-            "word": "Seoul",
-            "start": 40,
             "end": 45,
-            "role": "noun"
+            "role": "noun",
+            "word": "Seoul",
+            "start": 40
           }
         ]
       },
@@ -150,40 +150,40 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "noun"
+            "role": "noun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "will",
-            "start": 4,
             "end": 8,
-            "role": "modal"
+            "role": "modal",
+            "word": "will",
+            "start": 4
           },
           {
-            "word": "be",
-            "start": 9,
             "end": 11,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "be",
+            "start": 9
           },
           {
-            "word": "working",
-            "start": 12,
             "end": 19,
-            "role": "verb"
+            "role": "verb",
+            "word": "working",
+            "start": 12
           },
           {
-            "word": "at",
-            "start": 20,
             "end": 22,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "at",
+            "start": 20
           },
           {
-            "word": "nine",
-            "start": 23,
             "end": 27,
-            "role": "other"
+            "role": "other",
+            "word": "nine",
+            "start": 23
           }
         ]
       },
@@ -193,46 +193,46 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Will",
-            "start": 0,
             "end": 4,
-            "role": "modal"
+            "role": "modal",
+            "word": "Will",
+            "start": 0
           },
           {
-            "word": "you",
-            "start": 5,
             "end": 8,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 5
           },
           {
-            "word": "be",
-            "start": 9,
             "end": 11,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "be",
+            "start": 9
           },
           {
-            "word": "using",
-            "start": 12,
             "end": 17,
-            "role": "verb"
+            "role": "verb",
+            "word": "using",
+            "start": 12
           },
           {
-            "word": "the",
-            "start": 18,
             "end": 21,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 18
           },
           {
-            "word": "car",
-            "start": 22,
             "end": 25,
-            "role": "noun"
+            "role": "noun",
+            "word": "car",
+            "start": 22
           },
           {
-            "word": "tonight",
-            "start": 26,
             "end": 33,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "tonight",
+            "start": 26
           }
         ]
       },
@@ -242,34 +242,34 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "They",
-            "start": 0,
             "end": 4,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "They",
+            "start": 0
           },
           {
-            "word": "won't",
-            "start": 5,
             "end": 10,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "won't",
+            "start": 5
           },
           {
-            "word": "be",
-            "start": 11,
             "end": 13,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "be",
+            "start": 11
           },
           {
-            "word": "staying",
-            "start": 14,
             "end": 21,
-            "role": "verb"
+            "role": "verb",
+            "word": "staying",
+            "start": 14
           },
           {
-            "word": "long",
-            "start": 22,
             "end": 26,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "long",
+            "start": 22
           }
         ]
       },
@@ -279,46 +279,46 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Don't",
-            "start": 0,
             "end": 5,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "Don't",
+            "start": 0
           },
           {
-            "word": "call",
-            "start": 6,
             "end": 10,
-            "role": "verb"
+            "role": "verb",
+            "word": "call",
+            "start": 6
           },
           {
-            "word": "at",
-            "start": 11,
             "end": 13,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "at",
+            "start": 11
           },
           {
-            "word": "noon",
-            "start": 14,
             "end": 18,
-            "role": "noun"
+            "role": "noun",
+            "word": "noon",
+            "start": 14
           },
           {
-            "word": "I'll",
-            "start": 20,
             "end": 24,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I'll",
+            "start": 20
           },
           {
-            "word": "be",
-            "start": 25,
             "end": 27,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "be",
+            "start": 25
           },
           {
-            "word": "sleeping",
-            "start": 28,
             "end": 36,
-            "role": "verb"
+            "role": "verb",
+            "word": "sleeping",
+            "start": 28
           }
         ]
       },
@@ -328,96 +328,91 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "We",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "We",
+            "start": 0
           },
           {
-            "word": "will",
-            "start": 3,
             "end": 7,
-            "role": "modal"
+            "role": "modal",
+            "word": "will",
+            "start": 3
           },
           {
-            "word": "be",
-            "start": 8,
             "end": 10,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "be",
+            "start": 8
           },
           {
-            "word": "waiting",
-            "start": 11,
             "end": 18,
-            "role": "verb"
+            "role": "verb",
+            "word": "waiting",
+            "start": 11
           },
           {
-            "word": "for",
-            "start": 19,
             "end": 22,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "for",
+            "start": 19
           },
           {
-            "word": "you",
-            "start": 23,
             "end": 26,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 23
           },
           {
-            "word": "outside",
-            "start": 27,
             "end": 34,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "outside",
+            "start": 27
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + will be + V-ing”.",
-        "right": "This time tomorrow, I will be flying to Seoul.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "At 8pm I will have dinner (đang ăn dở).",
+        "right": "At 8pm I will be having dinner.",
+        "why": "Hành động đang diễn ra tại mốc tương lai dùng will be + V-ing."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + will not be + V-ing”.",
-        "right": "She will be working at nine.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "This time tomorrow I will flying to Paris.",
+        "right": "This time tomorrow I will be flying to Paris.",
+        "why": "Thiếu BE trong cấu trúc will be + V-ing."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "Will you be using the car tonight?",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "While I will be waiting, I will read.",
+        "right": "While I am waiting, I will read.",
+        "why": "Mệnh đề thời gian (while) không dùng will."
       },
       {
-        "wrong": "I can read a book while I'll be waiting.",
-        "right": "I can read a book while I'm waiting.",
-        "why": "Mệnh đề thời gian (while/when/before) KHÔNG dùng will — dùng thì hiện tại thay thế."
-      },
-      {
-        "wrong": "The meeting will be start at half past seven.",
-        "right": "The meeting will be starting at half past seven.",
-        "why": "Sau will be phải là V-ING (dạng tiếp diễn), không phải động từ nguyên thể."
+        "wrong": "The meeting will be start at seven.",
+        "right": "The meeting will be starting at seven.",
+        "why": "Sau will be phải là V-ing, không phải nguyên thể."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **S + will be + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Tương lai tiếp diễn vs Tương lai đơn:** Future continuous tả hành động ĐANG DIỄN RA tại một thời điểm tương lai: *At 8pm tonight, I will be having dinner* (8 giờ đang ăn dở). Future simple là quyết định/lời hứa trọn vẹn: *I will have dinner at 8pm* (sẽ ăn lúc 8 giờ). Đang giữa chừng → will be V-ing.",
     "timeline": {
-      "caption": "Đặt một mốc tham chiếu và quan sát hành động của Future Continuous diễn ra trước, tại hoặc hướng tới mốc đó.",
       "points": [
         {
-          "label": "quá khứ",
-          "note": "mốc trước"
+          "note": "mốc trước",
+          "label": "quá khứ"
         },
         {
-          "label": "điểm tham chiếu",
-          "note": "trọng tâm"
+          "note": "trọng tâm",
+          "label": "điểm tham chiếu"
         },
         {
-          "label": "tương lai",
-          "note": "mốc sau"
+          "note": "mốc sau",
+          "label": "tương lai"
         }
-      ]
-    }
+      ],
+      "caption": "Đặt một mốc tham chiếu và quan sát hành động của Future Continuous diễn ra trước, tại hoặc hướng tới mốc đó."
+    },
+    "comparison": "**Tương lai tiếp diễn vs Tương lai đơn:** Future continuous tả hành động ĐANG DIỄN RA tại một thời điểm tương lai: *At 8pm tonight, I will be having dinner* (8 giờ đang ăn dở). Future simple là quyết định/lời hứa trọn vẹn: *I will have dinner at 8pm* (sẽ ăn lúc 8 giờ). Đang giữa chừng → will be V-ing.",
+    "definition": "Thì **Tương lai tiếp diễn** (Future Continuous) được dùng để diễn tả một hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai, hoặc một hành động xảy ra theo diễn biến tự nhiên của sự việc và nằm trong kế hoạch, lịch trình tương lai."
   },
   "exercises": [
     {

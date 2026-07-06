@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
-import { resolveUnit, getPronunciationLesson } from '@/lib/roadmap';
+import { resolveUnit, getPronunciationLesson, getStarterPack } from '@/lib/roadmap';
 import { resolvePack } from '@/lib/vocab-catalog';
 
 // Shape JSONB của global_dictionary.data (như /api/import/packages)
@@ -51,17 +51,33 @@ export async function GET(req: NextRequest) {
     if (!resolved) return NextResponse.json({ success: false, error: 'Chặng không tồn tại' }, { status: 400 });
 
     const supabase = createServiceClient();
-    const { unit } = resolved;
+    const { unit, level } = resolved;
 
-    // ── Vocab: gom từ + nghĩa từ global_dictionary ──
-    const packIds = unit.steps.filter((s) => s.type === 'vocab').map((s) => s.ref);
-    const words: string[] = [];
-    for (const packId of packIds) {
-      const pack = resolvePack(packId);
-      if (pack) words.push(...pack.words);
-    }
-    const { data: gdRows } = words.length > 0
-      ? await supabase.from('global_dictionary').select('word, data').in('word', words)
+    // Gom từ của 1 danh sách packId (hỗ trợ cả starter pack A0 lẫn catalog pack)
+    const wordsOfPacks = (packIds: string[]): string[] => {
+      const out: string[] = [];
+      for (const packId of packIds) {
+        const starter = getStarterPack(packId);
+        if (starter) { out.push(...starter.words); continue; }
+        const pack = resolvePack(packId);
+        if (pack) out.push(...pack.words);
+      }
+      return out;
+    };
+
+    // ── Vocab chặng HIỆN TẠI ──
+    const words = wordsOfPacks(unit.steps.filter((s) => s.type === 'vocab').map((s) => s.ref));
+
+    // ── Ôn xoáy ốc: từ các chặng ĐÃ QUA trong cùng cấp (teacher review mục E) ──
+    const priorWords = wordsOfPacks(
+      level.units
+        .filter((u) => u.index < unit.index)
+        .flatMap((u) => u.steps.filter((s) => s.type === 'vocab').map((s) => s.ref)),
+    );
+
+    const allWords = [...new Set([...words, ...priorWords])];
+    const { data: gdRows } = allWords.length > 0
+      ? await supabase.from('global_dictionary').select('word, data').in('word', allWords)
       : { data: [] as { word: string; data: unknown }[] };
     const meaningOf = new Map<string, string>();
     for (const row of gdRows ?? []) {
@@ -69,8 +85,19 @@ export async function GET(req: NextRequest) {
       if (meaning) meaningOf.set(row.word, meaning);
     }
     const vocabPool = shuffle(words.filter((w) => meaningOf.has(w)));
+    const priorPool = shuffle(priorWords.filter((w) => meaningOf.has(w) && !words.includes(w)));
 
     const questions: CheckpointQuestion[] = [];
+
+    // 2 câu ÔN từ chặng cũ (nếu có) — chống "pass rồi quên"
+    for (const w of priorPool.slice(0, 2)) {
+      const distractors = shuffle([...vocabPool, ...priorPool].filter((x) => x !== w)).slice(0, 3);
+      questions.push({
+        id: `cq-rv-${w}`, type: 'meaning-to-word',
+        prompt: `[Ôn lại] Từ nào nghĩa là "${meaningOf.get(w)}"?`,
+        options: shuffle([w, ...distractors]), answer: w,
+      });
+    }
 
     // 3 câu meaning→word
     for (const w of vocabPool.slice(0, 3)) {

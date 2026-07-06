@@ -5,59 +5,7 @@
   "level": "intermediate",
   "order": 38,
   "sections": {
-    "definition": "Relative Clauses dùng **mệnh đề quan hệ** để bổ sung thông tin cho danh từ mà không phải mở câu mới. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
-    "usage": [
-      {
-        "icon": "👩",
-        "label": "WHO — bổ nghĩa cho danh từ chỉ người",
-        "en": "The woman who called is my aunt.",
-        "vi": "Người phụ nữ đã gọi điện là dì của tôi."
-      },
-      {
-        "icon": "📕",
-        "label": "THAT / WHICH — bổ nghĩa cho danh từ chỉ vật",
-        "en": "This is the book that I mentioned.",
-        "vi": "Đây là cuốn sách mà tôi đã nhắc đến."
-      },
-      {
-        "icon": "☕",
-        "label": "WHERE — bổ nghĩa cho danh từ chỉ nơi chốn",
-        "en": "The café where we met has closed.",
-        "vi": "Quán cà phê nơi chúng ta gặp nhau đã đóng cửa."
-      },
-      {
-        "icon": "🧑‍🎓",
-        "label": "WHOSE — chỉ sự sở hữu",
-        "en": "Students whose work is late must email me.",
-        "vi": "Những học sinh nộp bài muộn phải email cho tôi."
-      },
-      {
-        "icon": "✂️",
-        "label": "Lược bỏ đại từ quan hệ khi nó làm tân ngữ",
-        "en": "The film (that) we watched was great.",
-        "vi": "Bộ phim (mà) chúng tôi xem rất hay."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "person + who/that + clause",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "thing + which/that + clause",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "place + where + clause",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **person + who/that + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -80,6 +28,58 @@
         "example": "The café where we met has closed."
       }
     ],
+    "usage": [
+      {
+        "en": "The woman who called is my aunt.",
+        "vi": "Người phụ nữ đã gọi điện là dì của tôi.",
+        "icon": "👩",
+        "label": "WHO — bổ nghĩa cho danh từ chỉ người"
+      },
+      {
+        "en": "This is the book that I mentioned.",
+        "vi": "Đây là cuốn sách mà tôi đã nhắc đến.",
+        "icon": "📕",
+        "label": "THAT / WHICH — bổ nghĩa cho danh từ chỉ vật"
+      },
+      {
+        "en": "The café where we met has closed.",
+        "vi": "Quán cà phê nơi chúng ta gặp nhau đã đóng cửa.",
+        "icon": "☕",
+        "label": "WHERE — bổ nghĩa cho danh từ chỉ nơi chốn"
+      },
+      {
+        "en": "Students whose work is late must email me.",
+        "vi": "Những học sinh nộp bài muộn phải email cho tôi.",
+        "icon": "🧑‍🎓",
+        "label": "WHOSE — chỉ sự sở hữu"
+      },
+      {
+        "en": "The film (that) we watched was great.",
+        "vi": "Bộ phim (mà) chúng tôi xem rất hay.",
+        "icon": "✂️",
+        "label": "Lược bỏ đại từ quan hệ khi nó làm tân ngữ"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "person + who/that + clause",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "thing + which/that + clause",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "place + where + clause",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "who",
       "that",
@@ -95,46 +95,46 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "woman",
-            "start": 4,
             "end": 9,
-            "role": "noun"
+            "role": "noun",
+            "word": "woman",
+            "start": 4
           },
           {
-            "word": "who",
-            "start": 10,
             "end": 13,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "who",
+            "start": 10
           },
           {
-            "word": "called",
-            "start": 14,
             "end": 20,
-            "role": "verb"
+            "role": "verb",
+            "word": "called",
+            "start": 14
           },
           {
-            "word": "is",
-            "start": 21,
             "end": 23,
-            "role": "verb"
+            "role": "verb",
+            "word": "is",
+            "start": 21
           },
           {
-            "word": "my",
-            "start": 24,
             "end": 26,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "my",
+            "start": 24
           },
           {
-            "word": "aunt",
-            "start": 27,
             "end": 31,
-            "role": "noun"
+            "role": "noun",
+            "word": "aunt",
+            "start": 27
           }
         ]
       },
@@ -144,46 +144,46 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "This",
-            "start": 0,
             "end": 4,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "This",
+            "start": 0
           },
           {
-            "word": "is",
-            "start": 5,
             "end": 7,
-            "role": "verb"
+            "role": "verb",
+            "word": "is",
+            "start": 5
           },
           {
-            "word": "the",
-            "start": 8,
             "end": 11,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 8
           },
           {
-            "word": "book",
-            "start": 12,
             "end": 16,
-            "role": "noun"
+            "role": "noun",
+            "word": "book",
+            "start": 12
           },
           {
-            "word": "that",
-            "start": 17,
             "end": 21,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "that",
+            "start": 17
           },
           {
-            "word": "I",
-            "start": 22,
             "end": 23,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 22
           },
           {
-            "word": "mentioned",
-            "start": 24,
             "end": 33,
-            "role": "verb"
+            "role": "verb",
+            "word": "mentioned",
+            "start": 24
           }
         ]
       },
@@ -193,46 +193,46 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "café",
-            "start": 4,
             "end": 8,
-            "role": "noun"
+            "role": "noun",
+            "word": "café",
+            "start": 4
           },
           {
-            "word": "where",
-            "start": 9,
             "end": 14,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "where",
+            "start": 9
           },
           {
-            "word": "we",
-            "start": 15,
             "end": 17,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "we",
+            "start": 15
           },
           {
-            "word": "met",
-            "start": 18,
             "end": 21,
-            "role": "verb"
+            "role": "verb",
+            "word": "met",
+            "start": 18
           },
           {
-            "word": "has",
-            "start": 22,
             "end": 25,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "has",
+            "start": 22
           },
           {
-            "word": "closed",
-            "start": 26,
             "end": 32,
-            "role": "verb"
+            "role": "verb",
+            "word": "closed",
+            "start": 26
           }
         ]
       },
@@ -242,52 +242,52 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Students",
-            "start": 0,
             "end": 8,
-            "role": "noun"
+            "role": "noun",
+            "word": "Students",
+            "start": 0
           },
           {
-            "word": "whose",
-            "start": 9,
             "end": 14,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "whose",
+            "start": 9
           },
           {
-            "word": "work",
-            "start": 15,
             "end": 19,
-            "role": "noun"
+            "role": "noun",
+            "word": "work",
+            "start": 15
           },
           {
-            "word": "is",
-            "start": 20,
             "end": 22,
-            "role": "verb"
+            "role": "verb",
+            "word": "is",
+            "start": 20
           },
           {
-            "word": "late",
-            "start": 23,
             "end": 27,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "late",
+            "start": 23
           },
           {
-            "word": "must",
-            "start": 28,
             "end": 32,
-            "role": "modal"
+            "role": "modal",
+            "word": "must",
+            "start": 28
           },
           {
-            "word": "email",
-            "start": 33,
             "end": 38,
-            "role": "verb"
+            "role": "verb",
+            "word": "email",
+            "start": 33
           },
           {
-            "word": "me",
-            "start": 39,
             "end": 41,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "me",
+            "start": 39
           }
         ]
       },
@@ -297,46 +297,46 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "My",
-            "start": 0,
             "end": 2,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "My",
+            "start": 0
           },
           {
-            "word": "laptop",
-            "start": 3,
             "end": 9,
-            "role": "noun"
+            "role": "noun",
+            "word": "laptop",
+            "start": 3
           },
           {
-            "word": "which",
-            "start": 11,
             "end": 16,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "which",
+            "start": 11
           },
           {
-            "word": "is",
-            "start": 17,
             "end": 19,
-            "role": "verb"
+            "role": "verb",
+            "word": "is",
+            "start": 17
           },
           {
-            "word": "old",
-            "start": 20,
             "end": 23,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "old",
+            "start": 20
           },
           {
-            "word": "still",
-            "start": 25,
             "end": 30,
-            "role": "adverb"
+            "role": "adverb",
+            "word": "still",
+            "start": 25
           },
           {
-            "word": "works",
-            "start": 31,
             "end": 36,
-            "role": "verb"
+            "role": "verb",
+            "word": "works",
+            "start": 31
           }
         ]
       },
@@ -346,80 +346,75 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "The",
-            "start": 0,
             "end": 3,
-            "role": "article"
+            "role": "article",
+            "word": "The",
+            "start": 0
           },
           {
-            "word": "man",
-            "start": 4,
             "end": 7,
-            "role": "noun"
+            "role": "noun",
+            "word": "man",
+            "start": 4
           },
           {
-            "word": "I",
-            "start": 8,
             "end": 9,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 8
           },
           {
-            "word": "spoke",
-            "start": 10,
             "end": 15,
-            "role": "verb"
+            "role": "verb",
+            "word": "spoke",
+            "start": 10
           },
           {
-            "word": "to",
-            "start": 16,
             "end": 18,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "to",
+            "start": 16
           },
           {
-            "word": "was",
-            "start": 19,
             "end": 22,
-            "role": "verb"
+            "role": "verb",
+            "word": "was",
+            "start": 19
           },
           {
-            "word": "helpful",
-            "start": 23,
             "end": 30,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "helpful",
+            "start": 23
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “person + who/that + clause”.",
-        "right": "The woman who called is my aunt.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
+        "wrong": "The man which lives here is kind.",
+        "right": "The man who lives here is kind.",
+        "why": "Chỉ người dùng who, không dùng which."
       },
       {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “thing + which/that + clause”.",
-        "right": "This is the book that I mentioned.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
+        "wrong": "The book who I read was good.",
+        "right": "The book which I read was good.",
+        "why": "Chỉ vật dùng which/that, không dùng who."
       },
       {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "The café where we met has closed.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
+        "wrong": "This is the house where I live in it.",
+        "right": "This is the house where I live.",
+        "why": "Where đã thay cho \"in which\" — không lặp giới từ/đại từ."
       },
       {
-        "wrong": "Everything what they said was true.",
-        "right": "Everything that they said was true.",
-        "why": "Sau everything dùng that hoặc lược bỏ đại từ quan hệ, không dùng what."
-      },
-      {
-        "wrong": "The man I was sitting next to him was friendly.",
-        "right": "The man I was sitting next to was friendly.",
-        "why": "Không lặp lại đại từ tân ngữ him trong mệnh đề quan hệ."
+        "wrong": "The keys that we were looking for them are here.",
+        "right": "The keys that we were looking for are here.",
+        "why": "That đã làm tân ngữ — không lặp them thừa."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **person + who/that + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "timeline": null,
     "comparison": "**Mệnh đề quan hệ xác định vs không xác định:** Xác định = thông tin THIẾT YẾU để hiểu danh từ, KHÔNG dấu phẩy (*The woman who called is my aunt* — bỏ đi thì không rõ ai). Không xác định = thông tin THÊM, đặt giữa dấu phẩy, bỏ vẫn hiểu (*My aunt, who called yesterday, is a doctor*).",
-    "timeline": null
+    "definition": "Relative Clauses dùng **mệnh đề quan hệ** để bổ sung thông tin cho danh từ mà không phải mở câu mới. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt."
   },
   "exercises": [
     {

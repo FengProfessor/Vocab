@@ -5,53 +5,7 @@
   "level": "intermediate",
   "order": 40,
   "sections": {
-    "definition": "Third Conditional dùng **điều kiện loại 3** để tưởng tượng một quá khứ khác và kết quả đã không xảy ra. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt.",
-    "usage": [
-      {
-        "icon": "🚉",
-        "label": "Giả định trái với quá khứ — việc đã không xảy ra",
-        "en": "If I had left earlier, I would have caught the train.",
-        "vi": "Nếu tôi rời đi sớm hơn, tôi đã bắt kịp chuyến tàu."
-      },
-      {
-        "icon": "😞",
-        "label": "Bày tỏ tiếc nuối, trách móc về quá khứ",
-        "en": "She would have passed if she had studied.",
-        "vi": "Cô ấy đã đỗ rồi nếu cô ấy chịu học."
-      },
-      {
-        "icon": "🎩",
-        "label": "Đảo ngữ trang trọng: Had + S + V3 (bỏ if)",
-        "en": "Had we known, we would have helped.",
-        "vi": "Nếu chúng tôi biết thì chúng tôi đã giúp rồi."
-      },
-      {
-        "icon": "🎲",
-        "label": "Kết quả không chắc chắn với might/could have",
-        "en": "If they hadn't called, I might have forgotten.",
-        "vi": "Nếu họ không gọi, có lẽ tôi đã quên mất."
-      }
-    ],
-    "formula": {
-      "rows": [
-        {
-          "form": "Cấu trúc chính",
-          "base": "If + had + V3, would have + V3",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Biến thể quan trọng",
-          "base": "If + had + V3, could/might have + V3",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        },
-        {
-          "form": "Dạng mở rộng",
-          "base": "Had + S + V3, ...",
-          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
-        }
-      ],
-      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu."
-    },
+    "tips": "**Mẹo nhớ:** học mẫu **If + had + V3, would have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -74,6 +28,52 @@
         "example": "Had we known, we would have helped."
       }
     ],
+    "usage": [
+      {
+        "en": "If I had left earlier, I would have caught the train.",
+        "vi": "Nếu tôi rời đi sớm hơn, tôi đã bắt kịp chuyến tàu.",
+        "icon": "🚉",
+        "label": "Giả định trái với quá khứ — việc đã không xảy ra"
+      },
+      {
+        "en": "She would have passed if she had studied.",
+        "vi": "Cô ấy đã đỗ rồi nếu cô ấy chịu học.",
+        "icon": "😞",
+        "label": "Bày tỏ tiếc nuối, trách móc về quá khứ"
+      },
+      {
+        "en": "Had we known, we would have helped.",
+        "vi": "Nếu chúng tôi biết thì chúng tôi đã giúp rồi.",
+        "icon": "🎩",
+        "label": "Đảo ngữ trang trọng: Had + S + V3 (bỏ if)"
+      },
+      {
+        "en": "If they hadn't called, I might have forgotten.",
+        "vi": "Nếu họ không gọi, có lẽ tôi đã quên mất.",
+        "icon": "🎲",
+        "label": "Kết quả không chắc chắn với might/could have"
+      }
+    ],
+    "formula": {
+      "note": "S = chủ ngữ; V = động từ nguyên thể; V3 = quá khứ phân từ; V-ing = dạng động từ thêm -ing. Luôn kiểm tra chủ ngữ, thời điểm và ý nghĩa trước khi chọn mẫu.",
+      "rows": [
+        {
+          "base": "If + had + V3, would have + V3",
+          "form": "Cấu trúc chính",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "If + had + V3, could/might have + V3",
+          "form": "Biến thể quan trọng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        },
+        {
+          "base": "Had + S + V3, ...",
+          "form": "Dạng mở rộng",
+          "third": "Áp dụng theo ngữ cảnh và ý nghĩa của câu"
+        }
+      ]
+    },
     "signals": [
       "If + had + P2",
       "would have + P2",
@@ -87,70 +87,70 @@
         "note": "Ví dụ 1: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "I",
-            "start": 3,
             "end": 4,
-            "role": "pronoun"
-          },
-          {
-            "word": "had",
-            "start": 5,
-            "end": 8,
-            "role": "auxiliary"
-          },
-          {
-            "word": "left",
-            "start": 9,
-            "end": 13,
-            "role": "verb"
-          },
-          {
-            "word": "earlier",
-            "start": 14,
-            "end": 21,
-            "role": "adverb"
-          },
-          {
+            "role": "pronoun",
             "word": "I",
-            "start": 23,
+            "start": 3
+          },
+          {
+            "end": 8,
+            "role": "auxiliary",
+            "word": "had",
+            "start": 5
+          },
+          {
+            "end": 13,
+            "role": "verb",
+            "word": "left",
+            "start": 9
+          },
+          {
+            "end": 21,
+            "role": "adverb",
+            "word": "earlier",
+            "start": 14
+          },
+          {
             "end": 24,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 23
           },
           {
-            "word": "would",
-            "start": 25,
             "end": 30,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 25
           },
           {
-            "word": "have",
-            "start": 31,
             "end": 35,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 31
           },
           {
-            "word": "caught",
-            "start": 36,
             "end": 42,
-            "role": "verb"
+            "role": "verb",
+            "word": "caught",
+            "start": 36
           },
           {
-            "word": "the",
-            "start": 43,
             "end": 46,
-            "role": "article"
+            "role": "article",
+            "word": "the",
+            "start": 43
           },
           {
-            "word": "train",
-            "start": 47,
             "end": 52,
-            "role": "noun"
+            "role": "noun",
+            "word": "train",
+            "start": 47
           }
         ]
       },
@@ -160,52 +160,52 @@
         "note": "Ví dụ 2: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "She",
-            "start": 0,
             "end": 3,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "She",
+            "start": 0
           },
           {
-            "word": "would",
-            "start": 4,
             "end": 9,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 4
           },
           {
-            "word": "have",
-            "start": 10,
             "end": 14,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 10
           },
           {
-            "word": "passed",
-            "start": 15,
             "end": 21,
-            "role": "verb"
+            "role": "verb",
+            "word": "passed",
+            "start": 15
           },
           {
-            "word": "if",
-            "start": 22,
             "end": 24,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "if",
+            "start": 22
           },
           {
-            "word": "she",
-            "start": 25,
             "end": 28,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "she",
+            "start": 25
           },
           {
-            "word": "had",
-            "start": 29,
             "end": 32,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "had",
+            "start": 29
           },
           {
-            "word": "studied",
-            "start": 33,
             "end": 40,
-            "role": "verb"
+            "role": "verb",
+            "word": "studied",
+            "start": 33
           }
         ]
       },
@@ -215,46 +215,46 @@
         "note": "Ví dụ 3: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Had",
-            "start": 0,
             "end": 3,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "Had",
+            "start": 0
           },
           {
-            "word": "we",
-            "start": 4,
             "end": 6,
-            "role": "pronoun"
-          },
-          {
-            "word": "known",
-            "start": 7,
-            "end": 12,
-            "role": "verb"
-          },
-          {
+            "role": "pronoun",
             "word": "we",
-            "start": 14,
+            "start": 4
+          },
+          {
+            "end": 12,
+            "role": "verb",
+            "word": "known",
+            "start": 7
+          },
+          {
             "end": 16,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "we",
+            "start": 14
           },
           {
-            "word": "would",
-            "start": 17,
             "end": 22,
-            "role": "modal"
+            "role": "modal",
+            "word": "would",
+            "start": 17
           },
           {
-            "word": "have",
-            "start": 23,
             "end": 27,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 23
           },
           {
-            "word": "helped",
-            "start": 28,
             "end": 34,
-            "role": "verb"
+            "role": "verb",
+            "word": "helped",
+            "start": 28
           }
         ]
       },
@@ -264,52 +264,52 @@
         "note": "Ví dụ 4: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "If",
-            "start": 0,
             "end": 2,
-            "role": "preposition"
+            "role": "preposition",
+            "word": "If",
+            "start": 0
           },
           {
-            "word": "they",
-            "start": 3,
             "end": 7,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "they",
+            "start": 3
           },
           {
-            "word": "hadn't",
-            "start": 8,
             "end": 14,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "hadn't",
+            "start": 8
           },
           {
-            "word": "called",
-            "start": 15,
             "end": 21,
-            "role": "verb"
+            "role": "verb",
+            "word": "called",
+            "start": 15
           },
           {
-            "word": "I",
-            "start": 23,
             "end": 24,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "I",
+            "start": 23
           },
           {
-            "word": "might",
-            "start": 25,
             "end": 30,
-            "role": "modal"
+            "role": "modal",
+            "word": "might",
+            "start": 25
           },
           {
-            "word": "have",
-            "start": 31,
             "end": 35,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 31
           },
           {
-            "word": "forgotten",
-            "start": 36,
             "end": 45,
-            "role": "verb"
+            "role": "verb",
+            "word": "forgotten",
+            "start": 36
           }
         ]
       },
@@ -319,58 +319,58 @@
         "note": "Ví dụ 5: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "Could",
-            "start": 0,
             "end": 5,
-            "role": "modal"
+            "role": "modal",
+            "word": "Could",
+            "start": 0
           },
           {
-            "word": "you",
-            "start": 6,
             "end": 9,
-            "role": "pronoun"
-          },
-          {
-            "word": "have",
-            "start": 10,
-            "end": 14,
-            "role": "auxiliary"
-          },
-          {
-            "word": "won",
-            "start": 15,
-            "end": 18,
-            "role": "verb"
-          },
-          {
-            "word": "if",
-            "start": 19,
-            "end": 21,
-            "role": "preposition"
-          },
-          {
+            "role": "pronoun",
             "word": "you",
-            "start": 22,
+            "start": 6
+          },
+          {
+            "end": 14,
+            "role": "auxiliary",
+            "word": "have",
+            "start": 10
+          },
+          {
+            "end": 18,
+            "role": "verb",
+            "word": "won",
+            "start": 15
+          },
+          {
+            "end": 21,
+            "role": "preposition",
+            "word": "if",
+            "start": 19
+          },
+          {
             "end": 25,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "you",
+            "start": 22
           },
           {
-            "word": "had",
-            "start": 26,
             "end": 29,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "had",
+            "start": 26
           },
           {
-            "word": "trained",
-            "start": 30,
             "end": 37,
-            "role": "verb"
+            "role": "verb",
+            "word": "trained",
+            "start": 30
           },
           {
-            "word": "more",
-            "start": 38,
             "end": 42,
-            "role": "determiner"
+            "role": "determiner",
+            "word": "more",
+            "start": 38
           }
         ]
       },
@@ -380,104 +380,99 @@
         "note": "Ví dụ 6: minh họa cách dùng và vị trí cấu trúc trong câu.",
         "annotations": [
           {
-            "word": "He",
-            "start": 0,
             "end": 2,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "He",
+            "start": 0
           },
           {
-            "word": "wouldn't",
-            "start": 3,
             "end": 11,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "wouldn't",
+            "start": 3
           },
           {
-            "word": "have",
-            "start": 12,
             "end": 16,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "have",
+            "start": 12
           },
           {
-            "word": "fallen",
-            "start": 17,
             "end": 23,
-            "role": "verb"
+            "role": "verb",
+            "word": "fallen",
+            "start": 17
           },
           {
-            "word": "if",
-            "start": 24,
             "end": 26,
-            "role": "conjunction"
+            "role": "conjunction",
+            "word": "if",
+            "start": 24
           },
           {
-            "word": "he",
-            "start": 27,
             "end": 29,
-            "role": "pronoun"
+            "role": "pronoun",
+            "word": "he",
+            "start": 27
           },
           {
-            "word": "had",
-            "start": 30,
             "end": 33,
-            "role": "auxiliary"
+            "role": "auxiliary",
+            "word": "had",
+            "start": 30
           },
           {
-            "word": "been",
-            "start": 34,
             "end": 38,
-            "role": "verb"
+            "role": "verb",
+            "word": "been",
+            "start": 34
           },
           {
-            "word": "careful",
-            "start": 39,
             "end": 46,
-            "role": "adjective"
+            "role": "adjective",
+            "word": "careful",
+            "start": 39
           }
         ]
       }
     ],
     "mistakes": [
       {
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “If + had + V3, would have + V3”.",
-        "right": "If I had left earlier, I would have caught the train.",
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt."
-      },
-      {
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “If + had + V3, could/might have + V3”.",
-        "right": "She would have passed if she had studied.",
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa."
-      },
-      {
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa.",
-        "right": "Had we known, we would have helped.",
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt."
-      },
-      {
-        "wrong": "If I would have studied, I would have passed.",
-        "right": "If I had studied, I would have passed.",
-        "why": "Mệnh đề if loại 3 dùng PAST PERFECT (had + P2), không dùng would have."
-      },
-      {
         "wrong": "If I had studied, I would passed.",
         "right": "If I had studied, I would have passed.",
-        "why": "Vế kết quả loại 3 cần đủ WOULD HAVE + P2."
+        "why": "Loại 3 vế kết quả cần would HAVE + P2."
+      },
+      {
+        "wrong": "If I would have known, I would have come.",
+        "right": "If I had known, I would have come.",
+        "why": "Mệnh đề if loại 3 dùng past perfect (had + P2), không dùng would have."
+      },
+      {
+        "wrong": "If she had came earlier, she would have seen him.",
+        "right": "If she had come earlier, she would have seen him.",
+        "why": "P2 của come là come sau had."
+      },
+      {
+        "wrong": "If they had left, they would catch the train.",
+        "right": "If they had left, they would have caught the train.",
+        "why": "Việc đã qua: vế kết quả loại 3 dùng would have + P2."
       }
     ],
-    "tips": "**Mẹo nhớ:** học mẫu **If + had + V3, would have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
-    "comparison": "**Điều kiện loại 3 vs loại 2:** Loại 3 = giả định trái với QUÁ KHỨ, không thể đổi (*If you had seen him, you could have spoken to him* — nhưng đã không gặp). Loại 2 = giả định trái với HIỆN TẠI / tương lai (*If I had his address, I could write to him* — giờ không có địa chỉ).",
     "timeline": {
-      "caption": "Cả điều kiện lẫn kết quả đều nằm trong quá khứ đã đóng — chỉ là dòng thời gian tưởng tượng chạy song song dòng thật.",
       "points": [
         {
-          "label": "Thực tế: không học → trượt",
-          "note": "quá khứ thật"
+          "note": "quá khứ thật",
+          "label": "Thực tế: không học → trượt"
         },
         {
-          "label": "Giả định: had studied → would have passed",
-          "note": "quá khứ tưởng tượng"
+          "note": "quá khứ tưởng tượng",
+          "label": "Giả định: had studied → would have passed"
         }
-      ]
-    }
+      ],
+      "caption": "Cả điều kiện lẫn kết quả đều nằm trong quá khứ đã đóng — chỉ là dòng thời gian tưởng tượng chạy song song dòng thật."
+    },
+    "comparison": "**Điều kiện loại 3 vs loại 2:** Loại 3 = giả định trái với QUÁ KHỨ, không thể đổi (*If you had seen him, you could have spoken to him* — nhưng đã không gặp). Loại 2 = giả định trái với HIỆN TẠI / tương lai (*If I had his address, I could write to him* — giờ không có địa chỉ).",
+    "definition": "Third Conditional dùng **điều kiện loại 3** để tưởng tượng một quá khứ khác và kết quả đã không xảy ra. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt."
   },
   "exercises": [
     {
