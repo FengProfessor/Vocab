@@ -3,9 +3,13 @@
 
 import { authFetch } from './auth-fetch';
 
+export type RoadmapStepViewType =
+  | 'vocab' | 'grammar' | 'pronunciation' | 'checkpoint'
+  | 'reading' | 'cloze' | 'arrange' | 'announcement' | 'leaflet' | 'exam';
+
 export interface RoadmapStepView {
   id: string;
-  type: 'vocab' | 'grammar' | 'pronunciation' | 'checkpoint';
+  type: RoadmapStepViewType;
   ref: string;
   title: string;
   wordCount?: number;
@@ -19,6 +23,7 @@ export interface RoadmapLevelView {
 export interface RoadmapTreeResponse {
   enrolled: boolean;
   roadmapVersion?: string;
+  track?: 'cefr' | 'thpt';
   levelId?: string;
   currentStepId?: string | null;
   tree?: RoadmapLevelView[];

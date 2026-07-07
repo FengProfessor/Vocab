@@ -1,0 +1,93 @@
+{
+  "roadmapVersion": "roadmap-thpt-v1",
+  "track": "thpt",
+  "catalogVersion": "2026-06-13-v4",
+  "levels": [
+    {
+      "id": "lop-10",
+      "title": "Grade 10",
+      "titleVi": "Lớp 10",
+      "description": "Nền tảng: từ vựng theo SGK Global Success 10, ngữ pháp cơ bản (thì, bị động, so sánh) + kỹ năng đọc thông báo và bài ngắn.",
+      "units": [
+        {
+          "id": "u-thpt10-1", "index": 1, "title": "Chặng 1 · Gia đình & Đọc thông báo",
+          "steps": [
+            { "id": "sv-st-fbf0dc671092-p0", "type": "vocab", "ref": "st-fbf0dc671092-p0", "title": "Gia đình (Family Life)" },
+            { "id": "sg-present-simple", "type": "grammar", "ref": "present-simple", "title": "Thì Hiện tại đơn" },
+            { "id": "sr-ann-10-1", "type": "announcement", "ref": "ann-10-1", "title": "Đọc điền thông báo: Green Club" },
+            { "id": "sr-rd-10-1", "type": "reading", "ref": "rd-10-1", "title": "Đọc hiểu: Family Meals" },
+            { "id": "sx-exam-10-1", "type": "exam", "ref": "exam-10-1", "title": "Đề mini lớp 10 — số 1" }
+          ]
+        },
+        {
+          "id": "u-thpt10-2", "index": 2, "title": "Chặng 2 · Cơ thể & Bị động",
+          "steps": [
+            { "id": "sv-st-0bf9ebd8c770-p0", "type": "vocab", "ref": "st-0bf9ebd8c770-p0", "title": "Cơ thể (Your Body And You)" },
+            { "id": "sg-past-simple", "type": "grammar", "ref": "past-simple", "title": "Thì Quá khứ đơn" },
+            { "id": "sr-rd-10-1b", "type": "reading", "ref": "rd-10-1", "title": "Luyện đọc hiểu ngắn" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lop-11",
+      "title": "Grade 11",
+      "titleVi": "Lớp 11",
+      "description": "Nâng cao: thì hoàn thành, mệnh đề quan hệ, câu tường thuật + kỹ năng sắp xếp đoạn văn và đọc tờ rơi.",
+      "units": [
+        {
+          "id": "u-thpt11-1", "index": 1, "title": "Chặng 1 · Khoảng cách thế hệ & Sắp xếp đoạn",
+          "steps": [
+            { "id": "sv-st-b6bfd44386d1-p0", "type": "vocab", "ref": "st-b6bfd44386d1-p0", "title": "Khoảng cách thế hệ" },
+            { "id": "sg-present-perfect", "type": "grammar", "ref": "present-perfect", "title": "Thì Hiện tại hoàn thành" },
+            { "id": "sr-lea-11-1", "type": "leaflet", "ref": "lea-11-1", "title": "Đọc điền tờ rơi: Study Smart" },
+            { "id": "sr-arr-11-1", "type": "arrange", "ref": "arr-11-1", "title": "Sắp xếp đoạn văn: học nấu ăn" },
+            { "id": "sx-exam-11-1", "type": "exam", "ref": "exam-11-1", "title": "Đề mini lớp 11 — số 1" }
+          ]
+        },
+        {
+          "id": "u-thpt11-2", "index": 2, "title": "Chặng 2 · Sống tự lập & Mệnh đề quan hệ",
+          "steps": [
+            { "id": "sv-st-d66cfe92885e-p0", "type": "vocab", "ref": "st-d66cfe92885e-p0", "title": "Sống tự lập (Being Independent)" },
+            { "id": "sg-relative-clauses", "type": "grammar", "ref": "relative-clauses", "title": "Mệnh đề quan hệ" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lop-12",
+      "title": "Grade 12",
+      "titleVi": "Lớp 12 (Luyện thi)",
+      "description": "Luyện thi tốt nghiệp: điều kiện nâng cao, đảo ngữ, cấu trúc rút gọn + đủ 6 dạng bài đề 2025 (thông báo/tờ rơi/sắp xếp/cloze/đọc hiểu dài) và đề mini.",
+      "units": [
+        {
+          "id": "u-thpt12-1", "index": 1, "title": "Chặng 1 · Career & Đọc thông báo nâng cao",
+          "steps": [
+            { "id": "sv-st-91b0331e72ff-p0", "type": "vocab", "ref": "st-91b0331e72ff-p0", "title": "Câu chuyện cuộc đời (Life Stories)" },
+            { "id": "sg-mixed-conditionals", "type": "grammar", "ref": "mixed-conditionals", "title": "Câu điều kiện hỗn hợp" },
+            { "id": "sr-ann-12-1", "type": "announcement", "ref": "ann-12-1", "title": "Đọc điền thông báo: Career Fair" },
+            { "id": "sr-lea-12-1", "type": "leaflet", "ref": "lea-12-1", "title": "Đọc điền tờ rơi: Volunteer Abroad" }
+          ]
+        },
+        {
+          "id": "u-thpt12-2", "index": 2, "title": "Chặng 2 · Đô thị hóa & Sắp xếp thư + Cloze",
+          "steps": [
+            { "id": "sv-st-3a58bb8d2d4a-p0", "type": "vocab", "ref": "st-3a58bb8d2d4a-p0", "title": "Đô thị hóa (Urbanization)" },
+            { "id": "sg-inversion", "type": "grammar", "ref": "inversion", "title": "Đảo ngữ" },
+            { "id": "sr-arr-12-1", "type": "arrange", "ref": "arr-12-1", "title": "Sắp xếp thư xin thực tập" },
+            { "id": "sr-clo-12-1", "type": "cloze", "ref": "clo-12-1", "title": "Đọc điền cloze: Remote Work" }
+          ]
+        },
+        {
+          "id": "u-thpt12-3", "index": 3, "title": "Chặng 3 · Đọc hiểu dài & Đề mini tổng hợp",
+          "steps": [
+            { "id": "sv-st-51a74a734c86-p0", "type": "vocab", "ref": "st-51a74a734c86-p0", "title": "Bản sắc văn hóa (Cultural Identity)" },
+            { "id": "sg-cleft-sentences", "type": "grammar", "ref": "cleft-sentences", "title": "Câu chẻ" },
+            { "id": "sr-rd-12-1", "type": "reading", "ref": "rd-12-1", "title": "Đọc hiểu dài: Greenwashing" },
+            { "id": "sx-exam-12-1", "type": "exam", "ref": "exam-12-1", "title": "Đề mini lớp 12 — số 1 (6 dạng)" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -30,19 +30,31 @@ const LEVEL_COLORS: Record<string, string> = {
   B2: 'from-rose-500 to-pink-500',
 };
 
-const STEP_ICON = {
+const STEP_ICON: Record<string, typeof Sparkles> = {
   vocab: Sparkles,
   grammar: GraduationCap,
   pronunciation: Headphones,
   checkpoint: Flag,
-} as const;
+  reading: BookOpen,
+  cloze: BookOpen,
+  arrange: BookOpen,
+  announcement: BookOpen,
+  leaflet: BookOpen,
+  exam: Flag,
+};
 
-const STEP_LABEL = {
+const STEP_LABEL: Record<string, string> = {
   vocab: 'Từ vựng',
   grammar: 'Ngữ pháp',
   pronunciation: 'Phát âm',
   checkpoint: 'Checkpoint',
-} as const;
+  reading: 'Đọc hiểu',
+  cloze: 'Cloze',
+  arrange: 'Sắp xếp',
+  announcement: 'Thông báo',
+  leaflet: 'Tờ rơi',
+  exam: 'Đề mini',
+};
 
 export default function JourneyPage() {
   const router = useRouter();
@@ -53,8 +65,8 @@ export default function JourneyPage() {
   const [busyStep, setBusyStep] = useState<string | null>(null);
   const [celebrate, setCelebrate] = useState<string | null>(null);
 
-  // Placement state
-  const [mode, setMode] = useState<'pick' | 'test' | null>(null);
+  // Placement state — 'track' = màn chọn CEFR/THPT đầu tiên
+  const [mode, setMode] = useState<'track' | 'pick-intro' | 'pick' | 'test' | 'thpt-grade' | null>('track');
   const [questions, setQuestions] = useState<PlacementQuestionView[]>([]);
   const [qIndex, setQIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -112,7 +124,7 @@ export default function JourneyPage() {
     }
   };
 
-  const submitPlacement = async (body: { answers?: Record<string, string>; selfSelect?: string }): Promise<void> => {
+  const submitPlacement = async (body: { answers?: Record<string, string>; selfSelect?: string; track?: string }): Promise<void> => {
     setSubmitting(true);
     try {
       const res = await authFetch('/api/roadmap/placement', {
@@ -149,6 +161,7 @@ export default function JourneyPage() {
     if (step.status === 'locked' || busyStep) return;
     setBusyStep(step.id);
     try {
+      const THPT_TYPES = ['reading', 'cloze', 'arrange', 'announcement', 'leaflet', 'exam'];
       if (step.type === 'vocab') {
         toast.loading('Đang chuẩn bị gói từ...', { id: 'journey-open' });
         const res = await authFetch('/api/import/packages', {
@@ -171,6 +184,8 @@ export default function JourneyPage() {
         router.push(`/grammar/learn?topic=${encodeURIComponent(step.ref)}&roadmapStep=${step.id}`);
       } else if (step.type === 'pronunciation') {
         router.push(`/pronunciation/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
+      } else if (THPT_TYPES.includes(step.type)) {
+        router.push(`/thpt/${step.type}/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
       } else {
         router.push(`/journey/checkpoint/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
       }
@@ -213,7 +228,35 @@ export default function JourneyPage() {
               </Button>
             ))}
           </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode(null)}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+          <Button variant="ghost" size="sm" onClick={() => setMode('pick-intro')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+        </div>
+      );
+    }
+    if (mode === 'thpt-grade') {
+      const grades = [
+        { id: 'lop-10', label: 'Lớp 10', desc: 'Nền tảng: thì cơ bản, bị động, đọc thông báo/bài ngắn.' },
+        { id: 'lop-11', label: 'Lớp 11', desc: 'Nâng cao: thì hoàn thành, mệnh đề quan hệ, sắp xếp đoạn/tờ rơi.' },
+        { id: 'lop-12', label: 'Lớp 12 (Luyện thi)', desc: 'Đủ 6 dạng đề tốt nghiệp 2025 + đề mini tổng hợp.' },
+      ];
+      return (
+        <div className="mx-auto max-w-xl p-6 space-y-4">
+          <h1 className="text-2xl font-bold">Bạn học lớp mấy?</h1>
+          <p className="text-muted-foreground">Lộ trình luyện thi THPT theo đúng chương trình + format đề 2025.</p>
+          <div className="grid gap-3">
+            {grades.map((g) => (
+              <Card key={g.id} className="cursor-pointer hover:border-primary transition-colors"
+                onClick={() => !submitting && void submitPlacement({ track: 'thpt', selfSelect: g.id })}>
+                <CardContent className="flex items-center gap-4 p-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-orange-500 text-white font-bold text-sm">{g.id.replace('lop-', '')}</span>
+                  <div>
+                    <p className="font-semibold">{g.label}</p>
+                    <p className="text-sm text-muted-foreground">{g.desc}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
         </div>
       );
     }
@@ -243,21 +286,43 @@ export default function JourneyPage() {
               </Card>
             ))}
           </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode(null)}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
         </div>
       );
     }
+    if (mode === 'pick-intro') {
+      return (
+        <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center">
+          <div className="text-6xl">🗺️</div>
+          <h1 className="text-3xl font-bold">Lộ trình học của bạn</h1>
+          <p className="text-muted-foreground">Học theo từng chặng nhỏ: từ vựng + ngữ pháp + phát âm đi cùng nhau, mở khóa dần từ dễ đến khó. Trước tiên, mình cần biết bạn nên bắt đầu từ đâu.</p>
+          <div className="grid w-full gap-3">
+            <Button variant="chunky" size="lg" onClick={() => void startTest()}>⚡ Kiểm tra trình độ (2 phút)</Button>
+            <Button variant="outline" size="lg" onClick={() => setMode('pick')}>Tôi tự chọn cấp</Button>
+          </div>
+          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+        </div>
+      );
+    }
+    // mode === 'track' (mặc định): chọn loại lộ trình
     return (
       <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center">
-        <div className="text-6xl">🗺️</div>
-        <h1 className="text-3xl font-bold">Lộ trình học của bạn</h1>
-        <p className="text-muted-foreground">
-          Học theo từng chặng nhỏ: từ vựng + ngữ pháp + phát âm đi cùng nhau, mở khóa dần từ dễ đến khó.
-          Trước tiên, mình cần biết bạn nên bắt đầu từ đâu.
-        </p>
+        <div className="text-6xl">🧭</div>
+        <h1 className="text-3xl font-bold">Bạn muốn học theo hướng nào?</h1>
+        <p className="text-muted-foreground">Chọn lộ trình phù hợp mục tiêu — có thể đổi sau.</p>
         <div className="grid w-full gap-3">
-          <Button variant="chunky" size="lg" onClick={() => void startTest()}>⚡ Kiểm tra trình độ (2 phút)</Button>
-          <Button variant="outline" size="lg" onClick={() => setMode('pick')}>Tôi tự chọn cấp</Button>
+          <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => setMode('pick-intro')}>
+            <CardContent className="p-4">
+              <p className="font-bold">🌱 Lộ trình chuẩn CEFR (A0 → B2)</p>
+              <p className="text-sm text-muted-foreground">Học tổng quát từ mất gốc đến trung cao: từ vựng + ngữ pháp + phát âm giọng thật.</p>
+            </CardContent>
+          </Card>
+          <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => setMode('thpt-grade')}>
+            <CardContent className="p-4">
+              <p className="font-bold">🎓 Luyện thi THPT (Lớp 10 → 12)</p>
+              <p className="text-sm text-muted-foreground">Bám chương trình + đủ 6 dạng đề tốt nghiệp 2025: đọc thông báo/tờ rơi, sắp xếp đoạn, cloze, đọc hiểu, đề mini.</p>
+            </CardContent>
+          </Card>
         </div>
         <Link href="/student" className="text-sm text-muted-foreground underline">Quay về bảng điều khiển</Link>
       </div>

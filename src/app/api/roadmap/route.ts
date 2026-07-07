@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
-import { getRoadmapLevels, orderedStepIds, ROADMAP_VERSION, ROADMAP_LEVEL_ORDER, type RoadmapLevelId } from '@/lib/roadmap';
+import { getRoadmapLevels, orderedStepIds, ROADMAP_VERSION, levelOrder, type RoadmapLevelId, type RoadmapTrack } from '@/lib/roadmap';
 
 /**
  * GET /api/roadmap — cây lộ trình + progress user + trạng thái unlock.
@@ -17,13 +17,16 @@ export async function GET(req: NextRequest) {
 
     const { data: enrollment } = await supabase
       .from('user_roadmap')
-      .select('level_id, roadmap_version, current_unit_id, started_at')
+      .select('level_id, roadmap_version, current_unit_id, started_at, track')
       .eq('user_id', auth.userId)
       .maybeSingle();
 
     if (!enrollment) {
       return NextResponse.json({ success: true, data: { enrolled: false } });
     }
+
+    const track = (enrollment.track ?? 'cefr') as RoadmapTrack;
+    const ORDER = levelOrder(track);
 
     const { data: stepRows } = await supabase
       .from('user_roadmap_steps')
@@ -32,14 +35,14 @@ export async function GET(req: NextRequest) {
     const doneSteps = new Map((stepRows ?? []).map((r) => [r.step_id, r]));
 
     const startLevel = enrollment.level_id as RoadmapLevelId;
-    const startLevelIdx = ROADMAP_LEVEL_ORDER.indexOf(startLevel);
+    const startLevelIdx = ORDER.indexOf(startLevel);
 
     // Step đầu tiên chưa hoàn thành TÍNH TỪ cấp bắt đầu = "current"; sau nó = locked.
-    const ordered = orderedStepIds();
-    const levels = getRoadmapLevels();
+    const ordered = orderedStepIds(track);
+    const levels = getRoadmapLevels(track);
     const levelOfStep = new Map<string, number>();
     for (const level of levels) {
-      const idx = ROADMAP_LEVEL_ORDER.indexOf(level.id);
+      const idx = ORDER.indexOf(level.id);
       for (const unit of level.units) for (const step of unit.steps) levelOfStep.set(step.id, idx);
     }
     const scopedOrdered = ordered.filter((id) => (levelOfStep.get(id) ?? 0) >= startLevelIdx);
@@ -47,7 +50,7 @@ export async function GET(req: NextRequest) {
     const currentPos = currentStepId ? scopedOrdered.indexOf(currentStepId) : scopedOrdered.length;
 
     const tree = levels.map((level) => {
-      const levelIdx = ROADMAP_LEVEL_ORDER.indexOf(level.id);
+      const levelIdx = ORDER.indexOf(level.id);
       return {
         id: level.id,
         title: level.title,
@@ -79,6 +82,7 @@ export async function GET(req: NextRequest) {
       data: {
         enrolled: true,
         roadmapVersion: ROADMAP_VERSION,
+        track,
         levelId: startLevel,
         currentStepId,
         tree,
