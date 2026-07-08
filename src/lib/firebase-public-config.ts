@@ -39,11 +39,16 @@ const envValues = Object.values(envFirebasePublicConfig);
 const hasAnyFirebaseEnv = envValues.some(Boolean);
 const hasFullFirebaseEnv = envValues.every(Boolean);
 
+/** Env khớp fallback từng field — mới tin env (tránh Vercel set lệch 1 field → token-subscribe-failed). */
+const envMatchesFallback = hasFullFirebaseEnv && (
+  Object.keys(FALLBACK_FIREBASE_PUBLIC_CONFIG) as (keyof FirebasePublicConfig)[]
+).every((k) => envFirebasePublicConfig[k] === FALLBACK_FIREBASE_PUBLIC_CONFIG[k]);
+
 if (hasAnyFirebaseEnv && !hasFullFirebaseEnv) {
-  console.warn('[FCM] Partial Firebase public env detected. Falling back to bundled config to avoid client/SW mismatch.');
+  console.warn('[FCM] Partial Firebase env on server/build — using bundled config.');
 }
 
-export const firebasePublicConfig: FirebasePublicConfig = hasFullFirebaseEnv
+export const firebasePublicConfig: FirebasePublicConfig = envMatchesFallback
   ? envFirebasePublicConfig
   : FALLBACK_FIREBASE_PUBLIC_CONFIG;
 
@@ -56,4 +61,7 @@ export const firebaseWebConfig: FirebaseWebConfig = {
   appId: firebasePublicConfig.appId,
 };
 
-export const firebaseConfigSource = hasFullFirebaseEnv ? 'env' : 'fallback';
+export const firebaseConfigSource = envMatchesFallback ? 'env' : 'bundled';
+
+/** Phiên bản Firebase compat CDN dùng trong service worker — giữ gần SDK client. */
+export const FIREBASE_SW_COMPAT_VERSION = '11.9.1';

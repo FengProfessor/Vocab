@@ -1,6 +1,6 @@
-import { firebaseWebConfig } from '@/lib/firebase-public-config';
+import { firebaseWebConfig, FIREBASE_SW_COMPAT_VERSION } from '@/lib/firebase-public-config';
 
-const FIREBASE_COMPAT_VERSION = '10.7.1';
+const FIREBASE_COMPAT_VERSION = FIREBASE_SW_COMPAT_VERSION;
 
 export async function GET(): Promise<Response> {
   const script = `

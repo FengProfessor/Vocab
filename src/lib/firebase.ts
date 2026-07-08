@@ -1,8 +1,44 @@
 import { initializeApp } from 'firebase/app';
-import { getMessaging, getToken, onMessage, type MessagePayload } from 'firebase/messaging';
+import { getMessaging, getToken, isSupported, onMessage, type MessagePayload } from 'firebase/messaging';
 import { firebaseConfigSource, firebasePublicConfig, firebaseWebConfig } from './firebase-public-config';
 
 const app = initializeApp(firebaseWebConfig);
+
+/** Gỡ SW cũ (sw-custom / sw.js) cùng scope / — từng gây getToken fail. */
+async function unregisterConflictingServiceWorkers(): Promise<void> {
+  if (!('serviceWorker' in navigator)) return;
+  const regs = await navigator.serviceWorker.getRegistrations();
+  await Promise.all(regs.map(async (reg) => {
+    const script = reg.active?.scriptURL || reg.waiting?.scriptURL || reg.installing?.scriptURL || '';
+    if (/sw-custom\.js|\/sw\.js$/.test(script)) {
+      console.log('[FCM] Unregister conflicting SW:', script);
+      await reg.unregister();
+    }
+  }));
+}
+
+/** Chờ đúng registration FCM active — không dùng ready (có thể trả SW khác). */
+async function waitForRegistrationActive(reg: ServiceWorkerRegistration, timeoutMs = 15000): Promise<void> {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    if (reg.active) return;
+    const worker = reg.installing || reg.waiting;
+    if (worker) {
+      await new Promise<void>((resolve) => {
+        const onState = () => {
+          if (reg.active || worker.state === 'redundant') {
+            worker.removeEventListener('statechange', onState);
+            resolve();
+          }
+        };
+        worker.addEventListener('statechange', onState);
+      });
+      if (reg.active) return;
+    }
+    await new Promise((r) => setTimeout(r, 100));
+  }
+  throw new Error('Service worker FCM không active kịp. Xóa PWA khỏi màn hình chính rồi cài lại.');
+}
 
 // Bọc 1 promise với timeout để không treo vô hạn (báo lỗi rõ thay vì spinner mãi)
 function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
@@ -47,6 +83,11 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
   }
 
   try {
+    const supported = await isSupported();
+    if (!supported) {
+      throw new Error('Trình duyệt/thiết bị không hỗ trợ FCM Web Push.');
+    }
+
     // iOS BẮT BUỘC: xin quyền ngay trong user gesture, trước mọi await khác
     log('Xin quyền thông báo…');
     const permission = await Notification.requestPermission();
@@ -55,8 +96,10 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
       throw new Error(`Chưa được cấp quyền (permission=${permission}). Vào Cài đặt → app → Thông báo để bật.`);
     }
 
+    await unregisterConflictingServiceWorkers();
+
     log('Đăng ký service worker…');
-    // Route động — config đồng bộ với client (tránh lệch env Vercel vs SW tĩnh)
+    // Ưu tiên route động (config đồng bộ build); fallback file tĩnh cho cache cũ
     let registration: ServiceWorkerRegistration;
     try {
       registration = await navigator.serviceWorker.register('/firebase-messaging-sw', { scope: '/' });
@@ -64,15 +107,15 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
       registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js', { scope: '/' });
     }
 
-    log('Chờ service worker active…');
-    await withTimeout(
-      navigator.serviceWorker.ready,
-      15000,
-      'service worker không active. Thử xoá app khỏi Màn hình chính rồi thêm lại.'
-    );
+    log('Chờ service worker FCM active…');
     await registration.update();
+    await withTimeout(
+      waitForRegistrationActive(registration),
+      15000,
+      'service worker FCM không active. Thử xoá app khỏi Màn hình chính rồi thêm lại.'
+    );
 
-    log(`Service worker OK (${firebaseConfigSource}). Đang lấy token từ FCM…`);
+    log(`Service worker OK (${firebaseConfigSource}, ${registration.active?.scriptURL ?? 'no-script'}). Đang lấy token từ FCM…`);
     const messaging = getMessaging(app);
     const currentToken = await withTimeout(
       getToken(messaging, {
