@@ -10,9 +10,9 @@
   "counts": {
     "routes": 13,
     "topics": 40,
-    "subtopics": 182,
-    "packs": 660,
-    "words": 9023
+    "subtopics": 187,
+    "packs": 697,
+    "words": 9539
   },
   "routes": [
     {
@@ -233,11 +233,11 @@
       "key": "hk2",
       "title": "Học kỳ 2 (Unit 6-10)",
       "subtopicIds": [
-        "st-ba80bd8e6e7f",
-        "st-06a6a1f92f71",
-        "st-b5dd0dbf6d5b",
-        "st-0431d2104f66",
-        "st-8038b4976663"
+        "st-a630252e8a39",
+        "st-82a2a6c50042",
+        "st-2067bbbbf49f",
+        "st-839b443cc057",
+        "st-ee9bc54aa501"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -250,6 +250,7 @@
       "subtopicIds": [
         "st-4cd972d14bcb",
         "st-239ce0bcaa81",
+        "st-f8af75920592",
         "st-4c0b35f14ebc"
       ],
       "qualityScore": 0,
@@ -330,7 +331,8 @@
       "key": "dia-danh",
       "title": "Địa danh & quốc gia",
       "subtopicIds": [
-        "st-ff585f467a16"
+        "st-ff585f467a16",
+        "st-afe16b5298e5"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -405,6 +407,7 @@
         "st-86b9261ccfb5",
         "st-7f9c63a68525",
         "st-e34d6d0ed072",
+        "st-3e61b3ecf7d0",
         "st-fed7e3c93f9a",
         "st-16e51553fca8",
         "st-e7b7995bc7fa",
@@ -597,7 +600,8 @@
       "subtopicIds": [
         "st-b9f07f3086f7",
         "st-2034de421f7d",
-        "st-0309de5a7285"
+        "st-0309de5a7285",
+        "st-62dc6e721060"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -696,10 +700,11 @@
       "key": "hk1",
       "title": "Học kỳ 1 (Unit 1-5)",
       "subtopicIds": [
-        "st-b6bfd44386d1",
-        "st-d66cfe92885e",
-        "st-38bc8e24242b",
-        "st-bee654c1d0b9"
+        "st-c4bd3623f4ee",
+        "st-3034c9c5ad90",
+        "st-eacd3c4030d3",
+        "st-26a7506b9ff5",
+        "st-d1ca1374e8da"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -812,31 +817,6 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-0431d2104f66",
-      "topicId": "tp-0f31eb90c4",
-      "routeId": "thpt-lop-11",
-      "title": "Cities Of The Future",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 9: Cities Of The Future",
-      "contentType": "word",
-      "wordCount": 16,
-      "packIds": [
-        "st-0431d2104f66-p0"
-      ],
-      "previewWords": [
-        "sustainable",
-        "livable",
-        "solar energy",
-        "urban",
-        "infrastructure"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
       "id": "st-047eccb61a4e",
       "topicId": "tp-7c7631f3bd",
       "routeId": "doi-song",
@@ -854,31 +834,6 @@
         "fully furnished",
         "spacious living room",
         "a cramped room"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-06a6a1f92f71",
-      "topicId": "tp-0f31eb90c4",
-      "routeId": "thpt-lop-11",
-      "title": "Further Education",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 7: Further Education",
-      "contentType": "word",
-      "wordCount": 16,
-      "packIds": [
-        "st-06a6a1f92f71-p0"
-      ],
-      "previewWords": [
-        "academic",
-        "vocational",
-        "analytical",
-        "critical thinking",
-        "bachelor's degree"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -1414,6 +1369,35 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-2067bbbbf49f",
+      "topicId": "tp-0f31eb90c4",
+      "routeId": "thpt-lop-11",
+      "title": "Becoming Independent",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 8: Becoming Independent",
+      "contentType": "word",
+      "wordCount": 67,
+      "packIds": [
+        "st-2067bbbbf49f-p0",
+        "st-2067bbbbf49f-p1",
+        "st-2067bbbbf49f-p2",
+        "st-2067bbbbf49f-p3",
+        "st-2067bbbbf49f-p4"
+      ],
+      "previewWords": [
+        "contact",
+        "confidence",
+        "convince",
+        "do laundry",
+        "clean the house"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-2069df52b7d3",
       "topicId": "tp-70cf7f7227",
       "routeId": "hoc-thuat",
@@ -1511,6 +1495,35 @@
         "processed food",
         "food additives",
         "balanced diet"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-26a7506b9ff5",
+      "topicId": "tp-e848339aa6",
+      "routeId": "thpt-lop-11",
+      "title": "ASEAN and ASEAN Youth",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 4: ASEAN and ASEAN Youth",
+      "contentType": "word",
+      "wordCount": 74,
+      "packIds": [
+        "st-26a7506b9ff5-p0",
+        "st-26a7506b9ff5-p1",
+        "st-26a7506b9ff5-p2",
+        "st-26a7506b9ff5-p3",
+        "st-26a7506b9ff5-p4"
+      ],
+      "previewWords": [
+        "aim",
+        "apply for",
+        "asean",
+        "aware of",
+        "benefit"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -1652,6 +1665,34 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-3034c9c5ad90",
+      "topicId": "tp-e848339aa6",
+      "routeId": "thpt-lop-11",
+      "title": "The Generation Gap",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 2: The Generation Gap",
+      "contentType": "word",
+      "wordCount": 48,
+      "packIds": [
+        "st-3034c9c5ad90-p0",
+        "st-3034c9c5ad90-p1",
+        "st-3034c9c5ad90-p2",
+        "st-3034c9c5ad90-p3"
+      ],
+      "previewWords": [
+        "adapt",
+        "advice",
+        "argument",
+        "asian american",
+        "belief"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-31fde43dd7f5",
       "topicId": "tp-ffa0a73f9c",
       "routeId": "cong-nghe",
@@ -1715,32 +1756,6 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-38bc8e24242b",
-      "topicId": "tp-e848339aa6",
-      "routeId": "thpt-lop-11",
-      "title": "Calling For Those In Need",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 4: Calling For Those In Need",
-      "contentType": "word",
-      "wordCount": 20,
-      "packIds": [
-        "st-38bc8e24242b-p0",
-        "st-38bc8e24242b-p1"
-      ],
-      "previewWords": [
-        "disability",
-        "impairment",
-        "cognitive",
-        "disrespectful",
-        "integrate"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
       "id": "st-3a58bb8d2d4a",
       "topicId": "tp-eb5ba63431",
       "routeId": "thpt-lop-12",
@@ -1759,6 +1774,31 @@
         "cost-effective",
         "counter urbanization",
         "dense populated"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-3e61b3ecf7d0",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 6: Global Warming",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 6: Global Warning",
+      "contentType": "word",
+      "wordCount": 18,
+      "packIds": [
+        "st-3e61b3ecf7d0-p0"
+      ],
+      "previewWords": [
+        "global warming",
+        "cause",
+        "greenhouse gas",
+        "emission",
+        "fertilizer"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2583,6 +2623,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-62dc6e721060",
+      "topicId": "tp-95e3b28bf2",
+      "routeId": "suc-khoe",
+      "title": "Legacy Unit 10: Healthy Life Styles And Longevity",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 10: Healthy Life Styles And Longevity",
+      "contentType": "word",
+      "wordCount": 11,
+      "packIds": [
+        "st-62dc6e721060-p0"
+      ],
+      "previewWords": [
+        "attributed",
+        "boost",
+        "dietary",
+        "immune system",
+        "life expectancy"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-65f1286dcb33",
       "topicId": "tp-70b7eb83b6",
       "routeId": "toeic",
@@ -3196,31 +3261,6 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-8038b4976663",
-      "topicId": "tp-0f31eb90c4",
-      "routeId": "thpt-lop-11",
-      "title": "Healthy Life Styles And Longevity",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 10: Healthy Life Styles And Longevity",
-      "contentType": "word",
-      "wordCount": 11,
-      "packIds": [
-        "st-8038b4976663-p0"
-      ],
-      "previewWords": [
-        "attributed",
-        "boost",
-        "dietary",
-        "immune system",
-        "life expectancy"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
       "id": "st-81bc6676876c",
       "topicId": "tp-f06a497f6f",
       "routeId": "suc-khoe",
@@ -3244,6 +3284,62 @@
         "linesman",
         "back the wrong horse",
         "finale"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-82a2a6c50042",
+      "topicId": "tp-0f31eb90c4",
+      "routeId": "thpt-lop-11",
+      "title": "Education Options for School-Leavers",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 7: Education Options for School-Leavers",
+      "contentType": "word",
+      "wordCount": 50,
+      "packIds": [
+        "st-82a2a6c50042-p0",
+        "st-82a2a6c50042-p1",
+        "st-82a2a6c50042-p2",
+        "st-82a2a6c50042-p3"
+      ],
+      "previewWords": [
+        "academic",
+        "advertisement",
+        "alternatively",
+        "apply",
+        "apprentice"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-839b443cc057",
+      "topicId": "tp-0f31eb90c4",
+      "routeId": "thpt-lop-11",
+      "title": "Social Issues",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 9: Social Issues",
+      "contentType": "word",
+      "wordCount": 57,
+      "packIds": [
+        "st-839b443cc057-p0",
+        "st-839b443cc057-p1",
+        "st-839b443cc057-p2",
+        "st-839b443cc057-p3"
+      ],
+      "previewWords": [
+        "campaign",
+        "crime",
+        "overpopulation",
+        "bullying",
+        "peer pressure"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -3750,6 +3846,35 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-a630252e8a39",
+      "topicId": "tp-0f31eb90c4",
+      "routeId": "thpt-lop-11",
+      "title": "Preserving Our Heritage",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 6: Preserving Our Heritage",
+      "contentType": "word",
+      "wordCount": 71,
+      "packIds": [
+        "st-a630252e8a39-p0",
+        "st-a630252e8a39-p1",
+        "st-a630252e8a39-p2",
+        "st-a630252e8a39-p3",
+        "st-a630252e8a39-p4"
+      ],
+      "previewWords": [
+        "absorb",
+        "air conditioner",
+        "ancient",
+        "appreciate",
+        "architecture"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-a68f2a5f22ed",
       "topicId": "tp-5805d2352e",
       "routeId": "ielts",
@@ -4030,6 +4155,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-afe16b5298e5",
+      "topicId": "tp-47d3a045c5",
+      "routeId": "du-lich",
+      "title": "Legacy Unit 9: Cities Of The Future",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 9: Cities Of The Future",
+      "contentType": "word",
+      "wordCount": 16,
+      "packIds": [
+        "st-afe16b5298e5-p0"
+      ],
+      "previewWords": [
+        "sustainable",
+        "livable",
+        "solar energy",
+        "urban",
+        "infrastructure"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-b4ae7e1ea3ac",
       "topicId": "tp-9275f23d61",
       "routeId": "hoc-thuat",
@@ -4047,32 +4197,6 @@
         "beat",
         "knock the living daylights out of someone",
         "come to blows"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-b5dd0dbf6d5b",
-      "topicId": "tp-0f31eb90c4",
-      "routeId": "thpt-lop-11",
-      "title": "Our World Heritage Sites",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 8: Our World Heritage Sites",
-      "contentType": "word",
-      "wordCount": 21,
-      "packIds": [
-        "st-b5dd0dbf6d5b-p0",
-        "st-b5dd0dbf6d5b-p1"
-      ],
-      "previewWords": [
-        "sightseeing",
-        "imperial",
-        "citadel",
-        "heritage",
-        "palace"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -4130,31 +4254,6 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-b6bfd44386d1",
-      "topicId": "tp-e848339aa6",
-      "routeId": "thpt-lop-11",
-      "title": "The Generation Gap",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 1: The Generation Gap",
-      "contentType": "word",
-      "wordCount": 16,
-      "packIds": [
-        "st-b6bfd44386d1-p0"
-      ],
-      "previewWords": [
-        "extended family",
-        "nuclear family",
-        "child care",
-        "generation",
-        "the generation gap"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -4242,31 +4341,6 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-ba80bd8e6e7f",
-      "topicId": "tp-0f31eb90c4",
-      "routeId": "thpt-lop-11",
-      "title": "Global Warming",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 6: Global Warning",
-      "contentType": "word",
-      "wordCount": 18,
-      "packIds": [
-        "st-ba80bd8e6e7f-p0"
-      ],
-      "previewWords": [
-        "global warming",
-        "cause",
-        "greenhouse gas",
-        "emission",
-        "fertilizer"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -4410,32 +4484,6 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-bee654c1d0b9",
-      "topicId": "tp-e848339aa6",
-      "routeId": "thpt-lop-11",
-      "title": "Being A Part Of Asean",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 5: Being A Part Of Asean",
-      "contentType": "word",
-      "wordCount": 20,
-      "packIds": [
-        "st-bee654c1d0b9-p0",
-        "st-bee654c1d0b9-p1"
-      ],
-      "previewWords": [
-        "participate",
-        "charter",
-        "stand",
-        "form",
-        "block"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
       "id": "st-c26a16e45a74",
       "topicId": "tp-9225cff2c0",
       "routeId": "ielts",
@@ -4482,6 +4530,34 @@
         "bitterly disappointed",
         "let somebody down",
         "worried sick"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-c4bd3623f4ee",
+      "topicId": "tp-e848339aa6",
+      "routeId": "thpt-lop-11",
+      "title": "A Long and Healthy Life",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 1: A Long and Healthy Life",
+      "contentType": "word",
+      "wordCount": 54,
+      "packIds": [
+        "st-c4bd3623f4ee-p0",
+        "st-c4bd3623f4ee-p1",
+        "st-c4bd3623f4ee-p2",
+        "st-c4bd3623f4ee-p3"
+      ],
+      "previewWords": [
+        "antibiotic",
+        "bacteria",
+        "balanced (diet)",
+        "cut down on",
+        "diameter"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -4710,6 +4786,35 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-d1ca1374e8da",
+      "topicId": "tp-e848339aa6",
+      "routeId": "thpt-lop-11",
+      "title": "Global Warming",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 5: Global Warming",
+      "contentType": "word",
+      "wordCount": 61,
+      "packIds": [
+        "st-d1ca1374e8da-p0",
+        "st-d1ca1374e8da-p1",
+        "st-d1ca1374e8da-p2",
+        "st-d1ca1374e8da-p3",
+        "st-d1ca1374e8da-p4"
+      ],
+      "previewWords": [
+        "absorb",
+        "agreement",
+        "atmosphere",
+        "balance",
+        "ban"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-d2b50749cec7",
       "topicId": "tp-7a934ad2a7",
       "routeId": "di-lam",
@@ -4809,31 +4914,6 @@
         "cloud on the horizon",
         "keep in the dark",
         "a fair weather friend"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-d66cfe92885e",
-      "topicId": "tp-e848339aa6",
-      "routeId": "thpt-lop-11",
-      "title": "Being Independent",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 3: Being Independent",
-      "contentType": "word",
-      "wordCount": 16,
-      "packIds": [
-        "st-d66cfe92885e-p0"
-      ],
-      "previewWords": [
-        "close friend",
-        "rely on",
-        "influence",
-        "independent",
-        "responsible"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5258,6 +5338,35 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-eacd3c4030d3",
+      "topicId": "tp-e848339aa6",
+      "routeId": "thpt-lop-11",
+      "title": "Cities of the Future",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 3: Cities of the Future",
+      "contentType": "word",
+      "wordCount": 70,
+      "packIds": [
+        "st-eacd3c4030d3-p0",
+        "st-eacd3c4030d3-p1",
+        "st-eacd3c4030d3-p2",
+        "st-eacd3c4030d3-p3",
+        "st-eacd3c4030d3-p4"
+      ],
+      "previewWords": [
+        "advantage",
+        "ai technology",
+        "air pollution",
+        "annoying",
+        "carbon footprint"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-ebfad9b20a2b",
       "topicId": "tp-2a8542b1aa",
       "routeId": "doi-song",
@@ -5284,6 +5393,34 @@
         "all ears",
         "answer the call of nature",
         "answer nature's call"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-ee9bc54aa501",
+      "topicId": "tp-0f31eb90c4",
+      "routeId": "thpt-lop-11",
+      "title": "Healthy Lifestyle and Longevity",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 10: Healthy Lifestyle and Longevity",
+      "contentType": "word",
+      "wordCount": 57,
+      "packIds": [
+        "st-ee9bc54aa501-p0",
+        "st-ee9bc54aa501-p1",
+        "st-ee9bc54aa501-p2",
+        "st-ee9bc54aa501-p3"
+      ],
+      "previewWords": [
+        "insect",
+        "butterfly",
+        "ecosystem",
+        "flora",
+        "fauna"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5587,6 +5724,31 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-f8af75920592",
+      "topicId": "tp-132448072e",
+      "routeId": "hoc-tap",
+      "title": "Legacy Unit 7: Further Education",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 7: Further Education",
+      "contentType": "word",
+      "wordCount": 16,
+      "packIds": [
+        "st-f8af75920592-p0"
+      ],
+      "previewWords": [
+        "academic",
+        "vocational",
+        "analytical",
+        "critical thinking",
+        "bachelor's degree"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -5978,79 +6140,6 @@
       ]
     },
     {
-      "id": "st-0431d2104f66-p0",
-      "subtopicId": "st-0431d2104f66",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 16,
-      "words": [
-        {
-          "word": "sustainable",
-          "contentType": "word"
-        },
-        {
-          "word": "livable",
-          "contentType": "word"
-        },
-        {
-          "word": "solar energy",
-          "contentType": "phrase"
-        },
-        {
-          "word": "urban",
-          "contentType": "word"
-        },
-        {
-          "word": "infrastructure",
-          "contentType": "word"
-        },
-        {
-          "word": "overcrowded",
-          "contentType": "word"
-        },
-        {
-          "word": "inhabitant",
-          "contentType": "word"
-        },
-        {
-          "word": "detect",
-          "contentType": "word"
-        },
-        {
-          "word": "promote",
-          "contentType": "word"
-        },
-        {
-          "word": "sensor",
-          "contentType": "word"
-        },
-        {
-          "word": "insoluble",
-          "contentType": "word"
-        },
-        {
-          "word": "dweller",
-          "contentType": "word"
-        },
-        {
-          "word": "analyze",
-          "contentType": "word"
-        },
-        {
-          "word": "traffic congestion",
-          "contentType": "phrase"
-        },
-        {
-          "word": "underground",
-          "contentType": "word"
-        },
-        {
-          "word": "paradise",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
       "id": "st-047eccb61a4e-p0",
       "subtopicId": "st-047eccb61a4e",
       "index": 0,
@@ -6128,79 +6217,6 @@
         {
           "word": "combat poverty",
           "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-06a6a1f92f71-p0",
-      "subtopicId": "st-06a6a1f92f71",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 16,
-      "words": [
-        {
-          "word": "academic",
-          "contentType": "word"
-        },
-        {
-          "word": "vocational",
-          "contentType": "word"
-        },
-        {
-          "word": "analytical",
-          "contentType": "word"
-        },
-        {
-          "word": "critical thinking",
-          "contentType": "phrase"
-        },
-        {
-          "word": "bachelor's degree",
-          "contentType": "phrase"
-        },
-        {
-          "word": "undergraduate",
-          "contentType": "word"
-        },
-        {
-          "word": "postgraduate",
-          "contentType": "word"
-        },
-        {
-          "word": "master's degree",
-          "contentType": "phrase"
-        },
-        {
-          "word": "doctorate",
-          "contentType": "word"
-        },
-        {
-          "word": "practical",
-          "contentType": "word"
-        },
-        {
-          "word": "qualification",
-          "contentType": "word"
-        },
-        {
-          "word": "scholarship",
-          "contentType": "word"
-        },
-        {
-          "word": "major",
-          "contentType": "word"
-        },
-        {
-          "word": "internship",
-          "contentType": "word"
-        },
-        {
-          "word": "pursue",
-          "contentType": "word"
-        },
-        {
-          "word": "mandatory",
-          "contentType": "word"
         }
       ]
     },
@@ -10768,6 +10784,319 @@
       ]
     },
     {
+      "id": "st-2067bbbbf49f-p0",
+      "subtopicId": "st-2067bbbbf49f",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "contact",
+          "contentType": "word"
+        },
+        {
+          "word": "confidence",
+          "contentType": "word"
+        },
+        {
+          "word": "convince",
+          "contentType": "word"
+        },
+        {
+          "word": "do laundry",
+          "contentType": "phrase"
+        },
+        {
+          "word": "clean the house",
+          "contentType": "phrase"
+        },
+        {
+          "word": "schedule",
+          "contentType": "word"
+        },
+        {
+          "word": "app",
+          "contentType": "word"
+        },
+        {
+          "word": "encourage",
+          "contentType": "word"
+        },
+        {
+          "word": "part-time job",
+          "contentType": "phrase"
+        },
+        {
+          "word": "deal with",
+          "contentType": "phrase"
+        },
+        {
+          "word": "good at",
+          "contentType": "phrase"
+        },
+        {
+          "word": "independent",
+          "contentType": "word"
+        },
+        {
+          "word": "responsibility",
+          "contentType": "word"
+        },
+        {
+          "word": "responsible",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-2067bbbbf49f-p1",
+      "subtopicId": "st-2067bbbbf49f",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "belief",
+          "contentType": "word"
+        },
+        {
+          "word": "software",
+          "contentType": "word"
+        },
+        {
+          "word": "pay attention",
+          "contentType": "phrase"
+        },
+        {
+          "word": "self-motivated",
+          "contentType": "word"
+        },
+        {
+          "word": "self-study",
+          "contentType": "word"
+        },
+        {
+          "word": "manage",
+          "contentType": "word"
+        },
+        {
+          "word": "trust",
+          "contentType": "word"
+        },
+        {
+          "word": "life skill",
+          "contentType": "phrase"
+        },
+        {
+          "word": "time-management skill",
+          "contentType": "phrase"
+        },
+        {
+          "word": "time-management tool",
+          "contentType": "phrase"
+        },
+        {
+          "word": "get around",
+          "contentType": "phrase"
+        },
+        {
+          "word": "achieve",
+          "contentType": "word"
+        },
+        {
+          "word": "independence",
+          "contentType": "word"
+        },
+        {
+          "word": "come up with",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-2067bbbbf49f-p2",
+      "subtopicId": "st-2067bbbbf49f",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "carry out",
+          "contentType": "phrase"
+        },
+        {
+          "word": "get into the habit of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "make use of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "making decision",
+          "contentType": "phrase"
+        },
+        {
+          "word": "identify",
+          "contentType": "word"
+        },
+        {
+          "word": "to-do-list",
+          "contentType": "word"
+        },
+        {
+          "word": "hang",
+          "contentType": "word"
+        },
+        {
+          "word": "fold",
+          "contentType": "word"
+        },
+        {
+          "word": "store",
+          "contentType": "word"
+        },
+        {
+          "word": "remove",
+          "contentType": "word"
+        },
+        {
+          "word": "washing powder",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sort",
+          "contentType": "word"
+        },
+        {
+          "word": "separate",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-2067bbbbf49f-p3",
+      "subtopicId": "st-2067bbbbf49f",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "dryer",
+          "contentType": "word"
+        },
+        {
+          "word": "iron",
+          "contentType": "word"
+        },
+        {
+          "word": "wardrobe",
+          "contentType": "word"
+        },
+        {
+          "word": "packet",
+          "contentType": "word"
+        },
+        {
+          "word": "rinse",
+          "contentType": "word"
+        },
+        {
+          "word": "combine",
+          "contentType": "word"
+        },
+        {
+          "word": "drawer",
+          "contentType": "word"
+        },
+        {
+          "word": "rice cooker",
+          "contentType": "phrase"
+        },
+        {
+          "word": "washing machine",
+          "contentType": "phrase"
+        },
+        {
+          "word": "learner",
+          "contentType": "word"
+        },
+        {
+          "word": "sense of responsibility",
+          "contentType": "phrase"
+        },
+        {
+          "word": "give up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "curious",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-2067bbbbf49f-p4",
+      "subtopicId": "st-2067bbbbf49f",
+      "index": 4,
+      "title": "Chặng 5",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "characteristic",
+          "contentType": "word"
+        },
+        {
+          "word": "freedom",
+          "contentType": "word"
+        },
+        {
+          "word": "learning goal",
+          "contentType": "phrase"
+        },
+        {
+          "word": "academic skill",
+          "contentType": "phrase"
+        },
+        {
+          "word": "diploma",
+          "contentType": "word"
+        },
+        {
+          "word": "extracurricular",
+          "contentType": "word"
+        },
+        {
+          "word": "babysitting",
+          "contentType": "word"
+        },
+        {
+          "word": "admission",
+          "contentType": "word"
+        },
+        {
+          "word": "dog walking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "food bank",
+          "contentType": "phrase"
+        },
+        {
+          "word": "pocket money",
+          "contentType": "phrase"
+        },
+        {
+          "word": "decision-maker",
+          "contentType": "word"
+        },
+        {
+          "word": "presentation",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-2069df52b7d3-p0",
       "subtopicId": "st-2069df52b7d3",
       "index": 0,
@@ -11301,6 +11630,347 @@
         {
           "word": "have a sweet tooth",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-26a7506b9ff5-p0",
+      "subtopicId": "st-26a7506b9ff5",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "aim",
+          "contentType": "word"
+        },
+        {
+          "word": "apply for",
+          "contentType": "phrase"
+        },
+        {
+          "word": "asean",
+          "contentType": "word"
+        },
+        {
+          "word": "aware of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "benefit",
+          "contentType": "word"
+        },
+        {
+          "word": "brochure",
+          "contentType": "word"
+        },
+        {
+          "word": "buddhism",
+          "contentType": "word"
+        },
+        {
+          "word": "celebrate",
+          "contentType": "word"
+        },
+        {
+          "word": "celebration",
+          "contentType": "word"
+        },
+        {
+          "word": "charity",
+          "contentType": "word"
+        },
+        {
+          "word": "collaboration",
+          "contentType": "word"
+        },
+        {
+          "word": "commission",
+          "contentType": "word"
+        },
+        {
+          "word": "community",
+          "contentType": "word"
+        },
+        {
+          "word": "confident",
+          "contentType": "word"
+        },
+        {
+          "word": "contribution",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-26a7506b9ff5-p1",
+      "subtopicId": "st-26a7506b9ff5",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "cooperation",
+          "contentType": "word"
+        },
+        {
+          "word": "coordinate",
+          "contentType": "word"
+        },
+        {
+          "word": "cultural exchange",
+          "contentType": "phrase"
+        },
+        {
+          "word": "current",
+          "contentType": "word"
+        },
+        {
+          "word": "current issue",
+          "contentType": "phrase"
+        },
+        {
+          "word": "custom",
+          "contentType": "word"
+        },
+        {
+          "word": "decoration",
+          "contentType": "word"
+        },
+        {
+          "word": "development",
+          "contentType": "word"
+        },
+        {
+          "word": "donation",
+          "contentType": "word"
+        },
+        {
+          "word": "economy",
+          "contentType": "word"
+        },
+        {
+          "word": "effective",
+          "contentType": "word"
+        },
+        {
+          "word": "effort",
+          "contentType": "word"
+        },
+        {
+          "word": "energetic",
+          "contentType": "word"
+        },
+        {
+          "word": "essential",
+          "contentType": "word"
+        },
+        {
+          "word": "eye-opening",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-26a7506b9ff5-p2",
+      "subtopicId": "st-26a7506b9ff5",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "festival",
+          "contentType": "word"
+        },
+        {
+          "word": "foreign",
+          "contentType": "word"
+        },
+        {
+          "word": "goal",
+          "contentType": "word"
+        },
+        {
+          "word": "heritage",
+          "contentType": "word"
+        },
+        {
+          "word": "honor",
+          "contentType": "word"
+        },
+        {
+          "word": "huge",
+          "contentType": "word"
+        },
+        {
+          "word": "human",
+          "contentType": "word"
+        },
+        {
+          "word": "improve",
+          "contentType": "word"
+        },
+        {
+          "word": "international",
+          "contentType": "word"
+        },
+        {
+          "word": "issue",
+          "contentType": "word"
+        },
+        {
+          "word": "join",
+          "contentType": "word"
+        },
+        {
+          "word": "leadership skills",
+          "contentType": "phrase"
+        },
+        {
+          "word": "live-stream",
+          "contentType": "word"
+        },
+        {
+          "word": "local",
+          "contentType": "word"
+        },
+        {
+          "word": "luck",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-26a7506b9ff5-p3",
+      "subtopicId": "st-26a7506b9ff5",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "main",
+          "contentType": "word"
+        },
+        {
+          "word": "member",
+          "contentType": "word"
+        },
+        {
+          "word": "official",
+          "contentType": "word"
+        },
+        {
+          "word": "opportunity",
+          "contentType": "word"
+        },
+        {
+          "word": "organize",
+          "contentType": "word"
+        },
+        {
+          "word": "participant",
+          "contentType": "word"
+        },
+        {
+          "word": "peace",
+          "contentType": "word"
+        },
+        {
+          "word": "poster",
+          "contentType": "word"
+        },
+        {
+          "word": "programme",
+          "contentType": "word"
+        },
+        {
+          "word": "promote",
+          "contentType": "word"
+        },
+        {
+          "word": "proposal",
+          "contentType": "word"
+        },
+        {
+          "word": "provide",
+          "contentType": "word"
+        },
+        {
+          "word": "qualified",
+          "contentType": "word"
+        },
+        {
+          "word": "region",
+          "contentType": "word"
+        },
+        {
+          "word": "scholarship",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-26a7506b9ff5-p4",
+      "subtopicId": "st-26a7506b9ff5",
+      "index": 4,
+      "title": "Chặng 5",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "select",
+          "contentType": "word"
+        },
+        {
+          "word": "solve",
+          "contentType": "word"
+        },
+        {
+          "word": "strengthen",
+          "contentType": "word"
+        },
+        {
+          "word": "support",
+          "contentType": "word"
+        },
+        {
+          "word": "teamwork",
+          "contentType": "word"
+        },
+        {
+          "word": "theme",
+          "contentType": "word"
+        },
+        {
+          "word": "tradition",
+          "contentType": "word"
+        },
+        {
+          "word": "traditional",
+          "contentType": "word"
+        },
+        {
+          "word": "unforgettable",
+          "contentType": "word"
+        },
+        {
+          "word": "values",
+          "contentType": "word"
+        },
+        {
+          "word": "volunteer",
+          "contentType": "word"
+        },
+        {
+          "word": "website",
+          "contentType": "word"
+        },
+        {
+          "word": "workshop",
+          "contentType": "word"
+        },
+        {
+          "word": "youth",
+          "contentType": "word"
         }
       ]
     },
@@ -12094,6 +12764,234 @@
         {
           "word": "xerox subsidy",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-3034c9c5ad90-p0",
+      "subtopicId": "st-3034c9c5ad90",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "adapt",
+          "contentType": "word"
+        },
+        {
+          "word": "advice",
+          "contentType": "word"
+        },
+        {
+          "word": "argument",
+          "contentType": "word"
+        },
+        {
+          "word": "asian american",
+          "contentType": "phrase"
+        },
+        {
+          "word": "belief",
+          "contentType": "word"
+        },
+        {
+          "word": "breadwinner",
+          "contentType": "word"
+        },
+        {
+          "word": "burden",
+          "contentType": "word"
+        },
+        {
+          "word": "characteristic",
+          "contentType": "word"
+        },
+        {
+          "word": "childcare",
+          "contentType": "word"
+        },
+        {
+          "word": "common",
+          "contentType": "word"
+        },
+        {
+          "word": "conflict",
+          "contentType": "word"
+        },
+        {
+          "word": "conservative",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3034c9c5ad90-p1",
+      "subtopicId": "st-3034c9c5ad90",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "curious",
+          "contentType": "word"
+        },
+        {
+          "word": "cultural",
+          "contentType": "word"
+        },
+        {
+          "word": "custom",
+          "contentType": "word"
+        },
+        {
+          "word": "digital native",
+          "contentType": "phrase"
+        },
+        {
+          "word": "experience",
+          "contentType": "word"
+        },
+        {
+          "word": "extended family",
+          "contentType": "phrase"
+        },
+        {
+          "word": "experiment",
+          "contentType": "word"
+        },
+        {
+          "word": "fail",
+          "contentType": "word"
+        },
+        {
+          "word": "follow in sb's footsteps",
+          "contentType": "phrase"
+        },
+        {
+          "word": "force",
+          "contentType": "word"
+        },
+        {
+          "word": "freedom",
+          "contentType": "word"
+        },
+        {
+          "word": "hairstyle",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3034c9c5ad90-p2",
+      "subtopicId": "st-3034c9c5ad90",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "hire",
+          "contentType": "word"
+        },
+        {
+          "word": "honesty",
+          "contentType": "word"
+        },
+        {
+          "word": "housework",
+          "contentType": "word"
+        },
+        {
+          "word": "impose",
+          "contentType": "word"
+        },
+        {
+          "word": "individualism",
+          "contentType": "word"
+        },
+        {
+          "word": "influence",
+          "contentType": "word"
+        },
+        {
+          "word": "interact",
+          "contentType": "word"
+        },
+        {
+          "word": "judge",
+          "contentType": "word"
+        },
+        {
+          "word": "lifestyle",
+          "contentType": "word"
+        },
+        {
+          "word": "limit",
+          "contentType": "word"
+        },
+        {
+          "word": "lose",
+          "contentType": "word"
+        },
+        {
+          "word": "manners",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3034c9c5ad90-p3",
+      "subtopicId": "st-3034c9c5ad90",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "millennials",
+          "contentType": "word"
+        },
+        {
+          "word": "multigenerational",
+          "contentType": "word"
+        },
+        {
+          "word": "native",
+          "contentType": "word"
+        },
+        {
+          "word": "nuclear family",
+          "contentType": "phrase"
+        },
+        {
+          "word": "obey",
+          "contentType": "word"
+        },
+        {
+          "word": "opinion",
+          "contentType": "word"
+        },
+        {
+          "word": "permission",
+          "contentType": "word"
+        },
+        {
+          "word": "pierce",
+          "contentType": "word"
+        },
+        {
+          "word": "privacy",
+          "contentType": "word"
+        },
+        {
+          "word": "respect",
+          "contentType": "word"
+        },
+        {
+          "word": "rule",
+          "contentType": "word"
+        },
+        {
+          "word": "value",
+          "contentType": "word"
         }
       ]
     },
@@ -13109,104 +14007,6 @@
       ]
     },
     {
-      "id": "st-38bc8e24242b-p0",
-      "subtopicId": "st-38bc8e24242b",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 10,
-      "words": [
-        {
-          "word": "disability",
-          "contentType": "word"
-        },
-        {
-          "word": "impairment",
-          "contentType": "word"
-        },
-        {
-          "word": "cognitive",
-          "contentType": "word"
-        },
-        {
-          "word": "disrespectful",
-          "contentType": "word"
-        },
-        {
-          "word": "integrate",
-          "contentType": "word"
-        },
-        {
-          "word": "achieve",
-          "contentType": "word"
-        },
-        {
-          "word": "campaign",
-          "contentType": "word"
-        },
-        {
-          "word": "charity",
-          "contentType": "word"
-        },
-        {
-          "word": "donate",
-          "contentType": "word"
-        },
-        {
-          "word": "perceive",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-38bc8e24242b-p1",
-      "subtopicId": "st-38bc8e24242b",
-      "index": 1,
-      "title": "Chặng 2",
-      "wordCount": 10,
-      "words": [
-        {
-          "word": "energetic",
-          "contentType": "word"
-        },
-        {
-          "word": "enthusiastic",
-          "contentType": "word"
-        },
-        {
-          "word": "visual",
-          "contentType": "word"
-        },
-        {
-          "word": "fracture",
-          "contentType": "word"
-        },
-        {
-          "word": "volunteer",
-          "contentType": "word"
-        },
-        {
-          "word": "access",
-          "contentType": "word"
-        },
-        {
-          "word": "hardship",
-          "contentType": "word"
-        },
-        {
-          "word": "discrimination",
-          "contentType": "word"
-        },
-        {
-          "word": "mobility",
-          "contentType": "word"
-        },
-        {
-          "word": "wheelchair",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
       "id": "st-3a58bb8d2d4a-p0",
       "subtopicId": "st-3a58bb8d2d4a",
       "index": 0,
@@ -13320,6 +14120,87 @@
         },
         {
           "word": "well-established",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3e61b3ecf7d0-p0",
+      "subtopicId": "st-3e61b3ecf7d0",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 18,
+      "words": [
+        {
+          "word": "global warming",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cause",
+          "contentType": "word"
+        },
+        {
+          "word": "greenhouse gas",
+          "contentType": "phrase"
+        },
+        {
+          "word": "emission",
+          "contentType": "word"
+        },
+        {
+          "word": "fertilizer",
+          "contentType": "word"
+        },
+        {
+          "word": "deforestation",
+          "contentType": "word"
+        },
+        {
+          "word": "man-made",
+          "contentType": "word"
+        },
+        {
+          "word": "contribute",
+          "contentType": "word"
+        },
+        {
+          "word": "irresponsible",
+          "contentType": "word"
+        },
+        {
+          "word": "suffer",
+          "contentType": "word"
+        },
+        {
+          "word": "infectious disease",
+          "contentType": "phrase"
+        },
+        {
+          "word": "spread",
+          "contentType": "word"
+        },
+        {
+          "word": "severe",
+          "contentType": "word"
+        },
+        {
+          "word": "ecological",
+          "contentType": "word"
+        },
+        {
+          "word": "carbon footprint",
+          "contentType": "phrase"
+        },
+        {
+          "word": "catastrophic",
+          "contentType": "word"
+        },
+        {
+          "word": "famine",
+          "contentType": "word"
+        },
+        {
+          "word": "drought",
           "contentType": "word"
         }
       ]
@@ -20961,6 +21842,59 @@
       ]
     },
     {
+      "id": "st-62dc6e721060-p0",
+      "subtopicId": "st-62dc6e721060",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "attributed",
+          "contentType": "word"
+        },
+        {
+          "word": "boost",
+          "contentType": "word"
+        },
+        {
+          "word": "dietary",
+          "contentType": "word"
+        },
+        {
+          "word": "immune system",
+          "contentType": "phrase"
+        },
+        {
+          "word": "life expectancy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "meditation",
+          "contentType": "word"
+        },
+        {
+          "word": "natural remedy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "nutrition",
+          "contentType": "word"
+        },
+        {
+          "word": "prescription medicine",
+          "contentType": "phrase"
+        },
+        {
+          "word": "stress free",
+          "contentType": "phrase"
+        },
+        {
+          "word": "workout",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-65f1286dcb33-p0",
       "subtopicId": "st-65f1286dcb33",
       "index": 0,
@@ -26306,59 +27240,6 @@
       ]
     },
     {
-      "id": "st-8038b4976663-p0",
-      "subtopicId": "st-8038b4976663",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 11,
-      "words": [
-        {
-          "word": "attributed",
-          "contentType": "word"
-        },
-        {
-          "word": "boost",
-          "contentType": "word"
-        },
-        {
-          "word": "dietary",
-          "contentType": "word"
-        },
-        {
-          "word": "immune system",
-          "contentType": "phrase"
-        },
-        {
-          "word": "life expectancy",
-          "contentType": "phrase"
-        },
-        {
-          "word": "meditation",
-          "contentType": "word"
-        },
-        {
-          "word": "natural remedy",
-          "contentType": "phrase"
-        },
-        {
-          "word": "nutrition",
-          "contentType": "word"
-        },
-        {
-          "word": "prescription medicine",
-          "contentType": "phrase"
-        },
-        {
-          "word": "stress free",
-          "contentType": "phrase"
-        },
-        {
-          "word": "workout",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
       "id": "st-81bc6676876c-p0",
       "subtopicId": "st-81bc6676876c",
       "index": 0,
@@ -26830,6 +27711,506 @@
         {
           "word": "visiting team",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-82a2a6c50042-p0",
+      "subtopicId": "st-82a2a6c50042",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "academic",
+          "contentType": "word"
+        },
+        {
+          "word": "advertisement",
+          "contentType": "word"
+        },
+        {
+          "word": "alternatively",
+          "contentType": "word"
+        },
+        {
+          "word": "apply",
+          "contentType": "word"
+        },
+        {
+          "word": "apprentice",
+          "contentType": "word"
+        },
+        {
+          "word": "apprenticeship",
+          "contentType": "word"
+        },
+        {
+          "word": "attend",
+          "contentType": "word"
+        },
+        {
+          "word": "bachelor's degree",
+          "contentType": "phrase"
+        },
+        {
+          "word": "biology",
+          "contentType": "word"
+        },
+        {
+          "word": "broad",
+          "contentType": "word"
+        },
+        {
+          "word": "brochure",
+          "contentType": "word"
+        },
+        {
+          "word": "critical thinking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "degree",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-82a2a6c50042-p1",
+      "subtopicId": "st-82a2a6c50042",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "doctorate",
+          "contentType": "word"
+        },
+        {
+          "word": "duration",
+          "contentType": "word"
+        },
+        {
+          "word": "education fair",
+          "contentType": "phrase"
+        },
+        {
+          "word": "entrance exam",
+          "contentType": "phrase"
+        },
+        {
+          "word": "fee",
+          "contentType": "word"
+        },
+        {
+          "word": "focus on",
+          "contentType": "phrase"
+        },
+        {
+          "word": "formal",
+          "contentType": "word"
+        },
+        {
+          "word": "go on",
+          "contentType": "phrase"
+        },
+        {
+          "word": "graduation",
+          "contentType": "word"
+        },
+        {
+          "word": "hands-on",
+          "contentType": "word"
+        },
+        {
+          "word": "higher education",
+          "contentType": "phrase"
+        },
+        {
+          "word": "immediately",
+          "contentType": "word"
+        },
+        {
+          "word": "independently",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-82a2a6c50042-p2",
+      "subtopicId": "st-82a2a6c50042",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "institution",
+          "contentType": "word"
+        },
+        {
+          "word": "manage",
+          "contentType": "word"
+        },
+        {
+          "word": "master's degree",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mechanic",
+          "contentType": "word"
+        },
+        {
+          "word": "option",
+          "contentType": "word"
+        },
+        {
+          "word": "practical skill",
+          "contentType": "phrase"
+        },
+        {
+          "word": "presentation",
+          "contentType": "word"
+        },
+        {
+          "word": "professional",
+          "contentType": "word"
+        },
+        {
+          "word": "pursue",
+          "contentType": "word"
+        },
+        {
+          "word": "qualification",
+          "contentType": "word"
+        },
+        {
+          "word": "refer",
+          "contentType": "word"
+        },
+        {
+          "word": "request",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-82a2a6c50042-p3",
+      "subtopicId": "st-82a2a6c50042",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "salary",
+          "contentType": "word"
+        },
+        {
+          "word": "school-leaver",
+          "contentType": "word"
+        },
+        {
+          "word": "scientist",
+          "contentType": "word"
+        },
+        {
+          "word": "sensible",
+          "contentType": "word"
+        },
+        {
+          "word": "sixth-form college",
+          "contentType": "phrase"
+        },
+        {
+          "word": "specific",
+          "contentType": "word"
+        },
+        {
+          "word": "suit",
+          "contentType": "word"
+        },
+        {
+          "word": "technical",
+          "contentType": "word"
+        },
+        {
+          "word": "trade",
+          "contentType": "word"
+        },
+        {
+          "word": "useful",
+          "contentType": "word"
+        },
+        {
+          "word": "vocational school",
+          "contentType": "phrase"
+        },
+        {
+          "word": "wage",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-839b443cc057-p0",
+      "subtopicId": "st-839b443cc057",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "campaign",
+          "contentType": "word"
+        },
+        {
+          "word": "crime",
+          "contentType": "word"
+        },
+        {
+          "word": "overpopulation",
+          "contentType": "word"
+        },
+        {
+          "word": "bullying",
+          "contentType": "word"
+        },
+        {
+          "word": "peer pressure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "body shaming",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social issue",
+          "contentType": "phrase"
+        },
+        {
+          "word": "struggle",
+          "contentType": "word"
+        },
+        {
+          "word": "awareness",
+          "contentType": "word"
+        },
+        {
+          "word": "decide on",
+          "contentType": "phrase"
+        },
+        {
+          "word": "comfortable",
+          "contentType": "word"
+        },
+        {
+          "word": "alcohol",
+          "contentType": "word"
+        },
+        {
+          "word": "wine",
+          "contentType": "word"
+        },
+        {
+          "word": "frighten",
+          "contentType": "word"
+        },
+        {
+          "word": "violent",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-839b443cc057-p1",
+      "subtopicId": "st-839b443cc057",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "poverty",
+          "contentType": "word"
+        },
+        {
+          "word": "the odd one out",
+          "contentType": "phrase"
+        },
+        {
+          "word": "fingernail",
+          "contentType": "word"
+        },
+        {
+          "word": "depression",
+          "contentType": "word"
+        },
+        {
+          "word": "self-confidence",
+          "contentType": "word"
+        },
+        {
+          "word": "performance",
+          "contentType": "word"
+        },
+        {
+          "word": "survey",
+          "contentType": "word"
+        },
+        {
+          "word": "stand up to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "hesitate",
+          "contentType": "word"
+        },
+        {
+          "word": "hang out",
+          "contentType": "phrase"
+        },
+        {
+          "word": "approve",
+          "contentType": "word"
+        },
+        {
+          "word": "appearance",
+          "contentType": "word"
+        },
+        {
+          "word": "valued",
+          "contentType": "word"
+        },
+        {
+          "word": "slim",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-839b443cc057-p2",
+      "subtopicId": "st-839b443cc057",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "obey",
+          "contentType": "word"
+        },
+        {
+          "word": "skip",
+          "contentType": "word"
+        },
+        {
+          "word": "pretend",
+          "contentType": "word"
+        },
+        {
+          "word": "permission",
+          "contentType": "word"
+        },
+        {
+          "word": "absent",
+          "contentType": "word"
+        },
+        {
+          "word": "lie",
+          "contentType": "word"
+        },
+        {
+          "word": "revise",
+          "contentType": "word"
+        },
+        {
+          "word": "consequence",
+          "contentType": "word"
+        },
+        {
+          "word": "frequently",
+          "contentType": "word"
+        },
+        {
+          "word": "offensive",
+          "contentType": "word"
+        },
+        {
+          "word": "apologize",
+          "contentType": "word"
+        },
+        {
+          "word": "ashamed",
+          "contentType": "word"
+        },
+        {
+          "word": "embarrassed",
+          "contentType": "word"
+        },
+        {
+          "word": "cyberbullying",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-839b443cc057-p3",
+      "subtopicId": "st-839b443cc057",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "physical",
+          "contentType": "word"
+        },
+        {
+          "word": "verbal",
+          "contentType": "word"
+        },
+        {
+          "word": "proposal",
+          "contentType": "word"
+        },
+        {
+          "word": "victim",
+          "contentType": "word"
+        },
+        {
+          "word": "policy",
+          "contentType": "word"
+        },
+        {
+          "word": "disappointment",
+          "contentType": "word"
+        },
+        {
+          "word": "sympathy",
+          "contentType": "word"
+        },
+        {
+          "word": "painful",
+          "contentType": "word"
+        },
+        {
+          "word": "grow up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "anxiety",
+          "contentType": "word"
+        },
+        {
+          "word": "admit",
+          "contentType": "word"
+        },
+        {
+          "word": "the poverty line",
+          "contentType": "phrase"
+        },
+        {
+          "word": "take care of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "illegal",
+          "contentType": "word"
         }
       ]
     },
@@ -30952,6 +32333,335 @@
       ]
     },
     {
+      "id": "st-a630252e8a39-p0",
+      "subtopicId": "st-a630252e8a39",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "absorb",
+          "contentType": "word"
+        },
+        {
+          "word": "air conditioner",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ancient",
+          "contentType": "word"
+        },
+        {
+          "word": "appreciate",
+          "contentType": "word"
+        },
+        {
+          "word": "architecture",
+          "contentType": "word"
+        },
+        {
+          "word": "atmosphere",
+          "contentType": "word"
+        },
+        {
+          "word": "balance",
+          "contentType": "word"
+        },
+        {
+          "word": "ban",
+          "contentType": "word"
+        },
+        {
+          "word": "base on",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bin",
+          "contentType": "word"
+        },
+        {
+          "word": "black carbon",
+          "contentType": "phrase"
+        },
+        {
+          "word": "boat",
+          "contentType": "word"
+        },
+        {
+          "word": "campaign",
+          "contentType": "word"
+        },
+        {
+          "word": "capture",
+          "contentType": "word"
+        },
+        {
+          "word": "carbon",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-a630252e8a39-p1",
+      "subtopicId": "st-a630252e8a39",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "carbon dioxide",
+          "contentType": "phrase"
+        },
+        {
+          "word": "catastrophic",
+          "contentType": "word"
+        },
+        {
+          "word": "cave",
+          "contentType": "word"
+        },
+        {
+          "word": "citadel",
+          "contentType": "word"
+        },
+        {
+          "word": "climate change",
+          "contentType": "phrase"
+        },
+        {
+          "word": "complex",
+          "contentType": "word"
+        },
+        {
+          "word": "consequence",
+          "contentType": "word"
+        },
+        {
+          "word": "crowdfunding",
+          "contentType": "word"
+        },
+        {
+          "word": "cultural",
+          "contentType": "word"
+        },
+        {
+          "word": "custom",
+          "contentType": "word"
+        },
+        {
+          "word": "damage",
+          "contentType": "word"
+        },
+        {
+          "word": "dangerous",
+          "contentType": "word"
+        },
+        {
+          "word": "deforestation",
+          "contentType": "word"
+        },
+        {
+          "word": "die out",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-a630252e8a39-p2",
+      "subtopicId": "st-a630252e8a39",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "donation",
+          "contentType": "word"
+        },
+        {
+          "word": "drought",
+          "contentType": "word"
+        },
+        {
+          "word": "eco-tour",
+          "contentType": "word"
+        },
+        {
+          "word": "ecological",
+          "contentType": "word"
+        },
+        {
+          "word": "ecosystem",
+          "contentType": "word"
+        },
+        {
+          "word": "electricity",
+          "contentType": "word"
+        },
+        {
+          "word": "entry",
+          "contentType": "word"
+        },
+        {
+          "word": "explore",
+          "contentType": "word"
+        },
+        {
+          "word": "fashionable",
+          "contentType": "word"
+        },
+        {
+          "word": "field",
+          "contentType": "word"
+        },
+        {
+          "word": "fine",
+          "contentType": "word"
+        },
+        {
+          "word": "floating",
+          "contentType": "word"
+        },
+        {
+          "word": "folk",
+          "contentType": "word"
+        },
+        {
+          "word": "fossil fuel",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-a630252e8a39-p3",
+      "subtopicId": "st-a630252e8a39",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "give voice to sth",
+          "contentType": "phrase"
+        },
+        {
+          "word": "global",
+          "contentType": "word"
+        },
+        {
+          "word": "global warming",
+          "contentType": "phrase"
+        },
+        {
+          "word": "greenhouse",
+          "contentType": "word"
+        },
+        {
+          "word": "greenhouse gas",
+          "contentType": "phrase"
+        },
+        {
+          "word": "habitat",
+          "contentType": "word"
+        },
+        {
+          "word": "harsh",
+          "contentType": "word"
+        },
+        {
+          "word": "heritage",
+          "contentType": "word"
+        },
+        {
+          "word": "historic",
+          "contentType": "word"
+        },
+        {
+          "word": "historical",
+          "contentType": "word"
+        },
+        {
+          "word": "imperial",
+          "contentType": "word"
+        },
+        {
+          "word": "impact",
+          "contentType": "word"
+        },
+        {
+          "word": "increase",
+          "contentType": "word"
+        },
+        {
+          "word": "instrument",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-a630252e8a39-p4",
+      "subtopicId": "st-a630252e8a39",
+      "index": 4,
+      "title": "Chặng 5",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "joke",
+          "contentType": "word"
+        },
+        {
+          "word": "landscape",
+          "contentType": "word"
+        },
+        {
+          "word": "leaflet",
+          "contentType": "word"
+        },
+        {
+          "word": "level",
+          "contentType": "word"
+        },
+        {
+          "word": "limestone",
+          "contentType": "word"
+        },
+        {
+          "word": "local authority",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mass",
+          "contentType": "word"
+        },
+        {
+          "word": "method",
+          "contentType": "word"
+        },
+        {
+          "word": "monument",
+          "contentType": "word"
+        },
+        {
+          "word": "mountain",
+          "contentType": "word"
+        },
+        {
+          "word": "museum",
+          "contentType": "word"
+        },
+        {
+          "word": "non-profit",
+          "contentType": "word"
+        },
+        {
+          "word": "original",
+          "contentType": "word"
+        },
+        {
+          "word": "pagoda",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-a68f2a5f22ed-p0",
       "subtopicId": "st-a68f2a5f22ed",
       "index": 0,
@@ -33448,6 +35158,79 @@
       ]
     },
     {
+      "id": "st-afe16b5298e5-p0",
+      "subtopicId": "st-afe16b5298e5",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 16,
+      "words": [
+        {
+          "word": "sustainable",
+          "contentType": "word"
+        },
+        {
+          "word": "livable",
+          "contentType": "word"
+        },
+        {
+          "word": "solar energy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban",
+          "contentType": "word"
+        },
+        {
+          "word": "infrastructure",
+          "contentType": "word"
+        },
+        {
+          "word": "overcrowded",
+          "contentType": "word"
+        },
+        {
+          "word": "inhabitant",
+          "contentType": "word"
+        },
+        {
+          "word": "detect",
+          "contentType": "word"
+        },
+        {
+          "word": "promote",
+          "contentType": "word"
+        },
+        {
+          "word": "sensor",
+          "contentType": "word"
+        },
+        {
+          "word": "insoluble",
+          "contentType": "word"
+        },
+        {
+          "word": "dweller",
+          "contentType": "word"
+        },
+        {
+          "word": "analyze",
+          "contentType": "word"
+        },
+        {
+          "word": "traffic congestion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "underground",
+          "contentType": "word"
+        },
+        {
+          "word": "paradise",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-b4ae7e1ea3ac-p0",
       "subtopicId": "st-b4ae7e1ea3ac",
       "index": 0,
@@ -33517,108 +35300,6 @@
         {
           "word": "in through the wars",
           "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-b5dd0dbf6d5b-p0",
-      "subtopicId": "st-b5dd0dbf6d5b",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 11,
-      "words": [
-        {
-          "word": "sightseeing",
-          "contentType": "word"
-        },
-        {
-          "word": "imperial",
-          "contentType": "word"
-        },
-        {
-          "word": "citadel",
-          "contentType": "word"
-        },
-        {
-          "word": "heritage",
-          "contentType": "word"
-        },
-        {
-          "word": "palace",
-          "contentType": "word"
-        },
-        {
-          "word": "monument",
-          "contentType": "word"
-        },
-        {
-          "word": "intact",
-          "contentType": "word"
-        },
-        {
-          "word": "ruin",
-          "contentType": "word"
-        },
-        {
-          "word": "dynasty",
-          "contentType": "word"
-        },
-        {
-          "word": "subsequent",
-          "contentType": "word"
-        },
-        {
-          "word": "demolish",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-b5dd0dbf6d5b-p1",
-      "subtopicId": "st-b5dd0dbf6d5b",
-      "index": 1,
-      "title": "Chặng 2",
-      "wordCount": 10,
-      "words": [
-        {
-          "word": "relic",
-          "contentType": "word"
-        },
-        {
-          "word": "archaeological",
-          "contentType": "word"
-        },
-        {
-          "word": "excavation",
-          "contentType": "word"
-        },
-        {
-          "word": "complex",
-          "contentType": "word"
-        },
-        {
-          "word": "preservation",
-          "contentType": "word"
-        },
-        {
-          "word": "breathtaking",
-          "contentType": "word"
-        },
-        {
-          "word": "magnificent",
-          "contentType": "word"
-        },
-        {
-          "word": "cuisine",
-          "contentType": "word"
-        },
-        {
-          "word": "authentic",
-          "contentType": "word"
-        },
-        {
-          "word": "harmonious",
-          "contentType": "word"
         }
       ]
     },
@@ -33928,79 +35609,6 @@
         {
           "word": "weather forecast",
           "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-b6bfd44386d1-p0",
-      "subtopicId": "st-b6bfd44386d1",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 16,
-      "words": [
-        {
-          "word": "extended family",
-          "contentType": "phrase"
-        },
-        {
-          "word": "nuclear family",
-          "contentType": "phrase"
-        },
-        {
-          "word": "child care",
-          "contentType": "phrase"
-        },
-        {
-          "word": "generation",
-          "contentType": "word"
-        },
-        {
-          "word": "the generation gap",
-          "contentType": "phrase"
-        },
-        {
-          "word": "belief",
-          "contentType": "word"
-        },
-        {
-          "word": "hairstyle",
-          "contentType": "word"
-        },
-        {
-          "word": "appearance",
-          "contentType": "word"
-        },
-        {
-          "word": "table manners",
-          "contentType": "phrase"
-        },
-        {
-          "word": "conservative",
-          "contentType": "word"
-        },
-        {
-          "word": "following one's footsteps",
-          "contentType": "phrase"
-        },
-        {
-          "word": "share one's viewpoint",
-          "contentType": "phrase"
-        },
-        {
-          "word": "open-minded",
-          "contentType": "word"
-        },
-        {
-          "word": "impose one's decision on",
-          "contentType": "phrase"
-        },
-        {
-          "word": "somebody",
-          "contentType": "word"
-        },
-        {
-          "word": "conflict",
-          "contentType": "word"
         }
       ]
     },
@@ -34964,87 +36572,6 @@
         {
           "word": "word of mouth",
           "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-ba80bd8e6e7f-p0",
-      "subtopicId": "st-ba80bd8e6e7f",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 18,
-      "words": [
-        {
-          "word": "global warming",
-          "contentType": "phrase"
-        },
-        {
-          "word": "cause",
-          "contentType": "word"
-        },
-        {
-          "word": "greenhouse gas",
-          "contentType": "phrase"
-        },
-        {
-          "word": "emission",
-          "contentType": "word"
-        },
-        {
-          "word": "fertilizer",
-          "contentType": "word"
-        },
-        {
-          "word": "deforestation",
-          "contentType": "word"
-        },
-        {
-          "word": "man-made",
-          "contentType": "word"
-        },
-        {
-          "word": "contribute",
-          "contentType": "word"
-        },
-        {
-          "word": "irresponsible",
-          "contentType": "word"
-        },
-        {
-          "word": "suffer",
-          "contentType": "word"
-        },
-        {
-          "word": "infectious disease",
-          "contentType": "phrase"
-        },
-        {
-          "word": "spread",
-          "contentType": "word"
-        },
-        {
-          "word": "severe",
-          "contentType": "word"
-        },
-        {
-          "word": "ecological",
-          "contentType": "word"
-        },
-        {
-          "word": "carbon footprint",
-          "contentType": "phrase"
-        },
-        {
-          "word": "catastrophic",
-          "contentType": "word"
-        },
-        {
-          "word": "famine",
-          "contentType": "word"
-        },
-        {
-          "word": "drought",
-          "contentType": "word"
         }
       ]
     },
@@ -36260,104 +37787,6 @@
       ]
     },
     {
-      "id": "st-bee654c1d0b9-p0",
-      "subtopicId": "st-bee654c1d0b9",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 10,
-      "words": [
-        {
-          "word": "participate",
-          "contentType": "word"
-        },
-        {
-          "word": "charter",
-          "contentType": "word"
-        },
-        {
-          "word": "stand",
-          "contentType": "word"
-        },
-        {
-          "word": "form",
-          "contentType": "word"
-        },
-        {
-          "word": "block",
-          "contentType": "word"
-        },
-        {
-          "word": "aim",
-          "contentType": "word"
-        },
-        {
-          "word": "focus",
-          "contentType": "word"
-        },
-        {
-          "word": "maintain",
-          "contentType": "word"
-        },
-        {
-          "word": "regional",
-          "contentType": "word"
-        },
-        {
-          "word": "peace",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-bee654c1d0b9-p1",
-      "subtopicId": "st-bee654c1d0b9",
-      "index": 1,
-      "title": "Chặng 2",
-      "wordCount": 10,
-      "words": [
-        {
-          "word": "stability",
-          "contentType": "word"
-        },
-        {
-          "word": "principle",
-          "contentType": "word"
-        },
-        {
-          "word": "inference",
-          "contentType": "word"
-        },
-        {
-          "word": "association",
-          "contentType": "word"
-        },
-        {
-          "word": "agricultural",
-          "contentType": "word"
-        },
-        {
-          "word": "diverse",
-          "contentType": "word"
-        },
-        {
-          "word": "independence",
-          "contentType": "word"
-        },
-        {
-          "word": "promote",
-          "contentType": "word"
-        },
-        {
-          "word": "vision",
-          "contentType": "word"
-        },
-        {
-          "word": "affair",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
       "id": "st-c26a16e45a74-p0",
       "subtopicId": "st-c26a16e45a74",
       "index": 0,
@@ -36724,6 +38153,258 @@
         {
           "word": "confidence",
           "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c4bd3623f4ee-p0",
+      "subtopicId": "st-c4bd3623f4ee",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "antibiotic",
+          "contentType": "word"
+        },
+        {
+          "word": "bacteria",
+          "contentType": "word"
+        },
+        {
+          "word": "balanced (diet)",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cut down on",
+          "contentType": "phrase"
+        },
+        {
+          "word": "diameter",
+          "contentType": "word"
+        },
+        {
+          "word": "diet",
+          "contentType": "word"
+        },
+        {
+          "word": "disease",
+          "contentType": "word"
+        },
+        {
+          "word": "energy",
+          "contentType": "word"
+        },
+        {
+          "word": "examine",
+          "contentType": "word"
+        },
+        {
+          "word": "exercise",
+          "contentType": "word"
+        },
+        {
+          "word": "fitness",
+          "contentType": "word"
+        },
+        {
+          "word": "food poisoning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "full of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "germ",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c4bd3623f4ee-p1",
+      "subtopicId": "st-c4bd3623f4ee",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "get over",
+          "contentType": "phrase"
+        },
+        {
+          "word": "give up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "habit",
+          "contentType": "word"
+        },
+        {
+          "word": "headache",
+          "contentType": "word"
+        },
+        {
+          "word": "healthy",
+          "contentType": "word"
+        },
+        {
+          "word": "healthy lifestyle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "illness",
+          "contentType": "word"
+        },
+        {
+          "word": "immune system",
+          "contentType": "phrase"
+        },
+        {
+          "word": "important",
+          "contentType": "word"
+        },
+        {
+          "word": "infection",
+          "contentType": "word"
+        },
+        {
+          "word": "ingredient",
+          "contentType": "word"
+        },
+        {
+          "word": "junk food",
+          "contentType": "phrase"
+        },
+        {
+          "word": "life expectancy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "longevity",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c4bd3623f4ee-p2",
+      "subtopicId": "st-c4bd3623f4ee",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "muscle",
+          "contentType": "word"
+        },
+        {
+          "word": "myth",
+          "contentType": "word"
+        },
+        {
+          "word": "nutrient",
+          "contentType": "word"
+        },
+        {
+          "word": "organism",
+          "contentType": "word"
+        },
+        {
+          "word": "press-up",
+          "contentType": "word"
+        },
+        {
+          "word": "prevent",
+          "contentType": "word"
+        },
+        {
+          "word": "properly",
+          "contentType": "word"
+        },
+        {
+          "word": "recipe",
+          "contentType": "word"
+        },
+        {
+          "word": "regular",
+          "contentType": "word"
+        },
+        {
+          "word": "regularly",
+          "contentType": "word"
+        },
+        {
+          "word": "sleep",
+          "contentType": "word"
+        },
+        {
+          "word": "spread",
+          "contentType": "word"
+        },
+        {
+          "word": "star jump",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-c4bd3623f4ee-p3",
+      "subtopicId": "st-c4bd3623f4ee",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "stay in shape",
+          "contentType": "phrase"
+        },
+        {
+          "word": "stay up late",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strength",
+          "contentType": "word"
+        },
+        {
+          "word": "stress",
+          "contentType": "word"
+        },
+        {
+          "word": "suffer from",
+          "contentType": "phrase"
+        },
+        {
+          "word": "survive",
+          "contentType": "word"
+        },
+        {
+          "word": "symptom",
+          "contentType": "word"
+        },
+        {
+          "word": "treatment",
+          "contentType": "word"
+        },
+        {
+          "word": "tuberculosis",
+          "contentType": "word"
+        },
+        {
+          "word": "vegetarian",
+          "contentType": "word"
+        },
+        {
+          "word": "virus",
+          "contentType": "word"
+        },
+        {
+          "word": "weight",
+          "contentType": "word"
+        },
+        {
+          "word": "work out",
+          "contentType": "phrase"
         }
       ]
     },
@@ -38588,6 +40269,295 @@
       ]
     },
     {
+      "id": "st-d1ca1374e8da-p0",
+      "subtopicId": "st-d1ca1374e8da",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "absorb",
+          "contentType": "word"
+        },
+        {
+          "word": "agreement",
+          "contentType": "word"
+        },
+        {
+          "word": "atmosphere",
+          "contentType": "word"
+        },
+        {
+          "word": "balance",
+          "contentType": "word"
+        },
+        {
+          "word": "ban",
+          "contentType": "word"
+        },
+        {
+          "word": "black carbon",
+          "contentType": "phrase"
+        },
+        {
+          "word": "campaign",
+          "contentType": "word"
+        },
+        {
+          "word": "capture",
+          "contentType": "word"
+        },
+        {
+          "word": "carbon",
+          "contentType": "word"
+        },
+        {
+          "word": "carbon dioxide",
+          "contentType": "phrase"
+        },
+        {
+          "word": "catastrophic",
+          "contentType": "word"
+        },
+        {
+          "word": "climate change",
+          "contentType": "phrase"
+        },
+        {
+          "word": "coal",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-d1ca1374e8da-p1",
+      "subtopicId": "st-d1ca1374e8da",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "conference",
+          "contentType": "word"
+        },
+        {
+          "word": "consequence",
+          "contentType": "word"
+        },
+        {
+          "word": "crop",
+          "contentType": "word"
+        },
+        {
+          "word": "cut down",
+          "contentType": "phrase"
+        },
+        {
+          "word": "dangerous",
+          "contentType": "word"
+        },
+        {
+          "word": "deforestation",
+          "contentType": "word"
+        },
+        {
+          "word": "destroy",
+          "contentType": "word"
+        },
+        {
+          "word": "disaster",
+          "contentType": "word"
+        },
+        {
+          "word": "disease",
+          "contentType": "word"
+        },
+        {
+          "word": "drought",
+          "contentType": "word"
+        },
+        {
+          "word": "ecological",
+          "contentType": "word"
+        },
+        {
+          "word": "ecosystem",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-d1ca1374e8da-p2",
+      "subtopicId": "st-d1ca1374e8da",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "emission",
+          "contentType": "word"
+        },
+        {
+          "word": "energy",
+          "contentType": "word"
+        },
+        {
+          "word": "environment",
+          "contentType": "word"
+        },
+        {
+          "word": "environmental",
+          "contentType": "word"
+        },
+        {
+          "word": "farming",
+          "contentType": "word"
+        },
+        {
+          "word": "flood",
+          "contentType": "word"
+        },
+        {
+          "word": "fossil fuel",
+          "contentType": "phrase"
+        },
+        {
+          "word": "gas",
+          "contentType": "word"
+        },
+        {
+          "word": "global",
+          "contentType": "word"
+        },
+        {
+          "word": "global warming",
+          "contentType": "phrase"
+        },
+        {
+          "word": "greenhouse",
+          "contentType": "word"
+        },
+        {
+          "word": "greenhouse gas",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-d1ca1374e8da-p3",
+      "subtopicId": "st-d1ca1374e8da",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "heat",
+          "contentType": "word"
+        },
+        {
+          "word": "heat-trapping",
+          "contentType": "word"
+        },
+        {
+          "word": "human activity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ice cap",
+          "contentType": "phrase"
+        },
+        {
+          "word": "impact",
+          "contentType": "word"
+        },
+        {
+          "word": "increase",
+          "contentType": "word"
+        },
+        {
+          "word": "landfill",
+          "contentType": "word"
+        },
+        {
+          "word": "leaflet",
+          "contentType": "word"
+        },
+        {
+          "word": "level",
+          "contentType": "word"
+        },
+        {
+          "word": "melt",
+          "contentType": "word"
+        },
+        {
+          "word": "methane",
+          "contentType": "word"
+        },
+        {
+          "word": "oil",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-d1ca1374e8da-p4",
+      "subtopicId": "st-d1ca1374e8da",
+      "index": 4,
+      "title": "Chặng 5",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "pollutant",
+          "contentType": "word"
+        },
+        {
+          "word": "reduce",
+          "contentType": "word"
+        },
+        {
+          "word": "release",
+          "contentType": "word"
+        },
+        {
+          "word": "renewable",
+          "contentType": "word"
+        },
+        {
+          "word": "sea level",
+          "contentType": "phrase"
+        },
+        {
+          "word": "soil",
+          "contentType": "word"
+        },
+        {
+          "word": "soot",
+          "contentType": "word"
+        },
+        {
+          "word": "store",
+          "contentType": "word"
+        },
+        {
+          "word": "temperature",
+          "contentType": "word"
+        },
+        {
+          "word": "trap",
+          "contentType": "word"
+        },
+        {
+          "word": "waste",
+          "contentType": "word"
+        },
+        {
+          "word": "wildfire",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-d2b50749cec7-p0",
       "subtopicId": "st-d2b50749cec7",
       "index": 0,
@@ -39282,79 +41252,6 @@
         },
         {
           "word": "know which way the wind blows",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-d66cfe92885e-p0",
-      "subtopicId": "st-d66cfe92885e",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 16,
-      "words": [
-        {
-          "word": "close friend",
-          "contentType": "phrase"
-        },
-        {
-          "word": "rely on",
-          "contentType": "phrase"
-        },
-        {
-          "word": "influence",
-          "contentType": "word"
-        },
-        {
-          "word": "independent",
-          "contentType": "word"
-        },
-        {
-          "word": "responsible",
-          "contentType": "word"
-        },
-        {
-          "word": "complete",
-          "contentType": "word"
-        },
-        {
-          "word": "task assignment",
-          "contentType": "phrase"
-        },
-        {
-          "word": "reliable",
-          "contentType": "word"
-        },
-        {
-          "word": "assign",
-          "contentType": "word"
-        },
-        {
-          "word": "determined",
-          "contentType": "word"
-        },
-        {
-          "word": "give up",
-          "contentType": "phrase"
-        },
-        {
-          "word": "self-reliance",
-          "contentType": "word"
-        },
-        {
-          "word": "solution",
-          "contentType": "word"
-        },
-        {
-          "word": "well-informed",
-          "contentType": "word"
-        },
-        {
-          "word": "decisive",
-          "contentType": "word"
-        },
-        {
-          "word": "make decision",
           "contentType": "phrase"
         }
       ]
@@ -42940,6 +44837,331 @@
       ]
     },
     {
+      "id": "st-eacd3c4030d3-p0",
+      "subtopicId": "st-eacd3c4030d3",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "advantage",
+          "contentType": "word"
+        },
+        {
+          "word": "ai technology",
+          "contentType": "phrase"
+        },
+        {
+          "word": "air pollution",
+          "contentType": "phrase"
+        },
+        {
+          "word": "annoying",
+          "contentType": "word"
+        },
+        {
+          "word": "carbon footprint",
+          "contentType": "phrase"
+        },
+        {
+          "word": "card reader",
+          "contentType": "phrase"
+        },
+        {
+          "word": "city dweller",
+          "contentType": "phrase"
+        },
+        {
+          "word": "clean energy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "congested",
+          "contentType": "word"
+        },
+        {
+          "word": "convenient",
+          "contentType": "word"
+        },
+        {
+          "word": "crowded",
+          "contentType": "word"
+        },
+        {
+          "word": "cybercrime",
+          "contentType": "word"
+        },
+        {
+          "word": "detect",
+          "contentType": "word"
+        },
+        {
+          "word": "disadvantage",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-eacd3c4030d3-p1",
+      "subtopicId": "st-eacd3c4030d3",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "eco-friendly",
+          "contentType": "word"
+        },
+        {
+          "word": "effectively",
+          "contentType": "word"
+        },
+        {
+          "word": "efficiently",
+          "contentType": "word"
+        },
+        {
+          "word": "electronic device",
+          "contentType": "phrase"
+        },
+        {
+          "word": "exhibition",
+          "contentType": "word"
+        },
+        {
+          "word": "express",
+          "contentType": "word"
+        },
+        {
+          "word": "feature",
+          "contentType": "word"
+        },
+        {
+          "word": "gas emissions",
+          "contentType": "phrase"
+        },
+        {
+          "word": "green area",
+          "contentType": "phrase"
+        },
+        {
+          "word": "green city",
+          "contentType": "phrase"
+        },
+        {
+          "word": "high-rise building",
+          "contentType": "phrase"
+        },
+        {
+          "word": "household chores",
+          "contentType": "phrase"
+        },
+        {
+          "word": "housing problem",
+          "contentType": "phrase"
+        },
+        {
+          "word": "improve",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-eacd3c4030d3-p2",
+      "subtopicId": "st-eacd3c4030d3",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "infrastructure",
+          "contentType": "word"
+        },
+        {
+          "word": "inhabitant",
+          "contentType": "word"
+        },
+        {
+          "word": "innovation",
+          "contentType": "word"
+        },
+        {
+          "word": "install",
+          "contentType": "word"
+        },
+        {
+          "word": "intelligent",
+          "contentType": "word"
+        },
+        {
+          "word": "interact",
+          "contentType": "word"
+        },
+        {
+          "word": "liveable",
+          "contentType": "word"
+        },
+        {
+          "word": "location",
+          "contentType": "word"
+        },
+        {
+          "word": "modern",
+          "contentType": "word"
+        },
+        {
+          "word": "model",
+          "contentType": "word"
+        },
+        {
+          "word": "negative impact",
+          "contentType": "phrase"
+        },
+        {
+          "word": "operate",
+          "contentType": "word"
+        },
+        {
+          "word": "pedestrian",
+          "contentType": "word"
+        },
+        {
+          "word": "personal information",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-eacd3c4030d3-p3",
+      "subtopicId": "st-eacd3c4030d3",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "pollution",
+          "contentType": "word"
+        },
+        {
+          "word": "population",
+          "contentType": "word"
+        },
+        {
+          "word": "privacy",
+          "contentType": "word"
+        },
+        {
+          "word": "private vehicle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "provide",
+          "contentType": "word"
+        },
+        {
+          "word": "public transport",
+          "contentType": "phrase"
+        },
+        {
+          "word": "quality of life",
+          "contentType": "phrase"
+        },
+        {
+          "word": "reduce",
+          "contentType": "word"
+        },
+        {
+          "word": "renewable energy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "robot",
+          "contentType": "word"
+        },
+        {
+          "word": "roof garden",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sensor",
+          "contentType": "word"
+        },
+        {
+          "word": "skyscraper",
+          "contentType": "word"
+        },
+        {
+          "word": "smart city",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-eacd3c4030d3-p4",
+      "subtopicId": "st-eacd3c4030d3",
+      "index": 4,
+      "title": "Chặng 5",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "solution",
+          "contentType": "word"
+        },
+        {
+          "word": "solve",
+          "contentType": "word"
+        },
+        {
+          "word": "sustainable",
+          "contentType": "word"
+        },
+        {
+          "word": "technology",
+          "contentType": "word"
+        },
+        {
+          "word": "traffic jam",
+          "contentType": "phrase"
+        },
+        {
+          "word": "underground",
+          "contentType": "word"
+        },
+        {
+          "word": "urban",
+          "contentType": "word"
+        },
+        {
+          "word": "urban centre",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban dweller",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban plan",
+          "contentType": "phrase"
+        },
+        {
+          "word": "waste collection",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urbanization",
+          "contentType": "word"
+        },
+        {
+          "word": "green space",
+          "contentType": "phrase"
+        },
+        {
+          "word": "pedestrian zone",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-ebfad9b20a2b-p0",
       "subtopicId": "st-ebfad9b20a2b",
       "index": 0,
@@ -43610,6 +45832,270 @@
         {
           "word": "same old story",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-ee9bc54aa501-p0",
+      "subtopicId": "st-ee9bc54aa501",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "insect",
+          "contentType": "word"
+        },
+        {
+          "word": "butterfly",
+          "contentType": "word"
+        },
+        {
+          "word": "ecosystem",
+          "contentType": "word"
+        },
+        {
+          "word": "flora",
+          "contentType": "word"
+        },
+        {
+          "word": "fauna",
+          "contentType": "word"
+        },
+        {
+          "word": "essential",
+          "contentType": "word"
+        },
+        {
+          "word": "natural resource",
+          "contentType": "phrase"
+        },
+        {
+          "word": "biodiversity",
+          "contentType": "word"
+        },
+        {
+          "word": "national park",
+          "contentType": "phrase"
+        },
+        {
+          "word": "overuse",
+          "contentType": "word"
+        },
+        {
+          "word": "destroy",
+          "contentType": "word"
+        },
+        {
+          "word": "native",
+          "contentType": "word"
+        },
+        {
+          "word": "tropical forest",
+          "contentType": "phrase"
+        },
+        {
+          "word": "species",
+          "contentType": "word"
+        },
+        {
+          "word": "conservation",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-ee9bc54aa501-p1",
+      "subtopicId": "st-ee9bc54aa501",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "mammal",
+          "contentType": "word"
+        },
+        {
+          "word": "mangrove",
+          "contentType": "word"
+        },
+        {
+          "word": "pangolin",
+          "contentType": "word"
+        },
+        {
+          "word": "delta",
+          "contentType": "word"
+        },
+        {
+          "word": "rare",
+          "contentType": "word"
+        },
+        {
+          "word": "wetland",
+          "contentType": "word"
+        },
+        {
+          "word": "habitat",
+          "contentType": "word"
+        },
+        {
+          "word": "eagle",
+          "contentType": "word"
+        },
+        {
+          "word": "endanger",
+          "contentType": "word"
+        },
+        {
+          "word": "bat",
+          "contentType": "word"
+        },
+        {
+          "word": "attract",
+          "contentType": "word"
+        },
+        {
+          "word": "hunt",
+          "contentType": "word"
+        },
+        {
+          "word": "ban",
+          "contentType": "word"
+        },
+        {
+          "word": "shelter",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-ee9bc54aa501-p2",
+      "subtopicId": "st-ee9bc54aa501",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "disappear",
+          "contentType": "word"
+        },
+        {
+          "word": "harm",
+          "contentType": "word"
+        },
+        {
+          "word": "effect on",
+          "contentType": "phrase"
+        },
+        {
+          "word": "coral reef",
+          "contentType": "phrase"
+        },
+        {
+          "word": "food chain",
+          "contentType": "phrase"
+        },
+        {
+          "word": "run out",
+          "contentType": "phrase"
+        },
+        {
+          "word": "break down",
+          "contentType": "phrase"
+        },
+        {
+          "word": "disaster",
+          "contentType": "word"
+        },
+        {
+          "word": "restore",
+          "contentType": "word"
+        },
+        {
+          "word": "impact on",
+          "contentType": "phrase"
+        },
+        {
+          "word": "invest",
+          "contentType": "word"
+        },
+        {
+          "word": "unemployment",
+          "contentType": "word"
+        },
+        {
+          "word": "affect",
+          "contentType": "word"
+        },
+        {
+          "word": "fancy",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-ee9bc54aa501-p3",
+      "subtopicId": "st-ee9bc54aa501",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "creature",
+          "contentType": "word"
+        },
+        {
+          "word": "bird-watching",
+          "contentType": "word"
+        },
+        {
+          "word": "restoration",
+          "contentType": "word"
+        },
+        {
+          "word": "continent",
+          "contentType": "word"
+        },
+        {
+          "word": "ecological",
+          "contentType": "word"
+        },
+        {
+          "word": "green",
+          "contentType": "word"
+        },
+        {
+          "word": "reef",
+          "contentType": "word"
+        },
+        {
+          "word": "scuba diving",
+          "contentType": "phrase"
+        },
+        {
+          "word": "snorkeling",
+          "contentType": "word"
+        },
+        {
+          "word": "declare",
+          "contentType": "word"
+        },
+        {
+          "word": "reserve",
+          "contentType": "word"
+        },
+        {
+          "word": "get off",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sightsee",
+          "contentType": "word"
+        },
+        {
+          "word": "wildlife",
+          "contentType": "word"
         }
       ]
     },
@@ -45880,6 +48366,79 @@
         },
         {
           "word": "dietary",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-f8af75920592-p0",
+      "subtopicId": "st-f8af75920592",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 16,
+      "words": [
+        {
+          "word": "academic",
+          "contentType": "word"
+        },
+        {
+          "word": "vocational",
+          "contentType": "word"
+        },
+        {
+          "word": "analytical",
+          "contentType": "word"
+        },
+        {
+          "word": "critical thinking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bachelor's degree",
+          "contentType": "phrase"
+        },
+        {
+          "word": "undergraduate",
+          "contentType": "word"
+        },
+        {
+          "word": "postgraduate",
+          "contentType": "word"
+        },
+        {
+          "word": "master's degree",
+          "contentType": "phrase"
+        },
+        {
+          "word": "doctorate",
+          "contentType": "word"
+        },
+        {
+          "word": "practical",
+          "contentType": "word"
+        },
+        {
+          "word": "qualification",
+          "contentType": "word"
+        },
+        {
+          "word": "scholarship",
+          "contentType": "word"
+        },
+        {
+          "word": "major",
+          "contentType": "word"
+        },
+        {
+          "word": "internship",
+          "contentType": "word"
+        },
+        {
+          "word": "pursue",
+          "contentType": "word"
+        },
+        {
+          "word": "mandatory",
           "contentType": "word"
         }
       ]
