@@ -18,7 +18,8 @@ const FALLBACK_FIREBASE_PUBLIC_CONFIG: FirebasePublicConfig = {
   storageBucket: 'lingopro-9d2f8.firebasestorage.app',
   messagingSenderId: '147138625371',
   appId: '1:147138625371:web:9d308e4337c9fe7399647e',
-  vapidKey: 'BJIDyqCnEsAEl3Po7fjq1OR1ypWeJ8j7stMleUo9k5NEkcYa9elG1X41lH5yShiDITrDiOR8fr6cGGxCw3XMbVU',
+  // Firebase SDK default — khớp project khi không gửi applicationPubKey (custom BJID... gây 401).
+  vapidKey: 'BDOU99-h67HcA6JeFXHbSNMu7e2yNNu3RzoMj8TM4W88jITfq7ZmPvIM1Iv-4_l2LxQcYwhqby2xGpWwzjfAnG4',
 };
 
 function readEnv(value: string | undefined): string {
