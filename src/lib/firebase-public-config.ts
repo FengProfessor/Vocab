@@ -22,7 +22,8 @@ const FALLBACK_FIREBASE_PUBLIC_CONFIG: FirebasePublicConfig = {
 };
 
 function readEnv(value: string | undefined): string {
-  return value?.trim() ?? '';
+  // Vercel env set bằng PowerShell echo có thể dính \r\n — làm hỏng VAPID → 401 FCM.
+  return value?.replace(/\r/g, '').replace(/\\n/g, '').replace(/\\r/g, '').trim() ?? '';
 }
 
 const envFirebasePublicConfig: FirebasePublicConfig = {
