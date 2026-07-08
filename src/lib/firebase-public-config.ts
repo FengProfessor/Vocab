@@ -49,9 +49,9 @@ if (hasAnyFirebaseEnv && !hasFullFirebaseEnv) {
   console.warn('[FCM] Partial Firebase env on server/build — using bundled config.');
 }
 
-export const firebasePublicConfig: FirebasePublicConfig = envMatchesFallback
-  ? envFirebasePublicConfig
-  : FALLBACK_FIREBASE_PUBLIC_CONFIG;
+// Luôn dùng bundled — Vercel env từng bị PowerShell echo dính \r\n vào VAPID → 401 FCM.
+export const firebasePublicConfig: FirebasePublicConfig = FALLBACK_FIREBASE_PUBLIC_CONFIG;
+// Luôn bundled — không phụ thuộc Vercel env CRLF
 
 export const firebaseWebConfig: FirebaseWebConfig = {
   apiKey: firebasePublicConfig.apiKey,
@@ -62,7 +62,7 @@ export const firebaseWebConfig: FirebaseWebConfig = {
   appId: firebasePublicConfig.appId,
 };
 
-export const firebaseConfigSource = envMatchesFallback ? 'env' : 'bundled';
+export const firebaseConfigSource = 'bundled';
 
 /** Phiên bản Firebase compat CDN dùng trong service worker — giữ gần SDK client. */
-export const FIREBASE_SW_COMPAT_VERSION = '11.9.1';
+export const FIREBASE_SW_COMPAT_VERSION = '12.13.0';

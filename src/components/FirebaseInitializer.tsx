@@ -8,6 +8,9 @@ export default function FirebaseInitializer() {
   useEffect(() => {
     const setupFCM = async () => {
       try {
+        // Trang test tự gọi requestForToken — tránh race 2 luồng getToken → 401 FCM
+        if (window.location.pathname.startsWith('/test-fcm')) return;
+
         // iOS: không auto-prompt — chỉ lấy token nếu user đã cấp quyền từ trước
         // Nếu chưa có quyền, user phải bấm nút tại /test-fcm để trigger từ gesture
         if (Notification.permission !== 'granted') return;

@@ -4,6 +4,9 @@ import { firebaseConfigSource, firebasePublicConfig, firebaseWebConfig } from '.
 
 const app = initializeApp(firebaseWebConfig);
 
+/** Tránh 2 getToken() song song — gây 401 thiếu FIS auth trên fcmregistrations. */
+let tokenRequestChain: Promise<string | null> = Promise.resolve(null);
+
 /** Gỡ SW cũ (sw-custom / sw.js) cùng scope / — từng gây getToken fail. */
 async function unregisterConflictingServiceWorkers(): Promise<void> {
   if (!('serviceWorker' in navigator)) return;
@@ -71,6 +74,7 @@ function toReadableFcmError(err: unknown): Error {
  * hữu ích khi debug iOS PWA vì không có DevTools).
  */
 export const requestForToken = async (onStep?: (msg: string) => void): Promise<string | null> => {
+  const run = async (): Promise<string | null> => {
   const log = (m: string) => { console.log('[FCM]', m); onStep?.(m); };
   if (typeof window === 'undefined') return null;
 
@@ -137,6 +141,12 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
     console.error('[FCM] Lỗi khi lấy token:', readableError);
     throw readableError; // Quăng ra ngoài để UI hiển thị
   }
+  };
+
+  const prev = tokenRequestChain.catch(() => null);
+  const current = prev.then(() => run());
+  tokenRequestChain = current.catch(() => null);
+  return current;
 };
 
 export const onMessageListener = (): Promise<MessagePayload> | undefined => {
