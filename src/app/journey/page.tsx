@@ -28,6 +28,9 @@ const LEVEL_COLORS: Record<string, string> = {
   A2: 'from-indigo-500 to-violet-500',
   B1: 'from-amber-500 to-orange-500',
   B2: 'from-rose-500 to-pink-500',
+  'lop-10': 'from-red-400 to-orange-500',
+  'lop-11': 'from-red-500 to-rose-500',
+  'lop-12': 'from-red-600 to-pink-600',
 };
 
 const STEP_ICON: Record<string, typeof Sparkles> = {
@@ -337,7 +340,7 @@ export default function JourneyPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">Lộ trình của bạn</h1>
-          <p className="text-sm text-muted-foreground">Bắt đầu từ cấp {levelId} · xong chặng nào mở chặng đó</p>
+          <p className="text-sm text-muted-foreground">{levelId.startsWith('lop-') ? `Luyện thi lớp ${levelId.replace('lop-', '')}` : `Bắt đầu từ cấp ${levelId}`} · xong chặng nào mở chặng đó</p>
         </div>
         <Link href="/student"><Button variant="ghost" size="sm"><ArrowLeft className="w-4 h-4 mr-1" /> Dashboard</Button></Link>
       </div>
@@ -345,7 +348,7 @@ export default function JourneyPage() {
       {visibleTree.start.map((level) => (
         <section key={level.id} className="space-y-4">
           <div className={`rounded-2xl bg-gradient-to-r ${LEVEL_COLORS[level.id] ?? 'from-slate-500 to-slate-600'} p-4 text-white`}>
-            <p className="text-sm/none opacity-80">Cấp {level.id}</p>
+            <p className="text-sm/none opacity-80">{level.id.startsWith('lop-') ? `Lớp ${level.id.replace('lop-', '')}` : `Cấp ${level.id}`}</p>
             <h2 className="text-xl font-bold">{level.titleVi}</h2>
             <p className="text-sm opacity-90">{level.description}</p>
           </div>
