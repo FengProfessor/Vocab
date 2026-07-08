@@ -27,26 +27,27 @@ export function EnableNotifications() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !('Notification' in window)) return;
+    const evaluate = async (): Promise<void> => {
+      if (typeof window === 'undefined' || !('Notification' in window)) return;
 
-    if (Notification.permission === 'default') {
-      if (isEnablePromptDismissed()) return;
-      setMode('enable');
-      setShow(true);
-      return;
-    }
+      if (Notification.permission === 'default') {
+        if (isEnablePromptDismissed()) return;
+        setMode('enable');
+        setShow(true);
+        return;
+      }
 
-    if (Notification.permission !== 'granted') return;
-    if (isReconnectDismissedThisSession()) return;
+      if (Notification.permission === 'denied') return;
+      if (Notification.permission !== 'granted') return;
+      if (isReconnectDismissedThisSession()) return;
 
-    // Thiết bị này chưa từng lưu token thành công → luôn mời kết nối (kể cả server có token máy khác)
-    if (!isPushDeviceRegistered()) {
-      setMode('reconnect');
-      setShow(true);
-      return;
-    }
+      // Chưa bấm "Bật ngay" trên thiết bị này → hiện reconnect (kể cả auto-register nền đã chạy)
+      if (!isPushDeviceRegistered()) {
+        setMode('reconnect');
+        setShow(true);
+        return;
+      }
 
-    const timer = setTimeout(async () => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         if (!session) return;
@@ -62,8 +63,12 @@ export function EnableNotifications() {
       } catch {
         // Lỗi mạng → bỏ qua
       }
-    }, 4000);
-    return () => clearTimeout(timer);
+    };
+
+    void evaluate();
+    // Auth/session có thể đến sau mount — kiểm tra lại
+    const retry = setTimeout(() => { void evaluate(); }, 2500);
+    return () => clearTimeout(retry);
   }, []);
 
   const enable = async () => {
