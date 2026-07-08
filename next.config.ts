@@ -47,7 +47,8 @@ const nextConfig: NextConfig = {
       { source: '/firebase-messaging-sw', headers: fcmSwHeaders },
       { source: '/firebase-messaging-sw.js', headers: fcmSwHeaders },
       {
-        source: '/(.*)',
+        // Loại SW FCM khỏi CSP global (worker-src 'self' chặn importScripts gstatic)
+        source: '/((?!firebase-messaging-sw).*)',
         headers: [
           { key: 'Content-Security-Policy', value: csp },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
