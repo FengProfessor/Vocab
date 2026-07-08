@@ -27,7 +27,9 @@ const params = generatorParameters({
   maximum_interval: 365,
   enable_fuzz: true,          // chống dồn cục (Anki default)
   enable_short_term: true,    // BẬT learning/relearning steps
-  learning_steps: ['10m'],          // bỏ bước 1m (quá sát, từ mới lặp dồn cục) → drill 1 lần 10' rồi giãn ngày
+  // 3 bước: Again/Hard → 10'; học xong lần đầu (Good) → ~4h; ôn lại Good → 1 ngày rồi mới giãn FSRS.
+  // Chỉ ['10m'] khiến Good nhảy thẳng Review ~2 ngày — sai UX sau LearnMode.
+  learning_steps: ['10m', '4h', '1d'],
   relearning_steps: ['10m', '30m'], // Quên → khắc lại 2 lần (10' rồi 30') trước khi giãn theo ngày
 });
 const scheduler = fsrs(params);
