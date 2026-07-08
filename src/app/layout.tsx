@@ -50,7 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="vi" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker'in navigator){navigator.serviceWorker.register('/sw-custom.js').catch(()=>{})}` }} />
+        {/* Không auto-register sw-custom ở scope / — xung đột FCM SW, gây getToken fail */}
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <PostHogProvider>

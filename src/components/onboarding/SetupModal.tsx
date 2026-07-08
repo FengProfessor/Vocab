@@ -33,7 +33,7 @@ export function SetupModal() {
 
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
-        await fetch('/api/push/fcm-register', {
+        const res = await fetch('/api/push/fcm-register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -41,6 +41,10 @@ export function SetupModal() {
           },
           body: JSON.stringify({ fcmToken: token }),
         });
+        const result = (await res.json()) as { success?: boolean; error?: string };
+        if (!res.ok || !result.success) {
+          throw new Error(result.error || 'Không lưu được token thông báo lên server.');
+        }
       }
       setPermission('granted');
       toast.success('Đã bật nhắc ôn tập thành công! 🔔');

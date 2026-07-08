@@ -21,7 +21,7 @@ export default function FirebaseInitializer() {
           
           if (session) {
             // 3. Gửi Token lên server (auth qua JWT, không gửi userId trong body)
-            await fetch('/api/push/fcm-register', {
+            const res = await fetch('/api/push/fcm-register', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -29,6 +29,12 @@ export default function FirebaseInitializer() {
               },
               body: JSON.stringify({ fcmToken: token }),
             });
+
+            const result = (await res.json()) as { success?: boolean; error?: string };
+            if (!res.ok || !result.success) {
+              throw new Error(result.error || 'Không lưu được FCM token lên server.');
+            }
+
             console.log('[FCM] Token registered successfully');
           }
         }

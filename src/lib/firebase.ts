@@ -1,16 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { getMessaging, getToken, onMessage, type MessagePayload } from 'firebase/messaging';
+import { firebaseConfigSource, firebasePublicConfig, firebaseWebConfig } from './firebase-public-config';
 
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY!,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN!,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID!,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET!,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID!,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID!,
-};
-
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseWebConfig);
 
 // Bọc 1 promise với timeout để không treo vô hạn (báo lỗi rõ thay vì spinner mãi)
 function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
@@ -18,6 +10,24 @@ function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
     p,
     new Promise<T>((_, reject) => setTimeout(() => reject(new Error(`Timeout ${ms}ms: ${label}`)), ms)),
   ]);
+}
+
+function toReadableFcmError(err: unknown): Error {
+  const rawMessage = err instanceof Error ? err.message : String(err);
+  const code = typeof err === 'object' && err !== null && 'code' in err
+    ? String((err as { code?: unknown }).code ?? '')
+    : '';
+
+  if (
+    code === 'messaging/token-subscribe-failed' ||
+    /missing required authentication credential/i.test(rawMessage)
+  ) {
+    return new Error(
+      'FCM từ chối cấp token. Tải lại app rồi bật lại thông báo. Nếu vẫn lỗi, kiểm tra Firebase Cloud Messaging API và Web Push certificate của project.'
+    );
+  }
+
+  return err instanceof Error ? err : new Error(rawMessage);
 }
 
 /**
@@ -46,7 +56,13 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
     }
 
     log('Đăng ký service worker…');
-    const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
+    // Route động — config đồng bộ với client (tránh lệch env Vercel vs SW tĩnh)
+    let registration: ServiceWorkerRegistration;
+    try {
+      registration = await navigator.serviceWorker.register('/firebase-messaging-sw', { scope: '/' });
+    } catch {
+      registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js', { scope: '/' });
+    }
 
     log('Chờ service worker active…');
     await withTimeout(
@@ -54,12 +70,13 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
       15000,
       'service worker không active. Thử xoá app khỏi Màn hình chính rồi thêm lại.'
     );
+    await registration.update();
 
-    log('Service worker OK. Đang lấy token từ FCM…');
+    log(`Service worker OK (${firebaseConfigSource}). Đang lấy token từ FCM…`);
     const messaging = getMessaging(app);
     const currentToken = await withTimeout(
       getToken(messaging, {
-        vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY!,
+        vapidKey: firebasePublicConfig.vapidKey,
         serviceWorkerRegistration: registration,
       }),
       20000,
@@ -73,8 +90,9 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
     log('FCM trả về rỗng (không có token).');
     return null;
   } catch (err: unknown) {
-    console.error('Lỗi khi lấy token:', err);
-    throw err; // Quăng ra ngoài để UI hiển thị
+    const readableError = toReadableFcmError(err);
+    console.error('[FCM] Lỗi khi lấy token:', readableError);
+    throw readableError; // Quăng ra ngoài để UI hiển thị
   }
 };
 

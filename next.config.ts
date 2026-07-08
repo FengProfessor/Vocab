@@ -34,7 +34,18 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    // SW cần importScripts từ gstatic — CSP global worker-src 'self' sẽ chặn FCM.
+    const fcmSwCsp =
+      "default-src 'none'; script-src 'self' https://www.gstatic.com; connect-src 'self' https://*.googleapis.com https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com";
+    const fcmSwHeaders = [
+      { key: 'Content-Type', value: 'application/javascript; charset=utf-8' },
+      { key: 'Service-Worker-Allowed', value: '/' },
+      { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate' },
+      { key: 'Content-Security-Policy', value: fcmSwCsp },
+    ];
     return [
+      { source: '/firebase-messaging-sw', headers: fcmSwHeaders },
+      { source: '/firebase-messaging-sw.js', headers: fcmSwHeaders },
       {
         source: '/(.*)',
         headers: [
