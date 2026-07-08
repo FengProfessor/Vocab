@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { requestForToken, onMessageListener } from '@/lib/firebase';
+import { markPushDeviceRegistered } from '@/lib/push-device-state';
 import { supabase } from '@/lib/supabase';
 
 export default function FirebaseInitializer() {
@@ -38,6 +39,7 @@ export default function FirebaseInitializer() {
               throw new Error(result.error || 'Không lưu được FCM token lên server.');
             }
 
+            markPushDeviceRegistered();
             console.log('[FCM] Token registered successfully');
           }
         }

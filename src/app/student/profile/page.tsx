@@ -44,6 +44,7 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { useGamification } from '@/hooks/useGamification';
 import { requestForToken } from '@/lib/firebase';
+import { markPushDeviceRegistered } from '@/lib/push-device-state';
 import { levelProgress, xpToLevel } from '@/lib/gamification';
 import { supabase, type Profile } from '@/lib/supabase';
 
@@ -306,6 +307,7 @@ export default function ProfilePage() {
         throw new Error(result.error ?? 'Bật thông báo thất bại');
       }
 
+      markPushDeviceRegistered();
       toast.success('Đã bật thông báo trên thiết bị này.');
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : 'Bật thông báo thất bại');

@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { useOnboarding } from './OnboardingProvider';
 import { Mascot } from '@/components/gamification/Mascot';
 import { requestForToken } from '@/lib/firebase';
+import { markPushDeviceRegistered } from '@/lib/push-device-state';
 import { supabase } from '@/lib/supabase';
 import { toast } from 'sonner';
 import { Bell, ArrowRight, Share, PlusSquare, MoreVertical, Smartphone, CheckCircle, AlertCircle } from 'lucide-react';
@@ -45,6 +46,7 @@ export function SetupModal() {
         if (!res.ok || !result.success) {
           throw new Error(result.error || 'Không lưu được token thông báo lên server.');
         }
+        markPushDeviceRegistered();
       }
       setPermission('granted');
       toast.success('Đã bật nhắc ôn tập thành công! 🔔');

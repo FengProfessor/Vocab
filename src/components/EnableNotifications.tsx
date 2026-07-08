@@ -5,17 +5,21 @@ import { Bell, X, Loader2 } from 'lucide-react';
 import { requestForToken } from '@/lib/firebase';
 import { supabase } from '@/lib/supabase';
 import { toast } from 'sonner';
+import {
+  dismissEnablePrompt,
+  dismissReconnectPrompt,
+  isEnablePromptDismissed,
+  isPushDeviceRegistered,
+  isReconnectDismissedThisSession,
+  markPushDeviceRegistered,
+} from '@/lib/push-device-state';
 
-const DISMISS_KEY = 'lingopro_push_prompt_dismissed';
-const RECONNECT_DISMISS_KEY = 'lingopro_push_reconnect_dismissed'; // sessionStorage — hỏi lại phiên sau
-const STALE_DAYS = 5; // token tươi nhất cũ hơn mức này → mời kết nối lại (trước khi nó chết hẳn)
+const STALE_DAYS = 5;
 
 /**
- * Banner mời bật Push trong luồng chính (dashboard).
- * 2 chế độ:
- * - 'enable': quyền = 'default' (chưa hỏi). iOS bắt buộc requestPermission chạy trong gesture (onClick).
- * - 'reconnect' (tự-lành): quyền = 'granted' nhưng server 0 token sống (FirebaseInitializer
- *   re-register fail im lặng / token bị thiết bị khác ghi đè thời kỳ chưa đa thiết bị).
+ * Banner mời bật Push trong dashboard.
+ * - enable: permission = default (chưa hỏi)
+ * - reconnect: đã Allow nhưng thiết bị này chưa lưu token / token server cũ
  */
 export function EnableNotifications() {
   const [show, setShow] = useState(false);
@@ -26,15 +30,21 @@ export function EnableNotifications() {
     if (typeof window === 'undefined' || !('Notification' in window)) return;
 
     if (Notification.permission === 'default') {
-      if (localStorage.getItem(DISMISS_KEY) === '1') return;
+      if (isEnablePromptDismissed()) return;
       setMode('enable');
       setShow(true);
       return;
     }
 
-    // 'granted' → kiểm tra token sống trên server (chờ 6s cho FirebaseInitializer re-register trước)
-    if (Notification.permission !== 'granted') return; // 'denied' — JS không prompt lại được
-    try { if (sessionStorage.getItem(RECONNECT_DISMISS_KEY) === '1') return; } catch {}
+    if (Notification.permission !== 'granted') return;
+    if (isReconnectDismissedThisSession()) return;
+
+    // Thiết bị này chưa từng lưu token thành công → luôn mời kết nối (kể cả server có token máy khác)
+    if (!isPushDeviceRegistered()) {
+      setMode('reconnect');
+      setShow(true);
+      return;
+    }
 
     const timer = setTimeout(async () => {
       try {
@@ -44,24 +54,22 @@ export function EnableNotifications() {
           headers: { Authorization: `Bearer ${session.access_token}` },
         });
         const data = await res.json();
-        // count = -1: server không xác định được → không hiện banner sai.
-        // Reconnect khi: 0 token sống, HOẶC token tươi nhất đã cũ ≥ STALE_DAYS (nguy cơ chết).
         const stale = typeof data?.staleDays === 'number' && data.staleDays >= STALE_DAYS;
         if (data?.success && (data.count === 0 || stale)) {
           setMode('reconnect');
           setShow(true);
         }
       } catch {
-        // Lỗi mạng → bỏ qua, không làm phiền user
+        // Lỗi mạng → bỏ qua
       }
-    }, 6000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
   const enable = async () => {
     setLoading(true);
     try {
-      const token = await requestForToken(); // gồm requestPermission + register SW + getToken
+      const token = await requestForToken();
       if (!token) throw new Error('Chưa lấy được mã thiết bị. Thử lại sau.');
 
       const { data: { session } } = await supabase.auth.getSession();
@@ -79,13 +87,13 @@ export function EnableNotifications() {
         if (!res.ok || !result.success) {
           throw new Error(result.error || 'Không lưu được token thông báo lên server.');
         }
+        markPushDeviceRegistered();
       }
       toast.success('Đã bật nhắc ôn tập! 🔔');
       setShow(false);
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Không bật được thông báo.';
       toast.error(msg);
-      // User bấm "Không cho phép" → ẩn banner (không thể prompt lại bằng JS)
       if (typeof Notification !== 'undefined' && Notification.permission === 'denied') setShow(false);
     } finally {
       setLoading(false);
@@ -93,14 +101,11 @@ export function EnableNotifications() {
   };
 
   const dismiss = () => {
-    try {
-      if (mode === 'reconnect') {
-        // Chỉ ẩn trong phiên này — token vẫn chết thì phiên sau hỏi lại
-        sessionStorage.setItem(RECONNECT_DISMISS_KEY, '1');
-      } else {
-        localStorage.setItem(DISMISS_KEY, '1');
-      }
-    } catch {}
+    if (mode === 'reconnect') {
+      dismissReconnectPrompt();
+    } else {
+      dismissEnablePrompt();
+    }
     setShow(false);
   };
 
@@ -117,7 +122,7 @@ export function EnableNotifications() {
         </div>
         <div className="text-xs font-semibold text-muted-foreground">
           {mode === 'reconnect'
-            ? 'Thiết bị này không còn nhận nhắc ôn tập — bấm để kết nối lại.'
+            ? 'Thiết bị này chưa nhận nhắc ôn tập — bấm để kết nối lại.'
             : 'Nhận thông báo khi có từ đến hạn — giữ streak không bị gãy.'}
         </div>
       </div>
