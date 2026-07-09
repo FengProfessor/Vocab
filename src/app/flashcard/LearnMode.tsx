@@ -416,32 +416,34 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           <Card
             className={`flex min-h-0 w-full max-w-[400px] flex-1 flex-col overflow-hidden rounded-[28px] border-2 border-b-[6px] shadow-xl shadow-indigo-100 transition-colors duration-300 sm:rounded-[32px] ${cardBg}`}
           >
-            <CardContent className="flex min-h-0 flex-1 flex-col items-center justify-center gap-2.5 overflow-y-auto overscroll-contain p-3 text-center sm:gap-3 sm:p-4">
-              <Badge className="shrink-0 rounded-full border-none bg-indigo-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-indigo-600">
+            <CardContent className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain p-3 text-center sm:p-4">
+              <Badge className="mx-auto shrink-0 rounded-full border-none bg-indigo-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-indigo-600">
                 ✍️ Gõ từ tiếng Anh
               </Badge>
 
-              <h2 className="line-clamp-4 w-full break-words px-1 text-[clamp(1.25rem,5vw,2rem)] font-black leading-tight tracking-tight text-slate-900">
-                {recallWord.translation}
-              </h2>
-
-              <div className="flex shrink-0 flex-wrap items-center justify-center gap-2">
-                {recallWord.pos && (
-                  <Badge className="border-none bg-slate-100 px-2.5 text-[9px] font-black uppercase tracking-widest text-slate-500">
-                    {recallWord.pos}
-                  </Badge>
-                )}
-                <button
-                  type="button"
-                  onClick={() => speak(recallWord.word, 0.6)}
-                  title="Nghe gợi ý (chậm)"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-amber-200 bg-amber-100 transition-transform hover:scale-105"
-                >
-                  <Snail className="h-4 w-4 text-amber-600" />
-                </button>
+              {/* Nghĩa chiếm phần giữa — không bị input/nút đè */}
+              <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5 py-2">
+                <h2 className="line-clamp-5 w-full break-words px-1 text-[clamp(1.35rem,5.5vw,2.1rem)] font-black leading-tight tracking-tight text-slate-900">
+                  {recallWord.translation}
+                </h2>
+                <div className="flex shrink-0 flex-wrap items-center justify-center gap-1.5">
+                  {recallWord.pos && (
+                    <Badge className="border-none bg-slate-100 px-2 text-[9px] font-black uppercase tracking-widest text-slate-500">
+                      {recallWord.pos}
+                    </Badge>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => speak(recallWord.word, 0.6)}
+                    title="Nghe gợi ý (chậm)"
+                    className="flex h-7 w-7 items-center justify-center rounded-lg border border-amber-200 bg-amber-100 transition-transform hover:scale-105"
+                  >
+                    <Snail className="h-3.5 w-3.5 text-amber-600" />
+                  </button>
+                </div>
               </div>
 
-              <div className="w-full shrink-0">
+              <div className="mt-auto w-full shrink-0 space-y-1.5">
                 <input
                   ref={inputRef}
                   type="text"
@@ -450,54 +452,54 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                   readOnly={verdict !== null}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={onKeyDown}
-                  placeholder="Gõ từ vừa học..."
+                  placeholder="Gõ từ..."
                   autoComplete="off"
                   autoCorrect="off"
                   autoCapitalize="off"
                   spellCheck={false}
-                  className={`w-full rounded-xl border-[3px] p-2.5 text-center text-[clamp(1.15rem,4.5vw,1.75rem)] font-black transition-colors focus:outline-none read-only:opacity-90 sm:rounded-2xl sm:p-3 ${inputBorder}`}
+                  className={`h-10 w-full rounded-xl border-2 px-2 text-center text-base font-bold transition-colors focus:outline-none read-only:opacity-90 sm:h-11 sm:text-lg ${inputBorder}`}
                 />
-              </div>
 
-              {verdict !== null && (
-                <div className="w-full shrink-0 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                  {verdict === 'correct' && (
-                    <p className="text-base font-black text-emerald-600 sm:text-lg">
-                      ✓ Chính xác!{' '}
-                      <span className="underline decoration-emerald-400">{recallWord.word}</span>
-                    </p>
-                  )}
-                  {verdict === 'close' && (
-                    <p className="text-base font-black text-amber-600 sm:text-lg">
-                      Gần đúng! Đáp án:{' '}
-                      <span className="underline decoration-amber-400">{recallWord.word}</span>
-                    </p>
-                  )}
-                  {verdict === 'wrong' && (
-                    <p className="text-base font-black text-rose-600 sm:text-lg">
-                      ✗ Đáp án: <span className="underline decoration-rose-400">{recallWord.word}</span>
-                    </p>
-                  )}
-                </div>
-              )}
+                {verdict !== null && (
+                  <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    {verdict === 'correct' && (
+                      <p className="text-sm font-black text-emerald-600">
+                        ✓ Chính xác!{' '}
+                        <span className="underline decoration-emerald-400">{recallWord.word}</span>
+                      </p>
+                    )}
+                    {verdict === 'close' && (
+                      <p className="text-sm font-black text-amber-600">
+                        Gần đúng! Đáp án:{' '}
+                        <span className="underline decoration-amber-400">{recallWord.word}</span>
+                      </p>
+                    )}
+                    {verdict === 'wrong' && (
+                      <p className="text-sm font-black text-rose-600">
+                        ✗ Đáp án: <span className="underline decoration-rose-400">{recallWord.word}</span>
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
             </CardContent>
           </Card>
 
-          <div className="mt-2 w-full max-w-[400px] shrink-0">
+          <div className="mt-1.5 w-full max-w-[400px] shrink-0">
             {verdict === null ? (
-              <div className="flex gap-2">
+              <div className="flex gap-1.5">
                 <button
                   type="button"
                   onClick={submitRecall}
                   disabled={!input.trim()}
-                  className="h-14 flex-[2] rounded-2xl border-b-[3px] border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 disabled:opacity-40 sm:h-16 sm:rounded-[22px] sm:text-lg"
+                  className="h-10 flex-[2] rounded-xl border-b-[3px] border-indigo-800 bg-indigo-600 text-sm font-black text-white shadow-sm transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 disabled:opacity-40 sm:h-11"
                 >
                   Kiểm tra
                 </button>
                 <button
                   type="button"
                   onClick={giveUpRecall}
-                  className="h-14 flex-1 rounded-2xl border-2 border-b-[3px] border-slate-200 bg-white text-xs font-bold text-slate-500 transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-2 sm:h-16 sm:rounded-[22px] sm:text-sm"
+                  className="h-10 flex-1 rounded-xl border border-b-[3px] border-slate-200 bg-white text-[11px] font-bold text-slate-500 transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-2 sm:h-11 sm:text-xs"
                 >
                   Không nhớ
                 </button>
@@ -506,10 +508,10 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               <button
                 type="button"
                 onClick={goNextRecall}
-                className="flex h-14 w-full items-center justify-center gap-2 rounded-2xl border-b-[3px] border-slate-200 bg-white text-base font-black text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-lg"
+                className="flex h-10 w-full items-center justify-center gap-2 rounded-xl border-b-[3px] border-slate-200 bg-white text-sm font-black text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-0 sm:h-11"
               >
                 {recallIndex + 1 >= batch.length ? 'Xem kết quả' : 'Tiếp theo'}{' '}
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-4 w-4" />
               </button>
             )}
           </div>

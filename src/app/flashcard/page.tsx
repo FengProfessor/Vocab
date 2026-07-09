@@ -474,7 +474,13 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                 </Badge>
 
                 {current.image_url && (
-                  <div className="group/img relative h-[clamp(72px,16dvh,128px)] w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 shadow-inner">
+                  <div
+                    className={`group/img relative w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 shadow-inner ${
+                      isTypingFront
+                        ? 'h-[clamp(56px,11dvh,88px)]'
+                        : 'h-[clamp(72px,16dvh,128px)]'
+                    }`}
+                  >
                     <img
                       src={`/api/image-proxy?url=${encodeURIComponent(current.image_url)}`}
                       alt={current.word}
@@ -529,39 +535,42 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                 )}
 
                 {isTypingFront ? (
-                  <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center gap-2 animate-in fade-in zoom-in duration-300 sm:gap-2.5">
-                    <div className="flex shrink-0 items-center gap-2.5">
-                      <button
-                        type="button"
-                        className="flex h-11 w-11 items-center justify-center rounded-xl border border-indigo-200 bg-indigo-100 shadow-sm transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          speak(current.word, 1.0);
-                        }}
-                      >
-                        <Volume2 className="h-5 w-5 text-indigo-600 sm:h-6 sm:w-6" />
-                      </button>
-                      <button
-                        type="button"
-                        title="Slow pronunciation"
-                        className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-200 bg-amber-100 shadow-sm transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          speak(current.word, 0.6);
-                        }}
-                      >
-                        <Snail className="h-5 w-5 text-amber-600 sm:h-6 sm:w-6" />
-                      </button>
+                  /* Ưu tiên nghĩa: input/nút gọn, không che translation */
+                  <div className="flex w-full min-h-0 flex-1 flex-col animate-in fade-in zoom-in duration-300">
+                    <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5">
+                      <div className="flex shrink-0 items-center gap-1.5">
+                        <button
+                          type="button"
+                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-indigo-200 bg-indigo-100 transition-transform hover:scale-105 active:scale-95"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            speak(current.word, 1.0);
+                          }}
+                        >
+                          <Volume2 className="h-4 w-4 text-indigo-600" />
+                        </button>
+                        <button
+                          type="button"
+                          title="Slow pronunciation"
+                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-amber-200 bg-amber-100 transition-transform hover:scale-105 active:scale-95"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            speak(current.word, 0.6);
+                          }}
+                        >
+                          <Snail className="h-4 w-4 text-amber-600" />
+                        </button>
+                      </div>
+
+                      <p className="line-clamp-4 w-full max-w-full break-words px-1 text-center text-[clamp(1.2rem,4.8vw,1.75rem)] font-black leading-snug text-slate-900">
+                        {current.translation}
+                      </p>
+                      {current.ipa && (
+                        <p className="shrink-0 font-mono text-[11px] text-slate-400">{parseIpa(current.ipa)}</p>
+                      )}
                     </div>
 
-                    <p className="line-clamp-3 w-full max-w-full break-words px-1 text-center text-[clamp(1rem,3.8vw,1.35rem)] font-bold leading-snug text-slate-800">
-                      {current.translation}
-                    </p>
-                    {current.ipa && (
-                      <p className="shrink-0 font-mono text-xs text-slate-400 sm:text-sm">{parseIpa(current.ipa)}</p>
-                    )}
-
-                    <div className="w-full shrink-0">
+                    <div className="mt-auto w-full shrink-0 space-y-1.5 pt-1">
                       <input
                         type="text"
                         autoFocus={canAutoFocus()}
@@ -584,40 +593,39 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                             handleSpellingSkip();
                           }
                         }}
-                        placeholder="Gõ từ (Esc bỏ qua)..."
-                        className={`w-full rounded-xl border-[3px] p-2.5 text-center text-[clamp(1.15rem,4.5vw,1.75rem)] font-black transition-colors focus:outline-none sm:rounded-2xl sm:p-3 ${
+                        placeholder="Gõ từ..."
+                        className={`h-10 w-full rounded-xl border-2 px-2 text-center text-base font-bold transition-colors focus:outline-none sm:h-11 sm:text-lg ${
                           spellingError
                             ? 'animate-shake border-rose-400 bg-rose-50 text-rose-600'
                             : 'border-slate-200 bg-slate-50 focus:border-indigo-500'
                         }`}
                       />
-                    </div>
-
-                    <div className="flex w-full shrink-0 gap-2">
-                      <Button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
-                            handleSpellingCorrect();
-                          } else {
-                            setSpellingError(true);
-                            toast.error('Incorrect, try again!', { position: 'top-center' });
-                          }
-                        }}
-                        className="h-11 flex-[2] rounded-xl bg-indigo-600 text-sm font-bold shadow-md shadow-indigo-100 hover:bg-indigo-700 sm:h-12 sm:rounded-2xl sm:text-base"
-                      >
-                        Kiểm tra
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleSpellingSkip();
-                        }}
-                        className="h-11 flex-1 rounded-xl border-2 border-slate-200 text-xs font-bold text-slate-500 hover:bg-slate-50 sm:h-12 sm:rounded-2xl sm:text-sm"
-                      >
-                        Không nhớ
-                      </Button>
+                      <div className="flex w-full gap-1.5">
+                        <Button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
+                              handleSpellingCorrect();
+                            } else {
+                              setSpellingError(true);
+                              toast.error('Incorrect, try again!', { position: 'top-center' });
+                            }
+                          }}
+                          className="h-9 flex-[2] rounded-xl bg-indigo-600 text-xs font-bold shadow-sm hover:bg-indigo-700 sm:h-10 sm:text-sm"
+                        >
+                          Kiểm tra
+                        </Button>
+                        <Button
+                          variant="outline"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSpellingSkip();
+                          }}
+                          className="h-9 flex-1 rounded-xl border border-slate-200 text-[11px] font-bold text-slate-500 hover:bg-slate-50 sm:h-10 sm:text-xs"
+                        >
+                          Không nhớ
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -735,8 +743,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           </div>
         )}
 
-        {/* Actions — luôn trong viewport */}
-        <div className="mt-2 w-full max-w-[400px] shrink-0">
+        {/* Actions — gõ: không lặp Lật thẻ (đã có Kiểm tra/Không nhớ trong card) */}
+        <div className="mt-1.5 w-full max-w-[400px] shrink-0">
           {flipped ? (
             <div className="flex gap-1.5 animate-in fade-in slide-in-from-bottom-4 duration-300 sm:gap-2">
               {(
@@ -778,28 +786,30 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                 <button
                   key={btn.en}
                   type="button"
-                  className={`flex h-14 flex-1 flex-col items-center justify-center gap-0 rounded-2xl border border-b-[3px] text-[10px] font-black uppercase tracking-tight transition-all active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-[11px] ${btn.cls}`}
+                  className={`flex h-12 flex-1 flex-col items-center justify-center gap-0 rounded-xl border border-b-[3px] text-[10px] font-black uppercase tracking-tight transition-all active:translate-y-0.5 active:border-b-0 sm:h-14 sm:rounded-2xl sm:text-[11px] ${btn.cls}`}
                   onClick={() => handleRate(btn.q)}
                 >
-                  <span className="text-sm sm:text-base">{btn.emoji}</span>
+                  <span className="text-sm">{btn.emoji}</span>
                   <span>{btn.en}</span>
-                  <span className={`text-[8px] font-bold normal-case tracking-normal sm:text-[9px] ${btn.sub}`}>
+                  <span className={`text-[8px] font-bold normal-case tracking-normal ${btn.sub}`}>
                     {btn.vi}
                   </span>
                 </button>
               ))}
             </div>
-          ) : (
+          ) : isTypingFront ? null : (
             <button
               type="button"
-              className="h-14 w-full rounded-2xl border-b-[3px] border-slate-200 bg-white text-base font-black text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-lg"
+              className="h-12 w-full rounded-2xl border-b-[3px] border-slate-200 bg-white text-sm font-black text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-0 sm:h-14 sm:text-base"
               onClick={() => setFlipped(true)}
             >
               Lật thẻ
             </button>
           )}
           <div className="mt-1 flex items-center justify-center gap-2">
-            <p className="hidden text-[10px] text-slate-500 sm:block">Space: lật · 1–4: đánh giá</p>
+            <p className="hidden text-[10px] text-slate-500 sm:block">
+              {isTypingFront ? 'Enter: kiểm tra · Esc: bỏ qua' : 'Space: lật · 1–4: đánh giá'}
+            </p>
             <button
               type="button"
               onClick={toggleTypingMode}
