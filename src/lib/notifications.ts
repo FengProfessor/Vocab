@@ -1,17 +1,35 @@
 import admin from 'firebase-admin';
 import { createServiceClient } from './supabase';
 
+/** Vercel/PowerShell env hay dính literal \r\n → projectId hỏng → FCM 404 `/projects/xxx/r/n/messages`. */
+function cleanEnv(value: string | undefined): string {
+  return (value || '')
+    .replace(/\\r\\n/g, '')
+    .replace(/\\n/g, '')
+    .replace(/\\r/g, '')
+    .replace(/[\r\n]+/g, '')
+    .trim();
+}
+
 // CHỈ khởi tạo trên SERVER
 if (typeof window === 'undefined' && !admin.apps.length) {
   try {
+    const projectId = cleanEnv(process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID);
+    const clientEmail = cleanEnv(process.env.FIREBASE_CLIENT_EMAIL);
+    const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
+    if (!projectId || !clientEmail || !privateKey) {
+      throw new Error(
+        `Missing Firebase Admin env (projectId=${!!projectId}, clientEmail=${!!clientEmail}, privateKey=${!!privateKey})`
+      );
+    }
     admin.initializeApp({
       credential: admin.credential.cert({
-        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+        projectId,
+        clientEmail,
+        privateKey,
       }),
     });
-    console.log('[FirebaseAdmin] Initialized on Server');
+    console.log('[FirebaseAdmin] Initialized on Server projectId=', projectId);
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : String(error);
     console.error('[FirebaseAdmin] Init Error:', msg);

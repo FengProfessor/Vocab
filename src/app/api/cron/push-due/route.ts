@@ -13,6 +13,7 @@ type ProfileRow = {
   full_name: string | null;
   role: string;
   fcm_token: string | null;
+  last_due_push_slot?: string | null;
 };
 type PushResult = { userId: string; name: string | null; dueCount: number; sent: boolean };
 
@@ -100,7 +101,7 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const { data: profiles, error: profErr } = await supabase
       .from('profiles')
-      .select('id, full_name, role, fcm_token')
+      .select('id, full_name, role, fcm_token, last_due_push_slot')
       .in('id', Array.from(userIds));
 
     if (profErr) {
@@ -163,6 +164,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       // Khử trùng đa nguồn cron: claim slot bằng UPDATE có điều kiện (atomic per-row trong
       // Postgres). Chỉ nguồn claim được mới gửi; nguồn khác thấy slot trùng → 0 row → skip.
       // Nếu cột chưa tồn tại (migration chưa chạy) → claimErr → vẫn gửi như cũ (không chặn).
+      const prevSlot = profile.last_due_push_slot ?? null;
       if (!isTest) {
         const { data: claimed, error: claimErr } = await supabase
           .from('profiles')
@@ -187,6 +189,18 @@ export async function GET(req: Request): Promise<NextResponse> {
       );
 
       const sent = !!(sendResult as { messageId?: string } | undefined)?.messageId;
+
+      // Gửi fail → rollback slot để mốc sau / cron retry còn cơ hội (tránh claim xong im lặng).
+      if (!sent && !isTest) {
+        const { error: rbErr } = await supabase
+          .from('profiles')
+          .update({ last_due_push_slot: prevSlot })
+          .eq('id', profile.id)
+          .eq('last_due_push_slot', slotKey);
+        if (rbErr) console.warn('[Cron/push-due] slot rollback failed:', rbErr.message);
+        else console.warn(`[Cron/push-due] send fail → rollback slot for ${profile.id.slice(0, 8)}`);
+      }
+
       return { userId: profile.id, name: profile.full_name, dueCount, sent };
     };
 
