@@ -113,6 +113,16 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // Cleanup timer
   useEffect(() => () => { if (advanceTimer.current) clearTimeout(advanceTimer.current); }, []);
 
+  // Preload toàn bộ ảnh trong batch (≤20 từ) — ảnh sẵn trong cache khi lật tới
+  useEffect(() => {
+    batch.forEach((w) => {
+      if (w.image_url) {
+        const img = new window.Image();
+        img.src = `/api/image-proxy?url=${encodeURIComponent(w.image_url)}`;
+      }
+    });
+  }, [batch]);
+
   const startSession = () => {
     setPhase('introduce');
     setIntroIndex(0);
@@ -220,10 +230,10 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
   if (phase === 'loading') {
     return (
-      <div className="min-h-dvh flex items-center justify-center bg-slate-50 font-sans">
+      <div className="flex h-[calc(100dvh-62px)] items-center justify-center bg-slate-50 font-sans">
         <div className="flex flex-col items-center gap-5">
-          <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-indigo-600 font-bold animate-pulse">Đang chuẩn bị bài học...</p>
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-indigo-500 border-t-transparent" />
+          <p className="font-bold animate-pulse text-indigo-600">Đang chuẩn bị bài học...</p>
         </div>
       </div>
     );
@@ -231,11 +241,11 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
   if (phase === 'empty') {
     return (
-      <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
-        <div className="text-center space-y-3">
-          <div className="text-7xl mb-4">🎉</div>
-          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Hết từ mới rồi!</h1>
-          <p className="text-slate-500 text-lg font-medium">Bạn đã học hết các từ chưa thuộc. Giờ chuyển sang ôn tập nhé.</p>
+      <div className="flex h-[calc(100dvh-62px)] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
+        <div className="space-y-3 text-center">
+          <div className="mb-2 text-6xl">🎉</div>
+          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">Hết từ mới rồi!</h1>
+          <p className="text-base font-medium text-slate-500 sm:text-lg">Bạn đã học hết các từ chưa thuộc. Giờ chuyển sang ôn tập nhé.</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4">
           <Button variant="outline" className="h-14 px-7 rounded-2xl font-bold border-2" onClick={() => router.push('/student')}>
@@ -255,22 +265,22 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // Màn bắt đầu — cần 1 cú chạm để mở khoá audio (autoplay policy)
   if (phase === 'ready') {
     return (
-      <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans text-center">
+      <div className="flex h-[calc(100dvh-62px)] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 text-center font-sans">
         <StudyGuideModal open={showGuide} onClose={closeGuide} />
-        <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-600 px-4 py-1.5 rounded-full text-xs font-black">
+        <div className="inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-1.5 text-xs font-black text-indigo-600">
           <Sparkles className="h-4 w-4" /> Phiên học mới
         </div>
         <div className="space-y-2">
-          <h1 className="text-3xl sm:text-4xl font-black text-slate-900">Học {batch.length} từ mới</h1>
-          <p className="text-slate-500 font-medium max-w-sm">
+          <h1 className="text-3xl font-black text-slate-900 sm:text-4xl">Học {batch.length} từ mới</h1>
+          <p className="max-w-sm font-medium text-slate-500">
             Xem từ, nghĩa và nghe phát âm trước. Sau đó điền lại để kiểm tra trí nhớ ngay.
           </p>
         </div>
         <Button
           onClick={startSession}
-          className="h-16 px-10 rounded-2xl bg-indigo-600 text-white font-black text-lg shadow-xl shadow-indigo-200 border-b-4 border-indigo-800 active:translate-y-0.5 active:border-b-0"
+          className="h-14 rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 px-8 text-base font-black text-white shadow-xl shadow-indigo-200 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:px-10 sm:text-lg"
         >
-          <BookOpen className="mr-2 h-6 w-6" /> Bắt đầu học
+          <BookOpen className="mr-2 h-5 w-5 sm:h-6 sm:w-6" /> Bắt đầu học
         </Button>
         <div className="flex items-center gap-4">
           <button onClick={() => setShowGuide(true)} className="inline-flex items-center gap-1.5 text-sm font-bold text-indigo-500 hover:text-indigo-700">
@@ -282,59 +292,80 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     );
   }
 
-  // ── Bước GIỚI THIỆU ──
+  // ── Bước GIỚI THIỆU — fit 1 viewport (trừ shell header 62px) ──
   if (phase === 'introduce') {
     const w = batch[introIndex];
     return (
-      <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
+      <div className="flex h-[calc(100dvh-62px)] max-h-[calc(100dvh-62px)] flex-col overflow-hidden bg-slate-50 font-sans">
         <StudyGuideModal open={showGuide} onClose={closeGuide} />
         <Header label="Học từ mới" badge={`${introIndex + 1} / ${batch.length}`} onHelp={() => setShowGuide(true)} />
         <ProgressBar value={(introIndex / batch.length) * 100} />
 
-        <div className="flex-1 flex flex-col items-center justify-center p-6 gap-8">
-          <Card className="w-full max-w-[440px] border-none shadow-2xl shadow-indigo-100 rounded-[40px] bg-white border-b-8 border-slate-200">
-            <CardContent className="p-8 sm:p-10 flex flex-col items-center gap-5 text-center">
-              <Badge className="bg-amber-50 text-amber-600 border-none text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full">
+        <div className="flex min-h-0 flex-1 flex-col items-center px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-4">
+          <Card className="flex min-h-0 w-full max-w-[400px] flex-1 flex-col overflow-hidden rounded-[28px] border-none border-b-[6px] border-slate-200 bg-white shadow-xl shadow-indigo-100 sm:rounded-[32px]">
+            <CardContent className="flex min-h-0 flex-1 flex-col items-center gap-2 overflow-y-auto overscroll-contain p-3 text-center sm:gap-2.5 sm:p-4">
+              <Badge className="shrink-0 rounded-full border-none bg-amber-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-amber-600">
                 📖 Làm quen
               </Badge>
 
               {w.image_url && (
-                <div className="relative w-full h-40 rounded-3xl overflow-hidden border border-slate-100 shadow-inner">
-                  <img src={`/api/image-proxy?url=${encodeURIComponent(w.image_url)}`} alt={w.word} loading="lazy" decoding="async"
-                    className="w-full h-full object-cover"
+                <div className="relative h-[clamp(72px,16dvh,128px)] w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 shadow-inner">
+                  <img
+                    src={`/api/image-proxy?url=${encodeURIComponent(w.image_url)}`}
+                    alt={w.word}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="h-full w-full object-cover"
                     onError={(e) => {
                       const img = e.currentTarget as HTMLImageElement;
                       img.style.display = 'none';
                       img.parentElement?.querySelector('[data-img-fallback]')?.classList.replace('hidden', 'flex');
-                    }} />
-                  {/* Placeholder khi ảnh lỗi — giữ nguyên layout card */}
-                  <div data-img-fallback className="hidden absolute inset-0 flex-col items-center justify-center bg-slate-50 text-slate-300">
-                    <span className="text-3xl">🖼️</span>
+                    }}
+                  />
+                  <div
+                    data-img-fallback
+                    className="absolute inset-0 hidden flex-col items-center justify-center bg-slate-50 text-slate-300"
+                  >
+                    <span className="text-2xl">🖼️</span>
                   </div>
                 </div>
               )}
 
-              <h2 className="text-5xl font-black tracking-tight text-slate-900 break-words w-full">{w.word}</h2>
-              {w.ipa && <p className="text-lg font-mono text-slate-400">{parseIpa(w.ipa)}</p>}
+              <h2 className="line-clamp-2 w-full break-words text-[clamp(1.5rem,6.5vw,2.75rem)] font-black leading-tight tracking-tight text-slate-900">
+                {w.word}
+              </h2>
+              {w.ipa && <p className="shrink-0 font-mono text-sm text-slate-400 sm:text-base">{parseIpa(w.ipa)}</p>}
 
-              <div className="flex items-center gap-3">
-                <button onClick={() => speak(w.word, 1.0)}
-                  className="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border border-indigo-200">
-                  <Volume2 className="h-7 w-7 text-indigo-600" />
+              <div className="flex shrink-0 items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => speak(w.word, 1.0)}
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-indigo-200 bg-indigo-100 transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                >
+                  <Volume2 className="h-5 w-5 text-indigo-600 sm:h-6 sm:w-6" />
                 </button>
-                <button onClick={() => speak(w.word, 0.6)} title="Phát âm chậm"
-                  className="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border border-amber-200">
-                  <Snail className="h-7 w-7 text-amber-600" />
+                <button
+                  type="button"
+                  onClick={() => speak(w.word, 0.6)}
+                  title="Phát âm chậm"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-200 bg-amber-100 transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                >
+                  <Snail className="h-5 w-5 text-amber-600 sm:h-6 sm:w-6" />
                 </button>
               </div>
 
-              <div className="w-full border-t border-slate-100 pt-4 space-y-3">
-                <p className="text-2xl font-black text-indigo-600">{w.translation}</p>
+              <div className="w-full shrink space-y-1.5 border-t border-slate-100 pt-2">
+                <p className="line-clamp-3 text-[clamp(1.05rem,4vw,1.5rem)] font-black leading-snug text-indigo-600">
+                  {w.translation}
+                </p>
                 {w.pos && (
-                  <Badge className="bg-slate-100 text-slate-500 border-none text-[10px] font-black uppercase tracking-widest px-3">{w.pos}</Badge>
+                  <Badge className="border-none bg-slate-100 px-2.5 text-[9px] font-black uppercase tracking-widest text-slate-500">
+                    {w.pos}
+                  </Badge>
                 )}
                 {w.example && (
-                  <p className="text-sm font-medium text-slate-500 italic border-l-4 border-slate-200 pl-3 text-left">
+                  <p className="line-clamp-3 border-l-4 border-slate-200 pl-2.5 text-left text-xs font-medium italic leading-snug text-slate-500 sm:text-sm">
                     &quot;{w.example}&quot;
                   </p>
                 )}
@@ -342,9 +373,12 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
             </CardContent>
           </Card>
 
-          <div className="w-full max-w-[440px]">
-            <button onClick={nextIntro}
-              className="w-full h-16 rounded-[28px] bg-indigo-600 border-b-4 border-indigo-800 text-white font-black text-lg shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all active:translate-y-1 active:border-b-0 flex items-center justify-center gap-2">
+          <div className="mt-2 w-full max-w-[400px] shrink-0">
+            <button
+              type="button"
+              onClick={nextIntro}
+              className="flex h-14 w-full items-center justify-center gap-2 rounded-2xl border-b-[3px] border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-lg"
+            >
               {introIndex + 1 >= batch.length ? 'Kiểm tra trí nhớ' : 'Tiếp'} <ArrowRight className="h-5 w-5" />
             </button>
           </div>
@@ -356,42 +390,58 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // ── Bước NHỚ LẠI ──
   if (phase === 'recall' && recallWord) {
     const cardBg =
-      verdict === 'correct' ? 'bg-emerald-50 border-emerald-300'
-        : verdict === 'close' ? 'bg-amber-50 border-amber-300'
-          : verdict === 'wrong' ? 'bg-rose-50 border-rose-300'
+      verdict === 'correct'
+        ? 'bg-emerald-50 border-emerald-300'
+        : verdict === 'close'
+          ? 'bg-amber-50 border-amber-300'
+          : verdict === 'wrong'
+            ? 'bg-rose-50 border-rose-300'
             : 'bg-white border-slate-200';
     const inputBorder =
-      verdict === 'correct' ? 'border-emerald-400 bg-emerald-50 text-emerald-700'
-        : verdict === 'close' ? 'border-amber-400 bg-amber-50 text-amber-700'
-          : verdict === 'wrong' ? 'border-rose-400 bg-rose-50 text-rose-700 animate-shake'
+      verdict === 'correct'
+        ? 'border-emerald-400 bg-emerald-50 text-emerald-700'
+        : verdict === 'close'
+          ? 'border-amber-400 bg-amber-50 text-amber-700'
+          : verdict === 'wrong'
+            ? 'border-rose-400 bg-rose-50 text-rose-700 animate-shake'
             : 'border-slate-200 bg-slate-50 focus:border-indigo-500';
 
     return (
-      <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
+      <div className="flex h-[calc(100dvh-62px)] max-h-[calc(100dvh-62px)] flex-col overflow-hidden bg-slate-50 font-sans">
         <StudyGuideModal open={showGuide} onClose={closeGuide} />
         <Header label="Nhớ lại" badge={`${recallIndex + 1} / ${batch.length}`} onHelp={() => setShowGuide(true)} />
         <ProgressBar value={(recallIndex / batch.length) * 100} />
 
-        <div className="flex-1 flex flex-col items-center justify-center p-6 gap-8">
-          <Card className={`w-full max-w-[480px] border-2 shadow-2xl shadow-indigo-100 rounded-[40px] border-b-8 transition-colors duration-300 ${cardBg}`}>
-            <CardContent className="p-8 sm:p-10 flex flex-col items-center gap-5 text-center">
-              <Badge className="bg-indigo-50 text-indigo-600 border-none text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full">
+        <div className="flex min-h-0 flex-1 flex-col items-center px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-4">
+          <Card
+            className={`flex min-h-0 w-full max-w-[400px] flex-1 flex-col overflow-hidden rounded-[28px] border-2 border-b-[6px] shadow-xl shadow-indigo-100 transition-colors duration-300 sm:rounded-[32px] ${cardBg}`}
+          >
+            <CardContent className="flex min-h-0 flex-1 flex-col items-center justify-center gap-2.5 overflow-y-auto overscroll-contain p-3 text-center sm:gap-3 sm:p-4">
+              <Badge className="shrink-0 rounded-full border-none bg-indigo-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-indigo-600">
                 ✍️ Gõ từ tiếng Anh
               </Badge>
 
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 break-words w-full px-2">{recallWord.translation}</h2>
+              <h2 className="line-clamp-4 w-full break-words px-1 text-[clamp(1.25rem,5vw,2rem)] font-black leading-tight tracking-tight text-slate-900">
+                {recallWord.translation}
+              </h2>
 
-              <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="flex shrink-0 flex-wrap items-center justify-center gap-2">
                 {recallWord.pos && (
-                  <Badge className="bg-slate-100 text-slate-500 border-none text-[10px] font-black uppercase tracking-widest px-3">{recallWord.pos}</Badge>
+                  <Badge className="border-none bg-slate-100 px-2.5 text-[9px] font-black uppercase tracking-widest text-slate-500">
+                    {recallWord.pos}
+                  </Badge>
                 )}
-                <button onClick={() => speak(recallWord.word, 0.6)} title="Nghe gợi ý (chậm)"
-                  className="w-9 h-9 bg-amber-100 rounded-xl flex items-center justify-center hover:scale-110 transition-transform border border-amber-200">
-                  <Snail className="h-5 w-5 text-amber-600" />
+                <button
+                  type="button"
+                  onClick={() => speak(recallWord.word, 0.6)}
+                  title="Nghe gợi ý (chậm)"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-amber-200 bg-amber-100 transition-transform hover:scale-105"
+                >
+                  <Snail className="h-4 w-4 text-amber-600" />
                 </button>
               </div>
 
-              <div className="w-full mt-1">
+              <div className="w-full shrink-0">
                 <input
                   ref={inputRef}
                   type="text"
@@ -401,37 +451,65 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={onKeyDown}
                   placeholder="Gõ từ vừa học..."
-                  autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
-                  className={`w-full text-center text-2xl sm:text-3xl font-black p-4 rounded-2xl border-4 focus:outline-none transition-colors read-only:opacity-90 ${inputBorder}`}
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
+                  className={`w-full rounded-xl border-[3px] p-2.5 text-center text-[clamp(1.15rem,4.5vw,1.75rem)] font-black transition-colors focus:outline-none read-only:opacity-90 sm:rounded-2xl sm:p-3 ${inputBorder}`}
                 />
               </div>
 
               {verdict !== null && (
-                <div className="w-full animate-in fade-in slide-in-from-bottom-2 duration-300">
-                  {verdict === 'correct' && <p className="text-lg font-black text-emerald-600">✓ Chính xác! <span className="underline decoration-emerald-400">{recallWord.word}</span></p>}
-                  {verdict === 'close' && <p className="text-lg font-black text-amber-600">Gần đúng! Đáp án: <span className="underline decoration-amber-400">{recallWord.word}</span></p>}
-                  {verdict === 'wrong' && <p className="text-lg font-black text-rose-600">✗ Đáp án: <span className="underline decoration-rose-400">{recallWord.word}</span></p>}
+                <div className="w-full shrink-0 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                  {verdict === 'correct' && (
+                    <p className="text-base font-black text-emerald-600 sm:text-lg">
+                      ✓ Chính xác!{' '}
+                      <span className="underline decoration-emerald-400">{recallWord.word}</span>
+                    </p>
+                  )}
+                  {verdict === 'close' && (
+                    <p className="text-base font-black text-amber-600 sm:text-lg">
+                      Gần đúng! Đáp án:{' '}
+                      <span className="underline decoration-amber-400">{recallWord.word}</span>
+                    </p>
+                  )}
+                  {verdict === 'wrong' && (
+                    <p className="text-base font-black text-rose-600 sm:text-lg">
+                      ✗ Đáp án: <span className="underline decoration-rose-400">{recallWord.word}</span>
+                    </p>
+                  )}
                 </div>
               )}
             </CardContent>
           </Card>
 
-          <div className="w-full max-w-[480px]">
+          <div className="mt-2 w-full max-w-[400px] shrink-0">
             {verdict === null ? (
-              <div className="flex gap-3">
-                <button onClick={submitRecall} disabled={!input.trim()}
-                  className="flex-[2] h-16 rounded-[28px] bg-indigo-600 border-b-4 border-indigo-800 text-white font-black text-lg shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all active:translate-y-1 active:border-b-0 disabled:opacity-40">
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={submitRecall}
+                  disabled={!input.trim()}
+                  className="h-14 flex-[2] rounded-2xl border-b-[3px] border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 disabled:opacity-40 sm:h-16 sm:rounded-[22px] sm:text-lg"
+                >
                   Kiểm tra
                 </button>
-                <button onClick={giveUpRecall}
-                  className="flex-1 h-16 rounded-[28px] bg-white border-2 border-slate-200 border-b-4 text-slate-500 font-bold text-sm hover:bg-slate-50 transition-all active:translate-y-1 active:border-b-2">
+                <button
+                  type="button"
+                  onClick={giveUpRecall}
+                  className="h-14 flex-1 rounded-2xl border-2 border-b-[3px] border-slate-200 bg-white text-xs font-bold text-slate-500 transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-2 sm:h-16 sm:rounded-[22px] sm:text-sm"
+                >
                   Không nhớ
                 </button>
               </div>
             ) : (
-              <button onClick={goNextRecall}
-                className="w-full h-16 rounded-[28px] bg-white border-b-4 border-slate-200 text-slate-800 font-black text-lg shadow-sm hover:bg-slate-50 transition-all active:translate-y-1 active:border-b-0 flex items-center justify-center gap-2">
-                {recallIndex + 1 >= batch.length ? 'Xem kết quả' : 'Tiếp theo'} <ArrowRight className="h-5 w-5" />
+              <button
+                type="button"
+                onClick={goNextRecall}
+                className="flex h-14 w-full items-center justify-center gap-2 rounded-2xl border-b-[3px] border-slate-200 bg-white text-base font-black text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-lg"
+              >
+                {recallIndex + 1 >= batch.length ? 'Xem kết quả' : 'Tiếp theo'}{' '}
+                <ArrowRight className="h-5 w-5" />
               </button>
             )}
           </div>
@@ -443,11 +521,13 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // ── DONE ──
   const accuracy = batch.length > 0 ? Math.round((results.correct / batch.length) * 100) : 0;
   return (
-    <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
-      <div className="text-center space-y-3">
-        <div className="text-7xl mb-4 animate-bounce">🎓</div>
-        <h1 className="text-4xl font-black text-slate-900 tracking-tight">Đã học {batch.length} từ!</h1>
-        <p className="text-slate-500 text-lg font-medium">Độ chính xác khi nhớ lại: {accuracy}%. Các từ này sẽ quay lại ở phần Ôn tập.</p>
+    <div className="flex h-[calc(100dvh-62px)] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
+      <div className="space-y-3 text-center">
+        <div className="mb-2 animate-bounce text-6xl">🎓</div>
+        <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">Đã học {batch.length} từ!</h1>
+        <p className="text-base font-medium text-slate-500 sm:text-lg">
+          Độ chính xác khi nhớ lại: {accuracy}%. Các từ này sẽ quay lại ở phần Ôn tập.
+        </p>
       </div>
 
       <Card className="w-full max-w-sm border-none shadow-2xl bg-white/70 backdrop-blur-xl rounded-3xl overflow-hidden">
@@ -487,26 +567,32 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   );
 }
 
-// ── Sub-components dùng lại trong các bước ──
+// ── Sub-components gọn cho viewport-fit ──
 function Header({ label, badge, onHelp }: { label: string; badge: string; onHelp?: () => void }) {
   return (
-    <header className="flex items-center justify-between p-4 sm:p-6 bg-white/50 backdrop-blur-md sticky top-0 z-10 gap-3">
+    <header className="flex shrink-0 items-center justify-between gap-2 border-b border-slate-100/80 bg-white/70 px-3 py-1.5 backdrop-blur-md sm:px-4">
       <Link href="/student">
-        <Button variant="ghost" size="sm" className="gap-2 text-slate-500 hover:text-primary font-bold rounded-xl">
+        <Button variant="ghost" size="sm" className="h-9 gap-1 rounded-xl px-2 font-bold text-slate-500 hover:text-primary">
           <ChevronLeft className="h-5 w-5" /> <span className="hidden sm:inline">Dashboard</span>
         </Button>
       </Link>
-      <div className="flex items-center gap-2 font-black text-slate-700">
+      <div className="flex items-center gap-1.5 text-sm font-black text-slate-700">
         <BookOpen className="h-4 w-4 text-indigo-500" /> {label}
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5">
         {onHelp && (
-          <button onClick={onHelp} aria-label="Hướng dẫn cách học"
-            className="p-2 rounded-full text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-colors">
-            <HelpCircle className="h-5 w-5" />
+          <button
+            type="button"
+            onClick={onHelp}
+            aria-label="Hướng dẫn cách học"
+            className="rounded-full p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-indigo-600"
+          >
+            <HelpCircle className="h-4 w-4" />
           </button>
         )}
-        <div className="px-4 py-1.5 bg-primary text-white rounded-full text-xs font-black tracking-widest">{badge}</div>
+        <div className="rounded-full bg-primary px-3 py-1 text-[11px] font-black tracking-widest text-white">
+          {badge}
+        </div>
       </div>
     </header>
   );
@@ -514,9 +600,12 @@ function Header({ label, badge, onHelp }: { label: string; badge: string; onHelp
 
 function ProgressBar({ value }: { value: number }) {
   return (
-    <div className="px-6 mt-2">
-      <div className="h-2.5 w-full bg-white rounded-full overflow-hidden shadow-sm border border-slate-100">
-        <div className="h-full bg-indigo-600 transition-all duration-500 rounded-full" style={{ width: `${value}%` }} />
+    <div className="shrink-0 px-3 pt-1.5 sm:px-4">
+      <div className="h-1.5 w-full overflow-hidden rounded-full border border-slate-100 bg-white shadow-sm">
+        <div
+          className="h-full rounded-full bg-indigo-600 transition-all duration-500"
+          style={{ width: `${value}%` }}
+        />
       </div>
     </div>
   );

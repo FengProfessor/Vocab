@@ -127,6 +127,16 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     };
   }, []);
 
+  // Preload ảnh 3 thẻ kế tiếp — ảnh sẵn trong cache trình duyệt khi chuyển thẻ
+  useEffect(() => {
+    queue.slice(1, 4).forEach((w) => {
+      if (w.image_url) {
+        const img = new window.Image();
+        img.src = `/api/image-proxy?url=${encodeURIComponent(w.image_url)}`;
+      }
+    });
+  }, [queue]);
+
   // Khôi phục lựa chọn chế độ gõ
   useEffect(() => {
     setTypingMode(localStorage.getItem('lingopro_typing_mode') !== 'off');
@@ -307,10 +317,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
   if (isLoading) {
     return (
-      <div className="min-h-dvh flex items-center justify-center bg-muted/40 font-sans">
+      <div className="flex h-[calc(100dvh-62px)] items-center justify-center bg-muted/40 font-sans">
         <div className="flex flex-col items-center gap-6">
-          <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-indigo-600 font-bold animate-pulse text-lg">Preparing your session...</p>
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-indigo-500 border-t-transparent" />
+          <p className="text-lg font-bold animate-pulse text-indigo-600">Preparing your session...</p>
         </div>
       </div>
     );
@@ -319,7 +329,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   if (done || !current) {
     const goalReached = gamification.today_xp >= gamification.daily_goal;
     return (
-      <div className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-8 font-sans">
+      <div className="flex h-[calc(100dvh-62px)] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
         <Celebration trigger={true} intensity={goalReached ? 'strong' : 'light'} />
 
         <div className="text-center space-y-3">
@@ -382,96 +392,113 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     );
   }
 
+  // Layout fit 1 viewport: shell header 62px — mọi phần (ảnh, chữ, input, flip/rating) trong khung còn lại
+  const isTypingFront =
+    typingMode &&
+    current.srsLevel >= 2 &&
+    !hasSpelledCorrectly &&
+    !!current.translation &&
+    !current.translation.includes('failed') &&
+    !current.translation.includes('Analyzing');
+
   return (
-    <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
+    <div className="flex h-[calc(100dvh-62px)] max-h-[calc(100dvh-62px)] flex-col overflow-hidden bg-slate-50 font-sans">
       <StudyGuideModal open={showGuide} onClose={closeGuide} />
-      <header className="sticky top-[62px] z-10 flex items-center justify-between gap-3 bg-white/50 p-4 backdrop-blur-md sm:p-6">
+
+      {/* Session chrome — gọn, không sticky chồng shell */}
+      <header className="flex shrink-0 items-center justify-between gap-2 border-b border-slate-100/80 bg-white/70 px-3 py-1.5 backdrop-blur-md sm:px-4">
         <Link href="/student">
-          <Button variant="ghost" size="sm" className="gap-2 text-slate-500 hover:text-primary font-bold rounded-xl transition-colors">
+          <Button variant="ghost" size="sm" className="h-9 gap-1 rounded-xl px-2 font-bold text-slate-500 hover:text-primary">
             <ChevronLeft className="h-5 w-5" /> <span className="hidden sm:inline">Dashboard</span>
           </Button>
         </Link>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <button
             onClick={() => setShowGuide(true)}
             aria-label="Hướng dẫn cách học"
-            className="p-2 rounded-full text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-colors"
+            className="rounded-full p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-indigo-600"
           >
-            <HelpCircle className="h-5 w-5" />
+            <HelpCircle className="h-4 w-4" />
           </button>
           <StreakCounter streak={gamification.current_streak} />
-          <DailyGoalRing todayXp={gamification.today_xp} dailyGoal={gamification.daily_goal} size={36} />
+          <DailyGoalRing todayXp={gamification.today_xp} dailyGoal={gamification.daily_goal} size={30} />
         </div>
-        <div className="px-4 py-1.5 bg-primary text-white rounded-full text-xs font-black tracking-widest">
+        <div className="rounded-full bg-primary px-3 py-1 text-[11px] font-black tracking-widest text-white">
           {Math.min(progress + 1, total)} / {total}
         </div>
       </header>
 
-      <div className="px-6 mt-2">
-        <div className="h-2.5 w-full bg-white rounded-full overflow-hidden shadow-sm border border-slate-100">
-           <div className="h-full bg-indigo-600 transition-all duration-500 rounded-full" style={{ width: `${(progress / total) * 100}%` }} />
+      <div className="shrink-0 px-3 pt-1.5 sm:px-4">
+        <div className="h-1.5 w-full overflow-hidden rounded-full border border-slate-100 bg-white shadow-sm">
+          <div
+            className="h-full rounded-full bg-indigo-600 transition-all duration-500"
+            style={{ width: `${(progress / total) * 100}%` }}
+          />
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center p-6 gap-8">
+      {/* Body: card flex-1 + actions cố định đáy */}
+      <div className="flex min-h-0 flex-1 flex-col items-center px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-4">
         <div
-          className={`relative w-full max-w-[420px] ${typingMode && current.srsLevel >= 2 && !hasSpelledCorrectly ? '' : 'cursor-pointer'}`}
+          className={`relative min-h-0 w-full max-w-[400px] flex-1 ${isTypingFront ? '' : 'cursor-pointer'}`}
           style={{ perspective: '1200px' }}
           onClick={() => {
-            if (!typingMode || current.srsLevel < 2 || hasSpelledCorrectly) {
-              setFlipped(!flipped);
-            }
+            if (!isTypingFront) setFlipped(!flipped);
           }}
         >
-          {/* Streak badge — hiện phía trên góc phải card */}
           {goodStreak >= 2 && (
-            <div className="absolute -top-4 right-0 z-20 animate-in zoom-in duration-300">
-              <div className="flex items-center gap-1 bg-orange-500 text-white text-xs font-black px-3 py-1 rounded-full shadow-lg shadow-orange-200 border border-orange-400">
-                🔥 {goodStreak} streak
+            <div className="absolute -top-2 right-1 z-20 animate-in zoom-in duration-300">
+              <div className="flex items-center gap-1 rounded-full border border-orange-400 bg-orange-500 px-2.5 py-0.5 text-[10px] font-black text-white shadow-md shadow-orange-200">
+                🔥 {goodStreak}
               </div>
             </div>
           )}
 
           <div
-            className={`relative w-full ${isSwapping ? '' : 'transition-transform duration-[200ms] ease-out'}`}
+            className={`relative h-full w-full ${isSwapping ? '' : 'transition-transform duration-[200ms] ease-out'}`}
             style={{
               transformStyle: 'preserve-3d',
               WebkitTransformStyle: 'preserve-3d',
               transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
               WebkitTransform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-              minHeight: 'clamp(380px, 58vh, 480px)', // co lại trên màn nhỏ, tránh tràn
             }}
           >
             {/* Front */}
-            <Card className="absolute inset-0 border-none shadow-2xl shadow-indigo-100 flex flex-col items-center justify-center p-10 text-center rounded-[40px] bg-white border-b-8 border-slate-200"
-              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
-              <CardContent className="p-0 w-full flex flex-col items-center gap-6">
-                <Badge className="bg-amber-50 text-amber-600 border-none text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-2">
-                  {current.isDue ? '⚡ REVIEW TIME' : '📖 NEW WORD'}
+            <Card
+              className="absolute inset-0 flex flex-col overflow-hidden rounded-[28px] border-none border-b-[6px] border-slate-200 bg-white text-center shadow-xl shadow-indigo-100 sm:rounded-[32px]"
+              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+            >
+              <CardContent className="flex min-h-0 w-full flex-1 flex-col items-center gap-2 overflow-y-auto overscroll-contain p-3 sm:gap-2.5 sm:p-4">
+                <Badge className="shrink-0 rounded-full border-none bg-amber-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-amber-600">
+                  {current.isDue ? '⚡ ÔN TẬP' : '📖 TỪ MỚI'}
                 </Badge>
 
-                {/* Vocabulary Image */}
                 {current.image_url && (
-                  <div className="w-full h-40 rounded-3xl overflow-hidden border border-slate-100 shadow-inner relative group/img">
+                  <div className="group/img relative h-[clamp(72px,16dvh,128px)] w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 shadow-inner">
                     <img
                       src={`/api/image-proxy?url=${encodeURIComponent(current.image_url)}`}
                       alt={current.word}
-                      loading="lazy"
+                      loading="eager"
+                      fetchPriority="high"
                       decoding="async"
-                      className="w-full h-full object-cover transition-all duration-700 opacity-0 group-hover/img:scale-110"
-                      onLoad={(e) => (e.currentTarget.style.opacity = '1')}
+                      className="h-full w-full object-cover opacity-0 transition-all duration-500 group-hover/img:scale-105"
+                      onLoad={(e) => {
+                        e.currentTarget.style.opacity = '1';
+                      }}
                       onError={(e) => {
                         const img = e.currentTarget as HTMLImageElement;
                         img.style.display = 'none';
                         img.parentElement?.querySelector('[data-img-fallback]')?.classList.replace('hidden', 'flex');
                       }}
                     />
-                    {/* Placeholder khi ảnh lỗi — giữ nguyên kích thước card, nút refresh vẫn dùng được */}
-                    <div data-img-fallback className="hidden absolute inset-0 flex-col items-center justify-center gap-1 bg-slate-50 text-slate-300">
-                      <span className="text-3xl">🖼️</span>
-                      <span className="text-[10px] font-bold">Ảnh lỗi — bấm 🔄 để tìm ảnh khác</span>
+                    <div
+                      data-img-fallback
+                      className="absolute inset-0 hidden flex-col items-center justify-center gap-0.5 bg-slate-50 text-slate-300"
+                    >
+                      <span className="text-2xl">🖼️</span>
+                      <span className="text-[9px] font-bold">Ảnh lỗi — bấm 🔄</span>
                     </div>
-                    <button 
+                    <button
                       onClick={async (e) => {
                         e.stopPropagation();
                         toast.info('Finding a better image...', { icon: '🔍' });
@@ -479,46 +506,62 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                           const { data: { session } } = await supabase.auth.getSession();
                           const res = await fetch('/api/words/refresh-image', {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
-                            body: JSON.stringify({ wordId: current.id })
+                            headers: {
+                              'Content-Type': 'application/json',
+                              Authorization: `Bearer ${session?.access_token ?? ''}`,
+                            },
+                            body: JSON.stringify({ wordId: current.id }),
                           });
                           const data = await res.json();
                           if (data.success) {
-                             setCurrent(prev => prev ? { ...prev, image_url: data.imageUrl } : null);
-                             toast.success('Updated image!');
+                            setCurrent((prev) => (prev ? { ...prev, image_url: data.imageUrl } : null));
+                            toast.success('Updated image!');
                           }
                         } catch {
-                           toast.error('Could not update image.');
+                          toast.error('Could not update image.');
                         }
                       }}
-                      className="absolute top-3 right-3 p-2.5 bg-black/40 hover:bg-black/70 text-white rounded-full backdrop-blur-md opacity-40 group-hover/img:opacity-100 transition-all border border-white/20 shadow-xl z-20"
+                      className="absolute right-2 top-2 z-20 rounded-full border border-white/20 bg-black/40 p-1.5 text-white opacity-50 shadow-lg backdrop-blur-md transition-all hover:bg-black/70 group-hover/img:opacity-100"
                     >
-                      <RefreshCw className="h-4 w-4" />
+                      <RefreshCw className="h-3.5 w-3.5" />
                     </button>
                   </div>
                 )}
 
-                {/* Only use typing mode if word is fully analyzed */}
-                {typingMode && current.srsLevel >= 2 && !hasSpelledCorrectly &&
-                  current.translation && !current.translation.includes('failed') && !current.translation.includes('Analyzing') ? (
-                  // Active Recall Typing Mode (MochiVocab Style)
-                  <div className="w-full flex flex-col items-center gap-6 animate-in fade-in zoom-in duration-300">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform cursor-pointer shadow-sm border border-indigo-200 group"
-                           onClick={(e) => { e.stopPropagation(); speak(current.word, 1.0); }}>
-                        <Volume2 className="h-8 w-8 text-indigo-600 group-hover:animate-pulse" />
-                      </div>
-                      <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform cursor-pointer shadow-sm border border-amber-200 group"
-                           title="Slow pronunciation"
-                           onClick={(e) => { e.stopPropagation(); speak(current.word, 0.6); }}>
-                        <Snail className="h-8 w-8 text-amber-600 font-black group-hover:animate-bounce" />
-                      </div>
+                {isTypingFront ? (
+                  <div className="flex w-full min-h-0 flex-1 flex-col items-center justify-center gap-2 animate-in fade-in zoom-in duration-300 sm:gap-2.5">
+                    <div className="flex shrink-0 items-center gap-2.5">
+                      <button
+                        type="button"
+                        className="flex h-11 w-11 items-center justify-center rounded-xl border border-indigo-200 bg-indigo-100 shadow-sm transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          speak(current.word, 1.0);
+                        }}
+                      >
+                        <Volume2 className="h-5 w-5 text-indigo-600 sm:h-6 sm:w-6" />
+                      </button>
+                      <button
+                        type="button"
+                        title="Slow pronunciation"
+                        className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-200 bg-amber-100 shadow-sm transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          speak(current.word, 0.6);
+                        }}
+                      >
+                        <Snail className="h-5 w-5 text-amber-600 sm:h-6 sm:w-6" />
+                      </button>
                     </div>
-                    
-                     <p className="text-xl font-bold text-slate-800 break-words">{current.translation}</p>
-                     {current.ipa && <p className="text-sm font-mono text-slate-400">{parseIpa(current.ipa)}</p>}
 
-                    <div className="w-full relative mt-4">
+                    <p className="line-clamp-3 w-full max-w-full break-words px-1 text-center text-[clamp(1rem,3.8vw,1.35rem)] font-bold leading-snug text-slate-800">
+                      {current.translation}
+                    </p>
+                    {current.ipa && (
+                      <p className="shrink-0 font-mono text-xs text-slate-400 sm:text-sm">{parseIpa(current.ipa)}</p>
+                    )}
+
+                    <div className="w-full shrink-0">
                       <input
                         type="text"
                         autoFocus={canAutoFocus()}
@@ -528,137 +571,153 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                           setSpellingError(false);
                         }}
                         onKeyDown={(e) => {
-                           if (e.key === 'Enter') {
-                             e.preventDefault();
-                             if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
-                               handleSpellingCorrect();
-                             } else {
-                               setSpellingError(true);
-                               toast.error('Incorrect, try again!', { position: 'top-center' });
-                             }
-                           } else if (e.key === 'Escape') {
-                             e.preventDefault();
-                             handleSpellingSkip();
-                           }
-                        }}
-                        placeholder="Nghe và gõ lại (Esc để bỏ qua)..."
-                        className={`w-full text-center text-3xl font-black p-4 rounded-2xl border-4 focus:outline-none transition-colors
-                          ${spellingError ? 'border-rose-400 bg-rose-50 text-rose-600 animate-shake' : 'border-slate-200 bg-slate-50 focus:border-indigo-500'}`}
-                      />
-                    </div>
-                    <div className="flex gap-3 w-full mt-4">
-                       <Button 
-                         onClick={(e) => {
-                           e.stopPropagation();
-                           if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
                               handleSpellingCorrect();
-                           } else {
+                            } else {
                               setSpellingError(true);
                               toast.error('Incorrect, try again!', { position: 'top-center' });
-                           }
-                         }}
-                         className="flex-[2] h-14 rounded-2xl bg-indigo-600 hover:bg-indigo-700 font-bold text-lg shadow-xl shadow-indigo-100"
-                       >
-                         Kiểm Tra
-                       </Button>
-                       <Button
-                         variant="outline"
-                         onClick={(e) => {
-                           e.stopPropagation();
-                           handleSpellingSkip();
-                         }}
-                         className="flex-1 h-14 rounded-2xl border-2 border-slate-200 text-slate-500 hover:bg-slate-50 font-bold text-sm shadow-sm"
-                       >
-                         Không nhớ
-                       </Button>
-                     </div>
+                            }
+                          } else if (e.key === 'Escape') {
+                            e.preventDefault();
+                            handleSpellingSkip();
+                          }
+                        }}
+                        placeholder="Gõ từ (Esc bỏ qua)..."
+                        className={`w-full rounded-xl border-[3px] p-2.5 text-center text-[clamp(1.15rem,4.5vw,1.75rem)] font-black transition-colors focus:outline-none sm:rounded-2xl sm:p-3 ${
+                          spellingError
+                            ? 'animate-shake border-rose-400 bg-rose-50 text-rose-600'
+                            : 'border-slate-200 bg-slate-50 focus:border-indigo-500'
+                        }`}
+                      />
+                    </div>
+
+                    <div className="flex w-full shrink-0 gap-2">
+                      <Button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (spellingInput.trim().toLowerCase() === current.word.toLowerCase()) {
+                            handleSpellingCorrect();
+                          } else {
+                            setSpellingError(true);
+                            toast.error('Incorrect, try again!', { position: 'top-center' });
+                          }
+                        }}
+                        className="h-11 flex-[2] rounded-xl bg-indigo-600 text-sm font-bold shadow-md shadow-indigo-100 hover:bg-indigo-700 sm:h-12 sm:rounded-2xl sm:text-base"
+                      >
+                        Kiểm tra
+                      </Button>
+                      <Button
+                        variant="outline"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSpellingSkip();
+                        }}
+                        className="h-11 flex-1 rounded-xl border-2 border-slate-200 text-xs font-bold text-slate-500 hover:bg-slate-50 sm:h-12 sm:rounded-2xl sm:text-sm"
+                      >
+                        Không nhớ
+                      </Button>
+                    </div>
                   </div>
                 ) : (
-                  // Passive Recognition Mode (Level 1) or After Spelled Correctly
-                  <>
-                    <h2 className="text-[clamp(1.75rem,7vw,3rem)] font-black tracking-tight text-slate-900 break-words w-full px-2">
+                  <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-3">
+                    <h2 className="line-clamp-4 w-full break-words px-1 text-center text-[clamp(1.35rem,5.5vw,2.25rem)] font-black leading-tight tracking-tight text-slate-900">
                       {current.translation}
                     </h2>
-                    
-                    <div className="mt-8 flex flex-col items-center opacity-40">
-                       <div className="w-8 h-8 rounded-full border-2 border-slate-300 flex items-center justify-center animate-bounce">
-                          <div className="w-1 h-3 bg-slate-300 rounded-full" />
-                       </div>
-                       <p className="text-xs font-black text-slate-400 mt-2 uppercase tracking-tighter">Lật thẻ xem từ tiếng Anh</p>
+                    <div className="flex flex-col items-center opacity-40">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-slate-300 animate-bounce">
+                        <div className="h-2.5 w-1 rounded-full bg-slate-300" />
+                      </div>
+                      <p className="mt-1.5 text-[10px] font-black uppercase tracking-tighter text-slate-400">
+                        Lật thẻ xem từ
+                      </p>
                     </div>
                     {showFlipHint && (
-                      <div className="flex flex-col items-center mt-2 animate-in fade-in duration-500">
-                        <ChevronDown className="animate-bounce text-slate-500 h-5 w-5" />
-                      </div>
+                      <ChevronDown className="h-5 w-5 animate-bounce text-slate-500 animate-in fade-in duration-500" />
                     )}
-                  </>
+                  </div>
                 )}
               </CardContent>
             </Card>
 
             {/* Back */}
-            <Card className="absolute inset-0 border-none shadow-2xl shadow-indigo-100 flex flex-col items-center justify-center p-10 text-center rounded-[40px] bg-indigo-600 border-b-8 border-indigo-800"
-              style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
-              <CardContent className="p-0 w-full flex flex-col items-center gap-4 text-white">
-                <div className="flex flex-col items-center gap-2 w-full">
-                   <h3 className="text-[clamp(2rem,9vw,3.75rem)] font-black tracking-tight leading-tight mb-2 break-words w-full px-2">
-                     {current.word}
-                   </h3>
-                   {current.ipa && <p className="text-2xl text-indigo-200 font-mono tracking-widest">{parseIpa(current.ipa)}</p>}
-                   <p className="text-lg text-indigo-200 mt-2">{current.translation}</p>
+            <Card
+              className="absolute inset-0 flex flex-col overflow-hidden rounded-[28px] border-none border-b-[6px] border-indigo-800 bg-indigo-600 text-center shadow-xl shadow-indigo-100 sm:rounded-[32px]"
+              style={{
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                transform: 'rotateY(180deg)',
+                WebkitTransform: 'rotateY(180deg)',
+              }}
+            >
+              <CardContent className="flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-2 overflow-y-auto overscroll-contain p-3 text-white sm:gap-2.5 sm:p-4">
+                <div className="flex w-full shrink-0 flex-col items-center gap-1">
+                  <h3 className="line-clamp-2 w-full break-words px-1 text-[clamp(1.5rem,6.5vw,2.75rem)] font-black leading-tight tracking-tight">
+                    {current.word}
+                  </h3>
+                  {current.ipa && (
+                    <p className="font-mono text-sm tracking-wide text-indigo-200 sm:text-base">
+                      {parseIpa(current.ipa)}
+                    </p>
+                  )}
+                  <p className="line-clamp-2 text-sm text-indigo-100 sm:text-base">{current.translation}</p>
                 </div>
-                
-                <div className="flex items-center gap-4 mb-4">
-                  {current.pos && <Badge className="bg-white/20 text-white border-none text-[10px] font-black uppercase tracking-widest px-3">{current.pos}</Badge>}
-                  
-                  {/* Normal Speed */}
-                  <div className="w-16 h-16 bg-white/20 rounded-3xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform cursor-pointer group border border-white/20"
-                       onClick={(e) => { 
-                         e.stopPropagation(); 
-                         speak(current.word, 1.0); 
-                       }}>
-                    <Volume2 className="h-8 w-8 text-white" />
-                  </div>
 
-                  {/* Slow Speed */}
-                  <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform cursor-pointer group border border-white/20"
-                       title="Slow pronunciation"
-                       onClick={(e) => { 
-                         e.stopPropagation(); 
-                         speak(current.word, 0.6); 
-                       }}>
-                    <Snail className="h-8 w-8 text-white/80" />
-                  </div>
+                <div className="flex shrink-0 items-center gap-2.5">
+                  {current.pos && (
+                    <Badge className="border-none bg-white/20 px-2.5 text-[9px] font-black uppercase tracking-widest text-white">
+                      {current.pos}
+                    </Badge>
+                  )}
+                  <button
+                    type="button"
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/20 transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      speak(current.word, 1.0);
+                    }}
+                  >
+                    <Volume2 className="h-5 w-5 text-white sm:h-6 sm:w-6" />
+                  </button>
+                  <button
+                    type="button"
+                    title="Slow pronunciation"
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/10 transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      speak(current.word, 0.6);
+                    }}
+                  >
+                    <Snail className="h-5 w-5 text-white/80 sm:h-6 sm:w-6" />
+                  </button>
                 </div>
 
                 {current.example && (
-                  <div className="bg-white/10 rounded-3xl p-6 text-left border border-white/10 max-w-sm backdrop-blur-sm">
-                    <p className="text-base font-medium leading-relaxed italic border-l-4 border-white/30 pl-4">
+                  <div className="w-full max-w-sm shrink rounded-2xl border border-white/10 bg-white/10 p-2.5 text-left backdrop-blur-sm sm:p-3">
+                    <p className="line-clamp-3 border-l-4 border-white/30 pl-3 text-xs font-medium italic leading-snug sm:text-sm">
                       &quot;{current.example}&quot;
                     </p>
                   </div>
                 )}
 
-                {/* Auto-advance notification */}
                 {autoAdvanceTime !== null && (
-                  <p className="text-xs font-black text-indigo-200 tracking-wide mt-2 animate-pulse">
-                     ⚡ Đang chuyển thẻ tiếp theo...
+                  <p className="shrink-0 animate-pulse text-[10px] font-black tracking-wide text-indigo-200">
+                    ⚡ Đang chuyển thẻ...
                   </p>
                 )}
 
-                {/* Task 2: Synonyms & Antonyms */}
-                {((current.synonyms && current.synonyms.length > 0) || (current.antonyms && current.antonyms.length > 0)) && (
-                  <div className="flex flex-col gap-1 text-xs w-full max-w-sm">
+                {((current.synonyms && current.synonyms.length > 0) ||
+                  (current.antonyms && current.antonyms.length > 0)) && (
+                  <div className="flex w-full max-w-sm shrink-0 flex-col gap-0.5 text-[10px] sm:text-xs">
                     {current.synonyms && current.synonyms.length > 0 && (
-                      <p className="text-emerald-400">
-                        <span className="font-black">Đồng nghĩa:</span>{' '}
-                        {current.synonyms.join(', ')}
+                      <p className="line-clamp-1 text-emerald-300">
+                        <span className="font-black">Đồng nghĩa:</span> {current.synonyms.join(', ')}
                       </p>
                     )}
                     {current.antonyms && current.antonyms.length > 0 && (
-                      <p className="text-red-400">
-                        <span className="font-black">Trái nghĩa:</span>{' '}
-                        {current.antonyms.join(', ')}
+                      <p className="line-clamp-1 text-red-300">
+                        <span className="font-black">Trái nghĩa:</span> {current.antonyms.join(', ')}
                       </p>
                     )}
                   </div>
@@ -668,71 +727,89 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           </div>
         </div>
 
-        {/* XP popup */}
         {xpPopup.show && (
-          <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 animate-in fade-in zoom-in duration-200 pointer-events-none">
-            <div className="bg-yellow-400 text-yellow-900 font-black text-lg rounded-2xl px-5 py-2 shadow-xl border border-yellow-300">
+          <div className="pointer-events-none fixed left-1/2 top-[76px] z-50 -translate-x-1/2 animate-in fade-in zoom-in duration-200">
+            <div className="rounded-2xl border border-yellow-300 bg-yellow-400 px-4 py-1.5 text-base font-black text-yellow-900 shadow-xl">
               +{xpPopup.amount} XP ⭐
             </div>
           </div>
         )}
 
-        {/* Rating buttons */}
-        <div className="w-full max-w-[420px] min-h-[80px]">
+        {/* Actions — luôn trong viewport */}
+        <div className="mt-2 w-full max-w-[400px] shrink-0">
           {flipped ? (
-            <div className="flex gap-2 animate-in fade-in slide-in-from-bottom-8 duration-500">
-              <button
-                className="flex-1 h-20 rounded-[28px] bg-red-50 border border-red-200 border-b-4 border-b-red-300 text-red-700 font-black text-[11px] uppercase tracking-tight hover:bg-red-100 transition-all active:translate-y-1 active:border-b-0 shadow-sm flex flex-col items-center justify-center gap-0.5"
-                onClick={() => handleRate(0)}
-              >
-                <span className="text-base">😵</span>
-                <span>Again</span>
-                <span className="text-[9px] font-bold text-red-400 normal-case tracking-normal">Quên</span>
-              </button>
-              <button
-                className="flex-1 h-20 rounded-[28px] bg-orange-50 border border-orange-200 border-b-4 border-b-orange-300 text-orange-700 font-black text-[11px] uppercase tracking-tight hover:bg-orange-100 transition-all active:translate-y-1 active:border-b-0 shadow-sm flex flex-col items-center justify-center gap-0.5"
-                onClick={() => handleRate(3)}
-              >
-                <span className="text-base">😅</span>
-                <span>Hard</span>
-                <span className="text-[9px] font-bold text-orange-400 normal-case tracking-normal">Khó</span>
-              </button>
-              <button
-                className="flex-1 h-20 rounded-[28px] bg-green-50 border border-green-200 border-b-4 border-b-green-300 text-green-700 font-black text-[11px] uppercase tracking-tight hover:bg-green-100 transition-all active:translate-y-1 active:border-b-0 shadow-sm flex flex-col items-center justify-center gap-0.5"
-                onClick={() => handleRate(4)}
-              >
-                <span className="text-base">😊</span>
-                <span>Good</span>
-                <span className="text-[9px] font-bold text-green-500 normal-case tracking-normal">Nhớ được</span>
-              </button>
-              <button
-                className="flex-1 h-20 rounded-[28px] bg-purple-600 border-b-4 border-purple-800 text-white font-black text-[11px] uppercase tracking-tight shadow-lg shadow-purple-200 hover:bg-purple-700 transition-all active:translate-y-1 active:border-b-0 flex flex-col items-center justify-center gap-0.5"
-                onClick={() => handleRate(5)}
-              >
-                <span className="text-base">🚀</span>
-                <span>Easy</span>
-                <span className="text-[9px] font-bold text-purple-200 normal-case tracking-normal">Dễ</span>
-              </button>
+            <div className="flex gap-1.5 animate-in fade-in slide-in-from-bottom-4 duration-300 sm:gap-2">
+              {(
+                [
+                  {
+                    q: 0 as const,
+                    emoji: '😵',
+                    en: 'Again',
+                    vi: 'Quên',
+                    cls: 'bg-red-50 border-red-200 border-b-red-300 text-red-700 hover:bg-red-100',
+                    sub: 'text-red-400',
+                  },
+                  {
+                    q: 3 as const,
+                    emoji: '😅',
+                    en: 'Hard',
+                    vi: 'Khó',
+                    cls: 'bg-orange-50 border-orange-200 border-b-orange-300 text-orange-700 hover:bg-orange-100',
+                    sub: 'text-orange-400',
+                  },
+                  {
+                    q: 4 as const,
+                    emoji: '😊',
+                    en: 'Good',
+                    vi: 'Nhớ',
+                    cls: 'bg-green-50 border-green-200 border-b-green-300 text-green-700 hover:bg-green-100',
+                    sub: 'text-green-500',
+                  },
+                  {
+                    q: 5 as const,
+                    emoji: '🚀',
+                    en: 'Easy',
+                    vi: 'Dễ',
+                    cls: 'bg-purple-600 border-purple-800 text-white hover:bg-purple-700 shadow-md shadow-purple-200',
+                    sub: 'text-purple-200',
+                  },
+                ] as const
+              ).map((btn) => (
+                <button
+                  key={btn.en}
+                  type="button"
+                  className={`flex h-14 flex-1 flex-col items-center justify-center gap-0 rounded-2xl border border-b-[3px] text-[10px] font-black uppercase tracking-tight transition-all active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-[11px] ${btn.cls}`}
+                  onClick={() => handleRate(btn.q)}
+                >
+                  <span className="text-sm sm:text-base">{btn.emoji}</span>
+                  <span>{btn.en}</span>
+                  <span className={`text-[8px] font-bold normal-case tracking-normal sm:text-[9px] ${btn.sub}`}>
+                    {btn.vi}
+                  </span>
+                </button>
+              ))}
             </div>
           ) : (
             <button
-              className="w-full h-20 rounded-[28px] bg-white border-b-4 border-slate-200 text-slate-800 font-black text-lg shadow-sm hover:bg-slate-50 transition-all active:translate-y-1 active:border-b-0"
+              type="button"
+              className="h-14 w-full rounded-2xl border-b-[3px] border-slate-200 bg-white text-base font-black text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-lg"
               onClick={() => setFlipped(true)}
             >
-              Flip Card
+              Lật thẻ
             </button>
           )}
-          <div className="flex items-center justify-center gap-3 mt-2">
-            <p className="text-[10px] text-slate-600">Space: lật • 1-4: đánh giá</p>
+          <div className="mt-1 flex items-center justify-center gap-2">
+            <p className="hidden text-[10px] text-slate-500 sm:block">Space: lật · 1–4: đánh giá</p>
             <button
+              type="button"
               onClick={toggleTypingMode}
-              className={`text-[10px] font-bold px-2.5 py-1 rounded-full border transition-colors ${
+              className={`rounded-full border px-2 py-0.5 text-[10px] font-bold transition-colors ${
                 typingMode
-                  ? 'bg-indigo-50 text-indigo-600 border-indigo-200 hover:bg-indigo-100'
-                  : 'bg-slate-100 text-slate-500 border-slate-200 hover:bg-slate-200'
+                  ? 'border-indigo-200 bg-indigo-50 text-indigo-600 hover:bg-indigo-100'
+                  : 'border-slate-200 bg-slate-100 text-slate-500 hover:bg-slate-200'
               }`}
             >
-              ✍️ Chế độ gõ: {typingMode ? 'Bật' : 'Tắt'}
+              ✍️ Gõ: {typingMode ? 'Bật' : 'Tắt'}
             </button>
           </div>
         </div>
