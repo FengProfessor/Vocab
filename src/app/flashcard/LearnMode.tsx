@@ -309,14 +309,14 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               </Badge>
 
               {w.image_url && (
-                <div className="relative h-[clamp(72px,16dvh,128px)] w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 shadow-inner">
+                <div className="relative aspect-[16/10] max-h-[min(26dvh,168px)] w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 shadow-inner">
                   <img
                     src={`/api/image-proxy?url=${encodeURIComponent(w.image_url)}`}
                     alt={w.word}
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
-                    className="h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
                     onError={(e) => {
                       const img = e.currentTarget as HTMLImageElement;
                       img.style.display = 'none';

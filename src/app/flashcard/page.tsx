@@ -474,11 +474,12 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                 </Badge>
 
                 {current.image_url && (
+                  /* Khung ngang 16:10 — cao vừa để thấy đủ trên/dưới, không dải mỏng */
                   <div
-                    className={`group/img relative w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 shadow-inner ${
+                    className={`group/img relative w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 shadow-inner ${
                       isTypingFront
-                        ? 'h-[clamp(56px,11dvh,88px)]'
-                        : 'h-[clamp(72px,16dvh,128px)]'
+                        ? 'aspect-[16/10] max-h-[min(20dvh,128px)]'
+                        : 'aspect-[16/10] max-h-[min(26dvh,168px)]'
                     }`}
                   >
                     <img
@@ -487,7 +488,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                       loading="eager"
                       fetchPriority="high"
                       decoding="async"
-                      className="h-full w-full object-cover opacity-0 transition-all duration-500 group-hover/img:scale-105"
+                      className="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-all duration-500 group-hover/img:scale-105"
                       onLoad={(e) => {
                         e.currentTarget.style.opacity = '1';
                       }}
@@ -562,12 +563,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                         </button>
                       </div>
 
+                      {/* Ẩn IPA khi gõ — lộ gợi ý đánh vần; hiện sau flip (mặt sau) */}
                       <p className="line-clamp-4 w-full max-w-full break-words px-1 text-center text-[clamp(1.2rem,4.8vw,1.75rem)] font-black leading-snug text-slate-900">
                         {current.translation}
                       </p>
-                      {current.ipa && (
-                        <p className="shrink-0 font-mono text-[11px] text-slate-400">{parseIpa(current.ipa)}</p>
-                      )}
                     </div>
 
                     <div className="mt-auto w-full shrink-0 space-y-1.5 pt-1">
