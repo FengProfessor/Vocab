@@ -17,6 +17,23 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     const supabase = createServiceClient();
 
+    // Token FCM = 1 thiết bị/browser. Claim độc quyền:
+    // cùng token gắn nhiều user (đổi tài khoản trên 1 máy) → broadcast/cron bắn 2 TB xuống 1 phone.
+    const { error: stealErr } = await supabase
+      .from('fcm_tokens')
+      .delete()
+      .eq('token', fcmToken)
+      .neq('user_id', userId);
+    if (stealErr) {
+      console.warn('[FCM] exclusive token claim skipped:', stealErr.message);
+    }
+    // Legacy: gỡ token này khỏi profile user khác
+    await supabase
+      .from('profiles')
+      .update({ fcm_token: null })
+      .eq('fcm_token', fcmToken)
+      .neq('id', userId);
+
     // Đa thiết bị: mỗi (user, token) là 1 dòng. Upsert để không trùng.
     const { error: tokErr } = await supabase
       .from('fcm_tokens')
