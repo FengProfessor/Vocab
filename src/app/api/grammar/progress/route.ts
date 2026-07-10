@@ -39,6 +39,19 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const url = new URL(req.url);
     const view = url.searchParams.get('view');
+    const summaryOnly = url.searchParams.get('summary') === '1';
+
+    // ── summary=1: chỉ đếm bài due (nhẹ cho shell/dashboard) ──
+    if (summaryOnly) {
+      const nowIso = new Date().toISOString();
+      const { count: dueCount, error: dueErr } = await supabase
+        .from('grammar_progress')
+        .select('id', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .lte('next_review_date', nowIso);
+      if (dueErr) throw dueErr;
+      return NextResponse.json({ success: true, data: [], dueCount: dueCount || 0 });
+    }
 
     // ── view=topics: trả summary theo từng topic ──
     if (view === 'topics') {

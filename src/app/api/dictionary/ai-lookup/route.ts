@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { getRouter } from "@/lib/ai-router";
-import { sanitizeForPrompt, checkRateLimit, safeErrorResponse, getAuthUser, unauthorized } from "@/lib/api-security";
+import { sanitizeForPrompt, checkRateLimitAsync, safeErrorResponse, getAuthUser, unauthorized } from "@/lib/api-security";
 
 // Gọi AI sinh từ điển khi cache miss. Hobby mặc định 10s có thể kill sớm.
 export const maxDuration = 30;
@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     // Route đốt Gemini → bắt buộc JWT, rate limit theo user (chống đốt quota ẩn danh)
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    const rl = checkRateLimit(`ai:${auth.userId}`, 10, 60_000); // 10 req/min per user
+    const rl = await checkRateLimitAsync(`ai:${auth.userId}`, 10, 60_000); // 10 req/min per user
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },

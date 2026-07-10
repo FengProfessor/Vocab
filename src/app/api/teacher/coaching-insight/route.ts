@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getRouter } from "@/lib/ai-router";
-import { getAuthUser, unauthorized, checkRateLimit, tooManyRequests, sanitizeForPrompt, safeErrorResponse } from "@/lib/api-security";
+import { getAuthUser, unauthorized, checkRateLimitAsync, tooManyRequests, sanitizeForPrompt, safeErrorResponse } from "@/lib/api-security";
 
 // Gemini call. Hobby mặc định 10s có thể kill sớm → đặt 30s headroom.
 export const maxDuration = 30;
@@ -10,7 +10,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
 
-    const rl = checkRateLimit(`coaching:${auth.userId}`, 10, 60_000);
+    const rl = await checkRateLimitAsync(`coaching:${auth.userId}`, 10, 60_000);
     if (!rl.allowed) return tooManyRequests();
 
     const { studentName, vms, lcs, tag, msg } = (await req.json()) as {

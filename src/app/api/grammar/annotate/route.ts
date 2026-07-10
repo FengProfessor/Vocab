@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
-import { checkRateLimit, safeErrorResponse, sanitizeForPrompt, getAuthUser, unauthorized } from '@/lib/api-security';
+import { checkRateLimitAsync, safeErrorResponse, sanitizeForPrompt, getAuthUser, unauthorized } from '@/lib/api-security';
 
 // Gemini call dùng AbortSignal.timeout(10000). Mặc định Hobby cắt ở 10s → đặt 30s để có headroom.
 export const maxDuration = 30;
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     // Route đốt Gemini → bắt buộc JWT, rate limit theo user
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    const rl = checkRateLimit(`ai:${auth.userId}`, 20, 60_000); // 20 req/min per user
+    const rl = await checkRateLimitAsync(`ai:${auth.userId}`, 20, 60_000); // 20 req/min per user
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },

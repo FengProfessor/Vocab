@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getRouter } from "@/lib/ai-router";
-import { getAuthUser, unauthorized, checkRateLimit, safeErrorResponse, sanitizeForPrompt } from "@/lib/api-security";
+import { getAuthUser, unauthorized, checkRateLimitAsync, safeErrorResponse, sanitizeForPrompt } from "@/lib/api-security";
 
 export const maxDuration = 30;
 
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     if (!auth) return unauthorized();
 
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-    const rl = checkRateLimit(`ai-speaking:${ip}`, 15, 60_000); // 15 req/min per IP
+    const rl = await checkRateLimitAsync(`ai-speaking:${ip}`, 15, 60_000); // 15 req/min per IP
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: "Too many requests. Please wait." },

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { resolveWordImage } from '@/lib/image-pipeline';
-import { getAuthUser, unauthorized, checkRateLimit } from '@/lib/api-security';
+import { getAuthUser, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 
 /**
  * POST /api/words/refresh-image  Body: { wordId }
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
 
-    const rl = checkRateLimit(`refresh-image:${auth.userId}`, 10, 60_000); // 10 req/min per user
+    const rl = await checkRateLimitAsync(`refresh-image:${auth.userId}`, 10, 60_000); // 10 req/min per user
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },

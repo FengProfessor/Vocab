@@ -1,112 +1,245 @@
 import { NextRequest, NextResponse } from 'next/server';
+import dns from 'dns/promises';
+import net from 'net';
+import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
 
 /**
- * Validate URL to prevent SSRF attacks.
- * Blocks: private IPs, localhost, cloud metadata, non-HTTPS, too-long URLs.
+ * Image proxy with open-proxy hardening:
+ * - HTTPS only
+ * - Block private/metadata IPs (hostname + DNS resolve)
+ * - Reject SVG (XSS vector)
+ * - Per-IP rate limit + max body size
+ * - Follow redirects with re-validation
  */
-function isAllowedImageUrl(urlStr: string): boolean {
-    try {
-        if (urlStr.length > 2048) return false;
-        const u = new URL(urlStr);
-        // Only allow HTTPS
-        if (u.protocol !== 'https:') return false;
-        const host = u.hostname.toLowerCase();
-        // Block localhost variants
-        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host === '0.0.0.0') return false;
-        // Block private/reserved IP ranges
-        if (/^10\./.test(host)) return false;
-        if (/^172\.(1[6-9]|2\d|3[01])\./.test(host)) return false;
-        if (/^192\.168\./.test(host)) return false;
-        if (host === '169.254.169.254') return false; // AWS/GCP metadata
-        if (host === 'metadata.google.internal') return false; // GCP metadata
-        // Block internal/local hostnames
-        if (host.endsWith('.internal') || host.endsWith('.local') || host.endsWith('.localhost')) return false;
-        // Block common cloud metadata hostnames
-        if (host === 'metadata' || host === 'instance-data') return false;
-        return true;
-    } catch {
-        return false;
-    }
+
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5 MB
+const MAX_URL_LEN = 2048;
+const MAX_REDIRECTS = 3;
+const FETCH_TIMEOUT_MS = 10_000;
+
+/** Optional host allowlist via env (comma-separated). Empty = all public HTTPS. */
+const HOST_ALLOWLIST = (process.env.IMAGE_PROXY_ALLOWLIST || '')
+  .split(',')
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
+
+const BLOCKED_CONTENT_TYPES = [
+  'image/svg+xml',
+  'text/html',
+  'application/xhtml+xml',
+  'text/xml',
+  'application/xml',
+];
+
+function isPrivateIp(ip: string): boolean {
+  const v = net.isIP(ip);
+  if (v === 0) return true;
+
+  if (v === 4) {
+    const parts = ip.split('.').map(Number);
+    const [a, b] = parts;
+    if (a === 10) return true;
+    if (a === 127) return true;
+    if (a === 0) return true;
+    if (a === 169 && b === 254) return true;
+    if (a === 172 && b >= 16 && b <= 31) return true;
+    if (a === 192 && b === 168) return true;
+    if (a === 100 && b >= 64 && b <= 127) return true; // CGNAT
+    if (a >= 224) return true; // multicast/reserved
+    return false;
+  }
+
+  // IPv6
+  const lower = ip.toLowerCase();
+  if (lower === '::1') return true;
+  if (lower.startsWith('fc') || lower.startsWith('fd')) return true; // ULA
+  if (lower.startsWith('fe80')) return true; // link-local
+  if (lower.startsWith('::ffff:')) {
+    const mapped = lower.slice('::ffff:'.length);
+    if (net.isIPv4(mapped)) return isPrivateIp(mapped);
+  }
+  return false;
 }
 
-/** Maximum response body size (10 MB) to prevent memory abuse */
-const MAX_IMAGE_SIZE = 10 * 1024 * 1024;
+function isBlockedHostname(host: string): boolean {
+  if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host === '0.0.0.0') {
+    return true;
+  }
+  if (host === '169.254.169.254' || host === 'metadata.google.internal') return true;
+  if (host === 'metadata' || host === 'instance-data') return true;
+  if (host.endsWith('.internal') || host.endsWith('.local') || host.endsWith('.localhost')) {
+    return true;
+  }
+  if (/^10\./.test(host)) return true;
+  if (/^172\.(1[6-9]|2\d|3[01])\./.test(host)) return true;
+  if (/^192\.168\./.test(host)) return true;
+  return false;
+}
+
+function isAllowlistedHost(host: string): boolean {
+  if (HOST_ALLOWLIST.length === 0) return true;
+  return HOST_ALLOWLIST.some(
+    (allowed) => host === allowed || host.endsWith(`.${allowed}`),
+  );
+}
+
+async function assertSafeImageUrl(urlStr: string): Promise<{ ok: true } | { ok: false; error: string }> {
+  try {
+    if (urlStr.length > MAX_URL_LEN) return { ok: false, error: 'URL too long' };
+    const u = new URL(urlStr);
+    if (u.protocol !== 'https:') return { ok: false, error: 'Only HTTPS allowed' };
+
+    const host = u.hostname.toLowerCase();
+    if (isBlockedHostname(host)) return { ok: false, error: 'Blocked host' };
+    if (!isAllowlistedHost(host)) return { ok: false, error: 'Host not allowlisted' };
+
+    // Reject obvious SVG paths early
+    if (u.pathname.toLowerCase().endsWith('.svg')) {
+      return { ok: false, error: 'SVG not allowed' };
+    }
+
+    // If host is literal IP, check directly
+    if (net.isIP(host)) {
+      if (isPrivateIp(host)) return { ok: false, error: 'Private IP blocked' };
+      return { ok: true };
+    }
+
+    // DNS resolve + re-check (DNS rebinding mitigation)
+    let records: string[] = [];
+    try {
+      const result = await dns.lookup(host, { all: true, verbatim: true });
+      records = result.map((r) => r.address);
+    } catch {
+      return { ok: false, error: 'DNS resolve failed' };
+    }
+    if (records.length === 0) return { ok: false, error: 'DNS empty' };
+    for (const addr of records) {
+      if (isPrivateIp(addr)) {
+        return { ok: false, error: 'Resolved private IP blocked' };
+      }
+    }
+
+    return { ok: true };
+  } catch {
+    return { ok: false, error: 'Invalid URL' };
+  }
+}
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
-    const url = req.nextUrl.searchParams.get('url');
-    if (!url) return NextResponse.json({ success: false, error: 'Missing url parameter' }, { status: 400 });
+  const ip = getClientIp(req);
+  const rl = await checkRateLimitAsync(`image-proxy:${ip}`, 60, 60_000);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { success: false, error: 'Rate limit exceeded' },
+      {
+        status: 429,
+        headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) },
+      },
+    );
+  }
 
-    // SSRF protection
-    if (!isAllowedImageUrl(url)) {
-        return NextResponse.json({ success: false, error: 'Invalid or blocked URL' }, { status: 400 });
+  const url = req.nextUrl.searchParams.get('url');
+  if (!url) {
+    return NextResponse.json({ success: false, error: 'Missing url parameter' }, { status: 400 });
+  }
+
+  const safety = await assertSafeImageUrl(url);
+  if (!safety.ok) {
+    return NextResponse.json({ success: false, error: safety.error }, { status: 400 });
+  }
+
+  try {
+    let currentUrl = url;
+    let response: Response;
+    let hop = 0;
+
+    for (;;) {
+      response = await fetch(currentUrl, {
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          Accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+          Referer: new URL(currentUrl).origin,
+        },
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+        redirect: 'manual',
+      });
+
+      if (response.status < 300 || response.status >= 400) break;
+
+      const location = response.headers.get('location');
+      if (!location || ++hop > MAX_REDIRECTS) {
+        return NextResponse.json({ success: false, error: 'Too many redirects' }, { status: 400 });
+      }
+      const nextUrl = new URL(location, currentUrl).toString();
+      const nextSafe = await assertSafeImageUrl(nextUrl);
+      if (!nextSafe.ok) {
+        return NextResponse.json({ success: false, error: nextSafe.error }, { status: 400 });
+      }
+      currentUrl = nextUrl;
     }
 
-    try {
-        // redirect: 'manual' + tự kiểm tra Location từng hop — chặn SSRF qua redirect
-        // (https hợp lệ → 302 → http://169.254.169.254 sẽ bị isAllowedImageUrl chặn)
-        let currentUrl = url;
-        let response: Response;
-        const MAX_REDIRECTS = 3;
-        let hop = 0;
-        for (;;) {
-            response = await fetch(currentUrl, {
-                // Mimic a real browser to bypass basic hotlink protections
-                headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                    'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
-                    'Referer': new URL(currentUrl).origin,
-                },
-                signal: AbortSignal.timeout(10000), // 10s timeout
-                redirect: 'manual',
-            });
-
-            if (response.status < 300 || response.status >= 400) break;
-
-            const location = response.headers.get('location');
-            if (!location || ++hop > MAX_REDIRECTS) {
-                return NextResponse.json({ success: false, error: 'Too many redirects' }, { status: 400 });
-            }
-            const nextUrl = new URL(location, currentUrl).toString();
-            if (!isAllowedImageUrl(nextUrl)) {
-                return NextResponse.json({ success: false, error: 'Invalid or blocked URL' }, { status: 400 });
-            }
-            currentUrl = nextUrl;
-        }
-
-        if (!response.ok) {
-            return NextResponse.json(
-                { success: false, error: `Failed to fetch upstream image: ${response.status}` },
-                { status: response.status }
-            );
-        }
-
-        // Verify content-type is actually an image
-        const contentType = response.headers.get('content-type') || '';
-        if (!contentType.startsWith('image/')) {
-            return NextResponse.json({ success: false, error: 'URL does not point to an image' }, { status: 400 });
-        }
-
-        // Check content-length if available
-        const contentLength = parseInt(response.headers.get('content-length') || '0');
-        if (contentLength > MAX_IMAGE_SIZE) {
-            return NextResponse.json({ success: false, error: 'Image too large' }, { status: 413 });
-        }
-
-        const arrayBuffer = await response.arrayBuffer();
-        if (arrayBuffer.byteLength > MAX_IMAGE_SIZE) {
-            return NextResponse.json({ success: false, error: 'Image too large' }, { status: 413 });
-        }
-        const buffer = Buffer.from(arrayBuffer);
-
-        const headers = new Headers();
-        headers.set('Content-Type', contentType);
-        // Cache heavily locally (1 week) since vocabulary images rarely change
-        headers.set('Cache-Control', 'public, max-age=604800, immutable');
-
-        return new NextResponse(buffer, { status: 200, headers });
-    } catch (e: unknown) {
-        const msg = e instanceof Error ? e.message : 'Unknown error';
-        console.error('Image proxy error:', msg);
-        return NextResponse.json({ success: false, error: 'Error proxying image' }, { status: 500 });
+    if (!response.ok) {
+      return NextResponse.json(
+        { success: false, error: `Failed to fetch upstream image: ${response.status}` },
+        { status: response.status },
+      );
     }
+
+    const contentType = (response.headers.get('content-type') || '').toLowerCase();
+    if (!contentType.startsWith('image/')) {
+      return NextResponse.json({ success: false, error: 'URL does not point to an image' }, { status: 400 });
+    }
+    if (BLOCKED_CONTENT_TYPES.some((t) => contentType.includes(t))) {
+      return NextResponse.json({ success: false, error: 'Blocked content type' }, { status: 400 });
+    }
+
+    const contentLength = parseInt(response.headers.get('content-length') || '0', 10);
+    if (contentLength > MAX_IMAGE_SIZE) {
+      return NextResponse.json({ success: false, error: 'Image too large' }, { status: 413 });
+    }
+
+    // Stream with hard size cap (avoid buffering huge bodies if CL missing)
+    const reader = response.body?.getReader();
+    if (!reader) {
+      return NextResponse.json({ success: false, error: 'Empty body' }, { status: 502 });
+    }
+
+    const chunks: Uint8Array[] = [];
+    let total = 0;
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      if (value) {
+        total += value.byteLength;
+        if (total > MAX_IMAGE_SIZE) {
+          reader.cancel().catch(() => undefined);
+          return NextResponse.json({ success: false, error: 'Image too large' }, { status: 413 });
+        }
+        chunks.push(value);
+      }
+    }
+
+    const buffer = Buffer.concat(chunks.map((c) => Buffer.from(c)));
+
+    // Magic-byte guard: reject HTML/SVG disguised as image/*
+    const head = buffer.subarray(0, 256).toString('utf8').toLowerCase();
+    if (head.includes('<svg') || head.includes('<!doctype html') || head.includes('<html')) {
+      return NextResponse.json({ success: false, error: 'Blocked content payload' }, { status: 400 });
+    }
+
+    const headers = new Headers();
+    headers.set('Content-Type', contentType.split(';')[0] || 'application/octet-stream');
+    headers.set(
+      'Cache-Control',
+      'public, max-age=604800, s-maxage=31536000, stale-while-revalidate=604800, immutable',
+    );
+    headers.set('X-Content-Type-Options', 'nosniff');
+
+    return new NextResponse(buffer, { status: 200, headers });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : 'Unknown error';
+    console.error('[ImageProxy]', msg);
+    return NextResponse.json({ success: false, error: 'Error proxying image' }, { status: 500 });
+  }
 }

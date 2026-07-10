@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimit, safeErrorResponse, getAuthUser, unauthorized, sanitizeForPrompt } from '@/lib/api-security';
+import { checkRateLimitAsync, safeErrorResponse, getAuthUser, unauthorized, sanitizeForPrompt } from '@/lib/api-security';
 
 // AI call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 30;
@@ -16,6 +16,10 @@ type GeneratedExercise = {
 };
 
 const VALID_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction']);
+
+function asExerciseRecord(raw: unknown): Record<string, unknown> {
+  return typeof raw === 'object' && raw !== null ? raw as Record<string, unknown> : {};
+}
 
 /** Normalize 1 exercise từ AI: trim, dedupe options, validate correct_answer ∈ options, default type/difficulty. */
 function normalizeExercise(raw: unknown): Omit<GeneratedExercise, 'difficulty'> & { difficulty: number; type: string } | null {
@@ -60,7 +64,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     // Rate limit: 5 req/min per IP để tránh abuse AI generation
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = checkRateLimit(`grammar-gen:${ip}`, 5, 60_000);
+    const rl = await checkRateLimitAsync(`grammar-gen:${ip}`, 5, 60_000);
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },
@@ -250,7 +254,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         const topicTitle = topic?.title ?? 'English Grammar';
         const level = topic?.level ?? 'intermediate';
 
-        const fallbackData = lesson.exercises.map((ex: any, i: number) => {
+        const fallbackData = lesson.exercises.map((raw: unknown, i: number) => {
+          const ex = asExerciseRecord(raw);
           const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
           
           let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
@@ -276,7 +281,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           } else {
             const rawOpts = ex.options || ex.opts;
             if (Array.isArray(rawOpts)) {
-              optionsList = rawOpts.map((o: any) => String(o).trim());
+              optionsList = rawOpts.map((o: unknown) => String(o).trim());
             }
             const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
             if (Array.isArray(rawAns)) {
@@ -343,7 +348,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         const topicTitle = topic?.title ?? 'English Grammar';
         const level = topic?.level ?? 'intermediate';
 
-        const fallbackData = lesson.exercises.map((ex: any, i: number) => {
+        const fallbackData = lesson.exercises.map((raw: unknown, i: number) => {
+          const ex = asExerciseRecord(raw);
           const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
           
           let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
@@ -369,7 +375,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           } else {
             const rawOpts = ex.options || ex.opts;
             if (Array.isArray(rawOpts)) {
-              optionsList = rawOpts.map((o: any) => String(o).trim());
+              optionsList = rawOpts.map((o: unknown) => String(o).trim());
             }
             const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
             if (Array.isArray(rawAns)) {

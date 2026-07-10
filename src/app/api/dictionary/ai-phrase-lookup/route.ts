@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { getRouter } from "@/lib/ai-router";
-import { getAuthUser, unauthorized, sanitizeForPrompt, checkRateLimit, safeErrorResponse } from "@/lib/api-security";
+import { getAuthUser, unauthorized, sanitizeForPrompt, checkRateLimitAsync, safeErrorResponse } from "@/lib/api-security";
 
 export const maxDuration = 30;
 
@@ -12,7 +12,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const userId = auth.userId;
 
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = checkRateLimit(`ai-phrase:${ip}`, 10, 60_000); // 10 req/min per IP
+    const rl = await checkRateLimitAsync(`ai-phrase:${ip}`, 10, 60_000); // 10 req/min per IP
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },

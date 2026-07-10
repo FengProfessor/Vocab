@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimit, getClientIp } from '@/lib/api-security';
+import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
 
 /**
  * GET /api/dictionary/external?word=X
@@ -25,7 +25,7 @@ export async function GET(req: Request) {
 
   // Rate limit theo IP: 30 req / 60s
   const ip = getClientIp(req);
-  const rl = checkRateLimit(`ext:${ip}`, 30, 60_000);
+  const rl = await checkRateLimitAsync(`ext:${ip}`, 30, 60_000);
   if (!rl.allowed) {
     return NextResponse.json(
       { success: false, error: 'Too many requests. Please wait.' },

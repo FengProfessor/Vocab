@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
 import { createServiceClient } from '@/lib/supabase';
-import { EXT_TOKEN_PREFIX, hashExtensionToken, unauthorized, checkRateLimit } from '@/lib/api-security';
+import { EXT_TOKEN_PREFIX, hashExtensionToken, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 
 /**
  * POST /api/extension-token — mint extension token dài hạn cho Chrome Extension.
@@ -21,7 +21,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (error || !data.user) return unauthorized();
 
     // Chống spam mint (đổi token liên tục vô hiệu thiết bị khác)
-    const rl = checkRateLimit(`ext-token:${data.user.id}`, 5, 60_000);
+    const rl = await checkRateLimitAsync(`ext-token:${data.user.id}`, 5, 60_000);
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Rate limit exceeded' },

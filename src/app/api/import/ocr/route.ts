@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAuthUser, unauthorized, checkRateLimit } from '@/lib/api-security';
+import { getAuthUser, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 
 // Groq Vision OCR trên ảnh — chậm hơn text. Đặt 60s để không bị cắt giữa chừng.
 export const maxDuration = 60;
@@ -24,7 +24,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     // Rate limit: 5 req/min theo user id (fallback IP)
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = checkRateLimit(`ocr:${auth.userId || ip}`, 5, 60_000);
+    const rl = await checkRateLimitAsync(`ocr:${auth.userId || ip}`, 5, 60_000);
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },

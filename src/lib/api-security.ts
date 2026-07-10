@@ -128,12 +128,8 @@ export interface RateLimitResult {
 }
 
 /**
- * Kiểm tra rate limit cho một key định danh (ví dụ: `scope:ip`).
- * Trả về thông tin chi tiết về số lượng request còn lại và reset time.
- *
- * @param key      key định danh cho request (ví dụ: `ai:${ip}`)
- * @param limit    số request tối đa trong cửa sổ
- * @param windowMs độ dài cửa sổ (mặc định 60s)
+ * In-memory limiter (per instance). On multi-instance/serverless, set
+ * UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN and use checkRateLimitAsync.
  */
 export function checkRateLimit(
   key: string,
@@ -167,6 +163,58 @@ export function checkRateLimit(
     remaining: limit - existing.count,
     resetIn: Math.max(0, existing.resetAt - now),
   };
+}
+
+/**
+ * Global rate limit via Upstash Redis REST when configured; falls back to memory.
+ * Sliding fixed-window counter with EXPIRE.
+ */
+export async function checkRateLimitAsync(
+  key: string,
+  limit: number,
+  windowMs = 60_000,
+): Promise<RateLimitResult> {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) {
+    return checkRateLimit(key, limit, windowMs);
+  }
+
+  const redisKey = `rl:${key}`;
+  const windowSec = Math.max(1, Math.ceil(windowMs / 1000));
+
+  try {
+    // Pipeline: INCR + EXPIRE only when first hit (approx fixed window)
+    const incrRes = await fetch(`${url}/incr/${encodeURIComponent(redisKey)}`, {
+      headers: { Authorization: `Bearer ${token}` },
+      signal: AbortSignal.timeout(1500),
+    });
+    if (!incrRes.ok) {
+      console.warn('[RateLimit] Upstash incr failed, fallback memory', incrRes.status);
+      return checkRateLimit(key, limit, windowMs);
+    }
+    const incrJson = (await incrRes.json()) as { result?: number };
+    const count = typeof incrJson.result === 'number' ? incrJson.result : 1;
+
+    if (count === 1) {
+      await fetch(`${url}/expire/${encodeURIComponent(redisKey)}/${windowSec}`, {
+        headers: { Authorization: `Bearer ${token}` },
+        signal: AbortSignal.timeout(1500),
+      }).catch(() => undefined);
+    }
+
+    if (count > limit) {
+      return { allowed: false, remaining: 0, resetIn: windowMs };
+    }
+    return {
+      allowed: true,
+      remaining: Math.max(0, limit - count),
+      resetIn: windowMs,
+    };
+  } catch (err) {
+    console.warn('[RateLimit] Upstash error, fallback memory:', err instanceof Error ? err.message : err);
+    return checkRateLimit(key, limit, windowMs);
+  }
 }
 
 /** Standard 429 response. */

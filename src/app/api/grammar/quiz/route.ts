@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimit, safeErrorResponse } from '@/lib/api-security';
+import { checkRateLimitAsync, safeErrorResponse } from '@/lib/api-security';
 import { resolveUserPlan, checkAccess } from '@/lib/entitlement';
 
 // Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
@@ -21,6 +21,10 @@ export interface QuizQuestion {
 
 const VALID_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction']);
 
+function asExerciseRecord(raw: unknown): Record<string, unknown> {
+  return typeof raw === 'object' && raw !== null ? raw as Record<string, unknown> : {};
+}
+
 const QUIZ_MODEL = 'llama-3.1-8b-instant';
 const QUIZ_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 ngày
 
@@ -33,7 +37,7 @@ const QUIZ_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 ngày
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = checkRateLimit(`grammar-quiz:${ip}`, 5, 60_000);
+    const rl = await checkRateLimitAsync(`grammar-quiz:${ip}`, 5, 60_000);
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },
@@ -97,7 +101,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       const shuffled = [...lesson.exercises].sort(() => Math.random() - 0.5);
       const selected = shuffled.slice(0, Math.min(10, shuffled.length));
 
-      const questions: QuizQuestion[] = selected.map((ex: any, i: number) => {
+      const questions: QuizQuestion[] = selected.map((raw: unknown, i: number) => {
+        const ex = asExerciseRecord(raw);
         const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
         
         let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
@@ -123,7 +128,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         } else {
           const rawOpts = ex.options || ex.opts;
           if (Array.isArray(rawOpts)) {
-            optionsList = rawOpts.map((o: any) => String(o).trim());
+            optionsList = rawOpts.map((o: unknown) => String(o).trim());
           }
           const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
           if (Array.isArray(rawAns)) {

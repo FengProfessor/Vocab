@@ -3,7 +3,7 @@ import { createServiceClient, type DictionaryData, type SRSProgress, type Word }
 import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { stabilityToLevel } from '@/lib/srs';
-import { getAuthUser, unauthorized, isValidString, checkRateLimit } from '@/lib/api-security';
+import { getAuthUser, unauthorized, isValidString, checkRateLimitAsync } from '@/lib/api-security';
 
 /**
  * Kiểm tra user có quyền trên word (qua classroom): user là owner classroom,
@@ -58,6 +58,75 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
 
   if (error) throw new Error(`Cannot create personal classroom: ${error.message}`);
   return created.id;
+}
+
+/** Đếm total / new / review-due — RPC 1-shot nếu có, fallback 5 query song song. */
+async function fetchWordSummaryCounts(
+  supabase: ReturnType<typeof createServiceClient>,
+  userId: string,
+  classroomId: string,
+): Promise<{ total: number; dueCount: number; newCount: number; reviewDueCount: number }> {
+  // Ưu tiên RPC (migration 20260709_word_summary_perf)
+  const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
+    p_user_id: userId,
+    p_classroom_id: classroomId,
+  });
+  if (!rpcErr && rpcRows) {
+    const row = Array.isArray(rpcRows) ? rpcRows[0] : rpcRows;
+    if (row) {
+      return {
+        total: Number(row.total ?? 0),
+        newCount: Number(row.new_count ?? 0),
+        reviewDueCount: Number(row.review_due_count ?? 0),
+        dueCount: Number(row.due_count ?? 0),
+      };
+    }
+  }
+
+  const now = new Date().toISOString();
+  const [
+    { count: total },
+    { count: dueCount },
+    { count: wordsWithSrs },
+    { count: learnedCount },
+    { count: reviewDueCount },
+  ] = await Promise.all([
+    supabase
+      .from('words')
+      .select('id', { count: 'exact', head: true })
+      .eq('classroom_id', classroomId),
+    supabase
+      .from('srs_progress')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', userId)
+      .lte('next_review_date', now),
+    supabase
+      .from('srs_progress')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', userId),
+    supabase
+      .from('srs_progress')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', userId)
+      .gt('review_count', 0),
+    supabase
+      .from('srs_progress')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', userId)
+      .gt('review_count', 0)
+      .lte('next_review_date', now),
+  ]);
+
+  const totalN = total || 0;
+  const learnedN = learnedCount || 0;
+  const withSrsN = wordsWithSrs || 0;
+  return {
+    total: totalN,
+    // due = SRS đến hạn + từ chưa có SRS (coi như cần học/ôn)
+    dueCount: (dueCount || 0) + Math.max(0, totalN - withSrsN),
+    newCount: Math.max(0, totalN - learnedN),
+    reviewDueCount: reviewDueCount || 0,
+  };
 }
 
 // Shape JSONB của global_dictionary.data (Vietnamese definitions + IPA)
@@ -268,7 +337,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     // Rate limit: chỉ áp lên path kích hoạt AI enrichment (skipAI=false) — 15 req/min mỗi user
     if (!body.skipAI) {
-      const rl = checkRateLimit(`ai:words:${userId}`, 15, 60_000);
+      const rl = await checkRateLimitAsync(`ai:words:${userId}`, 15, 60_000);
       if (!rl.allowed) {
         return NextResponse.json(
           { success: false, error: 'Rate limit exceeded' },
@@ -565,55 +634,18 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     // Chế độ summary: chỉ đếm tổng + due, không fetch full data
     if (summary) {
-      const { count: total } = await supabase
-        .from('words')
-        .select('id', { count: 'exact', head: true })
-        .eq('classroom_id', classroomId);
-
-      const now = new Date().toISOString();
-      const { count: dueCount } = await supabase
-        .from('srs_progress')
-        .select('id', { count: 'exact', head: true })
-        .eq('user_id', userId)
-        .lte('next_review_date', now);
-
-      // Words chưa có SRS record nào đều coi là due
-      const { count: wordsWithSrs } = await supabase
-        .from('srs_progress')
-        .select('id', { count: 'exact', head: true })
-        .eq('user_id', userId);
-
-      // Đã học (review_count>0) → để tách "Học mới" vs "Ôn tập"
-      const { count: learnedCount } = await supabase
-        .from('srs_progress')
-        .select('id', { count: 'exact', head: true })
-        .eq('user_id', userId)
-        .gt('review_count', 0);
-
-      // Đã học & đến hạn → cần ôn tập
-      const { count: reviewDueCount } = await supabase
-        .from('srs_progress')
-        .select('id', { count: 'exact', head: true })
-        .eq('user_id', userId)
-        .gt('review_count', 0)
-        .lte('next_review_date', now);
-
-      // Từ mới = tổng - đã học (gồm cả từ chưa có SRS lẫn review_count=0)
-      const newCount = Math.max(0, (total || 0) - (learnedCount || 0));
-
+      const counts = await fetchWordSummaryCounts(supabase, userId, classroomId);
       return new NextResponse(JSON.stringify({
         success: true,
         classroomId,
-        total: total || 0,
-        dueCount: (dueCount || 0) + Math.max(0, (total || 0) - (wordsWithSrs || 0)),
-        newCount,
-        reviewDueCount: reviewDueCount || 0,
+        ...counts,
       }), {
         headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
       });
     }
 
-    // Lấy total count song song với fetch words
+    // List words + total count. Counts full (new/reviewDue): ?includeCounts=1 (tránh đếm đôi với summary=1)
+    const includeCounts = searchParams.get('includeCounts') === '1';
     let countQuery = supabase
       .from('words')
       .select('id', { count: 'exact', head: true })
@@ -627,11 +659,14 @@ export async function GET(req: Request): Promise<NextResponse> {
       wordsQuery = wordsQuery.in('id', requestedIds);
     }
 
-    const [countResult, wordsResult] = await Promise.all([
-      countQuery,
+    const [countResult, wordsResult, summaryCounts] = await Promise.all([
+      includeCounts ? Promise.resolve({ count: null as number | null }) : countQuery,
       wordsQuery
         .order('created_at', { ascending: false })
         .range(offset, offset + limit - 1),
+      includeCounts
+        ? fetchWordSummaryCounts(supabase, userId, classroomId)
+        : Promise.resolve(null),
     ]);
 
     if (wordsResult.error) throw wordsResult.error;
@@ -657,14 +692,22 @@ export async function GET(req: Request): Promise<NextResponse> {
       };
     });
 
+    const total = summaryCounts?.total ?? countResult.count ?? 0;
     return new NextResponse(JSON.stringify({
       success: true,
       data: enriched,
       classroomId,
-      total: countResult.count || 0,
+      total,
+      ...(summaryCounts
+        ? {
+            newCount: summaryCounts.newCount,
+            reviewDueCount: summaryCounts.reviewDueCount,
+            dueCount: summaryCounts.dueCount,
+          }
+        : {}),
       limit,
       offset,
-      hasMore: offset + limit < (countResult.count || 0),
+      hasMore: offset + limit < total,
     }), {
       headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
     });

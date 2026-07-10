@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getRouter } from "@/lib/ai-router";
-import { checkRateLimit, sanitizeForPrompt, getAuthUser, unauthorized } from "@/lib/api-security";
+import { checkRateLimitAsync, sanitizeForPrompt, getAuthUser, unauthorized } from "@/lib/api-security";
 
 /**
  * POST /api/dictionary/smart-lookup
@@ -14,7 +14,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     // Route đốt Gemini → bắt buộc JWT, rate limit theo user
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    const rl = checkRateLimit(`smart:${auth.userId}`, 15, 60_000);
+    const rl = await checkRateLimitAsync(`smart:${auth.userId}`, 15, 60_000);
     if (!rl.allowed) {
       return NextResponse.json({ bestIndex: 0 }, { status: 429 });
     }

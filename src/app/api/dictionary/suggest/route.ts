@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimit, getClientIp } from '@/lib/api-security';
+import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
 
 // Gợi ý từ từ global_dictionary khi user đang gõ (autocomplete)
 export const dynamic = 'force-dynamic';
@@ -25,7 +25,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
   // Rate limit theo IP: 60 req/60s
   const ip = getClientIp(req);
-  const rl = checkRateLimit(`suggest:${ip}`, 60, 60_000);
+  const rl = await checkRateLimitAsync(`suggest:${ip}`, 60, 60_000);
   if (!rl.allowed) {
     return NextResponse.json(
       { success: false, error: 'Too many requests' },

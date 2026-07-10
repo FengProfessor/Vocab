@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import type { GrammarExample, GrammarLevel } from '@/lib/supabase';
-import { checkRateLimit, safeErrorResponse, sanitizeForPrompt } from '@/lib/api-security';
+import { checkRateLimitAsync, safeErrorResponse, sanitizeForPrompt } from '@/lib/api-security';
 
 // Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 30;
@@ -20,7 +20,7 @@ interface GeneratedLesson {
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = checkRateLimit(`ai:${ip}`, 5, 60_000); // 5 req/min per IP
+    const rl = await checkRateLimitAsync(`ai:${ip}`, 5, 60_000); // 5 req/min per IP
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },

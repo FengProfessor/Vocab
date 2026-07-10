@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createHash } from 'crypto';
 import {
-  checkRateLimit,
+  checkRateLimitAsync,
   getClientIp,
   isNumberInRange,
   isValidString,
@@ -28,7 +28,8 @@ const PHONE_PATTERN = /^[0-9+().\s-]{8,24}$/;
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const ip = getClientIp(req);
-    if (!checkRateLimit(`pilot-lead:${ip}`, 5, 60 * 60 * 1000).allowed) {
+    const rl = await checkRateLimitAsync(`pilot-lead:${ip}`, 5, 60 * 60 * 1000);
+    if (!rl.allowed) {
       return tooManyRequests();
     }
 
