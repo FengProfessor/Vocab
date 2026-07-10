@@ -44,9 +44,12 @@ function buildConnectionString() {
     (process.env.NEXT_PUBLIC_SUPABASE_URL || '')
       .replace('https://', '')
       .split('.')[0];
+  // Project LingoPro pooler is aws-1 (not aws-0). Override with SUPABASE_DB_POOLER_HOST.
   const region = process.env.SUPABASE_DB_REGION || 'ap-southeast-1';
   const user = `postgres.${ref}`;
-  const host = `aws-0-${region}.pooler.supabase.com`;
+  const host =
+    process.env.SUPABASE_DB_POOLER_HOST ||
+    `aws-1-${region}.pooler.supabase.com`;
   return `postgresql://${user}:${encodeURIComponent(password)}@${host}:6543/postgres`;
 }
 
