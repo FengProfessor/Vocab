@@ -8,6 +8,11 @@ const eslintConfig = defineConfig([
   // Cho phép bỏ qua biến/tham số/catch-error có tiền tố `_` (vd `_node` strip khỏi props).
   {
     rules: {
+      // Bật dần React Compiler cho code cũ: vẫn hiển thị nhưng chưa chặn CI.
+      "react-hooks/set-state-in-effect": "warn",
+      "react-hooks/immutability": "warn",
+      "react-hooks/purity": "warn",
+      "react-hooks/static-components": "warn",
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
@@ -26,6 +31,8 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    ".chrome-bot-profiles/**",
+    "tmp/**",
     "next-env.d.ts",
     // Standalone utility scripts (not part of Next.js build)
     "*.js",

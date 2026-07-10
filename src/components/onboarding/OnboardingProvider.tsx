@@ -58,12 +58,15 @@ export function useOnboardingOptional() {
 
 interface Props {
   children: ReactNode;
-  /** User ID (Supabase) để gọi award_xp. */
+  /** User ID (Supabase) để xác định phiên onboarding đã đăng nhập. */
   userId: string | null;
   /** Tên user để chào. */
   userName: string;
   /** Metadata của user để đồng bộ trạng thái onboarding. */
-  userMetadata?: any;
+  userMetadata?: {
+    lingopro_onboarding_completed?: unknown;
+    force_onboarding?: boolean;
+  } | null;
 }
 
 export function OnboardingProvider({ children, userId, userName, userMetadata }: Props) {
@@ -106,13 +109,14 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
     }
   }, [userId]);
 
-  const awardXp = useCallback(
-    async (xp: number) => {
-      if (!userId || xp <= 0) return;
+  const claimOnboardingXp = useCallback(
+    async () => {
+      if (!userId) return;
       try {
-        await supabase.rpc('award_xp', { p_user_id: userId, p_xp: xp });
+        const { error } = await supabase.rpc('claim_onboarding_xp');
+        if (error) throw error;
       } catch (err) {
-        console.warn('[Onboarding] award_xp failed:', err);
+        console.warn('[Onboarding] claim_onboarding_xp failed:', err);
       }
     },
     [userId],
@@ -126,16 +130,10 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
   const totalSpotlightSteps = spotlightSteps.length;
 
   const next = useCallback(() => {
-    const step = ONBOARDING_STEPS[currentStepIndex];
-    // Award XP cho step vừa hoàn thành
-    if (step?.xpReward) {
-      void awardXp(step.xpReward);
-    }
-
     if (currentStepIndex < ONBOARDING_STEPS.length - 1) {
       setCurrentStepIndex(i => i + 1);
     }
-  }, [currentStepIndex, awardXp]);
+  }, [currentStepIndex]);
 
   const prev = useCallback(() => {
     if (currentStepIndex > 0) {
@@ -149,13 +147,10 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
   }, [markCompleted]);
 
   const complete = useCallback(() => {
-    const step = ONBOARDING_STEPS[currentStepIndex];
-    if (step?.xpReward) {
-      void awardXp(step.xpReward);
-    }
+    void claimOnboardingXp();
     setIsActive(false);
     void markCompleted();
-  }, [currentStepIndex, awardXp, markCompleted]);
+  }, [claimOnboardingXp, markCompleted]);
 
   const value: OnboardingContextValue = {
     isActive: isActive && hasChecked,

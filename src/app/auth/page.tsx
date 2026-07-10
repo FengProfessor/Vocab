@@ -19,19 +19,21 @@ export default function AuthPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState('');
-  const [debugError, setDebugError] = useState('');
+  const [debugError, setDebugError] = useState(() => (
+    process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      ? ''
+      : 'Thiếu cấu hình Supabase. Vui lòng kiểm tra các biến môi trường.'
+  ));
   const [showManualRedirect, setShowManualRedirect] = useState(false);
 
-  // Diagnostic check
+  // Đồng bộ query sau hydration để tránh lệch HTML server/client.
   useEffect(() => {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-    if (!url || !key) {
-      setDebugError('Missing Supabase configuration. Please check environment variables.');
-    }
     const params = new URLSearchParams(window.location.search);
-    if (params.get('mode') === 'signup') setMode('signup');
-    if (params.get('role') === 'teacher') setRole('teacher');
+    const timer = window.setTimeout(() => {
+      if (params.get('mode') === 'signup') setMode('signup');
+      if (params.get('role') === 'teacher') setRole('teacher');
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   // OAuth bounce guard: Google login có thể đáp về /auth (implicit flow #hash hoặc
@@ -44,7 +46,8 @@ export default function AuthPage() {
       const params = new URLSearchParams(window.location.search);
       const wantTeacher = params.get('role') === 'teacher';
       if (wantTeacher) {
-        await supabase.from('profiles').update({ role: 'teacher' }).eq('id', session.user.id);
+        const { error: roleErr } = await supabase.rpc('claim_teacher_role');
+        if (roleErr) console.warn('[Auth] claim_teacher_role:', roleErr.message);
       }
       const { data: profile } = await supabase
         .from('profiles')
@@ -65,7 +68,7 @@ export default function AuthPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setStatus('Connecting to authentication server...');
+    setStatus('Đang kết nối tới máy chủ xác thực...');
     setDebugError('');
     setShowManualRedirect(false);
 
@@ -74,14 +77,14 @@ export default function AuthPage() {
       if (loading) {
         setLoading(false);
         setStatus('');
-        setDebugError('Request timed out. Please check your internet connection.');
-        toast.error('Authentication timed out.');
+        setDebugError('Yêu cầu đã hết thời gian chờ. Vui lòng kiểm tra kết nối Internet.');
+        toast.error('Xác thực đã hết thời gian chờ.');
       }
     }, 20000);
 
     try {
       if (mode === 'signup') {
-        setStatus('Creating your account...');
+        setStatus('Đang tạo tài khoản...');
         const { error } = await supabase.auth.signUp({
           email,
           password,
@@ -97,15 +100,15 @@ export default function AuthPage() {
             source: params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source') ?? 'teacher_landing',
           });
         }
-        toast.success('Account created! Please check your email to confirm.');
+        toast.success('Đã tạo tài khoản! Vui lòng kiểm tra email để xác nhận.');
         setMode('login');
       } else {
-        setStatus('Authenticating credentials...');
+        setStatus('Đang xác thực thông tin đăng nhập...');
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         
         if (error) throw error;
         
-        setStatus('Success! Persisting session...');
+        setStatus('Đăng nhập thành công! Đang lưu phiên...');
         setShowManualRedirect(true);
 
         // Wait a bit for Supabase to persist the session in cookies/localStorage
@@ -114,10 +117,10 @@ export default function AuthPage() {
         const { data: { session } } = await supabase.auth.getSession();
         if (!session) {
           console.warn('[Auth] Session not found after success. This might be a cookie issue.');
-          setStatus('Logged in successfully, but session not detected by browser yet.');
-          setDebugError('Notice: Your browser has not saved the session yet. Please click the button below or try disabling Incognito.');
+          setStatus('Đăng nhập thành công nhưng trình duyệt chưa nhận diện được phiên.');
+          setDebugError('Trình duyệt chưa lưu phiên đăng nhập. Vui lòng nhấn nút bên dưới hoặc thử tắt chế độ Ẩn danh.');
         } else {
-          setStatus('Session verified! Redirecting...');
+          setStatus('Đã xác minh phiên! Đang chuyển hướng...');
 
           // Check profile role to redirect to correct dashboard
           const { data: profile } = await supabase
@@ -132,8 +135,8 @@ export default function AuthPage() {
       }
     } catch (err: unknown) {
       console.error('CRITICAL Auth Error:', err);
-      const msg = err instanceof Error ? err.message : 'Authentication failed.';
-      setDebugError(`ERROR: ${msg}`);
+      const msg = err instanceof Error ? err.message : 'Xác thực thất bại.';
+      setDebugError(`LỖI: ${msg}`);
       toast.error(msg);
       setStatus('');
     } finally {
@@ -143,7 +146,7 @@ export default function AuthPage() {
   };
 
   const handleGoogleSignIn = async () => {
-    setStatus('Initializing Google sign-in...');
+    setStatus('Đang khởi tạo đăng nhập bằng Google...');
     const params = new URLSearchParams(window.location.search);
     const redirectUrl = new URL(`${window.location.origin}/auth/callback`);
     redirectUrl.searchParams.set('role', role);
@@ -178,7 +181,7 @@ export default function AuthPage() {
             <span className="text-2xl font-bold tracking-tight text-white">LingoPro</span>
           </Link>
           <p className="text-slate-400 mt-2 text-sm">
-            {mode === 'login' ? 'Welcome back! Sign in to continue.' : 'Create your account to get started.'}
+            {mode === 'login' ? 'Chào mừng bạn trở lại! Đăng nhập để tiếp tục.' : 'Tạo tài khoản để bắt đầu.'}
           </p>
         </div>
 
@@ -192,7 +195,7 @@ export default function AuthPage() {
                   mode === m ? 'bg-primary text-white shadow-md' : 'text-slate-400 hover:text-white'
                 }`}
               >
-                {m === 'login' ? 'Sign In' : 'Sign Up'}
+                {m === 'login' ? 'Đăng nhập' : 'Đăng ký'}
               </button>
             ))}
           </div>
@@ -209,8 +212,8 @@ export default function AuthPage() {
               <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
                 <ArrowRight className="h-8 w-8 text-green-500" />
               </div>
-              <h3 className="text-white font-bold text-lg">Login Confirmed!</h3>
-              <p className="text-slate-400 text-sm">If you&apos;re not redirected automatically, click the button below:</p>
+              <h3 className="text-white font-bold text-lg">Đăng nhập thành công!</h3>
+              <p className="text-slate-400 text-sm">Nếu trang không tự động chuyển hướng, hãy nhấn nút bên dưới:</p>
               <button
                 onClick={async () => {
                   const { data: { session } } = await supabase.auth.getSession();
@@ -227,13 +230,13 @@ export default function AuthPage() {
                 }}
                 className="w-full bg-green-600 hover:bg-green-500 text-white font-bold h-12 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-900/20"
               >
-                Go to Dashboard <ArrowRight className="h-4 w-4" />
+                Đi tới trang tổng quan <ArrowRight className="h-4 w-4" />
               </button>
               <button 
                 onClick={() => setStatus('')}
                 className="text-slate-500 text-xs hover:text-slate-300 underline"
               >
-                Stay here / Logout
+                Ở lại trang này
               </button>
             </div>
           ) : (
@@ -242,9 +245,13 @@ export default function AuthPage() {
                 <>
                   <div className="relative text-white">
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                    <label htmlFor="full-name" className="sr-only">Họ và tên</label>
                     <input
+                      id="full-name"
+                      name="fullName"
                       type="text"
-                      placeholder="Full name"
+                      placeholder="Họ và tên"
+                      autoComplete="name"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       required
@@ -273,9 +280,13 @@ export default function AuthPage() {
               )}
               <div className="relative text-white">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <label htmlFor="email" className="sr-only">Địa chỉ email</label>
                 <input
+                  id="email"
+                  name="email"
                   type="email"
-                  placeholder="Email address"
+                  placeholder="Địa chỉ email"
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -284,9 +295,13 @@ export default function AuthPage() {
               </div>
               <div className="relative text-white">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <label htmlFor="password" className="sr-only">Mật khẩu</label>
                 <input
+                  id="password"
+                  name="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Password"
+                  placeholder="Mật khẩu"
+                  autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -296,6 +311,7 @@ export default function AuthPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -309,7 +325,7 @@ export default function AuthPage() {
                   className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-xl transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
                 >
                   {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-                  {mode === 'login' ? 'Sign In' : 'Create Account'}
+                  {mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
                 </button>
                 
                 {status && (
@@ -325,7 +341,7 @@ export default function AuthPage() {
             <>
               <div className="flex items-center gap-3 my-6">
                 <div className="flex-1 h-px bg-white/10" />
-                <span className="text-xs text-slate-500 px-2 font-medium">or</span>
+                <span className="text-xs text-slate-500 px-2 font-medium">hoặc</span>
                 <div className="flex-1 h-px bg-white/10" />
               </div>
 

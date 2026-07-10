@@ -152,6 +152,45 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }
 
       const prefix = match[1].toLowerCase();
+      const paymentRef = tx.reference?.trim() || null;
+      // Idempotency key: payment ref khi có; fallback hash description+amount+prefix.
+      const eventKey = paymentRef
+        ? `payref:${paymentRef}`
+        : `tx:${crypto.createHash('sha256').update(`${prefix}|${tx.amount}|${desc}`).digest('hex').slice(0, 32)}`;
+      const payloadHash = crypto
+        .createHash('sha256')
+        .update(JSON.stringify({ prefix, amount: tx.amount, reference: paymentRef, desc }))
+        .digest('hex');
+
+      // Event log + replay: chỉ skip khi đã processed; error/ignored vẫn cho retry.
+      const { data: existingEvent } = await supabase
+        .from('payment_webhook_events')
+        .select('status')
+        .eq('event_key', eventKey)
+        .maybeSingle();
+      if (existingEvent?.status === 'processed') {
+        console.log(`[Webhook] Event ${eventKey} already processed — safe skip.`);
+        processedOrders.push({ orderId: eventKey, status: 'duplicate' });
+        continue;
+      }
+
+      const { error: eventUpsertErr } = await supabase.from('payment_webhook_events').upsert(
+        {
+          event_key: eventKey,
+          provider: 'auto',
+          payment_ref: paymentRef,
+          payload_hash: payloadHash,
+          status: 'received',
+          error_message: null,
+          processed_at: null,
+        },
+        { onConflict: 'event_key' },
+      );
+      if (eventUpsertErr) {
+        console.error(`[Webhook] Failed to log event ${eventKey}:`, eventUpsertErr.message);
+        // Tiếp tục confirm: không để log fail chặn thanh toán hợp lệ.
+      }
+
       console.log(`[Webhook] Found order ID prefix: ${prefix} for amount: ${tx.amount}`);
 
       // Query pending orders where id starts with prefix (range query on UUID)
@@ -166,16 +205,28 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
       if (dbErr) {
         console.error(`[Webhook] Database error fetching order for prefix ${prefix}:`, dbErr.message);
+        await supabase
+          .from('payment_webhook_events')
+          .update({ status: 'error', error_message: dbErr.message, processed_at: new Date().toISOString() })
+          .eq('event_key', eventKey);
         continue;
       }
 
       if (!orders || orders.length === 0) {
         console.warn(`[Webhook] No pending order found starting with prefix ${prefix}`);
+        await supabase
+          .from('payment_webhook_events')
+          .update({ status: 'ignored', error_message: 'no_pending_order', processed_at: new Date().toISOString() })
+          .eq('event_key', eventKey);
         continue;
       }
 
       if (orders.length > 1) {
         console.warn(`[Webhook] Multiple pending orders found for prefix ${prefix}. Safety fallback: skipping automated confirm.`);
+        await supabase
+          .from('payment_webhook_events')
+          .update({ status: 'ignored', error_message: 'ambiguous_prefix', processed_at: new Date().toISOString() })
+          .eq('event_key', eventKey);
         continue;
       }
 
@@ -184,6 +235,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       // Validate amount
       if (order.amount !== tx.amount) {
         console.warn(`[Webhook] Order amount mismatch for order ${order.id}. Expected: ${order.amount}, Transferred: ${tx.amount}`);
+        await supabase
+          .from('payment_webhook_events')
+          .update({
+            status: 'ignored',
+            order_id: order.id,
+            error_message: `amount_mismatch expected=${order.amount} got=${tx.amount}`,
+            processed_at: new Date().toISOString(),
+          })
+          .eq('event_key', eventKey);
         continue;
       }
 
@@ -193,16 +253,48 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           supabase,
           order.id,
           null, // system confirmation, no admin ID
-          tx.reference,
+          paymentRef ?? undefined,
           'Auto-confirmed via payment webhook'
         );
 
         if (confirmResult.success) {
           processedOrders.push({ orderId: order.id, status: 'confirmed' });
           console.log(`[Webhook] Order ${order.id} successfully auto-confirmed.`);
+          await supabase
+            .from('payment_webhook_events')
+            .update({
+              status: 'processed',
+              order_id: order.id,
+              processed_at: new Date().toISOString(),
+            })
+            .eq('event_key', eventKey);
         }
       } catch (err: unknown) {
-        console.error(`[Webhook] Error confirming order ${order.id}:`, err instanceof Error ? err.message : err);
+        const message = err instanceof Error ? err.message : String(err);
+        console.error(`[Webhook] Error confirming order ${order.id}:`, message);
+        // Idempotent confirm (đã paid cùng ref) coi như success.
+        if (message.includes('Order already') || message.includes('Payment reference already used')) {
+          processedOrders.push({ orderId: order.id, status: 'already_paid' });
+          await supabase
+            .from('payment_webhook_events')
+            .update({
+              status: 'processed',
+              order_id: order.id,
+              error_message: message,
+              processed_at: new Date().toISOString(),
+            })
+            .eq('event_key', eventKey);
+        } else {
+          await supabase
+            .from('payment_webhook_events')
+            .update({
+              status: 'error',
+              order_id: order.id,
+              error_message: message.slice(0, 500),
+              processed_at: new Date().toISOString(),
+            })
+            .eq('event_key', eventKey);
+        }
       }
     }
 

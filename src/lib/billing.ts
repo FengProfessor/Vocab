@@ -398,80 +398,33 @@ export async function confirmOrder(
   paymentRef?: string,
   note?: string,
 ) {
-  // 1. Fetch order
-  const { data: order, error: fetchErr } = await supabase
-    .from('orders')
-    .select('*')
-    .eq('id', orderId)
-    .single();
+  const { data, error } = await supabase.rpc('confirm_paid_order', {
+    p_order_id: orderId,
+    p_admin_id: adminId,
+    p_payment_ref: paymentRef?.trim() || null,
+    p_note: note || null,
+  });
 
-  if (fetchErr || !order) throw new Error('Order not found');
-  if (order.status !== 'pending') throw new Error(`Order already ${order.status}`);
-
-  const now = new Date();
-  const startsAt = now;
-  const expiresAt = new Date(now);
-  const periodMonths = normalizePeriodMonths(order.period_months);
-  expiresAt.setMonth(expiresAt.getMonth() + periodMonths);
-
-  // 2. Update order → paid (chung cho mọi loại)
-  const { error: updateOrderErr } = await supabase
-    .from('orders')
-    .update({
-      status: 'paid',
-      paid_at: now.toISOString(),
-      starts_at: startsAt.toISOString(),
-      expires_at: expiresAt.toISOString(),
-      processed_by: adminId,
-      payment_ref: paymentRef || order.payment_ref,
-      note: note || order.note,
-    })
-    .eq('id', orderId);
-
-  if (updateOrderErr) throw new Error(`Failed to update order: ${updateOrderErr.message}`);
-
-  // 3. Kích hoạt entitlement — rẽ nhánh theo loại order
-  if (order.order_kind === 'group') {
-    // Gói nhóm: dựng/gia hạn group + cấp Pro cho owner & mọi member.
-    await activateGroup(supabase, order, startsAt, expiresAt, adminId);
-  } else {
-    // Cá nhân: cập nhật trực tiếp profile của user mua.
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('plan')
-      .eq('id', order.user_id)
-      .single();
-    const oldPlan = profile?.plan ?? 'free';
-
-    const { error: updateProfileErr } = await supabase
-      .from('profiles')
-      .update({
-        plan: order.plan,
-        plan_expires_at: expiresAt.toISOString(),
-      })
-      .eq('id', order.user_id);
-
-    if (updateProfileErr) throw new Error(`Failed to update profile: ${updateProfileErr.message}`);
-
-    await supabase.from('subscription_history').insert({
-      user_id: order.user_id,
-      old_plan: oldPlan,
-      new_plan: order.plan,
-      reason: 'payment',
-      order_id: orderId,
-      changed_by: adminId,
-    });
-  }
-
-  // 6. Increment coupon used_count (non-fatal nếu lỗi)
-  if (order.coupon_code) {
-    const { error: couponErr } = await supabase.rpc('increment_coupon_usage', { p_code: order.coupon_code });
-    if (couponErr) {
-      console.warn('[Billing] Failed to increment coupon usage for', order.coupon_code, couponErr.message);
+  if (error) {
+    const message = error.message || 'Unknown database error';
+    if (message.includes('Order not found')) throw new Error('Order not found');
+    if (message.includes('Payment reference already used') || error.code === '23505') {
+      throw new Error('Payment reference already used');
     }
+    if (message.includes('Order already')) throw new Error(message);
+    throw new Error(`Failed to confirm order: ${message}`);
   }
 
-  return { success: true, plan: order.plan, expiresAt: expiresAt.toISOString() };
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
+    throw new Error('Failed to confirm order: invalid RPC response');
+  }
+
+  const result = data as {
+    success: boolean;
+    plan: Exclude<Plan, 'free'>;
+    expiresAt: string;
+  };
+  return { success: result.success, plan: result.plan, expiresAt: result.expiresAt };
 }
 
 // ─────────────────────────────────────────

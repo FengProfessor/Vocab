@@ -4,11 +4,11 @@ import type { NextConfig } from "next";
 // (Next dev dùng eval cho HMR) — tradeoff chấp nhận được, chưa dùng nonce.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://us-assets.i.posthog.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com https://www.googleapis.com https://dict.minhqnd.com https://api.dictionaryapi.dev",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com https://www.googleapis.com https://dict.minhqnd.com https://api.dictionaryapi.dev https://us.i.posthog.com https://us-assets.i.posthog.com",
   // Audio phát âm giọng thật: Free Dictionary (Wikimedia), Google gstatic, Youdao fallback
   "media-src 'self' https://api.dictionaryapi.dev https://ssl.gstatic.com https://dict.youdao.com",
   "worker-src 'self'",
@@ -18,9 +18,6 @@ const csp = [
 ].join('; ');
 
 const nextConfig: NextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     // Cho phép mọi host https (ảnh đi qua image-proxy / nguồn ngoài động)
     remotePatterns: [{ protocol: 'https', hostname: '**' }],

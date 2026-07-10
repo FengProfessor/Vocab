@@ -180,10 +180,11 @@ create trigger on_auth_user_created
 -- 5. POLICIES (All tables must exist now)
 -- =============================================
 
--- Profiles
+-- Profiles (entitlement/role không mở update rộng; xem migration 20260710_security_hardening)
 create policy "Users can view own profile" on public.profiles for select using (auth.uid() = id);
-create policy "Users can update own profile" on public.profiles for update using (auth.uid() = id);
-create policy "Everyone can view profiles" on public.profiles for select using (true);
+create policy "Users can update own profile" on public.profiles for update
+  using (auth.uid() = id) with check (auth.uid() = id);
+-- KHÔNG tạo policy "Everyone can view profiles" — lộ directory user.
 
 -- Classrooms
 create policy "Teachers manage own classrooms" on public.classrooms for all using (auth.uid() = teacher_id);

@@ -46,7 +46,8 @@ export default function AuthCallbackPage() {
 
         const userId = session.user.id;
         if (requestedRole === 'teacher') {
-          await supabase.from('profiles').update({ role: 'teacher' }).eq('id', userId);
+          const { error: roleErr } = await supabase.rpc('claim_teacher_role');
+          if (roleErr) console.warn('[AuthCallback] claim_teacher_role:', roleErr.message);
         }
 
         const { data: profile } = await supabase
