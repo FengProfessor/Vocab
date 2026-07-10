@@ -16,10 +16,12 @@ import { search as searchOpenverse } from './image-sources/openverse';
 import { search as searchPollinations } from './image-sources/pollinations';
 import { search as searchGemini } from './image-sources/gemini';
 import { search as searchSdWebui } from './image-sources/sd-webui';
+import { search as searchCfFlux } from './image-sources/cloudflare-flux';
 import { classifyWord, isNSFWUrl } from './word-classifier';
+
 import { verifyImageMulti } from './vision-providers/orchestrator';
 
-export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'gemini' | 'pollinations' | 'sd-webui' | 'skip-function' | 'none';
+export type ImageSource = 'pixabay' | 'pexels' | 'duckduckgo' | 'wikipedia' | 'openverse' | 'gemini' | 'pollinations' | 'sd-webui' | 'cloudflare-flux' | 'skip-function' | 'none';
 
 export interface ResolveImageInput {
   word: string;
@@ -228,64 +230,74 @@ export async function resolveWordImage(input: ResolveImageInput): Promise<Resolv
 
   const viQueries = queries.filter((q) => isVietnamese(q));
   const enQueries = queries.filter((q) => !isVietnamese(q));
-
-  // A. Thu thập ứng viên từ các query tiếng Việt trên DuckDuckGo trước (độ chính xác cao nhất cho từ đa nghĩa)
-  for (const q of viQueries) {
-    const urls = await searchDuckDuckGo(q, 4);
-    for (const u of urls) candidates.push({ url: u, source: 'duckduckgo' });
-    if (candidates.length >= 3) break;
-  }
-
-  // B. Tier 1: Pixabay + Pexels — ảnh thật, chỉ chạy các query tiếng Anh để tránh phí API
-  if (candidates.length < 5) {
-    for (const q of enQueries) {
-      for (const u of await searchPixabay(q, 3)) candidates.push({ url: u, source: 'pixabay' });
-      for (const u of await searchPexels(q, 3)) candidates.push({ url: u, source: 'pexels' });
-      if (candidates.length >= 5) break;
-    }
-  }
-
-  // C. Tier 2: DuckDuckGo — cho các query tiếng Anh còn lại
-  if (candidates.length < 5) {
-    for (const q of enQueries) {
-      const urls = await searchDuckDuckGo(q, 4);
-      for (const u of urls) candidates.push({ url: u, source: 'duckduckgo' });
-      if (candidates.length >= 5) break;
-    }
-  }
-  // Tier 3: Wikipedia — tra theo word gốc
-  if (candidates.length < 5) {
-    const urls = await searchWikipedia(word);
-    for (const u of urls) candidates.push({ url: u, source: 'wikipedia' });
-  }
-  // Tier 4: Openverse
-  if (candidates.length < 3) {
-    const urls = await searchOpenverse(primaryQuery, 4);
-    for (const u of urls) candidates.push({ url: u, source: 'openverse' });
-  }
-
-  // Tier 4.5: Stable Diffusion WebUI Local — sinh ảnh local miễn phí chất lượng cao
-  const isLocalSdEnabled = process.env.ENABLE_LOCAL_SD === 'true';
   const generativeQuery = String(imageSearchQuery || extractDescriptor(definition) || word);
+
+  // 1. Tier 1: Pixabay + Pexels (Stock APIs) — chạy trước tiên cho các query tiếng Anh để lấy ảnh chất lượng cao
+  for (const q of enQueries) {
+    for (const u of await searchPixabay(q, 3)) candidates.push({ url: u, source: 'pixabay' });
+    for (const u of await searchPexels(q, 3)) candidates.push({ url: u, source: 'pexels' });
+    if (candidates.length >= 5) break;
+  }
+
+  // 2. Tier 2: Cloudflare Workers AI FLUX-1-schnell — chỉ sinh khi là từ trừu tượng hoặc thiếu ảnh thực
+  if (candidates.length < 3) {
+    const isAbstract = concreteness === 'abstract' || wordClass === 'abstract';
+    if (isAbstract || candidates.length === 0) {
+      const cfUrls = await searchCfFlux(generativeQuery, 1);
+      for (const u of cfUrls) candidates.push({ url: u, source: 'cloudflare-flux' });
+    }
+  }
+
+  // 3. Tier 3: Pollinations — generative fallback tràn số lượng
+  if (candidates.length < 3) {
+    if (!DISABLE_VISION || candidates.length === 0) {
+      const pollUrls = await searchPollinations(generativeQuery, MAX_VISION_CANDIDATES);
+      for (const u of pollUrls) candidates.push({ url: u, source: 'pollinations' });
+    }
+  }
+
+  // 4. Tier 4: Stable Diffusion WebUI Local — sinh ảnh local
+  const isLocalSdEnabled = process.env.ENABLE_LOCAL_SD === 'true';
   if (isLocalSdEnabled && candidates.length < 3) {
     const sdUrls = await searchSdWebui(generativeQuery, 2);
     for (const u of sdUrls) candidates.push({ url: u, source: 'sd-webui' });
   }
 
-  // Tier 5: Gemini Image (Nano Banana) — generative chất lượng cao, tốn quota
-  // Chỉ gọi khi ứng viên thực còn ít (< 3) để tiết kiệm quota API
-  // SKIP khi DISABLE_GEMINI_TIER=true (Google project bị suspended hoặc ToS warning)
+  // 5. Tier 5: Gemini Image — generative cao cấp
   if (!DISABLE_GEMINI_TIER && candidates.length < 3) {
     const geminiUrls = await searchGemini(generativeQuery, 1, word);
     for (const u of geminiUrls) candidates.push({ url: u, source: 'gemini' });
   }
 
-  // Tier 6: Pollinations — fallback cuối, free vô hạn nhưng chất lượng tạp
-  // KHI DISABLE_VISION: chỉ dùng pollinations nếu candidates trống hoàn toàn
-  // (vì không có Vision verify thì pollinations sinh ảnh ngẫu nhiên rất dễ sai)
-  if (!DISABLE_VISION || candidates.length === 0) {
-    const pollUrls = await searchPollinations(generativeQuery, MAX_VISION_CANDIDATES);
-    for (const u of pollUrls) candidates.push({ url: u, source: 'pollinations' });
+  // 6. Tier 6: DuckDuckGo + Wikipedia + Openverse (Scrapers/CC) — hạ xuống cuối làm fallback
+  // Query tiếng Việt trên DuckDuckGo (rất đặc thù cho từ đa nghĩa)
+  if (candidates.length < 3) {
+    for (const q of viQueries) {
+      const urls = await searchDuckDuckGo(q, 4);
+      for (const u of urls) candidates.push({ url: u, source: 'duckduckgo' });
+      if (candidates.length >= 3) break;
+    }
+  }
+
+  // Query tiếng Anh trên DuckDuckGo
+  if (candidates.length < 3) {
+    for (const q of enQueries) {
+      const urls = await searchDuckDuckGo(q, 4);
+      for (const u of urls) candidates.push({ url: u, source: 'duckduckgo' });
+      if (candidates.length >= 3) break;
+    }
+  }
+
+  // Wikipedia
+  if (candidates.length < 3) {
+    const urls = await searchWikipedia(word);
+    for (const u of urls) candidates.push({ url: u, source: 'wikipedia' });
+  }
+
+  // Openverse
+  if (candidates.length < 3) {
+    const urls = await searchOpenverse(primaryQuery, 4);
+    for (const u of urls) candidates.push({ url: u, source: 'openverse' });
   }
 
   // GIAI ĐOẠN C + D — validate rồi (nếu cần) kiểm chứng

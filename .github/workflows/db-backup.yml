@@ -7,45 +7,67 @@ name: Daily Supabase Backup
 # CẦN LÀM 1 LẦN: thêm repo secret SUPABASE_DB_URL
 #   GitHub repo → Settings → Secrets and variables → Actions → New repository secret
 #   Tên:  SUPABASE_DB_URL
-#   Giá trị: chuỗi kết nối "Session pooler" của Supabase
-#     (Supabase → Project Settings → Database → Connection string → chọn "Session pooler",
-#      copy chuỗi dạng: postgresql://postgres.<ref>:<password>@aws-0-...pooler.supabase.com:5432/postgres
-#      Dùng Session pooler vì nó chạy được qua IPv4 của GitHub; KHÔNG dùng "Direct connection" (IPv6).)
+#   Giá trị: Session pooler URI
+#     postgresql://postgres.<ref>:<password>@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres
+#     (LingoPro: dùng aws-1, không phải aws-0)
 
 on:
   schedule:
-    - cron: '0 19 * * *'   # 19:00 UTC = 02:00 sáng giờ VN (lúc ít người dùng)
-  workflow_dispatch: {}     # cho phép bấm "Run workflow" để chạy thử ngay
+    - cron: '0 19 * * *'   # 19:00 UTC = 02:00 sáng giờ VN
+  workflow_dispatch: {}
 
 jobs:
   backup:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump & nén database
+      - name: Dump, verify & nén database
         env:
           DATABASE_URL: ${{ secrets.SUPABASE_DB_URL }}
         run: |
-          if [ -z "$DATABASE_URL" ]; then
+          set -euo pipefail
+
+          if [ -z "${DATABASE_URL:-}" ]; then
             echo "::error::Thiếu repo secret SUPABASE_DB_URL — xem hướng dẫn ở đầu file."
             exit 1
           fi
+
           STAMP=$(date +%Y%m%d_%H%M%S)
           echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          SQL_FILE="lingopro_backup_${STAMP}.sql"
+          GZ_FILE="${SQL_FILE}.gz"
 
-          # Dùng image postgres:17 để pg_dump luôn khớp/mới hơn server (tránh lỗi version).
-          # --no-owner --no-privileges: bỏ thông tin chủ sở hữu/quyền → restore dễ hơn.
+          # set -o pipefail: pg_dump lỗi → pipeline fail (tránh gzip file rác)
+          set -o pipefail
           docker run --rm postgres:17 \
             pg_dump --no-owner --no-privileges "$DATABASE_URL" \
-            | gzip > "lingopro_backup_$STAMP.sql.gz"
+            > "$SQL_FILE"
 
-          echo "Dung lượng file backup:"
-          ls -lh "lingopro_backup_$STAMP.sql.gz"
-
-          # An toàn: nếu file rỗng (dump lỗi) thì fail để bạn biết
-          if [ ! -s "lingopro_backup_$STAMP.sql.gz" ]; then
-            echo "::error::File backup rỗng — pg_dump có thể đã lỗi."
+          # File SQL phải có nội dung thật
+          if [ ! -s "$SQL_FILE" ]; then
+            echo "::error::pg_dump tạo file rỗng."
             exit 1
           fi
+
+          # Sanity: dump Postgres thường bắt đầu bằng comment/-- PostgreSQL
+          if ! head -c 200 "$SQL_FILE" | grep -Eqi 'PostgreSQL|pg_dump|SET |CREATE |--'; then
+            echo "::error::Nội dung dump không giống SQL Postgres."
+            head -c 200 "$SQL_FILE" || true
+            exit 1
+          fi
+
+          gzip -9 "$SQL_FILE"
+
+          if [ ! -s "$GZ_FILE" ]; then
+            echo "::error::File gzip rỗng."
+            exit 1
+          fi
+
+          # Kiểm tra gzip hợp lệ (phát hiện nén hỏng)
+          gunzip -t "$GZ_FILE"
+
+          echo "Dung lượng file backup:"
+          ls -lh "$GZ_FILE"
+          echo "OK backup verified: $GZ_FILE"
 
       - name: Cất file backup vào Artifacts (giữ 30 ngày)
         uses: actions/upload-artifact@v4
@@ -55,11 +77,8 @@ jobs:
           retention-days: 30
 
 # ─────────────────────────────────────────────────────────────────────
-# CÁCH KHÔI PHỤC (khi cần dựng lại data):
-#   1. GitHub repo → tab Actions → mở lần chạy "Daily Supabase Backup" gần nhất
-#      → mục Artifacts ở cuối trang → tải file lingopro_backup_*.sql.gz về máy.
-#   2. Giải nén:            gunzip lingopro_backup_YYYYMMDD_HHMMSS.sql.gz
-#   3. Đổ ngược vào DB (DB mới hoặc local Postgres):
-#        psql "<chuoi-ket-noi-session-pooler>" < lingopro_backup_YYYYMMDD_HHMMSS.sql
-#   (Khôi phục vào 1 Supabase project MỚI/sạch để tránh đụng dữ liệu đang chạy.)
+# CÁCH KHÔI PHỤC:
+#   1. Actions → artifact → tải .sql.gz
+#   2. gunzip -t file.sql.gz && gunzip file.sql.gz
+#   3. psql "<session-pooler-uri>" < file.sql  (nên restore DB mới/sạch)
 # ─────────────────────────────────────────────────────────────────────

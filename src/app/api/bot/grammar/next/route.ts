@@ -2,6 +2,16 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { safeErrorResponse } from '@/lib/api-security';
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
+}
+
+function getString(value: unknown, key: string, fallback = ''): string {
+  if (!isRecord(value)) return fallback;
+  const property = value[key];
+  return typeof property === 'string' ? property : fallback;
+}
+
 export async function GET(req: Request): Promise<NextResponse> {
   try {
     // ── Auth: check BOT_SECRET ──
@@ -59,11 +69,11 @@ export async function GET(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: true, finished: true, remaining: 0 });
     }
 
-    const topic = target.grammar_topics as any;
-    const topicSlug = topic?.slug ?? '';
-    const topicTitle = topic?.title ?? '';
-    const topicTitleVi = topic?.title_vi ?? '';
-    const topicLevel = topic?.level ?? 'beginner';
+    const topic: unknown = target.grammar_topics;
+    const topicSlug = getString(topic, 'slug');
+    const topicTitle = getString(topic, 'title');
+    const topicTitleVi = getString(topic, 'title_vi');
+    const topicLevel = getString(topic, 'level', 'beginner');
 
     return NextResponse.json({
       success: true,

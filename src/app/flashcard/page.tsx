@@ -18,6 +18,7 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { LearnMode } from './LearnMode';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, parseIpa, canAutoFocus } from '@/lib/study';
+import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 
 interface WordItem {
   id: string;
@@ -286,6 +287,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         method: 'POST',
         headers: authHeaders,
         body: JSON.stringify({ wordId: currentWordId, quality: quality as 0|3|4|5 }),
+      }).then(() => {
+        invalidateWordSummaryCache(session.user.id);
       }).catch(err => {
         console.error('Failed to save SRS result:', err);
         // We don't rollback to avoid UI flickering, just log it.

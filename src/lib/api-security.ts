@@ -42,15 +42,18 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
     const tokenHash = hashExtensionToken(token);
     const { data, error } = await supabase
       .from('extension_tokens')
-      .select('user_id')
+      .select('user_id, expires_at, revoked_at')
       .eq('token_hash', tokenHash)
       .maybeSingle();
     if (error || !data?.user_id) return null;
+    if (data.revoked_at) return null;
+    if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) return null;
     // Ghi nhận lần dùng cuối — fire-and-forget, không chặn request
     void supabase
       .from('extension_tokens')
       .update({ last_used_at: new Date().toISOString() })
       .eq('token_hash', tokenHash)
+      .is('revoked_at', null)
       .then(() => {});
     return { userId: data.user_id };
   }

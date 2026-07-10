@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import type { GrammarSections, GrammarExerciseItem } from '@/lib/supabase';
 
@@ -138,6 +138,25 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
 
 export default function GoldenLesson({ sections, exercises }: { sections: GrammarSections; exercises?: GrammarExerciseItem[] | null }) {
   const s = sections;
+
+  // Show only 1 exercise per unique type as preview
+  const previewExercises = useMemo(() => {
+    if (!exercises) return [];
+    const seenTypes = new Set<string>();
+    const result: GrammarExerciseItem[] = [];
+    for (const ex of exercises) {
+      const type = ex.type === 'multiple_choice' ? 'mcq' :
+                   ex.type === 'fill_blank' ? 'fill' :
+                   ex.type === 'error_correction' ? 'error' :
+                   ex.type;
+      if (!seenTypes.has(type)) {
+        seenTypes.add(type);
+        result.push(ex);
+      }
+    }
+    return result;
+  }, [exercises]);
+
   return (
     <div className="space-y-4">
       {s.definition && (
@@ -246,11 +265,16 @@ export default function GoldenLesson({ sections, exercises }: { sections: Gramma
         </Card>
       )}
 
-      {!!exercises?.length && (
-        <Card tag="Bài tập" icon="🏆" title={`Bài tập (${exercises.length} câu)`}>
+      {!!previewExercises.length && (
+        <Card tag="Xem trước" icon="🏆" title={`Ví dụ bài tập (${previewExercises.length} dạng câu)`}>
           <div className="space-y-3">
-            {exercises.map((ex, i) => <Exercise key={i} ex={ex} idx={i} />)}
+            {previewExercises.map((ex, i) => <Exercise key={i} ex={ex} idx={i} />)}
           </div>
+          {exercises && exercises.length > previewExercises.length && (
+            <p className="text-xs text-muted-foreground text-center mt-4 bg-muted/40 p-2.5 rounded-xl border border-dashed">
+              💡 Để làm đầy đủ <b>{exercises.length} câu</b> bài tập và ghi nhận tiến độ học tập, bạn hãy nhấn nút <b>“Làm bài tập”</b> ở bên dưới.
+            </p>
+          )}
         </Card>
       )}
     </div>

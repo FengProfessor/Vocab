@@ -2,6 +2,12 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { safeErrorResponse } from '@/lib/api-security';
 
+type ExerciseRecord = Record<string, unknown>;
+
+function isRecord(value: unknown): value is ExerciseRecord {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
 export async function POST(req: Request): Promise<NextResponse> {
   try {
     // ── Auth: check BOT_SECRET ──
@@ -11,7 +17,11 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await req.json();
+    const body: unknown = await req.json();
+    if (!isRecord(body)) {
+      return NextResponse.json({ success: false, error: 'Invalid payload: lessonId and exercises array required' }, { status: 400 });
+    }
+
     const { lessonId, exercises: newExercises } = body;
 
     if (!lessonId || !Array.isArray(newExercises)) {
@@ -31,24 +41,26 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'Lesson not found' }, { status: 404 });
     }
 
-    const existingExercises = Array.isArray(lesson.exercises) ? lesson.exercises : [];
+    const existingExercises: unknown[] = Array.isArray(lesson.exercises) ? lesson.exercises : [];
     
     // Deduplicate and filter exercises
     const merged = [...existingExercises];
     let addedCount = 0;
 
     for (const ex of newExercises) {
+      if (!isRecord(ex)) continue;
       if (!ex.question && !ex.q) continue;
       const questionText = String(ex.question || ex.q || '').trim();
       
-      const isDup = merged.some((e: any) => {
+      const isDup = merged.some((e) => {
+        if (!isRecord(e)) return false;
         const eQ = String(e.question || e.q || '').trim().toLowerCase();
         return eQ === questionText.toLowerCase();
       });
 
       if (!isDup) {
         // Map ex properties to support legacy mcq/fill/tf/error structures inside the array
-        let mappedEx = { ...ex };
+        const mappedEx = { ...ex };
         // Support frontend structure normalization
         if (!mappedEx.q) mappedEx.q = mappedEx.question;
         if (!mappedEx.opts && Array.isArray(mappedEx.options)) mappedEx.opts = mappedEx.options;

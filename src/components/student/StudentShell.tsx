@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
+  ArrowDownToLine,
   BarChart3,
   BookOpen,
   Brain,
@@ -28,6 +29,10 @@ import { NotificationBell } from '@/components/NotificationBell';
 import { useGamification } from '@/hooks/useGamification';
 import { supabase, type Profile } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
+import {
+  readWordSummaryCache,
+  writeWordSummaryCache,
+} from '@/lib/word-summary-cache';
 
 type ShellProfile = Profile & {
   telegram_id?: string | null;
@@ -73,18 +78,26 @@ export function StudentShell({ title, children, contentClassName }: StudentShell
 
         setProfileEmail(session.user.email ?? '');
 
+        // Paint counts từ cache ngay (trước network)
+        const cached = readWordSummaryCache(session.user.id);
+        if (cached) {
+          setReviewDueCount(cached.reviewDueCount);
+          if (cached.classroomId) setClassroomId(cached.classroomId);
+        }
+
+        const authHeaders = { Authorization: `Bearer ${session.access_token}` };
         const [{ data: profileData }, wordsResponse, grammarResponse] = await Promise.all([
           supabase
             .from('profiles')
             .select('*')
             .eq('id', session.user.id)
             .single(),
-          fetch('/api/words?summary=1', {
-            headers: { Authorization: `Bearer ${session.access_token}` },
-          }).then((response) => response.json()).catch(() => null),
-          fetch('/api/grammar/progress', {
-            headers: { Authorization: `Bearer ${session.access_token}` },
-          }).then((response) => response.json()).catch(() => null),
+          fetch('/api/words?summary=1', { headers: authHeaders })
+            .then((response) => response.json())
+            .catch(() => null),
+          fetch('/api/grammar/progress?summary=1', { headers: authHeaders })
+            .then((response) => response.json())
+            .catch(() => null),
         ]);
 
         if (profileData) {
@@ -92,8 +105,16 @@ export function StudentShell({ title, children, contentClassName }: StudentShell
         }
 
         if (wordsResponse?.success) {
+          const nextReview = Number(wordsResponse.reviewDueCount ?? 0);
           setClassroomId(wordsResponse.classroomId ?? null);
-          setReviewDueCount(Number(wordsResponse.reviewDueCount ?? 0));
+          setReviewDueCount(nextReview);
+          writeWordSummaryCache(session.user.id, {
+            total: Number(wordsResponse.total ?? 0),
+            newCount: Number(wordsResponse.newCount ?? 0),
+            reviewDueCount: nextReview,
+            dueCount: Number(wordsResponse.dueCount ?? 0),
+            classroomId: wordsResponse.classroomId ?? null,
+          });
         }
 
         if (grammarResponse?.success) {
@@ -203,6 +224,14 @@ export function StudentShell({ title, children, contentClassName }: StudentShell
       color: '#64748b',
       tile: '#eef1f5',
       match: (value) => value.startsWith('/import'),
+    },
+    {
+      href: '/download',
+      label: 'Tải Desktop',
+      icon: ArrowDownToLine,
+      color: '#b5502f',
+      tile: '#fff1e8',
+      match: (value) => value.startsWith('/download'),
     },
     {
       href: '/student/profile#stats',
@@ -347,6 +376,13 @@ export function StudentShell({ title, children, contentClassName }: StudentShell
             </div>
           ) : (
             <div className="flex shrink-0 items-center gap-3">
+              <Link
+                href="/download"
+                className="hidden items-center gap-1.5 rounded-full border border-[#ffd7bf] bg-[#fff4ec] px-3 py-1.5 text-[12px] font-black text-[#b5502f] transition-colors hover:bg-[#ffe9dc] lg:flex"
+              >
+                <ArrowDownToLine className="h-4 w-4" />
+                Tải app
+              </Link>
               <div className="hidden items-center gap-1.5 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-2 pr-[11px] sm:flex">
                 <span className="text-[15px] leading-none">🔥</span>
                 <span className="tabular-nums text-[13px] font-black text-[#ea7a23]">{gamification.current_streak}</span>

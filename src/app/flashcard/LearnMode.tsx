@@ -15,6 +15,7 @@ import { toast } from 'sonner';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
+import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 
 interface WordItem {
   id: string;
@@ -172,6 +173,9 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ wordId: recallWord.id, quality: verdictToQuality(v) }),
+    }).then(async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      invalidateWordSummaryCache(session?.user?.id);
     }).catch((err) => console.error('[Learn] save SRS failed:', err));
 
     advanceTimer.current = setTimeout(goNextRecall, v === 'correct' ? NEXT_DELAY_MS : WRONG_DELAY_MS);

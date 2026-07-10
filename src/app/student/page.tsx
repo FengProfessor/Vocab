@@ -9,7 +9,7 @@ import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  Brain, BookOpen, LayoutDashboard, LogOut, Loader2, Plus, Map,
+  ArrowDownToLine, Brain, BookOpen, LayoutDashboard, LogOut, Loader2, Plus, Map,
   CheckCircle2, TrendingUp, User, LayoutGrid, ArrowRight,
   Menu, X, Clock, GraduationCap, Search, ChevronDown, BarChart3, Pencil, UserPlus, Trophy, Crown, Library, Sparkles, MessageSquare, Users, RefreshCw, HelpCircle
 } from 'lucide-react';
@@ -27,6 +27,10 @@ import { WordDetailModal } from '@/components/student/WordDetailModal';
 import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
 import { OnboardingProvider, OnboardingLayers } from '@/components/onboarding';
+import {
+  readWordSummaryCache,
+  writeWordSummaryCache,
+} from '@/lib/word-summary-cache';
 
 // Lazy load: canvas-confetti chỉ chạy client-side, không cần SSR + chỉ tải khi cần
 const Celebration = dynamic(
@@ -44,9 +48,15 @@ interface ActiveVocabPack {
   words: Array<{ word_id: string; position: number }>;
 }
 
+interface StudentUserMetadata {
+  email?: string;
+  lingopro_onboarding_completed?: unknown;
+  force_onboarding?: boolean;
+}
+
 export default function StudentDashboard() {
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [userMetadata, setUserMetadata] = useState<any>(null);
+  const [userMetadata, setUserMetadata] = useState<StudentUserMetadata | null>(null);
   const [words, setWords] = useState<Word[]>([]);
   const [classroomId, setClassroomId] = useState<string | null>(null);
   const [joinedClass, setJoinedClass] = useState<boolean>(false);
@@ -72,9 +82,14 @@ export default function StudentDashboard() {
   const [totalWords, setTotalWords] = useState(0);
   const [newCount, setNewCount] = useState(0);
   const [reviewDueCount, setReviewDueCount] = useState(0);
+  /** false cho đến khi có counts (cache hoặc API) — progressive badge */
+  const [countsReady, setCountsReady] = useState(false);
+  /** word list load sau shell — tránh flash empty state */
+  const [wordsLoading, setWordsLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [wordsOffset, setWordsOffset] = useState(0);
   const WORDS_PAGE_SIZE = 20;
+  const accessTokenRef = useRef<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'new' | 'due' | 'learned' | 'mastered'>('all');
@@ -89,57 +104,106 @@ export default function StudentDashboard() {
   useEffect(() => {
     const checkAuth = async () => {
       console.log('[Student] Auth check started');
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
       const { data: { session } } = await supabase.auth.getSession();
-      
+
       if (session?.user) {
+        accessTokenRef.current = session.access_token;
         setUserMetadata(session.user.user_metadata);
-        loadData(session.user.id);
+        // Stale-while-revalidate: paint counts từ cache ngay (0ms)
+        const cached = readWordSummaryCache(session.user.id);
+        if (cached) {
+          setTotalWords(cached.total);
+          setNewCount(cached.newCount);
+          setReviewDueCount(cached.reviewDueCount);
+          if (cached.classroomId) setClassroomId(cached.classroomId);
+          setCountsReady(true);
+        }
+        loadData(session.user.id, session.access_token);
       } else {
         setIsLoading(false);
         router.push('/auth');
       }
     };
-    checkAuth();
-    
+    void checkAuth();
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session?.user) {
+        accessTokenRef.current = session.access_token;
         setUserMetadata(session.user.user_metadata);
-        loadData(session.user.id);
+        loadData(session.user.id, session.access_token);
       } else if (event === 'SIGNED_OUT') {
         setUserMetadata(null);
+        accessTokenRef.current = null;
         router.push('/auth');
       }
     });
-    
+
     return () => { subscription.unsubscribe(); };
   }, []);
 
-  const loadData = async (userId: string) => {
+  const applySummaryCounts = (
+    userId: string,
+    data: {
+      total?: number;
+      newCount?: number;
+      reviewDueCount?: number;
+      dueCount?: number;
+      classroomId?: string | null;
+    },
+  ) => {
+    const total = data.total || 0;
+    const nextNew = data.newCount ?? 0;
+    const nextReview = data.reviewDueCount ?? 0;
+    setTotalWords(total);
+    setNewCount(nextNew);
+    setReviewDueCount(nextReview);
+    if (data.classroomId) setClassroomId(data.classroomId);
+    setCountsReady(true);
+    writeWordSummaryCache(userId, {
+      total,
+      newCount: nextNew,
+      reviewDueCount: nextReview,
+      dueCount: data.dueCount,
+      classroomId: data.classroomId ?? null,
+    });
+  };
+
+  const loadData = async (userId: string, accessToken?: string) => {
+    const token = accessToken ?? accessTokenRef.current;
     try {
-      const { data: prof, error } = await supabase.from('profiles').select('*').eq('id', userId).single();
-      if (error) {
-        console.error('[Student] Load profile failed:', error.message);
+      // 1) Summary + profile song song — paint UI sớm (không chờ word list)
+      const summaryP = authFetch('/api/words?summary=1', {}, token)
+        .then((r) => r.json())
+        .then((sum) => {
+          if (sum?.success) applySummaryCounts(userId, sum);
+          return sum;
+        })
+        .catch(() => null);
+
+      const [profRes, enrollRes] = await Promise.all([
+        supabase.from('profiles').select('*').eq('id', userId).single(),
+        supabase.from('enrollments').select('id').eq('student_id', userId),
+        summaryP, // đua cùng profile — countsReady sớm
+      ]);
+
+      if (profRes.error) {
+        console.error('[Student] Load profile failed:', profRes.error.message);
+        setWordsLoading(false);
         return;
       }
-      if (prof) setProfile(prof);
+      if (profRes.data) setProfile(profRes.data);
+      setJoinedClass((enrollRes.data?.length ?? 0) > 0);
+      // Shell + badge counts render ngay — words load tiếp bên dưới
+      setIsLoading(false);
+      setWordsLoading(true);
 
-      // Check if user has joined any real classroom
-      const { data: enrollments } = await supabase
-        .from('enrollments')
-        .select('id')
-        .eq('student_id', userId);
-      setJoinedClass((enrollments?.length ?? 0) > 0);
-
-      // Tiến độ ôn tập ngữ pháp
-      authFetch(`/api/grammar/progress`)
+      // 2) Side data + word list (không chặn full-page)
+      authFetch('/api/grammar/progress?summary=1', {}, token)
         .then((r) => r.json())
         .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
         .catch(() => {});
 
-      // Hoạt động theo ngày (heatmap streak) + số từ học hôm nay
-      authFetch(`/api/student/stats`)
+      authFetch('/api/student/stats', {}, token)
         .then((r) => r.json())
         .then((st) => {
           if (!st?.success) return;
@@ -150,7 +214,7 @@ export default function StudentDashboard() {
         })
         .catch(() => {});
 
-      authFetch('/api/vocab/packs')
+      authFetch('/api/vocab/packs', {}, token)
         .then((response) => response.json())
         .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
           if (!packData.success || !packData.packs) return;
@@ -158,39 +222,49 @@ export default function StudentDashboard() {
         })
         .catch(() => {});
 
-      // Fetch trang đầu với limit để tránh load toàn bộ
-      const res = await authFetch(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&t=${Date.now()}`);
-      const data = await res.json();
+      try {
+        const wordsJson = await authFetch(
+          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0`,
+          {},
+          token,
+        ).then((r) => r.json()).catch(() => null);
 
-      if (data.success) {
-        setWords(data.data || []);
-        setClassroomId(data.classroomId);
-        setTotalWords(data.total || 0);
-        setWordsOffset(WORDS_PAGE_SIZE);
-        refreshSummary(userId); // lấy newCount / reviewDueCount để tách Học mới vs Ôn tập
+        if (wordsJson?.success) {
+          setWords(wordsJson.data || []);
+          setClassroomId(wordsJson.classroomId ?? null);
+          setWordsOffset(WORDS_PAGE_SIZE);
+          if (typeof wordsJson.newCount === 'number' || typeof wordsJson.reviewDueCount === 'number') {
+            applySummaryCounts(userId, wordsJson);
+          } else if (typeof wordsJson.total === 'number') {
+            setTotalWords(wordsJson.total);
+          }
 
-        if (data.classroomId) {
-          const { data: qr } = await supabase
-            .from('quiz_results')
-            .select('score, total_questions')
-            .eq('user_id', userId)
-            .eq('classroom_id', data.classroomId);
+          if (wordsJson.classroomId) {
+            const { data: qr } = await supabase
+              .from('quiz_results')
+              .select('score, total_questions')
+              .eq('user_id', userId)
+              .eq('classroom_id', wordsJson.classroomId);
 
-          if (qr && qr.length > 0) {
-            type QuizRow = { score: number | null; total_questions: number | null };
-            const rows = qr as QuizRow[];
-            const totalCorrect = rows.reduce((s, q) => s + (q.score || 0), 0);
-            const totalQuestions = rows.reduce((s, q) => s + (q.total_questions || 1), 0);
-            setQuizStats({
-              total: qr.length,
-              avgAccuracy: Math.round((totalCorrect / totalQuestions) * 100)
-            });
+            if (qr && qr.length > 0) {
+              type QuizRow = { score: number | null; total_questions: number | null };
+              const rows = qr as QuizRow[];
+              const totalCorrect = rows.reduce((s, q) => s + (q.score || 0), 0);
+              const totalQuestions = rows.reduce((s, q) => s + (q.total_questions || 1), 0);
+              setQuizStats({
+                total: qr.length,
+                avgAccuracy: Math.round((totalCorrect / totalQuestions) * 100),
+              });
+            }
           }
         }
+      } finally {
+        setWordsLoading(false);
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Unknown error';
       console.error('Load Dashboard error:', msg);
+      setWordsLoading(false);
     } finally {
       setIsLoading(false);
     }
@@ -201,7 +275,11 @@ export default function StudentDashboard() {
     if (!profile?.id || isLoadingMore) return;
     setIsLoadingMore(true);
     try {
-      const res = await authFetch(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}&t=${Date.now()}`);
+      const res = await authFetch(
+        `/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}`,
+        {},
+        accessTokenRef.current,
+      );
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
         setWords(prev => [...prev, ...data.data]);
@@ -217,17 +295,15 @@ export default function StudentDashboard() {
   };
 
   // Auto-refresh nhẹ: chỉ dùng summary endpoint để cập nhật dueCount
-  const refreshSummary = async (_userId: string) => {
+  const refreshSummary = async (userId: string) => {
     try {
-      const res = await authFetch(`/api/words?summary=1`);
+      const res = await authFetch('/api/words?summary=1', {}, accessTokenRef.current);
       const data = await res.json();
       if (data.success) {
-        setTotalWords(data.total || 0);
-        setNewCount(data.newCount || 0);
-        setReviewDueCount(data.reviewDueCount || 0);
+        applySummaryCounts(userId, data);
         // Cập nhật isDue trên words hiện có dựa trên thời gian
         const now = Date.now();
-        setWords(prev => prev.map((w) => {
+        setWords((prev) => prev.map((w) => {
           const nextReviewDate = w.srs?.next_review_date ? new Date(w.srs.next_review_date).getTime() : now;
           return { ...w, isDue: !w.srs || nextReviewDate <= now };
         }));
@@ -528,6 +604,7 @@ export default function StudentDashboard() {
     { href: '/library', label: 'Thư viện từ vựng', icon: Library, color: '#10b981', tile: '#e1f7ee', onboardingId: 'library' },
     { href: '/dictionary', label: 'Tra từ điển', icon: Search, color: '#06b6d4', tile: '#defafd' },
     { href: '/import', label: 'Nhập danh sách riêng', icon: Plus, color: '#64748b', tile: '#eef1f5' },
+    { href: '/download', label: 'Tải Desktop', icon: ArrowDownToLine, color: '#b5502f', tile: '#fff1e8' },
     ...(hasClass ? [
       { href: '/student/profile#stats', label: 'Thống kê', icon: BarChart3, color: '#3b82f6', tile: '#e7f0ff' },
       { href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard', label: 'Bảng xếp hạng', icon: Trophy, color: '#f59e0b', tile: '#fff3df' },
@@ -563,6 +640,7 @@ export default function StudentDashboard() {
                 <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} data-onboarding="writing" className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
                 <Link href="/student/speaking" data-onboarding="speaking" className="flex items-center gap-3 font-semibold p-3"><MessageSquare /> AI Speaking Tutor</Link>
                 <Link href="/grammar/learn" data-onboarding="grammar" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
+                <Link href="/download" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 font-semibold p-3 text-[#b5502f]"><ArrowDownToLine /> Tải Desktop</Link>
                 <Link href="/student/profile" className="flex items-center gap-3 font-semibold p-3"><User /> Hồ sơ</Link>
                 <button
                   onClick={() => { setIsMenuOpen(false); setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
@@ -644,6 +722,13 @@ export default function StudentDashboard() {
             <h1 className="font-black text-[19px] tracking-tight hidden sm:block">Dashboard</h1>
           </div>
           <div className="flex items-center gap-3 shrink-0">
+            <Link
+              href="/download"
+              className="hidden items-center gap-1.5 rounded-full border border-[#ffd7bf] bg-[#fff4ec] px-3 py-1.5 text-[12px] font-black text-[#b5502f] transition-colors hover:bg-[#ffe9dc] lg:flex"
+            >
+              <ArrowDownToLine className="h-4 w-4" />
+              Tải app
+            </Link>
             {/* Streak pill */}
             <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-2 pr-[11px]">
               <span className="text-[15px] leading-none">🔥</span>
@@ -762,7 +847,9 @@ export default function StudentDashboard() {
               href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}
               data-onboarding="learn"
               className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
-                newCount > 0 ? 'bg-white hover:shadow-md hover:border-indigo-300' : 'bg-slate-50 opacity-70 pointer-events-none'
+                !countsReady || newCount > 0
+                  ? 'bg-white hover:shadow-md hover:border-indigo-300'
+                  : 'bg-slate-50 opacity-70 pointer-events-none'
               }`}
             >
               <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center shrink-0">
@@ -771,10 +858,18 @@ export default function StudentDashboard() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 leading-snug">
                   <span className="font-black text-slate-800 leading-snug">Học từ mới</span>
-                  {newCount > 0 && <span className="bg-indigo-600 text-white text-xs font-black px-2 py-0.5 rounded-full">{newCount}</span>}
+                  {!countsReady ? (
+                    <span className="bg-indigo-100 text-indigo-400 text-xs font-black px-2 py-0.5 rounded-full animate-pulse">…</span>
+                  ) : newCount > 0 ? (
+                    <span className="bg-indigo-600 text-white text-xs font-black px-2 py-0.5 rounded-full">{newCount}</span>
+                  ) : null}
                 </div>
                 <div className="text-xs font-bold text-muted-foreground">
-                  {newCount > 0 ? 'Xem từ, nghĩa, nghe phát âm rồi điền lại' : 'Đã học hết từ mới 🎉'}
+                  {!countsReady
+                    ? 'Đang tải số từ…'
+                    : newCount > 0
+                      ? 'Xem từ, nghĩa, nghe phát âm rồi điền lại'
+                      : 'Đã học hết từ mới 🎉'}
                 </div>
               </div>
               <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
@@ -782,10 +877,12 @@ export default function StudentDashboard() {
 
             {/* Ôn tập: từ đã học, đến hạn nhớ lại */}
             <Link
-              href={reviewDueCount > 0 && classroomId ? `/flashcard?class=${classroomId}` : '#'}
+              href={(!countsReady || reviewDueCount > 0) && classroomId ? `/flashcard?class=${classroomId}` : reviewDueCount > 0 ? '/flashcard' : '#'}
               data-onboarding="review"
               className={`group rounded-2xl p-5 border shadow-sm transition-all flex items-center gap-4 ${
-                reviewDueCount > 0 ? 'bg-white hover:shadow-md hover:border-emerald-300' : 'bg-slate-50 opacity-70 pointer-events-none'
+                !countsReady || reviewDueCount > 0
+                  ? 'bg-white hover:shadow-md hover:border-emerald-300'
+                  : 'bg-slate-50 opacity-70 pointer-events-none'
               }`}
             >
               <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
@@ -794,10 +891,18 @@ export default function StudentDashboard() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 leading-snug">
                   <span className="font-black text-slate-800 leading-snug">Ôn tập</span>
-                  {reviewDueCount > 0 && <span className="bg-emerald-500 text-white text-xs font-black px-2 py-0.5 rounded-full">{reviewDueCount}</span>}
+                  {!countsReady ? (
+                    <span className="bg-emerald-100 text-emerald-400 text-xs font-black px-2 py-0.5 rounded-full animate-pulse">…</span>
+                  ) : reviewDueCount > 0 ? (
+                    <span className="bg-emerald-500 text-white text-xs font-black px-2 py-0.5 rounded-full">{reviewDueCount}</span>
+                  ) : null}
                 </div>
                 <div className="text-xs font-bold text-muted-foreground">
-                  {reviewDueCount > 0 ? 'Từ đã học đến hạn nhớ lại' : 'Chưa có từ cần ôn'}
+                  {!countsReady
+                    ? 'Đang tải số từ…'
+                    : reviewDueCount > 0
+                      ? 'Từ đã học đến hạn nhớ lại'
+                      : 'Chưa có từ cần ôn'}
                 </div>
               </div>
               <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
@@ -821,8 +926,8 @@ export default function StudentDashboard() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { label: 'Tổng từ', val: totalWords, icon: LayoutGrid, color: 'text-blue-500', bg: 'bg-blue-50' },
-              { label: 'Cần ôn', val: reviewDueCount, icon: RefreshCw, color: 'text-amber-500', bg: 'bg-amber-50' },
+              { label: 'Tổng từ', val: countsReady ? totalWords : '…', icon: LayoutGrid, color: 'text-blue-500', bg: 'bg-blue-50' },
+              { label: 'Cần ôn', val: countsReady ? reviewDueCount : '…', icon: RefreshCw, color: 'text-amber-500', bg: 'bg-amber-50' },
               { label: 'Thành thạo', val: masteredCount, icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-50' },
               { label: 'Độ chính xác', val: `${quizStats.avgAccuracy}%`, icon: TrendingUp, color: 'text-purple-500', bg: 'bg-purple-50' },
             ].map(s => (
@@ -830,7 +935,7 @@ export default function StudentDashboard() {
                 <div className={`${s.bg} w-10 h-10 rounded-xl flex items-center justify-center mb-4`}>
                   <s.icon className={`h-5 w-5 ${s.color}`} />
                 </div>
-                <div className="text-xl sm:text-2xl font-black">{s.val}</div>
+                <div className={`text-xl sm:text-2xl font-black ${!countsReady && (s.label === 'Tổng từ' || s.label === 'Cần ôn') ? 'animate-pulse text-muted-foreground' : ''}`}>{s.val}</div>
                 <div className="text-[10px] font-bold text-muted-foreground uppercase">{s.label}</div>
               </div>
             ))}
@@ -1024,7 +1129,7 @@ export default function StudentDashboard() {
               </div>
             </div>
 
-            {isLoading ? (
+            {wordsLoading ? (
               <WordCardSkeleton count={6} />
             ) : words.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
@@ -1267,6 +1372,7 @@ export default function StudentDashboard() {
         <Link href="/student" className="p-3 text-primary"><LayoutDashboard /></Link>
         <Link href="/import" className="p-3 text-muted-foreground"><Plus /></Link>
         <Link href="/dictionary" className="p-3 text-muted-foreground"><Search /></Link>
+        <Link href="/download" className="p-3 text-muted-foreground" aria-label="Tải Desktop"><ArrowDownToLine /></Link>
         <Link href="/library" className="p-4 -mt-10 bg-primary text-white rounded-2xl shadow-lg shadow-primary/40"><Sparkles /></Link>
         <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="p-3 text-muted-foreground"><BookOpen /></Link>
       </nav>

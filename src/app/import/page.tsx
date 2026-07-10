@@ -11,6 +11,7 @@ import {
   CheckCircle2, XCircle, SkipForward, Trash2, Plus, BookMarked, ArrowRight
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
+import type { Row } from 'exceljs';
 
 type Tab = 'text' | 'file' | 'ocr' | 'csv';
 type WordStatus = 'pending' | 'saving' | 'saved' | 'duplicate' | 'error';
@@ -258,7 +259,7 @@ export default function ImportPage() {
           return v as SheetCell;
         };
         // exceljs row.values là mảng 1-based (index 0 = null) → slice(1) để khớp cột 0-based.
-        ws?.eachRow({ includeEmpty: false }, (row: any) => {
+        ws?.eachRow({ includeEmpty: false }, (row: Row) => {
           const vals = Array.isArray(row.values) ? (row.values as unknown[]).slice(1) : [];
           rows.push(vals.map(cellText));
         });

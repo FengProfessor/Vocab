@@ -312,6 +312,33 @@ function GrammarContent() {
         const data = await res.json();
         if (data.success && data.data?.length > 0) {
           rawExercises.current = data.data;
+
+          // Check if there is saved progress
+          const savedKey = `lingopro_grammar_state_${user.id}_review`;
+          const saved = localStorage.getItem(savedKey);
+          if (saved) {
+            try {
+              const parsed = JSON.parse(saved);
+              if (parsed && parsed.exercises && parsed.exercises.length > 0) {
+                setExercises(parsed.exercises);
+                setCurrent(parsed.exercises[parsed.qIndex]);
+                setQIndex(parsed.qIndex);
+                setSelected(parsed.selected);
+                setTypedAnswer(parsed.typedAnswer || '');
+                setShowExplanation(parsed.showExplanation || false);
+                setScore(parsed.score);
+                setDone(parsed.done || false);
+                setStartTime(parsed.startTime || Date.now());
+                answering.current = false;
+                toast.success('Đã khôi phục tiến trình ôn câu sai!');
+                setIsLoading(false);
+                return;
+              }
+            } catch (e) {
+              console.error('Failed to parse saved state:', e);
+            }
+          }
+
           startSession(data.data);
         } else {
           toast.success('Tuyệt vời! Bạn không có câu sai nào trong 14 ngày qua.');
@@ -333,6 +360,37 @@ function GrammarContent() {
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
         rawExercises.current = data.data;
+
+        // Check if there is saved progress
+        if (user) {
+          const savedKey = lessonId 
+            ? `lingopro_grammar_state_${user.id}_lesson_${lessonId}` 
+            : `lingopro_grammar_state_${user.id}_class_${classroomId}`;
+          const saved = localStorage.getItem(savedKey);
+          if (saved) {
+            try {
+              const parsed = JSON.parse(saved);
+              if (parsed && parsed.exercises && parsed.exercises.length > 0) {
+                setExercises(parsed.exercises);
+                setCurrent(parsed.exercises[parsed.qIndex]);
+                setQIndex(parsed.qIndex);
+                setSelected(parsed.selected);
+                setTypedAnswer(parsed.typedAnswer || '');
+                setShowExplanation(parsed.showExplanation || false);
+                setScore(parsed.score);
+                setDone(parsed.done || false);
+                setStartTime(parsed.startTime || Date.now());
+                answering.current = false;
+                toast.success('Đã khôi phục tiến trình làm bài của bạn!');
+                setIsLoading(false);
+                return;
+              }
+            } catch (e) {
+              console.error('Failed to parse saved state:', e);
+            }
+          }
+        }
+
         startSession(data.data);
       } else {
         toast.error('Chưa có bài tập grammar cho lớp này.');
@@ -341,6 +399,34 @@ function GrammarContent() {
     };
     init();
   }, [classroomId, lessonId, reviewMode]);
+
+  // Auto-save grammar exercises progress when state changes
+  useEffect(() => {
+    if (isLoading || !userId || exercises.length === 0 || done) return;
+
+    let key = '';
+    if (reviewMode) {
+      key = `lingopro_grammar_state_${userId}_review`;
+    } else if (lessonId) {
+      key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
+    } else if (classroomId) {
+      key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
+    }
+
+    if (key) {
+      const stateToSave = {
+        exercises,
+        qIndex,
+        selected,
+        typedAnswer,
+        showExplanation,
+        score,
+        done,
+        startTime,
+      };
+      localStorage.setItem(key, JSON.stringify(stateToSave));
+    }
+  }, [exercises, qIndex, selected, typedAnswer, showExplanation, score, done, startTime, userId, isLoading, reviewMode, lessonId, classroomId]);
 
   const startSession = (source: GrammarExercise[]) => {
     const shuffled = [...source].sort(() => Math.random() - 0.5);
@@ -358,6 +444,13 @@ function GrammarContent() {
   };
 
   const handleRetry = () => {
+    if (userId) {
+      let key = '';
+      if (reviewMode) key = `lingopro_grammar_state_${userId}_review`;
+      else if (lessonId) key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
+      else if (classroomId) key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
+      if (key) localStorage.removeItem(key);
+    }
     startSession(rawExercises.current);
   };
 
@@ -461,6 +554,16 @@ function GrammarContent() {
     if (nextIdx >= exercises.length) {
       // Tính score cuối từ state hiện tại (đã updated trong handleAnswer)
       setDone(true);
+
+      // Clear saved progress when completed
+      if (userId) {
+        let key = '';
+        if (reviewMode) key = `lingopro_grammar_state_${userId}_review`;
+        else if (lessonId) key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
+        else if (classroomId) key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
+        if (key) localStorage.removeItem(key);
+      }
+
       const total = score.correct + score.wrong;
       submitGrammarProgress(score.correct, total);
       track('grammar_quiz_completed', {
