@@ -209,6 +209,26 @@ const jsonLd = {
         },
       })),
     },
+    {
+      '@type': 'VideoObject',
+      name: 'Demo LingoPro — tra từ và lưu vào kho',
+      description:
+        'Xem cách bôi đen từ trên web, lưu vào kho riêng và ôn theo FSRS với LingoPro.',
+      thumbnailUrl: `${SITE_URL}/intro-save-word.mp4`,
+      contentUrl: `${SITE_URL}/intro-save-word.mp4`,
+      embedUrl: `${SITE_URL}/#video-demo`,
+      uploadDate: '2026-06-01',
+      inLanguage: 'vi',
+    },
+    {
+      '@type': 'VideoObject',
+      name: 'Demo tra từ 1 chạm trên web — LingoPro Extension',
+      description: 'Tra từ ngay trên trang đang đọc bằng Chrome Extension LingoPro.',
+      contentUrl: `${SITE_URL}/extension-lookup.mp4`,
+      embedUrl: `${SITE_URL}/#video-demo`,
+      uploadDate: '2026-06-01',
+      inLanguage: 'vi',
+    },
   ],
 };
 
@@ -247,6 +267,7 @@ export default function LandingPage() {
 
           <nav className="hidden items-center gap-5 text-sm font-bold text-[#6d574a] md:flex" aria-label="Điều hướng chính">
             <a href="#cach-hoc" className="hover:text-[#241710]">Cách học</a>
+            <a href="#video-demo" className="hover:text-[#241710]">Video</a>
             <a href="#demo" className="hover:text-[#241710]">Thử tra từ</a>
             <a href="#bang-gia" className="hover:text-[#241710]">Giá</a>
             <a href="#faq" className="hover:text-[#241710]">FAQ</a>
@@ -299,10 +320,10 @@ export default function LandingPage() {
                   <ArrowRight className="h-5 w-5" />
                 </Link>
                 <a
-                  href="#demo"
+                  href="#video-demo"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#bca58f] bg-white/80 px-7 py-3.5 text-base font-black text-[#241710] hover:bg-white"
                 >
-                  Thử tra một từ
+                  Xem video demo
                 </a>
               </div>
 
@@ -355,6 +376,81 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── VIDEO DEMO (SEO + proof) ── */}
+        <section id="video-demo" className="border-y border-[#d7c7b6]/70 bg-[#241710] px-4 py-16 sm:px-6 sm:py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-2xl text-center">
+              <SectionTag>Demo 15–30 giây</SectionTag>
+              <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight text-[#f6efe6] sm:text-4xl`}>
+                Xem cách <span className="text-[#f1c46d]">tra từ và lưu</span> — không cần tưởng tượng
+              </h2>
+              <p className="mt-3 text-base leading-7 text-[#d8c9bc]">
+                Bôi đen từ trên web → lưu kho riêng → ôn đúng lúc. Hai clip ngắn, xem ngay trên trang.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              <figure className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                <video
+                  className="aspect-video w-full object-cover"
+                  src="/intro-save-word.mp4"
+                  controls
+                  playsInline
+                  muted
+                  autoPlay
+                  loop
+                  preload="metadata"
+                  title="Demo lưu từ vựng vào kho LingoPro"
+                  aria-label="Video demo: lưu từ vựng vào kho riêng trên LingoPro"
+                >
+                  <source src="/intro-save-word.mp4" type="video/mp4" />
+                </video>
+                <figcaption className="px-4 py-3 text-sm font-semibold text-[#d8c9bc]">
+                  <span className="font-black text-[#f1c46d]">1 · Lưu từ</span>
+                  {' — '}Từ lạ thành thẻ trong kho, sẵn sàng ôn FSRS.
+                </figcaption>
+              </figure>
+
+              <figure className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                <video
+                  className="aspect-video w-full object-cover"
+                  src="/extension-lookup.mp4"
+                  controls
+                  playsInline
+                  muted
+                  autoPlay
+                  loop
+                  preload="metadata"
+                  title="Demo tra từ 1 chạm trên web với LingoPro"
+                  aria-label="Video demo: tra từ 1 chạm trên trang web bằng extension"
+                >
+                  <source src="/extension-lookup.mp4" type="video/mp4" />
+                </video>
+                <figcaption className="px-4 py-3 text-sm font-semibold text-[#d8c9bc]">
+                  <span className="font-black text-[#f1c46d]">2 · Tra trên web</span>
+                  {' — '}Bôi đen từ đang đọc, nghĩa Việt hiện ngay.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="#demo"
+                className="inline-flex items-center gap-2 rounded-full bg-[#b5502f] px-6 py-3 text-sm font-black text-white hover:bg-[#a04428]"
+              >
+                Thử tra một từ ngay
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <Link
+                href="/auth"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-black text-[#f6efe6] hover:bg-white/5"
+              >
+                Bắt đầu miễn phí
+              </Link>
             </div>
           </div>
         </section>
@@ -417,35 +513,19 @@ export default function LandingPage() {
               ))}
             </div>
 
-            {/* Video + routes */}
-            <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
-              <div className="overflow-hidden rounded-[1.75rem] border border-[#bca58f]/35 bg-[#241710] p-3 shadow-[0_20px_60px_rgba(36,23,16,0.18)]">
-                <video
-                  className="aspect-video w-full rounded-2xl object-cover"
-                  src="/extension-lookup.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label="Demo tra từ trên web với LingoPro"
-                />
-                <p className="px-3 py-3 text-sm font-semibold text-[#d8c9bc]">
-                  Tra từ đúng lúc đang đọc — lưu trước khi lướt mất.
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <h3 className={`${spaceGrotesk.className} text-2xl font-bold text-[#241710]`}>
-                  Lộ trình học từ vựng sẵn
-                </h3>
-                <p className="text-sm leading-6 text-[#5e4b40]">
-                  Mở vào là học — không tự gom bộ từ.
-                </p>
+            {/* Lộ trình — video demo đã tách lên #video-demo (file deploy được, không 404) */}
+            <div className="mt-12">
+              <h3 className={`${spaceGrotesk.className} text-2xl font-bold text-[#241710]`}>
+                Lộ trình học từ vựng sẵn
+              </h3>
+              <p className="mt-1 text-sm leading-6 text-[#5e4b40]">
+                Mở vào là học — không tự gom bộ từ.
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
                 {ROUTES.map((r) => (
                   <div
                     key={r.title}
-                    className="flex items-center gap-3 rounded-2xl border border-[#d7c7b6]/80 bg-white/80 p-4"
+                    className="flex items-start gap-3 rounded-2xl border border-[#d7c7b6]/80 bg-white/80 p-4"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f2dfd4] text-[#9f4d2f]">
                       <r.icon className="h-4 w-4" />
@@ -456,18 +536,18 @@ export default function LandingPage() {
                     </div>
                   </div>
                 ))}
-                <div className="mt-auto grid grid-cols-3 gap-2 rounded-2xl border border-[#d7c7b6]/60 bg-[#fffaf5] p-3 text-center">
-                  {[
-                    { v: VOCAB_STATS.words, l: 'từ' },
-                    { v: VOCAB_STATS.packs, l: 'chặng' },
-                    { v: VOCAB_STATS.routes, l: 'lộ trình' },
-                  ].map((x) => (
-                    <div key={x.l}>
-                      <div className={`${spaceGrotesk.className} text-xl font-bold`}>{x.v}</div>
-                      <div className="text-[10px] font-bold uppercase tracking-wider text-[#7b6558]">{x.l}</div>
-                    </div>
-                  ))}
-                </div>
+              </div>
+              <div className="mt-4 grid max-w-md grid-cols-3 gap-2 rounded-2xl border border-[#d7c7b6]/60 bg-[#fffaf5] p-3 text-center">
+                {[
+                  { v: VOCAB_STATS.words, l: 'từ' },
+                  { v: VOCAB_STATS.packs, l: 'chặng' },
+                  { v: VOCAB_STATS.routes, l: 'lộ trình' },
+                ].map((x) => (
+                  <div key={x.l}>
+                    <div className={`${spaceGrotesk.className} text-xl font-bold`}>{x.v}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#7b6558]">{x.l}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

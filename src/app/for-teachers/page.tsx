@@ -31,16 +31,73 @@ import {
   ZaloButton,
 } from '@/components/marketing/TeacherPilotClient';
 
+const TEACHER_URL = 'https://lingopro.online/for-teachers';
+
 export const metadata: Metadata = {
-  title: 'LingoPro cho Giáo viên & Trung tâm',
+  title: 'Phần mềm quản lý lớp tiếng Anh cho giáo viên | LingoPro',
   description:
-    'Quản lý lớp học tiếng Anh, giao bài, theo dõi tiến độ và phát hiện học sinh cần hỗ trợ bằng AI và FSRS. Giảm 2-4 giờ soạn bài và chấm điểm mỗi tuần.',
-  keywords: ['phần mềm quản lý lớp học tiếng Anh','app học từ vựng cho học sinh','dashboard giáo viên tiếng Anh','FSRS','học từ vựng AI'],
+    'Dashboard lớp, giao từ vựng & ngữ pháp, nhắc ôn FSRS tự động. Tiết kiệm 2–4 giờ/tuần soạn bài và chấm. Dùng thử miễn phí cho gia sư, GV, trung tâm.',
+  keywords: [
+    'phần mềm quản lý lớp học tiếng Anh',
+    'app học từ vựng cho học sinh',
+    'dashboard giáo viên tiếng Anh',
+    'FSRS',
+    'học từ vựng AI',
+    'phần mềm giáo viên tiếng Anh',
+    'theo dõi tiến độ học sinh',
+  ],
+  alternates: { canonical: TEACHER_URL },
   openGraph: {
-    title: 'LingoPro cho Giáo viên & Trung tâm',
-    description: 'Quản lý lớp học tiếng Anh, giao bài, theo dõi tiến độ và phát hiện học sinh cần hỗ trợ bằng AI và FSRS.',
+    title: 'LingoPro cho Giáo viên & Trung tâm — Dashboard lớp + FSRS',
+    description:
+      'Quản lý lớp, giao bài, phát hiện học sinh hụt nhịp. Giảm 2–4 giờ soạn & chấm mỗi tuần.',
     type: 'website',
-  }
+    locale: 'vi_VN',
+    url: TEACHER_URL,
+    siteName: 'LingoPro',
+  },
+  robots: { index: true, follow: true },
+};
+
+const teacherJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SoftwareApplication',
+      name: 'LingoPro for Teachers',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Web',
+      url: TEACHER_URL,
+      description:
+        'Phần mềm quản lý lớp tiếng Anh: dashboard tiến độ, giao từ vựng, nhắc ôn FSRS, AI hỗ trợ giáo viên.',
+      inLanguage: 'vi',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'VND',
+        description: 'Tạo lớp miễn phí — gói trả phí theo quy mô',
+      },
+    },
+    {
+      '@type': 'VideoObject',
+      name: 'Demo quy trình giáo viên LingoPro',
+      description:
+        'Tạo lớp, mời học sinh, giao bài, theo dõi tiến độ và phát hiện học sinh cần hỗ trợ.',
+      contentUrl: 'https://lingopro.online/lingopro-teacher-flow.mp4',
+      embedUrl: 'https://lingopro.online/for-teachers#demo',
+      uploadDate: '2026-06-01',
+      inLanguage: 'vi',
+    },
+    {
+      '@type': 'VideoObject',
+      name: 'LingoPro vs Anki Quizlet Duolingo cho lớp học',
+      description: 'So sánh LingoPro với Anki, Quizlet, Duolingo trong bối cảnh giáo viên quản lý lớp.',
+      contentUrl: 'https://lingopro.online/lingopro-vs-anki.mp4',
+      embedUrl: 'https://lingopro.online/for-teachers#demo',
+      uploadDate: '2026-06-01',
+      inLanguage: 'vi',
+    },
+  ],
 };
 
 const outcomes = [
@@ -159,8 +216,12 @@ const plans = [
 export default function ForTeachersPage() {
   return (
     <div className="min-h-dvh overflow-hidden bg-[#f7f8f2] text-[#17231d]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(teacherJsonLd) }}
+      />
       <TeacherLandingTracker />
-      
+
       {/* 1. Header sticky */}
       <header className="sticky top-0 z-50 border-b border-[#17231d]/10 bg-[#f7f8f2]/90 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
