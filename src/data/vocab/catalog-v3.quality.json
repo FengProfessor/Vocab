@@ -2,13 +2,13 @@
   "catalogVersion": "2026-06-13-v4",
   "summary": {
     "catalogVersion": "2026-06-13-v4",
-    "subtopics": 200,
-    "publishedSubtopics": 200,
+    "subtopics": 220,
+    "publishedSubtopics": 220,
     "draftSubtopics": 0,
-    "words": 5717,
-    "wordsInDict": 5717,
+    "words": 5927,
+    "wordsInDict": 5927,
     "quarantineWords": 0,
-    "missingImages": 919
+    "missingImages": 1349
   },
   "routes": {
     "thpt-lop-10": {
@@ -33,18 +33,18 @@
     },
     "ielts": {
       "publishStatus": "published",
-      "publishedSubtopics": 34,
-      "totalSubtopics": 34
+      "publishedSubtopics": 44,
+      "totalSubtopics": 44
     },
     "di-lam": {
       "publishStatus": "published",
-      "publishedSubtopics": 13,
-      "totalSubtopics": 13
+      "publishedSubtopics": 15,
+      "totalSubtopics": 15
     },
     "du-lich": {
       "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6
+      "publishedSubtopics": 7,
+      "totalSubtopics": 7
     },
     "doi-song": {
       "publishStatus": "published",
@@ -53,18 +53,18 @@
     },
     "suc-khoe": {
       "publishStatus": "published",
-      "publishedSubtopics": 8,
-      "totalSubtopics": 8
+      "publishedSubtopics": 9,
+      "totalSubtopics": 9
     },
     "cong-nghe": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5
     },
     "hoc-tap": {
       "publishStatus": "published",
-      "publishedSubtopics": 5,
-      "totalSubtopics": 5
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6
     },
     "hoc-thuat": {
       "publishStatus": "published",
@@ -73,8 +73,8 @@
     },
     "extended": {
       "publishStatus": "published",
-      "publishedSubtopics": 23,
-      "totalSubtopics": 23
+      "publishedSubtopics": 27,
+      "totalSubtopics": 27
     }
   },
   "topics": {
@@ -86,9 +86,9 @@
     },
     "tp-0ea6d77d9c": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 98
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 88
     },
     "tp-0f31eb90c4": {
       "publishStatus": "published",
@@ -98,15 +98,15 @@
     },
     "tp-132448072e": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 93
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 88
     },
     "tp-13fd944d94": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 98
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 91
     },
     "tp-2a8542b1aa": {
       "publishStatus": "published",
@@ -116,9 +116,9 @@
     },
     "tp-2d1dddc93a": {
       "publishStatus": "published",
-      "publishedSubtopics": 1,
-      "totalSubtopics": 1,
-      "qualityScore": 94
+      "publishedSubtopics": 2,
+      "totalSubtopics": 2,
+      "qualityScore": 79
     },
     "tp-30c3738995": {
       "publishStatus": "published",
@@ -128,9 +128,9 @@
     },
     "tp-32dabe9530": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 96
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 88
     },
     "tp-47d3a045c5": {
       "publishStatus": "published",
@@ -140,9 +140,9 @@
     },
     "tp-5328f6eb82": {
       "publishStatus": "published",
-      "publishedSubtopics": 7,
-      "totalSubtopics": 7,
-      "qualityScore": 96
+      "publishedSubtopics": 10,
+      "totalSubtopics": 10,
+      "qualityScore": 86
     },
     "tp-56648ca5ac": {
       "publishStatus": "published",
@@ -152,9 +152,9 @@
     },
     "tp-5805d2352e": {
       "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6,
-      "qualityScore": 96
+      "publishedSubtopics": 9,
+      "totalSubtopics": 9,
+      "qualityScore": 86
     },
     "tp-5f78a5826b": {
       "publishStatus": "published",
@@ -164,9 +164,9 @@
     },
     "tp-63e89bc3a4": {
       "publishStatus": "published",
-      "publishedSubtopics": 23,
-      "totalSubtopics": 23,
-      "qualityScore": 95
+      "publishedSubtopics": 27,
+      "totalSubtopics": 27,
+      "qualityScore": 91
     },
     "tp-69803ac72a": {
       "publishStatus": "published",
@@ -194,9 +194,9 @@
     },
     "tp-7a934ad2a7": {
       "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6,
-      "qualityScore": 93
+      "publishedSubtopics": 7,
+      "totalSubtopics": 7,
+      "qualityScore": 89
     },
     "tp-7c7631f3bd": {
       "publishStatus": "published",
@@ -218,15 +218,15 @@
     },
     "tp-901f19ba64": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 98
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 90
     },
     "tp-9225cff2c0": {
       "publishStatus": "published",
-      "publishedSubtopics": 5,
-      "totalSubtopics": 5,
-      "qualityScore": 98
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6,
+      "qualityScore": 92
     },
     "tp-9275f23d61": {
       "publishStatus": "published",
@@ -236,9 +236,9 @@
     },
     "tp-95e3b28bf2": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 94
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 87
     },
     "tp-9d1303f771": {
       "publishStatus": "published",
@@ -248,9 +248,9 @@
     },
     "tp-a0358154bf": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 94
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 87
     },
     "tp-c029b2cbd7": {
       "publishStatus": "published",
@@ -356,6 +356,39 @@
         "số từ 18 ngoài 30-90"
       ]
     },
+    "st-08fb64b1b2fa": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 66,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.25,
+      "wordCount": 20,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://jyhdxhqkftirncbstfpe.supabase.co/storage/v1/object/public/vocab-images/according_to.png",
+      "missingImageCount": 15,
+      "missingImages": [
+        "in contrast",
+        "on the other hand",
+        "in addition",
+        "in conclusion",
+        "to sum up",
+        "taking everything into account",
+        "as opposed to",
+        "by contrast",
+        "in stark contrast to",
+        "following this",
+        "at first glance",
+        "instead of",
+        "because of",
+        "point of view",
+        "to summarise"
+      ],
+      "failReasons": [
+        "ảnh 25% (<90%) — chưa nổi bật",
+        "số từ 20 ngoài 30-90"
+      ]
+    },
     "st-0a66b98c1ff8": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -439,6 +472,49 @@
       ],
       "failReasons": [
         "ảnh 73% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-0eabcd1a7555": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 62,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.138,
+      "wordCount": 29,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "http://www.hoianworldheritage.org.vn/uploads/news/2022_08/z3630243825780_36078206d2a7c58ed0f203b99a182bdb.jpg",
+      "missingImageCount": 25,
+      "missingImages": [
+        "encounter difficulties",
+        "a large population",
+        "heavy taxes",
+        "heavy traffic",
+        "a heavy drinker",
+        "a heavy smoker",
+        "great admiration",
+        "great understanding",
+        "great wisdom",
+        "great wealth",
+        "a big decision",
+        "broaden horizons",
+        "follow in someone's footsteps",
+        "peer pressure",
+        "social media addiction",
+        "remote working culture",
+        "sustainable lifestyle",
+        "workplace culture",
+        "corporate responsibility",
+        "public health campaign",
+        "social justice",
+        "human rights",
+        "gender equality",
+        "multicultural world",
+        "culture shock"
+      ],
+      "failReasons": [
+        "ảnh 14% (<80%) — chưa nổi bật",
+        "số từ 29 ngoài 30-90"
       ]
     },
     "st-105c10b92c25": {
@@ -678,6 +754,36 @@
         "số từ 26 ngoài 30-90"
       ]
     },
+    "st-1dfc7f6b93cf": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 77,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.52,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://static-assets.prepcdn.com/content-management-system/distinguishing_between_near_to_near_and_next_to_53034bfc87.jpg",
+      "missingImageCount": 12,
+      "missingImages": [
+        "located",
+        "surrounded",
+        "on the outskirts of",
+        "reconstruct",
+        "dismantle",
+        "in the vicinity of",
+        "at the heart of",
+        "consist of",
+        "overtake",
+        "a quarter",
+        "two-thirds",
+        "nearly a fifth"
+      ],
+      "failReasons": [
+        "ảnh 52% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-1e82ba496fc6": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -909,6 +1015,48 @@
       ],
       "failReasons": []
     },
+    "st-2af046247a7c": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 67,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.167,
+      "wordCount": 30,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://tvk.edu.vn/wp-content/uploads/2023/10/Bieu-phi-chinh-thuc-2023-ms-01-01.png",
+      "missingImageCount": 25,
+      "missingImages": [
+        "academic achievement",
+        "academic integrity",
+        "acquire practical skills",
+        "assessment criteria",
+        "bridge the theory–practice gap",
+        "broaden horizons",
+        "compulsory subjects",
+        "continuous evaluation",
+        "develop critical thinking",
+        "educational resources",
+        "elective courses",
+        "enhance employability",
+        "formative assessment",
+        "gain knowledge/insight",
+        "group projects",
+        "learning motivation",
+        "learning outcomes",
+        "peer collaboration",
+        "plagiarism policy",
+        "pursue higher education",
+        "scholarship opportunities",
+        "student engagement",
+        "study workload",
+        "teacher feedback",
+        "time management skills"
+      ],
+      "failReasons": [
+        "ảnh 17% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-2b6e2d54c321": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -1005,6 +1153,48 @@
       "missingImages": [],
       "failReasons": [
         "số từ 19 ngoài 30-90"
+      ]
+    },
+    "st-32f9505b6aaa": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 60,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.111,
+      "wordCount": 27,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/37012315/pexels-photo-37012315.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 24,
+      "missingImages": [
+        "academic achievement",
+        "acquire practical skills",
+        "assessment criteria",
+        "bridge the theory–practice gap",
+        "broaden horizons",
+        "compulsory subjects",
+        "continuous evaluation",
+        "develop critical thinking",
+        "educational resources",
+        "elective courses",
+        "enhance employability",
+        "formative assessment",
+        "gain knowledge/insight",
+        "group projects",
+        "learning motivation",
+        "learning outcomes",
+        "peer collaboration",
+        "plagiarism policy",
+        "pursue higher education",
+        "scholarship opportunities",
+        "student engagement",
+        "study workload",
+        "teacher feedback",
+        "time management skills"
+      ],
+      "failReasons": [
+        "ảnh 11% (<90%) — chưa nổi bật",
+        "số từ 27 ngoài 30-90"
       ]
     },
     "st-33b8d6675f97": {
@@ -1191,6 +1381,40 @@
       ],
       "failReasons": [
         "ảnh 85% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-400d306ea5c1": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 70,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.36,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/37786895/pexels-photo-37786895.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 16,
+      "missingImages": [
+        "combat climate change",
+        "deforestation rate",
+        "eco-friendly alternatives",
+        "eco-tourism development",
+        "fossil-fuel dependence",
+        "reduce carbon emissions",
+        "single-use plastics",
+        "sustainable lifestyle",
+        "wildlife protection",
+        "air contamination",
+        "water contamination",
+        "climate-resilient infrastructure",
+        "energy-efficient appliances",
+        "environmental impact assessment",
+        "industrial discharge",
+        "urban green spaces"
+      ],
+      "failReasons": [
+        "ảnh 36% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-445dea7c6cd8": {
@@ -1388,6 +1612,50 @@
         "số từ 159 ngoài 30-90"
       ]
     },
+    "st-4d3d22e2d6c5": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 64,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.1,
+      "wordCount": 30,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/3778477/pexels-photo-3778477.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 27,
+      "missingImages": [
+        "ai integration",
+        "algorithmic bias",
+        "automate routine tasks",
+        "boost productivity",
+        "cloud-based services",
+        "contactless payment",
+        "cutting-edge devices",
+        "cybersecurity threats",
+        "data privacy concerns",
+        "data-driven decisions",
+        "digital transformation",
+        "digital well-being",
+        "e-commerce ecosystem",
+        "high-speed broadband",
+        "machine-learning algorithms",
+        "online learning platforms",
+        "privacy-by-design",
+        "remote working culture",
+        "screen time management",
+        "seamless connectivity",
+        "smart home appliances",
+        "social media addiction",
+        "technological innovation",
+        "technology adoption curve",
+        "user data tracking",
+        "user-friendly interface",
+        "virtual collaboration tools"
+      ],
+      "failReasons": [
+        "ảnh 10% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-4f4af74a7df7": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1511,6 +1779,46 @@
         "số từ 92 ngoài 30-90"
       ]
     },
+    "st-5522c01c2f8c": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 61,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.12,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/8468119/pexels-photo-8468119.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 22,
+      "missingImages": [
+        "heavy taxes",
+        "heavy goods vehicles",
+        "miss an opportunity",
+        "miss a chance",
+        "a big accomplishment",
+        "a big decision",
+        "a big failure",
+        "a big improvement",
+        "a big mistake",
+        "great skill",
+        "great wealth",
+        "a large amount",
+        "a large proportion",
+        "a large scale",
+        "strong argument",
+        "strong emphasis",
+        "strong evidence",
+        "a strong commitment",
+        "strong criticism",
+        "strong resistance",
+        "perfectly capable",
+        "utterly devoted"
+      ],
+      "failReasons": [
+        "ảnh 12% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-561560e64207": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1570,6 +1878,43 @@
       ],
       "failReasons": [
         "ảnh 88% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-587462512860": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 61,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.136,
+      "wordCount": 22,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images2.thanhnien.vn/528068263637045248/2023/11/12/base64-1699763797481670128546.jpeg",
+      "missingImageCount": 19,
+      "missingImages": [
+        "heavy traffic",
+        "heavy goods vehicles",
+        "a large population",
+        "a large proportion",
+        "a large scale",
+        "plot of land",
+        "heavy rain",
+        "heavy fog",
+        "heavy snow",
+        "broaden horizons",
+        "urban green spaces",
+        "green public transport",
+        "eco-tourism development",
+        "climate-resilient infrastructure",
+        "on the outskirts of",
+        "in the vicinity of",
+        "centrally located",
+        "go hiking",
+        "car park"
+      ],
+      "failReasons": [
+        "ảnh 14% (<90%) — chưa nổi bật",
+        "số từ 22 ngoài 30-90"
       ]
     },
     "st-59ba3726558b": {
@@ -2164,6 +2509,40 @@
       ],
       "failReasons": []
     },
+    "st-7a1932631a90": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 66,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.238,
+      "wordCount": 21,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/37786895/pexels-photo-37786895.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 16,
+      "missingImages": [
+        "combat climate change",
+        "deforestation rate",
+        "eco-friendly alternatives",
+        "eco-tourism development",
+        "fossil-fuel dependence",
+        "reduce carbon emissions",
+        "single-use plastics",
+        "sustainable lifestyle",
+        "wildlife protection",
+        "air contamination",
+        "water contamination",
+        "climate-resilient infrastructure",
+        "energy-efficient appliances",
+        "environmental impact assessment",
+        "industrial discharge",
+        "urban green spaces"
+      ],
+      "failReasons": [
+        "ảnh 24% (<90%) — chưa nổi bật",
+        "số từ 21 ngoài 30-90"
+      ]
+    },
     "st-7a5b1a16a5e8": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -2231,6 +2610,36 @@
       "failReasons": [
         "ảnh 76% (<90%) — chưa nổi bật",
         "số từ 21 ngoài 30-90"
+      ]
+    },
+    "st-7ca80412f1b0": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 77,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.52,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://static-assets.prepcdn.com/content-management-system/distinguishing_between_near_to_near_and_next_to_53034bfc87.jpg",
+      "missingImageCount": 12,
+      "missingImages": [
+        "located",
+        "surrounded",
+        "on the outskirts of",
+        "reconstruct",
+        "dismantle",
+        "in the vicinity of",
+        "at the heart of",
+        "consist of",
+        "overtake",
+        "a quarter",
+        "two-thirds",
+        "nearly a fifth"
+      ],
+      "failReasons": [
+        "ảnh 52% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-7f4a3733b49b": {
@@ -2405,6 +2814,50 @@
         "battle of wills"
       ],
       "failReasons": []
+    },
+    "st-890c782795ef": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 64,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.1,
+      "wordCount": 30,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://www.australianenvironmentaleducation.com.au/wp-content/uploads/2021/07/Ph-scale-scaled.jpg",
+      "missingImageCount": 27,
+      "missingImages": [
+        "burnout syndrome",
+        "career advancement",
+        "career trajectory",
+        "conflict resolution",
+        "corporate governance",
+        "cost–benefit analysis",
+        "effective communication",
+        "employee retention",
+        "entrepreneurial mindset",
+        "job satisfaction",
+        "leadership potential",
+        "meet tight deadlines",
+        "on-the-job training",
+        "performance appraisal",
+        "promotion prospects",
+        "remote/hybrid model",
+        "stakeholder engagement",
+        "start-up ecosystem",
+        "strategic decision-making",
+        "talent acquisition",
+        "task prioritization",
+        "team dynamics",
+        "transferable skills",
+        "work under pressure",
+        "workload management",
+        "workplace culture",
+        "workplace flexibility"
+      ],
+      "failReasons": [
+        "ảnh 10% (<90%) — chưa nổi bật"
+      ]
     },
     "st-8953ab47236a": {
       "publishStatus": "published",
@@ -3046,6 +3499,84 @@
         "số từ 22 ngoài 30-90"
       ]
     },
+    "st-adb9f4012051": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 66,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.24,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://tl.cdnchinhphu.vn/344445545208135680/2022/11/30/4533-1669775108878293301183.jpg",
+      "missingImageCount": 19,
+      "missingImages": [
+        "heavy traffic",
+        "heavy goods vehicles",
+        "a large population",
+        "a large proportion",
+        "a large scale",
+        "plot of land",
+        "heavy rain",
+        "heavy fog",
+        "heavy snow",
+        "broaden horizons",
+        "urban green spaces",
+        "green public transport",
+        "eco-tourism development",
+        "climate-resilient infrastructure",
+        "on the outskirts of",
+        "in the vicinity of",
+        "centrally located",
+        "go hiking",
+        "car park"
+      ],
+      "failReasons": [
+        "ảnh 24% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
+    "st-ae6b0aacd944": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 58,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.042,
+      "wordCount": 24,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://jyhdxhqkftirncbstfpe.supabase.co/storage/v1/object/public/vocab-images/cloudflare-flux/v_n_x_h_i-1.png",
+      "missingImageCount": 23,
+      "missingImages": [
+        "encounter difficulties",
+        "a large population",
+        "heavy taxes",
+        "heavy traffic",
+        "a heavy drinker",
+        "a heavy smoker",
+        "great admiration",
+        "great understanding",
+        "great wisdom",
+        "great wealth",
+        "a big decision",
+        "broaden horizons",
+        "peer pressure",
+        "social media addiction",
+        "remote working culture",
+        "sustainable lifestyle",
+        "corporate responsibility",
+        "public health campaign",
+        "social justice",
+        "human rights",
+        "gender equality",
+        "multicultural world",
+        "culture shock"
+      ],
+      "failReasons": [
+        "ảnh 4% (<90%) — chưa nổi bật",
+        "số từ 24 ngoài 30-90"
+      ]
+    },
     "st-aef8a336633e": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -3237,6 +3768,43 @@
       ],
       "failReasons": []
     },
+    "st-b9ceebdc7eec": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 61,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.136,
+      "wordCount": 22,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/8468119/pexels-photo-8468119.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 19,
+      "missingImages": [
+        "heavy goods vehicles",
+        "miss an opportunity",
+        "miss a chance",
+        "a big accomplishment",
+        "a big failure",
+        "a big improvement",
+        "a big mistake",
+        "great skill",
+        "a large amount",
+        "a large proportion",
+        "a large scale",
+        "strong argument",
+        "strong emphasis",
+        "strong evidence",
+        "a strong commitment",
+        "strong criticism",
+        "strong resistance",
+        "perfectly capable",
+        "utterly devoted"
+      ],
+      "failReasons": [
+        "ảnh 14% (<90%) — chưa nổi bật",
+        "số từ 22 ngoài 30-90"
+      ]
+    },
     "st-b9f07f3086f7": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -3380,6 +3948,53 @@
       ],
       "failReasons": []
     },
+    "st-c113d4f118d1": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 60,
+      "meaningCoverage": 1,
+      "imageCoverage": 0,
+      "wordCount": 30,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": null,
+      "missingImageCount": 30,
+      "missingImages": [
+        "addiction prevention",
+        "boost immune system",
+        "calorie consumption",
+        "cardiovascular exercise",
+        "evidence-based advice",
+        "health check-ups",
+        "health insurance coverage",
+        "healthcare access",
+        "healthy eating habits",
+        "hydration levels",
+        "maintain a balanced diet",
+        "mental well-being",
+        "mindfulness meditation",
+        "nutrient-dense food",
+        "nutrition labels",
+        "outdoor activities",
+        "peer pressure",
+        "portion control",
+        "prevent lifestyle diseases",
+        "public health campaign",
+        "quality sleep",
+        "regular workout routine",
+        "screen fatigue",
+        "sedentary lifestyle",
+        "self-care practices",
+        "sleep hygiene",
+        "strength training",
+        "stress management techniques",
+        "sugar intake",
+        "work–life balance"
+      ],
+      "failReasons": [
+        "ảnh 0% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-c26a16e45a74": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -3487,6 +4102,84 @@
         "bodily autonomy"
       ],
       "failReasons": []
+    },
+    "st-c8dd61915ec2": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 59,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.069,
+      "wordCount": 29,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/3778477/pexels-photo-3778477.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 27,
+      "missingImages": [
+        "ai integration",
+        "algorithmic bias",
+        "automate routine tasks",
+        "boost productivity",
+        "cloud-based services",
+        "contactless payment",
+        "cutting-edge devices",
+        "cybersecurity threats",
+        "data privacy concerns",
+        "data-driven decisions",
+        "digital transformation",
+        "digital well-being",
+        "e-commerce ecosystem",
+        "high-speed broadband",
+        "machine-learning algorithms",
+        "online learning platforms",
+        "privacy-by-design",
+        "remote working culture",
+        "screen time management",
+        "seamless connectivity",
+        "smart home appliances",
+        "social media addiction",
+        "technological innovation",
+        "technology adoption curve",
+        "user data tracking",
+        "user-friendly interface",
+        "virtual collaboration tools"
+      ],
+      "failReasons": [
+        "ảnh 7% (<90%) — chưa nổi bật",
+        "số từ 29 ngoài 30-90"
+      ]
+    },
+    "st-cb1d09e505d7": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 66,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.25,
+      "wordCount": 20,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://jyhdxhqkftirncbstfpe.supabase.co/storage/v1/object/public/vocab-images/according_to.png",
+      "missingImageCount": 15,
+      "missingImages": [
+        "in contrast",
+        "on the other hand",
+        "in addition",
+        "in conclusion",
+        "to sum up",
+        "taking everything into account",
+        "as opposed to",
+        "by contrast",
+        "in stark contrast to",
+        "following this",
+        "at first glance",
+        "instead of",
+        "because of",
+        "point of view",
+        "to summarise"
+      ],
+      "failReasons": [
+        "ảnh 25% (<80%) — chưa nổi bật",
+        "số từ 20 ngoài 30-90"
+      ]
     },
     "st-cb942718c15f": {
       "publishStatus": "published",
@@ -3854,6 +4547,50 @@
         "số từ 11 ngoài 30-90"
       ]
     },
+    "st-df457f4af531": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 64,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.1,
+      "wordCount": 30,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://www.australianenvironmentaleducation.com.au/wp-content/uploads/2021/07/Ph-scale-scaled.jpg",
+      "missingImageCount": 27,
+      "missingImages": [
+        "burnout syndrome",
+        "career advancement",
+        "career trajectory",
+        "conflict resolution",
+        "corporate governance",
+        "cost–benefit analysis",
+        "effective communication",
+        "employee retention",
+        "entrepreneurial mindset",
+        "job satisfaction",
+        "leadership potential",
+        "meet tight deadlines",
+        "on-the-job training",
+        "performance appraisal",
+        "promotion prospects",
+        "remote/hybrid model",
+        "stakeholder engagement",
+        "start-up ecosystem",
+        "strategic decision-making",
+        "talent acquisition",
+        "task prioritization",
+        "team dynamics",
+        "transferable skills",
+        "work under pressure",
+        "workload management",
+        "workplace culture",
+        "workplace flexibility"
+      ],
+      "failReasons": [
+        "ảnh 10% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-e07352fe742c": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -3895,6 +4632,53 @@
       ],
       "failReasons": [
         "số từ 133 ngoài 30-90"
+      ]
+    },
+    "st-e45bd4f5955f": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 60,
+      "meaningCoverage": 1,
+      "imageCoverage": 0,
+      "wordCount": 30,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": null,
+      "missingImageCount": 30,
+      "missingImages": [
+        "addiction prevention",
+        "boost immune system",
+        "calorie consumption",
+        "cardiovascular exercise",
+        "evidence-based advice",
+        "health check-ups",
+        "health insurance coverage",
+        "healthcare access",
+        "healthy eating habits",
+        "hydration levels",
+        "maintain a balanced diet",
+        "mental well-being",
+        "mindfulness meditation",
+        "nutrient-dense food",
+        "nutrition labels",
+        "outdoor activities",
+        "peer pressure",
+        "portion control",
+        "prevent lifestyle diseases",
+        "public health campaign",
+        "quality sleep",
+        "regular workout routine",
+        "screen fatigue",
+        "sedentary lifestyle",
+        "self-care practices",
+        "sleep hygiene",
+        "strength training",
+        "stress management techniques",
+        "sugar intake",
+        "work–life balance"
+      ],
+      "failReasons": [
+        "ảnh 0% (<90%) — chưa nổi bật"
       ]
     },
     "st-e4c8ca1c5a6e": {

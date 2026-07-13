@@ -10,9 +10,9 @@
   "counts": {
     "routes": 13,
     "topics": 40,
-    "subtopics": 200,
-    "packs": 714,
-    "words": 9670
+    "subtopics": 220,
+    "packs": 754,
+    "words": 10189
   },
   "routes": [
     {
@@ -223,7 +223,8 @@
       "subtopicIds": [
         "st-5363da1ba5ac",
         "st-f9d5103cf2a4",
-        "st-561560e64207"
+        "st-561560e64207",
+        "st-c8dd61915ec2"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -250,6 +251,7 @@
       "title": "Giáo dục & trường lớp",
       "subtopicIds": [
         "st-4cd972d14bcb",
+        "st-2af046247a7c",
         "st-239ce0bcaa81",
         "st-f8af75920592",
         "st-4c0b35f14ebc"
@@ -266,7 +268,8 @@
         "st-2435fc0fd3e4",
         "st-5ea51d4fca10",
         "st-a6d004423d89",
-        "st-765cb826d99c"
+        "st-765cb826d99c",
+        "st-587462512860"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -297,7 +300,8 @@
       "key": "khoa-hoc-cn",
       "title": "Khoa học & công nghệ",
       "subtopicIds": [
-        "st-dbdaa66610bc"
+        "st-dbdaa66610bc",
+        "st-4d3d22e2d6c5"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -321,6 +325,7 @@
       "subtopicIds": [
         "st-6b0f849ec0cf",
         "st-7a178959b21b",
+        "st-5522c01c2f8c",
         "st-11737267bc3e"
       ],
       "qualityScore": 0,
@@ -350,7 +355,10 @@
         "st-d7bda5edd047",
         "st-f63c0a3eb175",
         "st-a02f582937b5",
-        "st-be09db2716fb"
+        "st-be09db2716fb",
+        "st-890c782795ef",
+        "st-ae6b0aacd944",
+        "st-b9ceebdc7eec"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -380,7 +388,10 @@
         "st-aef8a336633e",
         "st-83fd5bea9e9a",
         "st-a68f2a5f22ed",
-        "st-445dea7c6cd8"
+        "st-445dea7c6cd8",
+        "st-32f9505b6aaa",
+        "st-08fb64b1b2fa",
+        "st-7ca80412f1b0"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -404,9 +415,11 @@
       "title": "Chủ đề khác",
       "subtopicIds": [
         "st-49fe4f58fae1",
+        "st-1dfc7f6b93cf",
         "st-f2e8ccd2308d",
         "st-86b9261ccfb5",
         "st-7f9c63a68525",
+        "st-400d306ea5c1",
         "st-e34d6d0ed072",
         "st-7a5b1a16a5e8",
         "st-99db1b29fff5",
@@ -422,7 +435,9 @@
         "st-fed7e3c93f9a",
         "st-16e51553fca8",
         "st-e7b7995bc7fa",
+        "st-0eabcd1a7555",
         "st-2df01493d07e",
+        "st-cb1d09e505d7",
         "st-1cf8d5488fc0",
         "st-6fa84c853836",
         "st-9a7430ce8e4c"
@@ -499,7 +514,8 @@
         "st-67a3bea1636b",
         "st-c54e304f5b1d",
         "st-59fae6f6f141",
-        "st-d2b50749cec7"
+        "st-d2b50749cec7",
+        "st-df457f4af531"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -566,7 +582,8 @@
         "st-0d666fe79091",
         "st-ce53b369a174",
         "st-be7e9c790366",
-        "st-f7f57c654882"
+        "st-f7f57c654882",
+        "st-c113d4f118d1"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -581,7 +598,8 @@
         "st-166b7d2ce6e5",
         "st-27cdc231c2d5",
         "st-f53351b75944",
-        "st-14298612d5ae"
+        "st-14298612d5ae",
+        "st-7a1932631a90"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -609,6 +627,7 @@
       "key": "co-the-benh",
       "title": "Cơ thể & bệnh tật",
       "subtopicIds": [
+        "st-e45bd4f5955f",
         "st-b9f07f3086f7",
         "st-2034de421f7d",
         "st-0309de5a7285",
@@ -640,6 +659,7 @@
       "subtopicIds": [
         "st-db7787575149",
         "st-1809746c17f8",
+        "st-adb9f4012051",
         "st-980877fc1fb0"
       ],
       "qualityScore": 0,
@@ -855,6 +875,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-08fb64b1b2fa",
+      "topicId": "tp-5805d2352e",
+      "routeId": "ielts",
+      "title": "Unit 9: Transition & Linking Words",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-9:-transition-linking-words",
+      "contentType": "word",
+      "wordCount": 20,
+      "packIds": [
+        "st-08fb64b1b2fa-p0",
+        "st-08fb64b1b2fa-p1"
+      ],
+      "previewWords": [
+        "according to",
+        "in contrast",
+        "on the other hand",
+        "furthermore",
+        "in addition"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 3000 từ vựng IELTS thường gặp nhất - VOCA.VN.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-0a66b98c1ff8",
       "topicId": "tp-8cd90ef97c",
       "routeId": "hoc-thuat",
@@ -958,6 +1004,32 @@
         "admire",
         "adopt",
         "animated"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-0eabcd1a7555",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Society & Culture",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 5: Society & Culture",
+      "contentType": "word",
+      "wordCount": 29,
+      "packIds": [
+        "st-0eabcd1a7555-p0",
+        "st-0eabcd1a7555-p1"
+      ],
+      "previewWords": [
+        "encounter difficulties",
+        "a large population",
+        "heavy taxes",
+        "heavy traffic",
+        "a heavy drinker"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -1283,6 +1355,32 @@
         "agrees wholeheartedly",
         "share an opinion",
         "share a view"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-1dfc7f6b93cf",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Charts, Maps & Trends",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 10: Charts, Maps & Trends",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-1dfc7f6b93cf-p0",
+        "st-1dfc7f6b93cf-p1"
+      ],
+      "previewWords": [
+        "located",
+        "adjacent",
+        "surrounded",
+        "on the outskirts of",
+        "alongside"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -1625,6 +1723,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-2af046247a7c",
+      "topicId": "tp-132448072e",
+      "routeId": "hoc-tap",
+      "title": "Education & Academics",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 1: Education & Academics",
+      "contentType": "word",
+      "wordCount": 30,
+      "packIds": [
+        "st-2af046247a7c-p0",
+        "st-2af046247a7c-p1"
+      ],
+      "previewWords": [
+        "academic achievement",
+        "academic integrity",
+        "acquire practical skills",
+        "assessment criteria",
+        "bridge the theory–practice gap"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-2b6e2d54c321",
       "topicId": "tp-8cd90ef97c",
       "routeId": "hoc-thuat",
@@ -1754,6 +1878,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-32f9505b6aaa",
+      "topicId": "tp-5805d2352e",
+      "routeId": "ielts",
+      "title": "Unit 1: Education & Academics",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-1:-education-academics",
+      "contentType": "word",
+      "wordCount": 27,
+      "packIds": [
+        "st-32f9505b6aaa-p0",
+        "st-32f9505b6aaa-p1"
+      ],
+      "previewWords": [
+        "academic achievement",
+        "acquire practical skills",
+        "assessment criteria",
+        "bridge the theory–practice gap",
+        "broaden horizons"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 150 Collocations trong IELTS - IELTS LangGo.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -1977,6 +2127,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-400d306ea5c1",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Environment & Wildlife",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 6: Environment & Wildlife",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-400d306ea5c1-p0",
+        "st-400d306ea5c1-p1"
+      ],
+      "previewWords": [
+        "biodiversity loss",
+        "carbon footprint",
+        "combat climate change",
+        "conservation efforts",
+        "deforestation rate"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -2212,6 +2388,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-4d3d22e2d6c5",
+      "topicId": "tp-2d1dddc93a",
+      "routeId": "cong-nghe",
+      "title": "Technology & Science",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 2: Technology & Science",
+      "contentType": "word",
+      "wordCount": 30,
+      "packIds": [
+        "st-4d3d22e2d6c5-p0",
+        "st-4d3d22e2d6c5-p1"
+      ],
+      "previewWords": [
+        "ai integration",
+        "algorithmic bias",
+        "automate routine tasks",
+        "boost productivity",
+        "cloud-based services"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-4f4af74a7df7",
       "topicId": "tp-9275f23d61",
       "routeId": "hoc-thuat",
@@ -2379,6 +2581,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-5522c01c2f8c",
+      "topicId": "tp-32dabe9530",
+      "routeId": "di-lam",
+      "title": "Economics & Business",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 7: Economics & Business",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-5522c01c2f8c-p0",
+        "st-5522c01c2f8c-p1"
+      ],
+      "previewWords": [
+        "heavy workload",
+        "heavy taxes",
+        "heavy goods vehicles",
+        "miss an opportunity",
+        "miss a chance"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-561560e64207",
       "topicId": "tp-0ea6d77d9c",
       "routeId": "ielts",
@@ -2457,6 +2685,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-587462512860",
+      "topicId": "tp-13fd944d94",
+      "routeId": "ielts",
+      "title": "Unit 8: Travel & Urbanisation",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-8:-travel-urbanisation",
+      "contentType": "word",
+      "wordCount": 22,
+      "packIds": [
+        "st-587462512860-p0",
+        "st-587462512860-p1"
+      ],
+      "previewWords": [
+        "heavy traffic",
+        "heavy goods vehicles",
+        "a large population",
+        "a large proportion",
+        "a large scale"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 500 Collocations thông dụng nhất - Aland English.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -3255,6 +3509,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-7a1932631a90",
+      "topicId": "tp-9225cff2c0",
+      "routeId": "ielts",
+      "title": "Unit 6: Environment & Wildlife",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-6:-environment-wildlife",
+      "contentType": "word",
+      "wordCount": 21,
+      "packIds": [
+        "st-7a1932631a90-p0",
+        "st-7a1932631a90-p1"
+      ],
+      "previewWords": [
+        "biodiversity loss",
+        "combat climate change",
+        "deforestation rate",
+        "eco-friendly alternatives",
+        "eco-tourism development"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 500 Collocations thông dụng nhất - Aland English.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-7a5b1a16a5e8",
       "topicId": "tp-63e89bc3a4",
       "routeId": "extended",
@@ -3332,6 +3612,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-7ca80412f1b0",
+      "topicId": "tp-5805d2352e",
+      "routeId": "ielts",
+      "title": "Unit 10: Charts, Maps & Trends",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-10:-charts,-maps-trends",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-7ca80412f1b0-p0",
+        "st-7ca80412f1b0-p1"
+      ],
+      "previewWords": [
+        "located",
+        "adjacent",
+        "surrounded",
+        "on the outskirts of",
+        "alongside"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ tài liệu biểu đồ và bản đồ học thuật IELTS Writing Task 1.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -3566,6 +3872,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-890c782795ef",
+      "topicId": "tp-5328f6eb82",
+      "routeId": "ielts",
+      "title": "Unit 4: Work & Career",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-4:-work-career",
+      "contentType": "word",
+      "wordCount": 30,
+      "packIds": [
+        "st-890c782795ef-p0",
+        "st-890c782795ef-p1"
+      ],
+      "previewWords": [
+        "allocate resources",
+        "burnout syndrome",
+        "career advancement",
+        "career trajectory",
+        "competitive salary"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 150 Collocations trong IELTS - IELTS LangGo.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -4341,6 +4673,58 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-adb9f4012051",
+      "topicId": "tp-a0358154bf",
+      "routeId": "du-lich",
+      "title": "Travel & Urbanisation",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 8: Travel & Urbanisation",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-adb9f4012051-p0",
+        "st-adb9f4012051-p1"
+      ],
+      "previewWords": [
+        "heavy traffic",
+        "heavy goods vehicles",
+        "a large population",
+        "a large proportion",
+        "a large scale"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-ae6b0aacd944",
+      "topicId": "tp-5328f6eb82",
+      "routeId": "ielts",
+      "title": "Unit 5: Society & Culture",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-5:-society-culture",
+      "contentType": "word",
+      "wordCount": 24,
+      "packIds": [
+        "st-ae6b0aacd944-p0",
+        "st-ae6b0aacd944-p1"
+      ],
+      "previewWords": [
+        "encounter difficulties",
+        "a large population",
+        "heavy taxes",
+        "heavy traffic",
+        "a heavy drinker"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 500 Collocations thông dụng nhất - Aland English.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-aef8a336633e",
       "topicId": "tp-5805d2352e",
       "routeId": "ielts",
@@ -4580,6 +4964,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-b9ceebdc7eec",
+      "topicId": "tp-5328f6eb82",
+      "routeId": "ielts",
+      "title": "Unit 7: Economics & Business",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-7:-economics-business",
+      "contentType": "word",
+      "wordCount": 22,
+      "packIds": [
+        "st-b9ceebdc7eec-p0",
+        "st-b9ceebdc7eec-p1"
+      ],
+      "previewWords": [
+        "heavy workload",
+        "heavy goods vehicles",
+        "miss an opportunity",
+        "miss a chance",
+        "a big accomplishment"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 500 Collocations thông dụng nhất - Aland English.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-b9f07f3086f7",
       "topicId": "tp-95e3b28bf2",
       "routeId": "suc-khoe",
@@ -4778,6 +5188,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-c113d4f118d1",
+      "topicId": "tp-901f19ba64",
+      "routeId": "ielts",
+      "title": "Unit 3: Health & Lifestyle",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-3:-health-lifestyle",
+      "contentType": "word",
+      "wordCount": 30,
+      "packIds": [
+        "st-c113d4f118d1-p0",
+        "st-c113d4f118d1-p1"
+      ],
+      "previewWords": [
+        "addiction prevention",
+        "boost immune system",
+        "calorie consumption",
+        "cardiovascular exercise",
+        "evidence-based advice"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 150 Collocations trong IELTS - IELTS LangGo.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-c26a16e45a74",
       "topicId": "tp-9225cff2c0",
       "routeId": "ielts",
@@ -4936,6 +5372,58 @@
         "information",
         "enroll",
         "suppose"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-c8dd61915ec2",
+      "topicId": "tp-0ea6d77d9c",
+      "routeId": "ielts",
+      "title": "Unit 2: Technology & Science",
+      "sourcePackage": "exam-ielts",
+      "sourceName": "ielts-unit-2:-technology-science",
+      "contentType": "word",
+      "wordCount": 29,
+      "packIds": [
+        "st-c8dd61915ec2-p0",
+        "st-c8dd61915ec2-p1"
+      ],
+      "previewWords": [
+        "ai integration",
+        "algorithmic bias",
+        "automate routine tasks",
+        "boost productivity",
+        "cloud-based services"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 150 Collocations trong IELTS - IELTS LangGo.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-cb1d09e505d7",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Transition & Linking Words",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 9: Transition & Linking Words",
+      "contentType": "word",
+      "wordCount": 20,
+      "packIds": [
+        "st-cb1d09e505d7-p0",
+        "st-cb1d09e505d7-p1"
+      ],
+      "previewWords": [
+        "according to",
+        "in contrast",
+        "on the other hand",
+        "furthermore",
+        "in addition"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5462,6 +5950,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-df457f4af531",
+      "topicId": "tp-7a934ad2a7",
+      "routeId": "di-lam",
+      "title": "Work & Career",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 4: Work & Career",
+      "contentType": "word",
+      "wordCount": 30,
+      "packIds": [
+        "st-df457f4af531-p0",
+        "st-df457f4af531-p1"
+      ],
+      "previewWords": [
+        "allocate resources",
+        "burnout syndrome",
+        "career advancement",
+        "career trajectory",
+        "competitive salary"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-e07352fe742c",
       "topicId": "tp-5805d2352e",
       "routeId": "ielts",
@@ -5515,6 +6029,32 @@
         "alarming",
         "artificial",
         "in consequence of"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-e45bd4f5955f",
+      "topicId": "tp-95e3b28bf2",
+      "routeId": "suc-khoe",
+      "title": "Health & Lifestyle",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 3: Health & Lifestyle",
+      "contentType": "word",
+      "wordCount": 30,
+      "packIds": [
+        "st-e45bd4f5955f-p0",
+        "st-e45bd4f5955f-p1"
+      ],
+      "previewWords": [
+        "addiction prevention",
+        "boost immune system",
+        "calorie consumption",
+        "cardiovascular exercise",
+        "evidence-based advice"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -6563,6 +7103,104 @@
       ]
     },
     {
+      "id": "st-08fb64b1b2fa-p0",
+      "subtopicId": "st-08fb64b1b2fa",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "according to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in contrast",
+          "contentType": "phrase"
+        },
+        {
+          "word": "on the other hand",
+          "contentType": "phrase"
+        },
+        {
+          "word": "furthermore",
+          "contentType": "word"
+        },
+        {
+          "word": "in addition",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in conclusion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "to sum up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "taking everything into account",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in a nutshell",
+          "contentType": "phrase"
+        },
+        {
+          "word": "as opposed to",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-08fb64b1b2fa-p1",
+      "subtopicId": "st-08fb64b1b2fa",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "by contrast",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in stark contrast to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "first of all",
+          "contentType": "phrase"
+        },
+        {
+          "word": "following this",
+          "contentType": "phrase"
+        },
+        {
+          "word": "at first glance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "instead of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "owing to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "because of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "point of view",
+          "contentType": "phrase"
+        },
+        {
+          "word": "to summarise",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-0a66b98c1ff8-p0",
       "subtopicId": "st-0a66b98c1ff8",
       "index": 0,
@@ -7474,6 +8112,140 @@
         {
           "word": "youth",
           "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-0eabcd1a7555-p0",
+      "subtopicId": "st-0eabcd1a7555",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "encounter difficulties",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large population",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy taxes",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy traffic",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a heavy drinker",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a heavy smoker",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great admiration",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great understanding",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great wisdom",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great wealth",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big decision",
+          "contentType": "phrase"
+        },
+        {
+          "word": "broaden horizons",
+          "contentType": "phrase"
+        },
+        {
+          "word": "follow in someone's footsteps",
+          "contentType": "phrase"
+        },
+        {
+          "word": "peer pressure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social media addiction",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-0eabcd1a7555-p1",
+      "subtopicId": "st-0eabcd1a7555",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "remote working culture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sustainable lifestyle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "workplace culture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "corporate responsibility",
+          "contentType": "phrase"
+        },
+        {
+          "word": "public health campaign",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social justice",
+          "contentType": "phrase"
+        },
+        {
+          "word": "human rights",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cultural exchange",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cultural heritage",
+          "contentType": "phrase"
+        },
+        {
+          "word": "family gathering",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social issue",
+          "contentType": "phrase"
+        },
+        {
+          "word": "gender equality",
+          "contentType": "phrase"
+        },
+        {
+          "word": "multicultural world",
+          "contentType": "phrase"
+        },
+        {
+          "word": "culture shock",
+          "contentType": "phrase"
         }
       ]
     },
@@ -9870,6 +10642,124 @@
         },
         {
           "word": "spark a debate about",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-1dfc7f6b93cf-p0",
+      "subtopicId": "st-1dfc7f6b93cf",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "located",
+          "contentType": "word"
+        },
+        {
+          "word": "adjacent",
+          "contentType": "word"
+        },
+        {
+          "word": "surrounded",
+          "contentType": "word"
+        },
+        {
+          "word": "on the outskirts of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "alongside",
+          "contentType": "word"
+        },
+        {
+          "word": "expand",
+          "contentType": "word"
+        },
+        {
+          "word": "renovate",
+          "contentType": "word"
+        },
+        {
+          "word": "demolish",
+          "contentType": "word"
+        },
+        {
+          "word": "reconstruct",
+          "contentType": "word"
+        },
+        {
+          "word": "upgrade",
+          "contentType": "word"
+        },
+        {
+          "word": "dismantle",
+          "contentType": "word"
+        },
+        {
+          "word": "convert",
+          "contentType": "word"
+        },
+        {
+          "word": "merge",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-1dfc7f6b93cf-p1",
+      "subtopicId": "st-1dfc7f6b93cf",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "in the vicinity of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "at the heart of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "account for",
+          "contentType": "phrase"
+        },
+        {
+          "word": "make up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "take up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "consist of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "comprise",
+          "contentType": "word"
+        },
+        {
+          "word": "constitute",
+          "contentType": "word"
+        },
+        {
+          "word": "overtake",
+          "contentType": "word"
+        },
+        {
+          "word": "a quarter",
+          "contentType": "phrase"
+        },
+        {
+          "word": "two-thirds",
+          "contentType": "word"
+        },
+        {
+          "word": "nearly a fifth",
           "contentType": "phrase"
         }
       ]
@@ -12797,6 +13687,144 @@
       ]
     },
     {
+      "id": "st-2af046247a7c-p0",
+      "subtopicId": "st-2af046247a7c",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "academic achievement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "academic integrity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "acquire practical skills",
+          "contentType": "phrase"
+        },
+        {
+          "word": "assessment criteria",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bridge the theory–practice gap",
+          "contentType": "phrase"
+        },
+        {
+          "word": "broaden horizons",
+          "contentType": "phrase"
+        },
+        {
+          "word": "compulsory subjects",
+          "contentType": "phrase"
+        },
+        {
+          "word": "continuous evaluation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "curriculum design",
+          "contentType": "phrase"
+        },
+        {
+          "word": "develop critical thinking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "educational attainment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "educational resources",
+          "contentType": "phrase"
+        },
+        {
+          "word": "elective courses",
+          "contentType": "phrase"
+        },
+        {
+          "word": "enhance employability",
+          "contentType": "phrase"
+        },
+        {
+          "word": "extracurricular activities",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-2af046247a7c-p1",
+      "subtopicId": "st-2af046247a7c",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "formative assessment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "foster creativity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "gain knowledge/insight",
+          "contentType": "phrase"
+        },
+        {
+          "word": "group projects",
+          "contentType": "phrase"
+        },
+        {
+          "word": "learning motivation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "learning outcomes",
+          "contentType": "phrase"
+        },
+        {
+          "word": "peer collaboration",
+          "contentType": "phrase"
+        },
+        {
+          "word": "plagiarism policy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "pursue higher education",
+          "contentType": "phrase"
+        },
+        {
+          "word": "scholarship opportunities",
+          "contentType": "phrase"
+        },
+        {
+          "word": "student engagement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "study workload",
+          "contentType": "phrase"
+        },
+        {
+          "word": "teacher feedback",
+          "contentType": "phrase"
+        },
+        {
+          "word": "time management skills",
+          "contentType": "phrase"
+        },
+        {
+          "word": "tuition fees",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-2b6e2d54c321-p0",
       "subtopicId": "st-2b6e2d54c321",
       "index": 0,
@@ -13577,6 +14605,132 @@
         },
         {
           "word": "word of mouth",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-32f9505b6aaa-p0",
+      "subtopicId": "st-32f9505b6aaa",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "academic achievement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "acquire practical skills",
+          "contentType": "phrase"
+        },
+        {
+          "word": "assessment criteria",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bridge the theory–practice gap",
+          "contentType": "phrase"
+        },
+        {
+          "word": "broaden horizons",
+          "contentType": "phrase"
+        },
+        {
+          "word": "compulsory subjects",
+          "contentType": "phrase"
+        },
+        {
+          "word": "continuous evaluation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "develop critical thinking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "educational attainment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "educational resources",
+          "contentType": "phrase"
+        },
+        {
+          "word": "elective courses",
+          "contentType": "phrase"
+        },
+        {
+          "word": "enhance employability",
+          "contentType": "phrase"
+        },
+        {
+          "word": "extracurricular activities",
+          "contentType": "phrase"
+        },
+        {
+          "word": "formative assessment",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-32f9505b6aaa-p1",
+      "subtopicId": "st-32f9505b6aaa",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "foster creativity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "gain knowledge/insight",
+          "contentType": "phrase"
+        },
+        {
+          "word": "group projects",
+          "contentType": "phrase"
+        },
+        {
+          "word": "learning motivation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "learning outcomes",
+          "contentType": "phrase"
+        },
+        {
+          "word": "peer collaboration",
+          "contentType": "phrase"
+        },
+        {
+          "word": "plagiarism policy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "pursue higher education",
+          "contentType": "phrase"
+        },
+        {
+          "word": "scholarship opportunities",
+          "contentType": "phrase"
+        },
+        {
+          "word": "student engagement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "study workload",
+          "contentType": "phrase"
+        },
+        {
+          "word": "teacher feedback",
+          "contentType": "phrase"
+        },
+        {
+          "word": "time management skills",
           "contentType": "phrase"
         }
       ]
@@ -15528,6 +16682,124 @@
         },
         {
           "word": "ancient monument",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-400d306ea5c1-p0",
+      "subtopicId": "st-400d306ea5c1",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "biodiversity loss",
+          "contentType": "phrase"
+        },
+        {
+          "word": "carbon footprint",
+          "contentType": "phrase"
+        },
+        {
+          "word": "combat climate change",
+          "contentType": "phrase"
+        },
+        {
+          "word": "conservation efforts",
+          "contentType": "phrase"
+        },
+        {
+          "word": "deforestation rate",
+          "contentType": "phrase"
+        },
+        {
+          "word": "eco-friendly alternatives",
+          "contentType": "phrase"
+        },
+        {
+          "word": "eco-tourism development",
+          "contentType": "phrase"
+        },
+        {
+          "word": "environmental awareness",
+          "contentType": "phrase"
+        },
+        {
+          "word": "environmental degradation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "fossil-fuel dependence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "natural habitat",
+          "contentType": "phrase"
+        },
+        {
+          "word": "reduce carbon emissions",
+          "contentType": "phrase"
+        },
+        {
+          "word": "renewable energy sources",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-400d306ea5c1-p1",
+      "subtopicId": "st-400d306ea5c1",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "single-use plastics",
+          "contentType": "phrase"
+        },
+        {
+          "word": "soil erosion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sustainable lifestyle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "water scarcity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "wildlife protection",
+          "contentType": "phrase"
+        },
+        {
+          "word": "air contamination",
+          "contentType": "phrase"
+        },
+        {
+          "word": "water contamination",
+          "contentType": "phrase"
+        },
+        {
+          "word": "climate-resilient infrastructure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "energy-efficient appliances",
+          "contentType": "phrase"
+        },
+        {
+          "word": "environmental impact assessment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "industrial discharge",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban green spaces",
           "contentType": "phrase"
         }
       ]
@@ -18076,6 +19348,144 @@
       ]
     },
     {
+      "id": "st-4d3d22e2d6c5-p0",
+      "subtopicId": "st-4d3d22e2d6c5",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "ai integration",
+          "contentType": "phrase"
+        },
+        {
+          "word": "algorithmic bias",
+          "contentType": "phrase"
+        },
+        {
+          "word": "automate routine tasks",
+          "contentType": "phrase"
+        },
+        {
+          "word": "boost productivity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cloud-based services",
+          "contentType": "phrase"
+        },
+        {
+          "word": "contactless payment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cutting-edge devices",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cybersecurity threats",
+          "contentType": "phrase"
+        },
+        {
+          "word": "data privacy concerns",
+          "contentType": "phrase"
+        },
+        {
+          "word": "data-driven decisions",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital literacy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital transformation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital well-being",
+          "contentType": "phrase"
+        },
+        {
+          "word": "e-commerce ecosystem",
+          "contentType": "phrase"
+        },
+        {
+          "word": "high-speed broadband",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-4d3d22e2d6c5-p1",
+      "subtopicId": "st-4d3d22e2d6c5",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "information overload",
+          "contentType": "phrase"
+        },
+        {
+          "word": "machine-learning algorithms",
+          "contentType": "phrase"
+        },
+        {
+          "word": "online learning platforms",
+          "contentType": "phrase"
+        },
+        {
+          "word": "privacy-by-design",
+          "contentType": "word"
+        },
+        {
+          "word": "remote working culture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "screen time management",
+          "contentType": "phrase"
+        },
+        {
+          "word": "seamless connectivity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "smart home appliances",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social media addiction",
+          "contentType": "phrase"
+        },
+        {
+          "word": "technological innovation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "technology adoption curve",
+          "contentType": "phrase"
+        },
+        {
+          "word": "user data tracking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "user-friendly interface",
+          "contentType": "phrase"
+        },
+        {
+          "word": "virtual collaboration tools",
+          "contentType": "phrase"
+        },
+        {
+          "word": "wearable technology",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-4f4af74a7df7-p0",
       "subtopicId": "st-4f4af74a7df7",
       "index": 0,
@@ -19487,6 +20897,124 @@
       ]
     },
     {
+      "id": "st-5522c01c2f8c-p0",
+      "subtopicId": "st-5522c01c2f8c",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "heavy workload",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy taxes",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy goods vehicles",
+          "contentType": "phrase"
+        },
+        {
+          "word": "miss an opportunity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "miss a chance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big accomplishment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big decision",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big failure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big improvement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big mistake",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great skill",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great wealth",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large amount",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-5522c01c2f8c-p1",
+      "subtopicId": "st-5522c01c2f8c",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "a large proportion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large scale",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong argument",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong emphasis",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong evidence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a strong commitment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong criticism",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong resistance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "make a decision",
+          "contentType": "phrase"
+        },
+        {
+          "word": "perfectly capable",
+          "contentType": "phrase"
+        },
+        {
+          "word": "utterly devoted",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bitterly disappointed",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-561560e64207-p0",
       "subtopicId": "st-561560e64207",
       "index": 0,
@@ -20132,6 +21660,112 @@
         },
         {
           "word": "where the power is",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-587462512860-p0",
+      "subtopicId": "st-587462512860",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "heavy traffic",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy goods vehicles",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large population",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large proportion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large scale",
+          "contentType": "phrase"
+        },
+        {
+          "word": "plot of land",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy rain",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy fog",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy snow",
+          "contentType": "phrase"
+        },
+        {
+          "word": "broaden horizons",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban green spaces",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-587462512860-p1",
+      "subtopicId": "st-587462512860",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "green public transport",
+          "contentType": "phrase"
+        },
+        {
+          "word": "eco-tourism development",
+          "contentType": "phrase"
+        },
+        {
+          "word": "climate-resilient infrastructure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "on the outskirts of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in the vicinity of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "centrally located",
+          "contentType": "phrase"
+        },
+        {
+          "word": "rush hour",
+          "contentType": "phrase"
+        },
+        {
+          "word": "travel agent",
+          "contentType": "phrase"
+        },
+        {
+          "word": "go hiking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "car park",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban dweller",
           "contentType": "phrase"
         }
       ]
@@ -26191,6 +27825,108 @@
       ]
     },
     {
+      "id": "st-7a1932631a90-p0",
+      "subtopicId": "st-7a1932631a90",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "biodiversity loss",
+          "contentType": "phrase"
+        },
+        {
+          "word": "combat climate change",
+          "contentType": "phrase"
+        },
+        {
+          "word": "deforestation rate",
+          "contentType": "phrase"
+        },
+        {
+          "word": "eco-friendly alternatives",
+          "contentType": "phrase"
+        },
+        {
+          "word": "eco-tourism development",
+          "contentType": "phrase"
+        },
+        {
+          "word": "environmental awareness",
+          "contentType": "phrase"
+        },
+        {
+          "word": "fossil-fuel dependence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "natural habitat",
+          "contentType": "phrase"
+        },
+        {
+          "word": "reduce carbon emissions",
+          "contentType": "phrase"
+        },
+        {
+          "word": "single-use plastics",
+          "contentType": "phrase"
+        },
+        {
+          "word": "soil erosion",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-7a1932631a90-p1",
+      "subtopicId": "st-7a1932631a90",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "sustainable lifestyle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "water scarcity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "wildlife protection",
+          "contentType": "phrase"
+        },
+        {
+          "word": "air contamination",
+          "contentType": "phrase"
+        },
+        {
+          "word": "water contamination",
+          "contentType": "phrase"
+        },
+        {
+          "word": "climate-resilient infrastructure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "energy-efficient appliances",
+          "contentType": "phrase"
+        },
+        {
+          "word": "environmental impact assessment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "industrial discharge",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban green spaces",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-7a5b1a16a5e8-p0",
       "subtopicId": "st-7a5b1a16a5e8",
       "index": 0,
@@ -26732,6 +28468,124 @@
         {
           "word": "too good to be true",
           "contentType": "idiom"
+        }
+      ]
+    },
+    {
+      "id": "st-7ca80412f1b0-p0",
+      "subtopicId": "st-7ca80412f1b0",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "located",
+          "contentType": "word"
+        },
+        {
+          "word": "adjacent",
+          "contentType": "word"
+        },
+        {
+          "word": "surrounded",
+          "contentType": "word"
+        },
+        {
+          "word": "on the outskirts of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "alongside",
+          "contentType": "word"
+        },
+        {
+          "word": "expand",
+          "contentType": "word"
+        },
+        {
+          "word": "renovate",
+          "contentType": "word"
+        },
+        {
+          "word": "demolish",
+          "contentType": "word"
+        },
+        {
+          "word": "reconstruct",
+          "contentType": "word"
+        },
+        {
+          "word": "upgrade",
+          "contentType": "word"
+        },
+        {
+          "word": "dismantle",
+          "contentType": "word"
+        },
+        {
+          "word": "convert",
+          "contentType": "word"
+        },
+        {
+          "word": "merge",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-7ca80412f1b0-p1",
+      "subtopicId": "st-7ca80412f1b0",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "in the vicinity of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "at the heart of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "account for",
+          "contentType": "phrase"
+        },
+        {
+          "word": "make up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "take up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "consist of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "comprise",
+          "contentType": "word"
+        },
+        {
+          "word": "constitute",
+          "contentType": "word"
+        },
+        {
+          "word": "overtake",
+          "contentType": "word"
+        },
+        {
+          "word": "a quarter",
+          "contentType": "phrase"
+        },
+        {
+          "word": "two-thirds",
+          "contentType": "word"
+        },
+        {
+          "word": "nearly a fifth",
+          "contentType": "phrase"
         }
       ]
     },
@@ -29417,6 +31271,144 @@
         },
         {
           "word": "in bad books",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-890c782795ef-p0",
+      "subtopicId": "st-890c782795ef",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "allocate resources",
+          "contentType": "phrase"
+        },
+        {
+          "word": "burnout syndrome",
+          "contentType": "phrase"
+        },
+        {
+          "word": "career advancement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "career trajectory",
+          "contentType": "phrase"
+        },
+        {
+          "word": "competitive salary",
+          "contentType": "phrase"
+        },
+        {
+          "word": "conflict resolution",
+          "contentType": "phrase"
+        },
+        {
+          "word": "corporate governance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cost–benefit analysis",
+          "contentType": "phrase"
+        },
+        {
+          "word": "effective communication",
+          "contentType": "phrase"
+        },
+        {
+          "word": "employee retention",
+          "contentType": "phrase"
+        },
+        {
+          "word": "entrepreneurial mindset",
+          "contentType": "phrase"
+        },
+        {
+          "word": "job satisfaction",
+          "contentType": "phrase"
+        },
+        {
+          "word": "leadership potential",
+          "contentType": "phrase"
+        },
+        {
+          "word": "meet tight deadlines",
+          "contentType": "phrase"
+        },
+        {
+          "word": "on-the-job training",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-890c782795ef-p1",
+      "subtopicId": "st-890c782795ef",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "performance appraisal",
+          "contentType": "phrase"
+        },
+        {
+          "word": "professional development",
+          "contentType": "phrase"
+        },
+        {
+          "word": "promotion prospects",
+          "contentType": "phrase"
+        },
+        {
+          "word": "remote/hybrid model",
+          "contentType": "phrase"
+        },
+        {
+          "word": "stakeholder engagement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "start-up ecosystem",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strategic decision-making",
+          "contentType": "phrase"
+        },
+        {
+          "word": "talent acquisition",
+          "contentType": "phrase"
+        },
+        {
+          "word": "task prioritization",
+          "contentType": "phrase"
+        },
+        {
+          "word": "team dynamics",
+          "contentType": "phrase"
+        },
+        {
+          "word": "transferable skills",
+          "contentType": "phrase"
+        },
+        {
+          "word": "work under pressure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "workload management",
+          "contentType": "phrase"
+        },
+        {
+          "word": "workplace culture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "workplace flexibility",
           "contentType": "phrase"
         }
       ]
@@ -35549,6 +37541,238 @@
       ]
     },
     {
+      "id": "st-adb9f4012051-p0",
+      "subtopicId": "st-adb9f4012051",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "heavy traffic",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy goods vehicles",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large population",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large proportion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large scale",
+          "contentType": "phrase"
+        },
+        {
+          "word": "plot of land",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy rain",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy fog",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy snow",
+          "contentType": "phrase"
+        },
+        {
+          "word": "broaden horizons",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban green spaces",
+          "contentType": "phrase"
+        },
+        {
+          "word": "green public transport",
+          "contentType": "phrase"
+        },
+        {
+          "word": "eco-tourism development",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-adb9f4012051-p1",
+      "subtopicId": "st-adb9f4012051",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "climate-resilient infrastructure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "on the outskirts of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in the vicinity of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "centrally located",
+          "contentType": "phrase"
+        },
+        {
+          "word": "traffic congestion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "rush hour",
+          "contentType": "phrase"
+        },
+        {
+          "word": "tour guide",
+          "contentType": "phrase"
+        },
+        {
+          "word": "travel agent",
+          "contentType": "phrase"
+        },
+        {
+          "word": "go sightseeing",
+          "contentType": "phrase"
+        },
+        {
+          "word": "go hiking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "car park",
+          "contentType": "phrase"
+        },
+        {
+          "word": "urban dweller",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-ae6b0aacd944-p0",
+      "subtopicId": "st-ae6b0aacd944",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "encounter difficulties",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large population",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy taxes",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy traffic",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a heavy drinker",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a heavy smoker",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great admiration",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great understanding",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great wisdom",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great wealth",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big decision",
+          "contentType": "phrase"
+        },
+        {
+          "word": "broaden horizons",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-ae6b0aacd944-p1",
+      "subtopicId": "st-ae6b0aacd944",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "peer pressure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social media addiction",
+          "contentType": "phrase"
+        },
+        {
+          "word": "remote working culture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sustainable lifestyle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "corporate responsibility",
+          "contentType": "phrase"
+        },
+        {
+          "word": "public health campaign",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social justice",
+          "contentType": "phrase"
+        },
+        {
+          "word": "human rights",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social issue",
+          "contentType": "phrase"
+        },
+        {
+          "word": "gender equality",
+          "contentType": "phrase"
+        },
+        {
+          "word": "multicultural world",
+          "contentType": "phrase"
+        },
+        {
+          "word": "culture shock",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-aef8a336633e-p0",
       "subtopicId": "st-aef8a336633e",
       "index": 0,
@@ -36975,6 +39199,112 @@
         },
         {
           "word": "water pollution",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-b9ceebdc7eec-p0",
+      "subtopicId": "st-b9ceebdc7eec",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "heavy workload",
+          "contentType": "phrase"
+        },
+        {
+          "word": "heavy goods vehicles",
+          "contentType": "phrase"
+        },
+        {
+          "word": "miss an opportunity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "miss a chance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big accomplishment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big failure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big improvement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a big mistake",
+          "contentType": "phrase"
+        },
+        {
+          "word": "great skill",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large amount",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a large proportion",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-b9ceebdc7eec-p1",
+      "subtopicId": "st-b9ceebdc7eec",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "a large scale",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong argument",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong emphasis",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong evidence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "a strong commitment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong criticism",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strong resistance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "make a decision",
+          "contentType": "phrase"
+        },
+        {
+          "word": "perfectly capable",
+          "contentType": "phrase"
+        },
+        {
+          "word": "utterly devoted",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bitterly disappointed",
           "contentType": "phrase"
         }
       ]
@@ -38914,6 +41244,144 @@
       ]
     },
     {
+      "id": "st-c113d4f118d1-p0",
+      "subtopicId": "st-c113d4f118d1",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "addiction prevention",
+          "contentType": "phrase"
+        },
+        {
+          "word": "boost immune system",
+          "contentType": "phrase"
+        },
+        {
+          "word": "calorie consumption",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cardiovascular exercise",
+          "contentType": "phrase"
+        },
+        {
+          "word": "evidence-based advice",
+          "contentType": "phrase"
+        },
+        {
+          "word": "health check-ups",
+          "contentType": "phrase"
+        },
+        {
+          "word": "health insurance coverage",
+          "contentType": "phrase"
+        },
+        {
+          "word": "healthcare access",
+          "contentType": "phrase"
+        },
+        {
+          "word": "healthy eating habits",
+          "contentType": "phrase"
+        },
+        {
+          "word": "hydration levels",
+          "contentType": "phrase"
+        },
+        {
+          "word": "maintain a balanced diet",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mental well-being",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mindfulness meditation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "nutrient-dense food",
+          "contentType": "phrase"
+        },
+        {
+          "word": "nutrition labels",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-c113d4f118d1-p1",
+      "subtopicId": "st-c113d4f118d1",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "outdoor activities",
+          "contentType": "phrase"
+        },
+        {
+          "word": "peer pressure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "portion control",
+          "contentType": "phrase"
+        },
+        {
+          "word": "prevent lifestyle diseases",
+          "contentType": "phrase"
+        },
+        {
+          "word": "public health campaign",
+          "contentType": "phrase"
+        },
+        {
+          "word": "quality sleep",
+          "contentType": "phrase"
+        },
+        {
+          "word": "regular workout routine",
+          "contentType": "phrase"
+        },
+        {
+          "word": "screen fatigue",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sedentary lifestyle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "self-care practices",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sleep hygiene",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strength training",
+          "contentType": "phrase"
+        },
+        {
+          "word": "stress management techniques",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sugar intake",
+          "contentType": "phrase"
+        },
+        {
+          "word": "work–life balance",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-c26a16e45a74-p0",
       "subtopicId": "st-c26a16e45a74",
       "index": 0,
@@ -40312,6 +42780,238 @@
         {
           "word": "machismo",
           "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c8dd61915ec2-p0",
+      "subtopicId": "st-c8dd61915ec2",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "ai integration",
+          "contentType": "phrase"
+        },
+        {
+          "word": "algorithmic bias",
+          "contentType": "phrase"
+        },
+        {
+          "word": "automate routine tasks",
+          "contentType": "phrase"
+        },
+        {
+          "word": "boost productivity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cloud-based services",
+          "contentType": "phrase"
+        },
+        {
+          "word": "contactless payment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cutting-edge devices",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cybersecurity threats",
+          "contentType": "phrase"
+        },
+        {
+          "word": "data privacy concerns",
+          "contentType": "phrase"
+        },
+        {
+          "word": "data-driven decisions",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital literacy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital transformation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital well-being",
+          "contentType": "phrase"
+        },
+        {
+          "word": "e-commerce ecosystem",
+          "contentType": "phrase"
+        },
+        {
+          "word": "high-speed broadband",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-c8dd61915ec2-p1",
+      "subtopicId": "st-c8dd61915ec2",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "information overload",
+          "contentType": "phrase"
+        },
+        {
+          "word": "machine-learning algorithms",
+          "contentType": "phrase"
+        },
+        {
+          "word": "online learning platforms",
+          "contentType": "phrase"
+        },
+        {
+          "word": "privacy-by-design",
+          "contentType": "word"
+        },
+        {
+          "word": "remote working culture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "screen time management",
+          "contentType": "phrase"
+        },
+        {
+          "word": "seamless connectivity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "smart home appliances",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social media addiction",
+          "contentType": "phrase"
+        },
+        {
+          "word": "technological innovation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "technology adoption curve",
+          "contentType": "phrase"
+        },
+        {
+          "word": "user data tracking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "user-friendly interface",
+          "contentType": "phrase"
+        },
+        {
+          "word": "virtual collaboration tools",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-cb1d09e505d7-p0",
+      "subtopicId": "st-cb1d09e505d7",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "according to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in contrast",
+          "contentType": "phrase"
+        },
+        {
+          "word": "on the other hand",
+          "contentType": "phrase"
+        },
+        {
+          "word": "furthermore",
+          "contentType": "word"
+        },
+        {
+          "word": "in addition",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in conclusion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "to sum up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "taking everything into account",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in a nutshell",
+          "contentType": "phrase"
+        },
+        {
+          "word": "as opposed to",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-cb1d09e505d7-p1",
+      "subtopicId": "st-cb1d09e505d7",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "by contrast",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in stark contrast to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "first of all",
+          "contentType": "phrase"
+        },
+        {
+          "word": "following this",
+          "contentType": "phrase"
+        },
+        {
+          "word": "at first glance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "instead of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "owing to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "because of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "point of view",
+          "contentType": "phrase"
+        },
+        {
+          "word": "to summarise",
+          "contentType": "phrase"
         }
       ]
     },
@@ -44222,6 +46922,144 @@
       ]
     },
     {
+      "id": "st-df457f4af531-p0",
+      "subtopicId": "st-df457f4af531",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "allocate resources",
+          "contentType": "phrase"
+        },
+        {
+          "word": "burnout syndrome",
+          "contentType": "phrase"
+        },
+        {
+          "word": "career advancement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "career trajectory",
+          "contentType": "phrase"
+        },
+        {
+          "word": "competitive salary",
+          "contentType": "phrase"
+        },
+        {
+          "word": "conflict resolution",
+          "contentType": "phrase"
+        },
+        {
+          "word": "corporate governance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cost–benefit analysis",
+          "contentType": "phrase"
+        },
+        {
+          "word": "effective communication",
+          "contentType": "phrase"
+        },
+        {
+          "word": "employee retention",
+          "contentType": "phrase"
+        },
+        {
+          "word": "entrepreneurial mindset",
+          "contentType": "phrase"
+        },
+        {
+          "word": "job satisfaction",
+          "contentType": "phrase"
+        },
+        {
+          "word": "leadership potential",
+          "contentType": "phrase"
+        },
+        {
+          "word": "meet tight deadlines",
+          "contentType": "phrase"
+        },
+        {
+          "word": "on-the-job training",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-df457f4af531-p1",
+      "subtopicId": "st-df457f4af531",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "performance appraisal",
+          "contentType": "phrase"
+        },
+        {
+          "word": "professional development",
+          "contentType": "phrase"
+        },
+        {
+          "word": "promotion prospects",
+          "contentType": "phrase"
+        },
+        {
+          "word": "remote/hybrid model",
+          "contentType": "phrase"
+        },
+        {
+          "word": "stakeholder engagement",
+          "contentType": "phrase"
+        },
+        {
+          "word": "start-up ecosystem",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strategic decision-making",
+          "contentType": "phrase"
+        },
+        {
+          "word": "talent acquisition",
+          "contentType": "phrase"
+        },
+        {
+          "word": "task prioritization",
+          "contentType": "phrase"
+        },
+        {
+          "word": "team dynamics",
+          "contentType": "phrase"
+        },
+        {
+          "word": "transferable skills",
+          "contentType": "phrase"
+        },
+        {
+          "word": "work under pressure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "workload management",
+          "contentType": "phrase"
+        },
+        {
+          "word": "workplace culture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "workplace flexibility",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-e07352fe742c-p0",
       "subtopicId": "st-e07352fe742c",
       "index": 0,
@@ -45075,6 +47913,144 @@
         {
           "word": "violent",
           "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-e45bd4f5955f-p0",
+      "subtopicId": "st-e45bd4f5955f",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "addiction prevention",
+          "contentType": "phrase"
+        },
+        {
+          "word": "boost immune system",
+          "contentType": "phrase"
+        },
+        {
+          "word": "calorie consumption",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cardiovascular exercise",
+          "contentType": "phrase"
+        },
+        {
+          "word": "evidence-based advice",
+          "contentType": "phrase"
+        },
+        {
+          "word": "health check-ups",
+          "contentType": "phrase"
+        },
+        {
+          "word": "health insurance coverage",
+          "contentType": "phrase"
+        },
+        {
+          "word": "healthcare access",
+          "contentType": "phrase"
+        },
+        {
+          "word": "healthy eating habits",
+          "contentType": "phrase"
+        },
+        {
+          "word": "hydration levels",
+          "contentType": "phrase"
+        },
+        {
+          "word": "maintain a balanced diet",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mental well-being",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mindfulness meditation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "nutrient-dense food",
+          "contentType": "phrase"
+        },
+        {
+          "word": "nutrition labels",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-e45bd4f5955f-p1",
+      "subtopicId": "st-e45bd4f5955f",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "outdoor activities",
+          "contentType": "phrase"
+        },
+        {
+          "word": "peer pressure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "portion control",
+          "contentType": "phrase"
+        },
+        {
+          "word": "prevent lifestyle diseases",
+          "contentType": "phrase"
+        },
+        {
+          "word": "public health campaign",
+          "contentType": "phrase"
+        },
+        {
+          "word": "quality sleep",
+          "contentType": "phrase"
+        },
+        {
+          "word": "regular workout routine",
+          "contentType": "phrase"
+        },
+        {
+          "word": "screen fatigue",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sedentary lifestyle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "self-care practices",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sleep hygiene",
+          "contentType": "phrase"
+        },
+        {
+          "word": "strength training",
+          "contentType": "phrase"
+        },
+        {
+          "word": "stress management techniques",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sugar intake",
+          "contentType": "phrase"
+        },
+        {
+          "word": "work–life balance",
+          "contentType": "phrase"
         }
       ]
     },
