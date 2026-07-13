@@ -607,7 +607,6 @@ export default function StudentDashboard() {
     { href: '/library', label: 'Thư viện từ vựng', icon: Library, color: '#10b981', tile: '#e1f7ee', onboardingId: 'library' },
     { href: '/dictionary', label: 'Tra từ điển', icon: Search, color: '#06b6d4', tile: '#defafd' },
     { href: '/import', label: 'Nhập danh sách riêng', icon: Plus, color: '#64748b', tile: '#eef1f5' },
-    { href: '/download', label: 'Tải Desktop', icon: ArrowDownToLine, color: '#b5502f', tile: '#fff1e8' },
     ...(hasClass ? [
       { href: '/student/profile#stats', label: 'Thống kê', icon: BarChart3, color: '#3b82f6', tile: '#e7f0ff' },
       { href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard', label: 'Bảng xếp hạng', icon: Trophy, color: '#f59e0b', tile: '#fff3df' },
@@ -643,7 +642,6 @@ export default function StudentDashboard() {
                 <Link href={classroomId ? `/writing?class=${classroomId}` : '/writing'} data-onboarding="writing" className="flex items-center gap-3 font-semibold p-3"><Pencil /> Writing Practice</Link>
                 <Link href="/student/speaking" data-onboarding="speaking" className="flex items-center gap-3 font-semibold p-3"><MessageSquare /> AI Speaking Tutor</Link>
                 <Link href="/grammar/learn" data-onboarding="grammar" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
-                <Link href="/download" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 font-semibold p-3 text-[#b5502f]"><ArrowDownToLine /> Tải Desktop</Link>
                 <a href={FB_COMMUNITY_URL} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 font-bold p-3 text-[#1877f2]"><MessageSquare /> Nhóm live &amp; trao đổi</a>
                 <Link href="/student/profile" className="flex items-center gap-3 font-semibold p-3"><User /> Hồ sơ</Link>
                 <button
@@ -727,7 +725,7 @@ export default function StudentDashboard() {
       </aside>
 
       {/* ═══ MAIN ═══ */}
-      <main className="flex-1 md:pl-[248px] flex flex-col min-h-dvh">
+      <main className="flex-1 min-w-0 md:pl-[248px] flex flex-col min-h-dvh">
         <header className="h-[62px] border-b border-[#ececf1] bg-white/85 backdrop-blur sticky top-0 z-10 px-4 sm:px-7 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Menu className="h-6 w-6 md:hidden cursor-pointer shrink-0" onClick={() => setIsMenuOpen(true)} />
@@ -1384,7 +1382,6 @@ export default function StudentDashboard() {
         <Link href="/student" className="p-3 text-primary"><LayoutDashboard /></Link>
         <Link href="/import" className="p-3 text-muted-foreground"><Plus /></Link>
         <Link href="/dictionary" className="p-3 text-muted-foreground"><Search /></Link>
-        <Link href="/download" className="p-3 text-muted-foreground" aria-label="Tải Desktop"><ArrowDownToLine /></Link>
         <Link href="/library" className="p-4 -mt-10 bg-primary text-white rounded-2xl shadow-lg shadow-primary/40"><Sparkles /></Link>
         <Link href={classroomId ? `/flashcard?class=${classroomId}` : '#'} className="p-3 text-muted-foreground"><BookOpen /></Link>
       </nav>
