@@ -4,9 +4,9 @@ import Link from 'next/link';
 import {
   ArrowDownToLine,
   ArrowRight,
-  Bell,
   Brain,
   Check,
+  ChevronDown,
   Chrome,
   GraduationCap,
   MessageSquare,
@@ -293,10 +293,13 @@ export default function LandingPage() {
       </header>
 
       <main className="relative">
-        {/* ── HERO ── */}
-        <section className="px-4 pb-12 pt-10 sm:px-6 sm:pt-14 sm:pb-16">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div className="space-y-6">
+        {/*
+          Hero: cao ~viewport trừ header + dải peek (~7rem)
+          → mé mé section video (nền tối) lộ sẵn, gợi scroll.
+        */}
+        <section className="relative flex min-h-[calc(100svh-11rem)] flex-col px-4 pb-2 pt-8 sm:min-h-[calc(100svh-11.5rem)] sm:px-6 sm:pt-12">
+          <div className="mx-auto grid w-full max-w-6xl flex-1 content-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
+            <div className="space-y-5 sm:space-y-6">
               <SectionTag>App học từ vựng · FSRS</SectionTag>
 
               <h1
@@ -378,10 +381,30 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+
+          {/* Gợi scroll — trỏ mé section 2 */}
+          <div className="mx-auto flex w-full max-w-6xl flex-col items-center pb-1 pt-6 sm:pt-8">
+            <a
+              href="#video-demo"
+              className="group flex flex-col items-center gap-1 rounded-full px-4 py-2 text-[#7b6558] transition-colors hover:text-[#241710]"
+              aria-label="Cuộn xuống xem video demo"
+            >
+              <span className="text-[11px] font-black uppercase tracking-[0.22em]">
+                Vuốt xem demo
+              </span>
+              <ChevronDown className="h-5 w-5 animate-bounce text-[#b5502f] group-hover:text-[#9f4d2f]" />
+            </a>
+          </div>
+
+          {/* Fade mềm vào nền tối section kế */}
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-b from-transparent to-[#241710]/20 sm:h-12"
+            aria-hidden
+          />
         </section>
 
-        {/* ── VIDEO DEMO (SEO + proof) ── */}
-        <section id="video-demo" className="border-y border-[#d7c7b6]/70 bg-[#241710] px-4 py-16 sm:px-6 sm:py-20">
+        {/* ── VIDEO DEMO (SEO + proof) — mé trên lộ khi load ── */}
+        <section id="video-demo" className="scroll-mt-16 border-y border-[#d7c7b6]/70 bg-[#241710] px-4 py-16 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="mx-auto max-w-2xl text-center">
               <SectionTag>Demo 15–30 giây</SectionTag>
