@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Manrope, Space_Grotesk } from 'next/font/google';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -98,7 +98,7 @@ const GROUP_BENEFITS: readonly string[] = [
   'Giữ cùng bộ quyền lợi Pro cho toàn nhóm',
 ] as const;
 
-export default function UpgradePage() {
+function UpgradePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialMode = searchParams.get('mode') === 'group' ? 'group' : 'individual';
@@ -915,5 +915,19 @@ export default function UpgradePage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function UpgradePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className={`${manrope.className} flex min-h-dvh items-center justify-center bg-[#f6efe6] text-[#7b6558]`}>
+          <Loader2 className="h-8 w-8 animate-spin text-[#b5502f]" />
+        </div>
+      }
+    >
+      <UpgradePageContent />
+    </Suspense>
   );
 }
