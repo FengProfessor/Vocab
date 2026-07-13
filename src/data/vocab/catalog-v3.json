@@ -10,9 +10,9 @@
   "counts": {
     "routes": 13,
     "topics": 40,
-    "subtopics": 248,
-    "packs": 791,
-    "words": 10634
+    "subtopics": 277,
+    "packs": 849,
+    "words": 11359
   },
   "routes": [
     {
@@ -254,6 +254,7 @@
         "st-2af046247a7c",
         "st-239ce0bcaa81",
         "st-f8af75920592",
+        "st-118656f16720",
         "st-4c0b35f14ebc"
       ],
       "qualityScore": 0,
@@ -300,6 +301,8 @@
       "key": "khoa-hoc-cn",
       "title": "Khoa học & công nghệ",
       "subtopicIds": [
+        "st-2258ed4e3b50",
+        "st-458fb53fa3cd",
         "st-dbdaa66610bc",
         "st-4d3d22e2d6c5"
       ],
@@ -323,6 +326,8 @@
       "key": "kinh-doanh-tien",
       "title": "Kinh doanh & tiền bạc",
       "subtopicIds": [
+        "st-514bc912954a",
+        "st-7f463b9dc5fd",
         "st-6b0f849ec0cf",
         "st-7a178959b21b",
         "st-5522c01c2f8c",
@@ -414,6 +419,12 @@
       "key": "khac",
       "title": "Chủ đề khác",
       "subtopicIds": [
+        "st-2432f2f7e389",
+        "st-c666540675ec",
+        "st-779f3d24c65d",
+        "st-3d385d23662b",
+        "st-3f61b16b4432",
+        "st-dfd9a5679712",
         "st-49fe4f58fae1",
         "st-1dfc7f6b93cf",
         "st-f2e8ccd2308d",
@@ -433,6 +444,16 @@
         "st-9e945eba390b",
         "st-b8a859a88c12",
         "st-fed7e3c93f9a",
+        "st-33552761ee35",
+        "st-f48d77316eb0",
+        "st-99177ab3da0d",
+        "st-db68a48ab163",
+        "st-c99c9aee3faf",
+        "st-24931ed70e40",
+        "st-a9c09aafa898",
+        "st-349b62d881c7",
+        "st-301737e1e08d",
+        "st-1dd58d20ca82",
         "st-16e51553fca8",
         "st-e7b7995bc7fa",
         "st-0eabcd1a7555",
@@ -522,6 +543,7 @@
         "st-67a3bea1636b",
         "st-c54e304f5b1d",
         "st-59fae6f6f141",
+        "st-3bdf4b9301c1",
         "st-5d1e71872670",
         "st-c7d662484f6e",
         "st-0dfde1e13ce2",
@@ -542,6 +564,8 @@
         "st-25a2ca74645f",
         "st-bde858ab7943",
         "st-047eccb61a4e",
+        "st-6a517720cd6a",
+        "st-583ce045322e",
         "st-d60fc3fec805"
       ],
       "qualityScore": 0,
@@ -621,6 +645,7 @@
       "key": "nhom-nghia",
       "title": "Nhóm nghĩa nâng cao",
       "subtopicIds": [
+        "st-e391fd06cb5c",
         "st-cccde3e56722",
         "st-a57d77728a71",
         "st-50d3c0be95b2",
@@ -642,7 +667,8 @@
         "st-b9f07f3086f7",
         "st-2034de421f7d",
         "st-0309de5a7285",
-        "st-62dc6e721060"
+        "st-62dc6e721060",
+        "st-78340f99ef77"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -668,6 +694,7 @@
       "key": "di-chuyen",
       "title": "Du lịch & di chuyển",
       "subtopicIds": [
+        "st-65ea159fb736",
         "st-db7787575149",
         "st-1809746c17f8",
         "st-adb9f4012051",
@@ -812,6 +839,7 @@
         "st-cb942718c15f",
         "st-0c026cf00ccb",
         "st-6a1d7b1df8e4",
+        "st-3afd878afef3",
         "st-c502bcaa0aef"
       ],
       "qualityScore": 0,
@@ -841,6 +869,7 @@
       "key": "truyen-thong",
       "title": "Truyền thông & thông tin",
       "subtopicIds": [
+        "st-a94677ca83f6",
         "st-31fde43dd7f5",
         "st-fc32593c8e8c",
         "st-543f143800bd"
@@ -1218,6 +1247,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-118656f16720",
+      "topicId": "tp-132448072e",
+      "routeId": "hoc-tap",
+      "title": "Oxford Unit 7: Education & Study",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 7: Education & Study",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-118656f16720-p0",
+        "st-118656f16720-p1"
+      ],
+      "previewWords": [
+        "academic",
+        "assignment",
+        "attend",
+        "biology",
+        "book"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-11d6536fbb8d",
       "topicId": "tp-fa4bd905ce",
       "routeId": "toeic",
@@ -1542,6 +1597,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-1dd58d20ca82",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Oxford Unit 10: Culture & Society",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 10: Culture & Society",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-1dd58d20ca82-p0",
+        "st-1dd58d20ca82-p1"
+      ],
+      "previewWords": [
+        "culture",
+        "society",
+        "tradition",
+        "custom",
+        "community"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-1df96d64d462",
       "topicId": "tp-70cf7f7227",
       "routeId": "hoc-thuat",
@@ -1768,6 +1849,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-2258ed4e3b50",
+      "topicId": "tp-2d1dddc93a",
+      "routeId": "cong-nghe",
+      "title": "Advanced Unit 4: Science & Research",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 4: Science & Research",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-2258ed4e3b50-p0",
+        "st-2258ed4e3b50-p1"
+      ],
+      "previewWords": [
+        "quantum",
+        "biotechnology",
+        "nanotechnology",
+        "artificial intelligence",
+        "blockchain"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-239ce0bcaa81",
       "topicId": "tp-132448072e",
       "routeId": "hoc-tap",
@@ -1785,6 +1892,32 @@
         "archaeology",
         "at home",
         "blame"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-2432f2f7e389",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Advanced Unit 1: Philosophy & Psychology",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 1: Philosophy & Psychology",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-2432f2f7e389-p0",
+        "st-2432f2f7e389-p1"
+      ],
+      "previewWords": [
+        "cognitive",
+        "empathy",
+        "subconscious",
+        "psychoanalysis",
+        "neurotransmitter"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -1817,6 +1950,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-24931ed70e40",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "NGSL Unit 2: High-Frequency Core Words 251-500",
+      "sourcePackage": "pro3m",
+      "sourceName": "NGSL Unit 2: High-Frequency Core Words 251-500",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-24931ed70e40-p0",
+        "st-24931ed70e40-p1"
+      ],
+      "previewWords": [
+        "provide",
+        "believe",
+        "begin",
+        "play",
+        "run"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -2034,6 +2193,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-301737e1e08d",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Oxford Unit 1: Daily Life & Routines",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 1: Daily Life & Routines",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-301737e1e08d-p0",
+        "st-301737e1e08d-p1"
+      ],
+      "previewWords": [
+        "wake",
+        "sleep",
+        "cook",
+        "wash",
+        "brush"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-3034c9c5ad90",
       "topicId": "tp-e848339aa6",
       "routeId": "thpt-lop-11",
@@ -2113,6 +2298,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-33552761ee35",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "NAWL Unit 1: Academic Word List 1-150",
+      "sourcePackage": "pro3m",
+      "sourceName": "NAWL Unit 1: Academic Word List 1-150",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-33552761ee35-p0",
+        "st-33552761ee35-p1"
+      ],
+      "previewWords": [
+        "academic",
+        "adjust",
+        "alter",
+        "analyse",
+        "aspect"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-33b8d6675f97",
       "topicId": "tp-eb5ba63431",
       "routeId": "thpt-lop-12",
@@ -2131,6 +2342,32 @@
         "clean up",
         "compost",
         "container"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-349b62d881c7",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "NGSL Unit 4: High-Frequency Core Words 751-1000",
+      "sourcePackage": "pro3m",
+      "sourceName": "NGSL Unit 4: High-Frequency Core Words 751-1000",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-349b62d881c7-p0",
+        "st-349b62d881c7-p1"
+      ],
+      "previewWords": [
+        "achieve",
+        "admit",
+        "agree",
+        "angry",
+        "argue"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2253,6 +2490,58 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-3afd878afef3",
+      "topicId": "tp-f9b50ef195",
+      "routeId": "doi-song",
+      "title": "Oxford Unit 2: People & Relationships",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 2: People & Relationships",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-3afd878afef3-p0",
+        "st-3afd878afef3-p1"
+      ],
+      "previewWords": [
+        "accompany",
+        "admire",
+        "adopt",
+        "apologize",
+        "argue"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-3bdf4b9301c1",
+      "topicId": "tp-7a934ad2a7",
+      "routeId": "di-lam",
+      "title": "Oxford Unit 6: Work & Business",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 6: Work & Business",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-3bdf4b9301c1-p0",
+        "st-3bdf4b9301c1-p1"
+      ],
+      "previewWords": [
+        "business",
+        "company",
+        "employee",
+        "employer",
+        "employment"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-3c813adbd286",
       "topicId": "tp-63e89bc3a4",
       "routeId": "extended",
@@ -2270,6 +2559,32 @@
         "conservation status",
         "endangered species",
         "evolution"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-3d385d23662b",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Advanced Unit 5: Medicine & Biology",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 5: Medicine & Biology",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-3d385d23662b-p0",
+        "st-3d385d23662b-p1"
+      ],
+      "previewWords": [
+        "cardiology",
+        "neurosurgery",
+        "pediatrics",
+        "nutrition",
+        "veganism"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2321,6 +2636,32 @@
         "greenhouse gas",
         "emission",
         "fertilizer"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-3f61b16b4432",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Advanced Unit 7: Environment & Ecology",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 7: Environment & Ecology",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-3f61b16b4432-p0",
+        "st-3f61b16b4432-p1"
+      ],
+      "previewWords": [
+        "sustainability",
+        "conservation",
+        "deforestation",
+        "biodiversity",
+        "carbon footprint"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2459,6 +2800,32 @@
         "be all clear",
         "all brawn and no brain",
         "all but"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-458fb53fa3cd",
+      "topicId": "tp-2d1dddc93a",
+      "routeId": "cong-nghe",
+      "title": "Oxford Unit 9: Science & Technology",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 9: Science & Technology",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-458fb53fa3cd-p0",
+        "st-458fb53fa3cd-p1"
+      ],
+      "previewWords": [
+        "technology",
+        "science",
+        "scientist",
+        "computer",
+        "internet"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2800,6 +3167,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-514bc912954a",
+      "topicId": "tp-32dabe9530",
+      "routeId": "di-lam",
+      "title": "Advanced Unit 6: Economics & Finance",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 6: Economics & Finance",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-514bc912954a-p0",
+        "st-514bc912954a-p1"
+      ],
+      "previewWords": [
+        "inflation",
+        "equity",
+        "fiscal policy",
+        "asset management",
+        "capital"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-5363da1ba5ac",
       "topicId": "tp-0ea6d77d9c",
       "routeId": "ielts",
@@ -3017,6 +3410,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-583ce045322e",
+      "topicId": "tp-7c7631f3bd",
+      "routeId": "doi-song",
+      "title": "Oxford Unit 4: Food & Dining",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 4: Food & Dining",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-583ce045322e-p0",
+        "st-583ce045322e-p1"
+      ],
+      "previewWords": [
+        "apple",
+        "bake",
+        "beef",
+        "boil",
+        "bread"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -3375,6 +3794,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-65ea159fb736",
+      "topicId": "tp-a0358154bf",
+      "routeId": "du-lich",
+      "title": "Oxford Unit 5: Travel & Transport",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 5: Travel & Transport",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-65ea159fb736-p0",
+        "st-65ea159fb736-p1"
+      ],
+      "previewWords": [
+        "travel",
+        "trip",
+        "journey",
+        "vehicle",
+        "traffic"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-65f1286dcb33",
       "topicId": "tp-70b7eb83b6",
       "routeId": "toeic",
@@ -3541,6 +3986,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-6a517720cd6a",
+      "topicId": "tp-7c7631f3bd",
+      "routeId": "doi-song",
+      "title": "Oxford Unit 3: House & Home",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 3: House & Home",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-6a517720cd6a-p0",
+        "st-6a517720cd6a-p1"
+      ],
+      "previewWords": [
+        "apartment",
+        "bath",
+        "bathroom",
+        "bed",
+        "bedroom"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -3784,6 +4255,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-779f3d24c65d",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Advanced Unit 3: Literature & Arts",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 3: Literature & Arts",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-779f3d24c65d-p0",
+        "st-779f3d24c65d-p1"
+      ],
+      "previewWords": [
+        "abstract",
+        "impressionistic",
+        "surrealism",
+        "allegory",
+        "symbolism"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-77dde8cc2e0f",
       "topicId": "tp-c029b2cbd7",
       "routeId": "toeic",
@@ -3808,6 +4305,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-78340f99ef77",
+      "topicId": "tp-95e3b28bf2",
+      "routeId": "suc-khoe",
+      "title": "Oxford Unit 8: Health & Medicine",
+      "sourcePackage": "pro3m",
+      "sourceName": "Oxford Unit 8: Health & Medicine",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-78340f99ef77-p0",
+        "st-78340f99ef77-p1"
+      ],
+      "previewWords": [
+        "health",
+        "healthy",
+        "hospital",
+        "medicine",
+        "medical"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -3995,6 +4518,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Tổng hợp từ tài liệu biểu đồ và bản đồ học thuật IELTS Writing Task 1.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-7f463b9dc5fd",
+      "topicId": "tp-32dabe9530",
+      "routeId": "di-lam",
+      "title": "BSL Unit 1: Business Core Words 1-150",
+      "sourcePackage": "pro3m",
+      "sourceName": "BSL Unit 1: Business Core Words 1-150",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-7f463b9dc5fd-p0",
+        "st-7f463b9dc5fd-p1"
+      ],
+      "previewWords": [
+        "goods",
+        "equity",
+        "dividend",
+        "portfolio",
+        "sponsorship"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -4528,6 +5077,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-99177ab3da0d",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "NAWL Unit 3: Academic Word List 301-450",
+      "sourcePackage": "pro3m",
+      "sourceName": "NAWL Unit 3: Academic Word List 301-450",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-99177ab3da0d-p0",
+        "st-99177ab3da0d-p1"
+      ],
+      "previewWords": [
+        "accumulate",
+        "acquire",
+        "academic",
+        "evaluate",
+        "modify"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-99db1b29fff5",
       "topicId": "tp-63e89bc3a4",
       "routeId": "extended",
@@ -5044,6 +5619,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-a94677ca83f6",
+      "topicId": "tp-ffa0a73f9c",
+      "routeId": "cong-nghe",
+      "title": "Advanced Unit 9: Media & Communication",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 9: Media & Communication",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-a94677ca83f6-p0",
+        "st-a94677ca83f6-p1"
+      ],
+      "previewWords": [
+        "bias",
+        "credible",
+        "interactive",
+        "presence",
+        "publicity"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-a97e4f9ea6c8",
       "topicId": "tp-cc12b088fb",
       "routeId": "hoc-thuat",
@@ -5067,6 +5668,32 @@
         "good to go",
         "on the same page",
         "break the ice"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-a9c09aafa898",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "NGSL Unit 3: High-Frequency Core Words 501-750",
+      "sourcePackage": "pro3m",
+      "sourceName": "NGSL Unit 3: High-Frequency Core Words 501-750",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-a9c09aafa898-p0",
+        "st-a9c09aafa898-p1"
+      ],
+      "previewWords": [
+        "achievement",
+        "admit",
+        "alternative",
+        "analyse",
+        "anxiety"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5966,6 +6593,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-c666540675ec",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Advanced Unit 10: History & Archaeology",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 10: History & Archaeology",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-c666540675ec-p0",
+        "st-c666540675ec-p1"
+      ],
+      "previewWords": [
+        "renaissance",
+        "baroque",
+        "cultural heritage",
+        "expedition",
+        "regime"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-c7d662484f6e",
       "topicId": "tp-7a934ad2a7",
       "routeId": "di-lam",
@@ -6013,6 +6666,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Tổng hợp từ 150 Collocations trong IELTS - IELTS LangGo.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-c99c9aee3faf",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "NGSL Unit 1: High-Frequency Core Words 1-250",
+      "sourcePackage": "pro3m",
+      "sourceName": "NGSL Unit 1: High-Frequency Core Words 1-250",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-c99c9aee3faf-p0",
+        "st-c99c9aee3faf-p1"
+      ],
+      "previewWords": [
+        "be",
+        "have",
+        "do",
+        "say",
+        "go"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -6470,6 +7149,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-db68a48ab163",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "NAWL Unit 4: Academic Word List 451-600",
+      "sourcePackage": "pro3m",
+      "sourceName": "NAWL Unit 4: Academic Word List 451-600",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-db68a48ab163-p0",
+        "st-db68a48ab163-p1"
+      ],
+      "previewWords": [
+        "accumulate",
+        "adjacent",
+        "albeit",
+        "allocate",
+        "ambiguous"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-db7787575149",
       "topicId": "tp-a0358154bf",
       "routeId": "du-lich",
@@ -6662,6 +7367,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-dfd9a5679712",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Advanced Unit 8: Sociology & Culture",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 8: Sociology & Culture",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-dfd9a5679712-p0",
+        "st-dfd9a5679712-p1"
+      ],
+      "previewWords": [
+        "abstract",
+        "impressionistic",
+        "surrealism",
+        "allegory",
+        "symbolism"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-e07352fe742c",
       "topicId": "tp-5805d2352e",
       "routeId": "ielts",
@@ -6715,6 +7446,32 @@
         "alarming",
         "artificial",
         "in consequence of"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-e391fd06cb5c",
+      "topicId": "tp-9275f23d61",
+      "routeId": "hoc-thuat",
+      "title": "Advanced Unit 2: Politics & Law",
+      "sourcePackage": "pro3m",
+      "sourceName": "Advanced Unit 2: Politics & Law",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-e391fd06cb5c-p0",
+        "st-e391fd06cb5c-p1"
+      ],
+      "previewWords": [
+        "democracy",
+        "socialism",
+        "totalitarianism",
+        "human rights",
+        "social justice"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -7211,6 +7968,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-f48d77316eb0",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "NAWL Unit 2: Academic Word List 151-300",
+      "sourcePackage": "pro3m",
+      "sourceName": "NAWL Unit 2: Academic Word List 151-300",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-f48d77316eb0-p0",
+        "st-f48d77316eb0-p1"
+      ],
+      "previewWords": [
+        "colony",
+        "comma",
+        "commentary",
+        "commodity",
+        "commonly"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -9443,6 +10226,124 @@
         {
           "word": "donate money",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-118656f16720-p0",
+      "subtopicId": "st-118656f16720",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "academic",
+          "contentType": "word"
+        },
+        {
+          "word": "assignment",
+          "contentType": "word"
+        },
+        {
+          "word": "attend",
+          "contentType": "word"
+        },
+        {
+          "word": "biology",
+          "contentType": "word"
+        },
+        {
+          "word": "book",
+          "contentType": "word"
+        },
+        {
+          "word": "campus",
+          "contentType": "word"
+        },
+        {
+          "word": "clever",
+          "contentType": "word"
+        },
+        {
+          "word": "college",
+          "contentType": "word"
+        },
+        {
+          "word": "concentrate",
+          "contentType": "word"
+        },
+        {
+          "word": "course",
+          "contentType": "word"
+        },
+        {
+          "word": "educate",
+          "contentType": "word"
+        },
+        {
+          "word": "educated",
+          "contentType": "word"
+        },
+        {
+          "word": "education",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-118656f16720-p1",
+      "subtopicId": "st-118656f16720",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "educational",
+          "contentType": "word"
+        },
+        {
+          "word": "essay",
+          "contentType": "word"
+        },
+        {
+          "word": "exam",
+          "contentType": "word"
+        },
+        {
+          "word": "examination",
+          "contentType": "word"
+        },
+        {
+          "word": "instruction",
+          "contentType": "word"
+        },
+        {
+          "word": "instructor",
+          "contentType": "word"
+        },
+        {
+          "word": "intelligent",
+          "contentType": "word"
+        },
+        {
+          "word": "knowledge",
+          "contentType": "word"
+        },
+        {
+          "word": "lab",
+          "contentType": "word"
+        },
+        {
+          "word": "laboratory",
+          "contentType": "word"
+        },
+        {
+          "word": "learn",
+          "contentType": "word"
+        },
+        {
+          "word": "lecture",
+          "contentType": "word"
         }
       ]
     },
@@ -11771,6 +12672,124 @@
       ]
     },
     {
+      "id": "st-1dd58d20ca82-p0",
+      "subtopicId": "st-1dd58d20ca82",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "culture",
+          "contentType": "word"
+        },
+        {
+          "word": "society",
+          "contentType": "word"
+        },
+        {
+          "word": "tradition",
+          "contentType": "word"
+        },
+        {
+          "word": "custom",
+          "contentType": "word"
+        },
+        {
+          "word": "community",
+          "contentType": "word"
+        },
+        {
+          "word": "behavior",
+          "contentType": "word"
+        },
+        {
+          "word": "belief",
+          "contentType": "word"
+        },
+        {
+          "word": "attitude",
+          "contentType": "word"
+        },
+        {
+          "word": "celebrate",
+          "contentType": "word"
+        },
+        {
+          "word": "citizen",
+          "contentType": "word"
+        },
+        {
+          "word": "civil",
+          "contentType": "word"
+        },
+        {
+          "word": "consequence",
+          "contentType": "word"
+        },
+        {
+          "word": "crime",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-1dd58d20ca82-p1",
+      "subtopicId": "st-1dd58d20ca82",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "cultural",
+          "contentType": "word"
+        },
+        {
+          "word": "diversity",
+          "contentType": "word"
+        },
+        {
+          "word": "generation",
+          "contentType": "word"
+        },
+        {
+          "word": "identity",
+          "contentType": "word"
+        },
+        {
+          "word": "influence",
+          "contentType": "word"
+        },
+        {
+          "word": "institution",
+          "contentType": "word"
+        },
+        {
+          "word": "justice",
+          "contentType": "word"
+        },
+        {
+          "word": "mass",
+          "contentType": "word"
+        },
+        {
+          "word": "opinion",
+          "contentType": "word"
+        },
+        {
+          "word": "politics",
+          "contentType": "word"
+        },
+        {
+          "word": "value",
+          "contentType": "word"
+        },
+        {
+          "word": "conflict",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-1df96d64d462-p0",
       "subtopicId": "st-1df96d64d462",
       "index": 0,
@@ -13885,6 +14904,124 @@
       ]
     },
     {
+      "id": "st-2258ed4e3b50-p0",
+      "subtopicId": "st-2258ed4e3b50",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "quantum",
+          "contentType": "word"
+        },
+        {
+          "word": "biotechnology",
+          "contentType": "word"
+        },
+        {
+          "word": "nanotechnology",
+          "contentType": "word"
+        },
+        {
+          "word": "artificial intelligence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "blockchain",
+          "contentType": "word"
+        },
+        {
+          "word": "cybersecurity",
+          "contentType": "word"
+        },
+        {
+          "word": "genome",
+          "contentType": "word"
+        },
+        {
+          "word": "cloning",
+          "contentType": "word"
+        },
+        {
+          "word": "robotics",
+          "contentType": "word"
+        },
+        {
+          "word": "automation",
+          "contentType": "word"
+        },
+        {
+          "word": "virtual reality",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sustainability",
+          "contentType": "word"
+        },
+        {
+          "word": "genetic engineering",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-2258ed4e3b50-p1",
+      "subtopicId": "st-2258ed4e3b50",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "neuroscience",
+          "contentType": "word"
+        },
+        {
+          "word": "thesis",
+          "contentType": "word"
+        },
+        {
+          "word": "dissertation",
+          "contentType": "word"
+        },
+        {
+          "word": "research methodology",
+          "contentType": "phrase"
+        },
+        {
+          "word": "interdisciplinary",
+          "contentType": "word"
+        },
+        {
+          "word": "cognition",
+          "contentType": "word"
+        },
+        {
+          "word": "cognitive",
+          "contentType": "word"
+        },
+        {
+          "word": "neurotransmitter",
+          "contentType": "word"
+        },
+        {
+          "word": "psychoanalysis",
+          "contentType": "word"
+        },
+        {
+          "word": "biodiversity",
+          "contentType": "word"
+        },
+        {
+          "word": "ecosystem",
+          "contentType": "word"
+        },
+        {
+          "word": "academic integrity",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-239ce0bcaa81-p0",
       "subtopicId": "st-239ce0bcaa81",
       "index": 0,
@@ -13961,6 +15098,124 @@
         },
         {
           "word": "undergraduate",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-2432f2f7e389-p0",
+      "subtopicId": "st-2432f2f7e389",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "cognitive",
+          "contentType": "word"
+        },
+        {
+          "word": "empathy",
+          "contentType": "word"
+        },
+        {
+          "word": "subconscious",
+          "contentType": "word"
+        },
+        {
+          "word": "psychoanalysis",
+          "contentType": "word"
+        },
+        {
+          "word": "neurotransmitter",
+          "contentType": "word"
+        },
+        {
+          "word": "conditioning",
+          "contentType": "word"
+        },
+        {
+          "word": "behaviorism",
+          "contentType": "word"
+        },
+        {
+          "word": "cognitive dissonance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "neurosis",
+          "contentType": "word"
+        },
+        {
+          "word": "self-esteem",
+          "contentType": "word"
+        },
+        {
+          "word": "regression",
+          "contentType": "word"
+        },
+        {
+          "word": "altruism",
+          "contentType": "word"
+        },
+        {
+          "word": "phobia",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-2432f2f7e389-p1",
+      "subtopicId": "st-2432f2f7e389",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "therapy",
+          "contentType": "word"
+        },
+        {
+          "word": "mindfulness",
+          "contentType": "word"
+        },
+        {
+          "word": "cognition",
+          "contentType": "word"
+        },
+        {
+          "word": "neuroscience",
+          "contentType": "word"
+        },
+        {
+          "word": "phenomenology",
+          "contentType": "word"
+        },
+        {
+          "word": "pragmatism",
+          "contentType": "word"
+        },
+        {
+          "word": "determinism",
+          "contentType": "word"
+        },
+        {
+          "word": "absolutism",
+          "contentType": "word"
+        },
+        {
+          "word": "biophilia",
+          "contentType": "word"
+        },
+        {
+          "word": "bioethics",
+          "contentType": "word"
+        },
+        {
+          "word": "cognizant",
+          "contentType": "word"
+        },
+        {
+          "word": "psychosomatic",
           "contentType": "word"
         }
       ]
@@ -14185,6 +15440,124 @@
         },
         {
           "word": "lounge",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-24931ed70e40-p0",
+      "subtopicId": "st-24931ed70e40",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "provide",
+          "contentType": "word"
+        },
+        {
+          "word": "believe",
+          "contentType": "word"
+        },
+        {
+          "word": "begin",
+          "contentType": "word"
+        },
+        {
+          "word": "play",
+          "contentType": "word"
+        },
+        {
+          "word": "run",
+          "contentType": "word"
+        },
+        {
+          "word": "show",
+          "contentType": "word"
+        },
+        {
+          "word": "bring",
+          "contentType": "word"
+        },
+        {
+          "word": "book",
+          "contentType": "word"
+        },
+        {
+          "word": "water",
+          "contentType": "word"
+        },
+        {
+          "word": "room",
+          "contentType": "word"
+        },
+        {
+          "word": "large",
+          "contentType": "word"
+        },
+        {
+          "word": "school",
+          "contentType": "word"
+        },
+        {
+          "word": "business",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-24931ed70e40-p1",
+      "subtopicId": "st-24931ed70e40",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "state",
+          "contentType": "word"
+        },
+        {
+          "word": "life",
+          "contentType": "word"
+        },
+        {
+          "word": "group",
+          "contentType": "word"
+        },
+        {
+          "word": "country",
+          "contentType": "word"
+        },
+        {
+          "word": "move",
+          "contentType": "word"
+        },
+        {
+          "word": "live",
+          "contentType": "word"
+        },
+        {
+          "word": "hold",
+          "contentType": "word"
+        },
+        {
+          "word": "write",
+          "contentType": "word"
+        },
+        {
+          "word": "point",
+          "contentType": "word"
+        },
+        {
+          "word": "home",
+          "contentType": "word"
+        },
+        {
+          "word": "area",
+          "contentType": "word"
+        },
+        {
+          "word": "family",
           "contentType": "word"
         }
       ]
@@ -15543,6 +16916,124 @@
       ]
     },
     {
+      "id": "st-301737e1e08d-p0",
+      "subtopicId": "st-301737e1e08d",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "wake",
+          "contentType": "word"
+        },
+        {
+          "word": "sleep",
+          "contentType": "word"
+        },
+        {
+          "word": "cook",
+          "contentType": "word"
+        },
+        {
+          "word": "wash",
+          "contentType": "word"
+        },
+        {
+          "word": "brush",
+          "contentType": "word"
+        },
+        {
+          "word": "dress",
+          "contentType": "word"
+        },
+        {
+          "word": "buy",
+          "contentType": "word"
+        },
+        {
+          "word": "drink",
+          "contentType": "word"
+        },
+        {
+          "word": "eat",
+          "contentType": "word"
+        },
+        {
+          "word": "routine",
+          "contentType": "word"
+        },
+        {
+          "word": "habit",
+          "contentType": "word"
+        },
+        {
+          "word": "exercise",
+          "contentType": "word"
+        },
+        {
+          "word": "relax",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-301737e1e08d-p1",
+      "subtopicId": "st-301737e1e08d",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "study",
+          "contentType": "word"
+        },
+        {
+          "word": "work",
+          "contentType": "word"
+        },
+        {
+          "word": "clean",
+          "contentType": "word"
+        },
+        {
+          "word": "bath",
+          "contentType": "word"
+        },
+        {
+          "word": "bathroom",
+          "contentType": "word"
+        },
+        {
+          "word": "bedroom",
+          "contentType": "word"
+        },
+        {
+          "word": "bed",
+          "contentType": "word"
+        },
+        {
+          "word": "breakfast",
+          "contentType": "word"
+        },
+        {
+          "word": "bus",
+          "contentType": "word"
+        },
+        {
+          "word": "car",
+          "contentType": "word"
+        },
+        {
+          "word": "lunch",
+          "contentType": "word"
+        },
+        {
+          "word": "tea",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-3034c9c5ad90-p0",
       "subtopicId": "st-3034c9c5ad90",
       "index": 0,
@@ -15982,6 +17473,124 @@
       ]
     },
     {
+      "id": "st-33552761ee35-p0",
+      "subtopicId": "st-33552761ee35",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "academic",
+          "contentType": "word"
+        },
+        {
+          "word": "adjust",
+          "contentType": "word"
+        },
+        {
+          "word": "alter",
+          "contentType": "word"
+        },
+        {
+          "word": "analyse",
+          "contentType": "word"
+        },
+        {
+          "word": "aspect",
+          "contentType": "word"
+        },
+        {
+          "word": "assess",
+          "contentType": "word"
+        },
+        {
+          "word": "assume",
+          "contentType": "word"
+        },
+        {
+          "word": "challenge",
+          "contentType": "word"
+        },
+        {
+          "word": "concept",
+          "contentType": "word"
+        },
+        {
+          "word": "confirm",
+          "contentType": "word"
+        },
+        {
+          "word": "consistent",
+          "contentType": "word"
+        },
+        {
+          "word": "constant",
+          "contentType": "word"
+        },
+        {
+          "word": "construct",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-33552761ee35-p1",
+      "subtopicId": "st-33552761ee35",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "context",
+          "contentType": "word"
+        },
+        {
+          "word": "core",
+          "contentType": "word"
+        },
+        {
+          "word": "decline",
+          "contentType": "word"
+        },
+        {
+          "word": "document",
+          "contentType": "word"
+        },
+        {
+          "word": "draft",
+          "contentType": "word"
+        },
+        {
+          "word": "evaluate",
+          "contentType": "word"
+        },
+        {
+          "word": "focus",
+          "contentType": "word"
+        },
+        {
+          "word": "generation",
+          "contentType": "word"
+        },
+        {
+          "word": "initial",
+          "contentType": "word"
+        },
+        {
+          "word": "predict",
+          "contentType": "word"
+        },
+        {
+          "word": "resolve",
+          "contentType": "word"
+        },
+        {
+          "word": "retain",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-33b8d6675f97-p0",
       "subtopicId": "st-33b8d6675f97",
       "index": 0,
@@ -16083,6 +17692,124 @@
         },
         {
           "word": "waste",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-349b62d881c7-p0",
+      "subtopicId": "st-349b62d881c7",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "achieve",
+          "contentType": "word"
+        },
+        {
+          "word": "admit",
+          "contentType": "word"
+        },
+        {
+          "word": "agree",
+          "contentType": "word"
+        },
+        {
+          "word": "angry",
+          "contentType": "word"
+        },
+        {
+          "word": "argue",
+          "contentType": "word"
+        },
+        {
+          "word": "arrive",
+          "contentType": "word"
+        },
+        {
+          "word": "attack",
+          "contentType": "word"
+        },
+        {
+          "word": "attempt",
+          "contentType": "word"
+        },
+        {
+          "word": "avoid",
+          "contentType": "word"
+        },
+        {
+          "word": "benefit",
+          "contentType": "word"
+        },
+        {
+          "word": "borrow",
+          "contentType": "word"
+        },
+        {
+          "word": "bottle",
+          "contentType": "word"
+        },
+        {
+          "word": "brave",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-349b62d881c7-p1",
+      "subtopicId": "st-349b62d881c7",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "bread",
+          "contentType": "word"
+        },
+        {
+          "word": "breathe",
+          "contentType": "word"
+        },
+        {
+          "word": "bridge",
+          "contentType": "word"
+        },
+        {
+          "word": "busy",
+          "contentType": "word"
+        },
+        {
+          "word": "buy",
+          "contentType": "word"
+        },
+        {
+          "word": "camera",
+          "contentType": "word"
+        },
+        {
+          "word": "camp",
+          "contentType": "word"
+        },
+        {
+          "word": "capital",
+          "contentType": "word"
+        },
+        {
+          "word": "captain",
+          "contentType": "word"
+        },
+        {
+          "word": "career",
+          "contentType": "word"
+        },
+        {
+          "word": "careful",
+          "contentType": "word"
+        },
+        {
+          "word": "celebrate",
           "contentType": "word"
         }
       ]
@@ -17262,6 +18989,242 @@
       ]
     },
     {
+      "id": "st-3afd878afef3-p0",
+      "subtopicId": "st-3afd878afef3",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "accompany",
+          "contentType": "word"
+        },
+        {
+          "word": "admire",
+          "contentType": "word"
+        },
+        {
+          "word": "adopt",
+          "contentType": "word"
+        },
+        {
+          "word": "apologize",
+          "contentType": "word"
+        },
+        {
+          "word": "argue",
+          "contentType": "word"
+        },
+        {
+          "word": "argument",
+          "contentType": "word"
+        },
+        {
+          "word": "associate",
+          "contentType": "word"
+        },
+        {
+          "word": "association",
+          "contentType": "word"
+        },
+        {
+          "word": "aunt",
+          "contentType": "word"
+        },
+        {
+          "word": "baby",
+          "contentType": "word"
+        },
+        {
+          "word": "behave",
+          "contentType": "word"
+        },
+        {
+          "word": "behavior",
+          "contentType": "word"
+        },
+        {
+          "word": "belong",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3afd878afef3-p1",
+      "subtopicId": "st-3afd878afef3",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "boyfriend",
+          "contentType": "word"
+        },
+        {
+          "word": "bride",
+          "contentType": "word"
+        },
+        {
+          "word": "brother",
+          "contentType": "word"
+        },
+        {
+          "word": "colleague",
+          "contentType": "word"
+        },
+        {
+          "word": "communicate",
+          "contentType": "word"
+        },
+        {
+          "word": "communication",
+          "contentType": "word"
+        },
+        {
+          "word": "community",
+          "contentType": "word"
+        },
+        {
+          "word": "conflict",
+          "contentType": "word"
+        },
+        {
+          "word": "contact",
+          "contentType": "word"
+        },
+        {
+          "word": "conversation",
+          "contentType": "word"
+        },
+        {
+          "word": "couple",
+          "contentType": "word"
+        },
+        {
+          "word": "cousin",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3bdf4b9301c1-p0",
+      "subtopicId": "st-3bdf4b9301c1",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "business",
+          "contentType": "word"
+        },
+        {
+          "word": "company",
+          "contentType": "word"
+        },
+        {
+          "word": "employee",
+          "contentType": "word"
+        },
+        {
+          "word": "employer",
+          "contentType": "word"
+        },
+        {
+          "word": "employment",
+          "contentType": "word"
+        },
+        {
+          "word": "colleague",
+          "contentType": "word"
+        },
+        {
+          "word": "client",
+          "contentType": "word"
+        },
+        {
+          "word": "contract",
+          "contentType": "word"
+        },
+        {
+          "word": "budget",
+          "contentType": "word"
+        },
+        {
+          "word": "income",
+          "contentType": "word"
+        },
+        {
+          "word": "earn",
+          "contentType": "word"
+        },
+        {
+          "word": "advertise",
+          "contentType": "word"
+        },
+        {
+          "word": "advertising",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3bdf4b9301c1-p1",
+      "subtopicId": "st-3bdf4b9301c1",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "agenda",
+          "contentType": "word"
+        },
+        {
+          "word": "agent",
+          "contentType": "word"
+        },
+        {
+          "word": "agreement",
+          "contentType": "word"
+        },
+        {
+          "word": "businessman",
+          "contentType": "word"
+        },
+        {
+          "word": "clerk",
+          "contentType": "word"
+        },
+        {
+          "word": "commercial",
+          "contentType": "word"
+        },
+        {
+          "word": "commission",
+          "contentType": "word"
+        },
+        {
+          "word": "compete",
+          "contentType": "word"
+        },
+        {
+          "word": "competition",
+          "contentType": "word"
+        },
+        {
+          "word": "corporate",
+          "contentType": "word"
+        },
+        {
+          "word": "employ",
+          "contentType": "word"
+        },
+        {
+          "word": "account",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-3c813adbd286-p0",
       "subtopicId": "st-3c813adbd286",
       "index": 0,
@@ -17314,6 +19277,124 @@
         },
         {
           "word": "vulnerable",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3d385d23662b-p0",
+      "subtopicId": "st-3d385d23662b",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "cardiology",
+          "contentType": "word"
+        },
+        {
+          "word": "neurosurgery",
+          "contentType": "word"
+        },
+        {
+          "word": "pediatrics",
+          "contentType": "word"
+        },
+        {
+          "word": "nutrition",
+          "contentType": "word"
+        },
+        {
+          "word": "veganism",
+          "contentType": "word"
+        },
+        {
+          "word": "hydration",
+          "contentType": "word"
+        },
+        {
+          "word": "detox",
+          "contentType": "word"
+        },
+        {
+          "word": "immunology",
+          "contentType": "word"
+        },
+        {
+          "word": "pharmacology",
+          "contentType": "word"
+        },
+        {
+          "word": "obesity",
+          "contentType": "word"
+        },
+        {
+          "word": "cholesterol",
+          "contentType": "word"
+        },
+        {
+          "word": "antioxidants",
+          "contentType": "word"
+        },
+        {
+          "word": "metabolism",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3d385d23662b-p1",
+      "subtopicId": "st-3d385d23662b",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "calorie",
+          "contentType": "word"
+        },
+        {
+          "word": "biotechnology",
+          "contentType": "word"
+        },
+        {
+          "word": "genome",
+          "contentType": "word"
+        },
+        {
+          "word": "cloning",
+          "contentType": "word"
+        },
+        {
+          "word": "genetic engineering",
+          "contentType": "phrase"
+        },
+        {
+          "word": "neuroscience",
+          "contentType": "word"
+        },
+        {
+          "word": "neurotransmitter",
+          "contentType": "word"
+        },
+        {
+          "word": "neurosis",
+          "contentType": "word"
+        },
+        {
+          "word": "biodiversity",
+          "contentType": "word"
+        },
+        {
+          "word": "ecosystem",
+          "contentType": "word"
+        },
+        {
+          "word": "ecology",
+          "contentType": "word"
+        },
+        {
+          "word": "habitat",
           "contentType": "word"
         }
       ]
@@ -17497,6 +19578,124 @@
         },
         {
           "word": "drought",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3f61b16b4432-p0",
+      "subtopicId": "st-3f61b16b4432",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "sustainability",
+          "contentType": "word"
+        },
+        {
+          "word": "conservation",
+          "contentType": "word"
+        },
+        {
+          "word": "deforestation",
+          "contentType": "word"
+        },
+        {
+          "word": "biodiversity",
+          "contentType": "word"
+        },
+        {
+          "word": "carbon footprint",
+          "contentType": "phrase"
+        },
+        {
+          "word": "renewable energy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ecosystem",
+          "contentType": "word"
+        },
+        {
+          "word": "pollution",
+          "contentType": "word"
+        },
+        {
+          "word": "climate change",
+          "contentType": "phrase"
+        },
+        {
+          "word": "habitat",
+          "contentType": "word"
+        },
+        {
+          "word": "sustainable development",
+          "contentType": "phrase"
+        },
+        {
+          "word": "endangered species",
+          "contentType": "phrase"
+        },
+        {
+          "word": "pollutant",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3f61b16b4432-p1",
+      "subtopicId": "st-3f61b16b4432",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "greenhouse gases",
+          "contentType": "phrase"
+        },
+        {
+          "word": "desertification",
+          "contentType": "word"
+        },
+        {
+          "word": "ecotourism",
+          "contentType": "word"
+        },
+        {
+          "word": "wilderness",
+          "contentType": "word"
+        },
+        {
+          "word": "ecology",
+          "contentType": "word"
+        },
+        {
+          "word": "glacier",
+          "contentType": "word"
+        },
+        {
+          "word": "savanna",
+          "contentType": "word"
+        },
+        {
+          "word": "mitigate",
+          "contentType": "word"
+        },
+        {
+          "word": "mitigation",
+          "contentType": "word"
+        },
+        {
+          "word": "resilience",
+          "contentType": "word"
+        },
+        {
+          "word": "ecological",
+          "contentType": "word"
+        },
+        {
+          "word": "biophilia",
           "contentType": "word"
         }
       ]
@@ -18588,6 +20787,124 @@
         {
           "word": "once and for all",
           "contentType": "idiom"
+        }
+      ]
+    },
+    {
+      "id": "st-458fb53fa3cd-p0",
+      "subtopicId": "st-458fb53fa3cd",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "technology",
+          "contentType": "word"
+        },
+        {
+          "word": "science",
+          "contentType": "word"
+        },
+        {
+          "word": "scientist",
+          "contentType": "word"
+        },
+        {
+          "word": "computer",
+          "contentType": "word"
+        },
+        {
+          "word": "internet",
+          "contentType": "word"
+        },
+        {
+          "word": "machine",
+          "contentType": "word"
+        },
+        {
+          "word": "engineer",
+          "contentType": "word"
+        },
+        {
+          "word": "engine",
+          "contentType": "word"
+        },
+        {
+          "word": "electricity",
+          "contentType": "word"
+        },
+        {
+          "word": "electronic",
+          "contentType": "word"
+        },
+        {
+          "word": "physics",
+          "contentType": "word"
+        },
+        {
+          "word": "biology",
+          "contentType": "word"
+        },
+        {
+          "word": "research",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-458fb53fa3cd-p1",
+      "subtopicId": "st-458fb53fa3cd",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "researcher",
+          "contentType": "word"
+        },
+        {
+          "word": "download",
+          "contentType": "word"
+        },
+        {
+          "word": "online",
+          "contentType": "word"
+        },
+        {
+          "word": "system",
+          "contentType": "word"
+        },
+        {
+          "word": "experiment",
+          "contentType": "word"
+        },
+        {
+          "word": "invent",
+          "contentType": "word"
+        },
+        {
+          "word": "invention",
+          "contentType": "word"
+        },
+        {
+          "word": "robot",
+          "contentType": "word"
+        },
+        {
+          "word": "satellite",
+          "contentType": "word"
+        },
+        {
+          "word": "technical",
+          "contentType": "word"
+        },
+        {
+          "word": "virus",
+          "contentType": "word"
+        },
+        {
+          "word": "virtual",
+          "contentType": "word"
         }
       ]
     },
@@ -21481,6 +23798,124 @@
       ]
     },
     {
+      "id": "st-514bc912954a-p0",
+      "subtopicId": "st-514bc912954a",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "inflation",
+          "contentType": "word"
+        },
+        {
+          "word": "equity",
+          "contentType": "word"
+        },
+        {
+          "word": "fiscal policy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "asset management",
+          "contentType": "phrase"
+        },
+        {
+          "word": "capital",
+          "contentType": "word"
+        },
+        {
+          "word": "recession",
+          "contentType": "word"
+        },
+        {
+          "word": "supply chain",
+          "contentType": "phrase"
+        },
+        {
+          "word": "liquidity",
+          "contentType": "word"
+        },
+        {
+          "word": "bonds",
+          "contentType": "word"
+        },
+        {
+          "word": "ipo",
+          "contentType": "word"
+        },
+        {
+          "word": "dividend",
+          "contentType": "word"
+        },
+        {
+          "word": "profit margin",
+          "contentType": "phrase"
+        },
+        {
+          "word": "return on investment (roi)",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-514bc912954a-p1",
+      "subtopicId": "st-514bc912954a",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "market capitalization",
+          "contentType": "phrase"
+        },
+        {
+          "word": "entrepreneur",
+          "contentType": "word"
+        },
+        {
+          "word": "freelancer",
+          "contentType": "word"
+        },
+        {
+          "word": "contractor",
+          "contentType": "word"
+        },
+        {
+          "word": "salary",
+          "contentType": "word"
+        },
+        {
+          "word": "benefits",
+          "contentType": "word"
+        },
+        {
+          "word": "retirement plan",
+          "contentType": "phrase"
+        },
+        {
+          "word": "negotiate",
+          "contentType": "word"
+        },
+        {
+          "word": "blockchain",
+          "contentType": "word"
+        },
+        {
+          "word": "bilateral",
+          "contentType": "word"
+        },
+        {
+          "word": "accumulate",
+          "contentType": "word"
+        },
+        {
+          "word": "corruption",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-5363da1ba5ac-p0",
       "subtopicId": "st-5363da1ba5ac",
       "index": 0,
@@ -23317,6 +25752,124 @@
         },
         {
           "word": "verbally",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-583ce045322e-p0",
+      "subtopicId": "st-583ce045322e",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "apple",
+          "contentType": "word"
+        },
+        {
+          "word": "bake",
+          "contentType": "word"
+        },
+        {
+          "word": "beef",
+          "contentType": "word"
+        },
+        {
+          "word": "boil",
+          "contentType": "word"
+        },
+        {
+          "word": "bread",
+          "contentType": "word"
+        },
+        {
+          "word": "breakfast",
+          "contentType": "word"
+        },
+        {
+          "word": "butter",
+          "contentType": "word"
+        },
+        {
+          "word": "cafe",
+          "contentType": "word"
+        },
+        {
+          "word": "cake",
+          "contentType": "word"
+        },
+        {
+          "word": "chef",
+          "contentType": "word"
+        },
+        {
+          "word": "cook",
+          "contentType": "word"
+        },
+        {
+          "word": "delicious",
+          "contentType": "word"
+        },
+        {
+          "word": "dessert",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-583ce045322e-p1",
+      "subtopicId": "st-583ce045322e",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "dinner",
+          "contentType": "word"
+        },
+        {
+          "word": "dish",
+          "contentType": "word"
+        },
+        {
+          "word": "drink",
+          "contentType": "word"
+        },
+        {
+          "word": "eat",
+          "contentType": "word"
+        },
+        {
+          "word": "fresh",
+          "contentType": "word"
+        },
+        {
+          "word": "fruit",
+          "contentType": "word"
+        },
+        {
+          "word": "ingredient",
+          "contentType": "word"
+        },
+        {
+          "word": "lunch",
+          "contentType": "word"
+        },
+        {
+          "word": "meal",
+          "contentType": "word"
+        },
+        {
+          "word": "meat",
+          "contentType": "word"
+        },
+        {
+          "word": "menu",
+          "contentType": "word"
+        },
+        {
+          "word": "restaurant",
           "contentType": "word"
         }
       ]
@@ -25956,6 +28509,124 @@
       ]
     },
     {
+      "id": "st-65ea159fb736-p0",
+      "subtopicId": "st-65ea159fb736",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "travel",
+          "contentType": "word"
+        },
+        {
+          "word": "trip",
+          "contentType": "word"
+        },
+        {
+          "word": "journey",
+          "contentType": "word"
+        },
+        {
+          "word": "vehicle",
+          "contentType": "word"
+        },
+        {
+          "word": "traffic",
+          "contentType": "word"
+        },
+        {
+          "word": "train",
+          "contentType": "word"
+        },
+        {
+          "word": "bus",
+          "contentType": "word"
+        },
+        {
+          "word": "car",
+          "contentType": "word"
+        },
+        {
+          "word": "bicycle",
+          "contentType": "word"
+        },
+        {
+          "word": "airport",
+          "contentType": "word"
+        },
+        {
+          "word": "airline",
+          "contentType": "word"
+        },
+        {
+          "word": "aircraft",
+          "contentType": "word"
+        },
+        {
+          "word": "flight",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-65ea159fb736-p1",
+      "subtopicId": "st-65ea159fb736",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "passenger",
+          "contentType": "word"
+        },
+        {
+          "word": "driver",
+          "contentType": "word"
+        },
+        {
+          "word": "ticket",
+          "contentType": "word"
+        },
+        {
+          "word": "route",
+          "contentType": "word"
+        },
+        {
+          "word": "delay",
+          "contentType": "word"
+        },
+        {
+          "word": "destination",
+          "contentType": "word"
+        },
+        {
+          "word": "departure",
+          "contentType": "word"
+        },
+        {
+          "word": "arrival",
+          "contentType": "word"
+        },
+        {
+          "word": "arrive",
+          "contentType": "word"
+        },
+        {
+          "word": "abroad",
+          "contentType": "word"
+        },
+        {
+          "word": "accident",
+          "contentType": "word"
+        },
+        {
+          "word": "engine",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-65f1286dcb33-p0",
       "subtopicId": "st-65f1286dcb33",
       "index": 0,
@@ -27606,6 +30277,124 @@
       ]
     },
     {
+      "id": "st-6a517720cd6a-p0",
+      "subtopicId": "st-6a517720cd6a",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "apartment",
+          "contentType": "word"
+        },
+        {
+          "word": "bath",
+          "contentType": "word"
+        },
+        {
+          "word": "bathroom",
+          "contentType": "word"
+        },
+        {
+          "word": "bed",
+          "contentType": "word"
+        },
+        {
+          "word": "bedroom",
+          "contentType": "word"
+        },
+        {
+          "word": "blanket",
+          "contentType": "word"
+        },
+        {
+          "word": "carpet",
+          "contentType": "word"
+        },
+        {
+          "word": "ceiling",
+          "contentType": "word"
+        },
+        {
+          "word": "chair",
+          "contentType": "word"
+        },
+        {
+          "word": "clock",
+          "contentType": "word"
+        },
+        {
+          "word": "closet",
+          "contentType": "word"
+        },
+        {
+          "word": "curtain",
+          "contentType": "word"
+        },
+        {
+          "word": "desk",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-6a517720cd6a-p1",
+      "subtopicId": "st-6a517720cd6a",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "drawer",
+          "contentType": "word"
+        },
+        {
+          "word": "floor",
+          "contentType": "word"
+        },
+        {
+          "word": "furniture",
+          "contentType": "word"
+        },
+        {
+          "word": "home",
+          "contentType": "word"
+        },
+        {
+          "word": "house",
+          "contentType": "word"
+        },
+        {
+          "word": "household",
+          "contentType": "word"
+        },
+        {
+          "word": "kitchen",
+          "contentType": "word"
+        },
+        {
+          "word": "lamp",
+          "contentType": "word"
+        },
+        {
+          "word": "roof",
+          "contentType": "word"
+        },
+        {
+          "word": "room",
+          "contentType": "word"
+        },
+        {
+          "word": "toilet",
+          "contentType": "word"
+        },
+        {
+          "word": "window",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-6b0f849ec0cf-p0",
       "subtopicId": "st-6b0f849ec0cf",
       "index": 0,
@@ -28969,6 +31758,124 @@
       ]
     },
     {
+      "id": "st-779f3d24c65d-p0",
+      "subtopicId": "st-779f3d24c65d",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "abstract",
+          "contentType": "word"
+        },
+        {
+          "word": "impressionistic",
+          "contentType": "word"
+        },
+        {
+          "word": "surrealism",
+          "contentType": "word"
+        },
+        {
+          "word": "allegory",
+          "contentType": "word"
+        },
+        {
+          "word": "symbolism",
+          "contentType": "word"
+        },
+        {
+          "word": "renaissance",
+          "contentType": "word"
+        },
+        {
+          "word": "baroque",
+          "contentType": "word"
+        },
+        {
+          "word": "cubism",
+          "contentType": "word"
+        },
+        {
+          "word": "impression",
+          "contentType": "word"
+        },
+        {
+          "word": "fresco",
+          "contentType": "word"
+        },
+        {
+          "word": "mosaic",
+          "contentType": "word"
+        },
+        {
+          "word": "composition",
+          "contentType": "word"
+        },
+        {
+          "word": "portrait",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-779f3d24c65d-p1",
+      "subtopicId": "st-779f3d24c65d",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "critique",
+          "contentType": "word"
+        },
+        {
+          "word": "autobiography",
+          "contentType": "word"
+        },
+        {
+          "word": "memoir",
+          "contentType": "word"
+        },
+        {
+          "word": "biography",
+          "contentType": "word"
+        },
+        {
+          "word": "cultural heritage",
+          "contentType": "phrase"
+        },
+        {
+          "word": "symphony",
+          "contentType": "word"
+        },
+        {
+          "word": "overture",
+          "contentType": "word"
+        },
+        {
+          "word": "chamber music",
+          "contentType": "phrase"
+        },
+        {
+          "word": "orchestra",
+          "contentType": "word"
+        },
+        {
+          "word": "conductor",
+          "contentType": "word"
+        },
+        {
+          "word": "composer",
+          "contentType": "word"
+        },
+        {
+          "word": "sculpture",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-77dde8cc2e0f-p0",
       "subtopicId": "st-77dde8cc2e0f",
       "index": 0,
@@ -29229,6 +32136,124 @@
         {
           "word": "come out in sympathy with",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-78340f99ef77-p0",
+      "subtopicId": "st-78340f99ef77",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "health",
+          "contentType": "word"
+        },
+        {
+          "word": "healthy",
+          "contentType": "word"
+        },
+        {
+          "word": "hospital",
+          "contentType": "word"
+        },
+        {
+          "word": "medicine",
+          "contentType": "word"
+        },
+        {
+          "word": "medical",
+          "contentType": "word"
+        },
+        {
+          "word": "ill",
+          "contentType": "word"
+        },
+        {
+          "word": "illness",
+          "contentType": "word"
+        },
+        {
+          "word": "nurse",
+          "contentType": "word"
+        },
+        {
+          "word": "dentist",
+          "contentType": "word"
+        },
+        {
+          "word": "headache",
+          "contentType": "word"
+        },
+        {
+          "word": "fever",
+          "contentType": "word"
+        },
+        {
+          "word": "flu",
+          "contentType": "word"
+        },
+        {
+          "word": "injury",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-78340f99ef77-p1",
+      "subtopicId": "st-78340f99ef77",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "injure",
+          "contentType": "word"
+        },
+        {
+          "word": "injured",
+          "contentType": "word"
+        },
+        {
+          "word": "diet",
+          "contentType": "word"
+        },
+        {
+          "word": "breathe",
+          "contentType": "word"
+        },
+        {
+          "word": "blood",
+          "contentType": "word"
+        },
+        {
+          "word": "brain",
+          "contentType": "word"
+        },
+        {
+          "word": "bone",
+          "contentType": "word"
+        },
+        {
+          "word": "heart",
+          "contentType": "word"
+        },
+        {
+          "word": "virus",
+          "contentType": "word"
+        },
+        {
+          "word": "vitamin",
+          "contentType": "word"
+        },
+        {
+          "word": "symptom",
+          "contentType": "word"
+        },
+        {
+          "word": "recover",
+          "contentType": "word"
         }
       ]
     },
@@ -30300,6 +33325,124 @@
         {
           "word": "nearly a fifth",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-7f463b9dc5fd-p0",
+      "subtopicId": "st-7f463b9dc5fd",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "goods",
+          "contentType": "word"
+        },
+        {
+          "word": "equity",
+          "contentType": "word"
+        },
+        {
+          "word": "dividend",
+          "contentType": "word"
+        },
+        {
+          "word": "portfolio",
+          "contentType": "word"
+        },
+        {
+          "word": "sponsorship",
+          "contentType": "word"
+        },
+        {
+          "word": "inventory",
+          "contentType": "word"
+        },
+        {
+          "word": "transaction",
+          "contentType": "word"
+        },
+        {
+          "word": "lease",
+          "contentType": "word"
+        },
+        {
+          "word": "hedge",
+          "contentType": "word"
+        },
+        {
+          "word": "distribution",
+          "contentType": "word"
+        },
+        {
+          "word": "premium",
+          "contentType": "word"
+        },
+        {
+          "word": "client",
+          "contentType": "word"
+        },
+        {
+          "word": "impact",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-7f463b9dc5fd-p1",
+      "subtopicId": "st-7f463b9dc5fd",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "authority",
+          "contentType": "word"
+        },
+        {
+          "word": "obtain",
+          "contentType": "word"
+        },
+        {
+          "word": "maturity",
+          "contentType": "word"
+        },
+        {
+          "word": "publish",
+          "contentType": "word"
+        },
+        {
+          "word": "economist",
+          "contentType": "word"
+        },
+        {
+          "word": "media",
+          "contentType": "word"
+        },
+        {
+          "word": "marginal",
+          "contentType": "word"
+        },
+        {
+          "word": "seller",
+          "contentType": "word"
+        },
+        {
+          "word": "candidate",
+          "contentType": "word"
+        },
+        {
+          "word": "merger",
+          "contentType": "word"
+        },
+        {
+          "word": "audit",
+          "contentType": "word"
+        },
+        {
+          "word": "recession",
+          "contentType": "word"
         }
       ]
     },
@@ -34901,6 +38044,124 @@
       ]
     },
     {
+      "id": "st-99177ab3da0d-p0",
+      "subtopicId": "st-99177ab3da0d",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "accumulate",
+          "contentType": "word"
+        },
+        {
+          "word": "acquire",
+          "contentType": "word"
+        },
+        {
+          "word": "academic",
+          "contentType": "word"
+        },
+        {
+          "word": "evaluate",
+          "contentType": "word"
+        },
+        {
+          "word": "modify",
+          "contentType": "word"
+        },
+        {
+          "word": "consequence",
+          "contentType": "word"
+        },
+        {
+          "word": "potential",
+          "contentType": "word"
+        },
+        {
+          "word": "equivalent",
+          "contentType": "word"
+        },
+        {
+          "word": "comprehensive",
+          "contentType": "word"
+        },
+        {
+          "word": "significant",
+          "contentType": "word"
+        },
+        {
+          "word": "factor",
+          "contentType": "word"
+        },
+        {
+          "word": "variable",
+          "contentType": "word"
+        },
+        {
+          "word": "concept",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-99177ab3da0d-p1",
+      "subtopicId": "st-99177ab3da0d",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "survey",
+          "contentType": "word"
+        },
+        {
+          "word": "methodology",
+          "contentType": "word"
+        },
+        {
+          "word": "thesis",
+          "contentType": "word"
+        },
+        {
+          "word": "cognition",
+          "contentType": "word"
+        },
+        {
+          "word": "sustainability",
+          "contentType": "word"
+        },
+        {
+          "word": "criteria",
+          "contentType": "word"
+        },
+        {
+          "word": "investigate",
+          "contentType": "word"
+        },
+        {
+          "word": "coordinate",
+          "contentType": "word"
+        },
+        {
+          "word": "demonstrate",
+          "contentType": "word"
+        },
+        {
+          "word": "accreditation",
+          "contentType": "word"
+        },
+        {
+          "word": "interdisciplinary",
+          "contentType": "word"
+        },
+        {
+          "word": "dissertation",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-99db1b29fff5-p0",
       "subtopicId": "st-99db1b29fff5",
       "index": 0,
@@ -38589,6 +41850,124 @@
       ]
     },
     {
+      "id": "st-a94677ca83f6-p0",
+      "subtopicId": "st-a94677ca83f6",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "bias",
+          "contentType": "word"
+        },
+        {
+          "word": "credible",
+          "contentType": "word"
+        },
+        {
+          "word": "interactive",
+          "contentType": "word"
+        },
+        {
+          "word": "presence",
+          "contentType": "word"
+        },
+        {
+          "word": "publicity",
+          "contentType": "word"
+        },
+        {
+          "word": "accessible",
+          "contentType": "word"
+        },
+        {
+          "word": "mass media",
+          "contentType": "phrase"
+        },
+        {
+          "word": "fact-check",
+          "contentType": "word"
+        },
+        {
+          "word": "fake news",
+          "contentType": "phrase"
+        },
+        {
+          "word": "broadcast",
+          "contentType": "word"
+        },
+        {
+          "word": "disclose",
+          "contentType": "word"
+        },
+        {
+          "word": "exaggerate",
+          "contentType": "word"
+        },
+        {
+          "word": "ambiguous",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-a94677ca83f6-p1",
+      "subtopicId": "st-a94677ca83f6",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "critic",
+          "contentType": "word"
+        },
+        {
+          "word": "tabloid",
+          "contentType": "word"
+        },
+        {
+          "word": "distribute",
+          "contentType": "word"
+        },
+        {
+          "word": "spread",
+          "contentType": "word"
+        },
+        {
+          "word": "the press",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital billboard",
+          "contentType": "phrase"
+        },
+        {
+          "word": "as opposed to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "by contrast",
+          "contentType": "phrase"
+        },
+        {
+          "word": "meanwhile",
+          "contentType": "word"
+        },
+        {
+          "word": "account for",
+          "contentType": "phrase"
+        },
+        {
+          "word": "informative",
+          "contentType": "word"
+        },
+        {
+          "word": "article",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-a97e4f9ea6c8-p0",
       "subtopicId": "st-a97e4f9ea6c8",
       "index": 0,
@@ -39048,6 +42427,124 @@
         {
           "word": "take the sting out of something",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-a9c09aafa898-p0",
+      "subtopicId": "st-a9c09aafa898",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "achievement",
+          "contentType": "word"
+        },
+        {
+          "word": "admit",
+          "contentType": "word"
+        },
+        {
+          "word": "alternative",
+          "contentType": "word"
+        },
+        {
+          "word": "analyse",
+          "contentType": "word"
+        },
+        {
+          "word": "anxiety",
+          "contentType": "word"
+        },
+        {
+          "word": "appreciate",
+          "contentType": "word"
+        },
+        {
+          "word": "attitude",
+          "contentType": "word"
+        },
+        {
+          "word": "avoid",
+          "contentType": "word"
+        },
+        {
+          "word": "aware",
+          "contentType": "word"
+        },
+        {
+          "word": "benefit",
+          "contentType": "word"
+        },
+        {
+          "word": "blame",
+          "contentType": "word"
+        },
+        {
+          "word": "budget",
+          "contentType": "word"
+        },
+        {
+          "word": "challenge",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-a9c09aafa898-p1",
+      "subtopicId": "st-a9c09aafa898",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "choice",
+          "contentType": "word"
+        },
+        {
+          "word": "colleague",
+          "contentType": "word"
+        },
+        {
+          "word": "combine",
+          "contentType": "word"
+        },
+        {
+          "word": "comfortable",
+          "contentType": "word"
+        },
+        {
+          "word": "community",
+          "contentType": "word"
+        },
+        {
+          "word": "compete",
+          "contentType": "word"
+        },
+        {
+          "word": "complex",
+          "contentType": "word"
+        },
+        {
+          "word": "consequence",
+          "contentType": "word"
+        },
+        {
+          "word": "critic",
+          "contentType": "word"
+        },
+        {
+          "word": "culture",
+          "contentType": "word"
+        },
+        {
+          "word": "decrease",
+          "contentType": "word"
+        },
+        {
+          "word": "define",
+          "contentType": "word"
         }
       ]
     },
@@ -45251,6 +48748,124 @@
       ]
     },
     {
+      "id": "st-c666540675ec-p0",
+      "subtopicId": "st-c666540675ec",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "renaissance",
+          "contentType": "word"
+        },
+        {
+          "word": "baroque",
+          "contentType": "word"
+        },
+        {
+          "word": "cultural heritage",
+          "contentType": "phrase"
+        },
+        {
+          "word": "expedition",
+          "contentType": "word"
+        },
+        {
+          "word": "regime",
+          "contentType": "word"
+        },
+        {
+          "word": "totalitarianism",
+          "contentType": "word"
+        },
+        {
+          "word": "autocracy",
+          "contentType": "word"
+        },
+        {
+          "word": "suffrage",
+          "contentType": "word"
+        },
+        {
+          "word": "fresco",
+          "contentType": "word"
+        },
+        {
+          "word": "mosaic",
+          "contentType": "word"
+        },
+        {
+          "word": "allegory",
+          "contentType": "word"
+        },
+        {
+          "word": "symbolism",
+          "contentType": "word"
+        },
+        {
+          "word": "democracy",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c666540675ec-p1",
+      "subtopicId": "st-c666540675ec",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "socialism",
+          "contentType": "word"
+        },
+        {
+          "word": "constitution",
+          "contentType": "word"
+        },
+        {
+          "word": "diplomacy",
+          "contentType": "word"
+        },
+        {
+          "word": "conservation",
+          "contentType": "word"
+        },
+        {
+          "word": "interdisciplinary",
+          "contentType": "word"
+        },
+        {
+          "word": "thesis",
+          "contentType": "word"
+        },
+        {
+          "word": "dissertation",
+          "contentType": "word"
+        },
+        {
+          "word": "research methodology",
+          "contentType": "phrase"
+        },
+        {
+          "word": "accumulate",
+          "contentType": "word"
+        },
+        {
+          "word": "regression",
+          "contentType": "word"
+        },
+        {
+          "word": "archipelago",
+          "contentType": "word"
+        },
+        {
+          "word": "censorship",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-c7d662484f6e-p0",
       "subtopicId": "st-c7d662484f6e",
       "index": 0,
@@ -45438,6 +49053,124 @@
         {
           "word": "virtual collaboration tools",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-c99c9aee3faf-p0",
+      "subtopicId": "st-c99c9aee3faf",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "be",
+          "contentType": "word"
+        },
+        {
+          "word": "have",
+          "contentType": "word"
+        },
+        {
+          "word": "do",
+          "contentType": "word"
+        },
+        {
+          "word": "say",
+          "contentType": "word"
+        },
+        {
+          "word": "go",
+          "contentType": "word"
+        },
+        {
+          "word": "get",
+          "contentType": "word"
+        },
+        {
+          "word": "make",
+          "contentType": "word"
+        },
+        {
+          "word": "know",
+          "contentType": "word"
+        },
+        {
+          "word": "take",
+          "contentType": "word"
+        },
+        {
+          "word": "see",
+          "contentType": "word"
+        },
+        {
+          "word": "come",
+          "contentType": "word"
+        },
+        {
+          "word": "think",
+          "contentType": "word"
+        },
+        {
+          "word": "want",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c99c9aee3faf-p1",
+      "subtopicId": "st-c99c9aee3faf",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "use",
+          "contentType": "word"
+        },
+        {
+          "word": "look",
+          "contentType": "word"
+        },
+        {
+          "word": "people",
+          "contentType": "word"
+        },
+        {
+          "word": "time",
+          "contentType": "word"
+        },
+        {
+          "word": "year",
+          "contentType": "word"
+        },
+        {
+          "word": "day",
+          "contentType": "word"
+        },
+        {
+          "word": "way",
+          "contentType": "word"
+        },
+        {
+          "word": "thing",
+          "contentType": "word"
+        },
+        {
+          "word": "man",
+          "contentType": "word"
+        },
+        {
+          "word": "good",
+          "contentType": "word"
+        },
+        {
+          "word": "new",
+          "contentType": "word"
+        },
+        {
+          "word": "first",
+          "contentType": "word"
         }
       ]
     },
@@ -48287,6 +52020,124 @@
       ]
     },
     {
+      "id": "st-db68a48ab163-p0",
+      "subtopicId": "st-db68a48ab163",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "accumulate",
+          "contentType": "word"
+        },
+        {
+          "word": "adjacent",
+          "contentType": "word"
+        },
+        {
+          "word": "albeit",
+          "contentType": "word"
+        },
+        {
+          "word": "allocate",
+          "contentType": "word"
+        },
+        {
+          "word": "ambiguous",
+          "contentType": "word"
+        },
+        {
+          "word": "analogy",
+          "contentType": "word"
+        },
+        {
+          "word": "anticipate",
+          "contentType": "word"
+        },
+        {
+          "word": "appendix",
+          "contentType": "word"
+        },
+        {
+          "word": "arbitrary",
+          "contentType": "word"
+        },
+        {
+          "word": "bias",
+          "contentType": "word"
+        },
+        {
+          "word": "bulk",
+          "contentType": "word"
+        },
+        {
+          "word": "coherent",
+          "contentType": "word"
+        },
+        {
+          "word": "coincide",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-db68a48ab163-p1",
+      "subtopicId": "st-db68a48ab163",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "compatible",
+          "contentType": "word"
+        },
+        {
+          "word": "compile",
+          "contentType": "word"
+        },
+        {
+          "word": "comprise",
+          "contentType": "word"
+        },
+        {
+          "word": "conceive",
+          "contentType": "word"
+        },
+        {
+          "word": "concurrent",
+          "contentType": "word"
+        },
+        {
+          "word": "confine",
+          "contentType": "word"
+        },
+        {
+          "word": "controversy",
+          "contentType": "word"
+        },
+        {
+          "word": "empirical",
+          "contentType": "word"
+        },
+        {
+          "word": "hypothesis",
+          "contentType": "word"
+        },
+        {
+          "word": "infer",
+          "contentType": "word"
+        },
+        {
+          "word": "paradigm",
+          "contentType": "word"
+        },
+        {
+          "word": "subsequent",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-db7787575149-p0",
       "subtopicId": "st-db7787575149",
       "index": 0,
@@ -49755,6 +53606,124 @@
       ]
     },
     {
+      "id": "st-dfd9a5679712-p0",
+      "subtopicId": "st-dfd9a5679712",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "abstract",
+          "contentType": "word"
+        },
+        {
+          "word": "impressionistic",
+          "contentType": "word"
+        },
+        {
+          "word": "surrealism",
+          "contentType": "word"
+        },
+        {
+          "word": "allegory",
+          "contentType": "word"
+        },
+        {
+          "word": "symbolism",
+          "contentType": "word"
+        },
+        {
+          "word": "renaissance",
+          "contentType": "word"
+        },
+        {
+          "word": "baroque",
+          "contentType": "word"
+        },
+        {
+          "word": "cubism",
+          "contentType": "word"
+        },
+        {
+          "word": "impression",
+          "contentType": "word"
+        },
+        {
+          "word": "composition",
+          "contentType": "word"
+        },
+        {
+          "word": "portrait",
+          "contentType": "word"
+        },
+        {
+          "word": "critique",
+          "contentType": "word"
+        },
+        {
+          "word": "democracy",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-dfd9a5679712-p1",
+      "subtopicId": "st-dfd9a5679712",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "socialism",
+          "contentType": "word"
+        },
+        {
+          "word": "totalitarianism",
+          "contentType": "word"
+        },
+        {
+          "word": "human rights",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social justice",
+          "contentType": "phrase"
+        },
+        {
+          "word": "diplomacy",
+          "contentType": "word"
+        },
+        {
+          "word": "corruption",
+          "contentType": "word"
+        },
+        {
+          "word": "constitution",
+          "contentType": "word"
+        },
+        {
+          "word": "censorship",
+          "contentType": "word"
+        },
+        {
+          "word": "regime",
+          "contentType": "word"
+        },
+        {
+          "word": "autocracy",
+          "contentType": "word"
+        },
+        {
+          "word": "suffrage",
+          "contentType": "word"
+        },
+        {
+          "word": "protest",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-e07352fe742c-p0",
       "subtopicId": "st-e07352fe742c",
       "index": 0,
@@ -50608,6 +54577,124 @@
         {
           "word": "violent",
           "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-e391fd06cb5c-p0",
+      "subtopicId": "st-e391fd06cb5c",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "democracy",
+          "contentType": "word"
+        },
+        {
+          "word": "socialism",
+          "contentType": "word"
+        },
+        {
+          "word": "totalitarianism",
+          "contentType": "word"
+        },
+        {
+          "word": "human rights",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social justice",
+          "contentType": "phrase"
+        },
+        {
+          "word": "diplomacy",
+          "contentType": "word"
+        },
+        {
+          "word": "bilateral",
+          "contentType": "word"
+        },
+        {
+          "word": "corruption",
+          "contentType": "word"
+        },
+        {
+          "word": "constitution",
+          "contentType": "word"
+        },
+        {
+          "word": "censorship",
+          "contentType": "word"
+        },
+        {
+          "word": "regime",
+          "contentType": "word"
+        },
+        {
+          "word": "autocracy",
+          "contentType": "word"
+        },
+        {
+          "word": "suffrage",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-e391fd06cb5c-p1",
+      "subtopicId": "st-e391fd06cb5c",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "protest",
+          "contentType": "word"
+        },
+        {
+          "word": "sovereignty",
+          "contentType": "word"
+        },
+        {
+          "word": "precedent",
+          "contentType": "word"
+        },
+        {
+          "word": "absolutism",
+          "contentType": "word"
+        },
+        {
+          "word": "discretion",
+          "contentType": "word"
+        },
+        {
+          "word": "intervene",
+          "contentType": "word"
+        },
+        {
+          "word": "mitigation",
+          "contentType": "word"
+        },
+        {
+          "word": "fiscal policy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "negotiate",
+          "contentType": "word"
+        },
+        {
+          "word": "accreditation",
+          "contentType": "word"
+        },
+        {
+          "word": "contractor",
+          "contentType": "word"
+        },
+        {
+          "word": "academic integrity",
+          "contentType": "phrase"
         }
       ]
     },
@@ -54496,6 +58583,124 @@
         {
           "word": "to drift apart",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-f48d77316eb0-p0",
+      "subtopicId": "st-f48d77316eb0",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "colony",
+          "contentType": "word"
+        },
+        {
+          "word": "comma",
+          "contentType": "word"
+        },
+        {
+          "word": "commentary",
+          "contentType": "word"
+        },
+        {
+          "word": "commodity",
+          "contentType": "word"
+        },
+        {
+          "word": "commonly",
+          "contentType": "word"
+        },
+        {
+          "word": "communicative",
+          "contentType": "word"
+        },
+        {
+          "word": "communist",
+          "contentType": "word"
+        },
+        {
+          "word": "compact",
+          "contentType": "word"
+        },
+        {
+          "word": "comparable",
+          "contentType": "word"
+        },
+        {
+          "word": "comparative",
+          "contentType": "word"
+        },
+        {
+          "word": "compensate",
+          "contentType": "word"
+        },
+        {
+          "word": "competence",
+          "contentType": "word"
+        },
+        {
+          "word": "competent",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-f48d77316eb0-p1",
+      "subtopicId": "st-f48d77316eb0",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "complement",
+          "contentType": "word"
+        },
+        {
+          "word": "complication",
+          "contentType": "word"
+        },
+        {
+          "word": "comply",
+          "contentType": "word"
+        },
+        {
+          "word": "composer",
+          "contentType": "word"
+        },
+        {
+          "word": "composite",
+          "contentType": "word"
+        },
+        {
+          "word": "comprehension",
+          "contentType": "word"
+        },
+        {
+          "word": "computation",
+          "contentType": "word"
+        },
+        {
+          "word": "conceive",
+          "contentType": "word"
+        },
+        {
+          "word": "conception",
+          "contentType": "word"
+        },
+        {
+          "word": "conceptual",
+          "contentType": "word"
+        },
+        {
+          "word": "conditional",
+          "contentType": "word"
+        },
+        {
+          "word": "conduction",
+          "contentType": "word"
         }
       ]
     },

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LingoPro - Lộ Trình Oxford 3000 Giao Tiếp Cốt Lõi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: radial-gradient(circle at top, #102a43 0%, #091a2b 100%);
+      --card-bg: rgba(20, 48, 74, 0.45);
+      --text-main: #ffffff;
+      --text-muted: #a0aec0;
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.4);
+      --success: #48bb78;
+      --error: #f56565;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 15px;
+    }
+    button {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      border: 1px solid var(--border-color);
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+      border-color: transparent;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      gap: 30px;
+    }
+    .sidebar {
+      width: 300px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px;
+      height: fit-content;
+      backdrop-filter: blur(10px);
+    }
+    .sidebar h3 {
+      font-family: 'Outfit', sans-serif;
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: var(--primary);
+    }
+    .unit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .unit-item {
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .unit-item:hover, .unit-item.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .main-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .tab-bar {
+      display: flex;
+      gap: 15px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 16px;
+      border-bottom: 3px solid transparent;
+      border-radius: 0;
+    }
+    .tab-btn:hover {
+      color: white;
+      background: none;
+      box-shadow: none;
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .content-area {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 40px;
+      min-height: 500px;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .vocab-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    .vocab-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .vocab-word {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    .vocab-meta {
+      display: flex;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+    .vocab-ipa {
+      font-family: monospace;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .vocab-meaning {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    .vocab-ex {
+      font-size: 13px;
+      line-height: 1.6;
+      border-left: 2px solid var(--primary);
+      padding-left: 10px;
+    }
+    .vocab-ex-vn {
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+    .grammar-area {
+      line-height: 1.8;
+    }
+    .grammar-area h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .grammar-area h3 {
+      font-size: 18px;
+      margin: 20px 0 10px;
+    }
+    .grammar-area pre, .grammar-area code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #e2e8f0;
+    }
+    .grammar-area pre {
+      padding: 15px;
+      display: block;
+      margin: 15px 0;
+      overflow-x: auto;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .quiz-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .quiz-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+    .quiz-question {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .quiz-option {
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-weight: 500;
+    }
+    .quiz-option:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary);
+    }
+    .quiz-option.correct {
+      background: rgba(72, 187, 120, 0.15);
+      border-color: var(--success);
+      color: var(--success);
+    }
+    .quiz-option.incorrect {
+      background: rgba(245, 101, 116, 0.15);
+      border-color: var(--error);
+      color: var(--error);
+    }
+    .quiz-explanation {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .hidden {
+      display: none !important;
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+      font-size: 14px;
+      border-top: 1px solid var(--border-color);
+      background: rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LingoPro Oxford 3000 Core Vocabulary - 10 Units</h1>
+    <div class="nav-buttons">
+      <button onclick="changeFontSize(-1)">A-</button>
+      <button onclick="changeFontSize(1)">A+</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Danh sách Unit</h3>
+      <ul class="unit-list" id="unitList"></ul>
+    </div>
+
+    <div class="main-panel">
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('vocab')">Từ Vựng</button>
+        <button class="tab-btn" onclick="switchTab('grammar')">Ngữ Pháp</button>
+        <button class="tab-btn" onclick="switchTab('quiz')">Trắc Nghiệm</button>
+      </div>
+
+      <div class="content-area">
+        <!-- Vocab Tab -->
+        <div id="vocabTab" class="vocab-grid"></div>
+
+        <!-- Grammar Tab -->
+        <div id="grammarTab" class="grammar-area hidden"></div>
+
+        <!-- Quiz Tab -->
+        <div id="quizTab" class="quiz-container hidden">
+          <div class="quiz-title" id="quizUnitName"></div>
+          <div id="quizContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 LingoPro Premium Curriculum. Phát triển bởi Antigravity.</p>
+  </footer>
+
+  <script>
+    const slideData = {"Oxford Unit 1: Daily Life & Routines": {"vocab": [{"word": "wake", "pos": "verb", "ipa": "/weɪk/", "meaning": "thức dậy, tỉnh giấc", "example": "I usually wake up at 6 AM every day.", "vn_ex": "Tôi thường thức dậy lúc 6 giờ sáng mỗi ngày."}, {"word": "sleep", "pos": "verb", "ipa": "/sliːp/", "meaning": "ngủ", "example": "You should sleep at least eight hours a night.", "vn_ex": "Bạn nên ngủ ít nhất tám tiếng mỗi đêm."}, {"word": "cook", "pos": "verb", "ipa": "/kʊk/", "meaning": "nấu ăn", "example": "My mother loves to cook dinner for the family.", "vn_ex": "Mẹ tôi thích nấu bữa tối cho gia đình."}, {"word": "wash", "pos": "verb", "ipa": "/wɒʃ/", "meaning": "rửa, giặt", "example": "Remember to wash your hands before eating.", "vn_ex": "Hãy nhớ rửa tay trước khi ăn."}, {"word": "brush", "pos": "verb", "ipa": "/brʌʃ/", "meaning": "đánh (răng), chải (tóc)", "example": "You need to brush your teeth twice a day.", "vn_ex": "Bạn cần đánh răng hai lần một ngày."}, {"word": "dress", "pos": "verb", "ipa": "/dres/", "meaning": "mặc quần áo", "example": "I usually get dressed quickly in the morning.", "vn_ex": "Tôi thường mặc quần áo nhanh chóng vào buổi sáng."}, {"word": "buy", "pos": "verb", "ipa": "/baɪ/", "meaning": "mua", "example": "I need to buy some fresh milk today.", "vn_ex": "Tôi cần mua một ít sữa tươi hôm nay."}, {"word": "drink", "pos": "verb", "ipa": "/drɪŋk/", "meaning": "uống", "example": "It is healthy to drink plenty of water.", "vn_ex": "Uống nhiều nước rất tốt cho sức khỏe."}, {"word": "eat", "pos": "verb", "ipa": "/iːt/", "meaning": "ăn", "example": "What do you want to eat for breakfast?", "vn_ex": "Bạn muốn ăn gì cho bữa sáng?"}, {"word": "routine", "pos": "noun", "ipa": "/ruːˈtiːn/", "meaning": "thói quen hàng ngày, lệ thường", "example": "Exercise is a key part of my daily routine.", "vn_ex": "Tập thể dục là một phần quan trọng trong thói quen hàng ngày của tôi."}, {"word": "habit", "pos": "noun", "ipa": "/ˈhæbɪt/", "meaning": "thói quen", "example": "Reading books before bed is a very good habit.", "vn_ex": "Đọc sách trước khi đi ngủ là một thói quen rất tốt."}, {"word": "exercise", "pos": "verb", "ipa": "/ˈeksəsaɪz/", "meaning": "tập thể dục", "example": "I try to exercise for thirty minutes every day.", "vn_ex": "Tôi cố gắng tập thể dục trong ba mươi phút mỗi ngày."}, {"word": "relax", "pos": "verb", "ipa": "/rɪˈlæks/", "meaning": "thư giãn", "example": "I like to relax and watch a movie on weekends.", "vn_ex": "Tôi thích thư giãn và xem phim vào cuối tuần."}, {"word": "study", "pos": "verb", "ipa": "/ˈstʌdi/", "meaning": "học tập, nghiên cứu", "example": "She has to study for her exam tonight.", "vn_ex": "Cô ấy phải học bài để chuẩn bị cho kỳ thi tối nay."}, {"word": "work", "pos": "verb", "ipa": "/wɜːk/", "meaning": "làm việc", "example": "He works from nine to five every weekday.", "vn_ex": "Anh ấy làm việc từ chín giờ sáng đến năm giờ chiều mỗi ngày trong tuần."}, {"word": "clean", "pos": "verb", "ipa": "/kliːn/", "meaning": "lau dọn, quét dọn", "example": "I always clean my bedroom on Saturday mornings.", "vn_ex": "Tôi luôn lau dọn phòng ngủ vào các buổi sáng thứ Bảy."}, {"word": "bath", "pos": "noun", "ipa": "/bæθ/", "meaning": "sự đi tắm, bồn tắm", "example": "I like to take a warm bath after work.", "vn_ex": "Tôi thích đi tắm nước ấm sau giờ làm việc."}, {"word": "bathroom", "pos": "noun", "ipa": "/ˈbæθruːm/", "meaning": "nhà tắm", "example": "She is brushing her teeth in the bathroom.", "vn_ex": "Cô ấy đang đánh răng trong nhà tắm."}, {"word": "bedroom", "pos": "noun", "ipa": "/ˈbedruːm/", "meaning": "phòng ngủ", "example": "My bedroom is small but very comfortable.", "vn_ex": "Phòng ngủ của tôi nhỏ nhưng rất thoải mái."}, {"word": "bed", "pos": "noun", "ipa": "/bed/", "meaning": "giường", "example": "It is late, so I am going to bed now.", "vn_ex": "Muộn rồi nên tôi chuẩn bị đi ngủ đây."}, {"word": "breakfast", "pos": "noun", "ipa": "/ˈbrekfəst/", "meaning": "bữa sáng", "example": "We usually have breakfast together at 7 AM.", "vn_ex": "Chúng tôi thường ăn sáng cùng nhau vào lúc 7 giờ sáng."}, {"word": "bus", "pos": "noun", "ipa": "/bʌs/", "meaning": "xe buýt", "example": "She catches the morning bus to go to work.", "vn_ex": "Cô ấy bắt chuyến xe buýt buổi sáng để đi làm."}, {"word": "car", "pos": "noun", "ipa": "/kɑːr/", "meaning": "ô tô", "example": "He drives his car to the supermarket every week.", "vn_ex": "Anh ấy lái ô tô đến siêu thị mỗi tuần."}, {"word": "lunch", "pos": "noun", "ipa": "/lʌntʃ/", "meaning": "bữa trưa", "example": "Let us meet up for lunch tomorrow.", "vn_ex": "Hãy gặp nhau ăn trưa ngày mai nhé."}, {"word": "tea", "pos": "noun", "ipa": "/tiː/", "meaning": "trà", "example": "I enjoy drinking a cup of hot tea in the morning.", "vn_ex": "Tôi thích thưởng thức một tách trà nóng vào buổi sáng."}], "grammar_theory": "# Adverbs of Frequency and Position in a Sentence (Daily Routines) \n## Công thức cấu trúc \n- `Always`, `usually`, `often`, `sometimes`, `seldom`, `rarely`, `never` thường được đặt sau chủ ngữ nhưng trước động từ chính trong câu. \n- Ví dụ: `I always get up at 6:00 AM` - Tôi luôn thức dậy vào lúc 6:00 sáng \n## Cách dùng thực tế \n- Trong giao tiếp hàng ngày và học thuật, các trạng từ tần suất giúp mô tả thói quen và tần suất thực hiện hành động. \n- Ví dụ: `She usually studies English every day` - Cô ấy thường học tiếng Anh mỗi ngày \n", "quiz": [{"question": "I ___ get up at 7:00 AM on weekends.", "options": ["always", "usually", "sometimes", "never"], "answer": 2, "explanation": "Câu hỏi yêu cầu trạng từ chỉ tần suất, 'sometimes' phù hợp vì chỉ ra hành động không xảy ra thường xuyên. Dịch nghĩa: Tôi đôi khi thức dậy vào lúc 7:00 sáng vào cuối tuần."}, {"question": "My mother ___ cooks dinner for our family.", "options": ["always", "usually", "often", "rarely"], "answer": 1, "explanation": "Câu hỏi mô tả thói quen, 'usually' chỉ ra hành động thường xảy ra. Dịch nghĩa: Mẹ tôi thường nấu bữa tối cho gia đình chúng tôi."}, {"question": "He ___ attends classes on time.", "options": ["always", "usually", "sometimes", "never"], "answer": 0, "explanation": "Câu hỏi yêu cầu trạng từ chỉ sự nhất quán, 'always' phù hợp vì chỉ ra hành động luôn xảy ra. Dịch nghĩa: Anh ấy luôn tham gia lớp học đúng giờ."}, {"question": "They ___ go to the gym after work.", "options": ["always", "usually", "often", "seldom"], "answer": 1, "explanation": "Câu hỏi mô tả thói quen, 'usually' chỉ ra hành động thường xảy ra. Dịch nghĩa: Họ thường đi đến phòng tập thể dục sau khi làm việc."}, {"question": "I ___ watch TV before going to bed.", "options": ["always", "usually", "sometimes", "rarely"], "answer": 2, "explanation": "Câu hỏi yêu cầu trạng từ chỉ tần suất, 'sometimes' phù hợp vì chỉ ra hành động không xảy ra thường xuyên. Dịch nghĩa: Tôi đôi khi xem TV trước khi đi ngủ."}]}, "Oxford Unit 2: People & Relationships": {"vocab": [{"word": "accompany", "pos": "động từ", "ipa": "/əˈkʌmpəni/", "meaning": "đồng hành, đi cùng", "example": "My sister will accompany me to the family gathering.", "vn_ex": "Chị gái tôi sẽ đồng hành cùng tôi đến buổi sum họp gia đình."}, {"word": "admire", "pos": "động từ", "ipa": "/ədˈmaɪər/", "meaning": "ngưỡng mộ, khâm phục", "example": "I really admire how well you get along with your parents.", "vn_ex": "Tôi thực sự ngưỡng mộ cách bạn hòa thuận rất tốt với bố mẹ mình."}, {"word": "adopt", "pos": "động từ", "ipa": "/əˈdɑːpt/", "meaning": "nhận nuôi (con nuôi)", "example": "The young couple decided to adopt a baby girl.", "vn_ex": "Cặp vợ chồng trẻ đã quyết định nhận nuôi một bé gái."}, {"word": "apologize", "pos": "động từ", "ipa": "/əˈpɑːlədʒaɪz/", "meaning": "xin lỗi", "example": "You should apologize to your brother for losing his book.", "vn_ex": "Bạn nên xin lỗi em trai mình vì đã làm mất sách của nó."}, {"word": "argue", "pos": "động từ", "ipa": "/ˈɑːrɡjuː/", "meaning": "tranh cãi, tranh luận", "example": "They love each other but still argue about money sometimes.", "vn_ex": "Họ yêu nhau nhưng thỉnh thoảng vẫn tranh cãi về chuyện tiền bạc."}, {"word": "argument", "pos": "danh từ", "ipa": "/ˈɑːrɡjumənt/", "meaning": "cuộc tranh cãi", "example": "Let's not have another argument about who does the dishes.", "vn_ex": "Đừng tranh cãi một lần nữa về việc ai là người rửa bát nhé."}, {"word": "associate", "pos": "động từ", "ipa": "/əˈsoʊʃieɪt/", "meaning": "kết giao, liên kết", "example": "He doesn't want to associate with people who lie.", "vn_ex": "Anh ấy không muốn kết giao với những người hay nói dối."}, {"word": "association", "pos": "danh từ", "ipa": "/əˌsoʊʃiˈeɪʃn/", "meaning": "sự kết giao, mối liên kết", "example": "Our long association has made us very close friends.", "vn_ex": "Sự kết giao lâu năm đã giúp chúng tôi trở thành những người bạn rất thân thiết."}, {"word": "aunt", "pos": "danh từ", "ipa": "/ænt/", "meaning": "cô, dì, mợ, bác gái", "example": "My aunt always gives me great relationship advice.", "vn_ex": "Dì của tôi luôn cho tôi những lời khuyên tuyệt vời về các mối quan hệ."}, {"word": "baby", "pos": "danh từ", "ipa": "/ˈbeɪbi/", "meaning": "em bé, trẻ sơ sinh", "example": "They are very happy to welcome their new baby into the family.", "vn_ex": "Họ rất hạnh phúc khi chào đón thành viên mới của gia đình."}, {"word": "behave", "pos": "động từ", "ipa": "/bɪˈheɪv/", "meaning": "cư xử, đối xử", "example": "He behaves very politely towards his colleagues.", "vn_ex": "Anh ấy cư xử rất lịch sự đối với các đồng nghiệp của mình."}, {"word": "behavior", "pos": "danh từ", "ipa": "/bɪˈheɪvjər/", "meaning": "hành vi, cách cư xử", "example": "Her behavior at the family dinner was excellent.", "vn_ex": "Cách cư xử của cô ấy tại bữa tối gia đình thật tuyệt vời."}, {"word": "belong", "pos": "động từ", "ipa": "/bɪˈlɔːŋ/", "meaning": "thuộc về, thuộc thành viên của", "example": "We both feel like we belong to this close-knit community.", "vn_ex": "Cả hai chúng tôi đều cảm thấy mình thuộc về cộng đồng khăng khít này."}, {"word": "boyfriend", "pos": "danh từ", "ipa": "/ˈbɔɪfrend/", "meaning": "bạn trai", "example": "She decided to introduce her boyfriend to her parents.", "vn_ex": "Cô ấy đã giới thiệu bạn trai của mình với bố mẹ."}, {"word": "bride", "pos": "danh từ", "ipa": "/braɪd/", "meaning": "cô dâu", "example": "The bride looked beautiful in her wedding dress.", "vn_ex": "Cô dâu trông thật xinh đẹp trong chiếc váy cưới."}, {"word": "brother", "pos": "danh từ", "ipa": "/ˈbʌðər/", "meaning": "anh trai, em trai", "example": "My brother is my best friend in the family.", "vn_ex": "Anh trai tôi chính là người bạn tốt nhất của tôi trong gia đình."}, {"word": "colleague", "pos": "danh từ", "ipa": "/ˈkɑːliːɡ/", "meaning": "đồng nghiệp", "example": "She invited her colleague to attend the wedding.", "vn_ex": "Cô ấy đã mời đồng nghiệp của mình đến tham dự đám cưới."}, {"word": "communicate", "pos": "động từ", "ipa": "/kəˈmjuːnɪkeɪt/", "meaning": "giao tiếp, liên lạc", "example": "It is important to communicate openly with your partner.", "vn_ex": "Việc giao tiếp cởi mở với đối phương là vô cùng quan trọng."}, {"word": "communication", "pos": "danh từ", "ipa": "/kəˌmjuːnɪˈkeɪʃn/", "meaning": "sự giao tiếp", "example": "Poor communication often leads to family conflict.", "vn_ex": "Sự giao tiếp kém thường dẫn đến mâu thuẫn gia đình."}, {"word": "community", "pos": "danh từ", "ipa": "/kəˈmjuːnəti/", "meaning": "cộng đồng", "example": "The local community helped the homeless family.", "vn_ex": "Cộng đồng địa phương đã giúp đỡ gia đình vô gia cư."}, {"word": "conflict", "pos": "danh từ", "ipa": "/ˈɑːnflɪkt/", "meaning": "sự xung đột, mâu thuẫn", "example": "We need a friendly conversation to resolve this conflict.", "vn_ex": "Chúng ta cần một cuộc trò chuyện thân thiện để giải quyết mâu thuẫn này."}, {"word": "contact", "pos": "động từ", "ipa": "/ˈkɑːntækt/", "meaning": "liên lạc, tiếp xúc", "example": "You can contact me anytime if you need a friend.", "vn_ex": "Bạn có thể liên lạc với tôi bất cứ lúc nào nếu cần một người bạn."}, {"word": "conversation", "pos": "danh từ", "ipa": "/ˌkɑːnvərˈseɪʃn/", "meaning": "cuộc trò chuyện, cuộc hội thoại", "example": "I had a wonderful conversation with my grandmother yesterday.", "vn_ex": "Tôi đã có một cuộc trò chuyện tuyệt vời với bà ngoại vào ngày hôm qua."}, {"word": "couple", "pos": "danh từ", "ipa": "/ˈkʌpl/", "meaning": "cặp đôi, đôi vợ chồng", "example": "They are a young couple who just got married.", "vn_ex": "Họ là một cặp đôi trẻ vừa mới kết hôn."}, {"word": "cousin", "pos": "danh từ", "ipa": "/ˈkʌzn/", "meaning": "anh chị em họ", "example": "My cousin and I grew up together like sisters.", "vn_ex": "Chị họ tôi và tôi lớn lên cùng nhau giống như hai chị em ruột."}], "grammar_theory": "# Defining và Non-defining Relative Clauses \n ## Định nghĩa \n - **Defining Relative Clauses** (còn gọi là Restrictive Relative Clauses): cung cấp thông tin cần thiết để xác định danh từ mà nó sửa饰. \n - **Non-defining Relative Clauses** (còn gọi là Non-restrictive Relative Clauses): cung cấp thông tin thêm về danh từ mà nó sửa饰, nhưng không cần thiết để xác định danh từ đó. \n ## Công thức cấu trúc \n - Defining Relative Clauses: `S + who/which/that + V` \n - Non-defining Relative Clauses: `S + who/which + V,` \n ## Cách dùng \n - Defining Relative Clauses thường dùng để mô tả người, vật, hoặc ý tưởng cụ thể. \n - Non-defining Relative Clauses thường dùng để cung cấp thông tin thêm về người, vật, hoặc ý tưởng đã được xác định trước đó. \n ## Ví dụ \n - Defining Relative Clauses: `The woman who lives next door is a doctor.` (Người phụ nữ sống bên cạnh là một bác sĩ.) \n - Non-defining Relative Clauses: `My sister, who lives in New York, is a lawyer.` (Chị gái tôi, người sống ở New York, là một luật sư.)", "quiz": [{"question": "The man ___ lives next door is a teacher.", "options": ["who", "which", "that", "where"], "answer": 0, "explanation": "Chọn 'who' vì đây là một Defining Relative Clause mô tả người đàn ông."}, {"question": "My brother, ___ is a doctor, lives in Paris.", "options": ["who", "which", "that", "where"], "answer": 0, "explanation": "Chọn 'who' vì đây là một Non-defining Relative Clause cung cấp thông tin thêm về anh trai."}, {"question": "The book ___ is on the table is mine.", "options": ["which", "that", "who", "where"], "answer": 1, "explanation": "Chọn 'that' vì đây là một Defining Relative Clause mô tả quyển sách."}, {"question": "The city, ___ I visited last year, is very beautiful.", "options": ["which", "that", "who", "where"], "answer": 0, "explanation": "Chọn 'which' vì đây là một Non-defining Relative Clause cung cấp thông tin thêm về thành phố."}, {"question": "The student ___ is standing over there is the best in our class.", "options": ["who", "which", "that", "where"], "answer": 0, "explanation": "Chọn 'who' vì đây là một Defining Relative Clause mô tả học sinh."}]}, "Oxford Unit 3: House & Home": {"vocab": [{"word": "apartment", "pos": "noun", "ipa": "/əˈpɑːrtmənt/", "meaning": "căn hộ", "example": "I live in a small apartment downtown.", "vn_ex": "Tôi sống trong một căn hộ nhỏ ở trung tâm thành phố."}, {"word": "bath", "pos": "noun", "ipa": "/bæθ/", "meaning": "bồn tắm / sự tắm bồn", "example": "I love taking a warm bath after a long day.", "vn_ex": "Tôi thích tắm bồn nước ấm sau một ngày dài."}, {"word": "bathroom", "pos": "noun", "ipa": "/ˈbæθruːm/", "meaning": "phòng tắm", "example": "Where is the bathroom, please?", "vn_ex": "Xin hỏi phòng tắm ở đâu ạ?"}, {"word": "bed", "pos": "noun", "ipa": "/bed/", "meaning": "giường ngủ", "example": "I am so tired, I'm going to bed.", "vn_ex": "Tôi mệt quá, tôi đi ngủ đây."}, {"word": "bedroom", "pos": "noun", "ipa": "/ˈbedruːm/", "meaning": "phòng ngủ", "example": "My bedroom has a big window.", "vn_ex": "Phòng ngủ của tôi có một cửa sổ lớn."}, {"word": "blanket", "pos": "noun", "ipa": "/ˈblæŋkɪt/", "meaning": "tấm chăn", "example": "Could you give me another blanket? It's cold.", "vn_ex": "Bạn có thể cho tôi thêm một chiếc chăn nữa không? Lạnh quá."}, {"word": "carpet", "pos": "noun", "ipa": "/ˈkɑːrpɪt/", "meaning": "tấm thảm", "example": "We need to clean the living room carpet.", "vn_ex": "Chúng ta cần giặt sạch tấm thảm phòng khách."}, {"word": "ceiling", "pos": "noun", "ipa": "/ˈsiːlɪŋ/", "meaning": "trần nhà", "example": "The ceiling in this room is very high.", "vn_ex": "Trần của căn phòng này rất cao."}, {"word": "chair", "pos": "noun", "ipa": "/tʃeər/", "meaning": "cái ghế", "example": "Please sit down on this comfortable chair.", "vn_ex": "Xin vui lòng ngồi xuống chiếc ghế thoải mái này."}, {"word": "clock", "pos": "noun", "ipa": "/klɑːk/", "meaning": "đồng hồ", "example": "The clock on the wall is five minutes fast.", "vn_ex": "Chiếc đồng hồ trên tường bị chạy nhanh năm phút."}, {"word": "closet", "pos": "noun", "ipa": "/ˈklɑːzɪt/", "meaning": "tủ quần áo (âm tường)", "example": "My closet is full of winter clothes.", "vn_ex": "Tủ quần áo của tôi đầy đồ mùa đông."}, {"word": "curtain", "pos": "noun", "ipa": "/ˈkɜːrtn/", "meaning": "rèm cửa", "example": "Can you close the curtain? The sun is too bright.", "vn_ex": "Bạn kéo rèm cửa lại được không? Mặt trời sáng quá."}, {"word": "desk", "pos": "noun", "ipa": "/desk/", "meaning": "bàn làm việc / bàn học", "example": "I keep my laptop and books on the desk.", "vn_ex": "Tôi để máy tính xách tay và sách vở trên bàn làm việc."}, {"word": "drawer", "pos": "noun", "ipa": "/drɔːr/", "meaning": "ngăn kéo", "example": "The keys are in the top drawer of the desk.", "vn_ex": "Chìa khóa ở trong ngăn kéo trên cùng của bàn làm việc."}, {"word": "floor", "pos": "noun", "ipa": "/flɔːr/", "meaning": "sàn nhà / tầng nhà", "example": "Please don't leave your clothes on the floor.", "vn_ex": "Xin vui lòng đừng để quần áo của bạn trên sàn nhà."}, {"word": "furniture", "pos": "noun", "ipa": "/ˈfɜːrnɪtʃər/", "meaning": "đồ nội thất", "example": "They bought some new furniture for their new house.", "vn_ex": "Họ đã mua một số đồ nội thất mới cho ngôi nhà mới của mình."}, {"word": "home", "pos": "noun", "ipa": "/hoʊm/", "meaning": "nhà / tổ ấm", "example": "I'm finally home after a long trip.", "vn_ex": "Cuối cùng tôi đã về nhà sau một chuyến đi dài."}, {"word": "house", "pos": "noun", "ipa": "/haʊs/", "meaning": "ngôi nhà", "example": "We are looking for a house with a small garden.", "vn_ex": "Chúng tôi đang tìm một ngôi nhà có khu vườn nhỏ."}, {"word": "household", "pos": "noun", "ipa": "/ˈhaʊshoʊld/", "meaning": "hộ gia đình", "example": "Who is responsible for the household chores?", "vn_ex": "Ai là người chịu trách nhiệm làm việc nhà?"}, {"word": "kitchen", "pos": "noun", "ipa": "/ˈkɪtʃɪn/", "meaning": "nhà bếp", "example": "My mother is cooking dinner in the kitchen.", "vn_ex": "Mẹ tôi đang nấu bữa tối trong bếp."}, {"word": "lamp", "pos": "noun", "ipa": "/læmp/", "meaning": "đèn", "example": "Turn on the lamp so you can read better.", "vn_ex": "Bật đèn lên để bạn có thể đọc sách rõ hơn."}, {"word": "roof", "pos": "noun", "ipa": "/ruːf/", "meaning": "mái nhà", "example": "The rain is leaking through the roof.", "vn_ex": "Nước mưa đang bị dột qua mái nhà."}, {"word": "room", "pos": "noun", "ipa": "/ruːm/", "meaning": "căn phòng", "example": "This room gets a lot of natural light.", "vn_ex": "Căn phòng này đón rất nhiều ánh sáng tự nhiên."}, {"word": "toilet", "pos": "noun", "ipa": "/ˈtɔɪlət/", "meaning": "nhà vệ sinh / bồn cầu", "example": "Excuse me, where is the toilet?", "vn_ex": "Xin lỗi, nhà vệ sinh ở đâu ạ?"}, {"word": "window", "pos": "noun", "ipa": "/ˈwɪndoʊ/", "meaning": "cửa sổ", "example": "I like to look out of the window when it rains.", "vn_ex": "Tôi thích nhìn ra ngoài cửa sổ khi trời mưa."}], "grammar_theory": "# Prepositions of Place & Movement in Home Contexts\n## Giới thiệu\nPrepositions of place và movement được sử dụng để mô tả vị trí và chuyển động trong ngữ cảnh nhà và gia đình.\n### Công thức cấu trúc\n- `in` + phòng, khu vực (ví dụ: in the kitchen, in the bedroom)\n- `on` + bề mặt, tầng (ví dụ: on the table, on the first floor)\n- `at` + địa điểm, vị trí (ví dụ: at the door, at the window)\n- `under` + vật dụng, bề mặt (ví dụ: under the bed, under the table)\n- `above` + vật dụng, bề mặt (ví dụ: above the door, above the shelf)\n- `behind` + vật dụng, bề mặt (ví dụ: behind the sofa, behind the curtain)\n- `in front of` + vật dụng, bề mặt (ví dụ: in front of the TV, in front of the mirror)\n## Cách dùng thực tế\n- Sử dụng `in` để chỉ vị trí trong một không gian kín (ví dụ: I am in the living room).\n- Sử dụng `on` để chỉ vị trí trên bề mặt hoặc tầng (ví dụ: The book is on the table).\n- Sử dụng `at` để chỉ vị trí tại một địa điểm hoặc vị trí (ví dụ: I am at the door).\n## Ví dụ\n- Tôi đang ở trong phòng khách (I am in the living room).\n- Sách nằm trên bàn (The book is on the table).\n- Tôi đang đứng tại cửa (I am at the door).", "quiz": [{"question": "Tôi đang ở ___ phòng khách.", "options": ["in", "on", "at", "under"], "answer": 0, "explanation": "Chọn 'in' vì nó chỉ vị trí trong một không gian kín, dịch nghĩa: Tôi đang ở trong phòng khách."}, {"question": "Sách nằm ___ bàn.", "options": ["in", "on", "at", "under"], "answer": 1, "explanation": "Chọn 'on' vì nó chỉ vị trí trên bề mặt, dịch nghĩa: Sách nằm trên bàn."}, {"question": "Tôi đang đứng ___ cửa.", "options": ["in", "on", "at", "behind"], "answer": 2, "explanation": "Chọn 'at' vì nó chỉ vị trí tại một địa điểm hoặc vị trí, dịch nghĩa: Tôi đang đứng tại cửa."}, {"question": "Điện thoại nằm ___ giường.", "options": ["in", "on", "under", "above"], "answer": 2, "explanation": "Chọn 'under' vì nó chỉ vị trí dưới một vật dụng hoặc bề mặt, dịch nghĩa: Điện thoại nằm dưới giường."}, {"question": "Tranh treo ___ cửa sổ.", "options": ["in", "on", "above", "behind"], "answer": 2, "explanation": "Chọn 'above' vì nó chỉ vị trí trên một vật dụng hoặc bề mặt, dịch nghĩa: Tranh treo trên cửa sổ."}]}, "Oxford Unit 4: Food & Dining": {"vocab": [{"word": "apple", "pos": "noun", "ipa": "/ˈæp.l̩/", "meaning": "quả táo", "example": "I usually eat a fresh apple after lunch.", "vn_ex": "Tôi thường ăn một quả táo tươi sau bữa trưa."}, {"word": "bake", "pos": "verb", "ipa": "/beɪk/", "meaning": "nướng (bằng lò)", "example": "My mom loves to bake chocolate chip cookies.", "vn_ex": "Mẹ tôi thích nướng bánh quy sô-cô-la chip."}, {"word": "beef", "pos": "noun", "ipa": "/biːf/", "meaning": "thịt bò", "example": "Would you like beef or chicken for your main course?", "vn_ex": "Bạn muốn dùng thịt bò hay thịt gà cho món chính?"}, {"word": "boil", "pos": "verb", "ipa": "/bɔɪl/", "meaning": "đun sôi, luộc", "example": "You need to boil the water before adding the pasta.", "vn_ex": "Bạn cần đun sôi nước trước khi cho mì ống vào."}, {"word": "bread", "pos": "noun", "ipa": "/bred/", "meaning": "bánh mì", "example": "They serve warm bread with butter before the meal.", "vn_ex": "Họ phục vụ bánh mì ấm với bơ trước bữa ăn."}, {"word": "breakfast", "pos": "noun", "ipa": "/ˈbrek.fəst/", "meaning": "bữa ăn sáng", "example": "What did you have for breakfast this morning?", "vn_ex": "Sáng nay bạn đã ăn gì cho bữa sáng?"}, {"word": "butter", "pos": "noun", "ipa": "/ˈbʌt̬.ər/", "meaning": "bơ", "example": "Could you please pass me the butter?", "vn_ex": "Bạn có thể làm ơn chuyển giúp tôi đĩa bơ được không?"}, {"word": "cafe", "pos": "noun", "ipa": "/kæfˈeɪ/", "meaning": "quán cà phê", "example": "Let's meet at the cafe near the restaurant.", "vn_ex": "Chúng ta hãy gặp nhau ở quán cà phê gần nhà hàng nhé."}, {"word": "cake", "pos": "noun", "ipa": "/keɪk/", "meaning": "bánh ngọt", "example": "We ordered a delicious chocolate cake for her birthday.", "vn_ex": "Chúng tôi đã đặt một chiếc bánh ngọt sô-cô-la rất ngon cho sinh nhật cô ấy."}, {"word": "chef", "pos": "noun", "ipa": "/ʃef/", "meaning": "đầu bếp", "example": "The chef at this restaurant prepares amazing dishes.", "vn_ex": "Đầu bếp tại nhà hàng này chế biến các món ăn tuyệt vời."}, {"word": "cook", "pos": "verb", "ipa": "/kʊk/", "meaning": "nấu ăn", "example": "I don't feel like going out, so I will cook dinner tonight.", "vn_ex": "Tôi không muốn đi ăn ngoài, nên tôi sẽ nấu bữa tối tối nay."}, {"word": "delicious", "pos": "adjective", "ipa": "/dɪˈlɪʃ.əs/", "meaning": "ngon miệng, thơm ngon", "example": "This soup is absolutely delicious!", "vn_ex": "Món súp này thực sự rất ngon!"}, {"word": "dessert", "pos": "noun", "ipa": "/dɪˈzɜːrt/", "meaning": "món tráng miệng", "example": "What would you like to order for dessert?", "vn_ex": "Bạn muốn gọi món gì cho món tráng miệng?"}, {"word": "dinner", "pos": "noun", "ipa": "/ˈdɪn.ər/", "meaning": "bữa ăn tối", "example": "We are going to have dinner together at seven.", "vn_ex": "Chúng ta sẽ cùng nhau ăn tối lúc bảy giờ."}, {"word": "dish", "pos": "noun", "ipa": "/dɪʃ/", "meaning": "món ăn, đĩa đựng thức ăn", "example": "Pizza is my favorite Italian dish.", "vn_ex": "Pizza là món ăn Ý yêu thích của tôi."}, {"word": "drink", "pos": "verb", "ipa": "/drɪŋk/", "meaning": "uống", "example": "You should drink more water during the meal.", "vn_ex": "Bạn nên uống nhiều nước hơn trong bữa ăn."}, {"word": "eat", "pos": "verb", "ipa": "/iːt/", "meaning": "ăn", "example": "Do you want to eat out or stay at home tonight?", "vn_ex": "Bạn muốn đi ăn ngoài hay ở nhà tối nay?"}, {"word": "fresh", "pos": "adjective", "ipa": "/freʃ/", "meaning": "tươi ngon, tươi mát", "example": "This salad is made with fresh vegetables from the market.", "vn_ex": "Món sa-lát này được làm bằng rau tươi lấy từ chợ."}, {"word": "fruit", "pos": "noun", "ipa": "/fruːt/", "meaning": "trái cây, hoa quả", "example": "We always keep some fresh fruit in the refrigerator.", "vn_ex": "Chúng tôi luôn để sẵn một ít trái cây tươi trong tủ lạnh."}, {"word": "ingredient", "pos": "noun", "ipa": "/ɪnˈɡriː.di.ənt/", "meaning": "thành phần, nguyên liệu", "example": "Fresh garlic is a key ingredient in this sauce.", "vn_ex": "Tỏi tươi là nguyên liệu chính trong nước sốt này."}, {"word": "lunch", "pos": "noun", "ipa": "/lʌntʃ/", "meaning": "bữa ăn trưa", "example": "Let's grab some lunch at the new restaurant down the street.", "vn_ex": "Chúng ta hãy đi ăn trưa ở nhà hàng mới dưới phố nhé."}, {"word": "meal", "pos": "noun", "ipa": "/miːl/", "meaning": "bữa ăn", "example": "Thank you for such a wonderful meal tonight.", "vn_ex": "Cảm ơn bạn vì một bữa ăn tuyệt vời tối nay."}, {"word": "meat", "pos": "noun", "ipa": "/miːt/", "meaning": "thịt", "example": "He doesn't eat meat because he is a vegetarian.", "vn_ex": "Anh ấy không ăn thịt vì anh ấy là người ăn chay."}, {"word": "menu", "pos": "noun", "ipa": "/ˈmen.juː/", "meaning": "thực đơn", "example": "Could we please see the menu?", "vn_ex": "Làm ơn cho chúng tôi xem thực đơn được không?"}, {"word": "restaurant", "pos": "noun", "ipa": "/ˈres.tə.rɑːnt/", "meaning": "nhà hàng", "example": "We are trying a new French restaurant tonight.", "vn_ex": "Tối nay chúng tôi sẽ thử một nhà hàng Pháp mới."}], "grammar_theory": "# Countable vs Uncountable Nouns with Quantifiers \n## Định nghĩa \n- **Countable Nouns** (danh từ có thể đếm): là những danh từ có thể đếm được, có hình thức số ít và số nhiều. \n- **Uncountable Nouns** (danh từ không thể đếm): là những danh từ không thể đếm được, không có hình thức số nhiều. \n## Công thức cấu trúc \n- Với **Countable Nouns**: a few (một vài) + danh từ số nhiều \n- Với **Uncountable Nouns**: a little (một chút) + danh từ \n## Cách dùng thực tế \n- Sử dụng `a few` với danh từ có thể đếm để chỉ một số lượng nhỏ nhưng có thể đếm được. \n- Sử dụng `a little` với danh từ không thể đếm để chỉ một số lượng nhỏ. \n## Ví dụ \n- I have `a few` apples. (Tôi có một vài quả táo.) \n- I have `a little` water. (Tôi có một chút nước.)", "quiz": [{"question": "Tôi có ___ táo trong tủ lạnh.", "options": ["a few", "a little", "few", "little"], "answer": 0, "explanation": "Chọn 'a few' vì 'táo' là danh từ có thể đếm và chúng ta muốn chỉ một số lượng nhỏ nhưng có thể đếm được."}, {"question": "Cô ấy có ___ nước trong chai.", "options": ["a few", "a little", "few", "little"], "answer": 1, "explanation": "Chọn 'a little' vì 'nước' là danh từ không thể đếm và chúng ta muốn chỉ một số lượng nhỏ."}, {"question": "Anh ấy có ___ bạn bè.", "options": ["a few", "a little", "few", "little"], "answer": 0, "explanation": "Chọn 'a few' vì 'bạn bè' là danh từ có thể đếm và chúng ta muốn chỉ một số lượng nhỏ nhưng có thể đếm được."}, {"question": "Tôi có ___ thời gian để hoàn thành bài tập.", "options": ["a few", "a little", "few", "little"], "answer": 1, "explanation": "Chọn 'a little' vì 'thời gian' là danh từ không thể đếm và chúng ta muốn chỉ một số lượng nhỏ."}, {"question": "Cô ấy có ___ sách trong thư viện.", "options": ["a few", "a little", "few", "little"], "answer": 0, "explanation": "Chọn 'a few' vì 'sách' là danh từ có thể đếm và chúng ta muốn chỉ một số lượng nhỏ nhưng có thể đếm được."}]}, "Oxford Unit 5: Travel & Transport": {"vocab": [{"word": "travel", "pos": "v., n.", "ipa": "/ˈtrævl/", "meaning": "đi du lịch, di chuyển", "example": "I love to travel to new places during my summer vacation.", "vn_ex": "Tôi thích đi du lịch đến những nơi mới vào kỳ nghỉ hè của mình."}, {"word": "trip", "pos": "n.", "ipa": "/trɪp/", "meaning": "chuyến đi, cuộc hành trình ngắn", "example": "How was your business trip to Singapore last week?", "vn_ex": "Chuyến công tác của bạn đến Singapore tuần trước thế nào?"}, {"word": "journey", "pos": "n.", "ipa": "/ˈdʒɜːrni/", "meaning": "hành trình, chuyến đi dài", "example": "Safe travels on your long journey across the country!", "vn_ex": "Chúc bạn thượng lộ bình an trong hành trình dài xuyên đất nước!"}, {"word": "vehicle", "pos": "n.", "ipa": "/ˈviːəkl/", "meaning": "phương tiện giao thông, xe cộ", "example": "Please lock your vehicle before leaving the parking lot.", "vn_ex": "Vui lòng khóa xe của bạn trước khi rời khỏi bãi đỗ xe."}, {"word": "traffic", "pos": "n.", "ipa": "/ˈtræfɪk/", "meaning": "giao thông, xe cộ đi lại", "example": "The traffic is really heavy during the rush hour.", "vn_ex": "Giao thông thực sự rất tắc nghẽn vào giờ cao điểm."}, {"word": "train", "pos": "n., v.", "ipa": "/treɪn/", "meaning": "tàu hỏa, xe lửa", "example": "The train to Boston leaves from platform four.", "vn_ex": "Chuyến tàu đến Boston sẽ khởi hành từ đường sắt số bốn."}, {"word": "bus", "pos": "n.", "ipa": "/bʌs/", "meaning": "xe buýt", "example": "I usually take the bus to go to work.", "vn_ex": "Tôi thường đi xe buýt để đi làm."}, {"word": "car", "pos": "n.", "ipa": "/kɑːr/", "meaning": "ô tô, xe hơi", "example": "He parked his new car in front of the house.", "vn_ex": "Anh ấy đã đỗ chiếc xe hơi mới của mình ở trước nhà."}, {"word": "bicycle", "pos": "n.", "ipa": "/ˈbaɪsɪkl/", "meaning": "xe đạp", "example": "Riding a bicycle is a great way to stay fit.", "vn_ex": "Đi xe đạp là một cách tuyệt vời để giữ gìn sức khỏe."}, {"word": "airport", "pos": "n.", "ipa": "/ˈerpɔːrt/", "meaning": "sân bay, phi trường", "example": "We need to arrive at the airport two hours before our flight.", "vn_ex": "Chúng ta cần có mặt tại sân bay hai tiếng trước chuyến bay."}, {"word": "airline", "pos": "n.", "ipa": "/ˈerlaɪn/", "meaning": "hãng hàng không", "example": "Which airline are you flying with tomorrow?", "vn_ex": "Ngày mai bạn sẽ bay của hãng hàng không nào?"}, {"word": "aircraft", "pos": "n.", "ipa": "/ˈerkræft/", "meaning": "máy bay, phi cơ", "example": "The airline is buying several new aircraft this year.", "vn_ex": "Hãng hàng không đang mua một số máy bay mới trong năm nay."}, {"word": "flight", "pos": "n.", "ipa": "/flaɪt/", "meaning": "chuyến bay", "example": "Our flight was delayed for three hours due to bad weather.", "vn_ex": "Chuyến bay của chúng tôi bị hoãn ba tiếng do thời tiết xấu."}, {"word": "passenger", "pos": "n.", "ipa": "/ˈpæsɪndʒər/", "meaning": "hành khách", "example": "The driver asked every passenger to fasten their seatbelts.", "vn_ex": "Tài xế yêu cầu mọi hành khách thắt dây an toàn."}, {"word": "driver", "pos": "n.", "ipa": "/ˈdraɪvər/", "meaning": "tài xế, người lái xe", "example": "Our taxi driver was very friendly and polite.", "vn_ex": "Tài xế taxi của chúng tôi rất thân thiện và lịch sự."}, {"word": "ticket", "pos": "n.", "ipa": "/ˈtɪkɪt/", "meaning": "vé", "example": "Where can I buy a ticket for the train?", "vn_ex": "Tôi có thể mua vé đi tàu hỏa ở đâu?"}, {"word": "route", "pos": "n.", "ipa": "/ruːt/", "meaning": "tuyến đường, lộ trình", "example": "This is the fastest route to get to the city center.", "vn_ex": "Đây là tuyến đường nhanh nhất để đến trung tâm thành phố."}, {"word": "delay", "pos": "v., n.", "ipa": "/dɪˈleɪ/", "meaning": "sự trì hoãn, làm trễ", "example": "Our train was delayed for an hour due to technical issues.", "vn_ex": "Chuyến tàu của chúng tôi đã bị trì hoãn một tiếng do các vấn đề kỹ thuật."}, {"word": "destination", "pos": "n.", "ipa": "/ˌdestɪˈneɪʃn/", "meaning": "điểm đến, nơi đến", "example": "Hawaii is a very popular tourist destination.", "vn_ex": "Hawaii là một điểm đến du lịch rất phổ biến."}, {"word": "departure", "pos": "n.", "ipa": "/dɪˈpɑːrtʃər/", "meaning": "sự khởi hành, sự xuất phát", "example": "Please check the departure board for your flight details.", "vn_ex": "Vui lòng kiểm tra bảng khởi hành để biết thông tin chi tiết về chuyến bay của bạn."}, {"word": "arrival", "pos": "n.", "ipa": "/əˈraɪvl/", "meaning": "sự đến nơi, sự tới nơi", "example": "We are waiting for the arrival of the train from Chicago.", "vn_ex": "Chúng tôi đang đợi chuyến tàu từ Chicago đến nơi."}, {"word": "arrive", "pos": "v.", "ipa": "/əˈraɪv/", "meaning": "đến nơi, tới nơi", "example": "What time does your train arrive in London?", "vn_ex": "Mấy giờ thì tàu của bạn đến London?"}, {"word": "abroad", "pos": "adv.", "ipa": "/əˈbrɔːd/", "meaning": "nước ngoài, ở nước ngoài", "example": "My sister is going to study abroad next semester.", "vn_ex": "Chị gái tôi sẽ đi du học vào học kỳ tới."}, {"word": "accident", "pos": "n.", "ipa": "/ˈæksɪdənt/", "meaning": "tai nạn, sự cố", "example": "He had a minor car accident yesterday, but he is fine.", "vn_ex": "Hôm qua anh ấy đã gặp một tai nạn xe hơi nhỏ, nhưng anh ấy không sao."}, {"word": "engine", "pos": "n.", "ipa": "/ˈendʒɪn/", "meaning": "động cơ, máy", "example": "Turn off the engine while you are waiting in the car.", "vn_ex": "Hãy tắt động cơ khi bạn đang đợi trong xe."}], "grammar_theory": "# Articles (a/an/the/zero article) in Travel and Transportation\n## Công thức cấu trúc\n- Sử dụng `a` trước danh từ không xác định bắt đầu bằng nguyên âm nhưng phát âm như phụ âm: `a university`, `a euro`.\n- Sử dụng `an` trước danh từ không xác định bắt đầu bằng nguyên âm và phát âm như nguyên âm: `an apple`, `an elephant`.\n- Sử dụng `the` trước danh từ đã xác định hoặc chỉ có một: `the sun`, `the moon`.\n- Sử dụng zero article với danh từ chung, không xác định hoặc chỉ có một: `water`, `happiness`.\n<br>\n## Cách dùng thực tế\n- Trong ngữ cảnh học thuật và giao tiếp nâng cao, việc sử dụng article đúng giúp thể hiện sự chính xác và chuyên nghiệp.\n- Ví dụ: `I'm reading a book about travel` (Tôi đang đọc một cuốn sách về du lịch), `The hotel we stayed at was very comfortable` (Khách sạn chúng tôi ở rất thoải mái).", "quiz": [{"question": "I'm going to ___ store to buy some water.", "options": ["a", "an", "the", ""], "answer": 3, "explanation": "Chọn đáp án trống vì 'store' là danh từ chung và không xác định, do đó không cần sử dụng article."}, {"question": "___ Eiffel Tower is one of the most famous landmarks in the world.", "options": ["a", "an", "the", ""], "answer": 2, "explanation": "Chọn 'the' vì 'Eiffel Tower' là một danh từ đã xác định và chỉ có một trên thế giới."}, {"question": "I love reading ___ books about history.", "options": ["a", "an", "the", ""], "answer": 3, "explanation": "Chọn đáp án trống vì 'books' là danh từ chung và không xác định, do đó không cần sử dụng article."}, {"question": "My favorite way to travel is by ___ car.", "options": ["a", "an", "the", ""], "answer": 0, "explanation": "Chọn 'a' vì 'car' là một danh từ không xác định và bắt đầu bằng phụ âm."}, {"question": "___ city of Paris is known for its beauty.", "options": ["a", "an", "the", ""], "answer": 2, "explanation": "Chọn 'the' vì 'city of Paris' là một danh từ đã xác định và chỉ có một."}]}, "Oxford Unit 6: Work & Business": {"vocab": [{"word": "business", "pos": "noun", "ipa": "/ˈbɪznəs/", "meaning": "kinh doanh, việc kinh doanh", "example": "We need to focus on growing our core business this year.", "vn_ex": "Chúng ta cần tập trung vào việc phát triển hoạt động kinh doanh cốt lõi của mình trong năm nay."}, {"word": "company", "pos": "noun", "ipa": "/ˈkʌmpəni/", "meaning": "công ty", "example": "She has been working for this technology company for five years.", "vn_ex": "Cô ấy đã làm việc cho công ty công nghệ này được năm năm rồi."}, {"word": "employee", "pos": "noun", "ipa": "/ɪmˈplɔɪiː/", "meaning": "nhân viên", "example": "Every employee is required to attend the safety training session.", "vn_ex": "Mỗi nhân viên đều được yêu cầu tham gia buổi đào tạo về an toàn."}, {"word": "employer", "pos": "noun", "ipa": "/ɪmˈplɔɪə(r)/", "meaning": "người tuyển dụng, chủ doanh nghiệp", "example": "As an employer, he always tries to provide a good working environment.", "vn_ex": "Với tư cách là người tuyển dụng, anh ấy luôn cố gắng cung cấp một môi trường làm việc tốt."}, {"word": "employment", "pos": "noun", "ipa": "/ɪmˈplɔɪmənt/", "meaning": "việc làm, sự tuyển dụng", "example": "Finding stable employment can be difficult in a weak economy.", "vn_ex": "Tìm kiếm việc làm ổn định có thể gặp khó khăn trong một nền kinh tế suy yếu."}, {"word": "colleague", "pos": "noun", "ipa": "/ˈkɑːliːɡ/", "meaning": "đồng nghiệp", "example": "I have a meeting with my colleagues to discuss the new project.", "vn_ex": "Tôi có một cuộc họp với các đồng nghiệp để thảo luận về dự án mới."}, {"word": "client", "pos": "noun", "ipa": "/ˈklaɪənt/", "meaning": "khách hàng", "example": "We must prepare a professional presentation for our new client.", "vn_ex": "Chúng ta phải chuẩn bị một bài thuyết trình chuyên nghiệp cho khách hàng mới."}, {"word": "contract", "pos": "noun", "ipa": "/ˈkɑːntrækt/", "meaning": "hợp đồng", "example": "Please read the contract carefully before signing it.", "vn_ex": "Vui lòng đọc kỹ hợp đồng trước khi ký."}, {"word": "budget", "pos": "noun", "ipa": "/ˈbʌdʒɪt/", "meaning": "ngân sách", "example": "We need to stick to the budget for our marketing campaign.", "vn_ex": "Chúng ta cần bám sát ngân sách cho chiến dịch tiếp thị của mình."}, {"word": "income", "pos": "noun", "ipa": "/ˈɪnkʌm/", "meaning": "thu nhập", "example": "He is looking for a side job to increase his monthly income.", "vn_ex": "Anh ấy đang tìm một công việc phụ để tăng thu nhập hàng tháng."}, {"word": "earn", "pos": "verb", "ipa": "/ɜːrn/", "meaning": "kiếm (tiền), giành được", "example": "She works hard to earn enough money for her family.", "vn_ex": "Cô ấy làm việc chăm chỉ để kiếm đủ tiền lo cho gia đình."}, {"word": "advertise", "pos": "verb", "ipa": "/ˈædvərtaɪz/", "meaning": "quảng cáo", "example": "The company decided to advertise their new product on social media.", "vn_ex": "Công ty quyết định quảng cáo sản phẩm mới của họ trên mạng xã hội."}, {"word": "advertising", "pos": "noun", "ipa": "/ˈædvərtaɪzɪŋ/", "meaning": "sự quảng cáo, ngành quảng cáo", "example": "Advertising plays a crucial role in building brand awareness.", "vn_ex": "Quảng cáo đóng một vai trò quan trọng trong việc xây dựng nhận thức về thương hiệu."}, {"word": "agenda", "pos": "noun", "ipa": "/əˈdʒendə/", "meaning": "chương trình nghị sự, nội dung cuộc họp", "example": "Is there any other item we should add to today's meeting agenda?", "vn_ex": "Có bất kỳ nội dung nào khác mà chúng ta nên thêm vào chương trình nghị sự của cuộc họp hôm nay không?"}, {"word": "agent", "pos": "noun", "ipa": "/ˈeɪdʒənt/", "meaning": "đại lý, người đại diện", "example": "You should contact a real estate agent to help find an office.", "vn_ex": "Bạn nên liên hệ với một đại lý bất động sản để giúp tìm văn phòng."}, {"word": "agreement", "pos": "noun", "ipa": "/əˈɡriːmənt/", "meaning": "sự thỏa thuận, hiệp định", "example": "They finally reached an agreement after hours of negotiation.", "vn_ex": "Cuối cùng họ đã đạt được một thỏa thuận sau nhiều giờ đàm phán."}, {"word": "businessman", "pos": "noun", "ipa": "/ˈbɪznəsmæn/", "meaning": "doanh nhân, thương gia", "example": "The successful businessman shared his experience with the students.", "vn_ex": "Vị doanh nhân thành đạt đã chia sẻ kinh nghiệm của mình với các sinh viên."}, {"word": "clerk", "pos": "noun", "ipa": "/klɜːrk/", "meaning": "nhân viên văn phòng, thư ký", "example": "The office clerk is responsible for filing documents and answering calls.", "vn_ex": "Nhân viên văn phòng chịu trách nhiệm lưu trữ tài liệu và trả lời các cuộc gọi."}, {"word": "commercial", "pos": "adjective", "ipa": "/kəˈmɜːrʃl/", "meaning": "thương mại", "example": "The downtown area is the main commercial district of the city.", "vn_ex": "Khu vực trung tâm thành phố là khu thương mại chính của thành phố."}, {"word": "commission", "pos": "noun", "ipa": "/kəˈmɪʃn/", "meaning": "tiền hoa hồng, ủy ban", "example": "Sales representatives earn a basic salary plus a high commission.", "vn_ex": "Đại diện bán hàng kiếm được mức lương cơ bản cộng với hoa hồng cao."}, {"word": "compete", "pos": "verb", "ipa": "/kəmˈpiːt/", "meaning": "cạnh tranh", "example": "Small businesses must find unique ways to compete with large companies.", "vn_ex": "Các doanh nghiệp nhỏ phải tìm những cách độc đáo để cạnh tranh với các công ty lớn."}, {"word": "competition", "pos": "noun", "ipa": "/ˌkɑːmpəˈtɪʃn/", "meaning": "sự cạnh tranh, cuộc thi", "example": "Healthy competition in the market usually benefits the consumers.", "vn_ex": "Sự cạnh tranh lành mạnh trên thị trường thường mang lại lợi ích cho người tiêu dùng."}, {"word": "corporate", "pos": "adjective", "ipa": "/ˈkɔːrpərət/", "meaning": "thuộc về doanh nghiệp, tập đoàn", "example": "She made a big decision to leave the corporate world and start her own shop.", "vn_ex": "Cô ấy đã đưa ra quyết định lớn khi rời bỏ thế giới tập đoàn để mở cửa hàng riêng của mình."}, {"word": "employ", "pos": "verb", "ipa": "/ɪmˈplɔɪ/", "meaning": "tuyển dụng, thuê", "example": "The factory plans to employ fifty new workers next month.", "vn_ex": "Nhà máy có kế hoạch tuyển dụng năm mươi công nhân mới vào tháng tới."}, {"word": "account", "pos": "noun", "ipa": "/əˈkaʊnt/", "meaning": "tài khoản", "example": "You can easily set up an online business account on our website.", "vn_ex": "Bạn có thể dễ dàng thiết lập tài khoản doanh nghiệp trực tuyến trên trang web của chúng tôi."}], "grammar_theory": "# Present Perfect vs Present Perfect Continuous\n## Công thức cấu trúc\n- Present Perfect: `have/has + V-ed`\n- Present Perfect Continuous: `have/has + been + V-ing`\n## Cách dùng thực tế\n- Present Perfect dùng để nói về hành động bắt đầu từ quá khứ và kéo dài đến hiện tại hoặc có liên quan đến hiện tại.\n- Present Perfect Continuous dùng để nói về hành động bắt đầu từ quá khứ và tiếp tục đến hiện tại, nhấn mạnh quá trình thực hiện hành động.\n## Ví dụ\n- I **have worked** at this company for three years. (Tôi đã làm việc tại công ty này được ba năm)\n- She **has been studying** English for five years. (Cô ấy đã học tiếng Anh được năm năm)", "quiz": [{"question": "I ___ my project since morning and I'm still working on it.", "options": ["have finished", "have been finishing", "have done", "have been doing"], "answer": 3, "explanation": "Câu hỏi này yêu cầu sử dụng Present Perfect Continuous để nói về hành động bắt đầu từ quá khứ và tiếp tục đến hiện tại. Đáp án 'have been doing' phù hợp vì nó chỉ ra quá trình thực hiện hành động."}, {"question": "By the time I arrived, they ___ their meeting.", "options": ["have finished", "had finished", "have been finishing", "have been doing"], "answer": 1, "explanation": "Câu hỏi này yêu cầu sử dụng Past Perfect để nói về hành động xảy ra trước một hành động khác trong quá khứ. Đáp án 'had finished' phù hợp vì nó chỉ ra hành động kết thúc trước khi tôi đến."}, {"question": "She ___ English for two years before she moved to the US.", "options": ["has been studying", "had been studying", "studied", "has studied"], "answer": 1, "explanation": "Câu hỏi này yêu cầu sử dụng Past Perfect Continuous để nói về hành động bắt đầu trước một hành động khác trong quá khứ. Đáp án 'had been studying' phù hợp vì nó chỉ ra quá trình học tiếng Anh trước khi cô ấy chuyển đến Mỹ."}, {"question": "They ___ a new product last year and it's been very successful.", "options": ["have launched", "launch", "launched", "have been launching"], "answer": 0, "explanation": "Câu hỏi này yêu cầu sử dụng Present Perfect để nói về hành động bắt đầu từ quá khứ và có liên quan đến hiện tại. Đáp án 'have launched' phù hợp vì nó chỉ ra hành động ra mắt sản phẩm mới và kết quả thành công."}, {"question": "I ___ this report all day and I still need to finish it.", "options": ["have been writing", "have written", "write", "am writing"], "answer": 0, "explanation": "Câu hỏi này yêu cầu sử dụng Present Perfect Continuous để nói về hành động bắt đầu từ quá khứ và tiếp tục đến hiện tại. Đáp án 'have been writing' phù hợp vì nó chỉ ra quá trình viết báo cáo cả ngày."}]}, "Oxford Unit 7: Education & Study": {"vocab": [{"word": "academic", "pos": "adj", "ipa": "/ˌækəˈdemɪk/", "meaning": "thuộc học thuật, học tập", "example": "He received an academic scholarship to study abroad.", "vn_ex": "Anh ấy đã nhận được học bổng học thuật để đi du học."}, {"word": "assignment", "pos": "n", "ipa": "/əˈsaɪnmənt/", "meaning": "bài tập, nhiệm vụ học tập", "example": "I need to finish my history assignment by tomorrow.", "vn_ex": "Tôi cần hoàn thành bài tập lịch sử trước ngày mai."}, {"word": "attend", "pos": "v", "ipa": "/əˈtend/", "meaning": "tham gia, đi học", "example": "Students must attend all the lectures this week.", "vn_ex": "Học sinh phải tham gia tất cả các bài giảng tuần này."}, {"word": "biology", "pos": "n", "ipa": "/baɪˈɒlədʒi/", "meaning": "môn sinh học", "example": "Our biology class is doing an experiment in the lab today.", "vn_ex": "Lớp sinh học của chúng tôi đang làm một thí nghiệm trong phòng thí nghiệm hôm nay."}, {"word": "book", "pos": "n", "ipa": "/bʊk/", "meaning": "sách, vở", "example": "Please open your English book to page ten.", "vn_ex": "Vui lòng mở sách tiếng Anh của bạn ở trang mười."}, {"word": "campus", "pos": "n", "ipa": "/ˈkæmpəs/", "meaning": "khuôn viên trường học", "example": "The university campus is beautiful in the spring.", "vn_ex": "Khuôn viên trường đại học rất đẹp vào mùa xuân."}, {"word": "clever", "pos": "adj", "ipa": "/ˈklevə(r)/", "meaning": "thông minh, sáng dạ", "example": "She is a clever student who always solves math problems quickly.", "vn_ex": "Cô ấy là một học sinh thông minh luôn giải các bài toán rất nhanh."}, {"word": "college", "pos": "n", "ipa": "/ˈkɒlɪdʒ/", "meaning": "trường đại học, cao đẳng", "example": "My brother is going to college to study computer science.", "vn_ex": "Anh trai tôi chuẩn bị vào đại học để học ngành khoa học máy tính."}, {"word": "concentrate", "pos": "v", "ipa": "/ˈkɒnsntreɪt/", "meaning": "tập trung", "example": "It is hard to concentrate on studying when it's noisy.", "vn_ex": "Thật khó để tập trung học bài khi trời ồn ào."}, {"word": "course", "pos": "n", "ipa": "/kɔːrs/", "meaning": "khóa học, chương trình học", "example": "I am taking an online course to improve my English.", "vn_ex": "Tôi đang tham gia một khóa học trực tuyến để cải thiện tiếng Anh của mình."}, {"word": "educate", "pos": "v", "ipa": "/ˈedʒukeɪt/", "meaning": "giáo dục, giảng dạy", "example": "Schools aim to educate students both academically and socially.", "vn_ex": "Các trường học nhằm mục đích giáo dục học sinh cả về học thuật và xã hội."}, {"word": "educated", "pos": "adj", "ipa": "/ˈedʒukeɪtɪd/", "meaning": "có giáo dục, có học thức", "example": "He is a well-educated person with two university degrees.", "vn_ex": "Anh ấy là một người có học thức tốt với hai bằng đại học."}, {"word": "education", "pos": "n", "ipa": "/ˌedʒuˈkeɪʃn/", "meaning": "nền giáo dục, sự giáo dục", "example": "A good education is the key to a bright future.", "vn_ex": "Một nền giáo dục tốt là chìa khóa cho một tương lai tươi sáng."}, {"word": "educational", "pos": "adj", "ipa": "/ˌedʒuˈkeɪʃənl/", "meaning": "mang tính giáo dục", "example": "This game is not only fun but also educational.", "vn_ex": "Trò chơi này không chỉ vui mà còn mang tính giáo dục."}, {"word": "essay", "pos": "n", "ipa": "/ˈeseɪ/", "meaning": "bài văn, bài tiểu luận", "example": "We had to write a short essay about our favorite book.", "vn_ex": "Chúng tôi đã phải viết một bài luận ngắn về cuốn sách yêu thích của mình."}, {"word": "exam", "pos": "n", "ipa": "/ɪɡˈzæm/", "meaning": "kỳ thi, bài kiểm tra", "example": "I am studying hard because I have a final exam tomorrow.", "vn_ex": "Tôi đang học bài chăm chỉ vì ngày mai tôi có kỳ thi cuối kỳ."}, {"word": "examination", "pos": "n", "ipa": "/ɪɡˌzæmɪˈneɪʃn/", "meaning": "kỳ thi, sự thi cử", "example": "The university entrance examination was very difficult.", "vn_ex": "Kỳ thi tuyển sinh đại học đã rất khó khăn."}, {"word": "instruction", "pos": "n", "ipa": "/ɪnˈstrʌkʃn/", "meaning": "sự hướng dẫn, sự giảng dạy", "example": "The teacher gave clear instructions on how to do the homework.", "vn_ex": "Giáo viên đã đưa ra những hướng dẫn rõ ràng về cách làm bài tập về nhà."}, {"word": "instructor", "pos": "n", "ipa": "/ɪnˈstrʌktə(r)/", "meaning": "người hướng dẫn, giảng viên", "example": "Our English instructor is very patient and helpful.", "vn_ex": "Giảng viên tiếng Anh của chúng tôi rất kiên nhẫn và sẵn lòng giúp đỡ."}, {"word": "intelligent", "pos": "adj", "ipa": "/ɪnˈtelɪdʒənt/", "meaning": "thông minh, sáng dạ", "example": "The teacher praised him for being an intelligent student.", "vn_ex": "Giáo viên khen ngợi cậu ấy là một học sinh thông minh."}, {"word": "knowledge", "pos": "n", "ipa": "/ˈnɒlɪdʒ/", "meaning": "kiến thức, tri thức", "example": "Reading books is a great way to expand your knowledge.", "vn_ex": "Đọc sách là một cách tuyệt vời để mở rộng kiến thức của bạn."}, {"word": "lab", "pos": "n", "ipa": "/læb/", "meaning": "phòng thí nghiệm", "example": "We did a chemistry experiment in the school lab.", "vn_ex": "Chúng tôi đã làm một thí nghiệm hóa học trong phòng thí nghiệm của trường."}, {"word": "laboratory", "pos": "n", "ipa": "/ləˈbɒrətri/", "meaning": "phòng thí nghiệm", "example": "The new science laboratory has modern equipment.", "vn_ex": "Phòng thí nghiệm khoa học mới có trang thiết bị hiện đại."}, {"word": "learn", "pos": "v", "ipa": "/lɜːrn/", "meaning": "học, học hỏi", "example": "Children learn languages much faster than adults.", "vn_ex": "Trẻ em học ngôn ngữ nhanh hơn nhiều so với người lớn."}, {"word": "lecture", "pos": "n", "ipa": "/ˈlektʃə(r)/", "meaning": "bài giảng, bài thuyết trình", "example": "The professor gave an interesting lecture on global warming.", "vn_ex": "Giáo sư đã đưa ra một bài giảng thú vị về sự nóng lên toàn cầu."}], "grammar_theory": "# Modal Verbs of Ability & Permission \n## Công thức cấu trúc \n- `can` + V (động từ nguyên dạng): thể hiện khả năng làm việc gì đó \n- `could` + V: thể hiện khả năng làm việc gì đó trong quá khứ \n- `be able to` + V: thể hiện khả năng làm việc gì đó \n## Cách dùng thực tế \n- Trong ngữ cảnh học thuật/giao tiếp nâng cao, `can`, `could`, `be able to` thường được sử dụng để mô tả khả năng của một người hoặc một sự vật \n- Ví dụ: \n  - `I can speak English fluently.` (Tôi có thể nói tiếng Anh trôi chảy) \n  - `She could play the piano when she was 10.` (Cô ấy có thể chơi đàn piano khi cô ấy 10 tuổi) \n  - `They are able to finish the project on time.` (Họ có thể hoàn thành dự án đúng hạn) \n", "quiz": [{"question": "If you ___ play the guitar, what kind of music would you play?", "options": ["can", "could", "are able to", "were able to"], "answer": 0, "explanation": "Chọn đáp án 'can' vì câu hỏi đang hỏi về khả năng chơi guitar ở hiện tại và loại nhạc mà người đó sẽ chơi nếu họ có khả năng đó. Dịch nghĩa: 'Nếu bạn có thể chơi guitar, bạn sẽ chơi loại nhạc gì?'"}, {"question": "By the time she was 16, she ___ drive a car.", "options": ["can", "could", "was able to", "is able to"], "answer": 1, "explanation": "Chọn đáp án 'could' vì câu hỏi đang nói về khả năng lái xe ở quá khứ. Dịch nghĩa: 'Đến khi cô ấy 16 tuổi, cô ấy có thể lái xe.'"}, {"question": "The new employee ___ handle the project by himself.", "options": ["can", "could", "is able to", "was able to"], "answer": 2, "explanation": "Chọn đáp án 'is able to' vì câu hỏi đang nói về khả năng xử lý dự án của nhân viên mới ở hiện tại. Dịch nghĩa: 'Nhân viên mới có thể xử lý dự án một mình.'"}, {"question": "If I ___ study harder when I was at university, I would have better job opportunities now.", "options": ["can", "could", "were able to", "am able to"], "answer": 1, "explanation": "Chọn đáp án 'could' vì câu hỏi đang nói về một điều kiện trái thực ở quá khứ và kết quả của nó ở hiện tại. Dịch nghĩa: 'Nếu tôi có thể học tập chăm chỉ hơn khi tôi ở đại học, tôi sẽ có cơ hội việc làm tốt hơn bây giờ.'"}, {"question": "By next year, they ___ finish the construction of the new building.", "options": ["can", "could", "will be able to", "are able to"], "answer": 2, "explanation": "Chọn đáp án 'will be able to' vì câu hỏi đang nói về khả năng hoàn thành việc xây dựng tòa nhà mới ở tương lai. Dịch nghĩa: 'Đến năm tới, họ sẽ có thể hoàn thành việc xây dựng tòa nhà mới.'"}]}, "Oxford Unit 8: Health & Medicine": {"vocab": [{"word": "health", "pos": "noun", "ipa": "/helθ/", "meaning": "sức khỏe", "example": "Eating vegetables is good for your health.", "vn_ex": "Ăn rau củ rất tốt cho sức khỏe của bạn."}, {"word": "healthy", "pos": "adjective", "ipa": "/ˈhelθi/", "meaning": "khỏe mạnh, lành mạnh", "example": "He looks very happy and healthy.", "vn_ex": "Anh ấy trông rất hạnh phúc và khỏe mạnh."}, {"word": "hospital", "pos": "noun", "ipa": "/ˈhɒspɪtl/", "meaning": "bệnh viện", "example": "My mother works as a nurse at the local hospital.", "vn_ex": "Mẹ tôi làm y tá tại bệnh viện địa phương."}, {"word": "medicine", "pos": "noun", "ipa": "/ˈmedsn/", "meaning": "thuốc, y học", "example": "Don't forget to take your medicine after lunch.", "vn_ex": "Đừng quên uống thuốc sau bữa ăn trưa nhé."}, {"word": "medical", "pos": "adjective", "ipa": "/ˈmedɪkl/", "meaning": "thuộc y tế, y học", "example": "She decided to pursue a medical career.", "vn_ex": "Cô ấy đã quyết định theo đuổi sự nghiệp y tế."}, {"word": "ill", "pos": "adjective", "ipa": "/ɪl/", "meaning": "bị ốm, bệnh", "example": "I felt ill after eating that seafood.", "vn_ex": "Tôi cảm thấy bị ốm sau khi ăn món hải sản đó."}, {"word": "illness", "pos": "noun", "ipa": "/ˈɪlnəs/", "meaning": "sự ốm đau, bệnh tật", "example": "Flu is a very common winter illness.", "vn_ex": "Cúm là một căn bệnh rất phổ biến vào mùa đông."}, {"word": "nurse", "pos": "noun", "ipa": "/nɜːs/", "meaning": "y tá", "example": "The nurse is checking the patient's temperature.", "vn_ex": "Y tá đang kiểm tra nhiệt độ của bệnh nhân."}, {"word": "dentist", "pos": "noun", "ipa": "/ˈdentɪst/", "meaning": "nha sĩ", "example": "I have an appointment with the dentist tomorrow.", "vn_ex": "Tôi có một cuộc hẹn với nha sĩ vào ngày mai."}, {"word": "headache", "pos": "noun", "ipa": "/ˈhedeɪk/", "meaning": "đau đầu", "example": "I need to rest because I have a bad headache.", "vn_ex": "Tôi cần nghỉ ngơi vì tôi bị đau đầu dữ dội."}, {"word": "fever", "pos": "noun", "ipa": "/ˈfiːvə(r)/", "meaning": "cơn sốt", "example": "The baby has a high fever, so we should see a doctor.", "vn_ex": "Em bé bị sốt cao, vì vậy chúng ta nên đi khám bác sĩ."}, {"word": "flu", "pos": "noun", "ipa": "/fluː/", "meaning": "bệnh cúm", "example": "She is staying at home today because she has the flu.", "vn_ex": "Hôm nay cô ấy ở nhà vì cô ấy bị cúm."}, {"word": "injury", "pos": "noun", "ipa": "/ˈɪndʒəri/", "meaning": "chấn thương, vết thương", "example": "He recovered quickly from his leg injury.", "vn_ex": "Anh ấy đã phục hồi nhanh chóng từ chấn thương chân của mình."}, {"word": "injure", "pos": "verb", "ipa": "/ˈɪndʒə(r)/", "meaning": "làm bị thương", "example": "Be careful not to injure yourself while working out.", "vn_ex": "Hãy cẩn thận kẻo làm bị thương chính mình khi tập thể dục."}, {"word": "injured", "pos": "adjective", "ipa": "/ˈɪndʒəd/", "meaning": "bị thương", "example": "The injured player had to leave the field.", "vn_ex": "Cầu thủ bị thương đã phải rời sân."}, {"word": "diet", "pos": "noun", "ipa": "/ˈdaɪət/", "meaning": "chế độ ăn uống, ăn kiêng", "example": "A balanced diet is essential for a long life.", "vn_ex": "Một chế độ ăn uống cân bằng là điều thiết yếu cho một cuộc sống trường thọ."}, {"word": "breathe", "pos": "verb", "ipa": "/briːð/", "meaning": "thở, hít thở", "example": "Take a deep breath and try to relax.", "vn_ex": "Hãy hít một hơi thật sâu và cố gắng thư giãn."}, {"word": "blood", "pos": "noun", "ipa": "/blʌd/", "meaning": "máu", "example": "The doctor took a blood sample for testing.", "vn_ex": "Bác sĩ đã lấy mẫu máu để xét nghiệm."}, {"word": "brain", "pos": "noun", "ipa": "/breɪn/", "meaning": "não bộ", "example": "Reading books helps stimulate your brain.", "vn_ex": "Đọc sách giúp kích thích não bộ của bạn."}, {"word": "bone", "pos": "noun", "ipa": "/bəʊn/", "meaning": "xương", "example": "Milk is good for building strong bones.", "vn_ex": "Sữa rất tốt cho việc xây dựng xương chắc khỏe."}, {"word": "heart", "pos": "noun", "ipa": "/hɑːt/", "meaning": "tim, trái tim", "example": "Running is a great exercise for your heart.", "vn_ex": "Chạy bộ là một bài tập tuyệt vời cho tim của bạn."}, {"word": "virus", "pos": "noun", "ipa": "/ˈvaɪrəs/", "meaning": "vi-rút", "example": "Wash your hands often to prevent spreading the virus.", "vn_ex": "Hãy rửa tay thường xuyên để ngăn ngừa lây lan vi-rút."}, {"word": "vitamin", "pos": "noun", "ipa": "/ˈvɪtəmɪn/", "meaning": "vi-tamin", "example": "Oranges are full of vitamin C.", "vn_ex": "Cam chứa rất nhiều vitamin C."}, {"word": "symptom", "pos": "noun", "ipa": "/ˈsɪmptəm/", "meaning": "triệu chứng", "example": "A sore throat is a common symptom of a cold.", "vn_ex": "Đau họng là một triệu chứng phổ biến của bệnh cảm lạnh."}, {"word": "recover", "pos": "verb", "ipa": "/rɪˈkʌvə(r)/", "meaning": "hồi phục, bình phục", "example": "I hope you recover from your illness soon.", "vn_ex": "Tôi hy vọng bạn sẽ sớm bình phục khỏi bệnh tình của mình."}], "grammar_theory": "# Conditional Sentences Type 0 & 1 \n## Type 0: \n- Công thức: If + hiện tại đơn, hiện tại đơn \n- Cách dùng: Diễn tả quy luật, chân lý, sự thật trong hiện tại \n- Ví dụ: `If you heat ice, it melts`. Dịch: Nếu bạn đun nóng băng, nó sẽ tan \n## Type 1: \n- Công thức: If + hiện tại đơn, tương lai đơn \n- Cách dùng: Diễn tả điều kiện trong tương lai \n- Ví dụ: `If it rains tomorrow, I will take an umbrella`. Dịch: Nếu trời mưa vào ngày mai, tôi sẽ mang ô", "quiz": [{"question": "If you ___ (eat) a balanced diet, you will be healthier.", "options": ["eat", "will eat", "are eating", "have eaten"], "answer": 0, "explanation": "Chọn đáp án 'eat' vì đây là công thức của Conditional Sentences Type 0, diễn tả quy luật chung. Câu dịch: Nếu bạn ăn uống cân đối, bạn sẽ khỏe mạnh hơn."}, {"question": "If I ___ (not/be) so tired, I would go to the gym now.", "options": ["am", "were", "will be", "am not"], "answer": 1, "explanation": "Chọn đáp án 'were' vì đây là công thức của Conditional Sentences Type 2, nhưng trong trường hợp này cần sử dụng 'were' cho điều kiện trái thực tế. Câu dịch: Nếu tôi không mệt mỏi như vậy, tôi sẽ đi tập gym bây giờ."}, {"question": "If it ___ (rain) tomorrow, we will cancel the picnic.", "options": ["rains", "will rain", "is raining", "rained"], "answer": 0, "explanation": "Chọn đáp án 'rains' vì đây là công thức của Conditional Sentences Type 1, diễn tả điều kiện trong tương lai. Câu dịch: Nếu trời mưa vào ngày mai, chúng ta sẽ hủy chuyến dã ngoại."}, {"question": "Water ___ (freeze) if you put it in the freezer.", "options": ["freezes", "will freeze", "froze", "is freezing"], "answer": 0, "explanation": "Chọn đáp án 'freezes' vì đây là công thức của Conditional Sentences Type 0, diễn tả quy luật chung. Câu dịch: Nước sẽ đông nếu bạn đặt nó trong tủ lạnh."}, {"question": "If you ___ (study) harder, you will pass the exam.", "options": ["study", "will study", "are studying", "have studied"], "answer": 0, "explanation": "Chọn đáp án 'study' vì đây là công thức của Conditional Sentences Type 1, diễn tả điều kiện trong tương lai. Câu dịch: Nếu bạn học tập chăm chỉ hơn, bạn sẽ đỗ kỳ thi."}]}, "Oxford Unit 9: Science & Technology": {"vocab": [{"word": "technology", "pos": "noun", "ipa": "/tɛkˈnɑːlədʒi/", "meaning": "công nghệ", "example": "Modern technology makes our lives much easier.", "vn_ex": "Công nghệ hiện đại giúp cuộc sống của chúng ta dễ dàng hơn nhiều."}, {"word": "science", "pos": "noun", "ipa": "/ˈsaɪəns/", "meaning": "khoa học", "example": "I really enjoy learning about space science.", "vn_ex": "Tôi rất thích tìm hiểu về khoa học vũ trụ."}, {"word": "scientist", "pos": "noun", "ipa": "/ˈsaɪəntɪst/", "meaning": "nhà khoa học", "example": "The scientist is working on a new vaccine.", "vn_ex": "Nhà khoa học đang nghiên cứu một loại vắc-xin mới."}, {"word": "computer", "pos": "noun", "ipa": "/kəmˈpjuːtər/", "meaning": "máy tính", "example": "Can I use your computer for a second?", "vn_ex": "Tôi có thể dùng máy tính của bạn một lát được không?"}, {"word": "internet", "pos": "noun", "ipa": "/ˈɪntərnɛt/", "meaning": "mạng internet", "example": "Is there a free internet connection here?", "vn_ex": "Ở đây có kết nối internet miễn phí không?"}, {"word": "machine", "pos": "noun", "ipa": "/məˈʃiːn/", "meaning": "máy móc", "example": "This washing machine is very quiet.", "vn_ex": "Chiếc máy giặt này chạy rất êm."}, {"word": "engineer", "pos": "noun", "ipa": "/ˌɛndʒɪˈnɪr/", "meaning": "kỹ sư", "example": "My brother works as a software engineer.", "vn_ex": "Anh trai tôi làm việc với tư cách là một kỹ sư phần mềm."}, {"word": "engine", "pos": "noun", "ipa": "/ˈɛndʒɪn/", "meaning": "động cơ", "example": "The car engine is making a strange noise.", "vn_ex": "Động cơ ô tô đang phát ra tiếng động lạ."}, {"word": "electricity", "pos": "noun", "ipa": "/ɪˌlɛkˈtrɪsəti/", "meaning": "điện, điện năng", "example": "Turn off the lights to save electricity.", "vn_ex": "Hãy tắt đèn để tiết kiệm điện."}, {"word": "electronic", "pos": "adjective", "ipa": "/ɪˌlɛkˈtrɑːnɪk/", "meaning": "thuộc về điện tử", "example": "You can pay using your electronic wallet.", "vn_ex": "Bạn có thể thanh toán bằng ví điện tử của mình."}, {"word": "physics", "pos": "noun", "ipa": "/ˈfɪzɪks/", "meaning": "vật lý học", "example": "Physics was my favorite subject in high school.", "vn_ex": "Vật lý là môn học yêu thích của tôi ở trường cấp ba."}, {"word": "biology", "pos": "noun", "ipa": "/baɪˈɑːlədʒi/", "meaning": "sinh học", "example": "We studied plant cells in our biology class.", "vn_ex": "Chúng tôi đã học về tế bào thực vật trong giờ sinh học."}, {"word": "research", "pos": "noun", "ipa": "/rɪˈsɜːrtʃ/", "meaning": "nghiên cứu", "example": "She is doing research on artificial intelligence.", "vn_ex": "Cô ấy đang thực hiện nghiên cứu về trí tuệ nhân tạo."}, {"word": "researcher", "pos": "noun", "ipa": "/rɪˈsɜːrtʃər/", "meaning": "nhà nghiên cứu", "example": "He works as a medical researcher at the university.", "vn_ex": "Anh ấy làm việc như một nhà nghiên cứu y học tại trường đại học."}, {"word": "download", "pos": "verb", "ipa": "/ˌdaʊnˈloʊd/", "meaning": "tải xuống", "example": "Where can I download this mobile app?", "vn_ex": "Tôi có thể tải ứng dụng di động này ở đâu?"}, {"word": "online", "pos": "adjective", "ipa": "/ˈɑːnlaɪn/", "meaning": "trực tuyến", "example": "I prefer online shopping because it saves time.", "vn_ex": "Tôi thích mua sắm trực tuyến hơn vì nó tiết kiệm thời gian."}, {"word": "system", "pos": "noun", "ipa": "/ˈsɪstəm/", "meaning": "hệ thống", "example": "The security system is very easy to use.", "vn_ex": "Hệ thống an ninh rất dễ sử dụng."}, {"word": "experiment", "pos": "noun", "ipa": "/ɪkˈspɛrɪmənt/", "meaning": "thí nghiệm", "example": "We did a simple experiment in the lab.", "vn_ex": "Chúng tôi đã làm một thí nghiệm đơn giản trong phòng thí nghiệm."}, {"word": "invent", "pos": "verb", "ipa": "/ɪnˈvɛnt/", "meaning": "phát minh", "example": "Who did invent the telephone?", "vn_ex": "Ai đã phát minh ra điện thoại?"}, {"word": "invention", "pos": "noun", "ipa": "/ɪnˈvɛnʃn/", "meaning": "phát minh, sự phát minh", "example": "The steam engine was a great invention.", "vn_ex": "Động cơ hơi nước là một phát minh vĩ đại."}, {"word": "robot", "pos": "noun", "ipa": "/ˈroʊbɑːt/", "meaning": "rô-bốt, người máy", "example": "This robot can clean the floor automatically.", "vn_ex": "Chú rô-bốt này có thể tự động lau sàn nhà."}, {"word": "satellite", "pos": "noun", "ipa": "/ˈsætəlaɪt/", "meaning": "vệ tinh", "example": "The weather satellite sends photos every hour.", "vn_ex": "Vệ tinh thời tiết gửi ảnh sau mỗi giờ."}, {"word": "technical", "pos": "adjective", "ipa": "/ˈtɛknɪkl/", "meaning": "thuộc về kỹ thuật", "example": "We are experiencing some technical difficulties.", "vn_ex": "Chúng tôi đang gặp phải một số khó khăn về kỹ thuật."}, {"word": "virus", "pos": "noun", "ipa": "/ˈvaɪrəs/", "meaning": "vi-rút", "example": "Make sure your computer is protected against viruses.", "vn_ex": "Hãy đảm bảo máy tính của bạn được bảo vệ chống lại vi-rút."}, {"word": "virtual", "pos": "adjective", "ipa": "/ˈvɜːrtʃuəl/", "meaning": "ảo", "example": "We had a virtual meeting with the clients.", "vn_ex": "Chúng tôi đã có một cuộc họp ảo với khách hàng."}], "grammar_theory": "# Passive Voice in Process Descriptions (Science & Tech) \n## Công thức cấu trúc \n- `S + is/was + V-ed + (by O)` \n- Trong đó: \n  - `S`: Chủ ngữ \n  - `is/was`: Động từ khuyết thiếu theo thì \n  - `V-ed`: Động từ chính dạng quá khứ phân từ \n  - `(by O)`: Tác nhân (không bắt buộc) \n## Cách dùng thực tế \n- Passive Voice thường được sử dụng trong các văn bản khoa học, kỹ thuật để mô tả quá trình, quy trình một cách khách quan. \n- Trong giao tiếp nâng cao, nó giúp người nói hoặc người viết tập trung vào hành động hoặc quá trình hơn là vào người thực hiện hành động. \n## Ví dụ \n- `The new smartphone is manufactured by a leading tech company.` \n  - Dịch: `Điện thoại thông minh mới được sản xuất bởi một công ty công nghệ hàng đầu.` \n- `The data was analyzed by the research team.` \n  - Dịch: `Dữ liệu đã được phân tích bởi nhóm nghiên cứu.`", "quiz": [{"question": "The new drug ___ by a team of scientists at the university.", "options": ["is developed", "was developed", "are developing", "were developed"], "answer": 0, "explanation": "Câu hỏi sử dụng thì hiện tại đơn để mô tả quá trình phát triển thuốc mới, do đó chọn `is developed`. Dịch: `Thuốc mới được phát triển bởi một nhóm các nhà khoa học tại trường đại học.`"}, {"question": "The samples ___ in a laboratory to determine their chemical composition.", "options": ["are analyzed", "were analyzed", "have been analyzed", "will be analyzed"], "answer": 0, "explanation": "Câu hỏi mô tả quá trình phân tích mẫu trong phòng thí nghiệm, sử dụng thì hiện tại đơn để chỉ một quy trình thông thường. Dịch: `Các mẫu được phân tích trong phòng thí nghiệm để xác định thành phần hóa học của chúng.`"}, {"question": "The software ___ by a team of experts to fix the bugs.", "options": ["is being updated", "was updated", "has been updated", "will be updated"], "answer": 0, "explanation": "Câu hỏi sử dụng thì hiện tại tiếp diễn để chỉ rằng phần mềm đang được cập nhật. Dịch: `Phần mềm đang được cập nhật bởi một nhóm chuyên gia để sửa lỗi.`"}, {"question": "The data ___ by the research team before it was published.", "options": ["was analyzed", "is analyzed", "have been analyzed", "will be analyzed"], "answer": 0, "explanation": "Câu hỏi sử dụng thì quá khứ đơn để chỉ rằng dữ liệu đã được phân tích trước khi được xuất bản. Dịch: `Dữ liệu đã được phân tích bởi nhóm nghiên cứu trước khi nó được xuất bản.`"}, {"question": "The new technology ___ to reduce energy consumption.", "options": ["is being developed", "was developed", "has been developed", "will be developed"], "answer": 0, "explanation": "Câu hỏi sử dụng thì hiện tại tiếp diễn để chỉ rằng công nghệ mới đang được phát triển. Dịch: `Công nghệ mới đang được phát triển để giảm tiêu thụ năng lượng.`"}]}, "Oxford Unit 10: Culture & Society": {"vocab": [{"word": "culture", "pos": "noun", "ipa": "/ˈkʌltʃər/", "meaning": "văn hóa", "example": "Learning about another culture is always exciting.", "vn_ex": "Tìm hiểu về một nền văn hóa khác luôn rất thú vị."}, {"word": "society", "pos": "noun", "ipa": "/səˈsaɪəti/", "meaning": "xã hội", "example": "We need to work together to build a better society.", "vn_ex": "Chúng ta cần hợp tác với nhau để xây dựng một xã hội tốt đẹp hơn."}, {"word": "tradition", "pos": "noun", "ipa": "/trəˈdɪʃn/", "meaning": "truyền thống", "example": "It is a tradition in my family to eat dinner together on Sundays.", "vn_ex": "Ăn tối cùng nhau vào các ngày Chủ Nhật là một truyền thống trong gia đình tôi."}, {"word": "custom", "pos": "noun", "ipa": "/ˈkʌstəm/", "meaning": "phong tục, tập quán", "example": "It is a local custom to shake hands when greeting someone.", "vn_ex": "Bắt tay khi chào hỏi ai đó là một phong tục địa phương."}, {"word": "community", "pos": "noun", "ipa": "/kəˈmjuːnəti/", "meaning": "cộng đồng", "example": "The local community is very friendly and supportive.", "vn_ex": "Cộng đồng địa phương rất thân thiện và hay giúp đỡ nhau."}, {"word": "behavior", "pos": "noun", "ipa": "/bɪˈheɪvjər/", "meaning": "hành vi, cách ứng xử", "example": "His polite behavior left a great impression on everyone.", "vn_ex": "Cách cư xử lịch sự của anh ấy đã để lại ấn tượng tuyệt vời cho mọi người."}, {"word": "belief", "pos": "noun", "ipa": "/bɪˈliːf/", "meaning": "niềm tin, tín ngưỡng", "example": "Respecting others' religious beliefs is very important.", "vn_ex": "Tôn trọng tín ngưỡng tôn giáo của người khác là điều rất quan trọng."}, {"word": "attitude", "pos": "noun", "ipa": "/ˈætɪtuːd/", "meaning": "thái độ, quan điểm", "example": "A positive attitude can help you overcome any challenge.", "vn_ex": "Thái độ tích cực có thể giúp bạn vượt qua mọi thử thách."}, {"word": "celebrate", "pos": "verb", "ipa": "/ˈselɪbreɪt/", "meaning": "ăn mừng, kỷ niệm", "example": "How do you celebrate the New Year in your country?", "vn_ex": "Các bạn đón mừng năm mới như thế nào ở quốc gia của bạn?"}, {"word": "citizen", "pos": "noun", "ipa": "/ˈsɪtɪzn/", "meaning": "công dân", "example": "Every citizen has the right to vote in the election.", "vn_ex": "Mỗi công dân đều có quyền bỏ phiếu trong cuộc bầu cử."}, {"word": "civil", "pos": "adjective", "ipa": "/ˈsɪvl/", "meaning": "thuộc công dân, dân sự", "example": "They are fighting for their civil rights.", "vn_ex": "Họ đang đấu tranh cho các quyền công dân của mình."}, {"word": "consequence", "pos": "noun", "ipa": "/ˈkɒnsɪkwəns/", "meaning": "hậu quả, hệ quả", "example": "You must accept the consequences of your actions.", "vn_ex": "Bạn phải chấp nhận những hậu quả từ hành động của mình."}, {"word": "crime", "pos": "noun", "ipa": "/kraɪm/", "meaning": "tội phạm, tội ác", "example": "The police are working hard to reduce crime in this area.", "vn_ex": "Cảnh sát đang nỗ lực để giảm thiểu tội phạm trong khu vực này."}, {"word": "cultural", "pos": "adjective", "ipa": "/ˈkʌltʃərəl/", "meaning": "thuộc về văn hóa", "example": "We attended a wonderful cultural event last night.", "vn_ex": "Chúng tôi đã tham dự một sự kiện văn hóa tuyệt vời tối qua."}, {"word": "diversity", "pos": "noun", "ipa": "/daɪˈvɜːrsəti/", "meaning": "sự đa dạng", "example": "This neighborhood is known for its cultural diversity.", "vn_ex": "Khu phố này nổi tiếng vì sự đa dạng văn hóa."}, {"word": "generation", "pos": "noun", "ipa": "/ˌdʒenəˈreɪʃn/", "meaning": "thế hệ", "example": "The younger generation is very comfortable with technology.", "vn_ex": "Thế hệ trẻ ngày nay sử dụng công nghệ rất thành thạo."}, {"word": "identity", "pos": "noun", "ipa": "/aɪˈdentəti/", "meaning": "bản sắc, danh tính", "example": "We must preserve our national identity.", "vn_ex": "Chúng ta phải gìn giữ bản sắc dân tộc của mình."}, {"word": "influence", "pos": "noun", "ipa": "/ˈɪnfluəns/", "meaning": "sự ảnh hưởng, tác động", "example": "My parents have a huge influence on my life.", "vn_ex": "Cha mẹ có ảnh hưởng rất lớn đến cuộc đời tôi."}, {"word": "institution", "pos": "noun", "ipa": "/ˌɪnstɪˈtuːʃn/", "meaning": "thể chế, cơ quan, tổ chức", "example": "Marriage is a sacred social institution.", "vn_ex": "Hôn nhân là một thể chế xã hội thiêng liêng."}, {"word": "justice", "pos": "noun", "ipa": "/ˈdʒʌstɪs/", "meaning": "công lý, sự công bằng", "example": "They are marching to demand justice for the victims.", "vn_ex": "Họ đang tuần hành để đòi lại công lý cho các nạn nhân."}, {"word": "mass", "pos": "adjective", "ipa": "/mæs/", "meaning": "đại chúng, hàng loạt", "example": "Social media has a huge impact on mass communication.", "vn_ex": "Mạng xã hội có tác động khổng lồ đến truyền thông đại chúng."}, {"word": "opinion", "pos": "noun", "ipa": "/əˈpɪnjən/", "meaning": "ý kiến, quan điểm", "example": "In my opinion, everyone should learn a second language.", "vn_ex": "Theo ý kiến của tôi, mọi người nên học một ngôn ngữ thứ hai."}, {"word": "politics", "pos": "noun", "ipa": "/ˈpɑːlətɪks/", "meaning": "chính trị", "example": "I don't like to talk about politics during dinner.", "vn_ex": "Tôi không thích bàn luận về chính trị trong bữa ăn."}, {"word": "value", "pos": "noun", "ipa": "/ˈvæljuː/", "meaning": "giá trị", "example": "Honesty is a core value in our family.", "vn_ex": "Sự trung thực là một giá trị cốt lõi trong gia đình chúng tôi."}, {"word": "conflict", "pos": "noun", "ipa": "/ˈkɑːnflɪkt/", "meaning": "sự xung đột, mâu thuẫn", "example": "We should try to resolve this conflict peacefully.", "vn_ex": "Chúng ta nên cố gắng giải quyết mâu thuẫn này một cách hòa bình."}], "grammar_theory": "# Adjective Order (OSASCOMP) trong Mô Tả Văn Hóa và Xã Hội\n## Công Thức Cấu Trúc\n`OSASCOMP` là viết tắt của Opinion, Size, Age, Shape, Color, Origin, Material, Purpose.\n## Cách Dùng Thực Tiễn\nTrong ngữ cảnh học thuật và giao tiếp nâng cao, việc sử dụng `OSASCOMP` giúp mô tả một cách chi tiết và chính xác các đối tượng trong văn hóa và xã hội.\n### Ví Dụ\n- `The beautiful, old, rectangular, brown, wooden, antique table.` (Bàn gỗ cổ, đẹp, cũ, hình chữ nhật, màu nâu, có mục đích trang trí)\n<br>\n## Lưu Ý\nKhi sử dụng `OSASCOMP`, cần lưu ý đến thứ tự của các tính từ để đảm bảo câu văn được rõ ràng và dễ hiểu.", "quiz": [{"question": "Trong mô tả về một bức tranh, từ `magnificent` nên được đặt ở vị trí ___ trong thứ tự tính từ.", "options": ["đầu tiên", "sau khi mô tả hình dạng", "sau khi mô tả màu sắc", "cuối cùng"], "answer": 0, "explanation": "Từ `magnificent` là một tính từ chỉ quan điểm (opinion), vì vậy nó nên được đặt ở vị trí đầu tiên trong thứ tự tính từ OSASCOMP. Dịch nghĩa: `Trong mô tả về một bức tranh, từ `magnificent` nên được đặt ở vị trí đầu tiên trong thứ tự tính từ.`"}, {"question": "Khi mô tả một chiếc xe hơi, từ `red` nên được đặt ở vị trí ___ trong thứ tự tính từ.", "options": ["sau khi mô tả kích thước", "sau khi mô tả hình dạng", "sau khi mô tả tuổi", "trước khi mô tả mục đích"], "answer": 2, "explanation": "Từ `red` là một tính từ chỉ màu sắc (color), vì vậy nó nên được đặt sau khi mô tả hình dạng (shape) trong thứ tự tính từ OSASCOMP. Dịch nghĩa: `Khi mô tả một chiếc xe hơi, từ `red` nên được đặt sau khi mô tả hình dạng trong thứ tự tính từ.`"}, {"question": "Từ `leather` nên được đặt ở vị trí ___ trong mô tả về một chiếc ghế.", "options": ["sau khi mô tả quan điểm", "sau khi mô tả kích thước", "sau khi mô tả màu sắc", "sau khi mô tả mục đích"], "answer": 3, "explanation": "Từ `leather` là một tính từ chỉ chất liệu (material), vì vậy nó nên được đặt sau khi mô tả mục đích (purpose) trong thứ tự tính từ OSASCOMP. Dịch nghĩa: `Từ `leather` nên được đặt sau khi mô tả mục đích trong mô tả về một chiếc ghế.`"}, {"question": "Khi mô tả một tòa nhà, từ `old` nên được đặt ở vị trí ___ trong thứ tự tính từ.", "options": ["sau khi mô tả hình dạng", "sau khi mô tả kích thước", "sau khi mô tả quan điểm", "trước khi mô tả mục đích"], "answer": 2, "explanation": "Từ `old` là một tính từ chỉ tuổi (age), vì vậy nó nên được đặt sau khi mô tả kích thước (size) trong thứ tự tính từ OSASCOMP. Dịch nghĩa: `Khi mô tả một tòa nhà, từ `old` nên được đặt sau khi mô tả kích thước trong thứ tự tính từ.`"}, {"question": "Từ `circular` nên được đặt ở vị trí ___ trong mô tả về một chiếc đồng hồ.", "options": ["sau khi mô tả màu sắc", "sau khi mô tả chất liệu", "sau khi mô tả kích thước", "trước khi mô tả tuổi"], "answer": 3, "explanation": "Từ `circular` là một tính từ chỉ hình dạng (shape), vì vậy nó nên được đặt trước khi mô tả tuổi (age) trong thứ tự tính từ OSASCOMP. Dịch nghĩa: `Từ `circular` nên được đặt trước khi mô tả tuổi trong mô tả về một chiếc đồng hồ.`"}]}};
+    let currentUnit = Object.keys(slideData)[0];
+    let currentTab = 'vocab';
+
+    function init() {
+      const listContainer = document.getElementById('unitList');
+      listContainer.innerHTML = '';
+      
+      Object.keys(slideData).forEach((unitName, idx) => {
+        const li = document.createElement('li');
+        li.className = 'unit-item' + (unitName === currentUnit ? ' active' : '');
+        li.textContent = unitName;
+        li.onclick = () => selectUnit(unitName);
+        listContainer.appendChild(li);
+      });
+
+      renderContent();
+    }
+
+    function selectUnit(unitName) {
+      currentUnit = unitName;
+      document.querySelectorAll('.unit-item').forEach(item => {
+        item.classList.toggle('active', item.textContent === unitName);
+      });
+      renderContent();
+    }
+
+    function switchTab(tabName) {
+      currentTab = tabName;
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(tabName));
+      });
+      
+      document.getElementById('vocabTab').classList.toggle('hidden', tabName !== 'vocab');
+      document.getElementById('grammarTab').classList.toggle('hidden', tabName !== 'grammar');
+      document.getElementById('quizTab').classList.toggle('hidden', tabName !== 'quiz');
+    }
+
+    function renderContent() {
+      const unit = slideData[currentUnit];
+      
+      // Render Vocab
+      const vocabTab = document.getElementById('vocabTab');
+      vocabTab.innerHTML = unit.vocab.map(w => `
+        <div class="vocab-card">
+          <div class="vocab-word">${w.word}</div>
+          <div class="vocab-meta">
+            <span>(${w.pos})</span>
+            <span class="vocab-ipa">${w.ipa || ''}</span>
+          </div>
+          <div class="vocab-meaning">${w.meaning}</div>
+          <div class="vocab-ex">
+            <div>${w.example}</div>
+            <div class="vocab-ex-vn">${w.vn_ex}</div>
+          </div>
+        </div>
+      `).join('');
+
+      // Render Grammar
+      const grammarTab = document.getElementById('grammarTab');
+      // Simple markdown parser wrapper
+      let mdHtml = unit.grammar_theory || '<p>Đang cập nhật...</p>';
+      mdHtml = mdHtml
+        .replace(/### (.*)/g, '<h3>$1</h3>')
+        .replace(/## (.*)/g, '<h2>$1</h2>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/`(.*?)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
+      grammarTab.innerHTML = mdHtml;
+
+      // Render Quiz
+      document.getElementById('quizUnitName').textContent = currentUnit;
+      const quizContent = document.getElementById('quizContent');
+      quizContent.innerHTML = (unit.quiz || []).map((q, qIdx) => `
+        <div class="quiz-card" id="q_${qIdx}">
+          <div class="quiz-question">${qIdx + 1}. ${q.question}</div>
+          <div class="quiz-options">
+            ${q.options.map((opt, oIdx) => `
+              <div class="quiz-option" onclick="answerQuiz(${qIdx}, ${oIdx}, ${q.answer})">
+                <span>${['A', 'B', 'C', 'D'][oIdx]}.</span>
+                <span>${opt}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="quiz-explanation hidden" id="exp_${qIdx}">
+            <strong>Giải thích:</strong> ${q.explanation}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function answerQuiz(qIdx, selectedIdx, correctIdx) {
+      const card = document.getElementById(`q_${qIdx}`);
+      const options = card.querySelectorAll('.quiz-option');
+      const exp = document.getElementById(`exp_${qIdx}`);
+      
+      // Lock click
+      options.forEach(opt => opt.style.pointerEvents = 'none');
+      
+      options[selectedIdx].classList.add(selectedIdx === correctIdx ? 'correct' : 'incorrect');
+      if (selectedIdx !== correctIdx) {
+        options[correctIdx].classList.add('correct');
+      }
+      
+      exp.classList.remove('hidden');
+    }
+
+    let fontSize = 16;
+    function changeFontSize(dir) {
+      fontSize += dir * 2;
+      document.body.style.fontSize = fontSize + 'px';
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

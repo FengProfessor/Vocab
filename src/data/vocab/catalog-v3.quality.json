@@ -2,13 +2,13 @@
   "catalogVersion": "2026-06-13-v4",
   "summary": {
     "catalogVersion": "2026-06-13-v4",
-    "subtopics": 248,
-    "publishedSubtopics": 248,
+    "subtopics": 277,
+    "publishedSubtopics": 277,
     "draftSubtopics": 0,
-    "words": 6098,
-    "wordsInDict": 6098,
+    "words": 6479,
+    "wordsInDict": 6479,
     "quarantineWords": 0,
-    "missingImages": 1521
+    "missingImages": 1678
   },
   "routes": {
     "thpt-lop-10": {
@@ -38,43 +38,43 @@
     },
     "di-lam": {
       "publishStatus": "published",
-      "publishedSubtopics": 18,
-      "totalSubtopics": 18
+      "publishedSubtopics": 21,
+      "totalSubtopics": 21
     },
     "du-lich": {
+      "publishStatus": "published",
+      "publishedSubtopics": 8,
+      "totalSubtopics": 8
+    },
+    "doi-song": {
+      "publishStatus": "published",
+      "publishedSubtopics": 25,
+      "totalSubtopics": 25
+    },
+    "suc-khoe": {
+      "publishStatus": "published",
+      "publishedSubtopics": 10,
+      "totalSubtopics": 10
+    },
+    "cong-nghe": {
+      "publishStatus": "published",
+      "publishedSubtopics": 8,
+      "totalSubtopics": 8
+    },
+    "hoc-tap": {
       "publishStatus": "published",
       "publishedSubtopics": 7,
       "totalSubtopics": 7
     },
-    "doi-song": {
-      "publishStatus": "published",
-      "publishedSubtopics": 22,
-      "totalSubtopics": 22
-    },
-    "suc-khoe": {
-      "publishStatus": "published",
-      "publishedSubtopics": 9,
-      "totalSubtopics": 9
-    },
-    "cong-nghe": {
-      "publishStatus": "published",
-      "publishedSubtopics": 5,
-      "totalSubtopics": 5
-    },
-    "hoc-tap": {
-      "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6
-    },
     "hoc-thuat": {
       "publishStatus": "published",
-      "publishedSubtopics": 46,
-      "totalSubtopics": 46
+      "publishedSubtopics": 47,
+      "totalSubtopics": 47
     },
     "extended": {
       "publishStatus": "published",
-      "publishedSubtopics": 34,
-      "totalSubtopics": 34
+      "publishedSubtopics": 50,
+      "totalSubtopics": 50
     }
   },
   "topics": {
@@ -98,9 +98,9 @@
     },
     "tp-132448072e": {
       "publishStatus": "published",
-      "publishedSubtopics": 5,
-      "totalSubtopics": 5,
-      "qualityScore": 88
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6,
+      "qualityScore": 89
     },
     "tp-13fd944d94": {
       "publishStatus": "published",
@@ -116,9 +116,9 @@
     },
     "tp-2d1dddc93a": {
       "publishStatus": "published",
-      "publishedSubtopics": 2,
-      "totalSubtopics": 2,
-      "qualityScore": 79
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 83
     },
     "tp-30c3738995": {
       "publishStatus": "published",
@@ -128,9 +128,9 @@
     },
     "tp-32dabe9530": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 88
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6,
+      "qualityScore": 87
     },
     "tp-47d3a045c5": {
       "publishStatus": "published",
@@ -164,9 +164,9 @@
     },
     "tp-63e89bc3a4": {
       "publishStatus": "published",
-      "publishedSubtopics": 34,
-      "totalSubtopics": 34,
-      "qualityScore": 90
+      "publishedSubtopics": 50,
+      "totalSubtopics": 50,
+      "qualityScore": 88
     },
     "tp-69803ac72a": {
       "publishStatus": "published",
@@ -194,14 +194,14 @@
     },
     "tp-7a934ad2a7": {
       "publishStatus": "published",
-      "publishedSubtopics": 10,
-      "totalSubtopics": 10,
-      "qualityScore": 85
+      "publishedSubtopics": 11,
+      "totalSubtopics": 11,
+      "qualityScore": 86
     },
     "tp-7c7631f3bd": {
       "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6,
+      "publishedSubtopics": 8,
+      "totalSubtopics": 8,
       "qualityScore": 95
     },
     "tp-87971d0e5c": {
@@ -230,15 +230,15 @@
     },
     "tp-9275f23d61": {
       "publishStatus": "published",
-      "publishedSubtopics": 7,
-      "totalSubtopics": 7,
-      "qualityScore": 95
+      "publishedSubtopics": 8,
+      "totalSubtopics": 8,
+      "qualityScore": 92
     },
     "tp-95e3b28bf2": {
       "publishStatus": "published",
-      "publishedSubtopics": 5,
-      "totalSubtopics": 5,
-      "qualityScore": 87
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6,
+      "qualityScore": 89
     },
     "tp-9d1303f771": {
       "publishStatus": "published",
@@ -248,9 +248,9 @@
     },
     "tp-a0358154bf": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 87
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 89
     },
     "tp-c029b2cbd7": {
       "publishStatus": "published",
@@ -302,8 +302,8 @@
     },
     "tp-f9b50ef195": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
       "qualityScore": 94
     },
     "tp-fa4bd905ce": {
@@ -314,9 +314,9 @@
     },
     "tp-ffa0a73f9c": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 95
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 92
     }
   },
   "subtopics": {
@@ -645,6 +645,22 @@
         "số từ 14 ngoài 30-90"
       ]
     },
+    "st-118656f16720": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/20670596/pexels-photo-20670596.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-11d6536fbb8d": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -899,6 +915,24 @@
       ],
       "failReasons": []
     },
+    "st-1dd58d20ca82": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.96,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://c8.alamy.com/comp/ECDNBE/diverse-people-in-a-circle-with-culture-concept-ECDNBE.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "influence"
+      ],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-1df96d64d462": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1075,6 +1109,35 @@
       ],
       "failReasons": []
     },
+    "st-2258ed4e3b50": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 78,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.56,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://tienichonline.net/media/uploads/2025/06/nanotech.jpg",
+      "missingImageCount": 11,
+      "missingImages": [
+        "quantum",
+        "biotechnology",
+        "genome",
+        "cloning",
+        "neuroscience",
+        "research methodology",
+        "interdisciplinary",
+        "cognition",
+        "neurotransmitter",
+        "psychoanalysis",
+        "academic integrity"
+      ],
+      "failReasons": [
+        "ảnh 56% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-239ce0bcaa81": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1093,6 +1156,46 @@
         "số từ 18 ngoài 30-90"
       ]
     },
+    "st-2432f2f7e389": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 61,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.12,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://www.shutterstock.com/shutterstock/photos/2188096049/display_1500/stock-photo-cognitive-functions-of-the-brain-in-a-woman-confused-thoughts-from-stress-and-problems-depression-2188096049.jpg",
+      "missingImageCount": 22,
+      "missingImages": [
+        "empathy",
+        "subconscious",
+        "psychoanalysis",
+        "neurotransmitter",
+        "conditioning",
+        "behaviorism",
+        "cognitive dissonance",
+        "neurosis",
+        "self-esteem",
+        "regression",
+        "altruism",
+        "phobia",
+        "mindfulness",
+        "cognition",
+        "neuroscience",
+        "phenomenology",
+        "pragmatism",
+        "determinism",
+        "absolutism",
+        "biophilia",
+        "bioethics",
+        "psychosomatic"
+      ],
+      "failReasons": [
+        "ảnh 12% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-2435fc0fd3e4": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1108,6 +1211,22 @@
         "any port in a storm"
       ],
       "failReasons": []
+    },
+    "st-24931ed70e40": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://www.lnginsurance.com/wp-content/uploads/2023/05/why-companies-should-provide-health-insurance-benefits-for-employees.jpg",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
     },
     "st-25a2ca74645f": {
       "publishStatus": "published",
@@ -1284,6 +1403,22 @@
         "ảnh 77% (<90%) — chưa nổi bật"
       ]
     },
+    "st-301737e1e08d": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://static.vecteezy.com/system/resources/previews/013/799/361/original/a-boy-wake-up-and-stretching-in-morning-vector.jpg",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-3034c9c5ad90": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1360,6 +1495,24 @@
         "số từ 27 ngoài 30-90"
       ]
     },
+    "st-33552761ee35": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.96,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/20670596/pexels-photo-20670596.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 1,
+      "missingImages": [
+        "concept"
+      ],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-33b8d6675f97": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -1384,6 +1537,24 @@
       "failReasons": [
         "ảnh 64% (<90%) — chưa nổi bật",
         "số từ 22 ngoài 30-90"
+      ]
+    },
+    "st-349b62d881c7": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.96,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/21696/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 1,
+      "missingImages": [
+        "busy"
+      ],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-349d6a4cf9c7": {
@@ -1497,6 +1668,40 @@
         "số từ 15 ngoài 30-90"
       ]
     },
+    "st-3afd878afef3": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.96,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://thumbs.dreamstime.com/z/mother-accompanies-child-to-school-mom-encourages-student-to-accompany-him-to-school-caring-mother-looks-tenderly-her-152118006.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "admire"
+      ],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
+    "st-3bdf4b9301c1": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/7698796/pexels-photo-7698796.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-3c813adbd286": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1513,6 +1718,37 @@
       ],
       "failReasons": [
         "số từ 12 ngoài 30-90"
+      ]
+    },
+    "st-3d385d23662b": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 75,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.48,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://jyhdxhqkftirncbstfpe.supabase.co/storage/v1/object/public/vocab-images/cloudflare-flux/doctor_examining_a_baby-1.png",
+      "missingImageCount": 13,
+      "missingImages": [
+        "cardiology",
+        "neurosurgery",
+        "veganism",
+        "hydration",
+        "detox",
+        "immunology",
+        "antioxidants",
+        "biotechnology",
+        "genome",
+        "cloning",
+        "neuroscience",
+        "neurotransmitter",
+        "neurosis"
+      ],
+      "failReasons": [
+        "ảnh 48% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-3e0cb462a100": {
@@ -1547,6 +1783,32 @@
       "missingImages": [],
       "failReasons": [
         "số từ 18 ngoài 30-90"
+      ]
+    },
+    "st-3f61b16b4432": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 83,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.68,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://betterfuturefactory.com/wp-content/uploads/2023/06/60ad51f5c3d03c2fa1bd952c_three-pillars-of-sustainability.png",
+      "missingImageCount": 8,
+      "missingImages": [
+        "sustainable development",
+        "greenhouse gases",
+        "wilderness",
+        "glacier",
+        "savanna",
+        "mitigation",
+        "resilience",
+        "biophilia"
+      ],
+      "failReasons": [
+        "ảnh 68% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-3f6ff8d69c24": {
@@ -1670,6 +1932,24 @@
       "failReasons": [
         "ảnh 81% (<90%) — chưa nổi bật",
         "số từ 26 ngoài 30-90"
+      ]
+    },
+    "st-458fb53fa3cd": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 94,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.96,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://www.shutterstock.com/shutterstock/photos/2284126663/display_1500/stock-photo-data-science-and-big-data-technology-scientist-computing-analysing-and-visualizing-complex-data-2284126663.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "physics"
+      ],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-46201479320d": {
@@ -1964,6 +2244,33 @@
       ],
       "failReasons": []
     },
+    "st-514bc912954a": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 82,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.64,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://media.consumeraffairs.com/files/news/Inflation_gpt_CA-2026.png",
+      "missingImageCount": 9,
+      "missingImages": [
+        "asset management",
+        "bonds",
+        "return on investment (roi)",
+        "market capitalization",
+        "freelancer",
+        "contractor",
+        "benefits",
+        "retirement plan",
+        "bilateral"
+      ],
+      "failReasons": [
+        "ảnh 64% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-5363da1ba5ac": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -2159,6 +2466,22 @@
       "failReasons": [
         "ảnh 33% (<90%) — chưa nổi bật",
         "số từ 12 ngoài 30-90"
+      ]
+    },
+    "st-583ce045322e": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/5960/healthy-wood-red-apple.jpg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-587462512860": {
@@ -2447,6 +2770,22 @@
         "số từ 11 ngoài 30-90"
       ]
     },
+    "st-65ea159fb736": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://cdn.wallpapersafari.com/78/25/JU9bGD.jpg",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-65f1286dcb33": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -2576,6 +2915,22 @@
         "assess the significance of"
       ],
       "failReasons": []
+    },
+    "st-6a517720cd6a": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/2019.07.10_metro_California-housing_Blog-post_related.webp/500px-2019.07.10_metro_California-housing_Blog-post_related.webp.png",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
     },
     "st-6b0f849ec0cf": {
       "publishStatus": "published",
@@ -2757,6 +3112,36 @@
       ],
       "failReasons": []
     },
+    "st-779f3d24c65d": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 77,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.52,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://as1.ftcdn.net/v2/jpg/05/24/43/88/1000_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg",
+      "missingImageCount": 12,
+      "missingImages": [
+        "impressionistic",
+        "allegory",
+        "symbolism",
+        "renaissance",
+        "baroque",
+        "fresco",
+        "mosaic",
+        "autobiography",
+        "memoir",
+        "overture",
+        "chamber music",
+        "orchestra"
+      ],
+      "failReasons": [
+        "ảnh 52% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-77dde8cc2e0f": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -2772,6 +3157,22 @@
         "come out in sympathy with"
       ],
       "failReasons": []
+    },
+    "st-78340f99ef77": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/4108167/pexels-photo-4108167.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
     },
     "st-7995eb63923b": {
       "publishStatus": "published",
@@ -2945,6 +3346,29 @@
       ],
       "failReasons": [
         "ảnh 52% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
+    "st-7f463b9dc5fd": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 88,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.8,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://cdn.educba.com/academy/wp-content/uploads/2022/10/Consumer-Goods-Types.jpg",
+      "missingImageCount": 5,
+      "missingImages": [
+        "sponsorship",
+        "hedge",
+        "maturity",
+        "marginal",
+        "seller"
+      ],
+      "failReasons": [
+        "ảnh 80% (<90%) — chưa nổi bật",
         "số từ 25 ngoài 30-90"
       ]
     },
@@ -3412,6 +3836,28 @@
         "số từ 97 ngoài 30-90"
       ]
     },
+    "st-99177ab3da0d": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 88,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.8,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://static.vecteezy.com/system/resources/previews/043/988/603/non_2x/rich-man-saves-money-by-putting-coins-in-transparent-jar-to-accumulate-reserve-capital-vector.jpg",
+      "missingImageCount": 5,
+      "missingImages": [
+        "concept",
+        "methodology",
+        "cognition",
+        "accreditation",
+        "interdisciplinary"
+      ],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-99db1b29fff5": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -3832,6 +4278,33 @@
         "số từ 20 ngoài 30-90"
       ]
     },
+    "st-a94677ca83f6": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 82,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.64,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://www.questionpro.com/blog/wp-content/uploads/2024/01/reporting-bias.jpg",
+      "missingImageCount": 9,
+      "missingImages": [
+        "credible",
+        "mass media",
+        "fact-check",
+        "fake news",
+        "the press",
+        "digital billboard",
+        "as opposed to",
+        "by contrast",
+        "informative"
+      ],
+      "failReasons": [
+        "ảnh 64% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-a97e4f9ea6c8": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -3862,6 +4335,22 @@
       "failReasons": [
         "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 100 ngoài 30-90"
+      ]
+    },
+    "st-a9c09aafa898": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 96,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/6565250/pexels-photo-6565250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-aa43fc15a9be": {
@@ -4628,6 +5117,39 @@
       ],
       "failReasons": []
     },
+    "st-c666540675ec": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 72,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.4,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://gonatour.vn/vnt_upload/news/12_2020/trang_an_gonatour.jpg",
+      "missingImageCount": 15,
+      "missingImages": [
+        "renaissance",
+        "baroque",
+        "totalitarianism",
+        "autocracy",
+        "fresco",
+        "mosaic",
+        "allegory",
+        "symbolism",
+        "democracy",
+        "socialism",
+        "interdisciplinary",
+        "research methodology",
+        "regression",
+        "archipelago",
+        "censorship"
+      ],
+      "failReasons": [
+        "ảnh 40% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-c7d662484f6e": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -4697,6 +5219,27 @@
       "failReasons": [
         "ảnh 7% (<90%) — chưa nổi bật",
         "số từ 29 ngoài 30-90"
+      ]
+    },
+    "st-c99c9aee3faf": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 90,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.84,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/18021294/pexels-photo-18021294.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 4,
+      "missingImages": [
+        "have",
+        "say",
+        "come",
+        "day"
+      ],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-c9c0b0f7d36a": {
@@ -5051,6 +5594,28 @@
         "số từ 12 ngoài 30-90"
       ]
     },
+    "st-db68a48ab163": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 88,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.8,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://static.vecteezy.com/system/resources/previews/043/988/603/non_2x/rich-man-saves-money-by-putting-coins-in-transparent-jar-to-accumulate-reserve-capital-vector.jpg",
+      "missingImageCount": 5,
+      "missingImages": [
+        "analogy",
+        "appendix",
+        "concurrent",
+        "empirical",
+        "subsequent"
+      ],
+      "failReasons": [
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-db7787575149": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -5211,6 +5776,36 @@
         "ảnh 10% (<90%) — chưa nổi bật"
       ]
     },
+    "st-dfd9a5679712": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 77,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.52,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://as1.ftcdn.net/v2/jpg/05/24/43/88/1000_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg",
+      "missingImageCount": 12,
+      "missingImages": [
+        "impressionistic",
+        "allegory",
+        "symbolism",
+        "renaissance",
+        "baroque",
+        "democracy",
+        "socialism",
+        "totalitarianism",
+        "human rights",
+        "social justice",
+        "censorship",
+        "autocracy"
+      ],
+      "failReasons": [
+        "ảnh 52% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-e07352fe742c": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -5252,6 +5847,39 @@
       ],
       "failReasons": [
         "số từ 133 ngoài 30-90"
+      ]
+    },
+    "st-e391fd06cb5c": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 72,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.4,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://media.vov.vn/sites/default/files/styles/large/public/2023-06/bo_truong_ngoai_giao_bui_thanh_son_va_uy_vien_quoc_vu_bo_truong_ngoai_giao_trung_quoc_tan_cuong.jpg",
+      "missingImageCount": 15,
+      "missingImages": [
+        "democracy",
+        "socialism",
+        "totalitarianism",
+        "human rights",
+        "social justice",
+        "bilateral",
+        "censorship",
+        "autocracy",
+        "sovereignty",
+        "precedent",
+        "absolutism",
+        "mitigation",
+        "accreditation",
+        "contractor",
+        "academic integrity"
+      ],
+      "failReasons": [
+        "ảnh 40% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-e45bd4f5955f": {
@@ -5693,6 +6321,31 @@
         "complete stranger"
       ],
       "failReasons": []
+    },
+    "st-f48d77316eb0": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 85,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.72,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/26045359/pexels-photo-26045359/free-photo-of-colony-of-penguins.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "missingImageCount": 7,
+      "missingImages": [
+        "comma",
+        "communist",
+        "comparable",
+        "comply",
+        "comprehension",
+        "conceptual",
+        "conduction"
+      ],
+      "failReasons": [
+        "ảnh 72% (<80%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
     },
     "st-f4a389d821bf": {
       "publishStatus": "published",
