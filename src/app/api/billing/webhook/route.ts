@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { confirmOrder } from '@/lib/billing';
+import { confirmOrder, confirmFbClassOrder } from '@/lib/billing';
 import { safeErrorResponse } from '@/lib/api-security';
 import crypto from 'crypto';
 
@@ -244,6 +244,27 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
             processed_at: new Date().toISOString(),
           })
           .eq('event_key', eventKey);
+        continue;
+      }
+
+      // Lớp FB trả phí: xác nhận nhánh riêng (KHÔNG cấp Pro, chỉ đánh dấu vé paid).
+      if (order.order_kind === 'fbclass') {
+        try {
+          await confirmFbClassOrder(supabase, order, paymentRef ?? undefined);
+          processedOrders.push({ orderId: order.id, status: 'confirmed' });
+          console.log(`[Webhook] FB class order ${order.id} auto-confirmed.`);
+          await supabase
+            .from('payment_webhook_events')
+            .update({ status: 'processed', order_id: order.id, processed_at: new Date().toISOString() })
+            .eq('event_key', eventKey);
+        } catch (err: unknown) {
+          const message = err instanceof Error ? err.message : String(err);
+          console.error(`[Webhook] Error confirming FB class order ${order.id}:`, message);
+          await supabase
+            .from('payment_webhook_events')
+            .update({ status: 'error', order_id: order.id, error_message: message.slice(0, 500), processed_at: new Date().toISOString() })
+            .eq('event_key', eventKey);
+        }
         continue;
       }
 

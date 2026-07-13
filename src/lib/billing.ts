@@ -614,3 +614,85 @@ export async function activateGroup(
     changed_by: adminId,
   });
 }
+
+// ─────────────────────────────────────────
+// Lớp học live Facebook trả phí (cohort)
+// ─────────────────────────────────────────
+
+export interface CreateFbClassOrderInput {
+  userId: string;
+  classId: string;
+  fbProfileUrl?: string;
+}
+
+/**
+ * Tạo pending order cho 1 vé lớp FB. Giá lấy từ bảng fb_classes (server-authoritative).
+ * KHÁC order thường: không dính coupon/kỳ hạn/entitlement — chỉ là 1 vé vào 1 cohort.
+ */
+export async function createFbClassOrder(
+  supabase: SupabaseClient,
+  input: CreateFbClassOrderInput,
+): Promise<{ orderId: string; amount: number }> {
+  const { data: cls, error } = await supabase
+    .from('fb_classes')
+    .select('id, price, status, end_date')
+    .eq('id', input.classId)
+    .maybeSingle();
+  if (error || !cls) throw new Error('Khóa học không tồn tại');
+  if (cls.status !== 'active') throw new Error('Khóa học không còn mở đăng ký');
+  if (cls.end_date && new Date(cls.end_date).getTime() < Date.now() - 86_400_000) {
+    throw new Error('Khóa học đã kết thúc');
+  }
+
+  const { data: order, error: insErr } = await supabase
+    .from('orders')
+    .insert({
+      user_id: input.userId,
+      plan: 'pro',              // placeholder — fbclass KHÔNG cấp entitlement, cột plan không dùng
+      amount: cls.price,
+      payment_method: 'bank_transfer',
+      period_months: 1,
+      status: 'pending',
+      order_kind: 'fbclass',
+      seats: 1,
+      fb_class_id: cls.id,
+      fb_profile_url: input.fbProfileUrl?.trim() || null,
+    })
+    .select('id, amount')
+    .single();
+  if (insErr || !order) throw new Error(`Không tạo được đơn: ${insErr?.message ?? 'unknown'}`);
+  return { orderId: order.id as string, amount: order.amount as number };
+}
+
+/**
+ * Xác nhận vé lớp FB đã thanh toán. expires_at = ngày kết thúc khóa (mốc để phân loại kick).
+ * KHÔNG động profiles.plan — nội dung học ở group FB, không phải Pro trong app.
+ * Idempotent: guard status='pending' → gọi lại không nhân đôi.
+ */
+export async function confirmFbClassOrder(
+  supabase: SupabaseClient,
+  order: { id: string; fb_class_id: string | null },
+  paymentRef?: string,
+): Promise<void> {
+  let expiresAt: string | null = null;
+  if (order.fb_class_id) {
+    const { data: cls } = await supabase
+      .from('fb_classes')
+      .select('end_date')
+      .eq('id', order.fb_class_id)
+      .maybeSingle();
+    if (cls?.end_date) expiresAt = new Date(cls.end_date).toISOString();
+  }
+
+  const { error } = await supabase
+    .from('orders')
+    .update({
+      status: 'paid',
+      paid_at: new Date().toISOString(),
+      expires_at: expiresAt,
+      note: paymentRef ? `fbclass paid ref=${paymentRef}` : 'fbclass paid',
+    })
+    .eq('id', order.id)
+    .eq('status', 'pending');
+  if (error) throw new Error(`Không xác nhận được vé lớp FB: ${error.message}`);
+}

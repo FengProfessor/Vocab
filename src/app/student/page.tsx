@@ -592,6 +592,9 @@ export default function StudentDashboard() {
 
   const hasClass = joinedClass;
 
+  // Group cộng đồng MỞ (free, live/trao đổi) — hiện cho mọi HS, mở tab mới
+  const FB_COMMUNITY_URL = 'https://www.facebook.com/groups/1586345819865575';
+
   // Sidebar nav — mỗi item có tile màu riêng; gate Thống kê/Bảng xếp hạng theo lớp
   type NavItem = { href: string; label: string; icon: typeof LayoutGrid; color: string; tile: string; onboardingId?: string };
   const navItems: NavItem[] = [
@@ -641,6 +644,7 @@ export default function StudentDashboard() {
                 <Link href="/student/speaking" data-onboarding="speaking" className="flex items-center gap-3 font-semibold p-3"><MessageSquare /> AI Speaking Tutor</Link>
                 <Link href="/grammar/learn" data-onboarding="grammar" className="flex items-center gap-3 font-semibold p-3"><GraduationCap /> Grammar</Link>
                 <Link href="/download" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 font-semibold p-3 text-[#b5502f]"><ArrowDownToLine /> Tải Desktop</Link>
+                <a href={FB_COMMUNITY_URL} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 font-bold p-3 text-[#1877f2]"><MessageSquare /> Nhóm live &amp; trao đổi</a>
                 <Link href="/student/profile" className="flex items-center gap-3 font-semibold p-3"><User /> Hồ sơ</Link>
                 <button
                   onClick={() => { setIsMenuOpen(false); setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
@@ -711,6 +715,14 @@ export default function StudentDashboard() {
             </span>
             <span>Nhóm của tôi</span>
           </Link>
+          <a href={FB_COMMUNITY_URL} target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-[11px] rounded-[11px] bg-[#e7f0ff] px-2.5 py-2 text-sm font-extrabold text-[#1877f2] transition-colors hover:brightness-95">
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white shadow-[0_1px_2px_rgba(24,119,242,.18)]">
+              <MessageSquare className="h-[18px] w-[18px] text-[#1877f2]" strokeWidth={2} />
+            </span>
+            <span>Nhóm live &amp; trao đổi</span>
+            <span className="ml-auto text-[10px] font-black uppercase text-[#1877f2]">Vào ngay</span>
+          </a>
         </div>
       </aside>
 

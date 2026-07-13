@@ -62,8 +62,23 @@ export interface Classroom {
   enrollment_count?: number;
 }
 
-export type OrderKind = 'individual' | 'group';
+export type OrderKind = 'individual' | 'group' | 'fbclass';
 export type GroupStatus = 'active' | 'expired' | 'cancelled';
+export type FbClassStatus = 'active' | 'ended' | 'cancelled';
+
+/** Lớp học live Facebook trả phí theo cohort (10 buổi = 50k). Nội dung ở group FB, KHÔNG cấp Pro. */
+export interface FbClass {
+  id: string;
+  owner_id: string;
+  title: string;
+  price: number;
+  session_count: number;
+  start_date?: string | null;
+  end_date: string;
+  fb_group_url?: string | null;
+  status: FbClassStatus;
+  created_at: string;
+}
 
 /** Gói nhóm đã kích hoạt: 1 owner trả gộp, chia ghế Pro cho nhóm bạn. */
 export interface Group {

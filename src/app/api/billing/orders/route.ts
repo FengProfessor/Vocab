@@ -5,7 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { createOrder, isValidPeriodMonths } from '@/lib/billing';
+import { createOrder, createFbClassOrder, isValidPeriodMonths } from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
 
 // Fail-closed: env rỗng → mảng rỗng → mọi request đều 403 (tránh [''].includes('') = true)
@@ -30,7 +30,26 @@ export async function POST(req: NextRequest) {
       orderKind?: string;
       seats?: number;
       note?: string;
+      fbClassId?: string;
+      fbProfileUrl?: string;
     };
+
+    // Lớp FB trả phí: bỏ qua toàn bộ logic plan/period/coupon — chỉ tạo 1 vé cohort.
+    if (body.orderKind === 'fbclass') {
+      if (!body.fbClassId) {
+        return NextResponse.json({ error: 'fbClassId is required' }, { status: 400 });
+      }
+      const result = await createFbClassOrder(supabase, {
+        userId: user.id,
+        classId: body.fbClassId,
+        fbProfileUrl: body.fbProfileUrl,
+      });
+      return NextResponse.json({
+        success: true,
+        order: { id: result.orderId, amount: result.amount },
+        discount: 0,
+      });
+    }
 
     const isGroup = body.orderKind === 'group';
 
