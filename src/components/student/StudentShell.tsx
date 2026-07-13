@@ -226,14 +226,6 @@ export function StudentShell({ title, children, contentClassName }: StudentShell
       match: (value) => value.startsWith('/import'),
     },
     {
-      href: '/download',
-      label: 'Tải Desktop',
-      icon: ArrowDownToLine,
-      color: '#b5502f',
-      tile: '#fff1e8',
-      match: (value) => value.startsWith('/download'),
-    },
-    {
       href: '/student/profile#stats',
       label: 'Thống kê',
       icon: BarChart3,
@@ -361,7 +353,7 @@ export function StudentShell({ title, children, contentClassName }: StudentShell
         </button>
       </aside>
 
-      <main className="flex min-h-dvh flex-1 flex-col md:pl-[248px]">
+      <main className="flex min-h-dvh flex-1 flex-col min-w-0 md:pl-[248px]">
         <header className="sticky top-0 z-30 flex h-[62px] items-center justify-between gap-3 border-b border-[#ececf1] bg-white/85 px-4 backdrop-blur sm:px-7">
           <div className="flex items-center gap-3">
             <button type="button" className="md:hidden" onClick={() => setIsMenuOpen(true)}>
