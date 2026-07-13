@@ -4,6 +4,7 @@ import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { stabilityToLevel } from '@/lib/srs';
 import { getAuthUser, unauthorized, isValidString, checkRateLimitAsync } from '@/lib/api-security';
+import { checkWordSaveQuota, resolvePlanByUserId } from '@/lib/entitlement';
 
 /**
  * Kiểm tra user có quyền trên word (qua classroom): user là owner classroom,
@@ -368,6 +369,24 @@ export async function POST(req: Request): Promise<NextResponse> {
         message: `"${word}" already in your list!`,
         wordId: existing.id,
       });
+    }
+
+    // Free: tối đa 200 từ mới/tháng (không đếm duplicate; từ cũ vẫn ôn được)
+    const plan = await resolvePlanByUserId(supabase, userId);
+    const saveQuota = await checkWordSaveQuota(supabase, userId, plan, 1);
+    if (!saveQuota.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'FREE_WORD_LIMIT',
+          message: `Gói Free lưu tối đa ${saveQuota.limit ?? 200} từ mới/tháng. Nâng Pro để lưu không giới hạn.`,
+          used: saveQuota.used,
+          limit: saveQuota.limit,
+          remaining: saveQuota.remaining,
+          upgradeTo: saveQuota.upgradeTo ?? 'pro',
+        },
+        { status: 403 },
+      );
     }
 
     // ── Stage 1: Fast Dictionary Lookup (Skip if already provided by Extension/Spreadsheet) ──

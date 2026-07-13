@@ -86,6 +86,7 @@ const PLAN_OPTIONS: readonly PlanOption[] = [
 
 const FREE_FEATURES: readonly string[] = [
   'Flashcard và SRS cơ bản',
+  'Lưu 200 từ mới mỗi tháng',
   'Lộ trình có sẵn để học',
   'Tra từ AI giới hạn 5 lượt/ngày',
   'Vào lớp học bằng mã mời',

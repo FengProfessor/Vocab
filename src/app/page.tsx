@@ -119,7 +119,7 @@ const FAQS = [
   },
   {
     q: 'Có miễn phí không?',
-    a: 'Có gói Free: flashcard FSRS, lộ trình sẵn và tra từ AI giới hạn. Nâng Pro khi cần không giới hạn.',
+    a: 'Có gói Free: flashcard FSRS, lưu 200 từ mới/tháng, lộ trình sẵn và tra từ AI 5 lượt/ngày. Nâng Pro khi cần không giới hạn.',
   },
   {
     q: 'LingoPro khác Anki ở điểm nào?',
@@ -584,8 +584,8 @@ export default function LandingPage() {
                 <ul className="mt-6 space-y-2.5 text-sm font-semibold text-[#4f3f35]">
                   {[
                     'Flashcard FSRS',
+                    'Lưu 200 từ mới/tháng',
                     'Lộ trình từ vựng sẵn',
-                    'Ngữ pháp hệ thống',
                     'Tra từ AI: 5 lượt/ngày',
                   ].map((item) => (
                     <li key={item} className="flex gap-2">

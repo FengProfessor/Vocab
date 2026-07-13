@@ -23,6 +23,18 @@ export const ENTITLEMENT_ENFORCED = process.env.ENTITLEMENT_ENFORCED === 'true';
 /** Quota lượt AI/ngày cho gói Free (chỉ áp khi ENTITLEMENT_ENFORCED). */
 export const FREE_AI_DAILY_LIMIT = 5;
 
+/**
+ * Số từ MỚI free được lưu/tháng (calendar month, UTC).
+ * Chỉ chặn lưu mới (POST /api/words); từ đã lưu vẫn ôn FSRS bình thường.
+ * Catalog pack import không đếm vào quota này (free value = lộ trình sẵn).
+ */
+export const FREE_WORD_SAVE_MONTHLY_LIMIT = 200;
+
+/** ISO start of current UTC calendar month. */
+export function startOfUtcMonth(d: Date = new Date()): string {
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1, 0, 0, 0, 0)).toISOString();
+}
+
 /** Số ngày còn lại trước khi gói hết hạn. <0 = đã hết. null = free/lifetime. */
 export function getRemainingDays(expiresAt: string | null | undefined): number | null {
   if (!expiresAt) return null;
@@ -105,6 +117,24 @@ export function checkAccess(plan: Plan, feature: Feature): AccessResult {
 }
 
 /**
+ * Server-side: resolve gói hiệu lực từ userId đã auth (Bearer JWT hoặc extension token).
+ */
+export async function resolvePlanByUserId(
+  supabase: SupabaseClient,
+  userId: string,
+): Promise<Plan> {
+  const { data } = await supabase
+    .from('profiles')
+    .select('plan, plan_expires_at')
+    .eq('id', userId)
+    .maybeSingle();
+  return getEffectivePlan(
+    data?.plan as Plan | undefined,
+    data?.plan_expires_at as string | null | undefined,
+  );
+}
+
+/**
  * Server-side: resolve gói hiệu lực của user từ Bearer token.
  * Không có token / token sai → coi như 'free' (userId = null).
  */
@@ -115,12 +145,7 @@ export async function resolveUserPlan(
   if (!token) return { userId: null, plan: 'free' };
   const { data: { user } } = await supabase.auth.getUser(token);
   if (!user) return { userId: null, plan: 'free' };
-  const { data } = await supabase
-    .from('profiles')
-    .select('plan, plan_expires_at')
-    .eq('id', user.id)
-    .maybeSingle();
-  const plan = getEffectivePlan(data?.plan as Plan | undefined, data?.plan_expires_at as string | null | undefined);
+  const plan = await resolvePlanByUserId(supabase, user.id);
   return { userId: user.id, plan };
 }
 
@@ -146,4 +171,67 @@ export async function checkAndConsumeDailyAI(
   }
   const used = typeof data === 'number' ? data : 0;
   return used <= FREE_AI_DAILY_LIMIT ? { allowed: true } : { allowed: false, upgradeTo: 'pro' };
+}
+
+export interface WordSaveQuotaResult extends AccessResult {
+  /** Số từ đã lưu tháng này (free only; pro+ = 0). */
+  used?: number;
+  /** Trần free; null = unlimited. */
+  limit?: number | null;
+  remaining?: number | null;
+}
+
+/**
+ * Free: đếm từ user đã `added_by` trong tháng UTC hiện tại.
+ * Vượt FREE_WORD_SAVE_MONTHLY_LIMIT → chặn lưu mới (khi ENTITLEMENT_ENFORCED).
+ * Pro/premium / chưa enforce → always allow.
+ *
+ * @param extraToAdd số từ sắp lưu (1 = POST 1 từ). Dùng khi batch.
+ */
+export async function checkWordSaveQuota(
+  supabase: SupabaseClient,
+  userId: string | null,
+  plan: Plan,
+  extraToAdd = 1,
+): Promise<WordSaveQuotaResult> {
+  if (!ENTITLEMENT_ENFORCED) {
+    return { allowed: true, used: 0, limit: null, remaining: null };
+  }
+  if (plan !== 'free') {
+    return { allowed: true, used: 0, limit: null, remaining: null };
+  }
+  if (!userId) {
+    return { allowed: false, upgradeTo: 'pro', used: 0, limit: FREE_WORD_SAVE_MONTHLY_LIMIT, remaining: 0 };
+  }
+
+  const monthStart = startOfUtcMonth();
+  const { count, error } = await supabase
+    .from('words')
+    .select('id', { count: 'exact', head: true })
+    .eq('added_by', userId)
+    .gte('created_at', monthStart);
+
+  if (error) {
+    // Lỗi đếm → cho qua, không chặn user vì hạ tầng
+    console.warn('[Entitlement] word save count failed:', error.message);
+    return { allowed: true, used: 0, limit: FREE_WORD_SAVE_MONTHLY_LIMIT, remaining: FREE_WORD_SAVE_MONTHLY_LIMIT };
+  }
+
+  const used = count ?? 0;
+  const remaining = Math.max(0, FREE_WORD_SAVE_MONTHLY_LIMIT - used);
+  if (used + extraToAdd > FREE_WORD_SAVE_MONTHLY_LIMIT) {
+    return {
+      allowed: false,
+      upgradeTo: 'pro',
+      used,
+      limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
+      remaining,
+    };
+  }
+  return {
+    allowed: true,
+    used,
+    limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
+    remaining: remaining - extraToAdd,
+  };
 }
