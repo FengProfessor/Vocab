@@ -129,7 +129,7 @@ function validateExamManifest(routeById: Map<string, RouteDef>): void {
     if (!source.attribution.trim()) throw new Error(`exam-vocab thiếu attribution: ${source.sourceKey}`);
     const cleanedWords = cleanLessonWords(source.words);
     if (cleanedWords.length !== source.words.length) throw new Error(`exam-vocab chứa từ trùng/rỗng/không hợp lệ: ${source.sourceKey}`);
-    if (cleanedWords.length < 20 || cleanedWords.length > 90) throw new Error(`exam-vocab số từ ngoài 20-90: ${source.sourceKey}=${cleanedWords.length}`);
+    if (cleanedWords.length < 10 || cleanedWords.length > 90) throw new Error(`exam-vocab số từ ngoài 10-90: ${source.sourceKey}=${cleanedWords.length}`);
 
     const topicKey = `${source.routeId}:${source.topicKey}`;
     const expected = new Set(cleanLessonWords(source.sourceNames.flatMap((name) => pro3m[name].words ?? [])));

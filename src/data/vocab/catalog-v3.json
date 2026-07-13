@@ -10,9 +10,9 @@
   "counts": {
     "routes": 13,
     "topics": 40,
-    "subtopics": 220,
-    "packs": 754,
-    "words": 10189
+    "subtopics": 248,
+    "packs": 791,
+    "words": 10634
   },
   "routes": [
     {
@@ -437,6 +437,13 @@
         "st-e7b7995bc7fa",
         "st-0eabcd1a7555",
         "st-2df01493d07e",
+        "st-9fa68db704ae",
+        "st-a851bd0ff091",
+        "st-349d6a4cf9c7",
+        "st-dad2702ac0a7",
+        "st-ac0b251e2b09",
+        "st-d8e7aec36497",
+        "st-b490489850da",
         "st-cb1d09e505d7",
         "st-1cf8d5488fc0",
         "st-6fa84c853836",
@@ -498,7 +505,8 @@
       "subtopicIds": [
         "st-75df7cdbe347",
         "st-ea46d1b2611f",
-        "st-5714147ec801"
+        "st-5714147ec801",
+        "st-12c1e61f16d2"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -514,6 +522,9 @@
         "st-67a3bea1636b",
         "st-c54e304f5b1d",
         "st-59fae6f6f141",
+        "st-5d1e71872670",
+        "st-c7d662484f6e",
+        "st-0dfde1e13ce2",
         "st-d2b50749cec7",
         "st-df457f4af531"
       ],
@@ -676,7 +687,11 @@
         "st-d769d0814b68",
         "st-59ba3726558b",
         "st-5ec4358a6f48",
-        "st-2f74935176ed"
+        "st-2f74935176ed",
+        "st-eab1107b3559",
+        "st-021b8ecbbaf1",
+        "st-0ffc4c8c82e1",
+        "st-a41a50c76535"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -692,7 +707,15 @@
         "st-7f4a3733b49b",
         "st-550fab2fd1aa",
         "st-a1c09644b1f2",
-        "st-7a5fe5c927a0"
+        "st-7a5fe5c927a0",
+        "st-3723734a1247",
+        "st-9102459d1a6c",
+        "st-e98df714ee79",
+        "st-4633fcc12754",
+        "st-80cf77489254",
+        "st-c06a76f4c30a",
+        "st-84cabe6917e7",
+        "st-02b6170c5ac4"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -802,7 +825,12 @@
       "subtopicIds": [
         "st-95dd6b08b586",
         "st-86f699c611b7",
-        "st-ba58afa78dfd"
+        "st-ba58afa78dfd",
+        "st-4a0f67393513",
+        "st-c9c0b0f7d36a",
+        "st-5809f48595e7",
+        "st-1623e7f766ca",
+        "st-11d6536fbb8d"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -822,6 +850,58 @@
     }
   ],
   "subtopics": [
+    {
+      "id": "st-021b8ecbbaf1",
+      "topicId": "tp-c029b2cbd7",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 7: Applying & Interviewing",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-7:-applying-interviewing",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-021b8ecbbaf1-p0"
+      ],
+      "previewWords": [
+        "ability",
+        "hunter",
+        "background",
+        "call in",
+        "confidence"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-02b6170c5ac4",
+      "topicId": "tp-cc12b088fb",
+      "routeId": "hoc-thuat",
+      "title": "Phrasal Verbs Unit 8: Verbs with S - Z",
+      "sourcePackage": "pro3m",
+      "sourceName": "Phrasal Verbs Unit 8: Verbs with S - Z",
+      "contentType": "phrasal_verb",
+      "wordCount": 33,
+      "packIds": [
+        "st-02b6170c5ac4-p0",
+        "st-02b6170c5ac4-p1",
+        "st-02b6170c5ac4-p2"
+      ],
+      "previewWords": [
+        "save up",
+        "see about",
+        "see off",
+        "see through",
+        "see over"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
     {
       "id": "st-0309de5a7285",
       "topicId": "tp-95e3b28bf2",
@@ -985,6 +1065,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-0dfde1e13ce2",
+      "topicId": "tp-7a934ad2a7",
+      "routeId": "di-lam",
+      "title": "TOEIC Unit 6: Job Advertising & Recruiting",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 6: Job Advertising & Recruiting",
+      "contentType": "word",
+      "wordCount": 13,
+      "packIds": [
+        "st-0dfde1e13ce2-p0"
+      ],
+      "previewWords": [
+        "abundant",
+        "accomplish",
+        "accomplishment",
+        "bring together",
+        "candidate"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-0e81926ef959",
       "topicId": "tp-eb5ba63431",
       "routeId": "thpt-lop-12",
@@ -1038,6 +1143,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-0ffc4c8c82e1",
+      "topicId": "tp-c029b2cbd7",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 8: Hiring & Training",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-8:-hiring-training",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-0ffc4c8c82e1-p0"
+      ],
+      "previewWords": [
+        "conduct",
+        "generate",
+        "hire",
+        "keep up with",
+        "look up to"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-105c10b92c25",
       "topicId": "tp-5f78a5826b",
       "routeId": "doi-song",
@@ -1084,6 +1214,56 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-11d6536fbb8d",
+      "topicId": "tp-fa4bd905ce",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 5: Correspondence",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-5:-correspondence",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-11d6536fbb8d-p0"
+      ],
+      "previewWords": [
+        "letter",
+        "email",
+        "fax",
+        "envelope",
+        "stamp"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-12c1e61f16d2",
+      "topicId": "tp-7190624fbe",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 10: Promotions & Awards",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-10:-promotions-awards",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-12c1e61f16d2-p0"
+      ],
+      "previewWords": [
+        "achievement",
+        "contribute",
+        "dedication",
+        "look forward to",
+        "look to"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -1170,6 +1350,31 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-1623e7f766ca",
+      "topicId": "tp-fa4bd905ce",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 4: Electronics",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-4:-electronics",
+      "contentType": "word",
+      "wordCount": 13,
+      "packIds": [
+        "st-1623e7f766ca-p0"
+      ],
+      "previewWords": [
+        "electronics",
+        "disk",
+        "facilitate",
+        "network",
+        "popularity"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -1934,6 +2139,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-349d6a4cf9c7",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "TOEIC Unit 4: Electronics",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 4: Electronics",
+      "contentType": "word",
+      "wordCount": 13,
+      "packIds": [
+        "st-349d6a4cf9c7-p0"
+      ],
+      "previewWords": [
+        "electronics",
+        "disk",
+        "facilitate",
+        "network",
+        "popularity"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-350ee406d40a",
       "topicId": "tp-7a934ad2a7",
       "routeId": "di-lam",
@@ -1964,6 +2194,32 @@
         "work overtime",
         "apply for a job",
         "take on a task"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-3723734a1247",
+      "topicId": "tp-cc12b088fb",
+      "routeId": "hoc-thuat",
+      "title": "Phrasal Verbs Unit 1: Verbs with A - B",
+      "sourcePackage": "pro3m",
+      "sourceName": "Phrasal Verbs Unit 1: Verbs with A - B",
+      "contentType": "phrasal_verb",
+      "wordCount": 25,
+      "packIds": [
+        "st-3723734a1247-p0",
+        "st-3723734a1247-p1"
+      ],
+      "previewWords": [
+        "account for",
+        "allow for",
+        "ask after",
+        "ask for",
+        "agree on"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2239,6 +2495,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-4633fcc12754",
+      "topicId": "tp-cc12b088fb",
+      "routeId": "hoc-thuat",
+      "title": "Phrasal Verbs Unit 4: Verbs with F - G",
+      "sourcePackage": "pro3m",
+      "sourceName": "Phrasal Verbs Unit 4: Verbs with F - G",
+      "contentType": "phrasal_verb",
+      "wordCount": 25,
+      "packIds": [
+        "st-4633fcc12754-p0",
+        "st-4633fcc12754-p1"
+      ],
+      "previewWords": [
+        "face up to",
+        "fall back on",
+        "fall behind",
+        "fall through",
+        "fall off"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-49fe4f58fae1",
       "topicId": "tp-63e89bc3a4",
       "routeId": "extended",
@@ -2269,6 +2551,31 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-4a0f67393513",
+      "topicId": "tp-fa4bd905ce",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 1: Computers & Internet",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-1:-computers-internet",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-4a0f67393513-p0"
+      ],
+      "previewWords": [
+        "access",
+        "allocate",
+        "compatible",
+        "delete",
+        "display"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -2689,6 +2996,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-5809f48595e7",
+      "topicId": "tp-fa4bd905ce",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 3: Office Procedures",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-3:-office-procedures",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-5809f48595e7-p0"
+      ],
+      "previewWords": [
+        "appreciation",
+        "be made of",
+        "bring in",
+        "casually",
+        "code"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-587462512860",
       "topicId": "tp-13fd944d94",
       "routeId": "ielts",
@@ -2852,6 +3184,31 @@
         "bright-eyed and bushy-tailed",
         "cause a stir",
         "champ at the bit"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-5d1e71872670",
+      "topicId": "tp-7a934ad2a7",
+      "routeId": "di-lam",
+      "title": "TOEIC Unit 2: Office Technology",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 2: Office Technology",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-5d1e71872670-p0"
+      ],
+      "previewWords": [
+        "affordable",
+        "as needed",
+        "be in charge of",
+        "capacity",
+        "durable"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -3702,6 +4059,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-80cf77489254",
+      "topicId": "tp-cc12b088fb",
+      "routeId": "hoc-thuat",
+      "title": "Phrasal Verbs Unit 5: Verbs with H - K",
+      "sourcePackage": "pro3m",
+      "sourceName": "Phrasal Verbs Unit 5: Verbs with H - K",
+      "contentType": "phrasal_verb",
+      "wordCount": 25,
+      "packIds": [
+        "st-80cf77489254-p0",
+        "st-80cf77489254-p1"
+      ],
+      "previewWords": [
+        "hand down to",
+        "hand in",
+        "hand back",
+        "hand over",
+        "hand out"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-81bc6676876c",
       "topicId": "tp-f06a497f6f",
       "routeId": "suc-khoe",
@@ -3817,6 +4200,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-84cabe6917e7",
+      "topicId": "tp-cc12b088fb",
+      "routeId": "hoc-thuat",
+      "title": "Phrasal Verbs Unit 7: Verbs with P - R",
+      "sourcePackage": "pro3m",
+      "sourceName": "Phrasal Verbs Unit 7: Verbs with P - R",
+      "contentType": "phrasal_verb",
+      "wordCount": 25,
+      "packIds": [
+        "st-84cabe6917e7-p0",
+        "st-84cabe6917e7-p1"
+      ],
+      "previewWords": [
+        "pass away",
+        "pass by",
+        "pass on to",
+        "pass out",
+        "pay sb back"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-86b9261ccfb5",
       "topicId": "tp-63e89bc3a4",
       "routeId": "extended",
@@ -3920,6 +4329,32 @@
         "at some point",
         "at one point",
         "at no point"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-9102459d1a6c",
+      "topicId": "tp-cc12b088fb",
+      "routeId": "hoc-thuat",
+      "title": "Phrasal Verbs Unit 2: Verbs with C",
+      "sourcePackage": "pro3m",
+      "sourceName": "Phrasal Verbs Unit 2: Verbs with C",
+      "contentType": "phrasal_verb",
+      "wordCount": 25,
+      "packIds": [
+        "st-9102459d1a6c-p0",
+        "st-9102459d1a6c-p1"
+      ],
+      "previewWords": [
+        "call for",
+        "call up",
+        "call on",
+        "call off",
+        "care for"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -4260,6 +4695,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-9fa68db704ae",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "TOEIC Unit 1: Computers & Internet",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 1: Computers & Internet",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-9fa68db704ae-p0"
+      ],
+      "previewWords": [
+        "access",
+        "allocate",
+        "compatible",
+        "delete",
+        "display"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-a02f582937b5",
       "topicId": "tp-5328f6eb82",
       "routeId": "ielts",
@@ -4340,6 +4800,31 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-a41a50c76535",
+      "topicId": "tp-c029b2cbd7",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 9: Salaries & Benefits",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-9:-salaries-benefits",
+      "contentType": "word",
+      "wordCount": 10,
+      "packIds": [
+        "st-a41a50c76535-p0"
+      ],
+      "previewWords": [
+        "basis",
+        "be aware of",
+        "benefit",
+        "compensate",
+        "delicately"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -4508,6 +4993,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-a851bd0ff091",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "TOEIC Unit 10: Promotions & Awards",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 10: Promotions & Awards",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-a851bd0ff091-p0"
+      ],
+      "previewWords": [
+        "achievement",
+        "contribute",
+        "dedication",
+        "look forward to",
+        "look to"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-a8f51e97eddb",
       "topicId": "tp-9d1303f771",
       "routeId": "thpt-lop-10",
@@ -4616,6 +5126,31 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-ac0b251e2b09",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "TOEIC Unit 7: Applying & Interviewing",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 7: Applying & Interviewing",
+      "contentType": "word",
+      "wordCount": 13,
+      "packIds": [
+        "st-ac0b251e2b09-p0"
+      ],
+      "previewWords": [
+        "ability",
+        "apply",
+        "hunter",
+        "background",
+        "call in"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -4796,6 +5331,31 @@
         "solar energy",
         "urban",
         "infrastructure"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-b490489850da",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "TOEIC Unit 9: Salaries & Benefits",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 9: Salaries & Benefits",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-b490489850da-p0"
+      ],
+      "previewWords": [
+        "basis",
+        "be aware of",
+        "benefit",
+        "compensate",
+        "delicately"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5188,6 +5748,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-c06a76f4c30a",
+      "topicId": "tp-cc12b088fb",
+      "routeId": "hoc-thuat",
+      "title": "Phrasal Verbs Unit 6: Verbs with L - M",
+      "sourcePackage": "pro3m",
+      "sourceName": "Phrasal Verbs Unit 6: Verbs with L - M",
+      "contentType": "phrasal_verb",
+      "wordCount": 25,
+      "packIds": [
+        "st-c06a76f4c30a-p0",
+        "st-c06a76f4c30a-p1"
+      ],
+      "previewWords": [
+        "lay down",
+        "lay out",
+        "leave out",
+        "let sb down",
+        "let sb off"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-c113d4f118d1",
       "topicId": "tp-901f19ba64",
       "routeId": "ielts",
@@ -5380,6 +5966,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-c7d662484f6e",
+      "topicId": "tp-7a934ad2a7",
+      "routeId": "di-lam",
+      "title": "TOEIC Unit 3: Office Procedures",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 3: Office Procedures",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-c7d662484f6e-p0"
+      ],
+      "previewWords": [
+        "appreciation",
+        "be made of",
+        "bring in",
+        "casually",
+        "code"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-c8dd61915ec2",
       "topicId": "tp-0ea6d77d9c",
       "routeId": "ielts",
@@ -5402,6 +6013,31 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Tổng hợp từ 150 Collocations trong IELTS - IELTS LangGo.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-c9c0b0f7d36a",
+      "topicId": "tp-fa4bd905ce",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 2: Office Technology",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-2:-office-technology",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-c9c0b0f7d36a-p0"
+      ],
+      "previewWords": [
+        "affordable",
+        "as needed",
+        "be in charge of",
+        "capacity",
+        "durable"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -5784,6 +6420,56 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-d8e7aec36497",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "TOEIC Unit 8: Hiring & Training",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 8: Hiring & Training",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-d8e7aec36497-p0"
+      ],
+      "previewWords": [
+        "conduct",
+        "generate",
+        "hire",
+        "keep up with",
+        "look up to"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-dad2702ac0a7",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "TOEIC Unit 5: Correspondence",
+      "sourcePackage": "pro3m",
+      "sourceName": "TOEIC Unit 5: Correspondence",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-dad2702ac0a7-p0"
+      ],
+      "previewWords": [
+        "letter",
+        "email",
+        "fax",
+        "envelope",
+        "stamp"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-db7787575149",
       "topicId": "tp-a0358154bf",
       "routeId": "du-lich",
@@ -6142,6 +6828,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-e98df714ee79",
+      "topicId": "tp-cc12b088fb",
+      "routeId": "hoc-thuat",
+      "title": "Phrasal Verbs Unit 3: Verbs with D - E",
+      "sourcePackage": "pro3m",
+      "sourceName": "Phrasal Verbs Unit 3: Verbs with D - E",
+      "contentType": "phrasal_verb",
+      "wordCount": 21,
+      "packIds": [
+        "st-e98df714ee79-p0",
+        "st-e98df714ee79-p1"
+      ],
+      "previewWords": [
+        "delight in",
+        "depart from",
+        "do with",
+        "do for a thing",
+        "die away"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-e9b1d123831d",
       "topicId": "tp-56648ca5ac",
       "routeId": "di-lam",
@@ -6192,6 +6904,31 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-eab1107b3559",
+      "topicId": "tp-c029b2cbd7",
+      "routeId": "toeic",
+      "title": "TOEIC Unit 6: Job Advertising & Recruiting",
+      "sourcePackage": "exam-toeic",
+      "sourceName": "toeic-unit-6:-job-advertising-recruiting",
+      "contentType": "word",
+      "wordCount": 11,
+      "packIds": [
+        "st-eab1107b3559-p0"
+      ],
+      "previewWords": [
+        "abundant",
+        "accomplish",
+        "accomplishment",
+        "bring together",
+        "candidate"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Tổng hợp từ 50+ nhóm từ vựng TOEIC theo chủ đề thông dụng - Vietop English.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -6858,6 +7595,222 @@
     }
   ],
   "packs": [
+    {
+      "id": "st-021b8ecbbaf1-p0",
+      "subtopicId": "st-021b8ecbbaf1",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "ability",
+          "contentType": "word"
+        },
+        {
+          "word": "hunter",
+          "contentType": "word"
+        },
+        {
+          "word": "background",
+          "contentType": "word"
+        },
+        {
+          "word": "call in",
+          "contentType": "phrase"
+        },
+        {
+          "word": "confidence",
+          "contentType": "word"
+        },
+        {
+          "word": "constantly",
+          "contentType": "word"
+        },
+        {
+          "word": "expert",
+          "contentType": "word"
+        },
+        {
+          "word": "hesitant",
+          "contentType": "word"
+        },
+        {
+          "word": "present",
+          "contentType": "word"
+        },
+        {
+          "word": "weakness",
+          "contentType": "word"
+        },
+        {
+          "word": "follow up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "be ready for",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-02b6170c5ac4-p0",
+      "subtopicId": "st-02b6170c5ac4",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "save up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "see about",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "see off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "see through",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "see over",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "send for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "send back",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "set out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "set off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "set in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "set up",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-02b6170c5ac4-p1",
+      "subtopicId": "st-02b6170c5ac4",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "set back",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "settle down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "show off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "show up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "shop round",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "shut down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "shut up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "sit round",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "sit up for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "slow down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "stand by",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-02b6170c5ac4-p2",
+      "subtopicId": "st-02b6170c5ac4",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "stand out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "stand for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "stand in for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "take away from",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "take after",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "take sb / st back to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "take down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "take in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "take on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "take off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "urge sb into/ out of",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
     {
       "id": "st-0309de5a7285-p0",
       "subtopicId": "st-0309de5a7285",
@@ -7957,6 +8910,67 @@
       ]
     },
     {
+      "id": "st-0dfde1e13ce2-p0",
+      "subtopicId": "st-0dfde1e13ce2",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "abundant",
+          "contentType": "word"
+        },
+        {
+          "word": "accomplish",
+          "contentType": "word"
+        },
+        {
+          "word": "accomplishment",
+          "contentType": "word"
+        },
+        {
+          "word": "bring together",
+          "contentType": "phrase"
+        },
+        {
+          "word": "candidate",
+          "contentType": "word"
+        },
+        {
+          "word": "come up with",
+          "contentType": "phrase"
+        },
+        {
+          "word": "commensurate",
+          "contentType": "word"
+        },
+        {
+          "word": "match",
+          "contentType": "word"
+        },
+        {
+          "word": "profile",
+          "contentType": "word"
+        },
+        {
+          "word": "qualification",
+          "contentType": "word"
+        },
+        {
+          "word": "recruit",
+          "contentType": "word"
+        },
+        {
+          "word": "submit",
+          "contentType": "word"
+        },
+        {
+          "word": "time-consuming",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-0e81926ef959-p0",
       "subtopicId": "st-0e81926ef959",
       "index": 0,
@@ -8250,6 +9264,63 @@
       ]
     },
     {
+      "id": "st-0ffc4c8c82e1-p0",
+      "subtopicId": "st-0ffc4c8c82e1",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "conduct",
+          "contentType": "word"
+        },
+        {
+          "word": "generate",
+          "contentType": "word"
+        },
+        {
+          "word": "hire",
+          "contentType": "word"
+        },
+        {
+          "word": "keep up with",
+          "contentType": "phrase"
+        },
+        {
+          "word": "look up to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mentor",
+          "contentType": "word"
+        },
+        {
+          "word": "on track",
+          "contentType": "phrase"
+        },
+        {
+          "word": "reject",
+          "contentType": "word"
+        },
+        {
+          "word": "set up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "success",
+          "contentType": "word"
+        },
+        {
+          "word": "training",
+          "contentType": "word"
+        },
+        {
+          "word": "update",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-105c10b92c25-p0",
       "subtopicId": "st-105c10b92c25",
       "index": 0,
@@ -8372,6 +9443,120 @@
         {
           "word": "donate money",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-11d6536fbb8d-p0",
+      "subtopicId": "st-11d6536fbb8d",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "letter",
+          "contentType": "word"
+        },
+        {
+          "word": "email",
+          "contentType": "word"
+        },
+        {
+          "word": "fax",
+          "contentType": "word"
+        },
+        {
+          "word": "envelope",
+          "contentType": "word"
+        },
+        {
+          "word": "stamp",
+          "contentType": "word"
+        },
+        {
+          "word": "postage",
+          "contentType": "word"
+        },
+        {
+          "word": "sender",
+          "contentType": "word"
+        },
+        {
+          "word": "recipient",
+          "contentType": "word"
+        },
+        {
+          "word": "mailing address",
+          "contentType": "phrase"
+        },
+        {
+          "word": "return address",
+          "contentType": "phrase"
+        },
+        {
+          "word": "subject line",
+          "contentType": "phrase"
+        },
+        {
+          "word": "attachment",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-12c1e61f16d2-p0",
+      "subtopicId": "st-12c1e61f16d2",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "achievement",
+          "contentType": "word"
+        },
+        {
+          "word": "contribute",
+          "contentType": "word"
+        },
+        {
+          "word": "dedication",
+          "contentType": "word"
+        },
+        {
+          "word": "look forward to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "look to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "loyal",
+          "contentType": "word"
+        },
+        {
+          "word": "merit",
+          "contentType": "word"
+        },
+        {
+          "word": "obvious",
+          "contentType": "word"
+        },
+        {
+          "word": "productive",
+          "contentType": "word"
+        },
+        {
+          "word": "promote",
+          "contentType": "word"
+        },
+        {
+          "word": "recognition",
+          "contentType": "word"
+        },
+        {
+          "word": "value",
+          "contentType": "word"
         }
       ]
     },
@@ -9310,6 +10495,67 @@
         {
           "word": "a waste of time",
           "contentType": "idiom"
+        }
+      ]
+    },
+    {
+      "id": "st-1623e7f766ca-p0",
+      "subtopicId": "st-1623e7f766ca",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "electronics",
+          "contentType": "word"
+        },
+        {
+          "word": "disk",
+          "contentType": "word"
+        },
+        {
+          "word": "facilitate",
+          "contentType": "word"
+        },
+        {
+          "word": "network",
+          "contentType": "word"
+        },
+        {
+          "word": "popularity",
+          "contentType": "word"
+        },
+        {
+          "word": "process",
+          "contentType": "word"
+        },
+        {
+          "word": "replace",
+          "contentType": "word"
+        },
+        {
+          "word": "revolution",
+          "contentType": "word"
+        },
+        {
+          "word": "sharp",
+          "contentType": "word"
+        },
+        {
+          "word": "skill",
+          "contentType": "word"
+        },
+        {
+          "word": "software",
+          "contentType": "word"
+        },
+        {
+          "word": "store",
+          "contentType": "word"
+        },
+        {
+          "word": "technical",
+          "contentType": "word"
         }
       ]
     },
@@ -14842,6 +16088,67 @@
       ]
     },
     {
+      "id": "st-349d6a4cf9c7-p0",
+      "subtopicId": "st-349d6a4cf9c7",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "electronics",
+          "contentType": "word"
+        },
+        {
+          "word": "disk",
+          "contentType": "word"
+        },
+        {
+          "word": "facilitate",
+          "contentType": "word"
+        },
+        {
+          "word": "network",
+          "contentType": "word"
+        },
+        {
+          "word": "popularity",
+          "contentType": "word"
+        },
+        {
+          "word": "process",
+          "contentType": "word"
+        },
+        {
+          "word": "replace",
+          "contentType": "word"
+        },
+        {
+          "word": "revolution",
+          "contentType": "word"
+        },
+        {
+          "word": "sharp",
+          "contentType": "word"
+        },
+        {
+          "word": "skill",
+          "contentType": "word"
+        },
+        {
+          "word": "software",
+          "contentType": "word"
+        },
+        {
+          "word": "store",
+          "contentType": "word"
+        },
+        {
+          "word": "technical",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-350ee406d40a-p0",
       "subtopicId": "st-350ee406d40a",
       "index": 0,
@@ -15764,6 +17071,124 @@
         {
           "word": "augment staff",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-3723734a1247-p0",
+      "subtopicId": "st-3723734a1247",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "account for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "allow for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "ask after",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "ask for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "agree on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "agree with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "answer for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "attend to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "be over",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "be up to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "bear up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "bear out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "blow out",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-3723734a1247-p1",
+      "subtopicId": "st-3723734a1247",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "blow down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "blow over",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "break away",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "break down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "break in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "break up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "break off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "bring about",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "bring down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "bring out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "bring up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "back up",
+          "contentType": "phrasal_verb"
         }
       ]
     },
@@ -17411,6 +18836,124 @@
       ]
     },
     {
+      "id": "st-4633fcc12754-p0",
+      "subtopicId": "st-4633fcc12754",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "face up to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fall back on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fall behind",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fall through",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fall off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fall down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fill in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fill up with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fill out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "fill in for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "find out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get through to sb",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get through",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-4633fcc12754-p1",
+      "subtopicId": "st-4633fcc12754",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "get into",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get out of",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get sb down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get down to doing",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get along with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get st across",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "get over",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "give up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "go on",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
       "id": "st-49fe4f58fae1-p0",
       "subtopicId": "st-49fe4f58fae1",
       "index": 0,
@@ -18097,6 +19640,63 @@
         {
           "word": "night owl",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-4a0f67393513-p0",
+      "subtopicId": "st-4a0f67393513",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "access",
+          "contentType": "word"
+        },
+        {
+          "word": "allocate",
+          "contentType": "word"
+        },
+        {
+          "word": "compatible",
+          "contentType": "word"
+        },
+        {
+          "word": "delete",
+          "contentType": "word"
+        },
+        {
+          "word": "display",
+          "contentType": "word"
+        },
+        {
+          "word": "duplicate",
+          "contentType": "word"
+        },
+        {
+          "word": "failure",
+          "contentType": "word"
+        },
+        {
+          "word": "figure out",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ignore",
+          "contentType": "word"
+        },
+        {
+          "word": "search",
+          "contentType": "word"
+        },
+        {
+          "word": "shutdown",
+          "contentType": "word"
+        },
+        {
+          "word": "warning",
+          "contentType": "word"
         }
       ]
     },
@@ -21665,6 +23265,63 @@
       ]
     },
     {
+      "id": "st-5809f48595e7-p0",
+      "subtopicId": "st-5809f48595e7",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "appreciation",
+          "contentType": "word"
+        },
+        {
+          "word": "be made of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bring in",
+          "contentType": "phrase"
+        },
+        {
+          "word": "casually",
+          "contentType": "word"
+        },
+        {
+          "word": "code",
+          "contentType": "word"
+        },
+        {
+          "word": "expose",
+          "contentType": "word"
+        },
+        {
+          "word": "glimpse",
+          "contentType": "word"
+        },
+        {
+          "word": "out of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "outdated",
+          "contentType": "word"
+        },
+        {
+          "word": "practice",
+          "contentType": "word"
+        },
+        {
+          "word": "reinforce",
+          "contentType": "word"
+        },
+        {
+          "word": "verbally",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-587462512860-p0",
       "subtopicId": "st-587462512860",
       "index": 0,
@@ -23396,6 +25053,63 @@
         {
           "word": "run out of steam",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-5d1e71872670-p0",
+      "subtopicId": "st-5d1e71872670",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "affordable",
+          "contentType": "word"
+        },
+        {
+          "word": "as needed",
+          "contentType": "phrase"
+        },
+        {
+          "word": "be in charge of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "capacity",
+          "contentType": "word"
+        },
+        {
+          "word": "durable",
+          "contentType": "word"
+        },
+        {
+          "word": "initiative",
+          "contentType": "word"
+        },
+        {
+          "word": "physically",
+          "contentType": "word"
+        },
+        {
+          "word": "provider",
+          "contentType": "word"
+        },
+        {
+          "word": "recur",
+          "contentType": "word"
+        },
+        {
+          "word": "reduction",
+          "contentType": "word"
+        },
+        {
+          "word": "stay on top of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "stock",
+          "contentType": "word"
         }
       ]
     },
@@ -29390,6 +31104,124 @@
       ]
     },
     {
+      "id": "st-80cf77489254-p0",
+      "subtopicId": "st-80cf77489254",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "hand down to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hand in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hand back",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hand over",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hand out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hang round",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hang on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hang up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hang out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hold on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hold back",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "hold up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "jump at a chance",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-80cf77489254-p1",
+      "subtopicId": "st-80cf77489254",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "jump at a conclusion",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "jump at an order",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "jump for joy",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "jump into",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "jump out of",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "keep away from",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "keep out of",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "keep sb from",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "keep up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "keep up with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "keep on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "knock down",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
       "id": "st-81bc6676876c-p0",
       "subtopicId": "st-81bc6676876c",
       "index": 0,
@@ -30605,6 +32437,124 @@
       ]
     },
     {
+      "id": "st-84cabe6917e7-p0",
+      "subtopicId": "st-84cabe6917e7",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "pass away",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "pass by",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "pass on to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "pass out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "pay sb back",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "pay up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "point out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "pull back",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "pull down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "pull over",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "put st aside",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "put st away",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "put through to sb",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-84cabe6917e7-p1",
+      "subtopicId": "st-84cabe6917e7",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "put down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "put on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "put up with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "put out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "put off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "run after",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "run away",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "run out of",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "run over",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "run back",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "run down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "run into",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
       "id": "st-86b9261ccfb5-p0",
       "subtopicId": "st-86b9261ccfb5",
       "index": 0,
@@ -31528,6 +33478,124 @@
         {
           "word": "what's the point",
           "contentType": "idiom"
+        }
+      ]
+    },
+    {
+      "id": "st-9102459d1a6c-p0",
+      "subtopicId": "st-9102459d1a6c",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "call for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "call up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "call on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "call off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "care for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "catch up with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "chance upon",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "close with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "close about",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "come to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "consign to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "cry for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "carry away",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-9102459d1a6c-p1",
+      "subtopicId": "st-9102459d1a6c",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "carry on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "carry out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "carry off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "check in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "check out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "chew over",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "clean up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "clear up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "close down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "come across",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "come up with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "cut down on",
+          "contentType": "phrasal_verb"
         }
       ]
     },
@@ -34288,6 +36356,63 @@
       ]
     },
     {
+      "id": "st-9fa68db704ae-p0",
+      "subtopicId": "st-9fa68db704ae",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "access",
+          "contentType": "word"
+        },
+        {
+          "word": "allocate",
+          "contentType": "word"
+        },
+        {
+          "word": "compatible",
+          "contentType": "word"
+        },
+        {
+          "word": "delete",
+          "contentType": "word"
+        },
+        {
+          "word": "display",
+          "contentType": "word"
+        },
+        {
+          "word": "duplicate",
+          "contentType": "word"
+        },
+        {
+          "word": "failure",
+          "contentType": "word"
+        },
+        {
+          "word": "figure out",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ignore",
+          "contentType": "word"
+        },
+        {
+          "word": "search",
+          "contentType": "word"
+        },
+        {
+          "word": "shutdown",
+          "contentType": "word"
+        },
+        {
+          "word": "warning",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-a02f582937b5-p0",
       "subtopicId": "st-a02f582937b5",
       "index": 0,
@@ -35020,6 +37145,55 @@
         {
           "word": "round up",
           "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-a41a50c76535-p0",
+      "subtopicId": "st-a41a50c76535",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "basis",
+          "contentType": "word"
+        },
+        {
+          "word": "be aware of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "benefit",
+          "contentType": "word"
+        },
+        {
+          "word": "compensate",
+          "contentType": "word"
+        },
+        {
+          "word": "delicately",
+          "contentType": "word"
+        },
+        {
+          "word": "eligible",
+          "contentType": "word"
+        },
+        {
+          "word": "flexible",
+          "contentType": "word"
+        },
+        {
+          "word": "raise",
+          "contentType": "word"
+        },
+        {
+          "word": "retire",
+          "contentType": "word"
+        },
+        {
+          "word": "vest",
+          "contentType": "word"
         }
       ]
     },
@@ -36260,6 +38434,63 @@
       ]
     },
     {
+      "id": "st-a851bd0ff091-p0",
+      "subtopicId": "st-a851bd0ff091",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "achievement",
+          "contentType": "word"
+        },
+        {
+          "word": "contribute",
+          "contentType": "word"
+        },
+        {
+          "word": "dedication",
+          "contentType": "word"
+        },
+        {
+          "word": "look forward to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "look to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "loyal",
+          "contentType": "word"
+        },
+        {
+          "word": "merit",
+          "contentType": "word"
+        },
+        {
+          "word": "obvious",
+          "contentType": "word"
+        },
+        {
+          "word": "productive",
+          "contentType": "word"
+        },
+        {
+          "word": "promote",
+          "contentType": "word"
+        },
+        {
+          "word": "recognition",
+          "contentType": "word"
+        },
+        {
+          "word": "value",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-a8f51e97eddb-p0",
       "subtopicId": "st-a8f51e97eddb",
       "index": 0,
@@ -37260,6 +39491,67 @@
       ]
     },
     {
+      "id": "st-ac0b251e2b09-p0",
+      "subtopicId": "st-ac0b251e2b09",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "ability",
+          "contentType": "word"
+        },
+        {
+          "word": "apply",
+          "contentType": "word"
+        },
+        {
+          "word": "hunter",
+          "contentType": "word"
+        },
+        {
+          "word": "background",
+          "contentType": "word"
+        },
+        {
+          "word": "call in",
+          "contentType": "phrase"
+        },
+        {
+          "word": "confidence",
+          "contentType": "word"
+        },
+        {
+          "word": "constantly",
+          "contentType": "word"
+        },
+        {
+          "word": "expert",
+          "contentType": "word"
+        },
+        {
+          "word": "hesitant",
+          "contentType": "word"
+        },
+        {
+          "word": "present",
+          "contentType": "word"
+        },
+        {
+          "word": "weakness",
+          "contentType": "word"
+        },
+        {
+          "word": "follow up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "be ready for",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-ac190da5560c-p0",
       "subtopicId": "st-ac190da5560c",
       "index": 0,
@@ -38219,6 +40511,63 @@
         },
         {
           "word": "paradise",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-b490489850da-p0",
+      "subtopicId": "st-b490489850da",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "basis",
+          "contentType": "word"
+        },
+        {
+          "word": "be aware of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "benefit",
+          "contentType": "word"
+        },
+        {
+          "word": "compensate",
+          "contentType": "word"
+        },
+        {
+          "word": "delicately",
+          "contentType": "word"
+        },
+        {
+          "word": "eligible",
+          "contentType": "word"
+        },
+        {
+          "word": "flexible",
+          "contentType": "word"
+        },
+        {
+          "word": "negotiate",
+          "contentType": "word"
+        },
+        {
+          "word": "raise",
+          "contentType": "word"
+        },
+        {
+          "word": "retire",
+          "contentType": "word"
+        },
+        {
+          "word": "vest",
+          "contentType": "word"
+        },
+        {
+          "word": "wage",
           "contentType": "word"
         }
       ]
@@ -41244,6 +43593,124 @@
       ]
     },
     {
+      "id": "st-c06a76f4c30a-p0",
+      "subtopicId": "st-c06a76f4c30a",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "lay down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "lay out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "leave out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "let sb down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "let sb off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "lie down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "live up to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "live on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "look after",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "look back on",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "look for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "look forward to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "look into",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-c06a76f4c30a-p1",
+      "subtopicId": "st-c06a76f4c30a",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "make up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "make out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "make up for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "make the way to",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "mix out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "miss out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "move away",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "move out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "move in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "mistake sb for sb else",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "look out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "look up to",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
       "id": "st-c113d4f118d1-p0",
       "subtopicId": "st-c113d4f118d1",
       "index": 0,
@@ -42784,6 +45251,63 @@
       ]
     },
     {
+      "id": "st-c7d662484f6e-p0",
+      "subtopicId": "st-c7d662484f6e",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "appreciation",
+          "contentType": "word"
+        },
+        {
+          "word": "be made of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bring in",
+          "contentType": "phrase"
+        },
+        {
+          "word": "casually",
+          "contentType": "word"
+        },
+        {
+          "word": "code",
+          "contentType": "word"
+        },
+        {
+          "word": "expose",
+          "contentType": "word"
+        },
+        {
+          "word": "glimpse",
+          "contentType": "word"
+        },
+        {
+          "word": "out of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "outdated",
+          "contentType": "word"
+        },
+        {
+          "word": "practice",
+          "contentType": "word"
+        },
+        {
+          "word": "reinforce",
+          "contentType": "word"
+        },
+        {
+          "word": "verbally",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-c8dd61915ec2-p0",
       "subtopicId": "st-c8dd61915ec2",
       "index": 0,
@@ -42914,6 +45438,63 @@
         {
           "word": "virtual collaboration tools",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-c9c0b0f7d36a-p0",
+      "subtopicId": "st-c9c0b0f7d36a",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "affordable",
+          "contentType": "word"
+        },
+        {
+          "word": "as needed",
+          "contentType": "phrase"
+        },
+        {
+          "word": "be in charge of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "capacity",
+          "contentType": "word"
+        },
+        {
+          "word": "durable",
+          "contentType": "word"
+        },
+        {
+          "word": "initiative",
+          "contentType": "word"
+        },
+        {
+          "word": "physically",
+          "contentType": "word"
+        },
+        {
+          "word": "provider",
+          "contentType": "word"
+        },
+        {
+          "word": "recur",
+          "contentType": "word"
+        },
+        {
+          "word": "reduction",
+          "contentType": "word"
+        },
+        {
+          "word": "stay on top of",
+          "contentType": "phrase"
+        },
+        {
+          "word": "stock",
+          "contentType": "word"
         }
       ]
     },
@@ -45588,6 +48169,120 @@
         {
           "word": "national costume",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-d8e7aec36497-p0",
+      "subtopicId": "st-d8e7aec36497",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "conduct",
+          "contentType": "word"
+        },
+        {
+          "word": "generate",
+          "contentType": "word"
+        },
+        {
+          "word": "hire",
+          "contentType": "word"
+        },
+        {
+          "word": "keep up with",
+          "contentType": "phrase"
+        },
+        {
+          "word": "look up to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mentor",
+          "contentType": "word"
+        },
+        {
+          "word": "on track",
+          "contentType": "phrase"
+        },
+        {
+          "word": "reject",
+          "contentType": "word"
+        },
+        {
+          "word": "set up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "success",
+          "contentType": "word"
+        },
+        {
+          "word": "training",
+          "contentType": "word"
+        },
+        {
+          "word": "update",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-dad2702ac0a7-p0",
+      "subtopicId": "st-dad2702ac0a7",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "letter",
+          "contentType": "word"
+        },
+        {
+          "word": "email",
+          "contentType": "word"
+        },
+        {
+          "word": "fax",
+          "contentType": "word"
+        },
+        {
+          "word": "envelope",
+          "contentType": "word"
+        },
+        {
+          "word": "stamp",
+          "contentType": "word"
+        },
+        {
+          "word": "postage",
+          "contentType": "word"
+        },
+        {
+          "word": "sender",
+          "contentType": "word"
+        },
+        {
+          "word": "recipient",
+          "contentType": "word"
+        },
+        {
+          "word": "mailing address",
+          "contentType": "phrase"
+        },
+        {
+          "word": "return address",
+          "contentType": "phrase"
+        },
+        {
+          "word": "subject line",
+          "contentType": "phrase"
+        },
+        {
+          "word": "attachment",
+          "contentType": "word"
         }
       ]
     },
@@ -48498,6 +51193,108 @@
       ]
     },
     {
+      "id": "st-e98df714ee79-p0",
+      "subtopicId": "st-e98df714ee79",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "delight in",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "depart from",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "do with",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "do for a thing",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "die away",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "die down",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "die out",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "die off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "die for",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "die of",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "do away with",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-e98df714ee79-p1",
+      "subtopicId": "st-e98df714ee79",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "do up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "do without",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "draw back",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "drive at",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "drop in at",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "drop off",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "drop out of school",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "end up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "eat up",
+          "contentType": "phrasal_verb"
+        },
+        {
+          "word": "eat out",
+          "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
       "id": "st-e9b1d123831d-p0",
       "subtopicId": "st-e9b1d123831d",
       "index": 0,
@@ -48872,6 +51669,59 @@
         {
           "word": "hang on by the fingernails",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-eab1107b3559-p0",
+      "subtopicId": "st-eab1107b3559",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "abundant",
+          "contentType": "word"
+        },
+        {
+          "word": "accomplish",
+          "contentType": "word"
+        },
+        {
+          "word": "accomplishment",
+          "contentType": "word"
+        },
+        {
+          "word": "bring together",
+          "contentType": "phrase"
+        },
+        {
+          "word": "candidate",
+          "contentType": "word"
+        },
+        {
+          "word": "come up with",
+          "contentType": "phrase"
+        },
+        {
+          "word": "commensurate",
+          "contentType": "word"
+        },
+        {
+          "word": "profile",
+          "contentType": "word"
+        },
+        {
+          "word": "recruit",
+          "contentType": "word"
+        },
+        {
+          "word": "submit",
+          "contentType": "word"
+        },
+        {
+          "word": "time-consuming",
+          "contentType": "word"
         }
       ]
     },

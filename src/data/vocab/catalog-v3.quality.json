@@ -2,13 +2,13 @@
   "catalogVersion": "2026-06-13-v4",
   "summary": {
     "catalogVersion": "2026-06-13-v4",
-    "subtopics": 220,
-    "publishedSubtopics": 220,
+    "subtopics": 248,
+    "publishedSubtopics": 248,
     "draftSubtopics": 0,
-    "words": 5927,
-    "wordsInDict": 5927,
+    "words": 6098,
+    "wordsInDict": 6098,
     "quarantineWords": 0,
-    "missingImages": 1349
+    "missingImages": 1521
   },
   "routes": {
     "thpt-lop-10": {
@@ -28,8 +28,8 @@
     },
     "toeic": {
       "publishStatus": "published",
-      "publishedSubtopics": 17,
-      "totalSubtopics": 17
+      "publishedSubtopics": 27,
+      "totalSubtopics": 27
     },
     "ielts": {
       "publishStatus": "published",
@@ -38,8 +38,8 @@
     },
     "di-lam": {
       "publishStatus": "published",
-      "publishedSubtopics": 15,
-      "totalSubtopics": 15
+      "publishedSubtopics": 18,
+      "totalSubtopics": 18
     },
     "du-lich": {
       "publishStatus": "published",
@@ -68,13 +68,13 @@
     },
     "hoc-thuat": {
       "publishStatus": "published",
-      "publishedSubtopics": 38,
-      "totalSubtopics": 38
+      "publishedSubtopics": 46,
+      "totalSubtopics": 46
     },
     "extended": {
       "publishStatus": "published",
-      "publishedSubtopics": 27,
-      "totalSubtopics": 27
+      "publishedSubtopics": 34,
+      "totalSubtopics": 34
     }
   },
   "topics": {
@@ -164,9 +164,9 @@
     },
     "tp-63e89bc3a4": {
       "publishStatus": "published",
-      "publishedSubtopics": 27,
-      "totalSubtopics": 27,
-      "qualityScore": 91
+      "publishedSubtopics": 34,
+      "totalSubtopics": 34,
+      "qualityScore": 90
     },
     "tp-69803ac72a": {
       "publishStatus": "published",
@@ -188,15 +188,15 @@
     },
     "tp-7190624fbe": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 95
+      "publishedSubtopics": 4,
+      "totalSubtopics": 4,
+      "qualityScore": 93
     },
     "tp-7a934ad2a7": {
       "publishStatus": "published",
-      "publishedSubtopics": 7,
-      "totalSubtopics": 7,
-      "qualityScore": 89
+      "publishedSubtopics": 10,
+      "totalSubtopics": 10,
+      "qualityScore": 85
     },
     "tp-7c7631f3bd": {
       "publishStatus": "published",
@@ -254,15 +254,15 @@
     },
     "tp-c029b2cbd7": {
       "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6,
-      "qualityScore": 97
+      "publishedSubtopics": 10,
+      "totalSubtopics": 10,
+      "qualityScore": 93
     },
     "tp-cc12b088fb": {
       "publishStatus": "published",
-      "publishedSubtopics": 6,
-      "totalSubtopics": 6,
-      "qualityScore": 93
+      "publishedSubtopics": 14,
+      "totalSubtopics": 14,
+      "qualityScore": 85
     },
     "tp-ce6687b070": {
       "publishStatus": "published",
@@ -308,9 +308,9 @@
     },
     "tp-fa4bd905ce": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 97
+      "publishedSubtopics": 8,
+      "totalSubtopics": 8,
+      "qualityScore": 85
     },
     "tp-ffa0a73f9c": {
       "publishStatus": "published",
@@ -320,6 +320,63 @@
     }
   },
   "subtopics": {
+    "st-021b8ecbbaf1": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 83,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.667,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/9714250/pexels-photo-9714250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 4,
+      "missingImages": [
+        "hunter",
+        "call in",
+        "hesitant",
+        "be ready for"
+      ],
+      "failReasons": [
+        "ảnh 67% (<90%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
+      ]
+    },
+    "st-02b6170c5ac4": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 78,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.455,
+      "wordCount": 33,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://www.thepoetmagazine.org/wp-content/uploads/2024/04/xem-xet-hay-xem-set.jpg",
+      "missingImageCount": 18,
+      "missingImages": [
+        "save up",
+        "see off",
+        "send back",
+        "set back",
+        "show off",
+        "show up",
+        "shop round",
+        "shut up",
+        "sit round",
+        "sit up for",
+        "slow down",
+        "stand by",
+        "stand for",
+        "stand in for",
+        "take away from",
+        "take sb / st back to",
+        "take in",
+        "urge sb into/ out of"
+      ],
+      "failReasons": [
+        "ảnh 45% (<90%) — chưa nổi bật"
+      ]
+    },
     "st-0309de5a7285": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -448,6 +505,27 @@
       "missingImages": [],
       "failReasons": []
     },
+    "st-0dfde1e13ce2": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 87,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.769,
+      "wordCount": 13,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://thumbs.dreamstime.com/z/abundant-fruits-vegetables-476063.jpg",
+      "missingImageCount": 3,
+      "missingImages": [
+        "accomplishment",
+        "bring together",
+        "time-consuming"
+      ],
+      "failReasons": [
+        "ảnh 77% (<90%) — chưa nổi bật",
+        "số từ 13 ngoài 30-90"
+      ]
+    },
     "st-0e81926ef959": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -517,6 +595,24 @@
         "số từ 29 ngoài 30-90"
       ]
     },
+    "st-0ffc4c8c82e1": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 93,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.917,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://image.shutterstock.com/z/stock-photo-code-of-conduct-business-concept-on-wooden-blocks-in-businessman-hands-ethics-and-respect-in-1430987726.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "on track"
+      ],
+      "failReasons": [
+        "số từ 12 ngoài 30-90"
+      ]
+    },
     "st-105c10b92c25": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -547,6 +643,53 @@
       "missingImages": [],
       "failReasons": [
         "số từ 14 ngoài 30-90"
+      ]
+    },
+    "st-11d6536fbb8d": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 69,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.333,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/51159/letter-handwriting-family-letters-written-51159.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 8,
+      "missingImages": [
+        "fax",
+        "postage",
+        "sender",
+        "recipient",
+        "mailing address",
+        "return address",
+        "subject line",
+        "attachment"
+      ],
+      "failReasons": [
+        "ảnh 33% (<90%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
+      ]
+    },
+    "st-12c1e61f16d2": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 86,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.75,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/6565250/pexels-photo-6565250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 3,
+      "missingImages": [
+        "look to",
+        "loyal",
+        "merit"
+      ],
+      "failReasons": [
+        "ảnh 75% (<90%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
       ]
     },
     "st-1328760cf40e": {
@@ -617,6 +760,26 @@
       ],
       "failReasons": [
         "số từ 29 ngoài 30-90"
+      ]
+    },
+    "st-1623e7f766ca": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 90,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.846,
+      "wordCount": 13,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/36673239/pexels-photo-36673239.png?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 2,
+      "missingImages": [
+        "disk",
+        "sharp"
+      ],
+      "failReasons": [
+        "ảnh 85% (<90%) — chưa nổi bật",
+        "số từ 13 ngoài 30-90"
       ]
     },
     "st-166b7d2ce6e5": {
@@ -1223,6 +1386,25 @@
         "số từ 22 ngoài 30-90"
       ]
     },
+    "st-349d6a4cf9c7": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 90,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.846,
+      "wordCount": 13,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/36673239/pexels-photo-36673239.png?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 2,
+      "missingImages": [
+        "disk",
+        "sharp"
+      ],
+      "failReasons": [
+        "số từ 13 ngoài 30-90"
+      ]
+    },
     "st-350ee406d40a": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -1267,6 +1449,33 @@
       "failReasons": [
         "ảnh 86% (<90%) — chưa nổi bật",
         "số từ 200 ngoài 30-90"
+      ]
+    },
+    "st-3723734a1247": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 82,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.64,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://imgv2-2-f.scribdassets.com/img/document/894190700/original/1b64a94329/1?v=1",
+      "missingImageCount": 9,
+      "missingImages": [
+        "allow for",
+        "agree on",
+        "attend to",
+        "bear up",
+        "blow out",
+        "blow down",
+        "blow over",
+        "break away",
+        "bring out"
+      ],
+      "failReasons": [
+        "ảnh 64% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-3a911bceecaf": {
@@ -1482,6 +1691,32 @@
       ],
       "failReasons": []
     },
+    "st-4633fcc12754": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 83,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.68,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://jyhdxhqkftirncbstfpe.supabase.co/storage/v1/object/public/vocab-images/grok-phrases/face_up_to.jpg?v=1783578912935",
+      "missingImageCount": 8,
+      "missingImages": [
+        "fall down",
+        "fill up with",
+        "get through to sb",
+        "get into",
+        "get down",
+        "get sb down",
+        "get down to doing",
+        "get st across"
+      ],
+      "failReasons": [
+        "ảnh 68% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-49fe4f58fae1": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1521,6 +1756,26 @@
       ],
       "failReasons": [
         "số từ 150 ngoài 30-90"
+      ]
+    },
+    "st-4a0f67393513": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 89,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.833,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://img.freepik.com/premium-vector/microsoft-access-logo-relational-database-management-system-microsoft-office-365-logotype-microsoft-corporation-software-editorial_661108-17070.jpg?w=1480",
+      "missingImageCount": 2,
+      "missingImages": [
+        "duplicate",
+        "shutdown"
+      ],
+      "failReasons": [
+        "ảnh 83% (<90%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
       ]
     },
     "st-4b24f6f562e8": {
@@ -1880,6 +2135,32 @@
         "ảnh 88% (<90%) — chưa nổi bật"
       ]
     },
+    "st-5809f48595e7": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 69,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.333,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/1921326/pexels-photo-1921326.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 8,
+      "missingImages": [
+        "appreciation",
+        "be made of",
+        "bring in",
+        "casually",
+        "glimpse",
+        "out of",
+        "outdated",
+        "verbally"
+      ],
+      "failReasons": [
+        "ảnh 33% (<90%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
+      ]
+    },
     "st-587462512860": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -2014,6 +2295,31 @@
       ],
       "failReasons": [
         "số từ 17 ngoài 30-90"
+      ]
+    },
+    "st-5d1e71872670": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 73,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.417,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://vietguru.net/wp-content/uploads/2025/02/cong-cu-quan-ly-nha-nuoc-ve-kinh-te-2.png",
+      "missingImageCount": 7,
+      "missingImages": [
+        "as needed",
+        "be in charge of",
+        "durable",
+        "physically",
+        "provider",
+        "recur",
+        "stay on top of"
+      ],
+      "failReasons": [
+        "ảnh 42% (<90%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
       ]
     },
     "st-5e535ace91c2": {
@@ -2682,6 +2988,36 @@
         "số từ 101 ngoài 30-90"
       ]
     },
+    "st-80cf77489254": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 77,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.52,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/1206877/pexels-photo-1206877.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 12,
+      "missingImages": [
+        "hand down to",
+        "hand back",
+        "hang round",
+        "jump at a chance",
+        "jump at a conclusion",
+        "jump at an order",
+        "jump into",
+        "jump out of",
+        "keep away from",
+        "keep out of",
+        "keep sb from",
+        "knock down"
+      ],
+      "failReasons": [
+        "ảnh 52% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-81bc6676876c": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -2766,6 +3102,35 @@
       ],
       "failReasons": [
         "ảnh 88% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-84cabe6917e7": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 78,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.56,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://static.vecteezy.com/system/resources/previews/023/604/266/non_2x/families-gather-to-honor-their-loved-ones-who-have-passed-away-in-service-vector.jpg",
+      "missingImageCount": 11,
+      "missingImages": [
+        "pass by",
+        "pass on to",
+        "pay sb back",
+        "point out",
+        "pull back",
+        "put st aside",
+        "put st away",
+        "put through to sb",
+        "run out of",
+        "run back",
+        "run down"
+      ],
+      "failReasons": [
+        "ảnh 56% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
       ]
     },
     "st-86b9261ccfb5": {
@@ -2878,6 +3243,33 @@
       ],
       "failReasons": [
         "ảnh 84% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
+    "st-9102459d1a6c": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 82,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.64,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://skyrealty.vn/wp-content/uploads/quy-tu-thien.jpg",
+      "missingImageCount": 9,
+      "missingImages": [
+        "chance upon",
+        "close with",
+        "close about",
+        "come to",
+        "consign to",
+        "cry for",
+        "carry away",
+        "carry off",
+        "chew over"
+      ],
+      "failReasons": [
+        "ảnh 64% (<90%) — chưa nổi bật",
         "số từ 25 ngoài 30-90"
       ]
     },
@@ -3150,6 +3542,25 @@
       ],
       "failReasons": []
     },
+    "st-9fa68db704ae": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 89,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.833,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://img.freepik.com/premium-vector/microsoft-access-logo-relational-database-management-system-microsoft-office-365-logotype-microsoft-corporation-software-editorial_661108-17070.jpg?w=1480",
+      "missingImageCount": 2,
+      "missingImages": [
+        "duplicate",
+        "shutdown"
+      ],
+      "failReasons": [
+        "số từ 12 ngoài 30-90"
+      ]
+    },
     "st-a02f582937b5": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -3230,6 +3641,27 @@
       ],
       "failReasons": [
         "ảnh 82% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-a41a50c76535": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 84,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.7,
+      "wordCount": 10,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://eigonokoto.com/wp-content/uploads/2022/02/on-the-basis-of-on-a-basis.png",
+      "missingImageCount": 3,
+      "missingImages": [
+        "be aware of",
+        "delicately",
+        "vest"
+      ],
+      "failReasons": [
+        "ảnh 70% (<90%) — chưa nổi bật",
+        "số từ 10 ngoài 30-90"
       ]
     },
     "st-a47646dbd7b6": {
@@ -3357,6 +3789,27 @@
         "ảnh 85% (<90%) — chưa nổi bật"
       ]
     },
+    "st-a851bd0ff091": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 86,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.75,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/6565250/pexels-photo-6565250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 3,
+      "missingImages": [
+        "look to",
+        "loyal",
+        "merit"
+      ],
+      "failReasons": [
+        "ảnh 75% (<80%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
+      ]
+    },
     "st-a8f51e97eddb": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -3445,6 +3898,28 @@
         "pursue a career"
       ],
       "failReasons": []
+    },
+    "st-ac0b251e2b09": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 84,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.692,
+      "wordCount": 13,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/9714250/pexels-photo-9714250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 4,
+      "missingImages": [
+        "hunter",
+        "call in",
+        "hesitant",
+        "be ready for"
+      ],
+      "failReasons": [
+        "ảnh 69% (<80%) — chưa nổi bật",
+        "số từ 13 ngoài 30-90"
+      ]
     },
     "st-ac190da5560c": {
       "publishStatus": "published",
@@ -3647,6 +4122,27 @@
       ],
       "failReasons": [
         "số từ 16 ngoài 30-90"
+      ]
+    },
+    "st-b490489850da": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 86,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.75,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://eigonokoto.com/wp-content/uploads/2022/02/on-the-basis-of-on-a-basis.png",
+      "missingImageCount": 3,
+      "missingImages": [
+        "be aware of",
+        "delicately",
+        "vest"
+      ],
+      "failReasons": [
+        "ảnh 75% (<80%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
       ]
     },
     "st-b4ae7e1ea3ac": {
@@ -3948,6 +4444,35 @@
       ],
       "failReasons": []
     },
+    "st-c06a76f4c30a": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 78,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.56,
+      "wordCount": 25,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://thumbs.dreamstime.com/z/feel-left-out-sad-depressed-person-not-allowed-group-words-alone-being-unpopular-40907380.jpg",
+      "missingImageCount": 11,
+      "missingImages": [
+        "lay down",
+        "lay out",
+        "let sb down",
+        "let sb off",
+        "lie down",
+        "live on",
+        "look back on",
+        "make the way to",
+        "mix out",
+        "move away",
+        "mistake sb for sb else"
+      ],
+      "failReasons": [
+        "ảnh 56% (<90%) — chưa nổi bật",
+        "số từ 25 ngoài 30-90"
+      ]
+    },
     "st-c113d4f118d1": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -4103,6 +4628,32 @@
       ],
       "failReasons": []
     },
+    "st-c7d662484f6e": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 69,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.333,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/1921326/pexels-photo-1921326.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 8,
+      "missingImages": [
+        "appreciation",
+        "be made of",
+        "bring in",
+        "casually",
+        "glimpse",
+        "out of",
+        "outdated",
+        "verbally"
+      ],
+      "failReasons": [
+        "ảnh 33% (<90%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
+      ]
+    },
     "st-c8dd61915ec2": {
       "publishStatus": "published",
       "featuredEligible": false,
@@ -4146,6 +4697,31 @@
       "failReasons": [
         "ảnh 7% (<90%) — chưa nổi bật",
         "số từ 29 ngoài 30-90"
+      ]
+    },
+    "st-c9c0b0f7d36a": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 73,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.417,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://vietguru.net/wp-content/uploads/2025/02/cong-cu-quan-ly-nha-nuoc-ve-kinh-te-2.png",
+      "missingImageCount": 7,
+      "missingImages": [
+        "as needed",
+        "be in charge of",
+        "durable",
+        "physically",
+        "provider",
+        "recur",
+        "stay on top of"
+      ],
+      "failReasons": [
+        "ảnh 42% (<90%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
       ]
     },
     "st-cb1d09e505d7": {
@@ -4430,6 +5006,50 @@
       "missingImageCount": 0,
       "missingImages": [],
       "failReasons": []
+    },
+    "st-d8e7aec36497": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 93,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.917,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://image.shutterstock.com/z/stock-photo-code-of-conduct-business-concept-on-wooden-blocks-in-businessman-hands-ethics-and-respect-in-1430987726.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "on track"
+      ],
+      "failReasons": [
+        "số từ 12 ngoài 30-90"
+      ]
+    },
+    "st-dad2702ac0a7": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 69,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.333,
+      "wordCount": 12,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/51159/letter-handwriting-family-letters-written-51159.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 8,
+      "missingImages": [
+        "fax",
+        "postage",
+        "sender",
+        "recipient",
+        "mailing address",
+        "return address",
+        "subject line",
+        "attachment"
+      ],
+      "failReasons": [
+        "ảnh 33% (<80%) — chưa nổi bật",
+        "số từ 12 ngoài 30-90"
+      ]
     },
     "st-db7787575149": {
       "publishStatus": "published",
@@ -4753,6 +5373,36 @@
       ],
       "failReasons": []
     },
+    "st-e98df714ee79": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 73,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.429,
+      "wordCount": 21,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://image.pollinations.ai/prompt/extinct%20species%20in%20the%20wild?width=800&height=500&nologo=true&seed=10530&safe=true",
+      "missingImageCount": 12,
+      "missingImages": [
+        "delight in",
+        "depart from",
+        "do with",
+        "do for a thing",
+        "die away",
+        "die down",
+        "die off",
+        "die for",
+        "die of",
+        "drive at",
+        "drop in at",
+        "eat up"
+      ],
+      "failReasons": [
+        "ảnh 43% (<90%) — chưa nổi bật",
+        "số từ 21 ngoài 30-90"
+      ]
+    },
     "st-e9b1d123831d": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -4800,6 +5450,27 @@
       ],
       "failReasons": [
         "ảnh 76% (<90%) — chưa nổi bật"
+      ]
+    },
+    "st-eab1107b3559": {
+      "publishStatus": "published",
+      "featuredEligible": false,
+      "qualityScore": 85,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.727,
+      "wordCount": 11,
+      "inSubtopicRange": false,
+      "cefrRange": null,
+      "coverImage": "https://thumbs.dreamstime.com/z/abundant-fruits-vegetables-476063.jpg",
+      "missingImageCount": 3,
+      "missingImages": [
+        "accomplishment",
+        "bring together",
+        "time-consuming"
+      ],
+      "failReasons": [
+        "ảnh 73% (<90%) — chưa nổi bật",
+        "số từ 11 ngoài 30-90"
       ]
     },
     "st-eacd3c4030d3": {
