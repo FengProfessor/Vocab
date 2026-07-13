@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Manrope, Space_Grotesk } from 'next/font/google';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   ArrowRight,
   Brain,
@@ -100,12 +100,14 @@ const GROUP_BENEFITS: readonly string[] = [
 
 export default function UpgradePage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialMode = searchParams.get('mode') === 'group' ? 'group' : 'individual';
   const [currentPlan, setCurrentPlan] = useState<Plan>('free');
   const [expiresAt, setExpiresAt] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedPlan] = useState<Exclude<Plan, 'free'>>('pro');
   const [periodMonths, setPeriodMonths] = useState(1);
-  const [billingMode, setBillingMode] = useState<'individual' | 'group'>('individual');
+  const [billingMode, setBillingMode] = useState<'individual' | 'group'>(initialMode);
   const [seats, setSeats] = useState(GROUP_SEATS_DEFAULT);
   const [couponCode, setCouponCode] = useState('');
   const [couponValid, setCouponValid] = useState<Coupon | null>(null);
@@ -116,6 +118,13 @@ export default function UpgradePage() {
     plan: string;
     status?: string;
   } | null>(null);
+
+  // Deep link: /upgrade?mode=group (landing "Xem gói nhóm")
+  useEffect(() => {
+    if (searchParams.get('mode') === 'group') {
+      setBillingMode('group');
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     (async () => {

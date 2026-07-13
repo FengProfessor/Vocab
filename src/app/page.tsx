@@ -663,7 +663,7 @@ export default function LandingPage() {
                   ))}
                 </ul>
                 <Link
-                  href="/upgrade"
+                  href="/upgrade?mode=group"
                   className="mt-7 inline-flex w-full items-center justify-center rounded-full border border-[#d7c7b6] bg-[#fffaf5] py-3 text-sm font-black hover:bg-white"
                 >
                   Xem gói nhóm
