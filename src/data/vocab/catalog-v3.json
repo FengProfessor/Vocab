@@ -10,9 +10,9 @@
   "counts": {
     "routes": 13,
     "topics": 40,
-    "subtopics": 187,
-    "packs": 697,
-    "words": 9539
+    "subtopics": 200,
+    "packs": 714,
+    "words": 9670
   },
   "routes": [
     {
@@ -206,10 +206,11 @@
       "key": "hk2",
       "title": "Học kỳ 2 (Unit 6-10)",
       "subtopicIds": [
-        "st-902882381d6b",
-        "st-cb18eb3ba80c",
-        "st-e6f01f3fddf1",
-        "st-9d2657755a0c"
+        "st-b5c74888c9a5",
+        "st-af5e5c29c50a",
+        "st-a47646dbd7b6",
+        "st-940c9abda47d",
+        "st-e4c8ca1c5a6e"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -407,7 +408,17 @@
         "st-86b9261ccfb5",
         "st-7f9c63a68525",
         "st-e34d6d0ed072",
+        "st-7a5b1a16a5e8",
+        "st-99db1b29fff5",
+        "st-d5fdd9634c29",
+        "st-d7223bc5d76c",
+        "st-c5b72a3da7a0",
+        "st-3c813adbd286",
         "st-3e61b3ecf7d0",
+        "st-223f59398989",
+        "st-3a911bceecaf",
+        "st-9e945eba390b",
+        "st-b8a859a88c12",
         "st-fed7e3c93f9a",
         "st-16e51553fca8",
         "st-e7b7995bc7fa",
@@ -613,9 +624,9 @@
       "title": "Học kỳ 1 (Unit 1-5)",
       "subtopicIds": [
         "st-fbf0dc671092",
-        "st-0bf9ebd8c770",
+        "st-db8906e4660f",
         "st-a8f51e97eddb",
-        "st-cb1bdcaeb6f3",
+        "st-93362d7daeec",
         "st-e797d01716fd"
       ],
       "qualityScore": 0,
@@ -673,9 +684,9 @@
       "title": "Học kỳ 2 (Unit 6-10)",
       "subtopicIds": [
         "st-ac67ec2b5817",
-        "st-7fb88c92b8d6",
-        "st-c4d557fe5580",
-        "st-6fe862e82f1f",
+        "st-3e0cb462a100",
+        "st-74dc7d0fe147",
+        "st-6b6f650c4c6d",
         "st-6e414416cd83"
       ],
       "qualityScore": 0,
@@ -726,9 +737,11 @@
       "key": "hk1",
       "title": "Học kỳ 1 (Unit 1-5)",
       "subtopicIds": [
-        "st-91b0331e72ff",
-        "st-3a58bb8d2d4a",
-        "st-51a74a734c86"
+        "st-0e81926ef959",
+        "st-efb32df863c8",
+        "st-33b8d6675f97",
+        "st-6136618e9e50",
+        "st-a08e00f0b9a7"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -867,34 +880,6 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-0bf9ebd8c770",
-      "topicId": "tp-9d1303f771",
-      "routeId": "thpt-lop-10",
-      "title": "Your Body And You",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 2: Your Body And You",
-      "contentType": "word",
-      "wordCount": 60,
-      "packIds": [
-        "st-0bf9ebd8c770-p0",
-        "st-0bf9ebd8c770-p1",
-        "st-0bf9ebd8c770-p2",
-        "st-0bf9ebd8c770-p3"
-      ],
-      "previewWords": [
-        "memory",
-        "lose weight",
-        "incredible",
-        "prevent",
-        "affect"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
       "id": "st-0c026cf00ccb",
       "topicId": "tp-f9b50ef195",
       "routeId": "doi-song",
@@ -950,6 +935,33 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-0e81926ef959",
+      "topicId": "tp-eb5ba63431",
+      "routeId": "thpt-lop-12",
+      "title": "Life stories we admire",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 1: Life stories we admire",
+      "contentType": "word",
+      "wordCount": 33,
+      "packIds": [
+        "st-0e81926ef959-p0",
+        "st-0e81926ef959-p1",
+        "st-0e81926ef959-p2"
+      ],
+      "previewWords": [
+        "account",
+        "achievement",
+        "admire",
+        "adopt",
+        "animated"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -1425,6 +1437,34 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-223f59398989",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 7",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 7",
+      "contentType": "word",
+      "wordCount": 60,
+      "packIds": [
+        "st-223f59398989-p0",
+        "st-223f59398989-p1",
+        "st-223f59398989-p2",
+        "st-223f59398989-p3"
+      ],
+      "previewWords": [
+        "similarity",
+        "difference",
+        "traditional",
+        "proposal",
+        "ceremony"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-239ce0bcaa81",
       "topicId": "tp-132448072e",
       "routeId": "hoc-tap",
@@ -1718,6 +1758,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-33b8d6675f97",
+      "topicId": "tp-eb5ba63431",
+      "routeId": "thpt-lop-12",
+      "title": "Green living",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 3: Green living",
+      "contentType": "word",
+      "wordCount": 22,
+      "packIds": [
+        "st-33b8d6675f97-p0",
+        "st-33b8d6675f97-p1"
+      ],
+      "previewWords": [
+        "carbon footprint",
+        "cardboard",
+        "clean up",
+        "compost",
+        "container"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-350ee406d40a",
       "topicId": "tp-7a934ad2a7",
       "routeId": "di-lam",
@@ -1756,24 +1822,74 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-3a58bb8d2d4a",
-      "topicId": "tp-eb5ba63431",
-      "routeId": "thpt-lop-12",
-      "title": "Urbanization",
+      "id": "st-3a911bceecaf",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 7 (Grade 12)",
       "sourcePackage": "pro3m",
-      "sourceName": "Unit 2: Urbanization",
+      "sourceName": "Legacy Unit 7 (Grade 12)",
       "contentType": "word",
-      "wordCount": 25,
+      "wordCount": 15,
       "packIds": [
-        "st-3a58bb8d2d4a-p0",
-        "st-3a58bb8d2d4a-p1"
+        "st-3a911bceecaf-p0"
       ],
       "previewWords": [
-        "agricultural",
-        "centralize",
-        "cost-effective",
-        "counter urbanization",
-        "dense populated"
+        "activate",
+        "algorithm",
+        "artificial intelligence",
+        "call",
+        "cyber attack"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-3c813adbd286",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 6 (Grade 12)",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 6 (Grade 12)",
+      "contentType": "word",
+      "wordCount": 12,
+      "packIds": [
+        "st-3c813adbd286-p0"
+      ],
+      "previewWords": [
+        "biodiversity",
+        "conservation",
+        "conservation status",
+        "endangered species",
+        "evolution"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-3e0cb462a100",
+      "topicId": "tp-ce6687b070",
+      "routeId": "thpt-lop-10",
+      "title": "Viet Nam and International Organisations",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 7: Viet Nam and International Organisations",
+      "contentType": "word",
+      "wordCount": 21,
+      "packIds": [
+        "st-3e0cb462a100-p0",
+        "st-3e0cb462a100-p1"
+      ],
+      "previewWords": [
+        "aim",
+        "commit",
+        "competitive",
+        "economic",
+        "economy"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2167,31 +2283,6 @@
         "biodiversity",
         "captivity",
         "conservation"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-51a74a734c86",
-      "topicId": "tp-eb5ba63431",
-      "routeId": "thpt-lop-12",
-      "title": "Cultural Identity",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 5: Cultural Identity",
-      "contentType": "word",
-      "wordCount": 17,
-      "packIds": [
-        "st-51a74a734c86-p0"
-      ],
-      "previewWords": [
-        "assimilate",
-        "attire",
-        "blind man's buff",
-        "identity",
-        "cultural practice"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2623,6 +2714,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-6136618e9e50",
+      "topicId": "tp-eb5ba63431",
+      "routeId": "thpt-lop-12",
+      "title": "Urbanisation",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 4: Urbanisation",
+      "contentType": "word",
+      "wordCount": 16,
+      "packIds": [
+        "st-6136618e9e50-p0"
+      ],
+      "previewWords": [
+        "afford",
+        "colonial",
+        "concern",
+        "decrease",
+        "expand"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-62dc6e721060",
       "topicId": "tp-95e3b28bf2",
       "routeId": "suc-khoe",
@@ -2845,6 +2961,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-6b6f650c4c6d",
+      "topicId": "tp-ce6687b070",
+      "routeId": "thpt-lop-10",
+      "title": "Protecting the Environment",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 9: Protecting the Environment",
+      "contentType": "word",
+      "wordCount": 21,
+      "packIds": [
+        "st-6b6f650c4c6d-p0",
+        "st-6b6f650c4c6d-p1"
+      ],
+      "previewWords": [
+        "balance",
+        "biodiversity",
+        "climate change",
+        "consequence",
+        "deforestation"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-6daaf99290d5",
       "topicId": "tp-2a8542b1aa",
       "routeId": "doi-song",
@@ -2877,19 +3019,17 @@
       "sourcePackage": "pro3m",
       "sourceName": "Unit 10: Ecotourism",
       "contentType": "word",
-      "wordCount": 60,
+      "wordCount": 24,
       "packIds": [
         "st-6e414416cd83-p0",
-        "st-6e414416cd83-p1",
-        "st-6e414416cd83-p2",
-        "st-6e414416cd83-p3"
+        "st-6e414416cd83-p1"
       ],
       "previewWords": [
-        "adapt",
-        "biosphere reserve",
-        "discharge",
-        "eco-friendly",
-        "ecology"
+        "aware",
+        "brochure",
+        "craft",
+        "crowd",
+        "culture"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -2924,34 +3064,6 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-6fe862e82f1f",
-      "topicId": "tp-ce6687b070",
-      "routeId": "thpt-lop-10",
-      "title": "Preserving The Environment",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 9: Preserving The Enviroment",
-      "contentType": "word",
-      "wordCount": 53,
-      "packIds": [
-        "st-6fe862e82f1f-p0",
-        "st-6fe862e82f1f-p1",
-        "st-6fe862e82f1f-p2",
-        "st-6fe862e82f1f-p3"
-      ],
-      "previewWords": [
-        "impact",
-        "negative",
-        "threat",
-        "deforestation",
-        "fossil fuel"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
       "id": "st-70abcef1c606",
       "topicId": "tp-d85ca72651",
       "routeId": "toeic",
@@ -2975,6 +3087,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-74dc7d0fe147",
+      "topicId": "tp-ce6687b070",
+      "routeId": "thpt-lop-10",
+      "title": "New Ways to Learn",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 8: New Ways to Learn",
+      "contentType": "word",
+      "wordCount": 20,
+      "packIds": [
+        "st-74dc7d0fe147-p0",
+        "st-74dc7d0fe147-p1"
+      ],
+      "previewWords": [
+        "blended learning",
+        "communicate",
+        "control",
+        "digital",
+        "distraction"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -3117,6 +3255,31 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-7a5b1a16a5e8",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 10 (Grade 12)",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 10 (Grade 12)",
+      "contentType": "word",
+      "wordCount": 15,
+      "packIds": [
+        "st-7a5b1a16a5e8-p0"
+      ],
+      "previewWords": [
+        "adequate",
+        "e-learning",
+        "employable",
+        "facilitate",
+        "flexibility"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-7a5fe5c927a0",
       "topicId": "tp-cc12b088fb",
       "routeId": "hoc-thuat",
@@ -3225,34 +3388,6 @@
         "alert",
         "alternative energy",
         "equality"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-7fb88c92b8d6",
-      "topicId": "tp-ce6687b070",
-      "routeId": "thpt-lop-10",
-      "title": "Cultural Diversity",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 7: Cultural Diversity",
-      "contentType": "word",
-      "wordCount": 60,
-      "packIds": [
-        "st-7fb88c92b8d6-p0",
-        "st-7fb88c92b8d6-p1",
-        "st-7fb88c92b8d6-p2",
-        "st-7fb88c92b8d6-p3"
-      ],
-      "previewWords": [
-        "similarity",
-        "difference",
-        "traditional",
-        "proposal",
-        "ceremony"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -3461,57 +3596,6 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-902882381d6b",
-      "topicId": "tp-0e76343d08",
-      "routeId": "thpt-lop-12",
-      "title": "Endangered Species",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 6: Endangered Species",
-      "contentType": "word",
-      "wordCount": 12,
-      "packIds": [
-        "st-902882381d6b-p0"
-      ],
-      "previewWords": [
-        "biodiversity",
-        "conservation",
-        "conservation status",
-        "endangered species",
-        "evolution"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-91b0331e72ff",
-      "topicId": "tp-eb5ba63431",
-      "routeId": "thpt-lop-12",
-      "title": "Life Stories",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 1: Life Stories",
-      "contentType": "word",
-      "wordCount": 21,
-      "packIds": [
-        "st-91b0331e72ff-p0",
-        "st-91b0331e72ff-p1"
-      ],
-      "previewWords": [
-        "achievement",
-        "anonymous",
-        "dedication",
-        "diagnose",
-        "distinguished"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
       "id": "st-91b85dbce068",
       "topicId": "tp-8cd90ef97c",
       "routeId": "hoc-thuat",
@@ -3529,6 +3613,58 @@
         "dying to",
         "now",
         "no better than to do something"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-93362d7daeec",
+      "topicId": "tp-9d1303f771",
+      "routeId": "thpt-lop-10",
+      "title": "For a Better Community",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 4: For a Better Community",
+      "contentType": "word",
+      "wordCount": 22,
+      "packIds": [
+        "st-93362d7daeec-p0",
+        "st-93362d7daeec-p1"
+      ],
+      "previewWords": [
+        "access",
+        "announcement",
+        "boost",
+        "cheerful",
+        "community"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-940c9abda47d",
+      "topicId": "tp-0e76343d08",
+      "routeId": "thpt-lop-12",
+      "title": "Career paths",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 9: Career paths",
+      "contentType": "word",
+      "wordCount": 23,
+      "packIds": [
+        "st-940c9abda47d-p0",
+        "st-940c9abda47d-p1"
+      ],
+      "previewWords": [
+        "automate",
+        "adapt",
+        "character",
+        "childminder",
+        "cut down on"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -3625,6 +3761,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-99db1b29fff5",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 2 (Grade 12)",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 2 (Grade 12)",
+      "contentType": "word",
+      "wordCount": 25,
+      "packIds": [
+        "st-99db1b29fff5-p0",
+        "st-99db1b29fff5-p1"
+      ],
+      "previewWords": [
+        "agricultural",
+        "centralize",
+        "cost-effective",
+        "counter urbanization",
+        "dense populated"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-9a606737b35f",
       "topicId": "tp-d85ca72651",
       "routeId": "toeic",
@@ -3671,31 +3833,6 @@
         "civilization",
         "civilize",
         "deep seated"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-9d2657755a0c",
-      "topicId": "tp-0e76343d08",
-      "routeId": "thpt-lop-12",
-      "title": "Lifelong Learning",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 10: Lifelong Learning",
-      "contentType": "word",
-      "wordCount": 15,
-      "packIds": [
-        "st-9d2657755a0c-p0"
-      ],
-      "previewWords": [
-        "adequate",
-        "e-learning",
-        "employable",
-        "facilitate",
-        "flexibility"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -3763,6 +3900,34 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-9e945eba390b",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 8",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 8",
+      "contentType": "word",
+      "wordCount": 58,
+      "packIds": [
+        "st-9e945eba390b-p0",
+        "st-9e945eba390b-p1",
+        "st-9e945eba390b-p2",
+        "st-9e945eba390b-p3"
+      ],
+      "previewWords": [
+        "discussion",
+        "personal",
+        "electronic device",
+        "tablet",
+        "calculation"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-a02f582937b5",
       "topicId": "tp-5328f6eb82",
       "routeId": "ielts",
@@ -3791,6 +3956,32 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-a08e00f0b9a7",
+      "topicId": "tp-eb5ba63431",
+      "routeId": "thpt-lop-12",
+      "title": "The world of work",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 5: The world of work",
+      "contentType": "word",
+      "wordCount": 20,
+      "packIds": [
+        "st-a08e00f0b9a7-p0",
+        "st-a08e00f0b9a7-p1"
+      ],
+      "previewWords": [
+        "application letter",
+        "bonus",
+        "casual",
+        "challenging",
+        "flexible"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-a1c09644b1f2",
       "topicId": "tp-cc12b088fb",
       "routeId": "hoc-thuat",
@@ -3813,6 +4004,32 @@
         "keep up with",
         "knock off",
         "knock out"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-a47646dbd7b6",
+      "topicId": "tp-0e76343d08",
+      "routeId": "thpt-lop-12",
+      "title": "Wildlife conservation",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 8: Wildlife conservation",
+      "contentType": "word",
+      "wordCount": 28,
+      "packIds": [
+        "st-a47646dbd7b6-p0",
+        "st-a47646dbd7b6-p1"
+      ],
+      "previewWords": [
+        "body part",
+        "captivity",
+        "conservation",
+        "conserve",
+        "coral"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -3966,19 +4183,17 @@
       "sourcePackage": "pro3m",
       "sourceName": "Unit 3: Music",
       "contentType": "word",
-      "wordCount": 59,
+      "wordCount": 20,
       "packIds": [
         "st-a8f51e97eddb-p0",
-        "st-a8f51e97eddb-p1",
-        "st-a8f51e97eddb-p2",
-        "st-a8f51e97eddb-p3"
+        "st-a8f51e97eddb-p1"
       ],
       "previewWords": [
-        "phenomenon",
-        "release",
-        "celebrity",
-        "achievement",
-        "air"
+        "bamboo clapper",
+        "comment",
+        "competition",
+        "concert",
+        "decoration"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -4107,18 +4322,17 @@
       "sourcePackage": "pro3m",
       "sourceName": "Unit 6: Gender Equality",
       "contentType": "word",
-      "wordCount": 43,
+      "wordCount": 22,
       "packIds": [
         "st-ac67ec2b5817-p0",
-        "st-ac67ec2b5817-p1",
-        "st-ac67ec2b5817-p2"
+        "st-ac67ec2b5817-p1"
       ],
       "previewWords": [
+        "cosmonaut",
+        "domestic violence",
         "equal",
-        "education",
-        "information",
-        "enroll",
-        "suppose"
+        "equality",
+        "eyesight"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -4151,6 +4365,32 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-af5e5c29c50a",
+      "topicId": "tp-0e76343d08",
+      "routeId": "thpt-lop-12",
+      "title": "The world of mass media",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 7: The world of mass media",
+      "contentType": "word",
+      "wordCount": 30,
+      "packIds": [
+        "st-af5e5c29c50a-p0",
+        "st-af5e5c29c50a-p1"
+      ],
+      "previewWords": [
+        "accessible",
+        "account for",
+        "advert",
+        "as opposed to",
+        "audio"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -4197,6 +4437,32 @@
         "beat",
         "knock the living daylights out of someone",
         "come to blows"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-b5c74888c9a5",
+      "topicId": "tp-0e76343d08",
+      "routeId": "thpt-lop-12",
+      "title": "Artificial intelligence",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 6: Artificial intelligence",
+      "contentType": "word",
+      "wordCount": 23,
+      "packIds": [
+        "st-b5c74888c9a5-p0",
+        "st-b5c74888c9a5-p1"
+      ],
+      "previewWords": [
+        "activate",
+        "advanced",
+        "analyse",
+        "application",
+        "artificial intelligence (ai)"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -4282,6 +4548,34 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "LingoPro pro3m internal corpus; taxonomy luyện thi được biên soạn nội bộ.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-b8a859a88c12",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 9",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 9",
+      "contentType": "word",
+      "wordCount": 53,
+      "packIds": [
+        "st-b8a859a88c12-p0",
+        "st-b8a859a88c12-p1",
+        "st-b8a859a88c12-p2",
+        "st-b8a859a88c12-p3"
+      ],
+      "previewWords": [
+        "impact",
+        "negative",
+        "threat",
+        "deforestation",
+        "fossil fuel"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -4566,34 +4860,6 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-c4d557fe5580",
-      "topicId": "tp-ce6687b070",
-      "routeId": "thpt-lop-10",
-      "title": "New Ways To Learn",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 8: New Ways To Learn",
-      "contentType": "word",
-      "wordCount": 58,
-      "packIds": [
-        "st-c4d557fe5580-p0",
-        "st-c4d557fe5580-p1",
-        "st-c4d557fe5580-p2",
-        "st-c4d557fe5580-p3"
-      ],
-      "previewWords": [
-        "discussion",
-        "personal",
-        "electronic device",
-        "tablet",
-        "calculation"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
       "id": "st-c502bcaa0aef",
       "topicId": "tp-f9b50ef195",
       "routeId": "doi-song",
@@ -4651,51 +4917,25 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-cb18eb3ba80c",
-      "topicId": "tp-0e76343d08",
-      "routeId": "thpt-lop-12",
-      "title": "Artificial Intelligence",
+      "id": "st-c5b72a3da7a0",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 6",
       "sourcePackage": "pro3m",
-      "sourceName": "Unit 7: Artificial Intelligence",
+      "sourceName": "Legacy Unit 6",
       "contentType": "word",
-      "wordCount": 15,
+      "wordCount": 43,
       "packIds": [
-        "st-cb18eb3ba80c-p0"
+        "st-c5b72a3da7a0-p0",
+        "st-c5b72a3da7a0-p1",
+        "st-c5b72a3da7a0-p2"
       ],
       "previewWords": [
-        "activate",
-        "algorithm",
-        "artificial intelligence",
-        "call",
-        "cyber attack"
-      ],
-      "cefrRange": null,
-      "coverImage": null,
-      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
-      "qualityScore": 0,
-      "publishStatus": "draft"
-    },
-    {
-      "id": "st-cb1bdcaeb6f3",
-      "topicId": "tp-9d1303f771",
-      "routeId": "thpt-lop-10",
-      "title": "For A Better Community",
-      "sourcePackage": "pro3m",
-      "sourceName": "Unit 4: For A Better Community",
-      "contentType": "word",
-      "wordCount": 59,
-      "packIds": [
-        "st-cb1bdcaeb6f3-p0",
-        "st-cb1bdcaeb6f3-p1",
-        "st-cb1bdcaeb6f3-p2",
-        "st-cb1bdcaeb6f3-p3"
-      ],
-      "previewWords": [
-        "volunteer",
-        "charity",
-        "disadvantaged",
-        "problem",
-        "by chance"
+        "equal",
+        "education",
+        "information",
+        "enroll",
+        "suppose"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -4896,6 +5136,34 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-d5fdd9634c29",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 5",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 5",
+      "contentType": "word",
+      "wordCount": 59,
+      "packIds": [
+        "st-d5fdd9634c29-p0",
+        "st-d5fdd9634c29-p1",
+        "st-d5fdd9634c29-p2",
+        "st-d5fdd9634c29-p3"
+      ],
+      "previewWords": [
+        "promise",
+        "ebook reader",
+        "generous",
+        "wise",
+        "portable"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-d60fc3fec805",
       "topicId": "tp-7c7631f3bd",
       "routeId": "doi-song",
@@ -4914,6 +5182,31 @@
         "cloud on the horizon",
         "keep in the dark",
         "a fair weather friend"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-d7223bc5d76c",
+      "topicId": "tp-63e89bc3a4",
+      "routeId": "extended",
+      "title": "Legacy Unit 5 (Grade 12)",
+      "sourcePackage": "pro3m",
+      "sourceName": "Legacy Unit 5 (Grade 12)",
+      "contentType": "word",
+      "wordCount": 17,
+      "packIds": [
+        "st-d7223bc5d76c-p0"
+      ],
+      "previewWords": [
+        "assimilate",
+        "attire",
+        "blind man's buff",
+        "identity",
+        "cultural practice"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5050,6 +5343,32 @@
         "bend out of shape",
         "beside yourself with emotion",
         "bored to tears"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-db8906e4660f",
+      "topicId": "tp-9d1303f771",
+      "routeId": "thpt-lop-10",
+      "title": "Humans and the Environment",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 2: Humans and the Environment",
+      "contentType": "word",
+      "wordCount": 23,
+      "packIds": [
+        "st-db8906e4660f-p0",
+        "st-db8906e4660f-p1"
+      ],
+      "previewWords": [
+        "adopt",
+        "appliance",
+        "awareness",
+        "calculate",
+        "carbon footprint"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5204,23 +5523,24 @@
       "publishStatus": "draft"
     },
     {
-      "id": "st-e6f01f3fddf1",
+      "id": "st-e4c8ca1c5a6e",
       "topicId": "tp-0e76343d08",
       "routeId": "thpt-lop-12",
-      "title": "The World Of Work",
+      "title": "Lifelong learning",
       "sourcePackage": "pro3m",
-      "sourceName": "Unit 8: The World Of Work",
+      "sourceName": "Unit 10: Lifelong learning",
       "contentType": "word",
-      "wordCount": 19,
+      "wordCount": 24,
       "packIds": [
-        "st-e6f01f3fddf1-p0"
+        "st-e4c8ca1c5a6e-p0",
+        "st-e4c8ca1c5a6e-p1"
       ],
       "previewWords": [
-        "administrator",
-        "align",
-        "applicant",
-        "apprentice",
-        "approachable"
+        "acquire",
+        "adult education",
+        "boost",
+        "broaden",
+        "brush up"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5236,19 +5556,17 @@
       "sourcePackage": "pro3m",
       "sourceName": "Unit 5: Inventions",
       "contentType": "word",
-      "wordCount": 59,
+      "wordCount": 28,
       "packIds": [
         "st-e797d01716fd-p0",
-        "st-e797d01716fd-p1",
-        "st-e797d01716fd-p2",
-        "st-e797d01716fd-p3"
+        "st-e797d01716fd-p1"
       ],
       "previewWords": [
-        "promise",
-        "ebook reader",
-        "generous",
-        "wise",
-        "portable"
+        "3d printing",
+        "ai (artificial intelligence)",
+        "app",
+        "application",
+        "apply"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5477,6 +5795,32 @@
         "all by yourself",
         "blame yourself",
         "enjoy yourself"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-efb32df863c8",
+      "topicId": "tp-eb5ba63431",
+      "routeId": "thpt-lop-12",
+      "title": "A multicultural world",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 2: A multicultural world",
+      "contentType": "word",
+      "wordCount": 28,
+      "packIds": [
+        "st-efb32df863c8-p0",
+        "st-efb32df863c8-p1"
+      ],
+      "previewWords": [
+        "admire",
+        "anxiety",
+        "appreciate",
+        "bamboo dancing",
+        "captivate"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -5847,19 +6191,17 @@
       "sourcePackage": "pro3m",
       "sourceName": "Unit 1: Family Life",
       "contentType": "word",
-      "wordCount": 60,
+      "wordCount": 21,
       "packIds": [
         "st-fbf0dc671092-p0",
-        "st-fbf0dc671092-p1",
-        "st-fbf0dc671092-p2",
-        "st-fbf0dc671092-p3"
+        "st-fbf0dc671092-p1"
       ],
       "previewWords": [
-        "take out",
-        "homemaker",
-        "finance",
-        "do the washing up",
-        "heavy lifting"
+        "benefit",
+        "bond",
+        "breadwinner",
+        "character",
+        "cheer up"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -6286,282 +6628,6 @@
         {
           "word": "just what the doctor ordered",
           "contentType": "idiom"
-        }
-      ]
-    },
-    {
-      "id": "st-0bf9ebd8c770-p0",
-      "subtopicId": "st-0bf9ebd8c770",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "memory",
-          "contentType": "word"
-        },
-        {
-          "word": "lose weight",
-          "contentType": "phrase"
-        },
-        {
-          "word": "incredible",
-          "contentType": "word"
-        },
-        {
-          "word": "prevent",
-          "contentType": "word"
-        },
-        {
-          "word": "affect",
-          "contentType": "word"
-        },
-        {
-          "word": "bone",
-          "contentType": "word"
-        },
-        {
-          "word": "disease",
-          "contentType": "word"
-        },
-        {
-          "word": "cancer",
-          "contentType": "word"
-        },
-        {
-          "word": "sick",
-          "contentType": "word"
-        },
-        {
-          "word": "healthy",
-          "contentType": "word"
-        },
-        {
-          "word": "soreness",
-          "contentType": "word"
-        },
-        {
-          "word": "acupuncture",
-          "contentType": "word"
-        },
-        {
-          "word": "precaution",
-          "contentType": "word"
-        },
-        {
-          "word": "treatment",
-          "contentType": "word"
-        },
-        {
-          "word": "intestine",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-0bf9ebd8c770-p1",
-      "subtopicId": "st-0bf9ebd8c770",
-      "index": 1,
-      "title": "Chặng 2",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "boost",
-          "contentType": "word"
-        },
-        {
-          "word": "nervous system",
-          "contentType": "phrase"
-        },
-        {
-          "word": "digestive system",
-          "contentType": "phrase"
-        },
-        {
-          "word": "respiratory system",
-          "contentType": "phrase"
-        },
-        {
-          "word": "pump",
-          "contentType": "word"
-        },
-        {
-          "word": "skull",
-          "contentType": "word"
-        },
-        {
-          "word": "function",
-          "contentType": "word"
-        },
-        {
-          "word": "circulatory system",
-          "contentType": "phrase"
-        },
-        {
-          "word": "skeletal system",
-          "contentType": "phrase"
-        },
-        {
-          "word": "physiological",
-          "contentType": "word"
-        },
-        {
-          "word": "metabolism",
-          "contentType": "word"
-        },
-        {
-          "word": "hormone",
-          "contentType": "word"
-        },
-        {
-          "word": "immunize",
-          "contentType": "word"
-        },
-        {
-          "word": "inflammation",
-          "contentType": "word"
-        },
-        {
-          "word": "neurological",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-0bf9ebd8c770-p2",
-      "subtopicId": "st-0bf9ebd8c770",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "cardiovascular",
-          "contentType": "word"
-        },
-        {
-          "word": "organs",
-          "contentType": "word"
-        },
-        {
-          "word": "tissues",
-          "contentType": "word"
-        },
-        {
-          "word": "cellular",
-          "contentType": "word"
-        },
-        {
-          "word": "regenerate",
-          "contentType": "word"
-        },
-        {
-          "word": "rehabilitate",
-          "contentType": "word"
-        },
-        {
-          "word": "prognosis",
-          "contentType": "word"
-        },
-        {
-          "word": "diagnose",
-          "contentType": "word"
-        },
-        {
-          "word": "prescribe",
-          "contentType": "word"
-        },
-        {
-          "word": "medicate",
-          "contentType": "word"
-        },
-        {
-          "word": "vaccinate",
-          "contentType": "word"
-        },
-        {
-          "word": "sanitize",
-          "contentType": "word"
-        },
-        {
-          "word": "disinfect",
-          "contentType": "word"
-        },
-        {
-          "word": "sterilize",
-          "contentType": "word"
-        },
-        {
-          "word": "nourishment",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-0bf9ebd8c770-p3",
-      "subtopicId": "st-0bf9ebd8c770",
-      "index": 3,
-      "title": "Chặng 4",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "nutrient",
-          "contentType": "word"
-        },
-        {
-          "word": "mineral",
-          "contentType": "word"
-        },
-        {
-          "word": "vitamin",
-          "contentType": "word"
-        },
-        {
-          "word": "antibody",
-          "contentType": "word"
-        },
-        {
-          "word": "allergy",
-          "contentType": "word"
-        },
-        {
-          "word": "hypersensitive",
-          "contentType": "word"
-        },
-        {
-          "word": "symptomatic",
-          "contentType": "word"
-        },
-        {
-          "word": "asymptomatic",
-          "contentType": "word"
-        },
-        {
-          "word": "pathogen",
-          "contentType": "word"
-        },
-        {
-          "word": "epidemic",
-          "contentType": "word"
-        },
-        {
-          "word": "pandemic",
-          "contentType": "word"
-        },
-        {
-          "word": "therapeutic",
-          "contentType": "word"
-        },
-        {
-          "word": "pharmacology",
-          "contentType": "word"
-        },
-        {
-          "word": "anatomy",
-          "contentType": "word"
-        },
-        {
-          "word": "biochemistry",
-          "contentType": "word"
         }
       ]
     },
@@ -7248,6 +7314,165 @@
         },
         {
           "word": "immunize",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-0e81926ef959-p0",
+      "subtopicId": "st-0e81926ef959",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "account",
+          "contentType": "word"
+        },
+        {
+          "word": "achievement",
+          "contentType": "word"
+        },
+        {
+          "word": "admire",
+          "contentType": "word"
+        },
+        {
+          "word": "adopt",
+          "contentType": "word"
+        },
+        {
+          "word": "animated",
+          "contentType": "word"
+        },
+        {
+          "word": "attack",
+          "contentType": "word"
+        },
+        {
+          "word": "attend (school/college)",
+          "contentType": "phrase"
+        },
+        {
+          "word": "battle",
+          "contentType": "word"
+        },
+        {
+          "word": "biography",
+          "contentType": "word"
+        },
+        {
+          "word": "biological",
+          "contentType": "word"
+        },
+        {
+          "word": "bond",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-0e81926ef959-p1",
+      "subtopicId": "st-0e81926ef959",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "cancer",
+          "contentType": "word"
+        },
+        {
+          "word": "carry out",
+          "contentType": "phrase"
+        },
+        {
+          "word": "childhood",
+          "contentType": "word"
+        },
+        {
+          "word": "communist party of viet nam",
+          "contentType": "phrase"
+        },
+        {
+          "word": "death",
+          "contentType": "word"
+        },
+        {
+          "word": "defeat",
+          "contentType": "word"
+        },
+        {
+          "word": "devote to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "drop out (of)",
+          "contentType": "phrase"
+        },
+        {
+          "word": "enemy",
+          "contentType": "word"
+        },
+        {
+          "word": "genius",
+          "contentType": "word"
+        },
+        {
+          "word": "hero",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-0e81926ef959-p2",
+      "subtopicId": "st-0e81926ef959",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "marriage",
+          "contentType": "word"
+        },
+        {
+          "word": "military",
+          "contentType": "word"
+        },
+        {
+          "word": "on cloud nine/on top of the world/over the moon",
+          "contentType": "phrase"
+        },
+        {
+          "word": "pancreatic",
+          "contentType": "word"
+        },
+        {
+          "word": "pass away",
+          "contentType": "phrase"
+        },
+        {
+          "word": "poem",
+          "contentType": "word"
+        },
+        {
+          "word": "poetry",
+          "contentType": "word"
+        },
+        {
+          "word": "resign",
+          "contentType": "word"
+        },
+        {
+          "word": "resistance war",
+          "contentType": "phrase"
+        },
+        {
+          "word": "rule",
+          "contentType": "word"
+        },
+        {
+          "word": "youth",
           "contentType": "word"
         }
       ]
@@ -11248,6 +11473,282 @@
       ]
     },
     {
+      "id": "st-223f59398989-p0",
+      "subtopicId": "st-223f59398989",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "similarity",
+          "contentType": "word"
+        },
+        {
+          "word": "difference",
+          "contentType": "word"
+        },
+        {
+          "word": "traditional",
+          "contentType": "word"
+        },
+        {
+          "word": "proposal",
+          "contentType": "word"
+        },
+        {
+          "word": "ceremony",
+          "contentType": "word"
+        },
+        {
+          "word": "engagement",
+          "contentType": "word"
+        },
+        {
+          "word": "wedding",
+          "contentType": "word"
+        },
+        {
+          "word": "complicated",
+          "contentType": "word"
+        },
+        {
+          "word": "unnecessary",
+          "contentType": "word"
+        },
+        {
+          "word": "expense",
+          "contentType": "word"
+        },
+        {
+          "word": "reception",
+          "contentType": "word"
+        },
+        {
+          "word": "cover",
+          "contentType": "word"
+        },
+        {
+          "word": "superstition",
+          "contentType": "word"
+        },
+        {
+          "word": "favorable",
+          "contentType": "word"
+        },
+        {
+          "word": "funeral",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-223f59398989-p1",
+      "subtopicId": "st-223f59398989",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "originate",
+          "contentType": "word"
+        },
+        {
+          "word": "ritual",
+          "contentType": "word"
+        },
+        {
+          "word": "ancestor",
+          "contentType": "word"
+        },
+        {
+          "word": "descendant",
+          "contentType": "word"
+        },
+        {
+          "word": "alter",
+          "contentType": "word"
+        },
+        {
+          "word": "assimilation",
+          "contentType": "word"
+        },
+        {
+          "word": "cultural heritage",
+          "contentType": "phrase"
+        },
+        {
+          "word": "diversity awareness",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ethnicity",
+          "contentType": "word"
+        },
+        {
+          "word": "folklore",
+          "contentType": "word"
+        },
+        {
+          "word": "customary",
+          "contentType": "word"
+        },
+        {
+          "word": "intercultural",
+          "contentType": "word"
+        },
+        {
+          "word": "multiculturalism",
+          "contentType": "word"
+        },
+        {
+          "word": "pluralism",
+          "contentType": "word"
+        },
+        {
+          "word": "secular",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-223f59398989-p2",
+      "subtopicId": "st-223f59398989",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "sacred ritual",
+          "contentType": "phrase"
+        },
+        {
+          "word": "taboo",
+          "contentType": "word"
+        },
+        {
+          "word": "tolerance",
+          "contentType": "word"
+        },
+        {
+          "word": "tribal",
+          "contentType": "word"
+        },
+        {
+          "word": "unify",
+          "contentType": "word"
+        },
+        {
+          "word": "vested interest",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ancestral land",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cultural exchange",
+          "contentType": "phrase"
+        },
+        {
+          "word": "diaspora",
+          "contentType": "word"
+        },
+        {
+          "word": "endogamy",
+          "contentType": "word"
+        },
+        {
+          "word": "exogamy",
+          "contentType": "word"
+        },
+        {
+          "word": "genealogy",
+          "contentType": "word"
+        },
+        {
+          "word": "heterogeneous",
+          "contentType": "word"
+        },
+        {
+          "word": "homogeneous",
+          "contentType": "word"
+        },
+        {
+          "word": "inclusivity",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-223f59398989-p3",
+      "subtopicId": "st-223f59398989",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "indigenous culture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "lineage",
+          "contentType": "word"
+        },
+        {
+          "word": "matrilineal",
+          "contentType": "word"
+        },
+        {
+          "word": "patrilineal",
+          "contentType": "word"
+        },
+        {
+          "word": "polygamy",
+          "contentType": "word"
+        },
+        {
+          "word": "prejudice",
+          "contentType": "word"
+        },
+        {
+          "word": "reconciliation",
+          "contentType": "word"
+        },
+        {
+          "word": "regional identity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "social cohesion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "symbolic expression",
+          "contentType": "phrase"
+        },
+        {
+          "word": "transcultural",
+          "contentType": "word"
+        },
+        {
+          "word": "tribalism",
+          "contentType": "word"
+        },
+        {
+          "word": "universal values",
+          "contentType": "phrase"
+        },
+        {
+          "word": "xenophobia",
+          "contentType": "word"
+        },
+        {
+          "word": "youth culture",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-239ce0bcaa81-p0",
       "subtopicId": "st-239ce0bcaa81",
       "index": 0,
@@ -13081,6 +13582,112 @@
       ]
     },
     {
+      "id": "st-33b8d6675f97-p0",
+      "subtopicId": "st-33b8d6675f97",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "carbon footprint",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cardboard",
+          "contentType": "word"
+        },
+        {
+          "word": "clean up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "compost",
+          "contentType": "word"
+        },
+        {
+          "word": "container",
+          "contentType": "word"
+        },
+        {
+          "word": "contaminated",
+          "contentType": "word"
+        },
+        {
+          "word": "decompose",
+          "contentType": "word"
+        },
+        {
+          "word": "eco-friendly",
+          "contentType": "word"
+        },
+        {
+          "word": "fruit peel",
+          "contentType": "phrase"
+        },
+        {
+          "word": "household waste",
+          "contentType": "phrase"
+        },
+        {
+          "word": "in the long run",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-33b8d6675f97-p1",
+      "subtopicId": "st-33b8d6675f97",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "in the long/medium/short term",
+          "contentType": "phrase"
+        },
+        {
+          "word": "landfill",
+          "contentType": "word"
+        },
+        {
+          "word": "layer",
+          "contentType": "word"
+        },
+        {
+          "word": "leftover",
+          "contentType": "word"
+        },
+        {
+          "word": "packaging",
+          "contentType": "word"
+        },
+        {
+          "word": "pile",
+          "contentType": "word"
+        },
+        {
+          "word": "reusable",
+          "contentType": "word"
+        },
+        {
+          "word": "reuse",
+          "contentType": "word"
+        },
+        {
+          "word": "rinse out",
+          "contentType": "phrase"
+        },
+        {
+          "word": "single-use",
+          "contentType": "word"
+        },
+        {
+          "word": "waste",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-350ee406d40a-p0",
       "subtopicId": "st-350ee406d40a",
       "index": 0,
@@ -14007,119 +14614,229 @@
       ]
     },
     {
-      "id": "st-3a58bb8d2d4a-p0",
-      "subtopicId": "st-3a58bb8d2d4a",
+      "id": "st-3a911bceecaf-p0",
+      "subtopicId": "st-3a911bceecaf",
       "index": 0,
       "title": "Chặng 1",
-      "wordCount": 13,
+      "wordCount": 15,
       "words": [
         {
-          "word": "agricultural",
+          "word": "activate",
           "contentType": "word"
         },
         {
-          "word": "centralize",
+          "word": "algorithm",
           "contentType": "word"
         },
         {
-          "word": "cost-effective",
+          "word": "artificial intelligence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "call",
           "contentType": "word"
         },
         {
-          "word": "counter urbanization",
+          "word": "cyber attack",
           "contentType": "phrase"
         },
         {
-          "word": "dense populated",
-          "contentType": "phrase"
-        },
-        {
-          "word": "down market",
-          "contentType": "phrase"
-        },
-        {
-          "word": "down to earth",
-          "contentType": "phrase"
-        },
-        {
-          "word": "energy saving",
-          "contentType": "phrase"
-        },
-        {
-          "word": "expand",
+          "word": "exterminate",
           "contentType": "word"
         },
         {
-          "word": "industrialization",
-          "contentType": "word"
-        },
-        {
-          "word": "interest free",
+          "word": "far away",
           "contentType": "phrase"
         },
         {
-          "word": "kind-hearted",
+          "word": "implant",
           "contentType": "word"
         },
         {
-          "word": "long-lasting",
+          "word": "incredible",
+          "contentType": "word"
+        },
+        {
+          "word": "intervention",
+          "contentType": "word"
+        },
+        {
+          "word": "malfunction",
+          "contentType": "word"
+        },
+        {
+          "word": "navigation",
+          "contentType": "word"
+        },
+        {
+          "word": "overpopulation",
+          "contentType": "word"
+        },
+        {
+          "word": "resurrect",
+          "contentType": "word"
+        },
+        {
+          "word": "unbelievable",
           "contentType": "word"
         }
       ]
     },
     {
-      "id": "st-3a58bb8d2d4a-p1",
-      "subtopicId": "st-3a58bb8d2d4a",
-      "index": 1,
-      "title": "Chặng 2",
+      "id": "st-3c813adbd286-p0",
+      "subtopicId": "st-3c813adbd286",
+      "index": 0,
+      "title": "Chặng 1",
       "wordCount": 12,
       "words": [
         {
-          "word": "migrate",
+          "word": "biodiversity",
           "contentType": "word"
         },
         {
-          "word": "mindset",
+          "word": "conservation",
           "contentType": "word"
         },
         {
-          "word": "overload",
-          "contentType": "word"
-        },
-        {
-          "word": "sanitation",
-          "contentType": "word"
-        },
-        {
-          "word": "self-motivated",
-          "contentType": "word"
-        },
-        {
-          "word": "slum infrastructure",
+          "word": "conservation status",
           "contentType": "phrase"
         },
         {
-          "word": "time consuming",
+          "word": "endangered species",
           "contentType": "phrase"
         },
         {
-          "word": "thought provoking",
-          "contentType": "phrase"
-        },
-        {
-          "word": "unemployment",
+          "word": "evolution",
           "contentType": "word"
         },
         {
-          "word": "up market",
+          "word": "extinct",
+          "contentType": "word"
+        },
+        {
+          "word": "extinction",
+          "contentType": "word"
+        },
+        {
+          "word": "poach",
+          "contentType": "word"
+        },
+        {
+          "word": "rhinoceros",
+          "contentType": "word"
+        },
+        {
+          "word": "sea turtle",
           "contentType": "phrase"
         },
         {
-          "word": "weather beaten",
-          "contentType": "phrase"
+          "word": "trade",
+          "contentType": "word"
         },
         {
-          "word": "well-established",
+          "word": "vulnerable",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3e0cb462a100-p0",
+      "subtopicId": "st-3e0cb462a100",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "aim",
+          "contentType": "word"
+        },
+        {
+          "word": "commit",
+          "contentType": "word"
+        },
+        {
+          "word": "competitive",
+          "contentType": "word"
+        },
+        {
+          "word": "economic",
+          "contentType": "word"
+        },
+        {
+          "word": "economy",
+          "contentType": "word"
+        },
+        {
+          "word": "enter",
+          "contentType": "word"
+        },
+        {
+          "word": "essential",
+          "contentType": "word"
+        },
+        {
+          "word": "expert",
+          "contentType": "word"
+        },
+        {
+          "word": "harm",
+          "contentType": "word"
+        },
+        {
+          "word": "invest",
+          "contentType": "word"
+        },
+        {
+          "word": "peacekeeping",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-3e0cb462a100-p1",
+      "subtopicId": "st-3e0cb462a100",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "poverty",
+          "contentType": "word"
+        },
+        {
+          "word": "promote",
+          "contentType": "word"
+        },
+        {
+          "word": "quality",
+          "contentType": "word"
+        },
+        {
+          "word": "regional",
+          "contentType": "word"
+        },
+        {
+          "word": "relation",
+          "contentType": "word"
+        },
+        {
+          "word": "respect",
+          "contentType": "word"
+        },
+        {
+          "word": "technical",
+          "contentType": "word"
+        },
+        {
+          "word": "trade",
+          "contentType": "word"
+        },
+        {
+          "word": "vaccinate",
+          "contentType": "word"
+        },
+        {
+          "word": "welcome",
           "contentType": "word"
         }
       ]
@@ -17749,83 +18466,6 @@
         },
         {
           "word": "worm",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-51a74a734c86-p0",
-      "subtopicId": "st-51a74a734c86",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 17,
-      "words": [
-        {
-          "word": "assimilate",
-          "contentType": "word"
-        },
-        {
-          "word": "attire",
-          "contentType": "word"
-        },
-        {
-          "word": "blind man's buff",
-          "contentType": "phrase"
-        },
-        {
-          "word": "identity",
-          "contentType": "word"
-        },
-        {
-          "word": "cultural practice",
-          "contentType": "phrase"
-        },
-        {
-          "word": "custom",
-          "contentType": "word"
-        },
-        {
-          "word": "diversity",
-          "contentType": "word"
-        },
-        {
-          "word": "flock",
-          "contentType": "word"
-        },
-        {
-          "word": "martial spirit",
-          "contentType": "phrase"
-        },
-        {
-          "word": "multicultural",
-          "contentType": "word"
-        },
-        {
-          "word": "national costume",
-          "contentType": "phrase"
-        },
-        {
-          "word": "national pride",
-          "contentType": "phrase"
-        },
-        {
-          "word": "solidarity",
-          "contentType": "word"
-        },
-        {
-          "word": "unify",
-          "contentType": "word"
-        },
-        {
-          "word": "unique",
-          "contentType": "word"
-        },
-        {
-          "word": "unite",
-          "contentType": "word"
-        },
-        {
-          "word": "worship",
           "contentType": "word"
         }
       ]
@@ -21842,6 +22482,79 @@
       ]
     },
     {
+      "id": "st-6136618e9e50-p0",
+      "subtopicId": "st-6136618e9e50",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 16,
+      "words": [
+        {
+          "word": "afford",
+          "contentType": "word"
+        },
+        {
+          "word": "colonial",
+          "contentType": "word"
+        },
+        {
+          "word": "concern",
+          "contentType": "word"
+        },
+        {
+          "word": "decrease",
+          "contentType": "word"
+        },
+        {
+          "word": "expand",
+          "contentType": "word"
+        },
+        {
+          "word": "gradually",
+          "contentType": "word"
+        },
+        {
+          "word": "housing",
+          "contentType": "word"
+        },
+        {
+          "word": "leisure",
+          "contentType": "word"
+        },
+        {
+          "word": "proportion",
+          "contentType": "word"
+        },
+        {
+          "word": "rapidly",
+          "contentType": "word"
+        },
+        {
+          "word": "reliable",
+          "contentType": "word"
+        },
+        {
+          "word": "resident",
+          "contentType": "word"
+        },
+        {
+          "word": "rush hour",
+          "contentType": "phrase"
+        },
+        {
+          "word": "seek",
+          "contentType": "word"
+        },
+        {
+          "word": "unemployment",
+          "contentType": "word"
+        },
+        {
+          "word": "urban",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-62dc6e721060-p0",
       "subtopicId": "st-62dc6e721060",
       "index": 0,
@@ -23700,6 +24413,108 @@
       ]
     },
     {
+      "id": "st-6b6f650c4c6d-p0",
+      "subtopicId": "st-6b6f650c4c6d",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "balance",
+          "contentType": "word"
+        },
+        {
+          "word": "biodiversity",
+          "contentType": "word"
+        },
+        {
+          "word": "climate change",
+          "contentType": "phrase"
+        },
+        {
+          "word": "consequence",
+          "contentType": "word"
+        },
+        {
+          "word": "deforestation",
+          "contentType": "word"
+        },
+        {
+          "word": "ecosystem",
+          "contentType": "word"
+        },
+        {
+          "word": "endangered",
+          "contentType": "word"
+        },
+        {
+          "word": "environmental protection",
+          "contentType": "phrase"
+        },
+        {
+          "word": "extreme",
+          "contentType": "word"
+        },
+        {
+          "word": "giant",
+          "contentType": "word"
+        },
+        {
+          "word": "habitat",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-6b6f650c4c6d-p1",
+      "subtopicId": "st-6b6f650c4c6d",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "heatwave",
+          "contentType": "word"
+        },
+        {
+          "word": "ice melting",
+          "contentType": "phrase"
+        },
+        {
+          "word": "issue",
+          "contentType": "word"
+        },
+        {
+          "word": "panda",
+          "contentType": "word"
+        },
+        {
+          "word": "practical",
+          "contentType": "word"
+        },
+        {
+          "word": "respiratory",
+          "contentType": "word"
+        },
+        {
+          "word": "tostoise",
+          "contentType": "word"
+        },
+        {
+          "word": "trade",
+          "contentType": "word"
+        },
+        {
+          "word": "upset",
+          "contentType": "word"
+        },
+        {
+          "word": "wildlife",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-6daaf99290d5-p0",
       "subtopicId": "st-6daaf99290d5",
       "index": 0,
@@ -23761,26 +24576,30 @@
       "subtopicId": "st-6e414416cd83",
       "index": 0,
       "title": "Chặng 1",
-      "wordCount": 15,
+      "wordCount": 12,
       "words": [
         {
-          "word": "adapt",
+          "word": "aware",
           "contentType": "word"
         },
         {
-          "word": "biosphere reserve",
-          "contentType": "phrase"
-        },
-        {
-          "word": "discharge",
+          "word": "brochure",
           "contentType": "word"
         },
         {
-          "word": "eco-friendly",
+          "word": "craft",
           "contentType": "word"
         },
         {
-          "word": "ecology",
+          "word": "crowd",
+          "contentType": "word"
+        },
+        {
+          "word": "culture",
+          "contentType": "word"
+        },
+        {
+          "word": "damage",
           "contentType": "word"
         },
         {
@@ -23788,40 +24607,24 @@
           "contentType": "word"
         },
         {
-          "word": "exotic",
+          "word": "explore",
           "contentType": "word"
         },
         {
-          "word": "fauna",
-          "contentType": "word"
-        },
-        {
-          "word": "flora",
-          "contentType": "word"
-        },
-        {
-          "word": "sustainable",
-          "contentType": "word"
-        },
-        {
-          "word": "tour guide",
+          "word": "floating market",
           "contentType": "phrase"
         },
         {
-          "word": "biodiversity",
+          "word": "follow",
           "contentType": "word"
         },
         {
-          "word": "conservationist",
+          "word": "host",
           "contentType": "word"
         },
         {
-          "word": "endangered species",
-          "contentType": "phrase"
-        },
-        {
-          "word": "environmental impact",
-          "contentType": "phrase"
+          "word": "hunt",
+          "contentType": "word"
         }
       ]
     },
@@ -23830,205 +24633,55 @@
       "subtopicId": "st-6e414416cd83",
       "index": 1,
       "title": "Chặng 2",
-      "wordCount": 15,
+      "wordCount": 12,
       "words": [
         {
-          "word": "geotourism",
+          "word": "impact",
           "contentType": "word"
         },
         {
-          "word": "green travel",
-          "contentType": "phrase"
-        },
-        {
-          "word": "habitat preservation",
-          "contentType": "phrase"
-        },
-        {
-          "word": "invasive species",
-          "contentType": "phrase"
-        },
-        {
-          "word": "low-impact tourism",
-          "contentType": "phrase"
-        },
-        {
-          "word": "marine ecosystem",
-          "contentType": "phrase"
-        },
-        {
-          "word": "nature reserve",
-          "contentType": "phrase"
-        },
-        {
-          "word": "off-the-beaten-path",
+          "word": "local",
           "contentType": "word"
         },
         {
-          "word": "outdoor enthusiast",
-          "contentType": "phrase"
-        },
-        {
-          "word": "pollution control",
-          "contentType": "phrase"
-        },
-        {
-          "word": "renewable energy",
-          "contentType": "phrase"
-        },
-        {
-          "word": "responsible travel",
-          "contentType": "phrase"
-        },
-        {
-          "word": "safari adventure",
-          "contentType": "phrase"
-        },
-        {
-          "word": "sustainable development",
-          "contentType": "phrase"
-        },
-        {
-          "word": "travel responsibly",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-6e414416cd83-p2",
-      "subtopicId": "st-6e414416cd83",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "wildlife conservation",
-          "contentType": "phrase"
-        },
-        {
-          "word": "zero waste",
-          "contentType": "phrase"
-        },
-        {
-          "word": "carbon footprint",
-          "contentType": "phrase"
-        },
-        {
-          "word": "cultural heritage",
-          "contentType": "phrase"
-        },
-        {
-          "word": "eco-lodge",
+          "word": "mass",
           "contentType": "word"
         },
         {
-          "word": "ecological balance",
-          "contentType": "phrase"
+          "word": "path",
+          "contentType": "word"
         },
         {
-          "word": "environmental awareness",
-          "contentType": "phrase"
+          "word": "profit",
+          "contentType": "word"
         },
         {
-          "word": "expedition leader",
-          "contentType": "phrase"
+          "word": "protect",
+          "contentType": "word"
         },
         {
-          "word": "get off the grid",
-          "contentType": "phrase"
+          "word": "responsible",
+          "contentType": "word"
         },
         {
-          "word": "go green",
-          "contentType": "phrase"
+          "word": "souvenir",
+          "contentType": "word"
         },
         {
-          "word": "hiking trail",
-          "contentType": "phrase"
+          "word": "stalactite",
+          "contentType": "word"
         },
         {
-          "word": "indigenous community",
-          "contentType": "phrase"
+          "word": "trail",
+          "contentType": "word"
         },
         {
-          "word": "itinerary planning",
-          "contentType": "phrase"
+          "word": "waste",
+          "contentType": "word"
         },
         {
-          "word": "jungle trek",
-          "contentType": "phrase"
-        },
-        {
-          "word": "keep it local",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-6e414416cd83-p3",
-      "subtopicId": "st-6e414416cd83",
-      "index": 3,
-      "title": "Chặng 4",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "leave nothing behind",
-          "contentType": "phrase"
-        },
-        {
-          "word": "minimize waste",
-          "contentType": "phrase"
-        },
-        {
-          "word": "national park",
-          "contentType": "phrase"
-        },
-        {
-          "word": "organic farming",
-          "contentType": "phrase"
-        },
-        {
-          "word": "park ranger",
-          "contentType": "phrase"
-        },
-        {
-          "word": "preserve natural resources",
-          "contentType": "phrase"
-        },
-        {
-          "word": "reduce reuse recycle",
-          "contentType": "phrase"
-        },
-        {
-          "word": "remote destination",
-          "contentType": "phrase"
-        },
-        {
-          "word": "rural tourism",
-          "contentType": "phrase"
-        },
-        {
-          "word": "take nothing but memories",
-          "contentType": "phrase"
-        },
-        {
-          "word": "travel light",
-          "contentType": "phrase"
-        },
-        {
-          "word": "unique landscape",
-          "contentType": "phrase"
-        },
-        {
-          "word": "volunteer tourism",
-          "contentType": "phrase"
-        },
-        {
-          "word": "water conservation",
-          "contentType": "phrase"
-        },
-        {
-          "word": "wildlife sanctuary",
-          "contentType": "phrase"
+          "word": "weave",
+          "contentType": "word"
         }
       ]
     },
@@ -24163,254 +24816,6 @@
         {
           "word": "whistle",
           "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-6fe862e82f1f-p0",
-      "subtopicId": "st-6fe862e82f1f",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 14,
-      "words": [
-        {
-          "word": "impact",
-          "contentType": "word"
-        },
-        {
-          "word": "negative",
-          "contentType": "word"
-        },
-        {
-          "word": "threat",
-          "contentType": "word"
-        },
-        {
-          "word": "deforestation",
-          "contentType": "word"
-        },
-        {
-          "word": "fossil fuel",
-          "contentType": "phrase"
-        },
-        {
-          "word": "depletion",
-          "contentType": "word"
-        },
-        {
-          "word": "the greenhouse effect",
-          "contentType": "phrase"
-        },
-        {
-          "word": "renewable",
-          "contentType": "word"
-        },
-        {
-          "word": "vapor",
-          "contentType": "word"
-        },
-        {
-          "word": "contaminated",
-          "contentType": "word"
-        },
-        {
-          "word": "vegetation",
-          "contentType": "word"
-        },
-        {
-          "word": "inorganic",
-          "contentType": "word"
-        },
-        {
-          "word": "fertilizer",
-          "contentType": "word"
-        },
-        {
-          "word": "pollutant",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-6fe862e82f1f-p1",
-      "subtopicId": "st-6fe862e82f1f",
-      "index": 1,
-      "title": "Chặng 2",
-      "wordCount": 13,
-      "words": [
-        {
-          "word": "pesticide",
-          "contentType": "word"
-        },
-        {
-          "word": "ecosystem",
-          "contentType": "word"
-        },
-        {
-          "word": "psychological",
-          "contentType": "word"
-        },
-        {
-          "word": "detergent",
-          "contentType": "word"
-        },
-        {
-          "word": "biodegradable",
-          "contentType": "word"
-        },
-        {
-          "word": "carbon footprint",
-          "contentType": "phrase"
-        },
-        {
-          "word": "climate change",
-          "contentType": "phrase"
-        },
-        {
-          "word": "conservation efforts",
-          "contentType": "phrase"
-        },
-        {
-          "word": "ecological balance",
-          "contentType": "phrase"
-        },
-        {
-          "word": "ecotourism",
-          "contentType": "word"
-        },
-        {
-          "word": "environmental degradation",
-          "contentType": "phrase"
-        },
-        {
-          "word": "environmental impact",
-          "contentType": "phrase"
-        },
-        {
-          "word": "environmental protection",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-6fe862e82f1f-p2",
-      "subtopicId": "st-6fe862e82f1f",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 13,
-      "words": [
-        {
-          "word": "environmental regulations",
-          "contentType": "phrase"
-        },
-        {
-          "word": "environmental sustainability",
-          "contentType": "phrase"
-        },
-        {
-          "word": "erosion",
-          "contentType": "word"
-        },
-        {
-          "word": "fossil fuels",
-          "contentType": "phrase"
-        },
-        {
-          "word": "global warming",
-          "contentType": "phrase"
-        },
-        {
-          "word": "green building",
-          "contentType": "phrase"
-        },
-        {
-          "word": "green energy",
-          "contentType": "phrase"
-        },
-        {
-          "word": "greenhouse gas emissions",
-          "contentType": "phrase"
-        },
-        {
-          "word": "habitat destruction",
-          "contentType": "phrase"
-        },
-        {
-          "word": "hazardous waste",
-          "contentType": "phrase"
-        },
-        {
-          "word": "industrial pollution",
-          "contentType": "phrase"
-        },
-        {
-          "word": "landfill",
-          "contentType": "word"
-        },
-        {
-          "word": "natural resources",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-6fe862e82f1f-p3",
-      "subtopicId": "st-6fe862e82f1f",
-      "index": 3,
-      "title": "Chặng 4",
-      "wordCount": 13,
-      "words": [
-        {
-          "word": "non-renewable resources",
-          "contentType": "phrase"
-        },
-        {
-          "word": "organic farming",
-          "contentType": "phrase"
-        },
-        {
-          "word": "ozone layer depletion",
-          "contentType": "phrase"
-        },
-        {
-          "word": "pollution control",
-          "contentType": "phrase"
-        },
-        {
-          "word": "rainforest",
-          "contentType": "word"
-        },
-        {
-          "word": "recycling initiative",
-          "contentType": "phrase"
-        },
-        {
-          "word": "renewable energy sources",
-          "contentType": "phrase"
-        },
-        {
-          "word": "resource management",
-          "contentType": "phrase"
-        },
-        {
-          "word": "smog",
-          "contentType": "word"
-        },
-        {
-          "word": "soil contamination",
-          "contentType": "phrase"
-        },
-        {
-          "word": "sustainable development",
-          "contentType": "phrase"
-        },
-        {
-          "word": "toxic waste",
-          "contentType": "phrase"
-        },
-        {
-          "word": "water pollution",
-          "contentType": "phrase"
         }
       ]
     },
@@ -24617,6 +25022,104 @@
         },
         {
           "word": "a flat tire",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-74dc7d0fe147-p0",
+      "subtopicId": "st-74dc7d0fe147",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "blended learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "communicate",
+          "contentType": "word"
+        },
+        {
+          "word": "control",
+          "contentType": "word"
+        },
+        {
+          "word": "digital",
+          "contentType": "word"
+        },
+        {
+          "word": "distraction",
+          "contentType": "word"
+        },
+        {
+          "word": "exchange",
+          "contentType": "word"
+        },
+        {
+          "word": "face-to-face",
+          "contentType": "word"
+        },
+        {
+          "word": "flow chart",
+          "contentType": "phrase"
+        },
+        {
+          "word": "focus",
+          "contentType": "word"
+        },
+        {
+          "word": "high-speed",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-74dc7d0fe147-p1",
+      "subtopicId": "st-74dc7d0fe147",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "immediately",
+          "contentType": "word"
+        },
+        {
+          "word": "install",
+          "contentType": "word"
+        },
+        {
+          "word": "online learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "original",
+          "contentType": "word"
+        },
+        {
+          "word": "real-world",
+          "contentType": "word"
+        },
+        {
+          "word": "resource",
+          "contentType": "word"
+        },
+        {
+          "word": "schedule",
+          "contentType": "word"
+        },
+        {
+          "word": "strategy",
+          "contentType": "word"
+        },
+        {
+          "word": "teamwork",
+          "contentType": "word"
+        },
+        {
+          "word": "voice recorder",
           "contentType": "phrase"
         }
       ]
@@ -25683,6 +26186,75 @@
         },
         {
           "word": "undergo",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-7a5b1a16a5e8-p0",
+      "subtopicId": "st-7a5b1a16a5e8",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "adequate",
+          "contentType": "word"
+        },
+        {
+          "word": "e-learning",
+          "contentType": "word"
+        },
+        {
+          "word": "employable",
+          "contentType": "word"
+        },
+        {
+          "word": "facilitate",
+          "contentType": "word"
+        },
+        {
+          "word": "flexibility",
+          "contentType": "word"
+        },
+        {
+          "word": "genius",
+          "contentType": "word"
+        },
+        {
+          "word": "hospitality",
+          "contentType": "word"
+        },
+        {
+          "word": "initiative",
+          "contentType": "word"
+        },
+        {
+          "word": "institution",
+          "contentType": "word"
+        },
+        {
+          "word": "lifelong",
+          "contentType": "word"
+        },
+        {
+          "word": "overwhelming",
+          "contentType": "word"
+        },
+        {
+          "word": "self-directed",
+          "contentType": "word"
+        },
+        {
+          "word": "self-motivated",
+          "contentType": "word"
+        },
+        {
+          "word": "temptation",
+          "contentType": "word"
+        },
+        {
+          "word": "ultimate",
           "contentType": "word"
         }
       ]
@@ -26960,282 +27532,6 @@
         {
           "word": "wildlife",
           "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-7fb88c92b8d6-p0",
-      "subtopicId": "st-7fb88c92b8d6",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "similarity",
-          "contentType": "word"
-        },
-        {
-          "word": "difference",
-          "contentType": "word"
-        },
-        {
-          "word": "traditional",
-          "contentType": "word"
-        },
-        {
-          "word": "proposal",
-          "contentType": "word"
-        },
-        {
-          "word": "ceremony",
-          "contentType": "word"
-        },
-        {
-          "word": "engagement",
-          "contentType": "word"
-        },
-        {
-          "word": "wedding",
-          "contentType": "word"
-        },
-        {
-          "word": "complicated",
-          "contentType": "word"
-        },
-        {
-          "word": "unnecessary",
-          "contentType": "word"
-        },
-        {
-          "word": "expense",
-          "contentType": "word"
-        },
-        {
-          "word": "reception",
-          "contentType": "word"
-        },
-        {
-          "word": "cover",
-          "contentType": "word"
-        },
-        {
-          "word": "superstition",
-          "contentType": "word"
-        },
-        {
-          "word": "favorable",
-          "contentType": "word"
-        },
-        {
-          "word": "funeral",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-7fb88c92b8d6-p1",
-      "subtopicId": "st-7fb88c92b8d6",
-      "index": 1,
-      "title": "Chặng 2",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "originate",
-          "contentType": "word"
-        },
-        {
-          "word": "ritual",
-          "contentType": "word"
-        },
-        {
-          "word": "ancestor",
-          "contentType": "word"
-        },
-        {
-          "word": "descendant",
-          "contentType": "word"
-        },
-        {
-          "word": "alter",
-          "contentType": "word"
-        },
-        {
-          "word": "assimilation",
-          "contentType": "word"
-        },
-        {
-          "word": "cultural heritage",
-          "contentType": "phrase"
-        },
-        {
-          "word": "diversity awareness",
-          "contentType": "phrase"
-        },
-        {
-          "word": "ethnicity",
-          "contentType": "word"
-        },
-        {
-          "word": "folklore",
-          "contentType": "word"
-        },
-        {
-          "word": "customary",
-          "contentType": "word"
-        },
-        {
-          "word": "intercultural",
-          "contentType": "word"
-        },
-        {
-          "word": "multiculturalism",
-          "contentType": "word"
-        },
-        {
-          "word": "pluralism",
-          "contentType": "word"
-        },
-        {
-          "word": "secular",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-7fb88c92b8d6-p2",
-      "subtopicId": "st-7fb88c92b8d6",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "sacred ritual",
-          "contentType": "phrase"
-        },
-        {
-          "word": "taboo",
-          "contentType": "word"
-        },
-        {
-          "word": "tolerance",
-          "contentType": "word"
-        },
-        {
-          "word": "tribal",
-          "contentType": "word"
-        },
-        {
-          "word": "unify",
-          "contentType": "word"
-        },
-        {
-          "word": "vested interest",
-          "contentType": "phrase"
-        },
-        {
-          "word": "ancestral land",
-          "contentType": "phrase"
-        },
-        {
-          "word": "cultural exchange",
-          "contentType": "phrase"
-        },
-        {
-          "word": "diaspora",
-          "contentType": "word"
-        },
-        {
-          "word": "endogamy",
-          "contentType": "word"
-        },
-        {
-          "word": "exogamy",
-          "contentType": "word"
-        },
-        {
-          "word": "genealogy",
-          "contentType": "word"
-        },
-        {
-          "word": "heterogeneous",
-          "contentType": "word"
-        },
-        {
-          "word": "homogeneous",
-          "contentType": "word"
-        },
-        {
-          "word": "inclusivity",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-7fb88c92b8d6-p3",
-      "subtopicId": "st-7fb88c92b8d6",
-      "index": 3,
-      "title": "Chặng 4",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "indigenous culture",
-          "contentType": "phrase"
-        },
-        {
-          "word": "lineage",
-          "contentType": "word"
-        },
-        {
-          "word": "matrilineal",
-          "contentType": "word"
-        },
-        {
-          "word": "patrilineal",
-          "contentType": "word"
-        },
-        {
-          "word": "polygamy",
-          "contentType": "word"
-        },
-        {
-          "word": "prejudice",
-          "contentType": "word"
-        },
-        {
-          "word": "reconciliation",
-          "contentType": "word"
-        },
-        {
-          "word": "regional identity",
-          "contentType": "phrase"
-        },
-        {
-          "word": "social cohesion",
-          "contentType": "phrase"
-        },
-        {
-          "word": "symbolic expression",
-          "contentType": "phrase"
-        },
-        {
-          "word": "transcultural",
-          "contentType": "word"
-        },
-        {
-          "word": "tribalism",
-          "contentType": "word"
-        },
-        {
-          "word": "universal values",
-          "contentType": "phrase"
-        },
-        {
-          "word": "xenophobia",
-          "contentType": "word"
-        },
-        {
-          "word": "youth culture",
-          "contentType": "phrase"
         }
       ]
     },
@@ -29244,165 +29540,6 @@
       ]
     },
     {
-      "id": "st-902882381d6b-p0",
-      "subtopicId": "st-902882381d6b",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 12,
-      "words": [
-        {
-          "word": "biodiversity",
-          "contentType": "word"
-        },
-        {
-          "word": "conservation",
-          "contentType": "word"
-        },
-        {
-          "word": "conservation status",
-          "contentType": "phrase"
-        },
-        {
-          "word": "endangered species",
-          "contentType": "phrase"
-        },
-        {
-          "word": "evolution",
-          "contentType": "word"
-        },
-        {
-          "word": "extinct",
-          "contentType": "word"
-        },
-        {
-          "word": "extinction",
-          "contentType": "word"
-        },
-        {
-          "word": "poach",
-          "contentType": "word"
-        },
-        {
-          "word": "rhinoceros",
-          "contentType": "word"
-        },
-        {
-          "word": "sea turtle",
-          "contentType": "phrase"
-        },
-        {
-          "word": "trade",
-          "contentType": "word"
-        },
-        {
-          "word": "vulnerable",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-91b0331e72ff-p0",
-      "subtopicId": "st-91b0331e72ff",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 11,
-      "words": [
-        {
-          "word": "achievement",
-          "contentType": "word"
-        },
-        {
-          "word": "anonymous",
-          "contentType": "word"
-        },
-        {
-          "word": "dedication",
-          "contentType": "word"
-        },
-        {
-          "word": "diagnose",
-          "contentType": "word"
-        },
-        {
-          "word": "distinguished",
-          "contentType": "word"
-        },
-        {
-          "word": "figure",
-          "contentType": "word"
-        },
-        {
-          "word": "generosity",
-          "contentType": "word"
-        },
-        {
-          "word": "humble",
-          "contentType": "word"
-        },
-        {
-          "word": "jobless",
-          "contentType": "word"
-        },
-        {
-          "word": "starving",
-          "contentType": "word"
-        },
-        {
-          "word": "hospitalization",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-91b0331e72ff-p1",
-      "subtopicId": "st-91b0331e72ff",
-      "index": 1,
-      "title": "Chặng 2",
-      "wordCount": 10,
-      "words": [
-        {
-          "word": "perseverance",
-          "contentType": "word"
-        },
-        {
-          "word": "prosthetic leg",
-          "contentType": "phrase"
-        },
-        {
-          "word": "reputation",
-          "contentType": "word"
-        },
-        {
-          "word": "respectable",
-          "contentType": "word"
-        },
-        {
-          "word": "talent",
-          "contentType": "word"
-        },
-        {
-          "word": "waiver",
-          "contentType": "word"
-        },
-        {
-          "word": "vow",
-          "contentType": "word"
-        },
-        {
-          "word": "emerge",
-          "contentType": "word"
-        },
-        {
-          "word": "amputate",
-          "contentType": "word"
-        },
-        {
-          "word": "initiate",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
       "id": "st-91b85dbce068-p0",
       "subtopicId": "st-91b85dbce068",
       "index": 0,
@@ -29460,6 +29597,222 @@
         {
           "word": "not know what hit you",
           "contentType": "idiom"
+        }
+      ]
+    },
+    {
+      "id": "st-93362d7daeec-p0",
+      "subtopicId": "st-93362d7daeec",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "access",
+          "contentType": "word"
+        },
+        {
+          "word": "announcement",
+          "contentType": "word"
+        },
+        {
+          "word": "boost",
+          "contentType": "word"
+        },
+        {
+          "word": "cheerful",
+          "contentType": "word"
+        },
+        {
+          "word": "community",
+          "contentType": "word"
+        },
+        {
+          "word": "community service",
+          "contentType": "phrase"
+        },
+        {
+          "word": "confidence",
+          "contentType": "word"
+        },
+        {
+          "word": "confused",
+          "contentType": "word"
+        },
+        {
+          "word": "deliver",
+          "contentType": "word"
+        },
+        {
+          "word": "donate",
+          "contentType": "word"
+        },
+        {
+          "word": "donation",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-93362d7daeec-p1",
+      "subtopicId": "st-93362d7daeec",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "generous",
+          "contentType": "word"
+        },
+        {
+          "word": "involved",
+          "contentType": "word"
+        },
+        {
+          "word": "life-saving",
+          "contentType": "word"
+        },
+        {
+          "word": "non-governmental",
+          "contentType": "word"
+        },
+        {
+          "word": "orphanage",
+          "contentType": "word"
+        },
+        {
+          "word": "participate",
+          "contentType": "word"
+        },
+        {
+          "word": "practical",
+          "contentType": "word"
+        },
+        {
+          "word": "raise",
+          "contentType": "word"
+        },
+        {
+          "word": "remote",
+          "contentType": "word"
+        },
+        {
+          "word": "various",
+          "contentType": "word"
+        },
+        {
+          "word": "volunteer",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-940c9abda47d-p0",
+      "subtopicId": "st-940c9abda47d",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "automate",
+          "contentType": "word"
+        },
+        {
+          "word": "adapt",
+          "contentType": "word"
+        },
+        {
+          "word": "character",
+          "contentType": "word"
+        },
+        {
+          "word": "childminder",
+          "contentType": "word"
+        },
+        {
+          "word": "cut down on",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cv (curriculum vitae)",
+          "contentType": "phrase"
+        },
+        {
+          "word": "fascinating",
+          "contentType": "word"
+        },
+        {
+          "word": "in demand",
+          "contentType": "phrase"
+        },
+        {
+          "word": "get on with",
+          "contentType": "phrase"
+        },
+        {
+          "word": "go in for",
+          "contentType": "phrase"
+        },
+        {
+          "word": "live up to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "look down on",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-940c9abda47d-p1",
+      "subtopicId": "st-940c9abda47d",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "obsolete",
+          "contentType": "word"
+        },
+        {
+          "word": "passion",
+          "contentType": "word"
+        },
+        {
+          "word": "passionate",
+          "contentType": "word"
+        },
+        {
+          "word": "position",
+          "contentType": "word"
+        },
+        {
+          "word": "pursue",
+          "contentType": "word"
+        },
+        {
+          "word": "put up with",
+          "contentType": "phrase"
+        },
+        {
+          "word": "soft skills",
+          "contentType": "phrase"
+        },
+        {
+          "word": "specialty",
+          "contentType": "word"
+        },
+        {
+          "word": "take into account",
+          "contentType": "phrase"
+        },
+        {
+          "word": "tutor",
+          "contentType": "word"
+        },
+        {
+          "word": "work experience",
+          "contentType": "phrase"
         }
       ]
     },
@@ -30488,6 +30841,124 @@
       ]
     },
     {
+      "id": "st-99db1b29fff5-p0",
+      "subtopicId": "st-99db1b29fff5",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "agricultural",
+          "contentType": "word"
+        },
+        {
+          "word": "centralize",
+          "contentType": "word"
+        },
+        {
+          "word": "cost-effective",
+          "contentType": "word"
+        },
+        {
+          "word": "counter urbanization",
+          "contentType": "phrase"
+        },
+        {
+          "word": "dense populated",
+          "contentType": "phrase"
+        },
+        {
+          "word": "down market",
+          "contentType": "phrase"
+        },
+        {
+          "word": "down to earth",
+          "contentType": "phrase"
+        },
+        {
+          "word": "energy saving",
+          "contentType": "phrase"
+        },
+        {
+          "word": "expand",
+          "contentType": "word"
+        },
+        {
+          "word": "industrialization",
+          "contentType": "word"
+        },
+        {
+          "word": "interest free",
+          "contentType": "phrase"
+        },
+        {
+          "word": "kind-hearted",
+          "contentType": "word"
+        },
+        {
+          "word": "long-lasting",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-99db1b29fff5-p1",
+      "subtopicId": "st-99db1b29fff5",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "migrate",
+          "contentType": "word"
+        },
+        {
+          "word": "mindset",
+          "contentType": "word"
+        },
+        {
+          "word": "overload",
+          "contentType": "word"
+        },
+        {
+          "word": "sanitation",
+          "contentType": "word"
+        },
+        {
+          "word": "self-motivated",
+          "contentType": "word"
+        },
+        {
+          "word": "slum infrastructure",
+          "contentType": "phrase"
+        },
+        {
+          "word": "time consuming",
+          "contentType": "phrase"
+        },
+        {
+          "word": "thought provoking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "unemployment",
+          "contentType": "word"
+        },
+        {
+          "word": "up market",
+          "contentType": "phrase"
+        },
+        {
+          "word": "weather beaten",
+          "contentType": "phrase"
+        },
+        {
+          "word": "well-established",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-9a606737b35f-p0",
       "subtopicId": "st-9a606737b35f",
       "index": 0,
@@ -30813,75 +31284,6 @@
         },
         {
           "word": "widespread",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-9d2657755a0c-p0",
-      "subtopicId": "st-9d2657755a0c",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "adequate",
-          "contentType": "word"
-        },
-        {
-          "word": "e-learning",
-          "contentType": "word"
-        },
-        {
-          "word": "employable",
-          "contentType": "word"
-        },
-        {
-          "word": "facilitate",
-          "contentType": "word"
-        },
-        {
-          "word": "flexibility",
-          "contentType": "word"
-        },
-        {
-          "word": "genius",
-          "contentType": "word"
-        },
-        {
-          "word": "hospitality",
-          "contentType": "word"
-        },
-        {
-          "word": "initiative",
-          "contentType": "word"
-        },
-        {
-          "word": "institution",
-          "contentType": "word"
-        },
-        {
-          "word": "lifelong",
-          "contentType": "word"
-        },
-        {
-          "word": "overwhelming",
-          "contentType": "word"
-        },
-        {
-          "word": "self-directed",
-          "contentType": "word"
-        },
-        {
-          "word": "self-motivated",
-          "contentType": "word"
-        },
-        {
-          "word": "temptation",
-          "contentType": "word"
-        },
-        {
-          "word": "ultimate",
           "contentType": "word"
         }
       ]
@@ -31626,6 +32028,274 @@
       ]
     },
     {
+      "id": "st-9e945eba390b-p0",
+      "subtopicId": "st-9e945eba390b",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "discussion",
+          "contentType": "word"
+        },
+        {
+          "word": "personal",
+          "contentType": "word"
+        },
+        {
+          "word": "electronic device",
+          "contentType": "phrase"
+        },
+        {
+          "word": "tablet",
+          "contentType": "word"
+        },
+        {
+          "word": "calculation",
+          "contentType": "word"
+        },
+        {
+          "word": "materials",
+          "contentType": "word"
+        },
+        {
+          "word": "widen",
+          "contentType": "word"
+        },
+        {
+          "word": "knowledge",
+          "contentType": "word"
+        },
+        {
+          "word": "digital",
+          "contentType": "word"
+        },
+        {
+          "word": "touch screen",
+          "contentType": "phrase"
+        },
+        {
+          "word": "inappropriate",
+          "contentType": "word"
+        },
+        {
+          "word": "application",
+          "contentType": "word"
+        },
+        {
+          "word": "pedagogy",
+          "contentType": "word"
+        },
+        {
+          "word": "e-learning",
+          "contentType": "word"
+        },
+        {
+          "word": "curriculum design",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-9e945eba390b-p1",
+      "subtopicId": "st-9e945eba390b",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "interactive whiteboard",
+          "contentType": "phrase"
+        },
+        {
+          "word": "blended learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "flipped classroom",
+          "contentType": "phrase"
+        },
+        {
+          "word": "online tutorial",
+          "contentType": "phrase"
+        },
+        {
+          "word": "virtual mentor",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital literacy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "information retrieval",
+          "contentType": "phrase"
+        },
+        {
+          "word": "critical thinking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "problem-solving skills",
+          "contentType": "phrase"
+        },
+        {
+          "word": "collaborative learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "project-based assessment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "formative evaluation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "summative feedback",
+          "contentType": "phrase"
+        },
+        {
+          "word": "educational software",
+          "contentType": "phrase"
+        },
+        {
+          "word": "learning management system",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-9e945eba390b-p2",
+      "subtopicId": "st-9e945eba390b",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "academic integrity",
+          "contentType": "phrase"
+        },
+        {
+          "word": "plagiarism detection",
+          "contentType": "phrase"
+        },
+        {
+          "word": "authentic assessment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "self-directed learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "personalized education",
+          "contentType": "phrase"
+        },
+        {
+          "word": "adaptive technology",
+          "contentType": "phrase"
+        },
+        {
+          "word": "gamification",
+          "contentType": "word"
+        },
+        {
+          "word": "simulation-based learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "microlearning",
+          "contentType": "word"
+        },
+        {
+          "word": "mobile learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bring your own device",
+          "contentType": "phrase"
+        },
+        {
+          "word": "one-to-one computing",
+          "contentType": "phrase"
+        },
+        {
+          "word": "digital citizenship",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cyberbullying prevention",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-9e945eba390b-p3",
+      "subtopicId": "st-9e945eba390b",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "online safety",
+          "contentType": "phrase"
+        },
+        {
+          "word": "media literacy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "information architecture",
+          "contentType": "phrase"
+        },
+        {
+          "word": "knowledge management",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cognitive load",
+          "contentType": "phrase"
+        },
+        {
+          "word": "learning analytics",
+          "contentType": "phrase"
+        },
+        {
+          "word": "data-driven instruction",
+          "contentType": "phrase"
+        },
+        {
+          "word": "educational gaming",
+          "contentType": "phrase"
+        },
+        {
+          "word": "virtual reality",
+          "contentType": "phrase"
+        },
+        {
+          "word": "augmented reality",
+          "contentType": "phrase"
+        },
+        {
+          "word": "artificial intelligence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "machine learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "natural language processing",
+          "contentType": "phrase"
+        },
+        {
+          "word": "human-computer interaction",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
       "id": "st-a02f582937b5-p0",
       "subtopicId": "st-a02f582937b5",
       "index": 0,
@@ -31869,6 +32539,104 @@
         },
         {
           "word": "custom",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-a08e00f0b9a7-p0",
+      "subtopicId": "st-a08e00f0b9a7",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "application letter",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bonus",
+          "contentType": "word"
+        },
+        {
+          "word": "casual",
+          "contentType": "word"
+        },
+        {
+          "word": "challenging",
+          "contentType": "word"
+        },
+        {
+          "word": "flexible",
+          "contentType": "word"
+        },
+        {
+          "word": "footstep",
+          "contentType": "word"
+        },
+        {
+          "word": "employ",
+          "contentType": "word"
+        },
+        {
+          "word": "nine-to-five",
+          "contentType": "word"
+        },
+        {
+          "word": "on-the-job",
+          "contentType": "word"
+        },
+        {
+          "word": "overtime",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-a08e00f0b9a7-p1",
+      "subtopicId": "st-a08e00f0b9a7",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 10,
+      "words": [
+        {
+          "word": "part-time",
+          "contentType": "word"
+        },
+        {
+          "word": "repetitive",
+          "contentType": "word"
+        },
+        {
+          "word": "rewarding",
+          "contentType": "word"
+        },
+        {
+          "word": "shift",
+          "contentType": "word"
+        },
+        {
+          "word": "stressful",
+          "contentType": "word"
+        },
+        {
+          "word": "unpaid",
+          "contentType": "word"
+        },
+        {
+          "word": "wage",
+          "contentType": "word"
+        },
+        {
+          "word": "wait on tables",
+          "contentType": "phrase"
+        },
+        {
+          "word": "well-paid",
+          "contentType": "word"
+        },
+        {
+          "word": "vacancy",
           "contentType": "word"
         }
       ]
@@ -32260,6 +33028,136 @@
         {
           "word": "round up",
           "contentType": "phrasal_verb"
+        }
+      ]
+    },
+    {
+      "id": "st-a47646dbd7b6-p0",
+      "subtopicId": "st-a47646dbd7b6",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "body part",
+          "contentType": "phrase"
+        },
+        {
+          "word": "captivity",
+          "contentType": "word"
+        },
+        {
+          "word": "conservation",
+          "contentType": "word"
+        },
+        {
+          "word": "conserve",
+          "contentType": "word"
+        },
+        {
+          "word": "coral",
+          "contentType": "word"
+        },
+        {
+          "word": "critically endangered",
+          "contentType": "phrase"
+        },
+        {
+          "word": "debris",
+          "contentType": "word"
+        },
+        {
+          "word": "degrade",
+          "contentType": "word"
+        },
+        {
+          "word": "enclosure",
+          "contentType": "word"
+        },
+        {
+          "word": "endangered",
+          "contentType": "word"
+        },
+        {
+          "word": "extinct",
+          "contentType": "word"
+        },
+        {
+          "word": "forest clearance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "house",
+          "contentType": "word"
+        },
+        {
+          "word": "mammal",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-a47646dbd7b6-p1",
+      "subtopicId": "st-a47646dbd7b6",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "marine",
+          "contentType": "word"
+        },
+        {
+          "word": "monitor",
+          "contentType": "word"
+        },
+        {
+          "word": "nursery",
+          "contentType": "word"
+        },
+        {
+          "word": "poach",
+          "contentType": "word"
+        },
+        {
+          "word": "primate",
+          "contentType": "word"
+        },
+        {
+          "word": "rare",
+          "contentType": "word"
+        },
+        {
+          "word": "release",
+          "contentType": "word"
+        },
+        {
+          "word": "rescue",
+          "contentType": "word"
+        },
+        {
+          "word": "sea turtle",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sign language",
+          "contentType": "phrase"
+        },
+        {
+          "word": "spawning ground",
+          "contentType": "phrase"
+        },
+        {
+          "word": "survive",
+          "contentType": "word"
+        },
+        {
+          "word": "threatened",
+          "contentType": "word"
+        },
+        {
+          "word": "vulnerable",
+          "contentType": "word"
         }
       ]
     },
@@ -33374,66 +34272,46 @@
       "subtopicId": "st-a8f51e97eddb",
       "index": 0,
       "title": "Chặng 1",
-      "wordCount": 15,
+      "wordCount": 10,
       "words": [
         {
-          "word": "phenomenon",
-          "contentType": "word"
-        },
-        {
-          "word": "release",
-          "contentType": "word"
-        },
-        {
-          "word": "celebrity",
-          "contentType": "word"
-        },
-        {
-          "word": "achievement",
-          "contentType": "word"
-        },
-        {
-          "word": "air",
-          "contentType": "word"
-        },
-        {
-          "word": "artist",
-          "contentType": "word"
-        },
-        {
-          "word": "award",
-          "contentType": "word"
-        },
-        {
-          "word": "passionate",
-          "contentType": "word"
-        },
-        {
-          "word": "contest",
-          "contentType": "word"
-        },
-        {
-          "word": "graduate",
-          "contentType": "word"
-        },
-        {
-          "word": "biography",
-          "contentType": "word"
-        },
-        {
-          "word": "excite",
-          "contentType": "word"
-        },
-        {
-          "word": "talented",
-          "contentType": "word"
-        },
-        {
-          "word": "platinum album",
+          "word": "bamboo clapper",
           "contentType": "phrase"
         },
         {
-          "word": "stage",
+          "word": "comment",
+          "contentType": "word"
+        },
+        {
+          "word": "competition",
+          "contentType": "word"
+        },
+        {
+          "word": "concert",
+          "contentType": "word"
+        },
+        {
+          "word": "decoration",
+          "contentType": "word"
+        },
+        {
+          "word": "delay",
+          "contentType": "word"
+        },
+        {
+          "word": "eliminate",
+          "contentType": "word"
+        },
+        {
+          "word": "judge",
+          "contentType": "word"
+        },
+        {
+          "word": "live",
+          "contentType": "word"
+        },
+        {
+          "word": "location",
           "contentType": "word"
         }
       ]
@@ -33443,200 +34321,46 @@
       "subtopicId": "st-a8f51e97eddb",
       "index": 1,
       "title": "Chặng 2",
-      "wordCount": 15,
+      "wordCount": 10,
       "words": [
         {
-          "word": "pop star",
+          "word": "moon-shaped lute",
           "contentType": "phrase"
         },
         {
-          "word": "well-known",
+          "word": "musical instrument",
+          "contentType": "phrase"
+        },
+        {
+          "word": "participant",
           "contentType": "word"
         },
         {
-          "word": "opus",
+          "word": "performance",
           "contentType": "word"
         },
         {
-          "word": "virtuoso",
+          "word": "reach",
           "contentType": "word"
         },
         {
-          "word": "maestro",
+          "word": "single",
           "contentType": "word"
         },
         {
-          "word": "crescendo",
+          "word": "social media",
+          "contentType": "phrase"
+        },
+        {
+          "word": "talented",
           "contentType": "word"
         },
         {
-          "word": "diminuendo",
+          "word": "trumpet",
           "contentType": "word"
         },
         {
-          "word": "allegro",
-          "contentType": "word"
-        },
-        {
-          "word": "andante",
-          "contentType": "word"
-        },
-        {
-          "word": "adagio",
-          "contentType": "word"
-        },
-        {
-          "word": "forte",
-          "contentType": "word"
-        },
-        {
-          "word": "piano",
-          "contentType": "word"
-        },
-        {
-          "word": "staccato",
-          "contentType": "word"
-        },
-        {
-          "word": "legato",
-          "contentType": "word"
-        },
-        {
-          "word": "vibrato",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-a8f51e97eddb-p2",
-      "subtopicId": "st-a8f51e97eddb",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "intonation",
-          "contentType": "word"
-        },
-        {
-          "word": "timbre",
-          "contentType": "word"
-        },
-        {
-          "word": "resonance",
-          "contentType": "word"
-        },
-        {
-          "word": "polyphony",
-          "contentType": "word"
-        },
-        {
-          "word": "monophony",
-          "contentType": "word"
-        },
-        {
-          "word": "harmony",
-          "contentType": "word"
-        },
-        {
-          "word": "melody",
-          "contentType": "word"
-        },
-        {
-          "word": "rhythm",
-          "contentType": "word"
-        },
-        {
-          "word": "beat",
-          "contentType": "word"
-        },
-        {
-          "word": "tempo",
-          "contentType": "word"
-        },
-        {
-          "word": "leitmotif",
-          "contentType": "word"
-        },
-        {
-          "word": "fugue",
-          "contentType": "word"
-        },
-        {
-          "word": "sonata",
-          "contentType": "word"
-        },
-        {
-          "word": "symphony",
-          "contentType": "word"
-        },
-        {
-          "word": "concerto",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-a8f51e97eddb-p3",
-      "subtopicId": "st-a8f51e97eddb",
-      "index": 3,
-      "title": "Chặng 4",
-      "wordCount": 14,
-      "words": [
-        {
-          "word": "overture",
-          "contentType": "word"
-        },
-        {
-          "word": "aria",
-          "contentType": "word"
-        },
-        {
-          "word": "recitative",
-          "contentType": "word"
-        },
-        {
-          "word": "libretto",
-          "contentType": "word"
-        },
-        {
-          "word": "avant-garde",
-          "contentType": "word"
-        },
-        {
-          "word": "improvisation",
-          "contentType": "word"
-        },
-        {
-          "word": "composition",
-          "contentType": "word"
-        },
-        {
-          "word": "arrangement",
-          "contentType": "word"
-        },
-        {
-          "word": "orchestration",
-          "contentType": "word"
-        },
-        {
-          "word": "conductor",
-          "contentType": "word"
-        },
-        {
-          "word": "ensemble",
-          "contentType": "word"
-        },
-        {
-          "word": "soloist",
-          "contentType": "word"
-        },
-        {
-          "word": "recital",
-          "contentType": "word"
-        },
-        {
-          "word": "audition",
+          "word": "upload",
           "contentType": "word"
         }
       ]
@@ -34723,66 +35447,50 @@
       "subtopicId": "st-ac67ec2b5817",
       "index": 0,
       "title": "Chặng 1",
-      "wordCount": 15,
+      "wordCount": 11,
       "words": [
+        {
+          "word": "cosmonaut",
+          "contentType": "word"
+        },
+        {
+          "word": "domestic violence",
+          "contentType": "phrase"
+        },
         {
           "word": "equal",
           "contentType": "word"
         },
         {
-          "word": "education",
+          "word": "equality",
           "contentType": "word"
         },
         {
-          "word": "information",
+          "word": "eyesight",
           "contentType": "word"
         },
         {
-          "word": "enroll",
+          "word": "firefighter",
           "contentType": "word"
         },
         {
-          "word": "suppose",
+          "word": "kindergarten",
           "contentType": "word"
         },
         {
-          "word": "discrimination",
+          "word": "mental",
           "contentType": "word"
         },
         {
-          "word": "sex",
+          "word": "officer",
           "contentType": "word"
         },
         {
-          "word": "rural",
+          "word": "operation",
           "contentType": "word"
         },
         {
-          "word": "degree",
-          "contentType": "word"
-        },
-        {
-          "word": "earn",
-          "contentType": "word"
-        },
-        {
-          "word": "eliminate",
-          "contentType": "word"
-        },
-        {
-          "word": "promote",
-          "contentType": "word"
-        },
-        {
-          "word": "preference",
-          "contentType": "word"
-        },
-        {
-          "word": "pursue",
-          "contentType": "word"
-        },
-        {
-          "word": "sue",
+          "word": "parachute",
           "contentType": "word"
         }
       ]
@@ -34792,127 +35500,50 @@
       "subtopicId": "st-ac67ec2b5817",
       "index": 1,
       "title": "Chặng 2",
-      "wordCount": 14,
+      "wordCount": 11,
       "words": [
         {
-          "word": "loneliness",
+          "word": "parachutist",
           "contentType": "word"
         },
         {
-          "word": "limitation",
+          "word": "patient",
           "contentType": "word"
         },
         {
-          "word": "firefighter",
+          "word": "physical",
           "contentType": "word"
         },
         {
-          "word": "aware",
+          "word": "pilot",
           "contentType": "word"
         },
         {
-          "word": "unwelcome",
+          "word": "secretary",
           "contentType": "word"
         },
         {
-          "word": "courage",
-          "contentType": "word"
-        },
-        {
-          "word": "parity",
-          "contentType": "word"
-        },
-        {
-          "word": "equity",
-          "contentType": "word"
-        },
-        {
-          "word": "empowerment",
-          "contentType": "word"
-        },
-        {
-          "word": "patriarchy",
-          "contentType": "word"
-        },
-        {
-          "word": "matriarchy",
-          "contentType": "word"
-        },
-        {
-          "word": "subordination",
-          "contentType": "word"
-        },
-        {
-          "word": "enfranchisement",
-          "contentType": "word"
-        },
-        {
-          "word": "suffrage",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-ac67ec2b5817-p2",
-      "subtopicId": "st-ac67ec2b5817",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 14,
-      "words": [
-        {
-          "word": "intersectionality",
-          "contentType": "word"
-        },
-        {
-          "word": "gender roles",
+          "word": "shop assistant",
           "contentType": "phrase"
         },
         {
-          "word": "gender stereotypes",
-          "contentType": "phrase"
-        },
-        {
-          "word": "wage gap",
-          "contentType": "phrase"
-        },
-        {
-          "word": "glass ceiling",
-          "contentType": "phrase"
-        },
-        {
-          "word": "sexual harassment",
-          "contentType": "phrase"
-        },
-        {
-          "word": "gender-based violence",
-          "contentType": "phrase"
-        },
-        {
-          "word": "affirmative action",
-          "contentType": "phrase"
-        },
-        {
-          "word": "quid pro quo",
-          "contentType": "phrase"
-        },
-        {
-          "word": "hostile work environment",
-          "contentType": "phrase"
-        },
-        {
-          "word": "reproductive rights",
-          "contentType": "phrase"
-        },
-        {
-          "word": "bodily autonomy",
-          "contentType": "phrase"
-        },
-        {
-          "word": "feminism",
+          "word": "skillful",
           "contentType": "word"
         },
         {
-          "word": "machismo",
+          "word": "soviet",
+          "contentType": "word"
+        },
+        {
+          "word": "surgeon",
+          "contentType": "word"
+        },
+        {
+          "word": "uneducated",
+          "contentType": "word"
+        },
+        {
+          "word": "victim",
           "contentType": "word"
         }
       ]
@@ -35158,6 +35789,144 @@
       ]
     },
     {
+      "id": "st-af5e5c29c50a-p0",
+      "subtopicId": "st-af5e5c29c50a",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "accessible",
+          "contentType": "word"
+        },
+        {
+          "word": "account for",
+          "contentType": "phrase"
+        },
+        {
+          "word": "advert",
+          "contentType": "word"
+        },
+        {
+          "word": "as opposed to",
+          "contentType": "phrase"
+        },
+        {
+          "word": "audio",
+          "contentType": "word"
+        },
+        {
+          "word": "bias",
+          "contentType": "word"
+        },
+        {
+          "word": "broadcast",
+          "contentType": "word"
+        },
+        {
+          "word": "by contrast",
+          "contentType": "phrase"
+        },
+        {
+          "word": "credible",
+          "contentType": "word"
+        },
+        {
+          "word": "digital billboard",
+          "contentType": "phrase"
+        },
+        {
+          "word": "discount",
+          "contentType": "word"
+        },
+        {
+          "word": "distribute",
+          "contentType": "word"
+        },
+        {
+          "word": "fact-check",
+          "contentType": "word"
+        },
+        {
+          "word": "fake news",
+          "contentType": "phrase"
+        },
+        {
+          "word": "instant",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-af5e5c29c50a-p1",
+      "subtopicId": "st-af5e5c29c50a",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "interactive",
+          "contentType": "word"
+        },
+        {
+          "word": "loudspeaker",
+          "contentType": "word"
+        },
+        {
+          "word": "mass media",
+          "contentType": "phrase"
+        },
+        {
+          "word": "meanwhile",
+          "contentType": "word"
+        },
+        {
+          "word": "place",
+          "contentType": "word"
+        },
+        {
+          "word": "presence",
+          "contentType": "word"
+        },
+        {
+          "word": "profit-making",
+          "contentType": "word"
+        },
+        {
+          "word": "publicity",
+          "contentType": "word"
+        },
+        {
+          "word": "reliable",
+          "contentType": "word"
+        },
+        {
+          "word": "source",
+          "contentType": "word"
+        },
+        {
+          "word": "spread",
+          "contentType": "word"
+        },
+        {
+          "word": "the press",
+          "contentType": "phrase"
+        },
+        {
+          "word": "update",
+          "contentType": "word"
+        },
+        {
+          "word": "viewer",
+          "contentType": "word"
+        },
+        {
+          "word": "visual",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-afe16b5298e5-p0",
       "subtopicId": "st-afe16b5298e5",
       "index": 0,
@@ -35299,6 +36068,116 @@
         },
         {
           "word": "in through the wars",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-b5c74888c9a5-p0",
+      "subtopicId": "st-b5c74888c9a5",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "activate",
+          "contentType": "word"
+        },
+        {
+          "word": "advanced",
+          "contentType": "word"
+        },
+        {
+          "word": "analyse",
+          "contentType": "word"
+        },
+        {
+          "word": "application",
+          "contentType": "word"
+        },
+        {
+          "word": "artificial intelligence (ai)",
+          "contentType": "phrase"
+        },
+        {
+          "word": "capable",
+          "contentType": "word"
+        },
+        {
+          "word": "chatbot",
+          "contentType": "word"
+        },
+        {
+          "word": "data",
+          "contentType": "word"
+        },
+        {
+          "word": "digital",
+          "contentType": "word"
+        },
+        {
+          "word": "evolution",
+          "contentType": "word"
+        },
+        {
+          "word": "facial recognition",
+          "contentType": "phrase"
+        },
+        {
+          "word": "function",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-b5c74888c9a5-p1",
+      "subtopicId": "st-b5c74888c9a5",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "hands-on",
+          "contentType": "word"
+        },
+        {
+          "word": "human-like",
+          "contentType": "word"
+        },
+        {
+          "word": "interact",
+          "contentType": "word"
+        },
+        {
+          "word": "personalised",
+          "contentType": "word"
+        },
+        {
+          "word": "platform",
+          "contentType": "word"
+        },
+        {
+          "word": "portfolio",
+          "contentType": "word"
+        },
+        {
+          "word": "programme",
+          "contentType": "word"
+        },
+        {
+          "word": "robotic",
+          "contentType": "word"
+        },
+        {
+          "word": "upgrade",
+          "contentType": "word"
+        },
+        {
+          "word": "virtual reality",
+          "contentType": "phrase"
+        },
+        {
+          "word": "voice command",
           "contentType": "phrase"
         }
       ]
@@ -35848,6 +36727,254 @@
         },
         {
           "word": "sing along too",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-b8a859a88c12-p0",
+      "subtopicId": "st-b8a859a88c12",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "impact",
+          "contentType": "word"
+        },
+        {
+          "word": "negative",
+          "contentType": "word"
+        },
+        {
+          "word": "threat",
+          "contentType": "word"
+        },
+        {
+          "word": "deforestation",
+          "contentType": "word"
+        },
+        {
+          "word": "fossil fuel",
+          "contentType": "phrase"
+        },
+        {
+          "word": "depletion",
+          "contentType": "word"
+        },
+        {
+          "word": "the greenhouse effect",
+          "contentType": "phrase"
+        },
+        {
+          "word": "renewable",
+          "contentType": "word"
+        },
+        {
+          "word": "vapor",
+          "contentType": "word"
+        },
+        {
+          "word": "contaminated",
+          "contentType": "word"
+        },
+        {
+          "word": "vegetation",
+          "contentType": "word"
+        },
+        {
+          "word": "inorganic",
+          "contentType": "word"
+        },
+        {
+          "word": "fertilizer",
+          "contentType": "word"
+        },
+        {
+          "word": "pollutant",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-b8a859a88c12-p1",
+      "subtopicId": "st-b8a859a88c12",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "pesticide",
+          "contentType": "word"
+        },
+        {
+          "word": "ecosystem",
+          "contentType": "word"
+        },
+        {
+          "word": "psychological",
+          "contentType": "word"
+        },
+        {
+          "word": "detergent",
+          "contentType": "word"
+        },
+        {
+          "word": "biodegradable",
+          "contentType": "word"
+        },
+        {
+          "word": "carbon footprint",
+          "contentType": "phrase"
+        },
+        {
+          "word": "climate change",
+          "contentType": "phrase"
+        },
+        {
+          "word": "conservation efforts",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ecological balance",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ecotourism",
+          "contentType": "word"
+        },
+        {
+          "word": "environmental degradation",
+          "contentType": "phrase"
+        },
+        {
+          "word": "environmental impact",
+          "contentType": "phrase"
+        },
+        {
+          "word": "environmental protection",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-b8a859a88c12-p2",
+      "subtopicId": "st-b8a859a88c12",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "environmental regulations",
+          "contentType": "phrase"
+        },
+        {
+          "word": "environmental sustainability",
+          "contentType": "phrase"
+        },
+        {
+          "word": "erosion",
+          "contentType": "word"
+        },
+        {
+          "word": "fossil fuels",
+          "contentType": "phrase"
+        },
+        {
+          "word": "global warming",
+          "contentType": "phrase"
+        },
+        {
+          "word": "green building",
+          "contentType": "phrase"
+        },
+        {
+          "word": "green energy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "greenhouse gas emissions",
+          "contentType": "phrase"
+        },
+        {
+          "word": "habitat destruction",
+          "contentType": "phrase"
+        },
+        {
+          "word": "hazardous waste",
+          "contentType": "phrase"
+        },
+        {
+          "word": "industrial pollution",
+          "contentType": "phrase"
+        },
+        {
+          "word": "landfill",
+          "contentType": "word"
+        },
+        {
+          "word": "natural resources",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-b8a859a88c12-p3",
+      "subtopicId": "st-b8a859a88c12",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "non-renewable resources",
+          "contentType": "phrase"
+        },
+        {
+          "word": "organic farming",
+          "contentType": "phrase"
+        },
+        {
+          "word": "ozone layer depletion",
+          "contentType": "phrase"
+        },
+        {
+          "word": "pollution control",
+          "contentType": "phrase"
+        },
+        {
+          "word": "rainforest",
+          "contentType": "word"
+        },
+        {
+          "word": "recycling initiative",
+          "contentType": "phrase"
+        },
+        {
+          "word": "renewable energy sources",
+          "contentType": "phrase"
+        },
+        {
+          "word": "resource management",
+          "contentType": "phrase"
+        },
+        {
+          "word": "smog",
+          "contentType": "word"
+        },
+        {
+          "word": "soil contamination",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sustainable development",
+          "contentType": "phrase"
+        },
+        {
+          "word": "toxic waste",
+          "contentType": "phrase"
+        },
+        {
+          "word": "water pollution",
           "contentType": "phrase"
         }
       ]
@@ -38409,274 +39536,6 @@
       ]
     },
     {
-      "id": "st-c4d557fe5580-p0",
-      "subtopicId": "st-c4d557fe5580",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "discussion",
-          "contentType": "word"
-        },
-        {
-          "word": "personal",
-          "contentType": "word"
-        },
-        {
-          "word": "electronic device",
-          "contentType": "phrase"
-        },
-        {
-          "word": "tablet",
-          "contentType": "word"
-        },
-        {
-          "word": "calculation",
-          "contentType": "word"
-        },
-        {
-          "word": "materials",
-          "contentType": "word"
-        },
-        {
-          "word": "widen",
-          "contentType": "word"
-        },
-        {
-          "word": "knowledge",
-          "contentType": "word"
-        },
-        {
-          "word": "digital",
-          "contentType": "word"
-        },
-        {
-          "word": "touch screen",
-          "contentType": "phrase"
-        },
-        {
-          "word": "inappropriate",
-          "contentType": "word"
-        },
-        {
-          "word": "application",
-          "contentType": "word"
-        },
-        {
-          "word": "pedagogy",
-          "contentType": "word"
-        },
-        {
-          "word": "e-learning",
-          "contentType": "word"
-        },
-        {
-          "word": "curriculum design",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-c4d557fe5580-p1",
-      "subtopicId": "st-c4d557fe5580",
-      "index": 1,
-      "title": "Chặng 2",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "interactive whiteboard",
-          "contentType": "phrase"
-        },
-        {
-          "word": "blended learning",
-          "contentType": "phrase"
-        },
-        {
-          "word": "flipped classroom",
-          "contentType": "phrase"
-        },
-        {
-          "word": "online tutorial",
-          "contentType": "phrase"
-        },
-        {
-          "word": "virtual mentor",
-          "contentType": "phrase"
-        },
-        {
-          "word": "digital literacy",
-          "contentType": "phrase"
-        },
-        {
-          "word": "information retrieval",
-          "contentType": "phrase"
-        },
-        {
-          "word": "critical thinking",
-          "contentType": "phrase"
-        },
-        {
-          "word": "problem-solving skills",
-          "contentType": "phrase"
-        },
-        {
-          "word": "collaborative learning",
-          "contentType": "phrase"
-        },
-        {
-          "word": "project-based assessment",
-          "contentType": "phrase"
-        },
-        {
-          "word": "formative evaluation",
-          "contentType": "phrase"
-        },
-        {
-          "word": "summative feedback",
-          "contentType": "phrase"
-        },
-        {
-          "word": "educational software",
-          "contentType": "phrase"
-        },
-        {
-          "word": "learning management system",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-c4d557fe5580-p2",
-      "subtopicId": "st-c4d557fe5580",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 14,
-      "words": [
-        {
-          "word": "academic integrity",
-          "contentType": "phrase"
-        },
-        {
-          "word": "plagiarism detection",
-          "contentType": "phrase"
-        },
-        {
-          "word": "authentic assessment",
-          "contentType": "phrase"
-        },
-        {
-          "word": "self-directed learning",
-          "contentType": "phrase"
-        },
-        {
-          "word": "personalized education",
-          "contentType": "phrase"
-        },
-        {
-          "word": "adaptive technology",
-          "contentType": "phrase"
-        },
-        {
-          "word": "gamification",
-          "contentType": "word"
-        },
-        {
-          "word": "simulation-based learning",
-          "contentType": "phrase"
-        },
-        {
-          "word": "microlearning",
-          "contentType": "word"
-        },
-        {
-          "word": "mobile learning",
-          "contentType": "phrase"
-        },
-        {
-          "word": "bring your own device",
-          "contentType": "phrase"
-        },
-        {
-          "word": "one-to-one computing",
-          "contentType": "phrase"
-        },
-        {
-          "word": "digital citizenship",
-          "contentType": "phrase"
-        },
-        {
-          "word": "cyberbullying prevention",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-c4d557fe5580-p3",
-      "subtopicId": "st-c4d557fe5580",
-      "index": 3,
-      "title": "Chặng 4",
-      "wordCount": 14,
-      "words": [
-        {
-          "word": "online safety",
-          "contentType": "phrase"
-        },
-        {
-          "word": "media literacy",
-          "contentType": "phrase"
-        },
-        {
-          "word": "information architecture",
-          "contentType": "phrase"
-        },
-        {
-          "word": "knowledge management",
-          "contentType": "phrase"
-        },
-        {
-          "word": "cognitive load",
-          "contentType": "phrase"
-        },
-        {
-          "word": "learning analytics",
-          "contentType": "phrase"
-        },
-        {
-          "word": "data-driven instruction",
-          "contentType": "phrase"
-        },
-        {
-          "word": "educational gaming",
-          "contentType": "phrase"
-        },
-        {
-          "word": "virtual reality",
-          "contentType": "phrase"
-        },
-        {
-          "word": "augmented reality",
-          "contentType": "phrase"
-        },
-        {
-          "word": "artificial intelligence",
-          "contentType": "phrase"
-        },
-        {
-          "word": "machine learning",
-          "contentType": "phrase"
-        },
-        {
-          "word": "natural language processing",
-          "contentType": "phrase"
-        },
-        {
-          "word": "human-computer interaction",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
       "id": "st-c502bcaa0aef-p0",
       "subtopicId": "st-c502bcaa0aef",
       "index": 0,
@@ -39258,342 +40117,200 @@
       ]
     },
     {
-      "id": "st-cb18eb3ba80c-p0",
-      "subtopicId": "st-cb18eb3ba80c",
+      "id": "st-c5b72a3da7a0-p0",
+      "subtopicId": "st-c5b72a3da7a0",
       "index": 0,
       "title": "Chặng 1",
       "wordCount": 15,
       "words": [
         {
-          "word": "activate",
+          "word": "equal",
           "contentType": "word"
         },
         {
-          "word": "algorithm",
+          "word": "education",
           "contentType": "word"
         },
         {
-          "word": "artificial intelligence",
-          "contentType": "phrase"
-        },
-        {
-          "word": "call",
+          "word": "information",
           "contentType": "word"
         },
         {
-          "word": "cyber attack",
-          "contentType": "phrase"
-        },
-        {
-          "word": "exterminate",
+          "word": "enroll",
           "contentType": "word"
         },
         {
-          "word": "far away",
-          "contentType": "phrase"
-        },
-        {
-          "word": "implant",
+          "word": "suppose",
           "contentType": "word"
         },
         {
-          "word": "incredible",
+          "word": "discrimination",
           "contentType": "word"
         },
         {
-          "word": "intervention",
+          "word": "sex",
           "contentType": "word"
         },
         {
-          "word": "malfunction",
+          "word": "rural",
           "contentType": "word"
         },
         {
-          "word": "navigation",
+          "word": "degree",
           "contentType": "word"
         },
         {
-          "word": "overpopulation",
+          "word": "earn",
           "contentType": "word"
         },
         {
-          "word": "resurrect",
+          "word": "eliminate",
           "contentType": "word"
         },
         {
-          "word": "unbelievable",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-cb1bdcaeb6f3-p0",
-      "subtopicId": "st-cb1bdcaeb6f3",
-      "index": 0,
-      "title": "Chặng 1",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "volunteer",
+          "word": "promote",
           "contentType": "word"
         },
         {
-          "word": "charity",
+          "word": "preference",
           "contentType": "word"
         },
         {
-          "word": "disadvantaged",
+          "word": "pursue",
           "contentType": "word"
         },
         {
-          "word": "problem",
-          "contentType": "word"
-        },
-        {
-          "word": "by chance",
-          "contentType": "phrase"
-        },
-        {
-          "word": "advertisement",
-          "contentType": "word"
-        },
-        {
-          "word": "apply",
-          "contentType": "word"
-        },
-        {
-          "word": "hopeless",
-          "contentType": "word"
-        },
-        {
-          "word": "advice",
-          "contentType": "word"
-        },
-        {
-          "word": "meaningful",
-          "contentType": "word"
-        },
-        {
-          "word": "community",
-          "contentType": "word"
-        },
-        {
-          "word": "suggestion",
-          "contentType": "word"
-        },
-        {
-          "word": "announcement",
-          "contentType": "word"
-        },
-        {
-          "word": "fortunate",
-          "contentType": "word"
-        },
-        {
-          "word": "obvious",
+          "word": "sue",
           "contentType": "word"
         }
       ]
     },
     {
-      "id": "st-cb1bdcaeb6f3-p1",
-      "subtopicId": "st-cb1bdcaeb6f3",
+      "id": "st-c5b72a3da7a0-p1",
+      "subtopicId": "st-c5b72a3da7a0",
       "index": 1,
       "title": "Chặng 2",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "ignorant",
-          "contentType": "word"
-        },
-        {
-          "word": "dedicated",
-          "contentType": "word"
-        },
-        {
-          "word": "benefit",
-          "contentType": "word"
-        },
-        {
-          "word": "low income",
-          "contentType": "phrase"
-        },
-        {
-          "word": "widen",
-          "contentType": "word"
-        },
-        {
-          "word": "altruistic",
-          "contentType": "word"
-        },
-        {
-          "word": "philanthropy",
-          "contentType": "word"
-        },
-        {
-          "word": "underprivileged",
-          "contentType": "word"
-        },
-        {
-          "word": "outreach",
-          "contentType": "word"
-        },
-        {
-          "word": "cooperation",
-          "contentType": "word"
-        },
-        {
-          "word": "collaborate",
-          "contentType": "word"
-        },
-        {
-          "word": "participate",
-          "contentType": "word"
-        },
-        {
-          "word": "contribute",
-          "contentType": "word"
-        },
-        {
-          "word": "engage",
-          "contentType": "word"
-        },
-        {
-          "word": "empower",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-cb1bdcaeb6f3-p2",
-      "subtopicId": "st-cb1bdcaeb6f3",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "enrich",
-          "contentType": "word"
-        },
-        {
-          "word": "enhance",
-          "contentType": "word"
-        },
-        {
-          "word": "foster",
-          "contentType": "word"
-        },
-        {
-          "word": "nurture",
-          "contentType": "word"
-        },
-        {
-          "word": "supportive",
-          "contentType": "word"
-        },
-        {
-          "word": "selfless",
-          "contentType": "word"
-        },
-        {
-          "word": "generous",
-          "contentType": "word"
-        },
-        {
-          "word": "benevolent",
-          "contentType": "word"
-        },
-        {
-          "word": "humanitarian",
-          "contentType": "word"
-        },
-        {
-          "word": "socially responsible",
-          "contentType": "phrase"
-        },
-        {
-          "word": "give back",
-          "contentType": "phrase"
-        },
-        {
-          "word": "make a difference",
-          "contentType": "phrase"
-        },
-        {
-          "word": "lend a hand",
-          "contentType": "phrase"
-        },
-        {
-          "word": "reach out",
-          "contentType": "phrase"
-        },
-        {
-          "word": "get involved",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-cb1bdcaeb6f3-p3",
-      "subtopicId": "st-cb1bdcaeb6f3",
-      "index": 3,
-      "title": "Chặng 4",
       "wordCount": 14,
       "words": [
         {
-          "word": "take part",
-          "contentType": "phrase"
-        },
-        {
-          "word": "play a role",
-          "contentType": "phrase"
-        },
-        {
-          "word": "be of service",
-          "contentType": "phrase"
-        },
-        {
-          "word": "do good",
-          "contentType": "phrase"
-        },
-        {
-          "word": "help out",
-          "contentType": "phrase"
-        },
-        {
-          "word": "pitch in",
-          "contentType": "phrase"
-        },
-        {
-          "word": "join forces",
-          "contentType": "phrase"
-        },
-        {
-          "word": "work together",
-          "contentType": "phrase"
-        },
-        {
-          "word": "team up",
-          "contentType": "phrase"
-        },
-        {
-          "word": "partner with",
-          "contentType": "phrase"
-        },
-        {
-          "word": "assist",
+          "word": "loneliness",
           "contentType": "word"
         },
         {
-          "word": "aid",
+          "word": "limitation",
           "contentType": "word"
         },
         {
-          "word": "relieve",
+          "word": "firefighter",
           "contentType": "word"
         },
         {
-          "word": "alleviate",
+          "word": "aware",
+          "contentType": "word"
+        },
+        {
+          "word": "unwelcome",
+          "contentType": "word"
+        },
+        {
+          "word": "courage",
+          "contentType": "word"
+        },
+        {
+          "word": "parity",
+          "contentType": "word"
+        },
+        {
+          "word": "equity",
+          "contentType": "word"
+        },
+        {
+          "word": "empowerment",
+          "contentType": "word"
+        },
+        {
+          "word": "patriarchy",
+          "contentType": "word"
+        },
+        {
+          "word": "matriarchy",
+          "contentType": "word"
+        },
+        {
+          "word": "subordination",
+          "contentType": "word"
+        },
+        {
+          "word": "enfranchisement",
+          "contentType": "word"
+        },
+        {
+          "word": "suffrage",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c5b72a3da7a0-p2",
+      "subtopicId": "st-c5b72a3da7a0",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "intersectionality",
+          "contentType": "word"
+        },
+        {
+          "word": "gender roles",
+          "contentType": "phrase"
+        },
+        {
+          "word": "gender stereotypes",
+          "contentType": "phrase"
+        },
+        {
+          "word": "wage gap",
+          "contentType": "phrase"
+        },
+        {
+          "word": "glass ceiling",
+          "contentType": "phrase"
+        },
+        {
+          "word": "sexual harassment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "gender-based violence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "affirmative action",
+          "contentType": "phrase"
+        },
+        {
+          "word": "quid pro quo",
+          "contentType": "phrase"
+        },
+        {
+          "word": "hostile work environment",
+          "contentType": "phrase"
+        },
+        {
+          "word": "reproductive rights",
+          "contentType": "phrase"
+        },
+        {
+          "word": "bodily autonomy",
+          "contentType": "phrase"
+        },
+        {
+          "word": "feminism",
+          "contentType": "word"
+        },
+        {
+          "word": "machismo",
           "contentType": "word"
         }
       ]
@@ -41127,6 +41844,278 @@
       ]
     },
     {
+      "id": "st-d5fdd9634c29-p0",
+      "subtopicId": "st-d5fdd9634c29",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "promise",
+          "contentType": "word"
+        },
+        {
+          "word": "ebook reader",
+          "contentType": "phrase"
+        },
+        {
+          "word": "generous",
+          "contentType": "word"
+        },
+        {
+          "word": "wise",
+          "contentType": "word"
+        },
+        {
+          "word": "portable",
+          "contentType": "word"
+        },
+        {
+          "word": "economical",
+          "contentType": "word"
+        },
+        {
+          "word": "versatile",
+          "contentType": "word"
+        },
+        {
+          "word": "invention",
+          "contentType": "word"
+        },
+        {
+          "word": "research",
+          "contentType": "word"
+        },
+        {
+          "word": "face-to-face",
+          "contentType": "word"
+        },
+        {
+          "word": "inspiration",
+          "contentType": "word"
+        },
+        {
+          "word": "airplane",
+          "contentType": "word"
+        },
+        {
+          "word": "imitate",
+          "contentType": "word"
+        },
+        {
+          "word": "submarine",
+          "contentType": "word"
+        },
+        {
+          "word": "fastener",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-d5fdd9634c29-p1",
+      "subtopicId": "st-d5fdd9634c29",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "fabric",
+          "contentType": "word"
+        },
+        {
+          "word": "space suit",
+          "contentType": "phrase"
+        },
+        {
+          "word": "solid",
+          "contentType": "word"
+        },
+        {
+          "word": "traffic jam",
+          "contentType": "phrase"
+        },
+        {
+          "word": "innovate",
+          "contentType": "word"
+        },
+        {
+          "word": "prototype",
+          "contentType": "word"
+        },
+        {
+          "word": "artificial intelligence",
+          "contentType": "phrase"
+        },
+        {
+          "word": "robotics",
+          "contentType": "word"
+        },
+        {
+          "word": "cybernetics",
+          "contentType": "word"
+        },
+        {
+          "word": "microchip",
+          "contentType": "word"
+        },
+        {
+          "word": "circuitry",
+          "contentType": "word"
+        },
+        {
+          "word": "interface",
+          "contentType": "word"
+        },
+        {
+          "word": "telecommute",
+          "contentType": "word"
+        },
+        {
+          "word": "digitize",
+          "contentType": "word"
+        },
+        {
+          "word": "streamline",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-d5fdd9634c29-p2",
+      "subtopicId": "st-d5fdd9634c29",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "optimize",
+          "contentType": "word"
+        },
+        {
+          "word": "technophile",
+          "contentType": "word"
+        },
+        {
+          "word": "luddite",
+          "contentType": "word"
+        },
+        {
+          "word": "gadgetry",
+          "contentType": "word"
+        },
+        {
+          "word": "mechatronics",
+          "contentType": "word"
+        },
+        {
+          "word": "nanotechnology",
+          "contentType": "word"
+        },
+        {
+          "word": "biometrics",
+          "contentType": "word"
+        },
+        {
+          "word": "virtual reality",
+          "contentType": "phrase"
+        },
+        {
+          "word": "augmented reality",
+          "contentType": "phrase"
+        },
+        {
+          "word": "3d printing",
+          "contentType": "phrase"
+        },
+        {
+          "word": "laser cutting",
+          "contentType": "phrase"
+        },
+        {
+          "word": "precision engineering",
+          "contentType": "phrase"
+        },
+        {
+          "word": "mechanization",
+          "contentType": "word"
+        },
+        {
+          "word": "automation",
+          "contentType": "word"
+        },
+        {
+          "word": "computer vision",
+          "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-d5fdd9634c29-p3",
+      "subtopicId": "st-d5fdd9634c29",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "natural language processing",
+          "contentType": "phrase"
+        },
+        {
+          "word": "machine learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "data mining",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cloud computing",
+          "contentType": "phrase"
+        },
+        {
+          "word": "internet of things",
+          "contentType": "phrase"
+        },
+        {
+          "word": "wearable technology",
+          "contentType": "phrase"
+        },
+        {
+          "word": "geospatial analysis",
+          "contentType": "phrase"
+        },
+        {
+          "word": "cryptocurrency",
+          "contentType": "word"
+        },
+        {
+          "word": "blockchain",
+          "contentType": "word"
+        },
+        {
+          "word": "neural network",
+          "contentType": "phrase"
+        },
+        {
+          "word": "algorithmic thinking",
+          "contentType": "phrase"
+        },
+        {
+          "word": "coding",
+          "contentType": "word"
+        },
+        {
+          "word": "debugging",
+          "contentType": "word"
+        },
+        {
+          "word": "hacking",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-d60fc3fec805-p0",
       "subtopicId": "st-d60fc3fec805",
       "index": 0,
@@ -41253,6 +42242,83 @@
         {
           "word": "know which way the wind blows",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-d7223bc5d76c-p0",
+      "subtopicId": "st-d7223bc5d76c",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 17,
+      "words": [
+        {
+          "word": "assimilate",
+          "contentType": "word"
+        },
+        {
+          "word": "attire",
+          "contentType": "word"
+        },
+        {
+          "word": "blind man's buff",
+          "contentType": "phrase"
+        },
+        {
+          "word": "identity",
+          "contentType": "word"
+        },
+        {
+          "word": "cultural practice",
+          "contentType": "phrase"
+        },
+        {
+          "word": "custom",
+          "contentType": "word"
+        },
+        {
+          "word": "diversity",
+          "contentType": "word"
+        },
+        {
+          "word": "flock",
+          "contentType": "word"
+        },
+        {
+          "word": "martial spirit",
+          "contentType": "phrase"
+        },
+        {
+          "word": "multicultural",
+          "contentType": "word"
+        },
+        {
+          "word": "national costume",
+          "contentType": "phrase"
+        },
+        {
+          "word": "national pride",
+          "contentType": "phrase"
+        },
+        {
+          "word": "solidarity",
+          "contentType": "word"
+        },
+        {
+          "word": "unify",
+          "contentType": "word"
+        },
+        {
+          "word": "unique",
+          "contentType": "word"
+        },
+        {
+          "word": "unite",
+          "contentType": "word"
+        },
+        {
+          "word": "worship",
+          "contentType": "word"
         }
       ]
     },
@@ -42245,6 +43311,116 @@
         {
           "word": "written all over your face",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-db8906e4660f-p0",
+      "subtopicId": "st-db8906e4660f",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "adopt",
+          "contentType": "word"
+        },
+        {
+          "word": "appliance",
+          "contentType": "word"
+        },
+        {
+          "word": "awareness",
+          "contentType": "word"
+        },
+        {
+          "word": "calculate",
+          "contentType": "word"
+        },
+        {
+          "word": "carbon footprint",
+          "contentType": "phrase"
+        },
+        {
+          "word": "chemical",
+          "contentType": "word"
+        },
+        {
+          "word": "eco-friendly",
+          "contentType": "word"
+        },
+        {
+          "word": "electrical",
+          "contentType": "word"
+        },
+        {
+          "word": "emission",
+          "contentType": "word"
+        },
+        {
+          "word": "encourage",
+          "contentType": "word"
+        },
+        {
+          "word": "energy",
+          "contentType": "word"
+        },
+        {
+          "word": "estimate",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-db8906e4660f-p1",
+      "subtopicId": "st-db8906e4660f",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 11,
+      "words": [
+        {
+          "word": "global",
+          "contentType": "word"
+        },
+        {
+          "word": "human",
+          "contentType": "word"
+        },
+        {
+          "word": "issue",
+          "contentType": "word"
+        },
+        {
+          "word": "lifestyle",
+          "contentType": "word"
+        },
+        {
+          "word": "litter",
+          "contentType": "word"
+        },
+        {
+          "word": "material",
+          "contentType": "word"
+        },
+        {
+          "word": "organic",
+          "contentType": "word"
+        },
+        {
+          "word": "public transport",
+          "contentType": "phrase"
+        },
+        {
+          "word": "refillable",
+          "contentType": "word"
+        },
+        {
+          "word": "resource",
+          "contentType": "word"
+        },
+        {
+          "word": "sustainable",
+          "contentType": "word"
         }
       ]
     },
@@ -43903,87 +45079,116 @@
       ]
     },
     {
-      "id": "st-e6f01f3fddf1-p0",
-      "subtopicId": "st-e6f01f3fddf1",
+      "id": "st-e4c8ca1c5a6e-p0",
+      "subtopicId": "st-e4c8ca1c5a6e",
       "index": 0,
       "title": "Chặng 1",
-      "wordCount": 19,
+      "wordCount": 12,
       "words": [
         {
-          "word": "administrator",
+          "word": "acquire",
           "contentType": "word"
         },
         {
-          "word": "align",
-          "contentType": "word"
-        },
-        {
-          "word": "applicant",
-          "contentType": "word"
-        },
-        {
-          "word": "apprentice",
-          "contentType": "word"
-        },
-        {
-          "word": "approachable",
-          "contentType": "word"
-        },
-        {
-          "word": "articulate",
-          "contentType": "word"
-        },
-        {
-          "word": "barista",
-          "contentType": "word"
-        },
-        {
-          "word": "cluttered",
-          "contentType": "word"
-        },
-        {
-          "word": "compassionate",
-          "contentType": "word"
-        },
-        {
-          "word": "dealership",
-          "contentType": "word"
-        },
-        {
-          "word": "entrepreneur",
-          "contentType": "word"
-        },
-        {
-          "word": "prioritize",
-          "contentType": "word"
-        },
-        {
-          "word": "probation",
-          "contentType": "word"
-        },
-        {
-          "word": "qualification",
-          "contentType": "word"
-        },
-        {
-          "word": "recruit",
-          "contentType": "word"
-        },
-        {
-          "word": "shortlist",
-          "contentType": "word"
-        },
-        {
-          "word": "specialize",
-          "contentType": "word"
-        },
-        {
-          "word": "taylor",
-          "contentType": "word"
-        },
-        {
-          "word": "well spoken",
+          "word": "adult education",
           "contentType": "phrase"
+        },
+        {
+          "word": "boost",
+          "contentType": "word"
+        },
+        {
+          "word": "broaden",
+          "contentType": "word"
+        },
+        {
+          "word": "brush up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "complex",
+          "contentType": "word"
+        },
+        {
+          "word": "determination",
+          "contentType": "word"
+        },
+        {
+          "word": "distance learning",
+          "contentType": "phrase"
+        },
+        {
+          "word": "distraction",
+          "contentType": "word"
+        },
+        {
+          "word": "hardship",
+          "contentType": "word"
+        },
+        {
+          "word": "governess",
+          "contentType": "word"
+        },
+        {
+          "word": "imprison",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-e4c8ca1c5a6e-p1",
+      "subtopicId": "st-e4c8ca1c5a6e",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "informed",
+          "contentType": "word"
+        },
+        {
+          "word": "intelligence",
+          "contentType": "word"
+        },
+        {
+          "word": "learning community",
+          "contentType": "phrase"
+        },
+        {
+          "word": "maintain",
+          "contentType": "word"
+        },
+        {
+          "word": "martial art",
+          "contentType": "phrase"
+        },
+        {
+          "word": "molecular biology",
+          "contentType": "phrase"
+        },
+        {
+          "word": "night school",
+          "contentType": "phrase"
+        },
+        {
+          "word": "psychology",
+          "contentType": "word"
+        },
+        {
+          "word": "relevant",
+          "contentType": "word"
+        },
+        {
+          "word": "well-rounded",
+          "contentType": "word"
+        },
+        {
+          "word": "widen",
+          "contentType": "word"
+        },
+        {
+          "word": "wonder",
+          "contentType": "word"
         }
       ]
     },
@@ -43992,66 +45197,62 @@
       "subtopicId": "st-e797d01716fd",
       "index": 0,
       "title": "Chặng 1",
-      "wordCount": 15,
+      "wordCount": 14,
       "words": [
         {
-          "word": "promise",
-          "contentType": "word"
-        },
-        {
-          "word": "ebook reader",
+          "word": "3d printing",
           "contentType": "phrase"
         },
         {
-          "word": "generous",
+          "word": "ai (artificial intelligence)",
+          "contentType": "phrase"
+        },
+        {
+          "word": "app",
           "contentType": "word"
         },
         {
-          "word": "wise",
+          "word": "application",
           "contentType": "word"
         },
         {
-          "word": "portable",
+          "word": "apply",
           "contentType": "word"
         },
         {
-          "word": "economical",
+          "word": "button",
           "contentType": "word"
         },
         {
-          "word": "versatile",
+          "word": "charge",
           "contentType": "word"
         },
         {
-          "word": "invention",
+          "word": "communicate",
           "contentType": "word"
         },
         {
-          "word": "research",
+          "word": "computer",
           "contentType": "word"
         },
         {
-          "word": "face-to-face",
+          "word": "device",
           "contentType": "word"
         },
         {
-          "word": "inspiration",
+          "word": "display",
           "contentType": "word"
         },
         {
-          "word": "airplane",
+          "word": "driverless",
           "contentType": "word"
         },
         {
-          "word": "imitate",
+          "word": "e-reader",
           "contentType": "word"
         },
         {
-          "word": "submarine",
-          "contentType": "word"
-        },
-        {
-          "word": "fastener",
+          "word": "experiment",
           "contentType": "word"
         }
       ]
@@ -44061,200 +45262,62 @@
       "subtopicId": "st-e797d01716fd",
       "index": 1,
       "title": "Chặng 2",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "fabric",
-          "contentType": "word"
-        },
-        {
-          "word": "space suit",
-          "contentType": "phrase"
-        },
-        {
-          "word": "solid",
-          "contentType": "word"
-        },
-        {
-          "word": "traffic jam",
-          "contentType": "phrase"
-        },
-        {
-          "word": "innovate",
-          "contentType": "word"
-        },
-        {
-          "word": "prototype",
-          "contentType": "word"
-        },
-        {
-          "word": "artificial intelligence",
-          "contentType": "phrase"
-        },
-        {
-          "word": "robotics",
-          "contentType": "word"
-        },
-        {
-          "word": "cybernetics",
-          "contentType": "word"
-        },
-        {
-          "word": "microchip",
-          "contentType": "word"
-        },
-        {
-          "word": "circuitry",
-          "contentType": "word"
-        },
-        {
-          "word": "interface",
-          "contentType": "word"
-        },
-        {
-          "word": "telecommute",
-          "contentType": "word"
-        },
-        {
-          "word": "digitize",
-          "contentType": "word"
-        },
-        {
-          "word": "streamline",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-e797d01716fd-p2",
-      "subtopicId": "st-e797d01716fd",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "optimize",
-          "contentType": "word"
-        },
-        {
-          "word": "technophile",
-          "contentType": "word"
-        },
-        {
-          "word": "luddite",
-          "contentType": "word"
-        },
-        {
-          "word": "gadgetry",
-          "contentType": "word"
-        },
-        {
-          "word": "mechatronics",
-          "contentType": "word"
-        },
-        {
-          "word": "nanotechnology",
-          "contentType": "word"
-        },
-        {
-          "word": "biometrics",
-          "contentType": "word"
-        },
-        {
-          "word": "virtual reality",
-          "contentType": "phrase"
-        },
-        {
-          "word": "augmented reality",
-          "contentType": "phrase"
-        },
-        {
-          "word": "3d printing",
-          "contentType": "phrase"
-        },
-        {
-          "word": "laser cutting",
-          "contentType": "phrase"
-        },
-        {
-          "word": "precision engineering",
-          "contentType": "phrase"
-        },
-        {
-          "word": "mechanization",
-          "contentType": "word"
-        },
-        {
-          "word": "automation",
-          "contentType": "word"
-        },
-        {
-          "word": "computer vision",
-          "contentType": "phrase"
-        }
-      ]
-    },
-    {
-      "id": "st-e797d01716fd-p3",
-      "subtopicId": "st-e797d01716fd",
-      "index": 3,
-      "title": "Chặng 4",
       "wordCount": 14,
       "words": [
         {
-          "word": "natural language processing",
-          "contentType": "phrase"
-        },
-        {
-          "word": "machine learning",
-          "contentType": "phrase"
-        },
-        {
-          "word": "data mining",
-          "contentType": "phrase"
-        },
-        {
-          "word": "cloud computing",
-          "contentType": "phrase"
-        },
-        {
-          "word": "internet of things",
-          "contentType": "phrase"
-        },
-        {
-          "word": "wearable technology",
-          "contentType": "phrase"
-        },
-        {
-          "word": "geospatial analysis",
-          "contentType": "phrase"
-        },
-        {
-          "word": "cryptocurrency",
+          "word": "hardware",
           "contentType": "word"
         },
         {
-          "word": "blockchain",
+          "word": "install",
           "contentType": "word"
         },
         {
-          "word": "neural network",
+          "word": "invention",
+          "contentType": "word"
+        },
+        {
+          "word": "laboratory",
+          "contentType": "word"
+        },
+        {
+          "word": "laptop",
+          "contentType": "word"
+        },
+        {
+          "word": "processor",
+          "contentType": "word"
+        },
+        {
+          "word": "ram (random access memory)",
           "contentType": "phrase"
         },
         {
-          "word": "algorithmic thinking",
+          "word": "smartphone",
+          "contentType": "word"
+        },
+        {
+          "word": "software",
+          "contentType": "word"
+        },
+        {
+          "word": "stain",
+          "contentType": "word"
+        },
+        {
+          "word": "storage space",
           "contentType": "phrase"
         },
         {
-          "word": "coding",
+          "word": "store",
           "contentType": "word"
         },
         {
-          "word": "debugging",
+          "word": "suitable",
           "contentType": "word"
         },
         {
-          "word": "hacking",
+          "word": "valuable",
           "contentType": "word"
         }
       ]
@@ -46640,6 +47703,136 @@
         {
           "word": "suit yourself",
           "contentType": "idiom"
+        }
+      ]
+    },
+    {
+      "id": "st-efb32df863c8-p0",
+      "subtopicId": "st-efb32df863c8",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "admire",
+          "contentType": "word"
+        },
+        {
+          "word": "anxiety",
+          "contentType": "word"
+        },
+        {
+          "word": "appreciate",
+          "contentType": "word"
+        },
+        {
+          "word": "bamboo dancing",
+          "contentType": "phrase"
+        },
+        {
+          "word": "captivate",
+          "contentType": "word"
+        },
+        {
+          "word": "celebrate",
+          "contentType": "word"
+        },
+        {
+          "word": "confusion",
+          "contentType": "word"
+        },
+        {
+          "word": "costume",
+          "contentType": "word"
+        },
+        {
+          "word": "cuisine",
+          "contentType": "word"
+        },
+        {
+          "word": "cultural",
+          "contentType": "word"
+        },
+        {
+          "word": "culture shock",
+          "contentType": "phrase"
+        },
+        {
+          "word": "custom",
+          "contentType": "word"
+        },
+        {
+          "word": "diversity",
+          "contentType": "word"
+        },
+        {
+          "word": "extracurricular",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-efb32df863c8-p1",
+      "subtopicId": "st-efb32df863c8",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 14,
+      "words": [
+        {
+          "word": "festivity",
+          "contentType": "word"
+        },
+        {
+          "word": "globalisation",
+          "contentType": "word"
+        },
+        {
+          "word": "identity",
+          "contentType": "word"
+        },
+        {
+          "word": "keep up with",
+          "contentType": "phrase"
+        },
+        {
+          "word": "lifestyle",
+          "contentType": "word"
+        },
+        {
+          "word": "multicultural",
+          "contentType": "word"
+        },
+        {
+          "word": "origin",
+          "contentType": "word"
+        },
+        {
+          "word": "popularity",
+          "contentType": "word"
+        },
+        {
+          "word": "speciality",
+          "contentType": "word"
+        },
+        {
+          "word": "staple",
+          "contentType": "word"
+        },
+        {
+          "word": "tasty",
+          "contentType": "word"
+        },
+        {
+          "word": "traditional",
+          "contentType": "word"
+        },
+        {
+          "word": "trend",
+          "contentType": "word"
+        },
+        {
+          "word": "tug of war",
+          "contentType": "phrase"
         }
       ]
     },
@@ -49427,42 +50620,34 @@
       "subtopicId": "st-fbf0dc671092",
       "index": 0,
       "title": "Chặng 1",
-      "wordCount": 15,
+      "wordCount": 11,
       "words": [
         {
-          "word": "take out",
-          "contentType": "phrase"
-        },
-        {
-          "word": "homemaker",
+          "word": "benefit",
           "contentType": "word"
         },
         {
-          "word": "finance",
+          "word": "bond",
           "contentType": "word"
         },
         {
-          "word": "do the washing up",
-          "contentType": "phrase"
-        },
-        {
-          "word": "heavy lifting",
-          "contentType": "phrase"
-        },
-        {
-          "word": "do the laundry",
-          "contentType": "phrase"
-        },
-        {
-          "word": "handle",
+          "word": "breadwinner",
           "contentType": "word"
         },
         {
-          "word": "responsible",
+          "word": "character",
           "contentType": "word"
         },
         {
-          "word": "rubbish",
+          "word": "cheer up",
+          "contentType": "phrase"
+        },
+        {
+          "word": "damage",
+          "contentType": "word"
+        },
+        {
+          "word": "gratitude",
           "contentType": "word"
         },
         {
@@ -49470,23 +50655,15 @@
           "contentType": "word"
         },
         {
-          "word": "share",
+          "word": "heavy lifting",
+          "contentType": "phrase"
+        },
+        {
+          "word": "homemaker",
           "contentType": "word"
         },
         {
-          "word": "split",
-          "contentType": "word"
-        },
-        {
-          "word": "housework",
-          "contentType": "word"
-        },
-        {
-          "word": "prepare",
-          "contentType": "word"
-        },
-        {
-          "word": "duty",
+          "word": "laundry",
           "contentType": "word"
         }
       ]
@@ -49496,205 +50673,47 @@
       "subtopicId": "st-fbf0dc671092",
       "index": 1,
       "title": "Chặng 2",
-      "wordCount": 15,
+      "wordCount": 10,
       "words": [
         {
-          "word": "divide",
+          "word": "manner",
           "contentType": "word"
         },
         {
-          "word": "ask somebody out",
-          "contentType": "phrase"
-        },
-        {
-          "word": "afraid",
+          "word": "responsibility",
           "contentType": "word"
         },
         {
-          "word": "equally",
+          "word": "routine",
           "contentType": "word"
         },
         {
-          "word": "household chore",
-          "contentType": "phrase"
-        },
-        {
-          "word": "sweep",
+          "word": "rubbish",
           "contentType": "word"
         },
         {
-          "word": "recreation",
+          "word": "spotlessly",
           "contentType": "word"
         },
         {
-          "word": "contribute",
+          "word": "strengthen",
           "contentType": "word"
         },
         {
-          "word": "mend",
+          "word": "support",
           "contentType": "word"
         },
         {
-          "word": "willingly",
+          "word": "truthful",
           "contentType": "word"
         },
         {
-          "word": "bread winner",
-          "contentType": "phrase"
-        },
-        {
-          "word": "nurturing",
+          "word": "value",
           "contentType": "word"
         },
         {
-          "word": "domesticity",
+          "word": "washing-up",
           "contentType": "word"
-        },
-        {
-          "word": "interdependent",
-          "contentType": "word"
-        },
-        {
-          "word": "cohabitation",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-fbf0dc671092-p2",
-      "subtopicId": "st-fbf0dc671092",
-      "index": 2,
-      "title": "Chặng 3",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "filial",
-          "contentType": "word"
-        },
-        {
-          "word": "maternal instinct",
-          "contentType": "phrase"
-        },
-        {
-          "word": "paternal bond",
-          "contentType": "phrase"
-        },
-        {
-          "word": "emotional labor",
-          "contentType": "phrase"
-        },
-        {
-          "word": "caregiving",
-          "contentType": "word"
-        },
-        {
-          "word": "familial ties",
-          "contentType": "phrase"
-        },
-        {
-          "word": "household management",
-          "contentType": "phrase"
-        },
-        {
-          "word": "parental guidance",
-          "contentType": "phrase"
-        },
-        {
-          "word": "sibling rivalry",
-          "contentType": "phrase"
-        },
-        {
-          "word": "domestic partnership",
-          "contentType": "phrase"
-        },
-        {
-          "word": "kinship",
-          "contentType": "word"
-        },
-        {
-          "word": "nuclear family",
-          "contentType": "phrase"
-        },
-        {
-          "word": "extended family",
-          "contentType": "phrase"
-        },
-        {
-          "word": "foster care",
-          "contentType": "phrase"
-        },
-        {
-          "word": "stepfamily",
-          "contentType": "word"
-        }
-      ]
-    },
-    {
-      "id": "st-fbf0dc671092-p3",
-      "subtopicId": "st-fbf0dc671092",
-      "index": 3,
-      "title": "Chặng 4",
-      "wordCount": 15,
-      "words": [
-        {
-          "word": "blended family",
-          "contentType": "phrase"
-        },
-        {
-          "word": "single parent",
-          "contentType": "phrase"
-        },
-        {
-          "word": "adoptive parent",
-          "contentType": "phrase"
-        },
-        {
-          "word": "surrogate mother",
-          "contentType": "phrase"
-        },
-        {
-          "word": "stay-at-home dad",
-          "contentType": "phrase"
-        },
-        {
-          "word": "childrearing",
-          "contentType": "word"
-        },
-        {
-          "word": "upbringing",
-          "contentType": "word"
-        },
-        {
-          "word": "family dynamics",
-          "contentType": "phrase"
-        },
-        {
-          "word": "parental leave",
-          "contentType": "phrase"
-        },
-        {
-          "word": "family bonding",
-          "contentType": "phrase"
-        },
-        {
-          "word": "domestic violence",
-          "contentType": "phrase"
-        },
-        {
-          "word": "child abuse",
-          "contentType": "phrase"
-        },
-        {
-          "word": "family counseling",
-          "contentType": "phrase"
-        },
-        {
-          "word": "kinship ties",
-          "contentType": "phrase"
-        },
-        {
-          "word": "family reunion",
-          "contentType": "phrase"
         }
       ]
     },
