@@ -119,7 +119,7 @@ const FAQS = [
   },
   {
     q: 'Có miễn phí không?',
-    a: 'Có gói Free: flashcard FSRS, lộ trình sẵn và tra từ AI giới hạn. Nâng Pro khi cần không giới hạn.',
+    a: 'Có gói Free: flashcard FSRS, lưu 200 từ mới/tháng, lộ trình sẵn và tra từ AI 5 lượt/ngày. Nâng Pro khi cần không giới hạn.',
   },
   {
     q: 'LingoPro khác Anki ở điểm nào?',
