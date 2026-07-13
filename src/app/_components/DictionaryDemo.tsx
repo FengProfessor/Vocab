@@ -9,6 +9,8 @@ import type { DictionaryData, DictionaryMeaning } from '@/lib/supabase';
  * Demo tra từ SỐNG trên landing — gọi API công khai (không cần login).
  * Tier 1: /api/dictionary/lookup (kho từ điển) → Tier 2: /api/dictionary/external (Wiktionary).
  * Nút "Lưu vào sổ" → đẩy sang /auth (phải đăng ký mới lưu được).
+ *
+ * Palette: nền sáng landing (#f6efe6 / white) — chữ đậm, không dùng text-white trên input.
  */
 
 type SourceBadge = 'Kho từ điển' | 'Wiktionary';
@@ -20,7 +22,6 @@ interface DemoResult {
   queriedWord: string;
 }
 
-// Từ mẫu — đều là từ phổ biến, gần như chắc chắn có trong kho
 const SAMPLE_WORDS = ['resilient', 'achieve', 'benefit', 'environment', 'opportunity'];
 
 function speakWord(word: string, lang: 'en-GB' | 'en-US') {
@@ -45,7 +46,6 @@ export default function DictionaryDemo() {
     setResult(null);
     setError(null);
 
-    // Tier 1: kho từ điển nội bộ
     try {
       const res = await fetch(`/api/dictionary/lookup?word=${encodeURIComponent(trimmed)}`, {
         signal: AbortSignal.timeout(4000),
@@ -62,7 +62,6 @@ export default function DictionaryDemo() {
       /* fall through */
     }
 
-    // Tier 2: Wiktionary (proxy)
     try {
       const res = await fetch(`/api/dictionary/external?word=${encodeURIComponent(trimmed)}`, {
         signal: AbortSignal.timeout(6000),
@@ -83,7 +82,6 @@ export default function DictionaryDemo() {
     setLoading(false);
   }, []);
 
-  // Gom tối đa 4 nghĩa đầu, kèm POS
   const meanings: Array<{ pos: string; meaning: DictionaryMeaning }> = [];
   if (result?.data.results) {
     for (const r of result.data.results) {
@@ -99,13 +97,13 @@ export default function DictionaryDemo() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      {/* Search box */}
+      {/* Search box — chữ đậm trên nền trắng */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
           lookup(query);
         }}
-        className="relative flex gap-2 rounded-2xl border border-indigo-400/30 bg-white/5 p-2 shadow-2xl shadow-indigo-950/40 ring-1 ring-white/5 backdrop-blur"
+        className="relative flex gap-2 rounded-2xl border border-[#d7c7b6] bg-white p-2 shadow-[0_12px_32px_rgba(95,69,52,0.08)] ring-1 ring-[#eadfd0]"
       >
         <input
           ref={inputRef}
@@ -115,12 +113,12 @@ export default function DictionaryDemo() {
           autoComplete="off"
           autoCorrect="off"
           spellCheck={false}
-          className="h-12 flex-1 rounded-xl bg-transparent px-4 text-base text-white placeholder:text-slate-500 focus:outline-none"
+          className="h-12 flex-1 rounded-xl bg-transparent px-4 text-base font-semibold text-[#241710] placeholder:font-normal placeholder:text-[#9a8578] focus:outline-none"
         />
         <button
           type="submit"
           disabled={loading || query.trim().length === 0}
-          className="inline-flex h-12 items-center gap-2 rounded-xl bg-indigo-600 px-5 font-black text-white transition-colors hover:bg-indigo-500 disabled:opacity-50"
+          className="inline-flex h-12 items-center gap-2 rounded-xl bg-[#b5502f] px-5 font-black text-white transition-colors hover:bg-[#a04428] disabled:opacity-50"
         >
           {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Search className="h-5 w-5" />}
           <span className="hidden sm:inline">Tra ngay</span>
@@ -129,7 +127,7 @@ export default function DictionaryDemo() {
 
       {/* Sample chips */}
       <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-        <span className="text-xs font-medium text-slate-500">Thử nhanh:</span>
+        <span className="text-xs font-medium text-[#7b6558]">Thử nhanh:</span>
         {SAMPLE_WORDS.map((w) => (
           <button
             key={w}
@@ -138,52 +136,51 @@ export default function DictionaryDemo() {
               setQuery(w);
               lookup(w);
             }}
-            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-300 transition-colors hover:border-indigo-400/40 hover:text-white"
+            className="rounded-full border border-[#d7c7b6] bg-[#fffaf5] px-3 py-1 text-xs font-bold text-[#4f3f35] transition-colors hover:border-[#b5502f]/40 hover:bg-[#f2dfd4] hover:text-[#241710]"
           >
             {w}
           </button>
         ))}
       </div>
 
-      {/* Loading */}
       {loading && (
-        <div className="mt-6 flex items-center justify-center gap-3 py-8 text-slate-400">
+        <div className="mt-6 flex items-center justify-center gap-3 py-8 text-[#7b6558]">
           <Loader2 className="h-5 w-5 animate-spin" /> Đang tra…
         </div>
       )}
 
-      {/* Error */}
       {!loading && error && (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
-          <p className="text-sm text-slate-400">{error}</p>
+        <div className="mt-6 rounded-2xl border border-[#d7c7b6] bg-[#fffaf5] p-5 text-center">
+          <p className="text-sm text-[#5e4b40]">{error}</p>
           <Link
             href="/auth"
-            className="mt-3 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-black text-white hover:bg-indigo-500"
+            className="mt-3 inline-flex items-center gap-2 rounded-xl bg-[#b5502f] px-5 py-2.5 text-sm font-black text-white hover:bg-[#a04428]"
           >
             Đăng ký miễn phí <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       )}
 
-      {/* Result card */}
       {!loading && result && (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-left shadow-xl">
+        <div className="mt-6 rounded-2xl border border-[#d7c7b6] bg-white p-5 text-left shadow-[0_12px_36px_rgba(95,69,52,0.08)]">
           <div className="flex items-start gap-4">
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-2xl font-black text-white">{displayWord}</h3>
-                <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-semibold text-slate-400">
+                <h3 className="text-2xl font-black text-[#241710]">{displayWord}</h3>
+                <span className="rounded-full bg-[#f2dfd4] px-2 py-0.5 text-[11px] font-semibold text-[#9f4d2f]">
                   {result.source}
                 </span>
               </div>
               <div className="mt-1.5 flex flex-wrap items-center gap-2">
                 {pron && (
-                  <span className="rounded-full bg-white/10 px-2 py-0.5 font-mono text-sm text-slate-300">/{pron}/</span>
+                  <span className="rounded-full bg-[#f6efe6] px-2 py-0.5 font-mono text-sm text-[#5e4b40]">
+                    /{pron}/
+                  </span>
                 )}
                 <button
                   type="button"
                   onClick={() => speakWord(displayWord, 'en-GB')}
-                  className="rounded-full p-1.5 text-slate-400 transition-colors hover:bg-white/10 hover:text-white"
+                  className="rounded-full p-1.5 text-[#7b6558] transition-colors hover:bg-[#f2dfd4] hover:text-[#241710]"
                   title="Phát âm UK"
                 >
                   <Volume2 className="h-4 w-4" />
@@ -191,7 +188,7 @@ export default function DictionaryDemo() {
                 <button
                   type="button"
                   onClick={() => speakWord(displayWord, 'en-US')}
-                  className="flex items-center gap-0.5 rounded-full p-1.5 text-slate-400 transition-colors hover:bg-white/10 hover:text-white"
+                  className="flex items-center gap-0.5 rounded-full p-1.5 text-[#7b6558] transition-colors hover:bg-[#f2dfd4] hover:text-[#241710]"
                   title="Phát âm US"
                 >
                   <Volume2 className="h-4 w-4" />
@@ -209,30 +206,30 @@ export default function DictionaryDemo() {
             )}
           </div>
 
-          {/* Meanings */}
           {meanings.length > 0 && (
             <ul className="mt-4 space-y-2">
               {meanings.map(({ pos, meaning }, i) => (
-                <li key={i} className="rounded-xl border border-white/5 bg-white/[0.03] p-3">
-                  <span className="mr-2 text-[11px] font-bold uppercase italic tracking-wider text-indigo-400">{pos}</span>
-                  <span className="text-sm font-semibold text-slate-200">{meaning.definition}</span>
+                <li key={i} className="rounded-xl border border-[#eadfd0] bg-[#fffaf5] p-3">
+                  <span className="mr-2 text-[11px] font-bold uppercase italic tracking-wider text-[#b5502f]">
+                    {pos}
+                  </span>
+                  <span className="text-sm font-semibold text-[#241710]">{meaning.definition}</span>
                   {meaning.example && (
-                    <p className="mt-1 text-xs italic text-slate-500">&ldquo;{meaning.example}&rdquo;</p>
+                    <p className="mt-1 text-xs italic text-[#7b6558]">&ldquo;{meaning.example}&rdquo;</p>
                   )}
                 </li>
               ))}
             </ul>
           )}
 
-          {/* Save CTA — locked behind signup */}
-          <div className="mt-4 flex flex-col items-center gap-2 rounded-xl border border-indigo-500/20 bg-indigo-500/10 p-4 text-center sm:flex-row sm:justify-between sm:text-left">
-            <div className="flex items-center gap-2 text-sm text-slate-300">
-              <Lock className="h-4 w-4 shrink-0 text-indigo-300" />
-              Đăng ký miễn phí để <b className="text-white">lưu từ này vào sổ</b> & ôn theo lịch FSRS.
+          <div className="mt-4 flex flex-col items-center gap-2 rounded-xl border border-[#b5502f]/20 bg-[#f2dfd4]/50 p-4 text-center sm:flex-row sm:justify-between sm:text-left">
+            <div className="flex items-center gap-2 text-sm text-[#5e4b40]">
+              <Lock className="h-4 w-4 shrink-0 text-[#b5502f]" />
+              Đăng ký miễn phí để <b className="text-[#241710]">lưu từ này vào sổ</b> & ôn theo lịch FSRS.
             </div>
             <Link
               href="/auth"
-              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-black text-white transition-colors hover:bg-indigo-500"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#b5502f] px-5 py-2.5 text-sm font-black text-white transition-colors hover:bg-[#a04428]"
             >
               <Plus className="h-4 w-4" /> Lưu vào sổ
             </Link>
@@ -240,11 +237,10 @@ export default function DictionaryDemo() {
         </div>
       )}
 
-      {/* Empty state hint */}
       {!loading && !result && !error && (
-        <p className="mt-5 flex items-center justify-center gap-2 text-center text-sm text-slate-500">
-          <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-          Tra thử ngay — không cần tài khoản. Bấm <b className="text-slate-300">Tra ngay</b> hoặc chọn từ mẫu.
+        <p className="mt-5 flex items-center justify-center gap-2 text-center text-sm text-[#7b6558]">
+          <CheckCircle2 className="h-4 w-4 text-[#2d7f5e]" />
+          Tra thử ngay — không cần tài khoản. Bấm <b className="text-[#241710]">Tra ngay</b> hoặc chọn từ mẫu.
         </p>
       )}
     </div>
