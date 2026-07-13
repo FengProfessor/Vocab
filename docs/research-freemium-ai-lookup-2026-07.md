@@ -158,7 +158,7 @@ Demo câu là **aha moment** mạnh hơn “tra 1 từ dictionary”.
 |----------|------------|---------|
 | Bỏ “không cần thẻ” | ✅ Đã làm landing | P0 |
 | Hiện gói nhóm trên landing | ✅ Card + link `/upgrade` | P0 |
-| Free lưu 300/tháng | **Không ưu tiên 300**; ship **150/tháng** + soft gate khi enforce | P1 |
+| Free lưu 200/tháng | **Đã chốt 200** — `FREE_WORD_SAVE_MONTHLY_LIMIT` + gate POST `/api/words` khi enforce | P0 done |
 | Free AI | Giữ **5/ngày** | — |
 | Demo AI landing | **Câu → bóc 3–5 từ** (cache mẫu trước, free-form sau) | P1 |
 | Deep link group upgrade | `?mode=group` | P2 |
