@@ -65,7 +65,7 @@ const STUDY_LOOP = [
   },
   {
     title: 'Ôn lại trước khi quên',
-    description: 'FSRS v5 tính lịch ôn riêng cho từng từ của từng người học.',
+    description: 'FSRS v5 tính lịch ôn riêng cho từng từ của bạn.',
     icon: Repeat2,
   },
 ] as const;
@@ -88,6 +88,51 @@ const VOCAB_ROUTES = [
   },
 ] as const;
 
+const BENEFIT_CARDS = [
+  {
+    icon: Chrome,
+    title: 'Tra từ ngay trong lúc đọc',
+    text: 'Chạm đúng lúc tò mò nhất, không làm đứt mạch đọc.',
+    accent: 'bg-[#f2dfd4] text-[#9f4d2f]',
+  },
+  {
+    icon: Library,
+    title: 'Có sẵn kho học liệu',
+    text: 'Mở vào là có thứ để học, không phải tự gom từng bộ từ.',
+    accent: 'bg-[#e8f0ea] text-[#3d6b55]',
+  },
+  {
+    icon: Bell,
+    title: 'Nhắc ôn đúng giờ',
+    text: 'Đến giờ là học — không cần tự nhớ mở app.',
+    accent: 'bg-[#f5edd8] text-[#8a6a1f]',
+  },
+  {
+    icon: Trophy,
+    title: 'Thấy tiến bộ rõ ràng',
+    text: 'Streak, XP và tiến độ phản hồi ngay sau mỗi chặng.',
+    accent: 'bg-[#ede6f5] text-[#6b4d8a]',
+  },
+] as const;
+
+const METHOD_POINTS = [
+  {
+    icon: Repeat2,
+    title: 'Mỗi từ có một nhịp ôn riêng',
+    text: 'Nhớ tốt thì giãn xa. Quên thì quay lại sớm. Không ép tất cả từ đi cùng một lịch.',
+  },
+  {
+    icon: Clock3,
+    title: 'Chặng học ngắn đủ để duy trì',
+    text: 'Khoảng 5–8 phút chen được vào ngày bận — không cần chờ khoảng trống hoàn hảo.',
+  },
+  {
+    icon: Bell,
+    title: 'Nhắc ôn đúng lúc, không dựa vào ý chí',
+    text: 'Hệ thống lo phần lịch. Bạn chỉ cần quay lại và hoàn thành chặng.',
+  },
+] as const;
+
 const COMPARE_ROWS: ReadonlyArray<{
   label: string;
   lingo: string;
@@ -105,28 +150,37 @@ const TESTIMONIALS = [
   {
     name: 'Nguyễn Linh',
     role: 'Gia sư tiếng Anh, TP.HCM',
+    initials: 'NL',
     text: 'Mình đỡ mất vài giờ mỗi tuần vì không còn phải tự dựng flashcard cho học sinh từ đầu.',
   },
   {
     name: 'Trần Minh',
-    role: 'IELTS learner',
+    role: 'Người học IELTS',
+    initials: 'TM',
     text: 'Điểm mạnh nhất là nhắc ôn đúng lúc. Mình không còn học xong rồi quên sạch sau vài ngày.',
   },
   {
     name: 'Ms. Phương',
     role: 'Giáo viên THPT, Hà Nội',
+    initials: 'MP',
     text: 'Học sinh dùng dễ hơn Anki vì có sẵn tiếng Việt, lộ trình và giao diện ít gây sợ.',
   },
+] as const;
+
+const TRUST_ITEMS = [
+  'Không cần thẻ tín dụng',
+  'Bắt đầu miễn phí',
+  '5–8 phút mỗi chặng',
 ] as const;
 
 export const metadata: Metadata = {
   title: 'LingoPro | Tra từ 1 chạm, nhớ lâu hơn với FSRS',
   description:
-    'Tra từ ngay trên web, lưu vào kho từ riêng, rồi ôn lại bằng FSRS v5. LingoPro dành cho học sinh và giáo viên muốn học nhanh nhưng nhớ lâu.',
+    'Tra từ ngay trên web, lưu vào kho từ riêng, rồi ôn lại bằng FSRS v5. LingoPro giúp bạn học nhanh nhưng nhớ lâu — chặng ngắn, lộ trình sẵn, nghĩa Việt có sẵn.',
   openGraph: {
     title: 'LingoPro | Học từ vựng bớt rối, nhớ lâu hơn',
     description:
-      'Tra từ 1 chạm, hiện sẵn nghĩa Việt và ví dụ, rồi ôn đúng lúc bằng FSRS. Dành cho học sinh Việt muốn học gọn mà nhớ lâu.',
+      'Tra từ 1 chạm, hiện sẵn nghĩa Việt và ví dụ, rồi ôn đúng lúc bằng FSRS. Học gọn mỗi ngày, nhớ lâu hơn sau nhiều tuần.',
     type: 'website',
     locale: 'vi_VN',
     siteName: 'LingoPro',
@@ -135,7 +189,7 @@ export const metadata: Metadata = {
 
 function SectionTag({ children }: { children: React.ReactNode }) {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full border border-[#b86f52]/20 bg-white/70 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.22em] text-[#9f4d2f] shadow-[0_10px_30px_rgba(143,83,53,0.08)]">
+    <div className="inline-flex items-center gap-2 rounded-full border border-[#b86f52]/20 bg-white/80 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.22em] text-[#9f4d2f] shadow-[0_8px_24px_rgba(143,83,53,0.08)]">
       <Sparkles className="h-3.5 w-3.5" />
       {children}
     </div>
@@ -147,25 +201,28 @@ export default function LandingPage() {
     <div className={`${manrope.className} min-h-dvh bg-[#f6efe6] text-[#241710]`}>
       <AuthRedirectGate />
 
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
+      <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
         <div className="absolute left-[-8%] top-[-10%] h-[28rem] w-[28rem] rounded-full bg-[#e57b52]/20 blur-3xl" />
         <div className="absolute right-[-10%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[#d2c09e]/35 blur-3xl" />
         <div className="absolute bottom-[-15%] left-[30%] h-[26rem] w-[26rem] rounded-full bg-[#6a8d7b]/18 blur-3xl" />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-[#bca58f]/30 bg-[#f6efe6]/85 backdrop-blur-xl">
-        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6">
-          <Link href="/" className="flex items-center gap-3 text-[#241710]">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6] shadow-[0_14px_35px_rgba(36,23,16,0.18)]">
+      {/* ── Header ── */}
+      <header className="sticky top-0 z-50 border-b border-[#bca58f]/30 bg-[#f6efe6]/90 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-[4.5rem] sm:px-6">
+          <Link href="/" className="flex shrink-0 items-center gap-3 text-[#241710]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6] shadow-[0_12px_28px_rgba(36,23,16,0.18)] sm:h-11 sm:w-11">
               <Brain className="h-5 w-5" />
             </div>
             <div>
               <div className={`${spaceGrotesk.className} text-lg font-bold tracking-tight`}>LingoPro</div>
-              <div className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#7b6558]">Hệ học từ vựng</div>
+              <div className="hidden text-[11px] font-semibold uppercase tracking-[0.26em] text-[#7b6558] sm:block">
+                Hệ học từ vựng
+              </div>
             </div>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <nav className="hidden items-center gap-6 text-sm font-bold text-[#6d574a] lg:flex">
               <a href="#demo" className="transition-colors hover:text-[#241710]">Demo</a>
               <a href="#routes" className="transition-colors hover:text-[#241710]">Lộ trình</a>
@@ -174,17 +231,20 @@ export default function LandingPage() {
             </nav>
             <Link
               href="/download"
-              className="hidden items-center gap-2 rounded-full border border-[#b5502f]/25 bg-white/80 px-4 py-2.5 text-sm font-black text-[#b5502f] shadow-[0_10px_28px_rgba(181,80,47,0.12)] transition-transform hover:-translate-y-0.5 sm:inline-flex"
+              className="hidden items-center gap-2 rounded-full border border-[#b5502f]/25 bg-white/80 px-4 py-2.5 text-sm font-black text-[#b5502f] shadow-[0_10px_28px_rgba(181,80,47,0.12)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(181,80,47,0.18)] sm:inline-flex"
             >
               <ArrowDownToLine className="h-4 w-4" />
               Tải Desktop
             </Link>
-            <Link href="/for-teachers" className="hidden text-sm font-bold text-[#6d574a] transition-colors hover:text-[#241710] sm:block">
+            <Link
+              href="/for-teachers"
+              className="hidden text-sm font-bold text-[#6d574a] transition-colors hover:text-[#241710] md:block"
+            >
               Giáo viên
             </Link>
             <Link
               href="/auth"
-              className="inline-flex items-center gap-2 rounded-full bg-[#241710] px-5 py-3 text-sm font-black text-[#f6efe6] transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-[#241710] px-4 py-2.5 text-sm font-black text-[#f6efe6] transition-all hover:-translate-y-0.5 hover:bg-[#3a2a20] sm:px-5 sm:py-3"
             >
               Bắt đầu miễn phí
               <ArrowRight className="h-4 w-4" />
@@ -194,15 +254,17 @@ export default function LandingPage() {
       </header>
 
       <main className="relative">
+        {/* ── Hero ── */}
         <section className="px-4 pb-16 pt-10 sm:px-6 sm:pt-14">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div className="space-y-8">
               <SectionTag>Tra từ 1 chạm, học tới nơi</SectionTag>
 
               <div className="space-y-5">
-                <h1 className={`${spaceGrotesk.className} max-w-4xl text-5xl font-bold leading-[0.94] tracking-[-0.06em] text-[#241710] sm:text-6xl xl:text-7xl`}>
-                  Đừng để từ mới
-                  {' '}
+                <h1
+                  className={`${spaceGrotesk.className} max-w-4xl text-4xl font-bold leading-[1.02] tracking-[-0.05em] text-[#241710] sm:text-5xl sm:leading-[0.96] xl:text-6xl xl:leading-[0.94]`}
+                >
+                  Đừng để từ mới{' '}
                   <span className="text-[#b5502f]">lướt qua rồi biến mất</span>.
                   {' '}
                   Biến lần gặp đầu tiên thành lúc bắt đầu nhớ.
@@ -216,29 +278,43 @@ export default function LandingPage() {
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link
                   href="/auth"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#b5502f] px-7 py-4 text-base font-black text-white shadow-[0_16px_40px_rgba(181,80,47,0.28)] transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#b5502f] px-7 py-4 text-base font-black text-white shadow-[0_16px_40px_rgba(181,80,47,0.28)] transition-all hover:-translate-y-0.5 hover:bg-[#a04428] hover:shadow-[0_20px_48px_rgba(181,80,47,0.34)]"
                 >
                   Tạo tài khoản miễn phí
                   <ArrowRight className="h-5 w-5" />
                 </Link>
                 <a
-                  href="#pricing"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#bca58f] bg-white/70 px-7 py-4 text-base font-black text-[#241710] transition-colors hover:bg-white"
+                  href="#demo"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#bca58f] bg-white/80 px-7 py-4 text-base font-black text-[#241710] transition-all hover:border-[#b5502f]/40 hover:bg-white"
                 >
-                  Xem giá và quyền lợi
+                  Thử tra một từ
                 </a>
                 <Link
                   href="/download"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#b5502f]/30 bg-white px-7 py-4 text-base font-black text-[#b5502f] shadow-[0_14px_34px_rgba(181,80,47,0.12)] transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#b5502f]/25 bg-white px-7 py-4 text-base font-black text-[#b5502f] shadow-[0_12px_28px_rgba(181,80,47,0.10)] transition-all hover:-translate-y-0.5"
                 >
                   <ArrowDownToLine className="h-5 w-5" />
                   Tải app Desktop
                 </Link>
               </div>
 
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-[#7b6558]">
+                {TRUST_ITEMS.map((item) => (
+                  <span key={item} className="inline-flex items-center gap-2">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#2d7f5e]/12 text-[#2d7f5e]">
+                      <Check className="h-3 w-3" />
+                    </span>
+                    {item}
+                  </span>
+                ))}
+              </div>
+
               <div className="grid gap-3 sm:grid-cols-3">
                 {HERO_POINTS.map((point) => (
-                  <div key={point} className="rounded-[1.75rem] border border-white/70 bg-white/70 p-4 text-sm font-semibold leading-6 text-[#5e4b40] shadow-[0_18px_45px_rgba(95,69,52,0.08)]">
+                  <div
+                    key={point}
+                    className="rounded-[1.75rem] border border-white/80 bg-white/75 p-4 text-sm font-semibold leading-6 text-[#5e4b40] shadow-[0_16px_40px_rgba(95,69,52,0.07)] transition-transform hover:-translate-y-0.5"
+                  >
                     <span className="mb-3 flex h-9 w-9 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6]">
                       <Check className="h-4 w-4" />
                     </span>
@@ -248,78 +324,97 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="absolute right-8 top-0 hidden h-28 w-28 rounded-full border border-[#b5502f]/15 bg-[#f4c8ae]/45 blur-2xl lg:block" />
+            {/* Hero visual card */}
+            <div className="relative lg:pb-8">
+              <div className="absolute right-6 top-0 hidden h-28 w-28 rounded-full border border-[#b5502f]/15 bg-[#f4c8ae]/45 blur-2xl lg:block" />
 
               <div className="overflow-hidden rounded-[2rem] border border-[#bca58f]/35 bg-[#241710] p-5 text-[#f6efe6] shadow-[0_28px_90px_rgba(36,23,16,0.25)]">
                 <div className="flex items-start justify-between gap-4 rounded-[1.6rem] border border-white/10 bg-white/5 p-5">
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.28em] text-[#cbb7a6]">Vòng học của bạn</p>
-                    <h2 className={`${spaceGrotesk.className} mt-2 text-3xl font-bold tracking-tight`}>
+                    <h2 className={`${spaceGrotesk.className} mt-2 text-2xl font-bold tracking-tight sm:text-3xl`}>
                       Từ web thành trí nhớ dài hạn
                     </h2>
                   </div>
-                  <div className="rounded-full bg-[#d7bb76] px-3 py-1 text-xs font-black text-[#241710]">
-                    5-8 phút/chặng
+                  <div className="shrink-0 rounded-full bg-[#d7bb76] px-3 py-1 text-xs font-black text-[#241710]">
+                    5–8 phút/chặng
                   </div>
                 </div>
 
-                <div className="mt-5 grid gap-4">
+                <div className="relative mt-5 grid gap-3">
                   {STUDY_LOOP.map((item, index) => (
-                    <div key={item.title} className="rounded-[1.6rem] border border-white/10 bg-white/[0.06] p-5">
+                    <div
+                      key={item.title}
+                      className="relative rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4 transition-colors hover:bg-white/[0.09] sm:p-5"
+                    >
                       <div className="flex items-start gap-4">
                         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#f6efe6] text-[#241710]">
                           <item.icon className="h-5 w-5" />
                         </div>
-                        <div className="flex-1">
+                        <div className="min-w-0 flex-1">
                           <div className="flex items-center justify-between gap-3">
-                            <h3 className="text-lg font-black">{item.title}</h3>
-                            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#cbb7a6]">
+                            <h3 className="text-base font-black sm:text-lg">{item.title}</h3>
+                            <span className="shrink-0 text-xs font-black uppercase tracking-[0.24em] text-[#cbb7a6]">
                               0{index + 1}
                             </span>
                           </div>
-                          <p className="mt-2 text-sm leading-6 text-[#d8c9bc]">{item.description}</p>
+                          <p className="mt-1.5 text-sm leading-6 text-[#d8c9bc]">{item.description}</p>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                <div className="mt-5 grid grid-cols-3 gap-3">
                   {[
                     { value: VOCAB_STATS.words, label: 'từ sẵn có' },
                     { value: VOCAB_STATS.packs, label: 'chặng học' },
                     { value: VOCAB_STATS.routes, label: 'lộ trình' },
                   ].map((item) => (
-                    <div key={item.label} className="rounded-[1.35rem] border border-white/10 bg-[#f6efe6] px-4 py-5 text-center text-[#241710]">
-                      <div className={`${spaceGrotesk.className} text-3xl font-bold tracking-tight`}>{item.value}</div>
-                      <div className="mt-1 text-xs font-bold uppercase tracking-[0.22em] text-[#7b6558]">{item.label}</div>
+                    <div
+                      key={item.label}
+                      className="rounded-[1.25rem] border border-white/10 bg-[#f6efe6] px-2 py-4 text-center text-[#241710] sm:px-4 sm:py-5"
+                    >
+                      <div className={`${spaceGrotesk.className} text-2xl font-bold tracking-tight sm:text-3xl`}>
+                        {item.value}
+                      </div>
+                      <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#7b6558] sm:text-xs sm:tracking-[0.2em]">
+                        {item.label}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="absolute -bottom-6 -left-3 hidden rounded-[1.5rem] border border-[#bca58f]/40 bg-white px-5 py-4 shadow-[0_18px_50px_rgba(95,69,52,0.12)] md:block">
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f]">Học đều hơn mỗi tuần</p>
-                <p className={`${spaceGrotesk.className} mt-1 text-3xl font-bold tracking-tight text-[#241710]`}>
-                  Bớt bỏ dở giữa chừng
-                </p>
-                <p className="mt-1 text-sm font-semibold text-[#6d574a]">Vì tra, lưu và ôn nằm trong cùng một nhịp học.</p>
+              <div className="relative z-10 mx-auto mt-4 max-w-sm rounded-[1.5rem] border border-[#bca58f]/40 bg-white px-5 py-4 shadow-[0_18px_50px_rgba(95,69,52,0.12)] sm:mx-0 lg:absolute lg:-bottom-2 lg:-left-2 lg:mt-0">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#e8f0ea] text-[#2d7f5e]">
+                    <Zap className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-[#9f4d2f]">Học đều hơn mỗi tuần</p>
+                    <p className={`${spaceGrotesk.className} text-xl font-bold tracking-tight text-[#241710] sm:text-2xl`}>
+                      Ít bỏ dở giữa chừng
+                    </p>
+                    <p className="mt-0.5 text-sm font-semibold text-[#6d574a]">
+                      Vì tra, lưu và ôn nằm trong cùng một nhịp.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* ── Benefit strip ── */}
         <section className="px-4 pb-20 sm:px-6">
-          <div className="mx-auto grid max-w-7xl gap-4 lg:grid-cols-4">
-            {[
-              { icon: Chrome, title: 'Tra từ ngay trong lúc đọc', text: 'Chạm đúng lúc tò mò nhất, không làm đứt mạch đọc.' },
-              { icon: Library, title: 'Có sẵn kho học liệu', text: 'Mở vào là có thứ để học, không phải tự gom từng bộ từ.' },
-              { icon: Bell, title: 'Có người nhắc thay bạn', text: 'Đến giờ là học, không chờ nhớ ra mới mở lại.' },
-              { icon: Trophy, title: 'Biến tiến bộ thành cảm giác rõ ràng', text: 'Streak, XP và tiến độ làm cho việc học có phản hồi ngay.' },
-            ].map((item) => (
-              <div key={item.title} className="rounded-[1.9rem] border border-[#d7c7b6] bg-white/70 p-6 shadow-[0_18px_50px_rgba(95,69,52,0.08)]">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f2dfd4] text-[#9f4d2f]">
+          <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {BENEFIT_CARDS.map((item) => (
+              <div
+                key={item.title}
+                className="group rounded-[1.9rem] border border-[#d7c7b6]/80 bg-white/75 p-6 shadow-[0_16px_45px_rgba(95,69,52,0.07)] transition-all hover:-translate-y-1 hover:border-[#c4a990] hover:bg-white hover:shadow-[0_22px_55px_rgba(95,69,52,0.12)]"
+              >
+                <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${item.accent} transition-transform group-hover:scale-105`}>
                   <item.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-5 text-lg font-black text-[#241710]">{item.title}</h3>
@@ -329,38 +424,43 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="demo" className="border-y border-[#d7c7b6]/70 bg-[#fffaf5] px-4 py-24 sm:px-6">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        {/* ── Demo ── */}
+        <section id="demo" className="border-y border-[#d7c7b6]/70 bg-[#fffaf5] px-4 py-20 sm:px-6 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-14">
             <div className="space-y-6">
               <SectionTag>Thử ngay không cần tài khoản</SectionTag>
-              <h2 className={`${spaceGrotesk.className} max-w-xl text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
-                Chỉ cần thử một từ
-                {' '}
+              <h2 className={`${spaceGrotesk.className} max-w-xl text-3xl font-bold tracking-[-0.04em] text-[#241710] sm:text-4xl lg:text-5xl`}>
+                Chỉ cần thử một từ{' '}
                 <span className="text-[#b5502f]">để thấy nó đi xa tới đâu.</span>
               </h2>
               <p className="max-w-xl text-lg leading-8 text-[#5e4b40]">
-                Với LingoPro, một từ lạ không dừng ở nghĩa từ điển. Nó được lưu lại, gắn ví dụ,
+                Một từ lạ không dừng ở nghĩa từ điển. Nó được lưu lại, gắn ví dụ,
                 thêm hình ảnh và bước vào lịch ôn của riêng bạn.
               </p>
               <div className="grid gap-3">
                 {[
                   'Gõ bất kỳ từ nào để xem cách LingoPro giải nghĩa và đặt vào ngữ cảnh.',
-                  'Web và extension dùng chung một kho từ, học ở đâu cũng nối tiếp.',
-                  'Đây là cách nhanh nhất để biết LingoPro có hợp với bạn hay không.',
+                  'Web và extension dùng chung một kho từ — học ở đâu cũng nối tiếp.',
+                  'Cách nhanh nhất để biết LingoPro có hợp với bạn hay không.',
                 ].map((line) => (
-                  <div key={line} className="flex items-start gap-3 rounded-2xl border border-[#eadfd0] bg-white p-4 text-sm font-semibold leading-6 text-[#5e4b40]">
-                    <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#b5502f]" />
+                  <div
+                    key={line}
+                    className="flex items-start gap-3 rounded-2xl border border-[#eadfd0] bg-white p-4 text-sm font-semibold leading-6 text-[#5e4b40] shadow-[0_8px_24px_rgba(95,69,52,0.04)]"
+                  >
+                    <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#b5502f]" />
                     {line}
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-[#d7c7b6] bg-white p-5 shadow-[0_24px_70px_rgba(95,69,52,0.12)]">
-              <div className="mb-5 flex items-center justify-between gap-4 rounded-[1.5rem] bg-[#241710] px-5 py-4 text-[#f6efe6]">
+            <div className="rounded-[2rem] border border-[#d7c7b6] bg-white p-4 shadow-[0_24px_70px_rgba(95,69,52,0.12)] sm:p-5">
+              <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-[1.5rem] bg-[#241710] px-5 py-4 text-[#f6efe6]">
                 <div>
                   <div className="text-xs font-black uppercase tracking-[0.24em] text-[#cbb7a6]">Dùng thử trực tiếp</div>
-                  <div className={`${spaceGrotesk.className} text-2xl font-bold tracking-tight`}>Tra từ ngay bây giờ</div>
+                  <div className={`${spaceGrotesk.className} text-xl font-bold tracking-tight sm:text-2xl`}>
+                    Tra từ ngay bây giờ
+                  </div>
                 </div>
                 <div className="rounded-full bg-[#d7bb76] px-3 py-1 text-xs font-black text-[#241710]">
                   Không cần tài khoản
@@ -371,8 +471,9 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="routes" className="px-4 py-24 sm:px-6">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        {/* ── Routes ── */}
+        <section id="routes" className="px-4 py-20 sm:px-6 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14">
             <div className="relative overflow-hidden rounded-[2.2rem] border border-[#bca58f]/35 bg-[#241710] p-4 shadow-[0_28px_90px_rgba(36,23,16,0.22)]">
               <video
                 className="aspect-video w-full rounded-[1.6rem] object-cover"
@@ -386,33 +487,39 @@ export default function LandingPage() {
               />
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4 text-[#f6efe6]">
-                  <div className="text-xs font-black uppercase tracking-[0.22em] text-[#cbb7a6]">Khác biệt lớn nhất</div>
-                  <div className="mt-2 text-lg font-black">Thời điểm học là lúc bạn đang tò mò</div>
+                  <div className="text-xs font-black uppercase tracking-[0.22em] text-[#cbb7a6]">Khác biệt</div>
+                  <div className="mt-2 text-base font-black leading-snug sm:text-lg">
+                    Học đúng lúc bạn đang tò mò
+                  </div>
                 </div>
                 <div className="rounded-[1.4rem] border border-white/10 bg-[#f6efe6] p-4 text-[#241710]">
                   <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Kết quả</div>
-                  <div className="mt-2 text-lg font-black">Tăng cơ hội lưu từ trước khi người học mất hứng</div>
+                  <div className="mt-2 text-base font-black leading-snug sm:text-lg">
+                    Lưu từ ngay — trước khi lướt qua mất
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="space-y-6">
               <SectionTag>Lộ trình dựng sẵn cho người Việt</SectionTag>
-              <h2 className={`${spaceGrotesk.className} max-w-2xl text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
-                Không chỉ là công cụ tra từ.
-                {' '}
+              <h2 className={`${spaceGrotesk.className} max-w-2xl text-3xl font-bold tracking-[-0.04em] text-[#241710] sm:text-4xl lg:text-5xl`}>
+                Không chỉ là công cụ tra từ.{' '}
                 <span className="text-[#b5502f]">Đây là kho học liệu biết chia đường đi.</span>
               </h2>
               <p className="max-w-2xl text-lg leading-8 text-[#5e4b40]">
-                Người học yếu nhất không thiếu động lực trước, mà thiếu một nơi bắt đầu đủ rõ.
-                LingoPro giải quyết bằng các chặng học ngắn, lộ trình rõ và nghĩa Việt sẵn có.
+                Bạn không thiếu động lực — bạn thiếu một chỗ bắt đầu đủ rõ.
+                LingoPro có chặng ngắn, lộ trình sẵn và nghĩa Việt sẵn có: mở vào là học được.
               </p>
 
               <div className="grid gap-4">
                 {VOCAB_ROUTES.map((route) => (
-                  <div key={route.title} className="rounded-[1.8rem] border border-[#d7c7b6] bg-white/75 p-5 shadow-[0_18px_50px_rgba(95,69,52,0.08)]">
+                  <div
+                    key={route.title}
+                    className="group rounded-[1.8rem] border border-[#d7c7b6]/80 bg-white/75 p-5 shadow-[0_14px_40px_rgba(95,69,52,0.06)] transition-all hover:-translate-y-0.5 hover:border-[#c4a990] hover:bg-white hover:shadow-[0_20px_50px_rgba(95,69,52,0.10)]"
+                  >
                     <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#f2dfd4] text-[#9f4d2f]">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#f2dfd4] text-[#9f4d2f] transition-transform group-hover:scale-105">
                         <route.icon className="h-5 w-5" />
                       </div>
                       <div>
@@ -424,17 +531,24 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              <div className="rounded-[1.8rem] border border-[#d7c7b6] bg-[#fffaf5] p-5">
+              <div className="rounded-[1.8rem] border border-[#d7c7b6]/80 bg-gradient-to-br from-[#fffaf5] to-white p-5 shadow-[0_12px_36px_rgba(95,69,52,0.05)]">
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-[#9f4d2f]">Kho sẵn có</p>
-                <div className="mt-3 grid grid-cols-3 gap-3 text-center">
+                <div className="mt-3 grid grid-cols-3 gap-2 sm:gap-3">
                   {[
                     { value: VOCAB_STATS.words, label: 'từ vựng' },
                     { value: VOCAB_STATS.packs, label: 'chặng học' },
                     { value: VOCAB_STATS.routes, label: 'lộ trình' },
                   ].map((item) => (
-                    <div key={item.label} className="rounded-2xl bg-white px-4 py-5 shadow-[0_10px_25px_rgba(95,69,52,0.06)]">
-                      <div className={`${spaceGrotesk.className} text-3xl font-bold tracking-tight text-[#241710]`}>{item.value}</div>
-                      <div className="mt-1 text-xs font-bold uppercase tracking-[0.2em] text-[#7b6558]">{item.label}</div>
+                    <div
+                      key={item.label}
+                      className="rounded-2xl bg-white px-2 py-4 text-center shadow-[0_8px_20px_rgba(95,69,52,0.05)] sm:px-4 sm:py-5"
+                    >
+                      <div className={`${spaceGrotesk.className} text-2xl font-bold tracking-tight text-[#241710] sm:text-3xl`}>
+                        {item.value}
+                      </div>
+                      <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#7b6558] sm:text-xs sm:tracking-[0.2em]">
+                        {item.label}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -443,42 +557,29 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="method" className="border-y border-[#d7c7b6]/70 bg-[#fffaf5] px-4 py-24 sm:px-6">
+        {/* ── Method ── */}
+        <section id="method" className="border-y border-[#d7c7b6]/70 bg-[#fffaf5] px-4 py-20 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
               <div className="space-y-6">
                 <SectionTag>Phương pháp học</SectionTag>
-                <h2 className={`${spaceGrotesk.className} max-w-xl text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
-                  Học ít hơn mỗi ngày,
-                  {' '}
+                <h2 className={`${spaceGrotesk.className} max-w-xl text-3xl font-bold tracking-[-0.04em] text-[#241710] sm:text-4xl lg:text-5xl`}>
+                  Học ít hơn mỗi ngày,{' '}
                   <span className="text-[#b5502f]">nhưng nhớ dai hơn sau nhiều tuần.</span>
                 </h2>
                 <p className="max-w-xl text-lg leading-8 text-[#5e4b40]">
-                  Đây là chỗ LingoPro tránh kiểu học dồn. Mỗi từ có lịch riêng, mỗi chặng vừa đủ ngắn
-                  và mỗi lần ôn có tín hiệu rõ ràng để người học quay lại.
+                  Không học dồn. Mỗi từ có lịch riêng, mỗi chặng vừa đủ ngắn,
+                  và mỗi lần ôn có tín hiệu rõ để bạn thấy mình đang tiến bộ.
                 </p>
 
                 <div className="grid gap-4">
-                  {[
-                    {
-                      icon: Repeat2,
-                      title: 'Mỗi từ có một nhịp ôn riêng',
-                      text: 'Nhớ tốt thì giãn xa. Quên thì quay lại sớm. Không ép tất cả từ đi cùng một lịch.',
-                    },
-                    {
-                      icon: Clock3,
-                      title: 'Chặng học ngắn đủ để duy trì',
-                      text: 'Khoảng 5-8 phút giúp việc học chen được vào ngày bận, thay vì đòi một khoảng trống hoàn hảo.',
-                    },
-                    {
-                      icon: Bell,
-                      title: 'Nhắc ôn đúng lúc thay vì chờ ý chí',
-                      text: 'Khi hệ thống lo phần nhớ lịch, người học chỉ còn việc quay lại và hoàn thành chặng.',
-                    },
-                  ].map((item) => (
-                    <div key={item.title} className="rounded-[1.8rem] border border-[#d7c7b6] bg-white/80 p-5 shadow-[0_18px_45px_rgba(95,69,52,0.08)]">
+                  {METHOD_POINTS.map((item) => (
+                    <div
+                      key={item.title}
+                      className="group rounded-[1.8rem] border border-[#d7c7b6]/80 bg-white/85 p-5 shadow-[0_14px_40px_rgba(95,69,52,0.06)] transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_20px_48px_rgba(95,69,52,0.10)]"
+                    >
                       <div className="flex items-start gap-4">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6]">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6] transition-transform group-hover:scale-105">
                           <item.icon className="h-5 w-5" />
                         </div>
                         <div>
@@ -500,13 +601,16 @@ export default function LandingPage() {
                   loop
                   playsInline
                   preload="metadata"
-                  aria-label="So sánh các kiểu học sinh khi ôn từ"
+                  aria-label="Minh họa nhịp ôn từ vựng với LingoPro"
                 />
-                <div className="mt-4 rounded-[1.5rem] bg-[#241710] p-5 text-[#f6efe6]">
-                  <div className="text-xs font-black uppercase tracking-[0.24em] text-[#cbb7a6]">Ý chính cần chốt</div>
-                  <p className="mt-2 text-lg font-black">
-                    Học sinh không cần thêm nhiều nội dung ngay lập tức.
-                    Họ cần một vòng lặp đủ nhẹ để không bỏ ngang sau 3 ngày đầu.
+                <div className="mt-4 rounded-[1.5rem] bg-gradient-to-br from-[#241710] to-[#3a2a20] p-5 text-[#f6efe6] sm:p-6">
+                  <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.24em] text-[#d7bb76]">
+                    <BookOpen className="h-3.5 w-3.5" />
+                    Bí quyết duy trì
+                  </div>
+                  <p className="mt-3 text-base font-black leading-relaxed sm:text-lg">
+                    Bạn không cần nhồi thêm nhiều từ ngay.
+                    Bạn cần một nhịp ôn đủ nhẹ để dễ quay lại mỗi ngày — và không bỏ ngang sau 3 ngày đầu.
                   </p>
                 </div>
               </div>
@@ -514,29 +618,40 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="px-4 py-24 sm:px-6">
+        {/* ── Testimonials ── */}
+        <section className="px-4 py-20 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 text-center">
               <SectionTag>Người dùng nói gì</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-5 text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
-                Người học không cần thêm một công cụ phức tạp.
-                {' '}
-                <span className="text-[#b5502f]">Họ cần một cách học dễ quay lại mỗi ngày.</span>
+              <h2 className={`${spaceGrotesk.className} mx-auto mt-5 max-w-3xl text-3xl font-bold tracking-[-0.04em] text-[#241710] sm:text-4xl lg:text-5xl`}>
+                Học đều hơn — vì{' '}
+                <span className="text-[#b5502f]">quay lại mỗi ngày trở nên dễ dàng.</span>
               </h2>
+              <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-[#5e4b40]">
+                Không cần thêm công cụ phức tạp. Chỉ cần một cách học vừa đủ nhẹ để duy trì.
+              </p>
             </div>
 
-            <div className="grid gap-6 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {TESTIMONIALS.map((item) => (
-                <div key={item.name} className="rounded-[1.9rem] border border-[#d7c7b6] bg-white p-6 shadow-[0_18px_50px_rgba(95,69,52,0.08)]">
-                  <div className="flex gap-1 text-[#d39b29]">
+                <div
+                  key={item.name}
+                  className="flex flex-col rounded-[1.9rem] border border-[#d7c7b6]/80 bg-white p-6 shadow-[0_16px_45px_rgba(95,69,52,0.07)] transition-all hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(95,69,52,0.12)]"
+                >
+                  <div className="flex gap-1 text-[#d39b29]" aria-label="5 sao">
                     {Array.from({ length: 5 }).map((_, index) => (
                       <Star key={index} className="h-4 w-4 fill-current" />
                     ))}
                   </div>
-                  <p className="mt-5 text-base leading-8 text-[#4f3f35]">“{item.text}”</p>
-                  <div className="mt-6 border-t border-[#eadfd0] pt-4">
-                    <div className="font-black text-[#241710]">{item.name}</div>
-                    <div className="text-sm font-semibold text-[#7b6558]">{item.role}</div>
+                  <p className="mt-5 flex-1 text-base leading-8 text-[#4f3f35]">“{item.text}”</p>
+                  <div className="mt-6 flex items-center gap-3 border-t border-[#eadfd0] pt-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#241710] text-sm font-black text-[#f6efe6]">
+                      {item.initials}
+                    </div>
+                    <div>
+                      <div className="font-black text-[#241710]">{item.name}</div>
+                      <div className="text-sm font-semibold text-[#7b6558]">{item.role}</div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -544,22 +659,27 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="border-y border-[#d7c7b6]/70 bg-[#fffaf5] px-4 py-24 sm:px-6">
+        {/* ── Compare ── */}
+        <section className="border-y border-[#d7c7b6]/70 bg-[#fffaf5] px-4 py-20 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-5xl">
             <div className="mb-10 text-center">
               <SectionTag>So sánh thẳng</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-5 text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
-                LingoPro không thay Anki cho mọi người.
-                {' '}
-                <span className="text-[#b5502f]">Nó hợp hơn với người muốn vào học ngay, không phải tự dựng hệ thống.</span>
+              <h2 className={`${spaceGrotesk.className} mx-auto mt-5 max-w-3xl text-3xl font-bold tracking-[-0.04em] text-[#241710] sm:text-4xl lg:text-5xl`}>
+                Muốn vào học ngay —{' '}
+                <span className="text-[#b5502f]">không phải tự dựng cả hệ thống.</span>
               </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#5e4b40]">
+                Anki mạnh nếu bạn thích tự xây. LingoPro hợp hơn nếu bạn muốn mở vào là học,
+                có sẵn lộ trình Việt hóa và được nhắc ôn đúng lúc.
+              </p>
             </div>
 
-            <div className="overflow-hidden rounded-[2rem] border border-[#d7c7b6] bg-white shadow-[0_22px_60px_rgba(95,69,52,0.10)]">
+            {/* Desktop table */}
+            <div className="hidden overflow-hidden rounded-[2rem] border border-[#d7c7b6] bg-white shadow-[0_22px_60px_rgba(95,69,52,0.10)] md:block">
               <div className="grid grid-cols-[1fr_1.15fr_1.15fr] bg-[#241710] text-sm font-black text-[#f6efe6]">
-                <div className="p-4">Tiêu chí</div>
-                <div className="p-4 text-[#f1c46d]">LingoPro</div>
-                <div className="p-4 text-[#d5c1b4]">Anki</div>
+                <div className="p-4 sm:p-5">Tiêu chí</div>
+                <div className="p-4 text-[#f1c46d] sm:p-5">LingoPro</div>
+                <div className="p-4 text-[#d5c1b4] sm:p-5">Anki</div>
               </div>
               {COMPARE_ROWS.map((row, index) => (
                 <div
@@ -568,21 +688,17 @@ export default function LandingPage() {
                     index % 2 === 0 ? 'bg-white' : 'bg-[#fff9f3]'
                   }`}
                 >
-                  <div className="border-t border-[#eadfd0] p-4 font-black text-[#241710]">{row.label}</div>
-                  <div className="border-t border-[#eadfd0] bg-[#f9eee8] p-4 text-[#4f3f35]">
+                  <div className="border-t border-[#eadfd0] p-4 font-black text-[#241710] sm:p-5">{row.label}</div>
+                  <div className="border-t border-[#eadfd0] bg-[#f9eee8]/80 p-4 text-[#4f3f35] sm:p-5">
                     <div className="flex items-start gap-2">
-                      {row.lingoWin ? (
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#2d7f5e]" />
-                      ) : (
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#7b6558]" />
-                      )}
-                      <span>{row.lingo}</span>
+                      <Check className={`mt-0.5 h-4 w-4 shrink-0 ${row.lingoWin ? 'text-[#2d7f5e]' : 'text-[#7b6558]'}`} />
+                      <span className="font-semibold">{row.lingo}</span>
                     </div>
                   </div>
-                  <div className="border-t border-[#eadfd0] p-4 text-[#6d574a]">
+                  <div className="border-t border-[#eadfd0] p-4 text-[#6d574a] sm:p-5">
                     <div className="flex items-start gap-2">
                       {row.lingoWin ? (
-                        <X className="mt-0.5 h-4 w-4 shrink-0 text-[#b5502f]" />
+                        <X className="mt-0.5 h-4 w-4 shrink-0 text-[#b5502f]/70" />
                       ) : (
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#2d7f5e]" />
                       )}
@@ -592,29 +708,63 @@ export default function LandingPage() {
                 </div>
               ))}
             </div>
+
+            {/* Mobile cards */}
+            <div className="grid gap-4 md:hidden">
+              {COMPARE_ROWS.map((row) => (
+                <div
+                  key={row.label}
+                  className="rounded-[1.6rem] border border-[#d7c7b6] bg-white p-5 shadow-[0_12px_36px_rgba(95,69,52,0.07)]"
+                >
+                  <div className="text-sm font-black text-[#241710]">{row.label}</div>
+                  <div className="mt-3 space-y-2.5">
+                    <div className="flex items-start gap-2 rounded-xl bg-[#f9eee8] px-3 py-2.5 text-sm">
+                      <Check className={`mt-0.5 h-4 w-4 shrink-0 ${row.lingoWin ? 'text-[#2d7f5e]' : 'text-[#7b6558]'}`} />
+                      <div>
+                        <span className="font-black text-[#9f4d2f]">LingoPro · </span>
+                        <span className="font-semibold text-[#4f3f35]">{row.lingo}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 rounded-xl bg-[#f6f4f1] px-3 py-2.5 text-sm text-[#6d574a]">
+                      {row.lingoWin ? (
+                        <X className="mt-0.5 h-4 w-4 shrink-0 text-[#b5502f]/70" />
+                      ) : (
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#2d7f5e]" />
+                      )}
+                      <div>
+                        <span className="font-black">Anki · </span>
+                        <span>{row.anki}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="pricing" className="px-4 py-24 sm:px-6">
+        {/* ── Pricing ── */}
+        <section id="pricing" className="px-4 py-20 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-6xl">
             <div className="mb-12 text-center">
               <SectionTag>Gói học</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-5 text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
-                Bắt đầu miễn phí.
-                {' '}
+              <h2 className={`${spaceGrotesk.className} mt-5 text-3xl font-bold tracking-[-0.04em] text-[#241710] sm:text-4xl lg:text-5xl`}>
+                Bắt đầu miễn phí.{' '}
                 <span className="text-[#b5502f]">Nâng cấp khi bạn muốn học không giới hạn.</span>
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#5e4b40]">
-                Bạn có thể bắt đầu miễn phí để xem cách học có hợp mình không.
-                Khi cần tra sâu hơn, luyện nhiều hơn và bỏ giới hạn, lên Pro.
+                Dùng thử miễn phí để xem cách học có hợp mình không.
+                Khi cần tra sâu hơn, luyện nhiều hơn và bỏ giới hạn — lên Pro.
               </p>
             </div>
 
             <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-              <div className="rounded-[2rem] border border-[#d7c7b6] bg-white p-8 shadow-[0_18px_55px_rgba(95,69,52,0.08)]">
+              <div className="rounded-[2rem] border border-[#d7c7b6]/80 bg-white p-7 shadow-[0_18px_55px_rgba(95,69,52,0.08)] sm:p-8">
                 <div className="text-sm font-black uppercase tracking-[0.24em] text-[#7b6558]">{PLAN_LABELS.free}</div>
                 <div className={`${spaceGrotesk.className} mt-3 text-5xl font-bold tracking-tight text-[#241710]`}>0₫</div>
-                <p className="mt-2 text-sm font-semibold text-[#7b6558]">Đủ để tra từ, lưu từ và ôn tập cơ bản mỗi ngày.</p>
+                <p className="mt-2 text-sm font-semibold text-[#7b6558]">
+                  Đủ để tra từ, lưu từ và ôn tập cơ bản mỗi ngày.
+                </p>
 
                 <ul className="mt-8 space-y-3 text-sm font-semibold text-[#4f3f35]">
                   {[
@@ -632,13 +782,13 @@ export default function LandingPage() {
 
                 <Link
                   href="/auth"
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-full border border-[#d7c7b6] bg-[#fffaf5] px-6 py-3.5 text-sm font-black text-[#241710] transition-colors hover:bg-white"
+                  className="mt-8 inline-flex w-full items-center justify-center rounded-full border border-[#d7c7b6] bg-[#fffaf5] px-6 py-3.5 text-sm font-black text-[#241710] transition-all hover:border-[#bca58f] hover:bg-white"
                 >
                   Dùng thử miễn phí
                 </Link>
               </div>
 
-              <div className="relative overflow-hidden rounded-[2rem] border border-[#b5502f]/20 bg-[#241710] p-8 text-[#f6efe6] shadow-[0_30px_90px_rgba(36,23,16,0.22)]">
+              <div className="relative overflow-hidden rounded-[2rem] border border-[#b5502f]/25 bg-[#241710] p-7 text-[#f6efe6] shadow-[0_30px_90px_rgba(36,23,16,0.22)] sm:p-8">
                 <div className="absolute right-[-3rem] top-[-3rem] h-40 w-40 rounded-full bg-[#b5502f]/20 blur-3xl" />
                 <div className="absolute bottom-[-4rem] left-[-2rem] h-40 w-40 rounded-full bg-[#d7bb76]/15 blur-3xl" />
 
@@ -655,20 +805,22 @@ export default function LandingPage() {
                       </div>
                     </div>
                     <div className="rounded-[1.4rem] border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-[#d8c9bc]">
-                      Hoặc
-                      {' '}
+                      Hoặc{' '}
                       <span className="font-black text-white">{formatVND(PLAN_ANNUAL_PRICES.pro)}/năm</span>
                     </div>
                   </div>
 
-                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4">
                     {[
                       'Tra từ AI không giới hạn',
                       'Luyện nói và viết với AI',
                       'Ngữ pháp + quiz + điền từ đầy đủ',
                       'Báo cáo tiến độ và leaderboard',
                     ].map((item) => (
-                      <div key={item} className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4 text-sm font-semibold text-[#f2e7df]">
+                      <div
+                        key={item}
+                        className="rounded-[1.4rem] border border-white/10 bg-white/[0.06] p-4 text-sm font-semibold text-[#f2e7df]"
+                      >
                         <div className="flex items-start gap-3">
                           <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#d7bb76]" />
                           {item}
@@ -677,18 +829,18 @@ export default function LandingPage() {
                     ))}
                   </div>
 
-                  <div className="mt-8 rounded-[1.7rem] border border-white/10 bg-[#f6efe6] p-5 text-[#241710]">
-                    <div className="text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f]">Điểm khác biệt lớn nhất</div>
-                    <p className="mt-2 text-base font-bold">
-                      Pro giúp bạn học liền mạch hơn: tra sâu hơn, luyện nhiều hơn và không bị dừng lại giữa chừng.
+                  <div className="mt-8 rounded-[1.6rem] border border-white/10 bg-[#f6efe6] p-5 text-[#241710]">
+                    <div className="text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f]">Vì sao lên Pro</div>
+                    <p className="mt-2 text-base font-bold leading-relaxed">
+                      Học liền mạch hơn: tra sâu hơn, luyện nhiều hơn, không bị dừng giữa chừng vì giới hạn.
                     </p>
                   </div>
 
                   <Link
                     href="/upgrade"
-                    className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#b5502f] px-6 py-4 text-base font-black text-white shadow-[0_16px_40px_rgba(181,80,47,0.32)] transition-transform hover:-translate-y-0.5"
+                    className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#b5502f] px-6 py-4 text-base font-black text-white shadow-[0_16px_40px_rgba(181,80,47,0.32)] transition-all hover:-translate-y-0.5 hover:bg-[#a04428]"
                   >
-                    Xem trang nâng cấp mẫu
+                    Nâng cấp Pro
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                 </div>
@@ -697,25 +849,26 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="px-4 pb-28 pt-8 sm:px-6">
-          <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.4rem] border border-[#d7c7b6] bg-[#241710] px-6 py-10 text-[#f6efe6] shadow-[0_30px_90px_rgba(36,23,16,0.20)] sm:px-10">
+        {/* ── Final CTA ── */}
+        <section className="px-4 pb-28 pt-4 sm:px-6">
+          <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.4rem] border border-[#d7c7b6]/50 bg-gradient-to-br from-[#241710] via-[#2c1e16] to-[#241710] px-6 py-10 text-[#f6efe6] shadow-[0_30px_90px_rgba(36,23,16,0.20)] sm:px-10 sm:py-12">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
                 <div className="text-xs font-black uppercase tracking-[0.24em] text-[#cbb7a6]">Bắt đầu hôm nay</div>
-                <h2 className={`${spaceGrotesk.className} mt-3 max-w-3xl text-4xl font-bold tracking-[-0.05em] sm:text-5xl`}>
-                  Không cần chờ đến lúc có động lực hoàn hảo.
-                  {' '}
-                  <span className="text-[#f1c46d]">Chỉ cần một từ lạ đầu tiên là đủ để bắt đầu.</span>
+                <h2 className={`${spaceGrotesk.className} mt-3 max-w-3xl text-3xl font-bold tracking-[-0.04em] sm:text-4xl lg:text-5xl`}>
+                  Không cần chờ động lực hoàn hảo.{' '}
+                  <span className="text-[#f1c46d]">Một từ lạ đầu tiên là đủ để bắt đầu.</span>
                 </h2>
                 <p className="mt-4 max-w-2xl text-lg leading-8 text-[#d8c9bc]">
-                  Không cần thẻ tín dụng. Không cần cài đặt phức tạp. Tạo tài khoản miễn phí và để việc ôn tập chạy tiếp từ đó.
+                  Không cần thẻ tín dụng. Không cần cài đặt phức tạp.
+                  Tạo tài khoản miễn phí — việc ôn tập sẽ chạy tiếp từ đó.
                 </p>
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/auth"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#f6efe6] px-6 py-3.5 text-sm font-black text-[#241710] transition-colors hover:bg-white"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#f6efe6] px-6 py-3.5 text-sm font-black text-[#241710] transition-all hover:-translate-y-0.5 hover:bg-white"
                 >
                   Tạo tài khoản
                   <ArrowRight className="h-4 w-4" />
