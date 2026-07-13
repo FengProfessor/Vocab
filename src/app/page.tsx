@@ -18,6 +18,7 @@ import {
   Zap,
 } from 'lucide-react';
 import {
+  GROUP_SEAT_PRICE,
   PLAN_ANNUAL_PRICES,
   PLAN_LABELS,
   PLAN_PRICES,
@@ -306,7 +307,7 @@ export default function LandingPage() {
               </div>
 
               <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-[#7b6558]">
-                {['Không cần thẻ', 'Miễn phí bắt đầu', '5–8 phút/chặng'].map((t) => (
+                {['Miễn phí bắt đầu', '5–8 phút/chặng', 'Lộ trình sẵn'].map((t) => (
                   <li key={t} className="inline-flex items-center gap-1.5">
                     <Check className="h-3.5 w-3.5 text-[#2d7f5e]" />
                     {t}
@@ -572,11 +573,11 @@ export default function LandingPage() {
             <div className="mb-10 text-center">
               <SectionTag>Bảng giá</SectionTag>
               <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
-                Miễn phí bắt đầu · <span className="text-[#b5502f]">Pro khi cần thêm</span>
+                Miễn phí bắt đầu · <span className="text-[#b5502f]">Pro hoặc gói nhóm</span>
               </h2>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-2">
+            <div className="grid gap-5 lg:grid-cols-3">
               <div className="rounded-[1.75rem] border border-[#d7c7b6] bg-white p-6 sm:p-7">
                 <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">{PLAN_LABELS.free}</div>
                 <div className={`${spaceGrotesk.className} mt-2 text-4xl font-bold`}>0₫</div>
@@ -608,29 +609,24 @@ export default function LandingPage() {
                   <span className="inline-flex rounded-full bg-[#d7bb76] px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider text-[#241710]">
                     Phổ biến
                   </span>
-                  <div className="mt-3 flex flex-wrap items-end justify-between gap-3">
-                    <div>
-                      <div className="text-xs font-black uppercase tracking-[0.2em] text-[#cbb7a6]">{PLAN_LABELS.pro}</div>
-                      <div className={`${spaceGrotesk.className} mt-1 text-4xl font-bold`}>
-                        {formatVND(PLAN_PRICES.pro)}
-                        <span className="ml-1 text-sm font-semibold text-[#cbb7a6]">/tháng</span>
-                      </div>
+                  <div className="mt-3">
+                    <div className="text-xs font-black uppercase tracking-[0.2em] text-[#cbb7a6]">{PLAN_LABELS.pro}</div>
+                    <div className={`${spaceGrotesk.className} mt-1 text-4xl font-bold`}>
+                      {formatVND(PLAN_PRICES.pro)}
+                      <span className="ml-1 text-sm font-semibold text-[#cbb7a6]">/tháng</span>
                     </div>
-                    <div className="text-sm font-semibold text-[#d8c9bc]">
+                    <div className="mt-1 text-sm font-semibold text-[#d8c9bc]">
                       hoặc <span className="font-black text-white">{formatVND(PLAN_ANNUAL_PRICES.pro)}/năm</span>
                     </div>
                   </div>
-                  <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+                  <ul className="mt-6 space-y-2 text-sm font-semibold">
                     {[
                       'Tra AI không giới hạn',
                       'Luyện nói & viết AI',
                       'Quiz · điền từ đầy đủ',
                       'Báo cáo & leaderboard',
                     ].map((item) => (
-                      <li
-                        key={item}
-                        className="flex gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2.5 text-sm font-semibold"
-                      >
+                      <li key={item} className="flex gap-2">
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#d7bb76]" />
                         {item}
                       </li>
@@ -644,6 +640,34 @@ export default function LandingPage() {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
+              </div>
+
+              <div className="rounded-[1.75rem] border border-[#d7c7b6] bg-white p-6 sm:p-7">
+                <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">Nhóm</div>
+                <div className={`${spaceGrotesk.className} mt-2 text-3xl font-bold tracking-tight`}>
+                  từ {formatVND(GROUP_SEAT_PRICE)}
+                  <span className="ml-1 text-sm font-semibold text-[#7b6558]">/ghế/tháng</span>
+                </div>
+                <p className="mt-1 text-sm font-semibold text-[#7b6558]">Gia sư · nhóm học · 2–20 ghế</p>
+                <ul className="mt-6 space-y-2.5 text-sm font-semibold text-[#4f3f35]">
+                  {[
+                    'Mỗi ghế = quyền Pro',
+                    'Giá giảm khi mua nhiều ghế',
+                    'Mời bằng mã nhóm',
+                    'Thanh toán 1 lần cho cả nhóm',
+                  ].map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#2d7f5e]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/upgrade"
+                  className="mt-7 inline-flex w-full items-center justify-center rounded-full border border-[#d7c7b6] bg-[#fffaf5] py-3 text-sm font-black hover:bg-white"
+                >
+                  Xem gói nhóm
+                </Link>
               </div>
             </div>
           </div>
@@ -689,7 +713,7 @@ export default function LandingPage() {
                 Một từ lạ đầu tiên là đủ để bắt đầu.
               </h2>
               <p className="mt-2 text-sm leading-6 text-[#d8c9bc]">
-                Không thẻ · Không cài phức tạp · Miễn phí ngay.
+                Không cài phức tạp · Miễn phí ngay · 5–8 phút/chặng.
               </p>
             </div>
             <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
