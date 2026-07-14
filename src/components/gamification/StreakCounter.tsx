@@ -104,33 +104,29 @@ export function StreakCounter({
     const activeDays = Object.values(minsByDay).filter((c) => c > 0).length;
     const totalReviews = Object.values(minsByDay).reduce((s, c) => s + c, 0);
 
-    // Mobile: ô nhỏ; desktop: gọn vừa
+    // Mobile: heatmap siêu gọn; desktop giữ đọc được
     const cellBase =
-      'flex items-center justify-center rounded-[4px] font-extrabold tabular-nums aspect-square text-[9px] sm:text-[9.5px] min-h-[22px] sm:min-h-0';
+      'flex items-center justify-center rounded-[3px] font-extrabold tabular-nums aspect-square text-[7px] sm:text-[9.5px] min-h-[16px] sm:min-h-0';
 
     return (
       <div
-        className={`flex flex-col gap-1.5 rounded-2xl border border-[#e9e9f0] bg-white p-2.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] sm:flex-row sm:items-stretch sm:gap-3 sm:rounded-[18px] sm:p-[13px_14px] ${className}`}
+        className={`flex flex-col gap-1 rounded-xl border border-[#e9e9f0] bg-white p-2 shadow-[0_1px_2px_rgba(16,24,40,.04)] sm:flex-row sm:items-stretch sm:gap-3 sm:rounded-[18px] sm:p-[13px_14px] ${className}`}
       >
-        {/* Header compact */}
-        <div className="flex shrink-0 items-center gap-2 sm:w-[70px] sm:flex-col sm:items-start sm:gap-1.5">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 text-sm shadow-sm sm:h-[30px] sm:w-[30px] sm:rounded-[9px] sm:text-[15px]">
+        {/* Header siêu gọn mobile */}
+        <div className="flex shrink-0 items-center gap-1.5 sm:w-[70px] sm:flex-col sm:items-start sm:gap-1.5">
+          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-orange-400 to-orange-500 text-[11px] shadow-sm sm:h-[30px] sm:w-[30px] sm:rounded-[9px] sm:text-[15px]">
             🔥
           </div>
           <div className="min-w-0 flex-1 sm:flex-none">
-            <div className="flex items-baseline gap-1">
-              <span className="text-lg font-black leading-none text-orange-600 sm:text-[21px]">{streak}</span>
-              <span className="text-[10px] font-bold text-orange-400 sm:text-[11px]">ngày</span>
+            <div className="flex items-baseline gap-0.5">
+              <span className="text-sm font-black leading-none text-orange-600 sm:text-[21px]">{streak}</span>
+              <span className="text-[9px] font-bold text-orange-400 sm:text-[11px]">ngày</span>
             </div>
-            <div className="text-[10px] font-extrabold text-[#0f172a] sm:mt-0.5 sm:text-[10px] sm:uppercase sm:tracking-wider sm:text-orange-400">
-              <span className="sm:hidden">{MONTH_LABELS[month]}</span>
+            <div className="text-[9px] font-extrabold text-[#94a3b8] sm:mt-0.5 sm:text-[10px] sm:uppercase sm:tracking-wider sm:text-orange-400">
+              <span className="sm:hidden">{MONTH_LABELS[month]} · {activeDays}d</span>
               <span className="hidden sm:inline">streak</span>
             </div>
             <div className="hidden text-[10.5px] font-bold text-[#aab0bd] sm:block">{MONTH_LABELS[month]}</div>
-          </div>
-          <div className="flex shrink-0 flex-col items-end gap-0 text-right sm:hidden">
-            <span className="text-[10px] font-extrabold tabular-nums text-emerald-600">{activeDays} ngày</span>
-            <span className="text-[9px] font-bold text-[#aab0bd]">{totalReviews} lượt</span>
           </div>
         </div>
 
@@ -142,16 +138,16 @@ export function StreakCounter({
             </span>
           </div>
 
-          <div className="mb-0.5 grid grid-cols-7 gap-0.5 sm:mb-[3px] sm:gap-[3px]">
+          <div className="mb-px grid grid-cols-7 gap-px sm:mb-[3px] sm:gap-[3px]">
             {weekdays.map((wd) => (
-              <div key={wd} className="text-center text-[7px] font-extrabold uppercase text-[#b3b8c4] sm:text-[8px]">
+              <div key={wd} className="text-center text-[6px] font-extrabold uppercase text-[#b3b8c4] sm:text-[8px]">
                 {wd}
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-7 gap-0.5 sm:gap-[3px]">
+          <div className="grid grid-cols-7 gap-px sm:gap-[3px]">
             {Array.from({ length: lead }).map((_, i) => (
-              <div key={`lead-${i}`} className="aspect-square min-h-[22px] sm:min-h-0" />
+              <div key={`lead-${i}`} className="aspect-square min-h-[16px] sm:min-h-0" />
             ))}
             {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
               const isToday = d === todayDate;
@@ -178,7 +174,7 @@ export function StreakCounter({
                     background: HEAT_PALETTE[lvl],
                     color: fg,
                     border: lvl === 0 ? '1px solid #e8ebef' : '1px solid rgba(0,0,0,.04)',
-                    boxShadow: isToday ? `0 0 0 1.5px #fff, 0 0 0 2.5px ${HEAT_PALETTE[4]}` : undefined,
+                    boxShadow: isToday ? `0 0 0 1px #fff, 0 0 0 2px ${HEAT_PALETTE[4]}` : undefined,
                   }}
                   title={`${d}${mins ? ` · ${mins} từ` : ' · nghỉ'}`}
                 >
@@ -188,18 +184,19 @@ export function StreakCounter({
             })}
           </div>
 
-          <div className="mt-1.5 flex items-center justify-end gap-1 sm:mt-[9px] sm:gap-1.5">
-            <span className="text-[8px] font-bold text-[#b3b8c4] sm:text-[10px]">Ít</span>
-            <div className="flex gap-[2px] sm:gap-[3px]">
+          {/* Legend: ẩn mobile để gọn */}
+          <div className="mt-[9px] hidden items-center justify-end gap-1.5 sm:flex">
+            <span className="text-[10px] font-bold text-[#b3b8c4]">Ít</span>
+            <div className="flex gap-[3px]">
               {HEAT_PALETTE.map((c) => (
                 <div
                   key={c}
-                  className="h-2 w-2 rounded-[2px] border border-black/5 sm:h-3 sm:w-3 sm:rounded-[3px]"
+                  className="h-3 w-3 rounded-[3px] border border-black/5"
                   style={{ background: c }}
                 />
               ))}
             </div>
-            <span className="text-[8px] font-bold text-[#b3b8c4] sm:text-[10px]">Nhiều</span>
+            <span className="text-[10px] font-bold text-[#b3b8c4]">Nhiều</span>
           </div>
         </div>
       </div>

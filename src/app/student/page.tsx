@@ -895,51 +895,55 @@ export default function StudentDashboard() {
             </Link>
           )}
 
-          {/* CTA chính: Học | Ôn — emoji màu */}
+          {/* CTA chính: số Học / Ôn TO — ưu tiên visual mobile */}
           <div className="grid grid-cols-2 gap-2">
             <Link
               href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}
               data-onboarding="learn"
-              className={`group flex min-h-[68px] flex-col justify-center rounded-2xl border px-3 py-2.5 shadow-sm transition-all ${
+              className={`group flex min-h-[88px] flex-col items-center justify-center rounded-2xl border px-2 py-3 text-center shadow-sm transition-all sm:min-h-[72px] sm:items-stretch sm:px-3 sm:py-2.5 sm:text-left ${
                 !countsReady || newCount > 0
                   ? 'border-indigo-100 bg-white hover:border-indigo-300 hover:shadow-md'
                   : 'pointer-events-none border-transparent bg-slate-50 opacity-60'
               }`}
             >
-              <div className="flex items-center gap-1.5">
-                <span className="text-lg leading-none">📖</span>
-                <span className="text-sm font-black text-slate-800">Học</span>
-                {!countsReady ? (
-                  <span className="ml-auto rounded-full bg-indigo-100 px-1.5 py-0.5 text-[10px] font-black text-indigo-400 animate-pulse">…</span>
-                ) : newCount > 0 ? (
-                  <span className="ml-auto rounded-full bg-indigo-600 px-1.5 py-0.5 text-[10px] font-black text-white tabular-nums">{newCount}</span>
-                ) : null}
+              <div className="flex w-full items-center justify-center gap-1 sm:justify-start sm:gap-1.5">
+                <span className="text-base leading-none sm:text-lg">📖</span>
+                <span className="text-xs font-black text-slate-800 sm:text-sm">Cần học</span>
               </div>
-              <p className="mt-0.5 text-[11px] font-semibold leading-snug text-muted-foreground">
-                {!countsReady ? 'Đang tải…' : newCount > 0 ? 'Từ mới' : 'Hết từ mới'}
+              <div
+                className={`mt-1 text-4xl font-black leading-none tabular-nums tracking-tight sm:mt-0.5 sm:text-3xl ${
+                  !countsReady ? 'animate-pulse text-indigo-300' : newCount > 0 ? 'text-indigo-600' : 'text-slate-300'
+                }`}
+              >
+                {countsReady ? newCount : '…'}
+              </div>
+              <p className="mt-1 text-[10px] font-semibold text-muted-foreground sm:text-[11px]">
+                {!countsReady ? 'Đang tải…' : newCount > 0 ? 'từ mới' : 'Hết từ mới 🎉'}
               </p>
             </Link>
 
             <Link
               href={(!countsReady || reviewDueCount > 0) && classroomId ? `/flashcard?class=${classroomId}` : reviewDueCount > 0 ? '/flashcard' : '#'}
               data-onboarding="review"
-              className={`group flex min-h-[68px] flex-col justify-center rounded-2xl border px-3 py-2.5 shadow-sm transition-all ${
+              className={`group flex min-h-[88px] flex-col items-center justify-center rounded-2xl border px-2 py-3 text-center shadow-sm transition-all sm:min-h-[72px] sm:items-stretch sm:px-3 sm:py-2.5 sm:text-left ${
                 !countsReady || reviewDueCount > 0
                   ? 'border-emerald-100 bg-white hover:border-emerald-300 hover:shadow-md'
                   : 'pointer-events-none border-transparent bg-slate-50 opacity-60'
               }`}
             >
-              <div className="flex items-center gap-1.5">
-                <span className="text-lg leading-none">🔄</span>
-                <span className="text-sm font-black text-slate-800">Ôn tập</span>
-                {!countsReady ? (
-                  <span className="ml-auto rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-black text-emerald-400 animate-pulse">…</span>
-                ) : reviewDueCount > 0 ? (
-                  <span className="ml-auto rounded-full bg-emerald-500 px-1.5 py-0.5 text-[10px] font-black text-white tabular-nums">{reviewDueCount}</span>
-                ) : null}
+              <div className="flex w-full items-center justify-center gap-1 sm:justify-start sm:gap-1.5">
+                <span className="text-base leading-none sm:text-lg">🔄</span>
+                <span className="text-xs font-black text-slate-800 sm:text-sm">Cần ôn</span>
               </div>
-              <p className="mt-0.5 text-[11px] font-semibold leading-snug text-muted-foreground">
-                {!countsReady ? 'Đang tải…' : reviewDueCount > 0 ? 'Đến hạn nhớ' : 'Chưa có due'}
+              <div
+                className={`mt-1 text-4xl font-black leading-none tabular-nums tracking-tight sm:mt-0.5 sm:text-3xl ${
+                  !countsReady ? 'animate-pulse text-emerald-300' : reviewDueCount > 0 ? 'text-emerald-600' : 'text-slate-300'
+                }`}
+              >
+                {countsReady ? reviewDueCount : '…'}
+              </div>
+              <p className="mt-1 text-[10px] font-semibold text-muted-foreground sm:text-[11px]">
+                {!countsReady ? 'Đang tải…' : reviewDueCount > 0 ? 'đến hạn nhớ' : 'Chưa có due'}
               </p>
             </Link>
           </div>
@@ -960,10 +964,10 @@ export default function StudentDashboard() {
             )}
           </div>
 
-          {/* Lịch + XP */}
+          {/* Lịch + XP — gọn để nhường chỗ số Học/Ôn */}
           <section
             aria-label="Bảng hoạt động hàng tháng"
-            className="grid grid-cols-1 gap-2.5 md:grid-cols-2 md:items-stretch"
+            className="grid grid-cols-1 gap-1.5 md:grid-cols-2 md:items-stretch md:gap-2.5"
           >
             <StreakCounter
               streak={gamification.current_streak}
