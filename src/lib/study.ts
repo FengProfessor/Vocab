@@ -132,22 +132,21 @@ export function pickEnglishVoice(
 }
 
 /**
- * Phát âm tiếng Anh — mặc định giọng **nam** EN, rõ, dễ nghe.
- * rate: 1.0 = thường, 0.6 = chậm.
+ * Web Speech fallback (robot) — chỉ dùng khi mp3 neural/người thật fail.
+ * Prefer: playWordAudio / speak() → cascade chất lượng cao.
  */
-export function speak(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void {
+export function speakLocal(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void {
   if (typeof window === 'undefined' || !window.speechSynthesis) return;
   const trimmed = text?.trim();
   if (!trimmed) return;
 
   attachVoicesListener();
 
-  // Chrome: voices load async — nếu list rỗng, đợi voiceschanged rồi đọc lại 1 lần
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) {
     const retry = () => {
       window.speechSynthesis.removeEventListener('voiceschanged', retry);
-      speak(trimmed, rate, lang);
+      speakLocal(trimmed, rate, lang);
     };
     window.speechSynthesis.addEventListener('voiceschanged', retry);
     window.setTimeout(() => {
@@ -158,7 +157,6 @@ export function speak(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void
 
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(trimmed);
-  // rate 1.0 → 0.92 (rõ hơn); nút "chậm" 0.6 giữ nguyên
   u.rate = rate === 1.0 ? 0.92 : rate;
   u.pitch = 0.95;
   u.volume = 1;
@@ -172,6 +170,21 @@ export function speak(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void
   }
 
   window.speechSynthesis.speak(u);
+}
+
+/**
+ * Phát âm tiếng Anh chất lượng cao (mp3 người thật → neural TTS → Web Speech).
+ * rate: 1.0 = thường, 0.6 = chậm.
+ * Fire-and-forget — flashcard/learn không cần await.
+ */
+export function speak(text: string, rate = 1.0, _lang: SpeakLang = 'en-US'): void {
+  if (typeof window === 'undefined') return;
+  const trimmed = text?.trim();
+  if (!trimmed) return;
+  // Dynamic import tránh circular: audio.ts → speakLocal từ study.ts
+  void import('./audio')
+    .then(({ playWordAudio }) => playWordAudio(trimmed, null, rate))
+    .catch(() => speakLocal(trimmed, rate, _lang));
 }
 
 /** Levenshtein edit distance (DP 2 hàng, O(a*b)). */
