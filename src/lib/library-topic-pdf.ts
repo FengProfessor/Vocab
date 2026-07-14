@@ -121,10 +121,15 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
           const ex = r.example
             ? `<em>${escapeHtml(r.example)}</em>`
             : `<span class="muted">—</span>`;
+          // IPA hiện 2 chỗ: dưới lemma (dễ thấy mobile) + cột Phiên âm
+          const ipaUnder = ipaText
+            ? `<div class="ipa-under">${escapeHtml(ipaText)}</div>`
+            : '';
           return `<tr>
             <td class="num">${n}</td>
             <td class="word">
               <div class="lemma">${escapeHtml(r.word)}</div>
+              ${ipaUnder}
               ${pos}
             </td>
             <td class="ipa-col">${ipaCell}</td>
@@ -304,6 +309,14 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     td.def, th.def { width: 32%; }
     td.ex, th.ex { width: 28%; font-size: 8pt; color: #334155; }
     .lemma { font-weight: 800; color: #0f172a; font-size: 9.5pt; }
+    .ipa-under {
+      font-family: "Segoe UI", "Arial Unicode MS", "Lucida Sans Unicode", "Noto Sans", sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-top: 1px;
+      letter-spacing: 0.02em;
+    }
     .ipa, td.ipa-col .ipa {
       font-family: "Segoe UI", "Arial Unicode MS", "Lucida Sans Unicode", "Noto Sans", sans-serif;
       font-size: 8.5pt;
