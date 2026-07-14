@@ -4,6 +4,7 @@ import { useCallback, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Search, Loader2, Volume2, Plus, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 import type { DictionaryData, DictionaryMeaning } from '@/lib/supabase';
+import { speak } from '@/lib/study';
 
 /**
  * Demo tra từ SỐNG trên landing — gọi API công khai (không cần login).
@@ -25,11 +26,7 @@ interface DemoResult {
 const SAMPLE_WORDS = ['resilient', 'achieve', 'benefit', 'environment', 'opportunity'];
 
 function speakWord(word: string, lang: 'en-GB' | 'en-US') {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return;
-  const u = new SpeechSynthesisUtterance(word);
-  u.lang = lang;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(u);
+  speak(word, 1.0, lang);
 }
 
 export default function DictionaryDemo() {

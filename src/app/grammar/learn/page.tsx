@@ -15,6 +15,7 @@ import {
   ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen, Volume2, History,
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { speak } from '@/lib/study';
 
 interface TopicProgressSummary {
   topicId: string;
@@ -34,22 +35,13 @@ const LEVELS = [
   { key: 'advanced', label: 'Nâng cao', sub: 'C1-C2', icon: '🎓', grad: 'from-purple-500 to-pink-600' },
 ] as const;
 
-/**
- * Đọc câu tiếng Anh bằng Web Speech API (free, native).
- * Tự cancel utterance đang chạy nếu user click liên tiếp.
- */
+/** Đọc câu tiếng Anh — voice EN tường minh (tránh giọng Việt). */
 function speakEnglish(text: string) {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
     toast.error('Trình duyệt không hỗ trợ đọc giọng nói.');
     return;
   }
-  const synth = window.speechSynthesis;
-  synth.cancel();
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = 'en-US';
-  utter.rate = 0.9;
-  utter.pitch = 1;
-  synth.speak(utter);
+  speak(text, 0.9);
 }
 
 function formatOcrTheory(text: string): string {

@@ -10,21 +10,12 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
+import { speak } from '@/lib/study';
 
-/**
- * Đọc câu tiếng Anh bằng Web Speech API (free, native).
- */
+/** Đọc câu tiếng Anh — voice EN tường minh (tránh giọng Việt). */
 function speakEnglish(text: string) {
-  if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-    return;
-  }
-  const synth = window.speechSynthesis;
-  synth.cancel();
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = 'en-US';
-  utter.rate = 0.9;
-  utter.pitch = 1;
-  synth.speak(utter);
+  if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+  speak(text, 0.9);
 }
 
 /**

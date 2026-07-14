@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { SpeechRecorder } from "@/components/speaking/SpeechRecorder";
 import { toast } from "sonner";
 import { StudentShell } from "@/components/student/StudentShell";
+import { speak } from "@/lib/study";
 
 interface Message {
   role: "user" | "model";
@@ -59,18 +60,10 @@ export default function StudentSpeakingPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isAiLoading]);
 
-  // Speak text using Web Speech API TTS
+  // Speak text using Web Speech API TTS — voice EN tường minh (tránh giọng Việt)
   const speakText = (text: string) => {
-    if (isMuted || typeof window === "undefined" || !window.speechSynthesis) return;
-    // Cancel current speaking
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-US";
-    // Search for a natural English voice if possible
-    const voices = window.speechSynthesis.getVoices();
-    const enVoice = voices.find(v => v.lang.startsWith("en-") && v.name.includes("Google"));
-    if (enVoice) utterance.voice = enVoice;
-    window.speechSynthesis.speak(utterance);
+    if (isMuted) return;
+    speak(text, 1.0);
   };
 
   const initConversation = (topicLabel: string) => {

@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { StudentShell } from '@/components/student/StudentShell';
+import { speak } from '@/lib/study';
 
 const HISTORY_KEY = 'lingo_dict_history';
 const MAX_HISTORY = 20;
@@ -49,14 +50,8 @@ function clearHistory() {
 }
 
 function speakWord(word: string, lang: 'en-GB' | 'en-US') {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return;
-  const u = new SpeechSynthesisUtterance(word);
-  u.lang = lang;
-  const voices = window.speechSynthesis.getVoices();
-  const v = voices.find(voice => voice.lang === lang);
-  if (v) u.voice = v;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(u);
+  // Dùng pick voice EN tường minh (tránh giọng Việt trên locale vi-VN)
+  speak(word, 1.0, lang);
 }
 
 /** Chuẩn hóa familyWords (string cũ hoặc object mới) → WordFamilyEntry[]. Parse "word (pos)" nếu là string. */

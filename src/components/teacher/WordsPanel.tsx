@@ -6,6 +6,7 @@ import type { Word } from '@/lib/supabase';
 import { Plus, Loader2, Trash2, Sparkles, BookOpen, Volume2, Download } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
+import { speak as speakEn } from '@/lib/study';
 
 type StatusFilter = 'all' | 'pending' | 'approved' | 'rejected';
 
@@ -110,9 +111,7 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
   };
 
   const speak = (text: string) => {
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    window.speechSynthesis.speak(u);
+    speakEn(text, 1.0);
   };
 
   const exportToCSV = () => {

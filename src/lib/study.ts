@@ -13,14 +13,127 @@ export function canAutoFocus(): boolean {
   return window.matchMedia('(pointer: fine)').matches;
 }
 
-/** Phát âm bằng Web Speech API. rate: 1.0 = thường, 0.6 = chậm. */
-export function speak(text: string, rate = 1.0): void {
+export type SpeakLang = 'en-US' | 'en-GB';
+
+/** Cache voice EN — invalidate khi voiceschanged (Chrome load async). */
+let cachedEnVoice: { key: string; voice: SpeechSynthesisVoice | null } | null = null;
+let voicesListenerAttached = false;
+
+function attachVoicesListener(): void {
+  if (voicesListenerAttached || typeof window === 'undefined' || !window.speechSynthesis) return;
+  voicesListenerAttached = true;
+  // Chrome: getVoices() rỗng đến khi voiceschanged fire
+  window.speechSynthesis.addEventListener('voiceschanged', () => {
+    cachedEnVoice = null;
+  });
+  // Warm-up sớm
+  window.speechSynthesis.getVoices();
+}
+
+/**
+ * Chọn giọng EN tường minh.
+ * Windows locale vi-VN: chỉ set utterance.lang = 'en-US' vẫn hay dính Microsoft
+ * Vietnamese → đọc "earn money" kiểu Việt. BẮT BUỘC gán voice.lang en-*.
+ */
+export function pickEnglishVoice(preferred: SpeakLang = 'en-US'): SpeechSynthesisVoice | null {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return null;
+  attachVoicesListener();
+
+  const key = preferred;
+  if (cachedEnVoice?.key === key) return cachedEnVoice.voice;
+
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) {
+    cachedEnVoice = { key, voice: null };
+    return null;
+  }
+
+  const en = voices.filter((v) => {
+    const lang = (v.lang || '').toLowerCase().replace('_', '-');
+    const name = (v.name || '').toLowerCase();
+    // Loại giọng Việt / non-EN dù lang lạ
+    if (lang.startsWith('vi') || /vietnam|tiếng việt|vietnamese/i.test(name)) return false;
+    return lang.startsWith('en');
+  });
+
+  if (!en.length) {
+    cachedEnVoice = { key, voice: null };
+    return null;
+  }
+
+  const pref = preferred.toLowerCase();
+  const score = (v: SpeechSynthesisVoice): number => {
+    let s = 0;
+    const lang = (v.lang || '').toLowerCase().replace('_', '-');
+    const name = (v.name || '').toLowerCase();
+    if (lang === pref || lang.startsWith(pref)) s += 100;
+    else if (lang.startsWith('en-us')) s += 80;
+    else if (lang.startsWith('en-gb')) s += 70;
+    else s += 40;
+    // Ưu tiên neural/natural (chất lượng cao hơn robot)
+    if (/natural|neural|online|enhanced|premium|wavenet/i.test(name)) s += 35;
+    // Voice EN phổ biến tốt trên Win/Mac/Chrome
+    if (
+      /google us|google uk|google english|microsoft aria|microsoft jenny|microsoft guy|microsoft michelle|microsoft ryan|microsoft sonia|microsoft libby|microsoft natasha|microsoft zira|microsoft david|microsoft mark|microsoft susan|samantha|daniel|karen|moira|tessa|alex|fred|victoria|raveena|joanna|matthew|amy|brian/i.test(
+        name,
+      )
+    ) {
+      s += 25;
+    }
+    // Tránh espeak / compact
+    if (/espeak|compact|mobile/i.test(name)) s -= 40;
+    if (v.localService) s += 5;
+    if (v.default) s += 2;
+    return s;
+  };
+
+  const best = en.slice().sort((a, b) => score(b) - score(a))[0] ?? null;
+  cachedEnVoice = { key, voice: best };
+  return best;
+}
+
+/**
+ * Phát âm tiếng Anh bằng Web Speech API.
+ * rate: 1.0 = thường, 0.6 = chậm.
+ * Luôn gán voice en-* nếu có — tránh fallback giọng Việt trên máy locale vi.
+ */
+export function speak(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void {
   if (typeof window === 'undefined' || !window.speechSynthesis) return;
+  const trimmed = text?.trim();
+  if (!trimmed) return;
+
+  attachVoicesListener();
+
+  // Chrome: voices load async — nếu list rỗng, đợi voiceschanged rồi đọc lại 1 lần
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) {
+    const retry = () => {
+      window.speechSynthesis.removeEventListener('voiceschanged', retry);
+      speak(trimmed, rate, lang);
+    };
+    window.speechSynthesis.addEventListener('voiceschanged', retry);
+    // Timeout an toàn — tránh listener treo nếu engine không fire
+    window.setTimeout(() => {
+      window.speechSynthesis.removeEventListener('voiceschanged', retry);
+    }, 2500);
+    return;
+  }
+
   // Hủy câu đang đọc để tránh chồng tiếng
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US';
+  const u = new SpeechSynthesisUtterance(trimmed);
   u.rate = rate;
+
+  const voice = pickEnglishVoice(lang);
+  if (voice) {
+    u.voice = voice;
+    // Khớp lang với voice — một số engine bỏ qua voice nếu lang lệch
+    u.lang = voice.lang || lang;
+  } else {
+    // Không có voice en-* (máy chỉ cài vi) — vẫn set lang, kết quả kém hơn
+    u.lang = lang;
+  }
+
   window.speechSynthesis.speak(u);
 }
 
