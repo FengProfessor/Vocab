@@ -34,6 +34,15 @@ function getVietnamHour(): number {
   return parseInt(str, 10) % 24; // hour12:false có thể trả '24' lúc nửa đêm
 }
 
+/** Phút hiện tại (0-59) theo giờ VN — dùng suy ra số trang khi chia tải theo thời gian. */
+function getVietnamMinute(): number {
+  const str = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    minute: '2-digit',
+  }).format(new Date());
+  return parseInt(str, 10) % 60;
+}
+
 /** Ngày hiện tại theo giờ VN, dạng 'YYYY-MM-DD' (để ghép slot khử push trùng). */
 function getVietnamDateStr(): string {
   return new Intl.DateTimeFormat('en-CA', {
@@ -86,6 +95,19 @@ export async function GET(req: Request): Promise<NextResponse> {
     const isTest = hourParam !== null || sendAll;
     const slotKey = `${getVietnamDateStr()}-${targetHour}`;
 
+    // ── Chia tải theo thời gian (chống timeout khi nhiều user) — OPT-IN ──
+    // Mặc định (không truyền ?size=/?page=): xử lý TOÀN BỘ như cũ → an toàn tới ~vài trăm user
+    // với 1 trigger/mốc. Khi scale 1000+: đặt lịch cron NHIỀU lần TRONG mốc giờ, mỗi lần thêm
+    // ?size=250 → route tự cắt trang theo phút VN (mỗi `step` phút = 1 trang; 8:00→p0, 8:05→p1...).
+    // Truyền ?page= để ép trang cụ thể. Test (?all=1/?hour=) luôn xử lý toàn bộ.
+    const pageParam = searchParams.get('page');
+    const paginated = !isTest && (pageParam !== null || searchParams.has('size'));
+    const size = Math.min(Math.max(parseInt(searchParams.get('size') || '250', 10) || 250, 1), 1000);
+    const stepMin = Math.min(Math.max(parseInt(searchParams.get('step') || '5', 10) || 5, 1), 30);
+    const page = pageParam !== null
+      ? Math.max(parseInt(pageParam, 10) || 0, 0)
+      : Math.floor(getVietnamMinute() / stepMin);
+
     // Gom user_id CÓ thiết bị: bảng fcm_tokens (đa thiết bị) + legacy profiles.fcm_token.
     // Tránh bỏ sót user chỉ còn token ở fcm_tokens (vd profiles.fcm_token đã bị dọn khi token chết).
     const userIds = new Set<string>();
@@ -99,22 +121,42 @@ export async function GET(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: true, vnHour: targetHour, total: 0, notified: 0, results: [] });
     }
 
-    const { data: profiles, error: profErr } = await supabase
-      .from('profiles')
-      .select('id, full_name, role, fcm_token, last_due_push_slot')
-      .in('id', Array.from(userIds));
+    // Sắp xếp ổn định theo id → cắt trang (thứ tự nhất quán giữa các lần gọi trong slot).
+    const allIds = Array.from(userIds).sort();
+    const totalCandidates = allIds.length;
+    const totalPages = paginated ? Math.ceil(totalCandidates / size) : 1;
+    const pageIds = paginated ? allIds.slice(page * size, page * size + size) : allIds;
 
-    if (profErr) {
-      console.error('[Cron/push-due] Profile query error:', profErr.message);
-      return NextResponse.json({ success: false, error: profErr.message }, { status: 500 });
+    if (pageIds.length === 0) {
+      // Trang vượt quá danh sách (đã hết user) → no-op.
+      return NextResponse.json({
+        success: true, vnHour: targetHour, page, totalPages, totalCandidates,
+        total: 0, notified: 0, results: [],
+      });
     }
 
-    if (!profiles?.length) {
+    // Chunk .in() ≤200 id/lần để né giới hạn độ dài URL của PostgREST khi trang lớn.
+    const IN_CHUNK = 200;
+    const profiles: ProfileRow[] = [];
+    for (let i = 0; i < pageIds.length; i += IN_CHUNK) {
+      const slice = pageIds.slice(i, i + IN_CHUNK);
+      const { data, error: profErr } = await supabase
+        .from('profiles')
+        .select('id, full_name, role, fcm_token, last_due_push_slot')
+        .in('id', slice);
+      if (profErr) {
+        console.error('[Cron/push-due] Profile query error:', profErr.message);
+        return NextResponse.json({ success: false, error: profErr.message }, { status: 500 });
+      }
+      if (data) profiles.push(...(data as ProfileRow[]));
+    }
+
+    if (!profiles.length) {
       console.log(`[Cron/push-due] No candidate users for hour ${targetHour} (VN)`);
-      return NextResponse.json({ success: true, vnHour: targetHour, total: 0, notified: 0, results: [] });
+      return NextResponse.json({ success: true, vnHour: targetHour, page, totalPages, total: 0, notified: 0, results: [] });
     }
 
-    console.log(`[Cron/push-due] ${profiles.length} candidate(s) for hour ${targetHour} (VN)`);
+    console.log(`[Cron/push-due] page ${page}/${totalPages} — ${profiles.length} candidate(s) for hour ${targetHour} (VN)`);
 
     // Xử lý 1 user: đếm từ đến hạn → gửi push. Trả null nếu không có từ due.
     const processUser = async (profile: ProfileRow): Promise<PushResult | null> => {
@@ -227,6 +269,9 @@ export async function GET(req: Request): Promise<NextResponse> {
     return NextResponse.json({
       success: true,
       vnHour: targetHour,
+      page,
+      totalPages,
+      totalCandidates,
       total: profiles.length,
       notified,
       results,
