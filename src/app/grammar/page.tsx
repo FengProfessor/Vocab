@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect, useRef, Suspense, type ReactNode } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import type { GrammarExercise } from '@/lib/supabase';
 import {
-  Brain, ChevronLeft, CheckCircle2, XCircle, Lightbulb, Loader2, RotateCcw, Home, Sparkles, Volume2
+  Brain, ChevronLeft, CheckCircle2, XCircle, Lightbulb, Loader2, RotateCcw, Home, Sparkles, Volume2, GraduationCap, Clock
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
@@ -174,11 +174,17 @@ function ScoreCard({
   total,
   onRetry,
   backHref,
+  activePack,
+  totalPacks,
+  onNextPack,
 }: {
   correct: number;
   total: number;
   onRetry: () => void;
   backHref: string;
+  activePack: number | null;
+  totalPacks: number;
+  onNextPack?: () => void;
 }) {
   const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
   const emoji = accuracy >= 80 ? '🏆' : accuracy >= 60 ? '🎯' : '💪';
@@ -189,12 +195,16 @@ function ScoreCard({
   const circumference = 2 * Math.PI * r;
   const offset = circumference - (accuracy / 100) * circumference;
 
+  const hasNextPack = activePack !== null && activePack < totalPacks;
+
   return (
     <main className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-primary/5 to-muted/40 p-6">
       {/* Hero */}
       <div className="text-center">
         <div className="text-6xl mb-3">{emoji}</div>
-        <h1 className="text-3xl font-bold mb-1">Grammar Drill Complete!</h1>
+        <h1 className="text-3xl font-bold mb-1">
+          {activePack !== null && totalPacks > 1 ? `Hoàn thành Pack ${activePack}!` : 'Grammar Drill Complete!'}
+        </h1>
         <p className="text-muted-foreground text-sm">{label}</p>
       </div>
 
@@ -249,28 +259,93 @@ function ScoreCard({
       </div>
 
       {/* Actions */}
-      <div className="flex gap-3 w-full max-w-sm">
-        <Link href={backHref} className="flex-1">
-          <button className="w-full border rounded-xl px-4 py-3 font-semibold hover:bg-muted transition-colors flex items-center justify-center gap-2 text-sm">
-            <Home className="h-4 w-4" /> Về trang học
+      <div className="flex flex-col gap-3 w-full max-w-sm">
+        {hasNextPack && onNextPack && (
+          <button
+            onClick={onNextPack}
+            className="w-full bg-gradient-to-r from-indigo-500 to-primary text-white rounded-xl px-4 py-3.5 font-bold hover:shadow-lg hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-sm shadow-md cursor-pointer"
+          >
+            <Sparkles className="h-4 w-4 animate-pulse" /> Làm Pack tiếp theo ({activePack + 1}/{totalPacks}) →
           </button>
-        </Link>
-        <button
-          onClick={onRetry}
-          className="flex-1 bg-primary text-white rounded-xl px-4 py-3 font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 text-sm"
-        >
-          <RotateCcw className="h-4 w-4" /> Làm lại
-        </button>
+        )}
+        
+        <div className="flex gap-3 w-full">
+          <Link href={backHref} className="flex-1">
+            <button className="w-full border rounded-xl px-4 py-3 font-semibold hover:bg-muted transition-colors flex items-center justify-center gap-2 text-sm bg-background cursor-pointer">
+              <Home className="h-4 w-4" /> Về trang học
+            </button>
+          </Link>
+          <button
+            onClick={onRetry}
+            className="flex-1 bg-primary/10 text-primary border border-primary/20 rounded-xl px-4 py-3 font-semibold hover:bg-primary/15 transition-colors flex items-center justify-center gap-2 text-sm cursor-pointer"
+          >
+            <RotateCcw className="h-4 w-4" /> Làm lại Pack này
+          </button>
+        </div>
       </div>
     </main>
   );
 }
 
+function cleanAnswer(str: string): string {
+  if (!str) return '';
+  return str
+    .toLowerCase()
+    // Thay thế các loại nháy đơn khác nhau thành nháy đơn chuẩn
+    .replace(/[’‘`´]/g, "'")
+    // Sửa một số lỗi gõ Telex phổ biến ở dạng phủ định
+    .replace(/\bdđin't\b/g, "didn't")
+    .replace(/\bdđint\b/g, "didn't")
+    .replace(/\bdđon't\b/g, "don't")
+    .replace(/\bdđont\b/g, "don't")
+    .trim();
+}
+
+function areAnswersEqual(ans1: string, ans2: string): boolean {
+  const a1 = cleanAnswer(ans1);
+  const a2 = cleanAnswer(ans2);
+  if (a1 === a2) return true;
+
+  const toFull = (s: string) => {
+    let res = s;
+    const contractions: Record<string, string> = {
+      "didnt": "did not", "didn't": "did not",
+      "dont": "do not", "don't": "do not",
+      "doesnt": "does not", "doesn't": "does not",
+      "havent": "have not", "haven't": "have not",
+      "hasnt": "has not", "hasn't": "has not",
+      "hadnt": "had not", "hadn't": "had not",
+      "wont": "will not", "won't": "will not",
+      "cant": "cannot", "can't": "cannot", "cannot": "can not",
+      "couldnt": "could not", "couldn't": "could not",
+      "shouldnt": "should not", "shouldn't": "should not",
+      "wouldnt": "would not", "wouldn't": "would not",
+      "mustnt": "must not", "mustn't": "must not",
+      "isnt": "is not", "isn't": "is not",
+      "arent": "are not", "aren't": "are not",
+      "wasnt": "was not", "wasn't": "was not",
+      "werent": "were not", "weren't": "were not",
+    };
+    for (const [key, value] of Object.entries(contractions)) {
+      const regex = new RegExp(`\\b${key}\\b`, 'g');
+      res = res.replace(regex, value);
+    }
+    return res.replace(/\s+/g, ' ').trim();
+  };
+
+  return toFull(a1) === toFull(a2);
+}
+
 function GrammarContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const classroomId = searchParams.get('class');
   const lessonId = searchParams.get('lesson');
   const reviewMode = searchParams.get('review') === '1';
+
+  const [allExercises, setAllExercises] = useState<GrammarExercise[]>([]);
+  const [activePack, setActivePack] = useState<number | null>(null);
+  const [packProgressMap, setPackProgressMap] = useState<Record<number, { qIndex: number, correct: number, total: number }>>({});
 
   const [exercises, setExercises] = useState<GrammarExercise[]>([]);
   const [current, setCurrent] = useState<GrammarExercise | null>(null);
@@ -289,8 +364,6 @@ function GrammarContent() {
 
   // Nguồn exercises thô (chưa shuffle) để có thể reset
   const rawExercises = useRef<GrammarExercise[]>([]);
-  // State cho AI quiz generation (student self-practice)
-  const [generatingQuiz, setGeneratingQuiz] = useState(false);
   const answering = useRef(false);
 
   useEffect(() => {
@@ -311,35 +384,63 @@ function GrammarContent() {
         });
         const data = await res.json();
         if (data.success && data.data?.length > 0) {
-          rawExercises.current = data.data;
+          const rawItems = data.data as GrammarExercise[];
+          rawExercises.current = rawItems;
+          setAllExercises(rawItems);
 
-          // Check if there is saved progress
-          const savedKey = `lingopro_grammar_state_${user.id}_review`;
-          const saved = localStorage.getItem(savedKey);
-          if (saved) {
-            try {
-              const parsed = JSON.parse(saved);
-              if (parsed && parsed.exercises && parsed.exercises.length > 0) {
-                setExercises(parsed.exercises);
-                setCurrent(parsed.exercises[parsed.qIndex]);
-                setQIndex(parsed.qIndex);
-                setSelected(parsed.selected);
-                setTypedAnswer(parsed.typedAnswer || '');
-                setShowExplanation(parsed.showExplanation || false);
-                setScore(parsed.score);
-                setDone(parsed.done || false);
-                setStartTime(parsed.startTime || Date.now());
-                answering.current = false;
-                toast.success('Đã khôi phục tiến trình ôn câu sai!');
-                setIsLoading(false);
-                return;
+          if (rawItems.length > 25) {
+            const totalPacks = Math.ceil(rawItems.length / 25);
+            const progMap: Record<number, { qIndex: number, correct: number, total: number }> = {};
+            
+            for (let p = 1; p <= totalPacks; p++) {
+              const key = `lingopro_grammar_state_${user.id}_review_pack_${p}`;
+              const saved = localStorage.getItem(key);
+              if (saved) {
+                try {
+                  const parsed = JSON.parse(saved);
+                  if (parsed && parsed.exercises && parsed.exercises.length > 0) {
+                    progMap[p] = {
+                      qIndex: parsed.qIndex,
+                      correct: parsed.score.correct,
+                      total: parsed.exercises.length
+                    };
+                  }
+                } catch (e) {
+                  console.error('Failed to parse pack state:', e);
+                }
               }
-            } catch (e) {
-              console.error('Failed to parse saved state:', e);
             }
+            setPackProgressMap(progMap);
           }
 
-          startSession(data.data);
+          if (rawItems.length <= 25) {
+            setActivePack(1);
+            const savedKey = `lingopro_grammar_state_${user.id}_review_pack_1`;
+            const saved = localStorage.getItem(savedKey);
+            if (saved) {
+              try {
+                const parsed = JSON.parse(saved);
+                if (parsed && parsed.exercises && parsed.exercises.length > 0) {
+                  setExercises(parsed.exercises);
+                  setCurrent(parsed.exercises[parsed.qIndex]);
+                  setQIndex(parsed.qIndex);
+                  setSelected(parsed.selected);
+                  setTypedAnswer(parsed.typedAnswer || '');
+                  setShowExplanation(parsed.showExplanation || false);
+                  setScore(parsed.score);
+                  setDone(parsed.done || false);
+                  setStartTime(parsed.startTime || Date.now());
+                  answering.current = false;
+                  toast.success('Đã khôi phục tiến trình ôn câu sai!');
+                  setIsLoading(false);
+                  return;
+                }
+              } catch (e) {
+                console.error('Failed to parse saved state:', e);
+              }
+            }
+            startSession(rawItems);
+          }
         } else {
           toast.success('Tuyệt vời! Bạn không có câu sai nào trong 14 ngày qua.');
         }
@@ -359,39 +460,71 @@ function GrammarContent() {
       });
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
-        rawExercises.current = data.data;
+        const rawItems = data.data as GrammarExercise[];
+        rawExercises.current = rawItems;
+        setAllExercises(rawItems);
 
-        // Check if there is saved progress
-        if (user) {
-          const savedKey = lessonId 
-            ? `lingopro_grammar_state_${user.id}_lesson_${lessonId}` 
-            : `lingopro_grammar_state_${user.id}_class_${classroomId}`;
-          const saved = localStorage.getItem(savedKey);
-          if (saved) {
-            try {
-              const parsed = JSON.parse(saved);
-              if (parsed && parsed.exercises && parsed.exercises.length > 0) {
-                setExercises(parsed.exercises);
-                setCurrent(parsed.exercises[parsed.qIndex]);
-                setQIndex(parsed.qIndex);
-                setSelected(parsed.selected);
-                setTypedAnswer(parsed.typedAnswer || '');
-                setShowExplanation(parsed.showExplanation || false);
-                setScore(parsed.score);
-                setDone(parsed.done || false);
-                setStartTime(parsed.startTime || Date.now());
-                answering.current = false;
-                toast.success('Đã khôi phục tiến trình làm bài của bạn!');
-                setIsLoading(false);
-                return;
+        // Quét localStorage để lấy tiến trình của các pack (chỉ khi có nhiều câu hỏi > 25)
+        if (user && rawItems.length > 25) {
+          const totalPacks = Math.ceil(rawItems.length / 25);
+          const progMap: Record<number, { qIndex: number, correct: number, total: number }> = {};
+          
+          for (let p = 1; p <= totalPacks; p++) {
+            const key = lessonId 
+              ? `lingopro_grammar_state_${user.id}_lesson_${lessonId}_pack_${p}` 
+              : `lingopro_grammar_state_${user.id}_class_${classroomId}_pack_${p}`;
+            const saved = localStorage.getItem(key);
+            if (saved) {
+              try {
+                const parsed = JSON.parse(saved);
+                if (parsed && parsed.exercises && parsed.exercises.length > 0) {
+                  progMap[p] = {
+                    qIndex: parsed.qIndex,
+                    correct: parsed.score.correct,
+                    total: parsed.exercises.length
+                  };
+                }
+              } catch (e) {
+                console.error('Failed to parse pack state:', e);
               }
-            } catch (e) {
-              console.error('Failed to parse saved state:', e);
             }
           }
+          setPackProgressMap(progMap);
         }
 
-        startSession(data.data);
+        // Nếu số câu hỏi <= 25, chạy luôn pack 1
+        if (rawItems.length <= 25) {
+          setActivePack(1);
+          if (user) {
+            const savedKey = lessonId 
+              ? `lingopro_grammar_state_${user.id}_lesson_${lessonId}_pack_1` 
+              : `lingopro_grammar_state_${user.id}_class_${classroomId}_pack_1`;
+            const saved = localStorage.getItem(savedKey);
+            if (saved) {
+              try {
+                const parsed = JSON.parse(saved);
+                if (parsed && parsed.exercises && parsed.exercises.length > 0) {
+                  setExercises(parsed.exercises);
+                  setCurrent(parsed.exercises[parsed.qIndex]);
+                  setQIndex(parsed.qIndex);
+                  setSelected(parsed.selected);
+                  setTypedAnswer(parsed.typedAnswer || '');
+                  setShowExplanation(parsed.showExplanation || false);
+                  setScore(parsed.score);
+                  setDone(parsed.done || false);
+                  setStartTime(parsed.startTime || Date.now());
+                  answering.current = false;
+                  toast.success('Đã khôi phục tiến trình làm bài của bạn!');
+                  setIsLoading(false);
+                  return;
+                }
+              } catch (e) {
+                console.error('Failed to parse saved state:', e);
+              }
+            }
+          }
+          startSession(rawItems);
+        }
       } else {
         toast.error('Chưa có bài tập grammar cho lớp này.');
       }
@@ -402,15 +535,15 @@ function GrammarContent() {
 
   // Auto-save grammar exercises progress when state changes
   useEffect(() => {
-    if (isLoading || !userId || exercises.length === 0 || done) return;
+    if (isLoading || !userId || exercises.length === 0 || done || activePack === null) return;
 
     let key = '';
     if (reviewMode) {
-      key = `lingopro_grammar_state_${userId}_review`;
+      key = `lingopro_grammar_state_${userId}_review_pack_${activePack}`;
     } else if (lessonId) {
-      key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
+      key = `lingopro_grammar_state_${userId}_lesson_${lessonId}_pack_${activePack}`;
     } else if (classroomId) {
-      key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
+      key = `lingopro_grammar_state_${userId}_class_${classroomId}_pack_${activePack}`;
     }
 
     if (key) {
@@ -426,7 +559,53 @@ function GrammarContent() {
       };
       localStorage.setItem(key, JSON.stringify(stateToSave));
     }
-  }, [exercises, qIndex, selected, typedAnswer, showExplanation, score, done, startTime, userId, isLoading, reviewMode, lessonId, classroomId]);
+  }, [exercises, qIndex, selected, typedAnswer, showExplanation, score, done, startTime, userId, isLoading, reviewMode, lessonId, classroomId, activePack]);
+
+  const selectPack = (packNumber: number) => {
+    if (allExercises.length === 0) return;
+    setActivePack(packNumber);
+
+    const packSize = 25;
+    const startIndex = (packNumber - 1) * packSize;
+    const endIndex = startIndex + packSize;
+    const packRaw = allExercises.slice(startIndex, endIndex);
+
+    if (userId) {
+      let key = '';
+      if (reviewMode) {
+        key = `lingopro_grammar_state_${userId}_review_pack_${packNumber}`;
+      } else if (lessonId) {
+        key = `lingopro_grammar_state_${userId}_lesson_${lessonId}_pack_${packNumber}`;
+      } else if (classroomId) {
+        key = `lingopro_grammar_state_${userId}_class_${classroomId}_pack_${packNumber}`;
+      }
+
+      const saved = localStorage.getItem(key);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.exercises && parsed.exercises.length > 0) {
+            setExercises(parsed.exercises);
+            setCurrent(parsed.exercises[parsed.qIndex]);
+            setQIndex(parsed.qIndex);
+            setSelected(parsed.selected);
+            setTypedAnswer(parsed.typedAnswer || '');
+            setShowExplanation(parsed.showExplanation || false);
+            setScore(parsed.score);
+            setDone(parsed.done || false);
+            setStartTime(parsed.startTime || Date.now());
+            answering.current = false;
+            toast.success(`Đã khôi phục tiến trình phần ${packNumber}!`);
+            return;
+          }
+        } catch (e) {
+          console.error('Failed to parse pack state:', e);
+        }
+      }
+    }
+
+    startSession(packRaw);
+  };
 
   const startSession = (source: GrammarExercise[]) => {
     const shuffled = [...source].sort(() => Math.random() - 0.5);
@@ -444,55 +623,19 @@ function GrammarContent() {
   };
 
   const handleRetry = () => {
-    if (userId) {
+    if (userId && activePack !== null) {
       let key = '';
-      if (reviewMode) key = `lingopro_grammar_state_${userId}_review`;
-      else if (lessonId) key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
-      else if (classroomId) key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
+      if (reviewMode) key = `lingopro_grammar_state_${userId}_review_pack_${activePack}`;
+      else if (lessonId) key = `lingopro_grammar_state_${userId}_lesson_${lessonId}_pack_${activePack}`;
+      else if (classroomId) key = `lingopro_grammar_state_${userId}_class_${classroomId}_pack_${activePack}`;
       if (key) localStorage.removeItem(key);
     }
-    startSession(rawExercises.current);
-  };
-
-  /**
-   * Gọi AI tạo 5 câu hỏi quiz từ bài học (student self-practice, không cần classroom).
-   * Route /api/grammar/quiz trả về QuizQuestion[] không lưu DB.
-   */
-  const generateAIQuiz = async () => {
-    if (!lessonId) return;
-    setGeneratingQuiz(true);
-    try {
-      // Gửi kèm token để server resolve gói (gate Premium khi đã bật enforcement)
-      const { data: { session } } = await supabase.auth.getSession();
-      const res = await fetch('/api/grammar/quiz', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
-        },
-        body: JSON.stringify({ lessonId }),
-      });
-      const data = await res.json() as { success: boolean; data?: GrammarExercise[]; error?: string; upgradeTo?: string };
-
-      // Bị chặn vì chưa đủ gói → upsell thay vì báo lỗi chung
-      if (res.status === 403 || data.error === 'premium_required') {
-        track('premium_gate_hit', { feature: 'grammar_ai', upgradeTo: data.upgradeTo ?? 'premium' });
-        toast.error('Tính năng AI tạo bài tập ngữ pháp thuộc gói Premium. Nâng cấp để dùng nhé!');
-        return;
-      }
-
-      if (data.success && data.data && data.data.length > 0) {
-        rawExercises.current = data.data;
-        startSession(data.data);
-        track('grammar_quiz_generated', { lessonId, count: data.data.length });
-        toast.success('Đã tạo bài tập! Bắt đầu thôi!');
-      } else {
-        toast.error(data.error ?? 'Không thể tạo bài tập. Thử lại sau.');
-      }
-    } catch {
-      toast.error('Lỗi kết nối. Thử lại sau.');
-    } finally {
-      setGeneratingQuiz(false);
+    
+    if (activePack !== null) {
+      const packSize = 25;
+      const startIndex = (activePack - 1) * packSize;
+      const endIndex = startIndex + packSize;
+      startSession(allExercises.slice(startIndex, endIndex));
     }
   };
 
@@ -506,9 +649,17 @@ function GrammarContent() {
     if (!current || selected || answering.current) return;
     answering.current = true;
 
-    const isCorrect = choice.trim().toLowerCase() === (current.correct_answer || '').trim().toLowerCase();
+    let isCorrect = false;
+    if (current.type === 'fill_blank') {
+      // Dạng điền từ: hỗ trợ nhiều đáp án cách nhau bằng dấu phẩy
+      const correctAnswers = (current.correct_answer || '')
+        .split(',')
+        .map((ans) => ans.trim());
+      isCorrect = correctAnswers.some((correctAns) => areAnswersEqual(choice, correctAns));
+    } else {
+      isCorrect = areAnswersEqual(choice, current.correct_answer || '');
+    }
 
-    // Gán selected thành correct_answer nếu đúng để UI chuyển màu xanh lá đồng bộ
     const finalChoice = isCorrect ? current.correct_answer : choice;
     setSelected(finalChoice);
     setShowExplanation(true);
@@ -519,7 +670,6 @@ function GrammarContent() {
     }));
     triggerFlash(isCorrect ? 'correct' : 'wrong');
 
-    // Lưu kết quả vào Supabase — chỉ khi exercise có UUID thật (không phải AI-generated "ai-0", "ai-1")
     const isRealUuid = current && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(current.id);
     if (userId && current && isRealUuid) {
       await supabase.from('grammar_results').insert({
@@ -552,16 +702,20 @@ function GrammarContent() {
   const handleNext = () => {
     const nextIdx = qIndex + 1;
     if (nextIdx >= exercises.length) {
-      // Tính score cuối từ state hiện tại (đã updated trong handleAnswer)
       setDone(true);
 
-      // Clear saved progress when completed
-      if (userId) {
+      if (userId && activePack !== null) {
         let key = '';
-        if (reviewMode) key = `lingopro_grammar_state_${userId}_review`;
-        else if (lessonId) key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
-        else if (classroomId) key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
+        if (reviewMode) key = `lingopro_grammar_state_${userId}_review_pack_${activePack}`;
+        else if (lessonId) key = `lingopro_grammar_state_${userId}_lesson_${lessonId}_pack_${activePack}`;
+        else if (classroomId) key = `lingopro_grammar_state_${userId}_class_${classroomId}_pack_${activePack}`;
         if (key) localStorage.removeItem(key);
+
+        setPackProgressMap(prev => {
+          const next = { ...prev };
+          delete next[activePack];
+          return next;
+        });
       }
 
       const total = score.correct + score.wrong;
@@ -596,7 +750,7 @@ function GrammarContent() {
   }
 
   /* ── Empty state ──────────────────────────────────────────── */
-  if ((!classroomId && !lessonId && !reviewMode) || exercises.length === 0) {
+  if ((!classroomId && !lessonId && !reviewMode) || allExercises.length === 0) {
     return (
       <main className="min-h-dvh flex flex-col items-center justify-center gap-4 bg-muted/40 p-6">
         <Brain className="h-16 w-16 text-muted-foreground/20" />
@@ -643,14 +797,135 @@ function GrammarContent() {
     );
   }
 
+  /* ── Pack Selection Screen ────────────────────────────────── */
+  if (activePack === null && allExercises.length > 25) {
+    const totalPacks = Math.ceil(allExercises.length / 25);
+    return (
+      <main className="min-h-dvh flex flex-col bg-gradient-to-br from-primary/5 to-muted/40">
+        {/* Header */}
+        <header className="flex items-center justify-between p-4 sm:p-6 border-b bg-background/50 backdrop-blur-sm sticky top-0 z-20">
+          <Link href={reviewMode || lessonId ? '/grammar/learn' : '/student'}>
+            <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors bg-transparent border-0 cursor-pointer">
+              <ChevronLeft className="h-4 w-4" /> Lộ trình
+            </button>
+          </Link>
+          <h1 className="flex items-center gap-2 font-bold text-primary text-base">
+            <Brain className="h-5 w-5" /> Chọn phần luyện tập
+          </h1>
+          <div className="w-10"></div>
+        </header>
+
+        <div className="flex-1 max-w-4xl mx-auto w-full px-4 py-8 space-y-6">
+          {/* Welcome Banner */}
+          <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none select-none">
+              <GraduationCap className="h-40 w-40" />
+            </div>
+            <div className="relative z-10 space-y-2">
+              <span className="text-[10px] font-black uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full w-max backdrop-blur-sm inline-block font-semibold">
+                ⚡ Luyện Tập Ngữ Pháp
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight">
+                {allExercises[0]?.topic || 'Chủ điểm Ngữ pháp'}
+              </h2>
+              <p className="text-xs sm:text-sm text-white/90 max-w-xl font-medium leading-relaxed">
+                Bài học này gồm có <b>{allExercises.length} câu hỏi</b> chất lượng cao. Để đạt hiệu quả tốt nhất và không bị quá tải, chúng tôi đã chia nhỏ bài học thành các phần dưới đây. Hãy hoàn thành từng phần nhé!
+              </p>
+            </div>
+          </div>
+
+          {/* Grid of Packs */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {Array.from({ length: totalPacks }).map((_, index) => {
+              const packNum = index + 1;
+              const startIdx = index * 25;
+              const endIdx = Math.min(startIdx + 25, allExercises.length);
+              const totalInPack = endIdx - startIdx;
+              const prog = packProgressMap[packNum];
+              const isStarted = !!prog;
+              const percent = isStarted ? Math.round((prog.qIndex / prog.total) * 100) : 0;
+
+              return (
+                <div
+                  key={packNum}
+                  onClick={() => selectPack(packNum)}
+                  className={[
+                    "bg-background border rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300 group cursor-pointer flex flex-col justify-between relative overflow-hidden",
+                    isStarted ? "ring-2 ring-amber-500/20 border-amber-300" : "border-slate-200"
+                  ].join(' ')}
+                >
+                  {isStarted && (
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-500" />
+                  )}
+
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="font-extrabold text-slate-800 text-lg group-hover:text-primary transition-colors flex items-center gap-2">
+                          Phần {packNum}
+                        </h3>
+                        <p className="text-xs text-muted-foreground font-semibold mt-0.5">
+                          Câu {startIdx + 1} đến {endIdx} ({totalInPack} câu)
+                        </p>
+                      </div>
+                      {isStarted ? (
+                        <span className="text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5 flex items-center gap-1">
+                          <Clock className="h-3 w-3" /> Học dở ({percent}%)
+                        </span>
+                      ) : (
+                        <span className="text-[10px] font-bold text-slate-500 bg-slate-50 border border-slate-200 rounded-full px-2 py-0.5">
+                          Chưa học
+                        </span>
+                      )}
+                    </div>
+
+                    {isStarted && (
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[10px] text-muted-foreground font-semibold">
+                          <span>Tiến độ: Câu {prog.qIndex}/{prog.total}</span>
+                          <span>Đúng {prog.correct} câu</span>
+                        </div>
+                        <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-amber-500 rounded-full"
+                            style={{ width: `${percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mt-5 pt-3 border-t flex items-center justify-between text-xs font-bold text-primary">
+                    <span>{isStarted ? 'Tiếp tục luyện tập' : 'Bắt đầu làm bài'}</span>
+                    <span className="transform translate-x-0 group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   /* ── Done / Score card ────────────────────────────────────── */
   if (done) {
+    const totalPacks = Math.ceil(allExercises.length / 25);
     return (
       <ScoreCard
         correct={score.correct}
         total={score.correct + score.wrong}
         onRetry={handleRetry}
         backHref={reviewMode ? '/grammar/learn' : lessonId ? '/grammar/learn' : '/student'}
+        activePack={activePack}
+        totalPacks={totalPacks}
+        onNextPack={
+          activePack !== null && activePack < totalPacks
+            ? () => {
+                selectPack(activePack + 1);
+              }
+            : undefined
+        }
       />
     );
   }
@@ -665,13 +940,21 @@ function GrammarContent() {
 
       {/* Header */}
       <header className="flex items-center justify-between p-4 sm:p-6">
-        <Link href={reviewMode || lessonId ? '/grammar/learn' : '/student'}>
-          <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ChevronLeft className="h-4 w-4" /> Back
-          </button>
-        </Link>
+        <button 
+          onClick={() => {
+            if (allExercises.length > 25) {
+              setActivePack(null);
+            } else {
+              router.push(reviewMode || lessonId ? '/grammar/learn' : '/student');
+            }
+          }}
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors bg-transparent border-0 cursor-pointer"
+        >
+          <ChevronLeft className="h-4 w-4" /> {allExercises.length > 25 ? 'Các phần' : 'Back'}
+        </button>
         <h1 className="flex items-center gap-2 font-bold text-primary text-base">
-          <Brain className="h-5 w-5" /> {reviewMode ? 'Ôn câu sai' : 'Grammar Drill'}
+          <Brain className="h-5 w-5" /> 
+          {reviewMode ? 'Ôn câu sai' : activePack !== null && Math.ceil(allExercises.length / 25) > 1 ? `Grammar P${activePack}` : 'Grammar Drill'}
         </h1>
         {/* Score badges */}
         <div className="flex gap-2">
@@ -699,7 +982,7 @@ function GrammarContent() {
               ? selected === current.correct_answer
                 ? 'border-emerald-400 shadow-emerald-100'
                 : 'border-red-300 shadow-red-100'
-              : '',
+              : 'border-slate-200',
           ].join(' ')}
         >
           <div className="flex items-center justify-between mb-3">
@@ -889,7 +1172,7 @@ function GrammarContent() {
         {selected && (
           <button
             onClick={handleNext}
-            className="w-full max-w-lg bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 active:translate-y-0.5 transition-all animate-in fade-in duration-300"
+            className="w-full max-w-lg bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 active:translate-y-0.5 transition-all animate-in fade-in duration-300 cursor-pointer"
           >
             {qIndex + 1 >= exercises.length ? 'Xem kết quả →' : 'Tiếp theo →'}
           </button>
