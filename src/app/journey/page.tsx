@@ -237,9 +237,9 @@ export default function JourneyPage() {
     }
     if (mode === 'thpt-grade') {
       const grades = [
-        { id: 'lop-10', label: 'Lß╗¢p 10', desc: 'Nß╗ün tß║úng: th├¼ c╞í bß║ún, bß╗ï ─æß╗Öng, ─æß╗ìc th├┤ng b├ío/b├ái ngß║»n.' },
-        { id: 'lop-11', label: 'Lß╗¢p 11', desc: 'N├óng cao: th├¼ ho├án th├ánh, mß╗çnh ─æß╗ü quan hß╗ç, sß║»p xß║┐p ─æoß║ín/tß╗¥ r╞íi.' },
-        { id: 'lop-12', label: 'Lß╗¢p 12 (Luyß╗çn thi)', desc: '─Éß╗º 6 dß║íng ─æß╗ü tß╗æt nghiß╗çp 2025 + ─æß╗ü mini tß╗òng hß╗úp.' },
+        { id: 'lop-10', label: 'Lớp 10 · Global Success', desc: '10 unit SGK: Family Life → Ecotourism · vocab catalog + ngữ pháp CEFR.' },
+        { id: 'lop-11', label: 'Lớp 11 · Global Success', desc: '10 unit catalog · participle, cleft, skill đề.' },
+        { id: 'lop-12', label: 'Lớp 12 · Global Success + đề 2025', desc: '7 unit trong kho + rải 6 dạng đề tốt nghiệp (thông báo, tờ rơi, cloze…).' },
       ];
       return (
         <div className="mx-auto max-w-xl p-6 space-y-4">
