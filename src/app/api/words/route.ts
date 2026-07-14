@@ -61,12 +61,68 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
   return created.id;
 }
 
-/** Đếm total / new / review-due — RPC 1-shot nếu có, fallback 5 query song song. */
+type WordSummaryCounts = {
+  total: number;
+  dueCount: number;
+  newCount: number;
+  reviewDueCount: number;
+  /** Phân bố full kho theo stability → L1…L6 (index 0 = L1) */
+  levelCounts: number[];
+};
+
+/** Đếm L1–L6 trên TOÀN BỘ từ classroom (không phân trang). */
+async function fetchLevelCounts(
+  supabase: ReturnType<typeof createServiceClient>,
+  userId: string,
+  classroomId: string,
+  totalWords: number,
+): Promise<number[]> {
+  const levelCounts = [0, 0, 0, 0, 0, 0];
+  const { data: wordRows, error: wErr } = await supabase
+    .from('words')
+    .select('id')
+    .eq('classroom_id', classroomId);
+  if (wErr || !wordRows?.length) {
+    // không có từ → toàn 0; nếu có total nhưng select fail, fallback L1 = total
+    if (totalWords > 0 && (!wordRows || wordRows.length === 0)) {
+      levelCounts[0] = totalWords;
+    }
+    return levelCounts;
+  }
+
+  const wordIds = wordRows.map((w) => w.id as string);
+  // Chunk in() để tránh URL quá dài
+  const CHUNK = 200;
+  const stabilityByWord = new Map<string, number>();
+  for (let i = 0; i < wordIds.length; i += CHUNK) {
+    const chunk = wordIds.slice(i, i + CHUNK);
+    const { data: srsRows } = await supabase
+      .from('srs_progress')
+      .select('word_id, stability')
+      .eq('user_id', userId)
+      .in('word_id', chunk);
+    for (const row of srsRows ?? []) {
+      if (row.word_id) {
+        stabilityByWord.set(row.word_id as string, Number(row.stability ?? 0));
+      }
+    }
+  }
+
+  for (const id of wordIds) {
+    const s = stabilityByWord.get(id);
+    // Chưa có SRS = L1 (chưa học / mới nạp kho)
+    const level = s === undefined ? 1 : stabilityToLevel(s);
+    levelCounts[level - 1] += 1;
+  }
+  return levelCounts;
+}
+
+/** Đếm total / new / review-due / levelCounts — RPC + fallback. */
 async function fetchWordSummaryCounts(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
   classroomId: string,
-): Promise<{ total: number; dueCount: number; newCount: number; reviewDueCount: number }> {
+): Promise<WordSummaryCounts> {
   // Ưu tiên RPC (migration 20260709_word_summary_perf)
   const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
     p_user_id: userId,
@@ -75,11 +131,14 @@ async function fetchWordSummaryCounts(
   if (!rpcErr && rpcRows) {
     const row = Array.isArray(rpcRows) ? rpcRows[0] : rpcRows;
     if (row) {
+      const total = Number(row.total ?? 0);
+      const levelCounts = await fetchLevelCounts(supabase, userId, classroomId, total);
       return {
-        total: Number(row.total ?? 0),
+        total,
         newCount: Number(row.new_count ?? 0),
         reviewDueCount: Number(row.review_due_count ?? 0),
         dueCount: Number(row.due_count ?? 0),
+        levelCounts,
       };
     }
   }
@@ -121,12 +180,14 @@ async function fetchWordSummaryCounts(
   const totalN = total || 0;
   const learnedN = learnedCount || 0;
   const withSrsN = wordsWithSrs || 0;
+  const levelCounts = await fetchLevelCounts(supabase, userId, classroomId, totalN);
   return {
     total: totalN,
     // due = SRS đến hạn + từ chưa có SRS (coi như cần học/ôn)
     dueCount: (dueCount || 0) + Math.max(0, totalN - withSrsN),
     newCount: Math.max(0, totalN - learnedN),
     reviewDueCount: reviewDueCount || 0,
+    levelCounts,
   };
 }
 

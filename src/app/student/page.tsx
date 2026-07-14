@@ -32,6 +32,7 @@ import {
   readWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
+import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 
 // Lazy load: canvas-confetti chỉ chạy client-side, không cần SSR + chỉ tải khi cần
 const Celebration = dynamic(
@@ -83,6 +84,8 @@ export default function StudentDashboard() {
   const [totalWords, setTotalWords] = useState(0);
   const [newCount, setNewCount] = useState(0);
   const [reviewDueCount, setReviewDueCount] = useState(0);
+  /** Phân bố SRS L1–L6 full kho (từ API summary) */
+  const [levelCounts, setLevelCounts] = useState<number[]>([0, 0, 0, 0, 0, 0]);
   /** false cho đến khi có counts (cache hoặc API) — progressive badge */
   const [countsReady, setCountsReady] = useState(false);
   /** word list load sau shell — tránh flash empty state */
@@ -150,6 +153,7 @@ export default function StudentDashboard() {
       reviewDueCount?: number;
       dueCount?: number;
       classroomId?: string | null;
+      levelCounts?: number[];
     },
   ) => {
     const total = data.total || 0;
@@ -158,6 +162,9 @@ export default function StudentDashboard() {
     setTotalWords(total);
     setNewCount(nextNew);
     setReviewDueCount(nextReview);
+    if (Array.isArray(data.levelCounts) && data.levelCounts.length === 6) {
+      setLevelCounts(data.levelCounts.map((n) => Number(n) || 0));
+    }
     if (data.classroomId) setClassroomId(data.classroomId);
     setCountsReady(true);
     writeWordSummaryCache(userId, {
@@ -1006,7 +1013,7 @@ export default function StudentDashboard() {
               </div>
             </div>
 
-            {/* Tóm tắt kho: tích lũy / đã ôn ít nhất 1 lần / số gói — không lặp Cần học·Cần ôn */}
+            {/* Tóm tắt kho: tích lũy / đã học / gói */}
             <div className="grid grid-cols-3 gap-1.5">
               <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-center">
                 <div className={`text-sm font-black tabular-nums text-slate-800 ${!countsReady ? 'animate-pulse text-slate-400' : ''}`}>
@@ -1025,6 +1032,52 @@ export default function StudentDashboard() {
                 <div className="text-[10px] font-bold text-violet-400">Gói</div>
               </div>
             </div>
+
+            {/* Mức độ nhớ — full kho (levelCounts từ API), nhãn ≈ interval FSRS */}
+            {countsReady && totalWords > 0 && (
+              <div className="rounded-xl border border-slate-100 bg-slate-50/60 px-2.5 py-2">
+                <div className="mb-1.5 flex items-center justify-between gap-2">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wide text-slate-500">
+                    Mức độ nhớ · cả kho
+                  </span>
+                  <span className="text-[9px] font-bold text-slate-400 tabular-nums">
+                    {levelCounts.reduce((a, b) => a + b, 0)}/{totalWords} từ
+                  </span>
+                </div>
+                <div className="flex items-end justify-between gap-1 sm:gap-1.5">
+                  {levelCounts.map((count, idx) => {
+                    const maxCount = Math.max(1, ...levelCounts);
+                    const barH = Math.round(4 + (count / maxCount) * 40);
+                    const colors = [
+                      'bg-rose-400',
+                      'bg-amber-400',
+                      'bg-sky-400',
+                      'bg-indigo-500',
+                      'bg-emerald-500',
+                      'bg-purple-500',
+                    ] as const;
+                    return (
+                      <div
+                        key={idx + 1}
+                        className="flex min-w-0 flex-1 flex-col items-center"
+                        title={`L${idx + 1}: ${SRS_LEVEL_STABILITY_HINT[idx]} · ~interval ${SRS_LEVEL_LABELS[idx]} · ${count} từ`}
+                      >
+                        <span className="mb-0.5 text-[9px] font-black tabular-nums text-slate-600">{count}</span>
+                        <div
+                          className={`w-full max-w-[28px] rounded-t-md ${colors[idx]}`}
+                          style={{ height: barH }}
+                        />
+                        <span className="mt-0.5 text-[8px] font-extrabold text-slate-500">L{idx + 1}</span>
+                        <span className="text-[7px] font-bold uppercase text-slate-400">{SRS_LEVEL_LABELS[idx]}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p className="mt-1.5 text-[9px] font-semibold leading-snug text-slate-400">
+                  Nhãn ≈ khoảng ôn lại FSRS (theo stability), không phải mốc cứng Anki.
+                </p>
+              </div>
+            )}
 
             {/* Gói đã nạp vào kho */}
             {vocabPacks.length > 0 && (

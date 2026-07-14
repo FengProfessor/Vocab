@@ -117,9 +117,16 @@ export function mapQualityToRating(quality: number): FSRSRating {
   return 4; // Mastered -> Easy
 }
 
-/** 
- * Maps Stability to virtual Levels (1-6) for Dashboard visualization 
- * Based on Typical Anki/Mochi interval progression
+/**
+ * Maps Stability to virtual Levels (1-6) for Dashboard visualization.
+ * FSRS interval @90% retention ≈ stability (days) — see calculateInterval.
+ *
+ *   L1: S &lt; 2   → interval ~1 ngày
+ *   L2: S &lt; 5   → ~2–4 ngày
+ *   L3: S &lt; 10  → ~1 tuần
+ *   L4: S &lt; 30  → ~2–4 tuần
+ *   L5: S &lt; 90  → ~1–3 tháng
+ *   L6: S ≥ 90  → 3 tháng+
  */
 export function stabilityToLevel(stability: number): number {
   if (stability < 2) return 1;
@@ -129,3 +136,16 @@ export function stabilityToLevel(stability: number): number {
   if (stability < 90) return 5;
   return 6;
 }
+
+/** Nhãn khoảng interval ước lượng (không phải mốc cứng Anki) */
+export const SRS_LEVEL_LABELS = ['~1d', '~3d', '~1w', '~3w', '~2mo', '3mo+'] as const;
+
+/** Ngưỡng stability dưới cùng của từng level (L1…L6) — dùng tooltip */
+export const SRS_LEVEL_STABILITY_HINT = [
+  'S < 2',
+  'S < 5',
+  'S < 10',
+  'S < 30',
+  'S < 90',
+  'S ≥ 90',
+] as const;
