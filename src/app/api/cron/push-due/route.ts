@@ -158,21 +158,34 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     console.log(`[Cron/push-due] page ${page}/${totalPages} — ${profiles.length} candidate(s) for hour ${targetHour} (VN)`);
 
-    // Xử lý 1 user: đếm từ đến hạn → gửi push. Trả null nếu không có từ due.
-    const processUser = async (profile: ProfileRow): Promise<PushResult | null> => {
-      // (1) Từ user ĐANG học đến hạn — nguồn chính, tính TRỰC TIẾP từ srs_progress.
-      // Bao cả từ cá nhân (lưu qua extension/dictionary/pack tự học) LẪN từ trong lớp
-      // đã bắt đầu học. Học sinh tự học không vào lớp vẫn được nhắc ôn.
+    // ── Bulk-count từ đến hạn qua RPC (1 query cho CẢ trang, thay N+1) ──
+    // Nếu RPC chưa tồn tại (migration 20260714 chưa chạy prod) → dueMap=null → fallback
+    // tính inline từng user như cũ. Deploy trước migration KHÔNG vỡ.
+    let dueMap: Map<string, number> | null = null;
+    {
+      const { data: counts, error: rpcErr } = await supabase.rpc('push_due_counts', {
+        p_user_ids: profiles.map(p => p.id),
+        p_now: now,
+      });
+      if (rpcErr) {
+        console.warn('[Cron/push-due] push_due_counts RPC unavailable → fallback inline:', rpcErr.message);
+      } else if (counts) {
+        dueMap = new Map(
+          (counts as { user_id: string; due_count: number | string }[])
+            .map(r => [r.user_id, Number(r.due_count)])
+        );
+      }
+    }
+
+    // Fallback: đếm due cho 1 user bằng nhiều query (dùng khi RPC chưa có).
+    const computeDueInline = async (profile: ProfileRow): Promise<number> => {
       const { count: dueStarted } = await supabase
         .from('srs_progress')
         .select('id', { count: 'exact', head: true })
         .eq('user_id', profile.id)
         .lte('next_review_date', now);
-
       let dueCount = dueStarted ?? 0;
 
-      // (2) Từ MỚI được giao trong lớp (chưa có srs record) — nhắc học sinh bắt đầu.
-      // Chỉ tính khi user có lớp; nếu không có lớp thì bỏ qua, không chặn (1).
       let classroomIds: string[] = [];
       if (profile.role === 'teacher') {
         const { data } = await supabase.from('classrooms').select('id').eq('teacher_id', profile.id);
@@ -181,23 +194,22 @@ export async function GET(req: Request): Promise<NextResponse> {
         const { data } = await supabase.from('enrollments').select('classroom_id').eq('student_id', profile.id);
         classroomIds = data?.map(e => e.classroom_id) || [];
       }
-
       if (classroomIds.length) {
-        const { data: classWords } = await supabase
-          .from('words')
-          .select('id')
-          .in('classroom_id', classroomIds);
+        const { data: classWords } = await supabase.from('words').select('id').in('classroom_id', classroomIds);
         if (classWords?.length) {
           const { data: srsRows } = await supabase
-            .from('srs_progress')
-            .select('word_id')
-            .eq('user_id', profile.id)
-            .in('word_id', classWords.map(w => w.id));
+            .from('srs_progress').select('word_id')
+            .eq('user_id', profile.id).in('word_id', classWords.map(w => w.id));
           const started = new Set(srsRows?.map(s => s.word_id) || []);
-          const newInClass = classWords.filter(w => !started.has(w.id)).length;
-          dueCount += newInClass;
+          dueCount += classWords.filter(w => !started.has(w.id)).length;
         }
       }
+      return dueCount;
+    };
+
+    // Xử lý 1 user: lấy dueCount (từ RPC map hoặc inline) → gửi push. Null nếu không có từ due.
+    const processUser = async (profile: ProfileRow): Promise<PushResult | null> => {
+      const dueCount = dueMap ? (dueMap.get(profile.id) ?? 0) : await computeDueInline(profile);
 
       if (dueCount === 0) return null;
 
