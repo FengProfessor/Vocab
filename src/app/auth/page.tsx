@@ -59,7 +59,6 @@ export default function AuthPage() {
   ));
   const [showManualRedirect, setShowManualRedirect] = useState(false);
 
-  // Đồng bộ query sau hydration để tránh lệch HTML server/client.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const timer = window.setTimeout(() => {
@@ -69,9 +68,6 @@ export default function AuthPage() {
     return () => window.clearTimeout(timer);
   }, []);
 
-  // OAuth bounce guard: Google login có thể đáp về /auth (implicit flow #hash hoặc
-  // Supabase Site URL fallback). detectSessionInUrl đã lưu session vào localStorage,
-  // nhưng trang này không redirect → kẹt. Phát hiện session → đẩy vào dashboard.
   useEffect(() => {
     const redirectIfLoggedIn = async () => {
       const { data: { session } } = await supabase.auth.getSession();
@@ -87,10 +83,9 @@ export default function AuthPage() {
         .select('role')
         .eq('id', session.user.id)
         .single();
-      const role = wantTeacher ? 'teacher' : profile?.role;
-      window.location.href = role === 'teacher' ? '/teacher' : '/student';
+      const nextRole = wantTeacher ? 'teacher' : profile?.role;
+      window.location.href = nextRole === 'teacher' ? '/teacher' : '/student';
     };
-    // SIGNED_IN bắn sau khi detectSessionInUrl xử lý xong hash → bắt chắc chắn.
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
       if (event === 'SIGNED_IN') void redirectIfLoggedIn();
     });
@@ -105,7 +100,6 @@ export default function AuthPage() {
     setDebugError('');
     setShowManualRedirect(false);
 
-    // Timeout guard: 20 seconds
     const timeout = setTimeout(() => {
       if (loading) {
         setLoading(false);
@@ -138,14 +132,12 @@ export default function AuthPage() {
       } else {
         setStatus('Đang xác thực thông tin đăng nhập...');
         const { error } = await supabase.auth.signInWithPassword({ email, password });
-
         if (error) throw error;
 
         setStatus('Đăng nhập thành công! Đang lưu phiên...');
         setShowManualRedirect(true);
 
-        // Wait a bit for Supabase to persist the session in cookies/localStorage
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        await new Promise((resolve) => setTimeout(resolve, 1500));
 
         const { data: { session } } = await supabase.auth.getSession();
         if (!session) {
@@ -154,14 +146,11 @@ export default function AuthPage() {
           setDebugError('Trình duyệt chưa lưu phiên đăng nhập. Vui lòng nhấn nút bên dưới hoặc thử tắt chế độ Ẩn danh.');
         } else {
           setStatus('Đã xác minh phiên! Đang chuyển hướng...');
-
-          // Check profile role to redirect to correct dashboard
           const { data: profile } = await supabase
             .from('profiles')
             .select('role')
             .eq('id', session.user.id)
             .single();
-
           const destination = profile?.role === 'teacher' ? '/teacher' : '/student';
           window.location.href = destination;
         }
@@ -198,20 +187,26 @@ export default function AuthPage() {
     }
   };
 
+  // text-base (16px) — tránh iOS zoom khi focus
   const inputClass =
-    'w-full rounded-2xl border border-[#bca58f]/45 bg-white/90 pl-11 pr-4 py-3.5 text-sm font-semibold text-[#241710] placeholder:text-[#a08b7c] shadow-sm transition-all focus:border-[#b5502f]/50 focus:outline-none focus:ring-4 focus:ring-[#b5502f]/10';
+    'w-full min-h-12 rounded-2xl border border-[#bca58f]/45 bg-white/90 pl-11 pr-4 py-3 text-base font-semibold text-[#241710] placeholder:text-[#a08b7c] shadow-sm transition-all focus:border-[#b5502f]/50 focus:outline-none focus:ring-4 focus:ring-[#b5502f]/10';
 
   return (
-    <div className={`${manrope.className} min-h-dvh bg-[#f6efe6] text-[#241710]`}>
-      {/* Ambient blobs — giống landing */}
+    <div
+      className={`${manrope.className} min-h-dvh overflow-x-hidden bg-[#f6efe6] text-[#241710]`}
+      style={{
+        paddingTop: 'env(safe-area-inset-top)',
+        paddingBottom: 'env(safe-area-inset-bottom)',
+      }}
+    >
       <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
-        <div className="absolute left-[-8%] top-[-10%] h-[24rem] w-[24rem] rounded-full bg-[#e57b52]/18 blur-3xl" />
-        <div className="absolute right-[-8%] top-[8%] h-[26rem] w-[26rem] rounded-full bg-[#d2c09e]/30 blur-3xl" />
-        <div className="absolute bottom-[-10%] left-1/3 h-[20rem] w-[20rem] rounded-full bg-[#f1c46d]/15 blur-3xl" />
+        <div className="absolute left-[-20%] top-[-12%] h-56 w-56 rounded-full bg-[#e57b52]/18 blur-3xl sm:left-[-8%] sm:h-[24rem] sm:w-[24rem]" />
+        <div className="absolute right-[-18%] top-[12%] h-52 w-52 rounded-full bg-[#d2c09e]/30 blur-3xl sm:right-[-8%] sm:h-[26rem] sm:w-[26rem]" />
+        <div className="absolute bottom-[-12%] left-1/3 hidden h-[20rem] w-[20rem] rounded-full bg-[#f1c46d]/15 blur-3xl sm:block" />
       </div>
 
       <div className="relative mx-auto grid min-h-dvh w-full max-w-6xl lg:grid-cols-[1.05fr_0.95fr]">
-        {/* ── Left brand panel (desktop) ── */}
+        {/* Desktop brand panel */}
         <aside className="relative hidden flex-col justify-between p-8 lg:flex lg:p-12">
           <Link href="/" className="inline-flex items-center gap-2.5 text-[#241710]">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
@@ -267,25 +262,25 @@ export default function AuthPage() {
           </p>
         </aside>
 
-        {/* ── Right form panel ── */}
-        <div className="flex flex-col items-center justify-center px-4 py-8 sm:px-6 lg:py-12">
-          {/* Mobile logo */}
-          <div className="mb-6 flex w-full max-w-md flex-col items-center lg:hidden">
-            <Link href="/" className="inline-flex items-center gap-2.5 text-[#241710]">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
-                <Brain className="h-5 w-5" />
+        {/* Form: mobile top-align + scroll; desktop center */}
+        <div className="flex min-h-dvh w-full flex-col items-center justify-start px-3 pb-8 pt-3 sm:px-6 sm:pb-10 sm:pt-8 lg:justify-center lg:py-12">
+          <div className="mb-3 flex w-full max-w-md flex-col items-center sm:mb-5 lg:hidden">
+            <Link href="/" className="inline-flex items-center gap-2 text-[#241710]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
+                <Brain className="h-4 w-4" />
               </div>
-              <span className={`${spaceGrotesk.className} text-xl font-bold tracking-tight`}>LingoPro</span>
+              <span className={`${spaceGrotesk.className} text-lg font-bold tracking-tight sm:text-xl`}>
+                LingoPro
+              </span>
             </Link>
-            <p className="mt-2 text-center text-sm font-semibold text-[#7b6558]">
+            <p className="mt-1.5 text-center text-xs font-semibold text-[#7b6558] sm:text-sm">
               {mode === 'login' ? 'Chào mừng trở lại' : 'Tạo tài khoản miễn phí'}
             </p>
           </div>
 
           <div className="w-full max-w-md">
-            {/* Card tối — giống product card landing */}
-            <div className="rounded-[1.75rem] border border-[#241710]/10 bg-[#241710] p-6 text-[#f6efe6] shadow-[0_24px_70px_rgba(36,23,16,0.22)] sm:p-8">
-              <div className="mb-6 hidden lg:block">
+            <div className="rounded-2xl border border-[#241710]/10 bg-[#241710] p-4 text-[#f6efe6] shadow-[0_20px_50px_rgba(36,23,16,0.2)] sm:rounded-[1.75rem] sm:p-6 lg:p-8">
+              <div className="mb-5 hidden lg:block">
                 <p className={`${spaceGrotesk.className} text-2xl font-bold tracking-tight`}>
                   {mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
                 </p>
@@ -296,8 +291,7 @@ export default function AuthPage() {
                 </p>
               </div>
 
-              {/* Tabs login / signup */}
-              <div className="mb-6 flex rounded-2xl border border-white/10 bg-white/[0.06] p-1">
+              <div className="mb-4 flex rounded-2xl border border-white/10 bg-white/[0.06] p-1 sm:mb-5">
                 {(['login', 'signup'] as Mode[]).map((m) => (
                   <button
                     key={m}
@@ -307,7 +301,7 @@ export default function AuthPage() {
                       setDebugError('');
                       setShowManualRedirect(false);
                     }}
-                    className={`flex-1 rounded-xl py-2.5 text-sm font-black transition-all ${
+                    className={`min-h-11 flex-1 rounded-xl text-sm font-black transition-all sm:min-h-12 ${
                       mode === m
                         ? 'bg-[#b5502f] text-white shadow-[0_8px_20px_rgba(181,80,47,0.35)]'
                         : 'text-[#cbb7a6] hover:text-[#f6efe6]'
@@ -319,18 +313,20 @@ export default function AuthPage() {
               </div>
 
               {debugError && (
-                <div className="mb-5 flex items-start gap-3 rounded-2xl border border-rose-400/25 bg-rose-500/15 p-4">
+                <div className="mb-4 flex items-start gap-2.5 rounded-2xl border border-rose-400/25 bg-rose-500/15 p-3 sm:mb-5 sm:p-4">
                   <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-300" />
-                  <p className="text-xs font-semibold leading-relaxed text-rose-100">{debugError}</p>
+                  <p className="break-words text-xs font-semibold leading-relaxed text-rose-100">{debugError}</p>
                 </div>
               )}
 
               {showManualRedirect ? (
-                <div className="space-y-4 py-2 text-center">
-                  <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-[#2d7f5e]/25">
-                    <ArrowRight className="h-8 w-8 text-[#7dcea0]" />
+                <div className="space-y-3 py-1 text-center sm:space-y-4">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#2d7f5e]/25 sm:h-16 sm:w-16">
+                    <ArrowRight className="h-7 w-7 text-[#7dcea0]" />
                   </div>
-                  <h3 className={`${spaceGrotesk.className} text-lg font-bold`}>Đăng nhập thành công!</h3>
+                  <h3 className={`${spaceGrotesk.className} text-base font-bold sm:text-lg`}>
+                    Đăng nhập thành công!
+                  </h3>
                   <p className="text-sm text-[#d8c9bc]">
                     Nếu trang không tự chuyển, nhấn nút bên dưới:
                   </p>
@@ -349,7 +345,7 @@ export default function AuthPage() {
                         window.location.href = '/student';
                       }
                     }}
-                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#2d7f5e] text-sm font-black text-white shadow-lg transition-all hover:-translate-y-0.5"
+                    className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#2d7f5e] text-sm font-black text-white shadow-lg active:scale-[0.98]"
                   >
                     Đi tới trang tổng quan
                     <ArrowRight className="h-4 w-4" />
@@ -357,134 +353,24 @@ export default function AuthPage() {
                   <button
                     type="button"
                     onClick={() => setStatus('')}
-                    className="text-xs font-semibold text-[#a08b7c] underline hover:text-[#d8c9bc]"
+                    className="min-h-10 px-3 text-xs font-semibold text-[#a08b7c] underline"
                   >
                     Ở lại trang này
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-3.5">
-                  {mode === 'signup' && (
-                    <>
-                      <div className="relative">
-                        <User className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
-                        <label htmlFor="full-name" className="sr-only">Họ và tên</label>
-                        <input
-                          id="full-name"
-                          name="fullName"
-                          type="text"
-                          placeholder="Họ và tên"
-                          autoComplete="name"
-                          value={fullName}
-                          onChange={(e) => setFullName(e.target.value)}
-                          required
-                          className={inputClass}
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2.5">
-                        {(['student', 'teacher'] as UserRole[]).map((r) => (
-                          <button
-                            key={r}
-                            type="button"
-                            onClick={() => setRole(r)}
-                            className={`flex items-center justify-center gap-2 rounded-2xl border py-3 text-sm font-bold transition-all ${
-                              role === r
-                                ? 'border-[#b5502f]/60 bg-[#b5502f]/20 text-white'
-                                : 'border-white/10 bg-white/[0.06] text-[#cbb7a6] hover:border-white/20 hover:text-white'
-                            }`}
-                          >
-                            {r === 'student' ? (
-                              <BookOpen className="h-4 w-4" />
-                            ) : (
-                              <GraduationCap className="h-4 w-4" />
-                            )}
-                            {r === 'student' ? 'Học sinh' : 'Giáo viên'}
-                          </button>
-                        ))}
-                      </div>
-                    </>
-                  )}
-
-                  <div className="relative">
-                    <Mail className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
-                    <label htmlFor="email" className="sr-only">Địa chỉ email</label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Địa chỉ email"
-                      autoComplete="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className={inputClass}
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <Lock className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
-                    <label htmlFor="password" className="sr-only">Mật khẩu</label>
-                    <input
-                      id="password"
-                      name="password"
-                      type={showPassword ? 'text' : 'password'}
-                      placeholder="Mật khẩu"
-                      autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                      minLength={6}
-                      className={`${inputClass} pr-11`}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#a08b7c] hover:text-[#5e4b40]"
-                    >
-                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                    </button>
-                  </div>
-
-                  <div className="pt-1">
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#b5502f] text-sm font-black text-white shadow-[0_14px_36px_rgba(181,80,47,0.35)] transition-all hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-60 disabled:hover:translate-y-0"
-                    >
-                      {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-                      {mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
-                      {!loading && <ArrowRight className="h-4 w-4" />}
-                    </button>
-
-                    {status && (
-                      <p className="mt-3 text-center text-[10px] font-black uppercase tracking-[0.18em] text-[#f1c46d]">
-                        {status}
-                      </p>
-                    )}
-                  </div>
-                </form>
-              )}
-
-              {!showManualRedirect && (
-                <>
-                  <div className="my-5 flex items-center gap-3">
-                    <div className="h-px flex-1 bg-white/10" />
-                    <span className="text-xs font-bold text-[#a08b7c]">hoặc</span>
-                    <div className="h-px flex-1 bg-white/10" />
-                  </div>
-
+                <form onSubmit={handleSubmit} className="space-y-3">
+                  {/* Google trước — ít gõ trên mobile */}
                   <button
                     type="button"
                     onClick={handleGoogleSignIn}
                     disabled={loading}
-                    className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-full border border-white/12 bg-white/[0.06] text-sm font-bold text-[#e9dccf] transition-all hover:bg-white/10 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+                    className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white text-sm font-bold text-[#241710] transition-all active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {loading ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (
-                      <svg viewBox="0 0 24 24" className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                      <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
                         <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
                         <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
@@ -493,16 +379,129 @@ export default function AuthPage() {
                     )}
                     Tiếp tục với Google
                   </button>
-                </>
+
+                  <div className="flex items-center gap-3 py-0.5">
+                    <div className="h-px flex-1 bg-white/10" />
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#a08b7c]">
+                      hoặc email
+                    </span>
+                    <div className="h-px flex-1 bg-white/10" />
+                  </div>
+
+                  {mode === 'signup' && (
+                    <>
+                      <div className="relative">
+                        <User className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
+                        <label htmlFor="full-name" className="sr-only">Họ và tên</label>
+                        <input
+                          id="full-name"
+                          name="fullName"
+                          type="text"
+                          placeholder="Họ và tên"
+                          autoComplete="name"
+                          enterKeyHint="next"
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
+                          required
+                          className={inputClass}
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2">
+                        {(['student', 'teacher'] as UserRole[]).map((r) => (
+                          <button
+                            key={r}
+                            type="button"
+                            onClick={() => setRole(r)}
+                            className={`flex min-h-12 items-center justify-center gap-1.5 rounded-2xl border px-2 text-sm font-bold transition-all ${
+                              role === r
+                                ? 'border-[#b5502f]/60 bg-[#b5502f]/20 text-white'
+                                : 'border-white/10 bg-white/[0.06] text-[#cbb7a6]'
+                            }`}
+                          >
+                            {r === 'student' ? (
+                              <BookOpen className="h-4 w-4 shrink-0" />
+                            ) : (
+                              <GraduationCap className="h-4 w-4 shrink-0" />
+                            )}
+                            <span className="truncate">{r === 'student' ? 'Học sinh' : 'Giáo viên'}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  <div className="relative">
+                    <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
+                    <label htmlFor="email" className="sr-only">Địa chỉ email</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      inputMode="email"
+                      placeholder="Email"
+                      autoComplete="email"
+                      enterKeyHint="next"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className={inputClass}
+                    />
+                  </div>
+
+                  <div className="relative">
+                    <Lock className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
+                    <label htmlFor="password" className="sr-only">Mật khẩu</label>
+                    <input
+                      id="password"
+                      name="password"
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder={mode === 'signup' ? 'Mật khẩu (≥ 6 ký tự)' : 'Mật khẩu'}
+                      autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+                      enterKeyHint="done"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      minLength={6}
+                      className={`${inputClass} pr-12`}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
+                      className="absolute right-1.5 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-xl text-[#a08b7c] active:bg-black/5"
+                    >
+                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
+                  </div>
+
+                  <div className="pt-0.5">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#b5502f] text-sm font-black text-white shadow-[0_14px_36px_rgba(181,80,47,0.35)] transition-all active:scale-[0.98] disabled:opacity-60"
+                    >
+                      {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                      {mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
+                      {!loading && <ArrowRight className="h-4 w-4" />}
+                    </button>
+
+                    {status && (
+                      <p className="mt-2.5 text-center text-[11px] font-bold leading-snug text-[#f1c46d]">
+                        {status}
+                      </p>
+                    )}
+                  </div>
+                </form>
               )}
             </div>
 
-            <p className="mt-5 text-center text-xs font-semibold text-[#7b6558]">
+            <p className="mt-4 px-1 pb-2 text-center text-[11px] font-semibold leading-5 text-[#7b6558] sm:mt-5 sm:text-xs">
               <Link href="/" className="underline decoration-[#bca58f] underline-offset-2 hover:text-[#241710]">
                 ← Về trang chủ
               </Link>
-              <span className="mx-2 text-[#bca58f]">·</span>
-              Không cần thẻ · Miễn phí bắt đầu
+              <span className="mx-1.5 text-[#bca58f]">·</span>
+              Không cần thẻ · Miễn phí
             </p>
           </div>
         </div>
