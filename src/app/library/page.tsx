@@ -12,8 +12,12 @@ import { supabase } from '@/lib/supabase';
 import { StudentShell } from '@/components/student/StudentShell';
 import {
   applyGlossesToPacks,
-  openTopicPdfPreview,
+  downloadTopicPdfHtml,
+  openBlankPdfWindow,
   suggestPdfFileName,
+  writePdfError,
+  writePdfLoading,
+  writeTopicPdfToWindow,
   type WordGloss,
 } from '@/lib/library-topic-pdf';
 
@@ -212,6 +216,13 @@ export default function LibraryPage() {
       toast.error('Chủ đề quá dài (>800 từ). Hãy tải từng unit.');
       return;
     }
+
+    // QUAN TRỌNG: mở tab NGAY trong click handler (trước await) — mobile chặn popup sau async
+    const previewWin = openBlankPdfWindow();
+    if (previewWin) {
+      writePdfLoading(previewWin, `Đang lấy nghĩa & IPA (${flat.length} từ)…`);
+    }
+
     setPdfLoading(true);
     toast.loading(`Đang lấy nghĩa ${flat.length} từ…`, { id: 'pdf-gloss' });
     try {
@@ -220,7 +231,7 @@ export default function LibraryPage() {
       const rows = enriched.flatMap((p) => p.words).filter((w) => typeof w !== 'string');
       const withDef = rows.filter((w) => w.definition).length;
       const withIpa = rows.filter((w) => w.ipa).length;
-      const ok = openTopicPdfPreview({
+      const pdfInput = {
         routeTitle: activeRoute.title,
         routeIcon: activeRoute.icon,
         topicTitle: opts.topicTitle,
@@ -228,18 +239,36 @@ export default function LibraryPage() {
         packs: enriched,
         cefrLabel: opts.cefrLabel ?? null,
         siteUrl: typeof window !== 'undefined' ? window.location.origin : 'https://lingopro.online',
-      });
-      if (!ok) {
-        toast.error('Trình duyệt chặn popup — cho phép cửa sổ mới rồi thử lại', { id: 'pdf-gloss' });
+      };
+
+      let opened = false;
+      if (previewWin && !previewWin.closed) {
+        opened = writeTopicPdfToWindow(previewWin, pdfInput);
+      }
+
+      if (!opened) {
+        // Fallback mobile: tải HTML — mở file → Share/In → Lưu PDF
+        downloadTopicPdfHtml(
+          pdfInput,
+          suggestPdfFileName(opts.unitTitle, activeRoute.title),
+        );
+        toast.success(opts.successMsg, {
+          id: 'pdf-gloss',
+          description: `${withDef} nghĩa · ${withIpa} IPA · Đã tải file HTML (mở file → In → Lưu PDF)`,
+          duration: 7000,
+        });
         return;
       }
+
       toast.success(opts.successMsg, {
         id: 'pdf-gloss',
-        description: `${withDef} nghĩa · ${withIpa} IPA / ${flat.length} từ · Lưu / In PDF`,
+        description: `${withDef} nghĩa · ${withIpa} IPA / ${flat.length} từ · Bấm «Lưu / In PDF»`,
         duration: 5000,
       });
     } catch (e: unknown) {
-      toast.error(e instanceof Error ? e.message : 'Lỗi xuất PDF', { id: 'pdf-gloss' });
+      const msg = e instanceof Error ? e.message : 'Lỗi xuất PDF';
+      if (previewWin && !previewWin.closed) writePdfError(previewWin, msg);
+      toast.error(msg, { id: 'pdf-gloss' });
     } finally {
       setPdfLoading(false);
     }

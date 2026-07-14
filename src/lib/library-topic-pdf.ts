@@ -409,15 +409,112 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
 </html>`;
 }
 
-/** Mở tab in PDF; trả true nếu mở được. */
-export function openTopicPdfPreview(input: TopicPdfInput): boolean {
+/**
+ * Mở cửa sổ TRONG gesture click (sync) — mobile chặn window.open sau await.
+ * Gọi trước fetch gloss; sau đó writeTopicPdfToWindow.
+ */
+export function openBlankPdfWindow(): Window | null {
+  try {
+    const w = window.open('about:blank', '_blank');
+    if (!w) return null;
+    try {
+      w.opener = null;
+    } catch {
+      /* ignore */
+    }
+    return w;
+  } catch {
+    return null;
+  }
+}
+
+export function writePdfLoading(win: Window, message = 'Đang lấy nghĩa & IPA…'): void {
+  const safe = escapeHtml(message);
+  const html = `<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>LingoPro PDF…</title>
+<style>
+body{margin:0;min-height:100dvh;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;background:#0f172a;color:#e2e8f0;padding:24px;text-align:center}
+.box{max-width:280px}
+.spin{width:36px;height:36px;border:3px solid #334155;border-top-color:#818cf8;border-radius:50%;margin:0 auto 16px;animation:s .7s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+p{font-size:14px;font-weight:700;line-height:1.4;margin:0}
+</style></head><body><div class="box"><div class="spin"></div><p>${safe}</p></div></body></html>`;
+  try {
+    win.document.open();
+    win.document.write(html);
+    win.document.close();
+  } catch {
+    /* iOS đôi khi lock document — bỏ qua */
+  }
+}
+
+export function writeTopicPdfToWindow(win: Window, input: TopicPdfInput): boolean {
+  try {
+    if (win.closed) return false;
+    const html = buildTopicPdfHtml(input);
+    win.document.open();
+    win.document.write(html);
+    win.document.close();
+    try {
+      win.focus();
+    } catch {
+      /* ignore */
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function writePdfError(win: Window, message: string): void {
+  const safe = escapeHtml(message);
+  try {
+    if (win.closed) return;
+    win.document.open();
+    win.document.write(`<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Lỗi</title>
+<style>body{font-family:system-ui;padding:24px;color:#991b1b;background:#fef2f2}button{margin-top:12px;padding:10px 16px;border:0;border-radius:10px;background:#4f46e5;color:#fff;font-weight:800}</style>
+</head><body><p><b>Không tạo được PDF</b></p><p>${safe}</p><button type="button" onclick="window.close()">Đóng</button></body></html>`);
+    win.document.close();
+  } catch {
+    /* ignore */
+  }
+}
+
+/**
+ * Fallback mobile: tải file HTML (mở được offline → In → Lưu PDF).
+ * Không cần popup.
+ */
+export function downloadTopicPdfHtml(input: TopicPdfInput, fileBaseName?: string): void {
   const html = buildTopicPdfHtml(input);
-  const w = window.open('', '_blank');
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const name = `${(fileBaseName || suggestPdfFileName(input.unitTitle, input.routeTitle)).replace(/\.pdf$/i, '')}.html`;
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  a.rel = 'noopener';
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  // Giữ URL một lúc để iOS kịp bắt download
+  window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
+}
+
+/**
+ * Fallback: mở blob cùng tab (user bấm Back để về library).
+ */
+export function openTopicPdfSameTab(input: TopicPdfInput): void {
+  const html = buildTopicPdfHtml(input);
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  window.location.assign(url);
+}
+
+/** @deprecated Dùng openBlankPdfWindow + writeTopicPdfToWindow (mobile-safe). */
+export function openTopicPdfPreview(input: TopicPdfInput): boolean {
+  const w = openBlankPdfWindow();
   if (!w) return false;
-  w.document.open();
-  w.document.write(html);
-  w.document.close();
-  return true;
+  return writeTopicPdfToWindow(w, input);
 }
 
 /** Tên file gợi ý khi user lưu PDF. */
