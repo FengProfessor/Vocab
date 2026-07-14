@@ -36,6 +36,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { NotificationBell } from '@/components/NotificationBell';
+import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpBadge } from '@/components/gamification/XpBadge';
 import { Button } from '@/components/ui/button';
@@ -487,17 +488,17 @@ export default function ProfilePage() {
       </aside>
 
       <main className="flex min-h-dvh flex-1 flex-col min-w-0 md:pl-[248px]">
-        <header className="sticky top-0 z-10 flex h-[62px] items-center justify-between gap-3 border-b border-[#ececf1] bg-white/85 px-4 backdrop-blur sm:px-7">
-          <div className="flex items-center gap-3">
-            <button className="md:hidden" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="h-6 w-6 shrink-0 cursor-pointer" />
+        <header className="sticky top-0 z-10 flex h-header-safe items-center justify-between gap-2 border-b border-[#ececf1] bg-white/90 px-3 backdrop-blur-md sm:gap-3 sm:px-7">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <button type="button" className="touch-target -ml-1 flex items-center justify-center rounded-xl md:hidden active:bg-slate-100" onClick={() => setIsMenuOpen(true)} aria-label="Mở menu">
+              <Menu className="h-6 w-6 shrink-0" />
             </button>
-            <h1 className="hidden text-[19px] font-black tracking-tight sm:block">Hồ sơ của tôi</h1>
+            <h1 className="truncate text-base font-black tracking-tight sm:text-[19px]">Hồ sơ của tôi</h1>
           </div>
-          <div className="flex shrink-0 items-center gap-3">
-            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-2 pr-[11px]">
-              <span className="text-[15px] leading-none">🔥</span>
-              <span className="tabular-nums text-[13px] font-black text-[#ea7a23]">{gamification.current_streak}</span>
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+            <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
+              <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
+              <span className="tabular-nums text-[12px] font-black text-[#ea7a23] sm:text-[13px]">{gamification.current_streak}</span>
             </div>
             <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1">
               <span className="text-[13px] leading-none">⭐</span>
@@ -552,9 +553,9 @@ export default function ProfilePage() {
           </div>
         </header>
 
-        <div className="mx-auto w-full max-w-[1080px] space-y-8 px-6 py-6 pb-10 sm:px-7">
-          <div className="flex items-center gap-5">
-            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-primary text-3xl font-black text-primary-foreground shadow-lg">
+        <div className="mx-auto w-full max-w-[1080px] space-y-6 px-4 py-5 pb-mobile-nav sm:space-y-8 sm:px-7 sm:py-6">
+          <div className="flex items-center gap-4 sm:gap-5">
+            <div className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-2xl bg-primary text-2xl sm:text-3xl font-black text-primary-foreground shadow-lg">
               {initials}
             </div>
             <div>
@@ -974,13 +975,15 @@ export default function ProfilePage() {
             )}
           </Button>
 
-          <div className="pb-6 text-center">
+          <div className="pb-2 text-center">
             <Link href="/student" className="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary">
               ← Quay lại Dashboard
             </Link>
           </div>
         </div>
       </main>
+
+      <MobileBottomNav reviewDueCount={reviewDueCount} />
     </div>
   );
 }

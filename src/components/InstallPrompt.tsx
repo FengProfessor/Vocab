@@ -44,7 +44,7 @@ export default function InstallPrompt() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-6 md:max-w-sm animate-in slide-in-from-bottom-4 duration-300">
+    <div className="fixed bottom-[calc(var(--mobile-nav-total)+0.75rem)] left-3 right-3 z-[95] md:bottom-4 md:left-auto md:right-6 md:max-w-sm animate-in slide-in-from-bottom-4 duration-300">
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-4 shadow-2xl flex items-center gap-3">
         {/* Icon */}
         <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shrink-0">

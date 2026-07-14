@@ -67,42 +67,64 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     setShowGuide(false);
   };
 
+  const roadmapStepParam = searchParams.get('roadmapStep');
+
   // ── Load từ mới (chưa học) đã enrich ──
+  // Từ lộ trình (?ids=...&roadmapStep=...): nếu đã học hết / đang enrich → fallback load theo ids
+  // hoặc đánh dấu step xong để không kẹt "Hết từ mới" giữa lộ trình.
   useEffect(() => {
     (async () => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         if (!session?.user) { router.push('/auth'); return; }
 
-        // filter=new: server lọc từ CHƯA học trên toàn bộ words (không kẹt 300 từ mới nhất)
-        const query = new URLSearchParams({
-          filter: 'new',
-          limit: idsParam === null ? '100' : '20',
-        });
-        if (initialClassroomId) query.set('classroomId', initialClassroomId);
-        if (idsParam !== null) query.set('ids', idsParam);
+        const batchLimit = idsParam === null ? NEW_BATCH : 20;
 
-        const res = await authFetch(`/api/words?${query.toString()}`);
-        const data = await res.json();
+        const loadWords = async (filter: 'new' | null): Promise<{ words: WordItem[]; classroomId?: string }> => {
+          const query = new URLSearchParams({
+            limit: idsParam === null ? '100' : '20',
+          });
+          if (filter) query.set('filter', filter);
+          if (initialClassroomId) query.set('classroomId', initialClassroomId);
+          if (idsParam !== null) query.set('ids', idsParam);
+          const res = await authFetch(`/api/words?${query.toString()}`);
+          const data = await res.json() as { success?: boolean; data?: WordItem[]; classroomId?: string };
+          if (!data.success || !data.data) return { words: [] };
+          return { words: data.data, classroomId: data.classroomId };
+        };
 
-        if (data.success && data.data) {
-          if (!initialClassroomId && data.classroomId) setClassroomId(data.classroomId);
-          const fresh: WordItem[] = data.data;
-          if (fresh.length === 0) { setPhase('empty'); return; }
-          const batchLimit = idsParam === null ? NEW_BATCH : 20;
-          setBatch(fresh.slice(0, batchLimit));
-          setRemainingNew(Math.max(0, fresh.length - batchLimit));
-          setPhase('ready');
-        } else {
-          setPhase('empty');
+        let result = await loadWords('new');
+        // Lộ trình: đã học pack này rồi (re-open / retry) → vẫn cho ôn lại theo ids
+        if (result.words.length === 0 && idsParam !== null) {
+          result = await loadWords(null);
         }
+
+        if (!initialClassroomId && result.classroomId) setClassroomId(result.classroomId);
+
+        if (result.words.length === 0) {
+          // Mở từ lộ trình mà không còn từ để học → coi step đã xong, không chặn path
+          if (roadmapStepParam) {
+            const done = await completeRoadmapStep(roadmapStepParam);
+            if (done) {
+              toast.success(`+${done.xpAwarded} XP — gói này bạn đã học rồi, sang bước kế tiếp nhé!`);
+              router.push('/journey');
+              return;
+            }
+          }
+          setPhase('empty');
+          return;
+        }
+
+        setBatch(result.words.slice(0, batchLimit));
+        setRemainingNew(Math.max(0, result.words.length - batchLimit));
+        setPhase('ready');
       } catch (err) {
         console.error('[Learn] Load failed:', err);
         toast.error('Không tải được từ mới.');
         setPhase('empty');
       }
     })();
-  }, [initialClassroomId, idsParam, router]);
+  }, [initialClassroomId, idsParam, router, roadmapStepParam]);
 
   // Tự phát âm khi đổi thẻ ở bước Giới thiệu
   useEffect(() => {
@@ -234,7 +256,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
   if (phase === 'loading') {
     return (
-      <div className="flex h-[calc(100dvh-62px)] items-center justify-center bg-slate-50 font-sans">
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] items-center justify-center bg-slate-50 font-sans">
         <div className="flex flex-col items-center gap-5">
           <div className="h-12 w-12 animate-spin rounded-full border-4 border-indigo-500 border-t-transparent" />
           <p className="font-bold animate-pulse text-indigo-600">Đang chuẩn bị bài học...</p>
@@ -244,19 +266,36 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   }
 
   if (phase === 'empty') {
+    const fromJourney = Boolean(searchParams.get('roadmapStep'));
     return (
-      <div className="flex h-[calc(100dvh-62px)] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
         <div className="space-y-3 text-center">
-          <div className="mb-2 text-6xl">🎉</div>
-          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">Hết từ mới rồi!</h1>
-          <p className="text-base font-medium text-slate-500 sm:text-lg">Bạn đã học hết các từ chưa thuộc. Giờ chuyển sang ôn tập nhé.</p>
+          <div className="mb-2 text-6xl">{fromJourney ? '🗺️' : '🎉'}</div>
+          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+            {fromJourney ? 'Chưa mở được gói từ' : 'Hết từ mới rồi!'}
+          </h1>
+          <p className="text-base font-medium text-slate-500 sm:text-lg">
+            {fromJourney
+              ? 'Gói đang được chuẩn bị hoặc bạn đã học hết. Quay lại lộ trình để thử lại / sang bước khác.'
+              : 'Bạn đã học hết các từ chưa thuộc. Giờ chuyển sang ôn tập nhé.'}
+          </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button variant="outline" className="h-14 px-7 rounded-2xl font-bold border-2" onClick={() => router.push('/student')}>
-            <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
-          </Button>
+          {fromJourney ? (
+            <Button
+              className="h-14 px-7 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
+              onClick={() => router.push('/journey')}
+            >
+              <ChevronLeft className="mr-2 h-5 w-5" /> Về lộ trình
+            </Button>
+          ) : (
+            <Button variant="outline" className="h-14 px-7 rounded-2xl font-bold border-2" onClick={() => router.push('/student')}>
+              <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
+            </Button>
+          )}
           <Button
-            className="h-14 px-7 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
+            variant={fromJourney ? 'outline' : 'default'}
+            className="h-14 px-7 rounded-2xl font-bold border-2"
             onClick={() => router.push(classroomId ? `/flashcard?class=${classroomId}` : '/flashcard')}
           >
             <GraduationCap className="mr-2 h-5 w-5" /> Ôn tập ngay
@@ -269,7 +308,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // Màn bắt đầu — cần 1 cú chạm để mở khoá audio (autoplay policy)
   if (phase === 'ready') {
     return (
-      <div className="flex h-[calc(100dvh-62px)] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 text-center font-sans">
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 text-center font-sans">
         <StudyGuideModal open={showGuide} onClose={closeGuide} />
         <div className="inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-1.5 text-xs font-black text-indigo-600">
           <Sparkles className="h-4 w-4" /> Phiên học mới
@@ -300,7 +339,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   if (phase === 'introduce') {
     const w = batch[introIndex];
     return (
-      <div className="flex h-[calc(100dvh-62px)] max-h-[calc(100dvh-62px)] flex-col overflow-hidden bg-slate-50 font-sans">
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] max-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col overflow-hidden bg-slate-50 font-sans">
         <StudyGuideModal open={showGuide} onClose={closeGuide} />
         <Header label="Học từ mới" badge={`${introIndex + 1} / ${batch.length}`} onHelp={() => setShowGuide(true)} />
         <ProgressBar value={(introIndex / batch.length) * 100} />
@@ -411,7 +450,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
             : 'border-slate-200 bg-slate-50 focus:border-indigo-500';
 
     return (
-      <div className="flex h-[calc(100dvh-62px)] max-h-[calc(100dvh-62px)] flex-col overflow-hidden bg-slate-50 font-sans">
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] max-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col overflow-hidden bg-slate-50 font-sans">
         <StudyGuideModal open={showGuide} onClose={closeGuide} />
         <Header label="Nhớ lại" badge={`${recallIndex + 1} / ${batch.length}`} onHelp={() => setShowGuide(true)} />
         <ProgressBar value={(recallIndex / batch.length) * 100} />
@@ -527,7 +566,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // ── DONE ──
   const accuracy = batch.length > 0 ? Math.round((results.correct / batch.length) * 100) : 0;
   return (
-    <div className="flex h-[calc(100dvh-62px)] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
+    <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
       <div className="space-y-3 text-center">
         <div className="mb-2 animate-bounce text-6xl">🎓</div>
         <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">Đã học {batch.length} từ!</h1>

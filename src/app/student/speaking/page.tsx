@@ -148,15 +148,15 @@ export default function StudentSpeakingPage() {
 
   if (isLoading) {
     return (
-      <main className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-slate-900">
+      <main className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex items-center justify-center bg-slate-900">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </main>
     );
   }
 
   return (
-    <StudentShell title="AI Speaking Tutor" contentClassName="p-0">
-      <main className="min-h-[calc(100dvh-62px)] bg-slate-900 text-slate-100 font-sans flex flex-col">
+    <StudentShell title="AI Speaking Tutor" contentClassName="p-0" hideMobileNav>
+      <main className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-slate-900 text-slate-100 font-sans flex flex-col">
       <header className="sticky top-[62px] z-30 flex h-14 items-center justify-between border-b border-slate-800 bg-slate-900/90 px-4 backdrop-blur sm:px-6">
         <div className="flex items-center gap-3">
           <Link

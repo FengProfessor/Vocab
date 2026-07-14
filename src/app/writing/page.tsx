@@ -445,10 +445,10 @@ function WritingContent() {
 
 export default function WritingPage() {
   return (
-    <StudentShell title="Writing Practice" contentClassName="p-0">
+    <StudentShell title="Writing Practice" contentClassName="p-0" hideMobileNav>
       <Suspense
         fallback={
-          <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-slate-50">
+          <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex items-center justify-center bg-slate-50">
             <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
           </div>
         }

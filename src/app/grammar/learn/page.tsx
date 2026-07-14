@@ -222,15 +222,32 @@ function GrammarLearnContent() {
     }
   };
 
-  // Mở từ lộ trình (?topic=<slug>): tự expand + scroll tới topic tương ứng
+  // Mở từ lộ trình (?topic=<slug>): expand topic + TỰ MỞ bài đầu để học ngay (không bắt user tìm trong list)
   const openedFromRoadmap = useRef(false);
   useEffect(() => {
     if (!roadmapTopicSlug || topics.length === 0 || openedFromRoadmap.current) return;
     const target = topics.find((t) => t.slug === roadmapTopicSlug);
     if (!target) return;
     openedFromRoadmap.current = true;
-    void toggleTopic(target.id);
-    setTimeout(() => topicRefs.current[target.id]?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+    void (async () => {
+      setExpandedTopic(target.id);
+      setLoadingTopic(target.id);
+      try {
+        const res = await fetch(`/api/grammar/lessons?topicId=${target.id}`)
+          .then((r) => r.json())
+          .catch(() => null);
+        const lessons = (res?.success ? res.data : []) as GrammarLesson[];
+        if (lessons.length > 0) {
+          setLessonsByTopic((prev) => ({ ...prev, [target.id]: lessons }));
+          // Mở bài đầu (hoặc bài chưa học nếu có) — user bấm "Đã đọc xong" để ghi step lộ trình
+          const firstUnlearned = lessons.find((l) => !progressMap[l.id]) ?? lessons[0];
+          setActiveLesson(firstUnlearned);
+        }
+      } finally {
+        setLoadingTopic(null);
+      }
+      setTimeout(() => topicRefs.current[target.id]?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roadmapTopicSlug, topics]);
 
@@ -271,7 +288,9 @@ function GrammarLearnContent() {
         if (roadmapStepId && roadmapTopicSlug && activeLesson.topic?.slug === roadmapTopicSlug) {
           const result = await completeRoadmapStep(roadmapStepId);
           if (result) {
-            toast.success(`+${result.xpAwarded} XP lộ trình — quay về hành trình để đi tiếp nhé!`);
+            toast.success(
+              `+${result.xpAwarded} XP · đã ghi chặng lộ trình (bài ngữ pháp CEFR dùng chung FSRS).`,
+            );
             router.push('/journey');
           }
         }
@@ -805,7 +824,7 @@ export default function GrammarLearnPage() {
   return (
     <StudentShell title="Grammar" contentClassName="p-0">
       <Suspense fallback={
-        <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center">
+        <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex items-center justify-center">
           <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
         </div>
       }>

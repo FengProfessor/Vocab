@@ -75,17 +75,24 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       }
     }
 
-    // Daily activity heatmap (30 ngày)
+    // Daily activity heatmap (30 ngày) — key theo local date, không dùng UTC ISO
+    const toLocalKey = (d: Date) => {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    };
     const dayMap: Record<string, number> = {};
     for (const r of recentRows) {
       const reviewed = r.last_reviewed_at;
       if (!reviewed) continue;
-      const day = reviewed.slice(0, 10);
+      // last_reviewed_at là timestamptz ISO → convert sang local day
+      const day = toLocalKey(new Date(reviewed));
       dayMap[day] = (dayMap[day] ?? 0) + 1;
     }
     const dailyActivity = Array.from({ length: 30 }, (_, i) => {
-      const d = new Date(now.getTime() - (29 - i) * 24 * 60 * 60 * 1000);
-      const key = d.toISOString().slice(0, 10);
+      const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (29 - i));
+      const key = toLocalKey(d);
       return { date: key, count: dayMap[key] ?? 0 };
     });
 

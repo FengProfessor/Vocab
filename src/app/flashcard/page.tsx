@@ -320,7 +320,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
   if (isLoading) {
     return (
-      <div className="flex h-[calc(100dvh-62px)] items-center justify-center bg-muted/40 font-sans">
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] items-center justify-center bg-muted/40 font-sans">
         <div className="flex flex-col items-center gap-6">
           <div className="h-12 w-12 animate-spin rounded-full border-4 border-indigo-500 border-t-transparent" />
           <p className="text-lg font-bold animate-pulse text-indigo-600">Preparing your session...</p>
@@ -332,7 +332,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   if (done || !current) {
     const goalReached = gamification.today_xp >= gamification.daily_goal;
     return (
-      <div className="flex h-[calc(100dvh-62px)] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
         <Celebration trigger={true} intensity={goalReached ? 'strong' : 'light'} />
 
         <div className="text-center space-y-3">
@@ -405,7 +405,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     !current.translation.includes('Analyzing');
 
   return (
-    <div className="flex h-[calc(100dvh-62px)] max-h-[calc(100dvh-62px)] flex-col overflow-hidden bg-slate-50 font-sans">
+    <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] max-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col overflow-hidden bg-slate-50 font-sans">
       <StudyGuideModal open={showGuide} onClose={closeGuide} />
 
       {/* Session chrome — gọn, không sticky chồng shell */}
@@ -832,9 +832,9 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
 export default function FlashcardPage() {
   return (
-    <StudentShell title="Flashcards" contentClassName="p-0">
+    <StudentShell title="Flashcards" contentClassName="p-0" hideMobileNav>
       <Suspense fallback={
-        <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-slate-50">
+        <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex items-center justify-center bg-slate-50">
           <Loader2 className="h-10 w-10 animate-spin text-indigo-400" />
         </div>
       }>

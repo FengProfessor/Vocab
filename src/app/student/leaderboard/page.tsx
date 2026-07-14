@@ -237,7 +237,7 @@ export default function LeaderboardPage() {
   return (
     <StudentShell title="Bảng xếp hạng" contentClassName="p-0">
       <Suspense fallback={
-        <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950">
+        <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex items-center justify-center bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950">
           <Loader2 className="h-8 w-8 animate-spin text-indigo-400" />
         </div>
       }>

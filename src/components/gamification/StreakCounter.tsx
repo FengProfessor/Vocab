@@ -10,12 +10,28 @@ interface Props {
   className?: string;
 }
 
-// Bảng màu heatmap 5 mức (light → dark green) theo design handoff
+// Bảng màu heatmap 5 mức (light → dark green)
 const HEAT_PALETTE = ['#eef2f5', '#cde7d8', '#86d6a6', '#34b87a', '#15875a'];
 const MONTH_LABELS = [
   'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
   'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12',
 ];
+
+/** Local YYYY-MM-DD — tránh lệch UTC (VN +7) */
+function toLocalDateKey(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+/** Parse YYYY-MM-DD thành local Date (không dùng `new Date(iso)` → UTC) */
+function parseLocalDateKey(key: string): Date | null {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(key);
+  if (!m) return null;
+  const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  return Number.isNaN(d.getTime()) ? null : d;
+}
 
 /** Map số từ ôn trong ngày → mức cường độ 0-4 */
 function countToLevel(count: number): number {
@@ -26,14 +42,13 @@ function countToLevel(count: number): number {
   return 4;
 }
 
-/** Trả về mảng 7 ngày gần nhất (cũ → mới): { date, label, active } */
+/** Trả về mảng 7 ngày gần nhất (cũ → mới) */
 function buildLast7Days(streak: number, lastActiveDate: string | null | undefined) {
   const days: { date: Date; label: string; active: boolean; isToday: boolean }[] = [];
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Nếu không có lastActiveDate → fallback: chỉ filled n ngày cuối tương đương streak (nhưng chỉ tới hôm nay)
-  const lastActive = lastActiveDate ? new Date(lastActiveDate) : null;
+  const lastActive = lastActiveDate ? parseLocalDateKey(lastActiveDate.slice(0, 10)) : null;
   if (lastActive) lastActive.setHours(0, 0, 0, 0);
 
   const DAY = 86_400_000;
@@ -43,7 +58,6 @@ function buildLast7Days(streak: number, lastActiveDate: string | null | undefine
     const d = new Date(today.getTime() - i * DAY);
     let active = false;
     if (lastActive && streak > 0) {
-      // Active nếu d nằm trong khoảng [lastActive - (streak-1), lastActive]
       const start = new Date(lastActive.getTime() - (streak - 1) * DAY);
       active = d >= start && d <= lastActive;
     }
@@ -96,53 +110,85 @@ export function StreakCounter({
     const lead = new Date(year, month, 1).getDay(); // 0=CN
     const weekdays = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
 
-    // Map ngày → cường độ từ dailyCounts (real data)
+    // Map ngày → cường độ từ dailyCounts (local date key)
     const intensityByDay: Record<number, number> = {};
     const minsByDay: Record<number, number> = {};
     for (const { date, count } of dailyCounts ?? []) {
-      const d = new Date(date);
+      const d = parseLocalDateKey(date.slice(0, 10));
+      if (!d) continue;
       if (d.getFullYear() === year && d.getMonth() === month) {
         intensityByDay[d.getDate()] = countToLevel(count);
         minsByDay[d.getDate()] = count;
       }
     }
 
+    const activeDays = Object.values(minsByDay).filter((c) => c > 0).length;
+    const totalReviews = Object.values(minsByDay).reduce((s, c) => s + c, 0);
+
     const cellBase =
-      'flex items-center justify-center rounded-[5px] text-[9.5px] font-extrabold tabular-nums aspect-square';
+      'flex items-center justify-center rounded-md text-[11px] sm:text-[9.5px] font-extrabold tabular-nums aspect-square min-h-[32px] sm:min-h-0';
 
     return (
       <div
-        className={`flex items-center gap-3 rounded-[18px] border border-[#e9e9f0] bg-white p-[13px_14px] shadow-[0_1px_2px_rgba(16,24,40,.04)] ${className}`}
+        className={`flex flex-col gap-3 rounded-[18px] border border-[#e9e9f0] bg-white p-3.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] sm:flex-row sm:items-stretch sm:gap-3 sm:p-[13px_14px] ${className}`}
       >
-        {/* Left block */}
-        <div className="flex w-[70px] shrink-0 flex-col gap-1.5">
-          <div className="flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-gradient-to-br from-orange-400 to-orange-500 text-[15px] shadow-[0_4px_10px_rgba(249,115,22,.3)]">
+        {/* Header / streak — full width trên mobile */}
+        <div className="flex shrink-0 items-center gap-3 sm:w-[76px] sm:flex-col sm:items-start sm:gap-1.5">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[12px] bg-gradient-to-br from-orange-400 to-orange-500 text-[18px] shadow-[0_4px_10px_rgba(249,115,22,.3)] sm:h-[30px] sm:w-[30px] sm:rounded-[9px] sm:text-[15px]">
             🔥
           </div>
-          <div>
+          <div className="min-w-0 flex-1 sm:flex-none">
             <div className="flex items-baseline gap-1">
-              <span className="text-[21px] font-black leading-none text-orange-600">{streak}</span>
-              <span className="text-[11px] font-bold text-orange-400">ngày</span>
+              <span className="text-[24px] font-black leading-none text-orange-600 sm:text-[21px]">
+                {streak}
+              </span>
+              <span className="text-xs font-bold text-orange-400 sm:text-[11px]">ngày</span>
             </div>
-            <div className="mt-px text-[10px] font-extrabold uppercase tracking-wider text-orange-400">
+            <div className="mt-0.5 text-[11px] font-extrabold uppercase tracking-wider text-orange-400 sm:text-[10px]">
               streak
             </div>
+            <div className="mt-1 text-[12px] font-black text-[#0f172a] sm:hidden">
+              Bảng hoạt động · {MONTH_LABELS[month]}
+            </div>
+            <div className="hidden text-[10.5px] font-bold text-[#aab0bd] sm:block">
+              {MONTH_LABELS[month]}
+            </div>
           </div>
-          <div className="text-[10.5px] font-bold text-[#aab0bd]">{MONTH_LABELS[month]}</div>
+          {/* Mobile: tóm tắt nhanh */}
+          <div className="flex shrink-0 flex-col items-end gap-0.5 text-right sm:hidden">
+            <span className="text-[11px] font-extrabold tabular-nums text-emerald-600">
+              {activeDays} ngày học
+            </span>
+            <span className="text-[10px] font-bold text-[#aab0bd]">
+              {totalReviews} lượt ôn
+            </span>
+          </div>
         </div>
 
-        {/* Right block: calendar */}
+        {/* Calendar grid — full width */}
         <div className="min-w-0 flex-1">
-          <div className="mb-[3px] grid grid-cols-7 gap-[3px]">
+          <div className="mb-1.5 hidden items-center justify-between sm:flex">
+            <span className="text-[11px] font-extrabold text-[#0f172a]">
+              Bảng hoạt động hàng tháng
+            </span>
+            <span className="text-[10px] font-bold text-[#aab0bd]">
+              {activeDays} ngày · {totalReviews} lượt
+            </span>
+          </div>
+
+          <div className="mb-1 grid grid-cols-7 gap-1 sm:mb-[3px] sm:gap-[3px]">
             {weekdays.map((wd) => (
-              <div key={wd} className="text-center text-[8px] font-extrabold uppercase text-[#b3b8c4]">
+              <div
+                key={wd}
+                className="text-center text-[10px] font-extrabold uppercase text-[#b3b8c4] sm:text-[8px]"
+              >
                 {wd}
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-7 gap-[3px]">
+          <div className="grid grid-cols-7 gap-1 sm:gap-[3px]">
             {Array.from({ length: lead }).map((_, i) => (
-              <div key={`lead-${i}`} className="aspect-square" />
+              <div key={`lead-${i}`} className="aspect-square min-h-[32px] sm:min-h-0" />
             ))}
             {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
               const isToday = d === todayDate;
@@ -169,7 +215,9 @@ export function StreakCounter({
                     background: HEAT_PALETTE[lvl],
                     color: fg,
                     border: lvl === 0 ? '1px solid #e8ebef' : '1px solid rgba(0,0,0,.04)',
-                    boxShadow: isToday ? `0 0 0 2px #fff, 0 0 0 3px ${HEAT_PALETTE[4]}` : undefined,
+                    boxShadow: isToday
+                      ? `0 0 0 2px #fff, 0 0 0 3.5px ${HEAT_PALETTE[4]}`
+                      : undefined,
                   }}
                   title={`${d} ${MONTH_LABELS[month].toLowerCase()}${mins ? ` · ${mins} từ` : ' · nghỉ'}`}
                 >
@@ -178,19 +226,25 @@ export function StreakCounter({
               );
             })}
           </div>
+
           {/* Legend */}
-          <div className="mt-[9px] flex items-center justify-end gap-1.5">
-            <span className="text-[10px] font-bold text-[#b3b8c4]">Ít</span>
-            <div className="flex gap-[3px]">
-              {HEAT_PALETTE.map((c) => (
-                <div
-                  key={c}
-                  className="h-3 w-3 rounded-[3px] border border-black/5"
-                  style={{ background: c }}
-                />
-              ))}
+          <div className="mt-2.5 flex items-center justify-between gap-2 sm:mt-[9px] sm:justify-end sm:gap-1.5">
+            <span className="text-[11px] font-bold text-[#64748b] sm:hidden">
+              Màu đậm = học nhiều hơn
+            </span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] font-bold text-[#b3b8c4]">Ít</span>
+              <div className="flex gap-[3px]">
+                {HEAT_PALETTE.map((c) => (
+                  <div
+                    key={c}
+                    className="h-3 w-3 rounded-[3px] border border-black/5 sm:h-3 sm:w-3"
+                    style={{ background: c }}
+                  />
+                ))}
+              </div>
+              <span className="text-[10px] font-bold text-[#b3b8c4]">Nhiều</span>
             </div>
-            <span className="text-[10px] font-bold text-[#b3b8c4]">Nhiều</span>
           </div>
         </div>
       </div>
@@ -257,8 +311,8 @@ export function StreakCounter({
                 d.active
                   ? 'bg-gradient-to-br from-orange-400 to-red-500 text-white shadow-sm'
                   : d.isToday
-                  ? 'border-2 border-dashed border-orange-300 bg-white'
-                  : 'bg-orange-100/60'
+                    ? 'border-2 border-dashed border-orange-300 bg-white'
+                    : 'bg-orange-100/60'
               }`}
               title={d.date.toLocaleDateString('vi-VN')}
             >
@@ -270,3 +324,5 @@ export function StreakCounter({
     </div>
   );
 }
+
+export { toLocalDateKey };

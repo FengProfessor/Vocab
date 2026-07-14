@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import { fetchRoadmap, type RoadmapLevelView, type RoadmapStepView } from '@/lib/roadmap-client';
+import { getExitDisclaimer, getExitStandard } from '@/lib/roadmap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Celebration } from '@/components/gamification/Celebration';
@@ -65,6 +66,7 @@ export default function JourneyPage() {
   const [enrolled, setEnrolled] = useState(false);
   const [tree, setTree] = useState<RoadmapLevelView[]>([]);
   const [levelId, setLevelId] = useState<string>('A0');
+  const [track, setTrack] = useState<'cefr' | 'thpt'>('cefr');
   const [busyStep, setBusyStep] = useState<string | null>(null);
   const [celebrate, setCelebrate] = useState<string | null>(null);
 
@@ -82,6 +84,7 @@ export default function JourneyPage() {
       if (data.enrolled && data.tree) {
         setTree(data.tree);
         setLevelId(data.levelId ?? 'A0');
+        setTrack(data.track === 'thpt' ? 'thpt' : 'cefr');
       }
     } catch (error: unknown) {
       toast.error(error instanceof Error ? error.message : 'Không tải được lộ trình');
@@ -173,13 +176,22 @@ export default function JourneyPage() {
         });
         const data = await res.json() as { success?: boolean; classroomId?: string; wordIds?: string[]; error?: string };
         if (!res.ok || !data.success || !data.classroomId || !data.wordIds?.length) {
-          throw new Error(data.error || 'Không mở được gói từ');
+          throw new Error(data.error || 'Không mở được gói từ — gói có thể đã gỡ khỏi danh mục. Thử bước khác hoặc báo admin.');
         }
-        // Enrich trước khi mở phiên (tránh phiên rỗng) — best-effort
-        await authFetch('/api/words/refresh', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),
-        }).catch(() => null);
+        // Enrich trước khi mở phiên (tránh phiên rỗng vì translation ⏳) — best-effort, timeout 8s
+        const refreshCtrl = new AbortController();
+        const refreshTimer = setTimeout(() => refreshCtrl.abort(), 8000);
+        try {
+          await authFetch('/api/words/refresh', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),
+            signal: refreshCtrl.signal,
+          });
+        } catch {
+          // Vẫn mở phiên — LearnMode có fallback load theo ids
+        } finally {
+          clearTimeout(refreshTimer);
+        }
         toast.dismiss('journey-open');
         const ids = data.wordIds.map((id) => encodeURIComponent(id)).join(',');
         router.push(`/flashcard?class=${encodeURIComponent(data.classroomId)}&mode=learn&ids=${ids}&roadmapStep=${step.id}`);
@@ -237,14 +249,16 @@ export default function JourneyPage() {
     }
     if (mode === 'thpt-grade') {
       const grades = [
-        { id: 'lop-10', label: 'Lớp 10', desc: 'Nền tảng: thì cơ bản, bị động, đọc thông báo/bài ngắn.' },
-        { id: 'lop-11', label: 'Lớp 11', desc: 'Nâng cao: thì hoàn thành, mệnh đề quan hệ, sắp xếp đoạn/tờ rơi.' },
-        { id: 'lop-12', label: 'Lớp 12 (Luyện thi)', desc: 'Đủ 6 dạng đề tốt nghiệp 2025 + đề mini tổng hợp.' },
+        { id: 'lop-10', label: 'Lớp 10 · Global Success', desc: '10 unit SGK: Family Life → Ecotourism · vocab catalog + ngữ pháp CEFR.' },
+        { id: 'lop-11', label: 'Lớp 11 · Global Success', desc: '10 unit: Healthy life → Longevity · participle, cleft, skill đề.' },
+        { id: 'lop-12', label: 'Lớp 12 · Global Success + đề 2025', desc: '10 unit + rải 6 dạng đề tốt nghiệp (thông báo, tờ rơi, cloze, đọc…).' },
       ];
       return (
         <div className="mx-auto max-w-xl p-6 space-y-4">
           <h1 className="text-2xl font-bold">Bạn học lớp mấy?</h1>
-          <p className="text-muted-foreground">Lộ trình luyện thi THPT theo đúng chương trình + format đề 2025.</p>
+          <p className="text-muted-foreground">
+            Hybrid: <b>thứ tự unit theo SGK</b>, bài ngữ pháp = kho CEFR (cùng app). Chưa thay thế lộ trình A0–B2 đầy đủ.
+          </p>
           <div className="grid gap-3">
             {grades.map((g) => (
               <Card key={g.id} className="cursor-pointer hover:border-primary transition-colors"
@@ -300,7 +314,7 @@ export default function JourneyPage() {
           <h1 className="text-3xl font-bold">Lộ trình học của bạn</h1>
           <p className="text-muted-foreground">Học theo từng chặng nhỏ: từ vựng + ngữ pháp + phát âm đi cùng nhau, mở khóa dần từ dễ đến khó. Trước tiên, mình cần biết bạn nên bắt đầu từ đâu.</p>
           <div className="grid w-full gap-3">
-            <Button variant="chunky" size="lg" onClick={() => void startTest()}>⚡ Kiểm tra trình độ (2 phút)</Button>
+            <Button variant="chunky" size="lg" onClick={() => void startTest()}>⚡ Kiểm tra trình độ (~4 phút · 35 câu)</Button>
             <Button variant="outline" size="lg" onClick={() => setMode('pick')}>Tôi tự chọn cấp</Button>
           </div>
           <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
@@ -322,8 +336,11 @@ export default function JourneyPage() {
           </Card>
           <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => setMode('thpt-grade')}>
             <CardContent className="p-4">
-              <p className="font-bold">🎓 Luyện thi THPT (Lớp 10 → 12)</p>
-              <p className="text-sm text-muted-foreground">Bám chương trình + đủ 6 dạng đề tốt nghiệp 2025: đọc thông báo/tờ rơi, sắp xếp đoạn, cloze, đọc hiểu, đề mini.</p>
+              <p className="font-bold">🎓 THPT · Global Success (Lớp 10 → 12)</p>
+              <p className="text-sm text-muted-foreground">
+                Bám đúng unit SGK (từ vựng trong kho) · ngữ pháp sâu theo bài CEFR · rải dạng đề tốt nghiệp 2025.
+                Nền tảng đầy đủ A0–B2 vẫn học song song ở lộ trình CEFR.
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -337,20 +354,65 @@ export default function JourneyPage() {
     <StudentShell title="Lộ trình">
       <div className="mx-auto max-w-2xl p-4 pb-24 space-y-8">
       <Celebration trigger={Boolean(celebrate)} triggerKey={celebrate ?? undefined} intensity={celebrate === 'level' ? 'epic' : 'light'} />
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold">Lộ trình của bạn</h1>
-          <p className="text-sm text-muted-foreground">{levelId.startsWith('lop-') ? `Luyện thi lớp ${levelId.replace('lop-', '')}` : `Bắt đầu từ cấp ${levelId}`} · xong chặng nào mở chặng đó</p>
+          <p className="text-sm text-muted-foreground">
+            {track === 'thpt' || levelId.startsWith('lop-')
+              ? `Global Success lớp ${levelId.replace('lop-', '')} · vocab SGK + ngữ pháp CEFR · dạng đề 2025`
+              : `Core ${levelId} · scaffold có chủ đích, chưa phải chứng chỉ CEFR`}
+            {' · '}xong chặng mở chặng
+          </p>
         </div>
         <Link href="/student"><Button variant="ghost" size="sm"><ArrowLeft className="w-4 h-4 mr-1" /> Dashboard</Button></Link>
       </div>
 
-      {visibleTree.start.map((level) => (
+      {track === 'thpt' || levelId.startsWith('lop-') ? (
+        <p className="rounded-xl border border-sky-200/80 bg-sky-50/80 px-3 py-2 text-xs text-sky-950 dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-100">
+          <b>Hybrid THPT:</b> mỗi Unit = từ vựng Global Success (kho catalog) + bài ngữ pháp CEFR (cùng FSRS với track A0–B2).
+          Muốn nền tảng đủ 5 cấp CEFR → đổi sang lộ trình CEFR (chọn lại điểm bắt đầu).
+        </p>
+      ) : (
+        <p className="rounded-xl border border-amber-200/80 bg-amber-50/80 px-3 py-2 text-xs text-amber-900 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
+          {getExitDisclaimer()}
+        </p>
+      )}
+
+      {(() => {
+        const current = tree.flatMap((l) => l.units.flatMap((u) => u.steps)).find((s) => s.status === 'current');
+        if (!current) return null;
+        return (
+          <Card className="border-primary/50 bg-primary/5">
+            <CardContent className="flex flex-wrap items-center justify-between gap-3 p-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">Bước đang mở</p>
+                <p className="font-bold">{STEP_LABEL[current.type] ?? current.type}: {current.title}</p>
+              </div>
+              <Button variant="chunky" disabled={busyStep !== null} onClick={() => void openStep(current)}>
+                {busyStep === current.id ? 'Đang mở...' : 'Học ngay →'}
+              </Button>
+            </CardContent>
+          </Card>
+        );
+      })()}
+
+      {visibleTree.start.map((level) => {
+        const exit = !level.id.startsWith('lop-') ? getExitStandard(level.id) : null;
+        return (
         <section key={level.id} className="space-y-4">
           <div className={`rounded-2xl bg-gradient-to-r ${LEVEL_COLORS[level.id] ?? 'from-slate-500 to-slate-600'} p-4 text-white`}>
-            <p className="text-sm/none opacity-80">{level.id.startsWith('lop-') ? `Lớp ${level.id.replace('lop-', '')}` : `Cấp ${level.id}`}</p>
+            <p className="text-sm/none opacity-80">{level.id.startsWith('lop-') ? `Lớp ${level.id.replace('lop-', '')}` : `Core ${level.id}`}</p>
             <h2 className="text-xl font-bold">{level.titleVi}</h2>
             <p className="text-sm opacity-90">{level.description}</p>
+            {exit && (
+              <details className="mt-2 rounded-lg bg-black/15 p-2 text-sm">
+                <summary className="cursor-pointer font-semibold">Bạn sẽ làm được gì? (can-do)</summary>
+                <ul className="mt-2 list-disc space-y-1 pl-5 opacity-95">
+                  {exit.canDo.map((line) => <li key={line}>{line}</li>)}
+                </ul>
+                <p className="mt-2 text-xs opacity-80">Chưa gồm: {exit.notYet.join(' · ')}</p>
+              </details>
+            )}
           </div>
           <div className="space-y-3">
             {level.units.map((unit) => {
@@ -390,7 +452,8 @@ export default function JourneyPage() {
             })}
           </div>
         </section>
-      ))}
+        );
+      })}
 
       {visibleTree.review.length > 0 && (
         <details className="rounded-xl border p-4">

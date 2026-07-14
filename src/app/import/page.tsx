@@ -544,7 +544,7 @@ export default function ImportPage() {
 
   return (
     <StudentShell title="Nhập danh sách riêng" contentClassName="p-0">
-      <div className="min-h-[calc(100dvh-62px)] bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/20 font-sans">
+      <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/20 font-sans">
       {/* Header */}
       <header className="sticky top-[62px] z-10 flex h-16 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur sm:px-6">
         <Link href="/student">

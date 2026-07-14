@@ -183,7 +183,7 @@ export default function LibraryPage() {
 
   return (
     <StudentShell title="Thư viện từ vựng" contentClassName="p-0">
-      <div className="min-h-[calc(100dvh-62px)] bg-slate-50 font-sans text-slate-900">
+      <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-slate-50 font-sans text-slate-900">
       <header className="sticky top-[62px] z-30 flex h-16 items-center gap-3 border-b bg-white/90 px-4 backdrop-blur sm:px-6">
         <Link href="/student" className="flex items-center gap-1 text-sm font-bold text-slate-500 transition-colors hover:text-indigo-700">
           <ChevronLeft className="h-5 w-5" aria-hidden="true" /><span className="hidden sm:inline">Dashboard</span>

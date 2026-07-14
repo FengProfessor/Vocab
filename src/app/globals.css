@@ -54,6 +54,15 @@
 }
 
 :root {
+  /* Safe area — iOS notch / home indicator + Android gesture bar */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --header-h: 3.875rem; /* 62px */
+  --mobile-nav-h: 3.75rem; /* 60px, chưa kể safe-bottom */
+  --mobile-nav-total: calc(var(--mobile-nav-h) + var(--safe-bottom));
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -141,11 +150,72 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Tránh layout nhảy khi bàn phím iOS/Android mở */
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
+  }
+  /* iOS Safari: input <16px → auto-zoom. Giữ 16px trên mobile. */
+  @media (max-width: 767px) {
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+    select,
+    textarea {
+      font-size: 16px;
+    }
+  }
+}
+
+/* ── Mobile shell utilities (iOS + Android) ── */
+@layer utilities {
+  .pt-safe {
+    padding-top: var(--safe-top);
+  }
+  .pb-safe {
+    padding-bottom: var(--safe-bottom);
+  }
+  .pl-safe {
+    padding-left: var(--safe-left);
+  }
+  .pr-safe {
+    padding-right: var(--safe-right);
+  }
+  .px-safe {
+    padding-left: var(--safe-left);
+    padding-right: var(--safe-right);
+  }
+  /* Nội dung nằm trên bottom tab bar */
+  .pb-mobile-nav {
+    padding-bottom: calc(var(--mobile-nav-total) + 1rem);
+  }
+  /* Touch target tối thiểu 44×44 (Apple HIG / Material) */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  /* Header sticky có safe-area (notch / status bar) */
+  .h-header-safe {
+    height: calc(var(--header-h) + var(--safe-top));
+    padding-top: var(--safe-top);
+  }
+  /* Bottom nav height + home indicator */
+  .h-mobile-nav {
+    height: var(--mobile-nav-total);
+    padding-bottom: var(--safe-bottom);
+  }
+  /* Ẩn scrollbar nhưng vẫn scroll (drawer mobile) */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }
 

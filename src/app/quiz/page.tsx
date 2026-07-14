@@ -481,9 +481,9 @@ function QuizContent() {
 
 export default function QuizPage() {
   return (
-    <StudentShell title="Mini Quiz" contentClassName="p-0">
+    <StudentShell title="Mini Quiz" contentClassName="p-0" hideMobileNav>
       <Suspense fallback={
-        <div className="min-h-[calc(100dvh-62px)] flex items-center justify-center bg-slate-900">
+        <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex items-center justify-center bg-slate-900">
           <Loader2 className="h-10 w-10 animate-spin text-violet-400" />
         </div>
       }>

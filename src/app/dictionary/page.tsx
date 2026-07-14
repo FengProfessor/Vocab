@@ -409,7 +409,7 @@ export default function DictionaryPage() {
 
   return (
     <StudentShell title="Tra từ điển" contentClassName="p-0">
-      <div className="min-h-[calc(100dvh-62px)] bg-background">
+      <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-background">
       {/* Header */}
       <header className="sticky top-[62px] z-30 flex items-center gap-3 border-b bg-background/80 px-4 py-3 backdrop-blur">
         <Link href="/student" className="p-2 rounded-full hover:bg-muted transition-colors">
