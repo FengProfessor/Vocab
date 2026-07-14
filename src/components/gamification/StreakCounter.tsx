@@ -115,10 +115,10 @@ export function StreakCounter({
 
     return (
       <div
-        className={`flex flex-row items-center gap-2 rounded-xl border border-[#e9e9f0] bg-white px-2 py-1.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] sm:flex-row sm:items-stretch sm:gap-3 sm:rounded-[18px] sm:p-[13px_14px] ${className}`}
+        className={`flex h-full min-w-0 flex-col justify-center gap-1 rounded-xl border border-[#e9e9f0] bg-white px-2 py-1.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] sm:flex-row sm:items-stretch sm:gap-3 sm:rounded-[18px] sm:p-[13px_14px] ${className}`}
       >
-        {/* Streak — 1 hàng gọn */}
-        <div className="flex shrink-0 items-center gap-1.5 sm:w-[70px] sm:flex-col sm:items-start sm:gap-1.5">
+        {/* Streak — gọn trên heatmap (mobile) / cột trái (desktop) */}
+        <div className="flex shrink-0 items-center gap-1 sm:w-[70px] sm:flex-col sm:items-start sm:gap-1.5">
           <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-orange-400 to-orange-500 text-[10px] sm:h-[30px] sm:w-[30px] sm:rounded-[9px] sm:text-[15px]">
             🔥
           </div>
@@ -132,7 +132,7 @@ export function StreakCounter({
         </div>
 
         {/* Heatmap */}
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 sm:flex-1">
           <div className="mb-1 hidden items-center justify-between sm:mb-[3px] sm:flex">
             <span className="text-[11px] font-extrabold text-[#0f172a]">Bảng hoạt động hàng tháng</span>
             <span className="text-[10px] font-bold text-[#aab0bd]">

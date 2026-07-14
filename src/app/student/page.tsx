@@ -964,21 +964,23 @@ export default function StudentDashboard() {
             )}
           </div>
 
-          {/* Lịch + XP — gọn để nhường chỗ số Học/Ôn */}
+          {/* Mobile: heatmap trái · Rookie/XP/mục tiêu phải | Desktop: 2 cột */}
           <section
             aria-label="Bảng hoạt động hàng tháng"
-            className="grid grid-cols-1 gap-1.5 md:grid-cols-2 md:items-stretch md:gap-2.5"
+            className="grid grid-cols-[1fr_minmax(0,0.95fr)] items-stretch gap-1.5 sm:grid-cols-2 sm:gap-2.5"
           >
             <StreakCounter
               streak={gamification.current_streak}
               variant="calendar"
               dailyCounts={dailyActivity}
+              className="min-w-0"
             />
             <XpGoalCard
               totalXp={gamification.total_xp}
               todayXp={gamification.today_xp}
               dailyXpGoal={gamification.daily_goal}
               todayWords={todayWords}
+              className="min-w-0"
             />
           </section>
 
