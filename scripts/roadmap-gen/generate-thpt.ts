@@ -89,17 +89,18 @@ function main(): void {
         });
         packIds.forEach((pid, k) => {
           const p = packById.get(pid)!;
+          // UI labels stay English (SGK unit name)
           steps.push({
             id: `sv-${unitId}-${pid}`,
             type: 'vocab',
             ref: pid,
-            title: packIds.length > 1 ? `${def.titleVi} · Phần ${k + 1}` : def.titleVi,
+            title: packIds.length > 1 ? `${def.unitTitle} · Part ${k + 1}` : def.unitTitle,
             wordCount: p.wordCount,
           });
         });
       }
 
-      // Grammar → CEFR slug (ref = slug để /grammar/learn?topic=; id unique theo unit)
+      // Grammar → CEFR slug (ref = slug; title English from grammar roadmap)
       for (const slug of def.grammar) {
         const g = grammarBySlug.get(slug);
         if (!g) {
@@ -110,7 +111,7 @@ function main(): void {
           id: `sg-${unitId}-${slug}`,
           type: 'grammar',
           ref: slug,
-          title: g.title_vi || g.title,
+          title: g.title || slug,
         });
       }
 
@@ -128,7 +129,8 @@ function main(): void {
       return {
         id: unitId,
         index: i + 1,
-        title: `Unit ${i + 1} · ${def.titleVi}`,
+        // English only — keep SGK unit title as-is
+        title: `Unit ${i + 1} · ${def.unitTitle}`,
         steps,
       };
     });
@@ -136,6 +138,7 @@ function main(): void {
     return {
       id: grade.id,
       title: grade.title,
+      // titleVi kept for shell badges but English preferred for level banner
       titleVi: grade.titleVi,
       description: grade.description,
       units,

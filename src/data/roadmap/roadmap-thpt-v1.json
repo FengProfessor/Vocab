@@ -8,481 +8,481 @@
     {
       "id": "lop-10",
       "title": "Grade 10 — Global Success",
-      "titleVi": "Lớp 10 — Global Success",
-      "description": "10 unit đúng catalog: Family Life → Ecotourism · vocab kho + ngữ pháp CEFR + skill đề.",
+      "titleVi": "Grade 10 — Global Success",
+      "description": "10 units from catalog: Family Life → Ecotourism · vocab packs + CEFR grammar + exam skills.",
       "units": [
         {
           "id": "u-thpt10-1",
           "index": 1,
-          "title": "Unit 1 · Đời sống gia đình",
+          "title": "Unit 1 · Family Life",
           "steps": [
             {
               "id": "sv-u-thpt10-1-st-fbf0dc671092-p0",
               "type": "vocab",
               "ref": "st-fbf0dc671092-p0",
-              "title": "Đời sống gia đình · Phần 1",
+              "title": "Family Life · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-1-st-fbf0dc671092-p1",
               "type": "vocab",
               "ref": "st-fbf0dc671092-p1",
-              "title": "Đời sống gia đình · Phần 2",
+              "title": "Family Life · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-1-st-fbf0dc671092-p2",
               "type": "vocab",
               "ref": "st-fbf0dc671092-p2",
-              "title": "Đời sống gia đình · Phần 3",
+              "title": "Family Life · Part 3",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-1-st-fbf0dc671092-p3",
               "type": "vocab",
               "ref": "st-fbf0dc671092-p3",
-              "title": "Đời sống gia đình · Phần 4",
+              "title": "Family Life · Part 4",
               "wordCount": 15
             },
             {
               "id": "sg-u-thpt10-1-present-simple",
               "type": "grammar",
               "ref": "present-simple",
-              "title": "Thì Hiện tại đơn"
+              "title": "Present Simple"
             },
             {
               "id": "sg-u-thpt10-1-present-continuous",
               "type": "grammar",
               "ref": "present-continuous",
-              "title": "Thì Hiện tại tiếp diễn"
+              "title": "Present Continuous"
             }
           ]
         },
         {
           "id": "u-thpt10-2",
           "index": 2,
-          "title": "Unit 2 · Cơ thể & sức khỏe",
+          "title": "Unit 2 · Your Body And You",
           "steps": [
             {
               "id": "sv-u-thpt10-2-st-0bf9ebd8c770-p0",
               "type": "vocab",
               "ref": "st-0bf9ebd8c770-p0",
-              "title": "Cơ thể & sức khỏe · Phần 1",
+              "title": "Your Body And You · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-2-st-0bf9ebd8c770-p1",
               "type": "vocab",
               "ref": "st-0bf9ebd8c770-p1",
-              "title": "Cơ thể & sức khỏe · Phần 2",
+              "title": "Your Body And You · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-2-st-0bf9ebd8c770-p2",
               "type": "vocab",
               "ref": "st-0bf9ebd8c770-p2",
-              "title": "Cơ thể & sức khỏe · Phần 3",
+              "title": "Your Body And You · Part 3",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-2-st-0bf9ebd8c770-p3",
               "type": "vocab",
               "ref": "st-0bf9ebd8c770-p3",
-              "title": "Cơ thể & sức khỏe · Phần 4",
+              "title": "Your Body And You · Part 4",
               "wordCount": 15
             },
             {
               "id": "sg-u-thpt10-2-have-got",
               "type": "grammar",
               "ref": "have-got",
-              "title": "Cấu trúc have got / has got"
+              "title": "Have got / Has got"
             },
             {
               "id": "sg-u-thpt10-2-modals-ability",
               "type": "grammar",
               "ref": "modals-ability",
-              "title": "Động từ khuyết thiếu: khả năng (can/could)"
+              "title": "Modals: Ability (can/could)"
             }
           ]
         },
         {
           "id": "u-thpt10-3",
           "index": 3,
-          "title": "Unit 3 · Âm nhạc",
+          "title": "Unit 3 · Music",
           "steps": [
             {
               "id": "sv-u-thpt10-3-st-a8f51e97eddb-p0",
               "type": "vocab",
               "ref": "st-a8f51e97eddb-p0",
-              "title": "Âm nhạc · Phần 1",
+              "title": "Music · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-3-st-a8f51e97eddb-p1",
               "type": "vocab",
               "ref": "st-a8f51e97eddb-p1",
-              "title": "Âm nhạc · Phần 2",
+              "title": "Music · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-3-st-a8f51e97eddb-p2",
               "type": "vocab",
               "ref": "st-a8f51e97eddb-p2",
-              "title": "Âm nhạc · Phần 3",
+              "title": "Music · Part 3",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-3-st-a8f51e97eddb-p3",
               "type": "vocab",
               "ref": "st-a8f51e97eddb-p3",
-              "title": "Âm nhạc · Phần 4",
+              "title": "Music · Part 4",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt10-3-gerunds-infinitives",
               "type": "grammar",
               "ref": "gerunds-infinitives",
-              "title": "Danh động từ & động từ nguyên mẫu"
+              "title": "Gerunds & Infinitives"
             },
             {
               "id": "sr-u-thpt10-3-ann-10-1",
               "type": "announcement",
               "ref": "ann-10-1",
-              "title": "Đọc điền thông báo"
+              "title": "Announcement (gap-fill)"
             }
           ]
         },
         {
           "id": "u-thpt10-4",
           "index": 4,
-          "title": "Unit 4 · Vì cộng đồng tốt hơn",
+          "title": "Unit 4 · For A Better Community",
           "steps": [
             {
               "id": "sv-u-thpt10-4-st-cb1bdcaeb6f3-p0",
               "type": "vocab",
               "ref": "st-cb1bdcaeb6f3-p0",
-              "title": "Vì cộng đồng tốt hơn · Phần 1",
+              "title": "For A Better Community · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-4-st-cb1bdcaeb6f3-p1",
               "type": "vocab",
               "ref": "st-cb1bdcaeb6f3-p1",
-              "title": "Vì cộng đồng tốt hơn · Phần 2",
+              "title": "For A Better Community · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-4-st-cb1bdcaeb6f3-p2",
               "type": "vocab",
               "ref": "st-cb1bdcaeb6f3-p2",
-              "title": "Vì cộng đồng tốt hơn · Phần 3",
+              "title": "For A Better Community · Part 3",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-4-st-cb1bdcaeb6f3-p3",
               "type": "vocab",
               "ref": "st-cb1bdcaeb6f3-p3",
-              "title": "Vì cộng đồng tốt hơn · Phần 4",
+              "title": "For A Better Community · Part 4",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt10-4-past-simple",
               "type": "grammar",
               "ref": "past-simple",
-              "title": "Thì Quá khứ đơn"
+              "title": "Past Simple"
             },
             {
               "id": "sg-u-thpt10-4-past-continuous",
               "type": "grammar",
               "ref": "past-continuous",
-              "title": "Thì Quá khứ tiếp diễn"
+              "title": "Past Continuous"
             },
             {
               "id": "sr-u-thpt10-4-rd-10-1",
               "type": "reading",
               "ref": "rd-10-1",
-              "title": "Đọc hiểu ngắn"
+              "title": "Reading comprehension"
             }
           ]
         },
         {
           "id": "u-thpt10-5",
           "index": 5,
-          "title": "Unit 5 · Phát minh",
+          "title": "Unit 5 · Inventions",
           "steps": [
             {
               "id": "sv-u-thpt10-5-st-e797d01716fd-p0",
               "type": "vocab",
               "ref": "st-e797d01716fd-p0",
-              "title": "Phát minh · Phần 1",
+              "title": "Inventions · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-5-st-e797d01716fd-p1",
               "type": "vocab",
               "ref": "st-e797d01716fd-p1",
-              "title": "Phát minh · Phần 2",
+              "title": "Inventions · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-5-st-e797d01716fd-p2",
               "type": "vocab",
               "ref": "st-e797d01716fd-p2",
-              "title": "Phát minh · Phần 3",
+              "title": "Inventions · Part 3",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-5-st-e797d01716fd-p3",
               "type": "vocab",
               "ref": "st-e797d01716fd-p3",
-              "title": "Phát minh · Phần 4",
+              "title": "Inventions · Part 4",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt10-5-present-perfect",
               "type": "grammar",
               "ref": "present-perfect",
-              "title": "Thì Hiện tại hoàn thành"
+              "title": "Present Perfect"
             },
             {
               "id": "sg-u-thpt10-5-passive-voice",
               "type": "grammar",
               "ref": "passive-voice",
-              "title": "Câu bị động"
+              "title": "Passive Voice"
             }
           ]
         },
         {
           "id": "u-thpt10-6",
           "index": 6,
-          "title": "Unit 6 · Bình đẳng giới",
+          "title": "Unit 6 · Gender Equality",
           "steps": [
             {
               "id": "sv-u-thpt10-6-st-ac67ec2b5817-p0",
               "type": "vocab",
               "ref": "st-ac67ec2b5817-p0",
-              "title": "Bình đẳng giới · Phần 1",
+              "title": "Gender Equality · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-6-st-ac67ec2b5817-p1",
               "type": "vocab",
               "ref": "st-ac67ec2b5817-p1",
-              "title": "Bình đẳng giới · Phần 2",
+              "title": "Gender Equality · Part 2",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt10-6-st-ac67ec2b5817-p2",
               "type": "vocab",
               "ref": "st-ac67ec2b5817-p2",
-              "title": "Bình đẳng giới · Phần 3",
+              "title": "Gender Equality · Part 3",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt10-6-advanced-passive",
               "type": "grammar",
               "ref": "advanced-passive",
-              "title": "Bị động nâng cao"
+              "title": "Advanced Passive"
             },
             {
               "id": "sg-u-thpt10-6-modals-obligation",
               "type": "grammar",
               "ref": "modals-obligation",
-              "title": "Khuyết thiếu: bắt buộc (must/have to)"
+              "title": "Modals: Obligation (must/have to)"
             }
           ]
         },
         {
           "id": "u-thpt10-7",
           "index": 7,
-          "title": "Unit 7 · Đa dạng văn hóa",
+          "title": "Unit 7 · Cultural Diversity",
           "steps": [
             {
               "id": "sv-u-thpt10-7-st-7fb88c92b8d6-p0",
               "type": "vocab",
               "ref": "st-7fb88c92b8d6-p0",
-              "title": "Đa dạng văn hóa · Phần 1",
+              "title": "Cultural Diversity · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-7-st-7fb88c92b8d6-p1",
               "type": "vocab",
               "ref": "st-7fb88c92b8d6-p1",
-              "title": "Đa dạng văn hóa · Phần 2",
+              "title": "Cultural Diversity · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-7-st-7fb88c92b8d6-p2",
               "type": "vocab",
               "ref": "st-7fb88c92b8d6-p2",
-              "title": "Đa dạng văn hóa · Phần 3",
+              "title": "Cultural Diversity · Part 3",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-7-st-7fb88c92b8d6-p3",
               "type": "vocab",
               "ref": "st-7fb88c92b8d6-p3",
-              "title": "Đa dạng văn hóa · Phần 4",
+              "title": "Cultural Diversity · Part 4",
               "wordCount": 15
             },
             {
               "id": "sg-u-thpt10-7-comparatives-superlatives",
               "type": "grammar",
               "ref": "comparatives-superlatives",
-              "title": "So sánh hơn & so sánh nhất"
+              "title": "Comparatives & Superlatives"
             },
             {
               "id": "sg-u-thpt10-7-relative-clauses",
               "type": "grammar",
               "ref": "relative-clauses",
-              "title": "Mệnh đề quan hệ"
+              "title": "Relative Clauses"
             }
           ]
         },
         {
           "id": "u-thpt10-8",
           "index": 8,
-          "title": "Unit 8 · Cách học mới",
+          "title": "Unit 8 · New Ways To Learn",
           "steps": [
             {
               "id": "sv-u-thpt10-8-st-c4d557fe5580-p0",
               "type": "vocab",
               "ref": "st-c4d557fe5580-p0",
-              "title": "Cách học mới · Phần 1",
+              "title": "New Ways To Learn · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-8-st-c4d557fe5580-p1",
               "type": "vocab",
               "ref": "st-c4d557fe5580-p1",
-              "title": "Cách học mới · Phần 2",
+              "title": "New Ways To Learn · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-8-st-c4d557fe5580-p2",
               "type": "vocab",
               "ref": "st-c4d557fe5580-p2",
-              "title": "Cách học mới · Phần 3",
+              "title": "New Ways To Learn · Part 3",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt10-8-st-c4d557fe5580-p3",
               "type": "vocab",
               "ref": "st-c4d557fe5580-p3",
-              "title": "Cách học mới · Phần 4",
+              "title": "New Ways To Learn · Part 4",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt10-8-relative-clauses",
               "type": "grammar",
               "ref": "relative-clauses",
-              "title": "Mệnh đề quan hệ"
+              "title": "Relative Clauses"
             },
             {
               "id": "sg-u-thpt10-8-articles",
               "type": "grammar",
               "ref": "articles",
-              "title": "Mạo từ (a / an / the)"
+              "title": "Articles (a / an / the)"
             }
           ]
         },
         {
           "id": "u-thpt10-9",
           "index": 9,
-          "title": "Unit 9 · Bảo vệ môi trường",
+          "title": "Unit 9 · Preserving The Environment",
           "steps": [
             {
               "id": "sv-u-thpt10-9-st-6fe862e82f1f-p0",
               "type": "vocab",
               "ref": "st-6fe862e82f1f-p0",
-              "title": "Bảo vệ môi trường · Phần 1",
+              "title": "Preserving The Environment · Part 1",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt10-9-st-6fe862e82f1f-p1",
               "type": "vocab",
               "ref": "st-6fe862e82f1f-p1",
-              "title": "Bảo vệ môi trường · Phần 2",
+              "title": "Preserving The Environment · Part 2",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt10-9-st-6fe862e82f1f-p2",
               "type": "vocab",
               "ref": "st-6fe862e82f1f-p2",
-              "title": "Bảo vệ môi trường · Phần 3",
+              "title": "Preserving The Environment · Part 3",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt10-9-st-6fe862e82f1f-p3",
               "type": "vocab",
               "ref": "st-6fe862e82f1f-p3",
-              "title": "Bảo vệ môi trường · Phần 4",
+              "title": "Preserving The Environment · Part 4",
               "wordCount": 13
             },
             {
               "id": "sg-u-thpt10-9-reported-speech",
               "type": "grammar",
               "ref": "reported-speech",
-              "title": "Câu tường thuật"
+              "title": "Reported Speech"
             },
             {
               "id": "sg-u-thpt10-9-conditionals-0-1",
               "type": "grammar",
               "ref": "conditionals-0-1",
-              "title": "Câu điều kiện loại 0 & loại 1"
+              "title": "Zero & First Conditional"
             }
           ]
         },
         {
           "id": "u-thpt10-10",
           "index": 10,
-          "title": "Unit 10 · Du lịch sinh thái",
+          "title": "Unit 10 · Ecotourism",
           "steps": [
             {
               "id": "sv-u-thpt10-10-st-6e414416cd83-p0",
               "type": "vocab",
               "ref": "st-6e414416cd83-p0",
-              "title": "Du lịch sinh thái · Phần 1",
+              "title": "Ecotourism · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-10-st-6e414416cd83-p1",
               "type": "vocab",
               "ref": "st-6e414416cd83-p1",
-              "title": "Du lịch sinh thái · Phần 2",
+              "title": "Ecotourism · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-10-st-6e414416cd83-p2",
               "type": "vocab",
               "ref": "st-6e414416cd83-p2",
-              "title": "Du lịch sinh thái · Phần 3",
+              "title": "Ecotourism · Part 3",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt10-10-st-6e414416cd83-p3",
               "type": "vocab",
               "ref": "st-6e414416cd83-p3",
-              "title": "Du lịch sinh thái · Phần 4",
+              "title": "Ecotourism · Part 4",
               "wordCount": 15
             },
             {
               "id": "sg-u-thpt10-10-second-conditional",
               "type": "grammar",
               "ref": "second-conditional",
-              "title": "Câu điều kiện loại 2"
+              "title": "Second Conditional"
             },
             {
               "id": "sg-u-thpt10-10-future-will",
               "type": "grammar",
               "ref": "future-will",
-              "title": "Thì Tương lai đơn (will)"
+              "title": "Future Simple (will)"
             },
             {
               "id": "sx-u-thpt10-10-exam-10-1",
               "type": "exam",
               "ref": "exam-10-1",
-              "title": "Đề mini lớp 10"
+              "title": "Mini test — Grade 10"
             }
           ]
         }
@@ -491,523 +491,523 @@
     {
       "id": "lop-11",
       "title": "Grade 11 — Global Success",
-      "titleVi": "Lớp 11 — Global Success",
-      "description": "10 unit catalog: Healthy life → Longevity · participle, cleft, skill đề.",
+      "titleVi": "Grade 11 — Global Success",
+      "description": "10 units: Healthy life → Longevity · participle, cleft, exam skills.",
       "units": [
         {
           "id": "u-thpt11-1",
           "index": 1,
-          "title": "Unit 1 · Sống khỏe dài lâu",
+          "title": "Unit 1 · A Long and Healthy Life",
           "steps": [
             {
               "id": "sv-u-thpt11-1-st-c4bd3623f4ee-p0",
               "type": "vocab",
               "ref": "st-c4bd3623f4ee-p0",
-              "title": "Sống khỏe dài lâu · Phần 1",
+              "title": "A Long and Healthy Life · Part 1",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-1-st-c4bd3623f4ee-p1",
               "type": "vocab",
               "ref": "st-c4bd3623f4ee-p1",
-              "title": "Sống khỏe dài lâu · Phần 2",
+              "title": "A Long and Healthy Life · Part 2",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-1-st-c4bd3623f4ee-p2",
               "type": "vocab",
               "ref": "st-c4bd3623f4ee-p2",
-              "title": "Sống khỏe dài lâu · Phần 3",
+              "title": "A Long and Healthy Life · Part 3",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt11-1-st-c4bd3623f4ee-p3",
               "type": "vocab",
               "ref": "st-c4bd3623f4ee-p3",
-              "title": "Sống khỏe dài lâu · Phần 4",
+              "title": "A Long and Healthy Life · Part 4",
               "wordCount": 13
             },
             {
               "id": "sg-u-thpt11-1-present-perfect",
               "type": "grammar",
               "ref": "present-perfect",
-              "title": "Thì Hiện tại hoàn thành"
+              "title": "Present Perfect"
             },
             {
               "id": "sg-u-thpt11-1-past-simple",
               "type": "grammar",
               "ref": "past-simple",
-              "title": "Thì Quá khứ đơn"
+              "title": "Past Simple"
             }
           ]
         },
         {
           "id": "u-thpt11-2",
           "index": 2,
-          "title": "Unit 2 · Khoảng cách thế hệ",
+          "title": "Unit 2 · The Generation Gap",
           "steps": [
             {
               "id": "sv-u-thpt11-2-st-3034c9c5ad90-p0",
               "type": "vocab",
               "ref": "st-3034c9c5ad90-p0",
-              "title": "Khoảng cách thế hệ · Phần 1",
+              "title": "The Generation Gap · Part 1",
               "wordCount": 12
             },
             {
               "id": "sv-u-thpt11-2-st-3034c9c5ad90-p1",
               "type": "vocab",
               "ref": "st-3034c9c5ad90-p1",
-              "title": "Khoảng cách thế hệ · Phần 2",
+              "title": "The Generation Gap · Part 2",
               "wordCount": 12
             },
             {
               "id": "sv-u-thpt11-2-st-3034c9c5ad90-p2",
               "type": "vocab",
               "ref": "st-3034c9c5ad90-p2",
-              "title": "Khoảng cách thế hệ · Phần 3",
+              "title": "The Generation Gap · Part 3",
               "wordCount": 12
             },
             {
               "id": "sv-u-thpt11-2-st-3034c9c5ad90-p3",
               "type": "vocab",
               "ref": "st-3034c9c5ad90-p3",
-              "title": "Khoảng cách thế hệ · Phần 4",
+              "title": "The Generation Gap · Part 4",
               "wordCount": 12
             },
             {
               "id": "sg-u-thpt11-2-modals-obligation",
               "type": "grammar",
               "ref": "modals-obligation",
-              "title": "Khuyết thiếu: bắt buộc (must/have to)"
+              "title": "Modals: Obligation (must/have to)"
             },
             {
               "id": "sg-u-thpt11-2-modals-advice",
               "type": "grammar",
               "ref": "modals-advice",
-              "title": "Khuyết thiếu: lời khuyên (should)"
+              "title": "Modals: Advice (should/ought to)"
             }
           ]
         },
         {
           "id": "u-thpt11-3",
           "index": 3,
-          "title": "Unit 3 · Đô thị tương lai",
+          "title": "Unit 3 · Cities of the Future",
           "steps": [
             {
               "id": "sv-u-thpt11-3-st-eacd3c4030d3-p0",
               "type": "vocab",
               "ref": "st-eacd3c4030d3-p0",
-              "title": "Đô thị tương lai · Phần 1",
+              "title": "Cities of the Future · Part 1",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-3-st-eacd3c4030d3-p1",
               "type": "vocab",
               "ref": "st-eacd3c4030d3-p1",
-              "title": "Đô thị tương lai · Phần 2",
+              "title": "Cities of the Future · Part 2",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-3-st-eacd3c4030d3-p2",
               "type": "vocab",
               "ref": "st-eacd3c4030d3-p2",
-              "title": "Đô thị tương lai · Phần 3",
+              "title": "Cities of the Future · Part 3",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-3-st-eacd3c4030d3-p3",
               "type": "vocab",
               "ref": "st-eacd3c4030d3-p3",
-              "title": "Đô thị tương lai · Phần 4",
+              "title": "Cities of the Future · Part 4",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-3-st-eacd3c4030d3-p4",
               "type": "vocab",
               "ref": "st-eacd3c4030d3-p4",
-              "title": "Đô thị tương lai · Phần 5",
+              "title": "Cities of the Future · Part 5",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt11-3-present-continuous",
               "type": "grammar",
               "ref": "present-continuous",
-              "title": "Thì Hiện tại tiếp diễn"
+              "title": "Present Continuous"
             },
             {
               "id": "sg-u-thpt11-3-be-going-to",
               "type": "grammar",
               "ref": "be-going-to",
-              "title": "Tương lai gần (be going to)"
+              "title": "Future: be going to"
             }
           ]
         },
         {
           "id": "u-thpt11-4",
           "index": 4,
-          "title": "Unit 4 · ASEAN & thanh niên",
+          "title": "Unit 4 · ASEAN and ASEAN Youth",
           "steps": [
             {
               "id": "sv-u-thpt11-4-st-26a7506b9ff5-p0",
               "type": "vocab",
               "ref": "st-26a7506b9ff5-p0",
-              "title": "ASEAN & thanh niên · Phần 1",
+              "title": "ASEAN and ASEAN Youth · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt11-4-st-26a7506b9ff5-p1",
               "type": "vocab",
               "ref": "st-26a7506b9ff5-p1",
-              "title": "ASEAN & thanh niên · Phần 2",
+              "title": "ASEAN and ASEAN Youth · Part 2",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt11-4-st-26a7506b9ff5-p2",
               "type": "vocab",
               "ref": "st-26a7506b9ff5-p2",
-              "title": "ASEAN & thanh niên · Phần 3",
+              "title": "ASEAN and ASEAN Youth · Part 3",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt11-4-st-26a7506b9ff5-p3",
               "type": "vocab",
               "ref": "st-26a7506b9ff5-p3",
-              "title": "ASEAN & thanh niên · Phần 4",
+              "title": "ASEAN and ASEAN Youth · Part 4",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt11-4-st-26a7506b9ff5-p4",
               "type": "vocab",
               "ref": "st-26a7506b9ff5-p4",
-              "title": "ASEAN & thanh niên · Phần 5",
+              "title": "ASEAN and ASEAN Youth · Part 5",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt11-4-gerunds-infinitives",
               "type": "grammar",
               "ref": "gerunds-infinitives",
-              "title": "Danh động từ & động từ nguyên mẫu"
+              "title": "Gerunds & Infinitives"
             },
             {
               "id": "sr-u-thpt11-4-lea-11-1",
               "type": "leaflet",
               "ref": "lea-11-1",
-              "title": "Đọc tờ rơi"
+              "title": "Leaflet (gap-fill)"
             }
           ]
         },
         {
           "id": "u-thpt11-5",
           "index": 5,
-          "title": "Unit 5 · Nóng lên toàn cầu",
+          "title": "Unit 5 · Global Warming",
           "steps": [
             {
               "id": "sv-u-thpt11-5-st-d1ca1374e8da-p0",
               "type": "vocab",
               "ref": "st-d1ca1374e8da-p0",
-              "title": "Nóng lên toàn cầu · Phần 1",
+              "title": "Global Warming · Part 1",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt11-5-st-d1ca1374e8da-p1",
               "type": "vocab",
               "ref": "st-d1ca1374e8da-p1",
-              "title": "Nóng lên toàn cầu · Phần 2",
+              "title": "Global Warming · Part 2",
               "wordCount": 12
             },
             {
               "id": "sv-u-thpt11-5-st-d1ca1374e8da-p2",
               "type": "vocab",
               "ref": "st-d1ca1374e8da-p2",
-              "title": "Nóng lên toàn cầu · Phần 3",
+              "title": "Global Warming · Part 3",
               "wordCount": 12
             },
             {
               "id": "sv-u-thpt11-5-st-d1ca1374e8da-p3",
               "type": "vocab",
               "ref": "st-d1ca1374e8da-p3",
-              "title": "Nóng lên toàn cầu · Phần 4",
+              "title": "Global Warming · Part 4",
               "wordCount": 12
             },
             {
               "id": "sv-u-thpt11-5-st-d1ca1374e8da-p4",
               "type": "vocab",
               "ref": "st-d1ca1374e8da-p4",
-              "title": "Nóng lên toàn cầu · Phần 5",
+              "title": "Global Warming · Part 5",
               "wordCount": 12
             },
             {
               "id": "sg-u-thpt11-5-participle-clauses",
               "type": "grammar",
               "ref": "participle-clauses",
-              "title": "Mệnh đề phân từ"
+              "title": "Participle Clauses"
             },
             {
               "id": "sg-u-thpt11-5-passive-voice",
               "type": "grammar",
               "ref": "passive-voice",
-              "title": "Câu bị động"
+              "title": "Passive Voice"
             }
           ]
         },
         {
           "id": "u-thpt11-6",
           "index": 6,
-          "title": "Unit 6 · Bảo tồn di sản",
+          "title": "Unit 6 · Preserving Our Heritage",
           "steps": [
             {
               "id": "sv-u-thpt11-6-st-a630252e8a39-p0",
               "type": "vocab",
               "ref": "st-a630252e8a39-p0",
-              "title": "Bảo tồn di sản · Phần 1",
+              "title": "Preserving Our Heritage · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt11-6-st-a630252e8a39-p1",
               "type": "vocab",
               "ref": "st-a630252e8a39-p1",
-              "title": "Bảo tồn di sản · Phần 2",
+              "title": "Preserving Our Heritage · Part 2",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-6-st-a630252e8a39-p2",
               "type": "vocab",
               "ref": "st-a630252e8a39-p2",
-              "title": "Bảo tồn di sản · Phần 3",
+              "title": "Preserving Our Heritage · Part 3",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-6-st-a630252e8a39-p3",
               "type": "vocab",
               "ref": "st-a630252e8a39-p3",
-              "title": "Bảo tồn di sản · Phần 4",
+              "title": "Preserving Our Heritage · Part 4",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-6-st-a630252e8a39-p4",
               "type": "vocab",
               "ref": "st-a630252e8a39-p4",
-              "title": "Bảo tồn di sản · Phần 5",
+              "title": "Preserving Our Heritage · Part 5",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt11-6-gerunds-infinitives",
               "type": "grammar",
               "ref": "gerunds-infinitives",
-              "title": "Danh động từ & động từ nguyên mẫu"
+              "title": "Gerunds & Infinitives"
             },
             {
               "id": "sg-u-thpt11-6-relative-clauses",
               "type": "grammar",
               "ref": "relative-clauses",
-              "title": "Mệnh đề quan hệ"
+              "title": "Relative Clauses"
             },
             {
               "id": "sr-u-thpt11-6-arr-11-1",
               "type": "arrange",
               "ref": "arr-11-1",
-              "title": "Sắp xếp đoạn"
+              "title": "Sentence arrangement"
             }
           ]
         },
         {
           "id": "u-thpt11-7",
           "index": 7,
-          "title": "Unit 7 · Lựa chọn học tiếp",
+          "title": "Unit 7 · Education Options for School-Leavers",
           "steps": [
             {
               "id": "sv-u-thpt11-7-st-82a2a6c50042-p0",
               "type": "vocab",
               "ref": "st-82a2a6c50042-p0",
-              "title": "Lựa chọn học tiếp · Phần 1",
+              "title": "Education Options for School-Leavers · Part 1",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt11-7-st-82a2a6c50042-p1",
               "type": "vocab",
               "ref": "st-82a2a6c50042-p1",
-              "title": "Lựa chọn học tiếp · Phần 2",
+              "title": "Education Options for School-Leavers · Part 2",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt11-7-st-82a2a6c50042-p2",
               "type": "vocab",
               "ref": "st-82a2a6c50042-p2",
-              "title": "Lựa chọn học tiếp · Phần 3",
+              "title": "Education Options for School-Leavers · Part 3",
               "wordCount": 12
             },
             {
               "id": "sv-u-thpt11-7-st-82a2a6c50042-p3",
               "type": "vocab",
               "ref": "st-82a2a6c50042-p3",
-              "title": "Lựa chọn học tiếp · Phần 4",
+              "title": "Education Options for School-Leavers · Part 4",
               "wordCount": 12
             },
             {
               "id": "sg-u-thpt11-7-present-perfect-continuous",
               "type": "grammar",
               "ref": "present-perfect-continuous",
-              "title": "Hiện tại hoàn thành tiếp diễn"
+              "title": "Present Perfect Continuous"
             },
             {
               "id": "sg-u-thpt11-7-conditionals-0-1",
               "type": "grammar",
               "ref": "conditionals-0-1",
-              "title": "Câu điều kiện loại 0 & loại 1"
+              "title": "Zero & First Conditional"
             }
           ]
         },
         {
           "id": "u-thpt11-8",
           "index": 8,
-          "title": "Unit 8 · Trở nên độc lập",
+          "title": "Unit 8 · Becoming Independent",
           "steps": [
             {
               "id": "sv-u-thpt11-8-st-2067bbbbf49f-p0",
               "type": "vocab",
               "ref": "st-2067bbbbf49f-p0",
-              "title": "Trở nên độc lập · Phần 1",
+              "title": "Becoming Independent · Part 1",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-8-st-2067bbbbf49f-p1",
               "type": "vocab",
               "ref": "st-2067bbbbf49f-p1",
-              "title": "Trở nên độc lập · Phần 2",
+              "title": "Becoming Independent · Part 2",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-8-st-2067bbbbf49f-p2",
               "type": "vocab",
               "ref": "st-2067bbbbf49f-p2",
-              "title": "Trở nên độc lập · Phần 3",
+              "title": "Becoming Independent · Part 3",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt11-8-st-2067bbbbf49f-p3",
               "type": "vocab",
               "ref": "st-2067bbbbf49f-p3",
-              "title": "Trở nên độc lập · Phần 4",
+              "title": "Becoming Independent · Part 4",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt11-8-st-2067bbbbf49f-p4",
               "type": "vocab",
               "ref": "st-2067bbbbf49f-p4",
-              "title": "Trở nên độc lập · Phần 5",
+              "title": "Becoming Independent · Part 5",
               "wordCount": 13
             },
             {
               "id": "sg-u-thpt11-8-cleft-sentences",
               "type": "grammar",
               "ref": "cleft-sentences",
-              "title": "Câu chẻ (nhấn mạnh)"
+              "title": "Cleft Sentences"
             },
             {
               "id": "sg-u-thpt11-8-modals-deduction",
               "type": "grammar",
               "ref": "modals-deduction",
-              "title": "Khuyết thiếu: suy đoán (must/might/can't)"
+              "title": "Modals: Deduction (must/might/can't)"
             }
           ]
         },
         {
           "id": "u-thpt11-9",
           "index": 9,
-          "title": "Unit 9 · Vấn đề xã hội",
+          "title": "Unit 9 · Social Issues",
           "steps": [
             {
               "id": "sv-u-thpt11-9-st-839b443cc057-p0",
               "type": "vocab",
               "ref": "st-839b443cc057-p0",
-              "title": "Vấn đề xã hội · Phần 1",
+              "title": "Social Issues · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt11-9-st-839b443cc057-p1",
               "type": "vocab",
               "ref": "st-839b443cc057-p1",
-              "title": "Vấn đề xã hội · Phần 2",
+              "title": "Social Issues · Part 2",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-9-st-839b443cc057-p2",
               "type": "vocab",
               "ref": "st-839b443cc057-p2",
-              "title": "Vấn đề xã hội · Phần 3",
+              "title": "Social Issues · Part 3",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-9-st-839b443cc057-p3",
               "type": "vocab",
               "ref": "st-839b443cc057-p3",
-              "title": "Vấn đề xã hội · Phần 4",
+              "title": "Social Issues · Part 4",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt11-9-conjunctions-linking",
               "type": "grammar",
               "ref": "conjunctions-linking",
-              "title": "Liên từ & từ nối"
+              "title": "Conjunctions & Linking Words"
             },
             {
               "id": "sg-u-thpt11-9-discourse-markers",
               "type": "grammar",
               "ref": "discourse-markers",
-              "title": "Từ nối diễn ngôn"
+              "title": "Discourse Markers"
             }
           ]
         },
         {
           "id": "u-thpt11-10",
           "index": 10,
-          "title": "Unit 10 · Lối sống & trường thọ",
+          "title": "Unit 10 · Healthy Lifestyle and Longevity",
           "steps": [
             {
               "id": "sv-u-thpt11-10-st-ee9bc54aa501-p0",
               "type": "vocab",
               "ref": "st-ee9bc54aa501-p0",
-              "title": "Lối sống & trường thọ · Phần 1",
+              "title": "Healthy Lifestyle and Longevity · Part 1",
               "wordCount": 15
             },
             {
               "id": "sv-u-thpt11-10-st-ee9bc54aa501-p1",
               "type": "vocab",
               "ref": "st-ee9bc54aa501-p1",
-              "title": "Lối sống & trường thọ · Phần 2",
+              "title": "Healthy Lifestyle and Longevity · Part 2",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-10-st-ee9bc54aa501-p2",
               "type": "vocab",
               "ref": "st-ee9bc54aa501-p2",
-              "title": "Lối sống & trường thọ · Phần 3",
+              "title": "Healthy Lifestyle and Longevity · Part 3",
               "wordCount": 14
             },
             {
               "id": "sv-u-thpt11-10-st-ee9bc54aa501-p3",
               "type": "vocab",
               "ref": "st-ee9bc54aa501-p3",
-              "title": "Lối sống & trường thọ · Phần 4",
+              "title": "Healthy Lifestyle and Longevity · Part 4",
               "wordCount": 14
             },
             {
               "id": "sg-u-thpt11-10-second-conditional",
               "type": "grammar",
               "ref": "second-conditional",
-              "title": "Câu điều kiện loại 2"
+              "title": "Second Conditional"
             },
             {
               "id": "sg-u-thpt11-10-third-conditional",
               "type": "grammar",
               "ref": "third-conditional",
-              "title": "Câu điều kiện loại 3"
+              "title": "Third Conditional"
             },
             {
               "id": "sx-u-thpt11-10-exam-11-1",
               "type": "exam",
               "ref": "exam-11-1",
-              "title": "Đề mini lớp 11"
+              "title": "Mini test — Grade 11"
             }
           ]
         }
@@ -1015,143 +1015,143 @@
     },
     {
       "id": "lop-12",
-      "title": "Grade 12 — Global Success + đề 2025",
-      "titleVi": "Lớp 12 — Global Success & ôn đề",
-      "description": "7 unit có trong kho (+ skill 6 dạng đề 2025). Unit SGK còn thiếu sẽ bổ sung khi ingest catalog.",
+      "title": "Grade 12 — Global Success + exam 2025",
+      "titleVi": "Grade 12 — Global Success + exam 2025",
+      "description": "7 units in catalog (+ 2025 exam-format skills). More SGK units when catalog is extended.",
       "units": [
         {
           "id": "u-thpt12-1",
           "index": 1,
-          "title": "Unit 1 · Câu chuyện cuộc đời",
+          "title": "Unit 1 · Life Stories",
           "steps": [
             {
               "id": "sv-u-thpt12-1-st-91b0331e72ff-p0",
               "type": "vocab",
               "ref": "st-91b0331e72ff-p0",
-              "title": "Câu chuyện cuộc đời · Phần 1",
+              "title": "Life Stories · Part 1",
               "wordCount": 11
             },
             {
               "id": "sv-u-thpt12-1-st-91b0331e72ff-p1",
               "type": "vocab",
               "ref": "st-91b0331e72ff-p1",
-              "title": "Câu chuyện cuộc đời · Phần 2",
+              "title": "Life Stories · Part 2",
               "wordCount": 10
             },
             {
               "id": "sg-u-thpt12-1-past-simple",
               "type": "grammar",
               "ref": "past-simple",
-              "title": "Thì Quá khứ đơn"
+              "title": "Past Simple"
             },
             {
               "id": "sg-u-thpt12-1-past-continuous",
               "type": "grammar",
               "ref": "past-continuous",
-              "title": "Thì Quá khứ tiếp diễn"
+              "title": "Past Continuous"
             },
             {
               "id": "sr-u-thpt12-1-ann-12-1",
               "type": "announcement",
               "ref": "ann-12-1",
-              "title": "Thông báo (dạng đề)"
+              "title": "Announcement (exam format)"
             }
           ]
         },
         {
           "id": "u-thpt12-2",
           "index": 2,
-          "title": "Unit 2 · Bản sắc văn hóa",
+          "title": "Unit 2 · Cultural Identity",
           "steps": [
             {
               "id": "sv-u-thpt12-2-st-51a74a734c86-p0",
               "type": "vocab",
               "ref": "st-51a74a734c86-p0",
-              "title": "Bản sắc văn hóa",
+              "title": "Cultural Identity",
               "wordCount": 17
             },
             {
               "id": "sg-u-thpt12-2-relative-clauses",
               "type": "grammar",
               "ref": "relative-clauses",
-              "title": "Mệnh đề quan hệ"
+              "title": "Relative Clauses"
             },
             {
               "id": "sg-u-thpt12-2-articles",
               "type": "grammar",
               "ref": "articles",
-              "title": "Mạo từ (a / an / the)"
+              "title": "Articles (a / an / the)"
             },
             {
               "id": "sr-u-thpt12-2-lea-12-1",
               "type": "leaflet",
               "ref": "lea-12-1",
-              "title": "Tờ rơi (dạng đề)"
+              "title": "Leaflet (exam format)"
             }
           ]
         },
         {
           "id": "u-thpt12-3",
           "index": 3,
-          "title": "Unit 3 · Đô thị hóa",
+          "title": "Unit 3 · Urbanization",
           "steps": [
             {
               "id": "sv-u-thpt12-3-st-3a58bb8d2d4a-p0",
               "type": "vocab",
               "ref": "st-3a58bb8d2d4a-p0",
-              "title": "Đô thị hóa · Phần 1",
+              "title": "Urbanization · Part 1",
               "wordCount": 13
             },
             {
               "id": "sv-u-thpt12-3-st-3a58bb8d2d4a-p1",
               "type": "vocab",
               "ref": "st-3a58bb8d2d4a-p1",
-              "title": "Đô thị hóa · Phần 2",
+              "title": "Urbanization · Part 2",
               "wordCount": 12
             },
             {
               "id": "sg-u-thpt12-3-comparatives-superlatives",
               "type": "grammar",
               "ref": "comparatives-superlatives",
-              "title": "So sánh hơn & so sánh nhất"
+              "title": "Comparatives & Superlatives"
             },
             {
               "id": "sg-u-thpt12-3-passive-voice",
               "type": "grammar",
               "ref": "passive-voice",
-              "title": "Câu bị động"
+              "title": "Passive Voice"
             },
             {
               "id": "sr-u-thpt12-3-arr-12-1",
               "type": "arrange",
               "ref": "arr-12-1",
-              "title": "Sắp xếp đoạn"
+              "title": "Sentence arrangement"
             }
           ]
         },
         {
           "id": "u-thpt12-4",
           "index": 4,
-          "title": "Unit 4 · Thế giới công việc",
+          "title": "Unit 4 · The World Of Work",
           "steps": [
             {
               "id": "sv-u-thpt12-4-st-e6f01f3fddf1-p0",
               "type": "vocab",
               "ref": "st-e6f01f3fddf1-p0",
-              "title": "Thế giới công việc",
+              "title": "The World Of Work",
               "wordCount": 19
             },
             {
               "id": "sg-u-thpt12-4-present-perfect",
               "type": "grammar",
               "ref": "present-perfect",
-              "title": "Thì Hiện tại hoàn thành"
+              "title": "Present Perfect"
             },
             {
               "id": "sg-u-thpt12-4-used-to",
               "type": "grammar",
               "ref": "used-to",
-              "title": "Cấu trúc Used to"
+              "title": "Used to / Be used to / Get used to"
             },
             {
               "id": "sr-u-thpt12-4-clo-12-1",
@@ -1164,90 +1164,90 @@
         {
           "id": "u-thpt12-5",
           "index": 5,
-          "title": "Unit 5 · Trí tuệ nhân tạo",
+          "title": "Unit 5 · Artificial Intelligence",
           "steps": [
             {
               "id": "sv-u-thpt12-5-st-cb18eb3ba80c-p0",
               "type": "vocab",
               "ref": "st-cb18eb3ba80c-p0",
-              "title": "Trí tuệ nhân tạo",
+              "title": "Artificial Intelligence",
               "wordCount": 15
             },
             {
               "id": "sg-u-thpt12-5-mixed-conditionals",
               "type": "grammar",
               "ref": "mixed-conditionals",
-              "title": "Câu điều kiện hỗn hợp"
+              "title": "Mixed Conditionals"
             },
             {
               "id": "sg-u-thpt12-5-third-conditional",
               "type": "grammar",
               "ref": "third-conditional",
-              "title": "Câu điều kiện loại 3"
+              "title": "Third Conditional"
             },
             {
               "id": "sr-u-thpt12-5-rd-12-1",
               "type": "reading",
               "ref": "rd-12-1",
-              "title": "Đọc hiểu đề"
+              "title": "Reading (exam)"
             }
           ]
         },
         {
           "id": "u-thpt12-6",
           "index": 6,
-          "title": "Unit 6 · Loài nguy cấp",
+          "title": "Unit 6 · Endangered Species",
           "steps": [
             {
               "id": "sv-u-thpt12-6-st-902882381d6b-p0",
               "type": "vocab",
               "ref": "st-902882381d6b-p0",
-              "title": "Loài nguy cấp",
+              "title": "Endangered Species",
               "wordCount": 12
             },
             {
               "id": "sg-u-thpt12-6-advanced-passive",
               "type": "grammar",
               "ref": "advanced-passive",
-              "title": "Bị động nâng cao"
+              "title": "Advanced Passive"
             },
             {
               "id": "sg-u-thpt12-6-participle-clauses",
               "type": "grammar",
               "ref": "participle-clauses",
-              "title": "Mệnh đề phân từ"
+              "title": "Participle Clauses"
             }
           ]
         },
         {
           "id": "u-thpt12-7",
           "index": 7,
-          "title": "Unit 7 · Học tập suốt đời",
+          "title": "Unit 7 · Lifelong Learning",
           "steps": [
             {
               "id": "sv-u-thpt12-7-st-9d2657755a0c-p0",
               "type": "vocab",
               "ref": "st-9d2657755a0c-p0",
-              "title": "Học tập suốt đời",
+              "title": "Lifelong Learning",
               "wordCount": 15
             },
             {
               "id": "sg-u-thpt12-7-discourse-markers",
               "type": "grammar",
               "ref": "discourse-markers",
-              "title": "Từ nối diễn ngôn"
+              "title": "Discourse Markers"
             },
             {
               "id": "sg-u-thpt12-7-nominalisation",
               "type": "grammar",
               "ref": "nominalisation",
-              "title": "Danh từ hóa"
+              "title": "Nominalisation"
             },
             {
               "id": "sx-u-thpt12-7-exam-12-1",
               "type": "exam",
               "ref": "exam-12-1",
-              "title": "Đề mini tốt nghiệp"
+              "title": "Mini graduation test"
             }
           ]
         }
