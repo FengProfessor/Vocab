@@ -116,47 +116,45 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     console.log(`[Cron/push-due] ${profiles.length} candidate(s) for hour ${targetHour} (VN)`);
 
-    // Xử lý 1 user: đếm từ đến hạn → gửi push. Trả null nếu không có lớp/không có từ due.
+    // Xử lý 1 user: đếm từ đến hạn → gửi push. Trả null nếu không có từ due.
     const processUser = async (profile: ProfileRow): Promise<PushResult | null> => {
-      // Lấy classrooms mà user enrolled vào (hoặc created nếu teacher)
-      let classroomIds: string[] = [];
+      // (1) Từ user ĐANG học đến hạn — nguồn chính, tính TRỰC TIẾP từ srs_progress.
+      // Bao cả từ cá nhân (lưu qua extension/dictionary/pack tự học) LẪN từ trong lớp
+      // đã bắt đầu học. Học sinh tự học không vào lớp vẫn được nhắc ôn.
+      const { count: dueStarted } = await supabase
+        .from('srs_progress')
+        .select('id', { count: 'exact', head: true })
+        .eq('user_id', profile.id)
+        .lte('next_review_date', now);
 
+      let dueCount = dueStarted ?? 0;
+
+      // (2) Từ MỚI được giao trong lớp (chưa có srs record) — nhắc học sinh bắt đầu.
+      // Chỉ tính khi user có lớp; nếu không có lớp thì bỏ qua, không chặn (1).
+      let classroomIds: string[] = [];
       if (profile.role === 'teacher') {
-        const { data } = await supabase
-          .from('classrooms')
-          .select('id')
-          .eq('teacher_id', profile.id);
+        const { data } = await supabase.from('classrooms').select('id').eq('teacher_id', profile.id);
         classroomIds = data?.map(c => c.id) || [];
       } else {
-        const { data } = await supabase
-          .from('enrollments')
-          .select('classroom_id')
-          .eq('student_id', profile.id);
+        const { data } = await supabase.from('enrollments').select('classroom_id').eq('student_id', profile.id);
         classroomIds = data?.map(e => e.classroom_id) || [];
       }
 
-      if (!classroomIds.length) return null;
-
-      // Đếm từ đến hạn: (1) chưa có SRS record, hoặc (2) next_review_date <= now
-      const { data: dueWords } = await supabase
-        .from('words')
-        .select('id')
-        .in('classroom_id', classroomIds);
-
-      let dueCount = 0;
-      if (dueWords?.length) {
-        const { data: srsData } = await supabase
-          .from('srs_progress')
-          .select('word_id, next_review_date')
-          .eq('user_id', profile.id)
-          .in('word_id', dueWords.map(w => w.id));
-
-        const srsByWordId = new Map(srsData?.map(s => [s.word_id, s.next_review_date]) || []);
-
-        dueCount = dueWords.filter(w => {
-          const reviewDate = srsByWordId.get(w.id);
-          return !reviewDate || new Date(reviewDate) <= new Date(now);
-        }).length;
+      if (classroomIds.length) {
+        const { data: classWords } = await supabase
+          .from('words')
+          .select('id')
+          .in('classroom_id', classroomIds);
+        if (classWords?.length) {
+          const { data: srsRows } = await supabase
+            .from('srs_progress')
+            .select('word_id')
+            .eq('user_id', profile.id)
+            .in('word_id', classWords.map(w => w.id));
+          const started = new Set(srsRows?.map(s => s.word_id) || []);
+          const newInClass = classWords.filter(w => !started.has(w.id)).length;
+          dueCount += newInClass;
+        }
       }
 
       if (dueCount === 0) return null;

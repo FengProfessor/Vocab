@@ -58,19 +58,28 @@ export async function GET(req: Request): Promise<NextResponse> {
       const pushDead = !freshest || now - freshest >= staleMs;
       if (!pushDead) return null;
 
-      // Đếm từ đến hạn (giống cron push-due)
+      // Đếm từ đến hạn (giống cron push-due).
+      // (1) Từ đang học đến hạn — tính trực tiếp từ srs_progress (bao cả từ cá nhân tự học).
+      const nowIso = new Date().toISOString();
+      const { count: dueStarted } = await supabase
+        .from('srs_progress')
+        .select('id', { count: 'exact', head: true })
+        .eq('user_id', p.id)
+        .lte('next_review_date', nowIso);
+      let dueCount = dueStarted ?? 0;
+
+      // (2) Từ mới được giao trong lớp (chưa có srs record) — chỉ khi có lớp.
       const { data: enr } = await supabase.from('enrollments').select('classroom_id').eq('student_id', p.id);
       const classroomIds = enr?.map(e => e.classroom_id) || [];
-      if (!classroomIds.length) return null;
-      const { data: words } = await supabase.from('words').select('id').in('classroom_id', classroomIds);
-      if (!words?.length) return null;
-      const { data: srs } = await supabase.from('srs_progress')
-        .select('word_id, next_review_date').eq('user_id', p.id).in('word_id', words.map(w => w.id));
-      const srsMap = new Map(srs?.map(s => [s.word_id, s.next_review_date]) || []);
-      const dueCount = words.filter(w => {
-        const d = srsMap.get(w.id);
-        return !d || new Date(d) <= new Date();
-      }).length;
+      if (classroomIds.length) {
+        const { data: words } = await supabase.from('words').select('id').in('classroom_id', classroomIds);
+        if (words?.length) {
+          const { data: srs } = await supabase.from('srs_progress')
+            .select('word_id').eq('user_id', p.id).in('word_id', words.map(w => w.id));
+          const started = new Set(srs?.map(s => s.word_id) || []);
+          dueCount += words.filter(w => !started.has(w.id)).length;
+        }
+      }
       if (dueCount === 0) return null;
 
       if (dry) return { userId: p.id, email: p.email, dueCount, sent: false, dry: true };
