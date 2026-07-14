@@ -9,6 +9,7 @@ export interface WordGloss {
   pos?: string;
   definition?: string;
   example?: string;
+  ipa?: string;
 }
 
 export interface PdfWordRow {
@@ -16,6 +17,7 @@ export interface PdfWordRow {
   pos?: string;
   definition?: string;
   example?: string;
+  ipa?: string;
 }
 
 export interface PdfPack {
@@ -61,7 +63,13 @@ function normalizeRow(item: string | PdfWordRow): PdfWordRow {
     pos: item.pos?.trim() || '',
     definition: item.definition?.trim() || '',
     example: item.example?.trim() || '',
+    ipa: item.ipa?.trim().replace(/^\/+|\/+$/g, '') || '',
   };
+}
+
+function formatIpa(ipa?: string): string {
+  const s = (ipa ?? '').trim().replace(/^\/+|\/+$/g, '');
+  return s ? `/${s}/` : '';
 }
 
 /** Gắn gloss map vào packs (giữ thứ tự từ). */
@@ -78,6 +86,7 @@ export function applyGlossesToPacks(
         pos: g?.pos ?? '',
         definition: g?.definition ?? '',
         example: g?.example ?? '',
+        ipa: g?.ipa ?? '',
       };
     }),
   }));
@@ -90,6 +99,7 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
   const allRows = input.packs.flatMap((p) => p.words.map(normalizeRow));
   const totalWords = allRows.length;
   const withDef = allRows.filter((r) => r.definition).length;
+  const withIpa = allRows.filter((r) => r.ipa).length;
   const date = new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
   const packBlocks = input.packs
@@ -98,6 +108,10 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
         .map((item, wi) => {
           const r = normalizeRow(item);
           const n = wi + 1;
+          const ipaText = formatIpa(r.ipa);
+          const ipa = ipaText
+            ? `<div class="ipa">${escapeHtml(ipaText)}</div>`
+            : `<div class="ipa muted">—</div>`;
           const pos = r.pos
             ? `<span class="pos">${escapeHtml(r.pos)}</span>`
             : `<span class="pos muted">—</span>`;
@@ -111,6 +125,7 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
             <td class="num">${n}</td>
             <td class="word">
               <div class="lemma">${escapeHtml(r.word)}</div>
+              ${ipa}
               ${pos}
             </td>
             <td class="def">${def}</td>
@@ -127,7 +142,7 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
           <thead>
             <tr>
               <th class="num">#</th>
-              <th class="word">Từ · dạng</th>
+              <th class="word">Từ · IPA · dạng</th>
               <th class="def">Nghĩa (VI)</th>
               <th class="ex">Ví dụ (EN)</th>
             </tr>
@@ -287,6 +302,12 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     td.def, th.def { width: 38%; }
     td.ex, th.ex { width: 32%; font-size: 8.5pt; color: #334155; }
     .lemma { font-weight: 800; color: #0f172a; font-size: 9.5pt; }
+    .ipa {
+      font-family: "Segoe UI", "Lucida Sans Unicode", "Arial Unicode MS", sans-serif;
+      font-size: 8pt; font-weight: 600; color: #64748b; margin-top: 1px;
+      letter-spacing: 0.01em;
+    }
+    .ipa.muted { color: #cbd5e1; }
     .pos {
       display: inline-block; margin-top: 2px; font-size: 7.5pt; font-weight: 700;
       color: #4f46e5; background: #eef2ff; padding: 1px 5px; border-radius: 4px;
@@ -357,14 +378,15 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     <div class="badges">
       <span class="badge">${totalWords} từ</span>
       <span class="badge">${input.packs.length} chặng</span>
-      <span class="badge soft">${withDef}/${totalWords} có nghĩa</span>
+      <span class="badge soft">${withDef}/${totalWords} nghĩa</span>
+      <span class="badge soft">${withIpa}/${totalWords} IPA</span>
       ${input.cefrLabel ? `<span class="badge soft">CEFR ${escapeHtml(input.cefrLabel)}</span>` : ''}
       <span class="badge soft">Xuất ${escapeHtml(date)}</span>
     </div>
 
     <div class="howto">
-      <strong>Nội dung:</strong> dạng từ + nghĩa tiếng Việt + ví dụ EN lấy từ từ điển LingoPro.
-      Dùng để ôn offline / chia sẻ nhóm — phát âm & ảnh học trên app.
+      <strong>Nội dung:</strong> IPA (US ưu tiên) + dạng từ + nghĩa VI + ví dụ EN từ từ điển LingoPro.
+      Ôn offline / chia sẻ nhóm — audio & ảnh học trên app.
       <div class="share-box">
         📎 Lưu PDF → gửi Zalo/Drive · bạn bè mở link app để học SRS cùng bộ.
       </div>

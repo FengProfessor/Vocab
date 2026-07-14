@@ -217,9 +217,9 @@ export default function LibraryPage() {
     try {
       const glosses = await fetchGlosses(flat);
       const enriched = applyGlossesToPacks(packs, glosses);
-      const withDef = enriched
-        .flatMap((p) => p.words)
-        .filter((w) => typeof w !== 'string' && w.definition).length;
+      const rows = enriched.flatMap((p) => p.words).filter((w) => typeof w !== 'string');
+      const withDef = rows.filter((w) => w.definition).length;
+      const withIpa = rows.filter((w) => w.ipa).length;
       const ok = openTopicPdfPreview({
         routeTitle: activeRoute.title,
         routeIcon: activeRoute.icon,
@@ -235,7 +235,7 @@ export default function LibraryPage() {
       }
       toast.success(opts.successMsg, {
         id: 'pdf-gloss',
-        description: `${withDef}/${flat.length} từ có nghĩa · Lưu / In PDF`,
+        description: `${withDef} nghĩa · ${withIpa} IPA / ${flat.length} từ · Lưu / In PDF`,
         duration: 5000,
       });
     } catch (e: unknown) {

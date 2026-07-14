@@ -1,16 +1,19 @@
 /**
  * POST /api/library/gloss
  * Body: { words: string[] }
- * Trả map lemma → { pos, definition, example } từ global_dictionary (batch).
- * Dùng cho PDF chủ đề / unit — đủ nghĩa + dạng từ, không gọi AI.
+ * Trả map lemma → { pos, definition, example, ipa } từ global_dictionary (batch).
+ * Dùng cho PDF chủ đề / unit — đủ nghĩa + dạng từ + phiên âm, không gọi AI.
  */
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { extractIpaFromDictionaryData } from '@/lib/ipa-resolve';
 
 export interface WordGloss {
   pos: string;
   definition: string;
   example: string;
+  /** IPA đã clean, không slash bọc ngoài (PDF tự thêm /…/) */
+  ipa: string;
 }
 
 type GdRow = {
@@ -23,8 +26,26 @@ type GdRow = {
         example?: string;
       }[];
     }[];
+    pronunciations?: { ipa?: string; region?: string | null }[];
+    openVocab?: { ipaUs?: string; ipaUk?: string; ipa?: string };
+    phonetic?: string;
   } | null;
 };
+
+function pickIpa(data: GdRow['data']): string {
+  if (!data) return '';
+  const fromExtract = extractIpaFromDictionaryData(data, 'US');
+  if (fromExtract) return fromExtract;
+  const ov = data.openVocab;
+  const candidates = [ov?.ipaUs, ov?.ipa, ov?.ipaUk].filter(
+    (x): x is string => typeof x === 'string' && x.trim().length > 0,
+  );
+  for (const c of candidates) {
+    const s = c.trim().replace(/^\/+|\/+$/g, '').trim();
+    if (s) return s;
+  }
+  return '';
+}
 
 function pickGloss(row: GdRow): WordGloss {
   const m = row.data?.results?.[0]?.meanings?.[0];
@@ -32,6 +53,7 @@ function pickGloss(row: GdRow): WordGloss {
     pos: (m?.pos ?? '').trim(),
     definition: (m?.definition ?? '').trim(),
     example: (m?.example ?? '').trim(),
+    ipa: pickIpa(row.data),
   };
 }
 
@@ -80,14 +102,15 @@ export async function POST(req: Request) {
 
     // Lemma không có trong GD → slot rỗng (PDF vẫn in được)
     for (const w of words) {
-      if (!glosses[w]) glosses[w] = { pos: '', definition: '', example: '' };
+      if (!glosses[w]) glosses[w] = { pos: '', definition: '', example: '', ipa: '' };
     }
 
     const withDef = Object.values(glosses).filter((g) => g.definition).length;
+    const withIpa = Object.values(glosses).filter((g) => g.ipa).length;
     return NextResponse.json({
       success: true,
       glosses,
-      stats: { requested: words.length, withDefinition: withDef },
+      stats: { requested: words.length, withDefinition: withDef, withIpa },
     });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Unknown error';
