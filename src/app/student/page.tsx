@@ -579,6 +579,9 @@ export default function StudentDashboard() {
 
   const hasClass = joinedClass;
 
+  // Group cộng đồng MỞ (free) — mở tab mới
+  const FB_COMMUNITY_URL = 'https://www.facebook.com/groups/1586345819865575';
+
   // Sidebar nav — mỗi item có tile màu riêng; gate Thống kê/Bảng xếp hạng theo lớp
   type NavItem = { href: string; label: string; icon: typeof LayoutGrid; color: string; tile: string; onboardingId?: string };
   const navItems: NavItem[] = [
