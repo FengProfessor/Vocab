@@ -7,13 +7,12 @@ import {
   Brain,
   Check,
   ChevronDown,
+  CalendarClock,
   Chrome,
-  GraduationCap,
-  MessageSquare,
   Repeat2,
+  SlidersHorizontal,
   Sparkles,
   Star,
-  Target,
   X,
   Zap,
 } from 'lucide-react';
@@ -67,21 +66,21 @@ const STEPS = [
   },
 ] as const;
 
-const ROUTES = [
+const WHY = [
   {
-    icon: GraduationCap,
-    title: 'Từ vựng THPT',
-    desc: 'Bám chương trình trên lớp.',
+    icon: Brain,
+    title: 'Đúng lúc não sắp quên',
+    text: 'Ôn ngay trước điểm quên — mỗi lần kéo trí nhớ dài thêm.',
   },
   {
-    icon: Target,
-    title: 'TOEIC · IELTS',
-    desc: 'Chia theo band, học gọn.',
+    icon: SlidersHorizontal,
+    title: 'Mỗi từ một lịch riêng',
+    text: 'Từ khó ôn dày, từ thuộc giãn ra. Không phí giờ ôn từ đã nhớ.',
   },
   {
-    icon: MessageSquare,
-    title: 'Giao tiếp hằng ngày',
-    desc: 'Cụm từ dùng được ngay.',
+    icon: CalendarClock,
+    title: 'Chặng ngắn thắng học dồn',
+    text: '5–8 phút đều mỗi ngày nhớ hơn 2 tiếng dồn cuối tuần.',
   },
 ] as const;
 
@@ -508,7 +507,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ── HOW + ROUTES ── */}
+        {/* ── HOW (why it sticks) ── */}
         <section id="cach-hoc" className="px-4 py-16 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 max-w-2xl">
@@ -522,9 +521,9 @@ export default function LandingPage() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
-              {STEPS.map((s) => (
+              {WHY.map((s) => (
                 <article
-                  key={s.n}
+                  key={s.title}
                   className="rounded-3xl border border-[#d7c7b6]/80 bg-white/80 p-5 shadow-[0_12px_36px_rgba(95,69,52,0.06)]"
                 >
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6]">
@@ -534,44 +533,6 @@ export default function LandingPage() {
                   <p className="mt-1.5 text-sm leading-6 text-[#5e4b40]">{s.text}</p>
                 </article>
               ))}
-            </div>
-
-            {/* Lộ trình — video demo đã tách lên #video-demo (file deploy được, không 404) */}
-            <div className="mt-12">
-              <h3 className={`${spaceGrotesk.className} text-2xl font-bold text-[#241710]`}>
-                Lộ trình học từ vựng sẵn
-              </h3>
-              <p className="mt-1 text-sm leading-6 text-[#5e4b40]">
-                Mở vào là học — không tự gom bộ từ.
-              </p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                {ROUTES.map((r) => (
-                  <div
-                    key={r.title}
-                    className="flex items-start gap-3 rounded-2xl border border-[#d7c7b6]/80 bg-white/80 p-4"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f2dfd4] text-[#9f4d2f]">
-                      <r.icon className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <div className="font-black text-[#241710]">{r.title}</div>
-                      <div className="text-sm text-[#5e4b40]">{r.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 grid max-w-md grid-cols-3 gap-2 rounded-2xl border border-[#d7c7b6]/60 bg-[#fffaf5] p-3 text-center">
-                {[
-                  { v: VOCAB_STATS.words, l: 'từ' },
-                  { v: VOCAB_STATS.packs, l: 'chặng' },
-                  { v: VOCAB_STATS.routes, l: 'lộ trình' },
-                ].map((x) => (
-                  <div key={x.l}>
-                    <div className={`${spaceGrotesk.className} text-xl font-bold`}>{x.v}</div>
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#7b6558]">{x.l}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
