@@ -48,6 +48,7 @@ export type Feature =
   | 'ai_lookup'        // tra từ AI (free có quota/ngày, pro+ không giới hạn)
   | 'ai_enrich'        // làm giàu từ bằng AI
   | 'ai_quiz'          // AI tạo quiz từ vựng
+  | 'ai_sentence'      // phân tích câu EN→VI (demo / Pro)
   | 'writing_practice' // luyện viết + chấm
   | 'grammar_read'     // đọc lý thuyết ngữ pháp + TTS
   | 'grammar_ai';      // AI ngữ pháp: tạo bài tập, phân tích câu, ôn câu sai
@@ -56,6 +57,7 @@ export const FEATURE_MIN_PLAN: Record<Feature, Plan> = {
   ai_lookup: 'free',        // free dùng được nhưng bị quota/ngày
   ai_enrich: 'pro',
   ai_quiz: 'pro',
+  ai_sentence: 'pro',
   writing_practice: 'pro',
   grammar_read: 'pro',
   grammar_ai: 'pro',        // gộp từ premium → Pro là gói trả phí duy nhất, có đủ
