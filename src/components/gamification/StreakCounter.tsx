@@ -104,32 +104,34 @@ export function StreakCounter({
     const activeDays = Object.values(minsByDay).filter((c) => c > 0).length;
     const totalReviews = Object.values(minsByDay).reduce((s, c) => s + c, 0);
 
-    // Mobile: heatmap siêu gọn; desktop giữ đọc được
-    const cellBase =
-      'flex items-center justify-center rounded-[3px] font-extrabold tabular-nums aspect-square text-[7px] sm:text-[9.5px] min-h-[16px] sm:min-h-0';
+    /**
+     * Mobile: ô CỐ ĐỊNH 10px (không aspect-square full-width → không phình to).
+     * Desktop: grid fill + số ngày.
+     */
+    const cellMobile =
+      'h-[10px] w-[10px] shrink-0 rounded-[2px] border border-black/[0.04]';
+    const cellDesktop =
+      'hidden sm:flex sm:aspect-square sm:items-center sm:justify-center sm:rounded-[4px] sm:text-[9.5px] sm:font-extrabold sm:tabular-nums';
 
     return (
       <div
-        className={`flex flex-col gap-1 rounded-xl border border-[#e9e9f0] bg-white p-2 shadow-[0_1px_2px_rgba(16,24,40,.04)] sm:flex-row sm:items-stretch sm:gap-3 sm:rounded-[18px] sm:p-[13px_14px] ${className}`}
+        className={`flex flex-row items-center gap-2 rounded-xl border border-[#e9e9f0] bg-white px-2 py-1.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] sm:flex-row sm:items-stretch sm:gap-3 sm:rounded-[18px] sm:p-[13px_14px] ${className}`}
       >
-        {/* Header siêu gọn mobile */}
+        {/* Streak — 1 hàng gọn */}
         <div className="flex shrink-0 items-center gap-1.5 sm:w-[70px] sm:flex-col sm:items-start sm:gap-1.5">
-          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-orange-400 to-orange-500 text-[11px] shadow-sm sm:h-[30px] sm:w-[30px] sm:rounded-[9px] sm:text-[15px]">
+          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-orange-400 to-orange-500 text-[10px] sm:h-[30px] sm:w-[30px] sm:rounded-[9px] sm:text-[15px]">
             🔥
           </div>
-          <div className="min-w-0 flex-1 sm:flex-none">
+          <div className="min-w-0">
             <div className="flex items-baseline gap-0.5">
-              <span className="text-sm font-black leading-none text-orange-600 sm:text-[21px]">{streak}</span>
-              <span className="text-[9px] font-bold text-orange-400 sm:text-[11px]">ngày</span>
-            </div>
-            <div className="text-[9px] font-extrabold text-[#94a3b8] sm:mt-0.5 sm:text-[10px] sm:uppercase sm:tracking-wider sm:text-orange-400">
-              <span className="sm:hidden">{MONTH_LABELS[month]} · {activeDays}d</span>
-              <span className="hidden sm:inline">streak</span>
+              <span className="text-[13px] font-black leading-none text-orange-600 sm:text-[21px]">{streak}</span>
+              <span className="text-[8px] font-bold text-orange-400 sm:text-[11px]">ngày</span>
             </div>
             <div className="hidden text-[10.5px] font-bold text-[#aab0bd] sm:block">{MONTH_LABELS[month]}</div>
           </div>
         </div>
 
+        {/* Heatmap */}
         <div className="min-w-0 flex-1">
           <div className="mb-1 hidden items-center justify-between sm:mb-[3px] sm:flex">
             <span className="text-[11px] font-extrabold text-[#0f172a]">Bảng hoạt động hàng tháng</span>
@@ -138,16 +140,43 @@ export function StreakCounter({
             </span>
           </div>
 
-          <div className="mb-px grid grid-cols-7 gap-px sm:mb-[3px] sm:gap-[3px]">
+          {/* Mobile weekday: 1 chữ */}
+          <div className="mb-0.5 hidden grid-cols-7 gap-[3px] sm:mb-[3px] sm:grid">
             {weekdays.map((wd) => (
-              <div key={wd} className="text-center text-[6px] font-extrabold uppercase text-[#b3b8c4] sm:text-[8px]">
+              <div key={wd} className="text-center text-[8px] font-extrabold uppercase text-[#b3b8c4]">
                 {wd}
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-7 gap-px sm:gap-[3px]">
+
+          {/* Mobile: fixed tiny dots · Desktop: full cells with numbers */}
+          <div className="flex flex-wrap content-start gap-[2px] sm:hidden" style={{ maxWidth: 7 * 12 }}>
             {Array.from({ length: lead }).map((_, i) => (
-              <div key={`lead-${i}`} className="aspect-square min-h-[16px] sm:min-h-0" />
+              <div key={`m-lead-${i}`} className="h-[10px] w-[10px]" />
+            ))}
+            {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
+              const isToday = d === todayDate;
+              const future = d > todayDate;
+              const lvl = future ? 0 : (intensityByDay[d] ?? 0);
+              const mins = minsByDay[d] ?? 0;
+              return (
+                <div
+                  key={`m-${d}`}
+                  className={cellMobile}
+                  style={{
+                    background: future ? '#f1f5f9' : HEAT_PALETTE[lvl],
+                    opacity: future ? 0.55 : 1,
+                    boxShadow: isToday && !future ? `0 0 0 1px ${HEAT_PALETTE[4]}` : undefined,
+                  }}
+                  title={`${d}${mins ? ` · ${mins} từ` : future ? ' · sắp tới' : ' · nghỉ'}`}
+                />
+              );
+            })}
+          </div>
+
+          <div className="hidden grid-cols-7 gap-[3px] sm:grid">
+            {Array.from({ length: lead }).map((_, i) => (
+              <div key={`d-lead-${i}`} className="aspect-square" />
             ))}
             {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
               const isToday = d === todayDate;
@@ -155,8 +184,8 @@ export function StreakCounter({
               if (future) {
                 return (
                   <div
-                    key={d}
-                    className={`${cellBase} border border-[#eef0f3] bg-[#f8f9fb] text-[#c8cdd6]`}
+                    key={`d-${d}`}
+                    className={`${cellDesktop} border border-[#eef0f3] bg-[#f8f9fb] text-[#c8cdd6]`}
                     title={`${d} · sắp tới`}
                   >
                     {d}
@@ -168,13 +197,13 @@ export function StreakCounter({
               const mins = minsByDay[d] ?? 0;
               return (
                 <div
-                  key={d}
-                  className={cellBase}
+                  key={`d-${d}`}
+                  className={cellDesktop}
                   style={{
                     background: HEAT_PALETTE[lvl],
                     color: fg,
                     border: lvl === 0 ? '1px solid #e8ebef' : '1px solid rgba(0,0,0,.04)',
-                    boxShadow: isToday ? `0 0 0 1px #fff, 0 0 0 2px ${HEAT_PALETTE[4]}` : undefined,
+                    boxShadow: isToday ? `0 0 0 1.5px #fff, 0 0 0 2.5px ${HEAT_PALETTE[4]}` : undefined,
                   }}
                   title={`${d}${mins ? ` · ${mins} từ` : ' · nghỉ'}`}
                 >
@@ -184,7 +213,6 @@ export function StreakCounter({
             })}
           </div>
 
-          {/* Legend: ẩn mobile để gọn */}
           <div className="mt-[9px] hidden items-center justify-end gap-1.5 sm:flex">
             <span className="text-[10px] font-bold text-[#b3b8c4]">Ít</span>
             <div className="flex gap-[3px]">
