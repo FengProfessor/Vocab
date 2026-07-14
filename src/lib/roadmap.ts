@@ -147,3 +147,14 @@ export function scorePlacement(answers: Record<string, string>): RoadmapLevelId 
   }
   return 'B2';
 }
+
+// ── Exit standards (stub — full content load sau khi có exit-standards data) ──
+export type ExitStandard = { canDo: string[]; notYet: string[] };
+
+export function getExitDisclaimer(): string {
+  return 'Chuẩn đầu ra theo CEFR. Ôn đều SRS để giữ từ và kỹ năng lâu dài.';
+}
+
+export function getExitStandard(_levelId: string): ExitStandard | null {
+  return null;
+}
