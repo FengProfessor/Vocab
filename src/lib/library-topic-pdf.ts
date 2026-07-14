@@ -109,9 +109,9 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
           const r = normalizeRow(item);
           const n = wi + 1;
           const ipaText = formatIpa(r.ipa);
-          const ipa = ipaText
-            ? `<div class="ipa">${escapeHtml(ipaText)}</div>`
-            : `<div class="ipa muted">—</div>`;
+          const ipaCell = ipaText
+            ? `<span class="ipa">${escapeHtml(ipaText)}</span>`
+            : `<span class="ipa muted">—</span>`;
           const pos = r.pos
             ? `<span class="pos">${escapeHtml(r.pos)}</span>`
             : `<span class="pos muted">—</span>`;
@@ -125,9 +125,9 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
             <td class="num">${n}</td>
             <td class="word">
               <div class="lemma">${escapeHtml(r.word)}</div>
-              ${ipa}
               ${pos}
             </td>
+            <td class="ipa-col">${ipaCell}</td>
             <td class="def">${def}</td>
             <td class="ex">${ex}</td>
           </tr>`;
@@ -142,7 +142,8 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
           <thead>
             <tr>
               <th class="num">#</th>
-              <th class="word">Từ · IPA · dạng</th>
+              <th class="word">Từ · dạng</th>
+              <th class="ipa-col">Phiên âm</th>
               <th class="def">Nghĩa (VI)</th>
               <th class="ex">Ví dụ (EN)</th>
             </tr>
@@ -297,17 +298,23 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
       background: #eef2ff; color: #312e81; font-weight: 800; text-align: left;
       font-size: 8pt;
     }
-    td.num, th.num { width: 26px; text-align: center; color: #64748b; font-weight: 700; }
-    td.word, th.word { width: 22%; }
-    td.def, th.def { width: 38%; }
-    td.ex, th.ex { width: 32%; font-size: 8.5pt; color: #334155; }
+    td.num, th.num { width: 22px; text-align: center; color: #64748b; font-weight: 700; }
+    td.word, th.word { width: 18%; }
+    td.ipa-col, th.ipa-col { width: 16%; }
+    td.def, th.def { width: 32%; }
+    td.ex, th.ex { width: 28%; font-size: 8pt; color: #334155; }
     .lemma { font-weight: 800; color: #0f172a; font-size: 9.5pt; }
-    .ipa {
-      font-family: "Segoe UI", "Lucida Sans Unicode", "Arial Unicode MS", sans-serif;
-      font-size: 8pt; font-weight: 600; color: #64748b; margin-top: 1px;
-      letter-spacing: 0.01em;
+    .ipa, td.ipa-col .ipa {
+      font-family: "Segoe UI", "Arial Unicode MS", "Lucida Sans Unicode", "Noto Sans", sans-serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #4338ca;
+      letter-spacing: 0.02em;
+      word-break: break-word;
     }
-    .ipa.muted { color: #cbd5e1; }
+    .ipa.muted { color: #cbd5e1; font-weight: 600; }
+    td.ipa-col { background: #f5f3ff !important; vertical-align: middle; }
+    tr:nth-child(even) td.ipa-col { background: #ede9fe !important; }
     .pos {
       display: inline-block; margin-top: 2px; font-size: 7.5pt; font-weight: 700;
       color: #4f46e5; background: #eef2ff; padding: 1px 5px; border-radius: 4px;

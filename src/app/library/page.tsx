@@ -187,13 +187,23 @@ export default function LibraryPage() {
     const data = (await res.json()) as {
       success?: boolean;
       glosses?: Record<string, WordGloss>;
-      stats?: { withDefinition?: number; requested?: number };
+      stats?: { withDefinition?: number; withIpa?: number; requested?: number };
       error?: string;
     };
     if (!res.ok || !data.success || !data.glosses) {
       throw new Error(data.error || 'Không tải được nghĩa từ từ điển');
     }
-    return data.glosses;
+    // Chuẩn hoá key lowercase + đảm bảo field ipa luôn string
+    const out: Record<string, WordGloss> = {};
+    for (const [k, g] of Object.entries(data.glosses)) {
+      out[k.toLowerCase()] = {
+        pos: g?.pos ?? '',
+        definition: g?.definition ?? '',
+        example: g?.example ?? '',
+        ipa: (g?.ipa ?? '').toString().trim(),
+      };
+    }
+    return out;
   };
 
   const openPdfWithGloss = async (

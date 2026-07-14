@@ -6,7 +6,6 @@
  */
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { extractIpaFromDictionaryData } from '@/lib/ipa-resolve';
 
 export interface WordGloss {
   pos: string;
@@ -15,6 +14,8 @@ export interface WordGloss {
   /** IPA đã clean, không slash bọc ngoài (PDF tự thêm /…/) */
   ipa: string;
 }
+
+type Pron = { ipa?: string; text?: string; phonetic?: string; region?: string | null };
 
 type GdRow = {
   word: string;
@@ -25,25 +26,66 @@ type GdRow = {
         definition?: string;
         example?: string;
       }[];
+      phonetic?: string;
+      pronunciations?: Pron[];
     }[];
-    pronunciations?: { ipa?: string; region?: string | null }[];
-    openVocab?: { ipaUs?: string; ipaUk?: string; ipa?: string };
+    pronunciations?: Pron[];
+    phonetics?: Array<{ text?: string; ipa?: string }>;
+    openVocab?: { ipaUs?: string; ipaUk?: string; ipa?: string; phonetic?: string };
     phonetic?: string;
   } | null;
 };
 
+/** Lấy IPA trực tiếp — không phụ thuộc whitelist chặt (tránh mất phiên âm trên PDF). */
 function pickIpa(data: GdRow['data']): string {
   if (!data) return '';
-  const fromExtract = extractIpaFromDictionaryData(data, 'US');
-  if (fromExtract) return fromExtract;
-  const ov = data.openVocab;
-  const candidates = [ov?.ipaUs, ov?.ipa, ov?.ipaUk].filter(
-    (x): x is string => typeof x === 'string' && x.trim().length > 0,
-  );
-  for (const c of candidates) {
-    const s = c.trim().replace(/^\/+|\/+$/g, '').trim();
-    if (s) return s;
+
+  const clean = (raw: string | undefined | null): string => {
+    if (!raw || typeof raw !== 'string') return '';
+    let s = raw.trim();
+    if (!s || /^https?:/i.test(s) || s.includes('://') || s.includes('.com/')) return '';
+    s = s.replace(/^\/+|\/+$/g, '').trim();
+    s = s.replace(/^(US|UK|AmE|BrE|GA|RP)\s*[:：]?\s*/i, '').trim();
+    s = s.replace(/^\/+|\/+$/g, '').trim();
+    if (!s || s.length > 100) return '';
+    return s;
+  };
+
+  const fromProns = (list: Pron[] | undefined): string => {
+    if (!Array.isArray(list)) return '';
+    for (const p of list) {
+      const ipa = clean(p.ipa || p.text || p.phonetic);
+      if (ipa) return ipa;
+    }
+    return '';
+  };
+
+  let ipa = fromProns(data.pronunciations);
+  if (ipa) return ipa;
+
+  ipa = clean(data.phonetic);
+  if (ipa) return ipa;
+
+  if (Array.isArray(data.phonetics)) {
+    for (const p of data.phonetics) {
+      ipa = clean(p?.text || p?.ipa);
+      if (ipa) return ipa;
+    }
   }
+
+  const ov = data.openVocab;
+  if (ov) {
+    for (const key of ['ipaUs', 'ipa', 'ipaUk', 'phonetic'] as const) {
+      ipa = clean(ov[key]);
+      if (ipa) return ipa;
+    }
+  }
+
+  for (const res of data.results ?? []) {
+    ipa = clean(res.phonetic) || fromProns(res.pronunciations);
+    if (ipa) return ipa;
+  }
+
   return '';
 }
 
