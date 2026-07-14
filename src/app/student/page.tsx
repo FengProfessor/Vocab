@@ -978,32 +978,7 @@ export default function StudentDashboard() {
             />
           </section>
 
-          {/* Lối tắt: Writing · Quiz · Ngữ pháp · Pro — emoji, không Speaking (đã xóa) */}
-          <div className="grid grid-cols-2 gap-1.5">
-            
-            
-            <Link
-              href="/grammar/learn"
-              data-onboarding="grammar"
-              className="relative flex flex-col items-center gap-1 rounded-xl border border-slate-100 bg-white px-1 py-2.5 text-center shadow-sm active:bg-slate-50"
-            >
-              <span className="text-xl leading-none">🎓</span>
-              <span className="text-[10px] font-extrabold leading-tight text-slate-700">Ngữ pháp</span>
-              {grammarDue > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-amber-500 px-1 text-[9px] font-black text-white">
-                  {grammarDue > 99 ? '99+' : grammarDue}
-                </span>
-              )}
-            </Link>
-            <Link
-              href="/upgrade"
-              className="flex flex-col items-center gap-1 rounded-xl border border-violet-100 bg-violet-50/70 px-1 py-2.5 text-center shadow-sm active:bg-violet-50"
-            >
-              <span className="text-xl leading-none">👑</span>
-              <span className="text-[10px] font-extrabold leading-tight text-violet-700">Pro</span>
-            </Link>
-          </div>
-
+          
           {/* ═══ KHO TỪ VỰNG ═══ */}
           <section className="space-y-2.5 rounded-2xl border border-slate-100 bg-white p-3 shadow-sm sm:p-3.5" id="kho-tu-vung">
             <div className="flex items-center justify-between gap-2">
