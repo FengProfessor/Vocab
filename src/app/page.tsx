@@ -378,6 +378,17 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
+              <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#cbb7a6]">Lộ trình</span>
+                {['IELTS', 'TOEIC', 'THPT', 'Giao tiếp'].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-0.5 text-[11px] font-bold text-[#e9dccf]"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
