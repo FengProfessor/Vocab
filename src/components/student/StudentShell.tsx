@@ -190,8 +190,6 @@ export function StudentShell({
       footerDup: true,
     },
     {
-    {
-    {
       href: '/grammar/learn',
       label: 'Grammar',
       emoji: '🎓',
