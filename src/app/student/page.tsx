@@ -71,7 +71,6 @@ export default function StudentDashboard() {
   const [todayWords, setTodayWords] = useState(0);
   const [countdown, setCountdown] = useState<string>('');
   const [grammarDue, setGrammarDue] = useState(0);
-  const [activeVocabPack, setActiveVocabPack] = useState<ActiveVocabPack | null>(null);
   const [vocabPacks, setVocabPacks] = useState<ActiveVocabPack[]>([]);
   const [selectedWord, setSelectedWord] = useState<Word | null>(null);
   const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
@@ -228,9 +227,7 @@ export default function StudentDashboard() {
         .then((response) => response.json())
         .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
           if (!packData.success || !packData.packs) return;
-          const packs = packData.packs;
-          setVocabPacks(packs);
-          setActiveVocabPack(packs.find((pack) => pack.status === 'in_progress') ?? null);
+          setVocabPacks(packData.packs);
         })
         .catch(() => {});
 
@@ -874,34 +871,6 @@ export default function StudentDashboard() {
           {/* Desktop banner; mobile = fixed popup trong component */}
           <EnableNotifications />
 
-          {activeVocabPack && (
-            <Link
-              href={`/flashcard?mode=learn&ids=${activeVocabPack.words
-                .slice()
-                .sort((a, b) => a.position - b.position)
-                .map((word) => encodeURIComponent(word.word_id))
-                .join(',')}`}
-              className="group flex items-center gap-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 px-3.5 py-2.5 text-white shadow-md shadow-indigo-200/50 transition hover:brightness-105"
-            >
-              <Sparkles className="h-4 w-4 shrink-0 opacity-90" />
-              <div className="min-w-0 flex-1">
-                <div className="truncate text-sm font-black">
-                  {activeVocabPack.topic_title} · Chặng {activeVocabPack.pack_index + 1}
-                </div>
-                <div className="mt-1 h-1 overflow-hidden rounded-full bg-white/20">
-                  <div
-                    className="h-full rounded-full bg-amber-300"
-                    style={{ width: `${Math.round((activeVocabPack.reviewed_count / activeVocabPack.word_count) * 100)}%` }}
-                  />
-                </div>
-              </div>
-              <span className="shrink-0 text-[11px] font-bold text-indigo-100 tabular-nums">
-                {activeVocabPack.reviewed_count}/{activeVocabPack.word_count}
-              </span>
-              <ArrowRight className="h-4 w-4 shrink-0 opacity-80" />
-            </Link>
-          )}
-
           {/* CTA chính: số Học / Ôn TO — ưu tiên visual mobile */}
           <div className="grid grid-cols-2 gap-2">
             <Link
@@ -1079,7 +1048,7 @@ export default function StudentDashboard() {
               </div>
             )}
 
-            {/* Gói đã nạp vào kho */}
+            {/* Gói trong kho — đang dở lên đầu, bấm tiếp tục */}
             {vocabPacks.length > 0 && (
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
@@ -1091,49 +1060,68 @@ export default function StudentDashboard() {
                   </Link>
                 </div>
                 <div className="-mx-0.5 flex gap-1.5 overflow-x-auto px-0.5 pb-0.5 scrollbar-none">
-                  {vocabPacks.slice(0, 12).map((pack) => {
-                    const pct = pack.word_count > 0
-                      ? Math.round((pack.reviewed_count / pack.word_count) * 100)
-                      : 0;
-                    const href =
-                      pack.status === 'in_progress' && pack.words?.length
+                  {[...vocabPacks]
+                    .sort((a, b) => {
+                      const rank = (s: ActiveVocabPack['status']) =>
+                        s === 'in_progress' ? 0 : s === 'not_started' ? 1 : 2;
+                      return rank(a.status) - rank(b.status);
+                    })
+                    .slice(0, 12)
+                    .map((pack) => {
+                      const pct = pack.word_count > 0
+                        ? Math.round((pack.reviewed_count / pack.word_count) * 100)
+                        : 0;
+                      const inProgress = pack.status === 'in_progress' && !!pack.words?.length;
+                      const href = inProgress
                         ? `/flashcard?mode=learn&ids=${pack.words
                             .slice()
                             .sort((a, b) => a.position - b.position)
                             .map((w) => encodeURIComponent(w.word_id))
                             .join(',')}`
                         : '/library';
-                    return (
-                      <Link
-                        key={pack.pack_id}
-                        href={href}
-                        className="min-w-[140px] max-w-[160px] shrink-0 rounded-xl border border-slate-100 bg-slate-50/80 px-2.5 py-2 active:bg-slate-100"
-                      >
-                        <div className="truncate text-[11px] font-extrabold text-slate-800">
-                          {pack.topic_title}
-                        </div>
-                        <div className="mt-0.5 text-[10px] font-bold text-slate-400">
-                          Chặng {pack.pack_index + 1}
-                          {pack.status === 'completed'
-                            ? ' · xong'
-                            : pack.status === 'in_progress'
-                              ? ' · đang học'
-                              : ''}
-                        </div>
-                        <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-slate-200">
-                          <div
-                            className={`h-full rounded-full ${
-                              pack.status === 'completed' ? 'bg-emerald-500' : 'bg-indigo-500'
-                            }`}
-                            style={{ width: `${Math.min(100, pct)}%` }}
-                          />
-                        </div>
-                        <div className="mt-0.5 text-[10px] font-bold tabular-nums text-slate-500">
-                          {pack.reviewed_count}/{pack.word_count}
-                        </div>
-                      </Link>
-                    );
-                  })}
+                      return (
+                        <Link
+                          key={pack.pack_id}
+                          href={href}
+                          className={`min-w-[148px] max-w-[168px] shrink-0 rounded-xl border px-2.5 py-2 active:scale-[0.99] ${
+                            inProgress
+                              ? 'border-indigo-200 bg-gradient-to-br from-indigo-50 to-violet-50 shadow-sm shadow-indigo-100'
+                              : pack.status === 'completed'
+                                ? 'border-emerald-100 bg-emerald-50/50'
+                                : 'border-slate-100 bg-slate-50/80'
+                          }`}
+                        >
+                          {inProgress && (
+                            <div className="mb-1 text-[9px] font-extrabold uppercase tracking-wide text-indigo-600">
+                              ▶ Tiếp tục
+                            </div>
+                          )}
+                          <div className="truncate text-[11px] font-extrabold text-slate-800">
+                            {pack.topic_title}
+                          </div>
+                          <div className="mt-0.5 text-[10px] font-bold text-slate-400">
+                            Chặng {pack.pack_index + 1}
+                            {pack.status === 'completed'
+                              ? ' · xong'
+                              : pack.status === 'in_progress'
+                                ? ' · đang học'
+                                : ''}
+                          </div>
+                          <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-slate-200/80">
+                            <div
+                              className={`h-full rounded-full ${
+                                pack.status === 'completed' ? 'bg-emerald-500' : 'bg-indigo-500'
+                              }`}
+                              style={{ width: `${Math.min(100, pct)}%` }}
+                            />
+                          </div>
+                          <div className="mt-0.5 flex items-center justify-between text-[10px] font-bold tabular-nums text-slate-500">
+                            <span>{pack.reviewed_count}/{pack.word_count}</span>
+                            {inProgress && <span className="text-indigo-600">Học tiếp →</span>}
+                          </div>
+                        </Link>
+                      );
+                    })}
                 </div>
               </div>
             )}
