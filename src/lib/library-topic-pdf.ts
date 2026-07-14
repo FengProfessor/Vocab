@@ -1,12 +1,27 @@
 /**
  * Xuất PDF chủ đề / unit thư viện (toàn bộ pack, không chỉ 1 chặng).
  * Cách: HTML A4 branded → cửa sổ in → "Lưu thành PDF" (desktop + mobile).
- * Watermark (dấu chìm): lingopro.online lặp trên mỗi trang — bảo vệ thương hiệu khi chia sẻ.
+ * Watermark nhẹ: 1 dải chéo mờ + góc + footer (không lưới chéo dày).
+ * Nội dung: từ · dạng từ · nghĩa VI · ví dụ EN (từ global_dictionary).
  */
+
+export interface WordGloss {
+  pos?: string;
+  definition?: string;
+  example?: string;
+}
+
+export interface PdfWordRow {
+  word: string;
+  pos?: string;
+  definition?: string;
+  example?: string;
+}
 
 export interface PdfPack {
   title: string;
-  words: string[];
+  /** Legacy: chỉ list string — PDF vẫn chạy, cột nghĩa trống */
+  words: Array<string | PdfWordRow>;
 }
 
 export interface TopicPdfInput {
@@ -39,22 +54,67 @@ function slugify(s: string): string {
     .slice(0, 60);
 }
 
+function normalizeRow(item: string | PdfWordRow): PdfWordRow {
+  if (typeof item === 'string') return { word: item };
+  return {
+    word: item.word,
+    pos: item.pos?.trim() || '',
+    definition: item.definition?.trim() || '',
+    example: item.example?.trim() || '',
+  };
+}
+
+/** Gắn gloss map vào packs (giữ thứ tự từ). */
+export function applyGlossesToPacks(
+  packs: { title: string; words: string[] }[],
+  glosses: Record<string, WordGloss>,
+): PdfPack[] {
+  return packs.map((p) => ({
+    title: p.title,
+    words: p.words.map((w) => {
+      const g = glosses[w.toLowerCase()] ?? glosses[w];
+      return {
+        word: w,
+        pos: g?.pos ?? '',
+        definition: g?.definition ?? '',
+        example: g?.example ?? '',
+      };
+    }),
+  }));
+}
+
 export function buildTopicPdfHtml(input: TopicPdfInput): string {
   const site = (input.siteUrl ?? (typeof window !== 'undefined' ? window.location.origin : 'https://lingopro.online')).replace(/\/$/, '');
   const hostLabel = site.replace(/^https?:\/\//, '').replace(/\/$/, '') || 'lingopro.online';
   const logoUrl = `${site}/icons/icon-192.webp`;
-  const totalWords = input.packs.reduce((n, p) => n + p.words.length, 0);
+  const allRows = input.packs.flatMap((p) => p.words.map(normalizeRow));
+  const totalWords = allRows.length;
+  const withDef = allRows.filter((r) => r.definition).length;
   const date = new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
   const packBlocks = input.packs
     .map((pack, pi) => {
       const rows = pack.words
-        .map((w, wi) => {
+        .map((item, wi) => {
+          const r = normalizeRow(item);
           const n = wi + 1;
+          const pos = r.pos
+            ? `<span class="pos">${escapeHtml(r.pos)}</span>`
+            : `<span class="pos muted">—</span>`;
+          const def = r.definition
+            ? escapeHtml(r.definition)
+            : `<span class="muted">…</span>`;
+          const ex = r.example
+            ? `<em>${escapeHtml(r.example)}</em>`
+            : `<span class="muted">—</span>`;
           return `<tr>
             <td class="num">${n}</td>
-            <td class="word">${escapeHtml(w)}</td>
-            <td class="blank"></td>
-            <td class="blank"></td>
+            <td class="word">
+              <div class="lemma">${escapeHtml(r.word)}</div>
+              ${pos}
+            </td>
+            <td class="def">${def}</td>
+            <td class="ex">${ex}</td>
           </tr>`;
         })
         .join('');
@@ -67,9 +127,9 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
           <thead>
             <tr>
               <th class="num">#</th>
-              <th class="word">Từ / cụm</th>
-              <th>Nghĩa (VI)</th>
-              <th>Ví dụ / ghi chú</th>
+              <th class="word">Từ · dạng</th>
+              <th class="def">Nghĩa (VI)</th>
+              <th class="ex">Ví dụ (EN)</th>
             </tr>
           </thead>
           <tbody>${rows}</tbody>
@@ -88,7 +148,6 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     @page {
       size: A4;
       margin: 12mm 12mm 16mm;
-      /* Một số engine hỗ trợ footer @page — fallback bằng .page-foot fixed */
     }
     * { box-sizing: border-box; }
     body {
@@ -100,12 +159,6 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
       background: #fff;
       position: relative;
     }
-    /*
-     * Watermark lịch sự (không lưới chéo dày — dễ vô duyên / giống file lậu):
-     * 1) 1 dấu chéo rất mờ giữa trang
-     * 2) Chip góc dưới phải
-     * 3) Footer mỏng mỗi trang
-     */
     .watermark-hero {
       position: fixed;
       left: 50%;
@@ -204,10 +257,15 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
       padding: 8px 10px; font-size: 8.5pt; color: #334155; margin-bottom: 14px;
     }
     .howto strong { color: #0f172a; }
+    .share-box {
+      margin-top: 10px; padding: 8px; border-radius: 8px; background: #eef2ff;
+      font-size: 8.5pt; color: #312e81; font-weight: 600;
+    }
     h2 {
       font-size: 11.5pt; font-weight: 900; margin: 16px 0 8px;
       display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
       color: #1e1b4b;
+      page-break-after: avoid;
     }
     .pill {
       font-size: 8pt; font-weight: 800; background: #4f46e5; color: #fff;
@@ -215,30 +273,35 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     }
     table {
       width: 100%; border-collapse: collapse; table-layout: fixed;
-      font-size: 9.5pt;
+      font-size: 9pt;
     }
     th, td {
       border: 1px solid #cbd5e1; padding: 5px 6px; vertical-align: top;
     }
     th {
       background: #eef2ff; color: #312e81; font-weight: 800; text-align: left;
-      font-size: 8.5pt;
+      font-size: 8pt;
     }
-    td.num, th.num { width: 28px; text-align: center; color: #64748b; font-weight: 700; }
-    td.word, th.word { width: 28%; font-weight: 700; color: #0f172a; }
-    td.blank { min-height: 18px; background: #fff; }
+    td.num, th.num { width: 26px; text-align: center; color: #64748b; font-weight: 700; }
+    td.word, th.word { width: 22%; }
+    td.def, th.def { width: 38%; }
+    td.ex, th.ex { width: 32%; font-size: 8.5pt; color: #334155; }
+    .lemma { font-weight: 800; color: #0f172a; font-size: 9.5pt; }
+    .pos {
+      display: inline-block; margin-top: 2px; font-size: 7.5pt; font-weight: 700;
+      color: #4f46e5; background: #eef2ff; padding: 1px 5px; border-radius: 4px;
+    }
+    .pos.muted, .muted { color: #94a3b8; font-weight: 600; font-style: normal; background: transparent; padding: 0; }
+    td.def { font-size: 8.5pt; color: #1e293b; line-height: 1.35; }
+    td.ex em { font-style: italic; color: #475569; }
     tr:nth-child(even) td { background: #f8fafc; }
-    tr:nth-child(even) td.blank { background: #f8fafc; }
+    tr { page-break-inside: avoid; }
     .pack-break { page-break-before: auto; }
     footer.foot {
       margin-top: 18px; padding-top: 10px; border-top: 1px dashed #94a3b8;
       font-size: 8pt; color: #64748b; text-align: center; line-height: 1.5;
     }
     footer.foot strong { color: #4f46e5; }
-    .share-box {
-      margin-top: 10px; padding: 8px; border-radius: 8px; background: #eef2ff;
-      font-size: 8.5pt; color: #312e81; font-weight: 600;
-    }
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .no-print { display: none !important; }
@@ -261,7 +324,6 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
   </style>
 </head>
 <body>
-  <!-- Watermark nhẹ: 1 dải chéo mờ + góc + footer (không lưới đầy trang) -->
   <div class="watermark-hero" aria-hidden="true">${escapeHtml(hostLabel)}</div>
   <div class="wm-corner" aria-hidden="true">${escapeHtml(hostLabel)}</div>
   <div class="page-foot" aria-hidden="true">
@@ -272,7 +334,7 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     <div class="toolbar no-print">
       <button type="button" onclick="window.print()">⬇ Lưu / In PDF</button>
       <button type="button" class="secondary" onclick="window.close()">Đóng</button>
-      <span>Chọn máy in → <b>Lưu thành PDF</b> · watermark nhẹ <b>${escapeHtml(hostLabel)}</b></span>
+      <span>Chọn máy in → <b>Lưu thành PDF</b> · đã kèm dạng từ + nghĩa</span>
     </div>
 
     <header class="brand">
@@ -295,16 +357,16 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     <div class="badges">
       <span class="badge">${totalWords} từ</span>
       <span class="badge">${input.packs.length} chặng</span>
+      <span class="badge soft">${withDef}/${totalWords} có nghĩa</span>
       ${input.cefrLabel ? `<span class="badge soft">CEFR ${escapeHtml(input.cefrLabel)}</span>` : ''}
       <span class="badge soft">Xuất ${escapeHtml(date)}</span>
     </div>
 
     <div class="howto">
-      <strong>Cách dùng nhanh:</strong>
-      (1) Đọc cột từ · (2) Tự điền nghĩa VI · (3) Viết 1 ví dụ ngắn ·
-      (4) Học lại trên app LingoPro để SRS nhắc đúng lúc.
+      <strong>Nội dung:</strong> dạng từ + nghĩa tiếng Việt + ví dụ EN lấy từ từ điển LingoPro.
+      Dùng để ôn offline / chia sẻ nhóm — phát âm & ảnh học trên app.
       <div class="share-box">
-        📎 In / lưu PDF này rồi chia sẻ nhóm lớp — kèm link app để bạn bè học chung.
+        📎 Lưu PDF → gửi Zalo/Drive · bạn bè mở link app để học SRS cùng bộ.
       </div>
     </div>
 
@@ -317,7 +379,6 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     </footer>
   </div>
   <script>
-    // Tự focus; không auto-print trên mobile (tránh bị chặn popup)
     try {
       document.title = ${JSON.stringify(`${input.unitTitle} · LingoPro`)};
     } catch (e) {}

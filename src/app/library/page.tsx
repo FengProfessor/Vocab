@@ -10,7 +10,12 @@ import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
 import { StudentShell } from '@/components/student/StudentShell';
-import { openTopicPdfPreview, suggestPdfFileName } from '@/lib/library-topic-pdf';
+import {
+  applyGlossesToPacks,
+  openTopicPdfPreview,
+  suggestPdfFileName,
+  type WordGloss,
+} from '@/lib/library-topic-pdf';
 
 type ContentType = 'word' | 'phrase' | 'idiom' | 'phrasal_verb';
 
@@ -164,29 +169,99 @@ export default function LibraryPage() {
     setStatusFilter(ALL);
   };
 
+  const [pdfLoading, setPdfLoading] = useState(false);
+
+  /** Lấy dạng từ + nghĩa + ví dụ từ GD rồi mở PDF. */
+  const fetchGlosses = async (words: string[]): Promise<Record<string, WordGloss>> => {
+    const unique = [...new Set(words.map((w) => w.trim().toLowerCase()).filter(Boolean))];
+    if (unique.length === 0) return {};
+    const res = await authFetch('/api/library/gloss', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ words: unique }),
+    });
+    const data = (await res.json()) as {
+      success?: boolean;
+      glosses?: Record<string, WordGloss>;
+      stats?: { withDefinition?: number; requested?: number };
+      error?: string;
+    };
+    if (!res.ok || !data.success || !data.glosses) {
+      throw new Error(data.error || 'Không tải được nghĩa từ từ điển');
+    }
+    return data.glosses;
+  };
+
+  const openPdfWithGloss = async (
+    packs: { title: string; words: string[] }[],
+    opts: {
+      topicTitle: string;
+      unitTitle: string;
+      cefrLabel?: string | null;
+      successMsg: string;
+    },
+  ): Promise<void> => {
+    if (!activeRoute) return;
+    if (pdfLoading) return;
+    const flat = packs.flatMap((p) => p.words);
+    if (!flat.length) {
+      toast.error('Chưa có từ để xuất');
+      return;
+    }
+    if (flat.length > 800) {
+      toast.error('Chủ đề quá dài (>800 từ). Hãy tải từng unit.');
+      return;
+    }
+    setPdfLoading(true);
+    toast.loading(`Đang lấy nghĩa ${flat.length} từ…`, { id: 'pdf-gloss' });
+    try {
+      const glosses = await fetchGlosses(flat);
+      const enriched = applyGlossesToPacks(packs, glosses);
+      const withDef = enriched
+        .flatMap((p) => p.words)
+        .filter((w) => typeof w !== 'string' && w.definition).length;
+      const ok = openTopicPdfPreview({
+        routeTitle: activeRoute.title,
+        routeIcon: activeRoute.icon,
+        topicTitle: opts.topicTitle,
+        unitTitle: opts.unitTitle,
+        packs: enriched,
+        cefrLabel: opts.cefrLabel ?? null,
+        siteUrl: typeof window !== 'undefined' ? window.location.origin : 'https://lingopro.online',
+      });
+      if (!ok) {
+        toast.error('Trình duyệt chặn popup — cho phép cửa sổ mới rồi thử lại', { id: 'pdf-gloss' });
+        return;
+      }
+      toast.success(opts.successMsg, {
+        id: 'pdf-gloss',
+        description: `${withDef}/${flat.length} từ có nghĩa · Lưu / In PDF`,
+        duration: 5000,
+      });
+    } catch (e: unknown) {
+      toast.error(e instanceof Error ? e.message : 'Lỗi xuất PDF', { id: 'pdf-gloss' });
+    } finally {
+      setPdfLoading(false);
+    }
+  };
+
   const handleDownloadUnitPdf = (sub: Subtopic, topicTitle: string): void => {
     if (!activeRoute) return;
     if (!sub.packs.length) {
       toast.error('Unit chưa có chặng từ');
       return;
     }
-    const ok = openTopicPdfPreview({
-      routeTitle: activeRoute.title,
-      routeIcon: activeRoute.icon,
-      topicTitle,
-      unitTitle: sub.title,
-      packs: sub.packs.map((p) => ({ title: p.title, words: p.words })),
-      cefrLabel: sub.cefrRange ? `${sub.cefrRange.min}${sub.cefrRange.max && sub.cefrRange.max !== sub.cefrRange.min ? `–${sub.cefrRange.max}` : ''}` : null,
-      siteUrl: typeof window !== 'undefined' ? window.location.origin : 'https://lingopro.online',
-    });
-    if (!ok) {
-      toast.error('Trình duyệt chặn popup — cho phép cửa sổ mới rồi thử lại');
-      return;
-    }
-    toast.success(`Đã mở PDF · gợi ý tên: ${suggestPdfFileName(sub.title, activeRoute.title)}`, {
-      description: 'Bấm «Lưu / In PDF» → chọn Lưu thành PDF · chia sẻ Zalo/Drive',
-      duration: 5000,
-    });
+    void openPdfWithGloss(
+      sub.packs.map((p) => ({ title: p.title, words: p.words })),
+      {
+        topicTitle,
+        unitTitle: sub.title,
+        cefrLabel: sub.cefrRange
+          ? `${sub.cefrRange.min}${sub.cefrRange.max && sub.cefrRange.max !== sub.cefrRange.min ? `–${sub.cefrRange.max}` : ''}`
+          : null,
+        successMsg: `PDF · ${suggestPdfFileName(sub.title, activeRoute.title)}`,
+      },
+    );
   };
 
   /** PDF cả chủ đề (gom mọi unit cùng topic). */
@@ -202,21 +277,10 @@ export default function LibraryPage() {
       toast.error('Chủ đề chưa có từ');
       return;
     }
-    const ok = openTopicPdfPreview({
-      routeTitle: activeRoute.title,
-      routeIcon: activeRoute.icon,
+    void openPdfWithGloss(packs, {
       topicTitle,
       unitTitle: topicTitle,
-      packs,
-      siteUrl: typeof window !== 'undefined' ? window.location.origin : 'https://lingopro.online',
-    });
-    if (!ok) {
-      toast.error('Trình duyệt chặn popup — cho phép cửa sổ mới rồi thử lại');
-      return;
-    }
-    toast.success(`PDF chủ đề «${topicTitle}» · ${packs.reduce((n, p) => n + p.words.length, 0)} từ`, {
-      description: 'Lưu thành PDF rồi in / gửi nhóm lớp',
-      duration: 5000,
+      successMsg: `PDF chủ đề «${topicTitle}»`,
     });
   };
 
@@ -446,11 +510,12 @@ export default function LibraryPage() {
                                 </div>
                                 <button
                                   type="button"
+                                  disabled={pdfLoading}
                                   onClick={() => handleDownloadTopicPdf(topicTitle, units)}
-                                  className="flex shrink-0 items-center gap-1 rounded-xl border border-indigo-100 bg-indigo-50 px-2.5 py-1.5 text-[11px] font-black text-indigo-700 transition active:scale-[0.98] hover:bg-indigo-100"
+                                  className="flex shrink-0 items-center gap-1 rounded-xl border border-indigo-100 bg-indigo-50 px-2.5 py-1.5 text-[11px] font-black text-indigo-700 transition active:scale-[0.98] hover:bg-indigo-100 disabled:opacity-50"
                                   aria-label={`Tải PDF chủ đề ${topicTitle}`}
                                 >
-                                  <Download className="h-3.5 w-3.5" aria-hidden />
+                                  {pdfLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden /> : <Download className="h-3.5 w-3.5" aria-hidden />}
                                   PDF chủ đề
                                 </button>
                               </div>
@@ -489,12 +554,13 @@ export default function LibraryPage() {
                                       </button>
                                       <button
                                         type="button"
+                                        disabled={pdfLoading}
                                         onClick={() => handleDownloadUnitPdf(sub, topicTitle)}
-                                        className="flex w-10 shrink-0 items-center justify-center rounded-xl border border-slate-100 bg-white text-slate-500 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700"
+                                        className="flex w-10 shrink-0 items-center justify-center rounded-xl border border-slate-100 bg-white text-slate-500 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-50"
                                         aria-label={`Tải PDF unit ${sub.title}`}
                                         title="Tải PDF unit"
                                       >
-                                        <Download className="h-4 w-4" aria-hidden />
+                                        {pdfLoading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : <Download className="h-4 w-4" aria-hidden />}
                                       </button>
                                     </li>
                                   );
@@ -525,16 +591,17 @@ export default function LibraryPage() {
                       </div>
                       <button
                         type="button"
+                        disabled={pdfLoading}
                         onClick={() => {
                           const topicTitle =
                             activeRoute?.topics.find((t) => t.subtopics.some((s) => s.id === selectedSubtopic.id))?.title
                             ?? selectedSubtopic.title;
                           handleDownloadUnitPdf(selectedSubtopic, topicTitle);
                         }}
-                        className="flex shrink-0 items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-2 text-xs font-black text-white shadow-sm shadow-indigo-200 transition active:scale-[0.98] hover:bg-indigo-700"
+                        className="flex shrink-0 items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-2 text-xs font-black text-white shadow-sm shadow-indigo-200 transition active:scale-[0.98] hover:bg-indigo-700 disabled:opacity-50"
                       >
-                        <Download className="h-3.5 w-3.5" aria-hidden />
-                        Tải PDF
+                        {pdfLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden /> : <Download className="h-3.5 w-3.5" aria-hidden />}
+                        {pdfLoading ? 'Đang lấy nghĩa…' : 'Tải PDF'}
                       </button>
                     </div>
                     <div className="space-y-2">
