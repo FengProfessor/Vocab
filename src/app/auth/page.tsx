@@ -1,14 +1,47 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Manrope, Space_Grotesk } from 'next/font/google';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
-import { Brain, Mail, Lock, Eye, EyeOff, User, Loader2, GraduationCap, BookOpen, AlertCircle, ArrowRight } from 'lucide-react';
+import {
+  Brain,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  User,
+  Loader2,
+  GraduationCap,
+  BookOpen,
+  AlertCircle,
+  ArrowRight,
+  Check,
+  Sparkles,
+  Chrome,
+  Repeat2,
+} from 'lucide-react';
 import type { UserRole } from '@/lib/supabase';
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
 
+const manrope = Manrope({
+  subsets: ['latin', 'vietnamese'],
+  display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin', 'vietnamese'],
+  display: 'swap',
+});
+
 type Mode = 'login' | 'signup';
+
+const BENEFITS = [
+  { icon: Chrome, text: 'Tra từ 1 chạm trên web' },
+  { icon: Sparkles, text: 'Lưu kho riêng · ảnh + ví dụ' },
+  { icon: Repeat2, text: 'Ôn FSRS đúng lúc quên' },
+] as const;
 
 export default function AuthPage() {
   const [mode, setMode] = useState<Mode>('login');
@@ -105,9 +138,9 @@ export default function AuthPage() {
       } else {
         setStatus('Đang xác thực thông tin đăng nhập...');
         const { error } = await supabase.auth.signInWithPassword({ email, password });
-        
+
         if (error) throw error;
-        
+
         setStatus('Đăng nhập thành công! Đang lưu phiên...');
         setShowManualRedirect(true);
 
@@ -165,205 +198,313 @@ export default function AuthPage() {
     }
   };
 
+  const inputClass =
+    'w-full rounded-2xl border border-[#bca58f]/45 bg-white/90 pl-11 pr-4 py-3.5 text-sm font-semibold text-[#241710] placeholder:text-[#a08b7c] shadow-sm transition-all focus:border-[#b5502f]/50 focus:outline-none focus:ring-4 focus:ring-[#b5502f]/10';
+
   return (
-    <div className="min-h-dvh bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 flex items-center justify-center p-4 font-sans">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+    <div className={`${manrope.className} min-h-dvh bg-[#f6efe6] text-[#241710]`}>
+      {/* Ambient blobs — giống landing */}
+      <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
+        <div className="absolute left-[-8%] top-[-10%] h-[24rem] w-[24rem] rounded-full bg-[#e57b52]/18 blur-3xl" />
+        <div className="absolute right-[-8%] top-[8%] h-[26rem] w-[26rem] rounded-full bg-[#d2c09e]/30 blur-3xl" />
+        <div className="absolute bottom-[-10%] left-1/3 h-[20rem] w-[20rem] rounded-full bg-[#f1c46d]/15 blur-3xl" />
       </div>
 
-      <div className="relative w-full max-w-md">
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-3 text-white">
-            <div className="bg-primary/20 p-2.5 rounded-xl border border-primary/30">
-              <Brain className="h-7 w-7 text-primary" />
+      <div className="relative mx-auto grid min-h-dvh w-full max-w-6xl lg:grid-cols-[1.05fr_0.95fr]">
+        {/* ── Left brand panel (desktop) ── */}
+        <aside className="relative hidden flex-col justify-between p-8 lg:flex lg:p-12">
+          <Link href="/" className="inline-flex items-center gap-2.5 text-[#241710]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
+              <Brain className="h-5 w-5" />
             </div>
-            <span className="text-2xl font-bold tracking-tight text-white">LingoPro</span>
+            <span className={`${spaceGrotesk.className} text-xl font-bold tracking-tight`}>LingoPro</span>
           </Link>
-          <p className="text-slate-400 mt-2 text-sm">
-            {mode === 'login' ? 'Chào mừng bạn trở lại! Đăng nhập để tiếp tục.' : 'Tạo tài khoản để bắt đầu.'}
-          </p>
-        </div>
 
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl transition-all">
-          <div className="flex bg-white/5 rounded-xl p-1 mb-6">
-            {(['login', 'signup'] as Mode[]).map((m) => (
-              <button
-                key={m}
-                onClick={() => { setMode(m); setDebugError(''); setShowManualRedirect(false); }}
-                className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all ${
-                  mode === m ? 'bg-primary text-white shadow-md' : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {m === 'login' ? 'Đăng nhập' : 'Đăng ký'}
-              </button>
-            ))}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#b86f52]/20 bg-white/80 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#9f4d2f]">
+              <Sparkles className="h-3 w-3" />
+              App học từ vựng · FSRS
+            </div>
+
+            <h1
+              className={`${spaceGrotesk.className} max-w-md text-4xl font-bold leading-[1.1] tracking-[-0.03em] xl:text-[2.75rem]`}
+            >
+              Học từ vựng —{' '}
+              <span className="text-[#b5502f]">tra 1 chạm, nhớ lâu hơn</span>
+            </h1>
+
+            <p className="max-w-sm text-base leading-7 text-[#5e4b40]">
+              Tra từ trên web → lưu kho riêng → ôn đúng lúc bằng FSRS.
+              Chặng ngắn 5–8 phút, lộ trình sẵn cho người Việt.
+            </p>
+
+            <ul className="space-y-3">
+              {BENEFITS.map((b) => (
+                <li
+                  key={b.text}
+                  className="flex items-center gap-3 rounded-2xl border border-[#bca58f]/35 bg-white/70 px-4 py-3 shadow-sm"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
+                    <b.icon className="h-4 w-4" />
+                  </div>
+                  <span className="text-sm font-bold text-[#3d2c22]">{b.text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-[#7b6558]">
+              {['Miễn phí bắt đầu', '5–8 phút/chặng', 'Lộ trình sẵn'].map((t) => (
+                <span key={t} className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-[#2d7f5e]" />
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {debugError && (
-            <div className="mb-6 p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl flex items-start gap-3 animate-in fade-in slide-in-from-top-2">
-              <AlertCircle className="h-5 w-5 text-rose-500 shrink-0 mt-0.5" />
-              <p className="text-xs font-medium text-rose-200 leading-relaxed">{debugError}</p>
-            </div>
-          )}
+          <p className="text-xs font-semibold text-[#a08b7c]">
+            9.000+ từ · 660+ chặng · 30+ lộ trình
+          </p>
+        </aside>
 
-          {showManualRedirect ? (
-            <div className="space-y-4 py-4 animate-in fade-in zoom-in-95 duration-300 text-center">
-              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <ArrowRight className="h-8 w-8 text-green-500" />
+        {/* ── Right form panel ── */}
+        <div className="flex flex-col items-center justify-center px-4 py-8 sm:px-6 lg:py-12">
+          {/* Mobile logo */}
+          <div className="mb-6 flex w-full max-w-md flex-col items-center lg:hidden">
+            <Link href="/" className="inline-flex items-center gap-2.5 text-[#241710]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
+                <Brain className="h-5 w-5" />
               </div>
-              <h3 className="text-white font-bold text-lg">Đăng nhập thành công!</h3>
-              <p className="text-slate-400 text-sm">Nếu trang không tự động chuyển hướng, hãy nhấn nút bên dưới:</p>
-              <button
-                onClick={async () => {
-                  const { data: { session } } = await supabase.auth.getSession();
-                  if (session) {
-                    const { data: profile } = await supabase
-                      .from('profiles')
-                      .select('role')
-                      .eq('id', session.user.id)
-                      .single();
-                    window.location.href = profile?.role === 'teacher' ? '/teacher' : '/student';
-                  } else {
-                    window.location.href = '/student';
-                  }
-                }}
-                className="w-full bg-green-600 hover:bg-green-500 text-white font-bold h-12 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-900/20"
-              >
-                Đi tới trang tổng quan <ArrowRight className="h-4 w-4" />
-              </button>
-              <button 
-                onClick={() => setStatus('')}
-                className="text-slate-500 text-xs hover:text-slate-300 underline"
-              >
-                Ở lại trang này
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {mode === 'signup' && (
-                <>
-                  <div className="relative text-white">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
-                    <label htmlFor="full-name" className="sr-only">Họ và tên</label>
+              <span className={`${spaceGrotesk.className} text-xl font-bold tracking-tight`}>LingoPro</span>
+            </Link>
+            <p className="mt-2 text-center text-sm font-semibold text-[#7b6558]">
+              {mode === 'login' ? 'Chào mừng trở lại' : 'Tạo tài khoản miễn phí'}
+            </p>
+          </div>
+
+          <div className="w-full max-w-md">
+            {/* Card tối — giống product card landing */}
+            <div className="rounded-[1.75rem] border border-[#241710]/10 bg-[#241710] p-6 text-[#f6efe6] shadow-[0_24px_70px_rgba(36,23,16,0.22)] sm:p-8">
+              <div className="mb-6 hidden lg:block">
+                <p className={`${spaceGrotesk.className} text-2xl font-bold tracking-tight`}>
+                  {mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
+                </p>
+                <p className="mt-1.5 text-sm text-[#d8c9bc]">
+                  {mode === 'login'
+                    ? 'Tiếp tục lộ trình từ vựng của bạn.'
+                    : 'Bắt đầu miễn phí — không cần thẻ.'}
+                </p>
+              </div>
+
+              {/* Tabs login / signup */}
+              <div className="mb-6 flex rounded-2xl border border-white/10 bg-white/[0.06] p-1">
+                {(['login', 'signup'] as Mode[]).map((m) => (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => {
+                      setMode(m);
+                      setDebugError('');
+                      setShowManualRedirect(false);
+                    }}
+                    className={`flex-1 rounded-xl py-2.5 text-sm font-black transition-all ${
+                      mode === m
+                        ? 'bg-[#b5502f] text-white shadow-[0_8px_20px_rgba(181,80,47,0.35)]'
+                        : 'text-[#cbb7a6] hover:text-[#f6efe6]'
+                    }`}
+                  >
+                    {m === 'login' ? 'Đăng nhập' : 'Đăng ký'}
+                  </button>
+                ))}
+              </div>
+
+              {debugError && (
+                <div className="mb-5 flex items-start gap-3 rounded-2xl border border-rose-400/25 bg-rose-500/15 p-4">
+                  <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-300" />
+                  <p className="text-xs font-semibold leading-relaxed text-rose-100">{debugError}</p>
+                </div>
+              )}
+
+              {showManualRedirect ? (
+                <div className="space-y-4 py-2 text-center">
+                  <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-[#2d7f5e]/25">
+                    <ArrowRight className="h-8 w-8 text-[#7dcea0]" />
+                  </div>
+                  <h3 className={`${spaceGrotesk.className} text-lg font-bold`}>Đăng nhập thành công!</h3>
+                  <p className="text-sm text-[#d8c9bc]">
+                    Nếu trang không tự chuyển, nhấn nút bên dưới:
+                  </p>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      const { data: { session } } = await supabase.auth.getSession();
+                      if (session) {
+                        const { data: profile } = await supabase
+                          .from('profiles')
+                          .select('role')
+                          .eq('id', session.user.id)
+                          .single();
+                        window.location.href = profile?.role === 'teacher' ? '/teacher' : '/student';
+                      } else {
+                        window.location.href = '/student';
+                      }
+                    }}
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#2d7f5e] text-sm font-black text-white shadow-lg transition-all hover:-translate-y-0.5"
+                  >
+                    Đi tới trang tổng quan
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setStatus('')}
+                    className="text-xs font-semibold text-[#a08b7c] underline hover:text-[#d8c9bc]"
+                  >
+                    Ở lại trang này
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-3.5">
+                  {mode === 'signup' && (
+                    <>
+                      <div className="relative">
+                        <User className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
+                        <label htmlFor="full-name" className="sr-only">Họ và tên</label>
+                        <input
+                          id="full-name"
+                          name="fullName"
+                          type="text"
+                          placeholder="Họ và tên"
+                          autoComplete="name"
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
+                          required
+                          className={inputClass}
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2.5">
+                        {(['student', 'teacher'] as UserRole[]).map((r) => (
+                          <button
+                            key={r}
+                            type="button"
+                            onClick={() => setRole(r)}
+                            className={`flex items-center justify-center gap-2 rounded-2xl border py-3 text-sm font-bold transition-all ${
+                              role === r
+                                ? 'border-[#b5502f]/60 bg-[#b5502f]/20 text-white'
+                                : 'border-white/10 bg-white/[0.06] text-[#cbb7a6] hover:border-white/20 hover:text-white'
+                            }`}
+                          >
+                            {r === 'student' ? (
+                              <BookOpen className="h-4 w-4" />
+                            ) : (
+                              <GraduationCap className="h-4 w-4" />
+                            )}
+                            {r === 'student' ? 'Học sinh' : 'Giáo viên'}
+                          </button>
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  <div className="relative">
+                    <Mail className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
+                    <label htmlFor="email" className="sr-only">Địa chỉ email</label>
                     <input
-                      id="full-name"
-                      name="fullName"
-                      type="text"
-                      placeholder="Họ và tên"
-                      autoComplete="name"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Địa chỉ email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-primary/60"
+                      className={inputClass}
                     />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
-                    {(['student', 'teacher'] as UserRole[]).map((r) => (
-                      <button
-                        key={r}
-                        type="button"
-                        onClick={() => setRole(r)}
-                        className={`flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-semibold transition-all ${
-                          role === r
-                            ? 'bg-primary/20 border-primary/60 text-white'
-                            : 'bg-white/5 border-white/10 text-slate-400 hover:text-white hover:border-white/20'
-                        }`}
-                      >
-                        {r === 'student' ? <BookOpen className="h-4 w-4" /> : <GraduationCap className="h-4 w-4" />}
-                        {r === 'student' ? 'Học sinh' : 'Giáo viên'}
-                      </button>
-                    ))}
+                  <div className="relative">
+                    <Lock className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a08b7c]" />
+                    <label htmlFor="password" className="sr-only">Mật khẩu</label>
+                    <input
+                      id="password"
+                      name="password"
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder="Mật khẩu"
+                      autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      minLength={6}
+                      className={`${inputClass} pr-11`}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
+                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#a08b7c] hover:text-[#5e4b40]"
+                    >
+                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
                   </div>
+
+                  <div className="pt-1">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#b5502f] text-sm font-black text-white shadow-[0_14px_36px_rgba(181,80,47,0.35)] transition-all hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-60 disabled:hover:translate-y-0"
+                    >
+                      {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                      {mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
+                      {!loading && <ArrowRight className="h-4 w-4" />}
+                    </button>
+
+                    {status && (
+                      <p className="mt-3 text-center text-[10px] font-black uppercase tracking-[0.18em] text-[#f1c46d]">
+                        {status}
+                      </p>
+                    )}
+                  </div>
+                </form>
+              )}
+
+              {!showManualRedirect && (
+                <>
+                  <div className="my-5 flex items-center gap-3">
+                    <div className="h-px flex-1 bg-white/10" />
+                    <span className="text-xs font-bold text-[#a08b7c]">hoặc</span>
+                    <div className="h-px flex-1 bg-white/10" />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    disabled={loading}
+                    className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-full border border-white/12 bg-white/[0.06] text-sm font-bold text-[#e9dccf] transition-all hover:bg-white/10 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {loading ? (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    ) : (
+                      <svg viewBox="0 0 24 24" className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                      </svg>
+                    )}
+                    Tiếp tục với Google
+                  </button>
                 </>
               )}
-              <div className="relative text-white">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
-                <label htmlFor="email" className="sr-only">Địa chỉ email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Địa chỉ email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-primary/60"
-                />
-              </div>
-              <div className="relative text-white">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
-                <label htmlFor="password" className="sr-only">Mật khẩu</label>
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Mật khẩu"
-                  autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  minLength={6}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-10 py-3 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-primary/60"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
-                >
-                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                </button>
-              </div>
+            </div>
 
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-xl transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
-                >
-                  {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-                  {mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
-                </button>
-                
-                {status && (
-                  <p className="text-center text-[10px] font-bold text-primary animate-pulse uppercase tracking-widest mt-3">
-                    {status}
-                  </p>
-                )}
-              </div>
-            </form>
-          )}
-
-          {!showManualRedirect && (
-            <>
-              <div className="flex items-center gap-3 my-6">
-                <div className="flex-1 h-px bg-white/10" />
-                <span className="text-xs text-slate-500 px-2 font-medium">hoặc</span>
-                <div className="flex-1 h-px bg-white/10" />
-              </div>
-
-              <button
-                onClick={handleGoogleSignIn}
-                disabled={loading}
-                className="w-full flex items-center justify-center gap-3 bg-white/5 border border-white/10 rounded-xl h-12 text-sm font-semibold text-slate-300 hover:bg-white/10 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {loading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                  </svg>
-                )}
-                Tiếp tục với Google
-              </button>
-            </>
-          )}
+            <p className="mt-5 text-center text-xs font-semibold text-[#7b6558]">
+              <Link href="/" className="underline decoration-[#bca58f] underline-offset-2 hover:text-[#241710]">
+                ← Về trang chủ
+              </Link>
+              <span className="mx-2 text-[#bca58f]">·</span>
+              Không cần thẻ · Miễn phí bắt đầu
+            </p>
+          </div>
         </div>
       </div>
     </div>
