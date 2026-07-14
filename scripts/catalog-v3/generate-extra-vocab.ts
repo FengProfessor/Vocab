@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
+import { allOxfordThemeDefs, groupOxfordByTheme } from './oxford-themes.ts';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(DIR, '../..');
@@ -44,15 +45,16 @@ interface ListSpec {
 }
 
 /** Thứ tự ưu tiên: foundation → exam → academic extras → dict vault. */
+/** Oxford xử lý riêng (theo theme) — không nằm LIST_SPECS A–Z. */
+const OXFORD_LIST = {
+  file: 'oxford-3000.txt',
+  sourcePackage: 'list-oxford' as const,
+  routeId: 'oxford-core',
+  attribution:
+    'Headwords Oxford 3000™ — gom theo chủ đề học (không A–Z). Nghĩa/ảnh từ global_dictionary LingoPro.',
+};
+
 const LIST_SPECS: ListSpec[] = [
-  {
-    file: 'oxford-3000.txt',
-    sourcePackage: 'list-oxford',
-    routeId: 'oxford-core',
-    topicKey: 'a1-b2',
-    titleBase: 'Oxford 3000',
-    attribution: 'Headwords Oxford 3000™ (seed list). Nghĩa/ảnh từ global_dictionary LingoPro.',
-  },
   {
     file: 'academic-word-list.txt',
     sourcePackage: 'list-awl',
@@ -275,18 +277,58 @@ function splitBalanced(words: string[], target = TARGET_SUB): string[][] {
   return chunks;
 }
 
-function loadExistingCatalogWords(): Set<string> {
+/**
+ * Baseline = từ đã có trong pro3m / plus / exam (KHÔNG dùng catalog-v3 full).
+ * Tránh vòng lặp: lần gen trước đưa vault vào catalog → lần sau vault = 0.
+ */
+function loadBaselineCoveredWords(): Set<string> {
   const set = new Set<string>();
-  if (!existsSync(CATALOG_FILE)) return set;
-  const art = JSON.parse(readFileSync(CATALOG_FILE, 'utf8')) as {
-    packs?: { words?: { word?: string }[] }[];
-  };
-  for (const p of art.packs ?? []) {
-    for (const w of p.words ?? []) {
-      if (w.word) set.add(w.word.toLowerCase());
+  const addWords = (arr: unknown): void => {
+    if (!Array.isArray(arr)) return;
+    for (const w of arr) {
+      if (typeof w === 'string' && w.trim()) set.add(w.trim().toLowerCase());
+      else if (w && typeof w === 'object' && typeof (w as { word?: string }).word === 'string') {
+        set.add(String((w as { word: string }).word).toLowerCase());
+      }
     }
+  };
+  for (const rel of ['src/data/vocab/pro3m.json', 'src/data/vocab/pro3m-plus.json'] as const) {
+    const fp = path.join(ROOT, rel);
+    if (!existsSync(fp)) continue;
+    const data = JSON.parse(readFileSync(fp, 'utf8')) as Record<string, { words?: string[] }>;
+    for (const lesson of Object.values(data)) addWords(lesson?.words);
+  }
+  const examFp = path.join(ROOT, 'src/data/vocab/exam-vocab.json');
+  if (existsSync(examFp)) {
+    const exam = JSON.parse(readFileSync(examFp, 'utf8')) as { subtopics?: { words?: string[] }[] };
+    for (const s of exam.subtopics ?? []) addWords(s.words);
   }
   return set;
+}
+
+async function loadCefrForWords(words: string[]): Promise<Map<string, string | null>> {
+  loadEnv();
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) return new Map();
+  const sb = createClient(url, key, { auth: { persistSession: false } });
+  const out = new Map<string, string | null>();
+  const CHUNK = 400;
+  for (let i = 0; i < words.length; i += CHUNK) {
+    const slice = words.slice(i, i + CHUNK);
+    const { data, error } = await sb.from('global_dictionary').select('word, data').in('word', slice);
+    if (error) {
+      console.warn('[extra] cefr query fail:', error.message);
+      break;
+    }
+    for (const r of (data ?? []) as { word: string; data: { openVocab?: { cefr?: string; cefrMin?: string } } | null }[]) {
+      const c = r.data?.openVocab?.cefrMin ?? r.data?.openVocab?.cefr ?? null;
+      out.set(String(r.word).toLowerCase(), c);
+    }
+  }
+  const withCefr = [...out.values()].filter(Boolean).length;
+  console.log(`[extra] oxford CEFR tags: ${withCefr}/${words.length}`);
+  return out;
 }
 
 async function loadReadyDict(): Promise<Set<string>> {
@@ -321,13 +363,70 @@ async function main(): Promise<void> {
   const ready = await loadReadyDict();
   console.log(`[extra] ready dict words: ${ready.size}`);
 
-  const existingCatalog = loadExistingCatalogWords();
-  console.log(`[extra] existing catalog unique words: ${existingCatalog.size}`);
+  const baselineCovered = loadBaselineCoveredWords();
+  console.log(`[extra] baseline covered (pro3m+exam): ${baselineCovered.size}`);
 
   const usedInLists = new Set<string>(); // dedupe across EXTRA lists only (catalog overlap OK for foundation)
   const subtopics: ExtraSubtopic[] = [];
   const generatedFrom: string[] = [];
   let listWordSlots = 0;
+
+  // ── Oxford 3000: theo CHỦ ĐỀ (NLM pedagogy), không A–Z ──
+  {
+    const fp = path.join(LISTS_DIR, OXFORD_LIST.file);
+    if (existsSync(fp)) {
+      generatedFrom.push(`scripts/lists/${OXFORD_LIST.file}`);
+      const all = parseListFile(fp);
+      const readyWords = all.filter((w) => ready.has(w));
+      for (const w of readyWords) usedInLists.add(w);
+
+      // CEFR (openVocab) — sort trong từng theme: A1 → B2
+      const cefrByWord = await loadCefrForWords(readyWords);
+
+      const grouped = groupOxfordByTheme(readyWords, cefrByWord);
+      // Gộp theme <10 từ vào abstract trước khi chunk
+      const abs = grouped.get('abstract') ?? [];
+      for (const theme of allOxfordThemeDefs()) {
+        if (theme.key === 'abstract' || theme.key === 'function') continue;
+        const list = grouped.get(theme.key) ?? [];
+        if (list.length > 0 && list.length < 10) {
+          abs.push(...list);
+          grouped.set(theme.key, []);
+        }
+      }
+      abs.sort((a, b) => a.localeCompare(b, 'en'));
+      grouped.set('abstract', abs);
+
+      const themeOrder = allOxfordThemeDefs().map((t) => t.key);
+      let oxSlots = 0;
+      for (const themeKey of themeOrder) {
+        const words = grouped.get(themeKey) ?? [];
+        if (words.length < 10) {
+          console.log(`[extra] oxford theme ${themeKey}: skip (${words.length})`);
+          continue;
+        }
+        const themeTitle = allOxfordThemeDefs().find((t) => t.key === themeKey)?.title ?? themeKey;
+        const chunks = splitBalanced(words);
+        chunks.forEach((chunk, idx) => {
+          const n = idx + 1;
+          const sourceKey = `oxford-theme:${themeKey}::${n}`;
+          subtopics.push({
+            sourcePackage: OXFORD_LIST.sourcePackage,
+            sourceKey,
+            routeId: OXFORD_LIST.routeId,
+            topicKey: themeKey,
+            title: chunks.length === 1 ? themeTitle : `${themeTitle} · chặng ${n}/${chunks.length}`,
+            attribution: OXFORD_LIST.attribution,
+            words: chunk,
+          });
+          oxSlots += chunk.length;
+          listWordSlots += chunk.length;
+        });
+        console.log(`[extra] oxford theme ${themeKey}: ${words.length} words → ${chunks.length} units`);
+      }
+      console.log(`[extra] oxford-3000 thematic total slots=${oxSlots} (list=${all.length} ready=${readyWords.length})`);
+    }
+  }
 
   for (const spec of LIST_SPECS) {
     const fp = path.join(LISTS_DIR, spec.file);
@@ -361,9 +460,9 @@ async function main(): Promise<void> {
     );
   }
 
-  // Dict vault: ready words NOT in existing catalog AND NOT already assigned to list packs
+  // Dict vault: ready − list packs − pro3m/exam baseline (stable qua mỗi lần regen)
   const vaultWords = [...ready]
-    .filter((w) => !existingCatalog.has(w) && !usedInLists.has(w))
+    .filter((w) => !usedInLists.has(w) && !baselineCovered.has(w))
     .sort((a, b) => a.localeCompare(b, 'en'));
 
   const vaultChunks = splitBalanced(vaultWords);

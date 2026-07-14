@@ -59,14 +59,32 @@ export const CURRICULUM_ROUTES: RouteDef[] = [
   },
 ];
 
-/** Nền tảng tần suất cao — học trước khi rẽ IELTS/TOEIC (NLM research). */
+/** Nền tảng tần suất cao — học theo CHỦ ĐỀ (không A–Z); NLM: foundation trước IELTS/TOEIC. */
 export const FOUNDATION_ROUTES: RouteDef[] = [
   {
     id: 'oxford-core', title: 'Oxford 3000 — Nền tảng', icon: '📗', group: 'curriculum',
     coverImage: 'https://images.unsplash.com/photo-1456513080080-7e8d8a7f7d1c?auto=format&fit=crop&w=900&q=80',
-    description: 'Core A1–B2 (Oxford 3000 headwords đã có nghĩa trong từ điển LingoPro).',
+    description: 'Oxford 3000 theo chủ đề đời sống → trường/việc → thế giới → từ chức năng. Học theo ngữ cảnh, không bảng chữ cái.',
     match: [],
-    topics: [{ key: 'a1-b2', title: 'Core A1–B2', match: [] }],
+    topics: [
+      { key: 'family', title: 'Gia đình & quan hệ', match: [] },
+      { key: 'body', title: 'Cơ thể & sức khỏe', match: [] },
+      { key: 'food', title: 'Ăn uống & nhà bếp', match: [] },
+      { key: 'home', title: 'Nhà cửa & đồ dùng', match: [] },
+      { key: 'school', title: 'Học tập & trường lớp', match: [] },
+      { key: 'work', title: 'Công việc & nghề nghiệp', match: [] },
+      { key: 'travel', title: 'Du lịch & giao thông', match: [] },
+      { key: 'nature', title: 'Thiên nhiên & môi trường', match: [] },
+      { key: 'media', title: 'Truyền thông & giải trí', match: [] },
+      { key: 'business', title: 'Tiền bạc & mua sắm', match: [] },
+      { key: 'time-place', title: 'Thời gian & nơi chốn', match: [] },
+      { key: 'feelings', title: 'Cảm xúc & tính cách', match: [] },
+      { key: 'communication', title: 'Giao tiếp & ngôn từ', match: [] },
+      { key: 'actions', title: 'Động từ cốt lõi & hành động', match: [] },
+      { key: 'qualities', title: 'Tính từ & mô tả', match: [] },
+      { key: 'abstract', title: 'Ý tưởng & khái niệm', match: [] },
+      { key: 'function', title: 'Từ chức năng (grammar core)', match: [] },
+    ],
   },
 ];
 
