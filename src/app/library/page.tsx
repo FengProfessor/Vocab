@@ -4,12 +4,13 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  ArrowRight, BookOpen, ChevronLeft, Clock3, Loader2, Search, Sparkles, Upload, X,
+  ArrowRight, BookOpen, ChevronLeft, Clock3, Download, Loader2, Search, Sparkles, Upload, X,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
 import { StudentShell } from '@/components/student/StudentShell';
+import { openTopicPdfPreview, suggestPdfFileName } from '@/lib/library-topic-pdf';
 
 type ContentType = 'word' | 'phrase' | 'idiom' | 'phrasal_verb';
 
@@ -134,6 +135,17 @@ export default function LibraryPage() {
     return out;
   }, [activeRoute, query, contentFilter, statusFilter]);
 
+  /** Group unit theo chủ đề — nút tải PDF cả topic. */
+  const unitsByTopic = useMemo(() => {
+    const map = new Map<string, Subtopic[]>();
+    for (const { topicTitle, sub } of visibleSubtopics) {
+      const list = map.get(topicTitle) ?? [];
+      list.push(sub);
+      map.set(topicTitle, list);
+    }
+    return [...map.entries()];
+  }, [visibleSubtopics]);
+
   const openRoute = (id: string): void => {
     setActiveRouteId(id);
     setSelectedSubtopic(null);
@@ -150,6 +162,62 @@ export default function LibraryPage() {
     setQuery('');
     setContentFilter(ALL);
     setStatusFilter(ALL);
+  };
+
+  const handleDownloadUnitPdf = (sub: Subtopic, topicTitle: string): void => {
+    if (!activeRoute) return;
+    if (!sub.packs.length) {
+      toast.error('Unit chưa có chặng từ');
+      return;
+    }
+    const ok = openTopicPdfPreview({
+      routeTitle: activeRoute.title,
+      routeIcon: activeRoute.icon,
+      topicTitle,
+      unitTitle: sub.title,
+      packs: sub.packs.map((p) => ({ title: p.title, words: p.words })),
+      cefrLabel: sub.cefrRange ? `${sub.cefrRange.min}${sub.cefrRange.max && sub.cefrRange.max !== sub.cefrRange.min ? `–${sub.cefrRange.max}` : ''}` : null,
+      siteUrl: typeof window !== 'undefined' ? window.location.origin : 'https://lingopro.online',
+    });
+    if (!ok) {
+      toast.error('Trình duyệt chặn popup — cho phép cửa sổ mới rồi thử lại');
+      return;
+    }
+    toast.success(`Đã mở PDF · gợi ý tên: ${suggestPdfFileName(sub.title, activeRoute.title)}`, {
+      description: 'Bấm «Lưu / In PDF» → chọn Lưu thành PDF · chia sẻ Zalo/Drive',
+      duration: 5000,
+    });
+  };
+
+  /** PDF cả chủ đề (gom mọi unit cùng topic). */
+  const handleDownloadTopicPdf = (topicTitle: string, units: Subtopic[]): void => {
+    if (!activeRoute || units.length === 0) return;
+    const packs = units.flatMap((u) =>
+      u.packs.map((p) => ({
+        title: `${u.title} · ${p.title}`,
+        words: p.words,
+      })),
+    );
+    if (!packs.length) {
+      toast.error('Chủ đề chưa có từ');
+      return;
+    }
+    const ok = openTopicPdfPreview({
+      routeTitle: activeRoute.title,
+      routeIcon: activeRoute.icon,
+      topicTitle,
+      unitTitle: topicTitle,
+      packs,
+      siteUrl: typeof window !== 'undefined' ? window.location.origin : 'https://lingopro.online',
+    });
+    if (!ok) {
+      toast.error('Trình duyệt chặn popup — cho phép cửa sổ mới rồi thử lại');
+      return;
+    }
+    toast.success(`PDF chủ đề «${topicTitle}» · ${packs.reduce((n, p) => n + p.words.length, 0)} từ`, {
+      description: 'Lưu thành PDF rồi in / gửi nhóm lớp',
+      duration: 5000,
+    });
   };
 
   const handleImportPack = async (): Promise<void> => {
@@ -364,46 +432,78 @@ export default function LibraryPage() {
                     {visibleSubtopics.length === 0 ? (
                       <p className="py-10 text-center text-sm text-slate-500">Không có unit khớp.</p>
                     ) : (
-                      <ul className="space-y-1.5">
-                        {visibleSubtopics.map(({ topicTitle, sub }, index) => {
-                          const st = subtopicStatus(sub);
+                      <div className="space-y-4">
+                        {unitsByTopic.map(([topicTitle, units]) => {
+                          const topicWords = units.reduce((n, u) => n + u.wordCount, 0);
                           return (
-                            <li key={sub.id}>
-                              <button
-                                type="button"
-                                onClick={() => setSelectedSubtopic(sub)}
-                                className="flex w-full items-center gap-3 rounded-xl border border-slate-100 bg-white px-3 py-2.5 text-left transition hover:border-indigo-200 hover:bg-indigo-50/40 active:bg-indigo-50"
-                              >
-                                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-xs font-black text-slate-600">
-                                  {index + 1}
-                                </span>
+                            <div key={topicTitle}>
+                              <div className="mb-1.5 flex items-center gap-2 px-0.5">
                                 <div className="min-w-0 flex-1">
-                                  <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
-                                    {topicTitle}
-                                  </p>
-                                  <p className="truncate text-sm font-black text-slate-900">{sub.title}</p>
-                                  <p className="mt-0.5 text-[11px] font-semibold text-slate-500">
-                                    {sub.wordCount} từ · {sub.packCount} chặng
-                                    {sub.cefrRange ? ` · ${sub.cefrRange.min}` : ''}
+                                  <p className="truncate text-xs font-black text-slate-800">{topicTitle}</p>
+                                  <p className="text-[10px] font-semibold text-slate-400">
+                                    {units.length} unit · {topicWords} từ
                                   </p>
                                 </div>
-                                {st !== 'new' && (
-                                  <span
-                                    className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-black ${
-                                      st === 'completed'
-                                        ? 'bg-emerald-100 text-emerald-700'
-                                        : 'bg-amber-100 text-amber-800'
-                                    }`}
-                                  >
-                                    {st === 'completed' ? 'Xong' : 'Dở'}
-                                  </span>
-                                )}
-                                <ArrowRight className="h-4 w-4 shrink-0 text-slate-300" aria-hidden />
-                              </button>
-                            </li>
+                                <button
+                                  type="button"
+                                  onClick={() => handleDownloadTopicPdf(topicTitle, units)}
+                                  className="flex shrink-0 items-center gap-1 rounded-xl border border-indigo-100 bg-indigo-50 px-2.5 py-1.5 text-[11px] font-black text-indigo-700 transition active:scale-[0.98] hover:bg-indigo-100"
+                                  aria-label={`Tải PDF chủ đề ${topicTitle}`}
+                                >
+                                  <Download className="h-3.5 w-3.5" aria-hidden />
+                                  PDF chủ đề
+                                </button>
+                              </div>
+                              <ul className="space-y-1.5">
+                                {units.map((sub, index) => {
+                                  const st = subtopicStatus(sub);
+                                  return (
+                                    <li key={sub.id} className="flex items-stretch gap-1">
+                                      <button
+                                        type="button"
+                                        onClick={() => setSelectedSubtopic(sub)}
+                                        className="flex min-w-0 flex-1 items-center gap-3 rounded-xl border border-slate-100 bg-white px-3 py-2.5 text-left transition hover:border-indigo-200 hover:bg-indigo-50/40 active:bg-indigo-50"
+                                      >
+                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-xs font-black text-slate-600">
+                                          {index + 1}
+                                        </span>
+                                        <div className="min-w-0 flex-1">
+                                          <p className="truncate text-sm font-black text-slate-900">{sub.title}</p>
+                                          <p className="mt-0.5 text-[11px] font-semibold text-slate-500">
+                                            {sub.wordCount} từ · {sub.packCount} chặng
+                                            {sub.cefrRange ? ` · ${sub.cefrRange.min}` : ''}
+                                          </p>
+                                        </div>
+                                        {st !== 'new' && (
+                                          <span
+                                            className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-black ${
+                                              st === 'completed'
+                                                ? 'bg-emerald-100 text-emerald-700'
+                                                : 'bg-amber-100 text-amber-800'
+                                            }`}
+                                          >
+                                            {st === 'completed' ? 'Xong' : 'Dở'}
+                                          </span>
+                                        )}
+                                        <ArrowRight className="h-4 w-4 shrink-0 text-slate-300" aria-hidden />
+                                      </button>
+                                      <button
+                                        type="button"
+                                        onClick={() => handleDownloadUnitPdf(sub, topicTitle)}
+                                        className="flex w-10 shrink-0 items-center justify-center rounded-xl border border-slate-100 bg-white text-slate-500 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700"
+                                        aria-label={`Tải PDF unit ${sub.title}`}
+                                        title="Tải PDF unit"
+                                      >
+                                        <Download className="h-4 w-4" aria-hidden />
+                                      </button>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
                           );
                         })}
-                      </ul>
+                      </div>
                     )}
                   </>
                 ) : (
@@ -416,11 +516,26 @@ export default function LibraryPage() {
                     >
                       <ChevronLeft className="h-4 w-4" /> Tất cả unit
                     </button>
-                    <div className="mb-3">
-                      <h3 className="text-base font-black text-slate-900">{selectedSubtopic.title}</h3>
-                      <p className="text-xs font-semibold text-slate-500">
-                        {selectedSubtopic.packCount} chặng · ~{microPackSize} từ / chặng · bấm để xem & học
-                      </p>
+                    <div className="mb-3 flex items-start gap-2">
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-base font-black text-slate-900">{selectedSubtopic.title}</h3>
+                        <p className="text-xs font-semibold text-slate-500">
+                          {selectedSubtopic.packCount} chặng · ~{microPackSize} từ / chặng · bấm để xem & học
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const topicTitle =
+                            activeRoute?.topics.find((t) => t.subtopics.some((s) => s.id === selectedSubtopic.id))?.title
+                            ?? selectedSubtopic.title;
+                          handleDownloadUnitPdf(selectedSubtopic, topicTitle);
+                        }}
+                        className="flex shrink-0 items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-2 text-xs font-black text-white shadow-sm shadow-indigo-200 transition active:scale-[0.98] hover:bg-indigo-700"
+                      >
+                        <Download className="h-3.5 w-3.5" aria-hidden />
+                        Tải PDF
+                      </button>
                     </div>
                     <div className="space-y-2">
                       {selectedSubtopic.packs.map((pack) => (
