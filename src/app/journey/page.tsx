@@ -1,10 +1,10 @@
-﻿'use client';
+'use client';
 
 /**
- * Lß╗Ö tr├¼nh hß╗ìc 5 cß║Ñp A0ΓåÆB2 ΓÇö path map kiß╗âu Duolingo.
- * - Ch╞░a ghi danh: chß╗ìn ─æiß╗âm bß║»t ─æß║ºu (test 2 ph├║t HOß║╢C tß╗▒ chß╗ìn cß║Ñp).
- * - ─É├ú ghi danh: chuß╗ùi chß║╖ng tuß║ºn tß╗▒; step kh├│a tß╗¢i khi xong step tr╞░ß╗¢c.
- * - Xong chß║╖ng (checkpoint pass ß╗ƒ trang kh├íc) ΓåÆ sessionStorage flag ΓåÆ confetti ß╗ƒ ─æ├óy.
+ * Lộ trình học 5 cấp A0→B2 — path map kiểu Duolingo.
+ * - Chưa ghi danh: chọn điểm bắt đầu (test 2 phút HOẶC tự chọn cấp).
+ * - Đã ghi danh: chuỗi chặng tuần tự; step khóa tới khi xong step trước.
+ * - Xong chặng (checkpoint pass ở trang khác) → sessionStorage flag → confetti ở đây.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import { fetchRoadmap, type RoadmapLevelView, type RoadmapStepView } from '@/lib/roadmap-client';
+import { getExitDisclaimer, getExitStandard } from '@/lib/roadmap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Celebration } from '@/components/gamification/Celebration';
@@ -47,16 +48,16 @@ const STEP_ICON: Record<string, typeof Sparkles> = {
 };
 
 const STEP_LABEL: Record<string, string> = {
-  vocab: 'Tß╗½ vß╗▒ng',
-  grammar: 'Ngß╗» ph├íp',
-  pronunciation: 'Ph├ít ├óm',
+  vocab: 'Từ vựng',
+  grammar: 'Ngữ pháp',
+  pronunciation: 'Phát âm',
   checkpoint: 'Checkpoint',
-  reading: '─Éß╗ìc hiß╗âu',
+  reading: 'Đọc hiểu',
   cloze: 'Cloze',
-  arrange: 'Sß║»p xß║┐p',
-  announcement: 'Th├┤ng b├ío',
-  leaflet: 'Tß╗¥ r╞íi',
-  exam: '─Éß╗ü mini',
+  arrange: 'Sắp xếp',
+  announcement: 'Thông báo',
+  leaflet: 'Tờ rơi',
+  exam: 'Đề mini',
 };
 
 export default function JourneyPage() {
@@ -65,10 +66,11 @@ export default function JourneyPage() {
   const [enrolled, setEnrolled] = useState(false);
   const [tree, setTree] = useState<RoadmapLevelView[]>([]);
   const [levelId, setLevelId] = useState<string>('A0');
+  const [track, setTrack] = useState<'cefr' | 'thpt'>('cefr');
   const [busyStep, setBusyStep] = useState<string | null>(null);
   const [celebrate, setCelebrate] = useState<string | null>(null);
 
-  // Placement state ΓÇö 'track' = m├án chß╗ìn CEFR/THPT ─æß║ºu ti├¬n
+  // Placement state — 'track' = màn chọn CEFR/THPT đầu tiên
   const [mode, setMode] = useState<'track' | 'pick-intro' | 'pick' | 'test' | 'thpt-grade' | null>('track');
   const [questions, setQuestions] = useState<PlacementQuestionView[]>([]);
   const [qIndex, setQIndex] = useState(0);
@@ -82,9 +84,10 @@ export default function JourneyPage() {
       if (data.enrolled && data.tree) {
         setTree(data.tree);
         setLevelId(data.levelId ?? 'A0');
+        setTrack(data.track === 'thpt' ? 'thpt' : 'cefr');
       }
     } catch (error: unknown) {
-      toast.error(error instanceof Error ? error.message : 'Kh├┤ng tß║úi ─æ╞░ß╗úc lß╗Ö tr├¼nh');
+      toast.error(error instanceof Error ? error.message : 'Không tải được lộ trình');
     } finally {
       setLoading(false);
     }
@@ -100,14 +103,14 @@ export default function JourneyPage() {
     return () => { active = false; };
   }, [router, load]);
 
-  // Confetti khi vß╗½a v╞░ß╗út chß║╖ng/l├¬n cß║Ñp ß╗ƒ trang kh├íc (─æß╗ìc flag async ─æß╗â tr├ính setState sync trong effect)
+  // Confetti khi vừa vượt chặng/lên cấp ở trang khác (đọc flag async để tránh setState sync trong effect)
   useEffect(() => {
     const timer = setTimeout(() => {
       const flag = sessionStorage.getItem('roadmap_celebrate');
       if (flag) {
         sessionStorage.removeItem('roadmap_celebrate');
         setCelebrate(flag);
-        toast.success(flag === 'level' ? '≡ƒÅå L├¬n cß║Ñp! Cß║ú mß╗Öt chß║╖ng ─æ╞░ß╗¥ng ΓÇö tß╗▒ h├áo lß║»m ─æ├│!' : '≡ƒÄë V╞░ß╗út chß║╖ng! Chß║╖ng mß╗¢i ─æ├ú mß╗ƒ.');
+        toast.success(flag === 'level' ? '🏆 Lên cấp! Cả một chặng đường — tự hào lắm đó!' : '🎉 Vượt chặng! Chặng mới đã mở.');
       }
     }, 0);
     return () => clearTimeout(timer);
@@ -117,13 +120,13 @@ export default function JourneyPage() {
     try {
       const res = await authFetch('/api/roadmap/placement');
       const json = await res.json() as { success: boolean; data?: { questions: PlacementQuestionView[] }; error?: string };
-      if (!json.success || !json.data) throw new Error(json.error || 'Kh├┤ng tß║úi ─æ╞░ß╗úc b├ái test');
+      if (!json.success || !json.data) throw new Error(json.error || 'Không tải được bài test');
       setQuestions(json.data.questions);
       setQIndex(0);
       setAnswers({});
       setMode('test');
     } catch (error: unknown) {
-      toast.error(error instanceof Error ? error.message : 'Lß╗ùi tß║úi b├ái test');
+      toast.error(error instanceof Error ? error.message : 'Lỗi tải bài test');
     }
   };
 
@@ -134,19 +137,19 @@ export default function JourneyPage() {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
       });
       const json = await res.json() as { success: boolean; data?: { levelId: string }; error?: string };
-      if (!json.success || !json.data) throw new Error(json.error || 'Kh├┤ng xß║┐p ─æ╞░ß╗úc cß║Ñp');
-      toast.success(`─Éiß╗âm bß║»t ─æß║ºu cß╗ºa bß║ín: cß║Ñp ${json.data.levelId}. Bß║»t ─æß║ºu th├┤i!`);
+      if (!json.success || !json.data) throw new Error(json.error || 'Không xếp được cấp');
+      toast.success(`Điểm bắt đầu của bạn: cấp ${json.data.levelId}. Bắt đầu thôi!`);
       setMode(null);
       setLoading(true);
       await load();
     } catch (error: unknown) {
-      toast.error(error instanceof Error ? error.message : 'C├│ lß╗ùi kß║┐t nß╗æi');
+      toast.error(error instanceof Error ? error.message : 'Có lỗi kết nối');
     } finally {
       setSubmitting(false);
     }
   };
 
-  // Tß╗▒ ph├ít audio khi v├áo c├óu nghe trong placement
+  // Tự phát audio khi vào câu nghe trong placement
   useEffect(() => {
     if (mode !== 'test') return;
     const q = questions[qIndex];
@@ -166,20 +169,29 @@ export default function JourneyPage() {
     try {
       const THPT_TYPES = ['reading', 'cloze', 'arrange', 'announcement', 'leaflet', 'exam'];
       if (step.type === 'vocab') {
-        toast.loading('─Éang chuß║⌐n bß╗ï g├│i tß╗½...', { id: 'journey-open' });
+        toast.loading('Đang chuẩn bị gói từ...', { id: 'journey-open' });
         const res = await authFetch('/api/import/packages', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ packId: step.ref }),
         });
         const data = await res.json() as { success?: boolean; classroomId?: string; wordIds?: string[]; error?: string };
         if (!res.ok || !data.success || !data.classroomId || !data.wordIds?.length) {
-          throw new Error(data.error || 'Kh├┤ng mß╗ƒ ─æ╞░ß╗úc g├│i tß╗½');
+          throw new Error(data.error || 'Không mở được gói từ — gói có thể đã gỡ khỏi danh mục. Thử bước khác hoặc báo admin.');
         }
-        // Enrich tr╞░ß╗¢c khi mß╗ƒ phi├¬n (tr├ính phi├¬n rß╗ùng) ΓÇö best-effort
-        await authFetch('/api/words/refresh', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),
-        }).catch(() => null);
+        // Enrich trước khi mở phiên (tránh phiên rỗng vì translation ⏳) — best-effort, timeout 8s
+        const refreshCtrl = new AbortController();
+        const refreshTimer = setTimeout(() => refreshCtrl.abort(), 8000);
+        try {
+          await authFetch('/api/words/refresh', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),
+            signal: refreshCtrl.signal,
+          });
+        } catch {
+          // Vẫn mở phiên — LearnMode có fallback load theo ids
+        } finally {
+          clearTimeout(refreshTimer);
+        }
         toast.dismiss('journey-open');
         const ids = data.wordIds.map((id) => encodeURIComponent(id)).join(',');
         router.push(`/flashcard?class=${encodeURIComponent(data.classroomId)}&mode=learn&ids=${ids}&roadmapStep=${step.id}`);
@@ -193,34 +205,34 @@ export default function JourneyPage() {
         router.push(`/journey/checkpoint/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
       }
     } catch (error: unknown) {
-      toast.error(error instanceof Error ? error.message : 'C├│ lß╗ùi kß║┐t nß╗æi', { id: 'journey-open' });
+      toast.error(error instanceof Error ? error.message : 'Có lỗi kết nối', { id: 'journey-open' });
     } finally {
       setBusyStep(null);
     }
   };
 
   const visibleTree = useMemo(() => {
-    // Cß║Ñp bß║»t ─æß║ºu l├¬n ─æß║ºu; cß║Ñp thß║Ñp h╞ín (review) xß║┐p cuß╗æi, thu gß╗ìn
+    // Cấp bắt đầu lên đầu; cấp thấp hơn (review) xếp cuối, thu gọn
     const start = tree.filter((l) => !l.units.every((u) => u.steps.every((s) => s.status === 'review')));
     const review = tree.filter((l) => l.units.every((u) => u.steps.every((s) => s.status === 'review')));
     return { start, review };
   }, [tree]);
 
   if (loading) {
-    return <div className="flex min-h-screen items-center justify-center text-muted-foreground">─Éang tß║úi lß╗Ö tr├¼nh...</div>;
+    return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Đang tải lộ trình...</div>;
   }
 
-  // ΓöÇΓöÇ Ch╞░a ghi danh: chß╗ìn ─æiß╗âm bß║»t ─æß║ºu ΓöÇΓöÇ
+  // ── Chưa ghi danh: chọn điểm bắt đầu ──
   if (!enrolled) {
     if (mode === 'test') {
       const q = questions[qIndex];
       return (
         <div className="mx-auto max-w-xl p-6 space-y-6">
-          <p className="text-sm text-muted-foreground">C├óu {qIndex + 1}/{questions.length} ┬╖ cß║Ñp {q.level}</p>
+          <p className="text-sm text-muted-foreground">Câu {qIndex + 1}/{questions.length} · cấp {q.level}</p>
           <h1 className="text-xl font-bold">{q.prompt}</h1>
           {q.kind === 'listening' && q.audioWord && (
             <Button variant="outline" onClick={() => void playWordAudio(q.audioWord!, null, 0.9)}>
-              <Volume2 className="w-4 h-4 mr-2" /> Nghe lß║íi
+              <Volume2 className="w-4 h-4 mr-2" /> Nghe lại
             </Button>
           )}
           <div className="grid gap-3">
@@ -231,20 +243,22 @@ export default function JourneyPage() {
               </Button>
             ))}
           </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode('pick-intro')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lß║íi</Button>
+          <Button variant="ghost" size="sm" onClick={() => setMode('pick-intro')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
         </div>
       );
     }
     if (mode === 'thpt-grade') {
       const grades = [
-        { id: 'lop-10', label: 'Lớp 10 · Global Success', desc: '10 unit SGK: Family Life → Ecotourism · vocab catalog + ngữ pháp CEFR.' },
-        { id: 'lop-11', label: 'Lớp 11 · Global Success', desc: '10 unit catalog · participle, cleft, skill đề.' },
-        { id: 'lop-12', label: 'Lớp 12 · Global Success + đề 2025', desc: '7 unit trong kho + rải 6 dạng đề tốt nghiệp (thông báo, tờ rơi, cloze…).' },
+        { id: 'lop-10', label: 'Grade 10 · Global Success', desc: '10 SGK units: Family Life → Ecotourism · catalog vocab + CEFR grammar.' },
+        { id: 'lop-11', label: 'Grade 11 · Global Success', desc: '10 catalog units · participle, cleft, exam skills.' },
+        { id: 'lop-12', label: 'Grade 12 · Global Success + exam 2025', desc: '7 catalog units + 2025 exam-format skills.' },
       ];
       return (
         <div className="mx-auto max-w-xl p-6 space-y-4">
-          <h1 className="text-2xl font-bold">Bß║ín hß╗ìc lß╗¢p mß║Ñy?</h1>
-          <p className="text-muted-foreground">Lß╗Ö tr├¼nh luyß╗çn thi THPT theo ─æ├║ng ch╞░╞íng tr├¼nh + format ─æß╗ü 2025.</p>
+          <h1 className="text-2xl font-bold">Bạn học lớp mấy?</h1>
+          <p className="text-muted-foreground">
+            Hybrid: <b>thứ tự unit theo SGK</b>, bài ngữ pháp = kho CEFR (cùng app). Chưa thay thế lộ trình A0–B2 đầy đủ.
+          </p>
           <div className="grid gap-3">
             {grades.map((g) => (
               <Card key={g.id} className="cursor-pointer hover:border-primary transition-colors"
@@ -259,22 +273,22 @@ export default function JourneyPage() {
               </Card>
             ))}
           </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lß║íi</Button>
+          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
         </div>
       );
     }
     if (mode === 'pick') {
       const levels = [
-        { id: 'A0', label: 'Mß║Ñt gß╗æc', desc: 'Bß║»t ─æß║ºu tß╗½ con sß╗æ 0 ΓÇö ch╞░a tß╗▒ tin c├óu n├áo.' },
-        { id: 'A1', label: 'S╞í cß║Ñp 1', desc: 'Biß║┐t ch├áo hß╗Åi, c├óu ─æ╞ín giß║ún vß╗ü bß║ún th├ón.' },
-        { id: 'A2', label: 'S╞í cß║Ñp 2', desc: 'Giao tiß║┐p t├¼nh huß╗æng quen: mua sß║»m, ─æi lß║íi.' },
-        { id: 'B1', label: 'Trung cß║Ñp', desc: 'N├│i ─æ╞░ß╗úc ├╜ kiß║┐n, kß╗â chuyß╗çn, ─æß╗ìc b├ái trung b├¼nh.' },
-        { id: 'B2', label: 'Trung cao', desc: 'Tß╗▒ tin tranh luß║¡n, h╞░ß╗¢ng tß╗¢i hß╗ìc thuß║¡t/luyß╗çn thi.' },
+        { id: 'A0', label: 'Mất gốc', desc: 'Bắt đầu từ con số 0 — chưa tự tin câu nào.' },
+        { id: 'A1', label: 'Sơ cấp 1', desc: 'Biết chào hỏi, câu đơn giản về bản thân.' },
+        { id: 'A2', label: 'Sơ cấp 2', desc: 'Giao tiếp tình huống quen: mua sắm, đi lại.' },
+        { id: 'B1', label: 'Trung cấp', desc: 'Nói được ý kiến, kể chuyện, đọc bài trung bình.' },
+        { id: 'B2', label: 'Trung cao', desc: 'Tự tin tranh luận, hướng tới học thuật/luyện thi.' },
       ];
       return (
         <div className="mx-auto max-w-xl p-6 space-y-4">
-          <h1 className="text-2xl font-bold">Bß║ín ─æang ß╗ƒ ─æ├óu?</h1>
-          <p className="text-muted-foreground">Chß╗ìn cß║Ñp m├┤ tß║ú ─æ├║ng bß║ín nhß║Ñt ΓÇö c├│ thß╗â ─æß╗òi sau bß║Ñt cß╗⌐ l├║c n├áo.</p>
+          <h1 className="text-2xl font-bold">Bạn đang ở đâu?</h1>
+          <p className="text-muted-foreground">Chọn cấp mô tả đúng bạn nhất — có thể đổi sau bất cứ lúc nào.</p>
           <div className="grid gap-3">
             {levels.map((l) => (
               <Card key={l.id} className="cursor-pointer hover:border-primary transition-colors"
@@ -289,68 +303,116 @@ export default function JourneyPage() {
               </Card>
             ))}
           </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lß║íi</Button>
+          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
         </div>
       );
     }
     if (mode === 'pick-intro') {
       return (
         <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center">
-          <div className="text-6xl">≡ƒù║∩╕Å</div>
-          <h1 className="text-3xl font-bold">Lß╗Ö tr├¼nh hß╗ìc cß╗ºa bß║ín</h1>
-          <p className="text-muted-foreground">Hß╗ìc theo tß╗½ng chß║╖ng nhß╗Å: tß╗½ vß╗▒ng + ngß╗» ph├íp + ph├ít ├óm ─æi c├╣ng nhau, mß╗ƒ kh├│a dß║ºn tß╗½ dß╗à ─æß║┐n kh├│. Tr╞░ß╗¢c ti├¬n, m├¼nh cß║ºn biß║┐t bß║ín n├¬n bß║»t ─æß║ºu tß╗½ ─æ├óu.</p>
+          <div className="text-6xl">🗺️</div>
+          <h1 className="text-3xl font-bold">Lộ trình học của bạn</h1>
+          <p className="text-muted-foreground">Học theo từng chặng nhỏ: từ vựng + ngữ pháp + phát âm đi cùng nhau, mở khóa dần từ dễ đến khó. Trước tiên, mình cần biết bạn nên bắt đầu từ đâu.</p>
           <div className="grid w-full gap-3">
-            <Button variant="chunky" size="lg" onClick={() => void startTest()}>ΓÜí Kiß╗âm tra tr├¼nh ─æß╗Ö (2 ph├║t)</Button>
-            <Button variant="outline" size="lg" onClick={() => setMode('pick')}>T├┤i tß╗▒ chß╗ìn cß║Ñp</Button>
+            <Button variant="chunky" size="lg" onClick={() => void startTest()}>⚡ Kiểm tra trình độ (~4 phút · 35 câu)</Button>
+            <Button variant="outline" size="lg" onClick={() => setMode('pick')}>Tôi tự chọn cấp</Button>
           </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lß║íi</Button>
+          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
         </div>
       );
     }
-    // mode === 'track' (mß║╖c ─æß╗ïnh): chß╗ìn loß║íi lß╗Ö tr├¼nh
+    // mode === 'track' (mặc định): chọn loại lộ trình
     return (
       <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center">
-        <div className="text-6xl">≡ƒº¡</div>
-        <h1 className="text-3xl font-bold">Bß║ín muß╗æn hß╗ìc theo h╞░ß╗¢ng n├áo?</h1>
-        <p className="text-muted-foreground">Chß╗ìn lß╗Ö tr├¼nh ph├╣ hß╗úp mß╗Ñc ti├¬u ΓÇö c├│ thß╗â ─æß╗òi sau.</p>
+        <div className="text-6xl">🧭</div>
+        <h1 className="text-3xl font-bold">Bạn muốn học theo hướng nào?</h1>
+        <p className="text-muted-foreground">Chọn lộ trình phù hợp mục tiêu — có thể đổi sau.</p>
         <div className="grid w-full gap-3">
           <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => setMode('pick-intro')}>
             <CardContent className="p-4">
-              <p className="font-bold">≡ƒî▒ Lß╗Ö tr├¼nh chuß║⌐n CEFR (A0 ΓåÆ B2)</p>
-              <p className="text-sm text-muted-foreground">Hß╗ìc tß╗òng qu├ít tß╗½ mß║Ñt gß╗æc ─æß║┐n trung cao: tß╗½ vß╗▒ng + ngß╗» ph├íp + ph├ít ├óm giß╗ìng thß║¡t.</p>
+              <p className="font-bold">🌱 Lộ trình chuẩn CEFR (A0 → B2)</p>
+              <p className="text-sm text-muted-foreground">Học tổng quát từ mất gốc đến trung cao: từ vựng + ngữ pháp + phát âm giọng thật.</p>
             </CardContent>
           </Card>
           <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => setMode('thpt-grade')}>
             <CardContent className="p-4">
-              <p className="font-bold">≡ƒÄô Luyß╗çn thi THPT (Lß╗¢p 10 ΓåÆ 12)</p>
-              <p className="text-sm text-muted-foreground">B├ím ch╞░╞íng tr├¼nh + ─æß╗º 6 dß║íng ─æß╗ü tß╗æt nghiß╗çp 2025: ─æß╗ìc th├┤ng b├ío/tß╗¥ r╞íi, sß║»p xß║┐p ─æoß║ín, cloze, ─æß╗ìc hiß╗âu, ─æß╗ü mini.</p>
+              <p className="font-bold">🎓 THPT · Global Success (Lớp 10 → 12)</p>
+              <p className="text-sm text-muted-foreground">
+                Bám đúng unit SGK (từ vựng trong kho) · ngữ pháp sâu theo bài CEFR · rải dạng đề tốt nghiệp 2025.
+                Nền tảng đầy đủ A0–B2 vẫn học song song ở lộ trình CEFR.
+              </p>
             </CardContent>
           </Card>
         </div>
-        <Link href="/student" className="text-sm text-muted-foreground underline">Quay vß╗ü bß║úng ─æiß╗üu khiß╗ân</Link>
+        <Link href="/student" className="text-sm text-muted-foreground underline">Quay về bảng điều khiển</Link>
       </div>
     );
   }
 
-  // ΓöÇΓöÇ Path map ΓöÇΓöÇ
+  // ── Path map ──
   return (
-    <StudentShell title="Lß╗Ö tr├¼nh">
+    <StudentShell title="Lộ trình">
       <div className="mx-auto max-w-2xl p-4 pb-24 space-y-8">
       <Celebration trigger={Boolean(celebrate)} triggerKey={celebrate ?? undefined} intensity={celebrate === 'level' ? 'epic' : 'light'} />
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold">Lß╗Ö tr├¼nh cß╗ºa bß║ín</h1>
-          <p className="text-sm text-muted-foreground">{levelId.startsWith('lop-') ? `Luyß╗çn thi lß╗¢p ${levelId.replace('lop-', '')}` : `Bß║»t ─æß║ºu tß╗½ cß║Ñp ${levelId}`} ┬╖ xong chß║╖ng n├áo mß╗ƒ chß║╖ng ─æ├│</p>
+          <h1 className="text-2xl font-bold">Lộ trình của bạn</h1>
+          <p className="text-sm text-muted-foreground">
+            {track === 'thpt' || levelId.startsWith('lop-')
+              ? `Global Success lớp ${levelId.replace('lop-', '')} · vocab SGK + ngữ pháp CEFR · dạng đề 2025`
+              : `Core ${levelId} · scaffold có chủ đích, chưa phải chứng chỉ CEFR`}
+            {' · '}xong chặng mở chặng
+          </p>
         </div>
         <Link href="/student"><Button variant="ghost" size="sm"><ArrowLeft className="w-4 h-4 mr-1" /> Dashboard</Button></Link>
       </div>
 
-      {visibleTree.start.map((level) => (
+      {track === 'thpt' || levelId.startsWith('lop-') ? (
+        <p className="rounded-xl border border-sky-200/80 bg-sky-50/80 px-3 py-2 text-xs text-sky-950 dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-100">
+          <b>Hybrid THPT:</b> mỗi Unit = từ vựng Global Success (kho catalog) + bài ngữ pháp CEFR (cùng FSRS với track A0–B2).
+          Muốn nền tảng đủ 5 cấp CEFR → đổi sang lộ trình CEFR (chọn lại điểm bắt đầu).
+        </p>
+      ) : (
+        <p className="rounded-xl border border-amber-200/80 bg-amber-50/80 px-3 py-2 text-xs text-amber-900 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
+          {getExitDisclaimer()}
+        </p>
+      )}
+
+      {(() => {
+        const current = tree.flatMap((l) => l.units.flatMap((u) => u.steps)).find((s) => s.status === 'current');
+        if (!current) return null;
+        return (
+          <Card className="border-primary/50 bg-primary/5">
+            <CardContent className="flex flex-wrap items-center justify-between gap-3 p-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">Bước đang mở</p>
+                <p className="font-bold">{STEP_LABEL[current.type] ?? current.type}: {current.title}</p>
+              </div>
+              <Button variant="chunky" disabled={busyStep !== null} onClick={() => void openStep(current)}>
+                {busyStep === current.id ? 'Đang mở...' : 'Học ngay →'}
+              </Button>
+            </CardContent>
+          </Card>
+        );
+      })()}
+
+      {visibleTree.start.map((level) => {
+        const exit = !level.id.startsWith('lop-') ? getExitStandard(level.id) : null;
+        return (
         <section key={level.id} className="space-y-4">
           <div className={`rounded-2xl bg-gradient-to-r ${LEVEL_COLORS[level.id] ?? 'from-slate-500 to-slate-600'} p-4 text-white`}>
-            <p className="text-sm/none opacity-80">{level.id.startsWith('lop-') ? `Lß╗¢p ${level.id.replace('lop-', '')}` : `Cß║Ñp ${level.id}`}</p>
+            <p className="text-sm/none opacity-80">{level.id.startsWith('lop-') ? `Lớp ${level.id.replace('lop-', '')}` : `Core ${level.id}`}</p>
             <h2 className="text-xl font-bold">{level.titleVi}</h2>
             <p className="text-sm opacity-90">{level.description}</p>
+            {exit && (
+              <details className="mt-2 rounded-lg bg-black/15 p-2 text-sm">
+                <summary className="cursor-pointer font-semibold">Bạn sẽ làm được gì? (can-do)</summary>
+                <ul className="mt-2 list-disc space-y-1 pl-5 opacity-95">
+                  {exit.canDo.map((line) => <li key={line}>{line}</li>)}
+                </ul>
+                <p className="mt-2 text-xs opacity-80">Chưa gồm: {exit.notYet.join(' · ')}</p>
+              </details>
+            )}
           </div>
           <div className="space-y-3">
             {level.units.map((unit) => {
@@ -390,15 +452,16 @@ export default function JourneyPage() {
             })}
           </div>
         </section>
-      ))}
+        );
+      })}
 
       {visibleTree.review.length > 0 && (
         <details className="rounded-xl border p-4">
-          <summary className="cursor-pointer font-semibold text-muted-foreground">Cß║Ñp thß║Ñp h╞ín (├┤n tß╗▒ do)</summary>
+          <summary className="cursor-pointer font-semibold text-muted-foreground">Cấp thấp hơn (ôn tự do)</summary>
           <div className="mt-3 space-y-2">
             {visibleTree.review.map((level) => (
               <div key={level.id} className="text-sm text-muted-foreground">
-                <span className="font-medium">{level.id} ΓÇö {level.titleVi}</span>: {level.units.length} chß║╖ng, mß╗ƒ tß╗▒ do trong tab Th╞░ viß╗çn/Grammar.
+                <span className="font-medium">{level.id} — {level.titleVi}</span>: {level.units.length} chặng, mở tự do trong tab Thư viện/Grammar.
               </div>
             ))}
           </div>
