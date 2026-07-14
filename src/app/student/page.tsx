@@ -1006,25 +1006,68 @@ export default function StudentDashboard() {
               </div>
             </div>
 
-            {/* Tóm tắt kho — 1 hàng, không card to */}
+            {/* Tóm tắt tích lũy — không lặp Cần học / Cần ôn */}
             <div className="grid grid-cols-3 gap-1.5">
+              <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-center">
+                <div className={`text-sm font-black tabular-nums text-slate-800 ${!countsReady ? 'animate-pulse text-slate-400' : ''}`}>
+                  {countsReady ? totalWords : '…'}
+                </div>
+                <div className="text-[10px] font-bold text-slate-400">Tích lũy</div>
+              </div>
               <div className="rounded-xl bg-indigo-50/80 px-2 py-1.5 text-center">
                 <div className={`text-sm font-black tabular-nums text-indigo-700 ${!countsReady ? 'animate-pulse' : ''}`}>
-                  {countsReady ? newCount : '…'}
+                  {countsReady ? Math.max(0, totalWords - newCount) : '…'}
                 </div>
-                <div className="text-[10px] font-bold text-indigo-400">Mới</div>
+                <div className="text-[10px] font-bold text-indigo-400">Đã học</div>
               </div>
               <div className="rounded-xl bg-emerald-50/80 px-2 py-1.5 text-center">
-                <div className={`text-sm font-black tabular-nums text-emerald-700 ${!countsReady ? 'animate-pulse' : ''}`}>
-                  {countsReady ? reviewDueCount : '…'}
-                </div>
-                <div className="text-[10px] font-bold text-emerald-500">Due</div>
-              </div>
-              <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-center">
-                <div className="text-sm font-black tabular-nums text-slate-700">{masteredCount}</div>
-                <div className="text-[10px] font-bold text-slate-400">Master</div>
+                <div className="text-sm font-black tabular-nums text-emerald-700">{masteredCount}</div>
+                <div className="text-[10px] font-bold text-emerald-500">Thành thạo</div>
               </div>
             </div>
+
+            {/* Biểu đồ mức độ nhớ (SRS L1–L6) — gọn trong kho */}
+            {words.length > 0 && (() => {
+              const labels = ['1d', '3d', '7d', '14d', '1mo', '3mo'] as const;
+              const colors = [
+                'bg-rose-400',
+                'bg-amber-400',
+                'bg-sky-400',
+                'bg-indigo-500',
+                'bg-emerald-500',
+                'bg-purple-500',
+              ] as const;
+              const counts = [1, 2, 3, 4, 5, 6].map(
+                (level) => words.filter((w) => (w.srsLevel || 1) === level).length,
+              );
+              const maxCount = Math.max(1, ...counts);
+              return (
+                <div className="rounded-xl border border-slate-100 bg-slate-50/60 px-2.5 py-2">
+                  <div className="mb-1.5 flex items-center justify-between">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wide text-slate-400">
+                      Mức độ nhớ
+                    </span>
+                    <span className="text-[9px] font-bold text-slate-400">L1 mới → L6 vững</span>
+                  </div>
+                  <div className="flex items-end justify-between gap-1 sm:gap-1.5">
+                    {counts.map((count, idx) => {
+                      const barH = Math.round(4 + (count / maxCount) * 36);
+                      return (
+                        <div key={idx + 1} className="flex min-w-0 flex-1 flex-col items-center">
+                          <span className="mb-0.5 text-[9px] font-black tabular-nums text-slate-500">{count}</span>
+                          <div
+                            className={`w-full max-w-[28px] rounded-t-md ${colors[idx]}`}
+                            style={{ height: barH }}
+                          />
+                          <span className="mt-0.5 text-[8px] font-extrabold text-slate-400">L{idx + 1}</span>
+                          <span className="text-[7px] font-bold uppercase text-slate-300">{labels[idx]}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* Gói đã nạp vào kho */}
             {vocabPacks.length > 0 && (
