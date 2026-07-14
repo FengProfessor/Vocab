@@ -595,8 +595,7 @@ export default function StudentDashboard() {
   const navItems: NavItem[] = [
     { href: '/student', label: 'Dashboard', emoji: '🏠', color: '#4f46e5', tile: '#eef0ff', footerDup: true },
     { href: '/journey', label: 'Lộ trình', emoji: '🗺️', color: '#059669', tile: '#dcfce7', onboardingId: 'journey', footerDup: true },
-    { href: classroomId ? `/quiz?class=${classroomId}` : '/quiz', label: 'Mini Quiz', emoji: '❓', color: '#f59e0b', tile: '#fff3df', onboardingId: 'quiz' },
-    { href: classroomId ? `/writing?class=${classroomId}` : '/writing', label: 'Writing Practice', emoji: '✍️', color: '#f43f5e', tile: '#ffe7ec', onboardingId: 'writing' },
+    { href: '/flashcard', label: 'Flashcards', emoji: '📚', color: '#6366f1', tile: '#e8eafe', footerDup: true },
     { href: '/grammar/learn', label: 'Grammar', emoji: '🎓', color: '#8b5cf6', tile: '#f1ecff', onboardingId: 'grammar' },
     { href: '/library', label: 'Thư viện từ vựng', emoji: '📦', color: '#10b981', tile: '#e1f7ee', onboardingId: 'library', footerDup: true },
     { href: '/dictionary', label: 'Tra từ điển', emoji: '🔍', color: '#06b6d4', tile: '#defafd', footerDup: true },
@@ -980,23 +979,9 @@ export default function StudentDashboard() {
           </section>
 
           {/* Lối tắt: Writing · Quiz · Ngữ pháp · Pro — emoji, không Speaking (đã xóa) */}
-          <div className="grid grid-cols-4 gap-1.5">
-            <Link
-              href={classroomId ? `/writing?class=${classroomId}` : '/writing'}
-              data-onboarding="writing"
-              className="flex flex-col items-center gap-1 rounded-xl border border-slate-100 bg-white px-1 py-2.5 text-center shadow-sm active:bg-slate-50"
-            >
-              <span className="text-xl leading-none">✍️</span>
-              <span className="text-[10px] font-extrabold leading-tight text-slate-700">Writing</span>
-            </Link>
-            <Link
-              href={classroomId ? `/quiz?class=${classroomId}` : '/quiz'}
-              data-onboarding="quiz"
-              className="flex flex-col items-center gap-1 rounded-xl border border-slate-100 bg-white px-1 py-2.5 text-center shadow-sm active:bg-slate-50"
-            >
-              <span className="text-xl leading-none">❓</span>
-              <span className="text-[10px] font-extrabold leading-tight text-slate-700">Quiz</span>
-            </Link>
+          <div className="grid grid-cols-2 gap-1.5">
+            
+            
             <Link
               href="/grammar/learn"
               data-onboarding="grammar"

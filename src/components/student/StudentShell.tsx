@@ -190,21 +190,7 @@ export function StudentShell({
       footerDup: true,
     },
     {
-      href: classroomId ? `/quiz?class=${classroomId}` : '/quiz',
-      label: 'Mini Quiz',
-      emoji: '❓',
-      color: '#f59e0b',
-      tile: '#fff3df',
-      match: (value) => value.startsWith('/quiz'),
-    },
     {
-      href: classroomId ? `/writing?class=${classroomId}` : '/writing',
-      label: 'Writing Practice',
-      emoji: '✍️',
-      color: '#f43f5e',
-      tile: '#ffe7ec',
-      match: (value) => value.startsWith('/writing'),
-    },
     {
       href: '/grammar/learn',
       label: 'Grammar',
