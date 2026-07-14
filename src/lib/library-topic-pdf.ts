@@ -1,7 +1,7 @@
 /**
  * Xuất PDF chủ đề / unit thư viện (toàn bộ pack, không chỉ 1 chặng).
  * Cách: HTML A4 branded → cửa sổ in → "Lưu thành PDF" (desktop + mobile).
- * Ưu điểm: font tiếng Việt hệ thống, logo, chia sẻ/nhân bản dễ.
+ * Watermark (dấu chìm): lingopro.online lặp trên mỗi trang — bảo vệ thương hiệu khi chia sẻ.
  */
 
 export interface PdfPack {
@@ -41,9 +41,14 @@ function slugify(s: string): string {
 
 export function buildTopicPdfHtml(input: TopicPdfInput): string {
   const site = (input.siteUrl ?? (typeof window !== 'undefined' ? window.location.origin : 'https://lingopro.online')).replace(/\/$/, '');
+  const hostLabel = site.replace(/^https?:\/\//, '').replace(/\/$/, '') || 'lingopro.online';
   const logoUrl = `${site}/icons/icon-192.webp`;
   const totalWords = input.packs.reduce((n, p) => n + p.words.length, 0);
   const date = new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  // Lưới watermark (dấu chìm) — 3×4 = 12 ô, in lặp mỗi trang
+  const wmCells = Array.from({ length: 12 }, () =>
+    `<span class="wm-cell">${escapeHtml(hostLabel)}</span>`,
+  ).join('');
 
   const packBlocks = input.packs
     .map((pack, pi) => {
@@ -85,7 +90,11 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeHtml(input.unitTitle)} · LingoPro</title>
   <style>
-    @page { size: A4; margin: 12mm 12mm 14mm; }
+    @page {
+      size: A4;
+      margin: 12mm 12mm 16mm;
+      /* Một số engine hỗ trợ footer @page — fallback bằng .page-foot fixed */
+    }
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -94,8 +103,76 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
       font-size: 11pt;
       line-height: 1.35;
       background: #fff;
+      position: relative;
     }
-    .sheet { max-width: 190mm; margin: 0 auto; padding: 8px 4px 24px; }
+    /* ═══ WATERMARK (dấu chìm) — fixed → lặp mỗi trang khi in ═══ */
+    .watermark {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      place-items: center;
+      transform: rotate(-28deg) scale(1.25);
+      opacity: 0.11;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .wm-cell {
+      font-size: 14pt;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #4f46e5;
+      white-space: nowrap;
+      user-select: none;
+    }
+    /* Dải chéo trung tâm nổi hơn một chút */
+    .watermark-hero {
+      position: fixed;
+      left: 50%;
+      top: 48%;
+      z-index: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) rotate(-32deg);
+      font-size: 28pt;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: #4f46e5;
+      opacity: 0.07;
+      white-space: nowrap;
+      user-select: none;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    /* Footer cố định mỗi trang */
+    .page-foot {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      pointer-events: none;
+      text-align: center;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #64748b;
+      padding: 4px 8px 6px;
+      border-top: 1px solid #e2e8f0;
+      background: rgba(255,255,255,0.92);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page-foot strong { color: #4f46e5; }
+    .sheet {
+      position: relative;
+      z-index: 2;
+      max-width: 190mm;
+      margin: 0 auto;
+      padding: 8px 4px 28px;
+    }
     header.brand {
       display: flex;
       align-items: center;
@@ -176,6 +253,8 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .no-print { display: none !important; }
       a { color: inherit; text-decoration: none; }
+      .watermark { opacity: 0.13; }
+      .watermark-hero { opacity: 0.09; }
     }
     .toolbar {
       position: sticky; top: 0; z-index: 10;
@@ -192,22 +271,29 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
   </style>
 </head>
 <body>
+  <!-- Watermark / dấu chìm thương hiệu — khó crop hết khi photocopy/share -->
+  <div class="watermark" aria-hidden="true">${wmCells}</div>
+  <div class="watermark-hero" aria-hidden="true">${escapeHtml(hostLabel)}</div>
+  <div class="page-foot" aria-hidden="true">
+    Tài liệu LingoPro · <strong>${escapeHtml(hostLabel)}</strong> · Học free · không xóa nguồn
+  </div>
+
   <div class="sheet">
     <div class="toolbar no-print">
       <button type="button" onclick="window.print()">⬇ Lưu / In PDF</button>
       <button type="button" class="secondary" onclick="window.close()">Đóng</button>
-      <span>Chọn máy in → <b>Lưu thành PDF</b> · rồi gửi Zalo/Drive cho bạn bè</span>
+      <span>Chọn máy in → <b>Lưu thành PDF</b> · PDF có watermark <b>${escapeHtml(hostLabel)}</b></span>
     </div>
 
     <header class="brand">
       <img src="${escapeHtml(logoUrl)}" alt="LingoPro" width="44" height="44" />
       <div class="meta">
         <div class="name">LingoPro</div>
-        <div class="tag">Học từ vựng · nhớ lâu · SRS</div>
+        <div class="tag">Học từ vựng · nhớ lâu · SRS · ${escapeHtml(hostLabel)}</div>
       </div>
       <div class="qr-hint">
         Học online miễn phí<br/>
-        <a href="${escapeHtml(site)}/library">${escapeHtml(site.replace(/^https?:\/\//, ''))}/library</a>
+        <a href="${escapeHtml(site)}/library">${escapeHtml(hostLabel)}/library</a>
       </div>
     </header>
 
@@ -235,8 +321,9 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     ${packBlocks}
 
     <footer class="foot">
-      © LingoPro · Tài liệu ôn tập · Không thay thế phiên học có hình ảnh & phát âm trên app<br/>
-      <strong>${escapeHtml(site)}</strong> · Mời bạn: học free · nhớ lâu hơn sổ tay giấy
+      © LingoPro · Tài liệu ôn tập · Watermark: <strong>${escapeHtml(hostLabel)}</strong><br/>
+      Không thay thế phiên học có hình ảnh & phát âm trên app · Mời bạn học free tại
+      <strong>${escapeHtml(hostLabel)}</strong>
     </footer>
   </div>
   <script>
