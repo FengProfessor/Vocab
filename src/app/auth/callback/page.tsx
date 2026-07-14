@@ -70,9 +70,13 @@ export default function AuthCallbackPage() {
   }, []);
 
   return (
-    <div className="min-h-dvh flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 text-slate-300">
-      <Loader2 className="h-6 w-6 animate-spin text-primary" />
-      <p className="text-sm font-medium">Đang hoàn tất đăng nhập…</p>
+    <div className="relative min-h-dvh flex flex-col items-center justify-center gap-3 bg-[#f6efe6] text-[#5e4b40]">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="absolute left-[-8%] top-[-10%] h-[20rem] w-[20rem] rounded-full bg-[#e57b52]/18 blur-3xl" />
+        <div className="absolute right-[-8%] top-[20%] h-[18rem] w-[18rem] rounded-full bg-[#d2c09e]/30 blur-3xl" />
+      </div>
+      <Loader2 className="relative h-7 w-7 animate-spin text-[#b5502f]" />
+      <p className="relative text-sm font-bold">Đang hoàn tất đăng nhập…</p>
     </div>
   );
 }
