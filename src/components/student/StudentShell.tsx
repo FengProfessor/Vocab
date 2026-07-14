@@ -5,23 +5,11 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   ArrowDownToLine,
-  BarChart3,
-  BookOpen,
   Brain,
   ChevronDown,
-  GraduationCap,
-  HelpCircle,
-  LayoutGrid,
-  Library,
   Loader2,
   LogOut,
-  Map,
   Menu,
-  MessageSquare,
-  Pencil,
-  Plus,
-  Search,
-  Trophy,
   User,
   X,
 } from 'lucide-react';
@@ -40,14 +28,19 @@ type ShellProfile = Profile & {
   telegram_id?: string | null;
 };
 
+/** Nav item — emoji màu (không lucide vector) */
 type NavItem = {
   href: string;
   label: string;
-  icon: typeof LayoutGrid;
+  emoji: string;
   color: string;
   tile: string;
   match: (pathname: string) => boolean;
+  /** Đã có ở footer mobile → ẩn trong drawer */
+  footerDup?: boolean;
 };
+
+const FB_COMMUNITY_URL = 'https://www.facebook.com/groups/1586345819865575';
 
 interface StudentShellProps {
   title: string;
@@ -167,35 +160,39 @@ export function StudentShell({
     router.push('/auth');
   };
 
+  // Không: Speaking, Hồ sơ (profile qua avatar). Footer dup ẩn ở drawer mobile.
   const navItems = useMemo<NavItem[]>(() => [
     {
       href: '/student',
       label: 'Dashboard',
-      icon: LayoutGrid,
+      emoji: '🏠',
       color: '#4f46e5',
       tile: '#eef0ff',
       match: (value) => value === '/student',
+      footerDup: true,
     },
     {
       href: '/journey',
       label: 'Lộ trình',
-      icon: Map,
+      emoji: '🗺️',
       color: '#059669',
       tile: '#dcfce7',
       match: (value) => value.startsWith('/journey'),
+      footerDup: true,
     },
     {
       href: '/flashcard',
       label: 'Flashcards',
-      icon: BookOpen,
+      emoji: '📚',
       color: '#6366f1',
       tile: '#e8eafe',
       match: (value) => value.startsWith('/flashcard'),
+      footerDup: true,
     },
     {
       href: classroomId ? `/quiz?class=${classroomId}` : '/quiz',
       label: 'Mini Quiz',
-      icon: HelpCircle,
+      emoji: '❓',
       color: '#f59e0b',
       tile: '#fff3df',
       match: (value) => value.startsWith('/quiz'),
@@ -203,23 +200,15 @@ export function StudentShell({
     {
       href: classroomId ? `/writing?class=${classroomId}` : '/writing',
       label: 'Writing Practice',
-      icon: Pencil,
+      emoji: '✍️',
       color: '#f43f5e',
       tile: '#ffe7ec',
       match: (value) => value.startsWith('/writing'),
     },
     {
-      href: '/student/speaking',
-      label: 'AI Speaking Tutor',
-      icon: MessageSquare,
-      color: '#0ea5e9',
-      tile: '#e2f5fe',
-      match: (value) => value.startsWith('/student/speaking'),
-    },
-    {
       href: '/grammar/learn',
       label: 'Grammar',
-      icon: GraduationCap,
+      emoji: '🎓',
       color: '#8b5cf6',
       tile: '#f1ecff',
       match: (value) => value.startsWith('/grammar'),
@@ -227,23 +216,25 @@ export function StudentShell({
     {
       href: '/library',
       label: 'Thư viện từ vựng',
-      icon: Library,
+      emoji: '📦',
       color: '#10b981',
       tile: '#e1f7ee',
       match: (value) => value.startsWith('/library'),
+      footerDup: true,
     },
     {
       href: '/dictionary',
       label: 'Tra từ điển',
-      icon: Search,
+      emoji: '🔍',
       color: '#06b6d4',
       tile: '#defafd',
       match: (value) => value.startsWith('/dictionary'),
+      footerDup: true,
     },
     {
       href: '/import',
       label: 'Nhập danh sách riêng',
-      icon: Plus,
+      emoji: '➕',
       color: '#64748b',
       tile: '#eef1f5',
       match: (value) => value.startsWith('/import'),
@@ -251,7 +242,7 @@ export function StudentShell({
     {
       href: '/student/profile#stats',
       label: 'Thống kê',
-      icon: BarChart3,
+      emoji: '📊',
       color: '#3b82f6',
       tile: '#e7f0ff',
       match: (value) => value.startsWith('/student/profile'),
@@ -259,20 +250,46 @@ export function StudentShell({
     {
       href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard',
       label: 'Bảng xếp hạng',
-      icon: Trophy,
+      emoji: '🏆',
       color: '#f59e0b',
       tile: '#fff3df',
       match: (value) => value.startsWith('/student/leaderboard'),
     },
-    {
-      href: '/student/profile',
-      label: 'Hồ sơ',
-      icon: User,
-      color: '#64748b',
-      tile: '#eef1f5',
-      match: (value) => value.startsWith('/student/profile'),
-    },
   ], [classroomId]);
+
+  const mobileDrawerItems = useMemo(
+    () => navItems.filter((item) => !item.footerDup),
+    [navItems],
+  );
+
+  const renderNavLink = (
+    item: NavItem,
+    active: boolean,
+    onClick?: () => void,
+  ) => (
+    <Link
+      key={item.label}
+      href={item.href}
+      onClick={onClick}
+      className={`flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors active:scale-[0.98] md:min-h-0 ${
+        active
+          ? 'bg-[#eef0ff] font-extrabold text-[#4f46e5]'
+          : 'font-bold text-[#525a68] hover:bg-slate-50'
+      }`}
+    >
+      <span
+        className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg text-[15px] leading-none"
+        style={
+          active
+            ? { background: '#fff', boxShadow: '0 1px 2px rgba(79,70,229,.2)' }
+            : { background: item.tile }
+        }
+      >
+        {item.emoji}
+      </span>
+      <span className="truncate">{item.label}</span>
+    </Link>
+  );
 
   const initials = (profile?.full_name ?? profileEmail ?? 'U')
     .split(' ')
@@ -322,7 +339,7 @@ export function StudentShell({
               </button>
             </div>
 
-            {/* Streak / XP compact trong drawer */}
+            {/* Streak / XP */}
             <div className="mx-5 mb-3 flex gap-2">
               <div className="flex flex-1 items-center gap-1.5 rounded-full border border-[#fde2c0] bg-[#fff5e9] px-3 py-1.5">
                 <span className="text-sm leading-none">🔥</span>
@@ -338,44 +355,63 @@ export function StudentShell({
               </div>
             </div>
 
-            <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain px-3 pb-3 scrollbar-none">
-              {navItems.map((item) => {
-                const active = item.match(pathname);
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors active:scale-[0.98] ${
-                      active
-                        ? 'bg-[#eef0ff] font-extrabold text-[#4f46e5]'
-                        : 'font-bold text-[#525a68] hover:bg-slate-50'
-                    }`}
-                  >
-                    <span
-                      className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg"
-                      style={
-                        active
-                          ? { background: '#fff', boxShadow: '0 1px 2px rgba(79,70,229,.2)' }
-                          : { background: item.tile }
-                      }
-                    >
-                      <Icon className="h-[18px] w-[18px]" style={{ color: item.color }} strokeWidth={2} />
-                    </span>
-                    <span className="truncate">{item.label}</span>
-                  </Link>
-                );
-              })}
+            {/* Nav scroll — giống desktop, bỏ mục trùng footer */}
+            <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain px-3 scrollbar-none">
+              {mobileDrawerItems.map((item) =>
+                renderNavLink(item, item.match(pathname), () => setIsMenuOpen(false)),
+              )}
             </nav>
-            <button
-              type="button"
-              onClick={handleSignOut}
-              className="mx-3 mb-3 flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-extrabold text-[#e11d48] hover:bg-rose-50"
-            >
-              <LogOut className="h-5 w-5" />
-              <span>Đăng xuất</span>
-            </button>
+
+            {/* Footer drawer: Pro + FB + đăng xuất */}
+            <div className="shrink-0 space-y-0.5 border-t border-[#f0f0f4] px-3 pb-3 pt-2">
+              <Link
+                href="/upgrade"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] bg-[#f6f1ff] px-2.5 py-2 text-sm font-extrabold text-[#7c3aed]"
+              >
+                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px] shadow-[0_1px_2px_rgba(124,58,237,.18)]">
+                  👑
+                </span>
+                <span>Nâng cấp Pro</span>
+                {profile?.plan && profile.plan !== 'free' && (
+                  <span className="ml-auto rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black uppercase text-violet-600">
+                    {profile.plan}
+                  </span>
+                )}
+              </Link>
+              <Link
+                href="/group"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] hover:bg-slate-50"
+              >
+                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
+                  👥
+                </span>
+                <span>Nhóm của tôi</span>
+              </Link>
+              <a
+                href={FB_COMMUNITY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] bg-[#e7f0ff] px-2.5 py-2 text-sm font-extrabold text-[#1877f2]"
+              >
+                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px]">
+                  💬
+                </span>
+                <span className="truncate">Nhóm live &amp; trao đổi</span>
+              </a>
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="flex w-full min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-extrabold text-[#e11d48] hover:bg-rose-50"
+              >
+                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-rose-50 text-[15px]">
+                  🚪
+                </span>
+                <span>Đăng xuất</span>
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -390,43 +426,53 @@ export function StudentShell({
             LingoPro
           </span>
         </Link>
-        <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto scrollbar-none">
-          {navItems.map((item) => {
-            const active = item.match(pathname);
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors ${
-                  active
-                    ? 'bg-[#eef0ff] font-extrabold text-[#4f46e5]'
-                    : 'font-bold text-[#525a68] hover:bg-slate-50'
-                }`}
-              >
-                <span
-                  className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg"
-                  style={
-                    active
-                      ? { background: '#fff', boxShadow: '0 1px 2px rgba(79,70,229,.2)' }
-                      : { background: item.tile }
-                  }
-                >
-                  <Icon className="h-[18px] w-[18px]" style={{ color: item.color }} strokeWidth={2} />
-                </span>
-                <span className="truncate">{item.label}</span>
-              </Link>
-            );
-          })}
+        <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto scrollbar-none">
+          {navItems.map((item) => renderNavLink(item, item.match(pathname)))}
         </nav>
-        <button
-          type="button"
-          onClick={handleSignOut}
-          className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50 hover:text-[#e11d48]"
-        >
-          <LogOut className="h-5 w-5" />
-          <span>Đăng xuất</span>
-        </button>
+        <div className="mt-2.5 shrink-0 space-y-0.5 border-t border-[#f0f0f4] pt-3">
+          <Link
+            href="/upgrade"
+            className="flex items-center gap-[11px] rounded-[11px] bg-[#f6f1ff] px-2.5 py-2 text-sm font-extrabold text-[#7c3aed]"
+          >
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px] shadow-[0_1px_2px_rgba(124,58,237,.18)]">
+              👑
+            </span>
+            <span>Nâng cấp Pro</span>
+            {profile?.plan && profile.plan !== 'free' && (
+              <span className="ml-auto rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black uppercase text-violet-600">
+                {profile.plan}
+              </span>
+            )}
+          </Link>
+          <Link
+            href="/group"
+            className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
+          >
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
+              👥
+            </span>
+            <span>Nhóm của tôi</span>
+          </Link>
+          <a
+            href={FB_COMMUNITY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-[11px] rounded-[11px] bg-[#e7f0ff] px-2.5 py-2 text-sm font-extrabold text-[#1877f2] transition-colors hover:brightness-95"
+          >
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px]">
+              💬
+            </span>
+            <span className="truncate">Nhóm live &amp; trao đổi</span>
+          </a>
+          <button
+            type="button"
+            onClick={handleSignOut}
+            className="flex w-full items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50 hover:text-[#e11d48]"
+          >
+            <LogOut className="h-5 w-5" />
+            <span>Đăng xuất</span>
+          </button>
+        </div>
       </aside>
 
       {/* ═══ MAIN ═══ */}
