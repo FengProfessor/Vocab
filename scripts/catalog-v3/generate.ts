@@ -10,21 +10,27 @@
  * Xuất: src/data/vocab/catalog-v3.json
  */
 import { createHash } from 'node:crypto';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ROUTES, EXTENDED_ROUTE, CURRICULUM_ROUTES, EXAM_ROUTES, GRADE_SET_ROUTE, ROUTE_OVERRIDES, EXTENDED_ROUTE_ID, type RouteDef, type RouteGroup } from './routes.ts';
+import {
+  ROUTES, EXTENDED_ROUTE, CURRICULUM_ROUTES, EXAM_ROUTES, FOUNDATION_ROUTES, DICT_VAULT_ROUTE,
+  GRADE_SET_ROUTE, ROUTE_OVERRIDES, EXTENDED_ROUTE_ID, type RouteDef, type RouteGroup,
+} from './routes.ts';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(DIR, '../..');
 const OUT_FILE = path.join(ROOT, 'src/data/vocab/catalog-v3.json');
 
-export const CATALOG_VERSION = '2026-06-13-v4';
+export const CATALOG_VERSION = '2026-07-15-v5';
 const MICRO_PACK_SIZE = 15;
 const MIN_PACK = 10;
 const MAX_PACK = 20;
 
-type SourcePackage = 'pro3m' | 'pro3m-plus' | 'exam-toeic' | 'exam-ielts';
+type SourcePackage =
+  | 'pro3m' | 'pro3m-plus' | 'exam-toeic' | 'exam-ielts'
+  | 'list-oxford' | 'list-awl' | 'list-ielts' | 'list-toeic' | 'list-academic' | 'list-phrasal' | 'list-exam'
+  | 'dict-ready';
 type ContentType = 'word' | 'phrase' | 'idiom' | 'phrasal_verb';
 
 interface LessonInfo { words?: string[] }
@@ -46,6 +52,25 @@ interface ExamSubtopicSource {
 }
 interface ExamManifest { schemaVersion: number; generatedFrom: string[]; subtopics: ExamSubtopicSource[] }
 const examManifest = JSON.parse(readFileSync(path.join(ROOT, 'src/data/vocab/exam-vocab.json'), 'utf8')) as ExamManifest;
+
+interface ExtraSubtopicSource {
+  sourcePackage: SourcePackage;
+  sourceKey: string;
+  routeId: string;
+  topicKey: string;
+  title: string;
+  attribution: string;
+  words: string[];
+}
+interface ExtraManifest {
+  schemaVersion: number;
+  generatedFrom: string[];
+  subtopics: ExtraSubtopicSource[];
+}
+const EXTRA_FILE = path.join(ROOT, 'src/data/vocab/extra-vocab.json');
+const extraManifest: ExtraManifest = existsSync(EXTRA_FILE)
+  ? JSON.parse(readFileSync(EXTRA_FILE, 'utf8')) as ExtraManifest
+  : { schemaVersion: 1, generatedFrom: [], subtopics: [] };
 
 const sha = (s: string) => createHash('sha1').update(s).digest('hex');
 
@@ -149,6 +174,36 @@ function validateExamManifest(routeById: Map<string, RouteDef>): void {
   }
 }
 
+function validateExtraManifest(routeById: Map<string, RouteDef>): void {
+  if (!extraManifest.subtopics.length) {
+    console.warn('[catalog-v3] extra-vocab.json trống hoặc thiếu — bỏ qua list/dict packs');
+    return;
+  }
+  if (extraManifest.schemaVersion !== 1) {
+    throw new Error(`extra-vocab schemaVersion không hỗ trợ: ${extraManifest.schemaVersion}`);
+  }
+  const keys = new Set<string>();
+  for (const source of extraManifest.subtopics) {
+    if (keys.has(source.sourceKey)) throw new Error(`extra-vocab trùng sourceKey: ${source.sourceKey}`);
+    keys.add(source.sourceKey);
+    const route = routeById.get(source.routeId);
+    if (!route) throw new Error(`extra-vocab routeId không hợp lệ: ${source.routeId}`);
+    if (!route.topics.some((t) => t.key === source.topicKey)) {
+      throw new Error(`extra-vocab topicKey không hợp lệ: ${source.routeId}/${source.topicKey}`);
+    }
+    const cleaned = cleanLessonWords(source.words);
+    if (cleaned.length < source.words.length) {
+      console.warn(`[catalog-v3] extra ${source.sourceKey}: drop ${source.words.length - cleaned.length} invalid/dup words`);
+    }
+    if (cleaned.length < MIN_PACK) {
+      throw new Error(`extra-vocab quá ít từ: ${source.sourceKey}=${cleaned.length}`);
+    }
+    if (!source.attribution.trim()) throw new Error(`extra-vocab thiếu attribution: ${source.sourceKey}`);
+    // Ghi đè words đã clean để pack deterministic
+    source.words = cleaned;
+  }
+}
+
 // ── Output shapes ──
 interface PackArt { id: string; subtopicId: string; index: number; title: string; wordCount: number; words: { word: string; contentType: ContentType }[] }
 interface SubtopicArt {
@@ -161,9 +216,10 @@ interface TopicArt { id: string; routeId: string; key: string; title: string; su
 interface RouteArt { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; topicIds: string[] }
 
 function main() {
-  const allRoutes = [...CURRICULUM_ROUTES, ...EXAM_ROUTES, ...ROUTES, EXTENDED_ROUTE];
+  const allRoutes = [...FOUNDATION_ROUTES, ...CURRICULUM_ROUTES, ...EXAM_ROUTES, ...ROUTES, EXTENDED_ROUTE, DICT_VAULT_ROUTE];
   const routeById = new Map(allRoutes.map((r) => [r.id, r]));
   validateExamManifest(routeById);
+  validateExtraManifest(routeById);
 
   // 0) Phát hiện lớp của các Unit (Global Success) bằng Unit-number reset (chỉ pro3m, theo thứ tự nguồn).
   //    Set 1 = Lớp 10, set 2 = Lớp 11, set 3 = Lớp 12. Set 4 giữ ở các route cũ để không mất progress.
@@ -216,7 +272,16 @@ function main() {
     topicKey: source.topicKey,
     attribution: source.attribution,
   }));
-  const allRaws: Raw[] = [...curriculumRaws, ...examRaws, ...byTitle.values()];
+  const extraRaws: Raw[] = extraManifest.subtopics.map((source) => ({
+    pkg: source.sourcePackage,
+    name: source.sourceKey,
+    title: source.title,
+    words: cleanLessonWords(source.words),
+    routeId: source.routeId,
+    topicKey: source.topicKey,
+    attribution: source.attribution,
+  }));
+  const allRaws: Raw[] = [...curriculumRaws, ...examRaws, ...byTitle.values(), ...extraRaws];
 
   const subtopics: SubtopicArt[] = [];
   const packs: PackArt[] = [];
@@ -283,7 +348,10 @@ function main() {
 
   const artifact = {
     catalogVersion: CATALOG_VERSION,
-    generatedFrom: ['pro3m', 'pro3m-plus', 'src/data/vocab/exam-vocab.json', ...examManifest.generatedFrom],
+    generatedFrom: [
+      'pro3m', 'pro3m-plus', 'src/data/vocab/exam-vocab.json', ...examManifest.generatedFrom,
+      'src/data/vocab/extra-vocab.json', ...extraManifest.generatedFrom,
+    ],
     microPackSize: MICRO_PACK_SIZE,
     counts: { routes: routesArt.length, topics: topics.length, subtopics: subtopics.length, packs: packs.length, words: subtopics.reduce((s, x) => s + x.wordCount, 0) },
     routes: routesArt,

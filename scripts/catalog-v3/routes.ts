@@ -59,6 +59,26 @@ export const CURRICULUM_ROUTES: RouteDef[] = [
   },
 ];
 
+/** Nền tảng tần suất cao — học trước khi rẽ IELTS/TOEIC (NLM research). */
+export const FOUNDATION_ROUTES: RouteDef[] = [
+  {
+    id: 'oxford-core', title: 'Oxford 3000 — Nền tảng', icon: '📗', group: 'curriculum',
+    coverImage: 'https://images.unsplash.com/photo-1456513080080-7e8d8a7f7d1c?auto=format&fit=crop&w=900&q=80',
+    description: 'Core A1–B2 (Oxford 3000 headwords đã có nghĩa trong từ điển LingoPro).',
+    match: [],
+    topics: [{ key: 'a1-b2', title: 'Core A1–B2', match: [] }],
+  },
+];
+
+/** Kho từ dictionary-ready chưa nằm list/catalog cũ. */
+export const DICT_VAULT_ROUTE: RouteDef = {
+  id: 'dict-vault', title: 'Kho từ sẵn sàng', icon: '🗄️', group: 'extended',
+  coverImage: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=900&q=80',
+  description: 'Từ đã có nghĩa tiếng Việt trong từ điển, gom thành chặng ~15 từ.',
+  match: [],
+  topics: [{ key: 'san-sang', title: 'Đã có nghĩa VI', match: [] }],
+};
+
 export const EXAM_ROUTES: RouteDef[] = [
   {
     id: 'toeic', title: 'TOEIC', icon: '💼', group: 'exam',
@@ -71,6 +91,10 @@ export const EXAM_ROUTES: RouteDef[] = [
       { key: 'communication-office', title: 'Giao tiếp công sở', match: [] },
       { key: 'travel-service', title: 'Du lịch & dịch vụ', match: [] },
       { key: 'people-leadership', title: 'Nhân sự & lãnh đạo', match: [] },
+      // Append-only list packs
+      { key: 'essential-600', title: 'TOEIC Essential', match: [] },
+      { key: 'toeic-2026', title: 'TOEIC 2026', match: [] },
+      { key: 'business-core', title: 'Business English Core', match: [] },
     ],
   },
   {
@@ -87,6 +111,15 @@ export const EXAM_ROUTES: RouteDef[] = [
       { key: 'media-entertainment', title: 'Media & Entertainment', match: [] },
       { key: 'travel-urbanization', title: 'Travel & Urbanization', match: [] },
       { key: 'law-problems', title: 'Law & Social Problems', match: [] },
+      // Append-only list packs (AWL / band / task)
+      { key: 'awl', title: 'Academic Word List', match: [] },
+      { key: 'nawl', title: 'NAWL', match: [] },
+      { key: 'band7', title: 'Band 7–8', match: [] },
+      { key: 'advanced', title: 'Advanced', match: [] },
+      { key: 'topics-extra', title: 'Topics Extra', match: [] },
+      { key: 'task1', title: 'Writing Task 1', match: [] },
+      { key: 'speaking-idioms', title: 'Speaking Idioms', match: [] },
+      { key: 'academic-core', title: 'Academic Core', match: [] },
     ],
   },
 ];
@@ -200,6 +233,11 @@ export const ROUTES: RouteDef[] = [
       { key: 'thanh-ngu', title: 'Thành ngữ & expression', match: ['expression with', 'yourself'] },
       { key: 'tu-noi-logic', title: 'Từ nối & lập luận', match: ['comparison', 'consequence', 'effect', 'cause', 'agreeing', 'disagreeing', 'belief', 'doubt', 'deciding', 'choosing', 'choice', 'option', 'argument', 'dispute', 'agreement', 'arrangement'] },
       { key: 'nhom-nghia', title: 'Nhóm nghĩa nâng cao', match: ['anger', 'anxiety', 'fear', 'enthusiasm', 'violence', 'action', 'behaviour', 'problem', 'law', 'speaking', 'authority'] },
+      // Append-only list packs
+      { key: 'c1-advanced', title: 'Cambridge C1', match: [] },
+      { key: 'phrasal-essential', title: 'Phrasal Essential (list)', match: [] },
+      { key: 'phrasal-advanced', title: 'Phrasal Advanced (list)', match: [] },
+      { key: 'academic-colloc', title: 'Academic Collocations', match: [] },
     ],
   },
 ];
@@ -211,5 +249,10 @@ export const EXTENDED_ROUTE: RouteDef = {
   coverImage: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80',
   description: 'Các chủ đề bổ sung đạt chuẩn nhưng không thuộc 7 lộ trình nổi bật.',
   match: [],
-  topics: [{ key: 'khac', title: 'Chủ đề khác', match: [] }],
+  topics: [
+    { key: 'khac', title: 'Chủ đề khác', match: [] },
+    { key: 'vstep', title: 'VSTEP B1–B2', match: [] },
+    { key: 'thpt-qg', title: 'THPT Quốc gia', match: [] },
+    { key: 'thpt-2026', title: 'THPT 2026 Reform', match: [] },
+  ],
 };

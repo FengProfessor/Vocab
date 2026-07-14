@@ -18,7 +18,8 @@ export type RouteGroup = 'curriculum' | 'exam' | 'communication' | 'extended';
 interface RawRoute { id: string; title: string; icon: string; coverImage: string; description: string; group: RouteGroup; featured: boolean; topicIds: string[] }
 interface RawTopic { id: string; routeId: string; key: string; title: string; subtopicIds: string[] }
 interface RawSubtopic {
-  id: string; topicId: string; routeId: string; title: string; sourcePackage: 'pro3m' | 'pro3m-plus' | 'exam-toeic' | 'exam-ielts'; sourceName: string;
+  id: string; topicId: string; routeId: string; title: string;
+  sourcePackage: string; sourceName: string;
   contentType: ContentType; wordCount: number; packIds: string[]; previewWords: string[];
   cefrRange: CefrRange | null; coverImage: string | null; attribution: string;
 }
