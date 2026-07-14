@@ -45,11 +45,6 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
   const logoUrl = `${site}/icons/icon-192.webp`;
   const totalWords = input.packs.reduce((n, p) => n + p.words.length, 0);
   const date = new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-  // Lưới watermark (dấu chìm) — 3×4 = 12 ô, in lặp mỗi trang
-  const wmCells = Array.from({ length: 12 }, () =>
-    `<span class="wm-cell">${escapeHtml(hostLabel)}</span>`,
-  ).join('');
-
   const packBlocks = input.packs
     .map((pack, pi) => {
       const rows = pack.words
@@ -105,49 +100,44 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
       background: #fff;
       position: relative;
     }
-    /* ═══ WATERMARK (dấu chìm) — fixed → lặp mỗi trang khi in ═══ */
-    .watermark {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: repeat(4, 1fr);
-      place-items: center;
-      transform: rotate(-28deg) scale(1.25);
-      opacity: 0.11;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .wm-cell {
-      font-size: 14pt;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      color: #4f46e5;
-      white-space: nowrap;
-      user-select: none;
-    }
-    /* Dải chéo trung tâm nổi hơn một chút */
+    /*
+     * Watermark lịch sự (không lưới chéo dày — dễ vô duyên / giống file lậu):
+     * 1) 1 dấu chéo rất mờ giữa trang
+     * 2) Chip góc dưới phải
+     * 3) Footer mỏng mỗi trang
+     */
     .watermark-hero {
       position: fixed;
       left: 50%;
-      top: 48%;
+      top: 45%;
       z-index: 0;
       pointer-events: none;
-      transform: translate(-50%, -50%) rotate(-32deg);
-      font-size: 28pt;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      color: #4f46e5;
-      opacity: 0.07;
+      transform: translate(-50%, -50%) rotate(-28deg);
+      font-size: 22pt;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #6366f1;
+      opacity: 0.045;
       white-space: nowrap;
       user-select: none;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
-    /* Footer cố định mỗi trang */
+    .wm-corner {
+      position: fixed;
+      right: 8mm;
+      bottom: 10mm;
+      z-index: 1;
+      pointer-events: none;
+      font-size: 7.5pt;
+      font-weight: 800;
+      color: #4f46e5;
+      opacity: 0.55;
+      letter-spacing: 0.02em;
+      user-select: none;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
     .page-foot {
       position: fixed;
       left: 0;
@@ -156,16 +146,16 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
       z-index: 1;
       pointer-events: none;
       text-align: center;
-      font-size: 7.5pt;
-      font-weight: 700;
-      color: #64748b;
-      padding: 4px 8px 6px;
-      border-top: 1px solid #e2e8f0;
-      background: rgba(255,255,255,0.92);
+      font-size: 7pt;
+      font-weight: 600;
+      color: #94a3b8;
+      padding: 3px 8px 5px;
+      border-top: 1px solid #f1f5f9;
+      background: rgba(255,255,255,0.88);
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
-    .page-foot strong { color: #4f46e5; }
+    .page-foot strong { color: #6366f1; font-weight: 800; }
     .sheet {
       position: relative;
       z-index: 2;
@@ -253,8 +243,8 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .no-print { display: none !important; }
       a { color: inherit; text-decoration: none; }
-      .watermark { opacity: 0.13; }
-      .watermark-hero { opacity: 0.09; }
+      .watermark-hero { opacity: 0.05; }
+      .wm-corner { opacity: 0.5; }
     }
     .toolbar {
       position: sticky; top: 0; z-index: 10;
@@ -271,18 +261,18 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
   </style>
 </head>
 <body>
-  <!-- Watermark / dấu chìm thương hiệu — khó crop hết khi photocopy/share -->
-  <div class="watermark" aria-hidden="true">${wmCells}</div>
+  <!-- Watermark nhẹ: 1 dải chéo mờ + góc + footer (không lưới đầy trang) -->
   <div class="watermark-hero" aria-hidden="true">${escapeHtml(hostLabel)}</div>
+  <div class="wm-corner" aria-hidden="true">${escapeHtml(hostLabel)}</div>
   <div class="page-foot" aria-hidden="true">
-    Tài liệu LingoPro · <strong>${escapeHtml(hostLabel)}</strong> · Học free · không xóa nguồn
+    LingoPro · <strong>${escapeHtml(hostLabel)}</strong> · ôn offline · học SRS trên app
   </div>
 
   <div class="sheet">
     <div class="toolbar no-print">
       <button type="button" onclick="window.print()">⬇ Lưu / In PDF</button>
       <button type="button" class="secondary" onclick="window.close()">Đóng</button>
-      <span>Chọn máy in → <b>Lưu thành PDF</b> · PDF có watermark <b>${escapeHtml(hostLabel)}</b></span>
+      <span>Chọn máy in → <b>Lưu thành PDF</b> · watermark nhẹ <b>${escapeHtml(hostLabel)}</b></span>
     </div>
 
     <header class="brand">
