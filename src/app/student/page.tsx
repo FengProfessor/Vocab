@@ -202,19 +202,24 @@ export default function StudentDashboard() {
   const loadData = async (userId: string, accessToken?: string) => {
     const token = accessToken ?? accessTokenRef.current;
     try {
-      // 1) Summary NHẸ first paint — levels L1–L6 load sau (idle), tránh đè Supabase khi quá tải
-      const summaryP = authFetch('/api/words?summary=1', {}, token)
-        .then((r) => r.json())
-        .then((sum) => {
-          if (sum?.success) applySummaryCounts(userId, sum);
-          return sum;
-        })
-        .catch(() => null);
-
-      const [profRes, enrollRes] = await Promise.all([
-        supabase.from('profiles').select('*').eq('id', userId).single(),
-        supabase.from('enrollments').select('id').eq('student_id', userId),
-        summaryP, // đua cùng profile — countsReady sớm
+      /**
+       * CHẾ ĐỘ LỚP ĐÔNG (100 HS, free tier):
+       * Chỉ 2 request: profile (cột nhẹ) + words list kèm counts.
+       * TẮT: stats/packs/grammar/levels/enrollments — học ôn vẫn chạy qua /flashcard.
+       */
+      const [profRes, wordsJson] = await Promise.all([
+        supabase
+          .from('profiles')
+          .select('id, full_name, email, role, avatar_url, plan, created_at')
+          .eq('id', userId)
+          .single(),
+        authFetch(
+          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&includeCounts=1`,
+          {},
+          token,
+        )
+          .then((r) => r.json())
+          .catch(() => null),
       ]);
 
       if (profRes.error) {
@@ -222,81 +227,26 @@ export default function StudentDashboard() {
         setWordsLoading(false);
         return;
       }
-      if (profRes.data) setProfile(profRes.data);
-      setJoinedClass((enrollRes.data?.length ?? 0) > 0);
-      // Shell + badge counts render ngay — words load tiếp bên dưới
-      setIsLoading(false);
-      setWordsLoading(true);
+      if (profRes.data) setProfile(profRes.data as Profile);
 
-      // 2) Side data + word list (không chặn full-page)
-      authFetch('/api/grammar/progress?summary=1', {}, token)
-        .then((r) => r.json())
-        .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
-        .catch(() => {});
-
-      // lite=1: chỉ heatmap 30 ngày — không quét full SRS
-      authFetch('/api/student/stats?lite=1', {}, token)
-        .then((r) => r.json())
-        .then((st) => {
-          if (!st?.success) return;
-          const activity: { date: string; count: number }[] = st.data?.dailyActivity ?? [];
-          setDailyActivity(activity);
-          // Local date key (tránh lệch UTC +7)
-          const n = new Date();
-          const todayKey = `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
-          setTodayWords(activity.find((a) => a.date === todayKey)?.count ?? 0);
-        })
-        .catch(() => {});
-
-      // Chart L1–L6 sau idle — không chặn TTI / đỡ đè Supabase lúc quá tải
-      const loadLevels = () => {
-        void authFetch('/api/words?summary=1&levels=1', {}, token)
-          .then((r) => r.json())
-          .then((sum) => {
-            if (sum?.success) applySummaryCounts(userId, sum);
-          })
-          .catch(() => {});
-      };
-      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-        window.requestIdleCallback(loadLevels, { timeout: 4000 });
-      } else {
-        setTimeout(loadLevels, 2000);
+      if (wordsJson?.success) {
+        setWords(wordsJson.data || []);
+        setClassroomId(wordsJson.classroomId ?? null);
+        setWordsOffset(WORDS_PAGE_SIZE);
+        applySummaryCounts(userId, {
+          total: wordsJson.total,
+          newCount: wordsJson.newCount,
+          reviewDueCount: wordsJson.reviewDueCount,
+          dueCount: wordsJson.dueCount,
+          classroomId: wordsJson.classroomId ?? null,
+        });
       }
-
-      authFetch('/api/vocab/packs', {}, token)
-        .then((response) => response.json())
-        .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
-          if (!packData.success || !packData.packs) return;
-          setVocabPacks(packData.packs);
-        })
-        .catch(() => {});
-
-      try {
-        const wordsJson = await authFetch(
-          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0`,
-          {},
-          token,
-        ).then((r) => r.json()).catch(() => null);
-
-        if (wordsJson?.success) {
-          setWords(wordsJson.data || []);
-          setClassroomId(wordsJson.classroomId ?? null);
-          setWordsOffset(WORDS_PAGE_SIZE);
-          if (typeof wordsJson.newCount === 'number' || typeof wordsJson.reviewDueCount === 'number') {
-            applySummaryCounts(userId, wordsJson);
-          } else if (typeof wordsJson.total === 'number') {
-            setTotalWords(wordsJson.total);
-          }
-
-        }
-      } finally {
-        setWordsLoading(false);
-      }
+      // Không gọi enrollments — nút join class vẫn mở modal; học không phụ thuộc flag này
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Unknown error';
       console.error('Load Dashboard error:', msg);
-      setWordsLoading(false);
     } finally {
+      setWordsLoading(false);
       setIsLoading(false);
     }
   };
@@ -389,29 +339,8 @@ export default function StudentDashboard() {
     return () => clearInterval(id);
   }, [words, profile?.id]);
 
-  // === Auto-retry failed words (1 lần / mount cycle, không spam) ===
-  const retryAttemptedRef = useRef(false);
-  useEffect(() => {
-    if (!classroomId || words.length === 0 || retryAttemptedRef.current || isRetryingAI) return;
-    const hasFailed = words.some((w) =>
-      w.translation?.includes('failed') || w.translation?.includes('Analyzing')
-    );
-    if (hasFailed) {
-      retryAttemptedRef.current = true;
-      void handleRetryAI();
-    }
-  }, [classroomId, words.length, isRetryingAI]);
-
-  // === Auto-refresh 60s, chỉ khi tab visible — summary NHẸ (không levels) ===
-  useEffect(() => {
-    if (!profile?.id) return;
-    const interval = setInterval(() => {
-      if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
-      void refreshSummary(profile.id);
-      void refreshGamification();
-    }, 60_000);
-    return () => clearInterval(interval);
-  }, [profile?.id, refreshGamification]);
+  // TẮT auto-retry AI + poll 60s khi lớp đông — tránh stampede free-tier Supabase
+  // User bấm "Refresh" / ôn flashcard khi cần.
 
   // === Detect milestones (level up / new badge / streak milestone) → trigger Celebration ===
   useEffect(() => {

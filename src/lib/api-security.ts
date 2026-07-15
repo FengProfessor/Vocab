@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createHash } from 'crypto';
 import { createServiceClient } from '@/lib/supabase';
+import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 
 /**
  * Shared security helpers for API route handlers.
@@ -36,6 +37,11 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
   const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7).trim() : '';
   if (!token) return null;
 
+  // Stampede 100 HS: 1 token → nhiều API trong vài giây — cache auth 30s/instance
+  const authCacheKey = `auth:${createHash('sha256').update(token).digest('hex').slice(0, 32)}`;
+  const cached = cacheGet<AuthResult | null>(authCacheKey);
+  if (cached !== undefined) return cached;
+
   const supabase = createServiceClient();
 
   if (token.startsWith(EXT_TOKEN_PREFIX)) {
@@ -45,9 +51,18 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
       .select('user_id, expires_at, revoked_at')
       .eq('token_hash', tokenHash)
       .maybeSingle();
-    if (error || !data?.user_id) return null;
-    if (data.revoked_at) return null;
-    if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) return null;
+    if (error || !data?.user_id) {
+      cacheSet(authCacheKey, null, 5_000);
+      return null;
+    }
+    if (data.revoked_at) {
+      cacheSet(authCacheKey, null, 5_000);
+      return null;
+    }
+    if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) {
+      cacheSet(authCacheKey, null, 5_000);
+      return null;
+    }
     // Ghi nhận lần dùng cuối — fire-and-forget, không chặn request
     void supabase
       .from('extension_tokens')
@@ -55,12 +70,19 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
       .eq('token_hash', tokenHash)
       .is('revoked_at', null)
       .then(() => {});
-    return { userId: data.user_id };
+    const result = { userId: data.user_id as string };
+    cacheSet(authCacheKey, result, 30_000);
+    return result;
   }
 
   const { data, error } = await supabase.auth.getUser(token);
-  if (error || !data.user) return null;
-  return { userId: data.user.id };
+  if (error || !data.user) {
+    cacheSet(authCacheKey, null, 5_000);
+    return null;
+  }
+  const result = { userId: data.user.id };
+  cacheSet(authCacheKey, result, 30_000);
+  return result;
 }
 
 /** Standard 401 response. */

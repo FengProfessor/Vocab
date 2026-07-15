@@ -5,6 +5,7 @@ import { resolveWordImage } from '@/lib/image-pipeline';
 import { stabilityToLevel } from '@/lib/srs';
 import { getAuthUser, unauthorized, isValidString, checkRateLimitAsync } from '@/lib/api-security';
 import { checkWordSaveQuota, resolvePlanByUserId } from '@/lib/entitlement';
+import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 
 /**
  * Kiểm tra user có quyền trên word (qua classroom): user là owner classroom,
@@ -35,6 +36,10 @@ const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{
 // Helper: Lấy hoặc tạo "personal classroom" của user
 // ─────────────────────────────────────────────────────────────────────────────
 async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createServiceClient>, userId: string): Promise<string> {
+  const cacheKey = `personal-cls:${userId}`;
+  const hit = cacheGet<string>(cacheKey);
+  if (hit) return hit;
+
   // 1. Tìm classroom đã tồn tại của user này
   const { data: existing } = await supabase
     .from('classrooms')
@@ -43,7 +48,10 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
     .eq('name', '__personal__')
     .single();
 
-  if (existing?.id) return existing.id;
+  if (existing?.id) {
+    cacheSet(cacheKey, existing.id as string, 10 * 60_000);
+    return existing.id as string;
+  }
 
   // 2. Tạo mới nếu chưa có
   const { data: created, error } = await supabase
@@ -58,7 +66,8 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
     .single();
 
   if (error) throw new Error(`Cannot create personal classroom: ${error.message}`);
-  return created.id;
+  cacheSet(cacheKey, created.id as string, 10 * 60_000);
+  return created.id as string;
 }
 
 type WordSummaryCounts = {
@@ -127,6 +136,11 @@ async function fetchWordSummaryCounts(
   classroomId: string,
   includeLevels = false,
 ): Promise<WordSummaryCounts> {
+  // 30s cache — 100 HS refresh cùng lúc chỉ 1 RPC/instance
+  const cacheKey = `wsum:${userId}:${classroomId}:${includeLevels ? 1 : 0}`;
+  const cached = cacheGet<WordSummaryCounts>(cacheKey);
+  if (cached) return cached;
+
   // Ưu tiên RPC (migration 20260709_word_summary_perf)
   const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
     p_user_id: userId,
@@ -136,7 +150,7 @@ async function fetchWordSummaryCounts(
     const row = Array.isArray(rpcRows) ? rpcRows[0] : rpcRows;
     if (row) {
       const total = Number(row.total ?? 0);
-      return {
+      const result: WordSummaryCounts = {
         total,
         newCount: Number(row.new_count ?? 0),
         reviewDueCount: Number(row.review_due_count ?? 0),
@@ -145,6 +159,8 @@ async function fetchWordSummaryCounts(
           ? await fetchLevelCounts(supabase, userId, classroomId, total)
           : [0, 0, 0, 0, 0, 0],
       };
+      cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
+      return result;
     }
   }
 
@@ -185,7 +201,7 @@ async function fetchWordSummaryCounts(
   const totalN = total || 0;
   const learnedN = learnedCount || 0;
   const withSrsN = wordsWithSrs || 0;
-  return {
+  const result: WordSummaryCounts = {
     total: totalN,
     // due = SRS đến hạn + từ chưa có SRS (coi như cần học/ôn)
     dueCount: (dueCount || 0) + Math.max(0, totalN - withSrsN),
@@ -195,6 +211,8 @@ async function fetchWordSummaryCounts(
       ? await fetchLevelCounts(supabase, userId, classroomId, totalN)
       : [0, 0, 0, 0, 0, 0],
   };
+  cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
+  return result;
 }
 
 // Shape JSONB của global_dictionary.data (Vietnamese definitions + IPA)
@@ -742,9 +760,10 @@ export async function GET(req: Request): Promise<NextResponse> {
       .from('words')
       .select('id', { count: 'exact', head: true })
       .eq('classroom_id', classroomId);
+    // Payload nhẹ: bỏ dictionary_data / image meta — dashboard + ôn không cần
     let wordsQuery = supabase
       .from('words')
-      .select('*, srs_progress(*)')
+      .select('id, word, translation, ipa, pos, example, image_url, synonyms, antonyms, classroom_id, created_at, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)')
       .eq('classroom_id', classroomId);
     if (requestedIds) {
       countQuery = countQuery.in('id', requestedIds);
@@ -801,7 +820,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       offset,
       hasMore: offset + limit < total,
     }), {
-      headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+      // Private browser cache 15s — bớt spam khi user reload/đổi tab
+      headers: { 'Cache-Control': 'private, max-age=15, stale-while-revalidate=30' },
     });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : 'Unknown error';
