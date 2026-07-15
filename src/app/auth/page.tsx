@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import {
@@ -49,6 +49,11 @@ export default function AuthPage() {
       : 'Thiếu cấu hình Supabase. Vui lòng kiểm tra các biến môi trường.'
   ));
   const [showManualRedirect, setShowManualRedirect] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
+  /** Prefetch OAuth URL — bấm Google = redirect ngay, không chờ round-trip Supabase lúc click */
+  const googleUrlRef = useRef<string | null>(null);
+  const googlePrefetchKey = useRef<string>('');
+  const googleInflight = useRef<Promise<string | null> | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -66,6 +71,55 @@ export default function AuthPage() {
     const wantTeacher = new URLSearchParams(window.location.search).get('role') === 'teacher';
     return wantTeacher ? '/teacher' : '/student';
   };
+
+  const buildGoogleRedirectTo = useCallback((currentRole: UserRole) => {
+    const params = new URLSearchParams(window.location.search);
+    const redirectUrl = new URL(`${window.location.origin}/auth/callback`);
+    redirectUrl.searchParams.set('role', currentRole);
+    const pilot = params.get('pilot') ?? sessionStorage.getItem('teacher_pilot_plan');
+    const source = params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source');
+    if (pilot) redirectUrl.searchParams.set('pilot', pilot);
+    if (source) redirectUrl.searchParams.set('source', source);
+    return redirectUrl.toString();
+  }, []);
+
+  const prefetchGoogleUrl = useCallback(async (currentRole: UserRole): Promise<string | null> => {
+    const redirectTo = buildGoogleRedirectTo(currentRole);
+    const key = `${currentRole}|${redirectTo}`;
+    if (googleUrlRef.current && googlePrefetchKey.current === key) {
+      return googleUrlRef.current;
+    }
+    if (googleInflight.current && googlePrefetchKey.current === key) {
+      return googleInflight.current;
+    }
+    googlePrefetchKey.current = key;
+    const job = (async () => {
+      try {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+          provider: 'google',
+          options: { redirectTo, skipBrowserRedirect: true },
+        });
+        if (error || !data?.url) {
+          console.warn('[Auth] Google prefetch fail:', error?.message);
+          return null;
+        }
+        googleUrlRef.current = data.url;
+        return data.url;
+      } catch (err) {
+        console.warn('[Auth] Google prefetch error:', err);
+        return null;
+      } finally {
+        googleInflight.current = null;
+      }
+    })();
+    googleInflight.current = job;
+    return job;
+  }, [buildGoogleRedirectTo]);
+
+  useEffect(() => {
+    // Prefetch ngay khi mở /auth (user đang đọc form → URL sẵn)
+    void prefetchGoogleUrl(role);
+  }, [role, prefetchGoogleUrl]);
 
   useEffect(() => {
     const redirectIfLoggedIn = async () => {
@@ -151,22 +205,40 @@ export default function AuthPage() {
   };
 
   const handleGoogleSignIn = async () => {
-    setStatus('Đang khởi tạo đăng nhập bằng Google...');
-    const params = new URLSearchParams(window.location.search);
-    const redirectUrl = new URL(`${window.location.origin}/auth/callback`);
-    redirectUrl.searchParams.set('role', role);
-    const pilot = params.get('pilot') ?? sessionStorage.getItem('teacher_pilot_plan');
-    const source = params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source');
-    if (pilot) redirectUrl.searchParams.set('pilot', pilot);
-    if (source) redirectUrl.searchParams.set('source', source);
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: redirectUrl.toString() },
-    });
-    if (error) {
-      setDebugError(error.message);
-      toast.error(error.message);
+    // UI feedback tức thì — user không cảm giác "đơ"
+    setGoogleLoading(true);
+    setStatus('Đang mở Google...');
+    setDebugError('');
+
+    try {
+      // 1) Dùng URL đã prefetch (thường có sẵn sau 0.5–1s mở trang)
+      let url = googleUrlRef.current;
+      if (!url) {
+        url = await prefetchGoogleUrl(role);
+      }
+      if (url) {
+        window.location.assign(url);
+        return; // giữ spinner đến khi rời trang
+      }
+
+      // 2) Fallback: full OAuth (hiếm khi prefetch fail)
+      const redirectTo = buildGoogleRedirectTo(role);
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo },
+      });
+      if (error) {
+        setDebugError(error.message);
+        toast.error(error.message);
+        setStatus('');
+        setGoogleLoading(false);
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Không mở được Google đăng nhập';
+      setDebugError(msg);
+      toast.error(msg);
       setStatus('');
+      setGoogleLoading(false);
     }
   };
 
@@ -339,11 +411,11 @@ export default function AuthPage() {
                   {/* Google trước — ít gõ trên mobile */}
                   <button
                     type="button"
-                    onClick={handleGoogleSignIn}
-                    disabled={loading}
+                    onClick={() => { void handleGoogleSignIn(); }}
+                    disabled={loading || googleLoading}
                     className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white text-sm font-bold text-[#241710] transition-all active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    {loading ? (
+                    {googleLoading ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (
                       <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" xmlns="http://www.w3.org/2000/svg" aria-hidden>
@@ -353,7 +425,7 @@ export default function AuthPage() {
                         <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
                       </svg>
                     )}
-                    Tiếp tục với Google
+                    {googleLoading ? 'Đang mở Google…' : 'Tiếp tục với Google'}
                   </button>
 
                   <div className="flex items-center gap-3 py-0.5">
