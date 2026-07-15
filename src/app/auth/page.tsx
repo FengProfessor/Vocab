@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Manrope, Space_Grotesk } from 'next/font/google';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import {
@@ -25,15 +24,7 @@ import type { UserRole } from '@/lib/supabase';
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
 
-const manrope = Manrope({
-  subsets: ['latin', 'vietnamese'],
-  display: 'swap',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin', 'vietnamese'],
-  display: 'swap',
-});
+const display = 'font-bold tracking-tight';
 
 type Mode = 'login' | 'signup';
 
@@ -68,46 +59,43 @@ export default function AuthPage() {
     return () => window.clearTimeout(timer);
   }, []);
 
+  /** Role từ JWT metadata — KHÔNG query profiles (tránh chậm khi DB quá tải). Default student. */
+  const destFromSession = (user: { user_metadata?: Record<string, unknown> } | null | undefined) => {
+    const metaRole = user?.user_metadata?.role;
+    if (metaRole === 'teacher') return '/teacher';
+    const wantTeacher = new URLSearchParams(window.location.search).get('role') === 'teacher';
+    return wantTeacher ? '/teacher' : '/student';
+  };
+
   useEffect(() => {
     const redirectIfLoggedIn = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) return;
-      const params = new URLSearchParams(window.location.search);
-      const wantTeacher = params.get('role') === 'teacher';
-      if (wantTeacher) {
-        const { error: roleErr } = await supabase.rpc('claim_teacher_role');
-        if (roleErr) console.warn('[Auth] claim_teacher_role:', roleErr.message);
+      // claim_teacher fire-and-forget — không chặn redirect
+      if (new URLSearchParams(window.location.search).get('role') === 'teacher') {
+        void supabase.rpc('claim_teacher_role').then(({ error: roleErr }) => {
+          if (roleErr) console.warn('[Auth] claim_teacher_role:', roleErr.message);
+        });
       }
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('role')
-        .eq('id', session.user.id)
-        .single();
-      const nextRole = wantTeacher ? 'teacher' : profile?.role;
-      window.location.href = nextRole === 'teacher' ? '/teacher' : '/student';
+      window.location.replace(destFromSession(session.user));
     };
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
-      if (event === 'SIGNED_IN') void redirectIfLoggedIn();
-    });
+    // Không subscribe SIGNED_IN → tránh double-redirect với handleSubmit
     void redirectIfLoggedIn();
-    return () => subscription.unsubscribe();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setStatus('Đang kết nối tới máy chủ xác thực...');
+    setStatus('Đang đăng nhập...');
     setDebugError('');
     setShowManualRedirect(false);
 
     const timeout = setTimeout(() => {
-      if (loading) {
-        setLoading(false);
-        setStatus('');
-        setDebugError('Yêu cầu đã hết thời gian chờ. Vui lòng kiểm tra kết nối Internet.');
-        toast.error('Xác thực đã hết thời gian chờ.');
-      }
-    }, 20000);
+      setLoading(false);
+      setStatus('');
+      setDebugError('Yêu cầu đã hết thời gian chờ. Vui lòng kiểm tra kết nối Internet.');
+      toast.error('Xác thực đã hết thời gian chờ.');
+    }, 15000);
 
     try {
       if (mode === 'signup') {
@@ -129,31 +117,26 @@ export default function AuthPage() {
         }
         toast.success('Đã tạo tài khoản! Vui lòng kiểm tra email để xác nhận.');
         setMode('login');
+        setLoading(false);
       } else {
-        setStatus('Đang xác thực thông tin đăng nhập...');
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        setStatus('Đang xác thực...');
+        // Session trả về NGAY từ signIn — không sleep 1.5s, không query profiles
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
 
-        setStatus('Đăng nhập thành công! Đang lưu phiên...');
-        setShowManualRedirect(true);
-
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-
-        const { data: { session } } = await supabase.auth.getSession();
+        const session = data.session;
         if (!session) {
-          console.warn('[Auth] Session not found after success. This might be a cookie issue.');
-          setStatus('Đăng nhập thành công nhưng trình duyệt chưa nhận diện được phiên.');
-          setDebugError('Trình duyệt chưa lưu phiên đăng nhập. Vui lòng nhấn nút bên dưới hoặc thử tắt chế độ Ẩn danh.');
-        } else {
-          setStatus('Đã xác minh phiên! Đang chuyển hướng...');
-          const { data: profile } = await supabase
-            .from('profiles')
-            .select('role')
-            .eq('id', session.user.id)
-            .single();
-          const destination = profile?.role === 'teacher' ? '/teacher' : '/student';
-          window.location.href = destination;
+          setShowManualRedirect(true);
+          setStatus('Đăng nhập OK nhưng phiên chưa sẵn sàng.');
+          setDebugError('Nhấn nút chuyển hướng bên dưới hoặc tắt chế độ Ẩn danh.');
+          setLoading(false);
+          return;
         }
+
+        setStatus('Thành công — đang vào học...');
+        // replace: không chờ profiles/DB (điểm nghẽn lúc 100 HS)
+        window.location.replace(destFromSession(session.user));
+        return; // giữ loading spinner đến khi rời trang
       }
     } catch (err: unknown) {
       console.error('CRITICAL Auth Error:', err);
@@ -161,9 +144,9 @@ export default function AuthPage() {
       setDebugError(`LỖI: ${msg}`);
       toast.error(msg);
       setStatus('');
+      setLoading(false);
     } finally {
       clearTimeout(timeout);
-      setLoading(false);
     }
   };
 
@@ -193,7 +176,7 @@ export default function AuthPage() {
 
   return (
     <div
-      className={`${manrope.className} min-h-dvh overflow-x-hidden bg-[#f6efe6] text-[#241710]`}
+      className={`min-h-dvh overflow-x-hidden bg-[#f6efe6] text-[#241710]`}
       style={{
         paddingTop: 'env(safe-area-inset-top)',
         paddingBottom: 'env(safe-area-inset-bottom)',
@@ -212,7 +195,7 @@ export default function AuthPage() {
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
               <Brain className="h-5 w-5" />
             </div>
-            <span className={`${spaceGrotesk.className} text-xl font-bold tracking-tight`}>LingoPro</span>
+            <span className={`${display} text-xl font-bold tracking-tight`}>LingoPro</span>
           </Link>
 
           <div className="space-y-6">
@@ -222,7 +205,7 @@ export default function AuthPage() {
             </div>
 
             <h1
-              className={`${spaceGrotesk.className} max-w-md text-4xl font-bold leading-[1.1] tracking-[-0.03em] xl:text-[2.75rem]`}
+              className={`${display} max-w-md text-4xl font-bold leading-[1.1] tracking-[-0.03em] xl:text-[2.75rem]`}
             >
               Học từ vựng —{' '}
               <span className="text-[#b5502f]">tra 1 chạm, nhớ lâu hơn</span>
@@ -269,7 +252,7 @@ export default function AuthPage() {
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
                 <Brain className="h-4 w-4" />
               </div>
-              <span className={`${spaceGrotesk.className} text-lg font-bold tracking-tight sm:text-xl`}>
+              <span className={`${display} text-lg font-bold tracking-tight sm:text-xl`}>
                 LingoPro
               </span>
             </Link>
@@ -281,7 +264,7 @@ export default function AuthPage() {
           <div className="w-full max-w-md">
             <div className="rounded-2xl border border-[#241710]/10 bg-[#241710] p-4 text-[#f6efe6] shadow-[0_20px_50px_rgba(36,23,16,0.2)] sm:rounded-[1.75rem] sm:p-6 lg:p-8">
               <div className="mb-5 hidden lg:block">
-                <p className={`${spaceGrotesk.className} text-2xl font-bold tracking-tight`}>
+                <p className={`${display} text-2xl font-bold tracking-tight`}>
                   {mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
                 </p>
                 <p className="mt-1.5 text-sm text-[#d8c9bc]">
@@ -324,7 +307,7 @@ export default function AuthPage() {
                   <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#2d7f5e]/25 sm:h-16 sm:w-16">
                     <ArrowRight className="h-7 w-7 text-[#7dcea0]" />
                   </div>
-                  <h3 className={`${spaceGrotesk.className} text-base font-bold sm:text-lg`}>
+                  <h3 className={`${display} text-base font-bold sm:text-lg`}>
                     Đăng nhập thành công!
                   </h3>
                   <p className="text-sm text-[#d8c9bc]">
