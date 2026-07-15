@@ -25,7 +25,8 @@ export default function OpengraphImage() {
           padding: '60px',
         }}
       >
-        <div style={{ display: 'flex', fontSize: 140, fontWeight: 800, letterSpacing: '-4px' }}>
+        <div style={{ display: 'flex', fontSize: 96, marginBottom: 8 }}>🦜</div>
+        <div style={{ display: 'flex', fontSize: 120, fontWeight: 800, letterSpacing: '-4px' }}>
           LingoPro
         </div>
         <div

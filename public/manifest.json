@@ -11,46 +11,58 @@
   "categories": ["education"],
   "icons": [
     {
-      "src": "/icons/icon-48.webp",
+      "src": "/icons/icon-48.webp?v=parrot1",
       "type": "image/webp",
       "sizes": "48x48",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icons/icon-72.webp",
+      "src": "/icons/icon-72.webp?v=parrot1",
       "type": "image/webp",
       "sizes": "72x72",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icons/icon-96.webp",
+      "src": "/icons/icon-96.webp?v=parrot1",
       "type": "image/webp",
       "sizes": "96x96",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icons/icon-128.webp",
+      "src": "/icons/icon-128.webp?v=parrot1",
       "type": "image/webp",
       "sizes": "128x128",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icons/icon-192.webp",
+      "src": "/icons/icon-192.webp?v=parrot1",
       "type": "image/webp",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icons/icon-256.webp",
+      "src": "/icons/icon-256.webp?v=parrot1",
       "type": "image/webp",
       "sizes": "256x256",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.webp",
+      "src": "/icons/icon-512.webp?v=parrot1",
       "type": "image/webp",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png?v=parrot1",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.webp?v=parrot1",
+      "type": "image/webp",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [

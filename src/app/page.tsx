@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Manrope, Space_Grotesk } from 'next/font/google';
 import Link from 'next/link';
 import {
   ArrowDownToLine,
@@ -25,16 +24,10 @@ import {
 } from '@/lib/billing';
 import AuthRedirectGate from './_components/AuthRedirectGate';
 import DictionaryDemo from './_components/DictionaryDemo';
+import { LazyVideo } from '@/components/perf/LazyVideo';
 
-const manrope = Manrope({
-  subsets: ['latin', 'vietnamese'],
-  display: 'swap',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin', 'vietnamese'],
-  display: 'swap',
-});
+/** Display headings — dùng Inter (layout), không load thêm font (tiết kiệm ~50–80KB) */
+const display = 'font-bold tracking-tight';
 
 /** Keyword focus: học từ vựng · tra từ · FSRS · flashcard · nhớ lâu */
 const SITE_URL = 'https://lingopro.online';
@@ -242,7 +235,7 @@ function SectionTag({ children }: { children: React.ReactNode }) {
 
 export default function LandingPage() {
   return (
-    <div className={`${manrope.className} min-h-dvh bg-[#f6efe6] text-[#241710]`}>
+    <div className={`min-h-dvh bg-[#f6efe6] text-[#241710]`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -258,10 +251,15 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 border-b border-[#bca58f]/30 bg-[#f6efe6]/90 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6">
           <Link href="/" className="flex shrink-0 items-center gap-2.5 text-[#241710]">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#241710] text-[#f6efe6]">
-              <Brain className="h-4 w-4" />
-            </div>
-            <span className={`${spaceGrotesk.className} text-lg font-bold tracking-tight`}>LingoPro</span>
+            {/* eslint-disable-next-line @next/next/no-img-element -- brand logo static public */}
+            <img
+              src="/icon-512.png?v=parrot1"
+              alt="LingoPro"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-xl shadow-sm"
+            />
+            <span className={`${display} text-lg font-bold tracking-tight`}>LingoPro</span>
           </Link>
 
           <nav className="hidden items-center gap-5 text-sm font-bold text-[#6d574a] md:flex" aria-label="Điều hướng chính">
@@ -302,7 +300,7 @@ export default function LandingPage() {
               <SectionTag>App học từ vựng · FSRS</SectionTag>
 
               <h1
-                className={`${spaceGrotesk.className} max-w-xl text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-[#241710] sm:text-5xl lg:text-[3.25rem]`}
+                className={`${display} max-w-xl text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-[#241710] sm:text-5xl lg:text-[3.25rem]`}
               >
                 Học từ vựng tiếng Anh —{' '}
                 <span className="text-[#b5502f]">tra 1 chạm, nhớ lâu hơn</span>
@@ -342,7 +340,7 @@ export default function LandingPage() {
             {/* Compact product card */}
             <div className="rounded-[1.75rem] border border-[#bca58f]/35 bg-[#241710] p-5 text-[#f6efe6] shadow-[0_24px_70px_rgba(36,23,16,0.22)]">
               <div className="mb-4 flex items-center justify-between gap-3">
-                <p className={`${spaceGrotesk.className} text-xl font-bold`}>3 bước nhớ từ</p>
+                <p className={`${display} text-xl font-bold`}>3 bước nhớ từ</p>
                 <span className="rounded-full bg-[#d7bb76] px-2.5 py-0.5 text-[11px] font-black text-[#241710]">
                   FSRS
                 </span>
@@ -373,7 +371,7 @@ export default function LandingPage() {
                   { v: VOCAB_STATS.routes, l: 'lộ trình' },
                 ].map((x) => (
                   <div key={x.l} className="rounded-xl bg-[#f6efe6] py-3 text-center text-[#241710]">
-                    <div className={`${spaceGrotesk.className} text-xl font-bold sm:text-2xl`}>{x.v}</div>
+                    <div className={`${display} text-xl font-bold sm:text-2xl`}>{x.v}</div>
                     <div className="text-[10px] font-bold uppercase tracking-wider text-[#7b6558]">{x.l}</div>
                   </div>
                 ))}
@@ -418,7 +416,7 @@ export default function LandingPage() {
           <div className="mx-auto max-w-6xl">
             <div className="mx-auto max-w-2xl text-center">
               <SectionTag>Demo 15–30 giây</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight text-[#f6efe6] sm:text-4xl`}>
+              <h2 className={`${display} mt-4 text-3xl font-bold tracking-tight text-[#f6efe6] sm:text-4xl`}>
                 Xem cách <span className="text-[#f1c46d]">tra từ và lưu</span> — không cần tưởng tượng
               </h2>
               <p className="mt-3 text-base leading-7 text-[#d8c9bc]">
@@ -428,7 +426,7 @@ export default function LandingPage() {
 
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
               <figure className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-                <video
+                <LazyVideo
                   className="aspect-video w-full object-cover"
                   src="/intro-save-word.mp4"
                   controls
@@ -439,9 +437,7 @@ export default function LandingPage() {
                   preload="metadata"
                   title="Demo lưu từ vựng vào kho LingoPro"
                   aria-label="Video demo: lưu từ vựng vào kho riêng trên LingoPro"
-                >
-                  <source src="/intro-save-word.mp4" type="video/mp4" />
-                </video>
+                />
                 <figcaption className="px-4 py-3 text-sm font-semibold text-[#d8c9bc]">
                   <span className="font-black text-[#f1c46d]">1 · Lưu từ</span>
                   {' — '}Từ lạ thành thẻ trong kho, sẵn sàng ôn FSRS.
@@ -449,7 +445,7 @@ export default function LandingPage() {
               </figure>
 
               <figure className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-                <video
+                <LazyVideo
                   className="aspect-video w-full object-cover"
                   src="/extension-lookup.mp4"
                   controls
@@ -460,9 +456,7 @@ export default function LandingPage() {
                   preload="metadata"
                   title="Demo tra từ 1 chạm trên web với LingoPro"
                   aria-label="Video demo: tra từ 1 chạm trên trang web bằng extension"
-                >
-                  <source src="/extension-lookup.mp4" type="video/mp4" />
-                </video>
+                />
                 <figcaption className="px-4 py-3 text-sm font-semibold text-[#d8c9bc]">
                   <span className="font-black text-[#f1c46d]">2 · Tra trên web</span>
                   {' — '}Bôi đen từ đang đọc, nghĩa Việt hiện ngay.
@@ -493,7 +487,7 @@ export default function LandingPage() {
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <div className="space-y-4">
               <SectionTag>Thử ngay</SectionTag>
-              <h2 className={`${spaceGrotesk.className} text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
+              <h2 className={`${display} text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
                 Tra thử một từ — <span className="text-[#b5502f]">không cần tài khoản</span>
               </h2>
               <p className="max-w-md text-base leading-7 text-[#5e4b40]">
@@ -523,7 +517,7 @@ export default function LandingPage() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 max-w-2xl">
               <SectionTag>Cách học</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
+              <h2 className={`${display} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
                 Ít phút mỗi ngày — <span className="text-[#b5502f]">nhớ dai hơn sau nhiều tuần</span>
               </h2>
               <p className="mt-3 text-base leading-7 text-[#5e4b40]">
@@ -553,7 +547,7 @@ export default function LandingPage() {
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 text-center">
               <SectionTag>LingoPro vs Anki</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
+              <h2 className={`${display} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
                 Muốn học ngay — <span className="text-[#b5502f]">không tự dựng hệ thống</span>
               </h2>
             </div>
@@ -611,7 +605,7 @@ export default function LandingPage() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-8 text-center">
               <SectionTag>Người dùng</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
+              <h2 className={`${display} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
                 Dễ quay lại mỗi ngày
               </h2>
             </div>
@@ -647,7 +641,7 @@ export default function LandingPage() {
           <div className="mx-auto max-w-5xl">
             <div className="mb-10 text-center">
               <SectionTag>Bảng giá</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
+              <h2 className={`${display} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
                 Miễn phí bắt đầu · <span className="text-[#b5502f]">Pro hoặc gói nhóm</span>
               </h2>
             </div>
@@ -655,7 +649,7 @@ export default function LandingPage() {
             <div className="grid gap-5 lg:grid-cols-3">
               <div className="rounded-[1.75rem] border border-[#d7c7b6] bg-white p-6 sm:p-7">
                 <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">{PLAN_LABELS.free}</div>
-                <div className={`${spaceGrotesk.className} mt-2 text-4xl font-bold`}>0₫</div>
+                <div className={`${display} mt-2 text-4xl font-bold`}>0₫</div>
                 <p className="mt-1 text-sm font-semibold text-[#7b6558]">Tra · lưu · ôn FSRS cơ bản</p>
                 <ul className="mt-6 space-y-2.5 text-sm font-semibold text-[#4f3f35]">
                   {[
@@ -686,7 +680,7 @@ export default function LandingPage() {
                   </span>
                   <div className="mt-3">
                     <div className="text-xs font-black uppercase tracking-[0.2em] text-[#cbb7a6]">{PLAN_LABELS.pro}</div>
-                    <div className={`${spaceGrotesk.className} mt-1 text-4xl font-bold`}>
+                    <div className={`${display} mt-1 text-4xl font-bold`}>
                       {formatVND(PLAN_PRICES.pro)}
                       <span className="ml-1 text-sm font-semibold text-[#cbb7a6]">/tháng</span>
                     </div>
@@ -719,7 +713,7 @@ export default function LandingPage() {
 
               <div className="rounded-[1.75rem] border border-[#d7c7b6] bg-white p-6 sm:p-7">
                 <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">Nhóm</div>
-                <div className={`${spaceGrotesk.className} mt-2 text-3xl font-bold tracking-tight`}>
+                <div className={`${display} mt-2 text-3xl font-bold tracking-tight`}>
                   từ {formatVND(GROUP_SEAT_PRICE)}
                   <span className="ml-1 text-sm font-semibold text-[#7b6558]">/ghế/tháng</span>
                 </div>
@@ -753,7 +747,7 @@ export default function LandingPage() {
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 text-center">
               <SectionTag>FAQ</SectionTag>
-              <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
+              <h2 className={`${display} mt-4 text-3xl font-bold tracking-tight text-[#241710] sm:text-4xl`}>
                 Câu hỏi thường gặp
               </h2>
             </div>
@@ -784,7 +778,7 @@ export default function LandingPage() {
                 <Zap className="h-3.5 w-3.5" />
                 Bắt đầu hôm nay
               </div>
-              <h2 className={`${spaceGrotesk.className} text-2xl font-bold tracking-tight sm:text-3xl`}>
+              <h2 className={`${display} text-2xl font-bold tracking-tight sm:text-3xl`}>
                 Một từ lạ đầu tiên là đủ để bắt đầu.
               </h2>
               <p className="mt-2 text-sm leading-6 text-[#d8c9bc]">
@@ -813,11 +807,16 @@ export default function LandingPage() {
       <footer className="border-t border-[#d7c7b6]/70 px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 text-sm text-[#6d574a] sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#241710] text-[#f6efe6]">
-              <Brain className="h-3.5 w-3.5" />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/icon-512.png?v=parrot1"
+              alt="LingoPro"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-lg shadow-sm"
+            />
             <div>
-              <div className={`${spaceGrotesk.className} font-bold text-[#241710]`}>LingoPro</div>
+              <div className={`${display} font-bold text-[#241710]`}>LingoPro</div>
               <p className="text-xs">Học từ vựng · tra từ · FSRS</p>
             </div>
           </div>
