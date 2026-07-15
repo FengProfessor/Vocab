@@ -8,3 +8,17 @@ scripts/scrapers/.checkpoints
 scratch
 tmp-*
 /tmp/
+
+# Media nặng không dùng trên route production (giảm deploy size ~50MB+)
+public/lingopro-demo-5min.mp4
+public/lingopro-demo-5min-poster.jpg
+public/lingopro-demo.mp4
+public/fsrs-deep-demo.mp4
+public/fsrs-teaser.mp4
+public/student-cases.mp4
+public/nlm-exports
+public/onboarding-test
+public/tmp-*
+tmp-check-*
+tmp-mobile-*
+tmp-verify*

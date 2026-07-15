@@ -1,27 +1,15 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import ReactMarkdown from 'react-markdown';
 import type { GrammarSections, GrammarExerciseItem } from '@/lib/supabase';
+import { LazyMarkdown } from '@/components/perf/LazyMarkdown';
 
 /**
  * Render bài học grammar CÓ CẤU TRÚC (section-cards + quiz interactive) — giống bài mẫu vàng.
  * Phần Ví dụ (annotation) vẫn do trang learn render riêng để tái dùng GrammarHighlight.
  */
 
-const md = (children: string) => (
-  <ReactMarkdown
-    components={{
-      p: ({ ...p }) => <p className="leading-relaxed" {...p} />,
-      strong: ({ ...p }) => <strong className="font-bold text-slate-900" {...p} />,
-      code: ({ ...p }) => <code className="px-1.5 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-mono text-[0.85em]" {...p} />,
-      ul: ({ ...p }) => <ul className="list-disc pl-5 space-y-1 my-2" {...p} />,
-      li: ({ ...p }) => <li className="leading-relaxed" {...p} />,
-    }}
-  >
-    {children}
-  </ReactMarkdown>
-);
+const md = (children: string) => <LazyMarkdown>{children}</LazyMarkdown>;
 
 function Card({ tag, icon, title, children }: { tag: string; icon: string; title: string; children: React.ReactNode }) {
   return (

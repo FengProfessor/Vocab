@@ -1,58 +1,82 @@
 'use client';
 
 import { useEffect } from 'react';
-import { requestForToken, onMessageListener } from '@/lib/firebase';
-import { supabase } from '@/lib/supabase';
 
+/**
+ * FCM init — lazy + idle.
+ * Không import firebase SDK vào bundle layout; chỉ tải khi:
+ * - đã có Notification.permission === 'granted'
+ * - browser rảnh (requestIdleCallback / setTimeout)
+ */
 export default function FirebaseInitializer() {
   useEffect(() => {
-    const setupFCM = async () => {
+    if (typeof window === 'undefined') return;
+    // Trang test tự gọi requestForToken — tránh race 2 luồng getToken → 401 FCM
+    if (window.location.pathname.startsWith('/test-fcm')) return;
+    // iOS: không auto-prompt — chỉ lấy token nếu user đã cấp quyền từ trước
+    if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return;
+
+    let cancelled = false;
+
+    const run = async () => {
+      if (cancelled) return;
       try {
-        // Trang test tự gọi requestForToken — tránh race 2 luồng getToken → 401 FCM
-        if (window.location.pathname.startsWith('/test-fcm')) return;
+        // Dynamic import: firebase + messaging không vào initial JS
+        const [{ requestForToken, onMessageListener }, { supabase }] = await Promise.all([
+          import('@/lib/firebase'),
+          import('@/lib/supabase'),
+        ]);
 
-        // iOS: không auto-prompt — chỉ lấy token nếu user đã cấp quyền từ trước
-        // Nếu chưa có quyền, user phải bấm nút tại /test-fcm để trigger từ gesture
-        if (Notification.permission !== 'granted') return;
+        if (cancelled) return;
 
-        // 1. Lấy Token từ thiết bị
         const token = await requestForToken();
-        
-        if (token) {
-          // 2. Lấy session hiện tại để có access_token
-          const { data: { session } } = await supabase.auth.getSession();
-          
-          if (session) {
-            // 3. Gửi Token lên server (auth qua JWT, không gửi userId trong body)
-            const res = await fetch('/api/push/fcm-register', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${session.access_token}`,
-              },
-              body: JSON.stringify({ fcmToken: token }),
-            });
+        if (!token || cancelled) return;
 
-            const result = (await res.json()) as { success?: boolean; error?: string };
-            if (!res.ok || !result.success) {
-              throw new Error(result.error || 'Không lưu được FCM token lên server.');
-            }
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session || cancelled) return;
 
-            console.log('[FCM] Token registered successfully');
-          }
+        const res = await fetch('/api/push/fcm-register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${session.access_token}`,
+          },
+          body: JSON.stringify({ fcmToken: token }),
+        });
+
+        const result = (await res.json()) as { success?: boolean; error?: string };
+        if (!res.ok || !result.success) {
+          throw new Error(result.error || 'Không lưu được FCM token lên server.');
         }
+
+        console.log('[FCM] Token registered successfully');
+
+        onMessageListener()?.then((payload) => {
+          console.log('[FCM] Foreground message:', payload);
+        });
       } catch (err) {
         console.error('[FCM] Setup error:', err);
       }
     };
 
-    if (typeof window !== 'undefined') {
-      setupFCM();
+    // Chạy khi browser rảnh — không cạnh tranh LCP/TTI
+    const ric = window.requestIdleCallback?.bind(window);
+    let idleId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-      onMessageListener()?.then((payload) => {
-        console.log('[FCM] Foreground message:', payload);
-      });
+    if (ric) {
+      idleId = ric(() => { void run(); }, { timeout: 4000 });
+    } else {
+      timeoutId = setTimeout(() => { void run(); }, 2500);
     }
+
+    return () => {
+      cancelled = true;
+      if (idleId !== undefined && window.cancelIdleCallback) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId !== undefined) clearTimeout(timeoutId);
+    };
   }, []);
 
   return null;

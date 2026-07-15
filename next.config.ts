@@ -18,9 +18,22 @@ const csp = [
 ].join('; ');
 
 const nextConfig: NextConfig = {
+  // Tree-shake icon/chart/date barrels → giảm JS initial
+  experimental: {
+    optimizePackageImports: [
+      'lucide-react',
+      'recharts',
+      'date-fns',
+      '@supabase/supabase-js',
+    ],
+  },
   images: {
     // Cho phép mọi host https (ảnh đi qua image-proxy / nguồn ngoài động)
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 ngày
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
   compress: true,
   poweredByHeader: false, // security: ẩn header X-Powered-By
@@ -40,9 +53,25 @@ const nextConfig: NextConfig = {
       { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate' },
       { key: 'Content-Security-Policy', value: fcmSwCsp },
     ];
+    // Static immutable assets — browser + CDN giữ lâu
+    const immutableYear = 'public, max-age=31536000, immutable';
+    const longCache = 'public, max-age=604800, stale-while-revalidate=86400';
     return [
       { source: '/firebase-messaging-sw', headers: fcmSwHeaders },
       { source: '/firebase-messaging-sw.js', headers: fcmSwHeaders },
+      {
+        source: '/icons/:path*',
+        headers: [{ key: 'Cache-Control', value: immutableYear }],
+      },
+      {
+        source: '/:path*.(webp|png|jpg|jpeg|gif|svg|ico|woff2|woff)',
+        headers: [{ key: 'Cache-Control', value: immutableYear }],
+      },
+      {
+        // Video demo lớn — cache 7 ngày, không immutable (có thể thay file cùng tên)
+        source: '/:path*.mp4',
+        headers: [{ key: 'Cache-Control', value: longCache }],
+      },
       {
         // Loại SW FCM khỏi CSP global (worker-src 'self' chặn importScripts gstatic)
         source: '/((?!firebase-messaging-sw).*)',
@@ -53,7 +82,7 @@ const nextConfig: NextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(self), geolocation=()' },
-          { key: 'X-DNS-Prefetch-Control', value: 'off' },
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
         ],
       },
     ];

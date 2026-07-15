@@ -1,8 +1,8 @@
 /**
  * Wrapper an toàn quanh PostHog — gọi được ở bất kỳ client component nào.
  * No-op nếu chạy server-side hoặc chưa cấu hình NEXT_PUBLIC_POSTHOG_KEY.
+ * Dynamic import: không kéo posthog-js vào initial bundle của trang gọi track().
  */
-import posthog from 'posthog-js';
 
 const enabled = () =>
   typeof window !== 'undefined' && !!process.env.NEXT_PUBLIC_POSTHOG_KEY;
@@ -25,29 +25,25 @@ export type AnalyticsEventName = keyof AnalyticsEvents;
 /** Bắt 1 event có type-safe properties. */
 export function track<E extends AnalyticsEventName>(event: E, props: AnalyticsEvents[E]): void {
   if (!enabled()) return;
-  try {
-    posthog.capture(event, props);
-  } catch {
-    /* nuốt lỗi — analytics không bao giờ được làm vỡ UX */
-  }
+  void import('posthog-js')
+    .then(({ default: posthog }) => {
+      try {
+        posthog.capture(event, props);
+      } catch {
+        /* nuốt lỗi — analytics không bao giờ được làm vỡ UX */
+      }
+    })
+    .catch(() => { /* SDK load fail — ignore */ });
 }
 
 /** Gắn user id để theo dõi retention theo người (gọi sau khi đăng nhập). */
 export function identifyUser(userId: string, props?: Record<string, unknown>): void {
   if (!enabled()) return;
-  try {
-    posthog.identify(userId, props);
-  } catch {
-    /* no-op */
-  }
-}
-
-/** Xoá định danh khi logout. */
-export function resetAnalytics(): void {
-  if (!enabled()) return;
-  try {
-    posthog.reset();
-  } catch {
-    /* no-op */
-  }
+  void import('posthog-js')
+    .then(({ default: posthog }) => {
+      try {
+        posthog.identify(userId, props);
+      } catch { /* ignore */ }
+    })
+    .catch(() => { /* ignore */ });
 }

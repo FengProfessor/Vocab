@@ -9,11 +9,14 @@ import {
   Search, Download, X, Mail, Calendar, BookOpen, Target,
   CreditCard, TrendingUp, Building2,
 } from 'lucide-react';
-import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-} from 'recharts';
+import dynamic from 'next/dynamic';
 import { authFetch } from '@/lib/auth-fetch';
 import { formatVND } from '@/lib/billing';
+
+const CrmSignupChart = dynamic(
+  () => import('@/components/charts/CrmSignupChart').then((m) => m.CrmSignupChart),
+  { ssr: false, loading: () => <div className="h-[240px] animate-pulse rounded-xl bg-muted/40" /> }
+);
 
 // ─── Types (khớp /api/admin/crm) ───
 type Lifecycle = 'new' | 'active' | 'at_risk' | 'churned';
@@ -198,26 +201,7 @@ export default function CrmDashboard() {
             {funnel.length === 0 ? (
               <p className="text-sm text-muted-foreground py-12 text-center">Chưa có dữ liệu đăng ký.</p>
             ) : (
-              <ResponsiveContainer width="100%" height={240}>
-                <AreaChart data={funnel}>
-                  <defs>
-                    <linearGradient id="su" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.4} />
-                      <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                  <XAxis dataKey="date" fontSize={11} tickLine={false} axisLine={false}
-                    tickFormatter={(d: string) => d.slice(5)} minTickGap={24} />
-                  <YAxis fontSize={11} tickLine={false} axisLine={false} allowDecimals={false} width={28} />
-                  <Tooltip
-                    formatter={(v) => [`${v} người`, 'Đăng ký']}
-                    labelFormatter={(d) => new Date(d).toLocaleDateString('vi-VN')}
-                    contentStyle={{ borderRadius: 12, border: '1px solid var(--border)', background: 'var(--background)', fontSize: 12 }}
-                  />
-                  <Area type="monotone" dataKey="count" stroke="#8b5cf6" strokeWidth={2} fill="url(#su)" />
-                </AreaChart>
-              </ResponsiveContainer>
+              <CrmSignupChart data={funnel} />
             )}
           </div>
 

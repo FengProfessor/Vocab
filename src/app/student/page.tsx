@@ -31,6 +31,7 @@ import {
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
 import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
+import { STAMPEDE_MODE } from '@/lib/stampede';
 
 // Lazy load: canvas-confetti chỉ chạy client-side, không cần SSR + chỉ tải khi cần
 const Celebration = dynamic(
@@ -202,24 +203,62 @@ export default function StudentDashboard() {
   const loadData = async (userId: string, accessToken?: string) => {
     const token = accessToken ?? accessTokenRef.current;
     try {
-      /**
-       * CHẾ ĐỘ LỚP ĐÔNG (100 HS, free tier):
-       * Chỉ 2 request: profile (cột nhẹ) + words list kèm counts.
-       * TẮT: stats/packs/grammar/levels/enrollments — học ôn vẫn chạy qua /flashcard.
-       */
-      const [profRes, wordsJson] = await Promise.all([
-        supabase
-          .from('profiles')
-          .select('id, full_name, email, role, avatar_url, plan, created_at')
-          .eq('id', userId)
-          .single(),
-        authFetch(
-          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&includeCounts=1`,
-          {},
-          token,
-        )
-          .then((r) => r.json())
-          .catch(() => null),
+      if (STAMPEDE_MODE) {
+        /**
+         * CHẾ ĐỘ LỚP ĐÔNG (NEXT_PUBLIC_STAMPEDE_MODE=1, mặc định):
+         * Chỉ 2 request: profile nhẹ + words kèm counts.
+         * Tắt: stats/packs/grammar/levels/enrollments.
+         */
+        const [profRes, wordsJson] = await Promise.all([
+          supabase
+            .from('profiles')
+            .select('id, full_name, email, role, avatar_url, plan, created_at')
+            .eq('id', userId)
+            .single(),
+          authFetch(
+            `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&includeCounts=1`,
+            {},
+            token,
+          )
+            .then((r) => r.json())
+            .catch(() => null),
+        ]);
+
+        if (profRes.error) {
+          console.error('[Student] Load profile failed:', profRes.error.message);
+          setWordsLoading(false);
+          return;
+        }
+        if (profRes.data) setProfile(profRes.data as Profile);
+
+        if (wordsJson?.success) {
+          setWords(wordsJson.data || []);
+          setClassroomId(wordsJson.classroomId ?? null);
+          setWordsOffset(WORDS_PAGE_SIZE);
+          applySummaryCounts(userId, {
+            total: wordsJson.total,
+            newCount: wordsJson.newCount,
+            reviewDueCount: wordsJson.reviewDueCount,
+            dueCount: wordsJson.dueCount,
+            classroomId: wordsJson.classroomId ?? null,
+          });
+        }
+        return;
+      }
+
+      // ── Full mode (STAMPEDE=0): progressive load, đủ packs/grammar/heatmap ──
+      const summaryP = authFetch('/api/words?summary=1', {}, token)
+        .then((r) => r.json())
+        .then((sum) => {
+          if (sum?.success) applySummaryCounts(userId, sum);
+          return sum;
+        })
+        .catch(() => null);
+
+      const [profRes, enrollRes] = await Promise.all([
+        supabase.from('profiles').select('*').eq('id', userId).single(),
+        supabase.from('enrollments').select('id').eq('student_id', userId),
+        summaryP,
       ]);
 
       if (profRes.error) {
@@ -228,25 +267,74 @@ export default function StudentDashboard() {
         return;
       }
       if (profRes.data) setProfile(profRes.data as Profile);
+      setJoinedClass((enrollRes.data?.length ?? 0) > 0);
+      setIsLoading(false);
+      setWordsLoading(true);
 
-      if (wordsJson?.success) {
-        setWords(wordsJson.data || []);
-        setClassroomId(wordsJson.classroomId ?? null);
-        setWordsOffset(WORDS_PAGE_SIZE);
-        applySummaryCounts(userId, {
-          total: wordsJson.total,
-          newCount: wordsJson.newCount,
-          reviewDueCount: wordsJson.reviewDueCount,
-          dueCount: wordsJson.dueCount,
-          classroomId: wordsJson.classroomId ?? null,
-        });
+      authFetch('/api/grammar/progress?summary=1', {}, token)
+        .then((r) => r.json())
+        .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
+        .catch(() => {});
+
+      authFetch('/api/student/stats?lite=1', {}, token)
+        .then((r) => r.json())
+        .then((st) => {
+          if (!st?.success) return;
+          const activity: { date: string; count: number }[] = st.data?.dailyActivity ?? [];
+          setDailyActivity(activity);
+          const n = new Date();
+          const todayKey = `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
+          setTodayWords(activity.find((a) => a.date === todayKey)?.count ?? 0);
+        })
+        .catch(() => {});
+
+      const loadLevels = () => {
+        void authFetch('/api/words?summary=1&levels=1', {}, token)
+          .then((r) => r.json())
+          .then((sum) => {
+            if (sum?.success) applySummaryCounts(userId, sum);
+          })
+          .catch(() => {});
+      };
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        window.requestIdleCallback(loadLevels, { timeout: 4000 });
+      } else {
+        setTimeout(loadLevels, 2000);
       }
-      // Không gọi enrollments — nút join class vẫn mở modal; học không phụ thuộc flag này
+
+      authFetch('/api/vocab/packs', {}, token)
+        .then((response) => response.json())
+        .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
+          if (!packData.success || !packData.packs) return;
+          setVocabPacks(packData.packs);
+        })
+        .catch(() => {});
+
+      try {
+        const wordsJson = await authFetch(
+          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0`,
+          {},
+          token,
+        ).then((r) => r.json()).catch(() => null);
+
+        if (wordsJson?.success) {
+          setWords(wordsJson.data || []);
+          setClassroomId(wordsJson.classroomId ?? null);
+          setWordsOffset(WORDS_PAGE_SIZE);
+          if (typeof wordsJson.newCount === 'number' || typeof wordsJson.reviewDueCount === 'number') {
+            applySummaryCounts(userId, wordsJson);
+          } else if (typeof wordsJson.total === 'number') {
+            setTotalWords(wordsJson.total);
+          }
+        }
+      } finally {
+        setWordsLoading(false);
+      }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Unknown error';
       console.error('Load Dashboard error:', msg);
-    } finally {
       setWordsLoading(false);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -339,8 +427,16 @@ export default function StudentDashboard() {
     return () => clearInterval(id);
   }, [words, profile?.id]);
 
-  // TẮT auto-retry AI + poll 60s khi lớp đông — tránh stampede free-tier Supabase
-  // User bấm "Refresh" / ôn flashcard khi cần.
+  // Stampede: tắt poll 60s. Full mode: refresh summary khi tab visible.
+  useEffect(() => {
+    if (STAMPEDE_MODE || !profile?.id) return;
+    const tick = () => {
+      if (document.visibilityState !== 'visible') return;
+      void refreshSummary(profile.id);
+    };
+    const id = window.setInterval(tick, 60_000);
+    return () => window.clearInterval(id);
+  }, [profile?.id]);
 
   // === Detect milestones (level up / new badge / streak milestone) → trigger Celebration ===
   useEffect(() => {

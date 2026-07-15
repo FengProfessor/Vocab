@@ -22,6 +22,7 @@ import {
   X,
   Zap,
 } from 'lucide-react';
+import { LazyVideo } from '@/components/perf/LazyVideo';
 import {
   AudienceTabs,
   CenterLeadForm,
@@ -405,16 +406,16 @@ export default function ForTeachersPage() {
             </div>
             <div className="relative mx-auto mt-10 max-w-4xl">
               <div className="absolute -inset-4 rotate-1 rounded-[2rem] bg-[#d7ff64]/20 blur-2xl" />
-              <video
+              <LazyVideo
                 className="relative w-full rounded-[1.5rem] border border-white/10 shadow-2xl"
+                src="/lingopro-teacher-flow.mp4"
                 controls
                 playsInline
                 preload="none"
                 poster="/lingopro-teacher-flow-poster.jpg"
               >
-                <source src="/lingopro-teacher-flow.mp4" type="video/mp4" />
                 Trình duyệt của bạn không hỗ trợ video.
-              </video>
+              </LazyVideo>
             </div>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3 text-sm font-bold text-[#aab5ae]">
               <span className="inline-flex items-center gap-2"><CheckCircle2 className="size-4 text-[#d7ff64]" /> Tạo lớp &amp; mời học sinh</span>
@@ -429,16 +430,16 @@ export default function ForTeachersPage() {
               <p className="text-sm font-black uppercase tracking-[0.18em] text-[#74cbb2]">Còn so với app khác?</p>
               <h3 className="mt-3 text-2xl font-black tracking-[-0.02em]">LingoPro vs Anki · Quizlet · Duolingo</h3>
               <div className="relative mt-6">
-                <video
+                <LazyVideo
                   className="relative w-full rounded-2xl border border-white/10 shadow-xl"
+                  src="/lingopro-vs-anki.mp4"
                   controls
                   playsInline
                   preload="none"
                   poster="/lingopro-vs-anki-poster.jpg"
                 >
-                  <source src="/lingopro-vs-anki.mp4" type="video/mp4" />
                   Trình duyệt của bạn không hỗ trợ video.
-                </video>
+                </LazyVideo>
               </div>
             </div>
           </div>

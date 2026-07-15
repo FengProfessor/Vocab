@@ -82,11 +82,16 @@ export async function GET(req: Request) {
       });
     }
 
-    return NextResponse.json({
-      success: true,
-      classrooms: enriched,
-      students,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        classrooms: enriched,
+        students,
+      },
+      {
+        headers: { 'Cache-Control': 'private, max-age=20, stale-while-revalidate=40' },
+      }
+    );
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error('Teacher API Error:', msg);

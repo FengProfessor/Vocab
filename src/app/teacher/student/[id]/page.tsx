@@ -3,10 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import type { StudentProgress } from '@/lib/supabase';
-import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  BarChart, Bar
-} from 'recharts';
+import dynamic from 'next/dynamic';
 import {
   ArrowLeft, Brain, TrendingUp, Calendar, Target, Sparkles,
   MessageSquare, ChevronRight, Loader2, AlertCircle
@@ -14,6 +11,15 @@ import {
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
+
+const StudentVmsLineChart = dynamic(
+  () => import('@/components/charts/StudentProgressCharts').then((m) => m.StudentVmsLineChart),
+  { ssr: false, loading: () => <div className="h-full w-full animate-pulse rounded-xl bg-muted/40" /> }
+);
+const StudentQuizBarChart = dynamic(
+  () => import('@/components/charts/StudentProgressCharts').then((m) => m.StudentQuizBarChart),
+  { ssr: false, loading: () => <div className="h-full w-full animate-pulse rounded-xl bg-muted/40" /> }
+);
 
 export default function StudentDetailPage() {
   const params = useParams();
@@ -295,18 +301,7 @@ export default function StudentDetailPage() {
                 </div>
               </div>
               <div className="h-[350px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={formattedHistory}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                    <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#666' }} />
-                    <YAxis axisLine={false} tickLine={false} domain={[0, 100]} tick={{ fontSize: 12, fill: '#666' }} />
-                    <Tooltip 
-                      contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
-                    />
-                    <Line type="monotone" dataKey="vms" stroke="#10b981" strokeWidth={3} dot={{ r: 4, fill: '#10b981', strokeWidth: 0 }} activeDot={{ r: 6 }} />
-                    <Line type="monotone" dataKey="lcs" stroke="#0ea5e9" strokeWidth={3} dot={{ r: 4, fill: '#0ea5e9', strokeWidth: 0 }} activeDot={{ r: 6 }} />
-                  </LineChart>
-                </ResponsiveContainer>
+                <StudentVmsLineChart data={formattedHistory} />
               </div>
             </div>
 
@@ -318,15 +313,7 @@ export default function StudentDetailPage() {
                 </div>
               </div>
               <div className="h-[250px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={formattedQuizzes}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                    <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#666' }} />
-                    <YAxis axisLine={false} tickLine={false} domain={[0, 100]} tick={{ fontSize: 12, fill: '#666' }} />
-                    <Tooltip contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }} />
-                    <Bar dataKey="acc" fill="#6366f1" radius={[8, 8, 0, 0]} barSize={30} />
-                  </BarChart>
-                </ResponsiveContainer>
+                <StudentQuizBarChart data={formattedQuizzes} />
               </div>
             </div>
           </div>

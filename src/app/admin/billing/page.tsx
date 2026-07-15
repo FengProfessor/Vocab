@@ -9,11 +9,14 @@ import {
   CheckCircle2, XCircle, Loader2, Search, CreditCard,
   ArrowUpRight, ShoppingBag, Eye, Percent, Plus, Trash2, Copy
 } from 'lucide-react';
-import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
-} from 'recharts';
+import dynamic from 'next/dynamic';
 import { toast } from 'sonner';
 import { formatVND } from '@/lib/billing';
+
+const BillingRevenueChart = dynamic(
+  () => import('@/components/charts/BillingRevenueChart').then((m) => m.BillingRevenueChart),
+  { ssr: false, loading: () => <div className="h-[280px] animate-pulse rounded-xl bg-muted/40" /> }
+);
 
 // ─── Types ───
 interface BillingStats {
@@ -339,23 +342,7 @@ export default function BillingDashboard() {
                 <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-amber-500" /> Premium</span>
               </div>
             </div>
-            <ResponsiveContainer width="100%" height={280}>
-              <BarChart data={monthly} barCategoryGap="20%">
-                <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                <XAxis dataKey="month" fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis fontSize={12} tickLine={false} axisLine={false} tickFormatter={(v: number) => `${(v / 1000).toFixed(0)}k`} />
-                <Tooltip
-                  formatter={(value) => formatVND(Number(value) || 0)}
-                  contentStyle={{
-                    borderRadius: 12, border: '1px solid var(--border)',
-                    background: 'var(--background)', fontSize: 12,
-                  }}
-                />
-                <Legend />
-                <Bar dataKey="pro" name="Pro" fill="#8b5cf6" radius={[6, 6, 0, 0]} />
-                <Bar dataKey="premium" name="Premium" fill="#f59e0b" radius={[6, 6, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
+            <BillingRevenueChart data={monthly} />
           </div>
         )}
 

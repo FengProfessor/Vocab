@@ -33,6 +33,11 @@ export async function GET(req: Request) {
     const topicId = searchParams.get('topicId');
     const supabase = createServiceClient();
 
+    // Lesson content gần tĩnh → CDN cache; admin POST/PATCH sẽ invalidate tự nhiên qua path khác
+    const CACHE_HEADERS = {
+      'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=3600',
+    };
+
     if (id) {
       const { data, error } = await supabase
         .from('grammar_lessons')
@@ -40,7 +45,7 @@ export async function GET(req: Request) {
         .eq('id', id)
         .single();
       if (error) throw error;
-      return NextResponse.json({ success: true, data });
+      return NextResponse.json({ success: true, data }, { headers: CACHE_HEADERS });
     }
 
     let query = supabase
@@ -52,7 +57,7 @@ export async function GET(req: Request) {
 
     const { data, error } = await query;
     if (error) throw error;
-    return NextResponse.json({ success: true, data });
+    return NextResponse.json({ success: true, data }, { headers: CACHE_HEADERS });
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : 'Unknown error';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

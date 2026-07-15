@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
 import Link from 'next/link';
 import { StudentShell } from '@/components/student/StudentShell';
-import ReactMarkdown from 'react-markdown';
+import { LazyMarkdown } from '@/components/perf/LazyMarkdown';
 import { supabase } from '@/lib/supabase';
 import type { GrammarTopic, GrammarLesson, GrammarProgress } from '@/lib/supabase';
 import GrammarHighlight, { type WordAnnotation } from '@/components/grammar/GrammarHighlight';
@@ -436,7 +436,7 @@ function GrammarLearnContent() {
             <GoldenLesson sections={activeLesson.sections} exercises={activeLesson.exercises} />
           ) : (
           <div className="prose prose-slate max-w-none bg-background border rounded-3xl p-6 sm:p-8 shadow-sm">
-            <ReactMarkdown
+            <LazyMarkdown
               components={{
                 h2: ({ node: _node, ...props }) => (
                   <h2 className="text-xl font-extrabold text-slate-800 border-b border-slate-100 pb-2.5 mb-4 mt-6 flex items-center gap-2" {...props} />
@@ -491,7 +491,7 @@ function GrammarLearnContent() {
               {activeLesson.source === 'ai-golden'
                 ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
                 : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')}
-            </ReactMarkdown>
+            </LazyMarkdown>
           </div>
           )}
 

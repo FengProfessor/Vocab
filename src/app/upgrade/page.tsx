@@ -1,7 +1,6 @@
 'use client';
 
 import { Suspense, useEffect, useState } from 'react';
-import { Manrope, Space_Grotesk } from 'next/font/google';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
@@ -44,15 +43,7 @@ import {
 } from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
 
-const manrope = Manrope({
-  subsets: ['latin', 'vietnamese'],
-  display: 'swap',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin', 'vietnamese'],
-  display: 'swap',
-});
+const display = 'font-bold tracking-tight';
 
 const BANK_INFO = {
   bank: process.env.NEXT_PUBLIC_BANK_NAME || 'MB Bank',
@@ -285,7 +276,7 @@ function UpgradePageContent() {
 
   if (orderCreated && (orderCreated.status === 'paid' || orderCreated.amount === 0)) {
     return (
-      <div className={`${manrope.className} min-h-dvh bg-[#f6efe6] text-[#241710]`}>
+      <div className={`min-h-dvh bg-[#f6efe6] text-[#241710]`}>
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
           <div className="absolute left-[-5%] top-[-8%] h-[24rem] w-[24rem] rounded-full bg-[#e57b52]/20 blur-3xl" />
           <div className="absolute right-[-8%] bottom-[-10%] h-[24rem] w-[24rem] rounded-full bg-[#d2c09e]/30 blur-3xl" />
@@ -297,7 +288,7 @@ function UpgradePageContent() {
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6]">
                 <Brain className="h-4 w-4" />
               </div>
-              <div className={`${spaceGrotesk.className} text-lg font-bold tracking-tight`}>LingoPro</div>
+              <div className={`${display} text-lg font-bold tracking-tight`}>LingoPro</div>
             </Link>
             <Link href="/student" className="text-sm font-bold text-[#6d574a] transition-colors hover:text-[#241710]">
               Vào dashboard
@@ -316,7 +307,7 @@ function UpgradePageContent() {
                 <Sparkles className="h-3.5 w-3.5" />
                 Kích hoạt thành công
               </div>
-              <h1 className={`${spaceGrotesk.className} mt-5 text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
+              <h1 className={`${display} mt-5 text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
                 Tài khoản của bạn đã lên
                 {' '}
                 <span className="text-[#b5502f]">{PLAN_LABELS[orderCreated.plan as Plan]}</span>.
@@ -366,7 +357,7 @@ function UpgradePageContent() {
     const transferNote = `LINGOPRO ${orderCreated.orderId.slice(0, 8).toUpperCase()}`;
 
     return (
-      <div className={`${manrope.className} min-h-dvh bg-[#f6efe6] text-[#241710]`}>
+      <div className={`min-h-dvh bg-[#f6efe6] text-[#241710]`}>
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
           <div className="absolute left-[-5%] top-[-8%] h-[24rem] w-[24rem] rounded-full bg-[#e57b52]/20 blur-3xl" />
           <div className="absolute right-[-8%] bottom-[-10%] h-[24rem] w-[24rem] rounded-full bg-[#d2c09e]/30 blur-3xl" />
@@ -378,7 +369,7 @@ function UpgradePageContent() {
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6]">
                 <Brain className="h-4 w-4" />
               </div>
-              <div className={`${spaceGrotesk.className} text-lg font-bold tracking-tight`}>LingoPro</div>
+              <div className={`${display} text-lg font-bold tracking-tight`}>LingoPro</div>
             </Link>
             <Link href="/" className="text-sm font-bold text-[#6d574a] transition-colors hover:text-[#241710]">
               Về trang chính
@@ -394,7 +385,7 @@ function UpgradePageContent() {
                   <Clock3 className="h-3.5 w-3.5" />
                   Chờ chuyển khoản
                 </div>
-                <h1 className={`${spaceGrotesk.className} mt-5 text-4xl font-bold tracking-[-0.05em]`}>
+                <h1 className={`${display} mt-5 text-4xl font-bold tracking-[-0.05em]`}>
                   Đơn hàng đã tạo.
                   {' '}
                   <span className="text-[#f1c46d]">Bước còn lại là thanh toán.</span>
@@ -483,7 +474,7 @@ function UpgradePageContent() {
   }
 
   return (
-    <div className={`${manrope.className} min-h-dvh bg-[#f6efe6] text-[#241710]`}>
+    <div className={`min-h-dvh bg-[#f6efe6] text-[#241710]`}>
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute left-[-5%] top-[-8%] h-[24rem] w-[24rem] rounded-full bg-[#e57b52]/20 blur-3xl" />
         <div className="absolute right-[-8%] top-[12%] h-[28rem] w-[28rem] rounded-full bg-[#d2c09e]/28 blur-3xl" />
@@ -503,7 +494,7 @@ function UpgradePageContent() {
                 <Brain className="h-4 w-4" />
               </div>
               <div>
-                <div className={`${spaceGrotesk.className} text-lg font-bold tracking-tight`}>LingoPro</div>
+                <div className={`${display} text-lg font-bold tracking-tight`}>LingoPro</div>
                 <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7b6558]">Nâng cấp Pro</div>
               </div>
             </div>
@@ -552,7 +543,7 @@ function UpgradePageContent() {
                 <Sparkles className="h-3.5 w-3.5" />
                 Mở toàn bộ quyền lợi
               </div>
-              <h1 className={`${spaceGrotesk.className} mt-5 max-w-3xl text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[#241710] sm:text-6xl`}>
+              <h1 className={`${display} mt-5 max-w-3xl text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[#241710] sm:text-6xl`}>
                 Nâng cấp khi bạn muốn
                 {' '}
                 <span className="text-[#b5502f]">học sâu hơn và đều hơn mỗi ngày</span>,
@@ -596,7 +587,7 @@ function UpgradePageContent() {
                         <Crown className="h-4 w-4" />
                         Cá nhân
                       </div>
-                      <h2 className={`${spaceGrotesk.className} mt-3 text-3xl font-bold tracking-tight`}>
+                      <h2 className={`${display} mt-3 text-3xl font-bold tracking-tight`}>
                         Pro cho 1 người học
                       </h2>
                     </div>
@@ -651,7 +642,7 @@ function UpgradePageContent() {
                         <Users className="h-4 w-4" />
                         Nhóm
                       </div>
-                      <h2 className={`${spaceGrotesk.className} mt-3 text-3xl font-bold tracking-tight`}>
+                      <h2 className={`${display} mt-3 text-3xl font-bold tracking-tight`}>
                         Pro cho nhóm học
                       </h2>
                     </div>
@@ -695,7 +686,7 @@ function UpgradePageContent() {
                   <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Số thành viên</div>
-                      <h3 className={`${spaceGrotesk.className} mt-2 text-3xl font-bold tracking-tight text-[#241710]`}>
+                      <h3 className={`${display} mt-2 text-3xl font-bold tracking-tight text-[#241710]`}>
                         Chọn số ghế cho nhóm
                       </h3>
                       <p className="mt-2 text-sm font-semibold text-[#5e4b40]">
@@ -713,7 +704,7 @@ function UpgradePageContent() {
                         <Minus className="h-4 w-4" />
                       </button>
                       <div className="min-w-16 text-center">
-                        <div className={`${spaceGrotesk.className} text-4xl font-bold tracking-tight text-[#b5502f]`}>{seats}</div>
+                        <div className={`${display} text-4xl font-bold tracking-tight text-[#b5502f]`}>{seats}</div>
                         <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">ghế</div>
                       </div>
                       <button
@@ -829,7 +820,7 @@ function UpgradePageContent() {
                 <div className="inline-flex rounded-full bg-[#d7bb76] px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-[#241710]">
                   Tóm tắt đơn hàng
                 </div>
-                <h2 className={`${spaceGrotesk.className} mt-4 text-3xl font-bold tracking-tight`}>
+                <h2 className={`${display} mt-4 text-3xl font-bold tracking-tight`}>
                   {isGroupMode ? 'Gói nhóm Pro' : selectedOption.name}
                 </h2>
                 <p className="mt-2 text-sm leading-7 text-[#d8c9bc]">
@@ -864,7 +855,7 @@ function UpgradePageContent() {
                     <div className="flex items-end justify-between gap-4">
                       <div>
                         <div className="text-xs font-black uppercase tracking-[0.22em] text-[#cbb7a6]">Tổng thanh toán</div>
-                        <div className={`${spaceGrotesk.className} mt-2 text-4xl font-bold tracking-tight text-white`}>
+                        <div className={`${display} mt-2 text-4xl font-bold tracking-tight text-white`}>
                           {formatVND(afterCoupon)}
                         </div>
                       </div>
@@ -922,7 +913,7 @@ export default function UpgradePage() {
   return (
     <Suspense
       fallback={
-        <div className={`${manrope.className} flex min-h-dvh items-center justify-center bg-[#f6efe6] text-[#7b6558]`}>
+        <div className={`flex min-h-dvh items-center justify-center bg-[#f6efe6] text-[#7b6558]`}>
           <Loader2 className="h-8 w-8 animate-spin text-[#b5502f]" />
         </div>
       }

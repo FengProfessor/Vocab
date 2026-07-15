@@ -25,6 +25,8 @@ import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
 
 const display = 'font-bold tracking-tight';
+/** OAuth URL có thể hết hạn nếu tab /auth để lâu — refresh sau 4 phút */
+const GOOGLE_URL_TTL_MS = 4 * 60_000;
 
 type Mode = 'login' | 'signup';
 
@@ -54,6 +56,7 @@ export default function AuthPage() {
   const googleUrlRef = useRef<string | null>(null);
   const googlePrefetchKey = useRef<string>('');
   const googleInflight = useRef<Promise<string | null> | null>(null);
+  const googleUrlAtRef = useRef(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -83,13 +86,21 @@ export default function AuthPage() {
     return redirectUrl.toString();
   }, []);
 
-  const prefetchGoogleUrl = useCallback(async (currentRole: UserRole): Promise<string | null> => {
+  const prefetchGoogleUrl = useCallback(async (
+    currentRole: UserRole,
+    force = false,
+  ): Promise<string | null> => {
     const redirectTo = buildGoogleRedirectTo(currentRole);
     const key = `${currentRole}|${redirectTo}`;
-    if (googleUrlRef.current && googlePrefetchKey.current === key) {
+    const fresh =
+      googleUrlRef.current &&
+      googlePrefetchKey.current === key &&
+      Date.now() - googleUrlAtRef.current < GOOGLE_URL_TTL_MS;
+
+    if (!force && fresh) {
       return googleUrlRef.current;
     }
-    if (googleInflight.current && googlePrefetchKey.current === key) {
+    if (!force && googleInflight.current && googlePrefetchKey.current === key) {
       return googleInflight.current;
     }
     googlePrefetchKey.current = key;
@@ -104,6 +115,7 @@ export default function AuthPage() {
           return null;
         }
         googleUrlRef.current = data.url;
+        googleUrlAtRef.current = Date.now();
         return data.url;
       } catch (err) {
         console.warn('[Auth] Google prefetch error:', err);
@@ -119,6 +131,21 @@ export default function AuthPage() {
   useEffect(() => {
     // Prefetch ngay khi mở /auth (user đang đọc form → URL sẵn)
     void prefetchGoogleUrl(role);
+    // Tab ẩn lâu → hiện lại: refresh URL nếu sắp hết hạn
+    const onVis = () => {
+      if (document.visibilityState !== 'visible') return;
+      if (Date.now() - googleUrlAtRef.current >= GOOGLE_URL_TTL_MS * 0.75) {
+        void prefetchGoogleUrl(role, true);
+      }
+    };
+    document.addEventListener('visibilitychange', onVis);
+    const timer = window.setInterval(() => {
+      void prefetchGoogleUrl(role, true);
+    }, GOOGLE_URL_TTL_MS);
+    return () => {
+      document.removeEventListener('visibilitychange', onVis);
+      window.clearInterval(timer);
+    };
   }, [role, prefetchGoogleUrl]);
 
   useEffect(() => {
@@ -211,10 +238,11 @@ export default function AuthPage() {
     setDebugError('');
 
     try {
-      // 1) Dùng URL đã prefetch (thường có sẵn sau 0.5–1s mở trang)
-      let url = googleUrlRef.current;
+      // 1) Prefetch sẵn — force nếu TTL hết (tab để lâu)
+      const stale = Date.now() - googleUrlAtRef.current >= GOOGLE_URL_TTL_MS;
+      let url = !stale ? googleUrlRef.current : null;
       if (!url) {
-        url = await prefetchGoogleUrl(role);
+        url = await prefetchGoogleUrl(role, stale);
       }
       if (url) {
         window.location.assign(url);
