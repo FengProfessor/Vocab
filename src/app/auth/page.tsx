@@ -317,16 +317,9 @@ export default function AuthPage() {
                     type="button"
                     onClick={async () => {
                       const { data: { session } } = await supabase.auth.getSession();
-                      if (session) {
-                        const { data: profile } = await supabase
-                          .from('profiles')
-                          .select('role')
-                          .eq('id', session.user.id)
-                          .single();
-                        window.location.href = profile?.role === 'teacher' ? '/teacher' : '/student';
-                      } else {
-                        window.location.href = '/student';
-                      }
+                      window.location.replace(
+                        session ? destFromSession(session.user) : '/student',
+                      );
                     }}
                     className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#2d7f5e] text-sm font-black text-white shadow-lg active:scale-[0.98]"
                   >
