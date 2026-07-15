@@ -1,7 +1,7 @@
 {
   "roadmapVersion": "roadmap-thpt-v3-gs",
   "track": "thpt",
-  "catalogVersion": "2026-06-13-v4",
+  "catalogVersion": "2026-07-15-v5",
   "source": "Global Success SGK via catalog-v3 routes thpt-lop-10/11/12",
   "hybridNote": "Vocab = pack catalog SGK. Grammar ref = slug CEFR (cùng grammar_lessons). Step id unique theo unit. Đề 2025 = skill. Đủ A0–B2: track CEFR song song.",
   "levels": [
@@ -9,7 +9,7 @@
       "id": "lop-10",
       "title": "Grade 10 — Global Success",
       "titleVi": "Grade 10 — Global Success",
-      "description": "10 units from catalog: Family Life → Ecotourism · vocab packs + CEFR grammar + exam skills.",
+      "description": "10 units: Family Life → Ecotourism · catalog vocab + CEFR grammar + exam skills.",
       "units": [
         {
           "id": "u-thpt10-1",
@@ -1017,7 +1017,7 @@
       "id": "lop-12",
       "title": "Grade 12 — Global Success + exam 2025",
       "titleVi": "Grade 12 — Global Success + exam 2025",
-      "description": "7 units in catalog (+ 2025 exam-format skills). More SGK units when catalog is extended.",
+      "description": "10 units: Life Stories → Lifelong Learning · full catalog after enrich.",
       "units": [
         {
           "id": "u-thpt12-1",
@@ -1061,68 +1061,36 @@
         {
           "id": "u-thpt12-2",
           "index": 2,
-          "title": "Unit 2 · Cultural Identity",
+          "title": "Unit 2 · Urbanization",
           "steps": [
             {
-              "id": "sv-u-thpt12-2-st-51a74a734c86-p0",
-              "type": "vocab",
-              "ref": "st-51a74a734c86-p0",
-              "title": "Cultural Identity",
-              "wordCount": 17
-            },
-            {
-              "id": "sg-u-thpt12-2-relative-clauses",
-              "type": "grammar",
-              "ref": "relative-clauses",
-              "title": "Relative Clauses"
-            },
-            {
-              "id": "sg-u-thpt12-2-articles",
-              "type": "grammar",
-              "ref": "articles",
-              "title": "Articles (a / an / the)"
-            },
-            {
-              "id": "sr-u-thpt12-2-lea-12-1",
-              "type": "leaflet",
-              "ref": "lea-12-1",
-              "title": "Leaflet (exam format)"
-            }
-          ]
-        },
-        {
-          "id": "u-thpt12-3",
-          "index": 3,
-          "title": "Unit 3 · Urbanization",
-          "steps": [
-            {
-              "id": "sv-u-thpt12-3-st-3a58bb8d2d4a-p0",
+              "id": "sv-u-thpt12-2-st-3a58bb8d2d4a-p0",
               "type": "vocab",
               "ref": "st-3a58bb8d2d4a-p0",
               "title": "Urbanization · Part 1",
               "wordCount": 13
             },
             {
-              "id": "sv-u-thpt12-3-st-3a58bb8d2d4a-p1",
+              "id": "sv-u-thpt12-2-st-3a58bb8d2d4a-p1",
               "type": "vocab",
               "ref": "st-3a58bb8d2d4a-p1",
               "title": "Urbanization · Part 2",
               "wordCount": 12
             },
             {
-              "id": "sg-u-thpt12-3-comparatives-superlatives",
+              "id": "sg-u-thpt12-2-comparatives-superlatives",
               "type": "grammar",
               "ref": "comparatives-superlatives",
               "title": "Comparatives & Superlatives"
             },
             {
-              "id": "sg-u-thpt12-3-passive-voice",
+              "id": "sg-u-thpt12-2-passive-voice",
               "type": "grammar",
               "ref": "passive-voice",
               "title": "Passive Voice"
             },
             {
-              "id": "sr-u-thpt12-3-arr-12-1",
+              "id": "sr-u-thpt12-2-arr-12-1",
               "type": "arrange",
               "ref": "arr-12-1",
               "title": "Sentence arrangement"
@@ -1130,28 +1098,102 @@
           ]
         },
         {
-          "id": "u-thpt12-4",
-          "index": 4,
-          "title": "Unit 4 · The World Of Work",
+          "id": "u-thpt12-3",
+          "index": 3,
+          "title": "Unit 3 · The Green Movement",
           "steps": [
             {
-              "id": "sv-u-thpt12-4-st-e6f01f3fddf1-p0",
+              "id": "sv-u-thpt12-3-st-d9c826c0dce9-p0",
               "type": "vocab",
-              "ref": "st-e6f01f3fddf1-p0",
-              "title": "The World Of Work",
-              "wordCount": 19
+              "ref": "st-d9c826c0dce9-p0",
+              "title": "The Green Movement · Part 1",
+              "wordCount": 15
             },
             {
-              "id": "sg-u-thpt12-4-present-perfect",
-              "type": "grammar",
-              "ref": "present-perfect",
-              "title": "Present Perfect"
+              "id": "sv-u-thpt12-3-st-d9c826c0dce9-p1",
+              "type": "vocab",
+              "ref": "st-d9c826c0dce9-p1",
+              "title": "The Green Movement · Part 2",
+              "wordCount": 15
             },
             {
-              "id": "sg-u-thpt12-4-used-to",
+              "id": "sv-u-thpt12-3-st-d9c826c0dce9-p2",
+              "type": "vocab",
+              "ref": "st-d9c826c0dce9-p2",
+              "title": "The Green Movement · Part 3",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-u-thpt12-3-st-d9c826c0dce9-p3",
+              "type": "vocab",
+              "ref": "st-d9c826c0dce9-p3",
+              "title": "The Green Movement · Part 4",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-u-thpt12-3-conditionals-0-1",
               "type": "grammar",
-              "ref": "used-to",
-              "title": "Used to / Be used to / Get used to"
+              "ref": "conditionals-0-1",
+              "title": "Zero & First Conditional"
+            },
+            {
+              "id": "sg-u-thpt12-3-second-conditional",
+              "type": "grammar",
+              "ref": "second-conditional",
+              "title": "Second Conditional"
+            },
+            {
+              "id": "sr-u-thpt12-3-lea-12-1",
+              "type": "leaflet",
+              "ref": "lea-12-1",
+              "title": "Leaflet (exam format)"
+            }
+          ]
+        },
+        {
+          "id": "u-thpt12-4",
+          "index": 4,
+          "title": "Unit 4 · The Mass Media",
+          "steps": [
+            {
+              "id": "sv-u-thpt12-4-st-fdc91196e68b-p0",
+              "type": "vocab",
+              "ref": "st-fdc91196e68b-p0",
+              "title": "The Mass Media · Part 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-u-thpt12-4-st-fdc91196e68b-p1",
+              "type": "vocab",
+              "ref": "st-fdc91196e68b-p1",
+              "title": "The Mass Media · Part 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-u-thpt12-4-st-fdc91196e68b-p2",
+              "type": "vocab",
+              "ref": "st-fdc91196e68b-p2",
+              "title": "The Mass Media · Part 3",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-u-thpt12-4-st-fdc91196e68b-p3",
+              "type": "vocab",
+              "ref": "st-fdc91196e68b-p3",
+              "title": "The Mass Media · Part 4",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-u-thpt12-4-reported-speech",
+              "type": "grammar",
+              "ref": "reported-speech",
+              "title": "Reported Speech"
+            },
+            {
+              "id": "sg-u-thpt12-4-relative-clauses",
+              "type": "grammar",
+              "ref": "relative-clauses",
+              "title": "Relative Clauses"
             },
             {
               "id": "sr-u-thpt12-4-clo-12-1",
@@ -1164,32 +1206,26 @@
         {
           "id": "u-thpt12-5",
           "index": 5,
-          "title": "Unit 5 · Artificial Intelligence",
+          "title": "Unit 5 · Cultural Identity",
           "steps": [
             {
-              "id": "sv-u-thpt12-5-st-cb18eb3ba80c-p0",
+              "id": "sv-u-thpt12-5-st-51a74a734c86-p0",
               "type": "vocab",
-              "ref": "st-cb18eb3ba80c-p0",
-              "title": "Artificial Intelligence",
-              "wordCount": 15
+              "ref": "st-51a74a734c86-p0",
+              "title": "Cultural Identity",
+              "wordCount": 17
             },
             {
-              "id": "sg-u-thpt12-5-mixed-conditionals",
+              "id": "sg-u-thpt12-5-articles",
               "type": "grammar",
-              "ref": "mixed-conditionals",
-              "title": "Mixed Conditionals"
+              "ref": "articles",
+              "title": "Articles (a / an / the)"
             },
             {
-              "id": "sg-u-thpt12-5-third-conditional",
+              "id": "sg-u-thpt12-5-relative-clauses",
               "type": "grammar",
-              "ref": "third-conditional",
-              "title": "Third Conditional"
-            },
-            {
-              "id": "sr-u-thpt12-5-rd-12-1",
-              "type": "reading",
-              "ref": "rd-12-1",
-              "title": "Reading (exam)"
+              "ref": "relative-clauses",
+              "title": "Relative Clauses"
             }
           ]
         },
@@ -1216,35 +1252,140 @@
               "type": "grammar",
               "ref": "participle-clauses",
               "title": "Participle Clauses"
+            },
+            {
+              "id": "sr-u-thpt12-6-rd-12-1",
+              "type": "reading",
+              "ref": "rd-12-1",
+              "title": "Reading (exam)"
             }
           ]
         },
         {
           "id": "u-thpt12-7",
           "index": 7,
-          "title": "Unit 7 · Lifelong Learning",
+          "title": "Unit 7 · Artificial Intelligence",
           "steps": [
             {
-              "id": "sv-u-thpt12-7-st-9d2657755a0c-p0",
+              "id": "sv-u-thpt12-7-st-cb18eb3ba80c-p0",
+              "type": "vocab",
+              "ref": "st-cb18eb3ba80c-p0",
+              "title": "Artificial Intelligence",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-u-thpt12-7-mixed-conditionals",
+              "type": "grammar",
+              "ref": "mixed-conditionals",
+              "title": "Mixed Conditionals"
+            },
+            {
+              "id": "sg-u-thpt12-7-third-conditional",
+              "type": "grammar",
+              "ref": "third-conditional",
+              "title": "Third Conditional"
+            }
+          ]
+        },
+        {
+          "id": "u-thpt12-8",
+          "index": 8,
+          "title": "Unit 8 · The World Of Work",
+          "steps": [
+            {
+              "id": "sv-u-thpt12-8-st-e6f01f3fddf1-p0",
+              "type": "vocab",
+              "ref": "st-e6f01f3fddf1-p0",
+              "title": "The World Of Work",
+              "wordCount": 19
+            },
+            {
+              "id": "sg-u-thpt12-8-present-perfect",
+              "type": "grammar",
+              "ref": "present-perfect",
+              "title": "Present Perfect"
+            },
+            {
+              "id": "sg-u-thpt12-8-used-to",
+              "type": "grammar",
+              "ref": "used-to",
+              "title": "Used to / Be used to / Get used to"
+            }
+          ]
+        },
+        {
+          "id": "u-thpt12-9",
+          "index": 9,
+          "title": "Unit 9 · Choosing A Career",
+          "steps": [
+            {
+              "id": "sv-u-thpt12-9-st-2197a2d2e638-p0",
+              "type": "vocab",
+              "ref": "st-2197a2d2e638-p0",
+              "title": "Choosing A Career · Part 1",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-u-thpt12-9-st-2197a2d2e638-p1",
+              "type": "vocab",
+              "ref": "st-2197a2d2e638-p1",
+              "title": "Choosing A Career · Part 2",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-u-thpt12-9-st-2197a2d2e638-p2",
+              "type": "vocab",
+              "ref": "st-2197a2d2e638-p2",
+              "title": "Choosing A Career · Part 3",
+              "wordCount": 15
+            },
+            {
+              "id": "sv-u-thpt12-9-st-2197a2d2e638-p3",
+              "type": "vocab",
+              "ref": "st-2197a2d2e638-p3",
+              "title": "Choosing A Career · Part 4",
+              "wordCount": 15
+            },
+            {
+              "id": "sg-u-thpt12-9-gerunds-infinitives",
+              "type": "grammar",
+              "ref": "gerunds-infinitives",
+              "title": "Gerunds & Infinitives"
+            },
+            {
+              "id": "sg-u-thpt12-9-phrasal-verbs",
+              "type": "grammar",
+              "ref": "phrasal-verbs",
+              "title": "Phrasal Verbs (intro)"
+            }
+          ]
+        },
+        {
+          "id": "u-thpt12-10",
+          "index": 10,
+          "title": "Unit 10 · Lifelong Learning",
+          "steps": [
+            {
+              "id": "sv-u-thpt12-10-st-9d2657755a0c-p0",
               "type": "vocab",
               "ref": "st-9d2657755a0c-p0",
               "title": "Lifelong Learning",
               "wordCount": 15
             },
             {
-              "id": "sg-u-thpt12-7-discourse-markers",
+              "id": "sg-u-thpt12-10-discourse-markers",
               "type": "grammar",
               "ref": "discourse-markers",
               "title": "Discourse Markers"
             },
             {
-              "id": "sg-u-thpt12-7-nominalisation",
+              "id": "sg-u-thpt12-10-nominalisation",
               "type": "grammar",
               "ref": "nominalisation",
               "title": "Nominalisation"
             },
             {
-              "id": "sx-u-thpt12-7-exam-12-1",
+              "id": "sx-u-thpt12-10-exam-12-1",
               "type": "exam",
               "ref": "exam-12-1",
               "title": "Mini graduation test"

@@ -28,8 +28,8 @@
     },
     "thpt-lop-12": {
       "publishStatus": "published",
-      "publishedSubtopics": 7,
-      "totalSubtopics": 7
+      "publishedSubtopics": 10,
+      "totalSubtopics": 10
     },
     "toeic": {
       "publishStatus": "published",
@@ -104,7 +104,7 @@
       "publishStatus": "published",
       "publishedSubtopics": 4,
       "totalSubtopics": 4,
-      "qualityScore": 96
+      "qualityScore": 85
     },
     "tp-0e7be8f3e5": {
       "publishStatus": "published",
@@ -494,7 +494,7 @@
       "publishStatus": "published",
       "publishedSubtopics": 3,
       "totalSubtopics": 3,
-      "qualityScore": 96
+      "qualityScore": 85
     },
     "tp-efa81e5749": {
       "publishStatus": "published",
@@ -1728,7 +1728,10 @@
       "imageCoverage": 1,
       "wordCount": 25,
       "inSubtopicRange": false,
-      "cefrRange": null,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
       "coverImage": "https://hoinongnghieptuanhoanvietnam.org.vn/wp-content/uploads/2024/02/img_5731.jpeg",
       "missingImageCount": 0,
       "missingImages": [],
@@ -2252,7 +2255,10 @@
       "imageCoverage": 1,
       "wordCount": 17,
       "inSubtopicRange": false,
-      "cefrRange": null,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
       "coverImage": "https://focusasiatravel.vn/wp-content/uploads/2020/03/canh-dong-hoa-nemophila-nhat-ban.jpg",
       "missingImageCount": 0,
       "missingImages": [],
@@ -3427,7 +3433,10 @@
       "imageCoverage": 1,
       "wordCount": 12,
       "inSubtopicRange": false,
-      "cefrRange": null,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
       "coverImage": "https://hoc24.vn/source/KHTN%206/KHTN%206%20-%20Ch%C3%A2n%20tr%E1%BB%9Di%20s%C3%A1ng%20t%E1%BA%A1o/Ch%E1%BB%A7%20%C4%91%E1%BB%81%208/B%C3%A0i%2033/DDSH.jpg",
       "missingImageCount": 0,
       "missingImages": [],
@@ -3457,7 +3466,10 @@
       "imageCoverage": 1,
       "wordCount": 21,
       "inSubtopicRange": false,
-      "cefrRange": null,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
       "coverImage": "https://images.pexels.com/photos/6565250/pexels-photo-6565250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
       "missingImageCount": 0,
       "missingImages": [],
@@ -3639,7 +3651,10 @@
       "imageCoverage": 1,
       "wordCount": 15,
       "inSubtopicRange": false,
-      "cefrRange": null,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
       "coverImage": "https://imgv2-2-f.scribdassets.com/img/document/278306887/original/b8513dca10/1716595183?v=1",
       "missingImageCount": 0,
       "missingImages": [],
@@ -4712,7 +4727,10 @@
       "imageCoverage": 1,
       "wordCount": 15,
       "inSubtopicRange": false,
-      "cefrRange": null,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
       "coverImage": "https://c8.alamy.com/comp/3BPAE01/activate-red-push-button-3d-rendering-isolated-on-white-background-3BPAE01.jpg",
       "missingImageCount": 0,
       "missingImages": [],
@@ -5255,7 +5273,10 @@
       "imageCoverage": 0.947,
       "wordCount": 19,
       "inSubtopicRange": false,
-      "cefrRange": null,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
       "coverImage": "https://jyhdxhqkftirncbstfpe.supabase.co/storage/v1/object/public/vocab-images/grok-phrases/administrator.jpg?v=1783584751800",
       "missingImageCount": 1,
       "missingImages": [
@@ -5839,6 +5860,42 @@
         "rather"
       ],
       "failReasons": []
+    },
+    "st-2197a2d2e638": {
+      "publishStatus": "published",
+      "qualityScore": 85,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.5,
+      "featuredEligible": true,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
+      "coverImage": null
+    },
+    "st-d9c826c0dce9": {
+      "publishStatus": "published",
+      "qualityScore": 85,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.5,
+      "featuredEligible": true,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
+      "coverImage": null
+    },
+    "st-fdc91196e68b": {
+      "publishStatus": "published",
+      "qualityScore": 85,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.5,
+      "featuredEligible": true,
+      "cefrRange": {
+        "min": "B1",
+        "max": "B2"
+      },
+      "coverImage": null
     }
   }
 }

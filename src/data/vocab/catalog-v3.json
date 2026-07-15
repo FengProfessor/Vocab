@@ -30,9 +30,9 @@
   "counts": {
     "routes": 15,
     "topics": 74,
-    "subtopics": 314,
-    "packs": 1207,
-    "words": 16635
+    "subtopics": 317,
+    "packs": 1219,
+    "words": 16815
   },
   "routes": [
     {
@@ -328,6 +328,7 @@
         "st-902882381d6b",
         "st-cb18eb3ba80c",
         "st-e6f01f3fddf1",
+        "st-2197a2d2e638",
         "st-9d2657755a0c"
       ],
       "qualityScore": 0,
@@ -1248,6 +1249,8 @@
       "subtopicIds": [
         "st-91b0331e72ff",
         "st-3a58bb8d2d4a",
+        "st-d9c826c0dce9",
+        "st-fdc91196e68b",
         "st-51a74a734c86"
       ],
       "qualityScore": 0,
@@ -2492,6 +2495,34 @@
         "believe",
         "subconscious belief",
         "color your judgment"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-2197a2d2e638",
+      "topicId": "tp-0e76343d08",
+      "routeId": "thpt-lop-12",
+      "title": "Choosing A Career",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 9: Choosing A Career",
+      "contentType": "word",
+      "wordCount": 60,
+      "packIds": [
+        "st-2197a2d2e638-p0",
+        "st-2197a2d2e638-p1",
+        "st-2197a2d2e638-p2",
+        "st-2197a2d2e638-p3"
+      ],
+      "previewWords": [
+        "flexibility",
+        "embrace",
+        "facilitate",
+        "grace",
+        "efficiency"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -8742,6 +8773,34 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-d9c826c0dce9",
+      "topicId": "tp-eb5ba63431",
+      "routeId": "thpt-lop-12",
+      "title": "The Green Movement",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 3: The Green Movement",
+      "contentType": "word",
+      "wordCount": 60,
+      "packIds": [
+        "st-d9c826c0dce9-p0",
+        "st-d9c826c0dce9-p1",
+        "st-d9c826c0dce9-p2",
+        "st-d9c826c0dce9-p3"
+      ],
+      "previewWords": [
+        "alarming",
+        "artificial",
+        "barren",
+        "bog",
+        "boycott"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-d9fabafaeda8",
       "topicId": "tp-0088bf5afa",
       "routeId": "oxford-core",
@@ -9989,6 +10048,34 @@
         "on hand",
         "change hands",
         "freehand"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-fdc91196e68b",
+      "topicId": "tp-eb5ba63431",
+      "routeId": "thpt-lop-12",
+      "title": "The Mass Media",
+      "sourcePackage": "pro3m",
+      "sourceName": "Unit 4: The Mass Media",
+      "contentType": "word",
+      "wordCount": 60,
+      "packIds": [
+        "st-fdc91196e68b-p0",
+        "st-fdc91196e68b-p1",
+        "st-fdc91196e68b-p2",
+        "st-fdc91196e68b-p3"
+      ],
+      "previewWords": [
+        "advent",
+        "arise",
+        "adopt",
+        "audience",
+        "breakout"
       ],
       "cefrRange": null,
       "coverImage": null,
@@ -20197,6 +20284,282 @@
         {
           "word": "have a row",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-2197a2d2e638-p0",
+      "subtopicId": "st-2197a2d2e638",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "flexibility",
+          "contentType": "word"
+        },
+        {
+          "word": "embrace",
+          "contentType": "word"
+        },
+        {
+          "word": "facilitate",
+          "contentType": "word"
+        },
+        {
+          "word": "grace",
+          "contentType": "word"
+        },
+        {
+          "word": "efficiency",
+          "contentType": "word"
+        },
+        {
+          "word": "gravity",
+          "contentType": "word"
+        },
+        {
+          "word": "economic",
+          "contentType": "word"
+        },
+        {
+          "word": "furlough",
+          "contentType": "word"
+        },
+        {
+          "word": "entrepreneur",
+          "contentType": "word"
+        },
+        {
+          "word": "apprenticeship",
+          "contentType": "word"
+        },
+        {
+          "word": "incumbency",
+          "contentType": "word"
+        },
+        {
+          "word": "applicant",
+          "contentType": "word"
+        },
+        {
+          "word": "advice",
+          "contentType": "word"
+        },
+        {
+          "word": "adjacent",
+          "contentType": "word"
+        },
+        {
+          "word": "grudgingly",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-2197a2d2e638-p1",
+      "subtopicId": "st-2197a2d2e638",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "efficient",
+          "contentType": "word"
+        },
+        {
+          "word": "hindrance",
+          "contentType": "word"
+        },
+        {
+          "word": "intricate",
+          "contentType": "word"
+        },
+        {
+          "word": "flextime",
+          "contentType": "word"
+        },
+        {
+          "word": "ambition",
+          "contentType": "word"
+        },
+        {
+          "word": "blue-collar",
+          "contentType": "word"
+        },
+        {
+          "word": "anonymously",
+          "contentType": "word"
+        },
+        {
+          "word": "detrimental",
+          "contentType": "word"
+        },
+        {
+          "word": "depression",
+          "contentType": "word"
+        },
+        {
+          "word": "exhausted",
+          "contentType": "word"
+        },
+        {
+          "word": "deteriorate",
+          "contentType": "word"
+        },
+        {
+          "word": "diminish",
+          "contentType": "word"
+        },
+        {
+          "word": "dip",
+          "contentType": "word"
+        },
+        {
+          "word": "prejudice",
+          "contentType": "word"
+        },
+        {
+          "word": "acumen",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-2197a2d2e638-p2",
+      "subtopicId": "st-2197a2d2e638",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "payday",
+          "contentType": "word"
+        },
+        {
+          "word": "layoff",
+          "contentType": "word"
+        },
+        {
+          "word": "manual",
+          "contentType": "word"
+        },
+        {
+          "word": "bitterly",
+          "contentType": "word"
+        },
+        {
+          "word": "novice",
+          "contentType": "word"
+        },
+        {
+          "word": "hurdle",
+          "contentType": "word"
+        },
+        {
+          "word": "decent",
+          "contentType": "word"
+        },
+        {
+          "word": "multinational",
+          "contentType": "word"
+        },
+        {
+          "word": "dismiss",
+          "contentType": "word"
+        },
+        {
+          "word": "misguided",
+          "contentType": "word"
+        },
+        {
+          "word": "shortage",
+          "contentType": "word"
+        },
+        {
+          "word": "resume",
+          "contentType": "word"
+        },
+        {
+          "word": "morale",
+          "contentType": "word"
+        },
+        {
+          "word": "renewal",
+          "contentType": "word"
+        },
+        {
+          "word": "marketplace",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-2197a2d2e638-p3",
+      "subtopicId": "st-2197a2d2e638",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "resolute",
+          "contentType": "word"
+        },
+        {
+          "word": "sacrifice",
+          "contentType": "word"
+        },
+        {
+          "word": "prerequisite",
+          "contentType": "word"
+        },
+        {
+          "word": "tip",
+          "contentType": "word"
+        },
+        {
+          "word": "self-employed",
+          "contentType": "word"
+        },
+        {
+          "word": "scout",
+          "contentType": "word"
+        },
+        {
+          "word": "resignation",
+          "contentType": "word"
+        },
+        {
+          "word": "perk",
+          "contentType": "word"
+        },
+        {
+          "word": "revenue",
+          "contentType": "word"
+        },
+        {
+          "word": "tutelage",
+          "contentType": "word"
+        },
+        {
+          "word": "clerical",
+          "contentType": "word"
+        },
+        {
+          "word": "culminate",
+          "contentType": "word"
+        },
+        {
+          "word": "upmarket",
+          "contentType": "word"
+        },
+        {
+          "word": "unprecedented",
+          "contentType": "word"
+        },
+        {
+          "word": "supplementary",
+          "contentType": "word"
         }
       ]
     },
@@ -75759,6 +76122,282 @@
       ]
     },
     {
+      "id": "st-d9c826c0dce9-p0",
+      "subtopicId": "st-d9c826c0dce9",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "alarming",
+          "contentType": "word"
+        },
+        {
+          "word": "artificial",
+          "contentType": "word"
+        },
+        {
+          "word": "barren",
+          "contentType": "word"
+        },
+        {
+          "word": "bog",
+          "contentType": "word"
+        },
+        {
+          "word": "boycott",
+          "contentType": "word"
+        },
+        {
+          "word": "chase",
+          "contentType": "word"
+        },
+        {
+          "word": "callous",
+          "contentType": "word"
+        },
+        {
+          "word": "comprehensive",
+          "contentType": "word"
+        },
+        {
+          "word": "contaminated",
+          "contentType": "word"
+        },
+        {
+          "word": "degrade",
+          "contentType": "word"
+        },
+        {
+          "word": "danger",
+          "contentType": "word"
+        },
+        {
+          "word": "imperil",
+          "contentType": "word"
+        },
+        {
+          "word": "endangered",
+          "contentType": "word"
+        },
+        {
+          "word": "burden",
+          "contentType": "word"
+        },
+        {
+          "word": "cloning",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-d9c826c0dce9-p1",
+      "subtopicId": "st-d9c826c0dce9",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "destiny",
+          "contentType": "word"
+        },
+        {
+          "word": "dismal",
+          "contentType": "word"
+        },
+        {
+          "word": "disturbance",
+          "contentType": "word"
+        },
+        {
+          "word": "exotic",
+          "contentType": "word"
+        },
+        {
+          "word": "exploit",
+          "contentType": "word"
+        },
+        {
+          "word": "ferocious",
+          "contentType": "word"
+        },
+        {
+          "word": "gratification",
+          "contentType": "word"
+        },
+        {
+          "word": "inundate",
+          "contentType": "word"
+        },
+        {
+          "word": "ignite",
+          "contentType": "word"
+        },
+        {
+          "word": "inconsequential",
+          "contentType": "word"
+        },
+        {
+          "word": "jeopardize",
+          "contentType": "word"
+        },
+        {
+          "word": "harness",
+          "contentType": "word"
+        },
+        {
+          "word": "hunt",
+          "contentType": "word"
+        },
+        {
+          "word": "landscape",
+          "contentType": "word"
+        },
+        {
+          "word": "looming",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-d9c826c0dce9-p2",
+      "subtopicId": "st-d9c826c0dce9",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "magnitude",
+          "contentType": "word"
+        },
+        {
+          "word": "notorious",
+          "contentType": "word"
+        },
+        {
+          "word": "organism",
+          "contentType": "word"
+        },
+        {
+          "word": "perilously",
+          "contentType": "word"
+        },
+        {
+          "word": "predator",
+          "contentType": "word"
+        },
+        {
+          "word": "proponent",
+          "contentType": "word"
+        },
+        {
+          "word": "premise",
+          "contentType": "word"
+        },
+        {
+          "word": "pioneer",
+          "contentType": "word"
+        },
+        {
+          "word": "purify",
+          "contentType": "word"
+        },
+        {
+          "word": "plunging",
+          "contentType": "word"
+        },
+        {
+          "word": "replenish",
+          "contentType": "word"
+        },
+        {
+          "word": "roam",
+          "contentType": "word"
+        },
+        {
+          "word": "shred",
+          "contentType": "word"
+        },
+        {
+          "word": "substantial",
+          "contentType": "word"
+        },
+        {
+          "word": "territory",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-d9c826c0dce9-p3",
+      "subtopicId": "st-d9c826c0dce9",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "thrive",
+          "contentType": "word"
+        },
+        {
+          "word": "absorb",
+          "contentType": "word"
+        },
+        {
+          "word": "biodiversity",
+          "contentType": "word"
+        },
+        {
+          "word": "cliff",
+          "contentType": "word"
+        },
+        {
+          "word": "claw",
+          "contentType": "word"
+        },
+        {
+          "word": "coral",
+          "contentType": "word"
+        },
+        {
+          "word": "crest",
+          "contentType": "word"
+        },
+        {
+          "word": "creature",
+          "contentType": "word"
+        },
+        {
+          "word": "destruction",
+          "contentType": "word"
+        },
+        {
+          "word": "discharge",
+          "contentType": "word"
+        },
+        {
+          "word": "ecology",
+          "contentType": "word"
+        },
+        {
+          "word": "emission",
+          "contentType": "word"
+        },
+        {
+          "word": "enormous",
+          "contentType": "word"
+        },
+        {
+          "word": "erosion",
+          "contentType": "word"
+        },
+        {
+          "word": "evolve",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-d9fabafaeda8-p0",
       "subtopicId": "st-d9fabafaeda8",
       "index": 0,
@@ -87006,6 +87645,282 @@
         {
           "word": "hands down",
           "contentType": "idiom"
+        }
+      ]
+    },
+    {
+      "id": "st-fdc91196e68b-p0",
+      "subtopicId": "st-fdc91196e68b",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "advent",
+          "contentType": "word"
+        },
+        {
+          "word": "arise",
+          "contentType": "word"
+        },
+        {
+          "word": "adopt",
+          "contentType": "word"
+        },
+        {
+          "word": "audience",
+          "contentType": "word"
+        },
+        {
+          "word": "breakout",
+          "contentType": "word"
+        },
+        {
+          "word": "compilation",
+          "contentType": "word"
+        },
+        {
+          "word": "condense",
+          "contentType": "word"
+        },
+        {
+          "word": "columnist",
+          "contentType": "word"
+        },
+        {
+          "word": "circulation",
+          "contentType": "word"
+        },
+        {
+          "word": "coverage",
+          "contentType": "word"
+        },
+        {
+          "word": "constant",
+          "contentType": "word"
+        },
+        {
+          "word": "distinguished",
+          "contentType": "word"
+        },
+        {
+          "word": "dissemination",
+          "contentType": "word"
+        },
+        {
+          "word": "distort",
+          "contentType": "word"
+        },
+        {
+          "word": "escalate",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-fdc91196e68b-p1",
+      "subtopicId": "st-fdc91196e68b",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "embrace",
+          "contentType": "word"
+        },
+        {
+          "word": "endorsement",
+          "contentType": "word"
+        },
+        {
+          "word": "exaggerate",
+          "contentType": "word"
+        },
+        {
+          "word": "episode",
+          "contentType": "word"
+        },
+        {
+          "word": "effectively",
+          "contentType": "word"
+        },
+        {
+          "word": "efficiently",
+          "contentType": "word"
+        },
+        {
+          "word": "evolve",
+          "contentType": "word"
+        },
+        {
+          "word": "emerge",
+          "contentType": "word"
+        },
+        {
+          "word": "excessive",
+          "contentType": "word"
+        },
+        {
+          "word": "influential",
+          "contentType": "word"
+        },
+        {
+          "word": "issue",
+          "contentType": "word"
+        },
+        {
+          "word": "joyful",
+          "contentType": "word"
+        },
+        {
+          "word": "launch",
+          "contentType": "word"
+        },
+        {
+          "word": "listing",
+          "contentType": "word"
+        },
+        {
+          "word": "misrepresentation",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-fdc91196e68b-p2",
+      "subtopicId": "st-fdc91196e68b",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "notorious",
+          "contentType": "word"
+        },
+        {
+          "word": "outset",
+          "contentType": "word"
+        },
+        {
+          "word": "program",
+          "contentType": "word"
+        },
+        {
+          "word": "proficiently",
+          "contentType": "word"
+        },
+        {
+          "word": "profoundly",
+          "contentType": "word"
+        },
+        {
+          "word": "record",
+          "contentType": "word"
+        },
+        {
+          "word": "respective",
+          "contentType": "word"
+        },
+        {
+          "word": "spectacular",
+          "contentType": "word"
+        },
+        {
+          "word": "series",
+          "contentType": "word"
+        },
+        {
+          "word": "cereal",
+          "contentType": "word"
+        },
+        {
+          "word": "sequel",
+          "contentType": "word"
+        },
+        {
+          "word": "television",
+          "contentType": "word"
+        },
+        {
+          "word": "transform",
+          "contentType": "word"
+        },
+        {
+          "word": "tremendous",
+          "contentType": "word"
+        },
+        {
+          "word": "unstable",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-fdc91196e68b-p3",
+      "subtopicId": "st-fdc91196e68b",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 15,
+      "words": [
+        {
+          "word": "viewer",
+          "contentType": "word"
+        },
+        {
+          "word": "watcher",
+          "contentType": "word"
+        },
+        {
+          "word": "wealth",
+          "contentType": "word"
+        },
+        {
+          "word": "linesman",
+          "contentType": "word"
+        },
+        {
+          "word": "finale",
+          "contentType": "word"
+        },
+        {
+          "word": "gymnastics",
+          "contentType": "word"
+        },
+        {
+          "word": "idol",
+          "contentType": "word"
+        },
+        {
+          "word": "booking",
+          "contentType": "word"
+        },
+        {
+          "word": "backboard",
+          "contentType": "word"
+        },
+        {
+          "word": "bodybuilding",
+          "contentType": "word"
+        },
+        {
+          "word": "fencing",
+          "contentType": "word"
+        },
+        {
+          "word": "bat",
+          "contentType": "word"
+        },
+        {
+          "word": "goal",
+          "contentType": "word"
+        },
+        {
+          "word": "fanatic",
+          "contentType": "word"
+        },
+        {
+          "word": "weightlifting",
+          "contentType": "word"
         }
       ]
     },
