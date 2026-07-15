@@ -21,13 +21,11 @@ import { earnedBadges, xpToLevel } from '@/lib/gamification';
 import { Mascot, type MascotMood } from '@/components/gamification/Mascot';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpGoalCard } from '@/components/gamification/XpGoalCard';
-import { BadgeGrid } from '@/components/gamification/BadgeGrid';
 import type { CelebrationIntensity } from '@/components/gamification/Celebration';
-import { WordDetailModal } from '@/components/student/WordDetailModal';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
-import { OnboardingProvider, OnboardingLayers } from '@/components/onboarding';
+import { OnboardingProvider } from '@/components/onboarding';
 import {
   readWordSummaryCache,
   writeWordSummaryCache,
@@ -38,6 +36,19 @@ import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 const Celebration = dynamic(
   () => import('@/components/gamification/Celebration').then((m) => m.Celebration),
   { ssr: false }
+);
+// Modal + onboarding layers — chỉ tải khi mở / sau shell
+const WordDetailModal = dynamic(
+  () => import('@/components/student/WordDetailModal').then((m) => m.WordDetailModal),
+  { ssr: false }
+);
+const OnboardingLayers = dynamic(
+  () => import('@/components/onboarding').then((m) => m.OnboardingLayers),
+  { ssr: false }
+);
+const BadgeGrid = dynamic(
+  () => import('@/components/gamification/BadgeGrid').then((m) => m.BadgeGrid),
+  { ssr: false, loading: () => <div className="h-24 animate-pulse rounded-xl bg-slate-100" /> }
 );
 
 interface ActiveVocabPack {
@@ -104,6 +115,9 @@ export default function StudentDashboard() {
   const [celebration, setCelebration] = useState<{ key: string; intensity: CelebrationIntensity } | null>(null);
   const [prevSnapshot, setPrevSnapshot] = useState<{ level: number; badgeIds: string[]; streak: number } | null>(null);
 
+  // Chặn double-load: getSession + onAuthStateChange SIGNED_IN/INITIAL_SESSION
+  const loadStartedRef = useRef(false);
+
   useEffect(() => {
     const checkAuth = async () => {
       console.log('[Student] Auth check started');
@@ -121,7 +135,10 @@ export default function StudentDashboard() {
           if (cached.classroomId) setClassroomId(cached.classroomId);
           setCountsReady(true);
         }
-        loadData(session.user.id, session.access_token);
+        if (!loadStartedRef.current) {
+          loadStartedRef.current = true;
+          loadData(session.user.id, session.access_token);
+        }
       } else {
         setIsLoading(false);
         router.push('/auth');
@@ -133,8 +150,13 @@ export default function StudentDashboard() {
       if (event === 'SIGNED_IN' && session?.user) {
         accessTokenRef.current = session.access_token;
         setUserMetadata(session.user.user_metadata);
-        loadData(session.user.id, session.access_token);
+        // Chỉ reload khi chưa load (tránh double với getSession)
+        if (!loadStartedRef.current) {
+          loadStartedRef.current = true;
+          loadData(session.user.id, session.access_token);
+        }
       } else if (event === 'SIGNED_OUT') {
+        loadStartedRef.current = false;
         setUserMetadata(null);
         accessTokenRef.current = null;
         router.push('/auth');
@@ -161,8 +183,10 @@ export default function StudentDashboard() {
     setTotalWords(total);
     setNewCount(nextNew);
     setReviewDueCount(nextReview);
+    // Không ghi đè chart L1–L6 bằng [0,0,…] từ poll summary (không levels)
     if (Array.isArray(data.levelCounts) && data.levelCounts.length === 6) {
-      setLevelCounts(data.levelCounts.map((n) => Number(n) || 0));
+      const next = data.levelCounts.map((n) => Number(n) || 0);
+      if (next.some((n) => n > 0)) setLevelCounts(next);
     }
     if (data.classroomId) setClassroomId(data.classroomId);
     setCountsReady(true);
@@ -178,7 +202,7 @@ export default function StudentDashboard() {
   const loadData = async (userId: string, accessToken?: string) => {
     const token = accessToken ?? accessTokenRef.current;
     try {
-      // 1) Summary + profile song song — paint UI sớm (không chờ word list)
+      // 1) Summary NHẸ first paint — levels L1–L6 load sau (idle), tránh đè Supabase khi quá tải
       const summaryP = authFetch('/api/words?summary=1', {}, token)
         .then((r) => r.json())
         .then((sum) => {
@@ -210,7 +234,8 @@ export default function StudentDashboard() {
         .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
         .catch(() => {});
 
-      authFetch('/api/student/stats', {}, token)
+      // lite=1: chỉ heatmap 30 ngày — không quét full SRS
+      authFetch('/api/student/stats?lite=1', {}, token)
         .then((r) => r.json())
         .then((st) => {
           if (!st?.success) return;
@@ -222,6 +247,21 @@ export default function StudentDashboard() {
           setTodayWords(activity.find((a) => a.date === todayKey)?.count ?? 0);
         })
         .catch(() => {});
+
+      // Chart L1–L6 sau idle — không chặn TTI / đỡ đè Supabase lúc quá tải
+      const loadLevels = () => {
+        void authFetch('/api/words?summary=1&levels=1', {}, token)
+          .then((r) => r.json())
+          .then((sum) => {
+            if (sum?.success) applySummaryCounts(userId, sum);
+          })
+          .catch(() => {});
+      };
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        window.requestIdleCallback(loadLevels, { timeout: 4000 });
+      } else {
+        setTimeout(loadLevels, 2000);
+      }
 
       authFetch('/api/vocab/packs', {}, token)
         .then((response) => response.json())
@@ -304,7 +344,7 @@ export default function StudentDashboard() {
     }
   };
 
-  // === Countdown Timer Hooks ===
+  // === Countdown: chỉ setState khi chuỗi đổi; Ready → refreshSummary (không full loadData) ===
   useEffect(() => {
     if (words.length === 0) return;
 
@@ -319,48 +359,57 @@ export default function StudentDashboard() {
     }
 
     const targetDate = new Date(soonestWord.srs?.next_review_date || Date.now());
+    let firedReady = false;
 
     const tick = () => {
       const diff = targetDate.getTime() - Date.now();
-      
+
       if (diff <= 0) {
-        setCountdown('Ready!');
-        if (profile?.id) loadData(profile.id);
+        setCountdown((prev) => (prev === 'Ready!' ? prev : 'Ready!'));
+        if (!firedReady && profile?.id) {
+          firedReady = true;
+          void refreshSummary(profile.id);
+        }
         return;
       }
 
       const h = Math.floor(diff / 3600000);
       const m = Math.floor((diff % 3600000) / 60000);
       const s = Math.floor((diff % 60000) / 1000);
-      
-      if (h > 0) setCountdown(`${h}h ${m}m ${s}s`);
-      else if (m > 0) setCountdown(`${m}m ${s}s`);
-      else setCountdown(`${s}s`);
+
+      const next =
+        h > 0 ? `${h}h ${m}m ${s}s` : m > 0 ? `${m}m ${s}s` : `${s}s`;
+      setCountdown((prev) => (prev === next ? prev : next));
     };
 
     tick();
-    const id = setInterval(tick, 1000);
+    // 1s chỉ khi còn < 2 phút; còn lại 5s — bớt re-render dashboard
+    const ms = targetDate.getTime() - Date.now() < 120_000 ? 1000 : 5000;
+    const id = setInterval(tick, ms);
     return () => clearInterval(id);
   }, [words, profile?.id]);
 
-  // === Auto-retry failed words ===
+  // === Auto-retry failed words (1 lần / mount cycle, không spam) ===
+  const retryAttemptedRef = useRef(false);
   useEffect(() => {
-    if (!classroomId || words.length === 0) return;
+    if (!classroomId || words.length === 0 || retryAttemptedRef.current || isRetryingAI) return;
     const hasFailed = words.some((w) =>
       w.translation?.includes('failed') || w.translation?.includes('Analyzing')
     );
-    if (hasFailed && !isRetryingAI) {
-      handleRetryAI();
+    if (hasFailed) {
+      retryAttemptedRef.current = true;
+      void handleRetryAI();
     }
-  }, [classroomId, words.length]);
+  }, [classroomId, words.length, isRetryingAI]);
 
-  // === Auto-refresh nhẹ mỗi 30s: chỉ cập nhật summary (dueCount), không fetch toàn bộ words ===
+  // === Auto-refresh 60s, chỉ khi tab visible — summary NHẸ (không levels) ===
   useEffect(() => {
     if (!profile?.id) return;
     const interval = setInterval(() => {
-      refreshSummary(profile.id);
-      refreshGamification();
-    }, 30000);
+      if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
+      void refreshSummary(profile.id);
+      void refreshGamification();
+    }, 60_000);
     return () => clearInterval(interval);
   }, [profile?.id, refreshGamification]);
 
@@ -599,7 +648,7 @@ export default function StudentDashboard() {
   const navItems: NavItem[] = [
     { href: '/student', label: 'Dashboard', emoji: '🏠', color: '#4f46e5', tile: '#eef0ff', footerDup: true },
     { href: '/journey', label: 'Lộ trình', emoji: '🗺️', color: '#059669', tile: '#dcfce7', onboardingId: 'journey', footerDup: true },
-    { href: '/flashcard', label: 'Flashcards', emoji: '📚', color: '#6366f1', tile: '#e8eafe', footerDup: true },
+    { href: '/review', label: 'Ôn tập', emoji: '📚', color: '#6366f1', tile: '#e8eafe', footerDup: true },
     { href: '/grammar/learn', label: 'Grammar', emoji: '🎓', color: '#8b5cf6', tile: '#f1ecff', onboardingId: 'grammar' },
     { href: '/library', label: 'Thư viện từ vựng', emoji: '📦', color: '#10b981', tile: '#e1f7ee', onboardingId: 'library', footerDup: true },
     { href: '/dictionary', label: 'Tra từ điển', emoji: '🔍', color: '#06b6d4', tile: '#defafd', footerDup: true },
@@ -899,7 +948,7 @@ export default function StudentDashboard() {
             </Link>
 
             <Link
-              href={(!countsReady || reviewDueCount > 0) && classroomId ? `/flashcard?class=${classroomId}` : reviewDueCount > 0 ? '/flashcard' : '#'}
+              href={(!countsReady || reviewDueCount > 0) && classroomId ? `/review?class=${classroomId}` : reviewDueCount > 0 ? '/review' : '#'}
               data-onboarding="review"
               className={`group flex min-h-[88px] flex-col items-center justify-center rounded-2xl border px-2 py-3 text-center shadow-sm transition-all sm:min-h-[72px] sm:items-stretch sm:px-3 sm:py-2.5 sm:text-left ${
                 !countsReady || reviewDueCount > 0

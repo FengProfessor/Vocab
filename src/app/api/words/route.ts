@@ -117,11 +117,15 @@ async function fetchLevelCounts(
   return levelCounts;
 }
 
-/** Đếm total / new / review-due / levelCounts — RPC + fallback. */
+/**
+ * Đếm total / new / review-due — RPC + fallback.
+ * levelCounts (O(n) quét full kho) CHỈ khi includeLevels=true — poll 30s không được gọi.
+ */
 async function fetchWordSummaryCounts(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
   classroomId: string,
+  includeLevels = false,
 ): Promise<WordSummaryCounts> {
   // Ưu tiên RPC (migration 20260709_word_summary_perf)
   const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
@@ -132,13 +136,14 @@ async function fetchWordSummaryCounts(
     const row = Array.isArray(rpcRows) ? rpcRows[0] : rpcRows;
     if (row) {
       const total = Number(row.total ?? 0);
-      const levelCounts = await fetchLevelCounts(supabase, userId, classroomId, total);
       return {
         total,
         newCount: Number(row.new_count ?? 0),
         reviewDueCount: Number(row.review_due_count ?? 0),
         dueCount: Number(row.due_count ?? 0),
-        levelCounts,
+        levelCounts: includeLevels
+          ? await fetchLevelCounts(supabase, userId, classroomId, total)
+          : [0, 0, 0, 0, 0, 0],
       };
     }
   }
@@ -180,14 +185,15 @@ async function fetchWordSummaryCounts(
   const totalN = total || 0;
   const learnedN = learnedCount || 0;
   const withSrsN = wordsWithSrs || 0;
-  const levelCounts = await fetchLevelCounts(supabase, userId, classroomId, totalN);
   return {
     total: totalN,
     // due = SRS đến hạn + từ chưa có SRS (coi như cần học/ôn)
     dueCount: (dueCount || 0) + Math.max(0, totalN - withSrsN),
     newCount: Math.max(0, totalN - learnedN),
     reviewDueCount: reviewDueCount || 0,
-    levelCounts,
+    levelCounts: includeLevels
+      ? await fetchLevelCounts(supabase, userId, classroomId, totalN)
+      : [0, 0, 0, 0, 0, 0],
   };
 }
 
@@ -533,7 +539,8 @@ export async function POST(req: Request): Promise<NextResponse> {
 // GET: Lấy từ của user (personal list)
 // Query: ?userId=xxx  hoặc  ?classroomId=xxx&userId=xxx
 //        &limit=N (default 100, max 500)  &offset=N (default 0)
-//        &summary=1 → chỉ trả total count + dueCount (không fetch words)
+//        &summary=1 → chỉ trả total/due counts (không fetch words)
+//        &levels=1  → kèm levelCounts L1–L6 (đắt — chỉ first paint dashboard)
 // ─────────────────────────────────────────────────────────────────────────────
 export async function GET(req: Request): Promise<NextResponse> {
   try {
@@ -544,6 +551,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
     let classroomId = searchParams.get('classroomId') || '';
     const summary = searchParams.get('summary') === '1';
+    const includeLevels = searchParams.get('levels') === '1';
     const filter = searchParams.get('filter'); // 'review' = từ đã học & đến hạn | 'new' = từ chưa học (review_count=0)
     const limit = Math.min(500, Math.max(1, parseInt(searchParams.get('limit') || '100', 10)));
     const offset = Math.max(0, parseInt(searchParams.get('offset') || '0', 10));
@@ -581,18 +589,19 @@ export async function GET(req: Request): Promise<NextResponse> {
       classroomId = await getOrCreatePersonalClassroom(supabase, userId);
     }
 
-    // ── Chế độ REVIEW: trả từ ĐÃ học & ĐẾN HẠN trên TOÀN BỘ srs_progress ──
-    // Khác fetch words paginated (chỉ 100 từ mới nhất) → không bỏ sót từ cũ đến hạn.
+    // ── Chế độ REVIEW: từ ĐÃ học & ĐẾN HẠN (cap theo limit, default 100) ──
+    // Tránh limit 1000 + select * bloated khi session chỉ cần ~25 thẻ.
     if (filter === 'review') {
       const nowIso = new Date().toISOString();
+      const reviewCap = Math.min(limit, 100);
       const { data: dueSrs, error: dueErr } = await supabase
         .from('srs_progress')
-        .select('word_id, next_review_date')
+        .select('word_id, user_id, next_review_date, review_count, stability, difficulty, ease_factor, interval_days, last_reviewed_at')
         .eq('user_id', userId)
         .gt('review_count', 0)
         .lte('next_review_date', nowIso)
         .order('next_review_date', { ascending: true })
-        .limit(1000);
+        .limit(reviewCap);
       if (dueErr) throw dueErr;
 
       const requestedIdSet = requestedIds ? new Set(requestedIds) : null;
@@ -605,11 +614,14 @@ export async function GET(req: Request): Promise<NextResponse> {
         });
       }
 
-      // Lấy MỌI từ due của user (không lọc classroom) → khớp tuyệt đối reviewDueCount ở dashboard.
-      // An toàn: dueIds đến từ srs_progress của CHÍNH user (đã học = đã có quyền tiếp cận).
+      const srsByWord = new Map(
+        (dueSrs || []).map((s) => [s.word_id as string, s as SRSProgressWithStability]),
+      );
+
+      // Lấy từ due (id list từ SRS user) — không join srs_progress(*) (payload nhẹ)
       let dueWordsQuery = supabase
         .from('words')
-        .select('*, srs_progress(*)')
+        .select('id, word, translation, ipa, pos, example, image_url, synonyms, antonyms, classroom_id, created_at')
         .in('id', dueIds);
       if (requestedIds) {
         dueWordsQuery = dueWordsQuery.eq('classroom_id', classroomId);
@@ -618,9 +630,9 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (wErr) throw wErr;
 
       const order = new Map(dueIds.map((id, i) => [id, i])); // giữ thứ tự due lâu nhất trước
-      const enriched = ((wordsData || []) as WordWithSrsList[])
+      const enriched = ((wordsData || []) as Word[])
         .map((w) => {
-          const srs = (w.srs_progress || []).find((s) => s.user_id === userId) || null;
+          const srs = srsByWord.get(w.id) || null;
           const srsLevel = stabilityToLevel(srs?.stability || 0);
           return {
             ...w,
@@ -712,9 +724,9 @@ export async function GET(req: Request): Promise<NextResponse> {
       });
     }
 
-    // Chế độ summary: chỉ đếm tổng + due, không fetch full data
+    // Chế độ summary: đếm total/due — levels chỉ khi ?levels=1
     if (summary) {
-      const counts = await fetchWordSummaryCounts(supabase, userId, classroomId);
+      const counts = await fetchWordSummaryCounts(supabase, userId, classroomId, includeLevels);
       return new NextResponse(JSON.stringify({
         success: true,
         classroomId,
@@ -745,7 +757,7 @@ export async function GET(req: Request): Promise<NextResponse> {
         .order('created_at', { ascending: false })
         .range(offset, offset + limit - 1),
       includeCounts
-        ? fetchWordSummaryCounts(supabase, userId, classroomId)
+        ? fetchWordSummaryCounts(supabase, userId, classroomId, includeLevels)
         : Promise.resolve(null),
     ]);
 

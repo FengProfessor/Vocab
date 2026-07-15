@@ -17,6 +17,40 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const todayEnd = new Date(now);
     todayEnd.setHours(23, 59, 59, 999);
     const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString();
+    // lite=1: dashboard chỉ cần heatmap 30 ngày — không quét full SRS (giảm tải khi quá tải)
+    const lite = req.nextUrl.searchParams.get('lite') === '1';
+
+    if (lite) {
+      const { data: recentRows } = await supabase
+        .from('srs_progress')
+        .select('last_reviewed_at')
+        .eq('user_id', userId)
+        .gte('last_reviewed_at', thirtyDaysAgo)
+        .not('last_reviewed_at', 'is', null);
+
+      const toLocalKey = (d: Date) => {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+      };
+      const dayMap: Record<string, number> = {};
+      for (const r of recentRows ?? []) {
+        if (!r.last_reviewed_at) continue;
+        const day = toLocalKey(new Date(r.last_reviewed_at));
+        dayMap[day] = (dayMap[day] ?? 0) + 1;
+      }
+      const dailyActivity = Array.from({ length: 30 }, (_, i) => {
+        const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (29 - i));
+        const key = toLocalKey(d);
+        return { date: key, count: dayMap[key] ?? 0 };
+      });
+
+      return NextResponse.json(
+        { success: true, data: { dailyActivity } },
+        { headers: { 'Cache-Control': 'private, max-age=60, stale-while-revalidate=120' } },
+      );
+    }
 
     const [srsRes, quizRes, recentSrsRes, gamificationRes, weakRes] = await Promise.all([
       // Tất cả SRS progress
@@ -127,31 +161,37 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       };
     });
 
-    return NextResponse.json({
-      success: true,
-      data: {
-        wordStats: {
-          total,
-          levelCounts,
-          avgStability: total ? Math.round(totalStability / total) : 0,
-          wordsDue,
+    return NextResponse.json(
+      {
+        success: true,
+        data: {
+          wordStats: {
+            total,
+            levelCounts,
+            avgStability: total ? Math.round(totalStability / total) : 0,
+            wordsDue,
+          },
+          dailyActivity,
+          quizHistory: quizRows.map((r) => ({
+            accuracy: r.accuracy ?? 0,
+            score: r.score ?? 0,
+            total: r.total_questions ?? 0,
+            created_at: r.created_at,
+          })),
+          studyStreak: streak,
+          avgAccuracy,
+          bestScore,
+          weakWords,
+          gamification: gamRow
+            ? { totalXp: gamRow.total_xp ?? 0, streak: gamRow.current_streak ?? 0, todayXp: gamRow.today_xp ?? 0 }
+            : null,
         },
-        dailyActivity,
-        quizHistory: quizRows.map((r) => ({
-          accuracy: r.accuracy ?? 0,
-          score: r.score ?? 0,
-          total: r.total_questions ?? 0,
-          created_at: r.created_at,
-        })),
-        studyStreak: streak,
-        avgAccuracy,
-        bestScore,
-        weakWords,
-        gamification: gamRow
-          ? { totalXp: gamRow.total_xp ?? 0, streak: gamRow.current_streak ?? 0, todayXp: gamRow.today_xp ?? 0 }
-          : null,
       },
-    });
+      {
+        // Private browser cache 30s — giảm spam khi user chuyển tab stats
+        headers: { 'Cache-Control': 'private, max-age=30, stale-while-revalidate=60' },
+      }
+    );
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[StudentStats] Error:', msg);

@@ -85,10 +85,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         if (!user || !session) { router.push('/auth'); return; }
         setUserId(user.id);
 
-        // Lấy ĐÚNG từ đã học & đến hạn (server lọc toàn bộ srs_progress, không kẹt 100 từ mới nhất)
+        // Due cap 40 thẻ / session — đủ 1 phiên, payload nhẹ
         const url = classroomId
-          ? `/api/words?classroomId=${classroomId}&filter=review`
-          : `/api/words?filter=review`;
+          ? `/api/words?classroomId=${classroomId}&filter=review&limit=40`
+          : `/api/words?filter=review&limit=40`;
 
         const res = await fetch(url, {
           headers: { Authorization: `Bearer ${session.access_token}` },
@@ -197,15 +197,15 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     if (!current) return;
     setHasSpelledCorrectly(true);
     speak(current.word, 1.0);
-    toast.success('Chính xác! Đang tự động chuyển...', { position: 'top-center' });
+    // Không auto-rate: gõ đúng chỉ chứng minh recall; Hard/Good/Easy do user chọn
+    // (trước đây auto Good sau 1.8s → flip quá nhanh, không kịp bấm)
+    if (autoAdvanceRef.current) {
+      clearTimeout(autoAdvanceRef.current);
+      autoAdvanceRef.current = null;
+    }
+    setAutoAdvanceTime(null);
+    toast.success('Chính xác! Chọn mức độ nhớ (Hard / Good / Easy)', { position: 'top-center' });
     setTimeout(() => setFlipped(true), 600);
-
-    if (autoAdvanceRef.current) clearTimeout(autoAdvanceRef.current);
-    setAutoAdvanceTime(1200);
-    autoAdvanceRef.current = setTimeout(() => {
-      handleRate(4);
-      setAutoAdvanceTime(null);
-    }, 1800);
   };
 
   const handleSpellingSkip = () => {
