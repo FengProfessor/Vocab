@@ -3,11 +3,19 @@ import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { getRoadmapLevels, orderedStepIds, ROADMAP_VERSION, levelOrder, type RoadmapLevelId, type RoadmapTrack } from '@/lib/roadmap';
 
+type EnrollmentRow = {
+  level_id: string;
+  roadmap_version: string;
+  current_unit_id: string | null;
+  started_at: string;
+  track: string | null;
+};
+
 /**
- * GET /api/roadmap — cây lộ trình + progress user + trạng thái unlock.
- * Trả { enrolled, levelId, tree } — tree đã merge status từng step:
- *   completed | current (step kế tiếp được học) | locked
- * Quy tắc unlock: tuần tự toàn cục từ unit đầu của CẤP user chọn (các cấp thấp hơn coi như mở sẵn để ôn).
+ * GET /api/roadmap?track=cefr|thpt
+ * - 1 user có thể ghi danh CẢ 2 track (sau migration multi-track).
+ * - Không ?track → ưu tiên track query local / enrollment mới nhất.
+ * - Trả enrollments[] luôn (kể cả khi track đang xem chưa ghi danh → needsPlacement).
  */
 export async function GET(req: NextRequest) {
   try {
@@ -15,29 +23,54 @@ export async function GET(req: NextRequest) {
     if (!auth) return unauthorized();
     const supabase = createServiceClient();
 
-    const { data: enrollment } = await supabase
+    const { data: rows } = await supabase
       .from('user_roadmap')
       .select('level_id, roadmap_version, current_unit_id, started_at, track')
       .eq('user_id', auth.userId)
-      .maybeSingle();
+      .order('updated_at', { ascending: false });
 
-    if (!enrollment) {
-      return NextResponse.json({ success: true, data: { enrolled: false } });
+    const enrollments = ((rows ?? []) as EnrollmentRow[]).map((r) => ({
+      track: (r.track === 'thpt' ? 'thpt' : 'cefr') as RoadmapTrack,
+      levelId: r.level_id as RoadmapLevelId,
+      startedAt: r.started_at,
+    }));
+
+    if (enrollments.length === 0) {
+      return NextResponse.json({ success: true, data: { enrolled: false, enrollments: [] } });
     }
 
-    const track = (enrollment.track ?? 'cefr') as RoadmapTrack;
+    const qTrack = req.nextUrl.searchParams.get('track');
+    const preferred: RoadmapTrack | null =
+      qTrack === 'thpt' || qTrack === 'cefr' ? qTrack : null;
+    const activeEnrollment =
+      (preferred ? enrollments.find((e) => e.track === preferred) : null) ??
+      enrollments[0];
+
+    // Track được chọn nhưng chưa ghi danh → vẫn trả enrollments để UI bật tab + form placement
+    if (preferred && !enrollments.some((e) => e.track === preferred)) {
+      return NextResponse.json({
+        success: true,
+        data: {
+          enrolled: true,
+          enrollments,
+          track: preferred,
+          needsPlacement: true,
+          roadmapVersion: ROADMAP_VERSION,
+        },
+      });
+    }
+
+    const track = activeEnrollment.track;
     const ORDER = levelOrder(track);
+    const startLevel = activeEnrollment.levelId;
+    const startLevelIdx = Math.max(0, ORDER.indexOf(startLevel));
 
     const { data: stepRows } = await supabase
       .from('user_roadmap_steps')
       .select('step_id, status, score, completed_at')
       .eq('user_id', auth.userId);
-    const doneSteps = new Map((stepRows ?? []).map((r) => [r.step_id, r]));
+    const doneSteps = new Map((stepRows ?? []).map((r) => [r.step_id as string, r]));
 
-    const startLevel = enrollment.level_id as RoadmapLevelId;
-    const startLevelIdx = ORDER.indexOf(startLevel);
-
-    // Step đầu tiên chưa hoàn thành TÍNH TỪ cấp bắt đầu = "current"; sau nó = locked.
     const ordered = orderedStepIds(track);
     const levels = getRoadmapLevels(track);
     const levelOfStep = new Map<string, number>();
@@ -65,7 +98,7 @@ export async function GET(req: NextRequest) {
             const done = doneSteps.get(step.id);
             let status: 'completed' | 'current' | 'locked' | 'review';
             if (done?.status === 'completed') status = 'completed';
-            else if (levelIdx < startLevelIdx) status = 'review'; // cấp dưới cấp bắt đầu: mở tự do để ôn
+            else if (levelIdx < startLevelIdx) status = 'review';
             else if (step.id === currentStepId) status = 'current';
             else {
               const pos = scopedOrdered.indexOf(step.id);
@@ -81,6 +114,8 @@ export async function GET(req: NextRequest) {
       success: true,
       data: {
         enrolled: true,
+        enrollments,
+        needsPlacement: false,
         roadmapVersion: ROADMAP_VERSION,
         track,
         levelId: startLevel,

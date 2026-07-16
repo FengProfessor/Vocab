@@ -20,17 +20,29 @@ export interface RoadmapUnitView { id: string; index: number; title: string; ste
 export interface RoadmapLevelView {
   id: string; title: string; titleVi: string; description: string; isStartLevel: boolean; units: RoadmapUnitView[];
 }
+
+export type RoadmapTrackId = 'cefr' | 'thpt';
+
+export interface RoadmapEnrollmentView {
+  track: RoadmapTrackId;
+  levelId: string;
+  startedAt?: string;
+}
+
 export interface RoadmapTreeResponse {
   enrolled: boolean;
+  enrollments?: RoadmapEnrollmentView[];
+  needsPlacement?: boolean;
   roadmapVersion?: string;
-  track?: 'cefr' | 'thpt';
+  track?: RoadmapTrackId;
   levelId?: string;
   currentStepId?: string | null;
   tree?: RoadmapLevelView[];
 }
 
-export async function fetchRoadmap(): Promise<RoadmapTreeResponse> {
-  const res = await authFetch('/api/roadmap');
+export async function fetchRoadmap(track?: RoadmapTrackId): Promise<RoadmapTreeResponse> {
+  const qs = track ? `?track=${track}` : '';
+  const res = await authFetch(`/api/roadmap${qs}`);
   const json = await res.json() as { success: boolean; data?: RoadmapTreeResponse; error?: string };
   if (!res.ok || !json.success || !json.data) throw new Error(json.error || 'Không tải được lộ trình');
   return json.data;

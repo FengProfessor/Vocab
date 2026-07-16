@@ -306,10 +306,12 @@ export interface UserGamification {
   today_date: string | null;
 }
 
-// Lộ trình học 5 cấp (bảng user_roadmap / user_roadmap_steps — migration 20260703)
-export type RoadmapDbLevelId = 'A0' | 'A1' | 'A2' | 'B1' | 'B2';
+// Lộ trình: multi-track (user_id, track) — migration 20260716
+export type RoadmapDbLevelId = 'A0' | 'A1' | 'A2' | 'B1' | 'B2' | 'lop-10' | 'lop-11' | 'lop-12';
+export type RoadmapDbTrack = 'cefr' | 'thpt';
 export interface UserRoadmap {
   user_id: string;
+  track: RoadmapDbTrack;
   roadmap_version: string;
   level_id: RoadmapDbLevelId;
   current_unit_id: string | null;

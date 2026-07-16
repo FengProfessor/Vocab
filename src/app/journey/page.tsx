@@ -1,17 +1,23 @@
 'use client';
 
 /**
- * Lộ trình học 5 cấp A0→B2 — path map kiểu Duolingo.
- * - Chưa ghi danh: chọn điểm bắt đầu (test 2 phút HOẶC tự chọn cấp).
- * - Đã ghi danh: chuỗi chặng tuần tự; step khóa tới khi xong step trước.
- * - Xong chặng (checkpoint pass ở trang khác) → sessionStorage flag → confetti ở đây.
+ * Lộ trình học — CEFR (A0→B2) và THPT (lớp 10/11/12) song song.
+ * - Có thể ghi danh CẢ 2 track; tab chuyển đổi, không ghi đè nhau.
+ * - THPT: chọn thẳng lớp 10 / 11 / 12 (không bắt buộc từ 10).
+ * - Chưa ghi danh track đang xem: placement riêng track đó.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
-import { fetchRoadmap, type RoadmapLevelView, type RoadmapStepView } from '@/lib/roadmap-client';
+import {
+  fetchRoadmap,
+  type RoadmapEnrollmentView,
+  type RoadmapLevelView,
+  type RoadmapStepView,
+  type RoadmapTrackId,
+} from '@/lib/roadmap-client';
 import { getExitDisclaimer, getExitStandard } from '@/lib/roadmap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -60,31 +66,56 @@ const STEP_LABEL: Record<string, string> = {
   exam: 'Đề mini',
 };
 
+const TRACK_STORAGE_KEY = 'roadmap_active_track';
+
+type PlacementMode = 'pick-intro' | 'pick' | 'test' | 'thpt-grade' | null;
+
 export default function JourneyPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [enrolled, setEnrolled] = useState(false);
+  const [enrolledAny, setEnrolledAny] = useState(false);
+  const [enrollments, setEnrollments] = useState<RoadmapEnrollmentView[]>([]);
+  const [needsPlacement, setNeedsPlacement] = useState(false);
   const [tree, setTree] = useState<RoadmapLevelView[]>([]);
   const [levelId, setLevelId] = useState<string>('A0');
-  const [track, setTrack] = useState<'cefr' | 'thpt'>('cefr');
+  const [track, setTrack] = useState<RoadmapTrackId>('cefr');
   const [busyStep, setBusyStep] = useState<string | null>(null);
   const [celebrate, setCelebrate] = useState<string | null>(null);
 
-  // Placement state — 'track' = màn chọn CEFR/THPT đầu tiên
-  const [mode, setMode] = useState<'track' | 'pick-intro' | 'pick' | 'test' | 'thpt-grade' | null>('track');
+  const [mode, setMode] = useState<PlacementMode>(null);
   const [questions, setQuestions] = useState<PlacementQuestionView[]>([]);
   const [qIndex, setQIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
 
-  const load = useCallback(async (): Promise<void> => {
+  const load = useCallback(async (preferred?: RoadmapTrackId): Promise<void> => {
     try {
-      const data = await fetchRoadmap();
-      setEnrolled(data.enrolled);
-      if (data.enrolled && data.tree) {
+      const stored = (typeof window !== 'undefined'
+        ? (localStorage.getItem(TRACK_STORAGE_KEY) as RoadmapTrackId | null)
+        : null);
+      const want = preferred ?? (stored === 'thpt' || stored === 'cefr' ? stored : undefined);
+      const data = await fetchRoadmap(want);
+      const list = data.enrollments ?? [];
+      setEnrollments(list);
+      setEnrolledAny(data.enrolled || list.length > 0);
+
+      const activeTrack: RoadmapTrackId =
+        data.track === 'thpt' || data.track === 'cefr'
+          ? data.track
+          : want ?? 'cefr';
+      setTrack(activeTrack);
+      try { localStorage.setItem(TRACK_STORAGE_KEY, activeTrack); } catch { /* ignore */ }
+
+      if (data.needsPlacement || !data.tree) {
+        setNeedsPlacement(true);
+        setTree([]);
+        // Mở form placement đúng track đang xem
+        setMode(activeTrack === 'thpt' ? 'thpt-grade' : 'pick-intro');
+      } else {
+        setNeedsPlacement(false);
         setTree(data.tree);
         setLevelId(data.levelId ?? 'A0');
-        setTrack(data.track === 'thpt' ? 'thpt' : 'cefr');
+        setMode(null);
       }
     } catch (error: unknown) {
       toast.error(error instanceof Error ? error.message : 'Không tải được lộ trình');
@@ -103,7 +134,6 @@ export default function JourneyPage() {
     return () => { active = false; };
   }, [router, load]);
 
-  // Confetti khi vừa vượt chặng/lên cấp ở trang khác (đọc flag async để tránh setState sync trong effect)
   useEffect(() => {
     const timer = setTimeout(() => {
       const flag = sessionStorage.getItem('roadmap_celebrate');
@@ -115,6 +145,13 @@ export default function JourneyPage() {
     }, 0);
     return () => clearTimeout(timer);
   }, []);
+
+  const switchTrack = async (next: RoadmapTrackId): Promise<void> => {
+    if (next === track && !needsPlacement && tree.length > 0) return;
+    setLoading(true);
+    setMode(null);
+    await load(next);
+  };
 
   const startTest = async (): Promise<void> => {
     try {
@@ -136,12 +173,17 @@ export default function JourneyPage() {
       const res = await authFetch('/api/roadmap/placement', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
       });
-      const json = await res.json() as { success: boolean; data?: { levelId: string }; error?: string };
+      const json = await res.json() as { success: boolean; data?: { levelId: string; track?: string }; error?: string };
       if (!json.success || !json.data) throw new Error(json.error || 'Không xếp được cấp');
-      toast.success(`Điểm bắt đầu của bạn: cấp ${json.data.levelId}. Bắt đầu thôi!`);
+      const placedTrack = (json.data.track === 'thpt' ? 'thpt' : 'cefr') as RoadmapTrackId;
+      toast.success(
+        placedTrack === 'thpt'
+          ? `Bắt đầu từ lớp ${json.data.levelId.replace('lop-', '')}. Có thể học thêm CEFR bất cứ lúc nào.`
+          : `Điểm bắt đầu: cấp ${json.data.levelId}. Có thể mở thêm lộ trình THPT bất cứ lúc nào.`,
+      );
       setMode(null);
       setLoading(true);
-      await load();
+      await load(placedTrack);
     } catch (error: unknown) {
       toast.error(error instanceof Error ? error.message : 'Có lỗi kết nối');
     } finally {
@@ -149,7 +191,6 @@ export default function JourneyPage() {
     }
   };
 
-  // Tự phát audio khi vào câu nghe trong placement
   useEffect(() => {
     if (mode !== 'test') return;
     const q = questions[qIndex];
@@ -160,7 +201,7 @@ export default function JourneyPage() {
     const next = { ...answers, [qid]: choice };
     setAnswers(next);
     if (qIndex + 1 < questions.length) setQIndex(qIndex + 1);
-    else void submitPlacement({ answers: next });
+    else void submitPlacement({ track: 'cefr', answers: next });
   };
 
   const openStep = async (step: RoadmapStepView): Promise<void> => {
@@ -178,7 +219,6 @@ export default function JourneyPage() {
         if (!res.ok || !data.success || !data.classroomId || !data.wordIds?.length) {
           throw new Error(data.error || 'Không mở được gói từ — gói có thể đã gỡ khỏi danh mục. Thử bước khác hoặc báo admin.');
         }
-        // Enrich trước khi mở phiên (tránh phiên rỗng vì translation ⏳) — best-effort, timeout 8s
         const refreshCtrl = new AbortController();
         const refreshTimer = setTimeout(() => refreshCtrl.abort(), 8000);
         try {
@@ -188,7 +228,7 @@ export default function JourneyPage() {
             signal: refreshCtrl.signal,
           });
         } catch {
-          // Vẫn mở phiên — LearnMode có fallback load theo ids
+          // LearnMode có fallback
         } finally {
           clearTimeout(refreshTimer);
         }
@@ -212,137 +252,185 @@ export default function JourneyPage() {
   };
 
   const visibleTree = useMemo(() => {
-    // Cấp bắt đầu lên đầu; cấp thấp hơn (review) xếp cuối, thu gọn
     const start = tree.filter((l) => !l.units.every((u) => u.steps.every((s) => s.status === 'review')));
     const review = tree.filter((l) => l.units.every((u) => u.steps.every((s) => s.status === 'review')));
     return { start, review };
   }, [tree]);
 
+  const enrolledTracks = useMemo(() => new Set(enrollments.map((e) => e.track)), [enrollments]);
+  const hasCefr = enrolledTracks.has('cefr');
+  const hasThpt = enrolledTracks.has('thpt');
+
+  const trackSwitcher = (
+    <div className="flex w-full max-w-md mx-auto rounded-xl border p-1 gap-1 bg-muted/40">
+      <button
+        type="button"
+        className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+          track === 'cefr' ? 'bg-background shadow text-foreground' : 'text-muted-foreground hover:text-foreground'
+        }`}
+        onClick={() => void switchTrack('cefr')}
+      >
+        🌱 CEFR{hasCefr ? '' : ' · thêm'}
+      </button>
+      <button
+        type="button"
+        className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+          track === 'thpt' ? 'bg-background shadow text-foreground' : 'text-muted-foreground hover:text-foreground'
+        }`}
+        onClick={() => void switchTrack('thpt')}
+      >
+        🎓 THPT{hasThpt ? '' : ' · thêm'}
+      </button>
+    </div>
+  );
+
   if (loading) {
     return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Đang tải lộ trình...</div>;
   }
 
-  // ── Chưa ghi danh: chọn điểm bắt đầu ──
-  if (!enrolled) {
-    if (mode === 'test') {
-      const q = questions[qIndex];
-      return (
-        <div className="mx-auto max-w-xl p-6 space-y-6">
-          <p className="text-sm text-muted-foreground">Câu {qIndex + 1}/{questions.length} · cấp {q.level}</p>
-          <h1 className="text-xl font-bold">{q.prompt}</h1>
-          {q.kind === 'listening' && q.audioWord && (
-            <Button variant="outline" onClick={() => void playWordAudio(q.audioWord!, null, 0.9)}>
-              <Volume2 className="w-4 h-4 mr-2" /> Nghe lại
+  // ── Placement UI (chưa enroll track đang xem, hoặc đổi cấp/lớp) ──
+  const showPlacement = !enrolledAny || needsPlacement || mode !== null;
+
+  if (showPlacement && mode === 'test') {
+    const q = questions[qIndex];
+    return (
+      <div className="mx-auto max-w-xl p-6 space-y-6">
+        {enrolledAny && trackSwitcher}
+        <p className="text-sm text-muted-foreground">Câu {qIndex + 1}/{questions.length} · cấp {q.level}</p>
+        <h1 className="text-xl font-bold">{q.prompt}</h1>
+        {q.kind === 'listening' && q.audioWord && (
+          <Button variant="outline" onClick={() => void playWordAudio(q.audioWord!, null, 0.9)}>
+            <Volume2 className="w-4 h-4 mr-2" /> Nghe lại
+          </Button>
+        )}
+        <div className="grid gap-3">
+          {q.options.map((opt) => (
+            <Button key={opt} variant="outline" className="justify-start h-auto py-3 text-base" disabled={submitting}
+              onClick={() => answerQuestion(q.id, opt)}>
+              {opt}
             </Button>
-          )}
-          <div className="grid gap-3">
-            {q.options.map((opt) => (
-              <Button key={opt} variant="outline" className="justify-start h-auto py-3 text-base" disabled={submitting}
-                onClick={() => answerQuestion(q.id, opt)}>
-                {opt}
-              </Button>
-            ))}
-          </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode('pick-intro')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+          ))}
         </div>
-      );
-    }
-    if (mode === 'thpt-grade') {
-      const grades = [
-        { id: 'lop-10', label: 'Grade 10 · Global Success', desc: '10 SGK units: Family Life → Ecotourism · catalog vocab + CEFR grammar.' },
-        { id: 'lop-11', label: 'Grade 11 · Global Success', desc: '10 catalog units · participle, cleft, exam skills.' },
-        { id: 'lop-12', label: 'Grade 12 · Global Success + exam 2025', desc: '7 catalog units + 2025 exam-format skills.' },
-      ];
-      return (
-        <div className="mx-auto max-w-xl p-6 space-y-4">
-          <h1 className="text-2xl font-bold">Bạn học lớp mấy?</h1>
-          <p className="text-muted-foreground">
-            Hybrid: <b>thứ tự unit theo SGK</b>, bài ngữ pháp = kho CEFR (cùng app). Chưa thay thế lộ trình A0–B2 đầy đủ.
-          </p>
-          <div className="grid gap-3">
-            {grades.map((g) => (
-              <Card key={g.id} className="cursor-pointer hover:border-primary transition-colors"
-                onClick={() => !submitting && void submitPlacement({ track: 'thpt', selfSelect: g.id })}>
-                <CardContent className="flex items-center gap-4 p-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-orange-500 text-white font-bold text-sm">{g.id.replace('lop-', '')}</span>
-                  <div>
-                    <p className="font-semibold">{g.label}</p>
-                    <p className="text-sm text-muted-foreground">{g.desc}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+        <Button variant="ghost" size="sm" onClick={() => setMode('pick-intro')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+      </div>
+    );
+  }
+
+  if (showPlacement && mode === 'thpt-grade') {
+    const grades = [
+      { id: 'lop-10', label: 'Lớp 10 · Global Success', desc: '10 unit SGK: Family Life → Ecotourism · vocab catalog + ngữ pháp CEFR.' },
+      { id: 'lop-11', label: 'Lớp 11 · Global Success', desc: 'Bắt đầu thẳng lớp 11 — không cần xong lớp 10 trên app.' },
+      { id: 'lop-12', label: 'Lớp 12 · Global Success + đề 2025', desc: 'Bắt đầu thẳng lớp 12 — ôn unit + dạng đề tốt nghiệp.' },
+    ];
+    return (
+      <div className="mx-auto max-w-xl p-6 space-y-4">
+        {enrolledAny && trackSwitcher}
+        <h1 className="text-2xl font-bold">Bạn học lớp mấy?</h1>
+        <p className="text-muted-foreground">
+          Chọn <b>đúng lớp đang học</b> — lớp 11/12 được, không bắt buộc từ lớp 10.
+          Lớp thấp hơn (nếu có) mở tự do để ôn.
+        </p>
+        <div className="grid gap-3">
+          {grades.map((g) => (
+            <Card key={g.id} className="cursor-pointer hover:border-primary transition-colors"
+              onClick={() => !submitting && void submitPlacement({ track: 'thpt', selfSelect: g.id })}>
+              <CardContent className="flex items-center gap-4 p-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-orange-500 text-white font-bold text-sm">{g.id.replace('lop-', '')}</span>
+                <div>
+                  <p className="font-semibold">{g.label}</p>
+                  <p className="text-sm text-muted-foreground">{g.desc}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      );
-    }
-    if (mode === 'pick') {
-      const levels = [
-        { id: 'A0', label: 'Mất gốc', desc: 'Bắt đầu từ con số 0 — chưa tự tin câu nào.' },
-        { id: 'A1', label: 'Sơ cấp 1', desc: 'Biết chào hỏi, câu đơn giản về bản thân.' },
-        { id: 'A2', label: 'Sơ cấp 2', desc: 'Giao tiếp tình huống quen: mua sắm, đi lại.' },
-        { id: 'B1', label: 'Trung cấp', desc: 'Nói được ý kiến, kể chuyện, đọc bài trung bình.' },
-        { id: 'B2', label: 'Trung cao', desc: 'Tự tin tranh luận, hướng tới học thuật/luyện thi.' },
-      ];
-      return (
-        <div className="mx-auto max-w-xl p-6 space-y-4">
-          <h1 className="text-2xl font-bold">Bạn đang ở đâu?</h1>
-          <p className="text-muted-foreground">Chọn cấp mô tả đúng bạn nhất — có thể đổi sau bất cứ lúc nào.</p>
-          <div className="grid gap-3">
-            {levels.map((l) => (
-              <Card key={l.id} className="cursor-pointer hover:border-primary transition-colors"
-                onClick={() => !submitting && void submitPlacement({ selfSelect: l.id })}>
-                <CardContent className="flex items-center gap-4 p-4">
-                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${LEVEL_COLORS[l.id]} text-white font-bold`}>{l.id}</span>
-                  <div>
-                    <p className="font-semibold">{l.label}</p>
-                    <p className="text-sm text-muted-foreground">{l.desc}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+        {enrolledAny ? (
+          <Button variant="ghost" size="sm" onClick={() => void switchTrack(hasCefr ? 'cefr' : 'thpt')}>
+            <ArrowLeft className="w-4 h-4 mr-1" /> Quay lại lộ trình
+          </Button>
+        ) : (
+          <Button variant="ghost" size="sm" onClick={() => setMode(null)}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+        )}
+      </div>
+    );
+  }
+
+  if (showPlacement && mode === 'pick') {
+    const levels = [
+      { id: 'A0', label: 'Mất gốc', desc: 'Bắt đầu từ con số 0 — chưa tự tin câu nào.' },
+      { id: 'A1', label: 'Sơ cấp 1', desc: 'Biết chào hỏi, câu đơn giản về bản thân.' },
+      { id: 'A2', label: 'Sơ cấp 2', desc: 'Giao tiếp tình huống quen: mua sắm, đi lại.' },
+      { id: 'B1', label: 'Trung cấp', desc: 'Nói được ý kiến, kể chuyện, đọc bài trung bình.' },
+      { id: 'B2', label: 'Trung cao', desc: 'Tự tin tranh luận, hướng tới học thuật/luyện thi.' },
+    ];
+    return (
+      <div className="mx-auto max-w-xl p-6 space-y-4">
+        {enrolledAny && trackSwitcher}
+        <h1 className="text-2xl font-bold">Bạn đang ở đâu?</h1>
+        <p className="text-muted-foreground">Chọn cấp mô tả đúng bạn nhất — có thể đổi sau. Lộ trình THPT vẫn mở song song.</p>
+        <div className="grid gap-3">
+          {levels.map((l) => (
+            <Card key={l.id} className="cursor-pointer hover:border-primary transition-colors"
+              onClick={() => !submitting && void submitPlacement({ track: 'cefr', selfSelect: l.id })}>
+              <CardContent className="flex items-center gap-4 p-4">
+                <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${LEVEL_COLORS[l.id]} text-white font-bold`}>{l.id}</span>
+                <div>
+                  <p className="font-semibold">{l.label}</p>
+                  <p className="text-sm text-muted-foreground">{l.desc}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      );
-    }
-    if (mode === 'pick-intro') {
-      return (
-        <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center">
-          <div className="text-6xl">🗺️</div>
-          <h1 className="text-3xl font-bold">Lộ trình học của bạn</h1>
-          <p className="text-muted-foreground">Học theo từng chặng nhỏ: từ vựng + ngữ pháp + phát âm đi cùng nhau, mở khóa dần từ dễ đến khó. Trước tiên, mình cần biết bạn nên bắt đầu từ đâu.</p>
-          <div className="grid w-full gap-3">
-            <Button variant="chunky" size="lg" onClick={() => void startTest()}>⚡ Kiểm tra trình độ (~4 phút · 35 câu)</Button>
-            <Button variant="outline" size="lg" onClick={() => setMode('pick')}>Tôi tự chọn cấp</Button>
-          </div>
-          <Button variant="ghost" size="sm" onClick={() => setMode('track')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+        <Button variant="ghost" size="sm" onClick={() => setMode('pick-intro')}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+      </div>
+    );
+  }
+
+  if (showPlacement && mode === 'pick-intro') {
+    return (
+      <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center">
+        {enrolledAny && trackSwitcher}
+        <div className="text-6xl">🗺️</div>
+        <h1 className="text-3xl font-bold">Lộ trình CEFR</h1>
+        <p className="text-muted-foreground">
+          Học theo chặng nhỏ: từ vựng + ngữ pháp + phát âm. Có thể học thêm THPT song song — không mất tiến độ.
+        </p>
+        <div className="grid w-full gap-3">
+          <Button variant="chunky" size="lg" onClick={() => void startTest()}>⚡ Kiểm tra trình độ (~4 phút · 35 câu)</Button>
+          <Button variant="outline" size="lg" onClick={() => setMode('pick')}>Tôi tự chọn cấp</Button>
         </div>
-      );
-    }
-    // mode === 'track' (mặc định): chọn loại lộ trình
+        {!enrolledAny && (
+          <Button variant="ghost" size="sm" onClick={() => setMode(null)}><ArrowLeft className="w-4 h-4 mr-1" /> Quay lại</Button>
+        )}
+      </div>
+    );
+  }
+
+  // Chưa ghi danh track nào + chưa vào form cụ thể → chọn hướng (cả 2 đều mở được sau)
+  if (!enrolledAny) {
     return (
       <div
         className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center"
         data-onboarding="journey-main"
       >
         <div className="text-6xl">🧭</div>
-        <h1 className="text-3xl font-bold">Bạn muốn học theo hướng nào?</h1>
-        <p className="text-muted-foreground">Chọn lộ trình phù hợp mục tiêu — có thể đổi sau.</p>
+        <h1 className="text-3xl font-bold">Chọn lộ trình bắt đầu</h1>
+        <p className="text-muted-foreground">
+          Hai lộ trình <b>song song</b> — chọn một để bắt đầu, mở thêm cái kia bất cứ lúc nào. Không bị khóa &quot;hoặc CEFR hoặc THPT&quot;.
+        </p>
         <div className="grid w-full gap-3">
-          <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => setMode('pick-intro')}>
+          <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => { setTrack('cefr'); setMode('pick-intro'); }}>
             <CardContent className="p-4">
               <p className="font-bold">🌱 Lộ trình chuẩn CEFR (A0 → B2)</p>
               <p className="text-sm text-muted-foreground">Học tổng quát từ mất gốc đến trung cao: từ vựng + ngữ pháp + phát âm giọng thật.</p>
             </CardContent>
           </Card>
-          <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => setMode('thpt-grade')}>
+          <Card className="cursor-pointer hover:border-primary transition-colors text-left" onClick={() => { setTrack('thpt'); setMode('thpt-grade'); }}>
             <CardContent className="p-4">
-              <p className="font-bold">🎓 THPT · Global Success (Lớp 10 → 12)</p>
+              <p className="font-bold">🎓 THPT · Global Success (Lớp 10 / 11 / 12)</p>
               <p className="text-sm text-muted-foreground">
-                Bám đúng unit SGK (từ vựng trong kho) · ngữ pháp sâu theo bài CEFR · rải dạng đề tốt nghiệp 2025.
-                Nền tảng đầy đủ A0–B2 vẫn học song song ở lộ trình CEFR.
+                Chọn thẳng lớp đang học (11 hay 12 được). Bám unit SGK + dạng đề 2025. CEFR vẫn mở thêm sau.
               </p>
             </CardContent>
           </Card>
@@ -352,7 +440,7 @@ export default function JourneyPage() {
     );
   }
 
-  // ── Path map ──
+  // ── Path map (đã ghi danh track đang xem) ──
   return (
     <StudentShell title="Lộ trình">
       <div className="mx-auto max-w-2xl p-4 pb-24 space-y-8" data-onboarding="journey-main">
@@ -370,14 +458,31 @@ export default function JourneyPage() {
         <Link href="/student"><Button variant="ghost" size="sm"><ArrowLeft className="w-4 h-4 mr-1" /> Dashboard</Button></Link>
       </div>
 
+      {trackSwitcher}
+
+      <div className="flex flex-wrap gap-2">
+        {track === 'thpt' ? (
+          <Button variant="outline" size="sm" onClick={() => setMode('thpt-grade')}>Đổi lớp (10 / 11 / 12)</Button>
+        ) : (
+          <Button variant="outline" size="sm" onClick={() => setMode('pick-intro')}>Đổi cấp CEFR</Button>
+        )}
+        {!hasCefr && track === 'thpt' && (
+          <Button variant="outline" size="sm" onClick={() => void switchTrack('cefr')}>+ Mở lộ trình CEFR</Button>
+        )}
+        {!hasThpt && track === 'cefr' && (
+          <Button variant="outline" size="sm" onClick={() => void switchTrack('thpt')}>+ Mở lộ trình THPT</Button>
+        )}
+      </div>
+
       {track === 'thpt' || levelId.startsWith('lop-') ? (
         <p className="rounded-xl border border-sky-200/80 bg-sky-50/80 px-3 py-2 text-xs text-sky-950 dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-100">
-          <b>Hybrid THPT:</b> mỗi Unit = từ vựng Global Success (kho catalog) + bài ngữ pháp CEFR (cùng FSRS với track A0–B2).
-          Muốn nền tảng đủ 5 cấp CEFR → đổi sang lộ trình CEFR (chọn lại điểm bắt đầu).
+          <b>Hybrid THPT:</b> mỗi Unit = từ vựng Global Success + ngữ pháp CEFR (cùng FSRS).
+          Lớp dưới cấp bạn chọn = ôn tự do. Tab <b>CEFR</b> luôn mở song song.
         </p>
       ) : (
         <p className="rounded-xl border border-amber-200/80 bg-amber-50/80 px-3 py-2 text-xs text-amber-900 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
           {getExitDisclaimer()}
+          {' '}Tab <b>THPT</b> để luyện theo lớp SGK — không mất tiến độ CEFR.
         </p>
       )}
 
@@ -460,7 +565,9 @@ export default function JourneyPage() {
 
       {visibleTree.review.length > 0 && (
         <details className="rounded-xl border p-4">
-          <summary className="cursor-pointer font-semibold text-muted-foreground">Cấp thấp hơn (ôn tự do)</summary>
+          <summary className="cursor-pointer font-semibold text-muted-foreground">
+            {track === 'thpt' ? 'Lớp thấp hơn (ôn tự do)' : 'Cấp thấp hơn (ôn tự do)'}
+          </summary>
           <div className="mt-3 space-y-2">
             {visibleTree.review.map((level) => (
               <div key={level.id} className="text-sm text-muted-foreground">

@@ -23,11 +23,11 @@ export async function GET(req: NextRequest) {
 }
 
 /**
- * POST /api/roadmap/placement — xếp cấp + ghi danh lộ trình.
+ * POST /api/roadmap/placement — xếp cấp + ghi danh 1 track (không đè track kia).
  * Body:
- *   CEFR: { answers } HOẶC { selfSelect: 'A0'..'B2' }
- *   THPT: { track: 'thpt', selfSelect: 'lop-10'|'lop-11'|'lop-12' } (chọn lớp thẳng, không test)
- * Idempotent: đổi track/cấp = upsert.
+ *   CEFR: { track?: 'cefr', answers } HOẶC { track?: 'cefr', selfSelect: 'A0'..'B2' }
+ *   THPT: { track: 'thpt', selfSelect: 'lop-10'|'lop-11'|'lop-12' } (chọn lớp thẳng, 10/11/12 đều được)
+ * Upsert theo (user_id, track) — migration 20260716_roadmap_multi_track.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -58,15 +58,20 @@ export async function POST(req: NextRequest) {
     }
 
     const supabase = createServiceClient();
-    const { error } = await supabase.from('user_roadmap').upsert({
+    const row = {
       user_id: auth.userId,
       roadmap_version: ROADMAP_VERSION,
       track,
       level_id: levelId,
       placement: placementRecord,
       updated_at: new Date().toISOString(),
-    }, { onConflict: 'user_id' });
-    if (error) throw new Error(error.message);
+    };
+    // Multi-track PK (user_id, track). Fallback schema cũ PK user_id (ghi đè 1 hàng).
+    const { error } = await supabase.from('user_roadmap').upsert(row, { onConflict: 'user_id,track' });
+    if (error) {
+      const { error: legacyErr } = await supabase.from('user_roadmap').upsert(row, { onConflict: 'user_id' });
+      if (legacyErr) throw new Error(legacyErr.message);
+    }
 
     return NextResponse.json({ success: true, data: { track, levelId } });
   } catch (err) {

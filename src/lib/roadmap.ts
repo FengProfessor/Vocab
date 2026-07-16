@@ -96,6 +96,15 @@ export function resolveStep(stepId: string, track: RoadmapTrack = 'cefr'): StepE
   return stepIndexByTrack[track].get(stepId) ?? null;
 }
 
+/** Tra step ở cả 2 track (step_id không trùng giữa artifact). Dùng khi progress không biết track. */
+export function resolveStepAny(stepId: string): { entry: StepEntry; track: RoadmapTrack } | null {
+  for (const track of ['cefr', 'thpt'] as const) {
+    const entry = stepIndexByTrack[track].get(stepId);
+    if (entry) return { entry, track };
+  }
+  return null;
+}
+
 export function resolveUnit(unitId: string, track: RoadmapTrack = 'cefr'): { unit: RoadmapUnit; level: RoadmapLevel } | null {
   for (const level of artifactOf(track).levels) {
     const unit = level.units.find((u) => u.id === unitId);
