@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import type { GrammarExample } from '@/lib/supabase';
-import { getAuthUser, unauthorized, checkRateLimitAsync, getClientIp } from '@/lib/api-security';
+import { getAuthUser, unauthorized, getClientIp } from '@/lib/api-security';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 /** Chỉ admin trong whitelist mới được tạo/sửa/xoá lesson. */
 const ADMIN_EMAILS = new Set(
@@ -32,20 +33,14 @@ export async function GET(req: Request) {
     const id = searchParams.get('id');
     const topicId = searchParams.get('topicId');
 
-    // Chống scrape bulk: dump toàn bộ (không id/topic) siết RL + bỏ CDN public
+    // Chống scrape bulk: multi-window RL + bulk không CDN
     const ip = getClientIp(req);
     const isBulkList = !id && !topicId;
-    const rl = await checkRateLimitAsync(
+    const denied = await assertScrapeQuota(
       isBulkList ? `grammar-lessons-bulk:${ip}` : `grammar-lessons:${ip}`,
-      isBulkList ? 10 : 60,
-      60_000,
+      isBulkList ? QUOTA.grammarBulk : QUOTA.grammarTopic,
     );
-    if (!rl.allowed) {
-      return NextResponse.json(
-        { success: false, error: 'Too many requests' },
-        { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } },
-      );
-    }
+    if (denied) return denied;
 
     const supabase = createServiceClient();
 

@@ -6,6 +6,8 @@
  */
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { getAuthUser, unauthorized, getClientIp } from '@/lib/api-security';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 export interface WordGloss {
   pos: string;
@@ -101,6 +103,17 @@ function pickGloss(row: GdRow): WordGloss {
 
 export async function POST(req: Request) {
   try {
+    // Bắt buộc đăng nhập — chống dump global_dictionary ẩn danh
+    const auth = await getAuthUser(req);
+    if (!auth) return unauthorized();
+
+    const ip = getClientIp(req);
+    const denied = await assertScrapeQuota(
+      `library-gloss:${auth.userId}:${ip}`,
+      QUOTA.contentList,
+    );
+    if (denied) return denied;
+
     const body = (await req.json()) as { words?: unknown };
     if (!Array.isArray(body.words)) {
       return NextResponse.json({ success: false, error: 'words[] required' }, { status: 400 });
@@ -118,9 +131,10 @@ export async function POST(req: Request) {
     if (words.length === 0) {
       return NextResponse.json({ success: true, glosses: {} as Record<string, WordGloss> });
     }
-    if (words.length > 800) {
+    // Cap 120 — đủ 1 unit PDF; chặn dump 800 từ/request
+    if (words.length > 120) {
       return NextResponse.json(
-        { success: false, error: 'Tối đa 800 từ / lần xuất PDF' },
+        { success: false, error: 'Tối đa 120 từ / lần (chống cào dữ liệu)' },
         { status: 400 },
       );
     }

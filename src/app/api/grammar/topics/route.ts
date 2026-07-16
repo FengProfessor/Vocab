@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, type GrammarTopic } from '@/lib/supabase';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getAuthUser, unauthorized, getClientIp } from '@/lib/api-security';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 /** Chỉ admin trong whitelist mới được tạo/sửa chủ đề. */
 const ADMIN_EMAILS = new Set(
@@ -22,8 +23,12 @@ async function isAdmin(userId: string): Promise<boolean> {
 type GrammarTopicJoined = GrammarTopic & { grammar_lessons?: { count: number }[] };
 
 /** GET /api/grammar/topics — danh sách lộ trình chủ đề ngữ pháp + số bài học. */
-export async function GET(): Promise<NextResponse> {
+export async function GET(req: Request): Promise<NextResponse> {
   try {
+    const ip = getClientIp(req);
+    const denied = await assertScrapeQuota(`grammar-topics:${ip}`, QUOTA.contentList);
+    if (denied) return denied;
+
     const supabase = createServiceClient();
     const { data, error } = await supabase
       .from('grammar_topics')

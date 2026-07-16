@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
+import { getClientIp } from '@/lib/api-security';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 // Gợi ý từ từ global_dictionary khi user đang gõ (autocomplete)
 export const dynamic = 'force-dynamic';
@@ -23,15 +24,9 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ success: false, error: 'q contains invalid characters' }, { status: 400 });
   }
 
-  // Rate limit theo IP: 60 req/60s
   const ip = getClientIp(req);
-  const rl = await checkRateLimitAsync(`suggest:${ip}`, 60, 60_000);
-  if (!rl.allowed) {
-    return NextResponse.json(
-      { success: false, error: 'Too many requests' },
-      { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } }
-    );
-  }
+  const denied = await assertScrapeQuota(`suggest:${ip}`, QUOTA.dictSuggest);
+  if (denied) return denied;
 
   const supabase = createServiceClient();
   const pattern = escapeLikePattern(q) + '%';

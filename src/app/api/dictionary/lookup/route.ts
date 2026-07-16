@@ -1,15 +1,16 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
+import { getClientIp } from '@/lib/api-security';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 /**
  * GET /api/dictionary/lookup?word=X
  *
  * Tra global_dictionary — Extension / Desktop.
- * - Rate limit IP (spam double-click)
+ * - Multi-window RL (phút/giờ/ngày) chống cào dump
  * - ttl-cache 60s/instance (thundering herd cùng word)
- * - CDN SWR ngắn (5 phút) — backfill có thể cập nhật synonym/family
+ * - CDN SWR ngắn
  */
 
 type CachedPayload = {
@@ -37,17 +38,8 @@ export async function GET(req: Request) {
   }
 
   const ip = getClientIp(req);
-  // Siết scrape dump từ điển (trước 90/phút → 40/phút/IP)
-  const rl = await checkRateLimitAsync(`dict-lookup:${ip}`, 40, 60_000);
-  if (!rl.allowed) {
-    return NextResponse.json(
-      { success: false, error: 'Too many requests. Please wait.' },
-      {
-        status: 429,
-        headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) },
-      },
-    );
-  }
+  const denied = await assertScrapeQuota(`dict-lookup:${ip}`, QUOTA.dictLookup);
+  if (denied) return denied;
 
   const cacheKey = `dict-lookup:${word}`;
   const cached = cacheGet<CachedPayload>(cacheKey);

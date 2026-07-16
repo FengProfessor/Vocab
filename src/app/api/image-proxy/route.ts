@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dns from 'dns/promises';
 import net from 'net';
-import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
+import { getClientIp } from '@/lib/api-security';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 /**
  * Image proxy with open-proxy hardening:
@@ -127,16 +128,8 @@ async function assertSafeImageUrl(urlStr: string): Promise<{ ok: true } | { ok: 
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   const ip = getClientIp(req);
-  const rl = await checkRateLimitAsync(`image-proxy:${ip}`, 60, 60_000);
-  if (!rl.allowed) {
-    return NextResponse.json(
-      { success: false, error: 'Rate limit exceeded' },
-      {
-        status: 429,
-        headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) },
-      },
-    );
-  }
+  const denied = await assertScrapeQuota(`image-proxy:${ip}`, QUOTA.imageProxy);
+  if (denied) return denied;
 
   const url = req.nextUrl.searchParams.get('url');
   if (!url) {

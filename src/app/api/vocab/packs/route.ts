@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getAuthUser, isValidString } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 export const dynamic = 'force-dynamic';
 
@@ -148,6 +149,9 @@ export async function GET(req: Request): Promise<NextResponse> {
   try {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
+
+    const denied = await assertScrapeQuota(`vocab-packs:${auth.userId}`, QUOTA.contentList);
+    if (denied) return denied;
 
     const packId = new URL(req.url).searchParams.get('packId')?.trim();
     if (packId !== undefined && !isValidString(packId, 500)) {

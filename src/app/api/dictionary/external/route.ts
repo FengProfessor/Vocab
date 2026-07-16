@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
+import { getClientIp } from '@/lib/api-security';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 /**
  * GET /api/dictionary/external?word=X
@@ -23,18 +24,9 @@ export async function GET(req: Request) {
     );
   }
 
-  // Rate limit theo IP: 30 req / 60s
   const ip = getClientIp(req);
-  const rl = await checkRateLimitAsync(`ext:${ip}`, 30, 60_000);
-  if (!rl.allowed) {
-    return NextResponse.json(
-      { success: false, error: 'Too many requests. Please wait.' },
-      {
-        status: 429,
-        headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) },
-      }
-    );
-  }
+  const denied = await assertScrapeQuota(`ext:${ip}`, QUOTA.dictExternal);
+  if (denied) return denied;
 
   try {
     const word = encodeURIComponent(raw);

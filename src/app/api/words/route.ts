@@ -11,6 +11,7 @@ import {
   checkRateLimitAsync,
   userCanWriteClassroom,
 } from '@/lib/api-security';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { checkWordSaveQuota, resolvePlanByUserId } from '@/lib/entitlement';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 
@@ -601,12 +602,17 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (!auth) return unauthorized();
     const userId = auth.userId;
 
+    // Chống dump pagination (offset tăng liên tục) — đủ cho học/dashboard
+    const listDenied = await assertScrapeQuota(`words-list:${userId}`, QUOTA.wordsList);
+    if (listDenied) return listDenied;
+
     const { searchParams } = new URL(req.url);
     let classroomId = searchParams.get('classroomId') || '';
     const summary = searchParams.get('summary') === '1';
     const includeLevels = searchParams.get('levels') === '1';
     const filter = searchParams.get('filter'); // 'review' = từ đã học & đến hạn | 'new' = từ chưa học (review_count=0)
-    const limit = Math.min(500, Math.max(1, parseInt(searchParams.get('limit') || '100', 10)));
+    // Cap page size — cào full kho bằng limit=500 bị chặn
+    const limit = Math.min(50, Math.max(1, parseInt(searchParams.get('limit') || '20', 10)));
     const offset = Math.max(0, parseInt(searchParams.get('offset') || '0', 10));
     const idsParam = searchParams.get('ids');
     const parsedIds = idsParam === null
