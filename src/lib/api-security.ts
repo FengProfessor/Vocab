@@ -369,11 +369,19 @@ export function tooManyRequests(): NextResponse {
  * Prevents internal details and stack traces from leaking to client.
  */
 export function safeErrorResponse(err: unknown, customMessage?: string, status = 500): NextResponse {
-  const msg = err instanceof Error ? err.message : String(err);
-  console.error(`[API Error] Status ${status}:`, msg, err instanceof Error ? err.stack : '');
-  
-  const clientMsg = process.env.NODE_ENV === 'production' 
-    ? (customMessage || 'Internal Server Error') 
+  // Supabase/Postgrest error = plain object { message, code, details } — không phải Error
+  let msg: string;
+  if (err instanceof Error) {
+    msg = err.message;
+  } else if (err && typeof err === 'object' && 'message' in err) {
+    msg = String((err as { message?: unknown }).message ?? err);
+  } else {
+    msg = String(err);
+  }
+  console.error(`[API Error] Status ${status}:`, msg, err instanceof Error ? err.stack : err);
+
+  const clientMsg = process.env.NODE_ENV === 'production'
+    ? (customMessage || 'Internal Server Error')
     : msg;
     
   return NextResponse.json({ success: false, error: clientMsg }, { status });

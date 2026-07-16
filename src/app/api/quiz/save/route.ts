@@ -31,14 +31,14 @@ export async function POST(req: Request) {
 
     const supabase = createServiceClient();
 
-    // Fallback if classroomId is missing: find personal classroom
+    // Fallback: personal classroom = '__personal__' (khớp getOrCreatePersonalClassroom)
     if (!finalClassroomId) {
       const { data: cls } = await supabase
         .from('classrooms')
         .select('id')
-        .eq('name', 'Personal')
+        .eq('name', '__personal__')
         .eq('teacher_id', userId)
-        .single();
+        .maybeSingle();
       if (cls) finalClassroomId = cls.id;
     }
 
@@ -46,8 +46,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, error: 'classroomId is required' }, { status: 400 });
     }
 
-    const accuracyPct = Math.round((score / totalQuestions) * 100);
-
+    // accuracy là GENERATED column (score/total) — KHÔNG insert tay
     const { data, error } = await supabase
       .from('quiz_results')
       .insert({
@@ -56,13 +55,19 @@ export async function POST(req: Request) {
         quiz_type: validQuizType,
         score,
         total_questions: totalQuestions,
-        accuracy: accuracyPct,
       })
       .select()
       .single();
 
     if (error) {
-      return safeErrorResponse(error, 'Failed to save quiz results to database');
+      const dbMsg = typeof error === 'object' && error && 'message' in error
+        ? String((error as { message?: string }).message)
+        : 'db error';
+      console.error('[QuizSave] insert failed:', dbMsg, error);
+      return NextResponse.json(
+        { success: false, error: 'Failed to save quiz results' },
+        { status: 500 },
+      );
     }
 
     // Award XP + streak. PHẢI await: supabase builder lazy thenable,
