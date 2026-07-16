@@ -11,11 +11,94 @@ import {
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
 import { speak } from '@/lib/study';
+import { canUseErrorClickMode, sanitizeDrillExercises } from '@/lib/grammar-exercises';
 
-/** Đọc câu tiếng Anh — voice EN tường minh (tránh giọng Việt). */
+/** Bump khi đổi shape/logic drill — bỏ localStorage session cũ (type/options sai). */
+const GRAMMAR_STATE_VER = 'v2';
+
+function grammarStateKey(userId: string, kind: 'review' | 'lesson' | 'class', id?: string | null): string {
+  if (kind === 'review') return `lingopro_grammar_state_${GRAMMAR_STATE_VER}_${userId}_review`;
+  if (kind === 'lesson') return `lingopro_grammar_state_${GRAMMAR_STATE_VER}_${userId}_lesson_${id}`;
+  return `lingopro_grammar_state_${GRAMMAR_STATE_VER}_${userId}_class_${id}`;
+}
+
+/** Có dấu tiếng Việt → gần như chắc là VI. */
+function hasVietnameseDiacritics(s: string): boolean {
+  return /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(s);
+}
+
+/**
+ * Trích phần tiếng Anh để TTS.
+ * - Câu thuần Việt → null (không hiện nút nghe)
+ * - Câu mix VI + EN (quote / sau → / sau :) → chỉ lấy đoạn EN
+ * - Câu EN → đọc cả câu (đã strip markdown / blank)
+ *
+ * Không scan mảnh Latin rời trong câu có dấu Việt (tránh "o SAI ng" từ "Câu nào SAI ngữ…").
+ */
+function extractEnglishForSpeech(raw: string): string | null {
+  if (!raw?.trim()) return null;
+
+  const cleaned = raw
+    .replace(/^find\s+the\s+error:\s*/i, '')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/_{2,}/g, 'blank')
+    .trim();
+
+  const looksEnglish = (s: string): boolean => {
+    const t = s.trim();
+    if (!t || hasVietnameseDiacritics(t)) return false;
+    const words = t.match(/[A-Za-z]+(?:'[A-Za-z]+)?/g) ?? [];
+    if (words.length === 0) return false;
+    // Bỏ token ngắn (A/B, OK…)
+    const real = words.filter((w) => w.length >= 2);
+    if (real.length === 0) return false;
+    // 1 từ: chỉ nhận nếu đủ dài (studied) — tránh "SAI"
+    if (real.length === 1) return real[0].length >= 4;
+    return true;
+  };
+
+  const normalizeSpeak = (s: string) =>
+    s
+      .replace(/^[\s"'“”‘’`→:\-–—]+|[\s"'“”‘’`]+$/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+  // 1) Ưu tiên đoạn trong ngoặc kép / nháy đơn
+  const quoted = [...cleaned.matchAll(/["'“”‘’`]([^"'“”‘’`]{2,})["'“”‘’`]/g)]
+    .map((m) => normalizeSpeak(m[1]))
+    .filter((q) => looksEnglish(q));
+  if (quoted.length > 0) return quoted.join('. ');
+
+  // 2) Sau mũi tên → thường là câu ví dụ EN
+  if (cleaned.includes('→')) {
+    const after = normalizeSpeak(cleaned.split('→').slice(1).join(' '));
+    if (looksEnglish(after)) return after;
+  }
+
+  // 3) Sau dấu hai chấm (Complete the sentence: She has…)
+  const segments = cleaned.split(/[:：]\s*/);
+  if (segments.length > 1) {
+    const enSegs = segments
+      .slice(1)
+      .map((s) => normalizeSpeak(s))
+      .filter((s) => looksEnglish(s));
+    if (enSegs.length > 0) return enSegs.join('. ');
+  }
+
+  // 4) Cả câu là tiếng Anh (không có dấu Việt)
+  if (!hasVietnameseDiacritics(cleaned) && looksEnglish(cleaned)) {
+    return normalizeSpeak(cleaned);
+  }
+
+  return null;
+}
+
+/** Đọc tiếng Anh — chỉ gọi khi đã extractEnglishForSpeech. */
 function speakEnglish(text: string) {
-  if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-  speak(text, 0.9);
+  if (typeof window === 'undefined') return;
+  const en = extractEnglishForSpeech(text);
+  if (!en) return;
+  speak(en, 0.9);
 }
 
 /**
@@ -302,18 +385,21 @@ function GrammarContent() {
         });
         const data = await res.json();
         if (data.success && data.data?.length > 0) {
-          rawExercises.current = data.data;
+          const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
+          rawExercises.current = cleaned;
 
           // Check if there is saved progress
-          const savedKey = `lingopro_grammar_state_${user.id}_review`;
+          const savedKey = grammarStateKey(user.id, 'review');
           const saved = localStorage.getItem(savedKey);
           if (saved) {
             try {
               const parsed = JSON.parse(saved);
               if (parsed && parsed.exercises && parsed.exercises.length > 0) {
-                setExercises(parsed.exercises);
-                setCurrent(parsed.exercises[parsed.qIndex]);
-                setQIndex(parsed.qIndex);
+                const restored = sanitizeDrillExercises(parsed.exercises as GrammarExercise[]);
+                const qi = Math.min(parsed.qIndex ?? 0, restored.length - 1);
+                setExercises(restored);
+                setCurrent(restored[qi]);
+                setQIndex(qi);
                 setSelected(parsed.selected);
                 setTypedAnswer(parsed.typedAnswer || '');
                 setShowExplanation(parsed.showExplanation || false);
@@ -330,7 +416,7 @@ function GrammarContent() {
             }
           }
 
-          startSession(data.data);
+          startSession(cleaned);
         } else {
           toast.success('Tuyệt vời! Bạn không có câu sai nào trong 14 ngày qua.');
         }
@@ -350,21 +436,24 @@ function GrammarContent() {
       });
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
-        rawExercises.current = data.data;
+        const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
+        rawExercises.current = cleaned;
 
-        // Check if there is saved progress
+        // Check if there is saved progress (key v2 — bỏ session cũ type/options sai)
         if (user) {
-          const savedKey = lessonId 
-            ? `lingopro_grammar_state_${user.id}_lesson_${lessonId}` 
-            : `lingopro_grammar_state_${user.id}_class_${classroomId}`;
+          const savedKey = lessonId
+            ? grammarStateKey(user.id, 'lesson', lessonId)
+            : grammarStateKey(user.id, 'class', classroomId);
           const saved = localStorage.getItem(savedKey);
           if (saved) {
             try {
               const parsed = JSON.parse(saved);
               if (parsed && parsed.exercises && parsed.exercises.length > 0) {
-                setExercises(parsed.exercises);
-                setCurrent(parsed.exercises[parsed.qIndex]);
-                setQIndex(parsed.qIndex);
+                const restored = sanitizeDrillExercises(parsed.exercises as GrammarExercise[]);
+                const qi = Math.min(parsed.qIndex ?? 0, restored.length - 1);
+                setExercises(restored);
+                setCurrent(restored[qi]);
+                setQIndex(qi);
                 setSelected(parsed.selected);
                 setTypedAnswer(parsed.typedAnswer || '');
                 setShowExplanation(parsed.showExplanation || false);
@@ -382,7 +471,7 @@ function GrammarContent() {
           }
         }
 
-        startSession(data.data);
+        startSession(cleaned);
       } else {
         toast.error('Chưa có bài tập grammar cho lớp này.');
       }
@@ -397,11 +486,11 @@ function GrammarContent() {
 
     let key = '';
     if (reviewMode) {
-      key = `lingopro_grammar_state_${userId}_review`;
+      key = grammarStateKey(userId, 'review');
     } else if (lessonId) {
-      key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
+      key = grammarStateKey(userId, 'lesson', lessonId);
     } else if (classroomId) {
-      key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
+      key = grammarStateKey(userId, 'class', classroomId);
     }
 
     if (key) {
@@ -420,7 +509,8 @@ function GrammarContent() {
   }, [exercises, qIndex, selected, typedAnswer, showExplanation, score, done, startTime, userId, isLoading, reviewMode, lessonId, classroomId]);
 
   const startSession = (source: GrammarExercise[]) => {
-    const shuffled = [...source].sort(() => Math.random() - 0.5);
+    const cleaned = sanitizeDrillExercises(source);
+    const shuffled = [...cleaned].sort(() => Math.random() - 0.5);
     setExercises(shuffled);
     setCurrent(shuffled[0]);
     setQIndex(0);
@@ -437,9 +527,9 @@ function GrammarContent() {
   const handleRetry = () => {
     if (userId) {
       let key = '';
-      if (reviewMode) key = `lingopro_grammar_state_${userId}_review`;
-      else if (lessonId) key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
-      else if (classroomId) key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
+      if (reviewMode) key = grammarStateKey(userId, 'review');
+      else if (lessonId) key = grammarStateKey(userId, 'lesson', lessonId);
+      else if (classroomId) key = grammarStateKey(userId, 'class', classroomId);
       if (key) localStorage.removeItem(key);
     }
     startSession(rawExercises.current);
@@ -473,6 +563,7 @@ function GrammarContent() {
       }
 
       if (data.success && data.data && data.data.length > 0) {
+        data.data = sanitizeDrillExercises(data.data as GrammarExercise[]);
         rawExercises.current = data.data;
         startSession(data.data);
         track('grammar_quiz_generated', { lessonId, count: data.data.length });
@@ -648,6 +739,13 @@ function GrammarContent() {
 
   if (!current) return null;
 
+  // An toàn: options null/undefined → []; error_correction chỉ khi click-trong-câu khả thi
+  const options = Array.isArray(current.options) ? current.options : [];
+  const useErrorClick = current.type === 'error_correction' && canUseErrorClickMode(current.question, options);
+  const answersMatch = (a: string | null, b: string | undefined) =>
+    !!a && !!b && a.trim().toLowerCase() === b.trim().toLowerCase();
+  const isCorrectSelected = answersMatch(selected, current.correct_answer);
+
   /* ── Quiz ─────────────────────────────────────────────────── */
   return (
     <main className="min-h-dvh flex flex-col bg-gradient-to-br from-primary/5 to-muted/40">
@@ -687,7 +785,7 @@ function GrammarContent() {
           className={[
             'w-full max-w-lg bg-background border rounded-2xl p-6 shadow-2xl shadow-primary/10 transition-all duration-300',
             selected
-              ? selected === current.correct_answer
+              ? isCorrectSelected
                 ? 'border-emerald-400 shadow-emerald-100'
                 : 'border-red-300 shadow-red-100'
               : '',
@@ -697,47 +795,44 @@ function GrammarContent() {
             <div className="flex items-center gap-2">
               <p className="text-xs font-bold text-primary uppercase tracking-widest">
                 {current.topic} · {current.level}
-                {current.type === 'error_correction' && ' · TÌM LỖI'}
+                {useErrorClick && ' · TÌM LỖI'}
                 {current.type === 'fill_blank' && ' · ĐIỀN CHỖ TRỐNG'}
               </p>
-              <button
-                type="button"
-                onClick={() => {
-                  const textToRead = current.question
-                    .replace(/^find\s+the\s+error:\s*/i, '')
-                    .replace(/_{2,}/g, 'something')
-                    .replace(/\*\*([^*]+)\*\*/g, '$1');
-                  speakEnglish(textToRead);
-                }}
-                className="h-6 w-6 flex items-center justify-center rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors"
-                title="Nghe phát âm câu hỏi"
-              >
-                <Volume2 className="h-3 w-3" />
-              </button>
+              {/* Chỉ hiện nút nghe khi câu có đoạn tiếng Anh — không TTS tiếng Việt bằng giọng EN */}
+              {extractEnglishForSpeech(current.question) && (
+                <button
+                  type="button"
+                  onClick={() => speakEnglish(current.question)}
+                  className="h-6 w-6 flex items-center justify-center rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors"
+                  title="Nghe phát âm tiếng Anh"
+                >
+                  <Volume2 className="h-3 w-3" />
+                </button>
+              )}
             </div>
             {/* Feedback icon ngay trên card */}
             {selected && (
               <span className={[
                 'flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-lg',
-                selected === current.correct_answer
+                isCorrectSelected
                   ? 'bg-emerald-100 text-emerald-700'
                   : 'bg-red-100 text-red-700',
               ].join(' ')}>
-                {selected === current.correct_answer
+                {isCorrectSelected
                   ? <><CheckCircle2 className="h-3.5 w-3.5" /> Đúng!</>
                   : <><XCircle className="h-3.5 w-3.5" /> Sai</>}
               </span>
             )}
           </div>
 
-          {current.type === 'error_correction' ? (
+          {useErrorClick ? (
             <>
               <p className="text-xs text-muted-foreground mb-2 italic">
                 🔍 Click vào từ <b>SAI</b> trong câu dưới đây:
               </p>
               <ErrorCorrectionSentence
                 sentence={current.question}
-                options={current.options}
+                options={options}
                 selected={selected}
                 correctAnswer={current.correct_answer}
                 onSelect={handleAnswer}
@@ -750,16 +845,16 @@ function GrammarContent() {
           )}
         </div>
 
-        {/* Choices — chỉ hiển thị cho multiple_choice và fill_blank, không cho error_correction */}
-        {current.type !== 'error_correction' && (
-          current.options.length === 0 ? (
+        {/* Choices — MCQ / fill / error dạng chọn câu. error click-mode tự chọn trong câu. */}
+        {!useErrorClick && (
+          options.length === 0 ? (
             <div className="w-full max-w-lg space-y-3">
               <input
                 type="text"
                 className={[
                   "w-full px-5 py-4 rounded-xl border text-sm font-medium focus:outline-none focus:ring-2 transition-all duration-200",
                   selected
-                    ? selected === current.correct_answer
+                    ? isCorrectSelected
                       ? "border-emerald-400 bg-emerald-50 text-emerald-950 focus:ring-emerald-200"
                       : "border-red-400 bg-red-50 text-red-950 focus:ring-red-200"
                     : "border-muted bg-background text-foreground focus:border-primary focus:ring-primary/20"
@@ -787,7 +882,7 @@ function GrammarContent() {
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-3 w-full max-w-lg">
-              {current.options.map((opt, i) => {
+              {options.map((opt, i) => {
                 const cleanOpt = opt.trim().toLowerCase();
                 const isCorrect = cleanOpt === (current.correct_answer || '').trim().toLowerCase();
                 const isSelected = selected ? selected.trim().toLowerCase() === cleanOpt : false;
@@ -834,7 +929,7 @@ function GrammarContent() {
         {showExplanation && selected && (
           <div className="w-full max-w-lg space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300">
             {/* So sánh đáp án của bạn vs đáp án đúng — chỉ khi sai */}
-            {selected !== current.correct_answer && (
+            {!isCorrectSelected && (
               <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   <div>
@@ -864,7 +959,7 @@ function GrammarContent() {
                   <Lightbulb className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
                   <div>
                     <p className="text-xs font-bold text-amber-800 mb-1">
-                      {selected === current.correct_answer ? 'Vì sao đúng' : 'Phân tích'}
+                      {isCorrectSelected ? 'Vì sao đúng' : 'Phân tích'}
                     </p>
                     <p className="text-sm text-amber-900 leading-relaxed whitespace-pre-wrap">
                       {current.explanation}

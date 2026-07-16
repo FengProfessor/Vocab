@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase';
 import { checkRateLimitAsync, safeErrorResponse, getAuthUser, unauthorized, sanitizeForPrompt } from '@/lib/api-security';
+import { normalizeLessonExercise } from '@/lib/grammar-exercises';
 
 // AI call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 30;
@@ -16,10 +17,6 @@ type GeneratedExercise = {
 };
 
 const VALID_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction']);
-
-function asExerciseRecord(raw: unknown): Record<string, unknown> {
-  return typeof raw === 'object' && raw !== null ? raw as Record<string, unknown> : {};
-}
 
 /** Normalize 1 exercise từ AI: trim, dedupe options, validate correct_answer ∈ options, default type/difficulty. */
 function normalizeExercise(raw: unknown): Omit<GeneratedExercise, 'difficulty'> & { difficulty: number; type: string } | null {
@@ -254,56 +251,9 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         const topicTitle = topic?.title ?? 'English Grammar';
         const level = topic?.level ?? 'intermediate';
 
-        const fallbackData = lesson.exercises.map((raw: unknown, i: number) => {
-          const ex = asExerciseRecord(raw);
-          const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
-          
-          let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
-          if (ex.type === 'error' || ex.type === 'error_correction') {
-            qType = 'error_correction';
-          } else if (ex.type === 'fill' || ex.type === 'fill_blank') {
-            qType = 'fill_blank';
-          } else if (ex.type === 'tf') {
-            qType = 'multiple_choice';
-          }
-
-          const questionText = String(ex.question || ex.q || '').trim();
-          const explanationText = String(ex.explanation || ex.fb || '').trim();
-
-          let optionsList: string[] = [];
-          let correctAnswer = '';
-
-          if (ex.type === 'tf') {
-            optionsList = ['Đúng', 'Sai'];
-            const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
-            const rawAnsStr = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim().toLowerCase();
-            correctAnswer = (rawAns === true || rawAnsStr === 'true' || rawAnsStr === 'đúng' || rawAnsStr === 'yes' || rawAnsStr === 'correct') ? 'Đúng' : 'Sai';
-          } else {
-            const rawOpts = ex.options || ex.opts;
-            if (Array.isArray(rawOpts)) {
-              optionsList = rawOpts.map((o: unknown) => String(o).trim());
-            }
-            const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
-            if (Array.isArray(rawAns)) {
-              correctAnswer = String(rawAns[0] || '').trim();
-            } else {
-              correctAnswer = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim();
-            }
-          }
-
-          return {
-            id: `pre-${lessonId}-${i}`,
-            lesson_id: lessonId,
-            question: questionText,
-            options: optionsList,
-            correct_answer: correctAnswer,
-            explanation: explanationText,
-            topic: topicTitle,
-            level,
-            type: qType,
-            difficulty,
-          };
-        });
+        const fallbackData = lesson.exercises.map((raw: unknown, i: number) =>
+          normalizeLessonExercise(raw, lessonId, i, topicTitle, level),
+        );
 
         return NextResponse.json({ success: true, data: fallbackData });
       }
@@ -348,62 +298,21 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         const topicTitle = topic?.title ?? 'English Grammar';
         const level = topic?.level ?? 'intermediate';
 
-        const fallbackData = lesson.exercises.map((raw: unknown, i: number) => {
-          const ex = asExerciseRecord(raw);
-          const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
-          
-          let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
-          if (ex.type === 'error' || ex.type === 'error_correction') {
-            qType = 'error_correction';
-          } else if (ex.type === 'fill' || ex.type === 'fill_blank') {
-            qType = 'fill_blank';
-          } else if (ex.type === 'tf') {
-            qType = 'multiple_choice';
-          }
-
-          const questionText = String(ex.question || ex.q || '').trim();
-          const explanationText = String(ex.explanation || ex.fb || '').trim();
-
-          let optionsList: string[] = [];
-          let correctAnswer = '';
-
-          if (ex.type === 'tf') {
-            optionsList = ['Đúng', 'Sai'];
-            const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
-            const rawAnsStr = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim().toLowerCase();
-            correctAnswer = (rawAns === true || rawAnsStr === 'true' || rawAnsStr === 'đúng' || rawAnsStr === 'yes' || rawAnsStr === 'correct') ? 'Đúng' : 'Sai';
-          } else {
-            const rawOpts = ex.options || ex.opts;
-            if (Array.isArray(rawOpts)) {
-              optionsList = rawOpts.map((o: unknown) => String(o).trim());
-            }
-            const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
-            if (Array.isArray(rawAns)) {
-              correctAnswer = String(rawAns[0] || '').trim();
-            } else {
-              correctAnswer = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim();
-            }
-          }
-
-          return {
-            id: `pre-${lessonId}-${i}`,
-            lesson_id: lessonId,
-            question: questionText,
-            options: optionsList,
-            correct_answer: correctAnswer,
-            explanation: explanationText,
-            topic: topicTitle,
-            level,
-            type: qType,
-            difficulty,
-          };
-        });
+        const fallbackData = lesson.exercises.map((raw: unknown, i: number) =>
+          normalizeLessonExercise(raw, lessonId, i, topicTitle, level),
+        );
 
         return NextResponse.json({ success: true, data: fallbackData });
       }
     }
 
-    return NextResponse.json({ success: true, data });
+    // Classroom data: đảm bảo options luôn là mảng (tránh crash UI)
+    const safeData = (data ?? []).map((row) => ({
+      ...row,
+      options: Array.isArray(row.options) ? row.options : [],
+    }));
+
+    return NextResponse.json({ success: true, data: safeData });
   } catch (error: unknown) {
     return safeErrorResponse(error, 'Failed to fetch exercises');
   }

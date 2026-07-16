@@ -58,7 +58,8 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
       </div>
       <div className="font-semibold text-slate-800 mb-2.5">{idx + 1}. {q}</div>
 
-      {(type === 'mcq' || type === 'error') && (
+      {/* MCQ / error / fill-có-options: luôn hiện nút chọn — tránh “không có đáp án” */}
+      {(type === 'mcq' || type === 'error' || (type === 'fill' && (opts?.length ?? 0) >= 2)) && (
         <div className="flex flex-col gap-2">
           {(opts ?? []).map((o: string) => {
             const isCorrect = isOptionCorrect(o);
@@ -94,7 +95,8 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
         </div>
       )}
 
-      {type === 'fill' && (
+      {/* fill không có options → nhập tay */}
+      {type === 'fill' && (opts?.length ?? 0) < 2 && (
         <div className="flex gap-2">
           <input value={val} disabled={done} onChange={(e) => setVal(e.target.value)}
             onKeyDown={(e) => { if (e.key === 'Enter' && val.trim()) setDone(true); }}
@@ -107,14 +109,20 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
 
       {done && (
         <div className={`mt-2.5 text-sm font-semibold ${
-          (type === 'fill'
-            ? (Array.isArray(answer) && answer.some((a) => norm(a) === norm(val)))
+          (type === 'fill' && (opts?.length ?? 0) < 2
+            ? (
+                (Array.isArray(answer) && answer.some((a) => norm(String(a)) === norm(val)))
+                || norm(String(answer ?? '')) === norm(val)
+              )
             : type === 'tf'
               ? (picked === (isAnswerTrue ? 'Đúng' : 'Sai'))
               : (picked && isOptionCorrect(picked)))
             ? 'text-emerald-700' : 'text-rose-700'}`}>
-          {(type === 'fill'
-            ? (Array.isArray(answer) && answer.some((a) => norm(a) === norm(val)))
+          {(type === 'fill' && (opts?.length ?? 0) < 2
+            ? (
+                (Array.isArray(answer) && answer.some((a) => norm(String(a)) === norm(val)))
+                || norm(String(answer ?? '')) === norm(val)
+              )
             : type === 'tf' ? (picked === (isAnswerTrue ? 'Đúng' : 'Sai')) : (picked && isOptionCorrect(picked)))
             ? '✓ Chính xác! ' : `✗ Đáp án: ${correctText}. `}
           <span className="font-normal text-slate-600">{fb}</span>

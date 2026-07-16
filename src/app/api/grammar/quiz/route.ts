@@ -3,6 +3,7 @@ import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase';
 import { checkRateLimitAsync, safeErrorResponse } from '@/lib/api-security';
 import { resolveUserPlan, checkAccess } from '@/lib/entitlement';
+import { normalizeLessonExercise } from '@/lib/grammar-exercises';
 
 // Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 30;
@@ -20,10 +21,6 @@ export interface QuizQuestion {
 }
 
 const VALID_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction']);
-
-function asExerciseRecord(raw: unknown): Record<string, unknown> {
-  return typeof raw === 'object' && raw !== null ? raw as Record<string, unknown> : {};
-}
 
 const QUIZ_MODEL = 'llama-3.1-8b-instant';
 const QUIZ_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 ngày
@@ -102,52 +99,17 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       const selected = shuffled.slice(0, Math.min(10, shuffled.length));
 
       const questions: QuizQuestion[] = selected.map((raw: unknown, i: number) => {
-        const ex = asExerciseRecord(raw);
-        const difficulty = typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
-        
-        let qType: 'multiple_choice' | 'fill_blank' | 'error_correction' = 'multiple_choice';
-        if (ex.type === 'error' || ex.type === 'error_correction') {
-          qType = 'error_correction';
-        } else if (ex.type === 'fill' || ex.type === 'fill_blank') {
-          qType = 'fill_blank';
-        } else if (ex.type === 'tf') {
-          qType = 'multiple_choice';
-        }
-
-        const questionText = String(ex.question || ex.q || '').trim();
-        const explanationText = String(ex.explanation || ex.fb || '').trim();
-
-        let optionsList: string[] = [];
-        let correctAnswer = '';
-
-        if (ex.type === 'tf') {
-          optionsList = ['Đúng', 'Sai'];
-          const rawAns = ex.answer !== undefined ? ex.answer : ex.correct_answer;
-          const rawAnsStr = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim().toLowerCase();
-          correctAnswer = (rawAns === true || rawAnsStr === 'true' || rawAnsStr === 'đúng' || rawAnsStr === 'yes' || rawAnsStr === 'correct') ? 'Đúng' : 'Sai';
-        } else {
-          const rawOpts = ex.options || ex.opts;
-          if (Array.isArray(rawOpts)) {
-            optionsList = rawOpts.map((o: unknown) => String(o).trim());
-          }
-          const rawAns = ex.correct_answer !== undefined ? ex.correct_answer : ex.answer;
-          if (Array.isArray(rawAns)) {
-            correctAnswer = String(rawAns[0] || '').trim();
-          } else {
-            correctAnswer = String(rawAns !== undefined && rawAns !== null ? rawAns : '').trim();
-          }
-        }
-
+        const normalized = normalizeLessonExercise(raw, String(lessonId), i, topicTitle, level, 'quiz');
         return {
-          id: `pre-${lessonId}-${i}-${Math.random().toString(36).substring(2, 11)}`,
-          question: questionText,
-          options: optionsList,
-          correct_answer: correctAnswer,
-          explanation: explanationText,
-          topic: topicTitle,
-          level,
-          type: qType,
-          difficulty,
+          id: `${normalized.id}-${Math.random().toString(36).substring(2, 11)}`,
+          question: normalized.question,
+          options: normalized.options,
+          correct_answer: normalized.correct_answer,
+          explanation: normalized.explanation,
+          topic: normalized.topic,
+          level: normalized.level,
+          type: normalized.type,
+          difficulty: normalized.difficulty,
         };
       });
 
