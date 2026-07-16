@@ -196,14 +196,61 @@ export default function StudentDashboard() {
     });
   };
 
+  /** Heatmap + đếm từ hôm nay (stats lite). Gọi sau shell. */
+  const loadActivityStats = (token?: string | null) => {
+    void authFetch('/api/student/stats?lite=1', {}, token)
+      .then((r) => r.json())
+      .then((st) => {
+        if (!st?.success) return;
+        const activity: { date: string; count: number }[] = st.data?.dailyActivity ?? [];
+        setDailyActivity(activity);
+        const n = new Date();
+        const todayKey = `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
+        setTodayWords(activity.find((a) => a.date === todayKey)?.count ?? 0);
+      })
+      .catch(() => {});
+  };
+
+  /** Levels L1–L6 + grammar due + packs — idle, không chặn first paint. */
+  const loadSecondaryDashboard = (userId: string, token?: string | null) => {
+    loadActivityStats(token);
+
+    void authFetch('/api/grammar/progress?summary=1', {}, token)
+      .then((r) => r.json())
+      .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
+      .catch(() => {});
+
+    void authFetch('/api/vocab/packs', {}, token)
+      .then((response) => response.json())
+      .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
+        if (!packData.success || !packData.packs) return;
+        setVocabPacks(packData.packs);
+      })
+      .catch(() => {});
+
+    const loadLevels = () => {
+      void authFetch('/api/words?summary=1&levels=1', {}, token)
+        .then((r) => r.json())
+        .then((sum) => {
+          if (sum?.success) applySummaryCounts(userId, sum);
+        })
+        .catch(() => {});
+    };
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      window.requestIdleCallback(loadLevels, { timeout: 4000 });
+    } else {
+      setTimeout(loadLevels, 1500);
+    }
+  };
+
   const loadData = async (userId: string, accessToken?: string) => {
     const token = accessToken ?? accessTokenRef.current;
     try {
       if (STAMPEDE_MODE) {
         /**
          * CHẾ ĐỘ LỚP ĐÔNG (NEXT_PUBLIC_STAMPEDE_MODE=1, mặc định):
-         * Chỉ 2 request: profile nhẹ + words kèm counts.
-         * Tắt: stats/packs/grammar/levels/enrollments.
+         * Critical path: profile + words kèm counts (shell nhanh).
+         * Secondary (heatmap / đếm từ / levels / packs): fire-and-forget sau shell.
          */
         const [profRes, wordsJson] = await Promise.all([
           supabase
@@ -239,6 +286,9 @@ export default function StudentDashboard() {
             classroomId: wordsJson.classroomId ?? null,
           });
         }
+        setWordsLoading(false);
+        // Sau shell: heatmap + đếm từ hôm nay + chart L1–L6 (không chặn paint)
+        loadSecondaryDashboard(userId, token);
         return;
       }
 
@@ -267,44 +317,7 @@ export default function StudentDashboard() {
       setIsLoading(false);
       setWordsLoading(true);
 
-      authFetch('/api/grammar/progress?summary=1', {}, token)
-        .then((r) => r.json())
-        .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
-        .catch(() => {});
-
-      authFetch('/api/student/stats?lite=1', {}, token)
-        .then((r) => r.json())
-        .then((st) => {
-          if (!st?.success) return;
-          const activity: { date: string; count: number }[] = st.data?.dailyActivity ?? [];
-          setDailyActivity(activity);
-          const n = new Date();
-          const todayKey = `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
-          setTodayWords(activity.find((a) => a.date === todayKey)?.count ?? 0);
-        })
-        .catch(() => {});
-
-      const loadLevels = () => {
-        void authFetch('/api/words?summary=1&levels=1', {}, token)
-          .then((r) => r.json())
-          .then((sum) => {
-            if (sum?.success) applySummaryCounts(userId, sum);
-          })
-          .catch(() => {});
-      };
-      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-        window.requestIdleCallback(loadLevels, { timeout: 4000 });
-      } else {
-        setTimeout(loadLevels, 2000);
-      }
-
-      authFetch('/api/vocab/packs', {}, token)
-        .then((response) => response.json())
-        .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
-          if (!packData.success || !packData.packs) return;
-          setVocabPacks(packData.packs);
-        })
-        .catch(() => {});
+      loadSecondaryDashboard(userId, token);
 
       try {
         const wordsJson = await authFetch(
