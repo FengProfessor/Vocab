@@ -6,6 +6,7 @@ import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security
 const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
 
 const DAY = 24 * 60 * 60 * 1000;
+const PAGE = 1000;
 
 type ProfileRow = {
   id: string; email: string; full_name: string | null; role: string;
@@ -18,6 +19,12 @@ type ClassroomRow = { id: string; teacher_id: string };
 type WordRow = { classroom_id: string; created_at: string };
 type QuizRow = { user_id: string; completed_at: string };
 type EnrollRow = { student_id: string };
+type SrsRow = {
+  user_id: string;
+  review_count: number | null;
+  lapses: number | null;
+  last_reviewed_at: string | null;
+};
 
 export type CrmSource = 'group_owner' | 'group_member' | 'classroom' | 'teacher' | 'direct';
 export type CrmLifecycle = 'new' | 'active' | 'at_risk' | 'churned';
@@ -35,15 +42,38 @@ export interface CrmCustomer {
   source: CrmSource;
   lifecycle: CrmLifecycle;
   lastActive: string | null;
-  wordCount: number;
+  wordCount: number;       // từ đã lưu (__personal__)
+  learnedCount: number;    // từ đã ôn (srs review_count >= 1)
+  reviewTotal: number;     // tổng lượt ôn
+  lapsesTotal: number;     // tổng lần quên (Again)
   quizCount: number;
   totalPaid: number;
   groupId: string | null;
 }
 
+type ServiceClient = ReturnType<typeof createServiceClient>;
+
+/** Fetch toàn bộ rows (vượt mặc định 1000 của PostgREST). */
+async function fetchAllPages<T>(
+  run: (from: number, to: number) => PromiseLike<{ data: T[] | null; error: { message: string } | null }>,
+): Promise<T[]> {
+  const out: T[] = [];
+  let from = 0;
+  for (;;) {
+    const { data, error } = await run(from, from + PAGE - 1);
+    if (error) throw error;
+    const batch = data ?? [];
+    out.push(...batch);
+    if (batch.length < PAGE) break;
+    from += PAGE;
+  }
+  return out;
+}
+
 /**
  * GET /api/admin/crm
  * CRM khách hàng: mọi user + gói/nguồn/vòng đời/doanh thu + funnel signup + segment.
+ * Học thật: srs_progress (learned / review / lapses) + last_reviewed_at cho activity.
  * Auth: Admin only (JWT + ADMIN_EMAILS whitelist).
  */
 export async function GET(req: Request): Promise<NextResponse> {
@@ -53,79 +83,130 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (ADMIN_EMAILS.length === 0) {
       return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
-    const supabase = createServiceClient();
+    const supabase: ServiceClient = createServiceClient();
     const { data: callerProfile } = await supabase.from('profiles').select('email').eq('id', auth.userId).single();
     const callerEmail = callerProfile?.email?.toLowerCase() ?? '';
     if (!callerEmail || !ADMIN_EMAILS.includes(callerEmail)) {
       return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
 
-    // ── Bulk fetch (tránh N+1) ──
-    const [
-      { data: profiles, error: pErr },
-      { data: orders },
-      { data: groups },
-      { data: members },
-      { data: classrooms },
-      { data: enrollments },
-    ] = await Promise.all([
-      supabase.from('profiles')
-        .select('id, email, full_name, role, created_at, plan, plan_expires_at')
-        .order('created_at', { ascending: false }),
-      supabase.from('orders').select('user_id, amount, status, paid_at'),
-      supabase.from('groups').select('id, owner_id, status'),
-      supabase.from('group_members').select('group_id, user_id'),
-      supabase.from('classrooms').select('id, teacher_id').eq('name', '__personal__'),
-      supabase.from('enrollments').select('student_id'),
-    ]);
-    if (pErr) throw pErr;
-
-    const profileRows = (profiles ?? []) as ProfileRow[];
-    const orderRows = (orders ?? []) as OrderRow[];
-    const groupRows = (groups ?? []) as GroupRow[];
-    const memberRows = (members ?? []) as MemberRow[];
-    const classroomRows = (classrooms ?? []) as ClassroomRow[];
-    const enrollRows = (enrollments ?? []) as EnrollRow[];
+    // ── Bulk fetch (paginate — PostgREST mặc định max 1000 rows/request) ──
+    const [profileRows, orderRows, groupRows, memberRows, classroomRows, enrollRows] =
+      await Promise.all([
+        fetchAllPages<ProfileRow>((from, to) =>
+          supabase
+            .from('profiles')
+            .select('id, email, full_name, role, created_at, plan, plan_expires_at')
+            .order('created_at', { ascending: false })
+            .range(from, to) as PromiseLike<{ data: ProfileRow[] | null; error: { message: string } | null }>,
+        ),
+        fetchAllPages<OrderRow>((from, to) =>
+          supabase
+            .from('orders')
+            .select('user_id, amount, status, paid_at')
+            .order('paid_at', { ascending: false, nullsFirst: false })
+            .range(from, to) as PromiseLike<{ data: OrderRow[] | null; error: { message: string } | null }>,
+        ),
+        fetchAllPages<GroupRow>((from, to) =>
+          supabase
+            .from('groups')
+            .select('id, owner_id, status')
+            .order('id')
+            .range(from, to) as PromiseLike<{ data: GroupRow[] | null; error: { message: string } | null }>,
+        ),
+        fetchAllPages<MemberRow>((from, to) =>
+          supabase
+            .from('group_members')
+            .select('group_id, user_id')
+            .order('group_id')
+            .range(from, to) as PromiseLike<{ data: MemberRow[] | null; error: { message: string } | null }>,
+        ),
+        fetchAllPages<ClassroomRow>((from, to) =>
+          supabase
+            .from('classrooms')
+            .select('id, teacher_id')
+            .eq('name', '__personal__')
+            .order('id')
+            .range(from, to) as PromiseLike<{ data: ClassroomRow[] | null; error: { message: string } | null }>,
+        ),
+        fetchAllPages<EnrollRow>((from, to) =>
+          supabase
+            .from('enrollments')
+            .select('student_id')
+            .order('student_id')
+            .range(from, to) as PromiseLike<{ data: EnrollRow[] | null; error: { message: string } | null }>,
+        ),
+      ]);
 
     // Map classroom_id → owner (để gộp words → user)
     const classroomOwner = new Map<string, string>();
-    const userClassrooms = new Map<string, string[]>();
     for (const c of classroomRows) {
       classroomOwner.set(c.id, c.teacher_id);
-      const arr = userClassrooms.get(c.teacher_id) ?? [];
-      arr.push(c.id);
-      userClassrooms.set(c.teacher_id, arr);
     }
 
-    // Words + quiz: bulk, gộp theo user
+    // Words + quiz + SRS: paginate + order ổn định
     const classroomIds = classroomRows.map(c => c.id);
-    const [{ data: words }, { data: quizzes }] = await Promise.all([
+    const [wordRows, quizRows, srsRows] = await Promise.all([
       classroomIds.length
-        ? supabase.from('words').select('classroom_id, created_at').in('classroom_id', classroomIds)
-        : Promise.resolve({ data: [] as WordRow[] }),
-      supabase.from('quiz_results').select('user_id, completed_at'),
+        ? fetchAllPages<WordRow>((from, to) =>
+            supabase
+              .from('words')
+              .select('classroom_id, created_at')
+              .in('classroom_id', classroomIds)
+              .order('classroom_id')
+              .range(from, to) as PromiseLike<{ data: WordRow[] | null; error: { message: string } | null }>,
+          )
+        : Promise.resolve([] as WordRow[]),
+      fetchAllPages<QuizRow>((from, to) =>
+        supabase
+          .from('quiz_results')
+          .select('user_id, completed_at')
+          .order('user_id')
+          .range(from, to) as PromiseLike<{ data: QuizRow[] | null; error: { message: string } | null }>,
+      ),
+      fetchAllPages<SrsRow>((from, to) =>
+        supabase
+          .from('srs_progress')
+          .select('user_id, review_count, lapses, last_reviewed_at')
+          .order('user_id')
+          .range(from, to) as PromiseLike<{ data: SrsRow[] | null; error: { message: string } | null }>,
+      ),
     ]);
-    const wordRows = (words ?? []) as WordRow[];
-    const quizRows = (quizzes ?? []) as QuizRow[];
 
     const wordCountByUser = new Map<string, number>();
     const lastActiveByUser = new Map<string, number>();
-    const bumpActive = (uid: string, ts: string | null) => {
+    const bumpActive = (uid: string, ts: string | null | undefined) => {
       if (!ts) return;
       const t = new Date(ts).getTime();
       if (!Number.isFinite(t)) return;
       if (t > (lastActiveByUser.get(uid) ?? 0)) lastActiveByUser.set(uid, t);
     };
+
     for (const w of wordRows) {
       const uid = classroomOwner.get(w.classroom_id);
       if (!uid) continue;
       wordCountByUser.set(uid, (wordCountByUser.get(uid) ?? 0) + 1);
       bumpActive(uid, w.created_at);
     }
+
     const quizCountByUser = new Map<string, number>();
     for (const q of quizRows) {
       quizCountByUser.set(q.user_id, (quizCountByUser.get(q.user_id) ?? 0) + 1);
       bumpActive(q.user_id, q.completed_at);
+    }
+
+    // SRS: từ đã ôn / tổng lượt ôn / lần quên + activity
+    const learnedByUser = new Map<string, number>();
+    const reviewTotalByUser = new Map<string, number>();
+    const lapsesByUser = new Map<string, number>();
+    for (const s of srsRows) {
+      const uid = s.user_id;
+      const rc = s.review_count ?? 0;
+      const lp = s.lapses ?? 0;
+      if (rc >= 1) learnedByUser.set(uid, (learnedByUser.get(uid) ?? 0) + 1);
+      if (rc > 0) reviewTotalByUser.set(uid, (reviewTotalByUser.get(uid) ?? 0) + rc);
+      if (lp > 0) lapsesByUser.set(uid, (lapsesByUser.get(uid) ?? 0) + lp);
+      bumpActive(uid, s.last_reviewed_at);
     }
 
     // Group role + revenue
@@ -161,7 +242,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       else if (p.role === 'teacher') source = 'teacher';
       else if (enrolledStudents.has(p.id)) source = 'classroom';
 
-      // Vòng đời (dựa vào ngày ký + lần hoạt động cuối)
+      // Vòng đời: signup + lastActive (lưu từ / quiz / ôn SRS)
       const created = new Date(p.created_at).getTime();
       const lastTs = lastActiveByUser.get(p.id) ?? 0;
       const daysSinceActive = lastTs ? (now - lastTs) / DAY : Infinity;
@@ -185,6 +266,9 @@ export async function GET(req: Request): Promise<NextResponse> {
         lifecycle,
         lastActive: lastTs ? new Date(lastTs).toISOString() : null,
         wordCount: wordCountByUser.get(p.id) ?? 0,
+        learnedCount: learnedByUser.get(p.id) ?? 0,
+        reviewTotal: reviewTotalByUser.get(p.id) ?? 0,
+        lapsesTotal: lapsesByUser.get(p.id) ?? 0,
         quizCount: quizCountByUser.get(p.id) ?? 0,
         totalPaid: paidByUser.get(p.id) ?? 0,
         groupId: groupOwners.get(p.id) ?? groupMember.get(p.id) ?? null,
@@ -217,11 +301,13 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     const weekAgo = now - 7 * DAY;
+    const learners = customers.filter(c => c.learnedCount > 0).length;
     const kpis = {
       totalUsers: customers.length,
       newThisWeek: customers.filter(c => new Date(c.created_at).getTime() >= weekAgo).length,
       payingUsers: customers.filter(c => c.paying).length,
       activeUsers: byLifecycle.active + byLifecycle.new,
+      learners, // user có ≥1 từ đã ôn SRS
       churnedUsers: byLifecycle.churned,
       totalRevenue: orderRows.reduce((s, o) => s + (o.status === 'paid' ? (o.amount || 0) : 0), 0),
       activeGroups: groupActive.size,

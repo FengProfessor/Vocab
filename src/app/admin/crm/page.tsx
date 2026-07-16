@@ -7,7 +7,7 @@ import Link from 'next/link';
 import {
   ChevronLeft, Users, UserPlus, Crown, Activity, AlertTriangle,
   Search, Download, X, Mail, Calendar, BookOpen, Target,
-  CreditCard, TrendingUp, Building2,
+  CreditCard, TrendingUp, Building2, Brain, RotateCcw,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { authFetch } from '@/lib/auth-fetch';
@@ -26,7 +26,12 @@ interface Customer {
   id: string; email: string; full_name: string | null; role: string;
   created_at: string; plan: string; rawPlan: string; planExpiresAt: string | null;
   paying: boolean; source: Source; lifecycle: Lifecycle;
-  lastActive: string | null; wordCount: number; quizCount: number;
+  lastActive: string | null;
+  wordCount: number;       // từ đã lưu
+  learnedCount: number;    // từ đã ôn SRS
+  reviewTotal: number;     // tổng lượt ôn
+  lapsesTotal: number;     // lần quên
+  quizCount: number;
   totalPaid: number; groupId: string | null;
 }
 interface CrmData {
@@ -40,7 +45,8 @@ interface CrmData {
   };
   kpis: {
     totalUsers: number; newThisWeek: number; payingUsers: number;
-    activeUsers: number; churnedUsers: number; totalRevenue: number; activeGroups: number;
+    activeUsers: number; learners: number; churnedUsers: number;
+    totalRevenue: number; activeGroups: number;
   };
 }
 
@@ -111,11 +117,14 @@ export default function CrmDashboard() {
   }, [data, query, planFilter, lifeFilter, sourceFilter]);
 
   const exportCsv = useCallback(() => {
-    const head = ['Tên', 'Email', 'Vai trò', 'Gói', 'Nguồn', 'Vòng đời', 'Ngày ký', 'Hoạt động cuối', 'Số từ', 'Quiz', 'Đã trả (VNĐ)'];
+    const head = [
+      'Tên', 'Email', 'Vai trò', 'Gói', 'Nguồn', 'Vòng đời', 'Ngày ký', 'Hoạt động cuối',
+      'Từ đã lưu', 'Từ đã ôn', 'Lượt ôn', 'Lần quên', 'Quiz', 'Đã trả (VNĐ)',
+    ];
     const rows = filtered.map(c => [
       c.full_name ?? '', c.email, c.role, c.plan, SOURCE_LABEL[c.source],
       LIFECYCLE_LABEL[c.lifecycle], fmtDate(c.created_at), fmtDate(c.lastActive),
-      c.wordCount, c.quizCount, c.totalPaid,
+      c.wordCount, c.learnedCount, c.reviewTotal, c.lapsesTotal, c.quizCount, c.totalPaid,
     ]);
     const esc = (v: string | number) => `"${String(v).replace(/"/g, '""')}"`;
     const csv = [head, ...rows].map(r => r.map(esc).join(',')).join('\n');
@@ -152,6 +161,7 @@ export default function CrmDashboard() {
     { label: 'Mới tuần này', value: kpis.newThisWeek, icon: UserPlus, color: 'text-sky-600', bg: 'bg-sky-500/10', sub: '7 ngày qua' },
     { label: 'Đang trả tiền', value: kpis.payingUsers, icon: Crown, color: 'text-violet-600', bg: 'bg-violet-500/10', sub: `${kpis.activeGroups} nhóm active` },
     { label: 'Đang hoạt động', value: kpis.activeUsers, icon: Activity, color: 'text-emerald-600', bg: 'bg-emerald-500/10', sub: 'mới + active' },
+    { label: 'Đã học thật', value: kpis.learners ?? 0, icon: Brain, color: 'text-indigo-600', bg: 'bg-indigo-500/10', sub: '≥1 từ ôn SRS' },
     { label: 'Đã rời bỏ', value: kpis.churnedUsers, icon: AlertTriangle, color: 'text-rose-600', bg: 'bg-rose-500/10', sub: '>30 ngày im' },
     { label: 'Doanh thu', value: formatVND(kpis.totalRevenue), icon: CreditCard, color: 'text-amber-600', bg: 'bg-amber-500/10', sub: 'đã thu' },
   ];
@@ -177,7 +187,7 @@ export default function CrmDashboard() {
 
       <main className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
         {/* KPI */}
-        <div className="grid grid-cols-2 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
           {kpiCards.map(k => (
             <div key={k.label} className="bg-background border rounded-2xl p-4 shadow-sm">
               <div className={`w-9 h-9 rounded-xl flex items-center justify-center mb-3 ${k.bg}`}>
@@ -254,13 +264,15 @@ export default function CrmDashboard() {
                   <th className="text-center px-3 py-3 font-semibold">Vòng đời</th>
                   <th className="text-right px-3 py-3 font-semibold">Ngày ký</th>
                   <th className="text-right px-3 py-3 font-semibold">Hoạt động</th>
-                  <th className="text-right px-3 py-3 font-semibold">Từ</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Từ đã ôn (SRS review ≥ 1)">Học</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Tổng lượt ôn SRS">Ôn</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Lần quên (Again)">Quên</th>
                   <th className="text-right px-5 py-3 font-semibold">Đã trả</th>
                 </tr>
               </thead>
               <tbody className="divide-y">
                 {filtered.length === 0 ? (
-                  <tr><td colSpan={8} className="px-5 py-10 text-center text-muted-foreground">Không có khách phù hợp.</td></tr>
+                  <tr><td colSpan={10} className="px-5 py-10 text-center text-muted-foreground">Không có khách phù hợp.</td></tr>
                 ) : filtered.map(c => (
                   <tr key={c.id} onClick={() => setSelected(c)}
                     className="hover:bg-muted/20 transition-colors cursor-pointer">
@@ -277,7 +289,9 @@ export default function CrmDashboard() {
                     </td>
                     <td className="px-3 py-3 text-right text-xs text-muted-foreground">{fmtDate(c.created_at)}</td>
                     <td className="px-3 py-3 text-right text-xs text-muted-foreground">{daysAgo(c.lastActive)}</td>
-                    <td className="px-3 py-3 text-right font-semibold text-primary">{c.wordCount || '—'}</td>
+                    <td className="px-3 py-3 text-right font-semibold text-primary">{c.learnedCount || '—'}</td>
+                    <td className="px-3 py-3 text-right text-xs tabular-nums text-muted-foreground">{c.reviewTotal || '—'}</td>
+                    <td className="px-3 py-3 text-right text-xs tabular-nums text-rose-600/80">{c.lapsesTotal || '—'}</td>
                     <td className="px-5 py-3 text-right font-bold">{c.totalPaid ? formatVND(c.totalPaid) : '—'}</td>
                   </tr>
                 ))}
@@ -339,7 +353,10 @@ function CustomerDrawer({ c, onClose }: { c: Customer; onClose: () => void }) {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <Stat icon={BookOpen} label="Số từ đã lưu" value={String(c.wordCount)} />
+            <Stat icon={Brain} label="Từ đã ôn (SRS)" value={String(c.learnedCount ?? 0)} />
+            <Stat icon={RotateCcw} label="Tổng lượt ôn" value={String(c.reviewTotal ?? 0)} />
+            <Stat icon={AlertTriangle} label="Lần quên" value={String(c.lapsesTotal ?? 0)} />
+            <Stat icon={BookOpen} label="Từ đã lưu" value={String(c.wordCount)} />
             <Stat icon={Target} label="Lượt quiz" value={String(c.quizCount)} />
             <Stat icon={CreditCard} label="Tổng đã trả" value={c.totalPaid ? formatVND(c.totalPaid) : '0₫'} />
             <Stat icon={Building2} label="Thuộc nhóm" value={c.groupId ? 'Có' : 'Không'} />
