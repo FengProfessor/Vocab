@@ -4,12 +4,13 @@ import { useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Loader2 } from 'lucide-react';
 
+const OAUTH_ROLE_KEY = 'lingopro_oauth_role';
+const OAUTH_PILOT_KEY = 'lingopro_oauth_pilot';
+const OAUTH_SOURCE_KEY = 'lingopro_oauth_source';
+
 /**
- * OAuth callback — tối ưu tốc độ:
- * - exchange code 1 lần
- * - KHÔNG poll 15×200ms
- * - KHÔNG query profiles (role từ user_metadata / query role=teacher)
- * - claim_teacher fire-and-forget
+ * OAuth callback — PKCE exchange.
+ * Role/pilot lấy từ sessionStorage (không query trên redirectTo — tránh Google chặn).
  */
 export default function AuthCallbackPage() {
   const ran = useRef(false);
@@ -21,11 +22,35 @@ export default function AuthCallbackPage() {
     (async () => {
       const url = new URL(window.location.href);
       const code = url.searchParams.get('code');
-      const requestedRole = url.searchParams.get('role');
-      const pilot = url.searchParams.get('pilot');
-      const source = url.searchParams.get('source');
+      const oauthError = url.searchParams.get('error');
+      const oauthDesc = url.searchParams.get('error_description');
+
+      if (oauthError) {
+        console.warn('[AuthCallback] provider error:', oauthError, oauthDesc);
+        const q = new URLSearchParams({ error: oauthError });
+        window.location.replace(`/auth?${q.toString()}`);
+        return;
+      }
+
+      // Ưu tiên sessionStorage; fallback query cũ (nếu còn link cũ)
+      const requestedRole =
+        sessionStorage.getItem(OAUTH_ROLE_KEY) ||
+        url.searchParams.get('role') ||
+        '';
+      const pilot =
+        sessionStorage.getItem(OAUTH_PILOT_KEY) ||
+        url.searchParams.get('pilot') ||
+        '';
+      const source =
+        sessionStorage.getItem(OAUTH_SOURCE_KEY) ||
+        url.searchParams.get('source') ||
+        '';
 
       const go = (path: string) => {
+        sessionStorage.removeItem(OAUTH_ROLE_KEY);
+        sessionStorage.removeItem(OAUTH_PILOT_KEY);
+        sessionStorage.removeItem(OAUTH_SOURCE_KEY);
+
         const dest = new URL(path, window.location.origin);
         if (requestedRole === 'teacher') dest.searchParams.set('pilot_signup', '1');
         if (pilot) dest.searchParams.set('pilot', pilot.slice(0, 40));
@@ -34,7 +59,9 @@ export default function AuthCallbackPage() {
       };
 
       try {
-        let session = null as Awaited<ReturnType<typeof supabase.auth.getSession>>['data']['session'];
+        let session = null as Awaited<
+          ReturnType<typeof supabase.auth.getSession>
+        >['data']['session'];
 
         if (code) {
           const { data, error } = await supabase.auth.exchangeCodeForSession(code);
@@ -47,9 +74,8 @@ export default function AuthCallbackPage() {
           session = data.session;
         }
 
-        // 1 retry ngắn nếu auto-detect chưa xong (thay vì poll 3s)
         if (!session) {
-          await new Promise((r) => setTimeout(r, 150));
+          await new Promise((r) => setTimeout(r, 200));
           const { data } = await supabase.auth.getSession();
           session = data.session;
         }

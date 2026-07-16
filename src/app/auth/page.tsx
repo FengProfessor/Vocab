@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import {
@@ -25,8 +25,11 @@ import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
 
 const display = 'font-bold tracking-tight';
-/** OAuth URL có thể hết hạn nếu tab /auth để lâu — refresh sau 4 phút */
-const GOOGLE_URL_TTL_MS = 4 * 60_000;
+
+/** sessionStorage keys — không nhét query vào redirectTo (Google/Supabase reject). */
+const OAUTH_ROLE_KEY = 'lingopro_oauth_role';
+const OAUTH_PILOT_KEY = 'lingopro_oauth_pilot';
+const OAUTH_SOURCE_KEY = 'lingopro_oauth_source';
 
 type Mode = 'login' | 'signup';
 
@@ -52,118 +55,40 @@ export default function AuthPage() {
   ));
   const [showManualRedirect, setShowManualRedirect] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
-  /** Prefetch OAuth URL — bấm Google = redirect ngay, không chờ round-trip Supabase lúc click */
-  const googleUrlRef = useRef<string | null>(null);
-  const googlePrefetchKey = useRef<string>('');
-  const googleInflight = useRef<Promise<string | null> | null>(null);
-  const googleUrlAtRef = useRef(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const timer = window.setTimeout(() => {
       if (params.get('mode') === 'signup') setMode('signup');
       if (params.get('role') === 'teacher') setRole('teacher');
+
+      // Lỗi OAuth từ callback / Google
+      const err = params.get('error');
+      if (err === 'oauth' || err === 'oauth_no_session') {
+        setDebugError(
+          'Đăng nhập Google chưa hoàn tất. Thử lại (trình duyệt thường, không WebView/in-app).',
+        );
+      } else if (err === 'access_denied') {
+        setDebugError('Bạn đã hủy đăng nhập Google.');
+      } else if (err) {
+        setDebugError(`Lỗi đăng nhập: ${err}`);
+      }
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
 
-  /** Role từ JWT metadata — KHÔNG query profiles (tránh chậm khi DB quá tải). Default student. */
+  /** Role từ JWT metadata — KHÔNG query profiles. Default student. */
   const destFromSession = (user: { user_metadata?: Record<string, unknown> } | null | undefined) => {
     const metaRole = user?.user_metadata?.role;
     if (metaRole === 'teacher') return '/teacher';
-    const wantTeacher = new URLSearchParams(window.location.search).get('role') === 'teacher';
+    const wantTeacher =
+      new URLSearchParams(window.location.search).get('role') === 'teacher' ||
+      sessionStorage.getItem(OAUTH_ROLE_KEY) === 'teacher';
     return wantTeacher ? '/teacher' : '/student';
   };
 
-  const buildGoogleRedirectTo = useCallback((currentRole: UserRole) => {
-    const params = new URLSearchParams(window.location.search);
-    const redirectUrl = new URL(`${window.location.origin}/auth/callback`);
-    redirectUrl.searchParams.set('role', currentRole);
-    const pilot = params.get('pilot') ?? sessionStorage.getItem('teacher_pilot_plan');
-    const source = params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source');
-    if (pilot) redirectUrl.searchParams.set('pilot', pilot);
-    if (source) redirectUrl.searchParams.set('source', source);
-    return redirectUrl.toString();
-  }, []);
-
-  const prefetchGoogleUrl = useCallback(async (
-    currentRole: UserRole,
-    force = false,
-  ): Promise<string | null> => {
-    const redirectTo = buildGoogleRedirectTo(currentRole);
-    const key = `${currentRole}|${redirectTo}`;
-    const fresh =
-      googleUrlRef.current &&
-      googlePrefetchKey.current === key &&
-      Date.now() - googleUrlAtRef.current < GOOGLE_URL_TTL_MS;
-
-    if (!force && fresh) {
-      return googleUrlRef.current;
-    }
-    if (!force && googleInflight.current && googlePrefetchKey.current === key) {
-      return googleInflight.current;
-    }
-    googlePrefetchKey.current = key;
-    const job = (async () => {
-      try {
-        const { data, error } = await supabase.auth.signInWithOAuth({
-          provider: 'google',
-          options: { redirectTo, skipBrowserRedirect: true },
-        });
-        if (error || !data?.url) {
-          console.warn('[Auth] Google prefetch fail:', error?.message);
-          return null;
-        }
-        googleUrlRef.current = data.url;
-        googleUrlAtRef.current = Date.now();
-        return data.url;
-      } catch (err) {
-        console.warn('[Auth] Google prefetch error:', err);
-        return null;
-      } finally {
-        googleInflight.current = null;
-      }
-    })();
-    googleInflight.current = job;
-    return job;
-  }, [buildGoogleRedirectTo]);
-
   useEffect(() => {
-    // Prefetch OAuth SAU paint — không cạnh tranh TTI với form /auth
-    let idleId: number | undefined;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    const startPrefetch = () => {
-      void prefetchGoogleUrl(role);
-    };
-    const ric = window.requestIdleCallback?.bind(window);
-    if (ric) {
-      idleId = ric(startPrefetch, { timeout: 1800 });
-    } else {
-      timeoutId = setTimeout(startPrefetch, 400);
-    }
-
-    const onVis = () => {
-      if (document.visibilityState !== 'visible') return;
-      if (Date.now() - googleUrlAtRef.current >= GOOGLE_URL_TTL_MS * 0.75) {
-        void prefetchGoogleUrl(role, true);
-      }
-    };
-    document.addEventListener('visibilitychange', onVis);
-    const timer = window.setInterval(() => {
-      void prefetchGoogleUrl(role, true);
-    }, GOOGLE_URL_TTL_MS);
-    return () => {
-      document.removeEventListener('visibilitychange', onVis);
-      window.clearInterval(timer);
-      if (idleId !== undefined && window.cancelIdleCallback) {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timeoutId !== undefined) clearTimeout(timeoutId);
-    };
-  }, [role, prefetchGoogleUrl]);
-
-  useEffect(() => {
-    // Session localStorage — chạy sau 1 tick để form render trước
+    // Session localStorage — 1 tick để form render trước
     let cancelled = false;
     const t = window.setTimeout(() => {
       void (async () => {
@@ -253,37 +178,55 @@ export default function AuthPage() {
   };
 
   const handleGoogleSignIn = async () => {
-    // UI feedback tức thì — user không cảm giác "đơ"
     setGoogleLoading(true);
     setStatus('Đang mở Google...');
     setDebugError('');
 
     try {
-      // 1) Prefetch sẵn — force nếu TTL hết (tab để lâu)
-      const stale = Date.now() - googleUrlAtRef.current >= GOOGLE_URL_TTL_MS;
-      let url = !stale ? googleUrlRef.current : null;
-      if (!url) {
-        url = await prefetchGoogleUrl(role, stale);
-      }
-      if (url) {
-        window.location.assign(url);
-        return; // giữ spinner đến khi rời trang
-      }
+      // Lưu role/pilot vào sessionStorage — redirectTo phải TRÙNG allowlist (không query string)
+      const params = new URLSearchParams(window.location.search);
+      sessionStorage.setItem(OAUTH_ROLE_KEY, role);
+      const pilot = params.get('pilot') ?? sessionStorage.getItem('teacher_pilot_plan');
+      const source = params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source');
+      if (pilot) sessionStorage.setItem(OAUTH_PILOT_KEY, pilot.slice(0, 40));
+      else sessionStorage.removeItem(OAUTH_PILOT_KEY);
+      if (source) sessionStorage.setItem(OAUTH_SOURCE_KEY, source.slice(0, 80));
+      else sessionStorage.removeItem(OAUTH_SOURCE_KEY);
 
-      // 2) Fallback: full OAuth (hiếm khi prefetch fail)
-      const redirectTo = buildGoogleRedirectTo(role);
-      const { error } = await supabase.auth.signInWithOAuth({
+      // Chỉ path sạch — Google + Supabase reject redirect lạ / query
+      const redirectTo = `${window.location.origin}/auth/callback`;
+
+      const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: { redirectTo },
+        options: {
+          redirectTo,
+          skipBrowserRedirect: false,
+          queryParams: {
+            // ép màn chọn tài khoản (tránh session Google cũ / WebView lỗi)
+            prompt: 'select_account',
+          },
+        },
       });
+
       if (error) {
+        console.error('[Auth] Google OAuth:', error);
         setDebugError(error.message);
         toast.error(error.message);
         setStatus('');
         setGoogleLoading(false);
+        return;
       }
+
+      // Một số môi trường không auto-redirect — gán URL thủ công
+      if (data?.url) {
+        window.location.assign(data.url);
+        return;
+      }
+
+      // Browser redirect đã chạy — giữ spinner
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Không mở được Google đăng nhập';
+      console.error('[Auth] Google OAuth exception:', err);
       setDebugError(msg);
       toast.error(msg);
       setStatus('');
