@@ -55,8 +55,8 @@ export function SurveyModal() {
   };
 
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm onboarding-fade-in">
-      <div className="relative w-full max-w-md bg-white rounded-[32px] shadow-2xl border-b-8 border-indigo-200 onboarding-zoom-in overflow-hidden">
+    <div className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4">
+      <div className="relative my-auto w-full max-w-md max-h-[min(640px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-indigo-200 bg-white shadow-2xl onboarding-zoom-in">
         {/* Header */}
         <div className="bg-gradient-to-br from-indigo-500 via-violet-500 to-purple-600 p-6 pb-10 text-center relative">
           <div className="absolute top-4 left-4 w-16 h-16 rounded-full bg-white/10" />

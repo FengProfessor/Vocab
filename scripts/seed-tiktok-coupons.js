@@ -58,6 +58,17 @@ async function main() {
       valid_until: new Date(new Date().getFullYear() + 1, 0, 1).toISOString(),
       applicable_plans: ['pro'],
       is_active: true
+    },
+    // Tour onboarding v2 — Pro 7 ngày (billing override TRIAL_COUPON_DAYS)
+    {
+      code: 'NEWBIE1W',
+      discount_pct: 100,
+      discount_amount: null,
+      max_uses: 50000,
+      valid_from: new Date().toISOString(),
+      valid_until: new Date(new Date().getFullYear() + 1, 0, 1).toISOString(),
+      applicable_plans: ['pro'],
+      is_active: true
     }
 
   ];

@@ -30,13 +30,13 @@ export function MobileBottomNav({
   className,
 }: MobileBottomNavProps) {
   const pathname = usePathname();
-  const flashHref = classroomId ? `/flashcard?class=${classroomId}` : '/flashcard';
+  const reviewHref = classroomId ? `/review?class=${classroomId}` : '/review';
 
   const tabs: TabItem[] = [
     { key: 'home', href: '/student', label: 'Home', emoji: '🏠' },
     {
       key: 'review',
-      href: flashHref,
+      href: reviewHref,
       label: 'Ôn',
       emoji: '📚',
       badge: reviewDueCount > 0 ? reviewDueCount : undefined,
@@ -54,7 +54,14 @@ export function MobileBottomNav({
         pathname.startsWith('/student/leaderboard')
       );
     }
-    if (key === 'review') return pathname.startsWith('/flashcard');
+    if (key === 'review') {
+      return (
+        pathname.startsWith('/review') ||
+        pathname.startsWith('/flashcard') ||
+        pathname.startsWith('/writing') ||
+        pathname.startsWith('/quiz')
+      );
+    }
     if (key === 'journey') return pathname.startsWith('/journey');
     if (key === 'vault') {
       return pathname.startsWith('/library') || pathname.startsWith('/import');
@@ -66,6 +73,7 @@ export function MobileBottomNav({
   return (
     <nav
       aria-label="Điều hướng chính"
+      data-onboarding="mobile-nav"
       className={cn(
         'fixed inset-x-0 bottom-0 z-[90] border-t border-[#ececf1] bg-white/95 backdrop-blur-xl md:hidden',
         'h-mobile-nav px-safe',
@@ -79,11 +87,25 @@ export function MobileBottomNav({
           const badge = tab.badge && tab.badge > 0 ? tab.badge : 0;
           const badgeText = badge > 99 ? '99+' : String(badge);
 
+          const onboardingId =
+            tab.key === 'home'
+              ? 'mobile-home'
+              : tab.key === 'journey'
+                ? 'mobile-journey'
+                : tab.key === 'vault'
+                  ? 'mobile-library'
+                  : tab.key === 'review'
+                    ? 'mobile-review'
+                    : tab.key === 'dict'
+                      ? 'mobile-dictionary'
+                      : undefined;
+
           if (tab.elevated) {
             return (
               <Link
                 key={tab.key}
                 href={tab.href}
+                data-onboarding={onboardingId}
                 aria-label={tab.label}
                 aria-current={active ? 'page' : undefined}
                 className="relative flex min-w-0 flex-1 flex-col items-center justify-end pb-1 touch-manipulation"
@@ -114,6 +136,7 @@ export function MobileBottomNav({
             <Link
               key={tab.key}
               href={tab.href}
+              data-onboarding={onboardingId}
               aria-label={tab.label}
               aria-current={active ? 'page' : undefined}
               className="relative flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 touch-manipulation transition-colors active:opacity-80"

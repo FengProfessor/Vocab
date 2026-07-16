@@ -6,37 +6,32 @@ import {
   useState,
   useCallback,
   useEffect,
+  useMemo,
   type ReactNode,
 } from 'react';
 import { supabase } from '@/lib/supabase';
 import {
-  ONBOARDING_STEPS,
+  getActiveOnboardingSteps,
   ONBOARDING_STORAGE_KEY,
+  ONBOARDING_STORAGE_KEY_LEGACY,
+  ONBOARDING_STEP_SESSION_KEY,
+  ONBOARDING_VERSION,
   type OnboardingStep,
 } from './onboarding-steps';
 
 interface OnboardingContextValue {
-  /** Onboarding đang chạy hay không. */
   isActive: boolean;
-  /** Index bước hiện tại (0-based). */
   currentStepIndex: number;
-  /** Data bước hiện tại. */
   currentStep: OnboardingStep;
-  /** Tổng số bước. */
   totalSteps: number;
-  /** Số bước spotlight (không tính modal đầu/cuối). */
   spotlightStepNumber: number;
-  /** Tổng bước spotlight. */
   totalSpotlightSteps: number;
-  /** Chuyển sang bước tiếp theo. */
+  /** Steps đã lọc theo mobile/desktop. */
+  steps: OnboardingStep[];
   next: () => void;
-  /** Quay lại bước trước. */
   prev: () => void;
-  /** Bỏ qua toàn bộ onboarding. */
   skip: () => void;
-  /** Hoàn thành onboarding (gọi ở bước cuối). */
   complete: () => void;
-  /** Tên user để hiển thị chào. */
   userName: string;
 }
 
@@ -48,23 +43,17 @@ export function useOnboarding() {
   return ctx;
 }
 
-/**
- * Kiểm tra an toàn xem onboarding đang active không (không throw nếu ngoài Provider).
- * Dùng để conditionally render trong components không chắc có Provider.
- */
 export function useOnboardingOptional() {
   return useContext(OnboardingContext);
 }
 
 interface Props {
   children: ReactNode;
-  /** User ID (Supabase) để xác định phiên onboarding đã đăng nhập. */
   userId: string | null;
-  /** Tên user để chào. */
   userName: string;
-  /** Metadata của user để đồng bộ trạng thái onboarding. */
   userMetadata?: {
     lingopro_onboarding_completed?: unknown;
+    lingopro_onboarding_version?: unknown;
     force_onboarding?: boolean;
   } | null;
 }
@@ -73,35 +62,74 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
   const [isActive, setIsActive] = useState(false);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [hasChecked, setHasChecked] = useState(false);
+  const [steps, setSteps] = useState<OnboardingStep[]>(() => getActiveOnboardingSteps());
 
-  // Kiểm tra localStorage và userMetadata khi mount
+  // Resize: cập nhật danh sách bước mobile/desktop
   useEffect(() => {
-    // Chờ 1.5s cho dashboard load xong data rồi mới hiện onboarding
+    const refresh = () => {
+      const next = getActiveOnboardingSteps();
+      setSteps(next);
+      setCurrentStepIndex((i) => Math.min(i, Math.max(0, next.length - 1)));
+    };
+    refresh();
+    window.addEventListener('resize', refresh);
+    return () => window.removeEventListener('resize', refresh);
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
-      const localDone = localStorage.getItem(ONBOARDING_STORAGE_KEY);
-      const dbDone = userMetadata?.lingopro_onboarding_completed;
+      const localDone = !!localStorage.getItem(ONBOARDING_STORAGE_KEY);
+      const dbVersion =
+        typeof userMetadata?.lingopro_onboarding_version === 'string'
+          ? userMetadata.lingopro_onboarding_version
+          : null;
+      const dbDone = dbVersion === ONBOARDING_VERSION;
       const isForced = userMetadata?.force_onboarding === true;
 
-      if (isForced) {
-        localStorage.removeItem(ONBOARDING_STORAGE_KEY);
-        setIsActive(true);
-      } else if (!localDone && !dbDone) {
+      if (isForced || (!localDone && !dbDone)) {
+        localStorage.removeItem(ONBOARDING_STORAGE_KEY_LEGACY);
+        try {
+          const saved = sessionStorage.getItem(ONBOARDING_STEP_SESSION_KEY);
+          const idx = saved ? parseInt(saved, 10) : 0;
+          const active = getActiveOnboardingSteps();
+          if (!Number.isNaN(idx) && idx >= 0 && idx < active.length) {
+            setCurrentStepIndex(idx);
+          }
+        } catch {
+          /* ignore */
+        }
         setIsActive(true);
       }
       setHasChecked(true);
-    }, 1500);
+    }, 1200);
     return () => clearTimeout(timer);
   }, [userMetadata]);
 
+  useEffect(() => {
+    if (!isActive || !hasChecked) return;
+    try {
+      sessionStorage.setItem(ONBOARDING_STEP_SESSION_KEY, String(currentStepIndex));
+    } catch {
+      /* ignore */
+    }
+  }, [isActive, hasChecked, currentStepIndex]);
+
   const markCompleted = useCallback(async () => {
-    localStorage.setItem(ONBOARDING_STORAGE_KEY, new Date().toISOString());
+    localStorage.setItem(ONBOARDING_STORAGE_KEY, ONBOARDING_VERSION);
+    localStorage.removeItem(ONBOARDING_STORAGE_KEY_LEGACY);
+    try {
+      sessionStorage.removeItem(ONBOARDING_STEP_SESSION_KEY);
+    } catch {
+      /* ignore */
+    }
     if (userId) {
       try {
         await supabase.auth.updateUser({
           data: {
             lingopro_onboarding_completed: new Date().toISOString(),
-            force_onboarding: false
-          }
+            lingopro_onboarding_version: ONBOARDING_VERSION,
+            force_onboarding: false,
+          },
         });
       } catch (err) {
         console.warn('[Onboarding] Failed to update user metadata:', err);
@@ -109,35 +137,33 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
     }
   }, [userId]);
 
-  const claimOnboardingXp = useCallback(
-    async () => {
-      if (!userId) return;
-      try {
-        const { error } = await supabase.rpc('claim_onboarding_xp');
-        if (error) throw error;
-      } catch (err) {
-        console.warn('[Onboarding] claim_onboarding_xp failed:', err);
-      }
-    },
-    [userId],
-  );
+  const claimOnboardingXp = useCallback(async () => {
+    if (!userId) return;
+    try {
+      const { error } = await supabase.rpc('claim_onboarding_xp');
+      if (error) throw error;
+    } catch (err) {
+      console.warn('[Onboarding] claim_onboarding_xp failed:', err);
+    }
+  }, [userId]);
 
-  const currentStep = ONBOARDING_STEPS[currentStepIndex] ?? ONBOARDING_STEPS[0];
+  const currentStep = steps[currentStepIndex] ?? steps[0];
 
-  // Tính step spotlight hiện tại (bỏ qua modal đầu/cuối)
-  const spotlightSteps = ONBOARDING_STEPS.filter(s => s.type === 'spotlight');
-  const spotlightStepNumber = spotlightSteps.findIndex(s => s.id === currentStep.id) + 1;
+  const spotlightSteps = useMemo(() => steps.filter((s) => s.type === 'spotlight'), [steps]);
+  const spotlightStepNumber = currentStep
+    ? spotlightSteps.findIndex((s) => s.id === currentStep.id) + 1
+    : 0;
   const totalSpotlightSteps = spotlightSteps.length;
 
   const next = useCallback(() => {
-    if (currentStepIndex < ONBOARDING_STEPS.length - 1) {
-      setCurrentStepIndex(i => i + 1);
+    if (currentStepIndex < steps.length - 1) {
+      setCurrentStepIndex((i) => i + 1);
     }
-  }, [currentStepIndex]);
+  }, [currentStepIndex, steps.length]);
 
   const prev = useCallback(() => {
     if (currentStepIndex > 0) {
-      setCurrentStepIndex(i => i - 1);
+      setCurrentStepIndex((i) => i - 1);
     }
   }, [currentStepIndex]);
 
@@ -153,12 +179,20 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
   }, [claimOnboardingXp, markCompleted]);
 
   const value: OnboardingContextValue = {
-    isActive: isActive && hasChecked,
+    isActive: isActive && hasChecked && steps.length > 0,
     currentStepIndex,
-    currentStep,
-    totalSteps: ONBOARDING_STEPS.length,
+    currentStep: currentStep ?? {
+      id: 'empty',
+      type: 'modal',
+      title: '',
+      description: '',
+      emoji: '',
+      xpReward: 0,
+    },
+    totalSteps: steps.length,
     spotlightStepNumber,
     totalSpotlightSteps,
+    steps,
     next,
     prev,
     skip,
@@ -167,8 +201,6 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
   };
 
   return (
-    <OnboardingContext.Provider value={value}>
-      {children}
-    </OnboardingContext.Provider>
+    <OnboardingContext.Provider value={value}>{children}</OnboardingContext.Provider>
   );
 }

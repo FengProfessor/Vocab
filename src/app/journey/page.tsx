@@ -323,7 +323,10 @@ export default function JourneyPage() {
     }
     // mode === 'track' (mặc định): chọn loại lộ trình
     return (
-      <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center">
+      <div
+        className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center gap-6 p-6 text-center"
+        data-onboarding="journey-main"
+      >
         <div className="text-6xl">🧭</div>
         <h1 className="text-3xl font-bold">Bạn muốn học theo hướng nào?</h1>
         <p className="text-muted-foreground">Chọn lộ trình phù hợp mục tiêu — có thể đổi sau.</p>
@@ -352,7 +355,7 @@ export default function JourneyPage() {
   // ── Path map ──
   return (
     <StudentShell title="Lộ trình">
-      <div className="mx-auto max-w-2xl p-4 pb-24 space-y-8">
+      <div className="mx-auto max-w-2xl p-4 pb-24 space-y-8" data-onboarding="journey-main">
       <Celebration trigger={Boolean(celebrate)} triggerKey={celebrate ?? undefined} intensity={celebrate === 'level' ? 'epic' : 'light'} />
       <div className="flex items-center justify-between gap-3">
         <div>

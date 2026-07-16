@@ -144,6 +144,18 @@ export function StudentShell({
     };
   }, [isMenuOpen]);
 
+  // Tour onboarding: mở/đóng drawer (Ngữ pháp trên mobile)
+  useEffect(() => {
+    const open = () => setIsMenuOpen(true);
+    const close = () => setIsMenuOpen(false);
+    window.addEventListener('lingopro-onboarding-open-menu', open);
+    window.addEventListener('lingopro-onboarding-close-menu', close);
+    return () => {
+      window.removeEventListener('lingopro-onboarding-open-menu', open);
+      window.removeEventListener('lingopro-onboarding-close-menu', close);
+    };
+  }, []);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
@@ -181,17 +193,21 @@ export function StudentShell({
       footerDup: true,
     },
     {
-      href: '/flashcard',
-      label: 'Flashcards',
+      href: '/review',
+      label: 'Ôn tập',
       emoji: '📚',
       color: '#6366f1',
       tile: '#e8eafe',
-      match: (value) => value.startsWith('/flashcard'),
+      match: (value) =>
+        value.startsWith('/review') ||
+        value.startsWith('/flashcard') ||
+        value.startsWith('/writing') ||
+        value.startsWith('/quiz'),
       footerDup: true,
     },
     {
       href: '/grammar/learn',
-      label: 'Grammar',
+      label: 'Ngữ pháp',
       emoji: '🎓',
       color: '#8b5cf6',
       tile: '#f1ecff',
@@ -246,6 +262,16 @@ export function StudentShell({
     [navItems],
   );
 
+  const onboardingIdFor = (href: string): string | undefined => {
+    if (href.startsWith('/grammar')) return 'grammar';
+    if (href.startsWith('/library')) return 'library';
+    if (href.startsWith('/journey')) return 'journey';
+    if (href.startsWith('/dictionary')) return 'dictionary';
+    if (href.startsWith('/review')) return 'nav-review';
+    if (href.startsWith('/import')) return 'import';
+    return undefined;
+  };
+
   const renderNavLink = (
     item: NavItem,
     active: boolean,
@@ -254,6 +280,7 @@ export function StudentShell({
     <Link
       key={item.label}
       href={item.href}
+      data-onboarding={onboardingIdFor(item.href)}
       onClick={onClick}
       className={`flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors active:scale-[0.98] md:min-h-0 ${
         active

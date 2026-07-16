@@ -25,7 +25,6 @@ import type { CelebrationIntensity } from '@/components/gamification/Celebration
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
-import { OnboardingProvider } from '@/components/onboarding';
 import {
   readWordSummaryCache,
   writeWordSummaryCache,
@@ -38,13 +37,9 @@ const Celebration = dynamic(
   () => import('@/components/gamification/Celebration').then((m) => m.Celebration),
   { ssr: false }
 );
-// Modal + onboarding layers — chỉ tải khi mở / sau shell
+// Modal — chỉ tải khi mở / sau shell
 const WordDetailModal = dynamic(
   () => import('@/components/student/WordDetailModal').then((m) => m.WordDetailModal),
-  { ssr: false }
-);
-const OnboardingLayers = dynamic(
-  () => import('@/components/onboarding').then((m) => m.OnboardingLayers),
   { ssr: false }
 );
 const BadgeGrid = dynamic(
@@ -65,6 +60,7 @@ interface ActiveVocabPack {
 interface StudentUserMetadata {
   email?: string;
   lingopro_onboarding_completed?: unknown;
+  lingopro_onboarding_version?: unknown;
   force_onboarding?: boolean;
 }
 
@@ -611,6 +607,18 @@ export default function StudentDashboard() {
     return () => clearTimeout(t);
   }, [searchQuery]);
 
+  // Onboarding spotlight Grammar (mobile): mở/đóng drawer hamburger
+  useEffect(() => {
+    const open = () => setIsMenuOpen(true);
+    const close = () => setIsMenuOpen(false);
+    window.addEventListener('lingopro-onboarding-open-menu', open);
+    window.addEventListener('lingopro-onboarding-close-menu', close);
+    return () => {
+      window.removeEventListener('lingopro-onboarding-open-menu', open);
+      window.removeEventListener('lingopro-onboarding-close-menu', close);
+    };
+  }, []);
+
   const filteredWords = useMemo(() => {
     let result = [...words];
     const q = debouncedQuery.trim().toLowerCase();
@@ -673,11 +681,11 @@ export default function StudentDashboard() {
   const navItems: NavItem[] = [
     { href: '/student', label: 'Dashboard', emoji: '🏠', color: '#4f46e5', tile: '#eef0ff', footerDup: true },
     { href: '/journey', label: 'Lộ trình', emoji: '🗺️', color: '#059669', tile: '#dcfce7', onboardingId: 'journey', footerDup: true },
-    { href: '/review', label: 'Ôn tập', emoji: '📚', color: '#6366f1', tile: '#e8eafe', footerDup: true },
-    { href: '/grammar/learn', label: 'Grammar', emoji: '🎓', color: '#8b5cf6', tile: '#f1ecff', onboardingId: 'grammar' },
+    { href: '/review', label: 'Ôn tập', emoji: '📚', color: '#6366f1', tile: '#e8eafe', onboardingId: 'nav-review', footerDup: true },
+    { href: '/grammar/learn', label: 'Ngữ pháp', emoji: '🎓', color: '#8b5cf6', tile: '#f1ecff', onboardingId: 'grammar' },
     { href: '/library', label: 'Thư viện từ vựng', emoji: '📦', color: '#10b981', tile: '#e1f7ee', onboardingId: 'library', footerDup: true },
-    { href: '/dictionary', label: 'Tra từ điển', emoji: '🔍', color: '#06b6d4', tile: '#defafd', footerDup: true },
-    { href: '/import', label: 'Nhập danh sách riêng', emoji: '➕', color: '#64748b', tile: '#eef1f5' },
+    { href: '/dictionary', label: 'Tra từ điển', emoji: '🔍', color: '#06b6d4', tile: '#defafd', onboardingId: 'dictionary', footerDup: true },
+    { href: '/import', label: 'Nhập danh sách riêng', emoji: '➕', color: '#64748b', tile: '#eef1f5', onboardingId: 'import' },
     ...(hasClass ? [
       { href: '/student/profile#stats', label: 'Thống kê', emoji: '📊', color: '#3b82f6', tile: '#e7f0ff' },
       { href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard', label: 'Bảng xếp hạng', emoji: '🏆', color: '#f59e0b', tile: '#fff3df' },
@@ -688,10 +696,7 @@ export default function StudentDashboard() {
   const profileEmail = (userMetadata?.email as string) || '';
 
   return (
-    <OnboardingProvider userId={profile?.id ?? null} userName={profile?.full_name ?? ''} userMetadata={userMetadata}>
     <div className="flex min-h-dvh w-full bg-muted/40 font-sans relative">
-      {/* Onboarding layers (spotlight, tooltips, modals) */}
-      <OnboardingLayers />
       {/* ═══ MOBILE DRAWER ═══ */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] md:hidden">
@@ -849,21 +854,23 @@ export default function StudentDashboard() {
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <Link
               href="/download"
+              data-onboarding="download-header"
               className="hidden items-center gap-1.5 rounded-full border border-[#ffd7bf] bg-[#fff4ec] px-3 py-1.5 text-[12px] font-black text-[#b5502f] transition-colors hover:bg-[#ffe9dc] lg:flex"
             >
               <ArrowDownToLine className="h-4 w-4" />
               Tải app
             </Link>
-            {/* Streak pill — hiện cả mobile */}
-            <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
-              <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
-              <span className="text-[12px] font-black text-[#ea7a23] tabular-nums sm:text-[13px]">{gamification.current_streak}</span>
-            </div>
-            {/* XP pill — sm+ */}
-            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1">
-              <span className="text-[13px] leading-none">⭐</span>
-              <span className="text-[13px] font-black text-[#b45309] tabular-nums">{gamification.total_xp} XP</span>
-              <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#d4a017]">Lv.{xpToLevel(gamification.total_xp)}</span>
+            {/* Streak + XP — target onboarding "progress" */}
+            <div data-onboarding="progress" className="flex items-center gap-1.5 sm:gap-2">
+              <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
+                <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
+                <span className="text-[12px] font-black text-[#ea7a23] tabular-nums sm:text-[13px]">{gamification.current_streak}</span>
+              </div>
+              <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1">
+                <span className="text-[13px] leading-none">⭐</span>
+                <span className="text-[13px] font-black text-[#b45309] tabular-nums">{gamification.total_xp} XP</span>
+                <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#d4a017]">Lv.{xpToLevel(gamification.total_xp)}</span>
+              </div>
             </div>
             <NotificationBell
               dueCount={reviewDueCount}
@@ -1036,7 +1043,11 @@ export default function StudentDashboard() {
 
           
           {/* ═══ KHO TỪ VỰNG ═══ */}
-          <section className="space-y-2.5 rounded-2xl border border-slate-100 bg-white p-3 shadow-sm sm:p-3.5" id="kho-tu-vung">
+          <section
+            className="space-y-2.5 rounded-2xl border border-slate-100 bg-white p-3 shadow-sm sm:p-3.5"
+            id="kho-tu-vung"
+            data-onboarding="vault"
+          >
             <div className="flex items-center justify-between gap-2">
               <h3 className="flex items-center gap-1.5 text-sm font-black text-slate-800 sm:text-base">
                 <span className="text-base leading-none">📦</span>
@@ -1498,6 +1509,5 @@ export default function StudentDashboard() {
         newCount={newCount}
       />
     </div>
-    </OnboardingProvider>
   );
 }

@@ -1,15 +1,112 @@
 'use client';
 
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState, useRef, useCallback, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useOnboarding } from './OnboardingProvider';
+import { resolveOnboardingTarget } from './SpotlightOverlay';
+import { resolveHowTo } from './onboarding-steps';
 import { Mascot } from '@/components/gamification/Mascot';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import './onboarding.css';
 
+const PAD = 12;
+const GAP = 16;
+const TOOLTIP_W = 340;
+/** Chiều cao bottom nav + elevated journey + safe area */
+const MOBILE_NAV_RESERVE = 96;
+
+type PosStyle = { left: number; top: number; width: number };
+
 /**
- * Tooltip hiển thị bên cạnh spotlight target.
- * Tự tính vị trí dựa vào getBoundingClientRect() + step.position.
+ * Tính tọa độ fixed, clamp trong viewport — mobile: không che footer.
+ */
+function placeTooltip(
+  target: DOMRect | null,
+  preferred: 'top' | 'bottom' | 'left' | 'right',
+  boxW: number,
+  boxH: number,
+): PosStyle {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const width = Math.min(boxW, vw - PAD * 2);
+  const isMobile = vw < 768;
+  const bottomSafe = isMobile ? MOBILE_NAV_RESERVE : PAD;
+
+  // Mobile: ưu tiên đặt TRÊN target (footer/nav) hoặc neo phía trên bottom nav
+  if (isMobile) {
+    if (target) {
+      const nearBottom = target.bottom > vh - MOBILE_NAV_RESERVE - 24;
+      let top: number;
+      if (nearBottom || preferred === 'top') {
+        top = target.top - GAP - boxH;
+        if (top < PAD) top = PAD;
+      } else {
+        top = target.bottom + GAP;
+        if (top + boxH > vh - bottomSafe) {
+          top = Math.max(PAD, target.top - GAP - boxH);
+        }
+      }
+      const left = Math.min(Math.max(PAD, target.left + target.width / 2 - width / 2), vw - width - PAD);
+      return { left, top, width };
+    }
+    return {
+      left: (vw - width) / 2,
+      top: Math.max(PAD, vh - boxH - bottomSafe),
+      width,
+    };
+  }
+
+  if (!target) {
+    return {
+      left: (vw - width) / 2,
+      top: Math.max(PAD, vh - boxH - PAD),
+      width,
+    };
+  }
+
+  let left = 0;
+  let top = 0;
+
+  switch (preferred) {
+    case 'right':
+      left = target.right + GAP;
+      top = target.top + target.height / 2 - boxH / 2;
+      break;
+    case 'left':
+      left = target.left - GAP - width;
+      top = target.top + target.height / 2 - boxH / 2;
+      break;
+    case 'bottom':
+      left = target.left + target.width / 2 - width / 2;
+      top = target.bottom + GAP;
+      break;
+    case 'top':
+      left = target.left + target.width / 2 - width / 2;
+      top = target.top - GAP - boxH;
+      break;
+  }
+
+  if (preferred === 'right' && left + width > vw - PAD) {
+    left = target.left + target.width / 2 - width / 2;
+    top = target.bottom + GAP;
+  }
+  if (preferred === 'left' && left < PAD) {
+    left = target.left + target.width / 2 - width / 2;
+    top = target.bottom + GAP;
+  }
+  if (top + boxH > vh - PAD) {
+    const above = target.top - GAP - boxH;
+    top = above >= PAD ? above : Math.max(PAD, vh - boxH - PAD);
+  }
+  if (top < PAD) top = PAD;
+
+  left = Math.min(Math.max(PAD, left), vw - width - PAD);
+
+  return { left, top, width };
+}
+
+/**
+ * Tooltip spotlight — luôn nằm trong viewport, copy ngắn, không tràn.
  */
 export function TutorialTooltip() {
   const {
@@ -23,26 +120,75 @@ export function TutorialTooltip() {
     skip,
   } = useOnboarding();
   const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
+  const [ready, setReady] = useState(false);
   const [showXp, setShowXp] = useState(false);
+  const [pos, setPos] = useState<PosStyle>({ left: 0, top: 0, width: TOOLTIP_W });
   const tooltipRef = useRef<HTMLDivElement>(null);
   const prevStepRef = useRef(currentStepIndex);
 
-  // Track target element
+  // Tìm target
   useEffect(() => {
-    if (!isActive || currentStep.type !== 'spotlight' || !currentStep.targetSelector) {
+    if (!isActive || currentStep.type !== 'spotlight') {
       setTargetRect(null);
+      setReady(false);
       return;
     }
-    const el = document.querySelector(currentStep.targetSelector);
-    if (el) {
-      setTargetRect(el.getBoundingClientRect());
-    }
+
+    let cancelled = false;
+    let tries = 0;
+    const maxTries = 45;
+
+    const tick = () => {
+      if (cancelled) return;
+      const el = resolveOnboardingTarget(currentStep);
+      if (el) {
+        setTargetRect(el.getBoundingClientRect());
+        setReady(true);
+        return;
+      }
+      tries += 1;
+      if (tries >= maxTries) {
+        setTargetRect(null);
+        setReady(true); // fallback không target
+        return;
+      }
+      requestAnimationFrame(tick);
+    };
+
+    const delay = currentStep.openMobileMenu && window.innerWidth < 768 ? 300 : 80;
+    const t = setTimeout(tick, delay);
+    return () => {
+      cancelled = true;
+      clearTimeout(t);
+    };
   }, [isActive, currentStep, currentStepIndex]);
 
-  // Reset XP animation khi đổi step
+  // Đo box + clamp sau render
+  useLayoutEffect(() => {
+    if (!ready || !isActive || currentStep.type !== 'spotlight') return;
+
+    const measure = () => {
+      const el = tooltipRef.current;
+      const boxW = TOOLTIP_W;
+      const boxH = el?.offsetHeight || 220;
+      setPos(placeTooltip(targetRect, currentStep.position ?? 'right', boxW, boxH));
+    };
+
+    measure();
+    // remeasure sau 1 frame (font/mascot)
+    const id = requestAnimationFrame(measure);
+    const onResize = () => measure();
+    window.addEventListener('resize', onResize);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [ready, targetRect, currentStep, isActive, currentStepIndex, showXp]);
+
   useEffect(() => {
     if (prevStepRef.current !== currentStepIndex) {
       setShowXp(false);
+      setReady(false);
       prevStepRef.current = currentStepIndex;
     }
   }, [currentStepIndex]);
@@ -50,149 +196,115 @@ export function TutorialTooltip() {
   const handleNext = useCallback(() => {
     if (currentStep.xpReward > 0) {
       setShowXp(true);
-      setTimeout(() => {
-        next();
-      }, 600);
+      setTimeout(() => next(), 500);
     } else {
       next();
     }
   }, [next, currentStep.xpReward]);
 
-  if (!isActive || currentStep.type !== 'spotlight' || !targetRect) return null;
-
-  // Tính position cho tooltip
-  const pos = currentStep.position ?? 'right';
-  const gap = 20;
-  let style: React.CSSProperties = {};
-  let animClass = '';
-
-  switch (pos) {
-    case 'right':
-      style = {
-        left: targetRect.right + gap,
-        top: targetRect.top + targetRect.height / 2,
-        transform: 'translateY(-50%)',
-      };
-      animClass = 'onboarding-slide-right';
-      break;
-    case 'left':
-      style = {
-        right: window.innerWidth - targetRect.left + gap,
-        top: targetRect.top + targetRect.height / 2,
-        transform: 'translateY(-50%)',
-      };
-      animClass = 'onboarding-slide-left';
-      break;
-    case 'bottom':
-      style = {
-        left: targetRect.left + targetRect.width / 2,
-        top: targetRect.bottom + gap,
-        transform: 'translateX(-50%)',
-      };
-      animClass = 'onboarding-slide-down';
-      break;
-    case 'top':
-      style = {
-        left: targetRect.left + targetRect.width / 2,
-        bottom: window.innerHeight - targetRect.top + gap,
-        transform: 'translateX(-50%)',
-      };
-      animClass = 'onboarding-slide-up';
-      break;
-  }
-
-  // Fallback cho mobile: center bottom nếu tooltip bị tràn
-  const isMobile = window.innerWidth < 768;
-  if (isMobile) {
-    style = {
-      left: '50%',
-      bottom: 24,
-      transform: 'translateX(-50%)',
-    };
-    animClass = 'onboarding-slide-up';
-  }
+  if (!isActive || currentStep.type !== 'spotlight' || !ready) return null;
 
   return createPortal(
     <div
       ref={tooltipRef}
-      className={`fixed z-[92] ${animClass}`}
-      style={{ ...style, maxWidth: isMobile ? 'calc(100vw - 32px)' : 380 }}
+      className="fixed z-[112] onboarding-fade-in"
+      style={{
+        left: pos.left,
+        top: pos.top,
+        width: pos.width,
+        maxWidth: `calc(100vw - ${PAD * 2}px)`,
+        maxHeight: `calc(100dvh - ${PAD * 2}px)`,
+      }}
       key={currentStep.id}
+      role="dialog"
+      aria-label={currentStep.title}
     >
-      <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 p-5 relative">
-        {/* XP float animation */}
+      <div className="relative flex max-h-[inherit] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl sm:p-5">
         {showXp && currentStep.xpReward > 0 && (
-          <div className="absolute -top-2 right-4 onboarding-xp-float">
-            <span className="text-lg font-black text-amber-500">+{currentStep.xpReward} XP</span>
+          <div className="pointer-events-none absolute right-3 top-2 onboarding-xp-float">
+            <span className="text-sm font-black text-amber-500">+{currentStep.xpReward} XP</span>
           </div>
         )}
 
-        {/* Header: emoji + title */}
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-2xl bg-indigo-100 flex items-center justify-center text-xl shrink-0">
+        <div className="mb-2 flex items-start gap-2.5">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-lg">
             {currentStep.emoji}
           </div>
-          <div>
-            <h3 className="font-black text-slate-900 text-base leading-tight">
+          <div className="min-w-0 flex-1 pt-0.5">
+            <h3 className="text-[15px] font-black leading-tight text-slate-900">
               {currentStep.title}
             </h3>
+            <p className="mt-1 text-[13px] font-medium leading-snug text-slate-600">
+              {currentStep.description}
+            </p>
+            {(() => {
+              const tips = resolveHowTo(currentStep);
+              if (!tips.length) return null;
+              return (
+                <ol className="mt-2 max-h-32 space-y-1 overflow-y-auto pr-0.5">
+                  {tips.map((line, i) => (
+                    <li
+                      key={i}
+                      className="flex gap-1.5 text-[11px] font-semibold leading-snug text-slate-500"
+                    >
+                      <span className="shrink-0 font-black text-indigo-500">{i + 1}.</span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ol>
+              );
+            })()}
+          </div>
+          <div className="shrink-0 pt-0.5">
+            <Mascot mood="happy" size="sm" />
           </div>
         </div>
 
-        {/* Description */}
-        <p className="text-sm font-medium text-slate-600 leading-relaxed mb-4">
-          {currentStep.description}
-        </p>
-
-        {/* Footer: progress + navigation */}
-        <div className="flex items-center justify-between">
-          {/* Progress dots */}
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3">
           <div className="flex items-center gap-1.5">
             {Array.from({ length: totalSpotlightSteps }).map((_, i) => (
               <div
                 key={i}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-1.5 rounded-full transition-all duration-300 ${
                   i + 1 === spotlightStepNumber
-                    ? 'w-6 bg-indigo-500'
+                    ? 'w-5 bg-indigo-500'
                     : i + 1 < spotlightStepNumber
-                      ? 'w-2 bg-indigo-300'
-                      : 'w-2 bg-slate-200'
+                      ? 'w-1.5 bg-indigo-300'
+                      : 'w-1.5 bg-slate-200'
                 }`}
               />
             ))}
-            <span className="text-[10px] font-bold text-slate-400 ml-2">
+            <span className="ml-1 text-[10px] font-bold text-slate-400">
               {spotlightStepNumber}/{totalSpotlightSteps}
             </span>
           </div>
 
-          {/* Buttons */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <button
+              type="button"
               onClick={skip}
-              className="text-xs font-bold text-slate-400 hover:text-slate-600 transition-colors px-2 py-1"
+              className="px-2 py-1.5 text-xs font-bold text-slate-400 hover:text-slate-600"
             >
               Bỏ qua
             </button>
             {spotlightStepNumber > 1 && (
               <button
+                type="button"
                 onClick={prev}
-                className="h-9 w-9 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200"
+                aria-label="Lùi"
               >
                 <ChevronLeft className="h-4 w-4 text-slate-600" />
               </button>
             )}
             <button
+              type="button"
               onClick={handleNext}
-              className="h-9 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm flex items-center gap-1 transition-colors shadow-lg shadow-indigo-200"
+              className="flex h-9 items-center gap-1 rounded-xl bg-indigo-600 px-3.5 text-sm font-bold text-white shadow-md shadow-indigo-200 hover:bg-indigo-700"
             >
               Tiếp <ChevronRight className="h-4 w-4" />
             </button>
           </div>
-        </div>
-
-        {/* Mascot mini ở góc */}
-        <div className="absolute -bottom-3 -left-3 onboarding-mascot-bounce">
-          <Mascot mood="happy" size="sm" />
         </div>
       </div>
     </div>,

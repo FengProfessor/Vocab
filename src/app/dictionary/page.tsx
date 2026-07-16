@@ -416,7 +416,7 @@ export default function DictionaryPage() {
 
       <div className="max-w-2xl mx-auto px-4 pt-6 pb-24">
         {/* Search form + autocomplete */}
-        <div className="relative mb-6">
+        <div className="relative mb-6" data-onboarding="dict-search">
           <form onSubmit={handleSubmit} className="flex gap-2">
             <input
               ref={inputRef}

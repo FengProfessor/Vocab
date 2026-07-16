@@ -74,7 +74,9 @@ async function run() {
       const newMetadata = {
         ...(user.user_metadata || {}),
         force_onboarding: true,
-        lingopro_onboarding_completed: null
+        lingopro_onboarding_completed: null,
+        // Xóa version → client ép tour v2 lại
+        lingopro_onboarding_version: null,
       };
 
       const { error } = await supabase.auth.admin.updateUserById(

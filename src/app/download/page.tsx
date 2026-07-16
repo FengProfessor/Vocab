@@ -124,7 +124,10 @@ export default function DownloadPage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div
+            className="flex flex-col gap-3 sm:flex-row sm:flex-wrap"
+            data-onboarding="download-setup"
+          >
             <a
               href={DESKTOP_SETUP_URL}
               className="inline-flex items-center justify-center gap-2 rounded-[11px] bg-[#4f46e5] px-6 py-3.5 text-base font-black text-white shadow-[0_10px_28px_rgba(79,70,229,0.28)] transition hover:bg-[#4338ca] active:scale-[0.99]"

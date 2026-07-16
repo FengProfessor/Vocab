@@ -106,12 +106,24 @@ export function EnableNotifications() {
     setShow(false);
   };
 
-  if (!show) return null;
+  if (!show) {
+    // Placeholder ẩn để tour spotlight vẫn neo được (khi đã bật thông báo)
+    return (
+      <div
+        data-onboarding="notify"
+        className="pointer-events-none h-0 w-full overflow-hidden opacity-0"
+        aria-hidden
+      />
+    );
+  }
 
   return (
     <>
       {/* Mobile: bottom sheet nổi trên footer */}
-      <div className="fixed inset-x-0 bottom-[calc(var(--mobile-nav-total)+0.5rem)] z-[96] px-3 md:hidden animate-in slide-in-from-bottom-4 duration-300">
+      <div
+        data-onboarding="notify"
+        className="fixed inset-x-0 bottom-[calc(var(--mobile-nav-total)+0.5rem)] z-[96] px-3 md:hidden animate-in slide-in-from-bottom-4 duration-300"
+      >
         <div className="mx-auto max-w-lg rounded-2xl border border-indigo-200 bg-white p-3.5 shadow-[0_12px_40px_rgba(79,70,229,.22)]">
           <div className="flex items-start gap-3">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-2xl">
@@ -150,7 +162,10 @@ export function EnableNotifications() {
       </div>
 
       {/* Desktop: banner inline */}
-      <div className="hidden items-center gap-4 rounded-2xl border border-indigo-200 bg-gradient-to-r from-indigo-50 to-purple-50 p-4 shadow-sm md:flex">
+      <div
+        data-onboarding="notify"
+        className="hidden items-center gap-4 rounded-2xl border border-indigo-200 bg-gradient-to-r from-indigo-50 to-purple-50 p-4 shadow-sm md:flex"
+      >
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-2xl">
           🔔
         </div>

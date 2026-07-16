@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 /**
  * Boot client-only extras từ root layout (Server Component không được ssr:false).
- * Firebase + InstallPrompt lazy, không chặn hydration shell.
+ * Firebase + InstallPrompt + Tour lazy, không chặn hydration shell.
  */
 const FirebaseInitializer = dynamic(
   () => import('@/components/FirebaseInitializer'),
@@ -14,12 +14,17 @@ const InstallPrompt = dynamic(
   () => import('@/components/InstallPrompt'),
   { ssr: false }
 );
+const TourBootstrap = dynamic(
+  () => import('@/components/onboarding/TourBootstrap').then((m) => m.TourBootstrap),
+  { ssr: false }
+);
 
 export function ClientBoot() {
   return (
     <>
       <FirebaseInitializer />
       <InstallPrompt />
+      <TourBootstrap />
     </>
   );
 }

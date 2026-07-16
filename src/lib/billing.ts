@@ -8,6 +8,21 @@ import type { Plan, OrderKind } from '@/lib/supabase';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { getEffectivePlan } from '@/lib/entitlement';
 
+/**
+ * Coupon tặng trial theo NGÀY (override period_months của RPC = 1 tháng).
+ * Cả NEWBIE1W và NEWBIE2W đều = 7 ngày (1 tuần) — quà tour.
+ */
+export const TRIAL_COUPON_DAYS: Record<string, number> = {
+  NEWBIE1W: 7,
+  NEWBIE2W: 7,
+};
+
+export function trialCouponExpiry(code: string, from: Date = new Date()): Date | null {
+  const days = TRIAL_COUPON_DAYS[code.toUpperCase()];
+  if (!days) return null;
+  return new Date(from.getTime() + days * 24 * 60 * 60 * 1000);
+}
+
 // ─────────────────────────────────────────
 // Pricing
 // ─────────────────────────────────────────
@@ -299,15 +314,18 @@ export async function createOrder(
       // Get current plan for history
       const { data: profile } = await supabase
         .from('profiles')
-        .select('plan')
+        .select('plan, plan_expires_at')
         .eq('id', userId)
         .single();
       const oldPlan = profile?.plan ?? 'free';
 
-      // Update profiles
-      const planExpiresAt = coupon.code === 'NEWBIE2W'
-        ? new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000)
-        : expiresAt;
+      // Trial coupon (NEWBIE1W/2W): số ngày cố định; không rút ngắn Pro còn hạn dài hơn
+      const trialExp = trialCouponExpiry(coupon.code, now);
+      let planExpiresAt = trialExp ?? expiresAt;
+      if (profile?.plan_expires_at) {
+        const currentExp = new Date(profile.plan_expires_at);
+        if (currentExp > planExpiresAt) planExpiresAt = currentExp;
+      }
 
       const { error: profileErr } = await supabase
         .from('profiles')
@@ -333,16 +351,24 @@ export async function createOrder(
       // Increment coupon usage
       await supabase.rpc('increment_coupon_usage', { p_code: coupon.code });
     } else {
-      // If RPC succeeded, perform our custom overrides (like 14 days and custom note)
-      if (coupon.code === 'NEWBIE2W') {
-        const fourteenDaysLater = new Date();
-        fourteenDaysLater.setDate(fourteenDaysLater.getDate() + 14);
-
+      // RPC mặc định = period_months (1 tháng) → override trial theo NGÀY
+      const trialExp = trialCouponExpiry(coupon.code);
+      if (trialExp) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('plan_expires_at')
+          .eq('id', userId)
+          .single();
+        let planExpiresAt = trialExp;
+        if (profile?.plan_expires_at) {
+          const currentExp = new Date(profile.plan_expires_at);
+          if (currentExp > planExpiresAt) planExpiresAt = currentExp;
+        }
         await supabase
           .from('profiles')
           .update({
             plan: plan,
-            plan_expires_at: fourteenDaysLater.toISOString(),
+            plan_expires_at: planExpiresAt.toISOString(),
           })
           .eq('id', userId);
       }

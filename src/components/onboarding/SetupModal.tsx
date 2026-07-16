@@ -66,13 +66,13 @@ export function SetupModal() {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm onboarding-fade-in overflow-y-auto"
+      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) skip();
       }}
     >
       <div
-        className="relative w-full max-w-lg bg-white rounded-[32px] shadow-2xl border-b-8 border-indigo-200 onboarding-zoom-in my-4 overflow-hidden"
+        className="relative my-auto w-full max-w-md max-h-[min(720px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-indigo-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Gradient header */}

@@ -3,42 +3,105 @@
 import { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useOnboarding } from './OnboardingProvider';
+import {
+  ONBOARDING_CLOSE_MENU_EVENT,
+  ONBOARDING_OPEN_MENU_EVENT,
+  type OnboardingStep,
+} from './onboarding-steps';
 import './onboarding.css';
+
+/** Chọn element target: mobile selector → desktop; bỏ qua element ẩn. */
+export function resolveOnboardingTarget(step: OnboardingStep): Element | null {
+  if (step.type !== 'spotlight') return null;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const candidates: string[] = [];
+  if (isMobile && step.mobileTargetSelector) candidates.push(step.mobileTargetSelector);
+  if (step.targetSelector) candidates.push(step.targetSelector);
+  // Fallback: thử mobile selector cả khi desktop (một số layout hybrid)
+  if (!isMobile && step.mobileTargetSelector) candidates.push(step.mobileTargetSelector);
+
+  for (const sel of candidates) {
+    const nodes = document.querySelectorAll(sel);
+    for (const el of Array.from(nodes)) {
+      const r = el.getBoundingClientRect();
+      // visible + có kích thước
+      if (r.width > 0 && r.height > 0) {
+        const style = window.getComputedStyle(el);
+        if (style.visibility !== 'hidden' && style.display !== 'none') {
+          return el;
+        }
+      }
+    }
+  }
+  return null;
+}
 
 /**
  * Full-screen overlay tối + spotlight cutout trên target element.
- * Sử dụng SVG mask để tạo lỗ sáng mượt — tương thích mọi browser.
  */
 export function SpotlightOverlay() {
   const { isActive, currentStep } = useOnboarding();
   const [rect, setRect] = useState<DOMRect | null>(null);
   const rafRef = useRef<number>(0);
+  const menuOpenedRef = useRef(false);
+
+  // Mở/đóng mobile drawer khi step cần
+  useEffect(() => {
+    if (!isActive || currentStep.type !== 'spotlight') {
+      if (menuOpenedRef.current) {
+        window.dispatchEvent(new CustomEvent(ONBOARDING_CLOSE_MENU_EVENT));
+        menuOpenedRef.current = false;
+      }
+      return;
+    }
+
+    const isMobile = window.innerWidth < 768;
+    if (isMobile && currentStep.openMobileMenu) {
+      window.dispatchEvent(new CustomEvent(ONBOARDING_OPEN_MENU_EVENT));
+      menuOpenedRef.current = true;
+    } else if (menuOpenedRef.current) {
+      window.dispatchEvent(new CustomEvent(ONBOARDING_CLOSE_MENU_EVENT));
+      menuOpenedRef.current = false;
+    }
+
+    return () => {
+      // không đóng ngay khi unmount mid-step — chỉ khi rời step
+    };
+  }, [isActive, currentStep]);
 
   // Track target element position
   useEffect(() => {
-    if (!isActive || currentStep.type !== 'spotlight' || !currentStep.targetSelector) {
+    if (!isActive || currentStep.type !== 'spotlight') {
       setRect(null);
       return;
     }
 
+    let attempts = 0;
+    const maxAttempts = 90; // ~1.5s @ 60fps + delay mở menu
+
     const updateRect = () => {
-      const el = document.querySelector(currentStep.targetSelector!);
+      const el = resolveOnboardingTarget(currentStep);
       if (el) {
         const r = el.getBoundingClientRect();
         setRect(r);
-
-        // Scroll into view nếu cần
-        if (r.top < 0 || r.bottom > window.innerHeight) {
+        if (r.top < 8 || r.bottom > window.innerHeight - 8) {
           el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        attempts = 0;
+      } else {
+        attempts += 1;
+        if (attempts > maxAttempts) {
+          setRect(null);
         }
       }
       rafRef.current = requestAnimationFrame(updateRect);
     };
 
-    // Delay nhỏ để element kịp render
+    // Chờ drawer/layout (grammar mobile)
+    const delay = currentStep.openMobileMenu && window.innerWidth < 768 ? 280 : 100;
     const timer = setTimeout(() => {
       updateRect();
-    }, 100);
+    }, delay);
 
     return () => {
       clearTimeout(timer);
@@ -46,9 +109,11 @@ export function SpotlightOverlay() {
     };
   }, [isActive, currentStep]);
 
-  if (!isActive || currentStep.type !== 'spotlight' || !rect || (rect.width === 0 && rect.height === 0)) return null;
+  if (!isActive || currentStep.type !== 'spotlight' || !rect || (rect.width === 0 && rect.height === 0)) {
+    return null;
+  }
 
-  const padding = 8; // padding quanh target
+  const padding = 8;
   const borderRadius = 16;
   const x = rect.left - padding;
   const y = rect.top - padding;
@@ -60,13 +125,11 @@ export function SpotlightOverlay() {
       <svg
         width="100%"
         height="100%"
-        style={{ position: 'fixed', inset: 0, zIndex: 89 }}
+        style={{ position: 'fixed', inset: 0, zIndex: 110 }}
       >
         <defs>
           <mask id="onboarding-spotlight-mask">
-            {/* Nền trắng = hiển thị overlay */}
             <rect x="0" y="0" width="100%" height="100%" fill="white" />
-            {/* Hình chữ nhật đen = lỗ sáng (transparent) */}
             <rect
               x={x}
               y={y}
@@ -79,7 +142,6 @@ export function SpotlightOverlay() {
             />
           </mask>
         </defs>
-        {/* Overlay tối với mask */}
         <rect
           x="0"
           y="0"
@@ -90,7 +152,6 @@ export function SpotlightOverlay() {
         />
       </svg>
 
-      {/* Viền phát sáng quanh spotlight */}
       <div
         style={{
           position: 'fixed',
@@ -99,7 +160,7 @@ export function SpotlightOverlay() {
           width: w,
           height: h,
           borderRadius,
-          zIndex: 90,
+          zIndex: 111,
           pointerEvents: 'none',
           transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         }}

@@ -404,7 +404,11 @@ export default function LibraryPage() {
             <span className="text-base">📦</span>
             <span>Thư viện</span>
           </div>
-          <Link href="/import" className="ml-auto flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-indigo-700">
+          <Link
+            href="/import"
+            data-onboarding="lib-import"
+            className="ml-auto flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-indigo-700"
+          >
             <Upload className="h-3.5 w-3.5" aria-hidden />Nhập tay
           </Link>
         </header>
@@ -429,7 +433,7 @@ export default function LibraryPage() {
               <p className="text-sm font-medium">Đang tải danh mục...</p>
             </div>
           ) : (
-            <div className="space-y-5">
+            <div className="space-y-5" data-onboarding="lib-routes">
               <Section
                 title="🎒 Chương trình THPT"
                 desc="Bám sách Global Success — Lớp 10 / 11 / 12"

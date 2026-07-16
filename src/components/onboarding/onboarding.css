@@ -117,10 +117,11 @@
 
 /* ═══ Spotlight overlay ═══ */
 
+/* Trên drawer mobile (z-100) + bottom nav (z-90) để spotlight cắt lỗ đúng */
 .onboarding-overlay {
   position: fixed;
   inset: 0;
-  z-index: 89;
+  z-index: 110;
   pointer-events: auto;
 }
 
