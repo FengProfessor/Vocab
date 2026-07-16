@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import {
@@ -19,10 +19,13 @@ import {
   Sparkles,
   Chrome,
   Repeat2,
+  ExternalLink,
+  Copy,
 } from 'lucide-react';
 import type { UserRole } from '@/lib/supabase';
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
+import { detectInAppBrowser, externalBrowserUrl } from '@/lib/in-app-browser';
 
 const display = 'font-bold tracking-tight';
 
@@ -55,8 +58,17 @@ export default function AuthPage() {
   ));
   const [showManualRedirect, setShowManualRedirect] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [inApp, setInApp] = useState<ReturnType<typeof detectInAppBrowser> | null>(null);
+
+  const authUrl = useMemo(() => {
+    if (typeof window === 'undefined') return 'https://lingopro.online/auth';
+    return `${window.location.origin}/auth${window.location.search || ''}`;
+  }, []);
 
   useEffect(() => {
+    const info = detectInAppBrowser();
+    setInApp(info);
+
     const params = new URLSearchParams(window.location.search);
     const timer = window.setTimeout(() => {
       if (params.get('mode') === 'signup') setMode('signup');
@@ -64,9 +76,14 @@ export default function AuthPage() {
 
       // Lỗi OAuth từ callback / Google
       const err = params.get('error');
-      if (err === 'oauth' || err === 'oauth_no_session') {
+      const errDesc = (params.get('error_description') || '').toLowerCase();
+      if (err === 'disallowed_useragent' || errDesc.includes('disallowed_useragent')) {
         setDebugError(
-          'Đăng nhập Google chưa hoàn tất. Thử lại (trình duyệt thường, không WebView/in-app).',
+          'Google chặn đăng nhập trong Zalo/Facebook/WebView. Mở Chrome hoặc Safari rồi vào lingopro.online/auth',
+        );
+      } else if (err === 'oauth' || err === 'oauth_no_session') {
+        setDebugError(
+          'Đăng nhập Google chưa hoàn tất. Mở Chrome/Safari (không mở trong Zalo/FB) rồi thử lại.',
         );
       } else if (err === 'access_denied') {
         setDebugError('Bạn đã hủy đăng nhập Google.');
@@ -236,7 +253,31 @@ export default function AuthPage() {
     }
   };
 
+  const openInExternalBrowser = () => {
+    const { chromeIntent, plain } = externalBrowserUrl(authUrl);
+    if (inApp?.isAndroid && chromeIntent) {
+      // Thử Chrome intent; nếu fail user vẫn thấy link copy
+      window.location.href = chromeIntent;
+      return;
+    }
+    // iOS / khác: copy + hướng dẫn
+    void navigator.clipboard?.writeText(plain).then(
+      () => toast.success('Đã copy link — dán vào Safari/Chrome'),
+      () => toast.message(plain),
+    );
+  };
+
   const handleGoogleSignIn = async () => {
+    // Google policy: cấm OAuth trong WebView (Zalo, FB, …) → 403 disallowed_useragent
+    const detected = inApp ?? detectInAppBrowser();
+    if (detected.isInApp) {
+      setDebugError(
+        `Google không cho đăng nhập trong ${detected.appName || 'app'}. Mở Chrome/Safari → lingopro.online/auth`,
+      );
+      toast.error('Mở bằng Chrome hoặc Safari để đăng nhập Google');
+      return;
+    }
+
     setGoogleLoading(true);
     setStatus('Đang mở Google...');
     setDebugError('');
@@ -459,11 +500,53 @@ export default function AuthPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-3">
-                  {/* Google trước — ít gõ trên mobile */}
+                  {/* WebView / Zalo / FB — Google chặn OAuth (403 disallowed_useragent) */}
+                  {inApp?.isInApp && (
+                    <div className="space-y-2.5 rounded-2xl border border-amber-400/40 bg-amber-500/15 p-3.5">
+                      <p className="text-sm font-black text-amber-100">
+                        ⚠️ Đang mở trong {inApp.appName || 'app'}
+                      </p>
+                      <p className="text-xs font-semibold leading-relaxed text-amber-50/90">
+                        Google <b>không cho</b> đăng nhập trong Zalo / Facebook / WebView.
+                        Hãy mở <b>Chrome</b> hoặc <b>Safari</b>, vào:
+                      </p>
+                      <p className="break-all rounded-xl bg-black/25 px-3 py-2 font-mono text-[12px] font-bold text-white">
+                        lingopro.online/auth
+                      </p>
+                      <div className="flex flex-col gap-2 sm:flex-row">
+                        <button
+                          type="button"
+                          onClick={openInExternalBrowser}
+                          className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-amber-400 px-3 text-sm font-black text-[#241710] active:scale-[0.98]"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          {inApp.isAndroid ? 'Mở bằng Chrome' : 'Copy link mở Safari'}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            void navigator.clipboard?.writeText(authUrl).then(
+                              () => toast.success('Đã copy link'),
+                              () => toast.message(authUrl),
+                            );
+                          }}
+                          className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 text-sm font-bold text-white active:scale-[0.98]"
+                        >
+                          <Copy className="h-4 w-4" />
+                          Copy link
+                        </button>
+                      </div>
+                      <p className="text-[11px] font-semibold text-amber-50/80">
+                        Hoặc đăng ký / đăng nhập bằng <b>email + mật khẩu</b> bên dưới (vẫn dùng được trong app).
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Google trước — chỉ khuyến khích khi KHÔNG in-app */}
                   <button
                     type="button"
                     onClick={() => { void handleGoogleSignIn(); }}
-                    disabled={loading || googleLoading}
+                    disabled={loading || googleLoading || Boolean(inApp?.isInApp)}
                     className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white text-sm font-bold text-[#241710] transition-all active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {googleLoading ? (
@@ -476,7 +559,11 @@ export default function AuthPage() {
                         <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
                       </svg>
                     )}
-                    {googleLoading ? 'Đang mở Google…' : 'Tiếp tục với Google'}
+                    {inApp?.isInApp
+                      ? 'Google: mở Chrome/Safari'
+                      : googleLoading
+                        ? 'Đang mở Google…'
+                        : 'Tiếp tục với Google'}
                   </button>
 
                   <div className="flex items-center gap-3 py-0.5">
