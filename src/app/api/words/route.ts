@@ -79,20 +79,44 @@ type WordSummaryCounts = {
   levelCounts: number[];
 };
 
-/** Đếm L1–L6 trên TOÀN BỘ từ classroom (không phân trang). */
+/**
+ * Đếm L1–L6 trên TOÀN BỘ từ classroom.
+ * Ưu tiên RPC get_word_level_counts (1 query) — migration 20260716_class_scale_db_perf.
+ * Fallback chunk cũ nếu RPC chưa apply.
+ */
 async function fetchLevelCounts(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
   classroomId: string,
   totalWords: number,
 ): Promise<number[]> {
+  const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_level_counts', {
+    p_user_id: userId,
+    p_classroom_id: classroomId,
+  });
+  if (!rpcErr && rpcRows) {
+    const row = (Array.isArray(rpcRows) ? rpcRows[0] : rpcRows) as {
+      l1?: number; l2?: number; l3?: number; l4?: number; l5?: number; l6?: number;
+    } | null;
+    if (row) {
+      return [
+        Number(row.l1 ?? 0),
+        Number(row.l2 ?? 0),
+        Number(row.l3 ?? 0),
+        Number(row.l4 ?? 0),
+        Number(row.l5 ?? 0),
+        Number(row.l6 ?? 0),
+      ];
+    }
+  }
+
+  // Fallback: chunk (chậm) — chỉ khi migration chưa chạy
   const levelCounts = [0, 0, 0, 0, 0, 0];
   const { data: wordRows, error: wErr } = await supabase
     .from('words')
     .select('id')
     .eq('classroom_id', classroomId);
   if (wErr || !wordRows?.length) {
-    // không có từ → toàn 0; nếu có total nhưng select fail, fallback L1 = total
     if (totalWords > 0 && (!wordRows || wordRows.length === 0)) {
       levelCounts[0] = totalWords;
     }
@@ -100,7 +124,6 @@ async function fetchLevelCounts(
   }
 
   const wordIds = wordRows.map((w) => w.id as string);
-  // Chunk in() để tránh URL quá dài
   const CHUNK = 200;
   const stabilityByWord = new Map<string, number>();
   for (let i = 0; i < wordIds.length; i += CHUNK) {
@@ -119,7 +142,6 @@ async function fetchLevelCounts(
 
   for (const id of wordIds) {
     const s = stabilityByWord.get(id);
-    // Chưa có SRS = L1 (chưa học / mới nạp kho)
     const level = s === undefined ? 1 : stabilityToLevel(s);
     levelCounts[level - 1] += 1;
   }
