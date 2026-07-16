@@ -108,9 +108,10 @@ export async function POST(req: Request) {
     if (!auth) return unauthorized();
 
     const ip = getClientIp(req);
+    // PDF/export: siết riêng — học tải vài file OK, cào hàng loạt bị chặn
     const denied = await assertScrapeQuota(
       `library-gloss:${auth.userId}:${ip}`,
-      QUOTA.contentList,
+      QUOTA.pdfGloss,
     );
     if (denied) return denied;
 
@@ -131,10 +132,10 @@ export async function POST(req: Request) {
     if (words.length === 0) {
       return NextResponse.json({ success: true, glosses: {} as Record<string, WordGloss> });
     }
-    // Cap 120 — đủ 1 unit PDF; chặn dump 800 từ/request
-    if (words.length > 120) {
+    // Cap 100 — đủ 1 unit/PDF; chặn dump bulk
+    if (words.length > 100) {
       return NextResponse.json(
-        { success: false, error: 'Tối đa 120 từ / lần (chống cào dữ liệu)' },
+        { success: false, error: 'Tối đa 100 từ / lần (chống cào dữ liệu)' },
         { status: 400 },
       );
     }

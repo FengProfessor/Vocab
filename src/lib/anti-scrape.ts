@@ -58,6 +58,15 @@ export const QUOTA = {
     { suffix: 'm', limit: 30, windowMs: 60_000 },
     { suffix: 'h', limit: 150, windowMs: 3_600_000 },
   ] as QuotaWindow[],
+  /**
+   * Xuất PDF thư viện (POST /api/library/gloss).
+   * Học: 1–3 PDF/giờ ổn. Cào: bấm tải liên tục / batch script → 429.
+   */
+  pdfGloss: [
+    { suffix: 'm', limit: 3, windowMs: 60_000 },
+    { suffix: 'h', limit: 12, windowMs: 3_600_000 },
+    { suffix: 'd', limit: 40, windowMs: 86_400_000 },
+  ] as QuotaWindow[],
 } as const;
 
 /**
