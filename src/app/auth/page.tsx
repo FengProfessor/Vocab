@@ -110,10 +110,31 @@ export default function AuthPage() {
     };
   }, []);
 
+  /** Chuẩn hóa lỗi Supabase auth → tiếng Việt, gợi ý Google khi rate limit email. */
+  const formatAuthError = (raw: string): string => {
+    const m = raw.toLowerCase();
+    if (m.includes('email rate limit') || (m.includes('rate limit') && m.includes('email'))) {
+      return 'Hệ thống email đang quá tải (nhiều người đăng ký cùng lúc). Dùng «Tiếp tục với Google» hoặc thử lại sau 10–30 phút.';
+    }
+    if (m.includes('invalid login') || m.includes('invalid credentials')) {
+      return 'Sai email hoặc mật khẩu.';
+    }
+    if (m.includes('email not confirmed')) {
+      return 'Email chưa xác nhận. Dùng Google, hoặc đăng ký lại (tài khoản mới không cần mail).';
+    }
+    if (m.includes('user already') || m.includes('already registered')) {
+      return 'Email đã có tài khoản — hãy đăng nhập.';
+    }
+    if (m.includes('too many requests') || m.includes('429')) {
+      return 'Thao tác quá nhanh. Chờ chút rồi thử lại, hoặc dùng Google.';
+    }
+    return raw;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setStatus('Đang đăng nhập...');
+    setStatus(mode === 'signup' ? 'Đang tạo tài khoản...' : 'Đang đăng nhập...');
     setDebugError('');
     setShowManualRedirect(false);
 
@@ -126,15 +147,37 @@ export default function AuthPage() {
 
     try {
       if (mode === 'signup') {
-        setStatus('Đang tạo tài khoản...');
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            data: { full_name: fullName, role },
-          },
+        // API register: email_confirm server-side — KHÔNG gửi mail (tránh limit 2 mail/giờ Supabase)
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email.trim(),
+            password,
+            fullName: fullName.trim(),
+            role,
+            website: '', // honeypot
+          }),
         });
-        if (error) throw error;
+        const json = (await res.json()) as { success?: boolean; error?: string; code?: string };
+
+        if (!res.ok || !json.success) {
+          if (json.code === 'already_registered') {
+            // Đã có tài khoản → thử đăng nhập luôn
+            setStatus('Email đã có — đang đăng nhập...');
+            const { data, error } = await supabase.auth.signInWithPassword({
+              email: email.trim(),
+              password,
+            });
+            if (error) throw new Error(json.error || error.message);
+            if (data.session) {
+              window.location.replace(destFromSession(data.session.user));
+              return;
+            }
+          }
+          throw new Error(json.error || 'Không đăng ký được.');
+        }
+
         if (role === 'teacher') {
           const params = new URLSearchParams(window.location.search);
           track('teacher_signup_completed', {
@@ -142,33 +185,49 @@ export default function AuthPage() {
             source: params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source') ?? 'teacher_landing',
           });
         }
-        toast.success('Đã tạo tài khoản! Vui lòng kiểm tra email để xác nhận.');
-        setMode('login');
-        setLoading(false);
-      } else {
-        setStatus('Đang xác thực...');
-        // Session trả về NGAY từ signIn — không sleep 1.5s, không query profiles
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
 
-        const session = data.session;
-        if (!session) {
-          setShowManualRedirect(true);
-          setStatus('Đăng nhập OK nhưng phiên chưa sẵn sàng.');
-          setDebugError('Nhấn nút chuyển hướng bên dưới hoặc tắt chế độ Ẩn danh.');
+        // Đăng nhập ngay — không chờ confirm email
+        setStatus('Đang đăng nhập...');
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: email.trim(),
+          password,
+        });
+        if (error) throw error;
+        if (!data.session) {
+          toast.success('Tạo tài khoản xong — hãy đăng nhập.');
+          setMode('login');
           setLoading(false);
           return;
         }
-
         setStatus('Thành công — đang vào học...');
-        // replace: không chờ profiles/DB (điểm nghẽn lúc 100 HS)
-        window.location.replace(destFromSession(session.user));
-        return; // giữ loading spinner đến khi rời trang
+        window.location.replace(destFromSession(data.session.user));
+        return;
       }
+
+      setStatus('Đang xác thực...');
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+      if (error) throw error;
+
+      const session = data.session;
+      if (!session) {
+        setShowManualRedirect(true);
+        setStatus('Đăng nhập OK nhưng phiên chưa sẵn sàng.');
+        setDebugError('Nhấn nút chuyển hướng bên dưới hoặc tắt chế độ Ẩn danh.');
+        setLoading(false);
+        return;
+      }
+
+      setStatus('Thành công — đang vào học...');
+      window.location.replace(destFromSession(session.user));
+      return;
     } catch (err: unknown) {
       console.error('CRITICAL Auth Error:', err);
-      const msg = err instanceof Error ? err.message : 'Xác thực thất bại.';
-      setDebugError(`LỖI: ${msg}`);
+      const raw = err instanceof Error ? err.message : 'Xác thực thất bại.';
+      const msg = formatAuthError(raw);
+      setDebugError(msg);
       toast.error(msg);
       setStatus('');
       setLoading(false);
