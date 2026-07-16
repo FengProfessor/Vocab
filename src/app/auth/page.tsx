@@ -129,9 +129,19 @@ export default function AuthPage() {
   }, [buildGoogleRedirectTo]);
 
   useEffect(() => {
-    // Prefetch ngay khi mở /auth (user đang đọc form → URL sẵn)
-    void prefetchGoogleUrl(role);
-    // Tab ẩn lâu → hiện lại: refresh URL nếu sắp hết hạn
+    // Prefetch OAuth SAU paint — không cạnh tranh TTI với form /auth
+    let idleId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    const startPrefetch = () => {
+      void prefetchGoogleUrl(role);
+    };
+    const ric = window.requestIdleCallback?.bind(window);
+    if (ric) {
+      idleId = ric(startPrefetch, { timeout: 1800 });
+    } else {
+      timeoutId = setTimeout(startPrefetch, 400);
+    }
+
     const onVis = () => {
       if (document.visibilityState !== 'visible') return;
       if (Date.now() - googleUrlAtRef.current >= GOOGLE_URL_TTL_MS * 0.75) {
@@ -145,23 +155,34 @@ export default function AuthPage() {
     return () => {
       document.removeEventListener('visibilitychange', onVis);
       window.clearInterval(timer);
+      if (idleId !== undefined && window.cancelIdleCallback) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId !== undefined) clearTimeout(timeoutId);
     };
   }, [role, prefetchGoogleUrl]);
 
   useEffect(() => {
-    const redirectIfLoggedIn = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) return;
-      // claim_teacher fire-and-forget — không chặn redirect
-      if (new URLSearchParams(window.location.search).get('role') === 'teacher') {
-        void supabase.rpc('claim_teacher_role').then(({ error: roleErr }) => {
-          if (roleErr) console.warn('[Auth] claim_teacher_role:', roleErr.message);
-        });
-      }
-      window.location.replace(destFromSession(session.user));
+    // Session localStorage — chạy sau 1 tick để form render trước
+    let cancelled = false;
+    const t = window.setTimeout(() => {
+      void (async () => {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+        if (cancelled || !session) return;
+        if (new URLSearchParams(window.location.search).get('role') === 'teacher') {
+          void supabase.rpc('claim_teacher_role').then(({ error: roleErr }) => {
+            if (roleErr) console.warn('[Auth] claim_teacher_role:', roleErr.message);
+          });
+        }
+        window.location.replace(destFromSession(session.user));
+      })();
+    }, 0);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(t);
     };
-    // Không subscribe SIGNED_IN → tránh double-redirect với handleSubmit
-    void redirectIfLoggedIn();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {

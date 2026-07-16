@@ -51,7 +51,6 @@ function pathAllowed(pathname: string): boolean {
   return !SKIP_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`));
 }
 
-/** Tự mở đúng route khi bước spotlight/guide yêu cầu. */
 function TourNavigator() {
   const { isActive, currentStep } = useOnboarding();
   const pathname = usePathname();
@@ -59,7 +58,6 @@ function TourNavigator() {
 
   useEffect(() => {
     if (!isActive || !currentStep.route) return;
-    // Guide: user tự bấm «Thử ngay» — không auto-nav (tránh nhảy trang khi chỉ đọc)
     if (currentStep.type === 'guide') return;
 
     const want = currentStep.route.split('?')[0];
@@ -72,17 +70,25 @@ function TourNavigator() {
 }
 
 /**
- * Mount tour toàn app (client). Không phụ thuộc /student —
- * đổi trang Thư viện / Lộ trình / Tra từ vẫn giữ bước.
+ * Tour chỉ mount khi ClientBoot cho phép path học.
+ * Không query profiles — lấy tên từ user_metadata (nhanh, không đụng DB).
  */
 export function TourBootstrap() {
   const pathname = usePathname() ?? '';
+  const allowed = pathAllowed(pathname);
   const [userId, setUserId] = useState<string | null>(null);
   const [userName, setUserName] = useState('');
   const [userMetadata, setUserMetadata] = useState<Meta | null>(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    // Path marketing/auth: không getSession, không profiles
+    if (!allowed) {
+      setReady(true);
+      setUserId(null);
+      return;
+    }
+
     let cancelled = false;
     (async () => {
       try {
@@ -95,21 +101,19 @@ export function TourBootstrap() {
           setReady(true);
           return;
         }
+        const meta = (session.user.user_metadata ?? {}) as Meta & {
+          full_name?: string;
+          name?: string;
+        };
         setUserId(session.user.id);
-        setUserMetadata((session.user.user_metadata ?? {}) as Meta);
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('full_name')
-          .eq('id', session.user.id)
-          .maybeSingle();
-        if (!cancelled) {
-          setUserName(
-            (profile?.full_name as string) ||
-              (session.user.user_metadata?.full_name as string) ||
-              '',
-          );
-          setReady(true);
-        }
+        setUserMetadata(meta);
+        // Không query profiles — auth.session đủ cho tour chào tên
+        setUserName(
+          (typeof meta.full_name === 'string' && meta.full_name) ||
+            (typeof meta.name === 'string' && meta.name) ||
+            '',
+        );
+        setReady(true);
       } catch {
         if (!cancelled) setReady(true);
       }
@@ -117,9 +121,9 @@ export function TourBootstrap() {
     return () => {
       cancelled = true;
     };
-  }, [pathname]);
+  }, [pathname, allowed]);
 
-  if (!ready || !userId || !pathAllowed(pathname)) return null;
+  if (!allowed || !ready || !userId) return null;
 
   return (
     <OnboardingProvider userId={userId} userName={userName} userMetadata={userMetadata}>
