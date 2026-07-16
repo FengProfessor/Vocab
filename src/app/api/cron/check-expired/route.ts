@@ -7,15 +7,11 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { safeErrorResponse } from '@/lib/api-security';
+import { assertCronAuthorized, safeErrorResponse } from '@/lib/api-security';
 
 export async function GET(req: NextRequest) {
-  // Auth: verify cron secret (BLOCK if not configured)
-  const authHeader = req.headers.get('authorization');
-  const cronSecret = process.env.CRON_SECRET;
-  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  const denied = assertCronAuthorized(req);
+  if (denied) return denied;
 
   const supabase = createServiceClient();
   const now = new Date().toISOString();

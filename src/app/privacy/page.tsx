@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 // Ngày cập nhật gần nhất của chính sách (hiển thị cho người dùng)
-const LAST_UPDATED = '21/06/2026';
+const LAST_UPDATED = '16/07/2026';
 
 export default function PrivacyPage() {
   return (
@@ -68,6 +68,12 @@ export default function PrivacyPage() {
               cập được dữ liệu của chính mình. Chúng tôi áp dụng các biện pháp kỹ thuật hợp lý để bảo vệ dữ
               liệu, nhưng không có hệ thống nào an toàn tuyệt đối.
             </p>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              <li>API dùng xác thực JWT / token thiết bị; thao tác nhạy cảm kiểm tra quyền lớp học.</li>
+              <li>Giới hạn tần suất (rate limit) chống spam AI và dump dữ liệu.</li>
+              <li>Không bán dữ liệu học sinh; chỉ chia sẻ với nhà cung cấp cần thiết để vận hành (Supabase, Vercel, AI, FCM).</li>
+              <li>Bạn không được dùng API/extension để xuất hàng loạt dữ liệu của người khác hoặc kho nội dung.</li>
+            </ul>
           </section>
 
           <section>

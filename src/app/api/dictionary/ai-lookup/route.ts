@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { getRouter } from "@/lib/ai-router";
 import { sanitizeForPrompt, checkRateLimitAsync, safeErrorResponse, getAuthUser, unauthorized } from "@/lib/api-security";
+import { checkAndConsumeDailyAI, resolvePlanByUserId } from "@/lib/entitlement";
 
 // Gọi AI sinh từ điển khi cache miss. Hobby mặc định 10s có thể kill sớm.
 export const maxDuration = 30;
@@ -16,6 +17,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },
         { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } }
+      );
+    }
+
+    const supabaseEarly = createServiceClient();
+    const plan = await resolvePlanByUserId(supabaseEarly, auth.userId);
+    const aiQuota = await checkAndConsumeDailyAI(supabaseEarly, auth.userId, plan);
+    if (!aiQuota.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'AI_DAILY_LIMIT',
+          message: 'Gói Free đã hết lượt AI hôm nay. Nâng Pro để dùng không giới hạn.',
+          upgradeTo: aiQuota.upgradeTo ?? 'pro',
+        },
+        { status: 403 },
       );
     }
 
@@ -66,9 +82,16 @@ If it IS a real English word or phrase, return ONLY a valid JSON object with thi
         }
       ]
     }
+  ],
+  "synonyms": ["3-5 common English synonyms"],
+  "antonyms": ["3-5 common English antonyms or empty array if none"],
+  "familyWords": [
+    { "word": "base or derived form", "pos": "noun/verb/adjective/adverb", "meaning": "Vietnamese short meaning" }
   ]
 }
-Include the 3 most common meanings. Always include both UK and US pronunciation entries in "pronunciations" — even if the IPA is identical, still return two separate objects with "region": "UK" and "region": "US". Do not include markdown tags like \`\`\`json. Just the raw JSON.`;
+Include the 3 most common meanings. Always include both UK and US pronunciation entries in "pronunciations" — even if the IPA is identical, still return two separate objects with "region": "UK" and "region": "US".
+Include 3-5 synonyms, antonyms when natural (else []), and 2-5 word-family forms (e.g. happy/happiness/happily) with short Vietnamese meanings.
+Do not include markdown tags like \`\`\`json. Just the raw JSON.`;
 
     let text = (await getRouter().generate(prompt, 'normal', true)).trim();
 

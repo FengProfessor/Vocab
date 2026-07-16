@@ -3,7 +3,14 @@ import { createServiceClient, type DictionaryData, type SRSProgress, type Word }
 import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { stabilityToLevel } from '@/lib/srs';
-import { getAuthUser, unauthorized, isValidString, checkRateLimitAsync } from '@/lib/api-security';
+import {
+  getAuthUser,
+  unauthorized,
+  forbidden,
+  isValidString,
+  checkRateLimitAsync,
+  userCanWriteClassroom,
+} from '@/lib/api-security';
 import { checkWordSaveQuota, resolvePlanByUserId } from '@/lib/entitlement';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 
@@ -459,6 +466,12 @@ export async function POST(req: Request): Promise<NextResponse> {
     // Tự động dùng personal classroom nếu không truyền classroomId
     if (!classroomId) {
       classroomId = await getOrCreatePersonalClassroom(supabase, userId);
+    } else {
+      // IDOR: không cho ghi vào classroom lạ (chỉ teacher / enrolled / personal owner)
+      const canWrite = await userCanWriteClassroom(supabase, userId, classroomId);
+      if (!canWrite) {
+        return forbidden('Không có quyền thêm từ vào lớp này');
+      }
     }
 
     // ── Check duplicate (case-insensitive) ──

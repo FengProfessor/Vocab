@@ -14,18 +14,16 @@ type Prof = { id: string; full_name: string | null; role: string; email: string 
 
 /**
  * GET /api/cron/email-due — nhắc ôn tập QUA EMAIL cho user mà push đã chết.
- * Auth: Bearer <CRON_SECRET> hoặc ?secret=. Chạy 1 mốc/ngày (cron-job.org).
+ * Auth: Bearer <CRON_SECRET> only (không ?secret=).
  * Test: ?test=email@x.com (gửi 1 mail mẫu, bỏ qua mọi gate). ?dry=1 (tính, không gửi).
  */
 export async function GET(req: Request): Promise<NextResponse> {
   try {
-    const { searchParams } = new URL(req.url);
-    const secret = searchParams.get('secret');
-    const authHeader = req.headers.get('authorization');
-    const envSecret = process.env.CRON_SECRET;
-    const ok = !!envSecret && (authHeader === `Bearer ${envSecret}` || secret === envSecret);
-    if (!ok) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    const { assertCronAuthorized } = await import('@/lib/api-security');
+    const denied = assertCronAuthorized(req);
+    if (denied) return denied;
 
+    const { searchParams } = new URL(req.url);
     const supabase = createServiceClient();
 
     // ?test= → gửi 1 email mẫu, bỏ gate (kiểm tra deliverability)

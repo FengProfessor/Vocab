@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { safeErrorResponse } from '@/lib/api-security';
+import { safeErrorResponse, assertBotAuthorized } from '@/lib/api-security';
 
 /**
  * GET /api/bot/family-batch?size=30
@@ -14,11 +14,7 @@ import { safeErrorResponse } from '@/lib/api-security';
  */
 
 function authOk(req: Request): boolean {
-  const secret = process.env.BOT_SECRET;
-  if (!secret) return true; // dev/local: chưa set secret → cho qua
-  const { searchParams } = new URL(req.url);
-  if (searchParams.get('secret') === secret) return true;
-  return req.headers.get('authorization') === `Bearer ${secret}`;
+  return assertBotAuthorized(req) === null;
 }
 
 interface FamilyEntry { word?: string; meaning?: string }

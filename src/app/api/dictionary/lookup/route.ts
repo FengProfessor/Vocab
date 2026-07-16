@@ -37,7 +37,8 @@ export async function GET(req: Request) {
   }
 
   const ip = getClientIp(req);
-  const rl = await checkRateLimitAsync(`dict-lookup:${ip}`, 90, 60_000);
+  // Siết scrape dump từ điển (trước 90/phút → 40/phút/IP)
+  const rl = await checkRateLimitAsync(`dict-lookup:${ip}`, 40, 60_000);
   if (!rl.allowed) {
     return NextResponse.json(
       { success: false, error: 'Too many requests. Please wait.' },

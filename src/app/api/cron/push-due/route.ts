@@ -56,22 +56,16 @@ function getVietnamDateStr(): string {
  * Chạy MỖI GIỜ (GitHub Actions). Chỉ gửi vào các khung REMINDER_HOURS (giờ VN):
  * mỗi user có fcm_token + có từ đến hạn được nhắc ở từng mốc → ít bỏ lỡ.
  *
- * Authorization: Bearer <CRON_SECRET> hoặc query ?secret=<CRON_SECRET>
+ * Authorization: Bearer <CRON_SECRET> (không dùng ?secret= — tránh leak access log)
  * Test: ?hour=20 (ép giờ; phải thuộc REMINDER_HOURS) hoặc ?all=1 (bỏ cổng giờ, gửi mọi user có từ due).
  */
 export async function GET(req: Request): Promise<NextResponse> {
   try {
+    const { assertCronAuthorized } = await import('@/lib/api-security');
+    const denied = assertCronAuthorized(req);
+    if (denied) return denied;
+
     const { searchParams } = new URL(req.url);
-    const secret = searchParams.get('secret');
-    const authHeader = req.headers.get('authorization');
-    const envSecret = process.env.CRON_SECRET;
-
-    const isAuthorized =
-      !!envSecret && (authHeader === `Bearer ${envSecret}` || secret === envSecret);
-
-    if (!isAuthorized) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
 
     // Giờ mục tiêu: mặc định = giờ VN hiện tại; ?hour= để test
     const hourParam = searchParams.get('hour');

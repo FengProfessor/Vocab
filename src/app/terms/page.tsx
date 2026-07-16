@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 // Ngày cập nhật gần nhất của điều khoản (hiển thị cho người dùng)
-const LAST_UPDATED = '21/06/2026';
+const LAST_UPDATED = '16/07/2026';
 
 export default function TermsPage() {
   return (
@@ -55,6 +55,29 @@ export default function TermsPage() {
               <li>Sao chép, bán lại hoặc phân phối lại nội dung của LingoPro khi chưa được phép.</li>
               <li>Can thiệp, dò quét hoặc gây quá tải hệ thống.</li>
               <li>Dùng dịch vụ cho mục đích vi phạm pháp luật.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="mb-2 text-lg font-semibold text-white">3b. Sở hữu trí tuệ &amp; chống lạm dụng dữ liệu</h2>
+            <ul className="list-disc space-y-1 pl-5">
+              <li>
+                Giao diện, mã nguồn phía máy chủ, kho từ điển/ngữ pháp, lộ trình học, thuật toán gợi ý ôn tập
+                (FSRS/ops), prompt và pipeline AI là tài sản của LingoPro hoặc bên cấp phép hợp pháp.
+              </li>
+              <li>
+                Cấm thu thập hàng loạt (scraping, crawling, bulk export API) nội dung từ điển, bài ngữ pháp,
+                lộ trình hoặc dữ liệu lớp học cho mục đích cạnh tranh, đào tạo mô hình AI bên thứ ba, hoặc
+                phân phối lại.
+              </li>
+              <li>
+                Cấm reverse-engineer, bypass rate limit, mạo danh bot/cron, hoặc dùng tài khoản học sinh để
+                dump dữ liệu.
+              </li>
+              <li>
+                Vi phạm có thể dẫn tới khóa tài khoản, chặn IP/API, và các biện pháp pháp lý theo luật Việt Nam
+                và điều ước liên quan.
+              </li>
             </ul>
           </section>
 

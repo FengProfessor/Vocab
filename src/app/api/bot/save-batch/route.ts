@@ -2,16 +2,12 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getWordSourceMap } from '@/lib/bot-utils';
 import { resolveWordImage } from '@/lib/image-pipeline';
-import { safeErrorResponse } from '@/lib/api-security';
+import { safeErrorResponse, assertBotAuthorized } from '@/lib/api-security';
 
 export async function POST(req: Request): Promise<NextResponse> {
     try {
-        // ── Auth: chỉ cho phép bot/script có BOT_SECRET ──
-        const botSecret = process.env.BOT_SECRET;
-        const authHeader = req.headers.get('authorization');
-        if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
-            return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-        }
+        const botDenied = assertBotAuthorized(req);
+    if (botDenied) return botDenied;
 
         const data = await req.json();
         if (!Array.isArray(data)) {

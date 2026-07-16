@@ -1,7 +1,18 @@
 import { NextResponse } from 'next/server';
-import { createHash } from 'crypto';
+import { createHash, timingSafeEqual } from 'crypto';
 import { createServiceClient } from '@/lib/supabase';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
+
+/** Secret bot yếu / mẫu — từ chối ở production. */
+const WEAK_SECRETS = new Set([
+  '',
+  'lingopro-secret-key-123',
+  'changeme',
+  'secret',
+  'password',
+  'test',
+  'bot-secret',
+]);
 
 /**
  * Shared security helpers for API route handlers.
@@ -88,6 +99,101 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
 /** Standard 401 response. */
 export function unauthorized(): NextResponse {
   return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+}
+
+/** Standard 403. */
+export function forbidden(message = 'Forbidden'): NextResponse {
+  return NextResponse.json({ success: false, error: message }, { status: 403 });
+}
+
+/**
+ * So sánh secret constant-time (tránh timing leak).
+ * `expected` = env secret; `provided` = token từ client (sau "Bearer ").
+ */
+export function timingSafeEqualString(expected: string, provided: string): boolean {
+  if (!expected || !provided) return false;
+  try {
+    const a = Buffer.from(expected, 'utf8');
+    const b = Buffer.from(provided, 'utf8');
+    if (a.length !== b.length) {
+      // Vẫn so sánh dummy để thời gian tương đối đều
+      timingSafeEqual(a, a);
+      return false;
+    }
+    return timingSafeEqual(a, b);
+  } catch {
+    return false;
+  }
+}
+
+/** Bearer token khớp secret env (timing-safe). */
+export function bearerMatchesSecret(authHeader: string | null, secret: string | undefined): boolean {
+  if (!secret || !authHeader?.startsWith('Bearer ')) return false;
+  const token = authHeader.slice(7).trim();
+  return timingSafeEqualString(secret, token);
+}
+
+/**
+ * Auth cho /api/bot/* và verify-image.
+ * Fail-closed nếu thiếu BOT_SECRET; production từ chối secret yếu/mẫu.
+ */
+export function assertBotAuthorized(req: Request): NextResponse | null {
+  const botSecret = process.env.BOT_SECRET;
+  if (!botSecret) {
+    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+  if (process.env.NODE_ENV === 'production' && WEAK_SECRETS.has(botSecret)) {
+    console.error('[Security] BOT_SECRET is weak/default — refusing bot requests in production');
+    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+  if (!bearerMatchesSecret(req.headers.get('authorization'), botSecret)) {
+    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+  return null;
+}
+
+/**
+ * Auth cho /api/cron/* — CHỈ Authorization: Bearer (không ?secret= — tránh log leak).
+ */
+export function assertCronAuthorized(req: Request): NextResponse | null {
+  const cronSecret = process.env.CRON_SECRET;
+  if (!cronSecret) {
+    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+  if (process.env.NODE_ENV === 'production' && WEAK_SECRETS.has(cronSecret)) {
+    console.error('[Security] CRON_SECRET is weak — refusing cron in production');
+    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+  if (!bearerMatchesSecret(req.headers.get('authorization'), cronSecret)) {
+    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+  return null;
+}
+
+/**
+ * User được GHI words vào classroom?
+ * - teacher_id của classroom (gồm __personal__)
+ * - hoặc đã enroll student
+ */
+export async function userCanWriteClassroom(
+  supabase: ReturnType<typeof createServiceClient>,
+  userId: string,
+  classroomId: string,
+): Promise<boolean> {
+  const { data: cls } = await supabase
+    .from('classrooms')
+    .select('teacher_id')
+    .eq('id', classroomId)
+    .maybeSingle();
+  if (!cls) return false;
+  if (cls.teacher_id === userId) return true;
+  const { data: enr } = await supabase
+    .from('enrollments')
+    .select('id')
+    .eq('classroom_id', classroomId)
+    .eq('student_id', userId)
+    .maybeSingle();
+  return Boolean(enr);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -202,6 +308,14 @@ export async function checkRateLimitAsync(
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !token) {
+    // Prod: multi-instance → RL memory chỉ local; cảnh báo 1 lần
+    if (process.env.NODE_ENV === 'production') {
+      const g = globalThis as { __lingoproRlWarn?: boolean };
+      if (!g.__lingoproRlWarn) {
+        g.__lingoproRlWarn = true;
+        console.warn('[RateLimit] UPSTASH_REDIS_* missing — rate limit is per-instance only');
+      }
+    }
     return checkRateLimit(key, limit, windowMs);
   }
 

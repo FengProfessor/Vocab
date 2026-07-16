@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import type { GrammarExample } from '@/lib/supabase';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getAuthUser, unauthorized, checkRateLimitAsync, getClientIp } from '@/lib/api-security';
 
 /** Chỉ admin trong whitelist mới được tạo/sửa/xoá lesson. */
 const ADMIN_EMAILS = new Set(
@@ -31,12 +31,28 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');
     const topicId = searchParams.get('topicId');
+
+    // Chống scrape bulk: dump toàn bộ (không id/topic) siết RL + bỏ CDN public
+    const ip = getClientIp(req);
+    const isBulkList = !id && !topicId;
+    const rl = await checkRateLimitAsync(
+      isBulkList ? `grammar-lessons-bulk:${ip}` : `grammar-lessons:${ip}`,
+      isBulkList ? 10 : 60,
+      60_000,
+    );
+    if (!rl.allowed) {
+      return NextResponse.json(
+        { success: false, error: 'Too many requests' },
+        { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } },
+      );
+    }
+
     const supabase = createServiceClient();
 
-    // Lesson content gần tĩnh → CDN cache; admin POST/PATCH sẽ invalidate tự nhiên qua path khác
-    const CACHE_HEADERS = {
-      'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=3600',
-    };
+    // Single/topic: CDN OK. Bulk list: private — giảm scrape kho IP
+    const CACHE_HEADERS = isBulkList
+      ? { 'Cache-Control': 'private, no-store' }
+      : { 'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=3600' };
 
     if (id) {
       const { data, error } = await supabase
@@ -60,7 +76,7 @@ export async function GET(req: Request) {
     return NextResponse.json({ success: true, data }, { headers: CACHE_HEADERS });
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : 'Unknown error';
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
   }
 }
 

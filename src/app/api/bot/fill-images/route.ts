@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, type DictionaryData } from '@/lib/supabase';
 import { resolveWordImage } from '@/lib/image-pipeline';
-import { safeErrorResponse } from '@/lib/api-security';
+import { safeErrorResponse, assertBotAuthorized } from '@/lib/api-security';
 
 /**
  * POST /api/bot/fill-images
@@ -10,12 +10,8 @@ import { safeErrorResponse } from '@/lib/api-security';
  */
 export async function POST(req: Request): Promise<NextResponse> {
     try {
-        // ── Auth: chỉ cho phép bot/script có BOT_SECRET ──
-        const botSecret = process.env.BOT_SECRET;
-        const authHeader = req.headers.get('authorization');
-        if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
-            return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-        }
+        const botDenied = assertBotAuthorized(req);
+    if (botDenied) return botDenied;
 
         const { limit = 100 } = await req.json().catch(() => ({}));
         const supabase = createServiceClient();
@@ -93,12 +89,8 @@ export async function POST(req: Request): Promise<NextResponse> {
  */
 export async function GET(req: Request): Promise<NextResponse> {
     try {
-        // ── Auth: chỉ cho phép bot/script có BOT_SECRET ──
-        const botSecret = process.env.BOT_SECRET;
-        const authHeader = req.headers.get('authorization');
-        if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
-            return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-        }
+        const botDenied = assertBotAuthorized(req);
+    if (botDenied) return botDenied;
 
         const supabase = createServiceClient();
 

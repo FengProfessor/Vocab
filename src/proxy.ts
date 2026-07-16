@@ -18,13 +18,23 @@ const ALLOWED_ORIGINS = [
   'http://localhost:3001',
 ];
 
+/** Extension IDs cho phép (CWS). Env: CHROME_EXTENSION_IDS=id1,id2 — trống = mọi chrome-extension (dev). */
+const EXT_ALLOWLIST = (process.env.CHROME_EXTENSION_IDS || '')
+  .split(',')
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
+
 function isAllowedOrigin(origin: string | null): boolean {
   if (!origin) return false;
   if (ALLOWED_ORIGINS.includes(origin)) return true;
   // Vercel preview deployments
   if (/^https:\/\/[\w-]+-[\w-]+\.vercel\.app$/.test(origin)) return true;
-  // Chrome Extension
-  if (origin.startsWith('chrome-extension://')) return true;
+  // Chrome Extension — production nên set CHROME_EXTENSION_IDS
+  if (origin.startsWith('chrome-extension://')) {
+    if (EXT_ALLOWLIST.length === 0) return true; // dev / chưa cấu hình
+    const id = origin.slice('chrome-extension://'.length).split('/')[0]?.toLowerCase() ?? '';
+    return EXT_ALLOWLIST.includes(id);
+  }
   return false;
 }
 

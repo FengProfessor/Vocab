@@ -152,18 +152,17 @@ export async function resolveUserPlan(
 }
 
 /**
- * Server-side: với gói Free, tăng + kiểm tra quota AI/ngày.
- * Trả allowed=false khi vượt FREE_AI_DAILY_LIMIT.
- * Gói pro/premium hoặc khi chưa enforce → luôn allow, không đếm.
+ * Server-side: quota AI/ngày cho Free — LUÔN bật (chống đốt Gemini),
+ * kể cả khi ENTITLEMENT_ENFORCED=false (feature gate khác vẫn soft).
+ * Pro/premium: unlimited. Ẩn danh: chặn.
  */
 export async function checkAndConsumeDailyAI(
   supabase: SupabaseClient,
   userId: string | null,
   plan: Plan,
 ): Promise<AccessResult> {
-  if (!ENTITLEMENT_ENFORCED) return { allowed: true };
   if (plan !== 'free') return { allowed: true };
-  if (!userId) return { allowed: false, upgradeTo: 'pro' }; // free + ẩn danh → chặn khi enforce
+  if (!userId) return { allowed: false, upgradeTo: 'pro' };
 
   const { data, error } = await supabase.rpc('increment_ai_usage', { p_user_id: userId });
   if (error) {

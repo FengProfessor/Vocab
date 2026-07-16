@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { safeErrorResponse } from '@/lib/api-security';
+import { safeErrorResponse, assertBotAuthorized } from '@/lib/api-security';
 
 type ExerciseRecord = Record<string, unknown>;
 
@@ -10,12 +10,8 @@ function isRecord(value: unknown): value is ExerciseRecord {
 
 export async function POST(req: Request): Promise<NextResponse> {
   try {
-    // ── Auth: check BOT_SECRET ──
-    const botSecret = process.env.BOT_SECRET;
-    const authHeader = req.headers.get('authorization');
-    if (!botSecret || authHeader !== `Bearer ${botSecret}`) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
+    const botDenied = assertBotAuthorized(req);
+    if (botDenied) return botDenied;
 
     const body: unknown = await req.json();
     if (!isRecord(body)) {
