@@ -22,7 +22,7 @@ const DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(DIR, '../..');
 const OUT_FILE = path.join(ROOT, 'src/data/vocab/catalog-v3.json');
 
-export const CATALOG_VERSION = '2026-07-15-v5';
+export const CATALOG_VERSION = '2026-07-16-v6';
 const MICRO_PACK_SIZE = 15;
 const MIN_PACK = 10;
 const MAX_PACK = 20;
@@ -30,6 +30,7 @@ const MAX_PACK = 20;
 type SourcePackage =
   | 'pro3m' | 'pro3m-plus' | 'exam-toeic' | 'exam-ielts'
   | 'list-oxford' | 'list-awl' | 'list-ielts' | 'list-toeic' | 'list-academic' | 'list-phrasal' | 'list-exam'
+  | 'list-verbs'
   | 'dict-ready';
 type ContentType = 'word' | 'phrase' | 'idiom' | 'phrasal_verb';
 

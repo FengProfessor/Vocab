@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026-07-15-v5",
+  "catalogVersion": "2026-07-16-v6",
   "generatedFrom": [
     "pro3m",
     "pro3m-plus",
@@ -24,17 +24,32 @@
     "scripts/lists/academic-collocations.txt",
     "scripts/lists/vstep-b1-b2.txt",
     "scripts/lists/thpt-quoc-gia-core.txt",
-    "scripts/lists/thpt-2026-reform.txt"
+    "scripts/lists/thpt-2026-reform.txt",
+    "scripts/lists/common-verbs-freq.txt"
   ],
   "microPackSize": 15,
   "counts": {
-    "routes": 15,
-    "topics": 74,
-    "subtopics": 317,
-    "packs": 1219,
-    "words": 16815
+    "routes": 16,
+    "topics": 77,
+    "subtopics": 323,
+    "packs": 1243,
+    "words": 17115
   },
   "routes": [
+    {
+      "id": "common-verbs",
+      "title": "100–300 động từ hay gặp",
+      "icon": "⚡",
+      "coverImage": "https://images.unsplash.com/photo-1456513080080-7e8d8a7f7d1c?auto=format&fit=crop&w=900&q=80",
+      "description": "Động từ tần suất cao (lexical) — chia micro-pack ~15 từ/ngày. Không trộn danh/tính từ, không phrasal.",
+      "group": "curriculum",
+      "featured": true,
+      "topicIds": [
+        "tp-e6766425d0",
+        "tp-28384fb559",
+        "tp-bf4aeae9d5"
+      ]
+    },
     {
       "id": "oxford-core",
       "title": "Oxford 3000 — Nền tảng",
@@ -425,6 +440,18 @@
         "st-43c3dbd417f2",
         "st-398f7dbe4f38",
         "st-c45a6dae839b"
+      ],
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "tp-28384fb559",
+      "routeId": "common-verbs",
+      "key": "freq-101-200",
+      "title": "Top 101–200 (đời sống)",
+      "subtopicIds": [
+        "st-abc7a3fd3d8e",
+        "st-affce038f1f5"
       ],
       "qualityScore": 0,
       "publishStatus": "draft"
@@ -1021,6 +1048,18 @@
       "publishStatus": "draft"
     },
     {
+      "id": "tp-bf4aeae9d5",
+      "routeId": "common-verbs",
+      "key": "freq-201-300",
+      "title": "Top 201–300 (mở rộng A2)",
+      "subtopicIds": [
+        "st-02995a8c800e",
+        "st-c263995b6012"
+      ],
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "tp-c029b2cbd7",
       "routeId": "toeic",
       "key": "work-employment",
@@ -1203,6 +1242,18 @@
       "publishStatus": "draft"
     },
     {
+      "id": "tp-e6766425d0",
+      "routeId": "common-verbs",
+      "key": "freq-1-100",
+      "title": "Top 1–100 (cốt lõi)",
+      "subtopicIds": [
+        "st-04a72a197543",
+        "st-feac345e9657"
+      ],
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "tp-e848339aa6",
       "routeId": "thpt-lop-11",
       "key": "hk1",
@@ -1336,6 +1387,34 @@
   ],
   "subtopics": [
     {
+      "id": "st-02995a8c800e",
+      "topicId": "tp-bf4aeae9d5",
+      "routeId": "common-verbs",
+      "title": "Động từ 201–250",
+      "sourcePackage": "list-verbs",
+      "sourceName": "common-verbs-freq::5",
+      "contentType": "word",
+      "wordCount": 50,
+      "packIds": [
+        "st-02995a8c800e-p0",
+        "st-02995a8c800e-p1",
+        "st-02995a8c800e-p2",
+        "st-02995a8c800e-p3"
+      ],
+      "previewWords": [
+        "recognize",
+        "record",
+        "reduce",
+        "refuse",
+        "regard"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "High-frequency lexical verbs (COCA/NGSL-style + A1 core). Không phrasal. Nghĩa từ global_dictionary LingoPro.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-0309de5a7285",
       "topicId": "tp-95e3b28bf2",
       "routeId": "suc-khoe",
@@ -1384,6 +1463,34 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-04a72a197543",
+      "topicId": "tp-e6766425d0",
+      "routeId": "common-verbs",
+      "title": "Động từ 1–50",
+      "sourcePackage": "list-verbs",
+      "sourceName": "common-verbs-freq::1",
+      "contentType": "word",
+      "wordCount": 50,
+      "packIds": [
+        "st-04a72a197543-p0",
+        "st-04a72a197543-p1",
+        "st-04a72a197543-p2",
+        "st-04a72a197543-p3"
+      ],
+      "previewWords": [
+        "have",
+        "do",
+        "say",
+        "go",
+        "get"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "High-frequency lexical verbs (COCA/NGSL-style + A1 core). Không phrasal. Nghĩa từ global_dictionary LingoPro.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -7286,6 +7393,34 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-abc7a3fd3d8e",
+      "topicId": "tp-28384fb559",
+      "routeId": "common-verbs",
+      "title": "Động từ 101–150",
+      "sourcePackage": "list-verbs",
+      "sourceName": "common-verbs-freq::3",
+      "contentType": "word",
+      "wordCount": 50,
+      "packIds": [
+        "st-abc7a3fd3d8e-p0",
+        "st-abc7a3fd3d8e-p1",
+        "st-abc7a3fd3d8e-p2",
+        "st-abc7a3fd3d8e-p3"
+      ],
+      "previewWords": [
+        "carry",
+        "break",
+        "eat",
+        "check",
+        "choose"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "High-frequency lexical verbs (COCA/NGSL-style + A1 core). Không phrasal. Nghĩa từ global_dictionary LingoPro.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-abcc256a82d3",
       "topicId": "tp-c029b2cbd7",
       "routeId": "toeic",
@@ -7445,6 +7580,34 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Bộ từ vựng nội bộ pro3m (biên soạn nội bộ).",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-affce038f1f5",
+      "topicId": "tp-28384fb559",
+      "routeId": "common-verbs",
+      "title": "Động từ 151–200",
+      "sourcePackage": "list-verbs",
+      "sourceName": "common-verbs-freq::4",
+      "contentType": "word",
+      "wordCount": 50,
+      "packIds": [
+        "st-affce038f1f5-p0",
+        "st-affce038f1f5-p1",
+        "st-affce038f1f5-p2",
+        "st-affce038f1f5-p3"
+      ],
+      "previewWords": [
+        "cry",
+        "dance",
+        "describe",
+        "die",
+        "discover"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "High-frequency lexical verbs (COCA/NGSL-style + A1 core). Không phrasal. Nghĩa từ global_dictionary LingoPro.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -7998,6 +8161,34 @@
       "cefrRange": null,
       "coverImage": null,
       "attribution": "Từ đã có nghĩa tiếng Việt trong global_dictionary, chưa nằm catalog cũ/list pack.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
+      "id": "st-c263995b6012",
+      "topicId": "tp-bf4aeae9d5",
+      "routeId": "common-verbs",
+      "title": "Động từ 251–300",
+      "sourcePackage": "list-verbs",
+      "sourceName": "common-verbs-freq::6",
+      "contentType": "word",
+      "wordCount": 50,
+      "packIds": [
+        "st-c263995b6012-p0",
+        "st-c263995b6012-p1",
+        "st-c263995b6012-p2",
+        "st-c263995b6012-p3"
+      ],
+      "previewWords": [
+        "swim",
+        "switch",
+        "taste",
+        "tend",
+        "test"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "High-frequency lexical verbs (COCA/NGSL-style + A1 core). Không phrasal. Nghĩa từ global_dictionary LingoPro.",
       "qualityScore": 0,
       "publishStatus": "draft"
     },
@@ -10084,6 +10275,34 @@
       "publishStatus": "draft"
     },
     {
+      "id": "st-feac345e9657",
+      "topicId": "tp-e6766425d0",
+      "routeId": "common-verbs",
+      "title": "Động từ 51–100",
+      "sourcePackage": "list-verbs",
+      "sourceName": "common-verbs-freq::2",
+      "contentType": "word",
+      "wordCount": 50,
+      "packIds": [
+        "st-feac345e9657-p0",
+        "st-feac345e9657-p1",
+        "st-feac345e9657-p2",
+        "st-feac345e9657-p3"
+      ],
+      "previewWords": [
+        "meet",
+        "include",
+        "continue",
+        "set",
+        "learn"
+      ],
+      "cefrRange": null,
+      "coverImage": null,
+      "attribution": "High-frequency lexical verbs (COCA/NGSL-style + A1 core). Không phrasal. Nghĩa từ global_dictionary LingoPro.",
+      "qualityScore": 0,
+      "publishStatus": "draft"
+    },
+    {
       "id": "st-fed7e3c93f9a",
       "topicId": "tp-63e89bc3a4",
       "routeId": "extended",
@@ -10164,6 +10383,242 @@
     }
   ],
   "packs": [
+    {
+      "id": "st-02995a8c800e-p0",
+      "subtopicId": "st-02995a8c800e",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "recognize",
+          "contentType": "word"
+        },
+        {
+          "word": "record",
+          "contentType": "word"
+        },
+        {
+          "word": "reduce",
+          "contentType": "word"
+        },
+        {
+          "word": "refuse",
+          "contentType": "word"
+        },
+        {
+          "word": "regard",
+          "contentType": "word"
+        },
+        {
+          "word": "relate",
+          "contentType": "word"
+        },
+        {
+          "word": "release",
+          "contentType": "word"
+        },
+        {
+          "word": "rely",
+          "contentType": "word"
+        },
+        {
+          "word": "remove",
+          "contentType": "word"
+        },
+        {
+          "word": "rent",
+          "contentType": "word"
+        },
+        {
+          "word": "repair",
+          "contentType": "word"
+        },
+        {
+          "word": "replace",
+          "contentType": "word"
+        },
+        {
+          "word": "reply",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-02995a8c800e-p1",
+      "subtopicId": "st-02995a8c800e",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "represent",
+          "contentType": "word"
+        },
+        {
+          "word": "request",
+          "contentType": "word"
+        },
+        {
+          "word": "rest",
+          "contentType": "word"
+        },
+        {
+          "word": "result",
+          "contentType": "word"
+        },
+        {
+          "word": "ride",
+          "contentType": "word"
+        },
+        {
+          "word": "ring",
+          "contentType": "word"
+        },
+        {
+          "word": "rise",
+          "contentType": "word"
+        },
+        {
+          "word": "roll",
+          "contentType": "word"
+        },
+        {
+          "word": "rule",
+          "contentType": "word"
+        },
+        {
+          "word": "rush",
+          "contentType": "word"
+        },
+        {
+          "word": "search",
+          "contentType": "word"
+        },
+        {
+          "word": "seem",
+          "contentType": "word"
+        },
+        {
+          "word": "select",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-02995a8c800e-p2",
+      "subtopicId": "st-02995a8c800e",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "separate",
+          "contentType": "word"
+        },
+        {
+          "word": "settle",
+          "contentType": "word"
+        },
+        {
+          "word": "shake",
+          "contentType": "word"
+        },
+        {
+          "word": "shoot",
+          "contentType": "word"
+        },
+        {
+          "word": "shut",
+          "contentType": "word"
+        },
+        {
+          "word": "sign",
+          "contentType": "word"
+        },
+        {
+          "word": "ski",
+          "contentType": "word"
+        },
+        {
+          "word": "slide",
+          "contentType": "word"
+        },
+        {
+          "word": "slow",
+          "contentType": "word"
+        },
+        {
+          "word": "solve",
+          "contentType": "word"
+        },
+        {
+          "word": "sort",
+          "contentType": "word"
+        },
+        {
+          "word": "spread",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-02995a8c800e-p3",
+      "subtopicId": "st-02995a8c800e",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "state",
+          "contentType": "word"
+        },
+        {
+          "word": "stick",
+          "contentType": "word"
+        },
+        {
+          "word": "store",
+          "contentType": "word"
+        },
+        {
+          "word": "stretch",
+          "contentType": "word"
+        },
+        {
+          "word": "strike",
+          "contentType": "word"
+        },
+        {
+          "word": "struggle",
+          "contentType": "word"
+        },
+        {
+          "word": "succeed",
+          "contentType": "word"
+        },
+        {
+          "word": "suffer",
+          "contentType": "word"
+        },
+        {
+          "word": "suit",
+          "contentType": "word"
+        },
+        {
+          "word": "support",
+          "contentType": "word"
+        },
+        {
+          "word": "suppose",
+          "contentType": "word"
+        },
+        {
+          "word": "survive",
+          "contentType": "word"
+        }
+      ]
+    },
     {
       "id": "st-0309de5a7285-p0",
       "subtopicId": "st-0309de5a7285",
@@ -10405,6 +10860,242 @@
         {
           "word": "combat poverty",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-04a72a197543-p0",
+      "subtopicId": "st-04a72a197543",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "have",
+          "contentType": "word"
+        },
+        {
+          "word": "do",
+          "contentType": "word"
+        },
+        {
+          "word": "say",
+          "contentType": "word"
+        },
+        {
+          "word": "go",
+          "contentType": "word"
+        },
+        {
+          "word": "get",
+          "contentType": "word"
+        },
+        {
+          "word": "make",
+          "contentType": "word"
+        },
+        {
+          "word": "know",
+          "contentType": "word"
+        },
+        {
+          "word": "think",
+          "contentType": "word"
+        },
+        {
+          "word": "take",
+          "contentType": "word"
+        },
+        {
+          "word": "see",
+          "contentType": "word"
+        },
+        {
+          "word": "come",
+          "contentType": "word"
+        },
+        {
+          "word": "want",
+          "contentType": "word"
+        },
+        {
+          "word": "look",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-04a72a197543-p1",
+      "subtopicId": "st-04a72a197543",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "use",
+          "contentType": "word"
+        },
+        {
+          "word": "find",
+          "contentType": "word"
+        },
+        {
+          "word": "give",
+          "contentType": "word"
+        },
+        {
+          "word": "tell",
+          "contentType": "word"
+        },
+        {
+          "word": "work",
+          "contentType": "word"
+        },
+        {
+          "word": "call",
+          "contentType": "word"
+        },
+        {
+          "word": "try",
+          "contentType": "word"
+        },
+        {
+          "word": "ask",
+          "contentType": "word"
+        },
+        {
+          "word": "need",
+          "contentType": "word"
+        },
+        {
+          "word": "feel",
+          "contentType": "word"
+        },
+        {
+          "word": "become",
+          "contentType": "word"
+        },
+        {
+          "word": "leave",
+          "contentType": "word"
+        },
+        {
+          "word": "put",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-04a72a197543-p2",
+      "subtopicId": "st-04a72a197543",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "mean",
+          "contentType": "word"
+        },
+        {
+          "word": "keep",
+          "contentType": "word"
+        },
+        {
+          "word": "let",
+          "contentType": "word"
+        },
+        {
+          "word": "begin",
+          "contentType": "word"
+        },
+        {
+          "word": "help",
+          "contentType": "word"
+        },
+        {
+          "word": "talk",
+          "contentType": "word"
+        },
+        {
+          "word": "turn",
+          "contentType": "word"
+        },
+        {
+          "word": "start",
+          "contentType": "word"
+        },
+        {
+          "word": "show",
+          "contentType": "word"
+        },
+        {
+          "word": "hear",
+          "contentType": "word"
+        },
+        {
+          "word": "play",
+          "contentType": "word"
+        },
+        {
+          "word": "run",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-04a72a197543-p3",
+      "subtopicId": "st-04a72a197543",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "move",
+          "contentType": "word"
+        },
+        {
+          "word": "like",
+          "contentType": "word"
+        },
+        {
+          "word": "live",
+          "contentType": "word"
+        },
+        {
+          "word": "believe",
+          "contentType": "word"
+        },
+        {
+          "word": "hold",
+          "contentType": "word"
+        },
+        {
+          "word": "bring",
+          "contentType": "word"
+        },
+        {
+          "word": "happen",
+          "contentType": "word"
+        },
+        {
+          "word": "write",
+          "contentType": "word"
+        },
+        {
+          "word": "sit",
+          "contentType": "word"
+        },
+        {
+          "word": "stand",
+          "contentType": "word"
+        },
+        {
+          "word": "lose",
+          "contentType": "word"
+        },
+        {
+          "word": "pay",
+          "contentType": "word"
         }
       ]
     },
@@ -63731,6 +64422,242 @@
       ]
     },
     {
+      "id": "st-abc7a3fd3d8e-p0",
+      "subtopicId": "st-abc7a3fd3d8e",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "carry",
+          "contentType": "word"
+        },
+        {
+          "word": "break",
+          "contentType": "word"
+        },
+        {
+          "word": "eat",
+          "contentType": "word"
+        },
+        {
+          "word": "check",
+          "contentType": "word"
+        },
+        {
+          "word": "choose",
+          "contentType": "word"
+        },
+        {
+          "word": "catch",
+          "contentType": "word"
+        },
+        {
+          "word": "draw",
+          "contentType": "word"
+        },
+        {
+          "word": "fill",
+          "contentType": "word"
+        },
+        {
+          "word": "fix",
+          "contentType": "word"
+        },
+        {
+          "word": "forget",
+          "contentType": "word"
+        },
+        {
+          "word": "guess",
+          "contentType": "word"
+        },
+        {
+          "word": "hate",
+          "contentType": "word"
+        },
+        {
+          "word": "join",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-abc7a3fd3d8e-p1",
+      "subtopicId": "st-abc7a3fd3d8e",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "laugh",
+          "contentType": "word"
+        },
+        {
+          "word": "listen",
+          "contentType": "word"
+        },
+        {
+          "word": "miss",
+          "contentType": "word"
+        },
+        {
+          "word": "order",
+          "contentType": "word"
+        },
+        {
+          "word": "own",
+          "contentType": "word"
+        },
+        {
+          "word": "paint",
+          "contentType": "word"
+        },
+        {
+          "word": "pick",
+          "contentType": "word"
+        },
+        {
+          "word": "prepare",
+          "contentType": "word"
+        },
+        {
+          "word": "push",
+          "contentType": "word"
+        },
+        {
+          "word": "receive",
+          "contentType": "word"
+        },
+        {
+          "word": "relax",
+          "contentType": "word"
+        },
+        {
+          "word": "repeat",
+          "contentType": "word"
+        },
+        {
+          "word": "save",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-abc7a3fd3d8e-p2",
+      "subtopicId": "st-abc7a3fd3d8e",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "share",
+          "contentType": "word"
+        },
+        {
+          "word": "sing",
+          "contentType": "word"
+        },
+        {
+          "word": "sleep",
+          "contentType": "word"
+        },
+        {
+          "word": "smell",
+          "contentType": "word"
+        },
+        {
+          "word": "smile",
+          "contentType": "word"
+        },
+        {
+          "word": "sound",
+          "contentType": "word"
+        },
+        {
+          "word": "study",
+          "contentType": "word"
+        },
+        {
+          "word": "teach",
+          "contentType": "word"
+        },
+        {
+          "word": "thank",
+          "contentType": "word"
+        },
+        {
+          "word": "touch",
+          "contentType": "word"
+        },
+        {
+          "word": "travel",
+          "contentType": "word"
+        },
+        {
+          "word": "visit",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-abc7a3fd3d8e-p3",
+      "subtopicId": "st-abc7a3fd3d8e",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "wake",
+          "contentType": "word"
+        },
+        {
+          "word": "wash",
+          "contentType": "word"
+        },
+        {
+          "word": "wear",
+          "contentType": "word"
+        },
+        {
+          "word": "wish",
+          "contentType": "word"
+        },
+        {
+          "word": "worry",
+          "contentType": "word"
+        },
+        {
+          "word": "answer",
+          "contentType": "word"
+        },
+        {
+          "word": "close",
+          "contentType": "word"
+        },
+        {
+          "word": "cook",
+          "contentType": "word"
+        },
+        {
+          "word": "cost",
+          "contentType": "word"
+        },
+        {
+          "word": "count",
+          "contentType": "word"
+        },
+        {
+          "word": "cover",
+          "contentType": "word"
+        },
+        {
+          "word": "cross",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
       "id": "st-abcc256a82d3-p0",
       "subtopicId": "st-abcc256a82d3",
       "index": 0,
@@ -64925,6 +65852,242 @@
         },
         {
           "word": "paradise",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-affce038f1f5-p0",
+      "subtopicId": "st-affce038f1f5",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "cry",
+          "contentType": "word"
+        },
+        {
+          "word": "dance",
+          "contentType": "word"
+        },
+        {
+          "word": "describe",
+          "contentType": "word"
+        },
+        {
+          "word": "die",
+          "contentType": "word"
+        },
+        {
+          "word": "discover",
+          "contentType": "word"
+        },
+        {
+          "word": "drive",
+          "contentType": "word"
+        },
+        {
+          "word": "drop",
+          "contentType": "word"
+        },
+        {
+          "word": "end",
+          "contentType": "word"
+        },
+        {
+          "word": "enjoy",
+          "contentType": "word"
+        },
+        {
+          "word": "enter",
+          "contentType": "word"
+        },
+        {
+          "word": "fail",
+          "contentType": "word"
+        },
+        {
+          "word": "finish",
+          "contentType": "word"
+        },
+        {
+          "word": "fly",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-affce038f1f5-p1",
+      "subtopicId": "st-affce038f1f5",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "force",
+          "contentType": "word"
+        },
+        {
+          "word": "form",
+          "contentType": "word"
+        },
+        {
+          "word": "gather",
+          "contentType": "word"
+        },
+        {
+          "word": "hang",
+          "contentType": "word"
+        },
+        {
+          "word": "hide",
+          "contentType": "word"
+        },
+        {
+          "word": "hit",
+          "contentType": "word"
+        },
+        {
+          "word": "hurt",
+          "contentType": "word"
+        },
+        {
+          "word": "imagine",
+          "contentType": "word"
+        },
+        {
+          "word": "improve",
+          "contentType": "word"
+        },
+        {
+          "word": "introduce",
+          "contentType": "word"
+        },
+        {
+          "word": "invite",
+          "contentType": "word"
+        },
+        {
+          "word": "jump",
+          "contentType": "word"
+        },
+        {
+          "word": "kick",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-affce038f1f5-p2",
+      "subtopicId": "st-affce038f1f5",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "kiss",
+          "contentType": "word"
+        },
+        {
+          "word": "lay",
+          "contentType": "word"
+        },
+        {
+          "word": "lie",
+          "contentType": "word"
+        },
+        {
+          "word": "lift",
+          "contentType": "word"
+        },
+        {
+          "word": "light",
+          "contentType": "word"
+        },
+        {
+          "word": "lock",
+          "contentType": "word"
+        },
+        {
+          "word": "manage",
+          "contentType": "word"
+        },
+        {
+          "word": "marry",
+          "contentType": "word"
+        },
+        {
+          "word": "measure",
+          "contentType": "word"
+        },
+        {
+          "word": "mention",
+          "contentType": "word"
+        },
+        {
+          "word": "mind",
+          "contentType": "word"
+        },
+        {
+          "word": "notice",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-affce038f1f5-p3",
+      "subtopicId": "st-affce038f1f5",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "plan",
+          "contentType": "word"
+        },
+        {
+          "word": "point",
+          "contentType": "word"
+        },
+        {
+          "word": "prefer",
+          "contentType": "word"
+        },
+        {
+          "word": "present",
+          "contentType": "word"
+        },
+        {
+          "word": "press",
+          "contentType": "word"
+        },
+        {
+          "word": "prevent",
+          "contentType": "word"
+        },
+        {
+          "word": "print",
+          "contentType": "word"
+        },
+        {
+          "word": "protect",
+          "contentType": "word"
+        },
+        {
+          "word": "prove",
+          "contentType": "word"
+        },
+        {
+          "word": "provide",
+          "contentType": "word"
+        },
+        {
+          "word": "publish",
+          "contentType": "word"
+        },
+        {
+          "word": "realize",
           "contentType": "word"
         }
       ]
@@ -69719,6 +70882,242 @@
         {
           "word": "human rights",
           "contentType": "phrase"
+        }
+      ]
+    },
+    {
+      "id": "st-c263995b6012-p0",
+      "subtopicId": "st-c263995b6012",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "swim",
+          "contentType": "word"
+        },
+        {
+          "word": "switch",
+          "contentType": "word"
+        },
+        {
+          "word": "taste",
+          "contentType": "word"
+        },
+        {
+          "word": "tend",
+          "contentType": "word"
+        },
+        {
+          "word": "test",
+          "contentType": "word"
+        },
+        {
+          "word": "throw",
+          "contentType": "word"
+        },
+        {
+          "word": "tie",
+          "contentType": "word"
+        },
+        {
+          "word": "train",
+          "contentType": "word"
+        },
+        {
+          "word": "translate",
+          "contentType": "word"
+        },
+        {
+          "word": "treat",
+          "contentType": "word"
+        },
+        {
+          "word": "trust",
+          "contentType": "word"
+        },
+        {
+          "word": "type",
+          "contentType": "word"
+        },
+        {
+          "word": "unite",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c263995b6012-p1",
+      "subtopicId": "st-c263995b6012",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "update",
+          "contentType": "word"
+        },
+        {
+          "word": "upset",
+          "contentType": "word"
+        },
+        {
+          "word": "value",
+          "contentType": "word"
+        },
+        {
+          "word": "vary",
+          "contentType": "word"
+        },
+        {
+          "word": "view",
+          "contentType": "word"
+        },
+        {
+          "word": "vote",
+          "contentType": "word"
+        },
+        {
+          "word": "warn",
+          "contentType": "word"
+        },
+        {
+          "word": "waste",
+          "contentType": "word"
+        },
+        {
+          "word": "wave",
+          "contentType": "word"
+        },
+        {
+          "word": "welcome",
+          "contentType": "word"
+        },
+        {
+          "word": "wonder",
+          "contentType": "word"
+        },
+        {
+          "word": "yell",
+          "contentType": "word"
+        },
+        {
+          "word": "accept",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c263995b6012-p2",
+      "subtopicId": "st-c263995b6012",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "achieve",
+          "contentType": "word"
+        },
+        {
+          "word": "act",
+          "contentType": "word"
+        },
+        {
+          "word": "admit",
+          "contentType": "word"
+        },
+        {
+          "word": "advise",
+          "contentType": "word"
+        },
+        {
+          "word": "affect",
+          "contentType": "word"
+        },
+        {
+          "word": "agree",
+          "contentType": "word"
+        },
+        {
+          "word": "aim",
+          "contentType": "word"
+        },
+        {
+          "word": "announce",
+          "contentType": "word"
+        },
+        {
+          "word": "apologize",
+          "contentType": "word"
+        },
+        {
+          "word": "apply",
+          "contentType": "word"
+        },
+        {
+          "word": "argue",
+          "contentType": "word"
+        },
+        {
+          "word": "arrange",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-c263995b6012-p3",
+      "subtopicId": "st-c263995b6012",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "arrive",
+          "contentType": "word"
+        },
+        {
+          "word": "attack",
+          "contentType": "word"
+        },
+        {
+          "word": "attend",
+          "contentType": "word"
+        },
+        {
+          "word": "avoid",
+          "contentType": "word"
+        },
+        {
+          "word": "base",
+          "contentType": "word"
+        },
+        {
+          "word": "belong",
+          "contentType": "word"
+        },
+        {
+          "word": "blame",
+          "contentType": "word"
+        },
+        {
+          "word": "borrow",
+          "contentType": "word"
+        },
+        {
+          "word": "breathe",
+          "contentType": "word"
+        },
+        {
+          "word": "burn",
+          "contentType": "word"
+        },
+        {
+          "word": "cancel",
+          "contentType": "word"
+        },
+        {
+          "word": "celebrate",
+          "contentType": "word"
         }
       ]
     },
@@ -87920,6 +89319,242 @@
         },
         {
           "word": "weightlifting",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-feac345e9657-p0",
+      "subtopicId": "st-feac345e9657",
+      "index": 0,
+      "title": "Chặng 1",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "meet",
+          "contentType": "word"
+        },
+        {
+          "word": "include",
+          "contentType": "word"
+        },
+        {
+          "word": "continue",
+          "contentType": "word"
+        },
+        {
+          "word": "set",
+          "contentType": "word"
+        },
+        {
+          "word": "learn",
+          "contentType": "word"
+        },
+        {
+          "word": "change",
+          "contentType": "word"
+        },
+        {
+          "word": "lead",
+          "contentType": "word"
+        },
+        {
+          "word": "understand",
+          "contentType": "word"
+        },
+        {
+          "word": "watch",
+          "contentType": "word"
+        },
+        {
+          "word": "follow",
+          "contentType": "word"
+        },
+        {
+          "word": "stop",
+          "contentType": "word"
+        },
+        {
+          "word": "create",
+          "contentType": "word"
+        },
+        {
+          "word": "speak",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-feac345e9657-p1",
+      "subtopicId": "st-feac345e9657",
+      "index": 1,
+      "title": "Chặng 2",
+      "wordCount": 13,
+      "words": [
+        {
+          "word": "read",
+          "contentType": "word"
+        },
+        {
+          "word": "allow",
+          "contentType": "word"
+        },
+        {
+          "word": "add",
+          "contentType": "word"
+        },
+        {
+          "word": "spend",
+          "contentType": "word"
+        },
+        {
+          "word": "grow",
+          "contentType": "word"
+        },
+        {
+          "word": "open",
+          "contentType": "word"
+        },
+        {
+          "word": "walk",
+          "contentType": "word"
+        },
+        {
+          "word": "win",
+          "contentType": "word"
+        },
+        {
+          "word": "offer",
+          "contentType": "word"
+        },
+        {
+          "word": "remember",
+          "contentType": "word"
+        },
+        {
+          "word": "love",
+          "contentType": "word"
+        },
+        {
+          "word": "consider",
+          "contentType": "word"
+        },
+        {
+          "word": "appear",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-feac345e9657-p2",
+      "subtopicId": "st-feac345e9657",
+      "index": 2,
+      "title": "Chặng 3",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "buy",
+          "contentType": "word"
+        },
+        {
+          "word": "wait",
+          "contentType": "word"
+        },
+        {
+          "word": "serve",
+          "contentType": "word"
+        },
+        {
+          "word": "send",
+          "contentType": "word"
+        },
+        {
+          "word": "expect",
+          "contentType": "word"
+        },
+        {
+          "word": "build",
+          "contentType": "word"
+        },
+        {
+          "word": "stay",
+          "contentType": "word"
+        },
+        {
+          "word": "fall",
+          "contentType": "word"
+        },
+        {
+          "word": "cut",
+          "contentType": "word"
+        },
+        {
+          "word": "reach",
+          "contentType": "word"
+        },
+        {
+          "word": "kill",
+          "contentType": "word"
+        },
+        {
+          "word": "remain",
+          "contentType": "word"
+        }
+      ]
+    },
+    {
+      "id": "st-feac345e9657-p3",
+      "subtopicId": "st-feac345e9657",
+      "index": 3,
+      "title": "Chặng 4",
+      "wordCount": 12,
+      "words": [
+        {
+          "word": "suggest",
+          "contentType": "word"
+        },
+        {
+          "word": "raise",
+          "contentType": "word"
+        },
+        {
+          "word": "pass",
+          "contentType": "word"
+        },
+        {
+          "word": "sell",
+          "contentType": "word"
+        },
+        {
+          "word": "require",
+          "contentType": "word"
+        },
+        {
+          "word": "report",
+          "contentType": "word"
+        },
+        {
+          "word": "decide",
+          "contentType": "word"
+        },
+        {
+          "word": "pull",
+          "contentType": "word"
+        },
+        {
+          "word": "return",
+          "contentType": "word"
+        },
+        {
+          "word": "explain",
+          "contentType": "word"
+        },
+        {
+          "word": "hope",
+          "contentType": "word"
+        },
+        {
+          "word": "develop",
           "contentType": "word"
         }
       ]

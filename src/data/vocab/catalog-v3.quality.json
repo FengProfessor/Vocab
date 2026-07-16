@@ -1,16 +1,21 @@
 {
-  "catalogVersion": "2026-07-15-v5",
+  "catalogVersion": "2026-07-16-v6",
   "summary": {
-    "catalogVersion": "2026-07-15-v5",
-    "subtopics": 314,
-    "publishedSubtopics": 314,
+    "catalogVersion": "2026-07-16-v6",
+    "subtopics": 323,
+    "publishedSubtopics": 323,
     "draftSubtopics": 0,
-    "words": 11562,
-    "wordsInDict": 11562,
+    "words": 11563,
+    "wordsInDict": 11563,
     "quarantineWords": 0,
-    "missingImages": 524
+    "missingImages": 528
   },
   "routes": {
+    "common-verbs": {
+      "publishStatus": "published",
+      "publishedSubtopics": 6,
+      "totalSubtopics": 6
+    },
     "oxford-core": {
       "publishStatus": "published",
       "publishedSubtopics": 52,
@@ -102,9 +107,9 @@
     },
     "tp-0e76343d08": {
       "publishStatus": "published",
-      "publishedSubtopics": 4,
-      "totalSubtopics": 4,
-      "qualityScore": 85
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 96
     },
     "tp-0e7be8f3e5": {
       "publishStatus": "published",
@@ -147,6 +152,12 @@
       "publishedSubtopics": 7,
       "totalSubtopics": 7,
       "qualityScore": 99
+    },
+    "tp-28384fb559": {
+      "publishStatus": "published",
+      "publishedSubtopics": 2,
+      "totalSubtopics": 2,
+      "qualityScore": 100
     },
     "tp-28ea867fc1": {
       "publishStatus": "published",
@@ -400,6 +411,12 @@
       "totalSubtopics": 1,
       "qualityScore": 100
     },
+    "tp-bf4aeae9d5": {
+      "publishStatus": "published",
+      "publishedSubtopics": 2,
+      "totalSubtopics": 2,
+      "qualityScore": 100
+    },
     "tp-c029b2cbd7": {
       "publishStatus": "published",
       "publishedSubtopics": 6,
@@ -472,6 +489,12 @@
       "totalSubtopics": 2,
       "qualityScore": 100
     },
+    "tp-e6766425d0": {
+      "publishStatus": "published",
+      "publishedSubtopics": 2,
+      "totalSubtopics": 2,
+      "qualityScore": 99
+    },
     "tp-e848339aa6": {
       "publishStatus": "published",
       "publishedSubtopics": 5,
@@ -492,9 +515,9 @@
     },
     "tp-eb5ba63431": {
       "publishStatus": "published",
-      "publishedSubtopics": 3,
-      "totalSubtopics": 3,
-      "qualityScore": 85
+      "publishedSubtopics": 5,
+      "totalSubtopics": 5,
+      "qualityScore": 98
     },
     "tp-efa81e5749": {
       "publishStatus": "published",
@@ -534,6 +557,20 @@
     }
   },
   "subtopics": {
+    "st-02995a8c800e": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 50,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://drbirdybooks.com/wp-content/uploads/2024/06/recognize.jpg",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
     "st-0309de5a7285": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -565,6 +602,23 @@
       "failReasons": [
         "số từ 18 ngoài 30-90"
       ]
+    },
+    "st-04a72a197543": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 98,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.96,
+      "wordCount": 50,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://png.pngtree.com/png-clipart/20240521/original/pngtree-school-kid-or-friends-talking-cute-cartoon-art-png-image_15146920.png",
+      "missingImageCount": 2,
+      "missingImages": [
+        "have",
+        "do"
+      ],
+      "failReasons": []
     },
     "st-0616de0e8194": {
       "publishStatus": "published",
@@ -1227,6 +1281,20 @@
       "missingImages": [],
       "failReasons": []
     },
+    "st-2197a2d2e638": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 60,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://www.gfos.com/uploads/blog/flexible-schedules-advantages-disadvantages.png",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
     "st-239ce0bcaa81": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -1728,10 +1796,7 @@
       "imageCoverage": 1,
       "wordCount": 25,
       "inSubtopicRange": false,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
+      "cefrRange": null,
       "coverImage": "https://hoinongnghieptuanhoanvietnam.org.vn/wp-content/uploads/2024/02/img_5731.jpeg",
       "missingImageCount": 0,
       "missingImages": [],
@@ -2255,10 +2320,7 @@
       "imageCoverage": 1,
       "wordCount": 17,
       "inSubtopicRange": false,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
+      "cefrRange": null,
       "coverImage": "https://focusasiatravel.vn/wp-content/uploads/2020/03/canh-dong-hoa-nemophila-nhat-ban.jpg",
       "missingImageCount": 0,
       "missingImages": [],
@@ -3433,10 +3495,7 @@
       "imageCoverage": 1,
       "wordCount": 12,
       "inSubtopicRange": false,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
+      "cefrRange": null,
       "coverImage": "https://hoc24.vn/source/KHTN%206/KHTN%206%20-%20Ch%C3%A2n%20tr%E1%BB%9Di%20s%C3%A1ng%20t%E1%BA%A1o/Ch%E1%BB%A7%20%C4%91%E1%BB%81%208/B%C3%A0i%2033/DDSH.jpg",
       "missingImageCount": 0,
       "missingImages": [],
@@ -3466,10 +3525,7 @@
       "imageCoverage": 1,
       "wordCount": 21,
       "inSubtopicRange": false,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
+      "cefrRange": null,
       "coverImage": "https://images.pexels.com/photos/6565250/pexels-photo-6565250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
       "missingImageCount": 0,
       "missingImages": [],
@@ -3651,10 +3707,7 @@
       "imageCoverage": 1,
       "wordCount": 15,
       "inSubtopicRange": false,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
+      "cefrRange": null,
       "coverImage": "https://imgv2-2-f.scribdassets.com/img/document/278306887/original/b8513dca10/1716595183?v=1",
       "missingImageCount": 0,
       "missingImages": [],
@@ -4111,6 +4164,20 @@
       "missingImages": [],
       "failReasons": []
     },
+    "st-abc7a3fd3d8e": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 50,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/15113040/pexels-photo-15113040.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
     "st-abcc256a82d3": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -4212,6 +4279,20 @@
       "failReasons": [
         "số từ 16 ngoài 30-90"
       ]
+    },
+    "st-affce038f1f5": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 50,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "http://image.shutterstock.com/z/stock-photo-crying-man-with-tears-on-face-closeup-162882353.jpg",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
     },
     "st-b0df20b526da": {
       "publishStatus": "published",
@@ -4565,6 +4646,22 @@
       ],
       "failReasons": []
     },
+    "st-c263995b6012": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.98,
+      "wordCount": 50,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://swimswam.com/wp-content/uploads/2022/08/maxwilliamson200im-3-scaled.jpg",
+      "missingImageCount": 1,
+      "missingImages": [
+        "admit"
+      ],
+      "failReasons": []
+    },
     "st-c26a16e45a74": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -4727,10 +4824,7 @@
       "imageCoverage": 1,
       "wordCount": 15,
       "inSubtopicRange": false,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
+      "cefrRange": null,
       "coverImage": "https://c8.alamy.com/comp/3BPAE01/activate-red-push-button-3d-rendering-isolated-on-white-background-3BPAE01.jpg",
       "missingImageCount": 0,
       "missingImages": [],
@@ -5040,6 +5134,20 @@
       ],
       "failReasons": []
     },
+    "st-d9c826c0dce9": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 60,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/7805675/pexels-photo-7805675.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
     "st-d9fabafaeda8": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -5273,10 +5381,7 @@
       "imageCoverage": 0.947,
       "wordCount": 19,
       "inSubtopicRange": false,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
+      "cefrRange": null,
       "coverImage": "https://jyhdxhqkftirncbstfpe.supabase.co/storage/v1/object/public/vocab-images/grok-phrases/administrator.jpg?v=1783584751800",
       "missingImageCount": 1,
       "missingImages": [
@@ -5810,6 +5915,36 @@
         "số từ 15 ngoài 30-90"
       ]
     },
+    "st-fdc91196e68b": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 100,
+      "meaningCoverage": 1,
+      "imageCoverage": 1,
+      "wordCount": 60,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/6106028/pexels-photo-6106028.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 0,
+      "missingImages": [],
+      "failReasons": []
+    },
+    "st-feac345e9657": {
+      "publishStatus": "published",
+      "featuredEligible": true,
+      "qualityScore": 99,
+      "meaningCoverage": 1,
+      "imageCoverage": 0.98,
+      "wordCount": 50,
+      "inSubtopicRange": true,
+      "cefrRange": null,
+      "coverImage": "https://images.pexels.com/photos/6953835/pexels-photo-6953835.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "missingImageCount": 1,
+      "missingImages": [
+        "change"
+      ],
+      "failReasons": []
+    },
     "st-fed7e3c93f9a": {
       "publishStatus": "published",
       "featuredEligible": true,
@@ -5860,42 +5995,6 @@
         "rather"
       ],
       "failReasons": []
-    },
-    "st-2197a2d2e638": {
-      "publishStatus": "published",
-      "qualityScore": 85,
-      "meaningCoverage": 1,
-      "imageCoverage": 0.5,
-      "featuredEligible": true,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
-      "coverImage": null
-    },
-    "st-d9c826c0dce9": {
-      "publishStatus": "published",
-      "qualityScore": 85,
-      "meaningCoverage": 1,
-      "imageCoverage": 0.5,
-      "featuredEligible": true,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
-      "coverImage": null
-    },
-    "st-fdc91196e68b": {
-      "publishStatus": "published",
-      "qualityScore": 85,
-      "meaningCoverage": 1,
-      "imageCoverage": 0.5,
-      "featuredEligible": true,
-      "cefrRange": {
-        "min": "B1",
-        "max": "B2"
-      },
-      "coverImage": null
     }
   }
 }

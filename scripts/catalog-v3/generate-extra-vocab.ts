@@ -33,6 +33,7 @@ type SourcePackage =
   | 'list-academic'
   | 'list-phrasal'
   | 'list-exam'
+  | 'list-verbs'
   | 'dict-ready';
 
 interface ListSpec {
@@ -55,6 +56,7 @@ const OXFORD_LIST = {
 };
 
 const LIST_SPECS: ListSpec[] = [
+  // common-verbs-freq.txt: xử lý riêng (giữ thứ tự tần suất + 3 topic band) — xem buildCommonVerbSubs()
   {
     file: 'academic-word-list.txt',
     sourcePackage: 'list-awl',
@@ -256,6 +258,65 @@ function parseListFile(filePath: string): string[] {
   return [...new Set(out)].sort((a, b) => a.localeCompare(b, 'en'));
 }
 
+/** Giữ thứ tự tần suất (không A–Z). */
+function parseFreqOrderedList(filePath: string): string[] {
+  const text = readFileSync(filePath, 'utf8');
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const raw of text.split(/[\r\n]+/)) {
+    let t = raw.trim().toLowerCase();
+    if (!t || t.startsWith('#') || t.startsWith('//')) continue;
+    t = t.replace(/^\d+[.)]\s*/, '').replace(/\s+/g, ' ').trim();
+    if (t.length < 2 || t.length >= 80) continue;
+    if (!/^[a-z][a-z'\-]*$/i.test(t)) continue;
+    if (seen.has(t)) continue;
+    seen.add(t);
+    out.push(t);
+  }
+  return out;
+}
+
+function buildCommonVerbSubs(
+  ready: Set<string>,
+  usedInLists: Set<string>,
+): { subs: ExtraSubtopic[]; from: string; slots: number } {
+  const fp = path.join(LISTS_DIR, 'common-verbs-freq.txt');
+  if (!existsSync(fp)) return { subs: [], from: '', slots: 0 };
+  const all = parseFreqOrderedList(fp);
+  const words = all.filter((w) => ready.has(w) && !usedInLists.has(w)).slice(0, 300);
+  for (const w of words) usedInLists.add(w);
+
+  const attribution =
+    'High-frequency lexical verbs (COCA/NGSL-style + A1 core). Không phrasal. Nghĩa từ global_dictionary LingoPro.';
+  const CHUNK = 50;
+  const subs: ExtraSubtopic[] = [];
+  let part = 0;
+  for (let i = 0; i < words.length; i += CHUNK) {
+    const slice = words.slice(i, i + CHUNK);
+    if (slice.length < 10) break;
+    part += 1;
+    const start1 = i + 1;
+    const end1 = i + slice.length;
+    const topicKey =
+      start1 <= 100 ? 'freq-1-100' : start1 <= 200 ? 'freq-101-200' : 'freq-201-300';
+    subs.push({
+      sourcePackage: 'list-verbs',
+      sourceKey: `common-verbs-freq::${part}`,
+      routeId: 'common-verbs',
+      topicKey,
+      title: `Động từ ${start1}–${end1}`,
+      attribution,
+      words: slice,
+    });
+  }
+  console.log(`[extra] common-verbs-freq: list=${all.length} ready=${words.length} subs=${subs.length}`);
+  return {
+    subs,
+    from: 'scripts/lists/common-verbs-freq.txt',
+    slots: words.length,
+  };
+}
+
 function splitBalanced(words: string[], target = TARGET_SUB): string[][] {
   if (words.length === 0) return [];
   if (words.length <= MAX_SUB) {
@@ -370,6 +431,14 @@ async function main(): Promise<void> {
   const subtopics: ExtraSubtopic[] = [];
   const generatedFrom: string[] = [];
   let listWordSlots = 0;
+
+  // ── 100–300 động từ hay gặp (route riêng, giữ thứ tự tần suất) ──
+  {
+    const cv = buildCommonVerbSubs(ready, usedInLists);
+    if (cv.from) generatedFrom.push(cv.from);
+    subtopics.push(...cv.subs);
+    listWordSlots += cv.slots;
+  }
 
   // ── Oxford 3000: theo CHỦ ĐỀ (NLM pedagogy), không A–Z ──
   {

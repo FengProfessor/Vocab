@@ -62,6 +62,21 @@ export const CURRICULUM_ROUTES: RouteDef[] = [
 /** Nền tảng tần suất cao — học theo CHỦ ĐỀ (không A–Z); NLM: foundation trước IELTS/TOEIC. */
 export const FOUNDATION_ROUTES: RouteDef[] = [
   {
+    /** Pack riêng NGOÀI chủ đề đời sống — bulk động từ tần suất cao cho BTVN hằng ngày. */
+    id: 'common-verbs',
+    title: '100–300 động từ hay gặp',
+    icon: '⚡',
+    group: 'curriculum',
+    coverImage: 'https://images.unsplash.com/photo-1456513080080-7e8d8a7f7d1c?auto=format&fit=crop&w=900&q=80',
+    description: 'Động từ tần suất cao (lexical) — chia micro-pack ~15 từ/ngày. Không trộn danh/tính từ, không phrasal.',
+    match: [],
+    topics: [
+      { key: 'freq-1-100', title: 'Top 1–100 (cốt lõi)', match: [] },
+      { key: 'freq-101-200', title: 'Top 101–200 (đời sống)', match: [] },
+      { key: 'freq-201-300', title: 'Top 201–300 (mở rộng A2)', match: [] },
+    ],
+  },
+  {
     id: 'oxford-core', title: 'Oxford 3000 — Nền tảng', icon: '📗', group: 'curriculum',
     coverImage: 'https://images.unsplash.com/photo-1456513080080-7e8d8a7f7d1c?auto=format&fit=crop&w=900&q=80',
     description: 'Oxford 3000 theo chủ đề đời sống → trường/việc → thế giới → từ chức năng. Học theo ngữ cảnh, không bảng chữ cái.',

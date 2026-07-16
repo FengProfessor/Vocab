@@ -7,6 +7,7 @@
 
 | File | Phạm vi | Nguồn | Net-new |
 |------|---------|-------|---------|
+| `common-verbs-freq.txt` | 100–300 động từ tần suất (route `common-verbs`, ngoài topic đời sống). Gen: `npx tsx scripts/catalog-v3/generate-common-verbs.ts` rồi `generate.ts` + `quality-gate.ts` | COCA/NGSL-style + A1 core | 300 ready |
 | `oxford-3000.txt` | Core A1-B2 | Oxford 3000 | 2978 |
 | `cambridge-c1-advanced.txt` | C1 | Cambridge | 786 |
 | `academic-word-list.txt` | AWL | Coxhead AWL | 554 |
