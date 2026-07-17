@@ -261,6 +261,150 @@ const GOLDEN: GoldenEntry[] = [
       notes: ['Hai xương: (1) Clearing… is not free. (2) It is paid for through losses.'],
     },
   },
+  // ── Demo short (verify UI nhanh trên sóng) ──
+  {
+    id: 'DEMO-OLD-MAN',
+    match: 'the old man reads a book',
+    data: {
+      sentence: 'The old man reads a book in the library.',
+      translation_vi: 'Ông già đang đọc một quyển sách trong thư viện.',
+      structure: 'S + V + O · PP',
+      kernel: {
+        text: 'The man reads a book.',
+        s: 'man',
+        v: 'reads',
+        o: 'book',
+        translation_vi: 'Người đàn ông đọc sách.',
+      },
+      segments: [
+        { text: 'The old man', role: 'S', label_vi: 'S (+ tính từ)', keep: true },
+        { text: 'reads', role: 'V', label_vi: 'Động từ', keep: true },
+        { text: 'a book', role: 'O', label_vi: 'Tân ngữ', keep: true },
+        { text: 'in the library', role: 'pp', label_vi: 'Cụm giới từ', keep: false },
+      ],
+      build_levels: L(
+        [0, 'The man reads a book', 'Xương S–V–O'],
+        [1, 'The old man reads a book', '+ tính từ'],
+        [2, 'The old man reads a book in the library', '+ PP'],
+      ),
+      chunks: [C('old man', 'ông già'), C('read', 'đọc', 'reads'), C('library', 'thư viện')],
+      notes: ['Demo: old = áo (tính từ), in the library = áo (PP).'],
+    },
+  },
+  {
+    id: 'B2-010',
+    match: 'this continuous filtering, referred to as encoding',
+    data: {
+      sentence:
+        'This continuous filtering, referred to as encoding by psychologists, turns out to be instrumental in aiding long-term recall.',
+      translation_vi:
+        'Việc lọc liên tục này — các nhà tâm lý gọi là encoding — hóa ra then chốt để hỗ trợ ghi nhớ dài hạn.',
+      structure: 'S + turns out to be + C',
+      kernel: {
+        text: 'Filtering turns out to be instrumental.',
+        s: 'filtering',
+        v: 'turns out to be',
+        o: 'instrumental',
+        translation_vi: 'Việc lọc hóa ra then chốt / quan trọng.',
+      },
+      build_levels: L(
+        [0, 'Filtering is instrumental', 'Xương'],
+        [1, 'This continuous filtering turns out to be instrumental', '+ tính từ / turns out'],
+        [
+          2,
+          'This continuous filtering, referred to as encoding by psychologists, turns out to be instrumental in aiding long-term recall',
+          'Full',
+        ],
+      ),
+      chunks: [
+        C('encoding', 'mã hóa (trí nhớ)'),
+        C('instrumental', 'then chốt / quan trọng'),
+        C('long-term recall', 'ghi nhớ dài hạn'),
+      ],
+      notes: ['referred to as… = nhãn dán, gạch trước khi bóc xương.'],
+    },
+  },
+  {
+    id: 'B2-106',
+    match: 'what explains the difference in student performance is the mental work',
+    data: {
+      sentence:
+        'What explains the difference in student performance is the mental work that each method of notetaking demands, rather than the technology.',
+      translation_vi:
+        'Điều giải thích sự khác biệt thành tích học sinh là công việc trí óc mà mỗi cách ghi chép đòi hỏi, chứ không phải công nghệ.',
+      structure: 'What-clause S + is + C · rather than',
+      kernel: {
+        text: 'Mental work explains the difference.',
+        s: 'mental work',
+        v: 'explains',
+        o: 'difference',
+        translation_vi: 'Công việc trí óc giải thích sự khác biệt.',
+      },
+      logic: {
+        pattern: 'rather than (B not A)',
+        a: 'the technology',
+        b: 'the mental work each method demands',
+        formula_vi: 'Giải thích ≈ B (công việc não), không phải A (công nghệ).',
+      },
+      build_levels: L(
+        [0, 'Mental work explains the difference', 'Xương ý'],
+        [1, 'What explains the difference is the mental work rather than the technology', 'rather than'],
+        [
+          2,
+          'What explains the difference in student performance is the mental work that each method of notetaking demands, rather than the technology',
+          'Full',
+        ],
+      ),
+      chunks: [
+        C('rather than', 'chứ không phải'),
+        C('mental work', 'công việc trí óc'),
+        C('notetaking', 'ghi chép'),
+      ],
+      notes: ['Paraphrase đúng = giữ “não/method > technology”.'],
+    },
+  },
+  {
+    id: 'B2-091',
+    match: 'the lecture hall may continue to function less as a place of collective inquiry',
+    data: {
+      sentence:
+        'Until that skill is cultivated, the lecture hall may continue to function less as a place of collective inquiry and more as a quiet place of solitary screens.',
+      translation_vi:
+        'Cho đến khi kỹ năng đó được rèn, giảng đường có thể tiếp tục hoạt động ít như nơi tra cứu chung và nhiều hơn như chỗ yên tĩnh của những màn hình đơn lẻ.',
+      structure: 'less as A and more as B',
+      kernel: {
+        text: 'The lecture hall may function as a place.',
+        s: 'lecture hall',
+        v: 'may function',
+        o: 'place',
+        translation_vi: 'Giảng đường có thể hoạt động như một nơi…',
+      },
+      logic: {
+        pattern: 'less as A · more as B',
+        a: 'a place of collective inquiry',
+        b: 'a quiet place of solitary screens',
+        formula_vi: 'Giảng đường ≈ B (màn hình đơn lẻ) hơn A (tra cứu chung).',
+      },
+      build_levels: L(
+        [0, 'The lecture hall may function as a place', 'Xương'],
+        [
+          1,
+          'the lecture hall may continue to function less as a place of collective inquiry and more as a quiet place of solitary screens',
+          'less A / more B',
+        ],
+        [
+          2,
+          'Until that skill is cultivated, the lecture hall may continue to function less as a place of collective inquiry and more as a quiet place of solitary screens',
+          'Full',
+        ],
+      ),
+      chunks: [
+        C('collective inquiry', 'tra cứu / tìm hiểu tập thể'),
+        C('solitary', 'đơn lẻ / một mình'),
+        C('cultivate', 'rèn / nuôi dưỡng', 'cultivated'),
+      ],
+    },
+  },
 ];
 
 function norm(s: string): string {
@@ -291,4 +435,8 @@ export const GOLDEN_KERNEL_EXPECT: Record<
   'B2-003': { s: ['keyboard'], v: ['supplanted', 'has supplanted'], o: ['pen'] },
   'B2-006': { s: ['reason'], v: ['lies'] },
   'B2-026': { s: ['clearing a forest', 'clearing', 'forest'], v: ['is', 'has'] },
+  'DEMO-OLD-MAN': { s: ['man'], v: ['reads'], o: ['book'] },
+  'B2-010': { s: ['filtering'], v: ['turns out to be', 'turns'], o: ['instrumental'] },
+  'B2-106': { s: ['mental work', 'work'], v: ['explains'], o: ['difference'] },
+  'B2-091': { s: ['lecture hall', 'hall'], v: ['may function', 'function'], o: ['place'] },
 };

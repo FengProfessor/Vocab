@@ -539,33 +539,92 @@ Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pat
   }
 }
 
-/** Fallback khi AI chết — vẫn trả shape desktop dùng được (không 500) */
+/** Fallback khi AI chết — heuristic tốt hơn (bỏ frame, ưu tiên finite verb) */
 function heuristicAnalysis(sentence: string): SentenceAnalysisData {
   const logic = detectComparativeLogic(sentence);
-  const words = sentence
+  const stop = new Set([
+    'the', 'a', 'an', 'of', 'to', 'in', 'on', 'for', 'and', 'with', 'that', 'this', 'these', 'those',
+    'is', 'are', 'was', 'were', 'be', 'been', 'being', 'by', 'from', 'as', 'at', 'or', 'but', 'not',
+    'it', 'its', 'their', 'his', 'her', 'who', 'which', 'whom', 'whose', 'what', 'when', 'where',
+    'into', 'onto', 'upon', 'about', 'after', 'before', 'between', 'during', 'without', 'within',
+    'than', 'then', 'so', 'if', 'while', 'although', 'because', 'since', 'until', 'unless',
+    'also', 'only', 'even', 'still', 'just', 'very', 'more', 'most', 'such', 'both', 'each',
+    'in', 'a', 'series', 'of', // frame bait
+  ]);
+  const frameOpeners =
+    /^(in a series of|according to|for decades|for years|in reality|by the same token|from this perspective|as a ban|until that|things go|even when|unable to)\b/i;
+
+  let work = sentence.trim();
+  // Bỏ frame mở đầu nếu có
+  const frameM = work.match(
+    /^(In a series of [^,]+,\s*|According to [^,]+,\s*|For decades,\s*|For years,\s*|In reality,\s*however,\s*|By the same token,\s*|From this perspective,\s*)/i,
+  );
+  if (frameM) work = work.slice(frameM[0].length).trim();
+
+  const tokens = work
     .replace(/[^\p{L}\p{N}'\s-]/gu, ' ')
     .split(/\s+/)
     .filter(Boolean);
-  const stop = new Set([
-    'the', 'a', 'an', 'of', 'to', 'in', 'on', 'for', 'and', 'with', 'that', 'this',
-    'is', 'are', 'was', 'were', 'be', 'been', 'been', 'has', 'have', 'had', 'by', 'from',
-    'as', 'at', 'or', 'but', 'not', 'it', 'its', 'their', 'his', 'her', 'who', 'which',
-  ]);
-  const content = words.filter((w) => w.length > 2 && !stop.has(w.toLowerCase()));
-  const s = content[0] || words[0] || 'it';
-  const v =
-    content.find((w) =>
-      /ed$|ing$|es$|s$|ate$|ize$|ise$|ly$/.test(w.toLowerCase()) === false
-        ? /^(is|are|was|were|lies|lie|makes|make|has|have|had|can|will|would|should|must|outperform|supplant|shift|involve|demand|require)/i.test(
-            w,
-          ) || /ed$|s$/.test(w)
-        : /ed$|s$/.test(w),
-    ) || content[1] || 'is';
-  const o = content.find((w) => w.toLowerCase() !== s.toLowerCase() && w.toLowerCase() !== v.toLowerCase()) || '';
+
+  const FINITE =
+    /^(is|are|was|were|has|have|had|do|does|did|can|could|will|would|should|must|may|might|lies|lie|makes|make|takes|take|gives|give|gets|get|seems|seem|becomes|become|remains|remain|turns|turn|outperforms?|outperformed|supplants?|supplanted|shifts?|shifted|involves?|involved|demands?|demanded|requires?|required|equals?|asks?|asked|reads?|read|writes?|wrote|produces?|produced|highlights?|underlines?|describes?|argues?|claims?|proves?|function|functions)$/i;
+  const ADV = /ly$/i;
+  const VING = /ing$/i;
+
+  // S: cụm đầu đến trước finite verb (cho phép V-ing đầu làm gerund S)
+  let vIdx = tokens.findIndex((t, i) => FINITE.test(t) && !(i === 0 && VING.test(t)));
+  if (vIdx < 0) {
+    vIdx = tokens.findIndex((t) => /ed$/i.test(t) && !ADV.test(t));
+  }
+  if (vIdx < 0) vIdx = Math.min(1, tokens.length - 1);
+
+  const sTokens = tokens.slice(0, Math.max(1, vIdx)).filter((t) => !stop.has(t.toLowerCase()) || VING.test(t));
+  // head S = last content in sTokens
+  let s =
+    sTokens.filter((t) => !ADV.test(t)).slice(-2).join(' ')
+    || tokens[0]
+    || 'it';
+  // Prefer noun-like last token of S
+  const sParts = s.split(/\s+/);
+  if (sParts.length > 1 && stop.has(sParts[0].toLowerCase())) s = sParts.slice(1).join(' ');
+
+  // V: finite (+ particle optional)
+  let v = tokens[vIdx] || 'is';
+  if (vIdx + 1 < tokens.length && /^(out|up|in|on|off|down|over|to)$/i.test(tokens[vIdx + 1])) {
+    // has + V-ed
+  }
+  if (/^(has|have|had|is|are|was|were)$/i.test(v) && vIdx + 1 < tokens.length) {
+    const next = tokens[vIdx + 1];
+    if (!ADV.test(next) && !stop.has(next.toLowerCase())) {
+      v = `${v} ${next}`;
+    } else if (vIdx + 2 < tokens.length && ADV.test(next)) {
+      // has subtly supplanted → has supplanted
+      const n2 = tokens[vIdx + 2];
+      if (n2 && !stop.has(n2.toLowerCase())) v = `${tokens[vIdx]} ${n2}`;
+    }
+  }
+
+  // O: first content after V block, skip adverbs
+  let oStart = vIdx + (v.includes(' ') ? 2 : 1);
+  while (oStart < tokens.length && (ADV.test(tokens[oStart]) || stop.has(tokens[oStart].toLowerCase()))) {
+    oStart += 1;
+  }
+  let o = '';
+  if (oStart < tokens.length) {
+    const oTok = tokens[oStart];
+    if (!ADV.test(oTok)) o = oTok;
+    // the pen → pen
+    if (stop.has(o.toLowerCase()) && oStart + 1 < tokens.length) o = tokens[oStart + 1];
+  }
+
+  // Clean
+  s = s.replace(/[^A-Za-z'\-\s]/g, '').trim() || 'it';
+  v = v.replace(/[^A-Za-z'\-\s]/g, '').trim() || 'is';
+  o = o.replace(/[^A-Za-z'\-\s]/g, '').trim();
 
   const gist =
     logic?.formula_vi
-    || `Xương ước lượng: ${[s, v, o].filter(Boolean).join(' ')}.`;
+    || `Xương: ${[s, v, o].filter(Boolean).join(' ')}.`;
 
   const kernel: SentenceKernel = {
     text: [s, v, o].filter(Boolean).join(' ') + '.',
@@ -586,6 +645,7 @@ function heuristicAnalysis(sentence: string): SentenceAnalysisData {
         { level: 1, text: sentence, slot_vi: 'Câu đầy đủ' },
       ];
 
+  const content = tokens.filter((w) => w.length > 2 && !stop.has(w.toLowerCase()) && !ADV.test(w));
   const chunks: SentenceChunk[] = content.slice(0, 5).map((w) => ({
     text: w,
     base: w.toLowerCase(),
@@ -600,6 +660,8 @@ function heuristicAnalysis(sentence: string): SentenceAnalysisData {
     logic,
     build_levels,
     chunks,
-    notes: ['Phân tích dự phòng (AI tạm lỗi) — kernel ước lượng; vẫn dùng được để rã S–V–O.'],
+    notes: frameOpeners.test(sentence)
+      ? ['Đã bỏ frame mở câu khi ước lượng xương.']
+      : ['Phân tích dự phòng — ưu tiên finite verb mệnh đề chính.'],
   };
 }
