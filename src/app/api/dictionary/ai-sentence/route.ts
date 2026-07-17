@@ -262,7 +262,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     if (!auth) return unauthorized();
     const userId = auth.userId;
 
-    const rl = await checkRateLimitAsync(`ai-sentence:${userId}`, 20, 60_000);
+    // Batch drill / desktop: 40/phút/user (trước 20 dễ 429 khi test 20 câu)
+    const rl = await checkRateLimitAsync(`ai-sentence:${userId}`, 40, 60_000);
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },
@@ -311,87 +312,12 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    const prompt = `You are a bilingual English→Vietnamese tutor for Vietnamese high-school / adult learners.
-Teach the LingoPro "skeleton" method (Buổi 2): long sentence = KERNEL (S–V–O bones) + decoration layers.
-IMPORTANT: Many exam sentences are COMPARATIVE / paraphrase logic (less A than B, not A but B). Then SVO alone feels incomplete — you MUST fill "logic".
-
-SENTENCE: "${sentence}"
+    // Prompt NGẮN — prompt dài hay làm glm/flash vỡ JSON → 500
+    const prompt = `EN→VI sentence skeleton for Vietnamese learners. SENTENCE: "${sentence}"
 ${context ? `CONTEXT: "${context}"` : ''}
-
-Return ONLY valid JSON (no markdown) with this exact shape:
-{
-  "translation_vi": "Natural fluent Vietnamese of the FULL sentence",
-  "structure": "Short pattern e.g. S + V + O · less A than B",
-  "kernel": {
-    "text": "3-10 word English kernel ending with period",
-    "s": "subject HEAD only (1-3 words, not long relative clause)",
-    "v": "main finite verb / verb phrase of MAIN clause",
-    "o": "object/complement HEAD if any",
-    "translation_vi": "1 short Vietnamese gist of the kernel only"
-  },
-  "logic": null,
-  "segments": [
-    {
-      "text": "contiguous span from the sentence (surface form)",
-      "role": "S|V|O|C|modifier|frame|adverb|pp|clause|other",
-      "label_vi": "short VI label",
-      "keep": true
-    }
-  ],
-  "build_levels": [
-    { "level": 0, "text": "kernel bones", "slot_vi": "Xương S–V–O" },
-    { "level": 1, "text": "add one layer", "slot_vi": "..." },
-    { "level": 2, "text": "...", "slot_vi": "..." }
-  ],
-  "chunks": [
-    {
-      "text": "surface form",
-      "base": "dictionary base / multi-word unit",
-      "meaning_vi": "short gloss 2-8 VI words in THIS context",
-      "pos": "optional VI POS"
-    }
-  ],
-  "notes": ["0-2 short learning tips in Vietnamese"]
-}
-
-For COMPARATIVE / contrast, set logic (do NOT leave null):
-{
-  "logic": {
-    "pattern": "less A than B",
-    "a": "the weaker / rejected side (short EN)",
-    "b": "the stronger / real focus (short EN)",
-    "formula_vi": "1 line VI e.g. Lý do ≈ B, không phải A"
-  }
-}
-Example: "The reason … lies less in the technology itself than in what each method asks of the brain."
-→ kernel: s=reason v=lies (or "lies less") o="" ; text "The reason lies less in A than in B."
-→ logic: pattern="less A than B", a="technology itself", b="what each method asks of the brain",
-  formula_vi="Lý do chủ yếu ≈ B (yêu cầu với não), không phải A (công nghệ)."
-→ structure: "less A than B (paraphrase)"
-→ build_levels should include a step that lights A vs B contrast.
-
-RULES (critical):
-1. kernel S/V/O = short HEADS only. Drop frame "according to…", adverbs, long relatives from s/v/o fields.
-2. If sentence has less…than… / not…but… / rather than → logic is REQUIRED; kernel.translation_vi should state the contrast gist.
-3. segments: 4-12 items left→right. keep=true only for main bones; frame/according-to = keep false.
-4. build_levels: 3-5 steps kernel → full. Each step one clear layer.
-5. chunks: 2-6 saveable units (less…than, ask of, according to, …).
-6. JSON only, no markdown fences.`;
-
-    // Vercel maxDuration=30s + desktop ~28s → KHÔNG dùng smart (timeout 180s).
-    // fast (12s) trước, normal fallback — tránh socket chết → client "fetch failed".
-    const router = getSentenceRouter();
-    let text: string;
-    try {
-      text = (await router.generate(prompt, 'fast', true)).trim();
-    } catch (firstErr) {
-      console.warn('[ai-sentence] fast tier failed, retry normal:', firstErr);
-      text = (await router.generate(prompt, 'normal', true)).trim();
-    }
-
-    if (text.startsWith('```json')) text = text.replace(/```json/g, '');
-    if (text.startsWith('```')) text = text.replace(/```/g, '');
-    text = text.trim();
+Return ONLY compact JSON:
+{"translation_vi":"full natural VI","structure":"S+V+O or less A than B","kernel":{"text":"3-8 word kernel.","s":"subject head 1-3 words","v":"main verb","o":"object head or \\"\\"","translation_vi":"short VI gist"},"logic":null,"segments":[{"text":"...","role":"S|V|O|modifier|frame|adverb|pp|clause|other","label_vi":"...","keep":true}],"build_levels":[{"level":0,"text":"kernel","slot_vi":"Xương"},{"level":1,"text":"...","slot_vi":"..."},{"level":2,"text":"full sentence","slot_vi":"Full"}],"chunks":[{"text":"...","base":"...","meaning_vi":"2-6 VI words"}],"notes":["optional tip VI"]}
+Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pattern":"less A than B","a":"weaker side","b":"focus side","formula_vi":"Ý ≈ B, không phải A"}. keep=true only for S/V/O. JSON only.`;
 
     let parsed: {
       translation_vi?: string;
@@ -402,98 +328,116 @@ RULES (critical):
       build_levels?: unknown[];
       chunks?: unknown[];
       notes?: unknown[];
-    };
-    try {
-      parsed = JSON.parse(text) as typeof parsed;
-    } catch {
-      const m = text.match(/\{[\s\S]*\}/);
-      if (!m) throw new Error('Invalid AI JSON for sentence analysis');
-      parsed = JSON.parse(m[0]) as typeof parsed;
-    }
-
-    const rawChunks = Array.isArray(parsed.chunks) ? parsed.chunks : [];
-    let chunks = rawChunks
-      .map(normalizeChunk)
-      .filter((c): c is SentenceChunk => c !== null)
-      .slice(0, 8);
+    } | null = null;
+    let aiSource: 'ai' | 'heuristic' = 'ai';
 
     try {
-      chunks = await enrichChunksFromDb(chunks);
-    } catch (dbErr) {
-      console.warn('[ai-sentence] DB enrich skipped:', dbErr);
+      const router = getSentenceRouter();
+      let text: string;
+      try {
+        text = (await router.generate(prompt, 'fast', true)).trim();
+      } catch (firstErr) {
+        console.warn('[ai-sentence] fast failed, retry normal:', firstErr);
+        text = (await router.generate(prompt, 'normal', true)).trim();
+      }
+      if (text.startsWith('```json')) text = text.replace(/```json/g, '');
+      if (text.startsWith('```')) text = text.replace(/```/g, '');
+      text = text.trim();
+      try {
+        parsed = JSON.parse(text) as typeof parsed;
+      } catch {
+        const m = text.match(/\{[\s\S]*\}/);
+        if (!m) throw new Error('Invalid AI JSON for sentence analysis');
+        parsed = JSON.parse(m[0]) as typeof parsed;
+      }
+    } catch (aiErr) {
+      // KHÔNG 500 — fallback heuristic để desktop/live luôn có kết quả
+      console.warn('[ai-sentence] AI failed, heuristic fallback:', aiErr);
+      parsed = null;
+      aiSource = 'heuristic';
     }
 
-    const notes = Array.isArray(parsed.notes)
-      ? parsed.notes.filter((n): n is string => typeof n === 'string').slice(0, 3)
-      : [];
+    let data: SentenceAnalysisData;
+    if (parsed) {
+      const rawChunks = Array.isArray(parsed.chunks) ? parsed.chunks : [];
+      let chunks = rawChunks
+        .map(normalizeChunk)
+        .filter((c): c is SentenceChunk => c !== null)
+        .slice(0, 8);
 
-    const kernel = normalizeKernel(parsed.kernel, sentence);
-    let logic = normalizeLogic(parsed.logic);
-    if (!logic) logic = detectComparativeLogic(sentence);
+      try {
+        chunks = await enrichChunksFromDb(chunks);
+      } catch (dbErr) {
+        console.warn('[ai-sentence] DB enrich skipped:', dbErr);
+      }
 
-    const segments = Array.isArray(parsed.segments)
-      ? parsed.segments
-          .map(normalizeSegment)
-          .filter((s): s is SentenceSegment => s !== null)
-          .slice(0, 14)
-      : [];
-    let build_levels = Array.isArray(parsed.build_levels)
-      ? parsed.build_levels
-          .map(normalizeBuildLevel)
-          .filter((b): b is SentenceBuildLevel => b !== null)
-          .sort((a, b) => a.level - b.level)
-          .slice(0, 8)
-      : [];
+      const notes = Array.isArray(parsed.notes)
+        ? parsed.notes.filter((n): n is string => typeof n === 'string').slice(0, 3)
+        : [];
 
-    // Comparative: đảm bảo có ≥3 tầng nếu AI trả quá ít
-    if (logic && build_levels.length < 3 && kernel) {
-      build_levels = [
-        {
-          level: 0,
-          text: kernel.text.replace(/\.$/, ''),
-          slot_vi: 'Xương (reason / lies…)',
-        },
-        {
-          level: 1,
-          text: `less in ${logic.a} than in ${logic.b}`,
-          slot_vi: 'less A than B',
-        },
-        {
-          level: 2,
-          text: sentence,
-          slot_vi: 'Câu đầy đủ',
-        },
-      ];
+      let kernel = normalizeKernel(parsed.kernel, sentence);
+      let logic = normalizeLogic(parsed.logic);
+      if (!logic) logic = detectComparativeLogic(sentence);
+
+      const segments = Array.isArray(parsed.segments)
+        ? parsed.segments
+            .map(normalizeSegment)
+            .filter((s): s is SentenceSegment => s !== null)
+            .slice(0, 14)
+        : [];
+      let build_levels = Array.isArray(parsed.build_levels)
+        ? parsed.build_levels
+            .map(normalizeBuildLevel)
+            .filter((b): b is SentenceBuildLevel => b !== null)
+            .sort((a, b) => a.level - b.level)
+            .slice(0, 8)
+        : [];
+
+      if (!kernel) {
+        data = heuristicAnalysis(sentence);
+        aiSource = 'heuristic';
+      } else {
+        if (logic && build_levels.length < 3) {
+          build_levels = [
+            { level: 0, text: kernel.text.replace(/\.$/, ''), slot_vi: 'Xương S–V–O' },
+            { level: 1, text: `less in ${logic.a} than in ${logic.b}`, slot_vi: 'less A than B' },
+            { level: 2, text: sentence, slot_vi: 'Câu đầy đủ' },
+          ];
+        }
+        if (build_levels.length < 2) {
+          build_levels = [
+            { level: 0, text: kernel.text.replace(/\.$/, ''), slot_vi: 'Xương S–V–O' },
+            { level: 1, text: sentence, slot_vi: 'Câu đầy đủ' },
+          ];
+        }
+
+        let structure =
+          typeof parsed.structure === 'string' ? parsed.structure.trim() : undefined;
+        if (!structure && logic) structure = logic.pattern;
+        if (!structure) structure = kernel.o ? 'S + V + O' : 'S + V';
+
+        if (logic && (kernel.translation_vi === '—' || kernel.translation_vi.length < 12)) {
+          kernel = { ...kernel, translation_vi: logic.formula_vi };
+        }
+
+        data = {
+          sentence,
+          translation_vi: (parsed.translation_vi || '').trim() || '—',
+          structure,
+          kernel,
+          logic,
+          segments: segments.length ? segments : undefined,
+          build_levels,
+          chunks,
+          notes: notes.length ? notes : undefined,
+        };
+      }
+    } else {
+      data = heuristicAnalysis(sentence);
     }
-
-    // Fallback structure từ kernel / logic
-    let structure =
-      typeof parsed.structure === 'string' ? parsed.structure.trim() : undefined;
-    if (!structure && logic) {
-      structure = logic.pattern;
-    }
-    if (!structure && kernel) {
-      structure = kernel.o ? 'S + V + O' : 'S + V';
-    }
-
-    // Gist kernel: nếu có logic mà gist quá mỏng → bổ sung formula
-    if (kernel && logic && (kernel.translation_vi === '—' || kernel.translation_vi.length < 12)) {
-      kernel.translation_vi = logic.formula_vi;
-    }
-
-    const data: SentenceAnalysisData = {
-      sentence,
-      translation_vi: (parsed.translation_vi || '').trim() || '—',
-      structure,
-      kernel,
-      logic,
-      segments: segments.length ? segments : undefined,
-      build_levels: build_levels.length ? build_levels : undefined,
-      chunks,
-      notes: notes.length ? notes : undefined,
-    };
 
     // Shape tương thích Desktop / extension (cũ đọc translation + chunks)
+    const chunksOut = data.chunks || [];
     const dictionaryCompat = {
       word: sentence,
       resolvedWord: sentence,
@@ -505,13 +449,13 @@ RULES (critical):
             {
               pos: 'Câu',
               definition: data.translation_vi,
-              example: kernel?.text || sentence,
-              collocations: chunks.map((c) => c.base),
+              example: data.kernel?.text || sentence,
+              collocations: chunksOut.map((c) => c.base),
             },
           ],
         },
       ],
-      familyWords: chunks.map((c) => ({
+      familyWords: chunksOut.map((c) => ({
         word: c.base,
         pos: c.pos || (c.from_db ? 'DB' : 'AI'),
         meaning: c.meaning_vi,
@@ -524,9 +468,72 @@ RULES (critical):
       data: dictionaryCompat,
       analysis: data,
       source: 'ai_sentence',
+      aiSource,
       plan,
     });
   } catch (error: unknown) {
+    console.error('[ai-sentence] unhandled:', error);
     return safeErrorResponse(error, 'Failed to analyze sentence');
   }
+}
+
+/** Fallback khi AI chết — vẫn trả shape desktop dùng được (không 500) */
+function heuristicAnalysis(sentence: string): SentenceAnalysisData {
+  const logic = detectComparativeLogic(sentence);
+  const words = sentence
+    .replace(/[^\p{L}\p{N}'\s-]/gu, ' ')
+    .split(/\s+/)
+    .filter(Boolean);
+  const stop = new Set([
+    'the', 'a', 'an', 'of', 'to', 'in', 'on', 'for', 'and', 'with', 'that', 'this',
+    'is', 'are', 'was', 'were', 'be', 'been', 'been', 'has', 'have', 'had', 'by', 'from',
+    'as', 'at', 'or', 'but', 'not', 'it', 'its', 'their', 'his', 'her', 'who', 'which',
+  ]);
+  const content = words.filter((w) => w.length > 2 && !stop.has(w.toLowerCase()));
+  const s = content[0] || words[0] || 'it';
+  const v =
+    content.find((w) =>
+      /ed$|ing$|es$|s$|ate$|ize$|ise$|ly$/.test(w.toLowerCase()) === false
+        ? /^(is|are|was|were|lies|lie|makes|make|has|have|had|can|will|would|should|must|outperform|supplant|shift|involve|demand|require)/i.test(
+            w,
+          ) || /ed$|s$/.test(w)
+        : /ed$|s$/.test(w),
+    ) || content[1] || 'is';
+  const o = content.find((w) => w.toLowerCase() !== s.toLowerCase() && w.toLowerCase() !== v.toLowerCase()) || '';
+
+  const kernel: SentenceKernel = {
+    text: [s, v, o].filter(Boolean).join(' ') + '.',
+    s,
+    v,
+    o: o || undefined,
+    translation_vi: logic?.formula_vi || '—',
+  };
+
+  const build_levels: SentenceBuildLevel[] = logic
+    ? [
+        { level: 0, text: kernel.text.replace(/\.$/, ''), slot_vi: 'Xương S–V–O' },
+        { level: 1, text: `less in ${logic.a} than in ${logic.b}`, slot_vi: logic.pattern },
+        { level: 2, text: sentence, slot_vi: 'Câu đầy đủ' },
+      ]
+    : [
+        { level: 0, text: kernel.text.replace(/\.$/, ''), slot_vi: 'Xương S–V–O' },
+        { level: 1, text: sentence, slot_vi: 'Câu đầy đủ' },
+      ];
+
+  const chunks: SentenceChunk[] = content.slice(0, 5).map((w) => ({
+    text: w,
+    base: w.toLowerCase(),
+    meaning_vi: '—',
+  }));
+
+  return {
+    sentence,
+    translation_vi: logic?.formula_vi || '—',
+    structure: logic?.pattern || (o ? 'S + V + O' : 'S + V'),
+    kernel,
+    logic,
+    build_levels,
+    chunks,
+    notes: ['Phân tích dự phòng (AI tạm lỗi) — kernel ước lượng.'],
+  };
 }

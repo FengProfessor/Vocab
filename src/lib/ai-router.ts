@@ -1,34 +1,43 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
-
 /**
- * AI Router — phân loại task → chọn model phù hợp → quản lý quota
+ * AI Router — Zhipu GLM Flash (free) primary + Groq fallback
+ * Gemini / GLM-5.2 bỏ (5.2 cần nạp).
  *
- * Model tiers:
- *   'fast'   → gemini-2.5-flash-lite / llama-3.1-8b-instant
- *   'normal' → gemini-2.5-flash / llama-3.1-8b-instant
- *   'smart'  → gemini-2.5-flash-lite / llama-3.3-70b-versatile
- *
- * Key rotation:
- *   - Parse GEMINI_API_KEY và GROQ_API_KEY (comma-separated) thành pool
- *   - Mỗi key có cooldown timestamp (tránh gọi lại key đang bị 429)
- *   - Round-robin với skip key đang cooldown
- *   - Nếu tất cả keys cooldown → throw RateLimitError
+ * Keys:
+ *   ZHIPU_API_KEY / BIGMODEL_API_KEY / GLM_API_KEY — comma-separated
+ *   GROQ_API_KEY — optional fallback (gsk_…)
+ *   ZHIPU_BASE_URL — default https://open.bigmodel.cn/api/paas/v4
+ *   GLM_MODEL — default glm-4-flash
  */
+
+type ProviderId = 'zhipu' | 'groq';
 
 interface RouterKey {
   key: string;
-  cooldownUntil: number; // epoch ms, 0 = available
+  provider: ProviderId;
+  cooldownUntil: number;
   totalCalls: number;
   errors429: number;
 }
 
 export type ModelTier = 'fast' | 'normal' | 'smart';
 
-const MODEL_MAP: Record<ModelTier, string> = {
-  fast: 'gemini-2.5-flash-lite',
-  normal: 'gemini-2.5-flash',
-  smart: 'gemini-2.5-flash-lite',
-};
+const GLM_MODEL =
+  process.env.GLM_MODEL?.trim() ||
+  process.env.ZHIPU_MODEL?.trim() ||
+  'glm-4-flash';
+
+/** Fallback free Flash khác nếu model chính lỗi */
+const GLM_FALLBACK_MODELS = (
+  process.env.GLM_FALLBACK_MODELS ||
+  'glm-4.7-flash,glm-4-flash'
+)
+  .split(',')
+  .map((m) => m.trim())
+  .filter(Boolean);
+
+const ZHIPU_BASE =
+  (process.env.ZHIPU_BASE_URL || process.env.BIGMODEL_BASE_URL || 'https://open.bigmodel.cn/api/paas/v4')
+    .replace(/\/$/, '');
 
 const GROQ_MODEL_MAP: Record<ModelTier, string> = {
   fast: 'llama-3.1-8b-instant',
@@ -36,50 +45,166 @@ const GROQ_MODEL_MAP: Record<ModelTier, string> = {
   smart: 'llama-3.3-70b-versatile',
 };
 
-/** Timeout per tier (ms) */
 const TIMEOUT_MAP: Record<ModelTier, number> = {
   fast: 12_000,
-  normal: 30_000,
+  normal: 45_000,
   smart: 180_000,
 };
 
-const COOLDOWN_MS = 60_000; // 60s sau khi bị 429
+const COOLDOWN_MS = 60_000;
+
+function parseKeys(raw: string, provider: ProviderId): RouterKey[] {
+  return raw
+    .split(',')
+    .map((k) => k.trim())
+    .filter(Boolean)
+    .map((key) => ({
+      key,
+      provider,
+      cooldownUntil: 0,
+      totalCalls: 0,
+      errors429: 0,
+    }));
+}
+
+function extractChatText(data: {
+  choices?: Array<{
+    message?: { content?: string | null; reasoning_content?: string | null };
+  }>;
+}): string {
+  const msg = data?.choices?.[0]?.message;
+  const content = (msg?.content ?? '').trim();
+  if (content) return content;
+  // Một số model flash trả reasoning_content, content rỗng
+  return (msg?.reasoning_content ?? '').trim();
+}
+
+function isBalanceOrQuotaError(msg: string): boolean {
+  return (
+    msg.includes('1113') ||
+    msg.includes('余额不足') ||
+    msg.includes('无可用资源包') ||
+    msg.includes('insufficient') ||
+    msg.includes('balance')
+  );
+}
+
+async function openAiChat(
+  baseUrl: string,
+  apiKey: string,
+  model: string,
+  prompt: string,
+  jsonMode: boolean,
+  timeoutMs: number,
+  label: string,
+): Promise<string> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(`${baseUrl}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.1,
+        ...(jsonMode ? { response_format: { type: 'json_object' } } : {}),
+      }),
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      const txt = await response.text();
+      throw new Error(`[${label}] HTTP ${response.status}: ${txt}`);
+    }
+
+    const data = (await response.json()) as {
+      choices?: Array<{
+        message?: { content?: string | null; reasoning_content?: string | null };
+      }>;
+    };
+    return extractChatText(data);
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
+/** Gọi Zhipu: GLM_MODEL rồi fallback Flash khác */
+async function zhipuChatWithFallback(
+  apiKey: string,
+  prompt: string,
+  jsonMode: boolean,
+  timeoutMs: number,
+): Promise<string> {
+  const models = [GLM_MODEL, ...GLM_FALLBACK_MODELS.filter((m) => m !== GLM_MODEL)];
+  let lastErr: Error = new Error('[Zhipu] no model');
+
+  for (const model of models) {
+    try {
+      console.log(`[AIRouter] Zhipu try model=${model}`);
+      const text = await openAiChat(
+        ZHIPU_BASE,
+        apiKey,
+        model,
+        prompt,
+        jsonMode,
+        timeoutMs,
+        'Zhipu',
+      );
+      if (!text) {
+        lastErr = new Error(`[Zhipu] empty content model=${model}`);
+        continue;
+      }
+      return text;
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      lastErr = err instanceof Error ? err : new Error(msg);
+      // Hết balance/trial 5.2 → thử Flash free; 429 rate → ném ra cho router cooldown
+      if (isBalanceOrQuotaError(msg)) {
+        console.warn(`[AIRouter] Zhipu balance/quota on ${model}, fallback next`);
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw lastErr;
+}
 
 export class AIRouter {
   private keys: RouterKey[] = [];
   private rrIndex = 0;
 
-  constructor(apiKeys: string) {
-    this.keys = apiKeys
-      .split(',')
-      .map(k => k.trim())
-      .filter(Boolean)
-      .map(key => ({ key, cooldownUntil: 0, totalCalls: 0, errors429: 0 }));
-
+  constructor(keys: RouterKey[]) {
+    this.keys = keys;
     if (this.keys.length === 0) {
-      throw new Error('[AIRouter] No valid API keys found in GEMINI_API_KEY / GROQ_API_KEY');
+      throw new Error(
+        '[AIRouter] No keys. Set ZHIPU_API_KEY (or BIGMODEL_API_KEY / GLM_API_KEY) and/or GROQ_API_KEY',
+      );
     }
   }
 
-  /** Lấy key available (không trong cooldown), round-robin */
   getKey(): RouterKey {
     const now = Date.now();
-    const available = this.keys.filter(k => k.cooldownUntil < now);
+    const available = this.keys.filter((k) => k.cooldownUntil < now);
     if (available.length === 0) {
       throw new Error('[AIRouter] All keys in cooldown');
     }
-    this.rrIndex = (this.rrIndex + 1) % available.length;
-    return available[this.rrIndex];
+    // Ưu tiên zhipu còn available, rồi groq
+    const preferred = available.filter((k) => k.provider === 'zhipu');
+    const pool = preferred.length > 0 ? preferred : available;
+    this.rrIndex = (this.rrIndex + 1) % pool.length;
+    return pool[this.rrIndex];
   }
 
-  /**
-   * Gọi AI với retry tự động khi 429.
-   * Thử tối đa keys.length lần, mỗi lần dùng key khác.
-   */
   async generate(prompt: string, tier: ModelTier = 'normal', jsonMode = false): Promise<string> {
     let lastErr: Error = new Error('[AIRouter] No keys available');
+    const maxAttempts = Math.max(this.keys.length, 1);
 
-    for (let attempt = 0; attempt < this.keys.length; attempt++) {
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
       let keyEntry: RouterKey;
       try {
         keyEntry = this.getKey();
@@ -87,99 +212,67 @@ export class AIRouter {
         throw lastErr;
       }
 
-      const isGroq = keyEntry.key.startsWith('gsk_');
-
       try {
-        if (isGroq) {
-          const groqModel = GROQ_MODEL_MAP[tier];
-          console.log(`[AIRouter] Calling Groq model ${groqModel} using key ...${keyEntry.key.slice(-8)}`);
-          
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MAP[tier]);
-          
-          const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${keyEntry.key}`
-            },
-            body: JSON.stringify({
-              model: groqModel,
-              messages: [{ role: 'user', content: prompt }],
-              temperature: 0.1,
-              response_format: jsonMode ? { type: 'json_object' } : undefined
-            }),
-            signal: controller.signal
-          });
-          
-          clearTimeout(timeoutId);
-
-          if (!response.ok) {
-            const txt = await response.text();
-            throw new Error(`[Groq API Error] HTTP ${response.status}: ${txt}`);
-          }
-
-          const data = await response.json();
-          const text = data?.choices?.[0]?.message?.content || '';
+        if (keyEntry.provider === 'groq') {
+          const model = GROQ_MODEL_MAP[tier];
+          console.log(`[AIRouter] Groq ${model} ...${keyEntry.key.slice(-8)}`);
+          const text = await openAiChat(
+            'https://api.groq.com/openai/v1',
+            keyEntry.key,
+            model,
+            prompt,
+            jsonMode,
+            TIMEOUT_MAP[tier],
+            'Groq',
+          );
           keyEntry.totalCalls++;
           return text;
-        } else {
-          const geminiModel = MODEL_MAP[tier];
-          console.log(`[AIRouter] Calling Gemini model ${geminiModel} using key ...${keyEntry.key.slice(-8)}`);
-          
-          const genAI = new GoogleGenerativeAI(keyEntry.key);
-          const model = genAI.getGenerativeModel({
-            model: geminiModel,
-            generationConfig: jsonMode
-              ? { responseMimeType: 'application/json' }
-              : undefined,
-          });
-
-          const result = await Promise.race([
-            model.generateContent({
-              contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            }),
-            new Promise<never>((_, reject) =>
-              setTimeout(
-                () => reject(new Error(`[AIRouter] Timeout after ${TIMEOUT_MAP[tier]}ms (tier=${tier})`)),
-                TIMEOUT_MAP[tier]
-              )
-            ),
-          ]);
-
-          keyEntry.totalCalls++;
-          return result.response.text();
         }
+
+        // Zhipu / BigModel — Flash free
+        console.log(`[AIRouter] Zhipu ...${keyEntry.key.slice(-8)}`);
+        const text = await zhipuChatWithFallback(
+          keyEntry.key,
+          prompt,
+          jsonMode,
+          TIMEOUT_MAP[tier],
+        );
+        keyEntry.totalCalls++;
+        return text;
       } catch (err: unknown) {
         const msg = err instanceof Error ? err.message : String(err);
-        // Phát hiện rate limit / quota lỗi
-        const isRateLimit = 
-          msg.includes('429') ||
-          msg.includes('quota') ||
+        // 1113 balance đã xử lý trong zhipu fallback; còn lại 429 rate-limit → cooldown key
+        const isRateLimit =
+          (msg.includes('429') && !isBalanceOrQuotaError(msg)) ||
           msg.includes('RESOURCE_EXHAUSTED') ||
           msg.includes('rateLimitExceeded') ||
-          msg.includes('too many requests');
+          msg.includes('too many requests') ||
+          msg.includes('1302');
 
         if (isRateLimit) {
           keyEntry.cooldownUntil = Date.now() + COOLDOWN_MS;
           keyEntry.errors429++;
-          lastErr = new Error(`[AIRouter] Key rate limited (attempt ${attempt + 1}): ${msg}`);
-          console.warn(`[AIRouter] 429 on key ...${keyEntry.key.slice(-8)}, cooldown ${COOLDOWN_MS}ms`);
-          continue; // thử key tiếp
+          lastErr = new Error(`[AIRouter] Rate limited (attempt ${attempt + 1}): ${msg}`);
+          console.warn(`[AIRouter] 429 ...${keyEntry.key.slice(-8)}, cooldown ${COOLDOWN_MS}ms`);
+          continue;
         }
-        // Lỗi khác (network, parse, timeout) → throw luôn
-        throw err;
+        // Lỗi mạng/5xx/model: thử key/provider khác thay vì fail ngay
+        lastErr = err instanceof Error ? err : new Error(msg);
+        console.warn(`[AIRouter] key fail ...${keyEntry.key.slice(-8)}: ${msg.slice(0, 160)}`);
+        // cooldown ngắn cho key hỏng tạm
+        keyEntry.cooldownUntil = Date.now() + 8_000;
+        continue;
       }
     }
 
     throw lastErr;
   }
 
-  /** Thống kê trạng thái các keys */
-  stats(): Array<{ key: string; calls: number; errors: number; available: boolean }> {
+  stats(): Array<{ key: string; provider: ProviderId; calls: number; errors: number; available: boolean }> {
     const now = Date.now();
-    return this.keys.map(k => ({
+    return this.keys.map((k) => ({
       key: `...${k.key.slice(-8)}`,
+      provider: k.provider,
       calls: k.totalCalls,
       errors: k.errors429,
       available: k.cooldownUntil < now,
@@ -187,16 +280,45 @@ export class AIRouter {
   }
 }
 
-// Singleton per process (API routes share this in same Node.js instance)
 let _router: AIRouter | null = null;
+
+/** Build pool: Zhipu first, Groq fallback. Gemini bỏ. */
+export function buildRouterKeysFromEnv(): RouterKey[] {
+  const zhipuRaw =
+    process.env.ZHIPU_API_KEY ||
+    process.env.BIGMODEL_API_KEY ||
+    process.env.GLM_API_KEY ||
+    '';
+  const groqRaw = process.env.GROQ_API_KEY || '';
+
+  return [...parseKeys(zhipuRaw, 'zhipu'), ...parseKeys(groqRaw, 'groq')];
+}
 
 export function getRouter(): AIRouter {
   if (!_router) {
-    const geminiKeys = process.env.GEMINI_API_KEY || '';
-    const groqKeys = process.env.GROQ_API_KEY || '';
-    const allKeys = [geminiKeys, groqKeys].filter(Boolean).join(',');
-    if (!allKeys) throw new Error('[AIRouter] Neither GEMINI_API_KEY nor GROQ_API_KEY set');
-    _router = new AIRouter(allKeys);
+    const keys = buildRouterKeysFromEnv();
+    if (keys.length === 0) {
+      throw new Error(
+        '[AIRouter] Set ZHIPU_API_KEY (glm-4-flash) and/or GROQ_API_KEY — Gemini/5.2 disabled',
+      );
+    }
+    _router = new AIRouter(keys);
   }
   return _router;
+}
+
+/** Test / custom key: zhipu key string hoặc gsk_ */
+export function createRouterFromKeyString(apiKeys: string): AIRouter {
+  const parts = apiKeys
+    .split(',')
+    .map((k) => k.trim())
+    .filter(Boolean)
+    .map((key) => ({
+      key,
+      provider: (key.startsWith('gsk_') ? 'groq' : 'zhipu') as ProviderId,
+      cooldownUntil: 0,
+      totalCalls: 0,
+      errors429: 0,
+    }));
+  return new AIRouter(parts);
 }
