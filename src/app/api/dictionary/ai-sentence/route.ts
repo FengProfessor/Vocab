@@ -423,9 +423,19 @@ Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pat
           kernel = { ...kernel, translation_vi: logic.formula_vi };
         }
 
+        let translation_vi = (aiJson.translation_vi || '').trim();
+        if (!translation_vi || translation_vi === '—') {
+          translation_vi =
+            (kernel.translation_vi && kernel.translation_vi !== '—'
+              ? kernel.translation_vi
+              : null)
+            || logic?.formula_vi
+            || `Xương: ${kernel.text}`;
+        }
+
         data = {
           sentence,
-          translation_vi: (aiJson.translation_vi || '').trim() || '—',
+          translation_vi,
           structure,
           kernel,
           logic,
