@@ -319,7 +319,7 @@ Return ONLY compact JSON:
 {"translation_vi":"full natural VI","structure":"S+V+O or less A than B","kernel":{"text":"3-8 word kernel.","s":"subject head 1-3 words","v":"main verb","o":"object head or \\"\\"","translation_vi":"short VI gist"},"logic":null,"segments":[{"text":"...","role":"S|V|O|modifier|frame|adverb|pp|clause|other","label_vi":"...","keep":true}],"build_levels":[{"level":0,"text":"kernel","slot_vi":"Xương"},{"level":1,"text":"...","slot_vi":"..."},{"level":2,"text":"full sentence","slot_vi":"Full"}],"chunks":[{"text":"...","base":"...","meaning_vi":"2-6 VI words"}],"notes":["optional tip VI"]}
 Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pattern":"less A than B","a":"weaker side","b":"focus side","formula_vi":"Ý ≈ B, không phải A"}. keep=true only for S/V/O. JSON only.`;
 
-    let parsed: {
+    type AiSentenceJson = {
       translation_vi?: string;
       structure?: string;
       kernel?: unknown;
@@ -328,7 +328,9 @@ Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pat
       build_levels?: unknown[];
       chunks?: unknown[];
       notes?: unknown[];
-    } | null = null;
+    };
+
+    let parsed: AiSentenceJson | null = null;
     let aiSource: 'ai' | 'heuristic' = 'ai';
 
     try {
@@ -344,11 +346,11 @@ Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pat
       if (text.startsWith('```')) text = text.replace(/```/g, '');
       text = text.trim();
       try {
-        parsed = JSON.parse(text) as typeof parsed;
+        parsed = JSON.parse(text) as AiSentenceJson;
       } catch {
         const m = text.match(/\{[\s\S]*\}/);
         if (!m) throw new Error('Invalid AI JSON for sentence analysis');
-        parsed = JSON.parse(m[0]) as typeof parsed;
+        parsed = JSON.parse(m[0]) as AiSentenceJson;
       }
     } catch (aiErr) {
       // KHÔNG 500 — fallback heuristic để desktop/live luôn có kết quả
@@ -358,8 +360,9 @@ Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pat
     }
 
     let data: SentenceAnalysisData;
-    if (parsed) {
-      const rawChunks = Array.isArray(parsed.chunks) ? parsed.chunks : [];
+    if (parsed !== null) {
+      const aiJson: AiSentenceJson = parsed;
+      const rawChunks = Array.isArray(aiJson.chunks) ? aiJson.chunks : [];
       let chunks = rawChunks
         .map(normalizeChunk)
         .filter((c): c is SentenceChunk => c !== null)
@@ -371,22 +374,22 @@ Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pat
         console.warn('[ai-sentence] DB enrich skipped:', dbErr);
       }
 
-      const notes = Array.isArray(parsed.notes)
-        ? parsed.notes.filter((n): n is string => typeof n === 'string').slice(0, 3)
+      const notes = Array.isArray(aiJson.notes)
+        ? aiJson.notes.filter((n): n is string => typeof n === 'string').slice(0, 3)
         : [];
 
-      let kernel = normalizeKernel(parsed.kernel, sentence);
-      let logic = normalizeLogic(parsed.logic);
+      let kernel = normalizeKernel(aiJson.kernel, sentence);
+      let logic = normalizeLogic(aiJson.logic);
       if (!logic) logic = detectComparativeLogic(sentence);
 
-      const segments = Array.isArray(parsed.segments)
-        ? parsed.segments
+      const segments = Array.isArray(aiJson.segments)
+        ? aiJson.segments
             .map(normalizeSegment)
             .filter((s): s is SentenceSegment => s !== null)
             .slice(0, 14)
         : [];
-      let build_levels = Array.isArray(parsed.build_levels)
-        ? parsed.build_levels
+      let build_levels = Array.isArray(aiJson.build_levels)
+        ? aiJson.build_levels
             .map(normalizeBuildLevel)
             .filter((b): b is SentenceBuildLevel => b !== null)
             .sort((a, b) => a.level - b.level)
@@ -412,7 +415,7 @@ Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pat
         }
 
         let structure =
-          typeof parsed.structure === 'string' ? parsed.structure.trim() : undefined;
+          typeof aiJson.structure === 'string' ? aiJson.structure.trim() : undefined;
         if (!structure && logic) structure = logic.pattern;
         if (!structure) structure = kernel.o ? 'S + V + O' : 'S + V';
 
@@ -422,7 +425,7 @@ Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pat
 
         data = {
           sentence,
-          translation_vi: (parsed.translation_vi || '').trim() || '—',
+          translation_vi: (aiJson.translation_vi || '').trim() || '—',
           structure,
           kernel,
           logic,
