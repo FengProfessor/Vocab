@@ -29,8 +29,7 @@ interface EnrichedWordRaw {
  * If dictionaryData is provided, AI helps pick the best meaning for the context.
  */
 export async function enrichWord(originalInput: string, customApiKey?: string, dictionaryData?: DictionaryData | null, userTargetTranslation?: string): Promise<EnrichedWord> {
-  // customApiKey vẫn được hỗ trợ (Chrome ext truyền key riêng) — nếu có thì dùng router tạm thời với key đó
-  // Nếu không có customApiKey → dùng singleton router với GEMINI_API_KEY env
+  // customApiKey: Chrome ext / client key — Zhipu hoặc gsk_ Groq
 
   const dictionaryContext = dictionaryData
     ? `Available dictionary definitions: ${JSON.stringify(dictionaryData?.results?.[0]?.meanings || [])}`
@@ -56,11 +55,10 @@ Return ONLY valid JSON with these exact keys:
 Strict JSON only.`;
 
   try {
-    // Full enrichment là task nặng nhất → dùng tier 'smart'
-    // Nếu customApiKey được cung cấp (Chrome ext), tạo router riêng với key đó
-    const { AIRouter } = await import('@/lib/ai-router');
+    // Full enrichment → tier 'smart' (GLM Flash)
+    const { createRouterFromKeyString, getRouter } = await import('@/lib/ai-router');
     const router = customApiKey
-      ? new AIRouter(customApiKey)
+      ? createRouterFromKeyString(customApiKey)
       : getRouter();
 
     const rawText = await router.generate(prompt, 'smart', true);
