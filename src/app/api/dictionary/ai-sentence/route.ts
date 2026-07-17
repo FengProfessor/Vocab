@@ -9,6 +9,7 @@ import {
   safeErrorResponse,
 } from '@/lib/api-security';
 import { checkAccess, resolvePlanByUserId } from '@/lib/entitlement';
+import { matchGoldenSentence } from '@/lib/ai-sentence-golden';
 
 export const maxDuration = 30;
 
@@ -312,8 +313,56 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
+    // P0: golden Buổi 2 — không tin AI cho 4 câu panic live
+    const golden = matchGoldenSentence(sentence);
+    if (golden) {
+      const data: SentenceAnalysisData = {
+        sentence: golden.sentence,
+        translation_vi: golden.translation_vi,
+        structure: golden.structure,
+        kernel: golden.kernel,
+        logic: golden.logic,
+        segments: golden.segments,
+        build_levels: golden.build_levels,
+        chunks: golden.chunks,
+        notes: golden.notes,
+      };
+      return NextResponse.json({
+        success: true,
+        data: {
+          word: sentence,
+          resolvedWord: sentence,
+          originalWord: sentence,
+          sentenceAnalysis: data,
+          results: [
+            {
+              meanings: [
+                {
+                  pos: 'Câu',
+                  definition: data.translation_vi,
+                  example: data.kernel?.text || sentence,
+                  collocations: data.chunks.map((c) => c.base),
+                },
+              ],
+            },
+          ],
+          familyWords: data.chunks.map((c) => ({
+            word: c.base,
+            pos: c.pos || 'GOLDEN',
+            meaning: c.meaning_vi,
+          })),
+          _bestIndex: 0,
+        },
+        analysis: data,
+        source: 'ai_sentence',
+        aiSource: 'golden',
+        plan,
+      });
+    }
+
     // Prompt NGẮN — prompt dài hay làm glm/flash vỡ JSON → 500
     const prompt = `EN→VI sentence skeleton for Vietnamese learners. SENTENCE: "${sentence}"
+RULES: Drop frame openers (In a series…, According to…). s/v/o = heads only. Finite main-clause verb only for v. NEVER put adverb (subtly/consistently) in o. translation_vi MUST be natural Vietnamese (never empty or dash).
 ${context ? `CONTEXT: "${context}"` : ''}
 Return ONLY compact JSON:
 {"translation_vi":"full natural VI","structure":"S+V+O or less A than B","kernel":{"text":"3-8 word kernel.","s":"subject head 1-3 words","v":"main verb","o":"object head or \\"\\"","translation_vi":"short VI gist"},"logic":null,"segments":[{"text":"...","role":"S|V|O|modifier|frame|adverb|pp|clause|other","label_vi":"...","keep":true}],"build_levels":[{"level":0,"text":"kernel","slot_vi":"Xương"},{"level":1,"text":"...","slot_vi":"..."},{"level":2,"text":"full sentence","slot_vi":"Full"}],"chunks":[{"text":"...","base":"...","meaning_vi":"2-6 VI words"}],"notes":["optional tip VI"]}
