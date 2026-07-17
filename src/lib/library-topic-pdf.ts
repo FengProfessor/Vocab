@@ -169,7 +169,7 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     body {
       margin: 0;
       font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-      color: #0f172a;
+      color: #000;
       font-size: 11pt;
       line-height: 1.35;
       background: #fff;
@@ -246,93 +246,109 @@ export function buildTopicPdfHtml(input: TopicPdfInput): string {
     }
     header.brand .meta { flex: 1; min-width: 0; }
     header.brand .name {
-      font-size: 13pt; font-weight: 800; color: #4f46e5; letter-spacing: -0.02em;
+      font-size: 13pt; font-weight: 800; color: #000; letter-spacing: -0.02em;
     }
     header.brand .tag {
-      font-size: 8.5pt; color: #64748b; font-weight: 600; margin-top: 2px;
+      font-size: 8.5pt; color: #000; font-weight: 600; margin-top: 2px;
     }
     header.brand .qr-hint {
-      text-align: right; font-size: 8pt; color: #64748b; font-weight: 600;
+      text-align: right; font-size: 8pt; color: #000; font-weight: 600;
       max-width: 42%;
     }
-    header.brand .qr-hint a { color: #4f46e5; text-decoration: none; font-weight: 800; }
+    header.brand .qr-hint a { color: #000; text-decoration: none; font-weight: 800; }
     h1 {
       font-size: 16pt; font-weight: 900; margin: 0 0 4px; line-height: 1.2;
+      color: #000;
     }
     .subtitle {
-      font-size: 9.5pt; color: #475569; font-weight: 600; margin: 0 0 10px;
+      font-size: 9.5pt; color: #000; font-weight: 600; margin: 0 0 10px;
     }
     .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
     .badge {
       display: inline-block; padding: 3px 8px; border-radius: 999px;
-      background: #eef2ff; color: #3730a3; font-size: 8.5pt; font-weight: 800;
+      background: #eef2ff; color: #000; font-size: 8.5pt; font-weight: 800;
     }
-    .badge.soft { background: #f1f5f9; color: #475569; }
+    .badge.soft { background: #f1f5f9; color: #000; }
     .howto {
       background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
-      padding: 8px 10px; font-size: 8.5pt; color: #334155; margin-bottom: 14px;
+      padding: 8px 10px; font-size: 8.5pt; color: #000; margin-bottom: 14px;
     }
-    .howto strong { color: #0f172a; }
+    .howto strong { color: #000; }
     .share-box {
       margin-top: 10px; padding: 8px; border-radius: 8px; background: #eef2ff;
-      font-size: 8.5pt; color: #312e81; font-weight: 600;
+      font-size: 8.5pt; color: #000; font-weight: 600;
     }
     h2 {
       font-size: 11.5pt; font-weight: 900; margin: 16px 0 8px;
       display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-      color: #1e1b4b;
+      color: #000;
       page-break-after: avoid;
     }
     .pill {
-      font-size: 8pt; font-weight: 800; background: #4f46e5; color: #fff;
+      font-size: 8pt; font-weight: 800; background: #000; color: #fff;
       padding: 2px 7px; border-radius: 999px;
     }
     table {
       width: 100%; border-collapse: collapse; table-layout: fixed;
       font-size: 9pt;
+      color: #000;
     }
     th, td {
-      border: 1px solid #cbd5e1; padding: 5px 6px; vertical-align: top;
+      border: 1px solid #000; padding: 5px 6px; vertical-align: top;
+      color: #000;
     }
     th {
-      background: #eef2ff; color: #312e81; font-weight: 800; text-align: left;
+      background: #e5e5e5; color: #000; font-weight: 800; text-align: left;
       font-size: 8pt;
     }
-    td.num, th.num { width: 26px; text-align: center; color: #64748b; font-weight: 700; }
+    td.num, th.num { width: 26px; text-align: center; color: #000; font-weight: 700; }
     td.word, th.word { width: 24%; }
     td.def, th.def { width: 38%; }
-    td.ex, th.ex { width: 32%; font-size: 8.5pt; color: #334155; }
-    .lemma { font-weight: 800; color: #0f172a; font-size: 9.5pt; }
+    td.ex, th.ex { width: 32%; font-size: 8.5pt; color: #000; }
+    .lemma { font-weight: 800; color: #000; font-size: 10pt; }
     .ipa-under {
       font-family: "Segoe UI", "Arial Unicode MS", "Lucida Sans Unicode", "Noto Sans", sans-serif;
-      font-size: 8pt;
+      font-size: 9.5pt;
       font-weight: 700;
-      color: #4f46e5;
-      margin-top: 1px;
+      color: #000 !important;
+      margin-top: 2px;
       letter-spacing: 0.02em;
     }
-    .ipa-under.muted { color: #cbd5e1; font-weight: 600; }
+    .ipa-under.muted { color: #666 !important; font-weight: 600; }
     .pos {
-      display: inline-block; margin-top: 2px; font-size: 7.5pt; font-weight: 700;
-      color: #4f46e5; background: #eef2ff; padding: 1px 5px; border-radius: 4px;
+      display: inline-block; margin-top: 3px; font-size: 9pt; font-weight: 700;
+      color: #000 !important; background: transparent; padding: 0;
+      border: 0;
     }
-    .pos.muted, .muted { color: #94a3b8; font-weight: 600; font-style: normal; background: transparent; padding: 0; }
-    td.def { font-size: 8.5pt; color: #1e293b; line-height: 1.35; }
-    td.ex em { font-style: italic; color: #475569; }
-    tr:nth-child(even) td { background: #f8fafc; }
+    .pos.muted, .muted { color: #666 !important; font-weight: 600; font-style: normal; background: transparent; padding: 0; }
+    td.def { font-size: 8.5pt; color: #000; line-height: 1.35; }
+    td.ex em { font-style: italic; color: #000; }
+    tr:nth-child(even) td { background: #f5f5f5; }
     tr { page-break-inside: avoid; }
     .pack-break { page-break-before: auto; }
     footer.foot {
-      margin-top: 18px; padding-top: 10px; border-top: 1px dashed #94a3b8;
-      font-size: 8pt; color: #64748b; text-align: center; line-height: 1.5;
+      margin-top: 18px; padding-top: 10px; border-top: 1px dashed #666;
+      font-size: 8pt; color: #000; text-align: center; line-height: 1.5;
     }
-    footer.foot strong { color: #4f46e5; }
+    footer.foot strong { color: #000; }
     @media print {
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body {
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
       .no-print { display: none !important; }
-      a { color: inherit; text-decoration: none; }
-      .watermark-hero { opacity: 0.05; }
-      .wm-corner { opacity: 0.5; }
+      a { color: #000 !important; text-decoration: none; }
+      .sheet, .sheet * { color: #000 !important; }
+      .ipa-under, .pos { color: #000 !important; font-weight: 700; }
+      .ipa-under { font-size: 9.5pt !important; }
+      .pos { font-size: 9pt !important; }
+      .pill { background: #000 !important; color: #fff !important; }
+      .muted, .ipa-under.muted, .pos.muted { color: #444 !important; }
+      .watermark-hero { opacity: 0.05; color: #6366f1 !important; }
+      .wm-corner { opacity: 0.45; color: #4f46e5 !important; }
+      .page-foot { color: #666 !important; }
+      .page-foot strong { color: #000 !important; }
     }
     .toolbar {
       position: sticky; top: 0; z-index: 10;
