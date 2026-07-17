@@ -504,12 +504,16 @@ function heuristicAnalysis(sentence: string): SentenceAnalysisData {
     ) || content[1] || 'is';
   const o = content.find((w) => w.toLowerCase() !== s.toLowerCase() && w.toLowerCase() !== v.toLowerCase()) || '';
 
+  const gist =
+    logic?.formula_vi
+    || `Xương ước lượng: ${[s, v, o].filter(Boolean).join(' ')}.`;
+
   const kernel: SentenceKernel = {
     text: [s, v, o].filter(Boolean).join(' ') + '.',
     s,
     v,
     o: o || undefined,
-    translation_vi: logic?.formula_vi || '—',
+    translation_vi: gist,
   };
 
   const build_levels: SentenceBuildLevel[] = logic
@@ -526,17 +530,17 @@ function heuristicAnalysis(sentence: string): SentenceAnalysisData {
   const chunks: SentenceChunk[] = content.slice(0, 5).map((w) => ({
     text: w,
     base: w.toLowerCase(),
-    meaning_vi: '—',
+    meaning_vi: '(xem ngữ cảnh câu)',
   }));
 
   return {
     sentence,
-    translation_vi: logic?.formula_vi || '—',
+    translation_vi: gist,
     structure: logic?.pattern || (o ? 'S + V + O' : 'S + V'),
     kernel,
     logic,
     build_levels,
     chunks,
-    notes: ['Phân tích dự phòng (AI tạm lỗi) — kernel ước lượng.'],
+    notes: ['Phân tích dự phòng (AI tạm lỗi) — kernel ước lượng; vẫn dùng được để rã S–V–O.'],
   };
 }
