@@ -295,13 +295,15 @@ RULES (critical):
 6. translation_vi = full sentence; kernel.translation_vi = gist only (shorter).
 7. Labels in Vietnamese, simple (no heavy grammar jargon). JSON only, no markdown fences.`;
 
+    // Vercel maxDuration=30s + desktop ~28s → KHÔNG dùng smart (timeout 180s).
+    // fast (12s) trước, normal fallback — tránh socket chết → client "fetch failed".
     const router = getSentenceRouter();
     let text: string;
     try {
-      text = (await router.generate(prompt, 'smart', true)).trim();
-    } catch (firstErr) {
-      console.warn('[ai-sentence] smart tier failed, retry fast:', firstErr);
       text = (await router.generate(prompt, 'fast', true)).trim();
+    } catch (firstErr) {
+      console.warn('[ai-sentence] fast tier failed, retry normal:', firstErr);
+      text = (await router.generate(prompt, 'normal', true)).trim();
     }
 
     if (text.startsWith('```json')) text = text.replace(/```json/g, '');
