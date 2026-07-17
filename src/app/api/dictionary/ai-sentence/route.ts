@@ -100,6 +100,9 @@ function normalizeChunk(raw: unknown): SentenceChunk | null {
   const base = typeof o.base === 'string' ? o.base.trim().toLowerCase() : text.toLowerCase();
   const meaning_vi = typeof o.meaning_vi === 'string' ? o.meaning_vi.trim() : '';
   if (!text && !base) return null;
+  // base/text EN; meaning_vi VI
+  if (looksVietnamese(base) || looksVietnamese(text)) return null;
+  if (!looksEnglishHead(base) && !looksEnglishHead(text)) return null;
   const pos = typeof o.pos === 'string' ? o.pos.trim() : undefined;
   return {
     text: text || base,
@@ -128,20 +131,39 @@ function normalizeSegment(raw: unknown): SentenceSegment | null {
   return { text, role, label_vi, keep };
 }
 
+/** Có dấu tiếng Việt / chữ Việt → không được dùng làm S/V/O (xương phải EN) */
+function looksVietnamese(s: string): boolean {
+  return /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(s);
+}
+
+function looksEnglishHead(s: string): boolean {
+  const t = s.trim();
+  if (!t || looksVietnamese(t)) return false;
+  // Cho phép chữ Latin + ' -
+  return /^[A-Za-z][A-Za-z'’\-\s]{0,40}$/.test(t);
+}
+
 function normalizeKernel(raw: unknown, sentence: string): SentenceKernel | undefined {
   if (!raw || typeof raw !== 'object') return undefined;
   const o = raw as Record<string, unknown>;
-  const s = typeof o.s === 'string' ? o.s.trim() : '';
-  const v = typeof o.v === 'string' ? o.v.trim() : '';
-  if (!s || !v) return undefined;
-  const oPart = typeof o.o === 'string' ? o.o.trim() : '';
-  const text =
+  let s = typeof o.s === 'string' ? o.s.trim() : '';
+  let v = typeof o.v === 'string' ? o.v.trim() : '';
+  let oPart = typeof o.o === 'string' ? o.o.trim() : '';
+  // AI hay nhét VI vào s/v/o → reject
+  if (!looksEnglishHead(s) || !looksEnglishHead(v)) return undefined;
+  if (oPart && !looksEnglishHead(oPart)) oPart = '';
+
+  let text =
     (typeof o.text === 'string' && o.text.trim()) ||
     [s, v, oPart].filter(Boolean).join(' ');
+  if (looksVietnamese(text)) {
+    text = [s, v, oPart].filter(Boolean).join(' ');
+  }
   const translation_vi =
     typeof o.translation_vi === 'string' && o.translation_vi.trim()
       ? o.translation_vi.trim()
       : '—';
+  // translation_vi được phép VI; s/v/o/text phải EN
   return {
     text: text.endsWith('.') ? text : `${text}.`,
     s,
@@ -156,6 +178,8 @@ function normalizeBuildLevel(raw: unknown): SentenceBuildLevel | null {
   const o = raw as Record<string, unknown>;
   const text = typeof o.text === 'string' ? o.text.trim() : '';
   if (!text) return null;
+  // build_levels.text phải là câu/mảnh EN — slot_vi mới là VI
+  if (looksVietnamese(text) && !/[A-Za-z]{3,}/.test(text)) return null;
   const level = typeof o.level === 'number' && Number.isFinite(o.level) ? Math.round(o.level) : 0;
   const slot_vi =
     typeof o.slot_vi === 'string' && o.slot_vi.trim() ? o.slot_vi.trim() : `Lớp ${level}`;
@@ -360,13 +384,16 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       });
     }
 
-    // Prompt NGẮN — prompt dài hay làm glm/flash vỡ JSON → 500
-    const prompt = `EN→VI sentence skeleton for Vietnamese learners. SENTENCE: "${sentence}"
-RULES: Drop frame openers (In a series…, According to…). s/v/o = heads only. Finite main-clause verb only for v. NEVER put adverb (subtly/consistently) in o. translation_vi MUST be natural Vietnamese (never empty or dash).
+    // Prompt NGẮN — XƯƠNG (s/v/o/text/build_levels/chunks.base) = ENGLISH only; VI chỉ ở *translation* fields
+    const prompt = `English sentence skeleton for Vietnamese learners. SENTENCE: "${sentence}"
 ${context ? `CONTEXT: "${context}"` : ''}
-Return ONLY compact JSON:
-{"translation_vi":"full natural VI","structure":"S+V+O or less A than B","kernel":{"text":"3-8 word kernel.","s":"subject head 1-3 words","v":"main verb","o":"object head or \\"\\"","translation_vi":"short VI gist"},"logic":null,"segments":[{"text":"...","role":"S|V|O|modifier|frame|adverb|pp|clause|other","label_vi":"...","keep":true}],"build_levels":[{"level":0,"text":"kernel","slot_vi":"Xương"},{"level":1,"text":"...","slot_vi":"..."},{"level":2,"text":"full sentence","slot_vi":"Full"}],"chunks":[{"text":"...","base":"...","meaning_vi":"2-6 VI words"}],"notes":["optional tip VI"]}
-Rules: kernel s/v/o = HEADS only. If less...than.../not...but... set logic:{"pattern":"less A than B","a":"weaker side","b":"focus side","formula_vi":"Ý ≈ B, không phải A"}. keep=true only for S/V/O. JSON only.`;
+Return ONLY JSON:
+{"translation_vi":"full natural Vietnamese of the sentence","structure":"S+V+O","kernel":{"text":"English kernel 3-8 words.","s":"English subject HEAD from sentence","v":"English main verb from sentence","o":"English object HEAD or \\"\\"","translation_vi":"short Vietnamese gist"},"logic":null,"segments":[{"text":"English span from sentence","role":"S|V|O|modifier|frame|adverb|pp|clause|other","label_vi":"Vietnamese label","keep":true}],"build_levels":[{"level":0,"text":"English kernel words only","slot_vi":"Xương"},{"level":1,"text":"English longer","slot_vi":"+ layer"},{"level":2,"text":"full English sentence","slot_vi":"Full"}],"chunks":[{"text":"English surface","base":"english lemma","meaning_vi":"Vietnamese gloss"}],"notes":["optional tip in Vietnamese"]}
+CRITICAL:
+- kernel.s, kernel.v, kernel.o, kernel.text, build_levels[].text, chunks[].base, chunks[].text, segments[].text MUST be ENGLISH words taken from the sentence (or English lemma). NEVER Vietnamese.
+- ONLY these may be Vietnamese: translation_vi, kernel.translation_vi, label_vi, slot_vi, meaning_vi, notes.
+- Example: "My younger sister likes spicy food." → s="sister" (or "younger sister"), v="likes", o="food" (or "spicy food"), NOT "em gái"/"thích".
+- Drop frame openers. Finite main verb only. Adverb is not object. JSON only.`;
 
     type AiSentenceJson = {
       translation_vi?: string;

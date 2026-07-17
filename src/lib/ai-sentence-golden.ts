@@ -263,6 +263,38 @@ const GOLDEN: GoldenEntry[] = [
   },
   // ── Demo short (verify UI nhanh trên sóng) ──
   {
+    id: 'DEMO-SISTER-SPICY',
+    match: 'my younger sister likes spicy food',
+    data: {
+      sentence: 'My younger sister likes spicy food.',
+      translation_vi: 'Em gái nhỏ của tôi thích đồ ăn cay.',
+      structure: 'S + V + O · adj layers',
+      kernel: {
+        text: 'Sister likes food.',
+        s: 'sister',
+        v: 'likes',
+        o: 'food',
+        translation_vi: 'Em gái thích đồ ăn.',
+      },
+      segments: [
+        { text: 'My younger sister', role: 'S', label_vi: 'S (+ tính từ)', keep: true },
+        { text: 'likes', role: 'V', label_vi: 'Động từ', keep: true },
+        { text: 'spicy food', role: 'O', label_vi: 'O (+ tính từ)', keep: true },
+      ],
+      build_levels: L(
+        [0, 'Sister likes food', 'Xương S–V–O'],
+        [1, 'Younger sister likes spicy food', '+ tính từ'],
+        [2, 'My younger sister likes spicy food', 'Full'],
+      ),
+      chunks: [
+        C('younger sister', 'em gái (nhỏ hơn)'),
+        C('like', 'thích', 'likes'),
+        C('spicy food', 'đồ ăn cay'),
+      ],
+      notes: ['Xương EN: sister / likes / food — VI chỉ ở cột gist & meaning chunk.'],
+    },
+  },
+  {
     id: 'DEMO-OLD-MAN',
     match: 'the old man reads a book',
     data: {
@@ -435,6 +467,7 @@ export const GOLDEN_KERNEL_EXPECT: Record<
   'B2-003': { s: ['keyboard'], v: ['supplanted', 'has supplanted'], o: ['pen'] },
   'B2-006': { s: ['reason'], v: ['lies'] },
   'B2-026': { s: ['clearing a forest', 'clearing', 'forest'], v: ['is', 'has'] },
+  'DEMO-SISTER-SPICY': { s: ['sister'], v: ['likes', 'like'], o: ['food'] },
   'DEMO-OLD-MAN': { s: ['man'], v: ['reads'], o: ['book'] },
   'B2-010': { s: ['filtering'], v: ['turns out to be', 'turns'], o: ['instrumental'] },
   'B2-106': { s: ['mental work', 'work'], v: ['explains'], o: ['difference'] },
