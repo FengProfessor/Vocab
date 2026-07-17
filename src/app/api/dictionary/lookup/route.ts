@@ -23,6 +23,73 @@ const CACHE_HEADERS = {
   'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=3600',
 } as const;
 
+/** Cặp vai trò hay bị gán nhầm "trái nghĩa" (teach↔learn ≠ hot↔cold). */
+const ROLE_CONVERSE: Record<string, string[]> = {
+  teach: ['learn', 'study', 'learning'],
+  teaches: ['learn', 'study', 'learning'],
+  teaching: ['learn', 'study', 'learning'],
+  learn: ['teach', 'teaching'],
+  learning: ['teach', 'teaching'],
+  study: ['teach', 'teaching'],
+  buy: ['sell'],
+  sell: ['buy'],
+  lend: ['borrow'],
+  borrow: ['lend'],
+  give: ['take', 'receive'],
+  take: ['give'],
+  win: ['lose'],
+  lose: ['win'],
+};
+
+function asStringList(v: unknown): string[] {
+  if (!Array.isArray(v)) return [];
+  return v.filter((x): x is string => typeof x === 'string' && x.trim().length > 0);
+}
+
+/** Bỏ ant trùng syn + cặp converse + biến thể lemma. */
+function sanitizeSynAntPayload(
+  lemma: string,
+  payload: Record<string, unknown>,
+): Record<string, unknown> {
+  const w = lemma.toLowerCase();
+  const variants = new Set<string>([w]);
+  if (w.endsWith('s') && w.length > 3) variants.add(w.slice(0, -1));
+  else variants.add(`${w}s`);
+  if (w.endsWith('ing') && w.length > 4) variants.add(w.slice(0, -3));
+  if (w.endsWith('ed') && w.length > 3) variants.add(w.slice(0, -2));
+
+  const blockAnt = new Set((ROLE_CONVERSE[w] || []).map((x) => x.toLowerCase()));
+  for (const v of variants) {
+    for (const x of ROLE_CONVERSE[v] || []) blockAnt.add(x.toLowerCase());
+  }
+
+  const clean = (list: string[], kind: 'syn' | 'ant'): string[] => {
+    const seen = new Set<string>();
+    const out: string[] = [];
+    for (const raw of list) {
+      const item = raw.trim().toLowerCase();
+      if (!item || !/^[a-z][a-z'-]{1,24}$/.test(item)) continue;
+      if (variants.has(item) || seen.has(item)) continue;
+      if (kind === 'ant' && blockAnt.has(item)) continue;
+      seen.add(item);
+      out.push(item);
+      if (out.length >= 8) break;
+    }
+    return out;
+  };
+
+  let synonyms = clean(asStringList(payload.synonyms), 'syn');
+  let antonyms = clean(asStringList(payload.antonyms), 'ant');
+  const synSet = new Set(synonyms);
+  antonyms = antonyms.filter((a) => !synSet.has(a));
+
+  return {
+    ...payload,
+    ...(synonyms.length ? { synonyms } : { synonyms: [] }),
+    ...(antonyms.length ? { antonyms } : { antonyms: [] }),
+  };
+}
+
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const word = (searchParams.get('word') || '').trim().toLowerCase();
@@ -71,13 +138,15 @@ export async function GET(req: Request) {
       });
     }
 
+    const raw = (data.data || {}) as Record<string, unknown>;
+    const cleaned = sanitizeSynAntPayload(word, raw);
     const body: Record<string, unknown> = {
       success: true,
       source: 'global_dictionary',
       tags: data.tags || [],
       image_url: data.image_url || null,
       image_source: data.image_source || 'none',
-      ...(data.data as Record<string, unknown>),
+      ...cleaned,
     };
     cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
 
