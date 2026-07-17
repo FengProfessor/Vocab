@@ -20,7 +20,46 @@ const MAX_HISTORY = 20;
 // Regex phát hiện kết quả rác từ AI (từ không tồn tại)
 const GARBAGE_PATTERNS = /không có trong từ điển|not a real word|word not found|không tồn tại/i;
 
-type SourceBadge = 'Kho từ điển' | 'Wiktionary' | 'AI';
+type SourceBadge = 'Kho từ điển' | 'Wiktionary' | 'AI' | 'Câu · giáo án' | 'Câu · AI' | 'Câu · ước lượng';
+
+interface SentenceKernel {
+  text: string;
+  s: string;
+  v: string;
+  o?: string;
+  translation_vi: string;
+}
+
+interface SentenceChunk {
+  text: string;
+  base: string;
+  meaning_vi: string;
+  pos?: string;
+}
+
+interface SentenceBuildLevel {
+  level: number;
+  text: string;
+  slot_vi: string;
+}
+
+interface SentenceLogic {
+  pattern: string;
+  a: string;
+  b: string;
+  formula_vi: string;
+}
+
+interface SentenceAnalysis {
+  sentence: string;
+  translation_vi: string;
+  structure?: string;
+  kernel?: SentenceKernel;
+  logic?: SentenceLogic;
+  build_levels?: SentenceBuildLevel[];
+  chunks: SentenceChunk[];
+  notes?: string[];
+}
 
 interface LookupResult {
   data: DictionaryData;
@@ -28,6 +67,29 @@ interface LookupResult {
   imageUrl?: string;
   /** Từ user gõ vào — luôn dùng làm heading thay vì data.word từ external */
   queriedWord: string;
+  /** Có khi tra cụm/câu (≥2 từ) qua ai-sentence */
+  sentence?: SentenceAnalysis;
+  aiSource?: 'golden' | 'ai' | 'heuristic' | string;
+}
+
+function isMultiWord(s: string): boolean {
+  return s.trim().split(/\s+/).filter(Boolean).length >= 2;
+}
+
+function looksVietnameseText(s: string): boolean {
+  return /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(s);
+}
+
+function isEnglishBone(s: string): boolean {
+  const t = s.trim();
+  if (!t || looksVietnameseText(t)) return false;
+  return /^[A-Za-z][A-Za-z'’\-\s]{0,100}$/.test(t);
+}
+
+function sentenceSourceBadge(aiSource?: string): SourceBadge {
+  if (aiSource === 'golden') return 'Câu · giáo án';
+  if (aiSource === 'heuristic') return 'Câu · ước lượng';
+  return 'Câu · AI';
 }
 
 function getHistory(): string[] {
@@ -64,6 +126,12 @@ function normalizeFamilyWords(raw: DictionaryData['familyWords']): WordFamilyEnt
     }
     return item;
   }).filter(e => e.word);
+}
+
+/** Bỏ slash bao ngoài — DB đôi khi lưu `/ˈ…/` trong khi UI bọc thêm `/{ipa}/` → //…// */
+function formatIpa(raw: string | undefined | null): string {
+  if (!raw) return '';
+  return raw.trim().replace(/^\/+|\/+$/g, '').trim();
 }
 
 /** Kiểm tra data có phải kết quả rác không (IPA placeholder hoặc nghĩa bịa) */
@@ -147,8 +215,11 @@ export default function DictionaryPage() {
   }, []);
 
   const lookup = useCallback(async (word: string) => {
-    const trimmed = word.trim().toLowerCase();
-    if (!trimmed) return;
+    const raw = word.trim();
+    if (!raw) return;
+    // Câu/cụm: giữ nguyên hoa thường; từ đơn: lower
+    const isSentence = isMultiWord(raw);
+    const trimmed = isSentence ? raw.slice(0, 400) : raw.toLowerCase();
 
     setLoading(true);
     setResult(null);
@@ -156,6 +227,66 @@ export default function DictionaryPage() {
     setWordAlreadySaved(false);
     setShowSuggest(false);
 
+    // ── ≥2 từ → rã câu (giống Desktop) ──
+    if (isSentence) {
+      try {
+        const res = await authFetch('/api/dictionary/ai-sentence', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sentence: trimmed }),
+          signal: AbortSignal.timeout(28000),
+        });
+        const json = (await res.json().catch(() => ({}))) as {
+          success?: boolean;
+          error?: string;
+          code?: string;
+          analysis?: SentenceAnalysis;
+          data?: { sentenceAnalysis?: SentenceAnalysis } & DictionaryData;
+          aiSource?: string;
+        };
+        if (res.status === 403 && json.code === 'PRO_REQUIRED') {
+          toast.error('Cần gói Pro để tra câu AI');
+          setError('Tra câu cần gói Pro. Nâng cấp để bóc xương S–V–O.');
+          setLoading(false);
+          return;
+        }
+        if (res.status === 429) {
+          toast.error('AI đang bận, chờ chút rồi thử lại');
+          setError('Quá nhiều yêu cầu tra câu — thử lại sau.');
+          setLoading(false);
+          return;
+        }
+        if (res.ok && json.success) {
+          const analysis =
+            json.analysis
+            || json.data?.sentenceAnalysis
+            || null;
+          if (analysis?.kernel || analysis?.translation_vi) {
+            const r: LookupResult = {
+              data: (json.data as DictionaryData) || { word: trimmed },
+              source: sentenceSourceBadge(json.aiSource),
+              queriedWord: trimmed,
+              sentence: analysis,
+              aiSource: json.aiSource,
+            };
+            setResult(r);
+            pushHistory(trimmed);
+            setHistory(getHistory());
+            setLoading(false);
+            return;
+          }
+        }
+        setError(json.error || `Không phân tích được câu: "${trimmed.slice(0, 60)}…"`);
+        setLoading(false);
+        return;
+      } catch {
+        setError('Lỗi mạng khi tra câu — thử lại.');
+        setLoading(false);
+        return;
+      }
+    }
+
+    // ── Từ đơn: DB → external → AI ──
     // Tier 1: local dictionary
     try {
       const res = await fetch(
@@ -284,14 +415,15 @@ export default function DictionaryPage() {
     }
   };
 
-  /** Fetch suggestions với debounce + AbortController */
+  /** Fetch suggestions với debounce + AbortController — chỉ từ đơn */
   const fetchSuggestions = useCallback((val: string) => {
     const q = val.trim().toLowerCase();
 
     // Hủy timer cũ
     if (suggestTimerRef.current) clearTimeout(suggestTimerRef.current);
 
-    if (q.length < 2 || !/^[a-z' -]+$/.test(q)) {
+    // Câu/cụm ≥2 từ: không gợi ý autocomplete
+    if (isMultiWord(q) || q.length < 2 || !/^[a-z' -]+$/.test(q)) {
       setSuggestions([]);
       setShowSuggest(false);
       return;
@@ -401,6 +533,16 @@ export default function DictionaryPage() {
   const singlePron = (!ukPron && !usPron) ? (result?.data.pronunciations?.[0] ?? null) : null;
   // Luôn dùng từ user gõ làm heading — tránh headword sai từ external API
   const displayWord = result?.queriedWord ?? query;
+  const sentence = result?.sentence;
+  const kernel = sentence?.kernel;
+  const showSvo =
+    Boolean(kernel?.s && kernel?.v && isEnglishBone(kernel.s) && isEnglishBone(kernel.v));
+  const buildLevels = [...(sentence?.build_levels || [])]
+    .filter((l) => l.text?.trim() && !(looksVietnameseText(l.text) && !/[A-Za-z]{3,}/.test(l.text)))
+    .sort((a, b) => a.level - b.level);
+  const sentenceChunks = (sentence?.chunks || [])
+    .filter((c) => isEnglishBone(c.base || c.text || ''))
+    .slice(0, 6);
 
   return (
     <StudentShell title="Tra từ điển" contentClassName="p-0">
@@ -411,7 +553,7 @@ export default function DictionaryPage() {
           <ChevronLeft className="h-5 w-5" />
         </Link>
         <BookOpen className="h-5 w-5 text-primary" />
-        <span className="font-bold text-lg">Tra từ điển</span>
+        <span className="font-bold text-lg">Tra từ / câu</span>
       </header>
 
       <div className="max-w-2xl mx-auto px-4 pt-6 pb-24">
@@ -425,7 +567,7 @@ export default function DictionaryPage() {
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
               onFocus={() => { if (suggestions.length > 0) setShowSuggest(true); }}
-              placeholder="Nhập từ tiếng Anh cần tra..."
+              placeholder="Từ đơn · hoặc dán cả câu để bóc xương S–V–O"
               className="flex-1 h-12 px-4 rounded-xl border border-border bg-background text-base focus:outline-none focus:ring-2 focus:ring-ring"
               autoComplete="off"
               autoCorrect="off"
@@ -474,7 +616,7 @@ export default function DictionaryPage() {
         {loading && (
           <div className="flex items-center justify-center py-12 gap-3 text-muted-foreground">
             <Loader2 className="h-6 w-6 animate-spin" />
-            <span>Đang tra từ...</span>
+            <span>{isMultiWord(query) ? 'Đang bóc xương câu...' : 'Đang tra từ...'}</span>
           </div>
         )}
 
@@ -482,14 +624,162 @@ export default function DictionaryPage() {
         {!loading && error && (
           <div className="text-center py-12">
             <p className="text-muted-foreground mb-4">{error}</p>
-            <Button variant="outline" onClick={() => lookup(query)}>
-              Thử lại
-            </Button>
+            {/Pro/i.test(error) && (
+              <Link
+                href="/upgrade"
+                className="inline-flex mb-3 h-10 items-center justify-center rounded-xl bg-primary px-4 text-sm font-bold text-primary-foreground"
+              >
+                Nâng Pro
+              </Link>
+            )}
+            <div className="flex justify-center gap-2">
+              <Button variant="outline" onClick={() => lookup(query)}>
+                Thử lại
+              </Button>
+            </div>
           </div>
         )}
 
-        {/* Result */}
-        {!loading && result && (
+        {/* Result — CÂU (SVO) */}
+        {!loading && result?.sentence && (
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span
+                className={`text-xs px-2.5 py-1 rounded-full font-semibold ${
+                  result.aiSource === 'golden'
+                    ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200'
+                    : result.aiSource === 'heuristic'
+                      ? 'bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200'
+                      : 'bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-200'
+                }`}
+              >
+                {result.source}
+              </span>
+              {sentence?.structure && (
+                <span className="text-xs text-muted-foreground font-medium">{sentence.structure}</span>
+              )}
+            </div>
+
+            <div className="rounded-2xl border border-border bg-muted/30 p-4 space-y-3">
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">EN</p>
+                <p className="text-base font-semibold leading-snug">{sentence?.sentence || displayWord}</p>
+                {showSvo && kernel && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <button
+                      type="button"
+                      onClick={() => { setQuery(kernel.s); void lookup(kernel.s); }}
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-300/60 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1.5 text-sm"
+                    >
+                      <span className="text-[10px] font-black text-emerald-700 dark:text-emerald-300">S</span>
+                      <strong>{kernel.s}</strong>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => { setQuery(kernel.v); void lookup(kernel.v); }}
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-sky-300/60 bg-sky-50 dark:bg-sky-950/40 px-3 py-1.5 text-sm"
+                    >
+                      <span className="text-[10px] font-black text-sky-700 dark:text-sky-300">V</span>
+                      <strong>{kernel.v}</strong>
+                    </button>
+                    {kernel.o && isEnglishBone(kernel.o) && (
+                      <button
+                        type="button"
+                        onClick={() => { setQuery(kernel.o!); void lookup(kernel.o!); }}
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-amber-300/60 bg-amber-50 dark:bg-amber-950/40 px-3 py-1.5 text-sm"
+                      >
+                        <span className="text-[10px] font-black text-amber-700 dark:text-amber-300">O</span>
+                        <strong>{kernel.o}</strong>
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+              <div className="border-t border-border/60 pt-3">
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">VI · gist</p>
+                <p className="text-sm leading-relaxed text-foreground/90">
+                  {sentence?.translation_vi
+                    || kernel?.translation_vi
+                    || sentence?.logic?.formula_vi
+                    || '—'}
+                </p>
+              </div>
+            </div>
+
+            {sentence?.logic && (
+              <div className="rounded-xl border border-violet-200 dark:border-violet-800 bg-violet-50/50 dark:bg-violet-950/20 p-3 space-y-1">
+                <p className="text-xs font-bold text-violet-700 dark:text-violet-300">{sentence.logic.pattern}</p>
+                <p className="text-sm">
+                  <span className="font-semibold">A</span> {sentence.logic.a}
+                  <span className="mx-2 text-muted-foreground">→</span>
+                  <span className="font-semibold">B</span> {sentence.logic.b}
+                </p>
+                <p className="text-sm text-muted-foreground">{sentence.logic.formula_vi}</p>
+              </div>
+            )}
+
+            {buildLevels.length > 0 && (
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
+                  Xây lại từng lớp
+                </h2>
+                <div className="space-y-2">
+                  {buildLevels.map((lvl) => (
+                    <div
+                      key={`L${lvl.level}-${lvl.text.slice(0, 24)}`}
+                      className="rounded-xl border border-border/50 bg-background px-3 py-2"
+                    >
+                      <div className="flex items-center gap-2 mb-0.5">
+                        <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-muted">L{lvl.level}</span>
+                        <span className="text-[11px] text-muted-foreground">{lvl.slot_vi}</span>
+                      </div>
+                      <p className="text-sm font-medium leading-snug">{lvl.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {sentenceChunks.length > 0 && (
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
+                  Chunk học được
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  {sentenceChunks.map((c, i) => (
+                    <button
+                      key={`${c.base}-${i}`}
+                      type="button"
+                      onClick={() => { setQuery(c.base); void lookup(c.base); }}
+                      className="rounded-xl border border-border bg-muted/40 px-3 py-2 text-left hover:bg-muted transition-colors max-w-full"
+                      title={c.meaning_vi}
+                    >
+                      <span className="font-semibold text-sm block">{c.base}</span>
+                      {c.meaning_vi && c.meaning_vi !== '—' && (
+                        <span className="text-xs text-muted-foreground">{c.meaning_vi}</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {sentence?.notes && sentence.notes.length > 0 && (
+              <ul className="text-xs text-muted-foreground space-y-1 list-disc pl-4">
+                {sentence.notes.map((n, i) => (
+                  <li key={i}>{n}</li>
+                ))}
+              </ul>
+            )}
+
+            <p className="text-[11px] text-muted-foreground">
+              Tip: bấm chip S/V/O hoặc chunk để tra từ đơn. Copy nhanh ngoài trình duyệt → dùng Desktop.
+            </p>
+          </div>
+        )}
+
+        {/* Result — TỪ ĐƠN */}
+        {!loading && result && !result.sentence && (
           <div className="space-y-4">
             {/* Word header */}
             <div className="flex items-start gap-4">
@@ -510,19 +800,19 @@ export default function DictionaryPage() {
 
                 {/* Pronunciation chips */}
                 <div className="flex flex-wrap items-center gap-2 mt-2">
-                  {ukPron?.ipa && (
+                  {formatIpa(ukPron?.ipa) && (
                     <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono">
-                      🇬🇧 /{ukPron.ipa}/
+                      🇬🇧 /{formatIpa(ukPron?.ipa)}/
                     </span>
                   )}
-                  {usPron?.ipa && (
+                  {formatIpa(usPron?.ipa) && (
                     <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono">
-                      🇺🇸 /{usPron.ipa}/
+                      🇺🇸 /{formatIpa(usPron?.ipa)}/
                     </span>
                   )}
-                  {singlePron?.ipa && !ukPron && !usPron && (
+                  {formatIpa(singlePron?.ipa) && !ukPron && !usPron && (
                     <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono">
-                      /{singlePron.ipa}/
+                      /{formatIpa(singlePron?.ipa)}/
                     </span>
                   )}
                   {/* Speaker buttons — always show */}
