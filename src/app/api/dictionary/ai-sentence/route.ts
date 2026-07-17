@@ -49,13 +49,23 @@ export interface SentenceBuildLevel {
   slot_vi: string;
 }
 
+/** So sánh / paraphrase logic — bổ sung khi SVO chưa đủ ý */
+export interface SentenceLogic {
+  pattern: string;
+  a: string;
+  b: string;
+  formula_vi: string;
+}
+
 export interface SentenceAnalysisData {
   sentence: string;
   translation_vi: string;
-  /** Pattern ngắn, vd. S + V + O */
+  /** Pattern ngắn, vd. S + V + O · less A than B */
   structure?: string;
   /** Xương 3–8 từ */
   kernel?: SentenceKernel;
+  /** Xương logic (less A than B, not A but B…) */
+  logic?: SentenceLogic;
   /** Tách lớp: giữ / gạch */
   segments?: SentenceSegment[];
   /** Level 0 = kernel → full */
@@ -151,6 +161,65 @@ function normalizeBuildLevel(raw: unknown): SentenceBuildLevel | null {
   return { level, text, slot_vi };
 }
 
+function normalizeLogic(raw: unknown): SentenceLogic | undefined {
+  if (!raw || typeof raw !== 'object') return undefined;
+  const o = raw as Record<string, unknown>;
+  const a = typeof o.a === 'string' ? o.a.trim() : '';
+  const b = typeof o.b === 'string' ? o.b.trim() : '';
+  if (!a || !b) return undefined;
+  const pattern =
+    typeof o.pattern === 'string' && o.pattern.trim()
+      ? o.pattern.trim()
+      : 'less A than B';
+  const formula_vi =
+    typeof o.formula_vi === 'string' && o.formula_vi.trim()
+      ? o.formula_vi.trim()
+      : `Ý chính ≈ B (${b}), không phải A (${a})`;
+  return { pattern, a, b, formula_vi };
+}
+
+/** Fallback local: less in A than in B / less A than B */
+function detectComparativeLogic(sentence: string): SentenceLogic | undefined {
+  const s = sentence.trim();
+  // less in X than in Y
+  let m = s.match(
+    /\bless\s+in\s+(.+?)\s+than\s+in\s+(.+?)(?:[.!?]|$)/i,
+  );
+  if (m) {
+    const a = m[1].replace(/,+\s*$/, '').trim();
+    const b = m[2].replace(/,+\s*$/, '').trim();
+    if (a && b) {
+      return {
+        pattern: 'less A than B',
+        a,
+        b,
+        formula_vi: `Ý chính ≈ B (${shortClip(b)}), không phải A (${shortClip(a)})`,
+      };
+    }
+  }
+  // not A but B / rather than
+  m = s.match(/\bnot\s+(.+?)\s+but\s+(.+?)(?:[.!?]|$)/i);
+  if (m) {
+    const a = m[1].trim();
+    const b = m[2].trim();
+    if (a && b) {
+      return {
+        pattern: 'not A but B',
+        a,
+        b,
+        formula_vi: `Ý chính = B (${shortClip(b)}), không phải A (${shortClip(a)})`,
+      };
+    }
+  }
+  return undefined;
+}
+
+function shortClip(t: string, n = 36): string {
+  const x = t.trim();
+  if (x.length <= n) return x;
+  return `${x.slice(0, n - 1)}…`;
+}
+
 async function enrichChunksFromDb(chunks: SentenceChunk[]): Promise<SentenceChunk[]> {
   if (chunks.length === 0) return chunks;
   const supabase = createServiceClient();
@@ -244,7 +313,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const prompt = `You are a bilingual English→Vietnamese tutor for Vietnamese high-school / adult learners.
 Teach the LingoPro "skeleton" method (Buổi 2): long sentence = KERNEL (S–V–O bones) + decoration layers.
-Do NOT only translate. Strip modifiers first, then rebuild.
+IMPORTANT: Many exam sentences are COMPARATIVE / paraphrase logic (less A than B, not A but B). Then SVO alone feels incomplete — you MUST fill "logic".
 
 SENTENCE: "${sentence}"
 ${context ? `CONTEXT: "${context}"` : ''}
@@ -252,25 +321,26 @@ ${context ? `CONTEXT: "${context}"` : ''}
 Return ONLY valid JSON (no markdown) with this exact shape:
 {
   "translation_vi": "Natural fluent Vietnamese of the FULL sentence",
-  "structure": "S + V + O (or S + V + C / passive pattern), max 12 words",
+  "structure": "Short pattern e.g. S + V + O · less A than B",
   "kernel": {
-    "text": "3-8 word English kernel ending with period, main clause only",
-    "s": "subject head (lemma or short NP, no long modifiers)",
+    "text": "3-10 word English kernel ending with period",
+    "s": "subject HEAD only (1-3 words, not long relative clause)",
     "v": "main finite verb / verb phrase of MAIN clause",
-    "o": "object/complement head if any, else empty string",
+    "o": "object/complement HEAD if any",
     "translation_vi": "1 short Vietnamese gist of the kernel only"
   },
+  "logic": null,
   "segments": [
     {
       "text": "contiguous span from the sentence (surface form)",
       "role": "S|V|O|C|modifier|frame|adverb|pp|clause|other",
-      "label_vi": "short VI label e.g. Chủ ngữ / Động từ chính / V-ing gắn S / Khung / Cụm giới từ",
+      "label_vi": "short VI label",
       "keep": true
     }
   ],
   "build_levels": [
-    { "level": 0, "text": "same as kernel.text", "slot_vi": "Xương S–V–O" },
-    { "level": 1, "text": "kernel + one new layer", "slot_vi": "what was added in VI, e.g. Trạng từ" },
+    { "level": 0, "text": "kernel bones", "slot_vi": "Xương S–V–O" },
+    { "level": 1, "text": "add one layer", "slot_vi": "..." },
     { "level": 2, "text": "...", "slot_vi": "..." }
   ],
   "chunks": [
@@ -284,16 +354,29 @@ Return ONLY valid JSON (no markdown) with this exact shape:
   "notes": ["0-2 short learning tips in Vietnamese"]
 }
 
+For COMPARATIVE / contrast, set logic (do NOT leave null):
+{
+  "logic": {
+    "pattern": "less A than B",
+    "a": "the weaker / rejected side (short EN)",
+    "b": "the stronger / real focus (short EN)",
+    "formula_vi": "1 line VI e.g. Lý do ≈ B, không phải A"
+  }
+}
+Example: "The reason … lies less in the technology itself than in what each method asks of the brain."
+→ kernel: s=reason v=lies (or "lies less") o="" ; text "The reason lies less in A than in B."
+→ logic: pattern="less A than B", a="technology itself", b="what each method asks of the brain",
+  formula_vi="Lý do chủ yếu ≈ B (yêu cầu với não), không phải A (công nghệ)."
+→ structure: "less A than B (paraphrase)"
+→ build_levels should include a step that lights A vs B contrast.
+
 RULES (critical):
-1. kernel = MAIN CLAUSE bones only. Drop frame (In a series…), adverbs, PP, relative clauses, V-ing postmodifiers, even-when clauses.
-   Example: "students taking notes by hand … outperformed those using laptops …"
-   → kernel.text "Students outperformed those." s=students v=outperformed o=those
-2. Finite main verb only for V (not V-ing modifiers). Passive: keep "is paid for" etc. as v.
-3. segments: cover the sentence left→right in order, 4-12 items. keep=true ONLY for S/V/O/C bones of main clause. Everything else keep=false (gạch tạm lượt 1).
-4. build_levels: 3-6 steps from kernel → nearly full. Last level may be the full sentence. Each step adds ONE clear layer (adj / adv / PP / who-which / V-ing / frame).
-5. chunks: 2-6 SAVEABLE units (phrasal verbs, collocations, hard words, idioms). Skip stopwords. Multi-word bases stay intact ("take notes", "outperform", "conceptual understanding").
-6. translation_vi = full sentence; kernel.translation_vi = gist only (shorter).
-7. Labels in Vietnamese, simple (no heavy grammar jargon). JSON only, no markdown fences.`;
+1. kernel S/V/O = short HEADS only. Drop frame "according to…", adverbs, long relatives from s/v/o fields.
+2. If sentence has less…than… / not…but… / rather than → logic is REQUIRED; kernel.translation_vi should state the contrast gist.
+3. segments: 4-12 items left→right. keep=true only for main bones; frame/according-to = keep false.
+4. build_levels: 3-5 steps kernel → full. Each step one clear layer.
+5. chunks: 2-6 saveable units (less…than, ask of, according to, …).
+6. JSON only, no markdown fences.`;
 
     // Vercel maxDuration=30s + desktop ~28s → KHÔNG dùng smart (timeout 180s).
     // fast (12s) trước, normal fallback — tránh socket chết → client "fetch failed".
@@ -314,6 +397,7 @@ RULES (critical):
       translation_vi?: string;
       structure?: string;
       kernel?: unknown;
+      logic?: unknown;
       segments?: unknown[];
       build_levels?: unknown[];
       chunks?: unknown[];
@@ -344,13 +428,16 @@ RULES (critical):
       : [];
 
     const kernel = normalizeKernel(parsed.kernel, sentence);
+    let logic = normalizeLogic(parsed.logic);
+    if (!logic) logic = detectComparativeLogic(sentence);
+
     const segments = Array.isArray(parsed.segments)
       ? parsed.segments
           .map(normalizeSegment)
           .filter((s): s is SentenceSegment => s !== null)
           .slice(0, 14)
       : [];
-    const build_levels = Array.isArray(parsed.build_levels)
+    let build_levels = Array.isArray(parsed.build_levels)
       ? parsed.build_levels
           .map(normalizeBuildLevel)
           .filter((b): b is SentenceBuildLevel => b !== null)
@@ -358,11 +445,40 @@ RULES (critical):
           .slice(0, 8)
       : [];
 
-    // Fallback structure từ kernel nếu AI bỏ
+    // Comparative: đảm bảo có ≥3 tầng nếu AI trả quá ít
+    if (logic && build_levels.length < 3 && kernel) {
+      build_levels = [
+        {
+          level: 0,
+          text: kernel.text.replace(/\.$/, ''),
+          slot_vi: 'Xương (reason / lies…)',
+        },
+        {
+          level: 1,
+          text: `less in ${logic.a} than in ${logic.b}`,
+          slot_vi: 'less A than B',
+        },
+        {
+          level: 2,
+          text: sentence,
+          slot_vi: 'Câu đầy đủ',
+        },
+      ];
+    }
+
+    // Fallback structure từ kernel / logic
     let structure =
       typeof parsed.structure === 'string' ? parsed.structure.trim() : undefined;
+    if (!structure && logic) {
+      structure = logic.pattern;
+    }
     if (!structure && kernel) {
       structure = kernel.o ? 'S + V + O' : 'S + V';
+    }
+
+    // Gist kernel: nếu có logic mà gist quá mỏng → bổ sung formula
+    if (kernel && logic && (kernel.translation_vi === '—' || kernel.translation_vi.length < 12)) {
+      kernel.translation_vi = logic.formula_vi;
     }
 
     const data: SentenceAnalysisData = {
@@ -370,6 +486,7 @@ RULES (critical):
       translation_vi: (parsed.translation_vi || '').trim() || '—',
       structure,
       kernel,
+      logic,
       segments: segments.length ? segments : undefined,
       build_levels: build_levels.length ? build_levels : undefined,
       chunks,
