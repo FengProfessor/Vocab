@@ -263,6 +263,45 @@ const GOLDEN: GoldenEntry[] = [
   },
   // ── Demo short (verify UI nhanh trên sóng) ──
   {
+    id: 'DEMO-TEACHER-HANOI',
+    match: 'the old teacher who lives in ha noi teaches english',
+    data: {
+      sentence: 'The old teacher who lives in Ha Noi teaches English every morning.',
+      translation_vi: 'Người giáo viên già sống ở Hà Nội dạy tiếng Anh mỗi sáng.',
+      structure: 'S + V + O · RC (who) · adverbial',
+      kernel: {
+        text: 'Teacher teaches English.',
+        s: 'teacher',
+        v: 'teaches',
+        o: 'English',
+        translation_vi: 'Giáo viên dạy tiếng Anh.',
+      },
+      segments: [
+        { text: 'The old teacher', role: 'S', label_vi: 'S (+ tính từ)', keep: true },
+        { text: 'who lives in Ha Noi', role: 'clause', label_vi: 'Mệnh đề quan hệ (who)', keep: false },
+        { text: 'teaches', role: 'V', label_vi: 'Động từ chính', keep: true },
+        { text: 'English', role: 'O', label_vi: 'Tân ngữ', keep: true },
+        { text: 'every morning', role: 'adverb', label_vi: 'Trạng ngữ thời gian', keep: false },
+      ],
+      build_levels: L(
+        [0, 'Teacher teaches English', 'Xương S–V–O'],
+        [1, 'The old teacher teaches English', '+ tính từ'],
+        [2, 'The old teacher who lives in Ha Noi teaches English', '+ mệnh đề who'],
+        [3, 'The old teacher who lives in Ha Noi teaches English every morning', 'Full'],
+      ),
+      chunks: [
+        C('old teacher', 'giáo viên già'),
+        C('live', 'sống', 'lives'),
+        C('teach', 'dạy', 'teaches'),
+        C('English', 'tiếng Anh'),
+        C('every morning', 'mỗi sáng'),
+      ],
+      notes: [
+        'Xương EN: teacher / teaches / English — who lives… là đồ trang trí (RC), không phải V chính.',
+      ],
+    },
+  },
+  {
     id: 'DEMO-SISTER-SPICY',
     match: 'my younger sister likes spicy food',
     data: {
@@ -468,6 +507,7 @@ export const GOLDEN_KERNEL_EXPECT: Record<
   'B2-006': { s: ['reason'], v: ['lies'] },
   'B2-026': { s: ['clearing a forest', 'clearing', 'forest'], v: ['is', 'has'] },
   'DEMO-SISTER-SPICY': { s: ['sister'], v: ['likes', 'like'], o: ['food'] },
+  'DEMO-TEACHER-HANOI': { s: ['teacher'], v: ['teaches', 'teach'], o: ['english', 'English'] },
   'DEMO-OLD-MAN': { s: ['man'], v: ['reads'], o: ['book'] },
   'B2-010': { s: ['filtering'], v: ['turns out to be', 'turns'], o: ['instrumental'] },
   'B2-106': { s: ['mental work', 'work'], v: ['explains'], o: ['difference'] },
