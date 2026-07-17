@@ -121,6 +121,8 @@ function normalizeSegment(raw: unknown): SentenceSegment | null {
   const o = raw as Record<string, unknown>;
   const text = typeof o.text === 'string' ? o.text.trim() : '';
   if (!text) return null;
+  // segments.text = span EN trong câu; label_vi mới được VI
+  if (looksVietnamese(text) && !/[A-Za-z]{3,}/.test(text)) return null;
   const roleRaw = typeof o.role === 'string' ? o.role.trim() : 'other';
   const role = (SEGMENT_ROLES.has(roleRaw) ? roleRaw : 'other') as SentenceSegment['role'];
   const label_vi =
