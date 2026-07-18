@@ -11,6 +11,7 @@ import {
   CreditCard,
   Loader2,
   Minus,
+  Phone,
   Plus,
 } from 'lucide-react';
 import { toast } from 'sonner';
@@ -39,6 +40,13 @@ const BANK_INFO = {
   bankId: process.env.NEXT_PUBLIC_BANK_ID || 'MB',
   accountNumber: process.env.NEXT_PUBLIC_BANK_ACCOUNT || '0369 xxx xxx',
   accountName: process.env.NEXT_PUBLIC_BANK_OWNER || 'NGUYEN VAN A',
+} as const;
+
+/** Hỗ trợ thanh toán / thắc mắc gói */
+const SUPPORT_CONTACT = {
+  name: 'Mr Phong',
+  phone: '0949317036',
+  phoneDisplay: '0949 317 036',
 } as const;
 
 type CheckoutTarget = 'pro' | 'group';
@@ -434,6 +442,8 @@ function UpgradePageContent() {
                 </div>
               </div>
 
+              <SupportContactCard />
+
               <div className="flex flex-col gap-2 sm:flex-row">
                 <Link
                   href="/"
@@ -734,11 +744,15 @@ function UpgradePageContent() {
           {seatsControl}
           {compareTable}
           {couponBlock}
+          <SupportContactCard />
         </div>
 
         {/* ── Laptop+: 2 cột — bảng | checkout sticky ── */}
         <div className="mt-8 hidden gap-8 lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="min-w-0">{compareTable}</div>
+          <div className="min-w-0 space-y-3">
+            {compareTable}
+            <SupportContactCard />
+          </div>
 
           <aside className="sticky top-20 space-y-3">
             {priceSummary}
@@ -755,6 +769,7 @@ function UpgradePageContent() {
             <p className="text-center text-xs leading-5 text-[#8a8778]">
               Chuyển khoản · Tự nâng cấp sau xác nhận
             </p>
+            <SupportContactCard compact />
           </aside>
         </div>
       </main>
@@ -766,8 +781,65 @@ function UpgradePageContent() {
             'flex w-full items-center justify-center gap-2 rounded-full bg-[#1a1915] px-4 py-3.5 text-[15px] font-semibold text-white disabled:opacity-60',
         })}
         <p className="mt-2 text-center text-[10px] leading-4 text-[#8a8778]">
-          Chuyển khoản · Tự nâng cấp sau xác nhận
+          Chuyển khoản · Tự nâng cấp · Thắc mắc: {SUPPORT_CONTACT.name}{' '}
+          <a href={`tel:${SUPPORT_CONTACT.phone}`} className="font-semibold text-[#1a1915] underline-offset-2 hover:underline">
+            {SUPPORT_CONTACT.phoneDisplay}
+          </a>
         </p>
+      </div>
+    </div>
+  );
+}
+
+function SupportContactCard({ compact = false }: { compact?: boolean }) {
+  const telHref = `tel:${SUPPORT_CONTACT.phone}`;
+  const zaloHref = `https://zalo.me/${SUPPORT_CONTACT.phone}`;
+
+  return (
+    <div
+      className={`rounded-2xl border border-[#e8e6dc] bg-white shadow-sm ${
+        compact ? 'px-3.5 py-3' : 'px-4 py-3.5'
+      }`}
+    >
+      <div className={`flex items-start gap-3 ${compact ? 'gap-2.5' : ''}`}>
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#e8e6dc] bg-[#faf9f5] text-[#1a1915]">
+          <Phone className="h-4 w-4" strokeWidth={2} />
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8a8778]">
+            Thắc mắc thanh toán?
+          </div>
+          <p className={`mt-0.5 text-sm font-semibold text-[#1a1915] ${compact ? 'text-[13px]' : ''}`}>
+            Liên hệ {SUPPORT_CONTACT.name}
+          </p>
+          <a
+            href={telHref}
+            className="mt-1 inline-flex items-center gap-1.5 text-sm font-bold tabular-nums text-[#1a7f4b] hover:underline"
+          >
+            {SUPPORT_CONTACT.phoneDisplay}
+          </a>
+          {!compact && (
+            <p className="mt-1.5 text-[12px] leading-5 text-[#5e5d59]">
+              Gói Pro, chuyển khoản, mã giảm giá — nhắn Zalo hoặc gọi trực tiếp.
+            </p>
+          )}
+          <div className={`mt-2.5 flex flex-wrap gap-2 ${compact ? 'mt-2' : ''}`}>
+            <a
+              href={telHref}
+              className="inline-flex items-center justify-center rounded-full bg-[#1a1915] px-3.5 py-1.5 text-xs font-semibold text-white"
+            >
+              Gọi điện
+            </a>
+            <a
+              href={zaloHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-[#e8e6dc] bg-white px-3.5 py-1.5 text-xs font-semibold text-[#1a1915] hover:bg-[#faf9f5]"
+            >
+              Zalo
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
