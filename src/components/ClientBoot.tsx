@@ -20,6 +20,10 @@ const TourBootstrap = dynamic(
   () => import('@/components/onboarding/TourBootstrap').then((m) => m.TourBootstrap),
   { ssr: false },
 );
+const UpsellProvider = dynamic(
+  () => import('@/components/upsell/UpsellProvider').then((m) => m.UpsellProvider),
+  { ssr: false },
+);
 
 /** Path không cần boot nặng (auth, marketing, legal). */
 function isLightPath(pathname: string): boolean {
@@ -68,6 +72,8 @@ export function ClientBoot() {
       <FirebaseInitializer />
       <InstallPrompt />
       {isTourPath(pathname) ? <TourBootstrap /> : null}
+      {/* Soft: hết hạn / 150+ từ · Hard: FREE_WORD_LIMIT qua event */}
+      {isTourPath(pathname) ? <UpsellProvider /> : null}
     </>
   );
 }

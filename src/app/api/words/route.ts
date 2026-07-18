@@ -573,10 +573,20 @@ export async function POST(req: Request): Promise<NextResponse> {
       enrichWord(data.id, word, userId, profile?.gemini_api_key, dictData, userSelectedTranslation);
     }
     
+    // used trước insert; sau insert +1 (cho UI near-limit 150+)
+    const usedAfter = (saveQuota.used ?? 0) + 1;
+    const limit = saveQuota.limit;
+    const remainingAfter =
+      limit != null ? Math.max(0, limit - usedAfter) : null;
+
     return NextResponse.json({
       success: true,
       message: `"${word}" saved!`,
       wordId: data.id,
+      wordQuota:
+        limit != null
+          ? { used: usedAfter, limit, remaining: remainingAfter }
+          : null,
     });
 
   } catch (error: unknown) {

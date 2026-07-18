@@ -183,26 +183,16 @@ export interface WordSaveQuotaResult extends AccessResult {
 }
 
 /**
- * Free: đếm từ user đã `added_by` trong tháng UTC hiện tại.
- * Vượt FREE_WORD_SAVE_MONTHLY_LIMIT → chặn lưu mới (khi ENTITLEMENT_ENFORCED).
- * Pro/premium / chưa enforce → always allow.
- *
- * @param extraToAdd số từ sắp lưu (1 = POST 1 từ). Dùng khi batch.
+ * Đếm từ user đã `added_by` trong tháng UTC (luôn chạy — cho UI near-limit / bar).
+ * Pro: trả used=0, limit=null (unlimited).
  */
-export async function checkWordSaveQuota(
+export async function getWordSaveUsage(
   supabase: SupabaseClient,
   userId: string | null,
   plan: Plan,
-  extraToAdd = 1,
-): Promise<WordSaveQuotaResult> {
-  if (!ENTITLEMENT_ENFORCED) {
-    return { allowed: true, used: 0, limit: null, remaining: null };
-  }
-  if (plan !== 'free') {
-    return { allowed: true, used: 0, limit: null, remaining: null };
-  }
-  if (!userId) {
-    return { allowed: false, upgradeTo: 'pro', used: 0, limit: FREE_WORD_SAVE_MONTHLY_LIMIT, remaining: 0 };
+): Promise<{ used: number; limit: number | null; remaining: number | null }> {
+  if (!userId || plan !== 'free') {
+    return { used: 0, limit: null, remaining: null };
   }
 
   const monthStart = startOfUtcMonth();
@@ -213,13 +203,58 @@ export async function checkWordSaveQuota(
     .gte('created_at', monthStart);
 
   if (error) {
-    // Lỗi đếm → cho qua, không chặn user vì hạ tầng
     console.warn('[Entitlement] word save count failed:', error.message);
-    return { allowed: true, used: 0, limit: FREE_WORD_SAVE_MONTHLY_LIMIT, remaining: FREE_WORD_SAVE_MONTHLY_LIMIT };
+    return {
+      used: 0,
+      limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
+      remaining: FREE_WORD_SAVE_MONTHLY_LIMIT,
+    };
   }
 
   const used = count ?? 0;
   const remaining = Math.max(0, FREE_WORD_SAVE_MONTHLY_LIMIT - used);
+  return { used, limit: FREE_WORD_SAVE_MONTHLY_LIMIT, remaining };
+}
+
+/**
+ * Free: đếm từ user đã `added_by` trong tháng UTC hiện tại.
+ * Vượt FREE_WORD_SAVE_MONTHLY_LIMIT → chặn lưu mới (khi ENTITLEMENT_ENFORCED).
+ * Pro/premium / chưa enforce → always allow (vẫn trả used để UI soft-upsell).
+ *
+ * @param extraToAdd số từ sắp lưu (1 = POST 1 từ). Dùng khi batch.
+ */
+export async function checkWordSaveQuota(
+  supabase: SupabaseClient,
+  userId: string | null,
+  plan: Plan,
+  extraToAdd = 1,
+): Promise<WordSaveQuotaResult> {
+  if (plan !== 'free') {
+    return { allowed: true, used: 0, limit: null, remaining: null };
+  }
+  if (!userId) {
+    return {
+      allowed: !ENTITLEMENT_ENFORCED,
+      upgradeTo: 'pro',
+      used: 0,
+      limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
+      remaining: 0,
+    };
+  }
+
+  const usage = await getWordSaveUsage(supabase, userId, plan);
+  const used = usage.used;
+  const remaining = usage.remaining ?? 0;
+
+  if (!ENTITLEMENT_ENFORCED) {
+    return {
+      allowed: true,
+      used,
+      limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
+      remaining: Math.max(0, remaining - extraToAdd),
+    };
+  }
+
   if (used + extraToAdd > FREE_WORD_SAVE_MONTHLY_LIMIT) {
     return {
       allowed: false,

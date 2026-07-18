@@ -490,12 +490,30 @@ export default function DictionaryPage() {
       const json = await res.json();
       if (res.status === 429) {
         toast.error('Quá nhiều yêu cầu, thử lại sau');
+      } else if (json.error === 'FREE_WORD_LIMIT' || (res.status === 403 && json.error === 'FREE_WORD_LIMIT')) {
+        const { requestUpsell, upsellFromWordLimitError } = await import('@/lib/upsell');
+        requestUpsell(upsellFromWordLimitError(json));
+        toast.error(json.message ?? 'Đã đủ hạn mức lưu từ tháng này');
       } else if (json.alreadyExists) {
         toast.info('Từ đã có trong sổ của bạn');
         setWordAlreadySaved(true);
       } else if (json.success) {
         toast.success(`Đã lưu "${word}" vào sổ từ vựng`);
         setSavedIndexes(prev => new Set(prev).add(index));
+        // Soft near-limit khi còn ≤50 (từ mốc 150)
+        if (
+          typeof json.wordQuota?.used === 'number' &&
+          typeof json.wordQuota?.limit === 'number' &&
+          json.wordQuota.used >= 150
+        ) {
+          const { requestUpsell } = await import('@/lib/upsell');
+          requestUpsell({
+            reason: json.wordQuota.remaining <= 0 ? 'word_limit' : 'word_near_limit',
+            used: json.wordQuota.used,
+            limit: json.wordQuota.limit,
+            remaining: json.wordQuota.remaining ?? 0,
+          });
+        }
       } else {
         toast.error(json.error ?? 'Lưu thất bại');
       }

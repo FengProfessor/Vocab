@@ -95,7 +95,15 @@ export const GROUP_SEAT_PRICE = 39_000;
 export const GROUP_PLAN: Exclude<Plan, 'free'> = 'pro';
 export const GROUP_SEATS_MIN = 2;
 export const GROUP_SEATS_MAX = 20;
-export const GROUP_SEATS_DEFAULT = 10;
+/** Default UX: nhóm nhỏ (lớp/bạn học), không ép 10 ghế. */
+export const GROUP_SEATS_DEFAULT = 5;
+
+/** Tỷ lệ giá năm / (tháng×12) — dùng đồng bộ % giảm năm cho gói nhóm. */
+export function annualDiscountFactor(plan: Exclude<Plan, 'free'>): number {
+  const full = PLAN_PRICES[plan] * 12;
+  if (full <= 0) return 1;
+  return PLAN_ANNUAL_PRICES[plan] / full;
+}
 
 const PLAN_RANK: Record<Plan, number> = { free: 0, pro: 1, premium: 2 };
 
@@ -124,16 +132,18 @@ export function getGroupSeatPrice(seats: number): number {
 
 /**
  * Giá gói nhóm = ghế × (giá theo số ghế) × số tháng × (1 - % giảm kỳ hạn).
- * 12 tháng (discountPct=null) → coi như giảm 20% (đồng bộ mốc 6 tháng).
+ * 12 tháng → cùng % giảm năm với Pro cá nhân (annualDiscountFactor).
  */
 export function computeGroupPrice(seats: number, periodMonths: number): number {
   const s = normalizeSeats(seats);
   const seatPrice = getGroupSeatPrice(s);
   const months = normalizePeriodMonths(periodMonths);
+  if (months === 12) {
+    return Math.round(seatPrice * s * 12 * annualDiscountFactor(GROUP_PLAN));
+  }
   const opt = PERIOD_OPTIONS.find((o) => o.months === months);
   const pct = opt?.discountPct ?? 0;
-  const effectivePct = pct === null ? 20 : pct;
-  return Math.round(seatPrice * s * months * (1 - effectivePct / 100));
+  return Math.round(seatPrice * s * months * (1 - pct / 100));
 }
 
 /** Giá niêm yết gói nhóm (ghế × giá theo số ghế × tháng, KHÔNG giảm). */

@@ -176,6 +176,12 @@ export default function ImportPage() {
           }),
         });
         const data = await res.json();
+        if (data.error === 'FREE_WORD_LIMIT' || res.status === 403 && data.error === 'FREE_WORD_LIMIT') {
+          const { requestUpsell, upsellFromWordLimitError } = await import('@/lib/upsell');
+          requestUpsell(upsellFromWordLimitError(data));
+          errors++;
+          break; // dừng batch — hết quota tháng
+        }
         if (!data.success && !data.alreadyExists) errors++;
       } catch {
         errors++;
@@ -426,6 +432,14 @@ export default function ImportPage() {
           }),
         });
         const data = await res.json();
+        if (data.error === 'FREE_WORD_LIMIT') {
+          const { requestUpsell, upsellFromWordLimitError } = await import('@/lib/upsell');
+          requestUpsell(upsellFromWordLimitError(data));
+          setWords((prev) =>
+            prev.map((p) => (p.id === w.id ? { ...p, status: 'error', message: data.message } : p)),
+          );
+          break;
+        }
         const status: WordStatus = data.alreadyExists ? 'duplicate' : (data.success ? 'saved' : 'error');
         setWords(prev => prev.map(p => p.id === w.id ? { ...p, status, message: data.message } : p));
       } catch {

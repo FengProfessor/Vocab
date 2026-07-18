@@ -1,25 +1,17 @@
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
   ArrowRight,
-  Brain,
-  CheckCircle2,
+  Check,
   ChevronLeft,
-  Clock3,
   Copy,
   CreditCard,
-  Crown,
   Loader2,
   Minus,
   Plus,
-  Shield,
-  Sparkles,
-  Star,
-  Users,
-  Zap,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
@@ -29,7 +21,6 @@ import {
   GROUP_SEATS_MIN,
   PERIOD_OPTIONS,
   PLAN_LABELS,
-  PLAN_PRICES,
   applyDiscount,
   computeBasePrice,
   computeGroupPrice,
@@ -43,8 +34,6 @@ import {
 } from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
 
-const display = 'font-bold tracking-tight';
-
 const BANK_INFO = {
   bank: process.env.NEXT_PUBLIC_BANK_NAME || 'MB Bank',
   bankId: process.env.NEXT_PUBLIC_BANK_ID || 'MB',
@@ -52,56 +41,51 @@ const BANK_INFO = {
   accountName: process.env.NEXT_PUBLIC_BANK_OWNER || 'NGUYEN VAN A',
 } as const;
 
-interface PlanOption {
-  plan: Exclude<Plan, 'free'>;
-  name: string;
-  price: number;
-  icon: typeof Crown;
-  features: readonly string[];
+type CheckoutTarget = 'pro' | 'group';
+type Cell = 'check' | 'dash' | string;
+
+interface CompareRow {
+  feature: string;
+  free: Cell;
+  paid: Cell;
 }
 
-const PLAN_OPTIONS: readonly PlanOption[] = [
-  {
-    plan: 'pro',
-    name: 'Pro',
-    price: PLAN_PRICES.pro,
-    icon: Zap,
-    features: [
-      'Tra từ AI không giới hạn',
-      'Speaking tutor và writing feedback bằng AI',
-      'Ngữ pháp, quiz, điền từ và thống kê đầy đủ',
-      'Báo cáo tiến độ và học nhóm cho giáo viên',
-    ],
-  },
-] as const;
+/** Bảng so sánh Thường (Free) vs Pro — kiểu ChatGPT ✓ / − */
+const PRO_COMPARE: readonly CompareRow[] = [
+  { feature: 'Flashcard & SRS', free: 'check', paid: 'check' },
+  { feature: 'Lộ trình học', free: 'check', paid: 'check' },
+  { feature: 'Vào lớp bằng mã mời', free: 'check', paid: 'check' },
+  { feature: 'Lưu từ mới / tháng', free: '200', paid: 'Không giới hạn' },
+  { feature: 'AI: tra từ + phân tích câu', free: '5/ngày', paid: 'Không giới hạn' },
+  { feature: 'Ngữ pháp, quiz, điền từ', free: 'dash', paid: 'check' },
+  { feature: 'Thống kê tiến độ chi tiết', free: 'dash', paid: 'check' },
+];
 
-const FREE_FEATURES: readonly string[] = [
-  'Flashcard và SRS cơ bản',
-  'Lưu 200 từ mới mỗi tháng',
-  'Lộ trình có sẵn để học',
-  'Tra từ AI giới hạn 5 lượt/ngày',
-  'Vào lớp học bằng mã mời',
-] as const;
-
-const GROUP_BENEFITS: readonly string[] = [
-  'Giảm giá theo số người, càng đông càng rẻ',
-  'Một trưởng nhóm thanh toán, các thành viên kích hoạt bằng mã mời',
-  'Giữ cùng bộ quyền lợi Pro cho toàn nhóm',
-] as const;
+/** Thường vs Nhóm (cùng quyền Pro + quản lý ghế) */
+const GROUP_COMPARE: readonly CompareRow[] = [
+  { feature: 'Mọi quyền lợi Pro', free: 'dash', paid: 'check' },
+  { feature: 'AI: tra từ + phân tích câu', free: '5/ngày', paid: 'Không giới hạn' },
+  { feature: 'Lưu từ mới / tháng', free: '200', paid: 'Không giới hạn' },
+  { feature: '1 người trả, mã mời thành viên', free: 'dash', paid: 'check' },
+  { feature: 'Giảm giá theo số người', free: 'dash', paid: 'check' },
+  { feature: '2–20 người cùng đăng ký', free: 'dash', paid: 'check' },
+];
 
 function UpgradePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialMode = searchParams.get('mode') === 'group' ? 'group' : 'individual';
+  const isPreview = searchParams.get('preview') === '1';
+  const initialTarget: CheckoutTarget = searchParams.get('mode') === 'group' ? 'group' : 'pro';
+
   const [currentPlan, setCurrentPlan] = useState<Plan>('free');
   const [expiresAt, setExpiresAt] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedPlan] = useState<Exclude<Plan, 'free'>>('pro');
-  const [periodMonths, setPeriodMonths] = useState(1);
-  const [billingMode, setBillingMode] = useState<'individual' | 'group'>(initialMode);
+  const [periodMonths, setPeriodMonths] = useState(12);
+  const [checkoutTarget, setCheckoutTarget] = useState<CheckoutTarget>(initialTarget);
   const [seats, setSeats] = useState(GROUP_SEATS_DEFAULT);
   const [couponCode, setCouponCode] = useState('');
   const [couponValid, setCouponValid] = useState<Coupon | null>(null);
+  const [couponChecking, setCouponChecking] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [orderCreated, setOrderCreated] = useState<{
     orderId: string;
@@ -110,18 +94,27 @@ function UpgradePageContent() {
     status?: string;
   } | null>(null);
 
-  // Deep link: /upgrade?mode=group (landing "Xem gói nhóm")
   useEffect(() => {
     if (searchParams.get('mode') === 'group') {
-      setBillingMode('group');
+      setCheckoutTarget('group');
     }
   }, [searchParams]);
 
   useEffect(() => {
+    let cancelled = false;
+
     (async () => {
+      // preview=1: xem UI không login (design / screenshot)
+      if (isPreview) {
+        if (!cancelled) setIsLoading(false);
+        return;
+      }
+
       const {
         data: { user },
       } = await supabase.auth.getUser();
+
+      if (cancelled) return;
 
       if (!user) {
         router.push('/auth');
@@ -134,11 +127,22 @@ function UpgradePageContent() {
         .eq('id', user.id)
         .single();
 
+      if (cancelled) return;
+
       setCurrentPlan((data?.plan as Plan) ?? 'free');
       setExpiresAt(data?.plan_expires_at ?? null);
       setIsLoading(false);
     })();
-  }, [router]);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [router, isPreview]);
+
+  // Clear coupon khi đổi gói/kỳ hạn/ghế — tránh preview lệch
+  useEffect(() => {
+    setCouponValid(null);
+  }, [periodMonths, checkoutTarget, seats]);
 
   useEffect(() => {
     if (!orderCreated || orderCreated.status === 'paid' || orderCreated.amount === 0) {
@@ -153,20 +157,14 @@ function UpgradePageContent() {
           .eq('id', orderCreated.orderId)
           .single();
 
-        if (error) {
-          throw error;
-        }
+        if (error) throw error;
 
         if (data?.status === 'paid') {
           import('canvas-confetti')
             .then((confetti) => {
-              confetti.default({
-                particleCount: 150,
-                spread: 80,
-                origin: { y: 0.6 },
-              });
+              confetti.default({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
             })
-            .catch((error) => console.error(error));
+            .catch((err) => console.error(err));
 
           setOrderCreated((prev) => (prev ? { ...prev, status: 'paid' } : null));
           setCurrentPlan((data.plan as Plan) ?? 'free');
@@ -182,25 +180,80 @@ function UpgradePageContent() {
     return () => clearInterval(interval);
   }, [orderCreated]);
 
-  const isGroupMode = billingMode === 'group';
-  const selectedOption = PLAN_OPTIONS.find((plan) => plan.plan === selectedPlan);
+  const isGroup = checkoutTarget === 'group';
+  const selectedPlan: Exclude<Plan, 'free'> = 'pro';
 
-  if (!selectedOption) {
-    return null;
-  }
-
-  const basePrice = isGroupMode ? listGroupPrice(seats, periodMonths) : listPrice(selectedPlan, periodMonths);
-  const afterPeriodDiscount = isGroupMode
+  const basePrice = isGroup ? listGroupPrice(seats, periodMonths) : listPrice(selectedPlan, periodMonths);
+  const afterPeriodDiscount = isGroup
     ? computeGroupPrice(seats, periodMonths)
     : computeBasePrice(selectedPlan, periodMonths);
   const afterCoupon = couponValid ? applyDiscount(afterPeriodDiscount, couponValid) : afterPeriodDiscount;
   const totalSaved = basePrice - afterCoupon;
   const remaining = getRemainingDays(expiresAt);
-  const periodLabel = PERIOD_OPTIONS.find((option) => option.months === periodMonths)?.label ?? `${periodMonths} tháng`;
+  const periodLabel = PERIOD_OPTIONS.find((o) => o.months === periodMonths)?.label ?? `${periodMonths} tháng`;
+
+  const proMonthlyDisplay = useMemo(() => {
+    const total = computeBasePrice('pro', periodMonths);
+    return Math.round(total / periodMonths);
+  }, [periodMonths]);
+
+  const groupSeatMonthlyDisplay = useMemo(() => {
+    const total = computeGroupPrice(seats, periodMonths);
+    return Math.round(total / seats / periodMonths);
+  }, [seats, periodMonths]);
+
+  const handleValidateCoupon = async () => {
+    const code = couponCode.trim().toUpperCase();
+    if (!code) return;
+
+    setCouponChecking(true);
+    try {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      const res = await fetch('/api/billing/coupons/validate', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${session?.access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+          isGroup
+            ? { code, orderKind: 'group', seats, periodMonths }
+            : { code, plan: selectedPlan, periodMonths, orderKind: 'individual' },
+        ),
+      });
+
+      const data = (await res.json()) as {
+        valid?: boolean;
+        error?: string;
+        coupon?: Coupon;
+        saved?: number;
+      };
+
+      if (!res.ok || !data.valid || !data.coupon) {
+        setCouponValid(null);
+        toast.error(data.error ?? 'Mã không hợp lệ');
+        return;
+      }
+
+      setCouponValid(data.coupon);
+      toast.success(
+        data.saved && data.saved > 0
+          ? `Áp dụng thành công · tiết kiệm ${formatVND(data.saved)}`
+          : `Đã áp dụng mã ${data.coupon.code}`,
+      );
+    } catch (err) {
+      setCouponValid(null);
+      toast.error(err instanceof Error ? err.message : 'Không kiểm tra được mã');
+    } finally {
+      setCouponChecking(false);
+    }
+  };
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-
     try {
       const {
         data: { session },
@@ -213,36 +266,29 @@ function UpgradePageContent() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(
-          isGroupMode
+          isGroup
             ? {
                 orderKind: 'group',
                 seats,
                 periodMonths,
                 paymentMethod: 'bank_transfer',
-                couponCode: couponValid?.code ?? undefined,
+                couponCode: (couponValid?.code ?? couponCode.trim()) || undefined,
               }
             : {
                 plan: selectedPlan,
                 periodMonths,
                 paymentMethod: 'bank_transfer',
-                couponCode: couponValid?.code ?? undefined,
+                couponCode: (couponValid?.code ?? couponCode.trim()) || undefined,
               },
         ),
       });
 
       const data = (await response.json()) as {
         error?: string;
-        order: {
-          id: string;
-          amount: number;
-          plan: string;
-          status: string;
-        };
+        order: { id: string; amount: number; plan: string; status: string };
       };
 
-      if (!response.ok) {
-        throw new Error(data.error ?? 'Không thể tạo đơn hàng');
-      }
+      if (!response.ok) throw new Error(data.error ?? 'Không thể tạo đơn hàng');
 
       setOrderCreated({
         orderId: data.order.id,
@@ -250,7 +296,6 @@ function UpgradePageContent() {
         plan: data.order.plan,
         status: data.order.status,
       });
-
       toast.success(data.order.status === 'paid' ? 'Kích hoạt gói thành công!' : 'Đơn hàng đã được tạo');
     } catch (error) {
       toast.error(`Lỗi: ${error instanceof Error ? error.message : String(error)}`);
@@ -266,83 +311,42 @@ function UpgradePageContent() {
 
   if (isLoading) {
     return (
-      <div className="min-h-dvh bg-[#f6efe6]">
-        <div className="flex min-h-dvh items-center justify-center">
-          <div className="h-10 w-10 rounded-full border-4 border-[#b5502f] border-t-transparent animate-spin" />
-        </div>
+      <div className="flex min-h-dvh items-center justify-center bg-[#faf9f5]">
+        <Loader2 className="h-7 w-7 animate-spin text-[#1a1915]/40" />
       </div>
     );
   }
 
+  // ── Success ──────────────────────────────────────────
   if (orderCreated && (orderCreated.status === 'paid' || orderCreated.amount === 0)) {
     return (
-      <div className={`min-h-dvh bg-[#f6efe6] text-[#241710]`}>
-        <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute left-[-5%] top-[-8%] h-[24rem] w-[24rem] rounded-full bg-[#e57b52]/20 blur-3xl" />
-          <div className="absolute right-[-8%] bottom-[-10%] h-[24rem] w-[24rem] rounded-full bg-[#d2c09e]/30 blur-3xl" />
-        </div>
-
-        <header className="sticky top-0 z-30 border-b border-[#d7c7b6]/60 bg-[#f6efe6]/85 backdrop-blur-xl">
-          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6]">
-                <Brain className="h-4 w-4" />
-              </div>
-              <div className={`${display} text-lg font-bold tracking-tight`}>LingoPro</div>
-            </Link>
-            <Link href="/student" className="text-sm font-bold text-[#6d574a] transition-colors hover:text-[#241710]">
-              Vào dashboard
-            </Link>
-          </div>
-        </header>
-
-        <main className="px-4 py-14 sm:px-6">
-          <div className="mx-auto max-w-3xl rounded-[2.4rem] border border-[#d7c7b6] bg-white p-8 shadow-[0_24px_80px_rgba(95,69,52,0.10)] sm:p-10">
-            <div className="mx-auto flex h-18 w-18 items-center justify-center rounded-[1.8rem] bg-[#edf7f1] text-[#2d7f5e]">
-              <CheckCircle2 className="h-9 w-9" />
+      <div className="min-h-dvh bg-[#faf9f5] text-[#1a1915]">
+        <ShellHeader currentLabel="Đã kích hoạt" />
+        <main className="mx-auto max-w-lg px-4 py-16 sm:px-6">
+          <div className="rounded-2xl border border-[#e8e6dc] bg-white p-8 text-center shadow-sm">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#edf7f1] text-[#2d7f5e]">
+              <Check className="h-7 w-7" strokeWidth={2.5} />
             </div>
-
-            <div className="mt-6 text-center">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#f2dfd4] px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f]">
-                <Sparkles className="h-3.5 w-3.5" />
-                Kích hoạt thành công
-              </div>
-              <h1 className={`${display} mt-5 text-4xl font-bold tracking-[-0.05em] text-[#241710] sm:text-5xl`}>
-                Tài khoản của bạn đã lên
-                {' '}
-                <span className="text-[#b5502f]">{PLAN_LABELS[orderCreated.plan as Plan]}</span>.
-              </h1>
-              <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-[#5e4b40]">
-                Từ bây giờ bạn có thể tra sâu hơn, luyện nói, luyện viết và ôn tập mà không còn bị giới hạn lượt.
-              </p>
-            </div>
-
-            <div className="mt-8 grid gap-4 rounded-[1.8rem] border border-[#eadfd0] bg-[#fffaf5] p-5 sm:grid-cols-3">
-              <div>
-                <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Gói</div>
-                <div className="mt-2 text-lg font-black text-[#241710]">{PLAN_LABELS[orderCreated.plan as Plan]}</div>
-              </div>
-              <div>
-                <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Trạng thái</div>
-                <div className="mt-2 text-lg font-black text-[#2d7f5e]">Đã kích hoạt</div>
-              </div>
-              <div>
-                <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Mã đơn</div>
-                <div className="mt-2 truncate font-mono text-sm font-bold text-[#5e4b40]">{orderCreated.orderId}</div>
-              </div>
-            </div>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <p className="mt-6 text-xs font-medium uppercase tracking-[0.18em] text-[#8a8778]">
+              Kích hoạt thành công
+            </p>
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight">
+              Tài khoản đã lên {PLAN_LABELS[orderCreated.plan as Plan]}
+            </h1>
+            <p className="mt-3 text-[15px] leading-7 text-[#5e5d59]">
+              Bạn có thể tra từ, phân tích câu và ôn tập không còn bị giới hạn lượt.
+            </p>
+            <div className="mt-8 flex flex-col gap-3">
               <Link
                 href="/student"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#b5502f] px-6 py-4 text-base font-black text-white shadow-[0_16px_40px_rgba(181,80,47,0.26)] transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1a1915] px-5 py-3.5 text-sm font-medium text-white transition hover:bg-[#2c2b26]"
               >
                 Bắt đầu học ngay
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/dictionary"
-                className="inline-flex flex-1 items-center justify-center rounded-full border border-[#d7c7b6] bg-white px-6 py-4 text-base font-black text-[#241710] transition-colors hover:bg-[#fffaf5]"
+                className="inline-flex items-center justify-center rounded-xl border border-[#e8e6dc] bg-white px-5 py-3.5 text-sm font-medium text-[#1a1915] transition hover:bg-[#f5f4ef]"
               >
                 Thử tra từ
               </Link>
@@ -353,118 +357,96 @@ function UpgradePageContent() {
     );
   }
 
+  // ── Awaiting payment ─────────────────────────────────
   if (orderCreated) {
     const transferNote = `LINGOPRO ${orderCreated.orderId.slice(0, 8).toUpperCase()}`;
 
     return (
-      <div className={`min-h-dvh bg-[#f6efe6] text-[#241710]`}>
-        <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute left-[-5%] top-[-8%] h-[24rem] w-[24rem] rounded-full bg-[#e57b52]/20 blur-3xl" />
-          <div className="absolute right-[-8%] bottom-[-10%] h-[24rem] w-[24rem] rounded-full bg-[#d2c09e]/30 blur-3xl" />
-        </div>
-
-        <header className="sticky top-0 z-30 border-b border-[#d7c7b6]/60 bg-[#f6efe6]/85 backdrop-blur-xl">
-          <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6]">
-                <Brain className="h-4 w-4" />
-              </div>
-              <div className={`${display} text-lg font-bold tracking-tight`}>LingoPro</div>
-            </Link>
-            <Link href="/" className="text-sm font-bold text-[#6d574a] transition-colors hover:text-[#241710]">
-              Về trang chính
-            </Link>
-          </div>
-        </header>
-
-        <main className="px-4 py-12 sm:px-6">
-          <div className="mx-auto max-w-6xl rounded-[2.4rem] border border-[#d7c7b6] bg-white p-6 shadow-[0_24px_80px_rgba(95,69,52,0.10)] sm:p-8">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-              <div className="rounded-[2rem] bg-[#241710] p-6 text-[#f6efe6]">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#d7bb76]">
-                  <Clock3 className="h-3.5 w-3.5" />
-                  Chờ chuyển khoản
-                </div>
-                <h1 className={`${display} mt-5 text-4xl font-bold tracking-[-0.05em]`}>
-                  Đơn hàng đã tạo.
-                  {' '}
-                  <span className="text-[#f1c46d]">Bước còn lại là thanh toán.</span>
-                </h1>
-                <p className="mt-4 text-base leading-8 text-[#d8c9bc]">
-                  Giữ trang này mở sau khi chuyển khoản. Tài khoản sẽ tự nâng cấp ngay khi hệ thống xác nhận giao dịch.
+      <div className="min-h-dvh bg-[#faf9f5] text-[#1a1915]">
+        <ShellHeader currentLabel="Thanh toán" />
+        <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-[#e8e6dc] bg-white p-6 shadow-sm sm:p-8">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#8a8778]">
+                Chờ chuyển khoản
+              </p>
+              <h1 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+                Đơn đã tạo. Bước còn lại là thanh toán.
+              </h1>
+              <p className="mt-3 text-[15px] leading-7 text-[#5e5d59]">
+                Giữ trang này mở. Tài khoản tự nâng cấp khi hệ thống xác nhận giao dịch.
+              </p>
+              <div className="mt-6 rounded-xl border border-[#e8e6dc] bg-[#faf9f5] p-4">
+                <img
+                  src={`https://img.vietqr.io/image/${BANK_INFO.bankId}-${BANK_INFO.accountNumber}-compact.png?amount=${orderCreated.amount}&addInfo=${encodeURIComponent(transferNote)}&accountName=${encodeURIComponent(BANK_INFO.accountName)}`}
+                  alt="VietQR thanh toán LingoPro"
+                  className="mx-auto aspect-square w-full max-w-[260px] rounded-lg object-contain"
+                />
+                <p className="mt-3 text-center text-sm text-[#5e5d59]">
+                  Quét QR để điền sẵn số tiền và nội dung CK.
                 </p>
+              </div>
+            </div>
 
-                <div className="mt-6 overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/5 p-5">
-                  <div className="rounded-[1.4rem] bg-white p-3">
-                    <img
-                      src={`https://img.vietqr.io/image/${BANK_INFO.bankId}-${BANK_INFO.accountNumber}-compact.png?amount=${orderCreated.amount}&addInfo=${encodeURIComponent(transferNote)}&accountName=${encodeURIComponent(BANK_INFO.accountName)}`}
-                      alt="VietQR thanh toán LingoPro"
-                      className="aspect-square w-full rounded-[1rem] object-contain"
-                    />
-                  </div>
-                  <p className="mt-4 text-center text-sm font-semibold text-[#d8c9bc]">
-                    Quét QR để điền sẵn số tiền và nội dung chuyển khoản.
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-[#e8e6dc] bg-white p-6 shadow-sm">
+                <h2 className="flex items-center gap-2 text-sm font-semibold text-[#1a1915]">
+                  <CreditCard className="h-4 w-4 text-[#8a8778]" />
+                  Thông tin thanh toán
+                </h2>
+                <div className="mt-4 space-y-2">
+                  {[
+                    { label: 'Ngân hàng', value: BANK_INFO.bank },
+                    { label: 'Số tài khoản', value: BANK_INFO.accountNumber },
+                    { label: 'Chủ tài khoản', value: BANK_INFO.accountName },
+                    { label: 'Số tiền', value: formatVND(orderCreated.amount) },
+                    { label: 'Nội dung CK', value: transferNote },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="flex items-center justify-between gap-3 rounded-xl border border-[#eeebe3] bg-[#faf9f5] px-3.5 py-2.5"
+                    >
+                      <div className="min-w-0">
+                        <div className="text-[11px] font-medium uppercase tracking-wider text-[#8a8778]">
+                          {item.label}
+                        </div>
+                        <div className="mt-0.5 truncate text-sm font-medium text-[#1a1915]">{item.value}</div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => copyBankInfo(item.value)}
+                        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#e8e6dc] bg-white text-[#5e5d59] transition hover:bg-[#f0efe8]"
+                      >
+                        <Copy className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 rounded-2xl border border-[#d7e7dd] bg-[#f3fbf6] px-5 py-4">
+                <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#2d7f5e] animate-pulse" />
+                <div>
+                  <div className="text-sm font-semibold text-[#2d7f5e]">Đang chờ giao dịch</div>
+                  <p className="mt-1 text-sm leading-6 text-[#456456]">
+                    Thường 3–10 giây sau khi chuyển khoản thành công.
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <div className="rounded-[2rem] border border-[#eadfd0] bg-[#fffaf5] p-6">
-                  <h2 className="flex items-center gap-2 text-lg font-black text-[#241710]">
-                    <CreditCard className="h-5 w-5 text-[#b5502f]" />
-                    Thông tin thanh toán
-                  </h2>
-
-                  <div className="mt-5 grid gap-3">
-                    {[
-                      { label: 'Ngân hàng', value: BANK_INFO.bank },
-                      { label: 'Số tài khoản', value: BANK_INFO.accountNumber },
-                      { label: 'Chủ tài khoản', value: BANK_INFO.accountName },
-                      { label: 'Số tiền', value: formatVND(orderCreated.amount) },
-                      { label: 'Nội dung CK', value: transferNote },
-                    ].map((item) => (
-                      <div key={item.label} className="flex items-center justify-between gap-4 rounded-2xl border border-[#eadfd0] bg-white px-4 py-3">
-                        <div>
-                          <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">{item.label}</div>
-                          <div className="mt-1 text-sm font-bold text-[#241710]">{item.value}</div>
-                        </div>
-                        <button
-                          onClick={() => copyBankInfo(item.value)}
-                          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#eadfd0] bg-[#fffaf5] text-[#6d574a] transition-colors hover:bg-white hover:text-[#241710]"
-                        >
-                          <Copy className="h-4 w-4" />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="rounded-[2rem] border border-[#d7e7dd] bg-[#f3fbf6] p-6">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 h-3 w-3 shrink-0 rounded-full bg-[#2d7f5e] animate-pulse" />
-                    <div>
-                      <div className="font-black text-[#2d7f5e]">Đang chờ giao dịch</div>
-                      <p className="mt-2 text-sm leading-7 text-[#456456]">
-                        Thường chỉ mất khoảng 3-10 giây sau khi chuyển khoản thành công để tài khoản được nâng cấp.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href="/"
-                    className="inline-flex flex-1 items-center justify-center rounded-full border border-[#d7c7b6] bg-white px-5 py-3.5 text-sm font-black text-[#241710] transition-colors hover:bg-[#fffaf5]"
-                  >
-                    Quay về trang chính
-                  </Link>
-                  <Link
-                    href="/student"
-                    className="inline-flex flex-1 items-center justify-center rounded-full bg-[#241710] px-5 py-3.5 text-sm font-black text-[#f6efe6] transition-colors hover:bg-[#3b2a20]"
-                  >
-                    Vào dashboard chờ kích hoạt
-                  </Link>
-                </div>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <Link
+                  href="/"
+                  className="inline-flex flex-1 items-center justify-center rounded-xl border border-[#e8e6dc] bg-white px-4 py-3 text-sm font-medium text-[#1a1915] transition hover:bg-[#f5f4ef]"
+                >
+                  Về trang chính
+                </Link>
+                <Link
+                  href="/student"
+                  className="inline-flex flex-1 items-center justify-center rounded-xl bg-[#1a1915] px-4 py-3 text-sm font-medium text-white transition hover:bg-[#2c2b26]"
+                >
+                  Vào dashboard
+                </Link>
               </div>
             </div>
           </div>
@@ -473,439 +455,367 @@ function UpgradePageContent() {
     );
   }
 
-  return (
-    <div className={`min-h-dvh bg-[#f6efe6] text-[#241710]`}>
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute left-[-5%] top-[-8%] h-[24rem] w-[24rem] rounded-full bg-[#e57b52]/20 blur-3xl" />
-        <div className="absolute right-[-8%] top-[12%] h-[28rem] w-[28rem] rounded-full bg-[#d2c09e]/28 blur-3xl" />
-        <div className="absolute bottom-[-12%] left-[30%] h-[24rem] w-[24rem] rounded-full bg-[#6a8d7b]/15 blur-3xl" />
-      </div>
+  // ── Pricing — ChatGPT style (mobile stack + laptop 2 cột) ─
+  const periodShort: Record<number, string> = { 1: '1 th', 3: '3 th', 6: '6 th', 12: 'Năm' };
+  const compareRows = isGroup ? GROUP_COMPARE : PRO_COMPARE;
+  const paidColLabel = isGroup ? 'Nhóm' : 'Pro';
+  const ctaLabel = isGroup
+    ? `Nâng cấp nhóm · ${formatVND(afterCoupon)}`
+    : currentPlan === 'pro'
+      ? `Gia hạn Pro · ${formatVND(afterCoupon)}`
+      : `Nâng cấp Pro · ${formatVND(afterCoupon)}`;
 
-      <header className="sticky top-0 z-30 border-b border-[#d7c7b6]/60 bg-[#f6efe6]/85 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm font-black text-[#6d574a] transition-colors hover:text-[#241710]">
-              <ChevronLeft className="h-4 w-4" />
-              Quay lại
-            </Link>
-            <div className="hidden h-6 w-px bg-[#d7c7b6] sm:block" />
-            <div className="hidden items-center gap-3 sm:flex">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#241710] text-[#f6efe6]">
-                <Brain className="h-4 w-4" />
-              </div>
-              <div>
-                <div className={`${display} text-lg font-bold tracking-tight`}>LingoPro</div>
-                <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7b6558]">Nâng cấp Pro</div>
-              </div>
-            </div>
+  const priceSummary = (
+    <div className="rounded-2xl border border-[#e8e6dc] bg-white px-4 py-3.5 text-center shadow-sm lg:px-5 lg:py-5">
+      {isGroup ? (
+        <>
+          <div className="text-[11px] font-medium uppercase tracking-[0.14em] text-[#8a8778] lg:text-xs">
+            {seats} người · {formatVND(groupSeatMonthlyDisplay)}/người/tháng
           </div>
+          <div className="mt-1 text-2xl font-semibold tabular-nums tracking-tight lg:mt-2 lg:text-3xl">
+            {formatVND(afterCoupon)}
+          </div>
+          <p className="mt-0.5 text-xs text-[#5e5d59] lg:mt-1 lg:text-sm">
+            Tổng {periodLabel.toLowerCase()}
+            {totalSaved > 0 ? ` · tiết kiệm ${formatVND(totalSaved)}` : ''}
+          </p>
+        </>
+      ) : (
+        <>
+          <div className="text-[11px] font-medium uppercase tracking-[0.14em] text-[#8a8778] lg:text-xs">
+            {formatVND(proMonthlyDisplay)}/tháng
+          </div>
+          <div className="mt-1 text-2xl font-semibold tabular-nums tracking-tight lg:mt-2 lg:text-3xl">
+            {formatVND(afterCoupon)}
+          </div>
+          <p className="mt-0.5 text-xs text-[#5e5d59] lg:mt-1 lg:text-sm">
+            Thanh toán {periodLabel.toLowerCase()}
+            {totalSaved > 0 ? ` · tiết kiệm ${formatVND(totalSaved)}` : ''}
+          </p>
+        </>
+      )}
+    </div>
+  );
 
-          <div className="text-sm font-bold text-[#6d574a]">
-            {currentPlan !== 'free' ? 'Tài khoản đã có gói' : 'Nâng cấp khi sẵn sàng'}
-          </div>
+  const seatsControl = isGroup ? (
+    <div className="flex items-center justify-between rounded-2xl border border-[#e8e6dc] bg-white px-3 py-2.5 shadow-sm lg:px-4 lg:py-3.5">
+      <div>
+        <div className="text-xs font-medium text-[#5e5d59] lg:text-sm">Số người cùng đăng ký</div>
+        <div className="text-[11px] text-[#8a8778] lg:mt-0.5 lg:text-xs">
+          2p 59k · 3p 49k · 4p 45k · 5+ 39k
         </div>
-      </header>
+      </div>
+      <div className="flex items-center gap-1.5">
+        <button
+          type="button"
+          onClick={() => setSeats((s) => Math.max(GROUP_SEATS_MIN, s - 1))}
+          disabled={seats <= GROUP_SEATS_MIN}
+          className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#e8e6dc] bg-[#faf9f5] disabled:opacity-40 lg:h-10 lg:w-10"
+        >
+          <Minus className="h-3.5 w-3.5" />
+        </button>
+        <span className="min-w-8 text-center text-base font-semibold tabular-nums lg:text-lg">{seats}</span>
+        <button
+          type="button"
+          onClick={() => setSeats((s) => Math.min(GROUP_SEATS_MAX, s + 1))}
+          disabled={seats >= GROUP_SEATS_MAX}
+          className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#e8e6dc] bg-[#faf9f5] disabled:opacity-40 lg:h-10 lg:w-10"
+        >
+          <Plus className="h-3.5 w-3.5" />
+        </button>
+      </div>
+    </div>
+  ) : null;
 
-      <main className="px-4 py-10 sm:px-6">
-        <div className="mx-auto max-w-7xl">
-          {currentPlan !== 'free' && (
-            <div className="mb-8 rounded-[1.8rem] border border-[#d7c7b6] bg-white/80 p-5 shadow-[0_14px_45px_rgba(95,69,52,0.08)]">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-start gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f2dfd4] text-[#9f4d2f]">
-                    <Shield className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Gói hiện tại</div>
-                    <div className="mt-1 text-lg font-black text-[#241710]">
-                      {PLAN_LABELS[currentPlan]}
-                    </div>
-                    {remaining !== null && (
-                      <div className="mt-1 text-sm font-semibold text-[#5e4b40]">
-                        {remaining > 0 ? `Còn ${remaining} ngày · Hết hạn ${formatExpiry(expiresAt)}` : 'Đã hết hạn, cần gia hạn'}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {remaining !== null && remaining > 0 && remaining <= 7 && (
-                  <div className="inline-flex rounded-full bg-[#fff3cd] px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f]">
-                    Sắp hết hạn
-                  </div>
-                )}
-              </div>
+  const compareTable = (
+    <div className="overflow-hidden rounded-2xl border border-[#e8e6dc] bg-white shadow-sm">
+      <div className="grid grid-cols-[1fr_4.25rem_4.25rem] items-center gap-1 border-b border-[#eeebe3] px-3 py-2.5 sm:grid-cols-[1fr_5.5rem_5.5rem] sm:px-4 lg:grid-cols-[1fr_7rem_7rem] lg:px-5 lg:py-3.5">
+        <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8a8778] lg:text-xs">
+          Tính năng
+        </div>
+        <div className="text-center text-[12px] font-semibold text-[#5e5d59] lg:text-sm">Thường</div>
+        <div className="text-center text-[12px] font-semibold text-[#1a1915] lg:text-sm">{paidColLabel}</div>
+      </div>
+      <ul>
+        {compareRows.map((row, idx) => (
+          <li
+            key={row.feature}
+            className={`grid grid-cols-[1fr_4.25rem_4.25rem] items-center gap-1 px-3 py-2.5 sm:grid-cols-[1fr_5.5rem_5.5rem] sm:px-4 sm:py-3 lg:grid-cols-[1fr_7rem_7rem] lg:px-5 lg:py-3.5 ${
+              idx < compareRows.length - 1 ? 'border-b border-[#f0eee6]' : ''
+            }`}
+          >
+            <div className="pr-1 text-[13px] leading-5 text-[#3d3c38] sm:text-sm lg:text-[15px] lg:leading-6">
+              {row.feature}
             </div>
+            <div className="flex justify-center">
+              <CompareCell value={row.free} tone="muted" />
+            </div>
+            <div className="flex justify-center">
+              <CompareCell value={row.paid} tone="accent" />
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  const couponBlock = (
+    <div>
+      <div className="flex gap-2">
+        <input
+          type="text"
+          value={couponCode}
+          onChange={(e) => {
+            setCouponCode(e.target.value.toUpperCase());
+            if (couponValid) setCouponValid(null);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              void handleValidateCoupon();
+            }
+          }}
+          placeholder="Mã giảm giá"
+          className="min-w-0 flex-1 rounded-xl border border-[#e8e6dc] bg-white px-3 py-2.5 font-mono text-sm font-medium uppercase text-[#1a1915] outline-none focus:border-[#1a1915]/30 focus:ring-2 focus:ring-[#1a1915]/8 lg:py-3"
+        />
+        <button
+          type="button"
+          onClick={() => void handleValidateCoupon()}
+          disabled={couponChecking || !couponCode.trim()}
+          className="shrink-0 rounded-xl border border-[#e8e6dc] bg-white px-3.5 py-2.5 text-[13px] font-medium text-[#1a1915] disabled:opacity-50 lg:px-4 lg:text-sm"
+        >
+          {couponChecking ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Áp dụng'}
+        </button>
+      </div>
+      {couponValid && (
+        <p className="mt-1.5 text-[11px] font-medium text-[#2d7f5e] lg:text-xs">
+          Đã áp dụng {couponValid.code}
+          {couponValid.discount_pct
+            ? ` (−${couponValid.discount_pct}%)`
+            : couponValid.discount_amount
+              ? ` (−${formatVND(couponValid.discount_amount)})`
+              : ''}
+        </p>
+      )}
+      {(basePrice > afterPeriodDiscount || (couponValid && afterCoupon < afterPeriodDiscount)) && (
+        <p className="mt-1 text-[11px] text-[#8a8778] lg:text-xs">
+          Gốc {formatVND(basePrice)}
+          {basePrice > afterPeriodDiscount && ` · kỳ hạn −${formatVND(basePrice - afterPeriodDiscount)}`}
+          {couponValid && afterCoupon < afterPeriodDiscount && (
+            <> · mã −{formatVND(afterPeriodDiscount - afterCoupon)}</>
           )}
+        </p>
+      )}
+    </div>
+  );
 
-          <div className="mb-10 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f] shadow-[0_10px_30px_rgba(143,83,53,0.08)]">
-                <Sparkles className="h-3.5 w-3.5" />
-                Mở toàn bộ quyền lợi
-              </div>
-              <h1 className={`${display} mt-5 max-w-3xl text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[#241710] sm:text-6xl`}>
-                Nâng cấp khi bạn muốn
-                {' '}
-                <span className="text-[#b5502f]">học sâu hơn và đều hơn mỗi ngày</span>,
-                {' '}
-                không còn bị chặn bởi giới hạn.
-              </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-[#5e4b40]">
-                Xem rõ khác biệt giữa Free và Pro, chọn kỳ hạn phù hợp và thanh toán ngay trong một màn hình.
-              </p>
-            </div>
+  const ctaButton = (opts: { className?: string; showArrow?: boolean }) => (
+    <button
+      type="button"
+      onClick={() => void handleSubmit()}
+      disabled={isSubmitting}
+      className={opts.className}
+    >
+      {isSubmitting ? (
+        <>
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Đang tạo đơn…
+        </>
+      ) : (
+        <>
+          {ctaLabel}
+          {opts.showArrow ? <ArrowRight className="h-4 w-4" /> : null}
+        </>
+      )}
+    </button>
+  );
 
-            <div className="grid gap-3 sm:grid-cols-3">
-              {[
-                { label: 'Khác biệt rõ', text: 'Free đủ để bắt đầu, Pro mở trọn tra cứu và luyện tập bằng AI.' },
-                { label: 'Nhóm dễ quản lý', text: 'Một người thanh toán, các thành viên vào bằng mã mời.' },
-                { label: 'Thanh toán nhanh', text: 'Quét QR là có sẵn số tiền và nội dung chuyển khoản.' },
-              ].map((item) => (
-                <div key={item.label} className="rounded-[1.6rem] border border-[#d7c7b6] bg-white/80 p-4 shadow-[0_14px_35px_rgba(95,69,52,0.06)]">
-                  <div className="text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f]">{item.label}</div>
-                  <p className="mt-3 text-sm font-semibold leading-6 text-[#5e4b40]">{item.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+  return (
+    <div className="min-h-dvh bg-[#faf9f5] text-[#1a1915]">
+      <ShellHeader
+        currentLabel={
+          currentPlan !== 'free'
+            ? `${PLAN_LABELS[currentPlan]}${remaining != null && remaining > 0 ? ` · còn ${remaining} ngày` : ''}`
+            : 'Nâng cấp'
+        }
+      />
 
-          <div className="grid gap-8 xl:grid-cols-[1.1fr_0.9fr]">
-            <section className="space-y-6">
-              <div className="grid gap-4 lg:grid-cols-2">
+      <main className="mx-auto max-w-lg px-4 pb-32 pt-6 sm:max-w-xl sm:px-6 sm:pb-16 sm:pt-10 lg:max-w-5xl lg:pb-16 lg:pt-12">
+        {/* Hero */}
+        <div className="text-center lg:mx-auto lg:max-w-2xl">
+          <h1 className="text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
+            {isGroup ? 'Nâng cấp gói Nhóm' : 'Nâng cấp LingoPro Pro'}
+          </h1>
+          <p className="mt-2 text-[13px] leading-5 text-[#5e5d59] sm:text-sm sm:leading-6 lg:mt-3 lg:text-base">
+            {isGroup
+              ? 'Một người thanh toán — cả nhóm dùng quyền Pro.'
+              : 'AI tra từ + phân tích câu, không còn giới hạn lượt.'}
+          </p>
+          {currentPlan !== 'free' && remaining != null && (
+            <p className="mt-2 text-xs text-[#8a8778] lg:text-sm">
+              Đang dùng {PLAN_LABELS[currentPlan]}
+              {remaining > 0 ? ` · hết hạn ${formatExpiry(expiresAt)}` : ' · đã hết hạn'}
+            </p>
+          )}
+        </div>
+
+        {/* Tab Pro | Nhóm */}
+        <div className="mx-auto mt-5 flex max-w-xs rounded-full border border-[#e8e6dc] bg-white p-1 shadow-sm lg:mt-8 lg:max-w-sm">
+          {(
+            [
+              { id: 'pro' as const, label: 'Pro' },
+              { id: 'group' as const, label: 'Nhóm' },
+            ] as const
+          ).map((tab) => {
+            const active = checkoutTarget === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setCheckoutTarget(tab.id)}
+                className={`flex-1 rounded-full py-2.5 text-sm font-semibold transition lg:py-3 lg:text-[15px] ${
+                  active ? 'bg-[#1a1915] text-white shadow-sm' : 'text-[#5e5d59] hover:text-[#1a1915]'
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Period */}
+        <div className="mx-auto mt-4 max-w-md lg:mt-5 lg:max-w-lg">
+          <div className="grid grid-cols-4 gap-1 rounded-2xl border border-[#e8e6dc] bg-white p-1">
+            {PERIOD_OPTIONS.map((opt) => {
+              const active = periodMonths === opt.months;
+              const badge =
+                opt.months === 12
+                  ? '−37%'
+                  : opt.discountPct != null && opt.discountPct > 0
+                    ? `−${opt.discountPct}%`
+                    : null;
+              return (
                 <button
+                  key={opt.months}
                   type="button"
-                  onClick={() => setBillingMode('individual')}
-                  className={`rounded-[2rem] border p-6 text-left transition-all ${
-                    !isGroupMode
-                      ? 'border-[#b5502f]/30 bg-[#241710] text-[#f6efe6] shadow-[0_24px_70px_rgba(36,23,16,0.18)]'
-                      : 'border-[#d7c7b6] bg-white/75 text-[#241710] hover:bg-white'
+                  onClick={() => setPeriodMonths(opt.months)}
+                  className={`flex min-h-11 flex-col items-center justify-center rounded-xl px-0.5 py-1.5 transition lg:min-h-12 ${
+                    active ? 'bg-[#1a1915] text-white' : 'text-[#5e5d59] hover:bg-[#faf9f5]'
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.22em]">
-                        <Crown className="h-4 w-4" />
-                        Cá nhân
-                      </div>
-                      <h2 className={`${display} mt-3 text-3xl font-bold tracking-tight`}>
-                        Pro cho 1 người học
-                      </h2>
-                    </div>
-                    {!isGroupMode && (
-                      <div className="rounded-full bg-[#d7bb76] px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-[#241710]">
-                        Đang chọn
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                    <div className={`rounded-[1.5rem] p-4 ${!isGroupMode ? 'bg-white/5' : 'bg-[#fffaf5]'}`}>
-                      <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Free</div>
-                      <div className="mt-2 text-2xl font-black">0₫</div>
-                      <ul className="mt-4 space-y-2 text-sm font-semibold leading-6 text-inherit/80">
-                        {FREE_FEATURES.map((feature) => (
-                          <li key={feature} className="flex items-start gap-2">
-                            <div className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className={`rounded-[1.5rem] p-4 ${!isGroupMode ? 'bg-[#f6efe6] text-[#241710]' : 'bg-[#f2dfd4]'}`}>
-                      <div className="text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f]">Pro</div>
-                      <div className="mt-2 text-2xl font-black">{formatVND(PLAN_PRICES.pro)}</div>
-                      <ul className="mt-4 space-y-2 text-sm font-semibold leading-6 text-[#4f3f35]">
-                        {selectedOption.features.map((feature) => (
-                          <li key={feature} className="flex items-start gap-2">
-                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#2d7f5e]" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setBillingMode('group')}
-                  className={`rounded-[2rem] border p-6 text-left transition-all ${
-                    isGroupMode
-                      ? 'border-[#b5502f]/30 bg-[#241710] text-[#f6efe6] shadow-[0_24px_70px_rgba(36,23,16,0.18)]'
-                      : 'border-[#d7c7b6] bg-white/75 text-[#241710] hover:bg-white'
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.22em]">
-                        <Users className="h-4 w-4" />
-                        Nhóm
-                      </div>
-                      <h2 className={`${display} mt-3 text-3xl font-bold tracking-tight`}>
-                        Pro cho nhóm học
-                      </h2>
-                    </div>
-                    {isGroupMode && (
-                      <div className="rounded-full bg-[#d7bb76] px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-[#241710]">
-                        Đang chọn
-                      </div>
-                    )}
-                  </div>
-
-                  <div className={`mt-5 rounded-[1.5rem] p-4 ${isGroupMode ? 'bg-white/5' : 'bg-[#fffaf5]'}`}>
-                    <div className="grid grid-cols-3 gap-3 text-center">
-                      <div className="rounded-2xl bg-white/10 p-3">
-                        <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">2 người</div>
-                        <div className="mt-2 text-lg font-black">59k/người</div>
-                      </div>
-                      <div className="rounded-2xl bg-white/10 p-3">
-                        <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">3-4 người</div>
-                        <div className="mt-2 text-lg font-black">45k-49k</div>
-                      </div>
-                      <div className="rounded-2xl bg-[#f2dfd4] p-3 text-[#241710]">
-                        <div className="text-xs font-black uppercase tracking-[0.2em] text-[#9f4d2f]">5+ người</div>
-                        <div className="mt-2 text-lg font-black">39k/người</div>
-                      </div>
-                    </div>
-
-                    <ul className="mt-4 space-y-2 text-sm font-semibold leading-6 text-inherit/80">
-                      {GROUP_BENEFITS.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#2d7f5e]" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </button>
-              </div>
-
-              {isGroupMode && (
-                <div className="rounded-[2rem] border border-[#d7c7b6] bg-white/80 p-6 shadow-[0_18px_50px_rgba(95,69,52,0.08)]">
-                  <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Số thành viên</div>
-                      <h3 className={`${display} mt-2 text-3xl font-bold tracking-tight text-[#241710]`}>
-                        Chọn số ghế cho nhóm
-                      </h3>
-                      <p className="mt-2 text-sm font-semibold text-[#5e4b40]">
-                        Bao gồm 1 trưởng nhóm thanh toán và các thành viên kích hoạt bằng mã mời.
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <button
-                        type="button"
-                        onClick={() => setSeats((current) => Math.max(GROUP_SEATS_MIN, current - 1))}
-                        disabled={seats <= GROUP_SEATS_MIN}
-                        className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#d7c7b6] bg-white text-[#241710] transition-colors hover:bg-[#fffaf5] disabled:opacity-40"
-                      >
-                        <Minus className="h-4 w-4" />
-                      </button>
-                      <div className="min-w-16 text-center">
-                        <div className={`${display} text-4xl font-bold tracking-tight text-[#b5502f]`}>{seats}</div>
-                        <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">ghế</div>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => setSeats((current) => Math.min(GROUP_SEATS_MAX, current + 1))}
-                        disabled={seats >= GROUP_SEATS_MAX}
-                        className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#d7c7b6] bg-white text-[#241710] transition-colors hover:bg-[#fffaf5] disabled:opacity-40"
-                      >
-                        <Plus className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-[1.5rem] bg-[#fffaf5] p-4">
-                      <div className="text-xs font-black uppercase tracking-[0.22em] text-[#7b6558]">Đơn giá mỗi người</div>
-                      <div className="mt-2 text-2xl font-black text-[#241710]">{formatVND(getGroupSeatPrice(seats))}</div>
-                    </div>
-                    <div className="rounded-[1.5rem] bg-[#241710] p-4 text-[#f6efe6]">
-                      <div className="text-xs font-black uppercase tracking-[0.22em] text-[#cbb7a6]">Tổng trước ưu đãi kỳ hạn</div>
-                      <div className="mt-2 text-2xl font-black">{formatVND(getGroupSeatPrice(seats) * seats)}</div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="rounded-[2rem] border border-[#d7c7b6] bg-white/80 p-6 shadow-[0_18px_50px_rgba(95,69,52,0.08)]">
-                <h3 className="flex items-center gap-2 text-lg font-black text-[#241710]">
-                  <Clock3 className="h-5 w-5 text-[#b5502f]" />
-                  Thời hạn gói
-                </h3>
-                <div className="mt-5 grid gap-3 sm:grid-cols-4">
-                  {PERIOD_OPTIONS.map((option) => (
-                    <button
-                      key={option.months}
-                      type="button"
-                      onClick={() => setPeriodMonths(option.months)}
-                      className={`rounded-[1.4rem] border p-4 text-center transition-all ${
-                        periodMonths === option.months
-                          ? 'border-[#b5502f]/30 bg-[#241710] text-[#f6efe6]'
-                          : 'border-[#d7c7b6] bg-[#fffaf5] text-[#241710] hover:bg-white'
+                  <span className="text-[12px] font-semibold leading-none lg:text-sm">
+                    <span className="sm:hidden">{periodShort[opt.months]}</span>
+                    <span className="hidden sm:inline">{opt.label}</span>
+                  </span>
+                  {badge && (
+                    <span
+                      className={`mt-0.5 text-[9px] font-semibold leading-none lg:mt-1 lg:text-[10px] ${
+                        active
+                          ? opt.months === 12
+                            ? 'text-[#d7bb76]'
+                            : 'text-white/65'
+                          : opt.months === 12
+                            ? 'text-[#b5502f]'
+                            : 'text-[#2d7f5e]'
                       }`}
                     >
-                      <div className="text-sm font-black">{option.label}</div>
-                      {option.discountPct === null ? (
-                        <div className="mt-2 inline-flex rounded-full bg-[#d7bb76] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#241710]">
-                          Rẻ nhất
-                        </div>
-                      ) : option.discountPct > 0 ? (
-                        <div className="mt-2 inline-flex rounded-full bg-[#edf7f1] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#2d7f5e]">
-                          -{option.discountPct}%
-                        </div>
-                      ) : null}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-[2rem] border border-[#d7c7b6] bg-white/80 p-6 shadow-[0_18px_50px_rgba(95,69,52,0.08)]">
-                <h3 className="flex items-center gap-2 text-lg font-black text-[#241710]">
-                  <Star className="h-5 w-5 text-[#d39b29]" />
-                  Mã giảm giá
-                </h3>
-
-                <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                  <input
-                    type="text"
-                    value={couponCode}
-                    onChange={(event) => setCouponCode(event.target.value.toUpperCase())}
-                    placeholder="Nhập mã ưu đãi..."
-                    className="flex-1 rounded-[1.3rem] border border-[#d7c7b6] bg-[#fffaf5] px-4 py-3 text-sm font-mono font-bold uppercase text-[#241710] outline-none transition-colors focus:border-[#b5502f]/40"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (!couponCode.trim()) {
-                        return;
-                      }
-
-                      setCouponValid({
-                        id: '',
-                        code: couponCode.trim(),
-                        discount_pct: null,
-                        discount_amount: null,
-                        max_uses: null,
-                        used_count: 0,
-                        valid_from: '',
-                        valid_until: null,
-                        applicable_plans: null,
-                        is_active: true,
-                      });
-                      toast.success('Mã sẽ được xác nhận khi tạo đơn hàng');
-                    }}
-                    className="rounded-[1.3rem] bg-[#241710] px-5 py-3 text-sm font-black text-[#f6efe6] transition-colors hover:bg-[#3b2a20]"
-                  >
-                    Áp dụng
-                  </button>
-                </div>
-
-                {couponValid && (
-                  <div className="mt-4 rounded-[1.3rem] bg-[#edf7f1] px-4 py-3 text-sm font-semibold text-[#2d7f5e]">
-                    Đã lưu mã
-                    {' '}
-                    <span className="font-black">{couponValid.code}</span>
-                    . Hệ thống sẽ xác nhận khi đặt hàng.
-                  </div>
-                )}
-              </div>
-            </section>
-
-            <aside className="space-y-6 xl:sticky xl:top-24 xl:self-start">
-              <div className="overflow-hidden rounded-[2.2rem] border border-[#b5502f]/20 bg-[#241710] p-6 text-[#f6efe6] shadow-[0_28px_80px_rgba(36,23,16,0.20)]">
-                <div className="inline-flex rounded-full bg-[#d7bb76] px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-[#241710]">
-                  Tóm tắt đơn hàng
-                </div>
-                <h2 className={`${display} mt-4 text-3xl font-bold tracking-tight`}>
-                  {isGroupMode ? 'Gói nhóm Pro' : selectedOption.name}
-                </h2>
-                <p className="mt-2 text-sm leading-7 text-[#d8c9bc]">
-                  {isGroupMode
-                    ? `Thanh toán một lần cho ${seats} thành viên trong ${periodLabel.toLowerCase()}.`
-                    : `Mở toàn bộ quyền lợi Pro trong ${periodLabel.toLowerCase()}.`}
-                </p>
-
-                <div className="mt-6 space-y-3 rounded-[1.7rem] border border-white/10 bg-white/5 p-5">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-[#cbb7a6]">
-                      {isGroupMode ? `${seats} ghế × ${periodLabel}` : `${selectedOption.name} × ${periodLabel}`}
+                      {badge}
                     </span>
-                    <span className="font-black text-white">{formatVND(basePrice)}</span>
-                  </div>
-
-                  {basePrice > afterPeriodDiscount && (
-                    <div className="flex items-center justify-between text-sm text-[#8fd4b5]">
-                      <span>Ưu đãi kỳ hạn</span>
-                      <span>-{formatVND(basePrice - afterPeriodDiscount)}</span>
-                    </div>
-                  )}
-
-                  {couponValid && afterCoupon < afterPeriodDiscount && (
-                    <div className="flex items-center justify-between text-sm text-[#8fd4b5]">
-                      <span>Mã {couponValid.code}</span>
-                      <span>-{formatVND(afterPeriodDiscount - afterCoupon)}</span>
-                    </div>
-                  )}
-
-                  <div className="border-t border-white/10 pt-3">
-                    <div className="flex items-end justify-between gap-4">
-                      <div>
-                        <div className="text-xs font-black uppercase tracking-[0.22em] text-[#cbb7a6]">Tổng thanh toán</div>
-                        <div className={`${display} mt-2 text-4xl font-bold tracking-tight text-white`}>
-                          {formatVND(afterCoupon)}
-                        </div>
-                      </div>
-                      {totalSaved > 0 && (
-                        <div className="rounded-full bg-[#edf7f1] px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-[#2d7f5e]">
-                          Tiết kiệm {formatVND(totalSaved)}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#b5502f] px-6 py-4 text-base font-black text-white shadow-[0_16px_40px_rgba(181,80,47,0.32)] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="h-5 w-5 animate-spin" />
-                      Đang tạo đơn...
-                    </>
-                  ) : (
-                    <>
-                      Tạo mã thanh toán
-                      <ArrowRight className="h-5 w-5" />
-                    </>
                   )}
                 </button>
-
-                <div className="mt-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#cbb7a6]">
-                  <Shield className="h-3.5 w-3.5" />
-                  Thanh toán an toàn · Tự nâng cấp sau xác nhận
-                </div>
-              </div>
-
-              <div className="rounded-[2rem] border border-[#d7c7b6] bg-white/80 p-6 shadow-[0_18px_50px_rgba(95,69,52,0.08)]">
-                <div className="text-xs font-black uppercase tracking-[0.22em] text-[#9f4d2f]">Vì sao trang này dễ quyết định</div>
-                <div className="mt-4 space-y-3 text-sm font-semibold leading-7 text-[#5e4b40]">
-                  <p>Mọi thông tin quan trọng đều nằm trên một màn hình: gói, kỳ hạn, ưu đãi và số tiền cuối cùng.</p>
-                  <p>Bạn không phải nhắn tin thủ công hay chờ xác nhận lâu. Chuyển khoản xong là tài khoản được nâng cấp.</p>
-                  <p>Nếu mua theo nhóm, chỉ một người thanh toán; các thành viên còn lại vào bằng mã mời.</p>
-                </div>
-              </div>
-            </aside>
+              );
+            })}
           </div>
         </div>
+
+        {/* ── Mobile / tablet: stack ── */}
+        <div className="mt-4 space-y-3 lg:hidden">
+          {priceSummary}
+          {seatsControl}
+          {compareTable}
+          {couponBlock}
+        </div>
+
+        {/* ── Laptop+: 2 cột — bảng | checkout sticky ── */}
+        <div className="mt-8 hidden gap-8 lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+          <div className="min-w-0">{compareTable}</div>
+
+          <aside className="sticky top-20 space-y-3">
+            {priceSummary}
+            {seatsControl}
+            <div className="rounded-2xl border border-[#e8e6dc] bg-white p-4 shadow-sm">
+              <div className="text-xs font-medium text-[#5e5d59]">Mã giảm giá</div>
+              <div className="mt-2">{couponBlock}</div>
+            </div>
+            {ctaButton({
+              showArrow: true,
+              className:
+                'inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1a1915] px-5 py-3.5 text-[15px] font-semibold text-white transition hover:bg-[#2c2b26] disabled:opacity-60',
+            })}
+            <p className="text-center text-xs leading-5 text-[#8a8778]">
+              Chuyển khoản · Tự nâng cấp sau xác nhận
+            </p>
+          </aside>
+        </div>
       </main>
+
+      {/* Sticky CTA — chỉ điện thoại / tablet */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#e8e6dc] bg-[#faf9f5]/96 px-4 pb-[max(0.85rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md lg:hidden">
+        {ctaButton({
+          className:
+            'flex w-full items-center justify-center gap-2 rounded-full bg-[#1a1915] px-4 py-3.5 text-[15px] font-semibold text-white disabled:opacity-60',
+        })}
+        <p className="mt-2 text-center text-[10px] leading-4 text-[#8a8778]">
+          Chuyển khoản · Tự nâng cấp sau xác nhận
+        </p>
+      </div>
     </div>
+  );
+}
+
+function CompareCell({ value, tone }: { value: Cell; tone: 'muted' | 'accent' }) {
+  if (value === 'check') {
+    return (
+      <Check
+        className={`h-4 w-4 lg:h-[18px] lg:w-[18px] ${tone === 'accent' ? 'text-[#1a7f4b]' : 'text-[#a8a59a]'}`}
+        strokeWidth={2.5}
+      />
+    );
+  }
+  if (value === 'dash') {
+    return <span className="text-base font-medium leading-none text-[#c5c2b6] lg:text-lg">−</span>;
+  }
+  return (
+    <span
+      className={`max-w-[4.5rem] text-center text-[11px] font-semibold leading-tight sm:max-w-none sm:text-xs lg:text-sm ${
+        tone === 'accent' ? 'text-[#1a7f4b]' : 'text-[#8a8778]'
+      }`}
+    >
+      {value}
+    </span>
+  );
+}
+
+function ShellHeader({ currentLabel }: { currentLabel: string }) {
+  return (
+    <header className="sticky top-0 z-30 border-b border-[#e8e6dc]/80 bg-[#faf9f5]/90 backdrop-blur-md">
+      <div className="mx-auto flex h-12 max-w-lg items-center justify-between px-4 sm:h-14 sm:max-w-xl sm:px-6 lg:max-w-5xl">
+        <div className="flex items-center gap-2">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1 text-sm text-[#5e5d59] transition hover:text-[#1a1915]"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            <span className="hidden sm:inline">Quay lại</span>
+          </Link>
+          <div className="hidden h-4 w-px bg-[#e8e6dc] sm:block" />
+          <Link href="/" className="text-sm font-semibold tracking-tight text-[#1a1915]">
+            LingoPro
+          </Link>
+        </div>
+        <div className="text-xs font-medium text-[#8a8778] sm:text-sm">{currentLabel}</div>
+      </div>
+    </header>
   );
 }
 
@@ -913,8 +823,8 @@ export default function UpgradePage() {
   return (
     <Suspense
       fallback={
-        <div className={`flex min-h-dvh items-center justify-center bg-[#f6efe6] text-[#7b6558]`}>
-          <Loader2 className="h-8 w-8 animate-spin text-[#b5502f]" />
+        <div className="flex min-h-dvh items-center justify-center bg-[#faf9f5]">
+          <Loader2 className="h-7 w-7 animate-spin text-[#1a1915]/40" />
         </div>
       }
     >

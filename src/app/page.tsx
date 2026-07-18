@@ -690,10 +690,10 @@ export default function LandingPage() {
                   </div>
                   <ul className="mt-6 space-y-2 text-sm font-semibold">
                     {[
-                      'Tra AI không giới hạn',
-                      'Luyện nói & viết AI',
-                      'Quiz · điền từ đầy đủ',
-                      'Báo cáo & leaderboard',
+                      'AI: tra từ + phân tích câu không giới hạn',
+                      'Ngữ pháp, quiz, điền từ đầy đủ',
+                      'Thống kê tiến độ chi tiết',
+                      'Gói nhóm cho bạn học',
                     ].map((item) => (
                       <li key={item} className="flex gap-2">
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#d7bb76]" />
@@ -715,15 +715,15 @@ export default function LandingPage() {
                 <div className="text-xs font-black uppercase tracking-[0.2em] text-[#7b6558]">Nhóm</div>
                 <div className={`${display} mt-2 text-3xl font-bold tracking-tight`}>
                   từ {formatVND(GROUP_SEAT_PRICE)}
-                  <span className="ml-1 text-sm font-semibold text-[#7b6558]">/ghế/tháng</span>
+                  <span className="ml-1 text-sm font-semibold text-[#7b6558]">/người/tháng</span>
                 </div>
-                <p className="mt-1 text-sm font-semibold text-[#7b6558]">Gia sư · nhóm học · 2–20 ghế</p>
+                <p className="mt-1 text-sm font-semibold text-[#7b6558]">Bạn học · lớp nhỏ · 2–20 người</p>
                 <ul className="mt-6 space-y-2.5 text-sm font-semibold text-[#4f3f35]">
                   {[
-                    'Mỗi ghế = quyền Pro',
-                    'Giá giảm khi mua nhiều ghế',
+                    'Mỗi người = quyền Pro',
+                    'Giảm giá theo số người',
                     'Mời bằng mã nhóm',
-                    'Thanh toán 1 lần cho cả nhóm',
+                    '1 người thanh toán cho cả nhóm',
                   ].map((item) => (
                     <li key={item} className="flex gap-2">
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#2d7f5e]" />

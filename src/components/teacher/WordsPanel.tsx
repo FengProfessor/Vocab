@@ -70,6 +70,16 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
         body: JSON.stringify({ word: optimistic.word, classroomId }),
       });
       const data = await res.json();
+
+      if (data.error === 'FREE_WORD_LIMIT') {
+        setWords((prev) => prev.filter((w) => w.id !== optimistic.id));
+        const { requestUpsell, upsellFromWordLimitError } = await import('@/lib/upsell');
+        requestUpsell(upsellFromWordLimitError(data));
+        toast.error(data.message || 'Đã đủ hạn mức lưu từ tháng này');
+        setIsSaving(false);
+        return;
+      }
+
       if (!res.ok || !data.success) throw new Error(data.error || 'Failed');
 
       if (data.alreadyExists) {

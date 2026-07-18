@@ -9,6 +9,8 @@ const enabled = () =>
 
 export interface AnalyticsEvents {
   premium_gate_hit: { feature: string; upgradeTo: string };
+  upsell_shown: { reason: string; force?: boolean };
+  upsell_dismiss: { reason: string };
   grammar_quiz_generated: { lessonId: string | null; count: number };
   grammar_quiz_completed: { correct: number; total: number; accuracy: number; mode: string };
   teacher_landing_viewed: { source?: string };
