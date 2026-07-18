@@ -302,6 +302,9 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const weekAgo = now - 7 * DAY;
     const learners = customers.filter(c => c.learnedCount > 0).length;
+    // Free power: ≥150 từ đã lưu — lead upsell (case Ngọc Lan 250)
+    const freeHot150 = customers.filter(c => c.plan === 'free' && c.wordCount >= 150).length;
+    const freeHot200 = customers.filter(c => c.plan === 'free' && c.wordCount >= 200).length;
     const kpis = {
       totalUsers: customers.length,
       newThisWeek: customers.filter(c => new Date(c.created_at).getTime() >= weekAgo).length,
@@ -311,6 +314,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       churnedUsers: byLifecycle.churned,
       totalRevenue: orderRows.reduce((s, o) => s + (o.status === 'paid' ? (o.amount || 0) : 0), 0),
       activeGroups: groupActive.size,
+      freeHot150,
+      freeHot200,
     };
 
     return NextResponse.json({

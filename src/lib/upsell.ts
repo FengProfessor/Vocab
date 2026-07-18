@@ -103,7 +103,10 @@ export function dismissSuffixWordMonth(d = new Date()): string {
 
 /**
  * Chọn reason ưu tiên khi boot (không gồm hard word_limit — cái đó từ API 403).
- * Priority: expired > expiring > word_near
+ * Priority: expired > expiring > word_limit/near
+ *
+ * wordUsed = tháng UTC (quota). wordLifetime = tổng đã lưu (power user như case 250 từ).
+ * Soft near/limit dùng max(tháng, lifetime) để không miss lead học dày.
  */
 export function pickBootUpsell(input: {
   effectivePlan: string;
@@ -111,9 +114,14 @@ export function pickBootUpsell(input: {
   expiresAt: string | null;
   remainingDays: number | null;
   wordUsed: number | null;
+  wordLifetime?: number | null;
   wordLimit: number;
 }): UpsellPayload | null {
-  const { effectivePlan, expiresAt, remainingDays, wordUsed, wordLimit } = input;
+  const { effectivePlan, expiresAt, remainingDays, wordLimit } = input;
+  const monthly = input.wordUsed ?? 0;
+  const lifetime = input.wordLifetime ?? monthly;
+  // Hiển thị / soft gate: lấy mốc cao hơn (Lan: monthly=250)
+  const signal = Math.max(monthly, lifetime);
 
   // A) Đã hết hạn: effective free + nhớ paid_until đã qua
   if (effectivePlan === 'free') {
@@ -154,29 +162,28 @@ export function pickBootUpsell(input: {
     }
   }
 
-  // C) Near word limit (≥150)
-  if (effectivePlan === 'free' && wordUsed != null && wordUsed >= WORD_NEAR_LIMIT_USED) {
+  // C) Word limit / near — Free only
+  if (effectivePlan === 'free' && signal >= WORD_NEAR_LIMIT_USED) {
     const suffix = dismissSuffixWordMonth();
-    if (!isDismissed('word_near_limit', suffix)) {
-      const remaining = Math.max(0, wordLimit - wordUsed);
-      // Nếu đã full → hard style (cùng UI word_limit)
-      if (remaining <= 0) {
-        if (!isDismissed('word_limit', suffix)) {
-          return {
-            reason: 'word_limit',
-            used: wordUsed,
-            limit: wordLimit,
-            remaining: 0,
-          };
-        }
-      } else {
+    const monthlyRemaining = Math.max(0, wordLimit - monthly);
+    // Đã ≥200 tháng hoặc lifetime (power user quá trần)
+    const overCap = monthly >= wordLimit || lifetime >= wordLimit;
+    if (overCap) {
+      if (!isDismissed('word_limit', suffix)) {
         return {
-          reason: 'word_near_limit',
-          used: wordUsed,
+          reason: 'word_limit',
+          used: Math.max(monthly, lifetime),
           limit: wordLimit,
-          remaining,
+          remaining: monthlyRemaining,
         };
       }
+    } else if (!isDismissed('word_near_limit', suffix)) {
+      return {
+        reason: 'word_near_limit',
+        used: Math.max(monthly, lifetime),
+        limit: wordLimit,
+        remaining: monthlyRemaining,
+      };
     }
   }
 

@@ -156,7 +156,12 @@ export function UpsellProvider() {
             effectivePlan: string;
             expiresAt: string | null;
             remainingDays: number | null;
-            wordQuota: { used: number; limit: number | null; remaining: number | null };
+            wordQuota: {
+              used: number;
+              lifetime?: number;
+              limit: number | null;
+              remaining: number | null;
+            };
           };
         };
 
@@ -175,6 +180,7 @@ export function UpsellProvider() {
           expiresAt: expiresAt ?? json.data?.plan_expires_at ?? null,
           remainingDays,
           wordUsed: wordQuota?.used ?? null,
+          wordLifetime: wordQuota?.lifetime ?? null,
           wordLimit: wordQuota?.limit ?? 200,
         });
 

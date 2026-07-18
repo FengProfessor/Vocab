@@ -38,6 +38,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         remainingDays,
         wordQuota: {
           used: wordUsage.used,
+          lifetime: wordUsage.lifetime,
           limit: wordUsage.limit ?? (effectivePlan === 'free' ? FREE_WORD_SAVE_MONTHLY_LIMIT : null),
           remaining: wordUsage.remaining,
         },

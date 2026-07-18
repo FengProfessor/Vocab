@@ -47,6 +47,8 @@ interface CrmData {
     totalUsers: number; newThisWeek: number; payingUsers: number;
     activeUsers: number; learners: number; churnedUsers: number;
     totalRevenue: number; activeGroups: number;
+    freeHot150?: number;
+    freeHot200?: number;
   };
 }
 
@@ -88,6 +90,8 @@ export default function CrmDashboard() {
   const [planFilter, setPlanFilter] = useState('');
   const [lifeFilter, setLifeFilter] = useState<Lifecycle | ''>('');
   const [sourceFilter, setSourceFilter] = useState<Source | ''>('');
+  /** Free ≥150 từ — lead upsell Pro */
+  const [upsellHot, setUpsellHot] = useState(false);
   const [selected, setSelected] = useState<Customer | null>(null);
 
   useEffect(() => {
@@ -107,14 +111,20 @@ export default function CrmDashboard() {
   const filtered = useMemo(() => {
     if (!data) return [];
     const q = query.trim().toLowerCase();
-    return data.customers.filter(c => {
+    let list = data.customers.filter(c => {
       if (planFilter && c.plan !== planFilter) return false;
       if (lifeFilter && c.lifecycle !== lifeFilter) return false;
       if (sourceFilter && c.source !== sourceFilter) return false;
+      if (upsellHot && !(c.plan === 'free' && c.wordCount >= 150)) return false;
       if (q && !(c.email?.toLowerCase().includes(q) || c.full_name?.toLowerCase().includes(q))) return false;
       return true;
     });
-  }, [data, query, planFilter, lifeFilter, sourceFilter]);
+    // Upsell hot: sort từ nhiều → ít
+    if (upsellHot) {
+      list = [...list].sort((a, b) => b.wordCount - a.wordCount);
+    }
+    return list;
+  }, [data, query, planFilter, lifeFilter, sourceFilter, upsellHot]);
 
   const exportCsv = useCallback(() => {
     const head = [
@@ -157,13 +167,26 @@ export default function CrmDashboard() {
 
   const { kpis, segments, funnel } = data;
   const kpiCards = [
-    { label: 'Tổng người dùng', value: kpis.totalUsers, icon: Users, color: 'text-blue-600', bg: 'bg-blue-500/10', sub: 'đã đăng ký' },
-    { label: 'Mới tuần này', value: kpis.newThisWeek, icon: UserPlus, color: 'text-sky-600', bg: 'bg-sky-500/10', sub: '7 ngày qua' },
-    { label: 'Đang trả tiền', value: kpis.payingUsers, icon: Crown, color: 'text-violet-600', bg: 'bg-violet-500/10', sub: `${kpis.activeGroups} nhóm active` },
-    { label: 'Đang hoạt động', value: kpis.activeUsers, icon: Activity, color: 'text-emerald-600', bg: 'bg-emerald-500/10', sub: 'mới + active' },
-    { label: 'Đã học thật', value: kpis.learners ?? 0, icon: Brain, color: 'text-indigo-600', bg: 'bg-indigo-500/10', sub: '≥1 từ ôn SRS' },
-    { label: 'Đã rời bỏ', value: kpis.churnedUsers, icon: AlertTriangle, color: 'text-rose-600', bg: 'bg-rose-500/10', sub: '>30 ngày im' },
-    { label: 'Doanh thu', value: formatVND(kpis.totalRevenue), icon: CreditCard, color: 'text-amber-600', bg: 'bg-amber-500/10', sub: 'đã thu' },
+    { label: 'Tổng người dùng', value: kpis.totalUsers, icon: Users, color: 'text-blue-600', bg: 'bg-blue-500/10', sub: 'đã đăng ký', onClick: undefined as (() => void) | undefined },
+    { label: 'Mới tuần này', value: kpis.newThisWeek, icon: UserPlus, color: 'text-sky-600', bg: 'bg-sky-500/10', sub: '7 ngày qua', onClick: undefined as (() => void) | undefined },
+    { label: 'Đang trả tiền', value: kpis.payingUsers, icon: Crown, color: 'text-violet-600', bg: 'bg-violet-500/10', sub: `${kpis.activeGroups} nhóm active`, onClick: undefined as (() => void) | undefined },
+    { label: 'Đang hoạt động', value: kpis.activeUsers, icon: Activity, color: 'text-emerald-600', bg: 'bg-emerald-500/10', sub: 'mới + active', onClick: undefined as (() => void) | undefined },
+    { label: 'Đã học thật', value: kpis.learners ?? 0, icon: Brain, color: 'text-indigo-600', bg: 'bg-indigo-500/10', sub: '≥1 từ ôn SRS', onClick: undefined as (() => void) | undefined },
+    {
+      label: 'Free ≥150 từ',
+      value: kpis.freeHot150 ?? 0,
+      icon: Target,
+      color: 'text-orange-600',
+      bg: 'bg-orange-500/10',
+      sub: `${kpis.freeHot200 ?? 0} đã ≥200 — bấm lọc`,
+      onClick: () => {
+        setUpsellHot(true);
+        setPlanFilter('free');
+        setLifeFilter('');
+        setSourceFilter('');
+      },
+    },
+    { label: 'Doanh thu', value: formatVND(kpis.totalRevenue), icon: CreditCard, color: 'text-amber-600', bg: 'bg-amber-500/10', sub: 'đã thu', onClick: undefined as (() => void) | undefined },
   ];
 
   return (
@@ -189,7 +212,16 @@ export default function CrmDashboard() {
         {/* KPI */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
           {kpiCards.map(k => (
-            <div key={k.label} className="bg-background border rounded-2xl p-4 shadow-sm">
+            <div
+              key={k.label}
+              role={k.onClick ? 'button' : undefined}
+              tabIndex={k.onClick ? 0 : undefined}
+              onClick={k.onClick}
+              onKeyDown={k.onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') k.onClick?.(); } : undefined}
+              className={`bg-background border rounded-2xl p-4 shadow-sm ${
+                k.onClick ? 'cursor-pointer transition hover:border-orange-300 hover:shadow-md' : ''
+              } ${upsellHot && k.label === 'Free ≥150 từ' ? 'ring-2 ring-orange-400 border-orange-300' : ''}`}
+            >
               <div className={`w-9 h-9 rounded-xl flex items-center justify-center mb-3 ${k.bg}`}>
                 <k.icon className={`h-4 w-4 ${k.color}`} />
               </div>
@@ -240,9 +272,24 @@ export default function CrmDashboard() {
               <h2 className="font-bold">Khách hàng</h2>
               <p className="text-sm text-muted-foreground">{filtered.length} / {data.customers.length} người</p>
             </div>
-            <div className="flex items-center gap-2">
-              {(planFilter || lifeFilter || sourceFilter) && (
-                <button onClick={() => { setPlanFilter(''); setLifeFilter(''); setSourceFilter(''); }}
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setUpsellHot((v) => !v);
+                  if (!upsellHot) setPlanFilter('free');
+                }}
+                className={`text-xs font-bold px-3 py-1.5 rounded-xl border transition-colors ${
+                  upsellHot
+                    ? 'bg-orange-500 text-white border-orange-500'
+                    : 'bg-orange-500/10 text-orange-700 border-orange-200 hover:bg-orange-500/20'
+                }`}
+              >
+                Upsell Free ≥150
+                {typeof kpis.freeHot150 === 'number' ? ` (${kpis.freeHot150})` : ''}
+              </button>
+              {(planFilter || lifeFilter || sourceFilter || upsellHot) && (
+                <button onClick={() => { setPlanFilter(''); setLifeFilter(''); setSourceFilter(''); setUpsellHot(false); }}
                   className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1">
                   <X className="h-3 w-3" /> Xóa lọc
                 </button>
@@ -264,6 +311,7 @@ export default function CrmDashboard() {
                   <th className="text-center px-3 py-3 font-semibold">Vòng đời</th>
                   <th className="text-right px-3 py-3 font-semibold">Ngày ký</th>
                   <th className="text-right px-3 py-3 font-semibold">Hoạt động</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Từ đã lưu (added_by)">Lưu</th>
                   <th className="text-right px-3 py-3 font-semibold" title="Từ đã ôn (SRS review ≥ 1)">Học</th>
                   <th className="text-right px-3 py-3 font-semibold" title="Tổng lượt ôn SRS">Ôn</th>
                   <th className="text-right px-3 py-3 font-semibold" title="Lần quên (Again)">Quên</th>
@@ -272,13 +320,21 @@ export default function CrmDashboard() {
               </thead>
               <tbody className="divide-y">
                 {filtered.length === 0 ? (
-                  <tr><td colSpan={10} className="px-5 py-10 text-center text-muted-foreground">Không có khách phù hợp.</td></tr>
+                  <tr><td colSpan={11} className="px-5 py-10 text-center text-muted-foreground">Không có khách phù hợp.</td></tr>
                 ) : filtered.map(c => (
                   <tr key={c.id} onClick={() => setSelected(c)}
-                    className="hover:bg-muted/20 transition-colors cursor-pointer">
+                    className={`hover:bg-muted/20 transition-colors cursor-pointer ${
+                      c.plan === 'free' && c.wordCount >= 150 ? 'bg-orange-500/[0.04]' : ''
+                    }`}>
                     <td className="px-5 py-3">
                       <div className="font-semibold">{c.full_name || 'Chưa đặt tên'}</div>
                       <div className="text-xs text-muted-foreground">{c.email}</div>
+                      {c.plan === 'free' && c.wordCount >= 200 && (
+                        <div className="mt-0.5 text-[10px] font-bold text-orange-600">Upsell · ≥200 từ</div>
+                      )}
+                      {c.plan === 'free' && c.wordCount >= 150 && c.wordCount < 200 && (
+                        <div className="mt-0.5 text-[10px] font-bold text-amber-600">Upsell · ≥150 từ</div>
+                      )}
                     </td>
                     <td className="px-3 py-3 text-center">
                       <span className={`px-2 py-0.5 rounded-md text-[10px] font-black uppercase border ${PLAN_STYLE[c.plan] ?? PLAN_STYLE.free}`}>{c.plan}</span>
@@ -289,6 +345,9 @@ export default function CrmDashboard() {
                     </td>
                     <td className="px-3 py-3 text-right text-xs text-muted-foreground">{fmtDate(c.created_at)}</td>
                     <td className="px-3 py-3 text-right text-xs text-muted-foreground">{daysAgo(c.lastActive)}</td>
+                    <td className={`px-3 py-3 text-right font-semibold tabular-nums ${
+                      c.plan === 'free' && c.wordCount >= 150 ? 'text-orange-600' : 'text-muted-foreground'
+                    }`}>{c.wordCount || '—'}</td>
                     <td className="px-3 py-3 text-right font-semibold text-primary">{c.learnedCount || '—'}</td>
                     <td className="px-3 py-3 text-right text-xs tabular-nums text-muted-foreground">{c.reviewTotal || '—'}</td>
                     <td className="px-3 py-3 text-right text-xs tabular-nums text-rose-600/80">{c.lapsesTotal || '—'}</td>

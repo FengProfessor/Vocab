@@ -182,46 +182,67 @@ export interface WordSaveQuotaResult extends AccessResult {
   remaining?: number | null;
 }
 
+export interface WordSaveUsage {
+  /** Từ mới tháng UTC (quota chặn). */
+  used: number;
+  /** Tổng lifetime added_by (soft upsell power user). */
+  lifetime: number;
+  limit: number | null;
+  remaining: number | null;
+}
+
 /**
- * Đếm từ user đã `added_by` trong tháng UTC (luôn chạy — cho UI near-limit / bar).
- * Pro: trả used=0, limit=null (unlimited).
+ * Đếm từ Free: tháng UTC + lifetime (UI near-limit / power user).
+ * Pro: used=0, lifetime=0, limit=null.
  */
 export async function getWordSaveUsage(
   supabase: SupabaseClient,
   userId: string | null,
   plan: Plan,
-): Promise<{ used: number; limit: number | null; remaining: number | null }> {
+): Promise<WordSaveUsage> {
   if (!userId || plan !== 'free') {
-    return { used: 0, limit: null, remaining: null };
+    return { used: 0, lifetime: 0, limit: null, remaining: null };
   }
 
   const monthStart = startOfUtcMonth();
-  const { count, error } = await supabase
-    .from('words')
-    .select('id', { count: 'exact', head: true })
-    .eq('added_by', userId)
-    .gte('created_at', monthStart);
+  const [monthRes, lifeRes] = await Promise.all([
+    supabase
+      .from('words')
+      .select('id', { count: 'exact', head: true })
+      .eq('added_by', userId)
+      .gte('created_at', monthStart),
+    supabase
+      .from('words')
+      .select('id', { count: 'exact', head: true })
+      .eq('added_by', userId),
+  ]);
 
-  if (error) {
-    console.warn('[Entitlement] word save count failed:', error.message);
-    return {
-      used: 0,
-      limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
-      remaining: FREE_WORD_SAVE_MONTHLY_LIMIT,
-    };
+  if (monthRes.error) {
+    console.warn('[Entitlement] word month count failed:', monthRes.error.message);
+  }
+  if (lifeRes.error) {
+    console.warn('[Entitlement] word lifetime count failed:', lifeRes.error.message);
   }
 
-  const used = count ?? 0;
+  const used = monthRes.count ?? 0;
+  const lifetime = lifeRes.count ?? 0;
   const remaining = Math.max(0, FREE_WORD_SAVE_MONTHLY_LIMIT - used);
-  return { used, limit: FREE_WORD_SAVE_MONTHLY_LIMIT, remaining };
+  return {
+    used,
+    lifetime,
+    limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
+    remaining,
+  };
 }
 
 /**
- * Free: đếm từ user đã `added_by` trong tháng UTC hiện tại.
- * Vượt FREE_WORD_SAVE_MONTHLY_LIMIT → chặn lưu mới (khi ENTITLEMENT_ENFORCED).
- * Pro/premium / chưa enforce → always allow (vẫn trả used để UI soft-upsell).
+ * Free: chặn lưu mới khi vượt FREE_WORD_SAVE_MONTHLY_LIMIT (tháng UTC).
  *
- * @param extraToAdd số từ sắp lưu (1 = POST 1 từ). Dùng khi batch.
+ * **Luôn enforce quota từ** (tách khỏi ENTITLEMENT_ENFORCED feature gate)
+ * — tránh Free 250+ từ như case power user vẫn lưu vô hạn.
+ * Feature gate khác (grammar, AI enrich…) vẫn soft khi ENTITLEMENT_ENFORCED=false.
+ *
+ * @param extraToAdd số từ sắp lưu (1 = POST 1 từ).
  */
 export async function checkWordSaveQuota(
   supabase: SupabaseClient,
@@ -234,7 +255,7 @@ export async function checkWordSaveQuota(
   }
   if (!userId) {
     return {
-      allowed: !ENTITLEMENT_ENFORCED,
+      allowed: false,
       upgradeTo: 'pro',
       used: 0,
       limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
@@ -245,15 +266,6 @@ export async function checkWordSaveQuota(
   const usage = await getWordSaveUsage(supabase, userId, plan);
   const used = usage.used;
   const remaining = usage.remaining ?? 0;
-
-  if (!ENTITLEMENT_ENFORCED) {
-    return {
-      allowed: true,
-      used,
-      limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
-      remaining: Math.max(0, remaining - extraToAdd),
-    };
-  }
 
   if (used + extraToAdd > FREE_WORD_SAVE_MONTHLY_LIMIT) {
     return {
