@@ -744,6 +744,9 @@ function UpgradePageContent() {
           {seatsControl}
           {compareTable}
           {couponBlock}
+          <p className="-mt-1 px-1 text-[11px] leading-4 text-[#8a8778]">
+            Live Buổi 3: mã <span className="font-bold text-[#1a1915]">LIVEB3</span> — 1 tuần Pro miễn phí (đến 21/07).
+          </p>
           <SupportContactCard />
         </div>
 
@@ -760,6 +763,9 @@ function UpgradePageContent() {
             <div className="rounded-2xl border border-[#e8e6dc] bg-white p-4 shadow-sm">
               <div className="text-xs font-medium text-[#5e5d59]">Mã giảm giá</div>
               <div className="mt-2">{couponBlock}</div>
+              <p className="mt-2 text-[11px] leading-4 text-[#8a8778]">
+                Live Buổi 3: mã <span className="font-bold text-[#1a1915]">LIVEB3</span> — 1 tuần Pro miễn phí (đến 21/07).
+              </p>
             </div>
             {ctaButton({
               showArrow: true,

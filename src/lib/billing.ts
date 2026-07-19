@@ -10,11 +10,13 @@ import { getEffectivePlan } from '@/lib/entitlement';
 
 /**
  * Coupon tặng trial theo NGÀY (override period_months của RPC = 1 tháng).
- * Cả NEWBIE1W và NEWBIE2W đều = 7 ngày (1 tuần) — quà tour.
+ * NEWBIE* = tour onboarding; LIVE* = quà live group.
  */
 export const TRIAL_COUPON_DAYS: Record<string, number> = {
   NEWBIE1W: 7,
   NEWBIE2W: 7,
+  /** Live Buổi 3 — 1 tuần Pro free (quà tham gia live) */
+  LIVEB3: 7,
 };
 
 export function trialCouponExpiry(code: string, from: Date = new Date()): Date | null {
