@@ -25,6 +25,53 @@ export function trialCouponExpiry(code: string, from: Date = new Date()): Date |
   return new Date(from.getTime() + days * 24 * 60 * 60 * 1000);
 }
 
+/** Mã trial (LIVEB3, NEWBIE…): quà theo NGÀY, chỉ gói cá nhân 1 tháng. */
+export function isTrialCouponCode(code: string): boolean {
+  return Object.prototype.hasOwnProperty.call(TRIAL_COUPON_DAYS, code.trim().toUpperCase());
+}
+
+export function trialCouponDays(code: string): number | null {
+  return TRIAL_COUPON_DAYS[code.trim().toUpperCase()] ?? null;
+}
+
+/**
+ * Trial / free 100%: không cho áp lên 3–12 tháng (tránh free cả năm).
+ * Ném Error message tiếng Việt cho API trả client.
+ */
+export function assertCouponAllowedForOrder(input: {
+  couponCode: string;
+  coupon: Coupon | null;
+  orderKind: OrderKind;
+  periodMonths: number;
+}): void {
+  const code = input.couponCode.trim().toUpperCase();
+  if (!code || !input.coupon) return;
+
+  if (isTrialCouponCode(code)) {
+    if (input.orderKind === 'group') {
+      throw new Error('Mã quà live/trial chỉ dùng gói Pro cá nhân, không dùng gói nhóm.');
+    }
+    if (input.periodMonths !== 1) {
+      throw new Error(
+        `Mã ${code} chỉ áp dụng kỳ 1 tháng (quà ${trialCouponDays(code)} ngày Pro). Hãy chọn "1 tháng" rồi áp mã lại.`,
+      );
+    }
+  }
+
+  // Mọi mã 100% free: chặn kỳ > 1 tháng (không free 1 năm)
+  const isFullFree =
+    (input.coupon.discount_pct != null && input.coupon.discount_pct >= 100) ||
+    (input.coupon.discount_amount != null && input.coupon.discount_amount >= 1_000_000);
+  if (isFullFree && input.periodMonths !== 1) {
+    throw new Error(
+      `Mã ${code} là quà/miễn phí — chỉ dùng với kỳ 1 tháng. Đổi sang "1 tháng" rồi áp lại.`,
+    );
+  }
+  if (isFullFree && input.orderKind === 'group') {
+    throw new Error('Mã miễn phí không áp dụng gói nhóm.');
+  }
+}
+
 // ─────────────────────────────────────────
 // Pricing
 // ─────────────────────────────────────────
@@ -220,18 +267,13 @@ export async function createOrder(
   input: CreateOrderInput,
 ) {
   const { userId, paymentMethod = 'bank_transfer' } = input;
-  const periodMonths = normalizePeriodMonths(input.periodMonths);
+  let periodMonths = normalizePeriodMonths(input.periodMonths);
   const couponCode = input.couponCode?.trim().toUpperCase() || '';
 
   // Gói nhóm: ép plan = GROUP_PLAN, tính giá theo ghế.
   const orderKind: OrderKind = input.orderKind === 'group' ? 'group' : 'individual';
   const seats = orderKind === 'group' ? normalizeSeats(input.seats ?? GROUP_SEATS_DEFAULT) : 1;
   const plan: Exclude<Plan, 'free'> = orderKind === 'group' ? GROUP_PLAN : input.plan;
-
-  // Áp giảm giá kỳ hạn ngay tại server → số tiền order luôn khớp giá hiển thị ở /upgrade
-  const basePrice = orderKind === 'group'
-    ? computeGroupPrice(seats, periodMonths)
-    : computeBasePrice(plan, periodMonths);
 
   // Validate + apply coupon
   let coupon: Coupon | null = null;
@@ -256,7 +298,25 @@ export async function createOrder(
         coupon = data as Coupon;
       }
     }
+
+    // Trial / free 100%: chỉ 1 tháng — chặn free cả năm
+    assertCouponAllowedForOrder({
+      couponCode,
+      coupon,
+      orderKind,
+      periodMonths,
+    });
+
+    // Ép kỳ 1 tháng cho trial (phòng client gửi nhầm 12)
+    if (coupon && isTrialCouponCode(couponCode)) {
+      periodMonths = 1;
+    }
   }
+
+  // Áp giảm giá kỳ hạn ngay tại server → số tiền order luôn khớp giá hiển thị ở /upgrade
+  const basePrice = orderKind === 'group'
+    ? computeGroupPrice(seats, periodMonths)
+    : computeBasePrice(plan, periodMonths);
 
   const amount = applyDiscount(basePrice, coupon);
   // Gói nhóm không cho redeem free qua coupon (RPC chỉ tạo entitlement cá nhân, không dựng group).

@@ -29,8 +29,10 @@ import {
   formatVND,
   getGroupSeatPrice,
   getRemainingDays,
+  isTrialCouponCode,
   listGroupPrice,
   listPrice,
+  trialCouponDays,
   type Coupon,
 } from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
@@ -147,9 +149,19 @@ function UpgradePageContent() {
     };
   }, [router, isPreview]);
 
-  // Clear coupon khi đổi gói/kỳ hạn/ghế — tránh preview lệch
+  // Clear coupon khi đổi gói/kỳ hạn/ghế — giữ trial nếu vẫn 1 tháng (LIVEB3)
   useEffect(() => {
-    setCouponValid(null);
+    setCouponValid((prev) => {
+      if (!prev) return null;
+      if (
+        isTrialCouponCode(prev.code) &&
+        periodMonths === 1 &&
+        checkoutTarget === 'individual'
+      ) {
+        return prev;
+      }
+      return null;
+    });
   }, [periodMonths, checkoutTarget, seats]);
 
   useEffect(() => {
@@ -214,6 +226,20 @@ function UpgradePageContent() {
     const code = couponCode.trim().toUpperCase();
     if (!code) return;
 
+    // Trial LIVEB3/NEWBIE: ép UI về 1 tháng TRƯỚC khi validate (tránh free năm)
+    let periodForValidate = periodMonths;
+    if (isTrialCouponCode(code)) {
+      if (isGroup) {
+        toast.error('Mã quà live chỉ dùng gói Pro cá nhân, không dùng gói nhóm.');
+        return;
+      }
+      if (periodMonths !== 1) {
+        setPeriodMonths(1);
+        periodForValidate = 1;
+        toast.message('Mã quà chỉ áp kỳ 1 tháng — đã chuyển sang 1 tháng.');
+      }
+    }
+
     setCouponChecking(true);
     try {
       const {
@@ -228,8 +254,13 @@ function UpgradePageContent() {
         },
         body: JSON.stringify(
           isGroup
-            ? { code, orderKind: 'group', seats, periodMonths }
-            : { code, plan: selectedPlan, periodMonths, orderKind: 'individual' },
+            ? { code, orderKind: 'group', seats, periodMonths: periodForValidate }
+            : {
+                code,
+                plan: selectedPlan,
+                periodMonths: periodForValidate,
+                orderKind: 'individual',
+              },
         ),
       });
 
@@ -238,6 +269,9 @@ function UpgradePageContent() {
         error?: string;
         coupon?: Coupon;
         saved?: number;
+        forcePeriodMonths?: number | null;
+        trialDays?: number | null;
+        message?: string;
       };
 
       if (!res.ok || !data.valid || !data.coupon) {
@@ -246,12 +280,19 @@ function UpgradePageContent() {
         return;
       }
 
+      if (data.forcePeriodMonths === 1 && periodMonths !== 1) {
+        setPeriodMonths(1);
+      }
+
       setCouponValid(data.coupon);
-      toast.success(
-        data.saved && data.saved > 0
-          ? `Áp dụng thành công · tiết kiệm ${formatVND(data.saved)}`
-          : `Đã áp dụng mã ${data.coupon.code}`,
-      );
+      const days = data.trialDays ?? trialCouponDays(data.coupon.code);
+      if (days) {
+        toast.success(`Mã ${data.coupon.code}: ${days} ngày Pro miễn phí (kỳ 1 tháng)`);
+      } else if (data.saved && data.saved > 0) {
+        toast.success(`Áp dụng thành công · tiết kiệm ${formatVND(data.saved)}`);
+      } else {
+        toast.success(`Đã áp dụng mã ${data.coupon.code}`);
+      }
     } catch (err) {
       setCouponValid(null);
       toast.error(err instanceof Error ? err.message : 'Không kiểm tra được mã');
@@ -284,7 +325,9 @@ function UpgradePageContent() {
               }
             : {
                 plan: selectedPlan,
-                periodMonths,
+                // Trial: server cũng ép 1 tháng — client gửi đúng 1 để khớp UI
+                periodMonths:
+                  couponValid?.code && isTrialCouponCode(couponValid.code) ? 1 : periodMonths,
                 paymentMethod: 'bank_transfer',
                 couponCode: (couponValid?.code ?? couponCode.trim()) || undefined,
               },
@@ -745,7 +788,8 @@ function UpgradePageContent() {
           {compareTable}
           {couponBlock}
           <p className="-mt-1 px-1 text-[11px] leading-4 text-[#8a8778]">
-            Live Buổi 3: mã <span className="font-bold text-[#1a1915]">LIVEB3</span> — 1 tuần Pro miễn phí (đến 21/07).
+            Live Buổi 3: mã <span className="font-bold text-[#1a1915]">LIVEB3</span> — chọn{' '}
+            <b>1 tháng</b> rồi nhập mã (1 tuần Pro free, đến 21/07). Không dùng gói năm.
           </p>
           <SupportContactCard />
         </div>
@@ -764,7 +808,8 @@ function UpgradePageContent() {
               <div className="text-xs font-medium text-[#5e5d59]">Mã giảm giá</div>
               <div className="mt-2">{couponBlock}</div>
               <p className="mt-2 text-[11px] leading-4 text-[#8a8778]">
-                Live Buổi 3: mã <span className="font-bold text-[#1a1915]">LIVEB3</span> — 1 tuần Pro miễn phí (đến 21/07).
+                Live: <span className="font-bold text-[#1a1915]">LIVEB3</span> = 1 tuần Pro free — chỉ kỳ{' '}
+                <b>1 tháng</b> (không free cả năm).
               </p>
             </div>
             {ctaButton({

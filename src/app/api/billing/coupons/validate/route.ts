@@ -8,10 +8,13 @@ import { createServiceClient } from '@/lib/supabase';
 import type { Plan } from '@/lib/supabase';
 import {
   applyDiscount,
+  assertCouponAllowedForOrder,
   computeBasePrice,
   computeGroupPrice,
+  isTrialCouponCode,
   normalizePeriodMonths,
   normalizeSeats,
+  trialCouponDays,
   type Coupon,
 } from '@/lib/billing';
 
@@ -57,10 +60,7 @@ export async function POST(req: NextRequest) {
   }
 
   const plan: Exclude<Plan, 'free'> = body.orderKind === 'group' ? 'pro' : (body.plan ?? 'pro');
-  const basePrice =
-    body.orderKind === 'group'
-      ? computeGroupPrice(seats, periodMonths)
-      : computeBasePrice(plan, periodMonths);
+  const orderKind = body.orderKind === 'group' ? 'group' : 'individual';
 
   const { data, error: dbErr } = await supabase
     .from('coupons')
@@ -94,7 +94,30 @@ export async function POST(req: NextRequest) {
   }
 
   const coupon = data as Coupon;
+
+  // Trial / free 100%: chỉ 1 tháng
+  try {
+    assertCouponAllowedForOrder({
+      couponCode: code,
+      coupon,
+      orderKind,
+      periodMonths,
+    });
+  } catch (err) {
+    return NextResponse.json(
+      { valid: false, error: err instanceof Error ? err.message : 'Mã không hợp lệ với kỳ hạn này' },
+      { status: 400 },
+    );
+  }
+
+  // Preview trial: luôn tính theo 1 tháng
+  const effectivePeriod = isTrialCouponCode(code) ? 1 : periodMonths;
+  const basePrice =
+    orderKind === 'group'
+      ? computeGroupPrice(seats, effectivePeriod)
+      : computeBasePrice(plan, effectivePeriod);
   const finalAmount = applyDiscount(basePrice, coupon);
+  const days = trialCouponDays(code);
 
   return NextResponse.json({
     valid: true,
@@ -113,5 +136,11 @@ export async function POST(req: NextRequest) {
     basePrice,
     finalAmount,
     saved: Math.max(0, basePrice - finalAmount),
+    /** Client phải chuyển UI về 1 tháng khi nhận forcePeriodMonths */
+    forcePeriodMonths: isTrialCouponCode(code) ? 1 : null,
+    trialDays: days,
+    message: days
+      ? `Mã quà: ${days} ngày Pro miễn phí (chỉ kỳ 1 tháng). Không áp dụng gói 3–12 tháng.`
+      : undefined,
   });
 }
