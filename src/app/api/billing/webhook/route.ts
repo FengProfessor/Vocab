@@ -57,21 +57,32 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }
     }
 
-    // If not authorized by PayOS signature, fallback to Casso / secure token check
+    // If not authorized by PayOS signature, fallback to Casso / SePay / secure token
     if (!isAuthorized) {
-      // SePay gửi `Authorization: Apikey <key>`; các nguồn khác dùng Bearer / header riêng.
+      // SePay: Authorization: Apikey <key> · Casso: secure-token · khác: Bearer / x-webhook-secret
       const token = req.headers.get('secure-token') ||
                     req.headers.get('x-webhook-secret') ||
                     req.headers.get('x-api-key') ||
                     req.headers.get('authorization')?.replace(/^Bearer\s+/i, '').replace(/^Apikey\s+/i, '');
 
-      const webhookSecret = process.env.WEBHOOK_SECRET || process.env.CRON_SECRET;
+      // Chấp nhận WEBHOOK_SECRET (khuyến nghị) hoặc SEPAY_API_KEY nếu gắn nhầm key webhook = API key
+      const secrets = [
+        process.env.WEBHOOK_SECRET,
+        process.env.CRON_SECRET,
+        process.env.SEPAY_WEBHOOK_KEY,
+        process.env.SEPAY_API_KEY,
+      ].filter((s): s is string => Boolean(s && s.trim()));
 
-      if (webhookSecret && token === webhookSecret) {
+      if (token && secrets.some((s) => s === token)) {
         console.log('[Webhook] Secure-token/secret validation succeeded.');
         isAuthorized = true;
       } else {
-        console.warn('[Webhook] Unauthorized webhook call. Provided token:', token ? '***' : 'none');
+        console.warn(
+          '[Webhook] Unauthorized. token=',
+          token ? 'present' : 'none',
+          'secretsConfigured=',
+          secrets.length,
+        );
       }
     }
 
@@ -143,11 +154,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     for (const tx of transactions) {
       const desc = tx.description;
-      // Extract 8 hex chars prefix of the order UUID
-      // Format shown to user: "LINGOPRO <prefix>"
-      const match = desc.match(/LINGOPRO\s+([A-Fa-f0-9]{8})/i);
+      // Nội dung CK thực tế MB/SePay hay thêm prefix/suffix:
+      //   "CUSTOMER LINGOPRO 1999D42A. TU: HUYNH BAO TRAN"
+      //   "LINGOPRO 1999D42A"
+      // Lấy 8 hex sau LINGOPRO (cho phép khoảng trắng / không khoảng).
+      const match = desc.match(/LINGOPRO[\s._-]*([A-Fa-f0-9]{8})/i);
       if (!match) {
-        console.log(`[Webhook] Transaction description "${desc}" did not match LINGOPRO pattern. Skipping.`);
+        console.log(
+          `[Webhook] Description did not match LINGOPRO pattern. desc_sample="${desc.slice(0, 80)}" amount=${tx.amount}`,
+        );
         continue;
       }
 
@@ -232,15 +247,19 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
       const order = orders[0];
 
-      // Validate amount
-      if (order.amount !== tx.amount) {
-        console.warn(`[Webhook] Order amount mismatch for order ${order.id}. Expected: ${order.amount}, Transferred: ${tx.amount}`);
+      // Validate amount (coerce number — SePay đôi khi gửi string)
+      const txAmount = Math.round(Number(tx.amount));
+      const orderAmount = Math.round(Number(order.amount));
+      if (!Number.isFinite(txAmount) || orderAmount !== txAmount) {
+        console.warn(
+          `[Webhook] Order amount mismatch for order ${order.id}. Expected: ${orderAmount}, Transferred: ${txAmount}`,
+        );
         await supabase
           .from('payment_webhook_events')
           .update({
             status: 'ignored',
             order_id: order.id,
-            error_message: `amount_mismatch expected=${order.amount} got=${tx.amount}`,
+            error_message: `amount_mismatch expected=${orderAmount} got=${txAmount}`,
             processed_at: new Date().toISOString(),
           })
           .eq('event_key', eventKey);
