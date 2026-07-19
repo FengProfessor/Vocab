@@ -790,12 +790,8 @@ function UpgradePageContent() {
                     Quà live / mã tặng
                   </p>
                   <h2 className="mt-0.5 text-base font-semibold tracking-tight sm:text-lg">
-                    Nhận quà Pro — không phải mua gói
+                    Nhận quà
                   </h2>
-                  <p className="mt-1 text-[13px] leading-5 text-[#5e5d59]">
-                    Live Buổi 3: mã <span className="font-bold text-[#1a1915]">LIVEB3</span> ={' '}
-                    <b>7 ngày Pro miễn phí</b>. Không liên quan chọn 1 tháng hay 1 năm bên dưới.
-                  </p>
                 </div>
               </div>
               <div className="mt-4 flex gap-2">
@@ -809,7 +805,7 @@ function UpgradePageContent() {
                       void handleRedeemGift();
                     }
                   }}
-                  placeholder="LIVEB3"
+                  placeholder="Nhập mã quà"
                   className="min-w-0 flex-1 rounded-xl border border-[#e8e6dc] bg-white px-3 py-2.5 font-mono text-sm font-bold uppercase text-[#1a1915] outline-none focus:border-[#1a1915]/30 focus:ring-2 focus:ring-[#1a1915]/8"
                 />
                 <button
@@ -821,9 +817,6 @@ function UpgradePageContent() {
                   {giftLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Nhận quà'}
                 </button>
               </div>
-              <p className="mt-2 text-[11px] leading-4 text-[#8a8778]">
-                Hạn LIVEB3: 21/07 · Chỉ tài khoản đã đăng nhập · Muốn mua dài hạn xem bảng giá bên dưới.
-              </p>
             </>
           )}
         </section>
