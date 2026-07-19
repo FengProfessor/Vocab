@@ -163,24 +163,28 @@ export function pickBootUpsell(input: {
   }
 
   // C) Word limit / near — Free only
+  // ≥200 (tháng hoặc lifetime): LUÔN force modal mỗi session — không “Để sau” cả tháng
+  // ≥150: soft 1 lần/ngày
   if (effectivePlan === 'free' && signal >= WORD_NEAR_LIMIT_USED) {
-    const suffix = dismissSuffixWordMonth();
     const monthlyRemaining = Math.max(0, wordLimit - monthly);
-    // Đã ≥200 tháng hoặc lifetime (power user quá trần)
     const overCap = monthly >= wordLimit || lifetime >= wordLimit;
+    const usedShow = Math.max(monthly, lifetime);
+
     if (overCap) {
-      if (!isDismissed('word_limit', suffix)) {
-        return {
-          reason: 'word_limit',
-          used: Math.max(monthly, lifetime),
-          limit: wordLimit,
-          remaining: monthlyRemaining,
-        };
-      }
-    } else if (!isDismissed('word_near_limit', suffix)) {
+      // force: UpsellProvider không ghi dismiss tháng; chỉ tắt trong tab hiện tại
+      return {
+        reason: 'word_limit',
+        used: usedShow,
+        limit: wordLimit,
+        remaining: monthlyRemaining,
+        force: true,
+      };
+    }
+
+    if (!isDismissed('word_near_limit', dismissSuffixDaily())) {
       return {
         reason: 'word_near_limit',
-        used: Math.max(monthly, lifetime),
+        used: usedShow,
         limit: wordLimit,
         remaining: monthlyRemaining,
       };

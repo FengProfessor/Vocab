@@ -15,7 +15,9 @@ import {
 } from 'lucide-react';
 import { NotificationBell } from '@/components/NotificationBell';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
+import { FreeQuotaBanner } from '@/components/upsell/FreeQuotaBanner';
 import { useGamification } from '@/hooks/useGamification';
+import { useRoomPresence } from '@/hooks/useRoomPresence';
 import { supabase, type Profile } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
 import {
@@ -48,6 +50,11 @@ interface StudentShellProps {
   contentClassName?: string;
   /** Ẩn bottom tab khi đang học tập trung (flashcard/quiz/writing/speaking) */
   hideMobileNav?: boolean;
+  /**
+   * immersive = tắt sidebar desktop + drawer + header chrome + bottom nav
+   * (dùng cho Pixel Hub full-screen)
+   */
+  immersive?: boolean;
 }
 
 export function StudentShell({
@@ -55,6 +62,7 @@ export function StudentShell({
   children,
   contentClassName,
   hideMobileNav = false,
+  immersive = false,
 }: StudentShellProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -68,7 +76,32 @@ export function StudentShell({
   const [isBootstrapping, setIsBootstrapping] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  /** Hub iframe: ?embed=1 | from=hub → ẩn chrome (không dùng useSearchParams — tránh Suspense toàn app) */
+  const [embedMode, setEmbedMode] = useState(false);
   const { data: gamification } = useGamification(profile?.id ?? null);
+  const effectiveImmersive = immersive || embedMode;
+
+  useEffect(() => {
+    try {
+      const q = new URLSearchParams(window.location.search);
+      setEmbedMode(
+        q.get('embed') === '1' ||
+          q.get('embed') === 'true' ||
+          q.get('from') === 'hub' ||
+          q.get('from') === 'lingotown-embed',
+      );
+    } catch {
+      setEmbedMode(false);
+    }
+  }, [pathname]);
+
+  // Presence hub: báo "đang học gì" (heartbeat thưa, $0 multiplayer)
+  useRoomPresence({
+    roomId: classroomId,
+    displayName: profile?.full_name ?? null,
+    heartbeat: true,
+    enabled: Boolean(classroomId) && !isBootstrapping,
+  });
 
   useEffect(() => {
     const loadShellData = async () => {
@@ -182,6 +215,14 @@ export function StudentShell({
       tile: '#eef0ff',
       match: (value) => value === '/student',
       footerDup: true,
+    },
+    {
+      href: '/hub',
+      label: 'Thư viện',
+      emoji: '👀',
+      color: '#d97706',
+      tile: '#fef3c7',
+      match: (value) => value.startsWith('/hub'),
     },
     {
       href: '/journey',
@@ -310,12 +351,18 @@ export function StudentShell({
     .toUpperCase();
 
   const currentLevel = xpToLevel(gamification.total_xp);
-  const showBottomNav = !hideMobileNav;
+  const showBottomNav = !hideMobileNav && !effectiveImmersive;
+  const showChrome = !effectiveImmersive;
 
   return (
-    <div className="flex min-h-dvh w-full bg-[#f7f8fc] font-sans">
+    <div
+      className={cn(
+        'flex min-h-dvh w-full font-sans',
+        effectiveImmersive ? 'bg-background' : 'bg-[#f7f8fc]',
+      )}
+    >
       {/* ═══ MOBILE DRAWER ═══ */}
-      {isMenuOpen && (
+      {showChrome && isMenuOpen && (
         <div className="fixed inset-0 z-[100] md:hidden">
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -428,6 +475,7 @@ export function StudentShell({
       )}
 
       {/* ═══ DESKTOP SIDEBAR ═══ */}
+      {showChrome && (
       <aside className="fixed inset-y-0 left-0 z-20 hidden w-[248px] border-r border-[#ececf1] bg-white px-4 py-[22px] md:flex md:flex-col">
         <Link href="/student" className="flex items-center gap-2.5 px-2 pb-[22px] pt-1">
           <span className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_12px_rgba(99,102,241,.35)]">
@@ -485,9 +533,20 @@ export function StudentShell({
           </button>
         </div>
       </aside>
+      )}
 
       {/* ═══ MAIN ═══ */}
-      <main className="flex min-h-dvh min-w-0 flex-1 flex-col md:pl-[248px]">
+      <main
+        className={cn(
+          'flex min-h-dvh min-w-0 flex-1 flex-col',
+          showChrome && 'md:pl-[248px]',
+          effectiveImmersive && 'min-h-[100dvh]',
+        )}
+      >
+        {/* Free ≥150: banner dính + ép modal — lead upsell chắc thấy */}
+        {showChrome && !effectiveImmersive ? <FreeQuotaBanner /> : null}
+
+        {showChrome && (
         <header className="sticky top-0 z-30 flex h-header-safe items-center justify-between gap-2 border-b border-[#ececf1] bg-white/90 px-3 backdrop-blur-md sm:gap-3 sm:px-7">
           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <button
@@ -599,12 +658,14 @@ export function StudentShell({
             </div>
           )}
         </header>
+        )}
 
         <div
           className={cn(
             contentClassName ??
               'mx-auto w-full max-w-[1080px] px-4 py-5 pb-10 sm:px-7 sm:py-6',
             showBottomNav && 'pb-mobile-nav',
+            effectiveImmersive && 'w-full max-w-none p-0 sm:p-0',
           )}
         >
           {children}

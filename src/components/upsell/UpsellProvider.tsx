@@ -97,13 +97,17 @@ export function UpsellProvider() {
     }
 
     const { reason } = payload;
+    // force word_limit (≥200): chỉ đóng session — mở app/tab mới vẫn hiện lại
     if (reason === 'plan_expiring') {
       dismissUpsell(reason, dismissSuffixDaily());
     } else if (reason === 'plan_expired' && payload.expiresAt) {
       dismissUpsell(reason, dismissSuffixExpiry(payload.expiresAt));
-    } else if (reason === 'word_near_limit' || reason === 'word_limit') {
+    } else if (reason === 'word_near_limit') {
+      dismissUpsell(reason, dismissSuffixDaily());
+    } else if (reason === 'word_limit' && !payload.force) {
       dismissUpsell(reason, dismissSuffixWordMonth());
     }
+    // payload.force word_limit → không ghi localStorage
 
     try {
       track('upsell_dismiss', { reason });
