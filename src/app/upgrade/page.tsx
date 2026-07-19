@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   Copy,
   CreditCard,
+  Gift,
   Loader2,
   Minus,
   Phone,
@@ -97,6 +98,10 @@ function UpgradePageContent() {
   const [couponValid, setCouponValid] = useState<Coupon | null>(null);
   const [couponChecking, setCouponChecking] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  /** Mã quà live — mục riêng, không dính kỳ 1 tháng / 1 năm */
+  const [giftCode, setGiftCode] = useState('');
+  const [giftLoading, setGiftLoading] = useState(false);
+  const [giftDone, setGiftDone] = useState<{ days: number; plan: string } | null>(null);
   const [orderCreated, setOrderCreated] = useState<{
     orderId: string;
     amount: number;
@@ -108,6 +113,9 @@ function UpgradePageContent() {
     if (searchParams.get('mode') === 'group') {
       setCheckoutTarget('group');
     }
+    // Deep link: /upgrade?gift=LIVEB3
+    const g = searchParams.get('gift') || searchParams.get('code');
+    if (g) setGiftCode(g.trim().toUpperCase());
   }, [searchParams]);
 
   useEffect(() => {
@@ -149,19 +157,9 @@ function UpgradePageContent() {
     };
   }, [router, isPreview]);
 
-  // Clear coupon khi đổi gói/kỳ hạn/ghế — giữ trial nếu vẫn 1 tháng (LIVEB3)
+  // Clear mã % mua gói khi đổi kỳ hạn / mode (quà live không dùng state này)
   useEffect(() => {
-    setCouponValid((prev) => {
-      if (!prev) return null;
-      if (
-        isTrialCouponCode(prev.code) &&
-        periodMonths === 1 &&
-        checkoutTarget === 'individual'
-      ) {
-        return prev;
-      }
-      return null;
-    });
+    setCouponValid(null);
   }, [periodMonths, checkoutTarget, seats]);
 
   useEffect(() => {
@@ -222,22 +220,80 @@ function UpgradePageContent() {
     return Math.round(total / seats / periodMonths);
   }, [seats, periodMonths]);
 
+  const handleRedeemGift = async () => {
+    const code = giftCode.trim().toUpperCase();
+    if (!code) {
+      toast.error('Nhập mã quà');
+      return;
+    }
+    if (!isTrialCouponCode(code)) {
+      toast.error('Mã quà live/trial nhập ở khung này. Mã giảm % mua gói dùng phần Thanh toán bên dưới.');
+      return;
+    }
+
+    setGiftLoading(true);
+    try {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (!session?.access_token) {
+        router.push('/auth');
+        return;
+      }
+
+      const res = await fetch('/api/billing/redeem-gift', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code }),
+      });
+      const data = (await res.json()) as {
+        error?: string;
+        success?: boolean;
+        trialDays?: number;
+        message?: string;
+        order?: { plan: string; status: string };
+      };
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error ?? 'Không nhận được quà');
+      }
+
+      const days = data.trialDays ?? trialCouponDays(code) ?? 7;
+      setGiftDone({ days, plan: data.order?.plan ?? 'pro' });
+      setCurrentPlan((data.order?.plan as Plan) ?? 'pro');
+      // refresh expiry roughly
+      const exp = new Date();
+      exp.setDate(exp.getDate() + days);
+      setExpiresAt(exp.toISOString());
+      toast.success(data.message ?? `Đã nhận ${days} ngày Pro!`);
+
+      import('canvas-confetti')
+        .then((confetti) => {
+          confetti.default({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+        })
+        .catch(() => undefined);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Lỗi nhận quà');
+    } finally {
+      setGiftLoading(false);
+    }
+  };
+
   const handleValidateCoupon = async () => {
     const code = couponCode.trim().toUpperCase();
     if (!code) return;
 
-    // Trial LIVEB3/NEWBIE: ép UI về 1 tháng TRƯỚC khi validate (tránh free năm)
-    let periodForValidate = periodMonths;
+    // Trial/LIVE: hướng lên mục Nhận quà — không đi flow mua
     if (isTrialCouponCode(code)) {
-      if (isGroup) {
-        toast.error('Mã quà live chỉ dùng gói Pro cá nhân, không dùng gói nhóm.');
-        return;
-      }
-      if (periodMonths !== 1) {
-        setPeriodMonths(1);
-        periodForValidate = 1;
-        toast.message('Mã quà chỉ áp kỳ 1 tháng — đã chuyển sang 1 tháng.');
-      }
+      setGiftCode(code);
+      setCouponCode('');
+      setCouponValid(null);
+      toast.message('Mã quà live — dùng khung «Nhận quà» phía trên (không phải mua gói).');
+      document.getElementById('nhan-qua')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
     }
 
     setCouponChecking(true);
@@ -254,11 +310,11 @@ function UpgradePageContent() {
         },
         body: JSON.stringify(
           isGroup
-            ? { code, orderKind: 'group', seats, periodMonths: periodForValidate }
+            ? { code, orderKind: 'group', seats, periodMonths }
             : {
                 code,
                 plan: selectedPlan,
-                periodMonths: periodForValidate,
+                periodMonths,
                 orderKind: 'individual',
               },
         ),
@@ -269,9 +325,6 @@ function UpgradePageContent() {
         error?: string;
         coupon?: Coupon;
         saved?: number;
-        forcePeriodMonths?: number | null;
-        trialDays?: number | null;
-        message?: string;
       };
 
       if (!res.ok || !data.valid || !data.coupon) {
@@ -280,15 +333,8 @@ function UpgradePageContent() {
         return;
       }
 
-      if (data.forcePeriodMonths === 1 && periodMonths !== 1) {
-        setPeriodMonths(1);
-      }
-
       setCouponValid(data.coupon);
-      const days = data.trialDays ?? trialCouponDays(data.coupon.code);
-      if (days) {
-        toast.success(`Mã ${data.coupon.code}: ${days} ngày Pro miễn phí (kỳ 1 tháng)`);
-      } else if (data.saved && data.saved > 0) {
+      if (data.saved && data.saved > 0) {
         toast.success(`Áp dụng thành công · tiết kiệm ${formatVND(data.saved)}`);
       } else {
         toast.success(`Đã áp dụng mã ${data.coupon.code}`);
@@ -325,9 +371,7 @@ function UpgradePageContent() {
               }
             : {
                 plan: selectedPlan,
-                // Trial: server cũng ép 1 tháng — client gửi đúng 1 để khớp UI
-                periodMonths:
-                  couponValid?.code && isTrialCouponCode(couponValid.code) ? 1 : periodMonths,
+                periodMonths,
                 paymentMethod: 'bank_transfer',
                 couponCode: (couponValid?.code ?? couponCode.trim()) || undefined,
               },
@@ -712,8 +756,86 @@ function UpgradePageContent() {
           )}
         </div>
 
+        {/* ── Nhận quà live (tách khỏi mua gói) ── */}
+        <section
+          id="nhan-qua"
+          className="mx-auto mt-6 max-w-lg scroll-mt-24 rounded-2xl border border-[#d7bb76]/50 bg-gradient-to-br from-[#fff9eb] to-white p-4 shadow-sm sm:p-5 lg:mt-8"
+        >
+          {giftDone ? (
+            <div className="text-center">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#edf7f1] text-[#2d7f5e]">
+                <Check className="h-6 w-6" strokeWidth={2.5} />
+              </div>
+              <h2 className="mt-3 text-lg font-semibold tracking-tight">Đã nhận quà!</h2>
+              <p className="mt-1.5 text-sm leading-6 text-[#5e5d59]">
+                Tài khoản của bạn có <b className="text-[#1a1915]">{giftDone.days} ngày Pro</b> miễn phí.
+                Không phải gói trả phí 1 tháng / 1 năm.
+              </p>
+              <Link
+                href="/student"
+                className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-[#1a1915] px-5 py-3 text-sm font-semibold text-white"
+              >
+                Vào học ngay
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          ) : (
+            <>
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1a1915] text-[#d7bb76]">
+                  <Gift className="h-5 w-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9a7b2f]">
+                    Quà live / mã tặng
+                  </p>
+                  <h2 className="mt-0.5 text-base font-semibold tracking-tight sm:text-lg">
+                    Nhận quà Pro — không phải mua gói
+                  </h2>
+                  <p className="mt-1 text-[13px] leading-5 text-[#5e5d59]">
+                    Live Buổi 3: mã <span className="font-bold text-[#1a1915]">LIVEB3</span> ={' '}
+                    <b>7 ngày Pro miễn phí</b>. Không liên quan chọn 1 tháng hay 1 năm bên dưới.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 flex gap-2">
+                <input
+                  type="text"
+                  value={giftCode}
+                  onChange={(e) => setGiftCode(e.target.value.toUpperCase())}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      void handleRedeemGift();
+                    }
+                  }}
+                  placeholder="LIVEB3"
+                  className="min-w-0 flex-1 rounded-xl border border-[#e8e6dc] bg-white px-3 py-2.5 font-mono text-sm font-bold uppercase text-[#1a1915] outline-none focus:border-[#1a1915]/30 focus:ring-2 focus:ring-[#1a1915]/8"
+                />
+                <button
+                  type="button"
+                  onClick={() => void handleRedeemGift()}
+                  disabled={giftLoading || !giftCode.trim()}
+                  className="shrink-0 rounded-xl bg-[#1a1915] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+                >
+                  {giftLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Nhận quà'}
+                </button>
+              </div>
+              <p className="mt-2 text-[11px] leading-4 text-[#8a8778]">
+                Hạn LIVEB3: 21/07 · Chỉ tài khoản đã đăng nhập · Muốn mua dài hạn xem bảng giá bên dưới.
+              </p>
+            </>
+          )}
+        </section>
+
+        <div className="mx-auto mt-8 max-w-lg border-t border-[#e8e6dc] pt-6 text-center lg:max-w-none">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a8778]">
+            Hoặc mua gói Pro / Nhóm
+          </p>
+        </div>
+
         {/* Tab Pro | Nhóm */}
-        <div className="mx-auto mt-5 flex max-w-xs rounded-full border border-[#e8e6dc] bg-white p-1 shadow-sm lg:mt-8 lg:max-w-sm">
+        <div className="mx-auto mt-4 flex max-w-xs rounded-full border border-[#e8e6dc] bg-white p-1 shadow-sm lg:mt-5 lg:max-w-sm">
           {(
             [
               { id: 'pro' as const, label: 'Pro' },
@@ -788,8 +910,7 @@ function UpgradePageContent() {
           {compareTable}
           {couponBlock}
           <p className="-mt-1 px-1 text-[11px] leading-4 text-[#8a8778]">
-            Live Buổi 3: mã <span className="font-bold text-[#1a1915]">LIVEB3</span> — chọn{' '}
-            <b>1 tháng</b> rồi nhập mã (1 tuần Pro free, đến 21/07). Không dùng gói năm.
+            Mã giảm % mua gói (không phải LIVEB3). Quà live → khung «Nhận quà» phía trên.
           </p>
           <SupportContactCard />
         </div>
@@ -808,8 +929,7 @@ function UpgradePageContent() {
               <div className="text-xs font-medium text-[#5e5d59]">Mã giảm giá</div>
               <div className="mt-2">{couponBlock}</div>
               <p className="mt-2 text-[11px] leading-4 text-[#8a8778]">
-                Live: <span className="font-bold text-[#1a1915]">LIVEB3</span> = 1 tuần Pro free — chỉ kỳ{' '}
-                <b>1 tháng</b> (không free cả năm).
+                Mã % mua gói. Quà live <b>LIVEB3</b> → mục «Nhận quà» phía trên.
               </p>
             </div>
             {ctaButton({
