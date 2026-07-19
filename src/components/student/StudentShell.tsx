@@ -17,7 +17,6 @@ import { NotificationBell } from '@/components/NotificationBell';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { FreeQuotaBanner } from '@/components/upsell/FreeQuotaBanner';
 import { useGamification } from '@/hooks/useGamification';
-import { useRoomPresence } from '@/hooks/useRoomPresence';
 import { supabase, type Profile } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
 import {
@@ -94,14 +93,6 @@ export function StudentShell({
       setEmbedMode(false);
     }
   }, [pathname]);
-
-  // Presence hub: báo "đang học gì" (heartbeat thưa, $0 multiplayer)
-  useRoomPresence({
-    roomId: classroomId,
-    displayName: profile?.full_name ?? null,
-    heartbeat: true,
-    enabled: Boolean(classroomId) && !isBootstrapping,
-  });
 
   useEffect(() => {
     const loadShellData = async () => {
