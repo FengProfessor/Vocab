@@ -7,6 +7,49 @@ import crypto from 'crypto';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
+/**
+ * GET — mở trên trình duyệt không phải lỗi site.
+ * Endpoint này chỉ nhận POST từ SePay/Casso/PayOS.
+ */
+export async function GET(): Promise<NextResponse> {
+  const html = `<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>LingoPro Payment Webhook</title>
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:36rem;margin:3rem auto;padding:0 1.25rem;color:#1a1915;background:#faf9f5;line-height:1.55}
+    h1{font-size:1.35rem;margin:0 0 .5rem}
+    .ok{display:inline-block;background:#edf7f1;color:#2d7f5e;font-weight:700;font-size:.75rem;padding:.25rem .6rem;border-radius:999px}
+    code{background:#fff;border:1px solid #e8e6dc;padding:.1rem .35rem;border-radius:.35rem;font-size:.85em}
+    li{margin:.35rem 0}
+    a{color:#1a7f4b}
+  </style>
+</head>
+<body>
+  <p class="ok">Webhook OK · endpoint đang chạy</p>
+  <h1>Đây không phải trang web để mở tay</h1>
+  <p>URL này chỉ nhận <b>POST</b> tự động từ <b>SePay</b> (hoặc Casso/PayOS) khi có tiền vào tài khoản.</p>
+  <ul>
+    <li>Mở bằng trình duyệt (GET) → bình thường, <b>không</b> kích hoạt Pro.</li>
+    <li>SePay cấu hình Webhook URL = <code>https://lingopro.online/api/billing/webhook</code></li>
+    <li>API Key webhook trên SePay = <code>WEBHOOK_SECRET</code> trên Vercel</li>
+    <li>Nội dung CK học viên: <code>LINGOPRO xxxxxxxx</code> (đủ 8 ký tự)</li>
+  </ul>
+  <p>Trang thanh toán / nhận quà: <a href="https://lingopro.online/upgrade">/upgrade</a></p>
+</body>
+</html>`;
+
+  return new NextResponse(html, {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'no-store',
+    },
+  });
+}
+
 function verifyPayOSSignature(data: Record<string, unknown>, signature: string, checksumKey: string): boolean {
   try {
     const sortedKeys = Object.keys(data).sort();
