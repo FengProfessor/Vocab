@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { completeRoadmapStep } from '@/lib/roadmap-client';
+import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
 import Link from 'next/link';
 import { StudentShell } from '@/components/student/StudentShell';
 import { LazyMarkdown } from '@/components/perf/LazyMarkdown';
@@ -138,6 +138,7 @@ function GrammarLearnContent() {
   const searchParams = useSearchParams();
   const roadmapStepId = searchParams.get('roadmapStep');
   const roadmapTopicSlug = searchParams.get('topic');
+  const forceReplay = searchParams.get('replay') === '1';
   const [userId, setUserId] = useState<string | null>(null);
   const [topics, setTopics] = useState<GrammarTopic[]>([]);
   const [lessonsByTopic, setLessonsByTopic] = useState<Record<string, GrammarLesson[]>>({});
@@ -214,10 +215,10 @@ function GrammarLearnContent() {
     }
   };
 
-  // Mở từ lộ trình (?topic=<slug>): expand topic + TỰ MỞ bài đầu để học ngay (không bắt user tìm trong list)
+  // Mở từ lộ trình (?topic=<slug>): expand topic + TỰ MỞ bài đầu; nếu đã học trong kho → ghi step + về journey
   const openedFromRoadmap = useRef(false);
   useEffect(() => {
-    if (!roadmapTopicSlug || topics.length === 0 || openedFromRoadmap.current) return;
+    if (isLoading || !roadmapTopicSlug || topics.length === 0 || openedFromRoadmap.current) return;
     const target = topics.find((t) => t.slug === roadmapTopicSlug);
     if (!target) return;
     openedFromRoadmap.current = true;
@@ -231,7 +232,16 @@ function GrammarLearnContent() {
         const lessons = (res?.success ? res.data : []) as GrammarLesson[];
         if (lessons.length > 0) {
           setLessonsByTopic((prev) => ({ ...prev, [target.id]: lessons }));
-          // Mở bài đầu (hoặc bài chưa học nếu có) — user bấm "Đã đọc xong" để ghi step lộ trình
+          // Bất kỳ lesson nào đã có progress = coi topic đã học trong kho (trừ replay)
+          const anyLearned = lessons.some((l) => !!progressMap[l.id]);
+          if (anyLearned && roadmapStepId && !forceReplay) {
+            const result = await completeRoadmapStep(roadmapStepId);
+            if (result) {
+              toast.success(`+${result.xpAwarded} XP — chủ đề này bạn đã học trong kho, sang bước kế tiếp nhé!`);
+              router.push('/journey');
+              return;
+            }
+          }
           const firstUnlearned = lessons.find((l) => !progressMap[l.id]) ?? lessons[0];
           setActiveLesson(firstUnlearned);
         }
@@ -241,7 +251,7 @@ function GrammarLearnContent() {
       setTimeout(() => topicRefs.current[target.id]?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [roadmapTopicSlug, topics]);
+  }, [isLoading, roadmapTopicSlug, topics]);
 
   /**
    * Đánh dấu đã đọc / ôn lại bài học.
@@ -284,6 +294,8 @@ function GrammarLearnContent() {
               `+${result.xpAwarded} XP · đã ghi chặng lộ trình (bài ngữ pháp CEFR dùng chung FSRS).`,
             );
             router.push('/journey');
+          } else {
+            toast.error(getLastRoadmapStepError() || 'Chưa ghi được chặng lộ trình — thử lại từ Lộ trình.');
           }
         }
       } else {

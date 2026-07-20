@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { getRoadmapLevels, orderedStepIds, ROADMAP_VERSION, levelOrder, type RoadmapLevelId, type RoadmapTrack } from '@/lib/roadmap';
+import { creditRoadmapFromLibrary } from '@/lib/roadmap-credit';
 
 type EnrollmentRow = {
   level_id: string;
@@ -11,11 +12,14 @@ type EnrollmentRow = {
   track: string | null;
 };
 
+type StepRow = { step_id: string; status: string; score: number | null; completed_at: string | null };
+
 /**
  * GET /api/roadmap?track=cefr|thpt
  * - 1 user có thể ghi danh CẢ 2 track (sau migration multi-track).
  * - Không ?track → ưu tiên track query local / enrollment mới nhất.
  * - Trả enrollments[] luôn (kể cả khi track đang xem chưa ghi danh → needsPlacement).
+ * - Tự credit step vocab/grammar đã học trong kho (không XP) để không kẹt next.
  */
 export async function GET(req: NextRequest) {
   try {
@@ -65,11 +69,33 @@ export async function GET(req: NextRequest) {
     const startLevel = activeEnrollment.levelId;
     const startLevelIdx = Math.max(0, ORDER.indexOf(startLevel));
 
-    const { data: stepRows } = await supabase
+    let { data: stepRows } = await supabase
       .from('user_roadmap_steps')
       .select('step_id, status, score, completed_at')
       .eq('user_id', auth.userId);
-    const doneSteps = new Map((stepRows ?? []).map((r) => [r.step_id as string, r]));
+
+    // Gói/topic đã học trong kho → ghi step completed (fix kẹt "xong rồi mà không next")
+    const doneBefore = new Set(
+      ((stepRows ?? []) as StepRow[])
+        .filter((r) => r.status === 'completed')
+        .map((r) => r.step_id),
+    );
+    const credit = await creditRoadmapFromLibrary(
+      supabase,
+      auth.userId,
+      track,
+      startLevel,
+      doneBefore,
+    );
+    if (credit.creditedStepIds.length > 0) {
+      const resync = await supabase
+        .from('user_roadmap_steps')
+        .select('step_id, status, score, completed_at')
+        .eq('user_id', auth.userId);
+      stepRows = resync.data;
+    }
+
+    const doneSteps = new Map(((stepRows ?? []) as StepRow[]).map((r) => [r.step_id, r]));
 
     const ordered = orderedStepIds(track);
     const levels = getRoadmapLevels(track);
@@ -104,7 +130,8 @@ export async function GET(req: NextRequest) {
               const pos = scopedOrdered.indexOf(step.id);
               status = pos >= 0 && pos < currentPos ? 'current' : 'locked';
             }
-            return { ...step, status, score: done?.score ?? null };
+            const fromLibrary = credit.creditedStepIds.includes(step.id);
+            return { ...step, status, score: done?.score ?? null, fromLibrary: fromLibrary || undefined };
           }),
         })),
       };
@@ -120,6 +147,7 @@ export async function GET(req: NextRequest) {
         track,
         levelId: startLevel,
         currentStepId,
+        creditedFromLibrary: credit.creditedStepIds.length,
         tree,
       },
     });

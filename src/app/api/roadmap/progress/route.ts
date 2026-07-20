@@ -3,6 +3,7 @@ import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { resolveStepAny, orderedStepIds, getRoadmapLevels, levelOrder, type RoadmapLevelId, type RoadmapTrack } from '@/lib/roadmap';
 import { checkRoadmapLevelAccess, getEffectivePlan, type Plan } from '@/lib/entitlement';
+import { creditRoadmapFromLibrary } from '@/lib/roadmap-credit';
 
 const XP_PER_STEP = 15;
 const XP_CHECKPOINT_BONUS = 30;
@@ -92,6 +93,20 @@ export async function POST(req: NextRequest) {
       const position = scoped.indexOf(stepId);
       const priorIds = scoped.slice(0, position);
       if (priorIds.length > 0) {
+        // Credit gói/topic đã học trong kho trước khi check tuần tự (tránh kẹt vì học ngoài journey)
+        const { data: allDoneRows } = await supabase
+          .from('user_roadmap_steps')
+          .select('step_id')
+          .eq('user_id', auth.userId)
+          .eq('status', 'completed');
+        await creditRoadmapFromLibrary(
+          supabase,
+          auth.userId,
+          track,
+          enrollRow.level_id as RoadmapLevelId,
+          new Set((allDoneRows ?? []).map((r) => r.step_id as string)),
+        );
+
         const { data: doneRows } = await supabase
           .from('user_roadmap_steps')
           .select('step_id')

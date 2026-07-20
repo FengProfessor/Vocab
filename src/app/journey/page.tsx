@@ -116,6 +116,11 @@ export default function JourneyPage() {
         setTree(data.tree);
         setLevelId(data.levelId ?? 'A0');
         setMode(null);
+        if ((data.creditedFromLibrary ?? 0) > 0) {
+          toast.success(
+            `Đã đồng bộ ${data.creditedFromLibrary} bước từ kho (từ vựng/ngữ pháp đã học) — lộ trình mở tiếp cho bạn.`,
+          );
+        }
       }
     } catch (error: unknown) {
       toast.error(error instanceof Error ? error.message : 'Không tải được lộ trình');
@@ -204,11 +209,20 @@ export default function JourneyPage() {
     else void submitPlacement({ track: 'cefr', answers: next });
   };
 
-  const openStep = async (step: RoadmapStepView): Promise<void> => {
+  const openStep = async (step: RoadmapStepView, opts?: { forceReplay?: boolean }): Promise<void> => {
     if (step.status === 'locked' || busyStep) return;
     setBusyStep(step.id);
     try {
       const THPT_TYPES = ['reading', 'cloze', 'arrange', 'announcement', 'leaflet', 'exam'];
+
+      // Step đã completed: hỏi học lại (trừ khi force)
+      if (step.status === 'completed' && !opts?.forceReplay && (step.type === 'vocab' || step.type === 'grammar')) {
+        const replay = window.confirm(
+          `「${step.title}」đã hoàn thành${step.fromLibrary ? ' (đồng bộ từ kho)' : ''}.\n\nOK = học lại · Cancel = giữ nguyên.`,
+        );
+        if (!replay) return;
+      }
+
       if (step.type === 'vocab') {
         toast.loading('Đang chuẩn bị gói từ...', { id: 'journey-open' });
         const res = await authFetch('/api/import/packages', {
@@ -234,9 +248,11 @@ export default function JourneyPage() {
         }
         toast.dismiss('journey-open');
         const ids = data.wordIds.map((id) => encodeURIComponent(id)).join(',');
-        router.push(`/flashcard?class=${encodeURIComponent(data.classroomId)}&mode=learn&ids=${ids}&roadmapStep=${step.id}`);
+        const replayQs = step.status === 'completed' ? '&replay=1' : '';
+        router.push(`/flashcard?class=${encodeURIComponent(data.classroomId)}&mode=learn&ids=${ids}&roadmapStep=${step.id}${replayQs}`);
       } else if (step.type === 'grammar') {
-        router.push(`/grammar/learn?topic=${encodeURIComponent(step.ref)}&roadmapStep=${step.id}`);
+        const replayQs = step.status === 'completed' ? '&replay=1' : '';
+        router.push(`/grammar/learn?topic=${encodeURIComponent(step.ref)}&roadmapStep=${step.id}${replayQs}`);
       } else if (step.type === 'pronunciation') {
         router.push(`/pronunciation/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
       } else if (THPT_TYPES.includes(step.type)) {

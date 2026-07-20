@@ -14,8 +14,10 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
-import { completeRoadmapStep } from '@/lib/roadmap-client';
+import { stopWordAudio } from '@/lib/audio';
+import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
+import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 
 interface WordItem {
   id: string;
@@ -24,6 +26,7 @@ interface WordItem {
   ipa: string;
   pos: string;
   example: string;
+  example_vi?: string | null;
   image_url?: string;
   reviewCount: number;
   srsLevel: number;
@@ -68,10 +71,10 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   };
 
   const roadmapStepParam = searchParams.get('roadmapStep');
+  const forceReplay = searchParams.get('replay') === '1';
 
   // ── Load từ mới (chưa học) đã enrich ──
-  // Từ lộ trình (?ids=...&roadmapStep=...): nếu đã học hết / đang enrich → fallback load theo ids
-  // hoặc đánh dấu step xong để không kẹt "Hết từ mới" giữa lộ trình.
+  // Từ lộ trình (?ids=...&roadmapStep=...): nếu đã học hết → ghi step (trừ replay=1).
   useEffect(() => {
     (async () => {
       try {
@@ -94,23 +97,28 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         };
 
         let result = await loadWords('new');
-        // Lộ trình: đã học pack này rồi (re-open / retry) → vẫn cho ôn lại theo ids
-        if (result.words.length === 0 && idsParam !== null) {
+
+        // Lộ trình + đã học hết từ mới + không replay → ghi step, không ép học lại.
+        if (result.words.length === 0 && roadmapStepParam && !forceReplay) {
+          const done = await completeRoadmapStep(roadmapStepParam);
+          if (done) {
+            toast.success(`+${done.xpAwarded} XP — gói này bạn đã học trong kho, sang bước kế tiếp nhé!`);
+            router.push('/journey');
+            return;
+          }
+          const err = getLastRoadmapStepError();
+          if (err) toast.error(err);
+          if (idsParam !== null) {
+            result = await loadWords(null);
+          }
+        } else if (result.words.length === 0 && idsParam !== null) {
+          // replay hoặc ngoài lộ trình: load full ids để ôn lại
           result = await loadWords(null);
         }
 
         if (!initialClassroomId && result.classroomId) setClassroomId(result.classroomId);
 
         if (result.words.length === 0) {
-          // Mở từ lộ trình mà không còn từ để học → coi step đã xong, không chặn path
-          if (roadmapStepParam) {
-            const done = await completeRoadmapStep(roadmapStepParam);
-            if (done) {
-              toast.success(`+${done.xpAwarded} XP — gói này bạn đã học rồi, sang bước kế tiếp nhé!`);
-              router.push('/journey');
-              return;
-            }
-          }
           setPhase('empty');
           return;
         }
@@ -124,17 +132,21 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         setPhase('empty');
       }
     })();
-  }, [initialClassroomId, idsParam, router, roadmapStepParam]);
+  }, [initialClassroomId, idsParam, router, roadmapStepParam, forceReplay]);
 
-  // Tự phát âm khi đổi thẻ ở bước Giới thiệu
+  // Tự phát âm khi đổi thẻ ở bước Giới thiệu — stop từ cũ trước để không lướt theo
   useEffect(() => {
     if (phase === 'introduce' && batch[introIndex]) {
+      stopWordAudio();
       speak(batch[introIndex].word, 1.0);
     }
   }, [phase, introIndex, batch]);
 
-  // Cleanup timer
-  useEffect(() => () => { if (advanceTimer.current) clearTimeout(advanceTimer.current); }, []);
+  // Cleanup timer + audio
+  useEffect(() => () => {
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    stopWordAudio();
+  }, []);
 
   // Preload toàn bộ ảnh trong batch (≤20 từ) — ảnh sẵn trong cache khi lật tới
   useEffect(() => {
@@ -164,10 +176,18 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     }
   };
 
+  // Chỉ phase Làm quen: xem lại từ trước (chưa chấm SRS)
+  const prevIntro = () => {
+    if (introIndex <= 0) return;
+    setIntroIndex((i) => i - 1);
+  };
+
   const recallWord = batch[recallIndex];
 
   const goNextRecall = useCallback(() => {
     if (advanceTimer.current) { clearTimeout(advanceTimer.current); advanceTimer.current = null; }
+    // Chặn tiếng từ vừa chấm phát trễ khi UI đã sang từ mới
+    stopWordAudio();
     if (recallIndex + 1 >= batch.length) {
       setPhase('done');
     } else {
@@ -246,7 +266,12 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     const roadmapStep = searchParams.get('roadmapStep');
     if (roadmapStep) {
       void completeRoadmapStep(roadmapStep).then((result) => {
-        if (result) toast.success(`+${result.xpAwarded} XP lộ trình — bạn đã đi hết bước này, đều đặn thế là quý lắm!`);
+        if (result) {
+          toast.success(`+${result.xpAwarded} XP lộ trình — bạn đã đi hết bước này, đều đặn thế là quý lắm!`);
+        } else {
+          const err = getLastRoadmapStepError();
+          toast.error(err || 'Chưa ghi được chặng lộ trình — thử mở lại bước này từ Lộ trình.');
+        }
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -408,19 +433,34 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                   </Badge>
                 )}
                 {w.example && (
-                  <p className="line-clamp-3 border-l-4 border-slate-200 pl-2.5 text-left text-xs font-medium italic leading-snug text-slate-500 sm:text-sm">
-                    &quot;{w.example}&quot;
-                  </p>
+                  <ExampleWithSub
+                    example={w.example}
+                    exampleVi={w.example_vi}
+                    defaultShowVi
+                    className="line-clamp-5 border-l-4 border-slate-200 pl-2.5 text-left"
+                    enClassName="text-xs font-medium italic leading-snug text-slate-500 sm:text-sm"
+                    viClassName="mt-1 text-[11px] font-medium leading-snug text-slate-400 sm:text-xs not-italic"
+                  />
                 )}
               </div>
             </CardContent>
           </Card>
 
-          <div className="mt-2 w-full max-w-[400px] shrink-0">
+          <div className="mt-2 flex w-full max-w-[400px] shrink-0 gap-2">
+            {introIndex > 0 && (
+              <button
+                type="button"
+                onClick={prevIntro}
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-b-[3px] border-slate-200 bg-white text-slate-600 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-2 sm:h-16 sm:w-16 sm:rounded-[22px]"
+                aria-label="Quay lại từ trước"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+            )}
             <button
               type="button"
               onClick={nextIntro}
-              className="flex h-14 w-full items-center justify-center gap-2 rounded-2xl border-b-[3px] border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-lg"
+              className="flex h-14 min-w-0 flex-1 items-center justify-center gap-2 rounded-2xl border-b-[3px] border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-lg"
             >
               {introIndex + 1 >= batch.length ? 'Kiểm tra trí nhớ' : 'Tiếp'} <ArrowRight className="h-5 w-5" />
             </button>
