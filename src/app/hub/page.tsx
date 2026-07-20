@@ -171,7 +171,7 @@ export default function HubPage() {
             <DockBtn emoji="📐" label="Ngữ pháp" onClick={() => setStudyKind('grammar')} />
             <DockBtn emoji="✅" label="Quiz" onClick={() => setStudyKind('quiz')} />
             <DockBtn emoji="✍️" label="Gõ từ" onClick={() => setStudyKind('writing')} />
-            <DockBtn emoji="✨" label="Chèn từ" onClick={() => setStudyKind('codemix')} />
+            <DockBtn emoji="✨" label="Đặt câu" onClick={() => setStudyKind('codemix')} />
             <DockBtn emoji="📖" label="Từ điển" onClick={() => setStudyKind('dictionary')} />
           </div>
         </div>

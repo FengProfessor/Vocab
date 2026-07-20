@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Luyện code-mix: chọn bulk 5–20 từ → viết VI+EN → AI full EN.
+ * Sử dụng từ / Đặt câu: chọn bulk 5–20 từ → viết VI+EN → AI full EN.
  * URL: /practice/codemix
  */
 
@@ -333,7 +333,7 @@ function CodeMixPracticeInner() {
       if (selected.length < CODEMIX_MIN_WORDS) return;
       const text = codemix.trim();
       if (text.length < 12) {
-        setUpgradeError('Viết đoạn code-mix trước (ít nhất vài câu).');
+        setUpgradeError('Viết đoạn có từ mục tiêu trước (ít nhất vài câu).');
         return;
       }
       setUpgradeLoading(true);
@@ -411,7 +411,7 @@ function CodeMixPracticeInner() {
               LingoPro · Practice
             </p>
             <h1 className="mt-1 text-2xl font-black tracking-tight sm:text-3xl">
-              Chèn từ → AI câu EN
+              Sử dụng từ / Đặt câu
             </h1>
             <p className="mt-1 text-sm text-slate-500">
               Chọn {CODEMIX_MIN_WORDS}–{CODEMIX_MAX_WORDS} từ / lượt
@@ -452,7 +452,7 @@ function CodeMixPracticeInner() {
           {(
             [
               { id: 'pick' as const, label: '1. Chọn từ' },
-              { id: 'write' as const, label: '2. Viết VI+EN' },
+              { id: 'write' as const, label: '2. Đặt câu' },
               { id: 'upgrade' as const, label: '3. AI EN' },
             ] as const
           ).map((s, i) => {
@@ -802,7 +802,7 @@ function CodeMixPracticeInner() {
 
             <div className="rounded-2xl border border-dashed border-slate-300 bg-white/80 p-4">
               <div className="mb-1 flex justify-between">
-                <p className="text-[10px] font-bold uppercase text-slate-400">Trước · code-mix</p>
+                <p className="text-[10px] font-bold uppercase text-slate-400">Trước · đoạn của bạn</p>
                 <button
                   type="button"
                   onClick={() => setPhase('write')}
@@ -974,7 +974,7 @@ function CodeMixPracticeInner() {
   );
 
   return (
-    <StudentShell title="Chèn từ" contentClassName="p-0" hideMobileNav>
+    <StudentShell title="Sử dụng từ / Đặt câu" contentClassName="p-0" hideMobileNav>
       {body}
     </StudentShell>
   );

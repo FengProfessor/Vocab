@@ -239,7 +239,7 @@ export function StudentShell({
     },
     {
       href: '/practice/codemix',
-      label: 'Chèn từ → câu EN',
+      label: 'Sử dụng từ / Đặt câu',
       emoji: '✨',
       color: '#7c3aed',
       tile: '#f3e8ff',

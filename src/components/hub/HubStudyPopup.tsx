@@ -46,7 +46,7 @@ const KIND_META: Record<
   },
   codemix: {
     path: '/practice/codemix',
-    title: 'Chèn từ',
+    title: 'Sử dụng từ / Đặt câu',
     emoji: '✨',
     presence: 'codemix',
   },

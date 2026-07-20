@@ -402,7 +402,7 @@ export default function ProfilePage() {
     { href: '/journey', label: 'Lộ trình', icon: Map, color: '#059669', tile: '#dcfce7' },
     { href: '/quiz', label: 'Mini Quiz', icon: HelpCircle, color: '#f59e0b', tile: '#fff3df' },
     { href: '/writing', label: 'Writing Practice', icon: Pencil, color: '#f43f5e', tile: '#ffe7ec' },
-    { href: '/practice/codemix', label: 'Chèn từ → câu EN', icon: Sparkles, color: '#7c3aed', tile: '#f3e8ff' },
+    { href: '/practice/codemix', label: 'Sử dụng từ / Đặt câu', icon: Sparkles, color: '#7c3aed', tile: '#f3e8ff' },
     { href: '/student/speaking', label: 'AI Speaking Tutor', icon: MessageSquare, color: '#0ea5e9', tile: '#e2f5fe' },
     { href: '/grammar/learn', label: 'Grammar', icon: GraduationCap, color: '#8b5cf6', tile: '#f1ecff' },
     { href: '/library', label: 'Thư viện từ vựng', icon: Library, color: '#10b981', tile: '#e1f7ee' },

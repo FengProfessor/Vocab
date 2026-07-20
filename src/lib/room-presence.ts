@@ -47,7 +47,7 @@ export const ACTIVITY_META: Record<
   review: { label: 'Ôn thẻ đến hạn', emoji: '🔥', color: 'text-orange-400' },
   flashcard: { label: 'Học flashcard', emoji: '🃏', color: 'text-green-400' },
   writing: { label: 'Luyện gõ từ', emoji: '✍️', color: 'text-sky-400' },
-  codemix: { label: 'Chèn từ → câu EN', emoji: '✨', color: 'text-fuchsia-400' },
+  codemix: { label: 'Sử dụng từ / Đặt câu', emoji: '✨', color: 'text-fuchsia-400' },
   grammar: { label: 'Học ngữ pháp', emoji: '📐', color: 'text-violet-400' },
   quiz: { label: 'Làm quiz', emoji: '✅', color: 'text-rose-400' },
   dictionary: { label: 'Tra từ điển', emoji: '📖', color: 'text-blue-400' },
