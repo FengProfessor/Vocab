@@ -695,6 +695,8 @@ export default function StudentDashboard() {
     { href: '/student', label: 'Dashboard', emoji: '🏠', color: '#4f46e5', tile: '#eef0ff', footerDup: true },
     { href: '/journey', label: 'Lộ trình', emoji: '🗺️', color: '#059669', tile: '#dcfce7', onboardingId: 'journey', footerDup: true },
     { href: '/review', label: 'Ôn tập', emoji: '📚', color: '#6366f1', tile: '#e8eafe', onboardingId: 'nav-review', footerDup: true },
+    // Sidebar dashboard (/student) — nav riêng, không dùng StudentShell
+    { href: '/practice/codemix', label: 'Sử dụng từ / Đặt câu', emoji: '✨', color: '#7c3aed', tile: '#f3e8ff' },
     { href: '/grammar/learn', label: 'Ngữ pháp', emoji: '🎓', color: '#8b5cf6', tile: '#f1ecff', onboardingId: 'grammar' },
     { href: '/library', label: 'Thư viện từ vựng', emoji: '📦', color: '#10b981', tile: '#e1f7ee', onboardingId: 'library', footerDup: true },
     { href: '/dictionary', label: 'Tra từ điển', emoji: '🔍', color: '#06b6d4', tile: '#defafd', onboardingId: 'dictionary', footerDup: true },
