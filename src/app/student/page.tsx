@@ -1020,7 +1020,7 @@ export default function StudentDashboard() {
             </Link>
           </div>
 
-          {/* Luyện sử dụng từ / đặt câu — bulk 5–20 → VI+EN → AI EN */}
+          {/* Luyện sử dụng từ / đặt câu — bulk 1–20 → VI+EN → AI EN */}
           <Link
             href="/practice/codemix"
             className="flex items-center gap-3 rounded-2xl border border-violet-100 bg-gradient-to-r from-violet-50 to-amber-50 px-3 py-3 shadow-sm transition-all hover:border-violet-300 hover:shadow-md"
@@ -1031,7 +1031,7 @@ export default function StudentDashboard() {
             <div className="min-w-0 flex-1">
               <p className="text-sm font-black text-violet-900">Sử dụng từ / Đặt câu</p>
               <p className="text-[11px] font-semibold text-violet-700/80">
-                Chọn 5–20 từ · viết đoạn có từ · AI nâng full English
+                Chọn 1–20 từ · viết đoạn có từ · AI nâng full English
               </p>
             </div>
             <ArrowRight className="h-4 w-4 shrink-0 text-violet-400" />

@@ -10,7 +10,7 @@ export interface CodeMixWord {
 }
 
 /** Số từ target / lượt luyện (bulk chọn). */
-export const CODEMIX_MIN_WORDS = 5;
+export const CODEMIX_MIN_WORDS = 1;
 export const CODEMIX_MAX_WORDS = 20;
 
 export interface WordWowExplain {

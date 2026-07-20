@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Sử dụng từ / Đặt câu: chọn bulk 5–20 từ → viết VI+EN → AI full EN.
+ * Sử dụng từ / Đặt câu: chọn bulk 1–20 từ → viết VI+EN → AI full EN.
  * URL: /practice/codemix
  */
 
@@ -232,7 +232,8 @@ function CodeMixPracticeInner() {
             setPool(mapped);
             setPoolSource('mine');
             // preselect first 5
-            setSelectedKeys(new Set(mapped.slice(0, CODEMIX_MIN_WORDS).map(wordKey)));
+            // Preselect tối đa 5 (gợi ý A1); min chọn = 1
+            setSelectedKeys(new Set(mapped.slice(0, Math.min(5, mapped.length)).map(wordKey)));
             setPoolLoading(false);
             return;
           }
@@ -243,9 +244,7 @@ function CodeMixPracticeInner() {
       if (!cancelled) {
         setPool(DEMO_POOL);
         setPoolSource('demo');
-        setSelectedKeys(
-          new Set(DEMO_POOL.slice(0, CODEMIX_MIN_WORDS).map(wordKey))
-        );
+        setSelectedKeys(new Set(DEMO_POOL.slice(0, 5).map(wordKey)));
         setPoolLoading(false);
       }
     })();
@@ -312,13 +311,15 @@ function CodeMixPracticeInner() {
     return { found, missing, pct };
   }, [cmFound, selected]);
 
-  // B1 pass soft: ≥ max(3, ~60% selected) hoặc checked
-  const minFoundForPass = Math.max(
-    3,
-    Math.min(selected.length, Math.ceil(selected.length * 0.6))
-  );
+  // B1 pass soft: 1–2 từ = đủ hết; ≥3 từ = ~60%
+  const minFoundForPass =
+    selected.length <= 2
+      ? selected.length
+      : Math.max(1, Math.ceil(selected.length * 0.6));
   const canGoUpgrade =
-    cmScore.found.length >= minFoundForPass || (cmChecked && cmScore.found.length >= 3);
+    selected.length > 0 &&
+    (cmScore.found.length >= minFoundForPass ||
+      (cmChecked && cmScore.found.length >= Math.min(selected.length, minFoundForPass)));
 
   const insertWord = useCallback((w: string) => {
     setCodemix((prev) => {
@@ -500,7 +501,7 @@ function CodeMixPracticeInner() {
                 ) : (
                   <span className="font-bold">pack demo</span>
                 )}{' '}
-                · {pool.length} từ · gợi ý A1: 5–8 từ
+                · {pool.length} từ · gợi ý A1: 5–8 · tối thiểu 1
               </p>
             </div>
 
