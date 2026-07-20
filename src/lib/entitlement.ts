@@ -24,6 +24,12 @@ export const ENTITLEMENT_ENFORCED = process.env.ENTITLEMENT_ENFORCED === 'true';
 export const FREE_AI_DAILY_LIMIT = 5;
 
 /**
+ * Free: lượt AI nâng đoạn code-mix (B2) / ngày (UTC window ~24h qua rate-limit).
+ * Pro/premium: unlimited. Luôn enforce (đốt AI + monetize aha).
+ */
+export const FREE_CODEMIX_UPGRADE_DAILY_LIMIT = 1;
+
+/**
  * Số từ MỚI free được lưu/tháng (calendar month, UTC).
  * Chỉ chặn lưu mới (POST /api/words); từ đã lưu vẫn ôn FSRS bình thường.
  * Catalog pack import không đếm vào quota này (free value = lộ trình sẵn).
@@ -51,7 +57,8 @@ export type Feature =
   | 'ai_sentence'      // phân tích câu EN→VI (demo / Pro)
   | 'writing_practice' // luyện viết + chấm
   | 'grammar_read'     // đọc lý thuyết ngữ pháp + TTS
-  | 'grammar_ai';      // AI ngữ pháp: tạo bài tập, phân tích câu, ôn câu sai
+  | 'grammar_ai'       // AI ngữ pháp: tạo bài tập, phân tích câu, ôn câu sai
+  | 'codemix_upgrade'  // AI nâng đoạn VI+EN → full EN (free 1/ngày, pro unlimited)
 
 export const FEATURE_MIN_PLAN: Record<Feature, Plan> = {
   ai_lookup: 'free',        // free dùng được nhưng bị quota/ngày
@@ -61,6 +68,7 @@ export const FEATURE_MIN_PLAN: Record<Feature, Plan> = {
   writing_practice: 'pro',
   grammar_read: 'pro',
   grammar_ai: 'pro',        // gộp từ premium → Pro là gói trả phí duy nhất, có đủ
+  codemix_upgrade: 'free',  // free teaser 1/ngày — gate bằng daily quota, không chặn feature flag
 };
 
 // ── Lộ trình học (level-gate thay vì on/off) ──
@@ -172,6 +180,68 @@ export async function checkAndConsumeDailyAI(
   }
   const used = typeof data === 'number' ? data : 0;
   return used <= FREE_AI_DAILY_LIMIT ? { allowed: true } : { allowed: false, upgradeTo: 'pro' };
+}
+
+export interface CodemixQuotaResult extends AccessResult {
+  /** Đã dùng trong cửa sổ ~24h (free). Pro = 0. */
+  used?: number;
+  /** Trần free; null = unlimited (pro+). */
+  limit?: number | null;
+  remaining?: number | null;
+  plan?: Plan;
+}
+
+/**
+ * Free / ẩn danh: tối đa FREE_CODEMIX_UPGRADE_DAILY_LIMIT lượt AI B2 / ~24h.
+ * Pro/premium: unlimited (không đếm).
+ * Luôn enforce — độc lập ENTITLEMENT_ENFORCED (đốt token + paywall aha).
+ *
+ * @param ip fallback key khi chưa login (demo public)
+ */
+export async function checkAndConsumeCodemixUpgrade(
+  userId: string | null,
+  plan: Plan,
+  ip: string,
+): Promise<CodemixQuotaResult> {
+  if (plan !== 'free') {
+    return {
+      allowed: true,
+      used: 0,
+      limit: null,
+      remaining: null,
+      plan,
+    };
+  }
+
+  const limit = FREE_CODEMIX_UPGRADE_DAILY_LIMIT;
+  const dayMs = 86_400_000;
+  // Dynamic import tránh circular nếu api-security import entitlement sau này
+  const { checkRateLimitAsync } = await import('@/lib/api-security');
+  const key = userId
+    ? `codemix-upg:u:${userId}`
+    : `codemix-upg:ip:${ip || 'unknown'}`;
+  const rl = await checkRateLimitAsync(key, limit, dayMs);
+
+  if (!rl.allowed) {
+    return {
+      allowed: false,
+      upgradeTo: 'pro',
+      used: limit,
+      limit,
+      remaining: 0,
+      plan: 'free',
+    };
+  }
+
+  const remaining = rl.remaining;
+  const used = limit - remaining;
+  return {
+    allowed: true,
+    used,
+    limit,
+    remaining,
+    plan: 'free',
+  };
 }
 
 export interface WordSaveQuotaResult extends AccessResult {

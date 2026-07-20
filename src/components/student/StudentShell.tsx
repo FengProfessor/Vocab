@@ -234,7 +234,8 @@ export function StudentShell({
         value.startsWith('/review') ||
         value.startsWith('/flashcard') ||
         value.startsWith('/writing') ||
-        value.startsWith('/quiz'),
+        value.startsWith('/quiz') ||
+        value.startsWith('/practice'),
       footerDup: true,
     },
     {

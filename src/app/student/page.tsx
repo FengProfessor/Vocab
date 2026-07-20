@@ -1018,6 +1018,23 @@ export default function StudentDashboard() {
             </Link>
           </div>
 
+          {/* Luyện đặt câu — bulk 5–20 từ → code-mix → AI EN */}
+          <Link
+            href="/practice/codemix"
+            className="flex items-center gap-3 rounded-2xl border border-violet-100 bg-gradient-to-r from-violet-50 to-amber-50 px-3 py-3 shadow-sm transition-all hover:border-violet-300 hover:shadow-md"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-600 text-xl text-white shadow">
+              ✨
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-black text-violet-900">Chèn từ → câu EN</p>
+              <p className="text-[11px] font-semibold text-violet-700/80">
+                Chọn 5–20 từ · viết VI+EN · AI nâng full English
+              </p>
+            </div>
+            <ArrowRight className="h-4 w-4 shrink-0 text-violet-400" />
+          </Link>
+
           {/* Meta mobile — 1 dòng thay 4 card */}
           <div className="flex items-center gap-2 text-[11px] font-bold text-slate-500 sm:hidden">
             <span className="tabular-nums">{countsReady ? totalWords : '…'} từ</span>
@@ -1066,16 +1083,24 @@ export default function StudentDashboard() {
                 <span className="text-base leading-none">📦</span>
                 Kho từ vựng
               </h3>
-              <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center justify-end gap-1.5">
                 <Badge variant="outline" className="h-6 px-2 text-[10px] font-bold tabular-nums">
                   {countsReady ? totalWords : '…'} từ
                 </Badge>
                 <Link
-                  href="/library"
-                  className="inline-flex h-7 items-center gap-1 rounded-full bg-emerald-600 px-2.5 text-[11px] font-extrabold text-white active:brightness-110"
+                  href="/import"
+                  className="inline-flex h-7 items-center gap-1 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 text-[11px] font-extrabold text-indigo-700 active:brightness-110"
+                  title="Dán list / file / quét ảnh của bạn"
                 >
                   <Plus className="h-3.5 w-3.5" />
-                  Thêm
+                  List riêng
+                </Link>
+                <Link
+                  href="/library"
+                  className="inline-flex h-7 items-center gap-1 rounded-full bg-emerald-600 px-2.5 text-[11px] font-extrabold text-white active:brightness-110"
+                  title="Chọn gói từ sẵn theo chủ đề"
+                >
+                  Thư viện
                 </Link>
               </div>
             </div>

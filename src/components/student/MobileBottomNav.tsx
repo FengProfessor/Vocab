@@ -59,7 +59,8 @@ export function MobileBottomNav({
         pathname.startsWith('/review') ||
         pathname.startsWith('/flashcard') ||
         pathname.startsWith('/writing') ||
-        pathname.startsWith('/quiz')
+        pathname.startsWith('/quiz') ||
+        pathname.startsWith('/practice')
       );
     }
     if (key === 'journey') return pathname.startsWith('/journey');
