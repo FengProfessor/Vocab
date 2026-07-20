@@ -56,7 +56,9 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
       <div className="flex items-center gap-2 mb-2">
         <span className={`text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded ${bcol}`}>{badge}</span>
       </div>
-      <div className="font-semibold text-slate-800 mb-2.5">{idx + 1}. {q}</div>
+      <div className="font-semibold text-slate-800 mb-2.5">
+        {idx + 1}. {q?.trim() ? q : <span className="text-slate-400 font-medium">(Thiếu đề bài — chọn đáp án đúng)</span>}
+      </div>
 
       {/* MCQ / error / fill-có-options: luôn hiện nút chọn — tránh “không có đáp án” */}
       {(type === 'mcq' || type === 'error' || (type === 'fill' && (opts?.length ?? 0) >= 2)) && (

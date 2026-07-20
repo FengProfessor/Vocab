@@ -30,11 +30,13 @@ export function asExerciseRecord(raw: unknown): Record<string, unknown> {
 /** Số option xuất hiện (substring) trong câu hỏi — dùng để nhận diện find-the-error thật. */
 export function countOptionsInSentence(question: string, options: string[]): number {
   const clean = String(question || '')
-    .replace(/^find\s+the\s+error:\s*/i, '')
+    .replace(/^(find|identify|spot|correct)\s+the\s+error\s*:\s*/i, '')
     .toLowerCase();
   let hits = 0;
   for (const opt of options) {
     const t = String(opt || '').trim().toLowerCase();
+    // Bỏ option quá ngắn (1 ký tự) — dễ false-positive substring
+    if (t.length < 2) continue;
     if (t && clean.includes(t)) hits += 1;
   }
   return hits;
@@ -156,7 +158,10 @@ export function normalizeLessonExercise(
     typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
 
   const rawType = typeof ex.type === 'string' ? ex.type : undefined;
-  const questionText = String(ex.question || ex.q || '').trim();
+  // Nhiều schema: question | q | prompt | sentence | stem | text
+  const questionText = String(
+    ex.question || ex.q || ex.prompt || ex.sentence || ex.stem || ex.text || '',
+  ).trim();
   const explanationText = String(ex.explanation || ex.fb || '').trim();
 
   let optionsList: string[] = [];
