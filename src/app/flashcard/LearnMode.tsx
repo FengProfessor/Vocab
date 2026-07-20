@@ -35,8 +35,7 @@ interface WordItem {
 }
 
 const NEW_BATCH = 8;       // số từ mới mỗi phiên học
-const NEXT_DELAY_MS = 1400;  // delay tự chuyển khi đúng
-const WRONG_DELAY_MS = 2400; // sai → đợi lâu hơn để kịp nhìn đáp án
+const NEXT_DELAY_MS = 1400;  // chỉ auto-next khi đúng; sai/gần đúng chờ user bấm Tiếp
 
 type Phase = 'loading' | 'empty' | 'ready' | 'introduce' | 'recall' | 'done';
 
@@ -198,8 +197,8 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     }
   }, [recallIndex, batch.length]);
 
-  // Chốt kết quả 1 từ: ghi điểm + phát âm + sync SRS + hẹn auto-next.
-  // Sai → đợi lâu hơn để user kịp nhìn đáp án.
+  // Chốt kết quả 1 từ: ghi điểm + phát âm + sync SRS.
+  // Đúng → auto-next; sai/gần đúng → hiện đáp án, chờ bấm Tiếp (để đọc kỹ chỗ sai).
   const finalizeRecall = useCallback((v: Verdict) => {
     if (!recallWord) return;
     setVerdict(v);
@@ -220,7 +219,10 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       invalidateWordSummaryCache(session?.user?.id);
     }).catch((err) => console.error('[Learn] save SRS failed:', err));
 
-    advanceTimer.current = setTimeout(goNextRecall, v === 'correct' ? NEXT_DELAY_MS : WRONG_DELAY_MS);
+    if (v === 'correct') {
+      advanceTimer.current = setTimeout(goNextRecall, NEXT_DELAY_MS);
+    }
+    // wrong / close: không auto-next — user bấm «Tiếp theo» hoặc Enter/Space
   }, [recallWord, goNextRecall]);
 
   const submitRecall = useCallback(() => {
@@ -250,6 +252,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   };
 
   // Lưu accuracy phiên khi xong + báo hoàn thành step lộ trình (nếu mở từ /journey)
+  // Chỉ ghi step khi đã học hết batch còn lại (remainingNew === 0) — tránh pass sớm giữa chừng gói.
   useEffect(() => {
     if (phase !== 'done') return;
     authFetch('/api/quiz/save', {
@@ -264,13 +267,15 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     }).catch((err) => console.error('[Learn] save session failed:', err));
 
     const roadmapStep = searchParams.get('roadmapStep');
-    if (roadmapStep) {
+    if (roadmapStep && remainingNew === 0) {
       void completeRoadmapStep(roadmapStep).then((result) => {
         if (result) {
-          toast.success(`+${result.xpAwarded} XP lộ trình — bạn đã đi hết bước này, đều đặn thế là quý lắm!`);
+          toast.success(`+${result.xpAwarded} XP lộ trình — bạn đã đi hết bước này!`);
+          // Tự về lộ trình sau 1.2s để next step mở
+          setTimeout(() => router.push('/journey'), 1200);
         } else {
           const err = getLastRoadmapStepError();
-          toast.error(err || 'Chưa ghi được chặng lộ trình — thử mở lại bước này từ Lộ trình.');
+          toast.error(err || 'Chưa ghi được chặng lộ trình — bấm «Về lộ trình» để thử lại.');
         }
       });
     }
@@ -544,7 +549,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                 />
 
                 {verdict !== null && (
-                  <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+                  <div className="animate-in fade-in slide-in-from-bottom-2 space-y-1 duration-300">
                     {verdict === 'correct' && (
                       <p className="text-sm font-black text-emerald-600">
                         ✓ Chính xác!{' '}
@@ -552,15 +557,32 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                       </p>
                     )}
                     {verdict === 'close' && (
-                      <p className="text-sm font-black text-amber-600">
-                        Gần đúng! Đáp án:{' '}
-                        <span className="underline decoration-amber-400">{recallWord.word}</span>
-                      </p>
+                      <>
+                        <p className="text-sm font-black text-amber-600">
+                          Gần đúng! Đáp án:{' '}
+                          <span className="underline decoration-amber-400">{recallWord.word}</span>
+                        </p>
+                        {input.trim() && (
+                          <p className="text-xs font-medium text-slate-500">
+                            Bạn gõ: <span className="line-through text-amber-700/80">{input.trim()}</span>
+                          </p>
+                        )}
+                      </>
                     )}
                     {verdict === 'wrong' && (
-                      <p className="text-sm font-black text-rose-600">
-                        ✗ Đáp án: <span className="underline decoration-rose-400">{recallWord.word}</span>
-                      </p>
+                      <>
+                        <p className="text-sm font-black text-rose-600">
+                          ✗ Đáp án: <span className="underline decoration-rose-400">{recallWord.word}</span>
+                        </p>
+                        {input.trim() && (
+                          <p className="text-xs font-medium text-slate-500">
+                            Bạn gõ: <span className="line-through text-rose-600/80">{input.trim()}</span>
+                          </p>
+                        )}
+                        {recallWord.ipa && (
+                          <p className="font-mono text-xs text-slate-400">{parseIpa(recallWord.ipa)}</p>
+                        )}
+                      </>
                     )}
                   </div>
                 )}
@@ -591,7 +613,11 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               <button
                 type="button"
                 onClick={goNextRecall}
-                className="flex h-10 w-full items-center justify-center gap-2 rounded-xl border-b-[3px] border-slate-200 bg-white text-sm font-black text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-0 sm:h-11"
+                className={`flex h-10 w-full items-center justify-center gap-2 rounded-xl border-b-[3px] text-sm font-black shadow-sm transition-all active:translate-y-0.5 active:border-b-0 sm:h-11 ${
+                  verdict === 'correct'
+                    ? 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50'
+                    : 'border-indigo-800 bg-indigo-600 text-white hover:bg-indigo-700'
+                }`}
               >
                 {recallIndex + 1 >= batch.length ? 'Xem kết quả' : 'Tiếp theo'}{' '}
                 <ArrowRight className="h-4 w-4" />
@@ -633,8 +659,20 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       </Card>
 
       <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
-        <Button variant="outline" className="flex-1 h-14 rounded-2xl font-bold border-2"
-          onClick={() => router.push(searchParams.get('roadmapStep') ? '/journey' : '/student')}>
+        <Button
+          variant="outline"
+          className="flex-1 h-14 rounded-2xl font-bold border-2"
+          onClick={async () => {
+            const roadmapStep = searchParams.get('roadmapStep');
+            // Retry ghi step nếu còn remainingNew=0 và chưa chắc đã ghi
+            if (roadmapStep && remainingNew === 0) {
+              const result = await completeRoadmapStep(roadmapStep);
+              if (result) toast.success(`+${result.xpAwarded} XP lộ trình`);
+              else if (getLastRoadmapStepError()) toast.error(getLastRoadmapStepError()!);
+            }
+            router.push(roadmapStep ? '/journey' : '/student');
+          }}
+        >
           <ChevronLeft className="mr-2 h-5 w-5" /> {searchParams.get('roadmapStep') ? 'Về lộ trình' : 'Dashboard'}
         </Button>
         {remainingNew > 0 ? (
@@ -642,9 +680,19 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
             <RotateCcw className="mr-2 h-5 w-5" /> Học tiếp ({remainingNew})
           </Button>
         ) : (
-          <Button className="flex-1 h-14 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
-            onClick={() => router.push(classroomId ? `/flashcard?class=${classroomId}` : '/flashcard')}>
-            <GraduationCap className="mr-2 h-5 w-5" /> Ôn tập
+          <Button
+            className="flex-1 h-14 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
+            onClick={async () => {
+              const roadmapStep = searchParams.get('roadmapStep');
+              if (roadmapStep) {
+                await completeRoadmapStep(roadmapStep);
+                router.push('/journey');
+                return;
+              }
+              router.push(classroomId ? `/flashcard?class=${classroomId}` : '/flashcard');
+            }}
+          >
+            <GraduationCap className="mr-2 h-5 w-5" /> {searchParams.get('roadmapStep') ? 'Tiếp lộ trình' : 'Ôn tập'}
           </Button>
         )}
       </div>

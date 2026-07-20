@@ -59,9 +59,10 @@ export async function GET(req: Request) {
       return NextResponse.json({ success: true, data }, { headers: CACHE_HEADERS });
     }
 
+    // Join topic khi lọc theo topicId — client lộ trình cần topic.slug để ghi step
     let query = supabase
       .from('grammar_lessons')
-      .select('*')
+      .select(topicId ? '*, topic:grammar_topics(*)' : '*')
       .order('order_index', { ascending: true })
       .order('created_at', { ascending: true });
     if (topicId) query = query.eq('topic_id', topicId);

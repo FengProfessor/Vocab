@@ -286,12 +286,13 @@ function GrammarLearnContent() {
             ? 'Đã ôn lại bài học! Lịch ôn tiếp theo đã cập nhật.'
             : 'Đã ghi nhận bạn đọc xong. Hãy làm bài tập để củng cố!',
         );
-        // Bài này là step lộ trình + đúng topic đang được yêu cầu → báo hoàn thành step
-        if (roadmapStepId && roadmapTopicSlug && activeLesson.topic?.slug === roadmapTopicSlug) {
+        // Mở từ lộ trình (?roadmapStep=) → ghi step. KHÔNG phụ thuộc activeLesson.topic.slug
+        // (GET /api/grammar/lessons?topicId= không join topic → topic luôn undefined → trước đây không bao giờ ghi step!)
+        if (roadmapStepId) {
           const result = await completeRoadmapStep(roadmapStepId);
           if (result) {
             toast.success(
-              `+${result.xpAwarded} XP · đã ghi chặng lộ trình (bài ngữ pháp CEFR dùng chung FSRS).`,
+              `+${result.xpAwarded} XP · đã ghi chặng lộ trình.`,
             );
             router.push('/journey');
           } else {
@@ -543,7 +544,11 @@ function GrammarLearnContent() {
           <div className="space-y-2 pt-2">
             <div className="flex flex-col sm:flex-row gap-3">
               <button
-                onClick={() => router.push(`/grammar?lesson=${activeLesson.id}`)}
+                onClick={() => {
+                  const qs = new URLSearchParams({ lesson: activeLesson.id });
+                  if (roadmapStepId) qs.set('roadmapStep', roadmapStepId);
+                  router.push(`/grammar?${qs.toString()}`);
+                }}
                 className="flex-1 bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
               >
                 <Dumbbell className="h-4 w-4" /> Làm bài tập

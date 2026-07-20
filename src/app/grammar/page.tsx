@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, Suspense, type ReactNode } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import type { GrammarExercise } from '@/lib/supabase';
@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
 import { speak } from '@/lib/study';
 import { canUseErrorClickMode, sanitizeDrillExercises } from '@/lib/grammar-exercises';
+import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
 
 /** Bump khi đổi shape/logic drill — bỏ localStorage session cũ (type/options sai). */
 const GRAMMAR_STATE_VER = 'v2';
@@ -106,9 +107,17 @@ function speakEnglish(text: string) {
  * Không dùng react-markdown vì chỉ cần 2 features đơn giản, tránh dependency overhead.
  */
 function renderRichText(text: string): ReactNode[] {
+  const raw = String(text ?? '');
+  if (!raw.trim()) {
+    return [
+      <span key="empty" className="text-muted-foreground font-medium">
+        (Không có đề bài — chọn đáp án phù hợp nhất)
+      </span>,
+    ];
+  }
   const nodes: ReactNode[] = [];
   // Split theo **bold** trước
-  const boldSegs = text.split(/(\*\*[^*]+\*\*)/g);
+  const boldSegs = raw.split(/(\*\*[^*]+\*\*)/g);
   boldSegs.forEach((seg, i) => {
     if (/^\*\*[^*]+\*\*$/.test(seg)) {
       nodes.push(
@@ -154,8 +163,11 @@ function ErrorCorrectionSentence({
   correctAnswer: string;
   onSelect: (token: string) => void;
 }) {
-  // Bóc prefix "Find the error: " nếu có
-  const cleanSentence = sentence.replace(/^find\s+the\s+error:\s*/i, '');
+  // Bóc prefix hướng dẫn nếu có (Find / Identify / Spot the error)
+  const cleanSentence = sentence.replace(
+    /^(find|identify|spot|correct)\s+the\s+error\s*:\s*/i,
+    '',
+  );
 
   if (!options || options.length === 0) {
     return <p className="text-xl font-semibold text-foreground leading-loose">{cleanSentence}</p>;
@@ -341,10 +353,12 @@ function ScoreCard({
 }
 
 function GrammarContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const classroomId = searchParams.get('class');
   const lessonId = searchParams.get('lesson');
   const reviewMode = searchParams.get('review') === '1';
+  const roadmapStepId = searchParams.get('roadmapStep');
 
   const [exercises, setExercises] = useState<GrammarExercise[]>([]);
   const [current, setCurrent] = useState<GrammarExercise | null>(null);
@@ -360,6 +374,8 @@ function GrammarContent() {
   // flash: null | 'correct' | 'wrong' — tự tắt sau 400ms
   const [flash, setFlash] = useState<'correct' | 'wrong' | null>(null);
   const flashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** Vùng cuộn quiz — tránh justify-center cắt đề bài phía trên */
+  const quizScrollRef = useRef<HTMLDivElement | null>(null);
 
   // Nguồn exercises thô (chưa shuffle) để có thể reset
   const rawExercises = useRef<GrammarExercise[]>([]);
@@ -626,9 +642,26 @@ function GrammarContent() {
         },
         body: JSON.stringify({ lessonId, accuracy }),
       });
+      // Drill xong từ lộ trình → ghi step + về journey
+      if (roadmapStepId) {
+        const result = await completeRoadmapStep(roadmapStepId);
+        if (result) {
+          toast.success(`+${result.xpAwarded} XP lộ trình — chặng ngữ pháp đã ghi!`);
+          router.push('/journey');
+        } else {
+          toast.error(getLastRoadmapStepError() || 'Chưa ghi được chặng lộ trình.');
+        }
+      }
     } catch {
       /* bỏ qua lỗi — không chặn UI */
     }
+  };
+
+  const scrollQuizTop = () => {
+    // Tránh đề bài bị flex center đẩy ra ngoài viewport (đặc biệt mobile + explanation)
+    requestAnimationFrame(() => {
+      quizScrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   };
 
   const handleNext = () => {
@@ -662,6 +695,7 @@ function GrammarContent() {
       setShowExplanation(false);
       setStartTime(Date.now());
       answering.current = false;
+      scrollQuizTop();
     }
   };
 
@@ -748,7 +782,7 @@ function GrammarContent() {
 
   /* ── Quiz ─────────────────────────────────────────────────── */
   return (
-    <main className="min-h-dvh flex flex-col bg-gradient-to-br from-primary/5 to-muted/40">
+    <main className="flex h-dvh max-h-dvh min-h-0 flex-col overflow-hidden bg-gradient-to-br from-primary/5 to-muted/40">
       {/* Flash overlay */}
       <FeedbackFlash type={flash} />
 
@@ -779,11 +813,16 @@ function GrammarContent() {
         total={exercises.length}
       />
 
-      <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 gap-5">
-        {/* Question card */}
+      <div
+        ref={quizScrollRef}
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
+      >
+      <div className="mx-auto flex min-h-full w-full max-w-lg flex-col items-stretch justify-start gap-5 p-4 pb-10 sm:p-8">
+        {/* Question card — key ép remount khi đổi câu, tránh state UI cũ */}
         <div
+          key={current.id || `q-${qIndex}`}
           className={[
-            'w-full max-w-lg bg-background border rounded-2xl p-6 shadow-2xl shadow-primary/10 transition-all duration-300',
+            'w-full bg-background border rounded-2xl p-6 shadow-2xl shadow-primary/10 transition-all duration-300',
             selected
               ? isCorrectSelected
                 ? 'border-emerald-400 shadow-emerald-100'
@@ -794,7 +833,7 @@ function GrammarContent() {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <p className="text-xs font-bold text-primary uppercase tracking-widest">
-                {current.topic} · {current.level}
+                Câu {qIndex + 1}/{exercises.length} · {current.topic}
                 {useErrorClick && ' · TÌM LỖI'}
                 {current.type === 'fill_blank' && ' · ĐIỀN CHỖ TRỐNG'}
               </p>
@@ -848,7 +887,7 @@ function GrammarContent() {
         {/* Choices — MCQ / fill / error dạng chọn câu. error click-mode tự chọn trong câu. */}
         {!useErrorClick && (
           options.length === 0 ? (
-            <div className="w-full max-w-lg space-y-3">
+            <div className="w-full space-y-3">
               <input
                 type="text"
                 className={[
@@ -881,7 +920,7 @@ function GrammarContent() {
               )}
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-3 w-full max-w-lg">
+            <div className="grid w-full grid-cols-1 gap-3">
               {options.map((opt, i) => {
                 const cleanOpt = opt.trim().toLowerCase();
                 const isCorrect = cleanOpt === (current.correct_answer || '').trim().toLowerCase();
@@ -927,7 +966,7 @@ function GrammarContent() {
 
         {/* Explanation — sau khi đã chọn, ưu tiên hiển thị comparison nếu sai */}
         {showExplanation && selected && (
-          <div className="w-full max-w-lg space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300">
+          <div className="w-full space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300">
             {/* So sánh đáp án của bạn vs đáp án đúng — chỉ khi sai */}
             {!isCorrectSelected && (
               <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
@@ -975,11 +1014,12 @@ function GrammarContent() {
         {selected && (
           <button
             onClick={handleNext}
-            className="w-full max-w-lg bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 active:translate-y-0.5 transition-all animate-in fade-in duration-300"
+            className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 active:translate-y-0.5 transition-all animate-in fade-in duration-300"
           >
             {qIndex + 1 >= exercises.length ? 'Xem kết quả →' : 'Tiếp theo →'}
           </button>
         )}
+      </div>
       </div>
     </main>
   );
