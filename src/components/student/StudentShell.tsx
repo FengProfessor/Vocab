@@ -229,14 +229,22 @@ export function StudentShell({
       label: 'Ôn tập',
       emoji: '📚',
       color: '#6366f1',
-      tile: '#e8eafe',
+      tile: '#eef0ff',
       match: (value) =>
         value.startsWith('/review') ||
         value.startsWith('/flashcard') ||
         value.startsWith('/writing') ||
-        value.startsWith('/quiz') ||
-        value.startsWith('/practice'),
+        value.startsWith('/quiz'),
       footerDup: true,
+    },
+    {
+      href: '/practice/codemix',
+      label: 'Chèn từ → câu EN',
+      emoji: '✨',
+      color: '#7c3aed',
+      tile: '#f3e8ff',
+      match: (value) => value.startsWith('/practice'),
+      // Hiện cả sidebar desktop + drawer mobile (không ẩn vì footerDup)
     },
     {
       href: '/grammar/learn',
