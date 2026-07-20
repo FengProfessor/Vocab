@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { FSRSRating } from '@/lib/srs';
 import { scheduleNext, stateToText, textToState } from '@/lib/fsrs';
+import { creditGrammarLessonToRoadmap } from '@/lib/roadmap-credit';
 
 /** Map độ chính xác bài tập (0-1) → rating FSRS. */
 function accuracyToRating(acc: number): FSRSRating {
@@ -250,7 +251,21 @@ export async function POST(req: Request): Promise<NextResponse> {
       .select()
       .single();
     if (error) throw error;
-    return NextResponse.json({ success: true, data });
+
+    // Học ngoài lộ trình (không ?roadmapStep) vẫn đánh tick step grammar cùng topic
+    let roadmapCredited = 0;
+    try {
+      const credit = await creditGrammarLessonToRoadmap(supabase, userId, lessonId);
+      roadmapCredited = credit.creditedStepIds.length;
+    } catch (creditErr) {
+      console.error('[GrammarProgress] roadmap credit failed:', creditErr);
+    }
+
+    return NextResponse.json({
+      success: true,
+      data,
+      roadmapCredited,
+    });
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : 'Unknown error';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

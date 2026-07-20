@@ -281,23 +281,32 @@ function GrammarLearnContent() {
       const data = await res.json();
       if (data.success) {
         setProgressMap((prev) => ({ ...prev, [activeLesson.id]: data.data }));
-        toast.success(
-          hasPriorProgress
-            ? 'Đã ôn lại bài học! Lịch ôn tiếp theo đã cập nhật.'
-            : 'Đã ghi nhận bạn đọc xong. Hãy làm bài tập để củng cố!',
-        );
-        // Mở từ lộ trình (?roadmapStep=) → ghi step. KHÔNG phụ thuộc activeLesson.topic.slug
-        // (GET /api/grammar/lessons?topicId= không join topic → topic luôn undefined → trước đây không bao giờ ghi step!)
+        // Server đã credit step grammar → lộ trình (kể cả học ngoài journey)
+        const credited = typeof data.roadmapCredited === 'number' ? data.roadmapCredited : 0;
         if (roadmapStepId) {
+          // Vẫn gọi complete để cộng XP + validate tuần tự khi mở từ journey
           const result = await completeRoadmapStep(roadmapStepId);
           if (result) {
-            toast.success(
-              `+${result.xpAwarded} XP · đã ghi chặng lộ trình.`,
-            );
+            toast.success(`+${result.xpAwarded} XP · đã ghi chặng lộ trình.`);
+            router.push('/journey');
+          } else if (credited > 0) {
+            toast.success('Đã đồng bộ tiến độ vào lộ trình.');
             router.push('/journey');
           } else {
             toast.error(getLastRoadmapStepError() || 'Chưa ghi được chặng lộ trình — thử lại từ Lộ trình.');
           }
+        } else if (credited > 0) {
+          toast.success(
+            hasPriorProgress
+              ? `Đã ôn lại! Lộ trình đã tick ${credited} bước ngữ pháp liên quan.`
+              : `Đã đọc xong! Lộ trình đã tick ${credited} bước ngữ pháp liên quan.`,
+          );
+        } else {
+          toast.success(
+            hasPriorProgress
+              ? 'Đã ôn lại bài học! Lịch ôn tiếp theo đã cập nhật.'
+              : 'Đã ghi nhận bạn đọc xong. Hãy làm bài tập để củng cố!',
+          );
         }
       } else {
         toast.error('Lỗi: ' + (data.error || 'không rõ'));

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { getRoadmapLevels, orderedStepIds, ROADMAP_VERSION, levelOrder, type RoadmapLevelId, type RoadmapTrack } from '@/lib/roadmap';
-import { creditRoadmapFromLibrary } from '@/lib/roadmap-credit';
+import { creditAllEnrolledTracksFromLibrary } from '@/lib/roadmap-credit';
 
 type EnrollmentRow = {
   level_id: string;
@@ -74,18 +74,12 @@ export async function GET(req: NextRequest) {
       .select('step_id, status, score, completed_at')
       .eq('user_id', auth.userId);
 
-    // Gói/topic đã học trong kho → ghi step completed (fix kẹt "xong rồi mà không next")
-    const doneBefore = new Set(
-      ((stepRows ?? []) as StepRow[])
-        .filter((r) => r.status === 'completed')
-        .map((r) => r.step_id),
-    );
-    const credit = await creditRoadmapFromLibrary(
+    // Gói/topic đã học trong kho → ghi step completed trên MỌI track đã enroll
+    // (học ngữ pháp/từ vựng ngoài journey vẫn tick đủ CEFR + THPT)
+    const credit = await creditAllEnrolledTracksFromLibrary(
       supabase,
       auth.userId,
-      track,
-      startLevel,
-      doneBefore,
+      enrollments.map((e) => ({ track: e.track, levelId: e.levelId })),
     );
     if (credit.creditedStepIds.length > 0) {
       const resync = await supabase
