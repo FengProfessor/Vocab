@@ -21,6 +21,8 @@ const CrmSignupChart = dynamic(
 // ─── Types (khớp /api/admin/crm) ───
 type Lifecycle = 'new' | 'active' | 'at_risk' | 'churned';
 type Source = 'group_owner' | 'group_member' | 'classroom' | 'teacher' | 'direct';
+/** Preset lọc theo ngày ôn tập (chăm sóc) */
+type ReviewFilter = '' | 'today' | 'yesterday' | '7d' | 'never' | 'due' | 'stale3';
 
 interface Customer {
   id: string; email: string; full_name: string | null; role: string;
@@ -31,6 +33,8 @@ interface Customer {
   learnedCount: number;    // từ đã ôn SRS
   reviewTotal: number;     // tổng lượt ôn
   lapsesTotal: number;     // lần quên
+  lastReviewedAt: string | null; // ôn SRS cuối
+  dueCount: number;        // từ đang due
   quizCount: number;
   totalPaid: number; groupId: string | null;
 }
@@ -49,6 +53,9 @@ interface CrmData {
     totalRevenue: number; activeGroups: number;
     freeHot150?: number;
     freeHot200?: number;
+    reviewedToday?: number;
+    withDue?: number;
+    neverReviewed?: number;
   };
 }
 
@@ -81,6 +88,34 @@ const daysAgo = (s: string | null) => {
   return `${d} ngày trước`;
 };
 
+/** YYYY-MM-DD theo giờ VN (UTC+7) — khớp ngày ôn chăm sóc */
+const toVNDateKey = (iso: string | null | undefined): string | null => {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (!Number.isFinite(d.getTime())) return null;
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(d);
+};
+
+const vnTodayKey = (): string =>
+  new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date());
+
+/** Trừ n ngày lịch (chuỗi YYYY-MM-DD), timezone-agnostic */
+const shiftDateKey = (key: string, days: number): string => {
+  const [y, m, d] = key.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d + days));
+  return dt.toISOString().slice(0, 10);
+};
+
 export default function CrmDashboard() {
   const router = useRouter();
   const [data, setData] = useState<CrmData | null>(null);
@@ -92,6 +127,9 @@ export default function CrmDashboard() {
   const [sourceFilter, setSourceFilter] = useState<Source | ''>('');
   /** Free ≥150 từ — lead upsell Pro */
   const [upsellHot, setUpsellHot] = useState(false);
+  /** Lọc chăm sóc theo ngày ôn SRS */
+  const [reviewFilter, setReviewFilter] = useState<ReviewFilter>('');
+  const [reviewDate, setReviewDate] = useState(''); // YYYY-MM-DD — ôn cuối đúng ngày
   const [selected, setSelected] = useState<Customer | null>(null);
 
   useEffect(() => {
@@ -111,29 +149,73 @@ export default function CrmDashboard() {
   const filtered = useMemo(() => {
     if (!data) return [];
     const q = query.trim().toLowerCase();
+    const today = vnTodayKey();
+    const yesterday = shiftDateKey(today, -1);
+    const weekStart = shiftDateKey(today, -6); // 7 ngày lịch (hôm nay + 6 trước)
+    const staleBefore = shiftDateKey(today, -3); // ôn cuối ≤ 3 ngày trước
+
     let list = data.customers.filter(c => {
       if (planFilter && c.plan !== planFilter) return false;
       if (lifeFilter && c.lifecycle !== lifeFilter) return false;
       if (sourceFilter && c.source !== sourceFilter) return false;
       if (upsellHot && !(c.plan === 'free' && c.wordCount >= 150)) return false;
+
+      const revKey = toVNDateKey(c.lastReviewedAt);
+      if (reviewDate) {
+        if (revKey !== reviewDate) return false;
+      } else if (reviewFilter === 'today') {
+        if (revKey !== today) return false;
+      } else if (reviewFilter === 'yesterday') {
+        if (revKey !== yesterday) return false;
+      } else if (reviewFilter === '7d') {
+        if (!revKey || revKey < weekStart || revKey > today) return false;
+      } else if (reviewFilter === 'never') {
+        // Có từ nhưng chưa ôn SRS lần nào
+        if (c.lastReviewedAt || c.wordCount <= 0) return false;
+      } else if (reviewFilter === 'due') {
+        if ((c.dueCount ?? 0) <= 0) return false;
+      } else if (reviewFilter === 'stale3') {
+        // Đã từng ôn nhưng im ≥3 ngày — cần chăm
+        if (!revKey || revKey > staleBefore) return false;
+      }
+
       if (q && !(c.email?.toLowerCase().includes(q) || c.full_name?.toLowerCase().includes(q))) return false;
       return true;
     });
-    // Upsell hot: sort từ nhiều → ít
+
+    // Upsell / ôn tập: sort hữu ích cho chăm sóc
     if (upsellHot) {
       list = [...list].sort((a, b) => b.wordCount - a.wordCount);
+    } else if (reviewFilter === 'due' || reviewFilter === 'stale3') {
+      list = [...list].sort((a, b) => (b.dueCount ?? 0) - (a.dueCount ?? 0));
+    } else if (reviewFilter || reviewDate) {
+      list = [...list].sort((a, b) => {
+        const ta = a.lastReviewedAt ? new Date(a.lastReviewedAt).getTime() : 0;
+        const tb = b.lastReviewedAt ? new Date(b.lastReviewedAt).getTime() : 0;
+        return tb - ta;
+      });
     }
     return list;
-  }, [data, query, planFilter, lifeFilter, sourceFilter, upsellHot]);
+  }, [data, query, planFilter, lifeFilter, sourceFilter, upsellHot, reviewFilter, reviewDate]);
+
+  const clearFilters = useCallback(() => {
+    setPlanFilter('');
+    setLifeFilter('');
+    setSourceFilter('');
+    setUpsellHot(false);
+    setReviewFilter('');
+    setReviewDate('');
+  }, []);
 
   const exportCsv = useCallback(() => {
     const head = [
       'Tên', 'Email', 'Vai trò', 'Gói', 'Nguồn', 'Vòng đời', 'Ngày ký', 'Hoạt động cuối',
-      'Từ đã lưu', 'Từ đã ôn', 'Lượt ôn', 'Lần quên', 'Quiz', 'Đã trả (VNĐ)',
+      'Ôn cuối', 'Từ due', 'Từ đã lưu', 'Từ đã ôn', 'Lượt ôn', 'Lần quên', 'Quiz', 'Đã trả (VNĐ)',
     ];
     const rows = filtered.map(c => [
       c.full_name ?? '', c.email, c.role, c.plan, SOURCE_LABEL[c.source],
       LIFECYCLE_LABEL[c.lifecycle], fmtDate(c.created_at), fmtDate(c.lastActive),
+      fmtDate(c.lastReviewedAt), c.dueCount ?? 0,
       c.wordCount, c.learnedCount, c.reviewTotal, c.lapsesTotal, c.quizCount, c.totalPaid,
     ]);
     const esc = (v: string | number) => `"${String(v).replace(/"/g, '""')}"`;
@@ -166,12 +248,44 @@ export default function CrmDashboard() {
   if (!data) return null;
 
   const { kpis, segments, funnel } = data;
+  const applyReview = (f: ReviewFilter) => {
+    setReviewDate('');
+    setReviewFilter((cur) => (cur === f ? '' : f));
+  };
   const kpiCards = [
-    { label: 'Tổng người dùng', value: kpis.totalUsers, icon: Users, color: 'text-blue-600', bg: 'bg-blue-500/10', sub: 'đã đăng ký', onClick: undefined as (() => void) | undefined },
-    { label: 'Mới tuần này', value: kpis.newThisWeek, icon: UserPlus, color: 'text-sky-600', bg: 'bg-sky-500/10', sub: '7 ngày qua', onClick: undefined as (() => void) | undefined },
-    { label: 'Đang trả tiền', value: kpis.payingUsers, icon: Crown, color: 'text-violet-600', bg: 'bg-violet-500/10', sub: `${kpis.activeGroups} nhóm active`, onClick: undefined as (() => void) | undefined },
-    { label: 'Đang hoạt động', value: kpis.activeUsers, icon: Activity, color: 'text-emerald-600', bg: 'bg-emerald-500/10', sub: 'mới + active', onClick: undefined as (() => void) | undefined },
-    { label: 'Đã học thật', value: kpis.learners ?? 0, icon: Brain, color: 'text-indigo-600', bg: 'bg-indigo-500/10', sub: '≥1 từ ôn SRS', onClick: undefined as (() => void) | undefined },
+    { label: 'Tổng người dùng', value: kpis.totalUsers, icon: Users, color: 'text-blue-600', bg: 'bg-blue-500/10', sub: 'đã đăng ký', onClick: undefined as (() => void) | undefined, active: false },
+    { label: 'Mới tuần này', value: kpis.newThisWeek, icon: UserPlus, color: 'text-sky-600', bg: 'bg-sky-500/10', sub: '7 ngày qua', onClick: undefined as (() => void) | undefined, active: false },
+    { label: 'Đang trả tiền', value: kpis.payingUsers, icon: Crown, color: 'text-violet-600', bg: 'bg-violet-500/10', sub: `${kpis.activeGroups} nhóm active`, onClick: undefined as (() => void) | undefined, active: false },
+    {
+      label: 'Ôn hôm nay',
+      value: kpis.reviewedToday ?? 0,
+      icon: RotateCcw,
+      color: 'text-emerald-600',
+      bg: 'bg-emerald-500/10',
+      sub: 'bấm lọc chăm sóc',
+      onClick: () => applyReview('today'),
+      active: reviewFilter === 'today' && !reviewDate,
+    },
+    {
+      label: 'Có từ due',
+      value: kpis.withDue ?? 0,
+      icon: Activity,
+      color: 'text-indigo-600',
+      bg: 'bg-indigo-500/10',
+      sub: 'cần ôn · bấm lọc',
+      onClick: () => applyReview('due'),
+      active: reviewFilter === 'due',
+    },
+    {
+      label: 'Chưa từng ôn',
+      value: kpis.neverReviewed ?? 0,
+      icon: AlertTriangle,
+      color: 'text-rose-600',
+      bg: 'bg-rose-500/10',
+      sub: 'có từ · chưa SRS',
+      onClick: () => applyReview('never'),
+      active: reviewFilter === 'never',
+    },
     {
       label: 'Free ≥150 từ',
       value: kpis.freeHot150 ?? 0,
@@ -184,9 +298,12 @@ export default function CrmDashboard() {
         setPlanFilter('free');
         setLifeFilter('');
         setSourceFilter('');
+        setReviewFilter('');
+        setReviewDate('');
       },
+      active: upsellHot,
     },
-    { label: 'Doanh thu', value: formatVND(kpis.totalRevenue), icon: CreditCard, color: 'text-amber-600', bg: 'bg-amber-500/10', sub: 'đã thu', onClick: undefined as (() => void) | undefined },
+    { label: 'Doanh thu', value: formatVND(kpis.totalRevenue), icon: CreditCard, color: 'text-amber-600', bg: 'bg-amber-500/10', sub: 'đã thu', onClick: undefined as (() => void) | undefined, active: false },
   ];
 
   return (
@@ -210,7 +327,7 @@ export default function CrmDashboard() {
 
       <main className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
         {/* KPI */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
           {kpiCards.map(k => (
             <div
               key={k.label}
@@ -219,8 +336,8 @@ export default function CrmDashboard() {
               onClick={k.onClick}
               onKeyDown={k.onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') k.onClick?.(); } : undefined}
               className={`bg-background border rounded-2xl p-4 shadow-sm ${
-                k.onClick ? 'cursor-pointer transition hover:border-orange-300 hover:shadow-md' : ''
-              } ${upsellHot && k.label === 'Free ≥150 từ' ? 'ring-2 ring-orange-400 border-orange-300' : ''}`}
+                k.onClick ? 'cursor-pointer transition hover:border-primary/40 hover:shadow-md' : ''
+              } ${k.active ? 'ring-2 ring-primary border-primary/40' : ''}`}
             >
               <div className={`w-9 h-9 rounded-xl flex items-center justify-center mb-3 ${k.bg}`}>
                 <k.icon className={`h-4 w-4 ${k.color}`} />
@@ -267,38 +384,80 @@ export default function CrmDashboard() {
 
         {/* Customer table */}
         <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-          <div className="px-5 py-4 border-b flex flex-col sm:flex-row sm:items-center gap-3">
-            <div className="flex-1">
-              <h2 className="font-bold">Khách hàng</h2>
-              <p className="text-sm text-muted-foreground">{filtered.length} / {data.customers.length} người</p>
-            </div>
-            <div className="flex flex-wrap items-center gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setUpsellHot((v) => !v);
-                  if (!upsellHot) setPlanFilter('free');
-                }}
-                className={`text-xs font-bold px-3 py-1.5 rounded-xl border transition-colors ${
-                  upsellHot
-                    ? 'bg-orange-500 text-white border-orange-500'
-                    : 'bg-orange-500/10 text-orange-700 border-orange-200 hover:bg-orange-500/20'
-                }`}
-              >
-                Upsell Free ≥150
-                {typeof kpis.freeHot150 === 'number' ? ` (${kpis.freeHot150})` : ''}
-              </button>
-              {(planFilter || lifeFilter || sourceFilter || upsellHot) && (
-                <button onClick={() => { setPlanFilter(''); setLifeFilter(''); setSourceFilter(''); setUpsellHot(false); }}
-                  className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1">
-                  <X className="h-3 w-3" /> Xóa lọc
-                </button>
-              )}
-              <div className="relative">
-                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-                <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Tìm tên / email…"
-                  className="pl-8 pr-3 py-2 text-sm border rounded-xl bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/20 w-56" />
+          <div className="px-5 py-4 border-b space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <div className="flex-1">
+                <h2 className="font-bold">Khách hàng</h2>
+                <p className="text-sm text-muted-foreground">{filtered.length} / {data.customers.length} người</p>
               </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setUpsellHot((v) => !v);
+                    if (!upsellHot) setPlanFilter('free');
+                  }}
+                  className={`text-xs font-bold px-3 py-1.5 rounded-xl border transition-colors ${
+                    upsellHot
+                      ? 'bg-orange-500 text-white border-orange-500'
+                      : 'bg-orange-500/10 text-orange-700 border-orange-200 hover:bg-orange-500/20'
+                  }`}
+                >
+                  Upsell Free ≥150
+                  {typeof kpis.freeHot150 === 'number' ? ` (${kpis.freeHot150})` : ''}
+                </button>
+                {(planFilter || lifeFilter || sourceFilter || upsellHot || reviewFilter || reviewDate) && (
+                  <button onClick={clearFilters}
+                    className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1">
+                    <X className="h-3 w-3" /> Xóa lọc
+                  </button>
+                )}
+                <div className="relative">
+                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+                  <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Tìm tên / email…"
+                    className="pl-8 pr-3 py-2 text-sm border rounded-xl bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/20 w-56" />
+                </div>
+              </div>
+            </div>
+
+            {/* Lọc theo ngày ôn tập — chăm sóc */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground flex items-center gap-1 mr-1">
+                <Calendar className="h-3.5 w-3.5" /> Ngày ôn
+              </span>
+              {([
+                { key: 'today' as const, label: 'Hôm nay' },
+                { key: 'yesterday' as const, label: 'Hôm qua' },
+                { key: '7d' as const, label: '7 ngày' },
+                { key: 'stale3' as const, label: 'Im ≥3 ngày' },
+                { key: 'due' as const, label: 'Có due' },
+                { key: 'never' as const, label: 'Chưa ôn' },
+              ]).map((chip) => (
+                <button
+                  key={chip.key}
+                  type="button"
+                  onClick={() => applyReview(chip.key)}
+                  className={`text-xs font-semibold px-2.5 py-1 rounded-lg border transition-colors ${
+                    reviewFilter === chip.key && !reviewDate
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-muted/40 text-muted-foreground border-transparent hover:bg-muted hover:text-foreground'
+                  }`}
+                >
+                  {chip.label}
+                </button>
+              ))}
+              <label className="flex items-center gap-1.5 text-xs text-muted-foreground ml-1">
+                <span className="font-semibold">Đúng ngày</span>
+                <input
+                  type="date"
+                  value={reviewDate}
+                  onChange={(e) => {
+                    setReviewDate(e.target.value);
+                    if (e.target.value) setReviewFilter('');
+                  }}
+                  className="px-2 py-1 text-sm border rounded-lg bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/20"
+                />
+              </label>
             </div>
           </div>
           <div className="overflow-x-auto">
@@ -309,7 +468,8 @@ export default function CrmDashboard() {
                   <th className="text-center px-3 py-3 font-semibold">Gói</th>
                   <th className="text-center px-3 py-3 font-semibold">Nguồn</th>
                   <th className="text-center px-3 py-3 font-semibold">Vòng đời</th>
-                  <th className="text-right px-3 py-3 font-semibold">Ngày ký</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Lần ôn SRS cuối (giờ VN)">Ôn cuối</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Số từ đang đến hạn ôn">Due</th>
                   <th className="text-right px-3 py-3 font-semibold">Hoạt động</th>
                   <th className="text-right px-3 py-3 font-semibold" title="Từ đã lưu (added_by)">Lưu</th>
                   <th className="text-right px-3 py-3 font-semibold" title="Từ đã ôn (SRS review ≥ 1)">Học</th>
@@ -320,7 +480,7 @@ export default function CrmDashboard() {
               </thead>
               <tbody className="divide-y">
                 {filtered.length === 0 ? (
-                  <tr><td colSpan={11} className="px-5 py-10 text-center text-muted-foreground">Không có khách phù hợp.</td></tr>
+                  <tr><td colSpan={12} className="px-5 py-10 text-center text-muted-foreground">Không có khách phù hợp.</td></tr>
                 ) : filtered.map(c => (
                   <tr key={c.id} onClick={() => setSelected(c)}
                     className={`hover:bg-muted/20 transition-colors cursor-pointer ${
@@ -343,7 +503,22 @@ export default function CrmDashboard() {
                     <td className="px-3 py-3 text-center">
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${LIFECYCLE_STYLE[c.lifecycle]}`}>{LIFECYCLE_LABEL[c.lifecycle]}</span>
                     </td>
-                    <td className="px-3 py-3 text-right text-xs text-muted-foreground">{fmtDate(c.created_at)}</td>
+                    <td className="px-3 py-3 text-right text-xs">
+                      {c.lastReviewedAt ? (
+                        <span className="tabular-nums text-foreground font-medium" title={c.lastReviewedAt}>
+                          {daysAgo(c.lastReviewedAt)}
+                        </span>
+                      ) : (
+                        <span className="text-muted-foreground">—</span>
+                      )}
+                    </td>
+                    <td className="px-3 py-3 text-right">
+                      {(c.dueCount ?? 0) > 0 ? (
+                        <span className="font-bold tabular-nums text-indigo-600">{c.dueCount}</span>
+                      ) : (
+                        <span className="text-muted-foreground">—</span>
+                      )}
+                    </td>
                     <td className="px-3 py-3 text-right text-xs text-muted-foreground">{daysAgo(c.lastActive)}</td>
                     <td className={`px-3 py-3 text-right font-semibold tabular-nums ${
                       c.plan === 'free' && c.wordCount >= 150 ? 'text-orange-600' : 'text-muted-foreground'
@@ -415,6 +590,7 @@ function CustomerDrawer({ c, onClose }: { c: Customer; onClose: () => void }) {
             <Stat icon={Brain} label="Từ đã ôn (SRS)" value={String(c.learnedCount ?? 0)} />
             <Stat icon={RotateCcw} label="Tổng lượt ôn" value={String(c.reviewTotal ?? 0)} />
             <Stat icon={AlertTriangle} label="Lần quên" value={String(c.lapsesTotal ?? 0)} />
+            <Stat icon={Activity} label="Từ đang due" value={String(c.dueCount ?? 0)} />
             <Stat icon={BookOpen} label="Từ đã lưu" value={String(c.wordCount)} />
             <Stat icon={Target} label="Lượt quiz" value={String(c.quizCount)} />
             <Stat icon={CreditCard} label="Tổng đã trả" value={c.totalPaid ? formatVND(c.totalPaid) : '0₫'} />
@@ -423,6 +599,7 @@ function CustomerDrawer({ c, onClose }: { c: Customer; onClose: () => void }) {
 
           <div className="space-y-2 text-sm">
             <Row icon={Calendar} label="Ngày đăng ký" value={`${fmtDate(c.created_at)} (${daysAgo(c.created_at)})`} />
+            <Row icon={RotateCcw} label="Ôn SRS cuối" value={c.lastReviewedAt ? `${fmtDate(c.lastReviewedAt)} (${daysAgo(c.lastReviewedAt)})` : 'Chưa ôn'} />
             <Row icon={Activity} label="Hoạt động cuối" value={c.lastActive ? `${fmtDate(c.lastActive)} (${daysAgo(c.lastActive)})` : 'Chưa hoạt động'} />
             <Row icon={Crown} label="Gói ghi nhận" value={c.rawPlan + (c.planExpiresAt ? ` · hết hạn ${fmtDate(c.planExpiresAt)}` : '')} />
           </div>

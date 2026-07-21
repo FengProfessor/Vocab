@@ -24,6 +24,7 @@ type SrsRow = {
   review_count: number | null;
   lapses: number | null;
   last_reviewed_at: string | null;
+  next_review_date: string | null;
 };
 
 export type CrmSource = 'group_owner' | 'group_member' | 'classroom' | 'teacher' | 'direct';
@@ -46,6 +47,8 @@ export interface CrmCustomer {
   learnedCount: number;    // từ đã ôn (srs review_count >= 1)
   reviewTotal: number;     // tổng lượt ôn
   lapsesTotal: number;     // tổng lần quên (Again)
+  lastReviewedAt: string | null; // max(last_reviewed_at) — ngày ôn cuối
+  dueCount: number;        // số từ đang due (next_review_date <= now)
   quizCount: number;
   totalPaid: number;
   groupId: string | null;
@@ -167,7 +170,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       fetchAllPages<SrsRow>((from, to) =>
         supabase
           .from('srs_progress')
-          .select('user_id, review_count, lapses, last_reviewed_at')
+          .select('user_id, review_count, lapses, last_reviewed_at, next_review_date')
           .order('user_id')
           .range(from, to) as PromiseLike<{ data: SrsRow[] | null; error: { message: string } | null }>,
       ),
@@ -195,10 +198,13 @@ export async function GET(req: Request): Promise<NextResponse> {
       bumpActive(q.user_id, q.completed_at);
     }
 
-    // SRS: từ đã ôn / tổng lượt ôn / lần quên + activity
+    // SRS: từ đã ôn / tổng lượt ôn / lần quên / ôn cuối / due + activity
     const learnedByUser = new Map<string, number>();
     const reviewTotalByUser = new Map<string, number>();
     const lapsesByUser = new Map<string, number>();
+    const lastReviewedByUser = new Map<string, number>();
+    const dueCountByUser = new Map<string, number>();
+    const nowMs = Date.now();
     for (const s of srsRows) {
       const uid = s.user_id;
       const rc = s.review_count ?? 0;
@@ -206,6 +212,19 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (rc >= 1) learnedByUser.set(uid, (learnedByUser.get(uid) ?? 0) + 1);
       if (rc > 0) reviewTotalByUser.set(uid, (reviewTotalByUser.get(uid) ?? 0) + rc);
       if (lp > 0) lapsesByUser.set(uid, (lapsesByUser.get(uid) ?? 0) + lp);
+      if (s.last_reviewed_at) {
+        const t = new Date(s.last_reviewed_at).getTime();
+        if (Number.isFinite(t) && t > (lastReviewedByUser.get(uid) ?? 0)) {
+          lastReviewedByUser.set(uid, t);
+        }
+      }
+      // Due: có next_review_date và đã đến hạn (kể cả thẻ mới chưa ôn)
+      if (s.next_review_date) {
+        const dueTs = new Date(s.next_review_date).getTime();
+        if (Number.isFinite(dueTs) && dueTs <= nowMs) {
+          dueCountByUser.set(uid, (dueCountByUser.get(uid) ?? 0) + 1);
+        }
+      }
       bumpActive(uid, s.last_reviewed_at);
     }
 
@@ -269,6 +288,10 @@ export async function GET(req: Request): Promise<NextResponse> {
         learnedCount: learnedByUser.get(p.id) ?? 0,
         reviewTotal: reviewTotalByUser.get(p.id) ?? 0,
         lapsesTotal: lapsesByUser.get(p.id) ?? 0,
+        lastReviewedAt: lastReviewedByUser.has(p.id)
+          ? new Date(lastReviewedByUser.get(p.id)!).toISOString()
+          : null,
+        dueCount: dueCountByUser.get(p.id) ?? 0,
         quizCount: quizCountByUser.get(p.id) ?? 0,
         totalPaid: paidByUser.get(p.id) ?? 0,
         groupId: groupOwners.get(p.id) ?? groupMember.get(p.id) ?? null,
@@ -305,6 +328,20 @@ export async function GET(req: Request): Promise<NextResponse> {
     // Free power: ≥150 từ đã lưu — lead upsell (case Ngọc Lan 250)
     const freeHot150 = customers.filter(c => c.plan === 'free' && c.wordCount >= 150).length;
     const freeHot200 = customers.filter(c => c.plan === 'free' && c.wordCount >= 200).length;
+    // Chăm sóc ôn tập — đếm theo ngày lịch VN (UTC+7)
+    const vnDateKey = (iso: string) =>
+      new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Asia/Ho_Chi_Minh',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }).format(new Date(iso));
+    const todayVN = vnDateKey(new Date(now).toISOString());
+    const reviewedToday = customers.filter(
+      (c) => c.lastReviewedAt && vnDateKey(c.lastReviewedAt) === todayVN,
+    ).length;
+    const withDue = customers.filter(c => c.dueCount > 0).length;
+    const neverReviewed = customers.filter(c => !c.lastReviewedAt && c.wordCount > 0).length;
     const kpis = {
       totalUsers: customers.length,
       newThisWeek: customers.filter(c => new Date(c.created_at).getTime() >= weekAgo).length,
@@ -316,6 +353,9 @@ export async function GET(req: Request): Promise<NextResponse> {
       activeGroups: groupActive.size,
       freeHot150,
       freeHot200,
+      reviewedToday,
+      withDue,
+      neverReviewed,
     };
 
     return NextResponse.json({
