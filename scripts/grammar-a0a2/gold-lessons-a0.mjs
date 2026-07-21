@@ -838,7 +838,7 @@ Cùng nghĩa gần với **have/has** (I have a car).`,
       fill("It ___ got a long name. (has/have)", ['has', 'have'], 'has', 'it → has', 'has'),
       tf('We say "Yes, she got." as a short answer.', false, 'Yes, she has. (not got)', 'short'),
       err('Find the error (possession now): I got a pen.', ["I've got a pen.", 'I getting a pen.', 'I has got a pen.'], "I've got a pen.", 'need have/has + got', 'form'),
-      mcq("She's ___ a headache.", ['got', 'get', 'getting'], 'got', "has got / 's got", 'has'),
+      mcq("She has ___ a headache.", ['got', 'get', 'getting'], 'got', 'has got', 'has'),
     ],
   },
 };
