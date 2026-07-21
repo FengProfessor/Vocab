@@ -486,4 +486,359 @@ Form: **am/is/are + V-ing**
       mcq('buy → past?', ['buyed', 'bought', 'buys'], 'bought', 'irregular', 'irreg'),
     ],
   },
+
+  demonstratives: {
+    title: 'Từ chỉ định (this/that/these/those)',
+    theory_vi: `**Demonstratives** chỉ người/vật gần–xa, số ít–nhiều:
+
+| Số | Gần (near) | Xa (far) |
+| --- | --- | --- |
+| Số ít | **this** | **that** |
+| Số nhiều | **these** | **those** |
+
++ be: **This is…** · **These are…**  
+Có thể đứng một mình: I like this. / Look at those.  
+**that day/year** = thời điểm xa (không chỉ khoảng cách vật lý).`,
+    sections: {
+      definition:
+        '**This / that / these / those** = từ chỉ định. Chọn theo **khoảng cách** (gần/xa) và **số** (ít/nhiều). Tiếng Việt dùng “này/đó/kia” — không đổi theo số → hay nhầm *this/these*.',
+      usage: [
+        { icon: '👆', label: 'this = gần + số ít', en: 'This book is new.', vi: 'Đang cầm / gần người nói.' },
+        { icon: '👉', label: 'that = xa + số ít', en: 'That car is expensive.', vi: 'Xa hơn / chỉ sang chỗ khác.' },
+        { icon: '👇', label: 'these = gần + số nhiều', en: 'These shoes are nice.', vi: 'Nhiều + gần.' },
+        { icon: '👉👉', label: 'those = xa + số nhiều', en: 'Those people are teachers.', vi: 'Nhiều + xa.' },
+        { icon: '📅', label: 'that + time', en: 'That day was special.', vi: 'Thời điểm đã qua / xa.' },
+      ],
+      formula: {
+        rows: [
+          { Word: 'this', Number: 'singular', Distance: 'near', 'With be': 'This is a pen.' },
+          { Word: 'that', Number: 'singular', Distance: 'far / past time', 'With be': 'That is a car. · That day was fun.' },
+          { Word: 'these', Number: 'plural', Distance: 'near', 'With be': 'These are pens.' },
+          { Word: 'those', Number: 'plural', Distance: 'far', 'With be': 'Those are cars.' },
+        ],
+        note: 'this/that + N singular (+ is) · these/those + N plural (+ are). Không dùng this/these cho thời tiết (→ It is cold).',
+      },
+      rules: [
+        { case: 'this + N', rule: 'số ít gần', example: 'this phone · this room' },
+        { case: 'that + N', rule: 'số ít xa', example: 'that building' },
+        { case: 'that + time', rule: 'thời điểm xa', example: 'that day · that year · that morning' },
+        { case: 'these + N', rule: 'số nhiều gần', example: 'these keys · these apples' },
+        { case: 'those + N', rule: 'số nhiều xa', example: 'those mountains' },
+        { case: 'this/that + is', rule: 'số ít + is', example: 'This is my bag.' },
+        { case: 'these/those + are', rule: 'số nhiều + are', example: 'These are my bags.' },
+        { case: 'pronoun alone', rule: 'không cần N', example: 'I like this. · Look at those. · this one' },
+      ],
+      signals: ['here', 'there', 'near me', 'over there', 'Look!'],
+      mistakes: [
+        { wrong: 'This books are new.', right: 'These books are new.', why: 'books = plural → these' },
+        { wrong: 'These is my pen.', right: 'This is my pen.', why: 'pen = singular → this + is' },
+        { wrong: 'That are my friends.', right: 'Those are my friends.', why: 'friends = plural → those + are' },
+        { wrong: 'I like this shoes.', right: 'I like these shoes.', why: 'shoes = plural' },
+        { wrong: 'Those is a school.', right: 'That is a school.', why: 'school = singular → that + is' },
+      ],
+      tips: 'Checklist: (1) một hay nhiều? (2) gần hay xa? → this/that/these/those. Nhớ: **these/those + are**.',
+      comparison:
+        '**this vs these:** one near vs many near. **that vs those:** one far vs many far. **the** = đã xác định, không nói “gần/xa”.',
+    },
+    examples: [
+      ex('This is my phone.', 'Đây là điện thoại của tôi.', 'this + is'),
+      ex('That is her house.', 'Kia là nhà cô ấy.', 'that + is'),
+      ex('These are my keys.', 'Đây là chìa khóa của tôi.', 'these + are'),
+      ex('Those are tall buildings.', 'Kia là những tòa nhà cao.', 'those + are'),
+      ex('I like this song.', 'Tôi thích bài hát này.', 'this + N'),
+      ex('Look at that bird.', 'Nhìn con chim kia.', 'that + N'),
+      ex('Can I try these shoes?', 'Tôi thử đôi giày này được không?', 'these + plural'),
+      ex('Who are those people?', 'Những người kia là ai?', 'those + plural'),
+      ex('This book is interesting.', 'Cuốn sách này hay.', 'this + N + is'),
+      ex('These books are heavy.', 'Những cuốn sách này nặng.', 'these + N + are'),
+      ex('I want that one.', 'Tôi muốn cái kia.', 'that pronoun'),
+      ex('Give me these, please.', 'Cho tôi những cái này.', 'these alone'),
+    ],
+    seed_exercises: [
+      mcq('___ is my bag. (gần, 1 cái)', ['This', 'These', 'Those'], 'This', 'sg near', 'this'),
+      mcq('___ are my bags. (gần, nhiều)', ['This', 'These', 'That'], 'These', 'pl near', 'these'),
+      mcq('___ car over there is red.', ['This', 'That', 'These'], 'That', 'sg far', 'that'),
+      mcq('___ people over there are teachers.', ['This', 'That', 'Those'], 'Those', 'pl far', 'those'),
+      fill('___ is a pen. (This/These)', ['This', 'These'], 'This', 'sg + is', 'this'),
+      fill('___ are pens. (This/These)', ['These', 'This'], 'These', 'pl + are', 'these'),
+      err('Find the error: This books are new.', ['These books are new.', 'This book are new.', 'These book is new.'], 'These books are new.', 'plural → these', 'these'),
+      err('Find the error: Those is my friend.', ['That is my friend.', 'Those are my friend.', 'This are my friend.'], 'That is my friend.', 'sg → that + is', 'that'),
+      tf('We say "These is my keys."', false, 'These are…', 'these'),
+      mcq('I like ___ shoes. (gần, plural)', ['this', 'that', 'these'], 'these', 'pl near', 'these'),
+      mcq('___ day was special. (thời điểm xa)', ['This', 'That', 'These'], 'That', 'that + time', 'that_time'),
+      fill('Look at ___ birds in the sky. (those/this)', ['those', 'this'], 'those', 'pl far', 'those'),
+      fill('These ___ my keys. (is/are)', ['are', 'is'], 'are', 'these + are', 'agr'),
+      fill('This ___ my pen. (is/are)', ['is', 'are'], 'is', 'this + is', 'agr'),
+      fill('Those ___ my friends. (is/are)', ['are', 'is'], 'are', 'those + are', 'agr'),
+      err('Find the error: These is my apple.', ['This is my apple.', 'These are my apple.', 'Those is my apple.'], 'This is my apple.', 'apple sg → this is', 'this'),
+      mcq('Choose: near me + many books', ['this book', 'these books', 'that book'], 'these books', 'pl near', 'these'),
+      tf('"That" is used with plural nouns.', false, 'that = singular', 'that'),
+      mcq('___ apples here are fresh. (near)', ['That', 'These', 'This'], 'These', 'pl near → these', 'these'),
+      mcq('___ mountain over there is high.', ['This', 'That', 'These'], 'That', 'sg far', 'that'),
+      fill('I want ___ one, not that one. (this/these)', ['this', 'these'], 'this', 'sg', 'this'),
+      tf('We use "This is cold today" for weather.', false, 'Weather: It is cold (not This is cold)', 'weather'),
+    ],
+  },
+
+  possessives: {
+    title: 'Tính từ & đại từ sở hữu',
+    theory_vi: `**Possessive adjectives** đứng trước N: my/your/his/her/its/our/their + N  
+**Possessive pronouns** đứng một mình: mine/yours/his/hers/ours/theirs (không + N)
+
+'s : Tom's bag · the girl's name  
+Không: it's = it is (khác its) `,
+    sections: {
+      definition:
+        '**Sở hữu:** (1) **tính từ sở hữu** (*my book*) — luôn + danh từ; (2) **đại từ sở hữu** (*mine*) — không + danh từ; (3) **\'s** với người/động vật (*Linh\'s phone*).',
+      usage: [
+        { icon: '📎', label: 'Adj + N', en: 'This is my bag.', vi: 'my/your/his/her/its/our/their + N' },
+        { icon: '🔄', label: 'Pronoun alone', en: 'This bag is mine.', vi: 'mine/yours/his/hers/ours/theirs' },
+        { icon: '👤', label: "'s ownership", en: "Tom's car · my sister's room", vi: 'người/động vật + \'s' },
+        { icon: '⚠️', label: "its vs it's", en: "The dog wagged its tail. · It's late.", vi: "its = sở hữu; it's = it is" },
+      ],
+      formula: {
+        rows: [
+          { Subject: 'I', Adj: 'my + N', Pronoun: 'mine', Example: 'my book · The book is mine.' },
+          { Subject: 'you', Adj: 'your + N', Pronoun: 'yours', Example: 'your pen · It is yours.' },
+          { Subject: 'he', Adj: 'his + N', Pronoun: 'his', Example: 'his phone · It is his.' },
+          { Subject: 'she', Adj: 'her + N', Pronoun: 'hers', Example: 'her bag · It is hers.' },
+          { Subject: 'it', Adj: 'its + N', Pronoun: '—', Example: 'its name (rarely alone)' },
+          { Subject: 'we', Adj: 'our + N', Pronoun: 'ours', Example: 'our house · It is ours.' },
+          { Subject: 'they', Adj: 'their + N', Pronoun: 'theirs', Example: 'their keys · They are theirs.' },
+          { Subject: "name + 's", Adj: "Tom's + N", Pronoun: '—', Example: "Tom's car · Linh's bag" },
+          { Subject: "plural -s'", Adj: "girls' / parents' + N", Pronoun: '—', Example: "the girls' room · my parents' car" },
+        ],
+        note: "Không nói *mine book*. Có N → adj (my). Không N → pronoun (mine). its = sở hữu; it's = it is. their ≠ there ≠ they're.",
+      },
+      rules: [
+        { case: 'possessive adj', rule: 'ALWAYS + noun', example: 'my/your/his/her/its/our/their + N' },
+        { case: 'possessive pronoun', rule: 'NO noun after', example: 'mine/yours/his/hers/ours/theirs' },
+        { case: "singular 's", rule: "name + 's", example: "Linh's bag · the boy's bike" },
+        { case: "plural -s'", rule: "plural N + '", example: "the girls' room · my parents' car" },
+        { case: "its", rule: 'ownership (no apostrophe)', example: 'The cat cleaned its fur.' },
+        { case: "it's", rule: 'it is / it has', example: "It's cold. · It's got a name." },
+      ],
+      signals: ['my', 'your', 'his', 'her', 'its', 'our', 'their', 'mine', 'yours', "'s"],
+      mistakes: [
+        { wrong: 'This is mine book.', right: 'This is my book. / This book is mine.', why: 'mine không + N' },
+        { wrong: 'This is her\'s bag.', right: 'This is her bag. / This bag is hers.', why: 'her + N; hers alone' },
+        { wrong: "The dog wagged it's tail.", right: 'The dog wagged its tail.', why: "its = sở hữu" },
+        { wrong: "Toms car", right: "Tom's car", why: "cần 's" },
+        { wrong: 'Their is a book on the table.', right: 'There is a book… / Their book is…', why: 'their ≠ there' },
+        { wrong: 'This is your.', right: 'This is yours.', why: 'pronoun = yours' },
+      ],
+      tips: 'Có danh từ sau không? **Có → my/your…** · **Không → mine/yours…**. its = sở hữu; it\'s = it is.',
+      comparison:
+        "**my vs mine:** my bag / The bag is mine. **her vs hers:** her phone / It is hers. **'s vs of:** person's name (Tom's) vs of the city (the name of the city).",
+    },
+    examples: [
+      ex('This is my book.', 'Đây là sách của tôi.', 'my + N'),
+      ex('This book is mine.', 'Cuốn sách này là của tôi.', 'mine alone'),
+      ex('Is this your phone?', 'Đây có phải điện thoại bạn không?', 'your + N'),
+      ex('Yes, it is mine. / Is this yours? — Yes, it is.', 'Của tôi. / Của bạn à? — Đúng.', 'mine / yours đúng ngôi'),
+      ex("That is Tom's bag.", 'Kia là túi của Tom.', "'s"),
+      ex('Her name is Mai.', 'Tên cô ấy là Mai.', 'her + N'),
+      ex('The red bag is hers.', 'Túi đỏ là của cô ấy.', 'hers'),
+      ex('Our school is big.', 'Trường chúng tôi lớn.', 'our + N'),
+      ex('This classroom is ours.', 'Lớp này là của chúng tôi.', 'ours'),
+      ex('Their house is near the park.', 'Nhà họ gần công viên.', 'their + N'),
+      ex('The keys are theirs.', 'Chìa khóa là của họ.', 'theirs'),
+      ex('The dog wagged its tail.', 'Con chó vẫy đuôi.', 'its'),
+      ex("It's a sunny day.", 'Hôm nay trời nắng.', "it's = it is"),
+      ex("My parents' car is new.", 'Xe bố mẹ tôi mới.', "plural '"),
+    ],
+    seed_exercises: [
+      mcq('This is ___ book. (I)', ['I', 'my', 'mine'], 'my', 'adj + N', 'adj'),
+      mcq('This book is ___. (I)', ['my', 'mine', 'me'], 'mine', 'pronoun alone', 'pron'),
+      mcq("___ name is Linh. (She)", ['She', 'Her', 'Hers'], 'Her', 'her + N', 'adj'),
+      fill('The bag is ___. (she → hers/her)', ['hers', 'her'], 'hers', 'no N', 'pron'),
+      err("Find the error: This is mine pen.", ['This is my pen.', 'This is mine pens.', 'This pen is my.'], 'This is my pen.', 'mine ≠ +N', 'adj'),
+      err("Find the error: The cat washed it's face.", ["The cat washed its face.", "The cat washed it face.", "The cat washed its' face."], 'The cat washed its face.', "its ownership", 'its'),
+      mcq("___ car is red. (Tom)", ["Toms", "Tom's", 'Tom'], "Tom's", "'s", 'apos'),
+      tf('We can say "yours book".', false, 'your book / yours', 'adj'),
+      fill('Is this ___? (you → your/yours)', ['yours', 'your'], 'yours', 'alone', 'pron'),
+      mcq('This house is ___. (we)', ['our', 'ours', 'us'], 'ours', 'pronoun', 'pron'),
+      mcq('___ keys are on the table. (they)', ['They', 'Their', 'Theirs'], 'Their', 'adj + N', 'adj'),
+      err('Find the error: This is her\'s.', ["This is hers.", "This is her.", "This is she's."], 'This is hers.', "hers no 's", 'pron'),
+      mcq("The ___ room is tidy. (girls plural)", ["girl's", "girls'", 'girls'], "girls'", "plural possessive", 'apos'),
+      tf('"Its" means "it is".', false, "it's = it is; its = ownership", 'its'),
+      fill('That phone is ___. (he)', ['his', 'him'], 'his', 'pronoun his', 'pron'),
+      mcq('I like ___ teacher. (we)', ['us', 'our', 'ours'], 'our', 'adj + N', 'adj'),
+      fill('The dog wagged ___ tail. (its/it\'s)', ['its', "it's"], 'its', 'ownership its', 'its'),
+      fill("___ raining. (It's/Its)", ["It's", 'Its'], "It's", "it's = it is", 'its'),
+      mcq('___ is a book on the table. (There/Their/They\'re)', ['There', 'Their', "They're"], 'There', 'there is existence', 'there'),
+      mcq("My ___ car is new. (parents)", ["parent's", "parents'", 'parents'], "parents'", 'plural possessive', 'apos'),
+    ],
+  },
+
+  'there-is-there-are': {
+    title: 'There is / There are',
+    theory_vi: `**There is** + singular / uncountable  
+**There are** + plural  
+
+- There is a book. · There is some water.  
+- There are two chairs.  
+- Phủ định: There isn't / There aren't  
+- Hỏi: Is there…? / Are there…?`,
+    sections: {
+      definition:
+        '**There is / There are** giới thiệu **sự tồn tại** (có cái gì ở đâu), không dịch word-by-word “Ở đó là”. Chọn **is/are** theo danh từ **đi sau**.',
+      usage: [
+        { icon: '1️⃣', label: 'There is + singular', en: 'There is a cat in the room.', vi: '1 vật đếm được.' },
+        { icon: '🌊', label: 'There is + U', en: 'There is some milk.', vi: 'uncountable → is' },
+        { icon: '🔢', label: 'There are + plural', en: 'There are three windows.', vi: 'số nhiều.' },
+        { icon: '📍', label: 'Nơi chốn', en: 'There is a park near my house.', vi: 'hay + place phrase' },
+      ],
+      formula: {
+        rows: [
+          { Form: '+ singular / U', Structure: 'There is + N…', Example: 'There is a book. · There is water.' },
+          { Form: '+ plural', Structure: 'There are + N…', Example: 'There are two books.' },
+          { Form: '− singular / U', Structure: "There isn't / is not…", Example: "There isn't a pen." },
+          { Form: '− plural', Structure: "There aren't / are not…", Example: "There aren't any chairs." },
+          { Form: '? singular / U', Structure: 'Is there …?', Example: 'Is there a bank near here?' },
+          { Form: '? plural', Structure: 'Are there …?', Example: 'Are there any questions?' },
+        ],
+        note: 'Nhìn **danh từ sau** to be. some/any thường đi kèm. Short: Yes, there is. / No, there aren\'t.',
+      },
+      rules: [
+        { case: 'a/an + singular', rule: 'There is', example: 'There is an apple.' },
+        { case: 'plural / many', rule: 'There are', example: 'There are many students.' },
+        { case: 'uncountable', rule: 'There is', example: 'There is rice on the table.' },
+        { case: 'any (neg/Q)', rule: "isn't/aren't + any · Is/Are there any…?", example: "There aren't any eggs." },
+        { case: 'short answers', rule: 'Yes, there is/are. No, there isn\'t/aren\'t.', example: 'Yes, there is.' },
+      ],
+      signals: ['there is', 'there are', 'near here', 'in the room', 'any', 'some'],
+      mistakes: [
+        { wrong: 'There have a book.', right: 'There is a book.', why: 'không dùng have trong cấu trúc này' },
+        { wrong: 'There is two cats.', right: 'There are two cats.', why: 'plural → are' },
+        { wrong: 'There are a book.', right: 'There is a book.', why: 'singular → is' },
+        { wrong: 'Is there many people?', right: 'Are there many people?', why: 'people = plural' },
+        { wrong: 'There is any milk? (wrong word order)', right: 'Is there any milk?', why: 'đảo is' },
+        { wrong: 'Has there a park?', right: 'Is there a park?', why: 'Is there, not Has there (A0)' },
+      ],
+      tips: 'Hỏi: danh từ sau là **1 / U** → is; **nhiều** → are. Đừng dịch “Ở đó có” rồi dùng *have*.',
+      comparison:
+        '**There is a book** (tồn tại) vs **The book is on the table** (vị trí của vật đã biết). **Have got:** I have a book (sở hữu) ≠ There is a book (có/xuất hiện trong không gian).',
+    },
+    examples: [
+      ex('There is a book on the desk.', 'Có một cuốn sách trên bàn.', 'is + singular'),
+      ex('There are two chairs.', 'Có hai cái ghế.', 'are + plural'),
+      ex('There is some water in the bottle.', 'Có một ít nước trong chai.', 'is + U'),
+      ex("There isn't a supermarket here.", 'Ở đây không có siêu thị.', "isn't"),
+      ex("There aren't any cookies left.", 'Không còn bánh quy.', "aren't + any"),
+      ex('Is there a bank near here?', 'Gần đây có ngân hàng không?', 'Is there'),
+      ex('Are there any questions?', 'Có câu hỏi nào không?', 'Are there'),
+      ex('Yes, there is. / No, there isn\'t.', 'Có. / Không.', 'short answers'),
+      ex('There is a park next to my school.', 'Có công viên cạnh trường.', 'place'),
+      ex('There are many students in the class.', 'Có nhiều học sinh trong lớp.', 'many + pl'),
+      ex('There is a lot of homework today.', 'Hôm nay có nhiều bài tập.', 'U + is'),
+      ex('There were three apples yesterday.', 'Hôm qua có 3 quả táo.', 'past (preview A1)'),
+    ],
+    seed_exercises: [
+      mcq('There ___ a book on the table.', ['is', 'are', 'am'], 'is', 'singular', 'is'),
+      mcq('There ___ two books on the table.', ['is', 'are', 'am'], 'are', 'plural', 'are'),
+      mcq('There ___ some milk in the fridge.', ['is', 'are'], 'is', 'U → is', 'is_U'),
+      fill("There ___ any chairs. (aren't/isn't)", ["aren't", "isn't"], "aren't", 'plural neg', 'neg'),
+      mcq('___ there a park near here?', ['Is', 'Are', 'Do'], 'Is', 'Is there + sg', 'Q'),
+      mcq('___ there any apples?', ['Is', 'Are', 'Does'], 'Are', 'Are there + pl', 'Q'),
+      err('Find the error: There have a cat.', ['There is a cat.', 'There are a cat.', 'There has a cat.'], 'There is a cat.', 'no have', 'form'),
+      err('Find the error: There is three windows.', ['There are three windows.', 'There is three window.', 'There be three windows.'], 'There are three windows.', 'plural → are', 'are'),
+      tf('We say "There are a book."', false, 'singular → There is', 'is'),
+      fill('There ___ a lot of rice. (is/are)', ['is', 'are'], 'is', 'U', 'is_U'),
+      mcq("There ___ any water. (negative)", ["isn't", "aren't", "don't"], "isn't", 'U neg', 'neg'),
+      mcq('Are there any cookies? — Yes, ___.', ['there is', 'there are', 'they are'], 'there are', 'short answer pl', 'short'),
+      mcq('Is there a park? — Yes, ___.', ['there is', 'there are', 'it is'], 'there is', 'short answer sg', 'short'),
+      mcq("Are there any eggs? — No, ___.", ["there isn't", "there aren't", "they aren't"], "there aren't", 'short neg pl', 'short'),
+      err('Find the error: Is there many people?', ['Are there many people?', 'Is there much people?', 'Are there much people?'], 'Are there many people?', 'people plural', 'Q'),
+      mcq('There ___ an orange on the plate.', ['is', 'are'], 'is', 'an + singular', 'is'),
+      fill('___ there any milk? (Is/Are)', ['Is', 'Are'], 'Is', 'U question', 'Q'),
+      tf('"There is some water" is correct.', true, 'U + is + some', 'is_U'),
+      mcq('Room: two windows. Choose:', ['I have two windows in the room.', 'There are two windows in the room.', 'There is two windows in the room.'], 'There are two windows in the room.', 'existence not possession', 'vs_have'),
+      mcq('I own a book. Choose best:', ["I've got a book.", 'There is a book (my ownership).', 'There are a book.'], "I've got a book.", 'ownership = have got', 'vs_have'),
+    ],
+  },
+
+  'have-got': {
+    title: 'Have got / has got',
+    theory_vi: `**have got / has got** = có, sở hữu (British rất phổ biến).
+- I/you/we/they **have got**
+- he/she/it **has got**
+- Phủ định: haven't got / hasn't got
+- Hỏi: Have/Has + S + got…?
+
+Cùng nghĩa gần với **have/has** (I have a car).`,
+    sections: {
+      definition:
+        '**Have got / has got** diễn tả **sở hữu**, quan hệ gia đình, đặc điểm (mắt/tóc), bệnh nhẹ. Phổ biến trong tiếng Anh Anh. Nghĩa gần *have/has*.',
+      usage: [
+        { icon: '🎒', label: 'Đồ vật sở hữu', en: "I've got a new phone.", vi: 'có cái gì' },
+        { icon: '👨‍👩‍👧', label: 'Gia đình', en: "She's got two brothers.", vi: 'có anh chị em' },
+        { icon: '👀', label: 'Đặc điểm', en: "He's got blue eyes.", vi: 'mắt/tóc…' },
+        { icon: '🤒', label: 'Cảm/bệnh nhẹ', en: "I've got a headache.", vi: 'bị đau…' },
+      ],
+      formula: {
+        rows: [
+          { Subject: 'I/you/we/they', '+': 'have got + N', '−': "haven't got + N", '?': 'Have + S + got + N?', Example: "I've got a bike." },
+          { Subject: 'he/she/it', '+': 'has got + N', '−': "hasn't got + N", '?': 'Has + S + got + N?', Example: "She's got a cat." },
+          { Subject: 'Short answers', '+': 'Yes, I have. / Yes, she has.', '−': "No, I haven't. / No, he hasn't.", '?': '—', Example: "Have you got…? — Yes, I have. (no 'got')" },
+        ],
+        note: "Short answer không lặp got. AmE hay dùng have/has không got (Do you have…?). Không trộn Do + have got.",
+      },
+      rules: [
+        { case: 'I/you/we/they', rule: 'have got', example: "I've got a bike." },
+        { case: 'he/she/it', rule: 'has got', example: "She's got a cat." },
+        { case: 'negative', rule: "haven't/hasn't got", example: "I haven't got time." },
+        { case: 'question', rule: 'Have/Has + S + got…?', example: 'Have you got a pen?' },
+        { case: 'short answer', rule: 'Yes, I have. / No, he hasn\'t.', example: 'Has she got a car? — Yes, she has.' },
+        { case: 'vs have', rule: 'have got ≈ have (possession)', example: 'I have a car. = I\'ve got a car.' },
+      ],
+      signals: ["'ve got", "'s got", 'have you got', 'has she got', "haven't got"],
+      mistakes: [
+        { wrong: 'She have got a dog.', right: "She has got a dog. / She's got a dog.", why: 'she → has' },
+        { wrong: 'I has got a pen.', right: "I have got a pen. / I've got a pen.", why: 'I → have' },
+        { wrong: 'Have she got a car?', right: 'Has she got a car?', why: 'she → Has' },
+        { wrong: "He haven't got money.", right: "He hasn't got money.", why: 'he → hasn\'t' },
+        { wrong: 'I got a book. (present possession British)', right: "I've got a book.", why: 'cần have/has + got (possession now)' },
+        { wrong: 'Do you have got a pen?', right: 'Have you got a pen? / Do you have a pen?', why: 'không trộn do + have got' },
+      ],
+      tips: "Nhớ 2 hàng: **I/you/we/they have got** · **he/she/it has got**. Hỏi = Have/Has lên đầu + got. Short answer: Yes, I **have** (không *got*).",
+      comparison:
+        "**have got (BrE)** ≈ **have (AmE)** cho sở hữu. **There is:** tồn tại trong không gian. **I've got a book** (tôi sở hữu) ≠ **There is a book** (có một cuốn ở đó).",
+    },
+    examples: [
+      ex("I've got a new laptop.", 'Tôi có laptop mới.', 'I + have got'),
+      ex("She's got two sisters.", 'Cô ấy có hai chị/em gái.', 'she + has got'),
+      ex("We've got a small house.", 'Chúng tôi có nhà nhỏ.', 'we + have got'),
+      ex("He hasn't got a bike.", 'Anh ấy không có xe đạp.', "hasn't got"),
+      ex("They haven't got any milk.", 'Họ không có sữa.', "haven't got + any"),
+      ex('Have you got a pen?', 'Bạn có bút không?', 'Have + got'),
+      ex('Has she got blue eyes?', 'Cô ấy có mắt xanh không?', 'Has + got'),
+      ex('Yes, I have. / No, I haven\'t.', 'Có. / Không.', 'short answers'),
+      ex("I've got a headache.", 'Tôi bị đau đầu.', 'illness'),
+      ex("The house has got a big garden.", 'Ngôi nhà có vườn lớn.', 'has got + place feature'),
+      ex("I haven't got much time.", 'Tôi không có nhiều thời gian.', 'U'),
+      ex("He's got short hair.", 'Anh ấy tóc ngắn.', 'appearance'),
+    ],
+    seed_exercises: [
+      mcq("I ___ a new phone.", ["'ve got", "'s got", 'got'], "'ve got", 'I → have got', 'have'),
+      mcq("She ___ two brothers.", ["'ve got", "'s got", 'have got'], "'s got", 'she → has got', 'has'),
+      fill("He ___ got a car. (has/have)", ['has', 'have'], 'has', 'he → has', 'has'),
+      mcq("I ___ got any money. (negative)", ["haven't", "hasn't", "don't"], "haven't", 'I → haven\'t', 'neg'),
+      mcq('___ you got a minute?', ['Have', 'Has', 'Do'], 'Have', 'Have + S + got', 'Q'),
+      mcq('___ she got a cat?', ['Have', 'Has', 'Does'], 'Has', 'Has + she + got', 'Q'),
+      err('Find the error: She have got a dog.', ["She's got a dog.", 'She have a dog got.', 'She got have a dog.'], "She's got a dog.", 'she → has', 'has'),
+      err('Find the error: Do you have got a pen?', ['Have you got a pen?', 'Do you got a pen?', 'Has you got a pen?'], 'Have you got a pen?', 'no do + have got', 'Q'),
+      tf('After "has", we use "got" in "has got".', true, 'has got', 'has'),
+      fill("They ___ got any questions. (haven't/hasn't)", ["haven't", "hasn't"], "haven't", 'they', 'neg'),
+      mcq("Yes, she ___. (short answer to Has she got…?)", ['has', 'got', 'is'], 'has', 'short = has', 'short'),
+      mcq("Have you got a pen? — Yes, I ___.", ['have', 'got', 'has'], 'have', 'short answer no got', 'short'),
+      err("Find the error: I has got a bike.", ["I've got a bike.", 'I has a bike got.', 'I got a bike has.'], "I've got a bike.", 'I → have', 'have'),
+      mcq('We ___ got a big garden.', ['has', 'have', 'is'], 'have', 'we → have got', 'have'),
+      tf('"Have you got a pen?" means roughly the same as "Do you have a pen?"', true, 'possession', 'vs_have'),
+      fill("It ___ got a long name. (has/have)", ['has', 'have'], 'has', 'it → has', 'has'),
+      tf('We say "Yes, she got." as a short answer.', false, 'Yes, she has. (not got)', 'short'),
+      err('Find the error (possession now): I got a pen.', ["I've got a pen.", 'I getting a pen.', 'I has got a pen.'], "I've got a pen.", 'need have/has + got', 'form'),
+      mcq("She's ___ a headache.", ['got', 'get', 'getting'], 'got', "has got / 's got", 'has'),
+    ],
+  },
 };
