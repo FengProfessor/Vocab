@@ -1,0 +1,57 @@
+# LingoPro on Hetzner — app + Caddy (TLS)
+# Usage on VPS:
+#   cp .env.hetzner .env   # or scp from local
+#   docker compose up -d --build
+#
+# Domain: set DOMAIN in .env (default lingopro.online)
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lingopro:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+    expose:
+      - "3000"
+    networks:
+      - web
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:3000/", "-o", "/dev/null"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:-lingopro.online}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:

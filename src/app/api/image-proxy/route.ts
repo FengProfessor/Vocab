@@ -126,6 +126,9 @@ async function assertSafeImageUrl(urlStr: string): Promise<{ ok: true } | { ok: 
   }
 }
 
+/** CDN cache lâu — cache HIT không tốn Fluid CPU (chỉ MISS mới fetch upstream). */
+export const revalidate = 86400;
+
 export async function GET(req: NextRequest): Promise<NextResponse> {
   const ip = getClientIp(req);
   const denied = await assertScrapeQuota(`image-proxy:${ip}`, QUOTA.imageProxy);
@@ -134,6 +137,39 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   const url = req.nextUrl.searchParams.get('url');
   if (!url) {
     return NextResponse.json({ success: false, error: 'Missing url parameter' }, { status: 400 });
+  }
+
+  // Public CDN: 302 → browser tải thẳng (1 invocation nhẹ thay vì stream body)
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === 'https:') {
+      const h = parsed.hostname.toLowerCase();
+      const directHosts = [
+        'supabase.co',
+        'supabase.in',
+        'pixabay.com',
+        'pexels.com',
+        'images.pexels.com',
+        'unsplash.com',
+        'images.unsplash.com',
+        'cloudinary.com',
+        'googleusercontent.com',
+        'wikimedia.org',
+        'upload.wikimedia.org',
+        'r2.dev',
+        'pollinations.ai',
+      ];
+      if (directHosts.some((s) => h === s || h.endsWith(`.${s}`))) {
+        return NextResponse.redirect(url, {
+          status: 302,
+          headers: {
+            'Cache-Control': 'public, max-age=86400, s-maxage=604800',
+          },
+        });
+      }
+    }
+  } catch {
+    /* fall through to proxy */
   }
 
   const safety = await assertSafeImageUrl(url);
@@ -227,6 +263,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       'Cache-Control',
       'public, max-age=604800, s-maxage=31536000, stale-while-revalidate=604800, immutable',
     );
+    headers.set('CDN-Cache-Control', 'public, s-maxage=31536000');
+    headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=31536000');
     headers.set('X-Content-Type-Options', 'nosniff');
 
     return new NextResponse(buffer, { status: 200, headers });

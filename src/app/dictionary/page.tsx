@@ -13,6 +13,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { StudentShell } from '@/components/student/StudentShell';
 import { speak } from '@/lib/study';
+import { resolveImageSrc } from '@/lib/media-url';
 
 const HISTORY_KEY = 'lingo_dict_history';
 const MAX_HISTORY = 20;
@@ -453,7 +454,7 @@ export default function DictionaryPage() {
       } catch {
         // AbortError hoặc network error — bỏ qua
       }
-    }, 250);
+    }, 400); // debounce dài hơn → bớt /api/dictionary/suggest (Vercel functions)
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -858,8 +859,9 @@ export default function DictionaryPage() {
               {/* Image */}
               {result.imageUrl && (
                 <img
-                  src={`/api/image-proxy?url=${encodeURIComponent(result.imageUrl)}`}
+                  src={resolveImageSrc(result.imageUrl)}
                   alt={displayWord}
+                  referrerPolicy="no-referrer"
                   className="w-20 h-20 rounded-xl object-cover shrink-0"
                 />
               )}

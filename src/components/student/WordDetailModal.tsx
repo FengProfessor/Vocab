@@ -20,6 +20,7 @@ import {
   ImageOff,
 } from 'lucide-react';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { resolveImageSrc } from '@/lib/media-url';
 
 // Mở rộng kiểu Word để chứa các field SRS có sẵn từ join (stability, difficulty,...)
 interface SRSProgressFull extends SRSProgress {
@@ -240,7 +241,8 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
               <div className="relative w-full h-40 overflow-hidden rounded-t-2xl bg-slate-800/50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/api/image-proxy?url=${encodeURIComponent(word.image_url)}`}
+                  src={resolveImageSrc(word.image_url)}
+                  referrerPolicy="no-referrer"
                   alt={word.word}
                   loading="lazy"
                   decoding="async"

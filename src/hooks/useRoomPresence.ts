@@ -155,15 +155,31 @@ export function useRoomPresence(opts: {
 
   useEffect(() => {
     if (!roomId || !enabled || !heartbeat) return;
-    void sendHeartbeat();
-    const id = window.setInterval(() => void sendHeartbeat(), PRESENCE_HEARTBEAT_MS);
-    return () => clearInterval(id);
+    const tick = () => {
+      // Tab ẩn → không heartbeat (tiết kiệm Function Invocations)
+      if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
+      void sendHeartbeat();
+    };
+    tick();
+    const id = window.setInterval(tick, PRESENCE_HEARTBEAT_MS);
+    const onVis = () => {
+      if (document.visibilityState === 'visible') void sendHeartbeat();
+    };
+    document.addEventListener('visibilitychange', onVis);
+    return () => {
+      clearInterval(id);
+      document.removeEventListener('visibilitychange', onVis);
+    };
   }, [roomId, enabled, heartbeat, sendHeartbeat]);
 
   useEffect(() => {
     if (!roomId || !enabled) return;
-    void refresh();
-    const id = window.setInterval(() => void refresh(), PRESENCE_POLL_MS);
+    const tick = () => {
+      if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
+      void refresh();
+    };
+    tick();
+    const id = window.setInterval(tick, PRESENCE_POLL_MS);
     return () => clearInterval(id);
   }, [roomId, enabled, refresh]);
 

@@ -21,6 +21,7 @@ import { speak, parseIpa, canAutoFocus } from '@/lib/study';
 import { stopWordAudio } from '@/lib/audio';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { resolveImageSrc } from '@/lib/media-url';
 
 interface WordItem {
   id: string;
@@ -136,7 +137,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     queue.slice(1, 4).forEach((w) => {
       if (w.image_url) {
         const img = new window.Image();
-        img.src = `/api/image-proxy?url=${encodeURIComponent(w.image_url)}`;
+        img.src = resolveImageSrc(w.image_url);
       }
     });
   }, [queue]);
@@ -491,8 +492,9 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                     }`}
                   >
                     <img
-                      src={`/api/image-proxy?url=${encodeURIComponent(current.image_url)}`}
+                      src={resolveImageSrc(current.image_url)}
                       alt={current.word}
+                      referrerPolicy="no-referrer"
                       loading="eager"
                       fetchPriority="high"
                       decoding="async"

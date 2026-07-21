@@ -11,7 +11,7 @@ import { NextRequest, NextResponse } from 'next/server';
  */
 
 export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
+// Không force-dynamic: CDN Vercel cache GET theo Cache-Control (s-maxage) bên dưới
 
 const MAX_LEN = 180;
 const UA =
@@ -84,7 +84,10 @@ export async function GET(req: NextRequest) {
     headers: {
       'Content-Type': 'audio/mpeg',
       // Browser + CDN cache: từ vựng lặp lại không tốn quota
-      'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+      // CDN + browser: cùng từ không đốt Fluid CPU lại
+      'Cache-Control': 'public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400, immutable',
+      'CDN-Cache-Control': 'public, s-maxage=2592000',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=2592000',
       'X-TTS-Source': 'neural',
     },
   });

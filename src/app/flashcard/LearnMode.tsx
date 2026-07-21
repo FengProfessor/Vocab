@@ -18,6 +18,7 @@ import { stopWordAudio } from '@/lib/audio';
 import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { resolveImageSrc } from '@/lib/media-url';
 
 interface WordItem {
   id: string;
@@ -152,7 +153,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     batch.forEach((w) => {
       if (w.image_url) {
         const img = new window.Image();
-        img.src = `/api/image-proxy?url=${encodeURIComponent(w.image_url)}`;
+        img.src = resolveImageSrc(w.image_url);
       }
     });
   }, [batch]);
@@ -384,8 +385,9 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               {w.image_url && (
                 <div className="relative aspect-[16/10] max-h-[min(26dvh,168px)] w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 shadow-inner">
                   <img
-                    src={`/api/image-proxy?url=${encodeURIComponent(w.image_url)}`}
+                    src={resolveImageSrc(w.image_url)}
                     alt={w.word}
+                    referrerPolicy="no-referrer"
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"

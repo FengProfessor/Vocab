@@ -1,0 +1,62 @@
+# deps & build
+node_modules
+.next
+out
+dist
+build
+*.tsbuildinfo
+
+# git / ide
+.git
+.github
+.vscode
+.idea
+**/.DS_Store
+
+# env & secrets — mount/.env on host, never bake into image
+.env
+.env.*
+!.env.example
+
+# local / android / ios heavy
+android
+ios
+.tmp
+tmp
+tmp-*
+scratch
+research
+docs
+*.log
+scraper-*.log
+tmp-*.log
+tmp-*.ps1
+tmp-*.bat
+tmp-*.mjs
+tmp-*.js
+tmp-*.json
+tmp-check*
+tmp-verify*
+tmp-backfill*
+tmp-clip*
+tmp-shot*
+tmp-vocab*
+tmp-mobile*
+tmp-image*
+tmp-poll*
+tmp-proxy*
+tmp-recheck*
+tmp-start*
+tmp-watch*
+tmp-run*
+tmp-fix*
+tmp-fix*
+tmp-webhook*
+tmp-grok*
+tmp-fix*
+coverage
+playwright-report
+test-results
+
+# deploy artifacts not needed in build context
+deploy/bootstrap.log

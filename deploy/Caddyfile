@@ -1,0 +1,24 @@
+# TLS tự động Let's Encrypt
+# DOMAIN inject từ docker-compose (default lingopro.online)
+
+{$DOMAIN:lingopro.online} {
+	encode gzip zstd
+
+	# Next app
+	reverse_proxy app:3000
+
+	header {
+		# Caddy + Next đều set security headers; bỏ duplicate nếu conflict
+		-Server
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}
+
+# www → apex (nếu DNS có www)
+www.{$DOMAIN:lingopro.online} {
+	redir https://{$DOMAIN:lingopro.online}{uri} permanent
+}

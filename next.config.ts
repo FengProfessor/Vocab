@@ -12,12 +12,16 @@ const csp = [
   // Audio phát âm giọng thật: Free Dictionary (Wikimedia), Google gstatic, Youdao fallback
   "media-src 'self' https://api.dictionaryapi.dev https://ssl.gstatic.com https://dict.youdao.com",
   "worker-src 'self'",
-  "frame-ancestors 'none'",
+  // 'self' = cho phép LingoTown nhúng app trong iframe (cùng origin)
+  "frame-ancestors 'self'",
+  "frame-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",
 ].join('; ');
 
 const nextConfig: NextConfig = {
+  // Docker/Hetzner: image gọn, chỉ copy .next/standalone + static
+  output: 'standalone',
   // Tree-shake icon/chart/date barrels → giảm JS initial
   experimental: {
     optimizePackageImports: [
@@ -78,7 +82,8 @@ const nextConfig: NextConfig = {
         headers: [
           { key: 'Content-Security-Policy', value: csp },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'X-Frame-Options', value: 'DENY' },
+          // SAMEORIGIN: hub iframe được; chặn site ngoài nhúng
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(self), geolocation=()' },

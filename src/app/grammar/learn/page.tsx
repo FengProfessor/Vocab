@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { speak } from '@/lib/study';
+import { resolveImageSrc } from '@/lib/media-url';
 
 interface TopicProgressSummary {
   topicId: string;
@@ -424,7 +425,8 @@ function GrammarLearnContent() {
           {activeLesson.image_url ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={`/api/image-proxy?url=${encodeURIComponent(activeLesson.image_url)}`}
+              src={resolveImageSrc(activeLesson.image_url)}
+              referrerPolicy="no-referrer"
               alt={activeLesson.title}
               loading="lazy"
               decoding="async"

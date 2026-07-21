@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Search, Loader2, Volume2, Plus, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 import type { DictionaryData, DictionaryMeaning } from '@/lib/supabase';
 import { speak } from '@/lib/study';
+import { resolveImageSrc } from '@/lib/media-url';
 
 /**
  * Demo tra từ SỐNG trên landing — gọi API công khai (không cần login).
@@ -196,7 +197,8 @@ export default function DictionaryDemo() {
             {result.imageUrl && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={`/api/image-proxy?url=${encodeURIComponent(result.imageUrl)}`}
+                src={resolveImageSrc(result.imageUrl)}
+                  referrerPolicy="no-referrer"
                 alt={displayWord}
                 className="h-16 w-16 shrink-0 rounded-xl object-cover"
               />

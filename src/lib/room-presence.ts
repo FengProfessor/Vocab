@@ -30,12 +30,12 @@ export interface RoomPresenceMember {
   isYou?: boolean;
 }
 
-/** Coi online nếu heartbeat < 90s */
-export const PRESENCE_ONLINE_MS = 90_000;
-/** Client gửi heartbeat */
-export const PRESENCE_HEARTBEAT_MS = 40_000;
+/** Coi online nếu heartbeat < 3 phút (nới để giảm poll/heartbeat) */
+export const PRESENCE_ONLINE_MS = 180_000;
+/** Client gửi heartbeat — thưa để giảm Function Invocations Vercel */
+export const PRESENCE_HEARTBEAT_MS = 90_000;
 /** Client poll danh sách */
-export const PRESENCE_POLL_MS = 20_000;
+export const PRESENCE_POLL_MS = 60_000;
 
 export const ACTIVITY_META: Record<
   PresenceActivityKey,
