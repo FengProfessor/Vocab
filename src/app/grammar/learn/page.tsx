@@ -31,9 +31,9 @@ interface TopicProgressSummary {
 
 /** Cấu hình hiển thị 3 cấp độ — gradient đồng bộ với banner trong trang bài học */
 const LEVELS = [
-  { key: 'beginner', label: 'Cơ bản', sub: 'A1-A2', icon: '🌱', grad: 'from-emerald-500 to-teal-600' },
-  { key: 'intermediate', label: 'Trung cấp', sub: 'B1-B2', icon: '🚀', grad: 'from-blue-500 to-indigo-600' },
-  { key: 'advanced', label: 'Nâng cao', sub: 'C1-C2', icon: '🎓', grad: 'from-purple-500 to-pink-600' },
+  { key: 'beginner', label: 'Cơ bản', sub: 'A0–A1', icon: '🌱', grad: 'from-emerald-500 to-teal-600' },
+  { key: 'intermediate', label: 'Trung cấp', sub: 'A2', icon: '🚀', grad: 'from-blue-500 to-indigo-600' },
+  { key: 'advanced', label: 'Nâng cao', sub: 'B1+', icon: '🎓', grad: 'from-purple-500 to-pink-600' },
 ] as const;
 
 /** Đọc câu tiếng Anh — voice EN tường minh (tránh giọng Việt). */
@@ -442,10 +442,10 @@ function GrammarLearnContent() {
                   : 'from-purple-500 to-pink-600 shadow-purple-100/10'
             } shadow-lg relative overflow-hidden`}>
               <div className="absolute top-0 right-0 p-8 opacity-10 font-bold text-7xl pointer-events-none select-none">
-                {activeLesson.topic?.level === 'beginner' ? 'A1-A2' : activeLesson.topic?.level === 'intermediate' ? 'B1-B2' : 'C1-C2'}
+                {activeLesson.topic?.level === 'beginner' ? 'A0–A1' : activeLesson.topic?.level === 'intermediate' ? 'A2' : 'B1+'}
               </div>
               <span className="text-[10px] font-black uppercase tracking-widest bg-white/20 px-2.5 py-1 rounded-full w-max mb-1.5 backdrop-blur-sm">
-                📚 Ngữ Pháp • {activeLesson.topic?.level === 'beginner' ? 'Cơ bản' : activeLesson.topic?.level === 'intermediate' ? 'Trung cấp' : 'Nâng cao'}
+                📚 Ngữ Pháp • {activeLesson.topic?.level === 'beginner' ? 'Cơ bản A0–A1' : activeLesson.topic?.level === 'intermediate' ? 'A2' : 'B1+'}
               </span>
               <p className="text-xs text-white/80 font-medium tracking-wide">
                 {activeLesson.topic?.title_vi || activeLesson.topic?.title}
