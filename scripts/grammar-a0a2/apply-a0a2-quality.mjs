@@ -10,7 +10,10 @@
 import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { GOLD_A0 } from './gold-lessons-a0.mjs';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DRY = process.argv.includes('--dry');
 const QUIZ_CAP = 24;
 
@@ -64,9 +67,9 @@ const BEGINNER_ORDER = [
   'conditionals-0-1',
 ];
 
-// ─── Gold sections (noun cluster) ───────────────────────────────────────────
+// ─── Gold sections (noun cluster + A0 core from gold-lessons-a0.mjs) ─────────
 
-const GOLD = {
+const GOLD_NOUNS = {
   'countable-uncountable': {
     title: 'Danh từ đếm được & không đếm được',
     theory_vi: `**Danh từ đếm được (Countable)** có số ít/số nhiều, đi với số và *a/an*.
@@ -152,14 +155,18 @@ const GOLD = {
       { en: 'I need a piece of information.', vi: 'Tôi cần một thông tin.', note: 'piece of + U' },
     ],
     seed_exercises: [
-      { type: 'mcq', q: 'Chọn câu đúng', opts: ['I need an information.', 'I need some information.', 'I need informations.'], answer: 'I need some information.', fb: 'information = U' },
-      { type: 'mcq', q: 'Chọn câu đúng', opts: ['two waters', 'two bottles of water', 'two water'], answer: 'two bottles of water', fb: 'cần đơn vị với U' },
-      { type: 'fill', q: 'How ___ rice do you want? (much/many)', opts: ['much', 'many'], answer: 'much', fb: 'rice = U → much' },
-      { type: 'fill', q: 'How ___ books are on the table? (much/many)', opts: ['much', 'many'], answer: 'many', fb: 'books = C plural → many' },
-      { type: 'error', q: 'Sửa lỗi: She has many homeworks.', opts: ['She has a lot of homework.', 'She has many homework.', 'She has a homeworks.'], answer: 'She has a lot of homework.', fb: 'homework = U' },
-      { type: 'tf', q: '"Furniture" is uncountable.', answer: true, fb: 'furniture = U' },
-      { type: 'mcq', q: 'Chọn đáp án đúng: I bought ___ apple.', opts: ['a', 'some', 'much'], answer: 'a', fb: 'apple = C singular' },
-      { type: 'mcq', q: 'Chọn đáp án đúng: There isn\'t ___ milk.', opts: ['many', 'a', 'any'], answer: 'any', fb: 'U phủ định → any' },
+      { type: 'mcq', q: 'Choose the correct sentence.', opts: ['I need an information.', 'I need some information.', 'I need informations.'], answer: 'I need some information.', fb: 'information = U', case_id: 'U_no_a' },
+      { type: 'mcq', q: 'Choose the correct phrase.', opts: ['two waters', 'two bottles of water', 'two water'], answer: 'two bottles of water', fb: 'U needs a unitiser', case_id: 'unitiser' },
+      { type: 'fill', q: 'How ___ rice do you want? (much/many)', opts: ['much', 'many'], answer: 'much', fb: 'rice = U → much', case_id: 'much_many' },
+      { type: 'fill', q: 'How ___ books are on the table? (much/many)', opts: ['much', 'many'], answer: 'many', fb: 'books = C plural → many', case_id: 'much_many' },
+      { type: 'error', q: 'Find the error: She has many homeworks.', opts: ['She has a lot of homework.', 'She has many homework.', 'She has a homeworks.'], answer: 'She has a lot of homework.', fb: 'homework = U', case_id: 'U_no_s' },
+      { type: 'tf', q: 'The word "furniture" is uncountable.', answer: true, fb: 'furniture = U', case_id: 'U_list' },
+      { type: 'mcq', q: 'I need ___ water. (some/a)', opts: ['some', 'a', 'many'], answer: 'some', fb: 'water = U → some', case_id: 'U_no_a' },
+      { type: 'mcq', q: "There isn't ___ milk.", opts: ['many', 'a', 'any'], answer: 'any', fb: 'U negative → any', case_id: 'any' },
+      { type: 'mcq', q: 'I have ___ homework today. (much/many)', opts: ['much', 'many', 'a'], answer: 'much', fb: 'homework = U', case_id: 'much_many' },
+      { type: 'error', q: 'Find the error: I have two furnitures.', opts: ['I have two pieces of furniture.', 'I have two furniture.', 'I have a furnitures.'], answer: 'I have two pieces of furniture.', fb: 'furniture = U', case_id: 'unitiser' },
+      { type: 'tf', q: '"The news is on TV" is correct (news + is).', answer: true, fb: 'news = U, singular verb', case_id: 'U_list' },
+      { type: 'mcq', q: 'She has long ___. (hair/hairs)', opts: ['hair', 'hairs'], answer: 'hair', fb: 'hair usually U', case_id: 'U_list' },
     ],
   },
 
@@ -237,18 +244,26 @@ const GOLD = {
       { en: 'The leaves are yellow.', vi: 'Lá vàng.', note: 'leaf→leaves' },
     ],
     seed_exercises: [
-      { type: 'mcq', q: 'book → ?', opts: ['books', 'bookes', 'bookies'], answer: 'books', fb: '+s' },
-      { type: 'mcq', q: 'box → ?', opts: ['boxs', 'boxes', 'boxies'], answer: 'boxes', fb: 'x + es' },
-      { type: 'mcq', q: 'city → ?', opts: ['citys', 'cities', 'cityes'], answer: 'cities', fb: 'consonant+y → ies' },
-      { type: 'mcq', q: 'boy → ?', opts: ['boies', 'boys', 'boyes'], answer: 'boys', fb: 'vowel+y → ys' },
-      { type: 'mcq', q: 'child → ?', opts: ['childs', 'children', 'childes'], answer: 'children', fb: 'irregular' },
-      { type: 'mcq', q: 'man → ?', opts: ['mans', 'men', 'mens'], answer: 'men', fb: 'vowel change' },
-      { type: 'fill', q: 'two ___ (knife)', opts: ['knives', 'knifes'], answer: 'knives', fb: 'fe→ves' },
-      { type: 'fill', q: 'three ___ (sheep)', opts: ['sheep', 'sheeps'], answer: 'sheep', fb: 'zero plural' },
-      { type: 'error', q: 'Sửa: I have two foots.', opts: ['I have two feet.', 'I have two footses.', 'I have two foot.'], answer: 'I have two feet.', fb: 'foot→feet' },
-      { type: 'tf', q: '"People" is the plural of "person".', answer: true, fb: 'person→people' },
-      { type: 'mcq', q: 'Chọn câu đúng', opts: ['three book', 'three books', 'three bookes'], answer: 'three books', fb: 'cần -s' },
-      { type: 'error', q: 'Sửa: many citys', opts: ['many cities', 'many cityes', 'many city'], answer: 'many cities', fb: 'y→ies' },
+      { type: 'mcq', q: 'book → ?', opts: ['books', 'bookes', 'bookies'], answer: 'books', fb: '+s', case_id: 's' },
+      { type: 'mcq', q: 'box → ?', opts: ['boxs', 'boxes', 'boxies'], answer: 'boxes', fb: 'x + es', case_id: 'es' },
+      { type: 'mcq', q: 'city → ?', opts: ['citys', 'cities', 'cityes'], answer: 'cities', fb: 'consonant+y → ies', case_id: 'ies' },
+      { type: 'mcq', q: 'boy → ?', opts: ['boies', 'boys', 'boyes'], answer: 'boys', fb: 'vowel+y → ys', case_id: 'ys' },
+      { type: 'mcq', q: 'child → ?', opts: ['childs', 'children', 'childes'], answer: 'children', fb: 'irregular', case_id: 'irreg' },
+      { type: 'mcq', q: 'man → ?', opts: ['mans', 'men', 'mens'], answer: 'men', fb: 'vowel change', case_id: 'irreg' },
+      { type: 'fill', q: 'two ___ (knife)', opts: ['knives', 'knifes'], answer: 'knives', fb: 'fe→ves', case_id: 'ves' },
+      { type: 'fill', q: 'three ___ (sheep)', opts: ['sheep', 'sheeps'], answer: 'sheep', fb: 'zero plural', case_id: 'zero' },
+      { type: 'error', q: 'Find the error: I have two foots.', opts: ['I have two feet.', 'I have two footses.', 'I have two foot.'], answer: 'I have two feet.', fb: 'foot→feet', case_id: 'irreg' },
+      { type: 'tf', q: '"People" is the plural of "person".', answer: true, fb: 'person→people', case_id: 'irreg' },
+      { type: 'mcq', q: 'Choose the correct phrase.', opts: ['three book', 'three books', 'three bookes'], answer: 'three books', fb: 'need -s', case_id: 's' },
+      { type: 'error', q: 'Find the error: many citys', opts: ['many cities', 'many cityes', 'many city'], answer: 'many cities', fb: 'y→ies', case_id: 'ies' },
+      { type: 'mcq', q: 'tomato → ?', opts: ['tomatos', 'tomatoes', 'tomatoies'], answer: 'tomatoes', fb: 'o→oes (common food)', case_id: 'es' },
+      { type: 'mcq', q: 'photo → ?', opts: ['photoes', 'photos', 'photoies'], answer: 'photos', fb: 'photo + s only', case_id: 's' },
+      { type: 'fill', q: 'one tooth → two ___', opts: ['teeth', 'tooths'], answer: 'teeth', fb: 'tooth→teeth', case_id: 'irreg' },
+      { type: 'mcq', q: 'woman → ?', opts: ['womans', 'women', 'womens'], answer: 'women', fb: 'vowel change', case_id: 'irreg' },
+      { type: 'mcq', q: 'leaf → ?', opts: ['leafs', 'leaves', 'leafes'], answer: 'leaves', fb: 'f→ves', case_id: 'ves' },
+      { type: 'mcq', q: 'roof → ?', opts: ['rooves', 'roofs', 'roofes'], answer: 'roofs', fb: 'exception +s', case_id: 's' },
+      { type: 'tf', q: 'The plural of "sheep" is "sheeps".', answer: false, fb: 'zero plural: sheep', case_id: 'zero' },
+      { type: 'error', q: 'Find the error: two childrens', opts: ['two children', 'two childs', 'two child'], answer: 'two children', fb: 'no double plural', case_id: 'irreg' },
     ],
   },
 
@@ -293,9 +308,13 @@ const GOLD = {
         { wrong: 'I saw dog.', right: 'I saw a dog.', why: 'C số ít cần mạo từ' },
         { wrong: 'an book', right: 'a book', why: 'book bắt đầu phụ âm âm' },
         { wrong: 'a hour', right: 'an hour', why: 'hour bắt đầu nguyên âm âm' },
-        { wrong: 'a university (sai nếu nghĩ u=nguyên âm chữ)', right: 'a university', why: '/juː/ = phụ âm âm' },
+        { wrong: 'an university', right: 'a university', why: '/juː/ = phụ âm âm, không dùng an' },
         { wrong: 'Sun is hot.', right: 'The sun is hot.', why: 'unique → the' },
-        { wrong: 'I like the music.' /* often wrong if generic */, right: 'I like music.', why: 'U generic thường zero' },
+        {
+          wrong: 'I like the music. (khi nói nhạc nói chung)',
+          right: 'I like music.',
+          why: 'U generic thường zero; the music = bản nhạc đã biết',
+        },
       ],
       tips: 'Quy trình: (1) C hay U? (2) số ít hay nhiều? (3) đã biết chưa? → a/an | the | ∅. Với a/an: **nghe âm đầu**.',
       comparison:
@@ -316,14 +335,18 @@ const GOLD = {
       { en: 'She plays football.', vi: 'Cô ấy chơi bóng đá.', note: 'zero + sport' },
     ],
     seed_exercises: [
-      { type: 'mcq', q: '___ apple', opts: ['a', 'an', 'the'], answer: 'an', fb: 'nguyên âm âm' },
-      { type: 'mcq', q: '___ university', opts: ['a', 'an'], answer: 'a', fb: '/juː/' },
-      { type: 'mcq', q: '___ hour', opts: ['a', 'an'], answer: 'an', fb: 'silent h' },
-      { type: 'fill', q: 'I saw ___ dog. ___ dog was black. (a/the)', answer: 'a / the', fb: 'first then the' },
-      { type: 'error', q: 'Sửa: Sun is bright.', opts: ['The sun is bright.', 'A sun is bright.', 'Sun are bright.'], answer: 'The sun is bright.', fb: 'unique' },
-      { type: 'tf', q: 'We say "an university".', answer: false, fb: 'a university' },
-      { type: 'mcq', q: 'I like ___ music.', opts: ['a', 'an', '— (no article)', 'the'], answer: '— (no article)', fb: 'U generic' },
-      { type: 'mcq', q: 'Please open ___ window. (trong phòng này)', opts: ['a', 'an', 'the'], answer: 'the', fb: 'cụ thể' },
+      { type: 'mcq', q: '___ apple', opts: ['a', 'an', 'the'], answer: 'an', fb: 'nguyên âm âm', case_id: 'an' },
+      { type: 'mcq', q: '___ university', opts: ['a', 'an'], answer: 'a', fb: '/juː/', case_id: 'a_sound' },
+      { type: 'mcq', q: '___ hour', opts: ['a', 'an'], answer: 'an', fb: 'silent h', case_id: 'an' },
+      { type: 'mcq', q: 'I saw ___ dog. (first mention)', opts: ['a', 'an', 'the'], answer: 'a', fb: 'first mention', case_id: 'a' },
+      { type: 'mcq', q: 'I saw a dog. ___ dog was black.', opts: ['A', 'An', 'The'], answer: 'The', fb: 'second mention', case_id: 'the' },
+      { type: 'error', q: 'Find the error: Sun is bright.', opts: ['The sun is bright.', 'A sun is bright.', 'Sun are bright.'], answer: 'The sun is bright.', fb: 'unique → the', case_id: 'the' },
+      { type: 'tf', q: 'We say "an university".', answer: false, fb: 'Correct: a university (/j/)', case_id: 'a_sound' },
+      { type: 'tf', q: 'The sentence "I have a book." is correct English.', answer: true, fb: 'a + C singular first mention', case_id: 'a' },
+      { type: 'mcq', q: 'I like ___ music. (music in general)', opts: ['a', 'an', '— (no article)', 'the'], answer: '— (no article)', fb: 'U generic = zero', case_id: 'zero' },
+      { type: 'mcq', q: 'Please open ___ window. (the one in this room)', opts: ['a', 'an', 'the'], answer: 'the', fb: 'specific', case_id: 'the' },
+      { type: 'error', q: 'Find the error: I saw dog.', opts: ['I saw a dog.', 'I saw an dog.', 'I saw the dogs always.'], answer: 'I saw a dog.', fb: 'C singular needs article', case_id: 'a' },
+      { type: 'mcq', q: 'It takes ___ hour.', opts: ['a', 'an', 'the'], answer: 'an', fb: 'hour → /aʊ/', case_id: 'an' },
     ],
   },
 
@@ -383,15 +406,28 @@ const GOLD = {
       { en: 'Would you like some tea?', vi: 'Bạn dùng chút trà chứ?', note: 'some trong lời mời' },
     ],
     seed_exercises: [
-      { type: 'mcq', q: '___ books (many/much)', opts: ['many', 'much'], answer: 'many', fb: 'C plural' },
-      { type: 'mcq', q: '___ water (many/much)', opts: ['many', 'much'], answer: 'much', fb: 'U' },
-      { type: 'fill', q: 'I don\'t have ___ milk. (some/any)', opts: ['any', 'some'], answer: 'any', fb: 'negative' },
-      { type: 'mcq', q: 'a ___ friends', opts: ['little', 'few', 'much'], answer: 'few', fb: 'a few + C' },
-      { type: 'error', q: 'Sửa: much students', opts: ['many students', 'much student', 'a little students'], answer: 'many students', fb: 'C → many' },
-      { type: 'tf', q: '"a lot of" can go with countable and uncountable nouns.', answer: true, fb: 'linh hoạt' },
+      { type: 'mcq', q: '___ books (many/much)', opts: ['many', 'much'], answer: 'many', fb: 'C plural', case_id: 'many' },
+      { type: 'mcq', q: '___ water (many/much)', opts: ['many', 'much'], answer: 'much', fb: 'U', case_id: 'much' },
+      { type: 'fill', q: "I don't have ___ milk. (some/any)", opts: ['any', 'some'], answer: 'any', fb: 'negative → any', case_id: 'any' },
+      { type: 'mcq', q: 'a ___ friends', opts: ['little', 'few', 'much'], answer: 'few', fb: 'a few + C', case_id: 'few' },
+      { type: 'error', q: 'Find the error: much students', opts: ['many students', 'much student', 'a little students'], answer: 'many students', fb: 'C → many', case_id: 'many' },
+      { type: 'tf', q: '"a lot of" can go with countable and uncountable nouns.', answer: true, fb: 'flexible', case_id: 'alot' },
+      { type: 'mcq', q: 'Add a ___ salt. (few/little)', opts: ['few', 'little'], answer: 'little', fb: 'a little + U', case_id: 'little' },
+      { type: 'mcq', q: 'I have ___ eggs. (a few / a little)', opts: ['a few', 'a little'], answer: 'a few', fb: 'C plural', case_id: 'few' },
+      { type: 'fill', q: 'Do you have ___ questions? (some/any)', opts: ['any', 'some'], answer: 'any', fb: 'question → any (default)', case_id: 'any' },
+      { type: 'mcq', q: 'Would you like ___ tea? (some/any)', opts: ['some', 'any'], answer: 'some', fb: 'offer → some OK', case_id: 'some' },
+      { type: 'error', q: 'Find the error: I don\'t have some money.', opts: ["I don't have any money.", 'I don\'t have many money.', 'I don\'t have a money.'], answer: "I don't have any money.", fb: 'negative → any', case_id: 'any' },
+      { type: 'mcq', q: 'There is ___ milk left. (much/many)', opts: ['much', 'many'], answer: 'much', fb: 'U', case_id: 'much' },
+      { type: 'mcq', q: 'There are ___ cars. (much/many)', opts: ['much', 'many'], answer: 'many', fb: 'C plural', case_id: 'many' },
+      { type: 'tf', q: 'We usually say "a lot of time" rather than "much time" in everyday affirmative speech.', answer: true, fb: 'a lot of common', case_id: 'alot' },
+      { type: 'mcq', q: 'She has ___ friends. (a little / a few)', opts: ['a little', 'a few'], answer: 'a few', fb: 'friends = C', case_id: 'few' },
+      { type: 'fill', q: 'How ___ sugar do you need? (much/many)', opts: ['much', 'many'], answer: 'much', fb: 'sugar = U', case_id: 'much' },
     ],
   },
 };
+
+/** Merge hand-authored A0 core (pronouns, be, tenses…) */
+const GOLD = { ...GOLD_NOUNS, ...GOLD_A0 };
 
 // ─── Parse legacy theory_vi → sections ──────────────────────────────────────
 
@@ -477,7 +513,27 @@ function parseTheoryToSections(theory) {
   return sections;
 }
 
-function curateExercises(existing, seed = [], cap = QUIZ_CAP) {
+const VI_DIACRITICS =
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+
+function isPollutedQuestion(q) {
+  const s = String(q || '');
+  if (!s.trim()) return true;
+  // Pure / mostly Vietnamese stems (old bot)
+  if (VI_DIACRITICS.test(s)) {
+    const letters = (s.match(/[A-Za-z]+/g) || []).join('');
+    if (letters.length < 12) return true;
+  }
+  if (/câu sau đúng|câu nào|chọn câu đúng|ngữ pháp không/i.test(s)) return true;
+  // Known wrong keys / pollution
+  if (/\bmay you\b/i.test(s)) return true;
+  if (/\bcan you lend\b/i.test(s) && /pen/i.test(s)) return true;
+  // Agent FAIL: "I have the book" marked false — ban this stem from banks
+  if (/i have the book/i.test(s) && !/first|second|mention/i.test(s)) return true;
+  return false;
+}
+
+function curateExercises(existing, seed = [], cap = QUIZ_CAP, goldOnlySeed = false) {
   const normQ = (e) =>
     String(e?.q || e?.question || '')
       .trim()
@@ -496,35 +552,42 @@ function curateExercises(existing, seed = [], cap = QUIZ_CAP) {
     const q = normQ(e);
     if (q.length > 8) s += 1;
     if (q.includes('___') || q.includes('?')) s += 1;
+    if (e?.case_id) s += 2;
+    if (isPollutedQuestion(e?.q || e?.question)) s -= 20;
     return s;
   };
 
   const pool = [];
   const seen = new Set();
-  for (const e of [...(seed || []), ...(Array.isArray(existing) ? existing : [])]) {
+  // Gold lessons: SEED ONLY — never merge old bank (preposition pollution, bad keys)
+  const sources = goldOnlySeed
+    ? [...(seed || [])]
+    : [...(seed || []), ...(Array.isArray(existing) ? existing : [])];
+
+  for (const e of sources) {
     if (!e || typeof e !== 'object') continue;
+    const qRaw = e.q || e.question;
+    if (isPollutedQuestion(qRaw)) continue;
     const q = normQ(e);
     if (!q || seen.has(q)) continue;
     seen.add(q);
-    // normalize type
     let type = e.type;
     if (type === 'multiple_choice') type = 'mcq';
     if (type === 'fill_blank') type = 'fill';
     if (type === 'error_correction') type = 'error';
     pool.push({
       type: type || 'mcq',
-      q: e.q || e.question,
+      q: qRaw,
       opts: e.opts || e.options || undefined,
       answer: e.answer !== undefined ? e.answer : e.correct_answer,
       fb: e.fb || e.explanation || '',
       case_id: e.case_id,
-      _score: score(e),
+      _score: score(e) + (goldOnlySeed ? 5 : 0),
     });
   }
 
   pool.sort((a, b) => b._score - a._score);
 
-  // diversify types
   const byType = { mcq: [], fill: [], error: [], tf: [], other: [] };
   for (const e of pool) {
     const k = byType[e.type] ? e.type : 'other';
@@ -681,7 +744,12 @@ for (const t of a0a2Topics) {
   // ensure min examples density
   if (examples.length < 6 && gold?.examples) examples = gold.examples;
 
-  const exercises = curateExercises(lesson.exercises, gold?.seed_exercises || [], QUIZ_CAP);
+  const exercises = curateExercises(
+    lesson.exercises,
+    gold?.seed_exercises || [],
+    QUIZ_CAP,
+    Boolean(gold) // gold: ưu tiên seed, lọc pollution bank cũ
+  );
 
   const theory_vi = gold?.theory_vi || theoryFromSections(sections, lesson.title) || lesson.theory_vi;
 
