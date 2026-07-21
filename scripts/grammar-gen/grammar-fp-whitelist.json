@@ -1,0 +1,44 @@
+{
+  "whitelisted_false_positives": [
+    {
+      "slug": "emphasis-structures",
+      "pattern": "Seldom/Little/Barely/Hardly inversion",
+      "reason": "Inversion is a core sub-topic of emphasis-structures."
+    },
+    {
+      "slug": "advanced-passive",
+      "pattern": "Causative passive / Reporting passives (It is believed/reported that...)",
+      "reason": "Advanced passive structures include causative passives and impersonal reporting passives."
+    },
+    {
+      "slug": "hedging-language",
+      "pattern": "It is likely that...",
+      "reason": "Hedging statements utilize probability structures like 'It is likely that'."
+    },
+    {
+      "slug": "mixed-conditionals",
+      "pattern": "If S + had V3, S + would + V",
+      "reason": "Mixed conditional sentences test transitions between past conditions and present/future continuous results."
+    },
+    {
+      "slug": "quantifiers",
+      "pattern": "Much / many with There is / There are",
+      "reason": "Quantifiers are frequently tested inside existentials; they are not existential topic pollution."
+    },
+    {
+      "slug": "subjunctive",
+      "pattern": "It is vital/important/imperative that + S + be/bare V",
+      "reason": "This is the classic mandative subjunctive form, incorrectly matched to cleft-sentences due to 'It is'."
+    },
+    {
+      "slug": "plural-nouns",
+      "pattern": "Phenomena / phenomenons plural test with There are",
+      "reason": "Tests irregular plurals inside existential sentences."
+    },
+    {
+      "slug": "third-conditional",
+      "pattern": "If + had V3 + would have V3 (with got/get)",
+      "reason": "Third conditional structures that happen to use get/got, incorrectly matched to have-got."
+    }
+  ]
+}

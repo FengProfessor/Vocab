@@ -246,12 +246,18 @@ async function fetchWordSummaryCounts(
 }
 
 // Shape JSONB của global_dictionary.data (Vietnamese definitions + IPA)
-type GdMeaning = { pos?: string; definition?: string; example?: string; collocations?: string[] };
+type GdMeaning = {
+  pos?: string;
+  definition?: string;
+  example?: string;
+  example_vi?: string;
+  collocations?: string[];
+};
 type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[]; synonyms?: string[]; antonyms?: string[] };
 
 type EnrichResult = {
   word: string; translation: string; ipa: string; pos: string;
-  example: string; synonyms: string[]; antonyms: string[];
+  example: string; example_vi: string; synonyms: string[]; antonyms: string[];
 };
 
 /**
@@ -288,6 +294,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
           ipa: gdData?.pronunciations?.[0]?.ipa || '',
           pos: gdMeaning.pos || '',
           example: gdMeaning.example || '',
+          example_vi: gdMeaning.example_vi || '',
           synonyms: gdData?.synonyms || [],
           antonyms: gdData?.antonyms || [],
         };
@@ -296,7 +303,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
         // Tier 2: từ của user khác đã enrich (translation sạch + có IPA)
         const { data: peer } = await supabase
           .from('words')
-          .select('translation, ipa, pos, example, synonyms, antonyms')
+          .select('translation, ipa, pos, example, example_vi, synonyms, antonyms')
           .ilike('word', lower)
           .neq('id', wordId)
           .neq('ipa', '')
@@ -311,6 +318,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
             ipa: peer.ipa || '',
             pos: peer.pos || '',
             example: peer.example || '',
+            example_vi: peer.example_vi || '',
             synonyms: peer.synonyms || [],
             antonyms: peer.antonyms || [],
           };
@@ -328,6 +336,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
         ipa: parsed.ipa,
         pos: parsed.pos,
         example: parsed.example,
+        example_vi: parsed.example_vi || '',
         synonyms: parsed.synonyms,
         antonyms: parsed.antonyms,
       };
@@ -342,7 +351,15 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
           data: {
             word: parsed.english,
             pronunciations: parsed.ipa ? [{ ipa: parsed.ipa }] : [],
-            results: [{ meanings: [{ pos: parsed.pos, definition: parsed.vietnamese, example: parsed.example, collocations: [] }] }],
+            results: [{
+              meanings: [{
+                pos: parsed.pos,
+                definition: parsed.vietnamese,
+                example: parsed.example,
+                example_vi: parsed.example_vi || '',
+                collocations: [],
+              }],
+            }],
           },
           tags: ['ai-generated', 'save-enrich'],
         }, { onConflict: 'word' }).then(({ error }) => {
@@ -690,7 +707,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       // Lấy từ due (id list từ SRS user) — không join srs_progress(*) (payload nhẹ)
       let dueWordsQuery = supabase
         .from('words')
-        .select('id, word, translation, ipa, pos, example, image_url, synonyms, antonyms, classroom_id, created_at')
+        .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at')
         .in('id', dueIds);
       if (requestedIds) {
         dueWordsQuery = dueWordsQuery.eq('classroom_id', classroomId);
@@ -814,7 +831,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     // Payload nhẹ: bỏ dictionary_data / image meta — dashboard + ôn không cần
     let wordsQuery = supabase
       .from('words')
-      .select('id, word, translation, ipa, pos, example, image_url, synonyms, antonyms, classroom_id, created_at, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)')
+      .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)')
       .eq('classroom_id', classroomId);
     if (requestedIds) {
       countQuery = countQuery.in('id', requestedIds);

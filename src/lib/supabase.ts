@@ -108,6 +108,8 @@ export interface Word {
   ipa?: string;
   pos?: string;
   example?: string;
+  /** Bản dịch VI tự nhiên của example — sub khi học từ mới */
+  example_vi?: string | null;
   source_url?: string;
   status?: string;
   created_at: string;
@@ -127,6 +129,8 @@ export interface DictionaryMeaning {
   pos?: string;
   definition?: string;
   example?: string;
+  /** Sub VI của example (nếu có) */
+  example_vi?: string;
   collocations?: string[];
 }
 

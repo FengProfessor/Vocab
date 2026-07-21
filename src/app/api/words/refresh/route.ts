@@ -18,10 +18,17 @@ type AIEnrichedWord = {
   ipa?: string;
   pos?: string;
   example?: string;
+  example_vi?: string;
 };
 
 // Shape JSONB of global_dictionary.data
-type GdMeaning = { pos?: string; definition?: string; example?: string; collocations?: string[] };
+type GdMeaning = {
+  pos?: string;
+  definition?: string;
+  example?: string;
+  example_vi?: string;
+  collocations?: string[];
+};
 type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[] };
 
 type PeerWord = {
@@ -30,6 +37,7 @@ type PeerWord = {
   ipa: string | null;
   pos: string | null;
   example: string | null;
+  example_vi: string | null;
   synonyms: string[] | null;
   antonyms: string[] | null;
 };
@@ -125,14 +133,14 @@ export async function POST(req: Request): Promise<NextResponse> {
       if (unresolvedWords.length > 0) {
         const { data: peerEntries } = await supabase
           .from('words')
-          .select('word, translation, ipa, pos, example, synonyms, antonyms')
+          .select('word, translation, ipa, pos, example, example_vi, synonyms, antonyms')
           .in('word', unresolvedWords)
           .neq('ipa', '')
           .not('translation', 'ilike', '%Analyzing%')
           .not('translation', 'ilike', '%failed%');
         
         if (peerEntries) {
-          for (const entry of peerEntries) {
+          for (const entry of peerEntries as PeerWord[]) {
             if (entry.word) {
               peerMap.set(entry.word.toLowerCase().trim(), entry);
             }
@@ -155,6 +163,7 @@ export async function POST(req: Request): Promise<NextResponse> {
               ipa: gdData?.pronunciations?.[0]?.ipa || '',
               pos: gdMeaning.pos || '',
               example: gdMeaning.example || '',
+              example_vi: gdMeaning.example_vi || '',
               synonyms: [],
               antonyms: [],
             })
@@ -177,6 +186,7 @@ export async function POST(req: Request): Promise<NextResponse> {
               ipa: peer.ipa || '',
               pos: peer.pos || '',
               example: peer.example || '',
+              example_vi: peer.example_vi || '',
               synonyms: peer.synonyms || [],
               antonyms: peer.antonyms || [],
             })
@@ -216,6 +226,7 @@ Return ONLY a valid JSON array of objects. Each object MUST have these exact key
 - "ipa": IPA phonetic transcription of the ENGLISH word
 - "pos": part of speech (noun/verb/adj/adv/prep/conj/det)
 - "example": one natural English sentence using the English word
+- "example_vi": natural Vietnamese translation of that example (1 sentence)
 The response MUST be a valid JSON array starting with '[' and ending with ']'. No markdown fences.`;
 
           const router = getRouter();
@@ -247,6 +258,7 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
                 ipa: item.ipa || '',
                 pos: item.pos || '',
                 example: item.example || '',
+                example_vi: item.example_vi || '',
               }).eq('id', originalRecord.id);
               
               if (updateError) {

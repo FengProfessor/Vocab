@@ -51,6 +51,7 @@ create table if not exists public.words (
   ipa text,
   pos text,
   example text,
+  example_vi text,
   source_url text,
   created_at timestamptz default now()
 );

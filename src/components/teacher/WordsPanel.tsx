@@ -266,9 +266,16 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
                   </div>
                   <p className="text-sm font-semibold text-foreground/90">{w.translation}</p>
                   {w.example && (
-                    <p className="text-xs text-muted-foreground italic mt-1 border-l-2 border-primary/30 pl-2 leading-relaxed">
-                      &quot;{w.example}&quot;
-                    </p>
+                    <div className="mt-1 border-l-2 border-primary/30 pl-2">
+                      <p className="text-xs text-muted-foreground italic leading-relaxed">
+                        &quot;{w.example}&quot;
+                      </p>
+                      {w.example_vi && (
+                        <p className="mt-0.5 text-xs text-muted-foreground/80 leading-relaxed">
+                          {w.example_vi}
+                        </p>
+                      )}
+                    </div>
                   )}
                 </div>
                 <div className="flex items-center gap-1 shrink-0">

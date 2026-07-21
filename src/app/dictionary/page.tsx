@@ -885,9 +885,16 @@ export default function DictionaryPage() {
                           <div className="flex-1 min-w-0">
                             <p className="font-semibold text-sm leading-snug">{meaning.definition}</p>
                             {meaning.example && (
-                              <p className="text-xs text-muted-foreground italic mt-1">
-                                &ldquo;{meaning.example}&rdquo;
-                              </p>
+                              <div className="mt-1">
+                                <p className="text-xs text-muted-foreground italic">
+                                  &ldquo;{meaning.example}&rdquo;
+                                </p>
+                                {meaning.example_vi && (
+                                  <p className="mt-0.5 text-xs text-muted-foreground/80">
+                                    {meaning.example_vi}
+                                  </p>
+                                )}
+                              </div>
                             )}
                           </div>
                           {/* Nút lưu: disabled nếu từ đã có trong sổ (toàn bộ) hoặc meaning cụ thể đã lưu */}

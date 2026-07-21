@@ -18,7 +18,9 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { LearnMode } from './LearnMode';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, parseIpa, canAutoFocus } from '@/lib/study';
+import { stopWordAudio } from '@/lib/audio';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
+import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 
 interface WordItem {
   id: string;
@@ -27,6 +29,7 @@ interface WordItem {
   ipa: string;
   pos: string;
   example: string;
+  example_vi?: string | null;
   image_url?: string;
   synonyms?: string[];
   antonyms?: string[];
@@ -231,6 +234,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
       autoAdvanceRef.current = null;
     }
     setAutoAdvanceTime(null);
+    // Chặn tiếng từ cũ phát trễ khi đã sang thẻ mới
+    stopWordAudio();
 
     // 1. Snapshot for the background sync
     const currentWordId = current.id;
@@ -705,9 +710,14 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
                 {current.example && (
                   <div className="w-full max-w-sm shrink rounded-2xl border border-white/10 bg-white/10 p-2.5 text-left backdrop-blur-sm sm:p-3">
-                    <p className="line-clamp-3 border-l-4 border-white/30 pl-3 text-xs font-medium italic leading-snug sm:text-sm">
-                      &quot;{current.example}&quot;
-                    </p>
+                    <ExampleWithSub
+                      example={current.example}
+                      exampleVi={current.example_vi}
+                      defaultShowVi={false}
+                      className="border-l-4 border-white/30 pl-3"
+                      enClassName="line-clamp-3 text-xs font-medium italic leading-snug sm:text-sm"
+                      viClassName="mt-1 text-[11px] font-medium leading-snug text-white/70 sm:text-xs not-italic"
+                    />
                   </div>
                 )}
 

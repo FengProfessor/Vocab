@@ -19,6 +19,7 @@ import {
   Activity,
   ImageOff,
 } from 'lucide-react';
+import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 
 // Mở rộng kiểu Word để chứa các field SRS có sẵn từ join (stability, difficulty,...)
 interface SRSProgressFull extends SRSProgress {
@@ -182,7 +183,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
 
   const handleReview = useCallback(() => {
     if (!word) return;
-    router.push(`/flashcard?class=${word.classroom_id}`);
+    router.push(`/review?class=${word.classroom_id}`);
   }, [router, word]);
 
   if (!open) return null;
@@ -288,9 +289,13 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                   <h3 className="text-xs font-black uppercase text-muted-foreground tracking-wider mb-1">
                     Ví dụ
                   </h3>
-                  <p className="text-sm italic text-slate-600 leading-relaxed">
-                    &ldquo;{word.example}&rdquo;
-                  </p>
+                  <ExampleWithSub
+                    example={word.example}
+                    exampleVi={word.example_vi}
+                    defaultShowVi
+                    enClassName="text-sm italic text-slate-600 leading-relaxed"
+                    viClassName="mt-1 text-sm font-medium text-slate-500 leading-relaxed not-italic"
+                  />
                 </div>
               )}
 
@@ -309,9 +314,14 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                         )}
                         <span className="text-slate-700">{m.definition}</span>
                         {m.example && (
-                          <p className="text-xs italic text-slate-500 mt-1">
-                            example: &ldquo;{m.example}&rdquo;
-                          </p>
+                          <ExampleWithSub
+                            example={m.example}
+                            exampleVi={m.example_vi}
+                            defaultShowVi
+                            className="mt-1"
+                            enClassName="text-xs italic text-slate-500"
+                            viClassName="mt-0.5 text-xs font-medium text-slate-400 not-italic"
+                          />
                         )}
                       </div>
                     ))}

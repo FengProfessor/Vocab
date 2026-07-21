@@ -7,6 +7,8 @@ export interface EnrichedWord {
   ipa: string;
   pos: string;
   example: string;
+  /** Bản dịch VI tự nhiên của example */
+  example_vi: string;
   synonyms: string[];
   antonyms: string[];
   image_search_query: string;
@@ -19,6 +21,7 @@ interface EnrichedWordRaw {
   ipa?: string;
   pos?: string;
   example?: string;
+  example_vi?: string;
   synonyms?: string[];
   antonyms?: string[];
   image_search_query?: string;
@@ -48,7 +51,8 @@ Return ONLY valid JSON with these exact keys:
 - "vietnamese": the exact Vietnamese meaning requested (or best picked)
 - "ipa": IPA phonetic transcription
 - "pos": part of speech
-- "example": one natural English sentence
+- "example": one natural English sentence using the word
+- "example_vi": natural Vietnamese translation of that example (1 full sentence, not word-by-word)
 - "synonyms": array of 3-5 common English synonyms
 - "antonyms": array of 3-5 common English antonyms
 - "image_search_query": a 2-5 word descriptive English string for image generation that matched the context.
@@ -79,6 +83,7 @@ Strict JSON only.`;
       ipa: parsed.ipa || '',
       pos: parsed.pos || '',
       example: parsed.example || '',
+      example_vi: (parsed.example_vi || '').trim(),
       synonyms: parsed.synonyms || [],
       antonyms: parsed.antonyms || [],
       image_search_query: parsed.image_search_query || '',
