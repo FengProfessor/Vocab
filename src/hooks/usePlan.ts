@@ -35,7 +35,8 @@ export function usePlan(): UsePlanResult {
 
   useEffect(() => {
     let cancelled = false;
-    (async () => {
+
+    const load = async () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
@@ -65,9 +66,16 @@ export function usePlan(): UsePlanResult {
         }
         setLoading(false);
       }
-    })();
+    };
+
+    void load();
+    const onPlanChanged = () => {
+      void load();
+    };
+    window.addEventListener('lingopro-plan-changed', onPlanChanged);
     return () => {
       cancelled = true;
+      window.removeEventListener('lingopro-plan-changed', onPlanChanged);
     };
   }, []);
 

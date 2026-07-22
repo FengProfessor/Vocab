@@ -7,10 +7,15 @@
 import type { Plan, OrderKind } from '@/lib/supabase';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { getEffectivePlan } from '@/lib/entitlement';
+import {
+  getProMilestoneSnapshot,
+  isMilestoneGatedCoupon,
+  milestoneGateErrorMessage,
+} from '@/lib/pro-trial-milestone';
 
 /**
  * Coupon tặng trial theo NGÀY (override period_months của RPC = 1 tháng).
- * NEWBIE* = tour onboarding; LIVE* = quà live group.
+ * NEWBIE* = quà mốc học (streak + từ) — KHÔNG tặng sau tour; LIVE* = quà live group.
  */
 export const TRIAL_COUPON_DAYS: Record<string, number> = {
   NEWBIE1W: 7,
@@ -306,6 +311,14 @@ export async function createOrder(
       orderKind,
       periodMonths,
     });
+
+    // NEWBIE*: chỉ redeem khi đạt mốc học (streak + từ) — không tặng sau tour
+    if (coupon && isMilestoneGatedCoupon(couponCode)) {
+      const snap = await getProMilestoneSnapshot(supabase, userId);
+      if (!snap.eligible) {
+        throw new Error(milestoneGateErrorMessage(snap));
+      }
+    }
 
     // Ép kỳ 1 tháng cho trial (phòng client gửi nhầm 12)
     if (coupon && isTrialCouponCode(couponCode)) {

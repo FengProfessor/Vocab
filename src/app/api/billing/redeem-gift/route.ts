@@ -1,6 +1,8 @@
 /**
  * POST /api/billing/redeem-gift
  * Nhận quà trial (LIVEB3, NEWBIE…) — chỉ mã trial, gói cá nhân, 7 ngày Pro.
+ * NEWBIE*: server gate mốc học (streak ≥ 3 + ≥ 50 từ) trong createOrder.
+ * LIVE*: không gate mốc (quà live).
  * Tách khỏi flow mua 1 tháng / 1 năm để không hiểu nhầm.
  */
 

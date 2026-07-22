@@ -415,7 +415,7 @@ export const ONBOARDING_STEPS: OnboardingStep[] = [
     id: 'reward',
     type: 'modal',
     title: 'Xong tour!',
-    description: 'Nhận Pro 1 tuần miễn phí.',
+    description: 'Học streak 3 ngày + 50 từ → nhận Pro 1 tuần.',
     emoji: '🎁',
     xpReward: 15,
   },

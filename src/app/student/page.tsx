@@ -21,6 +21,7 @@ import { earnedBadges, xpToLevel } from '@/lib/gamification';
 import { Mascot, type MascotMood } from '@/components/gamification/Mascot';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpGoalCard } from '@/components/gamification/XpGoalCard';
+import { ProTrialMilestoneCard } from '@/components/gamification/ProTrialMilestoneCard';
 import type { CelebrationIntensity } from '@/components/gamification/Celebration';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { StudentShell } from '@/components/student/StudentShell';
@@ -789,6 +790,26 @@ export default function StudentDashboard() {
             </Link>
           </div>
 
+          {/* Nhiệm vụ nhận quà Pro — luôn hiện trên dashboard free */}
+          {profile?.id && (
+            <ProTrialMilestoneCard
+              enabled
+              hintStreak={gamification.current_streak}
+              hintWords={countsReady ? totalWords : undefined}
+              onClaimed={() => {
+                void refreshGamification();
+                void supabase
+                  .from('profiles')
+                  .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
+                  .eq('id', profile.id)
+                  .maybeSingle()
+                  .then(({ data }) => {
+                    if (data) setProfile(data as Profile);
+                  });
+              }}
+            />
+          )}
+
           {/* Luyện sử dụng từ / đặt câu — bulk 1–20 → VI+EN → AI EN */}
           <Link
             href="/practice/codemix"
@@ -859,7 +880,6 @@ export default function StudentDashboard() {
             />
           </section>
 
-          
           {/* ═══ KHO TỪ VỰNG ═══ */}
           <section
             className="space-y-2.5 rounded-2xl border border-slate-100 bg-white p-3 shadow-sm sm:p-3.5"
