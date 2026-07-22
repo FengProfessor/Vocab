@@ -10,6 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { createClient } from '@supabase/supabase-js';
 import { GOLD_A0 } from './gold-lessons-a0.mjs';
+import { FRESH_BY_SLUG } from './practice-banks-fresh.mjs';
 
 const DRY = !process.argv.includes('--apply');
 const ONLY = (() => {
@@ -25,8 +26,8 @@ const ONLY = (() => {
 
 const TARGET = 42;
 const HARD_CAP = 56;
-// error min 4 after purge of VI/fake stems (prefer quality over pad errors)
-const TYPE_MIN = { mcq: 10, fill: 8, error: 4, tf: 6 };
+// error: soft floor 0 (fake errors worse); FRESH/EXTRA banks supply real errors
+const TYPE_MIN = { mcq: 10, fill: 8, error: 0, tf: 6 };
 
 function loadEnv() {
   const raw = fs.readFileSync(path.resolve('.env.local'), 'utf8');
@@ -152,8 +153,20 @@ function junkReasons(e) {
   }
 
   if (/which of the following demonstrates the rule/i.test(q)) reasons.push('meta_rule');
+  if (/which example fits/i.test(q)) reasons.push('meta_rule_fit'); // often multi-correct (a book + a cat)
   if (/is this formula rule correct/i.test(q)) reasons.push('meta_formula_tf');
   if (/is ".*?" a correct example of "/i.test(q) && /→/.test(q)) reasons.push('meta_rule_arrow');
+  // multi-correct trap: fits "a" with several "a …" options
+  if (/which example fits\s*"a"/i.test(q)) {
+    const aOpts = opts.filter((o) => /^a\s+/i.test(o));
+    if (aOpts.length >= 2) reasons.push('multi_correct_a');
+  }
+  if (/which example fits\s*"an"/i.test(q)) {
+    const aOpts = opts.filter((o) => /^an\s+/i.test(o));
+    if (aOpts.length >= 2) reasons.push('multi_correct_an');
+  }
+  // VI note stuck in stem
+  if (/\(khi | \(nói | \(khi nói/i.test(q)) reasons.push('vi_parenthetical');
 
   // Vietnamese treated as English sentence
   if (/is the sentence\s+"/i.test(q) && VI.test(q)) reasons.push('vi_as_en');
@@ -239,10 +252,14 @@ function isHardJunk(reasons) {
     'error_ans_eq_stem',
     'polarity_fake_error',
     'meta_rule',
+    'meta_rule_fit',
     'meta_formula_tf',
+    'multi_correct_a',
+    'multi_correct_an',
     'vi_as_en',
     'vi_error_stem',
     'vi_opt',
+    'vi_parenthetical',
     'vocab_pad_junk',
     'noun_vocab_fill',
     'no_opts',
@@ -318,6 +335,78 @@ function scoreItem(e) {
   return s;
 }
 
+// ── Theory banlist: practice must NOT clone lesson examples / mistakes ─────
+
+function stripViNote(s) {
+  return String(s || '')
+    .replace(/\s*[\(（][^)\）]*[\)）]\s*/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Banlist for practice clones of "outside theory" content.
+ * Includes examples + usage + rule/formula examples.
+ * Mistakes are allowed as practice source for non-FRESH topics (still strip VI notes).
+ * For FRESH topics we ignore mistakes entirely and only use hand bank.
+ */
+function buildTheoryBanlist(sections = {}, examples = [], { includeMistakes = false } = {}) {
+  const phrases = [];
+  for (const e of examples || []) {
+    if (e?.en) phrases.push(e.en);
+  }
+  if (includeMistakes) {
+    for (const m of sections.mistakes || []) {
+      if (m?.wrong) phrases.push(stripViNote(m.wrong));
+      if (m?.right) phrases.push(stripViNote(m.right));
+    }
+  }
+  for (const r of sections.rules || []) {
+    for (const p of String(r.example || '').split(/·/)) phrases.push(p.trim());
+  }
+  for (const u of sections.usage || []) {
+    if (u?.en) {
+      for (const p of String(u.en).split(/·/)) phrases.push(p.trim());
+    }
+  }
+  if (sections.formula?.rows) {
+    for (const row of sections.formula.rows) {
+      const ex = row['Ví dụ'] || row['Example'] || '';
+      for (const p of String(ex).split(/·/)) phrases.push(p.trim());
+    }
+  }
+  const set = new Set();
+  for (const p of phrases) {
+    const n = normQ(stripViNote(p));
+    if (n && n.length >= 10) set.add(n);
+  }
+  return set;
+}
+
+function itemOverlapsTheory(item, banlist) {
+  if (!banlist || banlist.size === 0) return false;
+  const q = stripViNote(getQ(item));
+  const stem = normQ(
+    q
+      .replace(
+        /^(find the error|sửa|choose the (correct sentence|missing word)|is the sentence|which example fits|which sentence fits|example for)\s*:?\s*/i,
+        '',
+      )
+      .replace(/^"+|"+$/g, ''),
+  );
+  const ans = normQ(stripViNote(String(getAns(item) ?? '')));
+  for (const ban of banlist) {
+    if (!ban || ban.length < 10) continue;
+    // Only full-phrase clones (3+ words or long phrase), not single tokens
+    const words = ban.split(/\s+/).filter(Boolean);
+    if (words.length < 3 && ban.length < 18) continue;
+    if (stem === ban || stem.startsWith(ban + ' ') || stem.endsWith(' ' + ban)) return true;
+    if (stem.includes(ban) && ban.length >= 14) return true;
+    if (ans === ban && words.length >= 3) return true;
+  }
+  return false;
+}
+
 // ── Quality generators from theory ─────────────────────────────────────────
 
 function corruptSimple(en) {
@@ -365,41 +454,31 @@ function corruptSimple(en) {
   return null;
 }
 
-function genFromMistakes(mistakes) {
+/**
+ * Practice from mistakes: strip VI notes; still may overlap theory → filtered by banlist.
+ * Prefer FRESH banks when present. For other topics this restores error volume.
+ */
+function genFromMistakes(mistakes, { allowTheoryClone = false } = {}) {
   const out = [];
   for (const m of mistakes || []) {
-    const wrong = String(m.wrong || '').trim();
-    const right = String(m.right || '').trim();
+    const wrong = stripViNote(m.wrong || '');
+    const right = stripViNote(m.right || '');
     const why = String(m.why || 'Lỗi thường gặp').trim();
     if (!wrong || !right || wrong.toLowerCase() === right.toLowerCase()) continue;
-    // skip if wrong is pure Vietnamese tip
-    if (VI.test(wrong) && !/[A-Za-z]{3,}/.test(wrong)) continue;
     if (VI.test(wrong) && (wrong.match(/[A-Za-z]/g) || []).length < 8) continue;
+    if (/^(dùng|sử dụng|ghép|tránh)/i.test(wrong)) continue;
 
-    const case_id = `mistake_${normQ(wrong).slice(0, 40).replace(/\s+/g, '_')}`;
-    const bad2 = corruptSimple(right);
-    const optsErr = [right, wrong];
-    if (bad2 && bad2 !== right && bad2 !== wrong) optsErr.push(bad2);
-    // ensure 3 unique
-    const u = [];
-    const seen = new Set();
-    for (const o of optsErr) {
-      const k = o.toLowerCase();
-      if (seen.has(k)) continue;
-      seen.add(k);
-      u.push(o);
+    const case_id = `mx_${normQ(right).slice(0, 28).replace(/\s+/g, '_')}`;
+    if (!allowTheoryClone) {
+      out.push(tf(`Rule check: ${why}`, true, why, `rule_${case_id}`));
+      continue;
     }
-    if (u.length < 2) continue;
-
-    out.push(
-      err(`Find the error: ${wrong}`, u, right, `Sửa: ${wrong} → ${right}. ${why}`, case_id),
-    );
-    out.push(
-      mcq(`Choose the correct sentence.`, u, right, why, case_id),
-    );
-    out.push(
-      tf(`"${wrong}" is correct English.`, false, `Sai. Đúng: ${right}. ${why}`, case_id),
-    );
+    const bad2 = corruptSimple(right);
+    const opts = [right, wrong, bad2].filter(Boolean).filter((x, i, a) => a.indexOf(x) === i);
+    if (opts.length < 2) continue;
+    out.push(err(`Find the error: ${wrong}`, opts, right, why, case_id));
+    out.push(mcq('Choose the correct sentence.', opts, right, why, case_id));
+    out.push(tf(`"${wrong}" is correct English.`, false, `Sai. Đúng: ${right}. ${why}`, case_id));
   }
   return out;
 }
@@ -410,11 +489,11 @@ function genFromRules(rules) {
     const c = String(r.case || r.rule || '').trim();
     const rule = String(r.rule || '').trim();
     const example = String(r.example || '').trim();
-    if (!c && !example) continue;
+    if (!c && !rule) continue;
     const case_id = `rule_${normQ(c || rule).slice(0, 36).replace(/\s+/g, '_')}`;
 
+    // Morphology only (play → plays) — not free-text multi-correct "fits a"
     if (example && example.includes('→')) {
-      // morphology: play → plays
       const parts = example.split(/·/).map((x) => x.trim()).filter(Boolean);
       for (const p of parts.slice(0, 2)) {
         const m = p.match(/^(.+?)\s*→\s*(.+)$/);
@@ -432,34 +511,18 @@ function genFromRules(rules) {
           ),
         );
         out.push(
-          fill(`${from} → ___`, [to, from, from + 'ed'].filter((x, i, a) => a.indexOf(x) === i), to, rule || c, case_id),
+          fill(
+            `${from} → ___`,
+            [to, from, from + 'ed'].filter((x, i, a) => a.indexOf(x) === i),
+            to,
+            rule || c,
+            case_id,
+          ),
         );
-      }
-    } else if (example && /[A-Za-z]{3,}/.test(example) && example.length < 80) {
-      // treat example phrases as correct; make tf + choose
-      const phrases = example.split(/·/).map((x) => x.trim()).filter((x) => x.length > 2 && x.length < 60);
-      const good = phrases[0];
-      if (good && !VI.test(good)) {
-        out.push(
-          tf(`"${good}" matches the rule "${c}".`, true, `${c}: ${rule}`, case_id),
-        );
-        if (phrases[1] && !VI.test(phrases[1])) {
-          const bad = corruptSimple(good);
-          out.push(
-            mcq(
-              `Which example fits "${c}"?`,
-              [good, bad, phrases[1]].filter(Boolean).filter((x, i, a) => a.indexOf(x) === i).slice(0, 4),
-              good,
-              rule || c,
-              case_id,
-            ),
-          );
-        }
       }
     } else if (rule) {
-      out.push(
-        tf(`Rule "${c}": ${rule} — is this a real rule for this lesson?`, true, `${c}: ${rule}`, case_id),
-      );
+      // rule statement only — do NOT paste example phrases into practice opts
+      out.push(tf(`Rule "${c}": ${rule}`, true, `${c}: ${rule}`, case_id));
     }
   }
   return out;
@@ -668,7 +731,12 @@ function isOffTopicForSlug(e, slug) {
   return false;
 }
 
-function genFromExamples(examples, slug) {
+/**
+ * When no FRESH bank: blank examples for practice volume (banlist drops exact clones if too close).
+ * When has FRESH: skip — theory examples stay outside practice.
+ */
+function genFromExamples(examples, slug, { skip = false } = {}) {
+  if (skip) return [];
   const out = [];
   for (const ex of examples || []) {
     const en = String(ex.en || '').trim();
@@ -676,72 +744,23 @@ function genFromExamples(examples, slug) {
     const note = String(ex.note || '').trim();
     if (!en) continue;
     const blank = blankSentence(en, slug);
-    if (!blank || !blank.q) continue;
+    if (!blank?.q) continue;
     const fb = [vi, note].filter(Boolean).join(' · ') || 'Theo ví dụ bài học';
     const itemFill = fill(blank.q, blank.opts, blank.answer, fb, `${blank.case_id}_${slug}`.slice(0, 40));
-    const itemMcq = mcq(
-      `Choose the missing word: ${blank.q}`,
-      blank.opts,
-      blank.answer,
-      fb,
-      `${blank.case_id}_mcq`.slice(0, 40),
-    );
     if (!isOffTopicForSlug(itemFill, slug)) out.push(itemFill);
-    if (!isOffTopicForSlug(itemMcq, slug)) out.push(itemMcq);
-    const alt = blank.opts.find((o) => o !== blank.answer);
-    if (!alt) continue;
-    const wrong = en.replace(
-      new RegExp(`\\b${blank.answer.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i'),
-      alt,
-    );
-    if (wrong !== en && !/\(wrong form\)/i.test(wrong)) {
-      const itemErr = err(
-        `Find the error: ${wrong}`,
-        [en, wrong].filter((x, i, a) => a.indexOf(x) === i),
-        en,
-        fb,
-        `${blank.case_id}_err`.slice(0, 40),
-      );
-      if (!isOffTopicForSlug(itemErr, slug)) out.push(itemErr);
-    }
   }
   return out;
 }
 
-function genFromUsage(usage, slug) {
+function genFromUsage(usage, { skip = false } = {}) {
+  if (skip) return [];
   const out = [];
   for (const u of usage || []) {
-    const en = String(u.en || '').trim();
     const label = String(u.label || '').trim();
     const vi = String(u.vi || '').trim();
-    if (!en || en.length < 6) continue;
-    if (VI.test(en) && (en.match(/[A-Za-z]/g) || []).length < 8) continue;
-    const case_id = `usage_${normQ(label || en).slice(0, 28).replace(/\s+/g, '_')}`;
-    const blank = blankSentence(en, slug);
-    if (blank?.q) {
-      const f = fill(blank.q, blank.opts, blank.answer, `${label}: ${vi || en}`, case_id);
-      if (!isOffTopicForSlug(f, slug)) out.push(f);
-    }
-    out.push(
-      tf(
-        `Example for "${label || 'usage'}": "${en}" — correct?`,
-        true,
-        vi || label || 'Usage example',
-        case_id,
-      ),
-    );
-    const bad = corruptSimple(en);
-    if (bad) {
-      out.push(
-        mcq(
-          `Which sentence fits "${label || 'this use'}"?`,
-          [en, bad].filter((x, i, a) => a.indexOf(x) === i),
-          en,
-          vi || label,
-          case_id,
-        ),
-      );
-    }
+    if (!label && !vi) continue;
+    const case_id = `usage_${normQ(label || vi).slice(0, 28).replace(/\s+/g, '_')}`;
+    out.push(tf(`This lesson covers: "${label || vi}".`, true, vi || label, case_id));
   }
   return out;
 }
@@ -779,7 +798,7 @@ function typeCounts(list) {
   return c;
 }
 
-function mergeUnique(lists, slug = '') {
+function mergeUnique(lists, slug = '', banlist = null) {
   const out = [];
   const seen = new Set();
   for (const list of lists) {
@@ -789,14 +808,21 @@ function mergeUnique(lists, slug = '') {
       const reasons = junkReasons(item);
       if (isHardJunk(reasons)) continue;
       if (slug && isOffTopicForSlug(item, slug)) continue;
+      if (banlist && itemOverlapsTheory(item, banlist)) continue;
       if (/\(wrong form\)/i.test(item.q) || (item.opts || []).some((o) => /\(wrong form\)/i.test(o))) continue;
+      if (/\(khi | \(nói /i.test(item.q)) continue;
       const k = normQ(item.q);
       if (!k || seen.has(k)) continue;
       seen.add(k);
+      // Prefer fresh practice banks
+      const boost = /^practice_|^art_|^fresh_|err_|zero_|an_|a_|the_/i.test(String(item.case_id || ''))
+        ? 5
+        : 0;
       out.push({
         ...item,
         _score:
-          scoreItem(item) -
+          scoreItem(item) +
+          boost -
           (reasons.includes('tf_template_pad') ? 4 : 0) -
           (reasons.includes('generic_fb') ? 3 : 0),
       });
@@ -816,7 +842,10 @@ function deriveSiblings(e) {
   const case_id = e?.case_id ? `${e.case_id}_d` : 'derived';
 
   if (type === 'mcq' && opts.length >= 2 && ans) {
-    if (
+    // never derive from multi-slot answers like "The / the" or "a / The"
+    if (/\/|,/.test(ans) || ans.split(/\s+/).length > 6) {
+      /* skip fragile derives */
+    } else if (
       ans.length > 0 &&
       ans.length < 40 &&
       !/^choose the /i.test(q) &&
@@ -831,13 +860,14 @@ function deriveSiblings(e) {
           `${case_id}_fill`,
         ),
       );
-    } else if (!q.includes('___') && ans.length < 30 && opts.every((o) => o.split(/\s+/).length <= 4)) {
+    } else if (!q.includes('___') && ans.length < 24 && opts.every((o) => o.split(/\s+/).length <= 3 && !/\//.test(o))) {
       out.push(fill(`${q.replace(/\?$/, '')}: ___`, opts, ans, fb, `${case_id}_fill2`));
     }
-    if (ans.split(/\s+/).length >= 3 && /[A-Za-z]/.test(ans) && !VI.test(ans)) {
+    if (ans.split(/\s+/).length >= 4 && /[A-Za-z]/.test(ans) && !VI.test(ans) && !/\//.test(ans)) {
       const wrong =
-        opts.find((o) => o !== ans && o.split(/\s+/).length >= 2 && !VI.test(o)) || corruptSimple(ans);
-      if (wrong) {
+        opts.find((o) => o !== ans && o.split(/\s+/).length >= 3 && !VI.test(o) && !/\//.test(o)) ||
+        corruptSimple(ans);
+      if (wrong && String(wrong).length > 8) {
         out.push(
           err(
             `Find the error: ${wrong}`,
@@ -873,9 +903,9 @@ function deriveSiblings(e) {
   return out;
 }
 
-function balanceAndCap(pool, target = TARGET, slug = '') {
+function balanceAndCap(pool, target = TARGET, slug = '', banlist = null) {
   // expand pool with derived siblings for type coverage
-  const expanded = mergeUnique([pool, ...pool.map((e) => deriveSiblings(e))], slug);
+  const expanded = mergeUnique([pool, ...pool.map((e) => deriveSiblings(e))], slug, banlist);
 
   expanded.sort((a, b) => (b._score || 0) - (a._score || 0));
 
@@ -1065,6 +1095,14 @@ const EXTRA_SEEDS = {
     mcq('The man ___ in the corner is my uncle.', ['sitting', 'sits', 'sat always only'], 'sitting', 'reduced relative', 'sit'),
     err('Find the error: Written the letter, she posted it. (active subject)', ['Having written the letter, she posted it. / After she wrote the letter, she posted it.', 'Written the letter, she posted it is best.', 'Wrote the letter, she posted it.'], 'Having written the letter, she posted it. / After she wrote the letter, she posted it.', 'perfect participle / active', 'hav'),
   ],
+  inversion: [
+    mcq('___ had I arrived when it started to rain.', ['Hardly', 'Hard', 'Harder'], 'Hardly', 'Hardly + had + S + V3', 'hardly'),
+    fill('___ no circumstances should you open that door. (Under/Over)', ['Under', 'Over', 'On'], 'Under', 'Under no circumstances + inversion', 'under'),
+    err('Find the error: Never I have seen such a mess.', ['Never have I seen such a mess.', 'Never I have seen such a mess.', 'Never I seen such a mess.'], 'Never have I seen such a mess.', 'Never + aux + S', 'never'),
+    fill('Not only ___ she late, but she also forgot the keys. (was/she was)', ['was', 'she was', 'is'], 'was', 'Not only + aux + S', 'notonly'),
+    tf('After negative adverbials (Never, Rarely, Hardly), we invert aux and subject.', true, 'inversion rule', 'tf'),
+    mcq('Little ___ he know about the plan.', ['did', 'does he did', 'he did'], 'did', 'Little + did + S', 'little'),
+  ],
   'hedging-language': [
     fill('It ___ be true. (might/must always)', ['might', 'must', 'will'], 'might', 'weak certainty', 'might'),
     fill('There is ___ evidence for this. (some/absolute)', ['some', 'absolute', 'all'], 'some', 'hedge quantifier', 'some'),
@@ -1124,48 +1162,49 @@ async function main() {
       kept.push(e);
     }
 
+    const fresh = FRESH_BY_SLUG[slug] || [];
+    const hasFresh = fresh.length >= 36;
+    // FRESH: ban examples+mistakes (full isolation). Others: ban only examples/usage (mistakes OK as drills).
+    const banlist = buildTheoryBanlist(sections, examples, { includeMistakes: hasFresh });
+
+    // FRESH topics: practice-only hand bank (no theory clones)
+    // Others: allow cleaned mistakes/examples for volume; ban exact theory phrase clones
     const gen = [
-      ...loadGoldSeeds(slug),
+      ...fresh,
       ...(EXTRA_SEEDS[slug] || []),
-      ...genFromMistakes(sections.mistakes),
-      ...genFromRules(sections.rules),
-      ...genFromFormula(sections.formula),
-      ...genFromExamples(examples, slug),
-      ...genFromUsage(sections.usage, slug),
-      ...genFromComparison(sections.comparison, sections.tips),
+      ...(hasFresh
+        ? []
+        : [
+            ...loadGoldSeeds(slug),
+            ...genFromMistakes(sections.mistakes, { allowTheoryClone: true }),
+            ...genFromRules(sections.rules),
+            ...genFromFormula(sections.formula),
+            ...genFromExamples(examples, slug, { skip: false }),
+            ...genFromUsage(sections.usage, { skip: false }),
+            ...genFromComparison(sections.comparison, sections.tips),
+          ]),
     ];
 
-    const pool = mergeUnique([kept, gen], slug);
-    let final = balanceAndCap(pool, TARGET, slug);
+    const keptClean = hasFresh
+      ? []
+      : kept.filter((e) => !itemOverlapsTheory(e, banlist));
 
-    // if still under target, relax soft pads from kept (still on-topic + not hard junk)
+    const pool = mergeUnique([fresh, gen, keptClean], slug, banlist);
+    let final = balanceAndCap(pool, TARGET, slug, banlist);
+
     if (final.length < TARGET) {
-      const soft = existing.filter((e) => !isHardJunk(junkReasons(e)) && !isOffTopicForSlug(e, slug));
-      const pool2 = mergeUnique([final, soft, gen], slug);
-      final = balanceAndCap(pool2, TARGET, slug);
+      const soft = existing.filter(
+        (e) =>
+          !isHardJunk(junkReasons(e)) &&
+          !isOffTopicForSlug(e, slug) &&
+          !itemOverlapsTheory(e, banlist),
+      );
+      const pool2 = mergeUnique([final, soft, gen, fresh], slug, banlist);
+      final = balanceAndCap(pool2, TARGET, slug, banlist);
     }
 
-    if (final.length < 36) {
-      const extra = [];
-      for (const m of sections.mistakes || []) {
-        const wrong = String(m.wrong || '').trim();
-        const right = String(m.right || '').trim();
-        const why = String(m.why || '').trim();
-        if (!wrong || !right) continue;
-        if (VI.test(wrong) && (wrong.match(/[A-Za-z]/g) || []).length < 8) continue;
-        if (VI.test(right)) continue;
-        const bad = corruptSimple(right);
-        extra.push(
-          mcq(
-            'Choose the correct sentence.',
-            [right, wrong, bad].filter(Boolean).filter((x, i, a) => a.indexOf(x) === i),
-            right,
-            why || right,
-            `mistake_mcq_${normQ(right).slice(0, 20).replace(/\s+/g, '_')}`,
-          ),
-        );
-      }
-      final = balanceAndCap(mergeUnique([final, extra], slug), TARGET, slug);
+    if (final.length < 36 && fresh.length) {
+      final = balanceAndCap(mergeUnique([fresh, final], slug, null), Math.max(TARGET, fresh.length), slug, null);
     }
 
     const tc = typeCounts(final);
