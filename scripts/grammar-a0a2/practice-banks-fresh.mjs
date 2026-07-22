@@ -22,6 +22,14 @@ import {
   RELATIVE_CLAUSES_PRACTICE,
   GERUNDS_INFINITIVES_PRACTICE,
 } from './practice-banks-fresh-inter.mjs';
+import {
+  SECOND_CONDITIONAL_PRACTICE,
+  THIRD_CONDITIONAL_PRACTICE,
+  MIXED_CONDITIONALS_PRACTICE,
+  WISH_IF_ONLY_PRACTICE,
+  MODALS_PERFECT_PRACTICE,
+  INVERSION_PRACTICE,
+} from './practice-banks-fresh-batch3.mjs';
 
 const mcq = (q, opts, answer, fb, case_id) => ({ type: 'mcq', q, opts, answer, fb, case_id });
 const fill = (q, opts, answer, fb, case_id) => ({ type: 'fill', q, opts, answer, fb, case_id });
@@ -105,4 +113,10 @@ export const FRESH_BY_SLUG = {
   'reported-speech': REPORTED_SPEECH_PRACTICE,
   'relative-clauses': RELATIVE_CLAUSES_PRACTICE,
   'gerunds-infinitives': GERUNDS_INFINITIVES_PRACTICE,
+  'second-conditional': SECOND_CONDITIONAL_PRACTICE,
+  'third-conditional': THIRD_CONDITIONAL_PRACTICE,
+  'mixed-conditionals': MIXED_CONDITIONALS_PRACTICE,
+  'wish-if-only': WISH_IF_ONLY_PRACTICE,
+  'modals-perfect': MODALS_PERFECT_PRACTICE,
+  inversion: INVERSION_PRACTICE,
 };

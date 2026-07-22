@@ -307,7 +307,7 @@ export const FUTURE_WILL_PRACTICE = [
   fill('I think robots ___ (replace) some jobs in the future.', ['will replace', 'replace', 'replaced'], 'will replace', 'Prediction with I think', 'fw_think'),
   fill('Hold on, I ___ (answer) the ringing phone.', ['will answer', 'answer', 'am answering'], 'will answer', 'Instant decision', 'fw_instant'),
   fill('I promise I ___ (not/tell) anyone your secret.', ['won\'t tell', 'don\'t tell', 'not tell'], 'won\'t tell', 'Promise negative -> won\'t', 'fw_promise_neg'),
-  fill('___ you ___ (open) the door for me, please?', ['Will / open', 'Do / open', 'Are / opening'], 'Will / open', 'Polite request', 'fw_req'),
+  fill('___ you ___ (carry) this heavy suitcase for me, please?', ['Will / carry', 'Do / carry', 'Are / carrying'], 'Will / carry', 'Polite request', 'fw_req'),
   fill('It\'s late; I ___ (call) a taxi.', ['will call', 'call', 'called'], 'will call', 'Instant decision', 'fw_decide'),
   fill('I hope the weather ___ (be) fine tomorrow.', ['will be', 'is', 'be'], 'will be', 'Hope + will', 'fw_hope'),
   fill('Scientists believe humans ___ (live) on Mars one day.', ['will live', 'live', 'lived'], 'will live', 'Believe + will', 'fw_believe'),
