@@ -817,7 +817,7 @@ export default function StudentDashboard() {
             <div className="min-w-0 flex-1">
               <p className="text-sm font-black text-teal-900">Luyện đọc gói từ</p>
               <p className="text-[11px] font-semibold text-teal-700/80">
-                Từ 1–3 / 3–7 / &gt;7 ngày · chủ đề · cấp độ · Gen AI
+                Yếu / đang nhớ / vững · chủ đề · cấp độ · Gen AI
               </p>
             </div>
             <ArrowRight className="h-4 w-4 shrink-0 text-teal-400" />

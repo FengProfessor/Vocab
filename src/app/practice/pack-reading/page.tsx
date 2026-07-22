@@ -2,7 +2,7 @@
 
 /**
  * Luyện đọc gói từ (kiểu codemix):
- * chọn từ kho user theo tuổi 1–3 / 3–7 / >7 ngày → chủ đề → cấp độ → Gen AI.
+ * chọn từ theo mức nhớ (yếu / đang học / vững) → chủ đề → cấp độ → Gen AI.
  * URL: /practice/pack-reading
  */
 
@@ -38,16 +38,16 @@ interface PoolWord {
   word: string;
   translation: string;
   pos?: string;
-  /** Ngày tham chiếu “học/lưu” (created_at) */
-  created_at?: string;
-  last_reviewed_at?: string | null;
-  review_count?: number;
-  /** Số ngày kể từ created_at */
-  ageDays: number;
-  bucket: AgeBucket;
+  review_count: number;
+  srsLevel: number;
+  stability: number;
+  isDue: boolean;
+  mastery: number;
+  bucket: MemoryBucket;
 }
 
-type AgeBucket = 'd1_3' | 'd3_7' | 'd7_plus';
+/** Mức ghi nhớ — không dùng ngày lưu */
+type MemoryBucket = 'weak' | 'learning' | 'solid';
 
 interface PassageQuestion {
   q: string;
@@ -81,12 +81,24 @@ type Step = 1 | 2 | 3;
 type ResultTab = 'passage' | 'cloze';
 
 const BUCKET_META: Record<
-  AgeBucket,
-  { label: string; hint: string; minDays: number; maxDays: number | null }
+  MemoryBucket,
+  { label: string; hint: string; badge: string }
 > = {
-  d1_3: { label: '1–3 ngày', hint: 'Mới lưu / mới học', minDays: 0, maxDays: 3 },
-  d3_7: { label: '3–7 ngày', hint: 'Đang làm quen', minDays: 3, maxDays: 7 },
-  d7_plus: { label: 'Trên 7 ngày', hint: 'Ôn lại sâu', minDays: 7, maxDays: null },
+  weak: {
+    label: 'Cần củng cố',
+    hint: 'Chưa ôn / due / L1–2',
+    badge: 'Yếu',
+  },
+  learning: {
+    label: 'Đang nhớ',
+    hint: 'L3–4 · chưa vững',
+    badge: 'Học',
+  },
+  solid: {
+    label: 'Ổn / vững',
+    hint: 'L5–6 · ôn nhẹ',
+    badge: 'Vững',
+  },
 };
 
 function normalize(s: string): string {
@@ -97,18 +109,42 @@ function wordKey(w: PoolWord): string {
   return w.id || normalize(w.word);
 }
 
-function daysSince(iso: string | null | undefined, now: number): number {
-  if (!iso) return 9999;
-  const t = new Date(iso).getTime();
-  if (Number.isNaN(t)) return 9999;
-  return Math.max(0, Math.floor((now - t) / (24 * 60 * 60 * 1000)));
+/**
+ * weak: chưa ôn | đến hạn | L1–2 | stability thấp
+ * solid: L5–6
+ * learning: còn lại
+ */
+function bucketForMemory(w: {
+  review_count: number;
+  srsLevel: number;
+  stability: number;
+  isDue: boolean;
+}): MemoryBucket {
+  if (
+    w.review_count <= 0 ||
+    w.isDue ||
+    w.srsLevel <= 2 ||
+    w.stability < 1.5
+  ) {
+    return 'weak';
+  }
+  if (w.srsLevel >= 5) return 'solid';
+  return 'learning';
 }
 
-/** 0–3 → d1_3 · >3 và ≤7 → d3_7 · >7 → d7_plus */
-function bucketForDays(days: number): AgeBucket {
-  if (days <= 3) return 'd1_3';
-  if (days <= 7) return 'd3_7';
-  return 'd7_plus';
+/** Parse JSON an toàn — server đôi khi trả plain text "An error occurred…" */
+async function readJsonSafe(res: Response): Promise<Record<string, unknown>> {
+  const text = await res.text();
+  try {
+    return JSON.parse(text) as Record<string, unknown>;
+  } catch {
+    const snippet = text.replace(/\s+/g, ' ').trim().slice(0, 180);
+    throw new Error(
+      snippet
+        ? `Lỗi server (${res.status}): ${snippet}`
+        : `Lỗi server HTTP ${res.status} (không có JSON)`,
+    );
+  }
 }
 
 function highlightPassage(md: string): ReactNode[] {
@@ -185,7 +221,7 @@ function PackReadingInner() {
   const [pool, setPool] = useState<PoolWord[]>([]);
   const [poolSource, setPoolSource] = useState<'mine' | 'empty'>('empty');
   const [poolLoading, setPoolLoading] = useState(true);
-  const [bucket, setBucket] = useState<AgeBucket>('d1_3');
+  const [bucket, setBucket] = useState<MemoryBucket>('weak');
   const [query, setQuery] = useState('');
   const [selectedKeys, setSelectedKeys] = useState<Set<string>>(() => new Set());
 
@@ -202,33 +238,40 @@ function PackReadingInner() {
   const [clozeAnswers, setClozeAnswers] = useState<Record<number, string>>({});
   const [clozeRevealed, setClozeRevealed] = useState(false);
 
-  // Load từ user (+ created_at, SRS) — 2 trang × 50
+  // Load từ user + SRS (mức nhớ) — 2 trang × 50
   useEffect(() => {
     let cancelled = false;
     (async () => {
       setPoolLoading(true);
       try {
-        const now = Date.now();
         const mapped: PoolWord[] = [];
         const seen = new Set<string>();
 
         for (const offset of [0, 50]) {
           const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
-          const json = (await res.json()) as {
+          let json: {
             success?: boolean;
             data?: Array<{
               id?: string;
               word?: string;
               translation?: string;
               pos?: string;
-              created_at?: string;
-              srs?: {
-                last_reviewed_at?: string | null;
-                review_count?: number;
-              } | null;
+              isDue?: boolean;
+              srsLevel?: number;
+              mastery?: number;
               reviewCount?: number;
+              srs?: {
+                stability?: number;
+                review_count?: number;
+                last_reviewed_at?: string | null;
+              } | null;
             }>;
           };
+          try {
+            json = (await readJsonSafe(res)) as typeof json;
+          } catch {
+            break;
+          }
           if (!json.success || !Array.isArray(json.data)) break;
           for (const w of json.data) {
             const word = (w.word || '').trim();
@@ -240,17 +283,23 @@ function PackReadingInner() {
             if (!vi || vi.includes('failed') || vi.includes('Analyzing') || vi.includes('⏳')) {
               continue;
             }
-            const ageDays = daysSince(w.created_at, now);
+            const review_count = w.srs?.review_count ?? w.reviewCount ?? 0;
+            const stability = Number(w.srs?.stability ?? 0);
+            const srsLevel = Number(w.srsLevel ?? 1);
+            const isDue = Boolean(w.isDue);
+            const mastery = Number(w.mastery ?? 0);
+            const mem = { review_count, srsLevel, stability, isDue };
             mapped.push({
               id: w.id,
               word,
               translation: vi,
               pos: w.pos,
-              created_at: w.created_at,
-              last_reviewed_at: w.srs?.last_reviewed_at ?? null,
-              review_count: w.srs?.review_count ?? w.reviewCount ?? 0,
-              ageDays,
-              bucket: bucketForDays(ageDays),
+              review_count,
+              srsLevel,
+              stability,
+              isDue,
+              mastery,
+              bucket: bucketForMemory(mem),
             });
           }
           if (json.data.length < 50) break;
@@ -261,9 +310,9 @@ function PackReadingInner() {
         if (mapped.length > 0) {
           setPool(mapped);
           setPoolSource('mine');
-          // Ưu tiên bucket có đủ từ; preselect tối đa 12
-          const order: AgeBucket[] = ['d1_3', 'd3_7', 'd7_plus'];
-          let startBucket: AgeBucket = 'd1_3';
+          // Ưu tiên nhóm yếu
+          const order: MemoryBucket[] = ['weak', 'learning', 'solid'];
+          let startBucket: MemoryBucket = 'weak';
           for (const b of order) {
             if (mapped.filter((w) => w.bucket === b).length >= PACK_PASSAGE_MIN_WORDS) {
               startBucket = b;
@@ -296,7 +345,7 @@ function PackReadingInner() {
   }, []);
 
   const countsByBucket = useMemo(() => {
-    const c: Record<AgeBucket, number> = { d1_3: 0, d3_7: 0, d7_plus: 0 };
+    const c: Record<MemoryBucket, number> = { weak: 0, learning: 0, solid: 0 };
     for (const w of pool) c[w.bucket]++;
     return c;
   }, [pool]);
@@ -370,10 +419,9 @@ function PackReadingInner() {
   }, []);
 
   const switchBucket = useCallback(
-    (b: AgeBucket) => {
+    (b: MemoryBucket) => {
       setBucket(b);
       setQuery('');
-      // Gợi ý chọn lại trong bucket mới (không xóa chọn cũ — user có thể trộn bucket)
       const inBucket = pool.filter((w) => w.bucket === b);
       if (inBucket.length >= PACK_PASSAGE_MIN_WORDS) {
         setSelectedKeys(
@@ -424,13 +472,13 @@ function PackReadingInner() {
           title: selectedTheme?.labelEn ?? 'My pack',
         }),
       });
-      const json = (await res.json()) as {
-        success?: boolean;
-        error?: string;
-        data?: PassageData;
-      };
-      if (!json.success || !json.data) throw new Error(json.error || 'Gen failed');
-      setPassage(json.data);
+      const json = await readJsonSafe(res);
+      if (!json.success || !json.data) {
+        throw new Error(
+          typeof json.error === 'string' ? json.error : 'Gen thất bại',
+        );
+      }
+      setPassage(json.data as PassageData);
       setStep(3);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
@@ -470,7 +518,7 @@ function PackReadingInner() {
           <div className="min-w-0 flex-1">
             <h1 className="text-lg font-black text-slate-900">Luyện đọc gói từ</h1>
             <p className="text-[11px] font-semibold text-slate-500">
-              Chọn từ theo ngày học → chủ đề → cấp độ → Gen AI
+              Chọn từ theo mức nhớ → chủ đề → cấp độ → Gen AI
             </p>
           </div>
           <BookOpen className="h-6 w-6 text-teal-600" />
@@ -494,7 +542,7 @@ function PackReadingInner() {
           ))}
         </div>
         <p className="text-center text-[11px] font-bold text-slate-500">
-          {step === 1 && 'B1 · Chọn từ theo tuổi học'}
+          {step === 1 && 'B1 · Chọn từ theo mức nhớ'}
           {step === 2 && 'B2 · Chủ đề + cấp độ đọc'}
           {step === 3 && 'B3 · Đọc & trả lời'}
         </p>
@@ -509,9 +557,9 @@ function PackReadingInner() {
         {step === 1 && (
           <Card className="border-teal-100 shadow-sm">
             <CardHeader className="pb-2">
-              <CardTitle className="text-base">1. Chọn từ trong kho</CardTitle>
+              <CardTitle className="text-base">1. Chọn từ theo mức nhớ</CardTitle>
               <p className="text-xs text-muted-foreground">
-                Lọc theo ngày <strong>lưu từ</strong> · chọn{' '}
+                Ưu tiên từ <strong>yếu / due</strong> · chọn{' '}
                 {PACK_PASSAGE_MIN_WORDS}–{PACK_PASSAGE_MAX_WORDS} từ (giống Đặt câu)
               </p>
             </CardHeader>
@@ -530,9 +578,9 @@ function PackReadingInner() {
                 </div>
               ) : (
                 <>
-                  {/* Age buckets */}
+                  {/* Memory buckets */}
                   <div className="grid grid-cols-3 gap-1.5">
-                    {(['d1_3', 'd3_7', 'd7_plus'] as AgeBucket[]).map((b) => {
+                    {(['weak', 'learning', 'solid'] as MemoryBucket[]).map((b) => {
                       const on = bucket === b;
                       const meta = BUCKET_META[b];
                       return (
@@ -542,7 +590,11 @@ function PackReadingInner() {
                           onClick={() => switchBucket(b)}
                           className={`rounded-2xl border px-2 py-2.5 text-center transition-all ${
                             on
-                              ? 'border-teal-500 bg-teal-50 shadow ring-2 ring-teal-200'
+                              ? b === 'weak'
+                                ? 'border-rose-400 bg-rose-50 shadow ring-2 ring-rose-200'
+                                : b === 'learning'
+                                  ? 'border-amber-400 bg-amber-50 shadow ring-2 ring-amber-200'
+                                  : 'border-emerald-400 bg-emerald-50 shadow ring-2 ring-emerald-200'
                               : 'border-slate-200 bg-white hover:border-teal-200'
                           }`}
                         >
@@ -550,7 +602,13 @@ function PackReadingInner() {
                           <p className="text-[10px] font-medium text-slate-400">{meta.hint}</p>
                           <p
                             className={`mt-0.5 text-sm font-black tabular-nums ${
-                              on ? 'text-teal-700' : 'text-slate-500'
+                              on
+                                ? b === 'weak'
+                                  ? 'text-rose-700'
+                                  : b === 'learning'
+                                    ? 'text-amber-700'
+                                    : 'text-emerald-700'
+                                : 'text-slate-500'
                             }`}
                           >
                             {countsByBucket[b]}
@@ -655,7 +713,8 @@ function PackReadingInner() {
                               <span className="text-slate-600">{w.translation}</span>
                             </span>
                             <span className="shrink-0 text-[10px] font-semibold tabular-nums text-slate-400">
-                              {w.ageDays === 0 ? 'hôm nay' : `${w.ageDays}d`}
+                              L{w.srsLevel}
+                              {w.isDue ? ' · due' : ''}
                             </span>
                           </button>
                         );
@@ -664,7 +723,7 @@ function PackReadingInner() {
                   </div>
 
                   <p className="text-[10px] font-medium text-slate-400">
-                    {pool.length} từ trong kho · tuổi = ngày kể từ khi lưu từ
+                    {pool.length} từ · Yếu = chưa ôn / due / L1–2 · Vững = L5–6
                   </p>
                 </>
               )}

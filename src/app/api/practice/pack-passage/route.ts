@@ -15,7 +15,9 @@ import {
 } from '@/lib/pack-levels';
 import { getClientIp, checkRateLimit, isValidString } from '@/lib/api-security';
 
+/** Gen AI + retry length có thể >60s trên free/prod */
 export const maxDuration = 120;
+export const dynamic = 'force-dynamic';
 
 /**
  * GET  /api/practice/pack-passage → themes + levels + sample packs
@@ -143,6 +145,16 @@ export async function POST(req: Request): Promise<NextResponse> {
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[PackPassage] failed:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    // Luôn JSON — client không bị "Unexpected token 'A'" khi Vercel/proxy trả text
+    return NextResponse.json(
+      {
+        success: false,
+        error:
+          msg.includes('timeout') || msg.includes('Timeout')
+            ? 'Gen quá lâu / timeout. Thử cấp độ thấp hơn hoặc ít từ hơn (8–12 từ).'
+            : msg.slice(0, 400) || 'Gen thất bại',
+      },
+      { status: 500, headers: { 'Content-Type': 'application/json' } },
+    );
   }
 }
