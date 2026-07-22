@@ -1,7 +1,8 @@
 'use client';
 
 /**
- * Luyện đọc gói từ: nhập từ → chọn CHỦ ĐỀ (bắt buộc) → bấm Gen AI mới sinh đoạn.
+ * Luyện đọc gói từ (kiểu codemix):
+ * chọn từ kho user theo tuổi 1–3 / 3–7 / >7 ngày → chủ đề → cấp độ → Gen AI.
  * URL: /practice/pack-reading
  */
 
@@ -12,17 +13,16 @@ import {
   Check,
   ChevronLeft,
   Loader2,
+  Search,
   Sparkles,
   X,
 } from 'lucide-react';
+import { authFetch } from '@/lib/auth-fetch';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import {
-  PACK_THEMES,
-  type PackTheme,
-} from '@/lib/pack-themes';
+import { PACK_THEMES, type PackTheme } from '@/lib/pack-themes';
 import {
   PACK_READING_LEVELS,
   DEFAULT_PACK_READING_LEVEL_ID,
@@ -33,19 +33,21 @@ import {
   PACK_PASSAGE_MIN_WORDS,
 } from '@/lib/pack-passage';
 
-interface DemoWord {
+interface PoolWord {
+  id?: string;
   word: string;
-  translation?: string;
+  translation: string;
   pos?: string;
+  /** Ngày tham chiếu “học/lưu” (created_at) */
+  created_at?: string;
+  last_reviewed_at?: string | null;
+  review_count?: number;
+  /** Số ngày kể từ created_at */
+  ageDays: number;
+  bucket: AgeBucket;
 }
 
-interface DemoPack {
-  id: string;
-  title: string;
-  level: string;
-  wordCount: number;
-  words: DemoWord[];
-}
+type AgeBucket = 'd1_3' | 'd3_7' | 'd7_plus';
 
 interface PassageQuestion {
   q: string;
@@ -77,6 +79,37 @@ interface PassageData {
 
 type Step = 1 | 2 | 3;
 type ResultTab = 'passage' | 'cloze';
+
+const BUCKET_META: Record<
+  AgeBucket,
+  { label: string; hint: string; minDays: number; maxDays: number | null }
+> = {
+  d1_3: { label: '1–3 ngày', hint: 'Mới lưu / mới học', minDays: 0, maxDays: 3 },
+  d3_7: { label: '3–7 ngày', hint: 'Đang làm quen', minDays: 3, maxDays: 7 },
+  d7_plus: { label: 'Trên 7 ngày', hint: 'Ôn lại sâu', minDays: 7, maxDays: null },
+};
+
+function normalize(s: string): string {
+  return s.trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function wordKey(w: PoolWord): string {
+  return w.id || normalize(w.word);
+}
+
+function daysSince(iso: string | null | undefined, now: number): number {
+  if (!iso) return 9999;
+  const t = new Date(iso).getTime();
+  if (Number.isNaN(t)) return 9999;
+  return Math.max(0, Math.floor((now - t) / (24 * 60 * 60 * 1000)));
+}
+
+/** 0–3 → d1_3 · >3 và ≤7 → d3_7 · >7 → d7_plus */
+function bucketForDays(days: number): AgeBucket {
+  if (days <= 3) return 'd1_3';
+  if (days <= 7) return 'd3_7';
+  return 'd7_plus';
+}
 
 function highlightPassage(md: string): ReactNode[] {
   const parts = md.split(/(\*\*[^*]+\*\*)/g);
@@ -149,9 +182,13 @@ function renderClozeText(
 
 function PackReadingInner() {
   const [step, setStep] = useState<Step>(1);
-  const [packs, setPacks] = useState<DemoPack[]>([]);
-  const [packId, setPackId] = useState('');
-  const [customText, setCustomText] = useState('');
+  const [pool, setPool] = useState<PoolWord[]>([]);
+  const [poolSource, setPoolSource] = useState<'mine' | 'empty'>('empty');
+  const [poolLoading, setPoolLoading] = useState(true);
+  const [bucket, setBucket] = useState<AgeBucket>('d1_3');
+  const [query, setQuery] = useState('');
+  const [selectedKeys, setSelectedKeys] = useState<Set<string>>(() => new Set());
+
   const [themeId, setThemeId] = useState<string | null>(null);
   const [readingLevelId, setReadingLevelId] = useState<string>(DEFAULT_PACK_READING_LEVEL_ID);
 
@@ -165,43 +202,128 @@ function PackReadingInner() {
   const [clozeAnswers, setClozeAnswers] = useState<Record<number, string>>({});
   const [clozeRevealed, setClozeRevealed] = useState(false);
 
+  // Load từ user (+ created_at, SRS) — 2 trang × 50
   useEffect(() => {
-    fetch('/api/practice/pack-passage')
-      .then((r) => r.json())
-      .then((j: { success?: boolean; packs?: DemoPack[] }) => {
-        if (j.success && Array.isArray(j.packs)) {
-          setPacks(j.packs);
-          if (j.packs[0]) setPackId(j.packs[0].id);
+    let cancelled = false;
+    (async () => {
+      setPoolLoading(true);
+      try {
+        const now = Date.now();
+        const mapped: PoolWord[] = [];
+        const seen = new Set<string>();
+
+        for (const offset of [0, 50]) {
+          const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
+          const json = (await res.json()) as {
+            success?: boolean;
+            data?: Array<{
+              id?: string;
+              word?: string;
+              translation?: string;
+              pos?: string;
+              created_at?: string;
+              srs?: {
+                last_reviewed_at?: string | null;
+                review_count?: number;
+              } | null;
+              reviewCount?: number;
+            }>;
+          };
+          if (!json.success || !Array.isArray(json.data)) break;
+          for (const w of json.data) {
+            const word = (w.word || '').trim();
+            if (!word || word.length > 50) continue;
+            const key = normalize(word);
+            if (seen.has(key)) continue;
+            seen.add(key);
+            const vi = (w.translation || '').trim();
+            if (!vi || vi.includes('failed') || vi.includes('Analyzing') || vi.includes('⏳')) {
+              continue;
+            }
+            const ageDays = daysSince(w.created_at, now);
+            mapped.push({
+              id: w.id,
+              word,
+              translation: vi,
+              pos: w.pos,
+              created_at: w.created_at,
+              last_reviewed_at: w.srs?.last_reviewed_at ?? null,
+              review_count: w.srs?.review_count ?? w.reviewCount ?? 0,
+              ageDays,
+              bucket: bucketForDays(ageDays),
+            });
+          }
+          if (json.data.length < 50) break;
         }
-      })
-      .catch(() => {
-        /* ignore */
-      });
+
+        if (cancelled) return;
+
+        if (mapped.length > 0) {
+          setPool(mapped);
+          setPoolSource('mine');
+          // Ưu tiên bucket có đủ từ; preselect tối đa 12
+          const order: AgeBucket[] = ['d1_3', 'd3_7', 'd7_plus'];
+          let startBucket: AgeBucket = 'd1_3';
+          for (const b of order) {
+            if (mapped.filter((w) => w.bucket === b).length >= PACK_PASSAGE_MIN_WORDS) {
+              startBucket = b;
+              break;
+            }
+            if (mapped.filter((w) => w.bucket === b).length > 0) startBucket = b;
+          }
+          setBucket(startBucket);
+          const pre = mapped
+            .filter((w) => w.bucket === startBucket)
+            .slice(0, Math.min(12, PACK_PASSAGE_MAX_WORDS));
+          setSelectedKeys(new Set(pre.map(wordKey)));
+        } else {
+          setPool([]);
+          setPoolSource('empty');
+          setSelectedKeys(new Set());
+        }
+      } catch {
+        if (!cancelled) {
+          setPool([]);
+          setPoolSource('empty');
+        }
+      } finally {
+        if (!cancelled) setPoolLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  const activePack = useMemo(
-    () => packs.find((p) => p.id === packId) ?? null,
-    [packs, packId],
-  );
+  const countsByBucket = useMemo(() => {
+    const c: Record<AgeBucket, number> = { d1_3: 0, d3_7: 0, d7_plus: 0 };
+    for (const w of pool) c[w.bucket]++;
+    return c;
+  }, [pool]);
 
-  const parsedCustom = useMemo(() => {
-    return customText
-      .split(/[\n,;]+/)
-      .map((l) => l.trim())
-      .filter((l) => l.length > 0 && l.length < 80)
-      .map((line) => {
-        const parts = line.split(/\s*[|–—]\s+/).map((s) => s.trim());
-        return { word: parts[0], translation: parts[1] };
-      })
-      .filter((w) => w.word);
-  }, [customText]);
+  const filteredPool = useMemo(() => {
+    const q = normalize(query);
+    return pool.filter((w) => {
+      if (w.bucket !== bucket) return false;
+      if (!q) return true;
+      return (
+        normalize(w.word).includes(q) ||
+        normalize(w.translation).includes(q) ||
+        (!!w.pos && normalize(w.pos).includes(q))
+      );
+    });
+  }, [pool, bucket, query]);
 
-  const wordCount = customText.trim()
-    ? parsedCustom.length
-    : activePack?.words.length ?? 0;
+  const selected = useMemo(() => {
+    const map = new Map(pool.map((w) => [wordKey(w), w]));
+    return [...selectedKeys]
+      .map((k) => map.get(k))
+      .filter((w): w is PoolWord => !!w);
+  }, [pool, selectedKeys]);
 
+  const selectedCount = selected.length;
   const wordsOk =
-    wordCount >= PACK_PASSAGE_MIN_WORDS && wordCount <= PACK_PASSAGE_MAX_WORDS;
+    selectedCount >= PACK_PASSAGE_MIN_WORDS && selectedCount <= PACK_PASSAGE_MAX_WORDS;
 
   const selectedTheme: PackTheme | null = useMemo(
     () => PACK_THEMES.find((t) => t.id === themeId) ?? null,
@@ -216,6 +338,55 @@ function PackReadingInner() {
   const canGoTheme = wordsOk;
   const canGen = wordsOk && !!themeId && !!readingLevelId && !loading;
 
+  const toggleWord = useCallback((w: PoolWord) => {
+    const k = wordKey(w);
+    setSelectedKeys((prev) => {
+      const next = new Set(prev);
+      if (next.has(k)) next.delete(k);
+      else {
+        if (next.size >= PACK_PASSAGE_MAX_WORDS) return prev;
+        next.add(k);
+      }
+      return next;
+    });
+    setPassage(null);
+  }, []);
+
+  const selectAllVisible = useCallback(() => {
+    setSelectedKeys((prev) => {
+      const next = new Set(prev);
+      for (const w of filteredPool) {
+        if (next.size >= PACK_PASSAGE_MAX_WORDS) break;
+        next.add(wordKey(w));
+      }
+      return next;
+    });
+    setPassage(null);
+  }, [filteredPool]);
+
+  const clearSelection = useCallback(() => {
+    setSelectedKeys(new Set());
+    setPassage(null);
+  }, []);
+
+  const switchBucket = useCallback(
+    (b: AgeBucket) => {
+      setBucket(b);
+      setQuery('');
+      // Gợi ý chọn lại trong bucket mới (không xóa chọn cũ — user có thể trộn bucket)
+      const inBucket = pool.filter((w) => w.bucket === b);
+      if (inBucket.length >= PACK_PASSAGE_MIN_WORDS) {
+        setSelectedKeys(
+          new Set(
+            inBucket.slice(0, Math.min(12, PACK_PASSAGE_MAX_WORDS)).map(wordKey),
+          ),
+        );
+      }
+      setPassage(null);
+    },
+    [pool],
+  );
+
   const genPassage = useCallback(async () => {
     if (!themeId) {
       setError('Chọn chủ đề trước khi Gen AI.');
@@ -223,6 +394,10 @@ function PackReadingInner() {
     }
     if (!readingLevelId) {
       setError('Chọn cấp độ bài đọc trước khi Gen AI.');
+      return;
+    }
+    if (!wordsOk) {
+      setError(`Chọn ${PACK_PASSAGE_MIN_WORDS}–${PACK_PASSAGE_MAX_WORDS} từ.`);
       return;
     }
     setLoading(true);
@@ -234,24 +409,20 @@ function PackReadingInner() {
     setClozeRevealed(false);
     setResultTab('passage');
     try {
-      const body = customText.trim()
-        ? {
-            themeId,
-            readingLevelId,
-            text: customText,
-            title: selectedTheme?.labelEn ?? 'Custom pack',
-          }
-        : {
-            themeId,
-            readingLevelId,
-            packId: packId || undefined,
-            words: activePack?.words,
-            title: activePack?.title,
-          };
+      const words = selected.map((w) => ({
+        word: w.word,
+        translation: w.translation,
+        pos: w.pos,
+      }));
       const res = await fetch('/api/practice/pack-passage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
+        body: JSON.stringify({
+          themeId,
+          readingLevelId,
+          words,
+          title: selectedTheme?.labelEn ?? 'My pack',
+        }),
       });
       const json = (await res.json()) as {
         success?: boolean;
@@ -266,7 +437,7 @@ function PackReadingInner() {
     } finally {
       setLoading(false);
     }
-  }, [themeId, readingLevelId, customText, selectedTheme, activePack, packId]);
+  }, [themeId, readingLevelId, wordsOk, selected, selectedTheme]);
 
   const qScore = useMemo(() => {
     if (!passage || !qRevealed) return null;
@@ -299,13 +470,12 @@ function PackReadingInner() {
           <div className="min-w-0 flex-1">
             <h1 className="text-lg font-black text-slate-900">Luyện đọc gói từ</h1>
             <p className="text-[11px] font-semibold text-slate-500">
-              Nhập từ → chọn chủ đề → bấm Gen AI (không pre-gen)
+              Chọn từ theo ngày học → chủ đề → cấp độ → Gen AI
             </p>
           </div>
           <BookOpen className="h-6 w-6 text-teal-600" />
         </div>
 
-        {/* Steps indicator */}
         <div className="flex gap-1">
           {([1, 2, 3] as const).map((s) => (
             <button
@@ -324,7 +494,7 @@ function PackReadingInner() {
           ))}
         </div>
         <p className="text-center text-[11px] font-bold text-slate-500">
-          {step === 1 && 'B1 · Nhập / chọn từ'}
+          {step === 1 && 'B1 · Chọn từ theo tuổi học'}
           {step === 2 && 'B2 · Chủ đề + cấp độ đọc'}
           {step === 3 && 'B3 · Đọc & trả lời'}
         </p>
@@ -335,90 +505,168 @@ function PackReadingInner() {
           </div>
         )}
 
-        {/* ── Step 1: words ── */}
+        {/* ── Step 1: pick words by age ── */}
         {step === 1 && (
           <Card className="border-teal-100 shadow-sm">
             <CardHeader className="pb-2">
-              <CardTitle className="text-base">1. Danh sách từ</CardTitle>
+              <CardTitle className="text-base">1. Chọn từ trong kho</CardTitle>
               <p className="text-xs text-muted-foreground">
-                {PACK_PASSAGE_MIN_WORDS}–{PACK_PASSAGE_MAX_WORDS} từ · mỗi dòng{' '}
-                <code className="text-[10px]">word | nghĩa</code> hoặc chọn pack mẫu
+                Lọc theo ngày <strong>lưu từ</strong> · chọn{' '}
+                {PACK_PASSAGE_MIN_WORDS}–{PACK_PASSAGE_MAX_WORDS} từ (giống Đặt câu)
               </p>
             </CardHeader>
             <CardContent className="space-y-3">
-              {packs.length > 0 && (
-                <div>
-                  <label className="mb-1 block text-[11px] font-bold uppercase tracking-wide text-slate-500">
-                    Pack mẫu
-                  </label>
-                  <select
-                    className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-medium"
-                    value={packId}
-                    onChange={(e) => {
-                      setPackId(e.target.value);
-                      setCustomText('');
-                      setPassage(null);
-                    }}
-                  >
-                    {packs.map((p) => (
-                      <option key={p.id} value={p.id}>
-                        {p.title} ({p.wordCount} từ · {p.level})
-                      </option>
-                    ))}
-                  </select>
+              {poolLoading ? (
+                <div className="flex items-center justify-center gap-2 py-10 text-sm text-slate-500">
+                  <Loader2 className="h-5 w-5 animate-spin" /> Đang tải từ của bạn…
                 </div>
-              )}
+              ) : poolSource === 'empty' ? (
+                <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-4 text-sm text-amber-900">
+                  Chưa có từ trong kho (hoặc chưa đăng nhập).{' '}
+                  <Link href="/import" className="font-bold underline">
+                    Thêm từ
+                  </Link>{' '}
+                  rồi quay lại.
+                </div>
+              ) : (
+                <>
+                  {/* Age buckets */}
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {(['d1_3', 'd3_7', 'd7_plus'] as AgeBucket[]).map((b) => {
+                      const on = bucket === b;
+                      const meta = BUCKET_META[b];
+                      return (
+                        <button
+                          key={b}
+                          type="button"
+                          onClick={() => switchBucket(b)}
+                          className={`rounded-2xl border px-2 py-2.5 text-center transition-all ${
+                            on
+                              ? 'border-teal-500 bg-teal-50 shadow ring-2 ring-teal-200'
+                              : 'border-slate-200 bg-white hover:border-teal-200'
+                          }`}
+                        >
+                          <p className="text-xs font-black text-slate-800">{meta.label}</p>
+                          <p className="text-[10px] font-medium text-slate-400">{meta.hint}</p>
+                          <p
+                            className={`mt-0.5 text-sm font-black tabular-nums ${
+                              on ? 'text-teal-700' : 'text-slate-500'
+                            }`}
+                          >
+                            {countsByBucket[b]}
+                          </p>
+                        </button>
+                      );
+                    })}
+                  </div>
 
-              <div>
-                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wide text-slate-500">
-                  Hoặc dán list riêng
-                </label>
-                <textarea
-                  className="min-h-[120px] w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm leading-relaxed"
-                  placeholder={'recycle | tái chế\npollution | ô nhiễm\nforest | rừng\n...'}
-                  value={customText}
-                  onChange={(e) => {
-                    setCustomText(e.target.value);
-                    setPassage(null);
-                  }}
-                />
-              </div>
+                  <div className="relative">
+                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                    <input
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      placeholder="Tìm trong nhóm này…"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm"
+                    />
+                  </div>
 
-              <div className="flex items-center justify-between text-xs font-semibold">
-                <span
-                  className={
-                    wordsOk ? 'text-emerald-600' : 'text-amber-600'
-                  }
-                >
-                  {wordCount} từ
-                  {!wordsOk &&
-                    ` · cần ${PACK_PASSAGE_MIN_WORDS}–${PACK_PASSAGE_MAX_WORDS}`}
-                </span>
-                {customText.trim() ? (
-                  <button
-                    type="button"
-                    className="text-slate-400 underline"
-                    onClick={() => setCustomText('')}
-                  >
-                    Dùng pack mẫu
-                  </button>
-                ) : null}
-              </div>
+                  <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-slate-500">
+                    <span
+                      className={
+                        wordsOk ? 'text-emerald-600' : 'text-amber-600'
+                      }
+                    >
+                      Đã chọn {selectedCount}/{PACK_PASSAGE_MAX_WORDS}
+                      {!wordsOk && ` · cần ≥${PACK_PASSAGE_MIN_WORDS}`}
+                    </span>
+                    <button
+                      type="button"
+                      className="text-teal-600 underline"
+                      onClick={selectAllVisible}
+                    >
+                      Chọn thêm nhóm này
+                    </button>
+                    {selectedCount > 0 && (
+                      <button
+                        type="button"
+                        className="text-slate-400 underline"
+                        onClick={clearSelection}
+                      >
+                        Bỏ chọn
+                      </button>
+                    )}
+                  </div>
 
-              {!customText.trim() && activePack && (
-                <div className="flex flex-wrap gap-1.5">
-                  {activePack.words.slice(0, 20).map((w) => (
-                    <Badge key={w.word} variant="outline" className="text-[10px]">
-                      {w.word}
-                      {w.translation ? ` · ${w.translation}` : ''}
-                    </Badge>
-                  ))}
-                  {activePack.words.length > 20 && (
-                    <Badge variant="secondary" className="text-[10px]">
-                      +{activePack.words.length - 20}
-                    </Badge>
+                  {/* Selected chips */}
+                  {selected.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 rounded-xl border border-teal-100 bg-teal-50/50 p-2">
+                      {selected.map((w) => (
+                        <button
+                          key={wordKey(w)}
+                          type="button"
+                          onClick={() => toggleWord(w)}
+                          className="inline-flex items-center gap-1 rounded-full bg-teal-600 px-2.5 py-1 text-[11px] font-bold text-white"
+                        >
+                          {w.word}
+                          <X className="h-3 w-3 opacity-80" />
+                        </button>
+                      ))}
+                    </div>
                   )}
-                </div>
+
+                  {/* Word list */}
+                  <div className="max-h-[320px] space-y-1 overflow-y-auto rounded-xl border border-slate-100 p-1">
+                    {filteredPool.length === 0 ? (
+                      <p className="px-2 py-6 text-center text-xs text-slate-400">
+                        Không có từ trong nhóm «{BUCKET_META[bucket].label}».
+                        Thử nhóm khác.
+                      </p>
+                    ) : (
+                      filteredPool.map((w) => {
+                        const on = selectedKeys.has(wordKey(w));
+                        const full =
+                          !on && selectedCount >= PACK_PASSAGE_MAX_WORDS;
+                        return (
+                          <button
+                            key={wordKey(w)}
+                            type="button"
+                            disabled={full}
+                            onClick={() => toggleWord(w)}
+                            className={`flex w-full items-center gap-2 rounded-xl px-2.5 py-2 text-left text-sm transition-colors ${
+                              on
+                                ? 'bg-teal-50 ring-1 ring-teal-300'
+                                : full
+                                  ? 'opacity-40'
+                                  : 'hover:bg-slate-50'
+                            }`}
+                          >
+                            <span
+                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border text-[10px] ${
+                                on
+                                  ? 'border-teal-600 bg-teal-600 text-white'
+                                  : 'border-slate-300 bg-white'
+                              }`}
+                            >
+                              {on ? <Check className="h-3 w-3" /> : null}
+                            </span>
+                            <span className="min-w-0 flex-1">
+                              <span className="font-bold text-slate-800">{w.word}</span>
+                              <span className="text-slate-400"> · </span>
+                              <span className="text-slate-600">{w.translation}</span>
+                            </span>
+                            <span className="shrink-0 text-[10px] font-semibold tabular-nums text-slate-400">
+                              {w.ageDays === 0 ? 'hôm nay' : `${w.ageDays}d`}
+                            </span>
+                          </button>
+                        );
+                      })
+                    )}
+                  </div>
+
+                  <p className="text-[10px] font-medium text-slate-400">
+                    {pool.length} từ trong kho · tuổi = ngày kể từ khi lưu từ
+                  </p>
+                </>
               )}
 
               <Button
@@ -429,38 +677,35 @@ function PackReadingInner() {
                   setStep(2);
                 }}
               >
-                Tiếp · Chọn chủ đề
+                Tiếp · Chủ đề & cấp độ
               </Button>
             </CardContent>
           </Card>
         )}
 
-        {/* ── Step 2: theme ── */}
+        {/* ── Step 2: theme + level ── */}
         {step === 2 && (
           <Card className="border-teal-100 shadow-sm">
             <CardHeader className="pb-2">
               <CardTitle className="text-base">2. Chủ đề & cấp độ đọc</CardTitle>
               <p className="text-xs text-muted-foreground">
-                Chọn <strong>1 chủ đề</strong> bao trùm mọi từ, rồi chọn{' '}
-                <strong>cấp độ</strong> (dễ/ngắn → khó/dài). Chỉ Gen khi bấm nút.
+                Chủ đề bao trùm <strong>tất cả</strong> {selectedCount} từ đã chọn · cấp
+                độ quyết định độ dài/khó
               </p>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-xs font-semibold text-slate-600">
-                {wordCount} từ
-                {selectedTheme && (
-                  <>
-                    {' '}
-                    · {selectedTheme.emoji} {selectedTheme.labelVi}
-                  </>
+              <div className="flex flex-wrap gap-1.5">
+                {selected.slice(0, 12).map((w) => (
+                  <Badge key={wordKey(w)} variant="outline" className="text-[10px]">
+                    {w.word}
+                  </Badge>
+                ))}
+                {selected.length > 12 && (
+                  <Badge variant="secondary" className="text-[10px]">
+                    +{selected.length - 12}
+                  </Badge>
                 )}
-                {selectedLevel && (
-                  <>
-                    {' '}
-                    · {selectedLevel.emoji} {selectedLevel.labelVi} ({selectedLevel.cefr})
-                  </>
-                )}
-              </p>
+              </div>
 
               <div>
                 <p className="mb-2 text-[11px] font-black uppercase tracking-wide text-slate-500">
@@ -486,9 +731,6 @@ function PackReadingInner() {
                         <span className="text-lg">{t.emoji}</span>
                         <p className="mt-1 text-xs font-black leading-snug text-slate-800">
                           {t.labelVi}
-                        </p>
-                        <p className="mt-0.5 text-[10px] font-medium text-slate-400">
-                          {t.labelEn}
                         </p>
                       </button>
                     );
@@ -525,13 +767,10 @@ function PackReadingInner() {
                               <span className="font-bold text-indigo-600">{lv.cefr}</span>
                             </p>
                             <p className="text-[11px] font-medium text-slate-500">
-                              {lv.minWords}–{lv.maxWords} từ · {lv.questionCount} câu hỏi ·{' '}
-                              {lv.hintVi}
+                              {lv.minWords}–{lv.maxWords} từ · {lv.hintVi}
                             </p>
                           </div>
-                          {on && (
-                            <Check className="h-4 w-4 shrink-0 text-indigo-600" />
-                          )}
+                          {on && <Check className="h-4 w-4 shrink-0 text-indigo-600" />}
                         </div>
                       </button>
                     );
@@ -566,7 +805,10 @@ function PackReadingInner() {
                 </Button>
               </div>
               <p className="text-center text-[10px] font-medium text-slate-400">
-                Chỉ tốn quota khi bấm Gen · cấp độ cao = đoạn dài/khó hơn
+                Chỉ tốn quota khi bấm Gen
+                {selectedTheme && selectedLevel
+                  ? ` · ${selectedTheme.labelVi} · ${selectedLevel.cefr}`
+                  : ''}
               </p>
             </CardContent>
           </Card>
@@ -576,7 +818,9 @@ function PackReadingInner() {
         {step === 3 && passage && (
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge className="bg-teal-600">{passage.themeLabelVi || selectedTheme?.labelVi}</Badge>
+              <Badge className="bg-teal-600">
+                {passage.themeLabelVi || selectedTheme?.labelVi}
+              </Badge>
               <Badge className="bg-indigo-600">
                 {passage.readingLevelLabelVi || selectedLevel?.labelVi} · {passage.level}
               </Badge>
@@ -728,7 +972,7 @@ function PackReadingInner() {
                   setPassage(null);
                 }}
               >
-                Đổi theme / Gen lại
+                Đổi theme / level
               </Button>
               <Button
                 variant="outline"
@@ -736,11 +980,9 @@ function PackReadingInner() {
                 onClick={() => {
                   setStep(1);
                   setPassage(null);
-                  setThemeId(null);
                 }}
               >
-                <X className="mr-1 h-4 w-4" />
-                Gói khác
+                Đổi từ
               </Button>
             </div>
           </div>
@@ -749,7 +991,7 @@ function PackReadingInner() {
         {loading && step === 2 && (
           <div className="flex items-center justify-center gap-2 py-8 text-sm font-semibold text-teal-700">
             <Loader2 className="h-5 w-5 animate-spin" />
-            AI đang viết đoạn theo chủ đề…
+            AI đang viết đoạn theo chủ đề & cấp độ…
           </div>
         )}
       </div>
