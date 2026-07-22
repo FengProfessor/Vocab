@@ -132,31 +132,30 @@ export function pickEnglishVoice(
 }
 
 /**
- * Web Speech fallback (robot) — chỉ dùng khi mp3 neural/người thật fail.
- * Prefer: playWordAudio / speak() → cascade chất lượng cao.
+ * Epoch cho Web Speech — mỗi speak/silence mới làm voiceschanged/retry cũ thành no-op.
+ * Tránh: đang hiện từ B mà listener voiceschanged của từ A mới fire → đọc sai từ.
  */
-export function speakLocal(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return;
-  const trimmed = text?.trim();
-  if (!trimmed) return;
+let speechEpoch = 0;
 
-  attachVoicesListener();
-
-  const voices = window.speechSynthesis.getVoices();
-  if (!voices.length) {
-    const retry = () => {
-      window.speechSynthesis.removeEventListener('voiceschanged', retry);
-      speakLocal(trimmed, rate, lang);
-    };
-    window.speechSynthesis.addEventListener('voiceschanged', retry);
-    window.setTimeout(() => {
-      window.speechSynthesis.removeEventListener('voiceschanged', retry);
-    }, 2500);
-    return;
+/** Hủy utterance + vô hiệu hóa mọi speakLocal/voiceschanged đang treo. */
+export function silenceSpeech(): void {
+  speechEpoch += 1;
+  if (typeof window !== 'undefined' && window.speechSynthesis) {
+    window.speechSynthesis.cancel();
   }
+}
+
+function finishLocalSpeak(
+  text: string,
+  rate: number,
+  lang: SpeakLang,
+  myEpoch: number,
+): void {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return;
+  if (myEpoch !== speechEpoch) return;
 
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(trimmed);
+  const u = new SpeechSynthesisUtterance(text);
   u.rate = rate === 1.0 ? 0.92 : rate;
   u.pitch = 0.95;
   u.volume = 1;
@@ -169,22 +168,77 @@ export function speakLocal(text: string, rate = 1.0, lang: SpeakLang = 'en-US'):
     u.lang = lang;
   }
 
+  if (myEpoch !== speechEpoch) return;
   window.speechSynthesis.speak(u);
+}
+
+/**
+ * Web Speech fallback (robot) — chỉ dùng khi mp3 neural/người thật fail.
+ * Prefer: playWordAudio / speak() → cascade chất lượng cao.
+ */
+export function speakLocal(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return;
+  const trimmed = text?.trim();
+  if (!trimmed) return;
+
+  const myEpoch = ++speechEpoch;
+  attachVoicesListener();
+
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) {
+    const retry = () => {
+      window.speechSynthesis.removeEventListener('voiceschanged', retry);
+      // Đã có speak/silence mới → bỏ, không đọc từ cũ
+      if (myEpoch !== speechEpoch) return;
+      finishLocalSpeak(trimmed, rate, lang, myEpoch);
+    };
+    window.speechSynthesis.addEventListener('voiceschanged', retry);
+    window.setTimeout(() => {
+      window.speechSynthesis.removeEventListener('voiceschanged', retry);
+    }, 2500);
+    return;
+  }
+
+  finishLocalSpeak(trimmed, rate, lang, myEpoch);
+}
+
+/** Cache dynamic import (tránh circular audio ↔ study; tránh import lại mỗi lần speak). */
+type AudioMod = typeof import('./audio');
+let audioModPromise: Promise<AudioMod> | null = null;
+function loadAudioMod(): Promise<AudioMod> {
+  if (!audioModPromise) audioModPromise = import('./audio');
+  return audioModPromise;
 }
 
 /**
  * Phát âm tiếng Anh chất lượng cao (mp3 người thật → neural TTS → Web Speech).
  * rate: 1.0 = thường, 0.6 = chậm.
  * Fire-and-forget — flashcard/learn không cần await.
+ * Mỗi lần gọi tự vô hiệu hóa lookup/play trước đó (generation trong audio.ts).
  */
 export function speak(text: string, rate = 1.0, _lang: SpeakLang = 'en-US'): void {
   if (typeof window === 'undefined') return;
   const trimmed = text?.trim();
   if (!trimmed) return;
+  // Sync: chặn utterance/voiceschanged cũ trước khi cascade async chạy
+  silenceSpeech();
   // Dynamic import tránh circular: audio.ts → speakLocal từ study.ts
-  void import('./audio')
+  void loadAudioMod()
     .then(({ playWordAudio }) => playWordAudio(trimmed, null, rate))
     .catch(() => speakLocal(trimmed, rate, _lang));
+}
+
+/**
+ * Dừng phát âm + hủy lookup async đang treo.
+ * Gọi khi sang từ mới / unmount session — tránh tiếng từ cũ phát trễ.
+ */
+export function stopSpeak(): void {
+  if (typeof window === 'undefined') return;
+  // Hủy speech ngay (sync); stopWordAudio (generation) sau khi module sẵn
+  silenceSpeech();
+  void loadAudioMod()
+    .then(({ stopWordAudio }) => stopWordAudio())
+    .catch(() => {});
 }
 
 /** Levenshtein edit distance (DP 2 hàng, O(a*b)). */

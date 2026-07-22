@@ -5,8 +5,11 @@
 //   3) Google gstatic Oxford mp3 (từ đơn)
 //   4) /api/tts — Google Translate neural TTS (từ + cụm)
 //   5) Web Speech API — fallback cuối (speakLocal)
+//
+// Race guard: mỗi lần play/stop tăng playGeneration. Lookup async cũ
+// (freeDict, CDN) không được phát sau khi đã sang từ mới / gọi stop.
 
-import { speakLocal } from './study';
+import { silenceSpeech, speakLocal } from './study';
 
 const FREE_DICT = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
@@ -14,21 +17,42 @@ const FREE_DICT = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 const urlCache = new Map<string, string>();
 let currentAudio: HTMLAudioElement | null = null;
 
+/**
+ * Monotonic generation: playWordAudio chụp myGen lúc bắt đầu;
+ * sau mỗi await nếu myGen !== playGeneration → bỏ, không play từ cũ.
+ */
+let playGeneration = 0;
+
 function stopCurrent(): void {
   if (currentAudio) {
-    currentAudio.pause();
-    currentAudio.removeAttribute('src');
-    currentAudio.load();
+    try {
+      currentAudio.onended = null;
+      currentAudio.onerror = null;
+      currentAudio.pause();
+      currentAudio.removeAttribute('src');
+      currentAudio.load();
+    } catch {
+      // ignore detach errors trên WebView cũ
+    }
     currentAudio = null;
   }
-  if (typeof window !== 'undefined' && window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-  }
+  // Hủy Web Speech + vô hiệu hóa voiceschanged treo (speakLocal epoch)
+  silenceSpeech();
 }
 
-function playUrl(url: string, rate = 1.0): Promise<boolean> {
+function playUrl(url: string, rate = 1.0, myGen: number): Promise<boolean> {
   return new Promise((resolve) => {
+    // Đã có request mới hơn → không đụng audio hiện tại
+    if (myGen !== playGeneration) {
+      resolve(false);
+      return;
+    }
     stopCurrent();
+    if (myGen !== playGeneration) {
+      resolve(false);
+      return;
+    }
+
     const audio = new Audio();
     currentAudio = audio;
     audio.preload = 'auto';
@@ -37,12 +61,21 @@ function playUrl(url: string, rate = 1.0): Promise<boolean> {
     const done = (ok: boolean) => {
       if (settled) return;
       settled = true;
+      // Stale generation: không tính là play thành công (tránh cascade/cache nhầm)
+      if (ok && myGen !== playGeneration) {
+        resolve(false);
+        return;
+      }
       resolve(ok);
     };
-    audio.onended = () => done(true);
-    audio.onerror = () => done(false);
     // Timeout nếu CDN treo
-    const timer = window.setTimeout(() => done(false), 8000);
+    const timer = window.setTimeout(() => {
+      if (myGen !== playGeneration) {
+        done(false);
+        return;
+      }
+      done(false);
+    }, 8000);
     audio.onended = () => {
       window.clearTimeout(timer);
       done(true);
@@ -52,10 +85,27 @@ function playUrl(url: string, rate = 1.0): Promise<boolean> {
       done(false);
     };
     audio.src = url;
-    audio.play().catch(() => {
-      window.clearTimeout(timer);
-      done(false);
-    });
+    void audio
+      .play()
+      .then(() => {
+        // play() resolve khi bắt đầu — nếu đã sang từ mới thì dừng ngay orphan
+        if (myGen !== playGeneration) {
+          try {
+            audio.pause();
+            audio.removeAttribute('src');
+            audio.load();
+          } catch {
+            /* ignore */
+          }
+          if (currentAudio === audio) currentAudio = null;
+          window.clearTimeout(timer);
+          done(false);
+        }
+      })
+      .catch(() => {
+        window.clearTimeout(timer);
+        done(false);
+      });
   });
 }
 
@@ -92,6 +142,7 @@ export type AudioSource = 'real' | 'neural' | 'tts';
 /**
  * Phát âm 1 từ/cụm: mp3 người thật → neural TTS → Web Speech.
  * rate: 1.0 thường, 0.6 chậm.
+ * Request cũ tự hủy khi có speak/stop mới (generation guard).
  */
 export async function playWordAudio(
   word: string,
@@ -102,6 +153,12 @@ export async function playWordAudio(
   const text = word?.trim();
   if (!text) return 'tts';
 
+  const myGen = ++playGeneration;
+  // Dừng ngay audio/speech đang chạy (từ cũ) trước khi lookup
+  stopCurrent();
+
+  const alive = () => myGen === playGeneration;
+
   const mp3Rate = rate > 0 && rate <= 2 ? rate : 1;
   const cacheKey = text.toLowerCase();
   const isPhrase = /\s/.test(text);
@@ -109,45 +166,65 @@ export async function playWordAudio(
   // 0) Cache hit từ lần phát thành công trước
   const cached = urlCache.get(cacheKey);
   if (cached) {
-    if (await playUrl(cached, mp3Rate)) {
+    if (!alive()) return 'tts';
+    if (await playUrl(cached, mp3Rate, myGen)) {
       return cached.startsWith('/api/tts') ? 'neural' : 'real';
     }
+    if (!alive()) return 'tts';
     urlCache.delete(cacheKey);
   }
 
   // 1) URL truyền vào (DB audio_real)
-  if (audioUrl && (await playUrl(audioUrl, mp3Rate))) {
-    urlCache.set(cacheKey, audioUrl);
-    return 'real';
+  if (audioUrl) {
+    if (!alive()) return 'tts';
+    if (await playUrl(audioUrl, mp3Rate, myGen)) {
+      urlCache.set(cacheKey, audioUrl);
+      return 'real';
+    }
   }
 
   // 2-3) Từ đơn: giọng người thật
+  // Ưu tiên gstatic trước freeDict — URL deterministic, không chờ API,
+  // giảm “chữ đã hiện / đã sang từ mới mà tiếng từ cũ mới tới”.
   if (!isPhrase) {
-    const human = await freeDictUrl(cacheKey);
-    if (human && (await playUrl(human, mp3Rate))) {
-      urlCache.set(cacheKey, human);
+    if (!alive()) return 'tts';
+    const gs = gstaticUrl(cacheKey);
+    if (gs && (await playUrl(gs, mp3Rate, myGen))) {
+      urlCache.set(cacheKey, gs);
       return 'real';
     }
-    const gs = gstaticUrl(cacheKey);
-    if (gs && (await playUrl(gs, mp3Rate))) {
-      urlCache.set(cacheKey, gs);
+
+    if (!alive()) return 'tts';
+    const human = await freeDictUrl(cacheKey);
+    if (!alive()) return 'tts';
+    if (human && (await playUrl(human, mp3Rate, myGen))) {
+      urlCache.set(cacheKey, human);
       return 'real';
     }
   }
 
   // 4) Neural TTS (Google Translate / Youdao proxy) — rõ, hỗ trợ cụm
+  if (!alive()) return 'tts';
   const neural = neuralUrl(text);
-  if (await playUrl(neural, mp3Rate)) {
+  if (await playUrl(neural, mp3Rate, myGen)) {
     urlCache.set(cacheKey, neural);
     return 'neural';
   }
 
-  // 5) Web Speech robot
+  // 5) Web Speech robot — chỉ khi request còn là latest
+  if (!alive()) return 'tts';
+  // speakLocal tự ++ epoch; nếu giữa chừng đã stop thì epoch lệch → no-op
   speakLocal(text, rate);
+  // Double-check: stop xen giữa speakLocal sync path
+  if (!alive()) {
+    silenceSpeech();
+    return 'tts';
+  }
   return 'tts';
 }
 
-/** Dừng phát âm đang chạy. */
+/** Dừng phát âm đang chạy + vô hiệu hóa mọi lookup async đang treo. */
 export function stopWordAudio(): void {
+  playGeneration += 1;
   stopCurrent();
 }

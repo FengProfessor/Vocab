@@ -134,12 +134,21 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     })();
   }, [initialClassroomId, idsParam, router, roadmapStepParam, forceReplay]);
 
-  // Tự phát âm khi đổi thẻ ở bước Giới thiệu — stop từ cũ trước để không lướt theo
+  // Tự phát âm khi đổi thẻ ở bước Giới thiệu.
+  // Cleanup BẮT BUỘC khi đổi index / rời phase — nếu không, audio từ cuối intro
+  // vẫn chạy khi UI đã sang recall từ đầu → “đang ở từ này nhưng phát âm khác”.
   useEffect(() => {
     if (phase === 'introduce' && batch[introIndex]) {
+      const word = batch[introIndex].word;
       stopWordAudio();
-      speak(batch[introIndex].word, 1.0);
+      speak(word, 1.0);
+      return () => {
+        stopWordAudio();
+      };
     }
+    // introduce → recall/done/ready: chặn tiếng từ cũ dính sang màn mới
+    stopWordAudio();
+    return undefined;
   }, [phase, introIndex, batch]);
 
   // Cleanup timer + audio
@@ -165,7 +174,9 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
   const nextIntro = () => {
     if (introIndex + 1 >= batch.length) {
-      // Sang bước Nhớ lại
+      // Sang bước Nhớ lại — stop ngay (trước re-render) kẻo tiếng từ cuối
+      // còn vang khi UI đã hiện từ đầu của recall.
+      stopWordAudio();
       setPhase('recall');
       setRecallIndex(0);
       setInput('');
