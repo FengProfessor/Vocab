@@ -2,6 +2,7 @@
 
 **Date:** 2026-07-22  
 **Goal:** wordbanks + on-topic quiz + structural health for all 62 topics  
+**Teacher final spot:** **PASS · P0 = 0** (`docs/grammar/EN-TEACHER-FINAL-SPOT.md`)
 
 ## Final gate
 
@@ -12,6 +13,7 @@
 | Quiz normalize (emptyQ / noOpts / ansMiss) | **0 / 0 / 0** |
 | Ship-ready (A+B structural) | **62/62** |
 | Weak C/D/F | **0** |
+| EN teacher final spot (12×3 + past P0) | **PASS · 0 P0** |
 
 ## What was done
 
