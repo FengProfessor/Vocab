@@ -12,11 +12,18 @@ import GrammarHighlight, { type WordAnnotation } from '@/components/grammar/Gram
 import TenseTimeline from '@/components/grammar/TenseTimeline';
 import GoldenLesson from '@/components/grammar/GoldenLesson';
 import {
-  ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen, Volume2, History,
+  ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen, Volume2, History, FileDown,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { speak } from '@/lib/study';
 import { resolveImageSrc } from '@/lib/media-url';
+import {
+  buildGrammarLessonPdfHtml,
+  downloadGrammarPdfHtml,
+  openBlankPdfWindow,
+  writePdfHtmlToWindow,
+  suggestGrammarPdfFileName,
+} from '@/lib/grammar-lesson-pdf';
 
 interface TopicProgressSummary {
   topicId: string;
@@ -244,7 +251,7 @@ function GrammarLearnContent() {
             }
           }
           const firstUnlearned = lessons.find((l) => !progressMap[l.id]) ?? lessons[0];
-          setActiveLesson(firstUnlearned);
+          setActiveLesson({ ...firstUnlearned, topic: target });
         }
       } finally {
         setLoadingTopic(null);
@@ -565,6 +572,46 @@ function GrammarLearnContent() {
                 <Dumbbell className="h-4 w-4" /> Làm bài tập
               </button>
               <button
+                type="button"
+                onClick={() => {
+                  try {
+                    const s = activeLesson.sections;
+                    const html = buildGrammarLessonPdfHtml({
+                      title: activeLesson.title,
+                      titleVi: activeLesson.topic?.title_vi || activeLesson.topic?.title || activeLesson.title,
+                      level: activeLesson.topic?.level,
+                      slug: activeLesson.topic?.slug,
+                      definition: s?.definition,
+                      tips: s?.tips,
+                      mistakes: s?.mistakes,
+                      wordbanks: s?.wordbanks,
+                      exercises: activeLesson.exercises ?? undefined,
+                      exerciseCap: 16,
+                      withAnswers: true,
+                      siteUrl: typeof window !== 'undefined' ? window.location.origin : undefined,
+                    });
+                    const base = suggestGrammarPdfFileName(
+                      activeLesson.topic?.title_vi || activeLesson.title,
+                      activeLesson.topic?.slug,
+                    );
+                    const w = openBlankPdfWindow();
+                    if (w) {
+                      writePdfHtmlToWindow(w, html);
+                      toast.success('Đã mở handout — bấm “Lưu / In PDF”');
+                    } else {
+                      downloadGrammarPdfHtml(html, base.replace(/\.pdf$/i, ''));
+                      toast.message('Popup bị chặn — đã tải file HTML (mở → In → PDF)');
+                    }
+                  } catch (e) {
+                    console.error('[GrammarPDF]', e);
+                    toast.error('Không tạo được PDF. Thử lại.');
+                  }
+                }}
+                className="flex-1 border font-bold py-3 rounded-xl hover:bg-muted transition-colors flex items-center justify-center gap-2"
+              >
+                <FileDown className="h-4 w-4" /> Tải PDF ôn
+              </button>
+              <button
                 onClick={markAsLearned}
                 disabled={marking}
                 className="flex-1 border font-bold py-3 rounded-xl hover:bg-muted transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
@@ -575,7 +622,7 @@ function GrammarLearnContent() {
             </div>
             {status === 'new' && (
               <p className="text-xs text-muted-foreground text-center">
-                💡 Chỉ đọc lý thuyết thôi chưa đủ — làm bài tập để chứng minh bạn đã nắm vững.
+                💡 PDF = handout đối chiếu offline · Bài tập trên app mới ghi tiến độ.
               </p>
             )}
           </div>
