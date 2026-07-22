@@ -11,6 +11,7 @@ import { ChevronLeft, Loader2, RotateCcw, Pencil, ArrowRight } from 'lucide-reac
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { levenshtein, verdictToQuality, parseIpa, canAutoFocus, speak, type Verdict } from '@/lib/study';
+import { stopWordAudio } from '@/lib/audio';
 import { StudentShell } from '@/components/student/StudentShell';
 
 interface WordItem {
@@ -106,10 +107,11 @@ function WritingContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialClassroomId]);
 
-  // Cleanup timer khi unmount
+  // Cleanup timer + audio khi unmount
   useEffect(() => {
     return () => {
       if (advanceTimer.current) clearTimeout(advanceTimer.current);
+      stopWordAudio();
     };
   }, []);
 
@@ -119,6 +121,8 @@ function WritingContent() {
       clearTimeout(advanceTimer.current);
       advanceTimer.current = null;
     }
+    // Chặn tiếng từ cũ phát trễ sau khi UI sang từ mới
+    stopWordAudio();
 
     const head = queueRef.current[0];
     const newQueue = queueRef.current.slice(1);
@@ -319,7 +323,7 @@ function WritingContent() {
 
   return (
     <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
-      <header className="sticky top-[62px] z-10 flex items-center justify-between gap-3 bg-white/50 p-4 backdrop-blur-md sm:p-6">
+      <header className="sticky top-header-safe z-10 flex items-center justify-between gap-3 bg-white/50 p-4 backdrop-blur-md sm:p-6">
         <Link href="/student">
           <Button
             variant="ghost"

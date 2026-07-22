@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { PostHogProvider } from '@/components/PostHogProvider';
 import { ClientBoot } from '@/components/ClientBoot';
+import { DevFcmButton } from '@/components/DevFcmButton';
 
 const inter = Inter({
   subsets: ['latin', 'vietnamese'],
@@ -102,17 +103,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <ErrorBoundary>
             {children}
           </ErrorBoundary>
-          {/* Nút Test Firebase — CHỈ hiện ở môi trường dev, không lộ cho user production */}
-          {process.env.NODE_ENV !== 'production' && (
-            <div className="fixed bottom-[calc(var(--mobile-nav-total)+1rem)] right-3 z-[9999] md:bottom-10 md:right-4">
-              <a
-                href="/test-fcm"
-                className="bg-amber-500 hover:bg-amber-600 text-white font-black px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 text-xs transition-all"
-              >
-                🔔 Test Firebase
-              </a>
-            </div>
-          )}
+          {/* Nút Test Firebase — CHỈ hiện ở môi trường dev trên /test-fcm hoặc ?debugFcm=1 */}
+          {process.env.NODE_ENV !== 'production' && <DevFcmButton />}
           <Toaster position="bottom-right" richColors />
         </ThemeProvider>
         </PostHogProvider>

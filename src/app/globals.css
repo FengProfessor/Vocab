@@ -60,6 +60,7 @@
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
   --header-h: 3.875rem; /* 62px */
+  --header-offset: calc(var(--header-h) + var(--safe-top));
   --mobile-nav-h: 3.75rem; /* 60px, chưa kể safe-bottom */
   --mobile-nav-total: calc(var(--mobile-nav-h) + var(--safe-bottom));
 
@@ -201,8 +202,11 @@
   }
   /* Header sticky có safe-area (notch / status bar) */
   .h-header-safe {
-    min-height: calc(var(--header-h) + var(--safe-top));
+    min-height: var(--header-offset);
     padding-top: var(--safe-top);
+  }
+  .top-header-safe {
+    top: var(--header-offset);
   }
   /* Bottom nav height + home indicator */
   .h-mobile-nav {

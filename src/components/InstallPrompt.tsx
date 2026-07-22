@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronDown, MoreVertical, PlusSquare, Share, Smartphone, X } from 'lucide-react';
+import { isEnablePromptDismissed } from '@/lib/push-device-state';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -105,13 +106,34 @@ export default function InstallPrompt() {
     };
     window.addEventListener('appinstalled', onInstalled);
 
+    const isNotifySlotActive = (): boolean => {
+      if (typeof window === 'undefined') return false;
+      if (sessionStorage.getItem('lingopro_prompt_slot') === 'notify') return true;
+      if ('Notification' in window && Notification.permission === 'default' && !isEnablePromptDismissed()) {
+        return true;
+      }
+      return false;
+    };
+
+    const onPromptChange = () => {
+      if (isNotifySlotActive()) {
+        setVisible(false);
+      }
+    };
+    window.addEventListener('lingopro_prompt_change', onPromptChange);
+
     // SW + delay: hiện banner dù BIP chưa/không bắn (iOS, Safari, Firefox…)
     void ensureInstallableServiceWorker();
-    const timer = window.setTimeout(() => setVisible(true), SHOW_DELAY_MS);
+    const timer = window.setTimeout(() => {
+      if (!isNotifySlotActive()) {
+        setVisible(true);
+      }
+    }, SHOW_DELAY_MS);
 
     return () => {
       window.removeEventListener('beforeinstallprompt', onBip);
       window.removeEventListener('appinstalled', onInstalled);
+      window.removeEventListener('lingopro_prompt_change', onPromptChange);
       window.clearTimeout(timer);
     };
   }, []);

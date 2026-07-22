@@ -25,6 +25,19 @@ export function EnableNotifications() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (show) {
+      sessionStorage.setItem('lingopro_prompt_slot', 'notify');
+      window.dispatchEvent(new CustomEvent('lingopro_prompt_change'));
+    } else {
+      if (sessionStorage.getItem('lingopro_prompt_slot') === 'notify') {
+        sessionStorage.removeItem('lingopro_prompt_slot');
+        window.dispatchEvent(new CustomEvent('lingopro_prompt_change'));
+      }
+    }
+  }, [show]);
+
+  useEffect(() => {
     const evaluate = async (): Promise<void> => {
       if (typeof window === 'undefined' || !('Notification' in window)) return;
 

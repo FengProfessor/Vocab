@@ -566,8 +566,8 @@ export function StudentShell({
         {showChrome && !effectiveImmersive ? <FreeQuotaBanner /> : null}
 
         {showChrome && (
-        <header className="sticky top-0 z-30 flex h-header-safe items-center justify-between gap-2 border-b border-[#ececf1] bg-white/90 px-3 backdrop-blur-md sm:gap-3 sm:px-7">
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+        <header className="sticky top-0 z-30 flex h-header-safe items-center justify-between gap-1.5 border-b border-[#ececf1] bg-white/90 px-2.5 backdrop-blur-md sm:gap-3 sm:px-7">
+          <div className="flex min-w-0 flex-1 items-center gap-1.5 sm:gap-3">
             <button
               type="button"
               className="touch-target -ml-1 flex items-center justify-center rounded-xl md:hidden active:bg-slate-100"
@@ -587,7 +587,7 @@ export function StudentShell({
               <Loader2 className="h-5 w-5 animate-spin" />
             </div>
           ) : (
-            <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+            <div className="flex shrink-0 items-center gap-1 sm:gap-2.5">
               <Link
                 href="/download"
                 className="hidden items-center gap-1.5 rounded-full border border-[#ffd7bf] bg-[#fff4ec] px-3 py-1.5 text-[12px] font-black text-[#b5502f] transition-colors hover:bg-[#ffe9dc] lg:flex"
@@ -595,14 +595,14 @@ export function StudentShell({
                 <ArrowDownToLine className="h-4 w-4" />
                 Tải app
               </Link>
-              {/* Streak/XP: compact trên mobile, full từ sm+ */}
+              {/* Streak/XP: compact trên mobile, full từ md+ */}
               <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
                 <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
                 <span className="tabular-nums text-[12px] font-black text-[#ea7a23] sm:text-[13px]">
                   {gamification.current_streak}
                 </span>
               </div>
-              <div className="hidden items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1 sm:flex">
+              <div className="hidden items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1 md:flex">
                 <span className="text-[13px] leading-none">⭐</span>
                 <span className="tabular-nums text-[13px] font-black text-[#b45309]">
                   {gamification.total_xp} XP

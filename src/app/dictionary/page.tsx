@@ -565,9 +565,10 @@ export default function DictionaryPage() {
 
   return (
     <StudentShell title="Tra từ điển" contentClassName="p-0">
+      {/* overflow-x-hidden là mitigation tầng cuối phòng ngừa layout overflow khi có text cực dài */}
       <div className="w-full min-w-0 min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-background overflow-x-hidden">
       {/* Header */}
-      <header className="sticky top-[62px] z-30 flex items-center gap-3 border-b bg-background/80 px-4 py-3 backdrop-blur min-w-0 max-w-full">
+      <header className="sticky top-header-safe z-30 flex items-center gap-3 border-b bg-background/80 px-4 py-3 backdrop-blur min-w-0 max-w-full">
         <Link href="/student" className="p-2 rounded-full hover:bg-muted transition-colors">
           <ChevronLeft className="h-5 w-5" />
         </Link>
@@ -682,7 +683,7 @@ export default function DictionaryPage() {
             <div className="rounded-2xl border border-border bg-muted/30 p-4 space-y-3">
               <div>
                 <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">EN</p>
-                <p className="text-base font-semibold leading-snug">{sentence?.sentence || displayWord}</p>
+                <p className="text-base font-semibold leading-snug break-words [overflow-wrap:anywhere]">{sentence?.sentence || displayWord}</p>
                 {showSvo && kernel && (
                   <div className="flex flex-wrap gap-2 mt-3">
                     <button
@@ -716,7 +717,7 @@ export default function DictionaryPage() {
               </div>
               <div className="border-t border-border/60 pt-3">
                 <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">VI · gist</p>
-                <p className="text-sm leading-relaxed text-foreground/90">
+                <p className="text-sm leading-relaxed text-foreground/90 break-words [overflow-wrap:anywhere]">
                   {sentence?.translation_vi
                     || kernel?.translation_vi
                     || sentence?.logic?.formula_vi
@@ -752,7 +753,7 @@ export default function DictionaryPage() {
                         <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-muted">L{lvl.level}</span>
                         <span className="text-[11px] text-muted-foreground">{lvl.slot_vi}</span>
                       </div>
-                      <p className="text-sm font-medium leading-snug">{lvl.text}</p>
+                      <p className="text-sm font-medium leading-snug break-words [overflow-wrap:anywhere]">{lvl.text}</p>
                     </div>
                   ))}
                 </div>
@@ -803,34 +804,34 @@ export default function DictionaryPage() {
             {/* Word header */}
             <div className="flex items-start gap-4">
               <div className="flex-1">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <h1 className="text-3xl font-black">{displayWord}</h1>
+                <div className="flex items-center gap-2 flex-wrap min-w-0">
+                  <h1 className="text-3xl font-black min-w-0 break-words [overflow-wrap:anywhere]">{displayWord}</h1>
                   {/* Source badge */}
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium shrink-0">
                     {result.source}
                   </span>
                   {/* Badge từ đã lưu */}
                   {wordAlreadySaved && (
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 font-medium flex items-center gap-1">
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 font-medium flex items-center gap-1 shrink-0">
                       <CheckCircle2 className="h-3 w-3" /> Đã có trong sổ
                     </span>
                   )}
                 </div>
 
                 {/* Pronunciation chips */}
-                <div className="flex flex-wrap items-center gap-2 mt-2">
+                <div className="flex flex-wrap items-center gap-2 mt-2 min-w-0">
                   {formatIpa(ukPron?.ipa) && (
-                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono">
+                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono break-all">
                       🇬🇧 /{formatIpa(ukPron?.ipa)}/
                     </span>
                   )}
                   {formatIpa(usPron?.ipa) && (
-                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono">
+                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono break-all">
                       🇺🇸 /{formatIpa(usPron?.ipa)}/
                     </span>
                   )}
                   {formatIpa(singlePron?.ipa) && !ukPron && !usPron && (
-                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono">
+                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono break-all">
                       /{formatIpa(singlePron?.ipa)}/
                     </span>
                   )}
@@ -885,14 +886,14 @@ export default function DictionaryPage() {
                             {i + 1}.
                           </span>
                           <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-sm leading-snug">{meaning.definition}</p>
+                            <p className="font-semibold text-sm leading-snug break-words [overflow-wrap:anywhere]">{meaning.definition}</p>
                             {meaning.example && (
                               <div className="mt-1">
-                                <p className="text-xs text-muted-foreground italic">
+                                <p className="text-xs text-muted-foreground italic break-words [overflow-wrap:anywhere]">
                                   &ldquo;{meaning.example}&rdquo;
                                 </p>
                                 {meaning.example_vi && (
-                                  <p className="mt-0.5 text-xs text-muted-foreground/80">
+                                  <p className="mt-0.5 text-xs text-muted-foreground/80 break-words [overflow-wrap:anywhere]">
                                     {meaning.example_vi}
                                   </p>
                                 )}
@@ -937,7 +938,7 @@ export default function DictionaryPage() {
                           key={`syn-${i}`}
                           type="button"
                           onClick={() => { setQuery(s); lookup(s); }}
-                          className="px-3 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-sm hover:opacity-80 transition-opacity"
+                          className="px-3 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-sm hover:opacity-80 transition-opacity break-words max-w-full"
                         >
                           {s}
                         </button>
@@ -956,7 +957,7 @@ export default function DictionaryPage() {
                           key={`ant-${i}`}
                           type="button"
                           onClick={() => { setQuery(s); lookup(s); }}
-                          className="px-3 py-1 rounded-full bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-sm hover:opacity-80 transition-opacity"
+                          className="px-3 py-1 rounded-full bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-sm hover:opacity-80 transition-opacity break-words max-w-full"
                         >
                           {s}
                         </button>
@@ -982,12 +983,12 @@ export default function DictionaryPage() {
                       className="w-full bg-muted/40 rounded-xl p-3 flex gap-3 items-center border border-border/50 text-left hover:bg-muted transition-colors"
                     >
                       <div className="flex-1 min-w-0">
-                        <span className="font-semibold text-sm">{fw.word}</span>
+                        <span className="font-semibold text-sm break-words [overflow-wrap:anywhere]">{fw.word}</span>
                         {fw.pos && (
                           <span className="text-xs text-muted-foreground italic ml-2">{fw.pos}</span>
                         )}
                         {fw.meaning && (
-                          <p className="text-sm text-muted-foreground leading-snug mt-0.5">{fw.meaning}</p>
+                          <p className="text-sm text-muted-foreground leading-snug mt-0.5 break-words [overflow-wrap:anywhere]">{fw.meaning}</p>
                         )}
                       </div>
                       <Search className="h-4 w-4 text-muted-foreground shrink-0" />

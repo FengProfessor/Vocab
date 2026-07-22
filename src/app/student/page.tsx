@@ -881,7 +881,7 @@ export default function StudentDashboard() {
                 <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
                 <span className="text-[12px] font-black text-[#ea7a23] tabular-nums sm:text-[13px]">{gamification.current_streak}</span>
               </div>
-              <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1">
+              <div className="hidden items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1 md:flex">
                 <span className="text-[13px] leading-none">⭐</span>
                 <span className="text-[13px] font-black text-[#b45309] tabular-nums">{gamification.total_xp} XP</span>
                 <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#d4a017]">Lv.{xpToLevel(gamification.total_xp)}</span>

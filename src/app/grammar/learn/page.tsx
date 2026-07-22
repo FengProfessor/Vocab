@@ -639,7 +639,7 @@ function GrammarLearnContent() {
 
   return (
     <main className="min-h-dvh bg-muted/40 font-sans">
-      <header className="sticky top-[62px] z-30 flex h-14 items-center justify-between border-b bg-background/80 px-4 backdrop-blur sm:px-6">
+      <header className="sticky top-header-safe z-30 flex h-14 items-center justify-between border-b bg-background/80 px-4 backdrop-blur sm:px-6">
         <Link
           href="/student"
           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"

@@ -325,7 +325,7 @@ function QuizContent() {
   return (
     <div className="min-h-dvh flex flex-col bg-slate-900 font-sans text-white overflow-hidden min-h-0">
       {/* Header */}
-      <header className="sticky top-[62px] z-10 flex items-center justify-between border-b border-slate-800 bg-slate-900/80 p-4 backdrop-blur-md sm:p-6">
+      <header className="sticky top-header-safe z-10 flex items-center justify-between border-b border-slate-800 bg-slate-900/80 p-4 backdrop-blur-md sm:p-6">
         <Link href="/student">
           <Button variant="ghost" size="sm" className="gap-2 text-slate-400 hover:text-violet-400 font-bold rounded-xl transition-colors">
             <ChevronLeft className="h-5 w-5" /> Quit
