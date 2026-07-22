@@ -271,6 +271,16 @@ export interface GrammarSections {
   tips?: string;
   comparison?: string;
   timeline?: { caption?: string; points?: { label?: string; note?: string }[] } | null;
+  /**
+   * Bảng từ / case đặc biệt (dài) — U list, irregular plurals, irregular verbs…
+   * Render thành card + table; cột tự suy từ keys của row đầu.
+   */
+  wordbanks?: {
+    title: string;
+    icon?: string;
+    note?: string;
+    rows: Record<string, string>[];
+  }[];
 }
 
 export interface GrammarExerciseItem {

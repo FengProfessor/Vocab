@@ -212,6 +212,62 @@ export default function GoldenLesson({ sections, exercises }: { sections: Gramma
         </Card>
       )}
 
+      {/* Bảng từ / case đặc biệt (list dài) */}
+      {!!s.wordbanks?.length &&
+        s.wordbanks.map((wb, wi) => {
+          const rows = wb.rows?.filter(Boolean) ?? [];
+          if (!rows.length) return null;
+          const keys = Object.keys(rows[0]);
+          return (
+            <Card
+              key={`wb-${wi}`}
+              tag="Bảng từ"
+              icon={wb.icon || '📚'}
+              title={wb.title || 'Danh sách đặc biệt'}
+            >
+              <div className="overflow-x-auto rounded-xl border max-h-[28rem] overflow-y-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-indigo-50 text-xs uppercase text-indigo-800 sticky top-0">
+                    <tr>
+                      {keys.map((k) => (
+                        <th key={k} className="px-3 py-2 text-left font-black">
+                          {k}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((r, i) => (
+                      <tr key={i} className="border-t even:bg-slate-50/60">
+                        {keys.map((k) => (
+                          <td
+                            key={k}
+                            className={`px-3 py-2 ${
+                              k === keys[0]
+                                ? 'font-semibold text-slate-800'
+                                : 'text-slate-600'
+                            }`}
+                          >
+                            {r[k]}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {wb.note && (
+                <div className="mt-2 text-sm bg-amber-50 border-l-4 border-amber-400 rounded-r-lg px-3 py-2 text-amber-900">
+                  {md(wb.note)}
+                </div>
+              )}
+              <p className="mt-2 text-[11px] font-bold text-slate-400">
+                {rows.length} dòng · học theo nhóm, không học alphabet mù
+              </p>
+            </Card>
+          );
+        })}
+
       {!!s.signals?.length && (
         <Card tag="Dấu hiệu" icon="🔍" title="Dấu hiệu nhận biết">
           <div className="flex flex-wrap gap-2">

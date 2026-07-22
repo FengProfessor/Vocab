@@ -12,6 +12,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { GOLD_A0 } from './gold-lessons-a0.mjs';
+import { banksForSlug, bankStats } from './wordbanks-dense.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DRY = process.argv.includes('--dry');
@@ -115,9 +116,9 @@ const GOLD_NOUNS = {
       ],
       formula: {
         rows: [
-          { Loại: 'Countable', 'Số ít': 'a/an + N', 'Số nhiều': 'N + s/es', 'Lượng từ': 'many / a few / numbers' },
-          { Loại: 'Uncountable', 'Số ít': 'some/any + N (không a/an)', 'Số nhiều': '— (không *Ns*)', 'Lượng từ': 'much / a little / a lot of' },
-          { Loại: 'Unitiser', 'Số ít': 'a piece/bottle/cup of + U', 'Số nhiều': 'two pieces of…', 'Lượng từ': 'theo đơn vị' },
+          { Loại: 'Đếm được (C)', 'Số ít': 'a/an + N', 'Số nhiều': 'N + s/es', 'Lượng từ': 'many / a few / numbers' },
+          { Loại: 'Không đếm (U)', 'Số ít': 'some/any + N (không a/an)', 'Số nhiều': '— (không *Ns*)', 'Lượng từ': 'much / a little / a lot of' },
+          { Loại: 'Đơn vị đếm (unitiser)', 'Số ít': 'a piece/bottle/cup of + U', 'Số nhiều': 'two pieces of…', 'Lượng từ': 'theo đơn vị' },
         ],
         note: 'Không dùng khung do/does ở đây. C/U là về **danh từ**, không phải thì hiện tại đơn.',
       },
@@ -195,13 +196,13 @@ const GOLD_NOUNS = {
       ],
       formula: {
         rows: [
-          { Case: 'Thường', Rule: 'N + s', Example: 'book → books · day → days' },
-          { Case: 's/x/z/ch/sh', Rule: 'N + es', Example: 'bus → buses · box → boxes · watch → watches' },
-          { Case: 'phụ âm + y', Rule: 'y → ies', Example: 'city → cities · baby → babies' },
-          { Case: 'nguyên âm + y', Rule: 'y → ys', Example: 'boy → boys · key → keys' },
-          { Case: 'f / fe (nhiều từ)', Rule: 'f/fe → ves', Example: 'knife → knives · leaf → leaves' },
-          { Case: 'Ngoại lệ f', Rule: 'chỉ + s', Example: 'roof → roofs · belief → beliefs' },
-          { Case: 'Bất quy tắc', Rule: 'học theo nhóm', Example: 'man→men · child→children · sheep→sheep' },
+          { 'Trường hợp': 'Thường', 'Quy tắc': 'N + s', 'Ví dụ': 'book → books · day → days' },
+          { 'Trường hợp': 's/x/z/ch/sh', 'Quy tắc': 'N + es', 'Ví dụ': 'bus → buses · box → boxes · watch → watches' },
+          { 'Trường hợp': 'phụ âm + y', 'Quy tắc': 'y → ies', 'Ví dụ': 'city → cities · baby → babies' },
+          { 'Trường hợp': 'nguyên âm + y', 'Quy tắc': 'y → ys', 'Ví dụ': 'boy → boys · key → keys' },
+          { 'Trường hợp': 'f / fe (nhiều từ)', 'Quy tắc': 'f/fe → ves', 'Ví dụ': 'knife → knives · leaf → leaves' },
+          { 'Trường hợp': 'Ngoại lệ f', 'Quy tắc': 'chỉ + s', 'Ví dụ': 'roof → roofs · belief → beliefs' },
+          { 'Trường hợp': 'Bất quy tắc', 'Quy tắc': 'học theo nhóm', 'Ví dụ': 'man→men · child→children · sheep→sheep' },
         ],
         note: 'Luôn check **bất quy tắc trước**, rồi mới áp dụng -s/-es/-ies.',
       },
@@ -287,13 +288,13 @@ const GOLD_NOUNS = {
       ],
       formula: {
         rows: [
-          { Case: 'C singular, lần đầu', Article: 'a / an', Example: 'a car · an apple' },
-          { Case: 'Đã nhắc / xác định', Article: 'the', Example: 'I bought a pen. The pen is blue.' },
-          { Case: 'Duy nhất / hệ thống', Article: 'the', Example: 'the sun · the internet' },
-          { Case: 'U chung', Article: '∅ (zero)', Example: 'I need water. · She likes coffee.' },
-          { Case: 'C plural chung', Article: '∅', Example: 'Cats are independent.' },
-          { Case: 'Âm /j/ university', Article: 'a', Example: 'a university · a European country' },
-          { Case: 'Âm nguyên âm hour', Article: 'an', Example: 'an hour · an MBA' },
+          { 'Trường hợp': 'C số ít, lần đầu', 'Mạo từ': 'a / an', 'Ví dụ': 'a car · an apple' },
+          { 'Trường hợp': 'Đã nhắc / xác định', 'Mạo từ': 'the', 'Ví dụ': 'I bought a pen. The pen is blue.' },
+          { 'Trường hợp': 'Duy nhất / hệ thống', 'Mạo từ': 'the', 'Ví dụ': 'the sun · the internet' },
+          { 'Trường hợp': 'U nói chung', 'Mạo từ': '∅ (không mạo từ)', 'Ví dụ': 'I need water. · She likes coffee.' },
+          { 'Trường hợp': 'C số nhiều nói chung', 'Mạo từ': '∅', 'Ví dụ': 'Cats are independent.' },
+          { 'Trường hợp': 'Âm /j/ university', 'Mạo từ': 'a', 'Ví dụ': 'a university · a European country' },
+          { 'Trường hợp': 'Âm nguyên âm hour', 'Mạo từ': 'an', 'Ví dụ': 'an hour · an MBA' },
         ],
         note: 'Học **a/an theo pronunciation**, không chỉ theo chữ cái đầu.',
       },
@@ -368,13 +369,13 @@ const GOLD_NOUNS = {
       ],
       formula: {
         rows: [
-          { Quantifier: 'many', With: 'C plural', Example: 'many students' },
-          { Quantifier: 'much', With: 'U', Example: 'much time' },
-          { Quantifier: 'a few', With: 'C plural', Example: 'a few eggs' },
-          { Quantifier: 'a little', With: 'U', Example: 'a little sugar' },
-          { Quantifier: 'some', With: 'C pl / U (+)', Example: 'some chairs · some tea' },
-          { Quantifier: 'any', With: 'C pl / U (−/?)', Example: 'any questions · any milk' },
-          { Quantifier: 'a lot of', With: 'C pl / U', Example: 'a lot of books · a lot of money' },
+          { 'Lượng từ': 'many', 'Đi với': 'C số nhiều', 'Ví dụ': 'many students' },
+          { 'Lượng từ': 'much', 'Đi với': 'U', 'Ví dụ': 'much time' },
+          { 'Lượng từ': 'a few', 'Đi với': 'C số nhiều', 'Ví dụ': 'a few eggs' },
+          { 'Lượng từ': 'a little', 'Đi với': 'U', 'Ví dụ': 'a little sugar' },
+          { 'Lượng từ': 'some', 'Đi với': 'C số nhiều / U (+)', 'Ví dụ': 'some chairs · some tea' },
+          { 'Lượng từ': 'any', 'Đi với': 'C số nhiều / U (−/?)', 'Ví dụ': 'any questions · any milk' },
+          { 'Lượng từ': 'a lot of', 'Đi với': 'C số nhiều / U', 'Ví dụ': 'a lot of books · a lot of money' },
         ],
         note: 'Trong khẳng định đời thường, *much* ít dùng hơn *a lot of* (*I have a lot of time* > *I have much time*).',
       },
@@ -731,6 +732,15 @@ for (const t of a0a2Topics) {
     };
   }
 
+  // Bảng case dày (U list, irregular plurals, V1–V2–V3…) — format chuyên đề GV
+  const denseBanks = banksForSlug(t.slug);
+  if (denseBanks?.length) {
+    sections = {
+      ...sections,
+      wordbanks: denseBanks,
+    };
+  }
+
   let examples = Array.isArray(lesson.examples) ? lesson.examples : [];
   if (gold?.examples?.length) {
     // keep annotations from old if same en
@@ -761,8 +771,9 @@ for (const t of a0a2Topics) {
     title: gold?.title || lesson.title,
   };
 
+  const wbN = sections.wordbanks?.reduce((n, b) => n + (b.rows?.length || 0), 0) || 0;
   log.push(
-    `lesson ${t.slug}: sections=yes examples=${examples.length} quiz=${exercises.length}${gold ? ' GOLD' : ''}`
+    `lesson ${t.slug}: sections=yes examples=${examples.length} quiz=${exercises.length}${gold ? ' GOLD' : ''}${wbN ? ` wordbanks=${wbN}rows` : ''}`
   );
 
   if (!DRY) {
@@ -783,6 +794,7 @@ const report = {
   updatedLessons,
   beginnerOrder: BEGINNER_ORDER,
   quizCap: QUIZ_CAP,
+  wordbankStats: bankStats(),
   log,
   at: new Date().toISOString(),
 };
