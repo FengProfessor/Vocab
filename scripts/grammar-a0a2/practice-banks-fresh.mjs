@@ -30,6 +30,7 @@ import {
   MODALS_PERFECT_PRACTICE,
   INVERSION_PRACTICE,
 } from './practice-banks-fresh-batch3.mjs';
+import { FRESH_BATCH4 } from './practice-banks-fresh-batch4.mjs';
 
 const mcq = (q, opts, answer, fb, case_id) => ({ type: 'mcq', q, opts, answer, fb, case_id });
 const fill = (q, opts, answer, fb, case_id) => ({ type: 'fill', q, opts, answer, fb, case_id });
@@ -95,7 +96,7 @@ export const ARTICLES_PRACTICE = [
   fill('___ Mount Everest is the highest mountain.', ['— (no article)', 'The', 'A'], '— (no article)', 'Mount + name often zero', 'zero_mt'),
 ];
 
-export const FRESH_BY_SLUG = {
+const RAW_FRESH = {
   articles: ARTICLES_PRACTICE,
   ...FRESH_A0,
   'plural-nouns': PLURAL_NOUNS_PRACTICE,
@@ -120,3 +121,13 @@ export const FRESH_BY_SLUG = {
   'modals-perfect': MODALS_PERFECT_PRACTICE,
   inversion: INVERSION_PRACTICE,
 };
+
+// Merge FRESH_BATCH4 error items into RAW_FRESH per slug
+export const FRESH_BY_SLUG = (() => {
+  const merged = { ...RAW_FRESH };
+  for (const [slug, errItems] of Object.entries(FRESH_BATCH4)) {
+    const existing = merged[slug] || [];
+    merged[slug] = [...existing, ...errItems];
+  }
+  return merged;
+})();
