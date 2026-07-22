@@ -30,6 +30,13 @@ export const FREE_AI_DAILY_LIMIT = 5;
 export const FREE_CODEMIX_UPGRADE_DAILY_LIMIT = 1;
 
 /**
+ * Free: lượt Gen đoạn đọc pack / ngày (~24h).
+ * Free dùng model chậm (Zhipu); Pro = Gemini nhanh + ∞.
+ * Luôn enforce (đốt token + upsell).
+ */
+export const FREE_PACK_READING_DAILY_LIMIT = 2;
+
+/**
  * Số từ MỚI free được lưu/tháng (calendar month, UTC).
  * Chỉ chặn lưu mới (POST /api/words); từ đã lưu vẫn ôn FSRS bình thường.
  * Catalog pack import không đếm vào quota này (free value = lộ trình sẵn).
@@ -59,6 +66,7 @@ export type Feature =
   | 'grammar_read'     // đọc lý thuyết ngữ pháp + TTS
   | 'grammar_ai'       // AI ngữ pháp: tạo bài tập, phân tích câu, ôn câu sai
   | 'codemix_upgrade'  // AI nâng đoạn VI+EN → full EN (free 1/ngày, pro unlimited)
+  | 'pack_reading'     // Gen đoạn đọc pack (free 2/ngày Zhipu, pro Gemini ∞)
 
 export const FEATURE_MIN_PLAN: Record<Feature, Plan> = {
   ai_lookup: 'free',        // free dùng được nhưng bị quota/ngày
@@ -69,6 +77,7 @@ export const FEATURE_MIN_PLAN: Record<Feature, Plan> = {
   grammar_read: 'pro',
   grammar_ai: 'pro',        // gộp từ premium → Pro là gói trả phí duy nhất, có đủ
   codemix_upgrade: 'free',  // free teaser 1/ngày — gate bằng daily quota, không chặn feature flag
+  pack_reading: 'free',     // free 2/ngày (chậm), pro nhanh
 };
 
 // ── Lộ trình học (level-gate thay vì on/off) ──
@@ -241,6 +250,67 @@ export async function checkAndConsumeCodemixUpgrade(
     limit,
     remaining,
     plan: 'free',
+  };
+}
+
+export interface PackReadingQuotaResult extends AccessResult {
+  used?: number;
+  limit?: number | null;
+  remaining?: number | null;
+  plan?: Plan;
+  /** Free = Zhipu chậm; Pro = Gemini */
+  providerHint?: 'zhipu' | 'gemini';
+}
+
+/**
+ * Free / ẩn danh: FREE_PACK_READING_DAILY_LIMIT (2) gen đoạn đọc / ~24h.
+ * Pro/premium: unlimited. Luôn enforce.
+ */
+export async function checkAndConsumePackReading(
+  userId: string | null,
+  plan: Plan,
+  ip: string,
+): Promise<PackReadingQuotaResult> {
+  if (plan !== 'free') {
+    return {
+      allowed: true,
+      used: 0,
+      limit: null,
+      remaining: null,
+      plan,
+      providerHint: 'gemini',
+    };
+  }
+
+  const limit = FREE_PACK_READING_DAILY_LIMIT;
+  const dayMs = 86_400_000;
+  const { checkRateLimitAsync } = await import('@/lib/api-security');
+  const key = userId
+    ? `pack-read:u:${userId}`
+    : `pack-read:ip:${ip || 'unknown'}`;
+  const rl = await checkRateLimitAsync(key, limit, dayMs);
+
+  if (!rl.allowed) {
+    return {
+      allowed: false,
+      upgradeTo: 'pro',
+      used: limit,
+      limit,
+      remaining: 0,
+      plan: 'free',
+      providerHint: 'zhipu',
+    };
+  }
+
+  const remaining = rl.remaining;
+  const used = limit - remaining;
+  return {
+    allowed: true,
+    used,
+    limit,
+    remaining,
+    plan: 'free',
+    providerHint: 'zhipu',
   };
 }
 

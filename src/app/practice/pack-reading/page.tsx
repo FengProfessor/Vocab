@@ -12,12 +12,16 @@ import {
   BookOpen,
   Check,
   ChevronLeft,
+  Crown,
   Loader2,
   Search,
   Sparkles,
   X,
+  Zap,
 } from 'lucide-react';
 import { authFetch } from '@/lib/auth-fetch';
+import { usePlan } from '@/hooks/usePlan';
+import { FREE_PACK_READING_DAILY_LIMIT } from '@/lib/entitlement';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -217,6 +221,7 @@ function renderClozeText(
 }
 
 function PackReadingInner() {
+  const { isPaid, plan, loading: planLoading } = usePlan();
   const [step, setStep] = useState<Step>(1);
   const [pool, setPool] = useState<PoolWord[]>([]);
   const [poolSource, setPoolSource] = useState<'mine' | 'empty'>('empty');
@@ -231,6 +236,13 @@ function PackReadingInner() {
   const [passage, setPassage] = useState<PassageData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [quotaBlocked, setQuotaBlocked] = useState(false);
+  const [quotaInfo, setQuotaInfo] = useState<{
+    remaining: number | null;
+    limit: number | null;
+    isPro: boolean;
+    provider?: string;
+  } | null>(null);
 
   const [resultTab, setResultTab] = useState<ResultTab>('passage');
   const [qAnswers, setQAnswers] = useState<Record<number, string>>({});
@@ -450,6 +462,7 @@ function PackReadingInner() {
     }
     setLoading(true);
     setError(null);
+    setQuotaBlocked(false);
     setPassage(null);
     setQAnswers({});
     setQRevealed(false);
@@ -462,7 +475,7 @@ function PackReadingInner() {
         translation: w.translation,
         pos: w.pos,
       }));
-      const res = await fetch('/api/practice/pack-passage', {
+      const res = await authFetch('/api/practice/pack-passage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -473,6 +486,31 @@ function PackReadingInner() {
         }),
       });
       const json = await readJsonSafe(res);
+      const q = json.quota as
+        | {
+            remaining?: number | null;
+            limit?: number | null;
+            isPro?: boolean;
+            provider?: string;
+          }
+        | undefined;
+      if (q) {
+        setQuotaInfo({
+          remaining: q.remaining ?? null,
+          limit: q.limit ?? null,
+          isPro: Boolean(q.isPro),
+          provider: q.provider,
+        });
+      }
+
+      if (json.error === 'PACK_READING_DAILY_LIMIT' || res.status === 403) {
+        setQuotaBlocked(true);
+        throw new Error(
+          typeof json.message === 'string'
+            ? json.message
+            : `Free hết ${FREE_PACK_READING_DAILY_LIMIT} lượt/ngày. Nâng Pro để Gen nhanh không giới hạn.`,
+        );
+      }
       if (!json.success || !json.data) {
         throw new Error(
           typeof json.error === 'string' ? json.error : 'Gen thất bại',
@@ -524,6 +562,45 @@ function PackReadingInner() {
           <BookOpen className="h-6 w-6 text-teal-600" />
         </div>
 
+        {/* Quota / Pro CTA */}
+        {!planLoading && (
+          <div
+            className={`flex flex-wrap items-center gap-2 rounded-2xl border px-3 py-2.5 text-xs font-semibold ${
+              isPaid
+                ? 'border-amber-200 bg-amber-50 text-amber-900'
+                : 'border-slate-200 bg-slate-50 text-slate-700'
+            }`}
+          >
+            {isPaid ? (
+              <>
+                <Zap className="h-4 w-4 text-amber-600" />
+                <span>
+                  <strong className="font-black">Pro</strong> · Gen nhanh (Gemini) · không giới hạn
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="font-black text-slate-800">
+                  Free · {FREE_PACK_READING_DAILY_LIMIT} lượt Gen/ngày
+                </span>
+                <span className="text-slate-500">· model chậm hơn</span>
+                {quotaInfo?.remaining != null && (
+                  <Badge variant="outline" className="text-[10px]">
+                    Còn {quotaInfo.remaining}/{FREE_PACK_READING_DAILY_LIMIT}
+                  </Badge>
+                )}
+                <Link
+                  href="/pricing"
+                  className="ml-auto inline-flex items-center gap-1 rounded-full bg-violet-600 px-2.5 py-1 text-[11px] font-black text-white shadow-sm hover:bg-violet-700"
+                >
+                  <Crown className="h-3 w-3" />
+                  Nâng Pro · nhanh + hay hơn
+                </Link>
+              </>
+            )}
+          </div>
+        )}
+
         <div className="flex gap-1">
           {([1, 2, 3] as const).map((s) => (
             <button
@@ -548,8 +625,17 @@ function PackReadingInner() {
         </p>
 
         {error && (
-          <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
-            {error}
+          <div className="space-y-2 rounded-xl border border-red-200 bg-red-50 px-3 py-3 text-sm text-red-800">
+            <p className="font-semibold">{error}</p>
+            {quotaBlocked && (
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-violet-600 px-3 py-2 text-xs font-black text-white shadow hover:bg-violet-700"
+              >
+                <Crown className="h-3.5 w-3.5" />
+                Nâng Pro — Gen nhanh (Gemini) · không giới hạn lượt
+              </Link>
+            )}
           </div>
         )}
 
@@ -864,11 +950,22 @@ function PackReadingInner() {
                 </Button>
               </div>
               <p className="text-center text-[10px] font-medium text-slate-400">
-                Chỉ tốn quota khi bấm Gen
+                {isPaid
+                  ? 'Pro · Gemini nhanh khi bấm Gen'
+                  : `Free · Zhipu (chậm hơn) · ${FREE_PACK_READING_DAILY_LIMIT} lượt/ngày`}
                 {selectedTheme && selectedLevel
                   ? ` · ${selectedTheme.labelVi} · ${selectedLevel.cefr}`
                   : ''}
               </p>
+              {!isPaid && (
+                <Link
+                  href="/pricing"
+                  className="flex items-center justify-center gap-1.5 rounded-xl border border-violet-200 bg-violet-50 px-3 py-2.5 text-[11px] font-black text-violet-800 hover:bg-violet-100"
+                >
+                  <Crown className="h-3.5 w-3.5" />
+                  Muốn nhanh + hay hơn? Nâng Pro
+                </Link>
+              )}
             </CardContent>
           </Card>
         )}

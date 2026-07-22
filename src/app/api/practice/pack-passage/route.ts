@@ -13,20 +13,58 @@ import {
   DEFAULT_PACK_READING_LEVEL_ID,
   isValidPackReadingLevelId,
 } from '@/lib/pack-levels';
-import { getClientIp, checkRateLimit, isValidString } from '@/lib/api-security';
+import {
+  getClientIp,
+  checkRateLimit,
+  isValidString,
+  getAuthUser,
+} from '@/lib/api-security';
+import { createServiceClient } from '@/lib/supabase';
+import {
+  resolvePlanByUserId,
+  checkAndConsumePackReading,
+  FREE_PACK_READING_DAILY_LIMIT,
+  type Plan,
+} from '@/lib/entitlement';
 
-/** Gen AI + retry length có thể >60s trên free/prod */
+/** Gen AI + retry length có thể >60s */
 export const maxDuration = 120;
 export const dynamic = 'force-dynamic';
 
 /**
- * GET  /api/practice/pack-passage → themes + levels + sample packs
- * POST /api/practice/pack-passage → gen on-demand (bắt buộc themeId + readingLevelId)
+ * GET  /api/practice/pack-passage → themes + levels + packs + quota hint
+ * POST /api/practice/pack-passage → gen on-demand
  *
- * Body: { themeId, readingLevelId?, packId?, words?, text?, title? }
- * Không pre-gen — chỉ chạy khi client bấm Gen AI.
+ * Free: 2 gen/ngày · Zhipu (chậm)
+ * Pro:  ∞ · Gemini multi-key (nhanh), fallback Zhipu
  */
-export async function GET(): Promise<NextResponse> {
+export async function GET(req: Request): Promise<NextResponse> {
+  const auth = await getAuthUser(req);
+  let plan: Plan = 'free';
+  let quota: {
+    plan: Plan;
+    limit: number | null;
+    remaining: number | null;
+    isPro: boolean;
+  } = {
+    plan: 'free',
+    limit: FREE_PACK_READING_DAILY_LIMIT,
+    remaining: FREE_PACK_READING_DAILY_LIMIT,
+    isPro: false,
+  };
+
+  if (auth?.userId) {
+    try {
+      const supabase = createServiceClient();
+      plan = await resolvePlanByUserId(supabase, auth.userId);
+      if (plan !== 'free') {
+        quota = { plan, limit: null, remaining: null, isPro: true };
+      }
+    } catch {
+      /* free default */
+    }
+  }
+
   return NextResponse.json({
     success: true,
     themes: PACK_THEMES,
@@ -34,6 +72,8 @@ export async function GET(): Promise<NextResponse> {
     defaultReadingLevelId: DEFAULT_PACK_READING_LEVEL_ID,
     minWords: PACK_PASSAGE_MIN_WORDS,
     maxWords: PACK_PASSAGE_MAX_WORDS,
+    freeDailyLimit: FREE_PACK_READING_DAILY_LIMIT,
+    quota,
     packs: DEMO_PACKS.map((p) => ({
       id: p.id,
       title: p.title,
@@ -52,6 +92,45 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json(
         { success: false, error: 'Quá nhiều request. Đợi 1 phút rồi Gen lại.' },
         { status: 429 },
+      );
+    }
+
+    const auth = await getAuthUser(req);
+    const userId = auth?.userId ?? null;
+
+    let plan: Plan = 'free';
+    if (userId) {
+      try {
+        const supabase = createServiceClient();
+        plan = await resolvePlanByUserId(supabase, userId);
+      } catch (e) {
+        console.warn('[PackPassage] resolvePlan failed:', e);
+        plan = 'free';
+      }
+    }
+
+    const isPro = plan !== 'free';
+
+    // Free: 2/ngày; Pro: ∞
+    const quota = await checkAndConsumePackReading(userId, plan, ip);
+    if (!quota.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'PACK_READING_DAILY_LIMIT',
+          message: `Free hết ${FREE_PACK_READING_DAILY_LIMIT} lượt tạo đoạn đọc hôm nay. Nâng Pro để Gen nhanh (Gemini) không giới hạn.`,
+          upgradeTo: 'pro',
+          quota: {
+            plan: 'free',
+            used: FREE_PACK_READING_DAILY_LIMIT,
+            limit: FREE_PACK_READING_DAILY_LIMIT,
+            remaining: 0,
+            isPro: false,
+            counted: false,
+            provider: 'zhipu',
+          },
+        },
+        { status: 403 },
       );
     }
 
@@ -107,7 +186,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json(
         {
           success: false,
-          error: `Cần ≥${PACK_PASSAGE_MIN_WORDS} từ (nhận ${words.length}). Dán list "word | nghĩa" hoặc chọn pack mẫu.`,
+          error: `Cần ≥${PACK_PASSAGE_MIN_WORDS} từ (nhận ${words.length}).`,
         },
         { status: 400 },
       );
@@ -116,20 +195,24 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json(
         {
           success: false,
-          error: `Tối đa ${PACK_PASSAGE_MAX_WORDS} từ / 1 đoạn (nhận ${words.length}). Bớt từ hoặc chia gói.`,
+          error: `Tối đa ${PACK_PASSAGE_MAX_WORDS} từ / 1 đoạn (nhận ${words.length}).`,
         },
         { status: 400 },
       );
     }
 
+    // Free → Zhipu chậm; Pro → Gemini nhanh
+    const preferGemini = isPro;
+
     console.log(
-      `[PackPassage] gen theme=${themeId} level=${readingLevelId} words=${words.length} title=${title ?? '-'}`,
+      `[PackPassage] gen plan=${plan} gemini=${preferGemini} theme=${themeId} level=${readingLevelId} words=${words.length}`,
     );
 
     const data = await generatePackPassage(words, {
       themeId,
       readingLevelId,
       title,
+      preferGemini,
     });
 
     return NextResponse.json({
@@ -140,12 +223,22 @@ export async function POST(req: Request): Promise<NextResponse> {
         themeId,
         readingLevelId,
         onDemand: true,
+        plan,
+        provider: preferGemini ? 'gemini' : 'zhipu',
+      },
+      quota: {
+        plan,
+        used: quota.used ?? 0,
+        limit: isPro ? null : FREE_PACK_READING_DAILY_LIMIT,
+        remaining: isPro ? null : (quota.remaining ?? 0),
+        isPro,
+        counted: !isPro,
+        provider: preferGemini ? 'gemini' : 'zhipu',
       },
     });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[PackPassage] failed:', msg);
-    // Luôn JSON — client không bị "Unexpected token 'A'" khi Vercel/proxy trả text
     return NextResponse.json(
       {
         success: false,

@@ -430,6 +430,12 @@ export type GeneratePackPassageOpts = {
   /** @deprecated dùng readingLevelId */
   level?: string;
   minCoverage?: number;
+  /**
+   * true = thử Gemini multi-key trước (Pro).
+   * false = chỉ Zhipu (Free chậm).
+   * default: có GEMINI keys thì true.
+   */
+  preferGemini?: boolean;
 };
 
 /**
@@ -462,8 +468,8 @@ export async function generatePackPassage(
   /** Chấp nhận ≥ 90% minWords (model flash hay thiếu vài chục từ) */
   const minAcceptWords = Math.floor(readingLevel.minWords * 0.9);
   const maxAttempts = 3;
-  const preferGemini = hasGeminiKeys();
-  // Lazy: chỉ init Zhipu router khi cần fallback (tránh throw nếu thiếu Zhipu lúc có Gemini)
+  const preferGemini = opts.preferGemini ?? hasGeminiKeys();
+  // Lazy: chỉ init Zhipu router khi cần
   let router: ReturnType<typeof getRouter> | null = null;
   const getZhipuRouter = () => {
     if (!router) router = getRouter();
@@ -491,7 +497,7 @@ export async function generatePackPassage(
       });
 
       let rawText: string;
-      if (preferGemini) {
+      if (preferGemini && hasGeminiKeys()) {
         try {
           rawText = await geminiGenerate(prompt, { json: true, temperature: 0.35 });
           usedProvider = `gemini:${resolveGeminiModel()}`;
