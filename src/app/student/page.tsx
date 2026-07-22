@@ -23,6 +23,7 @@ import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpGoalCard } from '@/components/gamification/XpGoalCard';
 import type { CelebrationIntensity } from '@/components/gamification/Celebration';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
+import { StudentShell } from '@/components/student/StudentShell';
 import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
 import {
@@ -598,21 +599,36 @@ export default function StudentDashboard() {
       }
       toast.success(`Đã tham gia lớp ${result.data?.name ?? ''}!`);
       if (result.data) {
-        track('student_joined_teacher_class', {
-          classroom_id: result.data.id,
-          teacher_id: result.data.teacher_id,
-          ...(typeof result.data.enrollment_count === 'number' ? { enrollment_count: result.data.enrollment_count } : {}),
-        });
+        setClassroomId(result.data.id);
+        setJoinedClass(true);
       }
       setIsJoinModalOpen(false);
       setJoinCode('');
-      if (profile?.id) loadData(profile.id);
+      if (profile?.id) void loadData(profile.id);
     } catch {
-      setJoinError('Không thể kết nối. Thử lại sau.');
+      setJoinError('Kết nối thất bại, vui lòng thử lại.');
     } finally {
       setIsJoining(false);
     }
   };
+
+  // Tự động mở modal Tham gia lớp nếu truy cập /student?joinClass=1
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('joinClass') === '1') {
+        setJoinError(null);
+        setJoinCode('');
+        setIsJoinModalOpen(true);
+        const url = new URL(window.location.href);
+        url.searchParams.delete('joinClass');
+        window.history.replaceState({}, '', url.toString());
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   // Debounce search — must be before any early return (Rules of Hooks)
   useEffect(() => {
@@ -666,6 +682,7 @@ export default function StudentDashboard() {
   }
 
   const masteredCount = words.filter((w) => w.srsLevel === 5).length;
+  const badges = earnedBadges(gamification, masteredCount);
 
   const mascotMood: MascotMood = reviewDueCount > 0 ? 'cheer' : gamification.current_streak === 0 ? 'sleepy' : 'happy';
   const greeting = (() => {
@@ -674,270 +691,22 @@ export default function StudentDashboard() {
     if (h < 18) return 'Chào buổi chiều';
     return 'Chào buổi tối';
   })();
-  const badges = earnedBadges(gamification, masteredCount);
 
   const hasClass = joinedClass;
 
-  // Group cộng đồng MỞ (free, live/trao đổi) — hiện cho mọi HS, mở tab mới
   const FB_COMMUNITY_URL = 'https://www.facebook.com/groups/1586345819865575';
 
-  // Nav — emoji màu; không Speaking/Hồ sơ. footerDup ẩn ở drawer mobile.
-  type NavItem = {
-    href: string;
-    label: string;
-    emoji: string;
-    color: string;
-    tile: string;
-    onboardingId?: string;
-    footerDup?: boolean;
-  };
-  const navItems: NavItem[] = [
-    { href: '/student', label: 'Dashboard', emoji: '🏠', color: '#4f46e5', tile: '#eef0ff', footerDup: true },
-    { href: '/journey', label: 'Lộ trình', emoji: '🗺️', color: '#059669', tile: '#dcfce7', onboardingId: 'journey', footerDup: true },
-    { href: '/review', label: 'Ôn tập', emoji: '📚', color: '#6366f1', tile: '#e8eafe', onboardingId: 'nav-review', footerDup: true },
-    // Sidebar dashboard (/student) — nav riêng, không dùng StudentShell
-    { href: '/practice/codemix', label: 'Sử dụng từ / Đặt câu', emoji: '✨', color: '#7c3aed', tile: '#f3e8ff' },
-    { href: '/grammar/learn', label: 'Ngữ pháp', emoji: '🎓', color: '#8b5cf6', tile: '#f1ecff', onboardingId: 'grammar' },
-    { href: '/library', label: 'Thư viện từ vựng', emoji: '📦', color: '#10b981', tile: '#e1f7ee', onboardingId: 'library', footerDup: true },
-    { href: '/dictionary', label: 'Tra từ điển', emoji: '🔍', color: '#06b6d4', tile: '#defafd', onboardingId: 'dictionary', footerDup: true },
-    { href: '/import', label: 'Nhập danh sách riêng', emoji: '➕', color: '#64748b', tile: '#eef1f5', onboardingId: 'import' },
-    ...(hasClass ? [
-      { href: '/student/profile#stats', label: 'Thống kê', emoji: '📊', color: '#3b82f6', tile: '#e7f0ff' },
-      { href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard', label: 'Bảng xếp hạng', emoji: '🏆', color: '#f59e0b', tile: '#fff3df' },
-    ] as NavItem[] : []),
-  ];
-  const mobileDrawerItems = navItems.filter((item) => !item.footerDup);
-  const profileInitial = (profile?.full_name?.trim()?.[0] || 'U').toUpperCase();
-  const profileEmail = (userMetadata?.email as string) || '';
-
   return (
-    <div className="flex min-h-dvh w-full bg-muted/40 font-sans relative">
-      {/* ═══ MOBILE DRAWER ═══ */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-[100] md:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} aria-hidden />
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu điều hướng"
-            className="absolute inset-y-0 left-0 flex w-[min(18rem,88vw)] flex-col bg-background shadow-2xl pl-safe"
-            style={{ paddingTop: 'var(--safe-top)', paddingBottom: 'var(--safe-bottom)' }}
-          >
-            <div className="mb-4 flex items-center justify-between px-5 pt-5">
-              <Link href="/student" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2.5 font-black text-primary">
-                <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_12px_rgba(99,102,241,.35)]">
-                  <Brain className="h-5 w-5 text-white" />
-                </span>
-                <span className="text-xl">LingoPro</span>
-              </Link>
-              <button type="button" className="touch-target flex items-center justify-center rounded-xl" onClick={() => setIsMenuOpen(false)} aria-label="Đóng menu">
-                <X className="h-6 w-6 text-slate-500" />
-              </button>
-            </div>
-            <div className="mx-5 mb-3 flex gap-2">
-              <div className="flex flex-1 items-center gap-1.5 rounded-full border border-[#fde2c0] bg-[#fff5e9] px-3 py-1.5">
-                <span className="text-sm">🔥</span>
-                <span className="text-xs font-black text-[#ea7a23] tabular-nums">{gamification.current_streak} ngày</span>
-              </div>
-              <div className="flex flex-1 items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-3 py-1.5">
-                <span className="text-sm">⭐</span>
-                <span className="text-xs font-black text-[#b45309] tabular-nums">{gamification.total_xp} XP</span>
-              </div>
-            </div>
-            {/* Nav scroll — giống desktop, bỏ mục trùng footer + Hồ sơ + Speaking */}
-            <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain px-3 scrollbar-none">
-              {mobileDrawerItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  data-onboarding={item.onboardingId}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
-                >
-                  <span
-                    className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg text-[15px] leading-none"
-                    style={{ background: item.tile }}
-                  >
-                    {item.emoji}
-                  </span>
-                  <span className="truncate">{item.label}</span>
-                </Link>
-              ))}
-              <button
-                type="button"
-                onClick={() => { setIsMenuOpen(false); setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
-                className="flex min-h-[44px] w-full items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] hover:bg-slate-50"
-              >
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">👤</span>
-                <span>Tham gia lớp</span>
-              </button>
-            </nav>
-            <div className="shrink-0 space-y-0.5 border-t border-[#f0f0f4] px-3 pb-3 pt-2">
-              <Link href="/upgrade" onClick={() => setIsMenuOpen(false)} className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] bg-[#f6f1ff] px-2.5 py-2 text-sm font-extrabold text-[#7c3aed]">
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px]">👑</span>
-                <span>Nâng cấp Pro</span>
-                {profile?.plan && profile.plan !== 'free' && (
-                  <span className="ml-auto rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black uppercase text-violet-600">{profile.plan}</span>
-                )}
-              </Link>
-              <Link href="/group" onClick={() => setIsMenuOpen(false)} className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] hover:bg-slate-50">
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">👥</span>
-                <span>Nhóm của tôi</span>
-              </Link>
-              <a href={FB_COMMUNITY_URL} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] bg-[#e7f0ff] px-2.5 py-2 text-sm font-extrabold text-[#1877f2]">
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px]">💬</span>
-                <span className="truncate">Nhóm live &amp; trao đổi</span>
-              </a>
-              <button type="button" onClick={handleSignOut} className="flex w-full min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-extrabold text-[#e11d48] hover:bg-rose-50">
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-rose-50 text-[15px]">🚪</span>
-                <span>Đăng xuất</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ═══ SIDEBAR (md+) ═══ */}
-      <aside className="fixed inset-y-0 left-0 z-20 w-[248px] border-r border-[#ececf1] bg-white hidden md:flex flex-col px-4 py-[22px]">
-        <Link href="/student" className="flex items-center gap-2.5 px-2 pb-[22px] pt-1">
-          <span className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_12px_rgba(99,102,241,.35)]">
-            <Brain className="h-5 w-5 text-white" />
-          </span>
-          <span className="bg-gradient-to-br from-indigo-500 to-violet-500 bg-clip-text text-xl font-black tracking-tight text-transparent">LingoPro</span>
-        </Link>
-        <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto scrollbar-none">
-          {navItems.map((item) => {
-            const active = item.href === '/student';
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                data-onboarding={item.onboardingId}
-                className={`flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors ${
-                  active ? 'bg-[#eef0ff] font-extrabold text-[#4f46e5]' : 'font-bold text-[#525a68] hover:bg-muted'
-                }`}
-              >
-                <span
-                  className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg text-[15px] leading-none"
-                  style={active ? { background: '#fff', boxShadow: '0 1px 2px rgba(79,70,229,.2)' } : { background: item.tile }}
-                >
-                  {item.emoji}
-                </span>
-                <span className="truncate">{item.label}</span>
-              </Link>
-            );
-          })}
-          <button
-            type="button"
-            onClick={() => { setJoinError(null); setJoinCode(''); setIsJoinModalOpen(true); }}
-            className="flex w-full items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] transition-colors hover:bg-muted"
-          >
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">👤</span>
-            <span className="truncate">Tham gia lớp</span>
-          </button>
-        </nav>
-        <div className="mt-2.5 shrink-0 space-y-0.5 border-t border-[#f0f0f4] pt-3">
-          <Link href="/upgrade" className="flex items-center gap-[11px] rounded-[11px] bg-[#f6f1ff] px-2.5 py-2 text-sm font-extrabold text-[#7c3aed]">
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px]">👑</span>
-            <span>Nâng cấp Pro</span>
-            {profile?.plan && profile.plan !== 'free' && (
-              <span className="ml-auto rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black uppercase text-violet-600">{profile.plan}</span>
-            )}
-          </Link>
-          <Link href="/group" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">👥</span>
-            <span>Nhóm của tôi</span>
-          </Link>
-          <a href={FB_COMMUNITY_URL} target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-[11px] rounded-[11px] bg-[#e7f0ff] px-2.5 py-2 text-sm font-extrabold text-[#1877f2] transition-colors hover:brightness-95">
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px]">💬</span>
-            <span>Nhóm live &amp; trao đổi</span>
-            <span className="ml-auto text-[10px] font-black uppercase text-[#1877f2]">Vào ngay</span>
-          </a>
-        </div>
-      </aside>
-
-      {/* ═══ MAIN ═══ */}
-      <main className="flex-1 min-w-0 md:pl-[248px] flex flex-col min-h-dvh">
-        <header className="h-header-safe border-b border-[#ececf1] bg-white/90 backdrop-blur-md sticky top-0 z-10 px-3 sm:px-7 flex items-center justify-between gap-2 sm:gap-3">
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-            <button type="button" className="touch-target -ml-1 flex items-center justify-center rounded-xl md:hidden active:bg-slate-100" onClick={() => setIsMenuOpen(true)} aria-label="Mở menu">
-              <Menu className="h-6 w-6 shrink-0" />
-            </button>
-            <h1 className="truncate text-base font-black tracking-tight sm:text-[19px]">Dashboard</h1>
-          </div>
-          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-            <Link
-              href="/download"
-              data-onboarding="download-header"
-              className="hidden items-center gap-1.5 rounded-full border border-[#ffd7bf] bg-[#fff4ec] px-3 py-1.5 text-[12px] font-black text-[#b5502f] transition-colors hover:bg-[#ffe9dc] lg:flex"
-            >
-              <ArrowDownToLine className="h-4 w-4" />
-              Tải app
-            </Link>
-            {/* Streak + XP — target onboarding "progress" */}
-            <div data-onboarding="progress" className="flex items-center gap-1.5 sm:gap-2">
-              <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
-                <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
-                <span className="text-[12px] font-black text-[#ea7a23] tabular-nums sm:text-[13px]">{gamification.current_streak}</span>
-              </div>
-              <div className="hidden items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1 md:flex">
-                <span className="text-[13px] leading-none">⭐</span>
-                <span className="text-[13px] font-black text-[#b45309] tabular-nums">{gamification.total_xp} XP</span>
-                <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#d4a017]">Lv.{xpToLevel(gamification.total_xp)}</span>
-              </div>
-            </div>
-            <NotificationBell
-              dueCount={reviewDueCount}
-              grammarDueCount={grammarDue}
-              streak={gamification.current_streak}
-              dailyGoalXp={gamification.today_xp}
-              dailyGoal={gamification.daily_goal}
-              classroomId={classroomId}
-            />
-            <div className="hidden sm:block h-[22px] w-px bg-[#e8e8ee]" />
-
-            {/* Profile button + dropdown (Đăng xuất nằm trong đây) */}
-            <div className="relative" ref={profileRef}>
-              <button
-                onClick={() => setIsProfileOpen((v) => !v)}
-                className="flex items-center gap-2 rounded-full py-[3px] pl-[3px] pr-1.5 transition-colors hover:bg-muted"
-              >
-                <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 text-sm font-black text-white">
-                  {profileInitial}
-                </span>
-                <span className="hidden sm:block text-[13.5px] font-extrabold text-[#0f172a] max-w-[120px] truncate">
-                  {profile?.full_name?.split(' ')[0] || 'bạn'}
-                </span>
-                <ChevronDown className={`h-[15px] w-[15px] text-slate-400 transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {isProfileOpen && (
-                <div className="absolute right-0 top-12 w-[188px] rounded-[14px] border border-[#ececf1] bg-white p-1.5 shadow-[0_12px_32px_rgba(16,24,40,.14)] z-40">
-                  <div className="px-2.5 pb-1.5 pt-2">
-                    <div className="text-[13px] font-extrabold text-[#0f172a] truncate">{profile?.full_name || 'Học viên'}</div>
-                    {profileEmail && <div className="text-[11px] font-semibold text-[#9aa2b1] truncate">{profileEmail}</div>}
-                  </div>
-                  <div className="my-1 h-px bg-[#f1f1f5]" />
-                  <Link
-                    href="/student/profile"
-                    onClick={() => setIsProfileOpen(false)}
-                    className="flex items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-[13.5px] font-bold text-[#475569] hover:bg-muted"
-                  >
-                    <User className="h-[17px] w-[17px] text-[#64748b]" /> Hồ sơ của tôi
-                  </Link>
-                  <button
-                    onClick={handleSignOut}
-                    className="flex w-full items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-left text-[13.5px] font-extrabold text-[#e11d48] hover:bg-rose-50"
-                  >
-                    <LogOut className="h-[17px] w-[17px]" /> Đăng xuất
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        </header>
-
-        <div className="mx-auto flex w-full max-w-[920px] flex-col gap-3 px-4 py-3 pb-mobile-nav sm:gap-3.5 sm:px-7 sm:py-5">
+    <StudentShell
+      title="Dashboard"
+      contentClassName="p-0"
+      onJoinClass={() => {
+        setJoinError(null);
+        setJoinCode('');
+        setIsJoinModalOpen(true);
+      }}
+    >
+      <div className="mx-auto flex w-full max-w-[920px] flex-col gap-3 px-4 py-3 sm:gap-3.5 sm:px-7 sm:py-5">
           {/* Greeting — 1 dòng gọn */}
           <div className="flex items-center gap-2.5">
             <Mascot mood={mascotMood} size="sm" />
@@ -1415,7 +1184,6 @@ export default function StudentDashboard() {
             />
           )}
         </div>
-      </main>
 
       {/* ═══ WORD DETAIL MODAL ═══ */}
       <WordDetailModal
@@ -1543,11 +1311,6 @@ export default function StudentDashboard() {
         </div>
       )}
 
-      <MobileBottomNav
-        classroomId={classroomId}
-        reviewDueCount={reviewDueCount}
-        newCount={newCount}
-      />
-    </div>
+    </StudentShell>
   );
 }

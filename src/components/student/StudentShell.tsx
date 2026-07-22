@@ -23,6 +23,7 @@ import {
   readWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
+import { buildStudentNavItems, type StudentNavItem } from '@/lib/student-nav';
 import { cn } from '@/lib/utils';
 
 type ShellProfile = Profile & {
@@ -54,6 +55,8 @@ interface StudentShellProps {
    * (dùng cho Pixel Hub full-screen)
    */
   immersive?: boolean;
+  /** Callback mở modal tham gia lớp (dùng ở Dashboard) */
+  onJoinClass?: () => void;
 }
 
 export function StudentShell({
@@ -62,6 +65,7 @@ export function StudentShell({
   contentClassName,
   hideMobileNav = false,
   immersive = false,
+  onJoinClass,
 }: StudentShellProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -208,107 +212,10 @@ export function StudentShell({
     router.push('/auth');
   };
 
-  // Không: Speaking, Hồ sơ (profile qua avatar). Footer dup ẩn ở drawer mobile.
-  const navItems = useMemo<NavItem[]>(() => [
-    {
-      href: '/student',
-      label: 'Dashboard',
-      emoji: '🏠',
-      color: '#4f46e5',
-      tile: '#eef0ff',
-      match: (value) => value === '/student',
-      footerDup: true,
-    },
-    {
-      href: '/hub',
-      label: 'Thư viện',
-      emoji: '👀',
-      color: '#d97706',
-      tile: '#fef3c7',
-      match: (value) => value.startsWith('/hub'),
-    },
-    {
-      href: '/journey',
-      label: 'Lộ trình',
-      emoji: '🗺️',
-      color: '#059669',
-      tile: '#dcfce7',
-      match: (value) => value.startsWith('/journey'),
-      footerDup: true,
-    },
-    {
-      href: '/review',
-      label: 'Ôn tập',
-      emoji: '📚',
-      color: '#6366f1',
-      tile: '#eef0ff',
-      match: (value) =>
-        value.startsWith('/review') ||
-        value.startsWith('/flashcard') ||
-        value.startsWith('/writing') ||
-        value.startsWith('/quiz'),
-      footerDup: true,
-    },
-    {
-      href: '/practice/codemix',
-      label: 'Sử dụng từ / Đặt câu',
-      emoji: '✨',
-      color: '#7c3aed',
-      tile: '#f3e8ff',
-      match: (value) => value.startsWith('/practice'),
-      // Hiện cả sidebar desktop + drawer mobile (không ẩn vì footerDup)
-    },
-    {
-      href: '/grammar/learn',
-      label: 'Ngữ pháp',
-      emoji: '🎓',
-      color: '#8b5cf6',
-      tile: '#f1ecff',
-      match: (value) => value.startsWith('/grammar'),
-    },
-    {
-      href: '/library',
-      label: 'Thư viện từ vựng',
-      emoji: '📦',
-      color: '#10b981',
-      tile: '#e1f7ee',
-      match: (value) => value.startsWith('/library'),
-      footerDup: true,
-    },
-    {
-      href: '/dictionary',
-      label: 'Tra từ điển',
-      emoji: '🔍',
-      color: '#06b6d4',
-      tile: '#defafd',
-      match: (value) => value.startsWith('/dictionary'),
-      footerDup: true,
-    },
-    {
-      href: '/import',
-      label: 'Nhập danh sách riêng',
-      emoji: '➕',
-      color: '#64748b',
-      tile: '#eef1f5',
-      match: (value) => value.startsWith('/import'),
-    },
-    {
-      href: '/student/profile#stats',
-      label: 'Thống kê',
-      emoji: '📊',
-      color: '#3b82f6',
-      tile: '#e7f0ff',
-      match: (value) => value.startsWith('/student/profile'),
-    },
-    {
-      href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard',
-      label: 'Bảng xếp hạng',
-      emoji: '🏆',
-      color: '#f59e0b',
-      tile: '#fff3df',
-      match: (value) => value.startsWith('/student/leaderboard'),
-    },
-  ], [classroomId]);
+  const navItems = useMemo<StudentNavItem[]>(
+    () => buildStudentNavItems({ classroomId, hasClass: Boolean(classroomId) }),
+    [classroomId],
+  );
 
   const mobileDrawerItems = useMemo(
     () => navItems.filter((item) => !item.footerDup),
@@ -326,14 +233,14 @@ export function StudentShell({
   };
 
   const renderNavLink = (
-    item: NavItem,
+    item: StudentNavItem,
     active: boolean,
     onClick?: () => void,
   ) => (
     <Link
       key={item.label}
       href={item.href}
-      data-onboarding={onboardingIdFor(item.href)}
+      data-onboarding={item.onboardingId || onboardingIdFor(item.href)}
       onClick={onClick}
       className={`flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors active:scale-[0.98] md:min-h-0 ${
         active
@@ -437,6 +344,32 @@ export function StudentShell({
               {mobileDrawerItems.map((item) =>
                 renderNavLink(item, item.match(pathname), () => setIsMenuOpen(false)),
               )}
+              {onJoinClass ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onJoinClass();
+                    setIsMenuOpen(false);
+                  }}
+                  className="flex w-full min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50 active:scale-[0.98]"
+                >
+                  <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
+                    👤
+                  </span>
+                  <span className="truncate">Tham gia lớp</span>
+                </button>
+              ) : (
+                <Link
+                  href="/student?joinClass=1"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50 active:scale-[0.98]"
+                >
+                  <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
+                    👤
+                  </span>
+                  <span className="truncate">Tham gia lớp</span>
+                </Link>
+              )}
             </nav>
 
             {/* Footer drawer: Pro + FB + đăng xuất */}
@@ -478,6 +411,16 @@ export function StudentShell({
                 </span>
                 <span className="truncate">Nhóm live &amp; trao đổi</span>
               </a>
+              <Link
+                href="/hub"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] hover:bg-slate-50"
+              >
+                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#fef3c7] text-[15px]">
+                  👀
+                </span>
+                <span className="truncate">Hub cộng đồng</span>
+              </Link>
               <button
                 type="button"
                 onClick={handleSignOut}
@@ -506,6 +449,28 @@ export function StudentShell({
         </Link>
         <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto scrollbar-none">
           {navItems.map((item) => renderNavLink(item, item.match(pathname)))}
+          {onJoinClass ? (
+            <button
+              type="button"
+              onClick={onJoinClass}
+              className="flex w-full items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
+            >
+              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
+                👤
+              </span>
+              <span className="truncate">Tham gia lớp</span>
+            </button>
+          ) : (
+            <Link
+              href="/student?joinClass=1"
+              className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
+            >
+              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
+                👤
+              </span>
+              <span className="truncate">Tham gia lớp</span>
+            </Link>
+          )}
         </nav>
         <div className="mt-2.5 shrink-0 space-y-0.5 border-t border-[#f0f0f4] pt-3">
           <Link
@@ -542,12 +507,23 @@ export function StudentShell({
             </span>
             <span className="truncate">Nhóm live &amp; trao đổi</span>
           </a>
+          <Link
+            href="/hub"
+            className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
+          >
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#fef3c7] text-[15px]">
+              👀
+            </span>
+            <span className="truncate">Hub cộng đồng</span>
+          </Link>
           <button
             type="button"
             onClick={handleSignOut}
-            className="flex w-full items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50 hover:text-[#e11d48]"
+            className="flex w-full items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-extrabold text-[#e11d48] transition-colors hover:bg-rose-50"
           >
-            <LogOut className="h-5 w-5" />
+            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-rose-50 text-[15px]">
+              🚪
+            </span>
             <span>Đăng xuất</span>
           </button>
         </div>

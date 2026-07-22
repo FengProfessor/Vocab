@@ -1,44 +1,29 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { StudentShell } from '@/components/student/StudentShell';
 import {
   AlertCircle,
   BarChart3,
   Bell,
   BookOpen,
-  Brain,
   CheckCircle2,
-  ChevronDown,
   Copy,
   Crown,
   Flame,
-  GraduationCap,
-  HelpCircle,
   LayoutGrid,
-  Library,
-  LayoutDashboard,
   Loader2,
-  LogOut,
   Map,
-  Menu,
-  MessageSquare,
-  Pencil,
-  Plus,
   Save,
-  Search,
-  Sparkles,
   Star,
   Target,
   Trophy,
   User,
-  X,
   Zap,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { NotificationBell } from '@/components/NotificationBell';
-import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpBadge } from '@/components/gamification/XpBadge';
 import { Button } from '@/components/ui/button';
@@ -120,7 +105,6 @@ function fmtDay(isoDate: string): string {
 export default function ProfilePage() {
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [stats, setStats] = useState<StatsData | null>(null);
-  const [userMetadata, setUserMetadata] = useState<Record<string, unknown> | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [isSavingTelegram, setIsSavingTelegram] = useState(false);
@@ -128,9 +112,6 @@ export default function ProfilePage() {
   const [isEnablingPush, setIsEnablingPush] = useState(false);
   const [isCopyingToken, setIsCopyingToken] = useState(false);
   const [tokenCopied, setTokenCopied] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [grammarDue, setGrammarDue] = useState(0);
 
   const [fullName, setFullName] = useState('');
   const [dailyGoal, setDailyGoal] = useState(30);
@@ -138,7 +119,6 @@ export default function ProfilePage() {
   const [telegramId, setTelegramId] = useState('');
 
   const router = useRouter();
-  const profileRef = useRef<HTMLDivElement>(null);
   const { data: gamification } = useGamification(profile?.id ?? null);
 
   useEffect(() => {
@@ -149,14 +129,7 @@ export default function ProfilePage() {
         return;
       }
 
-      setUserMetadata((session.user.user_metadata as Record<string, unknown> | undefined) ?? null);
-
       const statsPromise = fetch('/api/student/stats', {
-        headers: {
-          Authorization: `Bearer ${session.access_token}`,
-        },
-      }).then((response) => response.json()).catch(() => null);
-      const grammarPromise = fetch('/api/grammar/progress', {
         headers: {
           Authorization: `Bearer ${session.access_token}`,
         },
@@ -169,7 +142,6 @@ export default function ProfilePage() {
         .single();
 
       const statsResponse = await statsPromise;
-      const grammarResponse = await grammarPromise;
 
       if (prof) {
         const nextProfile = prof as StudentProfile;
@@ -184,26 +156,11 @@ export default function ProfilePage() {
         setStats(statsResponse.data as StatsData);
       }
 
-      if (grammarResponse?.success) {
-        setGrammarDue(Number(grammarResponse.dueCount ?? 0));
-      }
-
       setIsLoading(false);
     };
 
     void checkAuth();
   }, [router]);
-
-  useEffect(() => {
-    const handler = (event: MouseEvent) => {
-      if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
-        setIsProfileOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, []);
 
   const handleSave = async () => {
     if (!profile) return;
@@ -367,11 +324,6 @@ export default function ProfilePage() {
     }
   };
 
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    router.push('/auth');
-  };
-
   if (isLoading) {
     return (
       <div className="min-h-dvh bg-muted/40 flex items-center justify-center">
@@ -395,168 +347,9 @@ export default function ProfilePage() {
       statsWeeks.push(stats.dailyActivity.slice(index, index + 7));
     }
   }
-  const reviewDueCount = stats?.wordStats.wordsDue ?? 0;
-  const profileEmail = (userMetadata?.email as string) ?? profile?.email ?? '';
-  const navItems: NavItem[] = [
-    { href: '/student', label: 'Dashboard', icon: LayoutGrid, color: '#4f46e5', tile: '#eef0ff' },
-    { href: '/journey', label: 'Lộ trình', icon: Map, color: '#059669', tile: '#dcfce7' },
-    { href: '/quiz', label: 'Mini Quiz', icon: HelpCircle, color: '#f59e0b', tile: '#fff3df' },
-    { href: '/writing', label: 'Writing Practice', icon: Pencil, color: '#f43f5e', tile: '#ffe7ec' },
-    { href: '/practice/codemix', label: 'Sử dụng từ / Đặt câu', icon: Sparkles, color: '#7c3aed', tile: '#f3e8ff' },
-    { href: '/student/speaking', label: 'AI Speaking Tutor', icon: MessageSquare, color: '#0ea5e9', tile: '#e2f5fe' },
-    { href: '/grammar/learn', label: 'Grammar', icon: GraduationCap, color: '#8b5cf6', tile: '#f1ecff' },
-    { href: '/library', label: 'Thư viện từ vựng', icon: Library, color: '#10b981', tile: '#e1f7ee' },
-    { href: '/dictionary', label: 'Tra từ điển', icon: Search, color: '#06b6d4', tile: '#defafd' },
-    { href: '/import', label: 'Nhập danh sách riêng', icon: Plus, color: '#64748b', tile: '#eef1f5' },
-    { href: '/student/profile#stats', label: 'Thống kê', icon: BarChart3, color: '#3b82f6', tile: '#e7f0ff' },
-    { href: '/student/leaderboard', label: 'Bảng xếp hạng', icon: Trophy, color: '#f59e0b', tile: '#fff3df' },
-    { href: '/student/profile', label: 'Hồ sơ', icon: User, color: '#64748b', tile: '#eef1f5' },
-  ];
-
   return (
-    <div className="flex min-h-dvh w-full bg-[#f7f8fc] font-sans">
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-[100] md:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
-          <div className="absolute inset-y-0 left-0 flex w-72 flex-col bg-background p-6 shadow-2xl">
-            <div className="mb-8 flex items-center justify-between">
-              <Link href="/student" className="flex items-center gap-2 font-bold text-primary">
-                <Brain className="h-6 w-6" /> <span className="text-xl">LingoPro</span>
-              </Link>
-              <X className="h-6 w-6 cursor-pointer" onClick={() => setIsMenuOpen(false)} />
-            </div>
-            <nav className="flex-1 space-y-4">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const active = item.href === '/student/profile';
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`flex items-center gap-3 rounded-xl p-3 ${active ? 'bg-primary/5 font-bold text-primary' : 'font-semibold text-[#475569]'}`}
-                  >
-                    <Icon className="h-5 w-5" />
-                    <span>{item.label}</span>
-                  </Link>
-                );
-              })}
-            </nav>
-            <button onClick={handleSignOut} className="flex items-center gap-3 p-3 font-bold text-destructive">
-              <LogOut className="h-5 w-5" /> Sign Out
-            </button>
-          </div>
-        </div>
-      )}
-
-      <aside className="fixed inset-y-0 left-0 z-20 hidden w-[248px] border-r border-[#ececf1] bg-white px-4 py-[22px] md:flex md:flex-col">
-        <Link href="/student" className="flex items-center gap-2.5 px-2 pb-[22px] pt-1">
-          <span className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_12px_rgba(99,102,241,.35)]">
-            <Brain className="h-5 w-5 text-white" />
-          </span>
-          <span className="bg-gradient-to-br from-indigo-500 to-violet-500 bg-clip-text text-xl font-black tracking-tight text-transparent">LingoPro</span>
-        </Link>
-        <nav className="flex flex-1 flex-col gap-0.5">
-          <Link href="/student" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <LayoutDashboard className="h-5 w-5" /> Dashboard
-          </Link>
-          <Link href="/review" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <BookOpen className="h-5 w-5" /> Ôn tập
-          </Link>
-          <Link href="/quiz" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <Zap className="h-5 w-5" /> Mini Quiz
-          </Link>
-          <Link href="/writing" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <Pencil className="h-5 w-5" /> Writing Practice
-          </Link>
-          <Link href="/grammar/learn" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <GraduationCap className="h-5 w-5" /> Grammar
-          </Link>
-          <Link href="/import" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <Plus className="h-5 w-5" /> Import Words
-          </Link>
-          <Link href="/student/profile#stats" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <BarChart3 className="h-5 w-5" /> Thống kê
-          </Link>
-          <Link href="/student/leaderboard" className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted">
-            <Trophy className="h-5 w-5" /> Bảng xếp hạng
-          </Link>
-          <Link href="/student/profile" className="flex items-center gap-[11px] rounded-[11px] bg-[#eef0ff] px-2.5 py-2 text-sm font-extrabold text-[#4f46e5] transition-colors">
-            <User className="h-5 w-5" /> Hồ sơ
-          </Link>
-        </nav>
-        <button onClick={handleSignOut} className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-muted hover:text-destructive">
-          <LogOut className="h-5 w-5" /> Sign Out
-        </button>
-      </aside>
-
-      <main className="flex min-h-dvh flex-1 flex-col min-w-0 md:pl-[248px]">
-        <header className="sticky top-0 z-10 flex h-header-safe items-center justify-between gap-2 border-b border-[#ececf1] bg-white/90 px-3 backdrop-blur-md sm:gap-3 sm:px-7">
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-            <button type="button" className="touch-target -ml-1 flex items-center justify-center rounded-xl md:hidden active:bg-slate-100" onClick={() => setIsMenuOpen(true)} aria-label="Mở menu">
-              <Menu className="h-6 w-6 shrink-0" />
-            </button>
-            <h1 className="truncate text-base font-black tracking-tight sm:text-[19px]">Hồ sơ của tôi</h1>
-          </div>
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
-            <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
-              <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
-              <span className="tabular-nums text-[12px] font-black text-[#ea7a23] sm:text-[13px]">{gamification.current_streak}</span>
-            </div>
-            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1">
-              <span className="text-[13px] leading-none">⭐</span>
-              <span className="tabular-nums text-[13px] font-black text-[#b45309]">{gamification.total_xp} XP</span>
-              <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#d4a017]">Lv.{xpToLevel(gamification.total_xp)}</span>
-            </div>
-            <NotificationBell
-              dueCount={reviewDueCount}
-              grammarDueCount={grammarDue}
-              streak={gamification.current_streak}
-              dailyGoalXp={gamification.today_xp}
-              dailyGoal={gamification.daily_goal}
-              classroomId={null}
-            />
-            <div className="hidden h-[22px] w-px bg-[#e8e8ee] sm:block" />
-            <div className="relative" ref={profileRef}>
-              <button
-                onClick={() => setIsProfileOpen((value) => !value)}
-                className="flex items-center gap-2 rounded-full py-[3px] pl-[3px] pr-1.5 transition-colors hover:bg-muted"
-              >
-                <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 text-sm font-black text-white">
-                  {initials}
-                </span>
-                <span className="hidden max-w-[120px] truncate text-[13.5px] font-extrabold text-[#0f172a] sm:block">
-                  {profile?.full_name?.split(' ')[0] || 'bạn'}
-                </span>
-                <ChevronDown className={`h-[15px] w-[15px] text-slate-400 transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {isProfileOpen && (
-                <div className="absolute right-0 top-12 z-40 w-[188px] rounded-[14px] border border-[#ececf1] bg-white p-1.5 shadow-[0_12px_32px_rgba(16,24,40,.14)]">
-                  <div className="px-2.5 pb-1.5 pt-2">
-                    <div className="truncate text-[13px] font-extrabold text-[#0f172a]">{profile?.full_name || 'Học viên'}</div>
-                    {profileEmail && <div className="truncate text-[11px] font-semibold text-[#9aa2b1]">{profileEmail}</div>}
-                  </div>
-                  <div className="my-1 h-px bg-[#f1f1f5]" />
-                  <Link
-                    href="/student/profile"
-                    onClick={() => setIsProfileOpen(false)}
-                    className="flex items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-[13.5px] font-bold text-[#475569] hover:bg-muted"
-                  >
-                    <User className="h-[17px] w-[17px] text-[#64748b]" /> Hồ sơ của tôi
-                  </Link>
-                  <button
-                    onClick={handleSignOut}
-                    className="flex w-full items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-left text-[13.5px] font-extrabold text-[#e11d48] hover:bg-rose-50"
-                  >
-                    <LogOut className="h-[17px] w-[17px]" /> Đăng xuất
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        </header>
-
-        <div className="mx-auto w-full max-w-[1080px] space-y-6 px-4 py-5 pb-mobile-nav sm:space-y-8 sm:px-7 sm:py-6">
+    <StudentShell title="Hồ sơ của tôi">
+      <div className="mx-auto w-full max-w-[1080px] space-y-6 px-4 py-5 sm:space-y-8 sm:px-7 sm:py-6">
           <div className="flex items-center gap-4 sm:gap-5">
             <div className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-2xl bg-primary text-2xl sm:text-3xl font-black text-primary-foreground shadow-lg">
               {initials}
@@ -1012,9 +805,6 @@ export default function ProfilePage() {
             </Link>
           </div>
         </div>
-      </main>
-
-      <MobileBottomNav reviewDueCount={reviewDueCount} />
-    </div>
+    </StudentShell>
   );
 }
