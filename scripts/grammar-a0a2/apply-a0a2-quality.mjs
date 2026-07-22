@@ -3,7 +3,7 @@
  * 1) Reorder beginner syllabus (pedagogical)
  * 2) Gold rewrite noun cluster (C/U, plural, articles, quantifiers)
  * 3) Auto-build sections from theory_vi for all beginner+intermediate
- * 4) Cap quiz bank to 24 curated items
+ * 4) Cap quiz bank (default 48 — đủ ôn + in PDF)
  *
  * Usage: node scripts/grammar-a0a2/apply-a0a2-quality.mjs [--dry]
  */
@@ -16,7 +16,7 @@ import { banksForSlug, bankStats } from './wordbanks-dense.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DRY = process.argv.includes('--dry');
-const QUIZ_CAP = 24;
+const QUIZ_CAP = 48;
 
 function loadEnv() {
   const raw = fs.readFileSync(path.resolve('.env.local'), 'utf8');

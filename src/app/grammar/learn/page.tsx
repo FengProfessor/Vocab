@@ -586,7 +586,7 @@ function GrammarLearnContent() {
                       mistakes: s?.mistakes,
                       wordbanks: s?.wordbanks,
                       exercises: activeLesson.exercises ?? undefined,
-                      exerciseCap: 16,
+                      exerciseCap: 0, // all exercises
                       withAnswers: true,
                       siteUrl: typeof window !== 'undefined' ? window.location.origin : undefined,
                     });

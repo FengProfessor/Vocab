@@ -148,7 +148,7 @@ export default function GoldenLesson({ sections, exercises }: { sections: Gramma
       return q.length > 0 && ans !== undefined && ans !== null && String(ans).length > 0;
     });
   }, [exercises]);
-  const PREVIEW_CAP = 8;
+  const PREVIEW_CAP = 24;
   const previewExercises = showAllEx ? allExercises : allExercises.slice(0, PREVIEW_CAP);
 
   return (

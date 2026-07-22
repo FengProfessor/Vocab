@@ -94,7 +94,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       const topicTitle = topic?.title ?? 'English Grammar';
       const level = topic?.level ?? 'intermediate';
 
-      // Chuẩn hóa trước → loại câu thiếu question/options/answer → bốc ngẫu nhiên tối đa 16
+      // Chuẩn hóa trước → loại câu thiếu question/options/answer → bốc ngẫu nhiên tối đa 32
       const normalizedAll = (lesson.exercises as unknown[])
         .map((raw, i) => normalizeLessonExercise(raw, String(lessonId), i, topicTitle, level, 'quiz'))
         .filter(
@@ -109,7 +109,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         );
 
       const shuffled = [...normalizedAll].sort(() => Math.random() - 0.5);
-      const selected = shuffled.slice(0, Math.min(16, shuffled.length));
+      const selected = shuffled.slice(0, Math.min(32, shuffled.length));
 
       if (selected.length === 0) {
         // fall through to AI generation below

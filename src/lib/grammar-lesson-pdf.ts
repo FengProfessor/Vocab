@@ -32,7 +32,7 @@ export interface GrammarPdfInput {
   mistakes?: { wrong?: string; right?: string; why?: string }[];
   wordbanks?: GrammarPdfWordbank[];
   exercises?: GrammarPdfExercise[];
-  /** max exercise rows in worksheet (default 16) */
+  /** max exercise rows in worksheet (default 40; 0 = all) */
   exerciseCap?: number;
   siteUrl?: string;
   /** include answer key section */
@@ -84,11 +84,11 @@ export function buildGrammarLessonPdfHtml(input: GrammarPdfInput): string {
     year: 'numeric',
   });
   const withAnswers = input.withAnswers !== false;
-  const cap = input.exerciseCap ?? 16;
+  const cap = input.exerciseCap === 0 ? Number.POSITIVE_INFINITY : (input.exerciseCap ?? 40);
   const banks = (input.wordbanks ?? []).filter((b) => (b.rows?.length ?? 0) > 0);
   const exercises = (input.exercises ?? [])
     .filter((e) => String(e.q || e.question || '').trim())
-    .slice(0, cap);
+    .slice(0, Number.isFinite(cap) ? cap : undefined);
 
   const bankBlocks = banks
     .map((b, bi) => {
