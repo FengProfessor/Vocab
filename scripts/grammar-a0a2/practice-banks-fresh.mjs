@@ -3,6 +3,25 @@
  * Used by quality-fix-refill-all.mjs
  */
 import { FRESH_A0 } from './practice-banks-fresh-a0.mjs';
+import {
+  PLURAL_NOUNS_PRACTICE,
+  QUANTIFIERS_PRACTICE,
+  DEMONSTRATIVES_PRACTICE,
+  POSSESSIVES_PRACTICE,
+  THERE_IS_PRACTICE,
+  HAVE_GOT_PRACTICE,
+  PRESENT_CONTINUOUS_PRACTICE,
+  FUTURE_WILL_PRACTICE,
+  MODALS_OBLIGATION_PRACTICE,
+  CONDITIONALS_0_1_PRACTICE,
+} from './practice-banks-fresh-batch2.mjs';
+import {
+  PRESENT_PERFECT_PRACTICE,
+  PASSIVE_VOICE_PRACTICE,
+  REPORTED_SPEECH_PRACTICE,
+  RELATIVE_CLAUSES_PRACTICE,
+  GERUNDS_INFINITIVES_PRACTICE,
+} from './practice-banks-fresh-inter.mjs';
 
 const mcq = (q, opts, answer, fb, case_id) => ({ type: 'mcq', q, opts, answer, fb, case_id });
 const fill = (q, opts, answer, fb, case_id) => ({ type: 'fill', q, opts, answer, fb, case_id });
@@ -71,4 +90,19 @@ export const ARTICLES_PRACTICE = [
 export const FRESH_BY_SLUG = {
   articles: ARTICLES_PRACTICE,
   ...FRESH_A0,
+  'plural-nouns': PLURAL_NOUNS_PRACTICE,
+  quantifiers: QUANTIFIERS_PRACTICE,
+  demonstratives: DEMONSTRATIVES_PRACTICE,
+  possessives: POSSESSIVES_PRACTICE,
+  'there-is-there-are': THERE_IS_PRACTICE,
+  'have-got': HAVE_GOT_PRACTICE,
+  'present-continuous': PRESENT_CONTINUOUS_PRACTICE,
+  'future-will': FUTURE_WILL_PRACTICE,
+  'modals-obligation': MODALS_OBLIGATION_PRACTICE,
+  'conditionals-0-1': CONDITIONALS_0_1_PRACTICE,
+  'present-perfect': PRESENT_PERFECT_PRACTICE,
+  'passive-voice': PASSIVE_VOICE_PRACTICE,
+  'reported-speech': REPORTED_SPEECH_PRACTICE,
+  'relative-clauses': RELATIVE_CLAUSES_PRACTICE,
+  'gerunds-infinitives': GERUNDS_INFINITIVES_PRACTICE,
 };
