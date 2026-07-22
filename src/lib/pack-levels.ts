@@ -42,7 +42,7 @@ export const PACK_READING_LEVELS: PackReadingLevel[] = [
     questionCount: 3,
     clozeBlanks: '4-5',
     questionStyle:
-      'Literal detail only: Who / What / Where. Options must be short phrases (3-8 words), not full abstract sentences. One clear fact per question from the passage.',
+      'Literal detail ONLY from the passage text. Who / What / Where / How did X feel. Never invent Monday/morning/etc. Options short phrases (3-10 words). Correct option must match words/facts written in the passage.',
     hintVi: 'Câu ngắn · hiện tại đơn · hỏi chi tiết rõ',
   },
   {
@@ -59,7 +59,7 @@ export const PACK_READING_LEVELS: PackReadingLevel[] = [
     questionCount: 4,
     clozeBlanks: '5-7',
     questionStyle:
-      'Clear factual questions (Who did X? Why did Y happen?). Options = full short answers the student can compare. No trick questions. No option like only "B".',
+      'Clear factual questions grounded in the passage (Who did X? Why did Y? Where?). Never invent times/places not in the text. Options = short full answers. No letter-only answers.',
     hintVi: 'Đoạn vừa · thì quá khứ/hiện tại · hỏi vì sao/ở đâu',
   },
   {

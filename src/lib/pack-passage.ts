@@ -173,6 +173,38 @@ function cleanChoiceText(s: string): string {
     .trim();
 }
 
+const INVENTED_TIME_RE =
+  /\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday|morning|afternoon|evening|yesterday|tomorrow|tonight|last week|this morning|on monday|on tuesday)\b/gi;
+
+/**
+ * Loại câu hỏi bịa thời gian/địa điểm không có trong đoạn.
+ * (Model hay copy "Monday morning" từ few-shot cũ.)
+ */
+function isQuestionGrounded(q: string, answer: string, passagePlain: string): boolean {
+  const p = passagePlain.toLowerCase();
+  const qLower = q.toLowerCase();
+  const timeHits = qLower.match(INVENTED_TIME_RE) || [];
+  for (const t of timeHits) {
+    if (!p.includes(t.toLowerCase())) {
+      console.warn(`[PackPassage] drop ungrounded Q (time "${t}"): ${q.slice(0, 80)}`);
+      return false;
+    }
+  }
+  // Answer nên có ≥1 content word (len>3) xuất hiện trong passage
+  const ansWords = answer
+    .toLowerCase()
+    .split(/[^a-z0-9']+/)
+    .filter((w) => w.length > 3 && !/^(that|this|with|from|they|them|were|been|have|does|did|what|where|when|which)$/.test(w));
+  if (ansWords.length >= 1) {
+    const hit = ansWords.some((w) => p.includes(w));
+    if (!hit) {
+      console.warn(`[PackPassage] drop ungrounded answer: ${answer.slice(0, 60)}`);
+      return false;
+    }
+  }
+  return true;
+}
+
 function buildPrompt(
   words: PackWord[],
   opts: {
@@ -249,32 +281,53 @@ PASSAGE RULES (length is non-negotiable):
 6. Stay inside the theme; title reflects ${theme.labelEn}.
 7. Before you finish JSON, silently count words in "passage". If below ${rl.minWords}, add another paragraph until you reach the range.
 
-QUESTION RULES (critical — previous bad output had vague questions):
+QUESTION RULES (CRITICAL — questions must be 100% grounded in THIS passage):
 1. Exactly ${rl.questionCount} MCQs. Each has "q", 4 "options", "answer", "explain".
-2. Each question is SPECIFIC and EASY TO UNDERSTAND:
-   - Name the person/place/thing from the passage when asking.
-   - Ask one clear thing (Who / What / Where / Why / How many / What happened after…).
-   - Bad: "What is a problem?" · Good: "What problem did the village face with plastic?"
-   - Bad: options only "A" or "B" · Good: full short answer phrases.
-3. "options": 4 real answer texts, parallel form/length. NO prefixes like "A)" "B." inside option strings.
-4. "answer" MUST be the exact full text of one option (copy-paste), never just "B".
-5. Every answer must be findable in the passage (no outside knowledge).
-6. "explain": one short Vietnamese sentence (why the answer is correct).
-7. ${rl.questionStyle}
+2. **GROUNDED ONLY:** Every fact in the question and in the correct option MUST appear in the passage text.
+   - Do NOT invent day/time (Monday, morning, yesterday…) unless that word is in the passage.
+   - Do NOT invent places, numbers, or actions not written in the passage.
+   - After writing each question, re-read the passage and confirm the correct option is supported by a sentence.
+3. **SPECIFIC + EASY (simple English):**
+   - Name people/places from the passage (e.g. Mai, the park, her neighbors).
+   - One clear focus: Who / What / Where / Why / How did X feel / What did they collect…
+   - Short, natural questions a student can understand quickly.
+4. **BAD examples (NEVER do this):**
+   - Asking "What did Mai do on Monday morning?" when the passage never says Monday/morning.
+   - Vague: "What is a problem?" with no link to the text.
+   - Options like "B" only, or "She cut down trees / bought a car / went swimming" when unrelated to the story.
+   - Correct answer that only roughly matches (passage says "wonderful" but options only "happy" without support — prefer wording close to the passage).
+5. **GOOD pattern:**
+   - Passage: "They collected thousands of plastic bottles" → Q: "What did they collect at the park?" → options include "Thousands of plastic bottles".
+   - Passage: "The epicenter of the event was the park" → Q: "Where was the epicenter of the event?" → "At the park".
+6. "options": 4 full answer phrases, similar length. NO "A)" "B." prefixes. 3 distractors must be plausible but clearly wrong based on the passage.
+7. "answer" = exact copy of one option string (never only a letter).
+8. "explain": 1 short Vietnamese sentence that quotes/paraphrases the supporting detail from the passage.
+9. ${rl.questionStyle}
 
 CLOZE RULES:
 1. Same story as the passage (English only).
 2. Replace ${rl.clozeBlanks} target words with {{0}}, {{1}}, … (placeholders MUST appear in cloze.text).
-3. Each blank: "answer" = target word; "options" = 4 REAL English words (1 correct + 3 plausible distractors from the target list). NEVER use placeholder text like "distractor1".
+3. Each blank: "answer" = target word; "options" = 4 REAL English words (1 correct + 3 from the target list). NEVER "distractor1".
 
 Return ONLY valid JSON (no markdown fence):
 {
-  "title": "string",
+  "title": "Community Clean-Up",
   "passage": "string with **target** words — MUST be ${rl.minWords}-${rl.maxWords} words long",
   "level": "${rl.cefr}",
   "usedWords": ["word1", "word2"],
   "questions": [
-    { "q": "What did Mai do on Monday morning?", "options": ["She recycled plastic bottles", "She cut down trees", "She bought a car", "She went swimming"], "answer": "She recycled plastic bottles", "explain": "Trong đoạn, Mai… " }
+    {
+      "q": "Where was the epicenter of the clean-up event?",
+      "options": ["At Mai's house", "At the local library", "At the park", "At the school"],
+      "answer": "At the park",
+      "explain": "Đoạn nói epicenter of the event was the park."
+    },
+    {
+      "q": "What did Mai and her friends collect?",
+      "options": ["Paper books", "Plastic bottles", "Glass windows", "Metal cans"],
+      "answer": "Plastic bottles",
+      "explain": "Đoạn nói they collected thousands of plastic bottles."
+    }
   ],
   "cloze": {
     "text": ".... {{0}} .... {{1}} ...",
@@ -334,6 +387,7 @@ function normalizeResult(
       }
       const qText = cleanChoiceText(asString(o.q)).replace(/\*\*/g, '');
       if (!qText || options.length < 2) return null;
+      if (!isQuestionGrounded(qText, answer, passagePlain)) return null;
       return {
         q: sanitizeForPrompt(qText, 300),
         options: options.map((x) => sanitizeForPrompt(x, 200)),
