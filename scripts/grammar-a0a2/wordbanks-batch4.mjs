@@ -120,7 +120,7 @@ export const MIXED_CONDITIONAL_BANKS = [
       {
         'Mẫu': 'A · If + Past Perfect, would + V1',
         'Nghĩa': 'QK khác → kết quả hiện tại khác',
-        'Ví dụ': "If I had studied medicine, I would be a doctor now.",
+        'Ví dụ': 'If I had studied medicine, I would be a doctor now.',
       },
       {
         'Mẫu': 'B · If + Past Simple, would have + V3',
@@ -130,12 +130,22 @@ export const MIXED_CONDITIONAL_BANKS = [
       {
         'Mẫu': 'A · If + had + V3, could/might + V1',
         'Nghĩa': 'QK → khả năng hiện tại',
-        'Ví dụ': "If she had taken the job, she might be living in Singapore now.",
+        'Ví dụ': 'If she had taken the job, she might be living in Singapore now.',
       },
       {
         'Mẫu': 'B · If + V2, might/could have + V3',
         'Nghĩa': 'tính cách/trạng thái hiện tại → QK khác',
         'Ví dụ': "If he were more careful, he wouldn't have crashed.",
+      },
+      {
+        'Mẫu': 'A · negative result HT',
+        'Nghĩa': 'QK không xảy ra → HT khác',
+        'Ví dụ': "If we hadn't missed the bus, we would be there now.",
+      },
+      {
+        'Mẫu': 'B · present duty → past miss',
+        'Nghĩa': 'HT phải làm → QK không đi được',
+        'Ví dụ': "If I didn't have to work, I would have gone to the party.",
       },
     ],
   },
@@ -143,18 +153,61 @@ export const MIXED_CONDITIONAL_BANKS = [
     title: 'Đối chiếu loại 2 / 3 / mixed',
     icon: '⚖️',
     rows: [
-      { 'Loại 2': 'If I knew, I would tell you. (HT)', 'Loại 3': 'If I had known, I would have told you. (QK)', 'Mixed A': "If I had known, I would tell you now. (ít gặp hơn A chuẩn)" },
-      { 'Mixed A (phổ biến)': "If I had saved money, I would own a house now.", 'Giải': 'không tiết kiệm (QK) → không có nhà (HT)' },
-      { 'Mixed B (phổ biến)': "If I didn't have to work, I would have gone to the party.", 'Giải': 'phải làm việc (HT) → đã không đi tiệc (QK)' },
+      {
+        'Loại 2': 'If I knew, I would tell you. (HT)',
+        'Loại 3': 'If I had known, I would have told you. (QK)',
+        'Mixed A': 'If I had known, I would tell you now. (QK→HT)',
+      },
+      {
+        'Mixed A (phổ biến)': 'If I had saved money, I would own a house now.',
+        'Giải': 'không tiết kiệm (QK) → không có nhà (HT)',
+      },
+      {
+        'Mixed B (phổ biến)': "If I didn't have to work, I would have gone to the party.",
+        'Giải': 'phải làm việc (HT) → đã không đi tiệc (QK)',
+      },
+      {
+        'Checklist': '1) Thời if-clause? 2) Thời result? 3) Khớp A hay B?',
+        'Giải': 'QK→HT = A · HT→QK = B',
+      },
+    ],
+  },
+  {
+    title: 'Mixed · ví dụ thi (list)',
+    icon: '📋',
+    rows: [
+      { 'If-clause (QK)': 'If I had listened…', 'Result (HT)': '…I would not be in trouble now.', 'Loại': 'A' },
+      { 'If-clause (QK)': 'If she had married him…', 'Result (HT)': '…she would live abroad now.', 'Loại': 'A' },
+      { 'If-clause (HT)': 'If he were taller…', 'Result (QK)': '…he would have joined the team.', 'Loại': 'B' },
+      { 'If-clause (HT)': 'If I spoke French…', 'Result (QK)': '…I would have taken that job.', 'Loại': 'B' },
+      { 'If-clause (QK)': 'If we had left earlier…', 'Result (HT)': '…we would be home now.', 'Loại': 'A' },
+      { 'If-clause (HT)': "If it weren't so expensive…", 'Result (QK)': '…I would have bought it.', 'Loại': 'B' },
     ],
   },
   {
     title: 'Mixed conditionals · lỗi',
     icon: '⚠️',
     rows: [
-      { Sai: 'If I would have studied, I would be a doctor now.', Đúng: 'If I had studied, I would be a doctor now.', 'Vì sao': 'if-clause mixed A: had + V3' },
-      { Sai: 'If I had studied, I would have been a doctor now.', Đúng: 'If I had studied, I would be a doctor now.', 'Vì sao': 'kết quả hiện tại → would + V1 (không would have)' },
-      { Sai: 'If I am rich, I would have bought it.', Đúng: 'If I were rich, I would have bought it.', 'Vì sao': 'mixed B: if + QKĐ' },
+      {
+        Sai: 'If I would have studied, I would be a doctor now.',
+        Đúng: 'If I had studied, I would be a doctor now.',
+        'Vì sao': 'if-clause mixed A: had + V3',
+      },
+      {
+        Sai: 'If I had studied, I would have been a doctor now.',
+        Đúng: 'If I had studied, I would be a doctor now.',
+        'Vì sao': 'kết quả hiện tại → would + V1 (không would have)',
+      },
+      {
+        Sai: 'If I am rich, I would have bought it.',
+        Đúng: 'If I were rich, I would have bought it.',
+        'Vì sao': 'mixed B: if + QKĐ',
+      },
+      {
+        Sai: 'If I knew, I would have told you yesterday — wait, for pure past use type 3.',
+        Đúng: 'If I had known, I would have told you yesterday. (type 3) · If I knew, I would tell you. (type 2)',
+        'Vì sao': 'chọn mixed chỉ khi hai mốc thời gian khác nhau có chủ đích',
+      },
     ],
   },
 ];
