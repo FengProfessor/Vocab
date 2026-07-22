@@ -11,7 +11,7 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 SRC = Path("tmp/wordbanks-export.json")
-OUT = Path("tmp/Grammar_Wordbanks_Quality_Preview_VI.docx")
+OUT = Path("tmp/Grammar_Wordbanks_Full_A0A2.docx")
 
 TITLES = {
     "countable-uncountable": "1. Danh từ đếm được & không đếm được (C/U)",
@@ -30,7 +30,15 @@ TITLES = {
     "adverbs-frequency": "14. Trạng từ tần suất",
 }
 
+# auto-extend titles from export json
+import json as _json
+_data=_json.loads(Path('tmp/wordbanks-export.json').read_text(encoding='utf-8'))
+for _i,_slug in enumerate(_data.get('stats',{}),1):
+    if _slug not in TITLES:
+        TITLES[_slug]=f'{_i}. {_slug}'
 ORDER = list(TITLES.keys())
+# prefer stats order
+ORDER = list(_data.get('stats',{}).keys()) or ORDER
 
 
 def set_cell_shading(cell, hex_color: str):

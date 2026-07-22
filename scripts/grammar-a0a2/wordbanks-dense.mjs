@@ -2,8 +2,10 @@
  * Wordbanks A0–A1 — header + ghi chú Việt hóa đầy đủ.
  * Ví dụ tiếng Anh giữ nguyên để học.
  * Batch 2 (pronouns, modals, future…) → wordbanks-batch2.mjs
+ * Batch 3 (A2 perfect/passive/reported…) → wordbanks-batch3.mjs
  */
 import { batch2ForSlug } from './wordbanks-batch2.mjs';
+import { batch3ForSlug } from './wordbanks-batch3.mjs';
 
 export const UNCOUNTABLE_BANKS = [
 {
@@ -907,13 +909,17 @@ export function banksForSlug(slug) {
   };
   const fromBase = base[slug] || null;
   const fromB2 = batch2ForSlug(slug);
-  // demonstratives / there-is: gộp batch1 + batch2 (dày thêm)
-  if (fromBase && fromB2) return [...fromBase, ...fromB2];
-  return fromB2 || fromBase || null;
+  const fromB3 = batch3ForSlug(slug);
+  // gộp nếu nhiều nguồn (demonstratives / there-is…)
+  const parts = [fromBase, fromB2, fromB3].filter(Boolean);
+  if (!parts.length) return null;
+  if (parts.length === 1) return parts[0];
+  return parts.flat();
 }
 
 export function bankStats() {
   const slugs = [
+    // batch1
     'countable-uncountable',
     'plural-nouns',
     'past-simple',
@@ -928,6 +934,7 @@ export function bankStats() {
     'prepositions-time',
     'comparatives-superlatives',
     'adverbs-frequency',
+    // batch2
     'personal-pronouns',
     'have-got',
     'wh-questions',
@@ -942,6 +949,22 @@ export function bankStats() {
     'modals-obligation',
     'modals-advice',
     'conditionals-0-1',
+    // batch3 A2
+    'present-perfect',
+    'present-perfect-continuous',
+    'past-perfect',
+    'passive-voice',
+    'reported-speech',
+    'relative-clauses',
+    'gerunds-infinitives',
+    'used-to',
+    'question-tags',
+    'second-conditional',
+    'third-conditional',
+    'future-continuous',
+    'modals-deduction',
+    'conjunctions-linking',
+    'phrasal-verbs',
   ];
   const out = {};
   for (const slug of slugs) {
