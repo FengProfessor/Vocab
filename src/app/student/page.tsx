@@ -806,6 +806,23 @@ export default function StudentDashboard() {
             <ArrowRight className="h-4 w-4 shrink-0 text-violet-400" />
           </Link>
 
+          {/* Luyện đọc gói — nhập từ → chọn chủ đề → Gen AI on-demand */}
+          <Link
+            href="/practice/pack-reading"
+            className="flex items-center gap-3 rounded-2xl border border-teal-100 bg-gradient-to-r from-teal-50 to-cyan-50 px-3 py-3 shadow-sm transition-all hover:border-teal-300 hover:shadow-md"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-600 text-xl text-white shadow">
+              📖
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-black text-teal-900">Luyện đọc gói từ</p>
+              <p className="text-[11px] font-semibold text-teal-700/80">
+                Chọn chủ đề · Gen đoạn AI khi bạn bấm · hỏi + cloze
+              </p>
+            </div>
+            <ArrowRight className="h-4 w-4 shrink-0 text-teal-400" />
+          </Link>
+
           {/* Meta mobile — 1 dòng thay 4 card */}
           <div className="flex items-center gap-2 text-[11px] font-bold text-slate-500 sm:hidden">
             <span className="tabular-nums">{countsReady ? totalWords : '…'} từ</span>

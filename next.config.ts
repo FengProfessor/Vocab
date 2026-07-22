@@ -1,4 +1,8 @@
 import type { NextConfig } from "next";
+import path from "path";
+
+/** Cố định root = thư mục web-app (tránh Turbopack nhảy lên D:\Vibe khi có nhiều lockfile) */
+const configDir = path.resolve(process.cwd());
 
 // CSP: giữ 'unsafe-inline' (Next.js/React inline style+script) và 'unsafe-eval'
 // (Next dev dùng eval cho HMR) — tradeoff chấp nhận được, chưa dùng nonce.
@@ -22,6 +26,10 @@ const csp = [
 const nextConfig: NextConfig = {
   // Docker/Hetzner: image gọn, chỉ copy .next/standalone + static
   output: 'standalone',
+  // Tránh Turbopack nhầm root lên D:\Vibe (nhiều lockfile) → API 404
+  turbopack: {
+    root: configDir,
+  },
   // Tree-shake icon/chart/date barrels → giảm JS initial
   experimental: {
     optimizePackageImports: [
