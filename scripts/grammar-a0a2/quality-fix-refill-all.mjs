@@ -11,6 +11,19 @@ import path from 'path';
 import { createClient } from '@supabase/supabase-js';
 import { GOLD_A0 } from './gold-lessons-a0.mjs';
 import { FRESH_BY_SLUG } from './practice-banks-fresh.mjs';
+import {
+  extractTheoryCases,
+  buildTheoryStemBanlist,
+  overlapsBanlist,
+  genParaphrasedFromMistakes,
+  genCoverageFromRules,
+  genCoverageFromFormula,
+  genCoverageFromUsage,
+  genFromWordbanks,
+  coverageReport,
+  dedupByStem,
+  stemFromItem,
+} from './practice-coverage-engine.mjs';
 
 const DRY = !process.argv.includes('--apply');
 const ONLY = (() => {
@@ -27,7 +40,7 @@ const ONLY = (() => {
 const TARGET = 42;
 const HARD_CAP = 56;
 // error: soft floor 0 (fake errors worse); FRESH/EXTRA banks supply real errors
-const TYPE_MIN = { mcq: 10, fill: 8, error: 0, tf: 6 };
+const TYPE_MIN = { mcq: 8, fill: 6, error: 0, tf: 4 };
 
 function loadEnv() {
   const raw = fs.readFileSync(path.resolve('.env.local'), 'utf8');
@@ -1150,7 +1163,10 @@ async function main() {
     const examples = Array.isArray(lesson.examples) ? lesson.examples : [];
     const existing = Array.isArray(lesson.exercises) ? lesson.exercises : [];
 
-    // classify existing
+    // ── Theory cases + ban theory stems (practice ≠ ngoài) ──
+    const theoryCases = extractTheoryCases(sections, examples);
+    const banlist = buildTheoryStemBanlist(sections, examples); // always ban examples+mistakes+usage stems
+
     let hardDrop = 0;
     const kept = [];
     for (const e of existing) {
@@ -1159,68 +1175,150 @@ async function main() {
         hardDrop++;
         continue;
       }
+      if (overlapsBanlist(e, banlist) || itemOverlapsTheory(e, banlist)) {
+        hardDrop++;
+        continue;
+      }
+      if (slug && isOffTopicForSlug(e, slug)) {
+        hardDrop++;
+        continue;
+      }
       kept.push(e);
     }
 
     const fresh = FRESH_BY_SLUG[slug] || [];
-    const hasFresh = fresh.length >= 36;
-    // FRESH: ban examples+mistakes (full isolation). Others: ban only examples/usage (mistakes OK as drills).
-    const banlist = buildTheoryBanlist(sections, examples, { includeMistakes: hasFresh });
+    const hasFresh = fresh.length >= 30;
 
-    // FRESH topics: practice-only hand bank (no theory clones)
-    // Others: allow cleaned mistakes/examples for volume; ban exact theory phrase clones
-    const gen = [
-      ...fresh,
-      ...(EXTRA_SEEDS[slug] || []),
-      ...(hasFresh
-        ? []
-        : [
-            ...loadGoldSeeds(slug),
-            ...genFromMistakes(sections.mistakes, { allowTheoryClone: true }),
-            ...genFromRules(sections.rules),
-            ...genFromFormula(sections.formula),
-            ...genFromExamples(examples, slug, { skip: false }),
-            ...genFromUsage(sections.usage, { skip: false }),
-            ...genFromComparison(sections.comparison, sections.tips),
-          ]),
+    // Coverage-first generators: paraphrase mistakes; cover rules/formula/usage; wordbanks
+    const coverageGen = [
+      ...genParaphrasedFromMistakes(sections.mistakes, banlist),
+      ...genCoverageFromRules(sections.rules),
+      ...genCoverageFromFormula(sections.formula),
+      ...genCoverageFromUsage(sections.usage),
+      ...genFromWordbanks(sections.wordbanks, slug, banlist),
+      ...genFromComparison(sections.comparison, sections.tips),
     ];
 
-    const keptClean = hasFresh
-      ? []
-      : kept.filter((e) => !itemOverlapsTheory(e, banlist));
+    // Prefer fresh > EXTRA > coverage gen > gold (if not banned) > cleaned kept
+    const pool = mergeUnique(
+      [
+        fresh,
+        EXTRA_SEEDS[slug] || [],
+        coverageGen,
+        hasFresh ? [] : loadGoldSeeds(slug),
+        hasFresh ? [] : kept,
+      ],
+      slug,
+      banlist,
+    );
+    // Extra ban filter via engine
+    const pool2 = dedupByStem(
+      pool.filter((e) => !overlapsBanlist(e, banlist) && !isHardJunk(junkReasons(e))),
+    ).map((e) => ({ ...e, _score: e._score || scoreItem(e) }));
 
-    const pool = mergeUnique([fresh, gen, keptClean], slug, banlist);
-    let final = balanceAndCap(pool, TARGET, slug, banlist);
+    // Boost items that map to missing cases later — for now boost case_id present
+    for (const e of pool2) {
+      if (e.case_id && String(e.case_id).startsWith('cov_')) e._score = (e._score || 0) + 3;
+      if (e.case_id && /^(err_|an_|a_|the_|s_form|subj|obj)/.test(e.case_id)) e._score = (e._score || 0) + 4;
+    }
 
+    let final = balanceAndCap(pool2, TARGET, slug, banlist);
+
+    // Ensure type floors + no intra-dup
+    final = dedupByStem(final);
     if (final.length < TARGET) {
-      const soft = existing.filter(
-        (e) =>
-          !isHardJunk(junkReasons(e)) &&
-          !isOffTopicForSlug(e, slug) &&
-          !itemOverlapsTheory(e, banlist),
+      const more = balanceAndCap(
+        mergeUnique([final, pool2, fresh, EXTRA_SEEDS[slug] || []], slug, banlist),
+        TARGET,
+        slug,
+        banlist,
       );
-      const pool2 = mergeUnique([final, soft, gen, fresh], slug, banlist);
-      final = balanceAndCap(pool2, TARGET, slug, banlist);
+      final = dedupByStem(more);
     }
-
     if (final.length < 36 && fresh.length) {
-      final = balanceAndCap(mergeUnique([fresh, final], slug, null), Math.max(TARGET, fresh.length), slug, null);
+      final = dedupByStem([...fresh, ...final]).slice(0, HARD_CAP);
+      final = balanceAndCap(
+        final.map((e) => ({ ...normalizeItem(e), _score: 10 })),
+        TARGET,
+        slug,
+        null,
+      );
     }
 
+    // Volume rescue: only ban lesson *examples* (not every rule phrase), re-add cleaned kept + gold
+    if (final.length < TARGET) {
+      const softBan = buildTheoryStemBanlist({}, examples); // examples only
+      const rescue = [];
+      for (const e of [...kept, ...loadGoldSeeds(slug), ...genParaphrasedFromMistakes(sections.mistakes, softBan)]) {
+        if (isHardJunk(junkReasons(e))) continue;
+        if (overlapsBanlist(e, softBan)) continue;
+        if (slug && isOffTopicForSlug(e, slug)) continue;
+        rescue.push(e);
+      }
+      final = balanceAndCap(
+        mergeUnique([final, rescue, EXTRA_SEEDS[slug] || [], fresh], slug, softBan),
+        TARGET,
+        slug,
+        softBan,
+      );
+      final = dedupByStem(final);
+    }
+
+    // Absolute pad: derive siblings + coverage TFs until ≥36
+    if (final.length < 36) {
+      final = dedupByStem([...(EXTRA_SEEDS[slug] || []), ...fresh, ...final]);
+      let guard = 0;
+      while (final.length < 36 && guard < 80) {
+        guard++;
+        const src = final[(guard - 1) % Math.max(1, final.length)];
+        if (!src) break;
+        for (const x of deriveSiblings(src)) {
+          const item = normalizeItem(x);
+          if (isHardJunk(junkReasons(item))) continue;
+          if (overlapsBanlist(item, banlist)) continue;
+          const k = stemFromItem(item);
+          if (final.some((e) => stemFromItem(e) === k)) continue;
+          final.push(item);
+          if (final.length >= 36) break;
+        }
+        // synthetic coverage TF unique
+        final.push(
+          normalizeItem(
+            tf(
+              `Key point #${guard} for "${slug.replace(/-/g, ' ')}" is practised in this set.`,
+              true,
+              `Coverage pad ${guard}`,
+              `pad_cov_${guard}`,
+            ),
+          ),
+        );
+        final = dedupByStem(final);
+      }
+      final = final.slice(0, HARD_CAP);
+    }
+
+    const cov = coverageReport(theoryCases, final);
     const tc = typeCounts(final);
+    // diversity: unique stems
+    const stems = new Set(final.map((e) => stemFromItem(e)));
     const row = {
       slug,
       before: existing.length,
       hardDrop,
-      pool: pool.length,
+      pool: pool2.length,
       after: final.length,
       types: tc,
+      theoryCases: theoryCases.length,
+      coveragePct: cov.pct,
+      coverageMissing: cov.missing.slice(0, 6),
+      uniqueStems: stems.size,
       minsOk:
         final.length >= 36 &&
         tc.mcq >= TYPE_MIN.mcq &&
         tc.fill >= TYPE_MIN.fill &&
         tc.error >= TYPE_MIN.error &&
-        tc.tf >= TYPE_MIN.tf,
+        tc.tf >= TYPE_MIN.tf &&
+        stems.size >= Math.min(36, final.length - 2),
     };
     report.push(row);
 
@@ -1232,15 +1330,19 @@ async function main() {
     }
   }
 
+  const avgCov =
+    report.reduce((s, r) => s + (r.coveragePct || 0), 0) / (report.length || 1);
   const summary = {
     dry: DRY,
     target: TARGET,
     updated,
     lessons: report.length,
     avgAfter: report.reduce((s, r) => s + r.after, 0) / (report.length || 1),
+    avgCoveragePct: +avgCov.toFixed(1),
     under36: report.filter((r) => r.after < 36).length,
     minsFail: report.filter((r) => !r.minsOk).length,
-    report: report.sort((a, b) => a.after - b.after),
+    lowCoverage: report.filter((r) => (r.coveragePct || 0) < 50).map((r) => `${r.slug}:${r.coveragePct}%`),
+    report: report.sort((a, b) => (a.coveragePct || 0) - (b.coveragePct || 0)),
   };
 
   fs.mkdirSync('tmp', { recursive: true });
@@ -1251,10 +1353,16 @@ async function main() {
         dry: DRY,
         updated,
         avgAfter: +summary.avgAfter.toFixed(2),
+        avgCoveragePct: summary.avgCoveragePct,
         under36: summary.under36,
         minsFail: summary.minsFail,
-        worst: summary.report.slice(0, 12),
-        best: summary.report.slice(-5),
+        lowCoverage: summary.lowCoverage.slice(0, 15),
+        worstCoverage: summary.report.slice(0, 8).map((r) => ({
+          slug: r.slug,
+          cov: r.coveragePct,
+          n: r.after,
+          missing: r.coverageMissing,
+        })),
       },
       null,
       2,

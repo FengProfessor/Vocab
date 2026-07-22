@@ -2,6 +2,8 @@
  * Hand-authored PRACTICE banks — stems intentionally different from lesson examples/mistakes.
  * Used by quality-fix-refill-all.mjs
  */
+import { FRESH_A0 } from './practice-banks-fresh-a0.mjs';
+
 const mcq = (q, opts, answer, fb, case_id) => ({ type: 'mcq', q, opts, answer, fb, case_id });
 const fill = (q, opts, answer, fb, case_id) => ({ type: 'fill', q, opts, answer, fb, case_id });
 const err = (q, opts, answer, fb, case_id) => ({ type: 'error', q, opts, answer, fb, case_id });
@@ -68,4 +70,5 @@ export const ARTICLES_PRACTICE = [
 
 export const FRESH_BY_SLUG = {
   articles: ARTICLES_PRACTICE,
+  ...FRESH_A0,
 };
