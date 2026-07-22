@@ -94,13 +94,27 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       const topicTitle = topic?.title ?? 'English Grammar';
       const level = topic?.level ?? 'intermediate';
 
-      // Bốc ngẫu nhiên tối đa 10 câu để drill phong phú hơn
-      const shuffled = [...lesson.exercises].sort(() => Math.random() - 0.5);
-      const selected = shuffled.slice(0, Math.min(10, shuffled.length));
+      // Chuẩn hóa trước → loại câu thiếu question/options/answer → bốc ngẫu nhiên tối đa 16
+      const normalizedAll = (lesson.exercises as unknown[])
+        .map((raw, i) => normalizeLessonExercise(raw, String(lessonId), i, topicTitle, level, 'quiz'))
+        .filter(
+          (n) =>
+            n.question.trim().length > 0 &&
+            n.correct_answer.trim().length > 0 &&
+            Array.isArray(n.options) &&
+            n.options.length >= 2 &&
+            n.options.some(
+              (o) => o.trim().toLowerCase() === n.correct_answer.trim().toLowerCase(),
+            ),
+        );
 
-      const questions: QuizQuestion[] = selected.map((raw: unknown, i: number) => {
-        const normalized = normalizeLessonExercise(raw, String(lessonId), i, topicTitle, level, 'quiz');
-        return {
+      const shuffled = [...normalizedAll].sort(() => Math.random() - 0.5);
+      const selected = shuffled.slice(0, Math.min(16, shuffled.length));
+
+      if (selected.length === 0) {
+        // fall through to AI generation below
+      } else {
+        const questions: QuizQuestion[] = selected.map((normalized) => ({
           id: `${normalized.id}-${Math.random().toString(36).substring(2, 11)}`,
           question: normalized.question,
           options: normalized.options,
@@ -110,10 +124,10 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           level: normalized.level,
           type: normalized.type,
           difficulty: normalized.difficulty,
-        };
-      });
+        }));
 
-      return NextResponse.json({ success: true, data: questions, cached: false, prePopulated: true });
+        return NextResponse.json({ success: true, data: questions, cached: false, prePopulated: true });
+      }
     }
 
     const topic = lesson.topic as unknown as { title: string; level: string } | null;
