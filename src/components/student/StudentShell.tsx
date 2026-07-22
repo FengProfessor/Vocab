@@ -181,14 +181,26 @@ export function StudentShell({
   }, []);
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27) {
+        setIsMenuOpen(false);
+        setIsProfileOpen(false);
+      }
+    };
     const handleClickOutside = (event: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
         setIsProfileOpen(false);
       }
     };
 
+    window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const handleSignOut = async () => {
@@ -373,7 +385,14 @@ export function StudentShell({
             role="dialog"
             aria-modal="true"
             aria-label="Menu điều hướng"
-            className="absolute inset-y-0 left-0 flex w-[min(18rem,88vw)] flex-col bg-white shadow-2xl pl-safe"
+            tabIndex={-1}
+            ref={(el) => { if (el) el.focus(); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape' || e.key === 'Esc') {
+                setIsMenuOpen(false);
+              }
+            }}
+            className="absolute inset-y-0 left-0 flex w-[min(18rem,88vw)] flex-col bg-white shadow-2xl pl-safe outline-none"
             style={{ paddingTop: 'var(--safe-top)', paddingBottom: 'var(--safe-bottom)' }}
           >
             <div className="mb-4 flex items-center justify-between px-5 pt-5">

@@ -109,7 +109,7 @@ export function MobileBottomNav({
                 data-onboarding={onboardingId}
                 aria-label={tab.label}
                 aria-current={active ? 'page' : undefined}
-                className="relative flex min-w-0 flex-1 flex-col items-center justify-end pb-1 touch-manipulation"
+                className="relative flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-end pb-1 touch-manipulation"
               >
                 <span
                   className={cn(
@@ -123,7 +123,7 @@ export function MobileBottomNav({
                 </span>
                 <span
                   className={cn(
-                    'mt-7 text-[10px] font-extrabold leading-none',
+                    'mt-7 max-w-full truncate text-[10px] font-extrabold leading-none',
                     active ? 'text-emerald-600' : 'text-slate-500',
                   )}
                 >
@@ -145,7 +145,7 @@ export function MobileBottomNav({
               <span className="relative text-[22px] leading-none">
                 {tab.emoji}
                 {badge > 0 && (
-                  <span className="absolute -right-2.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-black text-white ring-2 ring-white">
+                  <span className="pointer-events-none absolute -right-2.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-black text-white ring-2 ring-white">
                     {badgeText}
                   </span>
                 )}

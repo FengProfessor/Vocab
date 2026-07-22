@@ -323,7 +323,7 @@ function QuizContent() {
   const correctChoice = getCorrectChoice(current, mode);
 
   return (
-    <div className="min-h-dvh flex flex-col bg-slate-900 font-sans text-white overflow-hidden">
+    <div className="min-h-dvh flex flex-col bg-slate-900 font-sans text-white overflow-hidden min-h-0">
       {/* Header */}
       <header className="sticky top-[62px] z-10 flex items-center justify-between border-b border-slate-800 bg-slate-900/80 p-4 backdrop-blur-md sm:p-6">
         <Link href="/student">
@@ -355,7 +355,7 @@ function QuizContent() {
         <div className="flex bg-slate-800 rounded-full p-1 gap-1 text-xs font-black">
           <button
             onClick={() => setMode('meaning_to_word')}
-            className={`px-4 py-1.5 rounded-full transition-all ${
+            className={`flex min-h-[44px] items-center px-4 py-2 rounded-full transition-all ${
               mode === 'meaning_to_word'
                 ? 'bg-violet-600 text-white'
                 : 'text-slate-400 hover:text-slate-200'
@@ -365,7 +365,7 @@ function QuizContent() {
           </button>
           <button
             onClick={() => setMode('word_to_meaning')}
-            className={`px-4 py-1.5 rounded-full transition-all ${
+            className={`flex min-h-[44px] items-center px-4 py-2 rounded-full transition-all ${
               mode === 'word_to_meaning'
                 ? 'bg-violet-600 text-white'
                 : 'text-slate-400 hover:text-slate-200'
@@ -376,14 +376,17 @@ function QuizContent() {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 gap-8">
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+      <div className="mx-auto flex min-h-full w-full max-w-lg flex-col items-stretch justify-start gap-8 p-4 pb-10 sm:p-8">
         {/* Question card */}
-        <Card className="w-full max-w-lg border border-slate-700 bg-slate-800 rounded-[32px] shadow-2xl text-center p-10 relative">
+        <Card className="w-full border border-slate-700 bg-slate-800 rounded-[32px] shadow-2xl text-center p-10 relative">
           <div className="absolute top-5 left-1/2 -translate-x-1/2 text-[10px] font-black uppercase text-slate-500 tracking-[0.2em] whitespace-nowrap">
             {mode === 'meaning_to_word' ? 'Chọn từ tiếng Anh đúng' : 'Chọn nghĩa đúng'}
           </div>
           <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white break-words w-full mb-5 mt-4">
-            {mode === 'meaning_to_word' ? current.translation : current.word}
+            {mode === 'meaning_to_word'
+              ? (current.translation?.trim() || '(Chưa có nghĩa — chọn từ đúng)')
+              : current.word}
           </h2>
           <div className="flex items-center justify-center gap-3 flex-wrap">
             {current.pos && (
@@ -404,7 +407,7 @@ function QuizContent() {
             const isSelected = selected === choice;
             const isShaking = shakingIdx === i;
 
-            let btnClasses = 'h-auto min-h-[72px] px-5 py-4 rounded-2xl text-base font-bold transition-all duration-300 border-2 relative ';
+            let btnClasses = 'h-auto min-h-[72px] px-5 py-4 rounded-2xl text-base font-bold transition-all duration-300 border-2 relative break-words text-left ';
 
             if (selected) {
               if (isCorrect) {
@@ -474,6 +477,7 @@ function QuizContent() {
             Tiếp theo <ArrowRight className="h-4 w-4" />
           </button>
         )}
+      </div>
       </div>
     </div>
   );

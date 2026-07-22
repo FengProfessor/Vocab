@@ -565,9 +565,9 @@ export default function DictionaryPage() {
 
   return (
     <StudentShell title="Tra từ điển" contentClassName="p-0">
-      <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-background">
+      <div className="w-full min-w-0 min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-background overflow-x-hidden">
       {/* Header */}
-      <header className="sticky top-[62px] z-30 flex items-center gap-3 border-b bg-background/80 px-4 py-3 backdrop-blur">
+      <header className="sticky top-[62px] z-30 flex items-center gap-3 border-b bg-background/80 px-4 py-3 backdrop-blur min-w-0 max-w-full">
         <Link href="/student" className="p-2 rounded-full hover:bg-muted transition-colors">
           <ChevronLeft className="h-5 w-5" />
         </Link>
@@ -575,7 +575,7 @@ export default function DictionaryPage() {
         <span className="font-bold text-lg">Tra từ / câu</span>
       </header>
 
-      <div className="max-w-2xl mx-auto px-4 pt-6 pb-24">
+      <div className="max-w-2xl mx-auto px-4 pt-6 pb-24 min-w-0">
         {/* Search form + autocomplete */}
         <div className="relative mb-6" data-onboarding="dict-search">
           <form onSubmit={handleSubmit} className="flex gap-2">

@@ -214,13 +214,13 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-md max-h-[90vh] overflow-y-auto bg-background rounded-2xl shadow-2xl animate-in zoom-in-95 duration-200"
+        className="relative w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto bg-background rounded-2xl shadow-2xl animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-background/80 backdrop-blur hover:bg-muted transition-colors"
+          className="absolute top-3 right-3 z-10 flex min-h-[44px] min-w-[44px] items-center justify-center p-2 rounded-full bg-background/80 backdrop-blur hover:bg-muted transition-colors"
           aria-label="Đóng"
         >
           <X className="h-5 w-5" />

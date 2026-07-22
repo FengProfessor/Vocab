@@ -201,7 +201,7 @@
   }
   /* Header sticky có safe-area (notch / status bar) */
   .h-header-safe {
-    height: calc(var(--header-h) + var(--safe-top));
+    min-height: calc(var(--header-h) + var(--safe-top));
     padding-top: var(--safe-top);
   }
   /* Bottom nav height + home indicator */

@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Clock3, Sparkles, X } from 'lucide-react';
 import {
@@ -108,6 +109,15 @@ function copyFor(payload: UpsellPayload): {
 }
 
 export function UpsellModal({ open, payload, onDismiss }: UpsellModalProps) {
+  useEffect(() => {
+    if (!open) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onDismiss();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [open, onDismiss]);
+
   if (!open || !payload) return null;
 
   const c = copyFor(payload);
@@ -133,7 +143,7 @@ export function UpsellModal({ open, payload, onDismiss }: UpsellModalProps) {
         onClick={onDismiss}
       />
 
-      <div className="relative z-10 w-full max-w-md overflow-hidden rounded-t-3xl border border-[#e8e6dc] bg-[#faf9f5] shadow-2xl sm:rounded-3xl">
+      <div className="relative z-10 w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-t-3xl border border-[#e8e6dc] bg-[#faf9f5] shadow-2xl sm:rounded-3xl">
         <div className="flex items-start justify-between gap-3 border-b border-[#eeebe3] px-5 pb-3 pt-4">
           <div className="flex items-start gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1a1915] text-white">
@@ -151,7 +161,8 @@ export function UpsellModal({ open, payload, onDismiss }: UpsellModalProps) {
           <button
             type="button"
             onClick={onDismiss}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8a8778] hover:bg-white hover:text-[#1a1915]"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-[#8a8778] hover:bg-white hover:text-[#1a1915]"
+            aria-label="Đóng"
           >
             <X className="h-4 w-4" />
           </button>
