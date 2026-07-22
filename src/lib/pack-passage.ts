@@ -10,6 +10,7 @@ import {
   getPackReadingLevel,
   type PackReadingLevel,
 } from '@/lib/pack-levels';
+import { geminiGenerate, hasGeminiKeys, resolveGeminiModel } from '@/lib/gemini-multi';
 
 export interface PackWord {
   word: string;
@@ -461,7 +462,13 @@ export async function generatePackPassage(
   /** Chấp nhận ≥ 90% minWords (model flash hay thiếu vài chục từ) */
   const minAcceptWords = Math.floor(readingLevel.minWords * 0.9);
   const maxAttempts = 3;
-  const router = getRouter();
+  const preferGemini = hasGeminiKeys();
+  // Lazy: chỉ init Zhipu router khi cần fallback (tránh throw nếu thiếu Zhipu lúc có Gemini)
+  let router: ReturnType<typeof getRouter> | null = null;
+  const getZhipuRouter = () => {
+    if (!router) router = getRouter();
+    return router;
+  };
 
   let attempts = 0;
   let lastError: Error | null = null;
@@ -469,6 +476,7 @@ export async function generatePackPassage(
   let expandLength = false;
   let prevWordCount: number | undefined;
   let best: PackPassageResult | null = null;
+  let usedProvider = preferGemini ? `gemini:${resolveGeminiModel()}` : 'zhipu';
 
   while (attempts < maxAttempts) {
     attempts += 1;
@@ -481,9 +489,26 @@ export async function generatePackPassage(
         expandLength,
         prevWordCount,
       });
-      const rawText = await router.generate(prompt, 'smart', true);
+
+      let rawText: string;
+      if (preferGemini) {
+        try {
+          rawText = await geminiGenerate(prompt, { json: true, temperature: 0.35 });
+          usedProvider = `gemini:${resolveGeminiModel()}`;
+        } catch (gemErr: unknown) {
+          const gmsg = gemErr instanceof Error ? gemErr.message : String(gemErr);
+          console.warn(`[PackPassage] Gemini pool fail → Zhipu: ${gmsg.slice(0, 160)}`);
+          rawText = await getZhipuRouter().generate(prompt, 'smart', true);
+          usedProvider = 'zhipu-fallback';
+        }
+      } else {
+        rawText = await getZhipuRouter().generate(prompt, 'smart', true);
+        usedProvider = 'zhipu';
+      }
+
       const parsed = parseJsonObject(rawText);
       const result = normalizeResult(parsed, targets, attempts, theme, readingLevel);
+      result.meta.providerNote = usedProvider;
 
       const coverageOk = result.coverage >= minCoverage;
       const lengthOk = result.wordCount >= minAcceptWords;
