@@ -411,16 +411,6 @@ export function StudentShell({
                 </span>
                 <span className="truncate">Nhóm live &amp; trao đổi</span>
               </a>
-              <Link
-                href="/hub"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] hover:bg-slate-50"
-              >
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#fef3c7] text-[15px]">
-                  👀
-                </span>
-                <span className="truncate">Hub cộng đồng</span>
-              </Link>
               <button
                 type="button"
                 onClick={handleSignOut}
@@ -507,15 +497,6 @@ export function StudentShell({
             </span>
             <span className="truncate">Nhóm live &amp; trao đổi</span>
           </a>
-          <Link
-            href="/hub"
-            className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
-          >
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#fef3c7] text-[15px]">
-              👀
-            </span>
-            <span className="truncate">Hub cộng đồng</span>
-          </Link>
           <button
             type="button"
             onClick={handleSignOut}
