@@ -1,7 +1,9 @@
 /**
  * Wordbanks A0–A1 — header + ghi chú Việt hóa đầy đủ.
  * Ví dụ tiếng Anh giữ nguyên để học.
+ * Batch 2 (pronouns, modals, future…) → wordbanks-batch2.mjs
  */
+import { batch2ForSlug } from './wordbanks-batch2.mjs';
 
 export const UNCOUNTABLE_BANKS = [
 {
@@ -887,7 +889,7 @@ export const COMPARATIVE_BANKS = [
 ];
 
 export function banksForSlug(slug) {
-  const map = {
+  const base = {
     'countable-uncountable': UNCOUNTABLE_BANKS,
     'plural-nouns': PLURAL_BANKS,
     'past-simple': [IRREGULAR_PAST_BANK],
@@ -903,7 +905,11 @@ export function banksForSlug(slug) {
     'prepositions-time': PREP_TIME_BANKS,
     'comparatives-superlatives': COMPARATIVE_BANKS,
   };
-  return map[slug] || null;
+  const fromBase = base[slug] || null;
+  const fromB2 = batch2ForSlug(slug);
+  // demonstratives / there-is: gộp batch1 + batch2 (dày thêm)
+  if (fromBase && fromB2) return [...fromBase, ...fromB2];
+  return fromB2 || fromBase || null;
 }
 
 export function bankStats() {
@@ -922,6 +928,20 @@ export function bankStats() {
     'prepositions-time',
     'comparatives-superlatives',
     'adverbs-frequency',
+    'personal-pronouns',
+    'have-got',
+    'wh-questions',
+    'present-continuous',
+    'past-continuous',
+    'be-going-to',
+    'future-will',
+    'imperatives',
+    'adjectives-basic',
+    'modals-ability',
+    'modals-permission',
+    'modals-obligation',
+    'modals-advice',
+    'conditionals-0-1',
   ];
   const out = {};
   for (const slug of slugs) {
