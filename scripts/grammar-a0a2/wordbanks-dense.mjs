@@ -3,9 +3,11 @@
  * Ví dụ tiếng Anh giữ nguyên để học.
  * Batch 2 (pronouns, modals, future…) → wordbanks-batch2.mjs
  * Batch 3 (A2 perfect/passive/reported…) → wordbanks-batch3.mjs
+ * Batch 4 (Advanced B2+) → wordbanks-batch4.mjs
  */
 import { batch2ForSlug } from './wordbanks-batch2.mjs';
 import { batch3ForSlug } from './wordbanks-batch3.mjs';
+import { batch4ForSlug } from './wordbanks-batch4.mjs';
 
 export const UNCOUNTABLE_BANKS = [
 {
@@ -910,8 +912,9 @@ export function banksForSlug(slug) {
   const fromBase = base[slug] || null;
   const fromB2 = batch2ForSlug(slug);
   const fromB3 = batch3ForSlug(slug);
+  const fromB4 = batch4ForSlug(slug);
   // gộp nếu nhiều nguồn (demonstratives / there-is…)
-  const parts = [fromBase, fromB2, fromB3].filter(Boolean);
+  const parts = [fromBase, fromB2, fromB3, fromB4].filter(Boolean);
   if (!parts.length) return null;
   if (parts.length === 1) return parts[0];
   return parts.flat();
@@ -965,6 +968,26 @@ export function bankStats() {
     'modals-deduction',
     'conjunctions-linking',
     'phrasal-verbs',
+    // batch4 advanced
+    'past-perfect-continuous',
+    'future-perfect',
+    'future-in-the-past',
+    'mixed-conditionals',
+    'wish-if-only',
+    'modals-perfect',
+    'causative',
+    'advanced-passive',
+    'advanced-relative-clauses',
+    'participle-clauses',
+    'ellipsis-substitution',
+    'subjunctive',
+    'emphasis-structures',
+    'cleft-sentences',
+    'inversion',
+    'discourse-markers',
+    'nominalisation',
+    'hedging-language',
+    'grammatical-collocations',
   ];
   const out = {};
   for (const slug of slugs) {

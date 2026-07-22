@@ -712,9 +712,13 @@ for (let i = 0; i < inter.length; i++) {
   }
 }
 
-// 2) Upgrade lessons: beginner + intermediate only
+// 2) Upgrade lessons: beginner + intermediate + advanced (wordbanks full path)
 const a0a2Topics = (topics || []).filter(
-  (t) => t.level === 'beginner' || t.level === 'intermediate' || BEGINNER_ORDER.includes(t.slug)
+  (t) =>
+    t.level === 'beginner' ||
+    t.level === 'intermediate' ||
+    t.level === 'advanced' ||
+    BEGINNER_ORDER.includes(t.slug)
 );
 
 for (const t of a0a2Topics) {

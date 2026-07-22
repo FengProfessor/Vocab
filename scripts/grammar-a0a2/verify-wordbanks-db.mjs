@@ -58,7 +58,6 @@ let fail = 0;
 const report = [];
 
 for (const t of topics || []) {
-  if (t.level === 'advanced') continue;
   const codeBanks = banksForSlug(t.slug);
   const codeRows = countRows(codeBanks);
   const lesson = lessonByTopic[t.id];
