@@ -590,7 +590,7 @@ function PackReadingInner() {
                   </Badge>
                 )}
                 <Link
-                  href="/pricing"
+                  href="/upgrade?from=pack_reading"
                   className="ml-auto inline-flex items-center gap-1 rounded-full bg-violet-600 px-2.5 py-1 text-[11px] font-black text-white shadow-sm hover:bg-violet-700"
                 >
                   <Crown className="h-3 w-3" />
@@ -629,7 +629,7 @@ function PackReadingInner() {
             <p className="font-semibold">{error}</p>
             {quotaBlocked && (
               <Link
-                href="/pricing"
+                href="/upgrade?from=pack_reading"
                 className="inline-flex items-center gap-1.5 rounded-xl bg-violet-600 px-3 py-2 text-xs font-black text-white shadow hover:bg-violet-700"
               >
                 <Crown className="h-3.5 w-3.5" />
@@ -959,7 +959,7 @@ function PackReadingInner() {
               </p>
               {!isPaid && (
                 <Link
-                  href="/pricing"
+                  href="/upgrade?from=pack_reading"
                   className="flex items-center justify-center gap-1.5 rounded-xl border border-violet-200 bg-violet-50 px-3 py-2.5 text-[11px] font-black text-violet-800 hover:bg-violet-100"
                 >
                   <Crown className="h-3.5 w-3.5" />
