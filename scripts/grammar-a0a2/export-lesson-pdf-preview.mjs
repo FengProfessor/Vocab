@@ -70,7 +70,7 @@ const html = buildGrammarLessonPdfHtml({
   mistakes: sections.mistakes,
   wordbanks: sections.wordbanks,
   exercises: lesson.exercises,
-  exerciseCap: 16,
+  exerciseCap: 0, // all exercises (print handout)
   withAnswers: true,
   siteUrl: 'https://lingopro.online',
 });

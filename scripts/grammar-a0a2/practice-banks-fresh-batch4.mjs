@@ -51,7 +51,7 @@ export const CAUSATIVE_ERRORS = [
 
 // ── 6. CLEFT SENTENCES (4 error items) ────────────────────────────────────
 export const CLEFT_SENTENCES_ERRORS = [
-  err('Find the error: It was in Rome where they first met.', ['It was in Rome that they first met.', 'It was in Rome where they first met.', 'It is in Rome which they first met.'], 'It was in Rome that they first met.', 'Cleft sentence: It was [trạng ngữ] THAT...', 'err_cleft_where_that'),
+  err('Find the error: It was in Lisbon where they first met.', ['It was in Lisbon that they first met.', 'It was in Lisbon where they first met.', 'It is in Lisbon which they first met.'], 'It was in Lisbon that they first met.', 'It-cleft + nơi/chốn: dùng that (chuẩn bank; theory dùng ví dụ Rome — practice stem khác)', 'err_cleft_where_that'),
   err('Find the error: What I really want are a long peaceful vacation.', ['What I really want is a long peaceful vacation.', 'What I really want are a long peaceful vacation.', 'What I really want were a long peaceful vacation.'], 'What I really want is a long peaceful vacation.', 'Wh-cleft bổ nghĩa số ít dùng is', 'err_cleft_what_is'),
   err('Find the error: It is my teacher which encouraged me to apply.', ['It is my teacher who encouraged me to apply.', 'It is my teacher which encouraged me to apply.', 'It is my teacher whom encouraged me to apply.'], 'It is my teacher who encouraged me to apply.', 'Chỉ người làm chủ ngữ dùng who', 'err_cleft_who_which'),
   err('Find the error: All she need is a small hot cup of tea.', ['All she needs is a small hot cup of tea.', 'All she need is a small hot cup of tea.', 'All she needed is a small hot cup of tea.'], 'All she needs is a small hot cup of tea.', 'she + needs', 'err_cleft_she_needs'),
