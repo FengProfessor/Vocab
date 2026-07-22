@@ -1,10 +1,10 @@
 /**
- * Gemini multi-key rotation (free tier tạm).
+ * Gemini multi-key — mỗi request xoay đúng 1 key (round-robin).
  * GEMINI_API_KEY=key1,key2,key3
- * GEMINI_MODEL=gemini-2.5-flash-lite | gemini-flash-lite-latest | ...
+ * GEMINI_MODEL=gemini-3.5-flash-lite | gemini-flash-lite-latest | ...
  *
- * Ưu tiên model Lite (RPM/RPD cao hơn trên free).
- * 429 → cooldown key → key khác; hết pool → throw (caller fallback Zhipu).
+ * 429 trên key đó → cooldown key, throw ngay (caller fallback Zhipu).
+ * Không thử key khác trong cùng 1 request.
  */
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
@@ -20,6 +20,7 @@ type KeyState = {
 };
 
 let keys: KeyState[] = [];
+/** Index key sẽ dùng cho request tiếp theo */
 let rr = 0;
 let loaded = false;
 
@@ -33,7 +34,7 @@ function loadKeys(): void {
     .filter(Boolean)
     .map((key) => ({ key, cooldownUntil: 0, errors429: 0, calls: 0 }));
   if (keys.length) {
-    console.log(`${LOG} loaded ${keys.length} key(s)`);
+    console.log(`${LOG} loaded ${keys.length} key(s) · RR 1 key / request`);
   }
 }
 
@@ -47,24 +48,41 @@ export function geminiKeyCount(): number {
   return keys.length;
 }
 
-/** Model mặc định: Lite (free RPD cao hơn Flash full trên dashboard user) */
 export function resolveGeminiModel(): string {
   return (
     process.env.GEMINI_MODEL?.trim() ||
     process.env.GEMINI_PACK_MODEL?.trim() ||
-    'gemini-2.5-flash-lite'
+    'gemini-3.5-flash-lite'
   );
 }
 
-function pickKey(): KeyState {
+/**
+ * Xoay đúng 1 lần: lấy keys[rr], rồi rr++.
+ * Nếu key đang cooldown → nhảy tiếp tối đa 1 vòng để tìm key rảnh (vẫn 1 key / request).
+ */
+function pickKeyOnce(): KeyState {
   loadKeys();
-  const now = Date.now();
-  const available = keys.filter((k) => k.cooldownUntil <= now);
-  if (available.length === 0) {
-    throw new Error(`${LOG} all keys in cooldown (${keys.length} total)`);
+  if (keys.length === 0) {
+    throw new Error(`${LOG} no GEMINI_API_KEY`);
   }
-  rr = (rr + 1) % available.length;
-  return available[rr];
+
+  const now = Date.now();
+  const start = rr % keys.length;
+
+  for (let i = 0; i < keys.length; i++) {
+    const idx = (start + i) % keys.length;
+    const entry = keys[idx];
+    if (entry.cooldownUntil <= now) {
+      // request sau bắt đầu từ key kế tiếp
+      rr = (idx + 1) % keys.length;
+      return entry;
+    }
+  }
+
+  const waitSec = Math.ceil(
+    Math.min(...keys.map((k) => k.cooldownUntil - now)) / 1000,
+  );
+  throw new Error(`${LOG} all ${keys.length} keys in cooldown (~${waitSec}s)`);
 }
 
 function mark429(entry: KeyState): void {
@@ -76,64 +94,45 @@ function mark429(entry: KeyState): void {
 }
 
 /**
- * Generate text (optional JSON mode). Rotates keys on 429.
+ * 1 request = 1 key (RR). Không retry key khác trong cùng call.
  */
 export async function geminiGenerate(
   prompt: string,
   opts?: { json?: boolean; temperature?: number; model?: string },
 ): Promise<string> {
-  loadKeys();
-  if (keys.length === 0) {
-    throw new Error(`${LOG} no GEMINI_API_KEY`);
-  }
-
+  const entry = pickKeyOnce();
   const modelName = opts?.model || resolveGeminiModel();
   const json = opts?.json ?? true;
   const temperature = opts?.temperature ?? 0.3;
-  const maxAttempts = Math.max(keys.length, 1) + 1;
-  let lastErr: Error = new Error(`${LOG} no attempt`);
 
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    let entry: KeyState;
-    try {
-      entry = pickKey();
-    } catch (e) {
-      throw e instanceof Error ? e : lastErr;
+  try {
+    entry.calls += 1;
+    const genAI = new GoogleGenerativeAI(entry.key);
+    const model = genAI.getGenerativeModel({
+      model: modelName,
+      generationConfig: {
+        temperature,
+        ...(json ? { responseMimeType: 'application/json' } : {}),
+      },
+    });
+    console.log(
+      `${LOG} model=${modelName} key=...${entry.key.slice(-6)} calls=${entry.calls} nextRR=${rr}`,
+    );
+    const r = await model.generateContent({
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    });
+    const text = (r.response.text() || '').trim();
+    if (!text) throw new Error(`${LOG} empty response`);
+    return text;
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    if (/429|Too Many Requests|quota|rate.?limit/i.test(msg)) {
+      mark429(entry);
+      throw new Error(`${LOG} 429 on ...${entry.key.slice(-6)} (no same-request rotate)`);
     }
-
-    try {
-      entry.calls += 1;
-      const genAI = new GoogleGenerativeAI(entry.key);
-      const model = genAI.getGenerativeModel({
-        model: modelName,
-        generationConfig: {
-          temperature,
-          ...(json ? { responseMimeType: 'application/json' } : {}),
-        },
-      });
-      console.log(
-        `${LOG} try model=${modelName} key=...${entry.key.slice(-6)} attempt=${attempt + 1}`,
-      );
-      const r = await model.generateContent({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      });
-      const text = (r.response.text() || '').trim();
-      if (!text) throw new Error(`${LOG} empty response`);
-      return text;
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      lastErr = err instanceof Error ? err : new Error(msg);
-      if (/429|Too Many Requests|quota|rate.?limit/i.test(msg)) {
-        mark429(entry);
-        continue;
-      }
-      // model name invalid — surface immediately
-      if (/404|not found|no longer/i.test(msg)) {
-        throw new Error(`${LOG} model unavailable: ${modelName} · ${msg.slice(0, 160)}`);
-      }
-      throw lastErr;
+    if (/404|not found|no longer/i.test(msg)) {
+      throw new Error(`${LOG} model unavailable: ${modelName} · ${msg.slice(0, 160)}`);
     }
+    throw err instanceof Error ? err : new Error(msg);
   }
-
-  throw lastErr;
 }
