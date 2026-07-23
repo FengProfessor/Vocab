@@ -424,17 +424,19 @@ function PackReadingInner() {
     setPassage(null);
   }, []);
 
-  const selectAllVisible = useCallback(() => {
-    setSelectedKeys((prev) => {
-      const next = new Set(prev);
-      for (const w of filteredPool) {
-        if (next.size >= PACK_PASSAGE_MAX_WORDS) break;
-        next.add(wordKey(w));
-      }
-      return next;
-    });
-    setPassage(null);
-  }, [filteredPool]);
+  /** Ngẫu nhiên n từ trong nhóm bucket hiện tại (giống đặt câu) */
+  const pickRandom = useCallback(
+    (n: number) => {
+      const list = pool.filter((w) => w.bucket === bucket);
+      const shuffled = [...list].sort(() => Math.random() - 0.5);
+      const take = Math.min(n, PACK_PASSAGE_MAX_WORDS, shuffled.length);
+      setSelectedKeys(new Set(shuffled.slice(0, take).map(wordKey)));
+      setQuery('');
+      setPassage(null);
+      setError(null);
+    },
+    [pool, bucket],
+  );
 
   const clearSelection = useCallback(() => {
     setSelectedKeys(new Set());
@@ -686,14 +688,19 @@ function PackReadingInner() {
                   </button>
                 </div>
 
-                <details className="rounded-lg border border-slate-200 open:bg-slate-50/50">
-                  <summary className="cursor-pointer px-2.5 py-2 text-[11px] font-bold text-slate-600">
-                    Tự chọn · {selectedCount} từ
-                    {!wordsOk && selectedCount > 0
-                      ? ` (cần ≥${PACK_PASSAGE_MIN_WORDS})`
-                      : ''}
+                <details className="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+                  <summary className="cursor-pointer list-none px-3 py-2.5 text-xs font-bold text-slate-600 marker:content-none [&::-webkit-details-marker]:hidden">
+                    <span className="inline-flex w-full items-center justify-between">
+                      Tự chọn từ
+                      <span className="text-[10px] font-semibold text-slate-400 group-open:hidden">
+                        mở
+                      </span>
+                      <span className="hidden text-[10px] font-semibold text-slate-400 group-open:inline">
+                        đóng
+                      </span>
+                    </span>
                   </summary>
-                  <div className="space-y-2 border-t border-slate-100 px-2 pb-2 pt-2">
+                  <div className="space-y-2 border-t border-slate-100 px-2.5 pb-2.5 pt-2">
                     <div className="grid grid-cols-3 gap-1">
                       {(['weak', 'learning', 'solid'] as MemoryBucket[]).map((b) => {
                         const on = bucket === b;
@@ -702,7 +709,7 @@ function PackReadingInner() {
                             key={b}
                             type="button"
                             onClick={() => switchBucket(b)}
-                            className={`rounded-lg border px-1 py-1.5 text-[11px] font-bold ${
+                            className={`rounded-lg border px-1 py-1.5 text-center text-[11px] font-bold ${
                               on
                                 ? b === 'weak'
                                   ? 'border-rose-400 bg-rose-50 text-rose-800'
@@ -721,19 +728,24 @@ function PackReadingInner() {
                     <p className="text-[10px] text-slate-400">
                       {pool.length} từ đã học · số nhỏ trên chip = lần đúng quiz
                     </p>
+
                     <div className="flex items-center gap-1.5">
+                      <span className="text-[11px] font-bold tabular-nums text-slate-500">
+                        {selectedCount} đã chọn
+                      </span>
                       <button
                         type="button"
-                        className="text-[11px] font-semibold text-teal-600"
-                        onClick={selectAllVisible}
+                        onClick={() => pickRandom(8)}
+                        disabled={countsByBucket[bucket] < PACK_PASSAGE_MIN_WORDS}
+                        className="rounded-md border border-slate-200 px-2 py-0.5 text-[11px] font-semibold text-slate-600 disabled:opacity-40"
                       >
-                        + cả nhóm
+                        Ngẫu nhiên 8
                       </button>
                       {selectedCount > 0 && (
                         <button
                           type="button"
-                          className="text-[11px] text-slate-400"
                           onClick={clearSelection}
+                          className="text-[11px] text-slate-400"
                         >
                           Xóa
                         </button>
@@ -748,68 +760,82 @@ function PackReadingInner() {
                         />
                       </div>
                     </div>
-                    <div className="max-h-[28vh] space-y-0.5 overflow-y-auto">
+
+                    <div className="flex max-h-[32vh] flex-wrap content-start gap-1.5 overflow-y-auto rounded-lg bg-slate-50/80 p-1.5">
                       {filteredPool.length === 0 ? (
-                        <p className="py-4 text-center text-[11px] text-slate-400">
+                        <p className="w-full py-6 text-center text-xs text-slate-400">
                           Không có từ — thử nhóm khác
                         </p>
                       ) : (
                         filteredPool.map((w) => {
-                          const on = selectedKeys.has(wordKey(w));
+                          const k = wordKey(w);
+                          const on = selectedKeys.has(k);
                           const full = !on && selectedCount >= PACK_PASSAGE_MAX_WORDS;
                           const qLabel = quizHitsLabel(w.quizHits ?? 0);
                           return (
                             <button
-                              key={wordKey(w)}
+                              key={k}
                               type="button"
                               disabled={full}
                               onClick={() => toggleWord(w)}
-                              className={`flex w-full items-center gap-1.5 rounded-lg px-2 py-1.5 text-left text-xs ${
-                                on ? 'bg-teal-50 ring-1 ring-teal-300' : full ? 'opacity-40' : ''
+                              className={`rounded-full border px-2 py-1 text-xs ${
+                                on
+                                  ? 'border-teal-500 bg-teal-600 font-semibold text-white'
+                                  : full
+                                    ? 'opacity-30'
+                                    : 'border-slate-200 bg-white text-slate-800'
                               }`}
                             >
-                              <span
-                                className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
-                                  on
-                                    ? 'border-teal-600 bg-teal-600 text-white'
-                                    : 'border-slate-300'
-                                }`}
-                              >
-                                {on ? <Check className="h-2.5 w-2.5" /> : null}
-                              </span>
-                              <span className="min-w-0 flex-1 truncate">
-                                <span className="font-bold text-slate-800">{w.word}</span>
-                                {qLabel ? (
-                                  <span
-                                    className="ml-0.5 text-[9px] font-black tabular-nums text-slate-400"
-                                    title={`Đúng quiz ${qLabel} lần`}
-                                  >
-                                    ·{qLabel}
-                                  </span>
-                                ) : null}
-                                <span className="text-slate-400"> · </span>
-                                <span className="text-slate-600">{w.translation}</span>
-                              </span>
+                              {on && <Check className="mr-0.5 inline h-2.5 w-2.5" />}
+                              <span className="font-semibold">{w.word}</span>
+                              {qLabel ? (
+                                <span
+                                  className={`ml-0.5 text-[9px] font-black tabular-nums ${
+                                    on ? 'text-teal-100' : 'text-slate-400'
+                                  }`}
+                                  title={`Đúng quiz ${qLabel} lần`}
+                                >
+                                  ·{qLabel}
+                                </span>
+                              ) : null}
                             </button>
                           );
                         })
                       )}
                     </div>
+
+                    <button
+                      type="button"
+                      disabled={!canGoTheme}
+                      onClick={() => {
+                        setError(null);
+                        setStep(2);
+                      }}
+                      className="w-full rounded-xl bg-slate-900 py-2.5 text-sm font-bold text-white disabled:opacity-40"
+                    >
+                      {canGoTheme
+                        ? `Tiếp · ${selectedCount} từ → chủ đề`
+                        : selectedCount === 0
+                          ? 'Chạm từ để chọn'
+                          : `Cần ≥${PACK_PASSAGE_MIN_WORDS} từ`}
+                    </button>
                   </div>
                 </details>
               </>
             )}
 
-            <Button
-              className="h-10 w-full rounded-xl bg-teal-600 text-sm font-bold hover:bg-teal-700"
-              disabled={!canGoTheme}
-              onClick={() => {
-                setError(null);
-                setStep(2);
-              }}
-            >
-              Tiếp · chọn chủ đề
-            </Button>
+            {poolSource === 'mine' && (
+              <Button
+                className="h-10 w-full rounded-xl bg-teal-600 text-sm font-bold hover:bg-teal-700"
+                disabled={!canGoTheme}
+                onClick={() => {
+                  setError(null);
+                  setStep(2);
+                }}
+              >
+                {canGoTheme ? `Tiếp · chọn chủ đề` : `Chọn ≥${PACK_PASSAGE_MIN_WORDS} từ`}
+              </Button>
+            )}
           </div>
         )}
 
