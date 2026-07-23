@@ -898,9 +898,19 @@ function deriveSiblings(e) {
     const cleanOpts = opts.filter((o) => !VI.test(o));
     if (cleanOpts.length >= 2 && cleanOpts.includes(ans)) {
       out.push(mcq('Choose the correct sentence.', cleanOpts, ans, fb, `${case_id}_mcq`));
+      // TF must quote the WRONG option and keep fb about THAT form — never random correct sentence
       const wrongOpt = cleanOpts.find((o) => o !== ans) || '';
-      if (wrongOpt) {
-        out.push(tf(`"${wrongOpt}" is correct.`, false, fb, `${case_id}_tf`));
+      if (wrongOpt && wrongOpt.split(/\s+/).length >= 2) {
+        out.push(
+          tf(
+            `"${wrongOpt}" is correct English.`,
+            false,
+            fb && !/they = subject|unrelated/i.test(fb)
+              ? `Sai. ${fb}`
+              : `Sai. Dạng đúng: "${ans}".`,
+            `${case_id}_tf`,
+          ),
+        );
       }
     }
   }
