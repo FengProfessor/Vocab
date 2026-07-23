@@ -3,7 +3,7 @@ name: Dense Due Push Notifications
 # Lịch tự động trigger /api/cron/push-due.
 # Poll mỗi 15 phút để BẮT due sớm (không cố định 8/12/20).
 # Route cooldown ~90 phút giữa 2 lần push nếu user vẫn chưa ôn (không spam 15p/lần).
-# Im ban đêm 22:00–06:59 VN.
+# Im ban đêm 22:30–05:30 VN.
 #
 # GitHub Actions schedule có thể trễ vài phút — route dùng giờ VN thực tế lúc chạy.
 #

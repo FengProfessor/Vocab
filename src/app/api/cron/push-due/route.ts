@@ -27,9 +27,9 @@ type PushResult = { userId: string; name: string | null; dueCount: number; sent:
  */
 const COOLDOWN_MINUTES = 90;
 const COOLDOWN_MS = COOLDOWN_MINUTES * 60 * 1000;
-/** [start, end) giờ VN — im lặng. 22→7 = 22:00–06:59. */
-const QUIET_START_HOUR = 22;
-const QUIET_END_HOUR = 7;
+/** [start, end) theo phút trong ngày VN — im lặng. 22:30→05:30. */
+const QUIET_START_MIN = 22 * 60 + 30; // 22:30
+const QUIET_END_MIN = 5 * 60 + 30;    // 05:30
 
 /**
  * Lấy giờ hiện tại theo múi giờ Việt Nam (Asia/Ho_Chi_Minh, UTC+7, không DST).
@@ -53,16 +53,23 @@ function getVietnamMinute(): number {
   return parseInt(str, 10) % 60;
 }
 
-/** true nếu đang trong khung im lặng ban đêm (giờ VN). */
-function isQuietHour(hour: number): boolean {
-  // Wrap qua nửa đêm (22→7): im khi hour >= 22 hoặc hour < 7
-  if (QUIET_START_HOUR > QUIET_END_HOUR) {
-    return hour >= QUIET_START_HOUR || hour < QUIET_END_HOUR;
+/** true nếu đang trong khung im lặng ban đêm (phút trong ngày VN). */
+function isQuietTime(hour: number, minute: number): boolean {
+  const m = hour * 60 + minute;
+  // Wrap qua nửa đêm (22:30→05:30): im khi m >= 22:30 hoặc m < 05:30
+  if (QUIET_START_MIN > QUIET_END_MIN) {
+    return m >= QUIET_START_MIN || m < QUIET_END_MIN;
   }
-  if (QUIET_START_HOUR < QUIET_END_HOUR) {
-    return hour >= QUIET_START_HOUR && hour < QUIET_END_HOUR;
+  if (QUIET_START_MIN < QUIET_END_MIN) {
+    return m >= QUIET_START_MIN && m < QUIET_END_MIN;
   }
   return false; // start === end → không im
+}
+
+function formatHm(totalMin: number): string {
+  const h = Math.floor(totalMin / 60) % 24;
+  const m = totalMin % 60;
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
 }
 
 /** Parse mốc gửi gần nhất từ last_due_push_slot (`ts:1716…`). Legacy slot (YYYY-MM-DD-…) → null = hết cooldown. */
@@ -134,14 +141,14 @@ export async function GET(req: Request): Promise<NextResponse> {
       hourParam !== null ? parseInt(hourParam, 10) % 24 : getVietnamHour();
     const targetMinute = hourParam !== null ? 0 : getVietnamMinute();
 
-    // Im ban đêm — trừ test (?all=1 / ?force=1)
-    if (!sendAll && !forceQuiet && isQuietHour(targetHour)) {
+    // Im ban đêm 22:30–05:30 VN — trừ test (?all=1 / ?force=1)
+    if (!sendAll && !forceQuiet && isQuietTime(targetHour, targetMinute)) {
       return NextResponse.json({
         success: true,
         vnHour: targetHour,
         vnMinute: targetMinute,
         skipped: 'quiet hours',
-        quiet: { start: QUIET_START_HOUR, end: QUIET_END_HOUR },
+        quiet: { start: formatHm(QUIET_START_MIN), end: formatHm(QUIET_END_MIN) },
         total: 0,
         notified: 0,
         results: [],
