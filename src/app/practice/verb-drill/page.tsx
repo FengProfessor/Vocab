@@ -149,6 +149,18 @@ export default function VerbDrillPage() {
 
   const current = queue[idx] ?? null;
 
+  const next = useCallback(() => {
+    setIdx((i) => {
+      if (i + 1 >= queue.length) {
+        setPhase('done');
+        return i;
+      }
+      setPicked(null);
+      setRevealed(false);
+      return i + 1;
+    });
+  }, [queue.length]);
+
   const onPick = (o: string) => {
     if (revealed || !current) return;
     setPicked(o);
@@ -156,16 +168,14 @@ export default function VerbDrillPage() {
     if (o === current.answer) setCorrectN((n) => n + 1);
   };
 
-  const next = () => {
-    if (idx + 1 >= queue.length) {
-      setPhase('done');
-      return;
-    }
-    const n = idx + 1;
-    setIdx(n);
-    setPicked(null);
-    setRevealed(false);
-  };
+  // Tự next sau 1.5s khi đã chọn đáp án
+  useEffect(() => {
+    if (phase !== 'quiz' || !revealed) return;
+    const t = window.setTimeout(() => {
+      next();
+    }, 1500);
+    return () => window.clearTimeout(t);
+  }, [phase, revealed, idx, next]);
 
   const pct = useMemo(() => {
     if (!queue.length || phase !== 'done') return 0;
@@ -276,12 +286,9 @@ export default function VerbDrillPage() {
             </div>
 
             {revealed && (
-              <Button
-                className="h-11 w-full rounded-xl bg-violet-600 font-bold hover:bg-violet-700"
-                onClick={next}
-              >
-                {idx + 1 >= queue.length ? 'Kết quả' : 'Tiếp'}
-              </Button>
+              <p className="text-center text-[11px] font-medium text-slate-400">
+                {idx + 1 >= queue.length ? 'Sắp xem kết quả…' : 'Tự sang câu tiếp (1.5s)…'}
+              </p>
             )}
           </section>
         )}
