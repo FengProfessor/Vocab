@@ -11,8 +11,6 @@ import {
   PRO_MILESTONE_DAYS,
   PRO_MILESTONE_FUNNEL_LS_KEY,
   PRO_MILESTONE_LABEL,
-  PRO_MILESTONE_MIN_STREAK,
-  PRO_MILESTONE_MIN_WORDS,
   shouldShowProMilestoneCard,
 } from '@/lib/pro-trial-milestone';
 
@@ -20,7 +18,7 @@ interface Props {
   enabled?: boolean;
   className?: string;
   onClaimed?: () => void;
-  /** streak/từ local từ dashboard — paint ngay trước khi API xong */
+  /** Parent biết streak/từ — dùng skip fetch nick đã vượt mốc */
   hintStreak?: number;
   hintWords?: number;
 }
@@ -53,8 +51,8 @@ function clearFunnelActive(): void {
 }
 
 /**
- * Dashboard: nhiệm vụ streak + từ + nút Nhận quà.
- * Chỉ nick <50 từ và streak <3 (hoặc đã vào funnel tới lúc claim).
+ * Dashboard nhiệm vụ Pro.
+ * Anti-flash: không render gì cho đến API ready + đủ điều kiện hiện.
  */
 export function ProTrialMilestoneCard({
   enabled = true,
@@ -68,21 +66,34 @@ export function ProTrialMilestoneCard({
   const [claiming, setClaiming] = useState(false);
   const [funnelActive, setFunnelActive] = useState(false);
 
-  useEffect(() => {
-    setFunnelActive(readFunnelActive());
-  }, []);
-
   const load = useCallback(async () => {
     if (!enabled) return;
+
+    // Nick dashboard đã chắc vượt mốc + không funnel → ẩn im lặng
+    const funnel = readFunnelActive();
+    if (
+      typeof hintWords === 'number' &&
+      typeof hintStreak === 'number' &&
+      !isUnderProMilestone(hintWords, hintStreak) &&
+      !funnel
+    ) {
+      setSnap(null);
+      setFunnelActive(false);
+      setState('ready');
+      return;
+    }
+
     setState('loading');
     try {
       const {
         data: { session },
       } = await supabase.auth.getSession();
       if (!session) {
+        setSnap(null);
         setState('error');
         return;
       }
+
       const res = await fetch('/api/billing/pro-milestone', {
         headers: { Authorization: `Bearer ${session.access_token}` },
         cache: 'no-store',
@@ -93,41 +104,47 @@ export function ProTrialMilestoneCard({
         error?: string;
       };
       if (!res.ok || !data.milestone) throw new Error(data.error || 'Load failed');
+
       const m = data.milestone;
       setSnap(m);
 
-      // Nick còn dưới mốc → vào funnel; claim/Pro → xóa funnel
       if (m.alreadyClaimed || m.effectivePlan !== 'free') {
         clearFunnelActive();
         setFunnelActive(false);
       } else if (isUnderProMilestone(m.words, m.streak)) {
         markFunnelActive();
         setFunnelActive(true);
+      } else if (funnel) {
+        // Đã vào funnel trước đó: giữ đến khi claim (kể cả giữa chừng / eligible)
+        setFunnelActive(true);
       } else {
-        setFunnelActive(readFunnelActive());
+        // Nick cũ không funnel → dọn cờ rác nếu còn
+        clearFunnelActive();
+        setFunnelActive(false);
       }
+
       setState('ready');
     } catch (err) {
       console.warn('[ProMilestone] load failed:', err);
+      setSnap(null);
       setState('error');
     }
-  }, [enabled]);
+  }, [enabled, hintWords, hintStreak]);
 
   useEffect(() => {
     void load();
   }, [load]);
 
-  // Refresh khi streak/từ dashboard đổi (học xong quay lại)
   useEffect(() => {
     if (!enabled) return;
-    const onFocus = () => {
+    const onRefresh = () => {
       void load();
     };
-    window.addEventListener('focus', onFocus);
-    window.addEventListener('lingopro-plan-changed', onFocus);
+    window.addEventListener('focus', onRefresh);
+    window.addEventListener('lingopro-plan-changed', onRefresh);
     return () => {
-      window.removeEventListener('focus', onFocus);
-      window.removeEventListener('lingopro-plan-changed', onFocus);
+      window.removeEventListener('focus', onRefresh);
+      window.removeEventListener('lingopro-plan-changed', onRefresh);
     };
   }, [enabled, load]);
 
@@ -170,32 +187,30 @@ export function ProTrialMilestoneCard({
     }
   };
 
-  // API fail: hint local; ready: dùng snap server
-  const streak = snap?.streak ?? hintStreak ?? 0;
-  const words = snap?.words ?? hintWords ?? 0;
-  const minStreak = snap?.minStreak ?? PRO_MILESTONE_MIN_STREAK;
-  const minWords = snap?.minWords ?? PRO_MILESTONE_MIN_WORDS;
-  const streakMet = streak >= minStreak;
-  const wordsMet = words >= minWords;
-  const eligible = snap?.eligible ?? (streakMet && wordsMet && !(snap?.alreadyClaimed));
-  const loading = state === 'idle' || state === 'loading';
-  const alreadyClaimed = snap?.alreadyClaimed ?? false;
-  const effectivePlan = snap?.effectivePlan ?? 'free';
+  // ── Anti-flash: tuyệt đối không paint trước ready + snap ──
+  if (!enabled) return null;
+  if (state !== 'ready' || !snap) return null;
 
-  // Hint sớm: nick đã vượt mốc (không funnel) → ẩn, khỏi flash card
+  const {
+    streak,
+    words,
+    minStreak,
+    minWords,
+    streakMet,
+    wordsMet,
+    eligible,
+    alreadyClaimed,
+    effectivePlan,
+  } = snap;
+
   const show = shouldShowProMilestoneCard({
     words,
     streak,
     alreadyClaimed,
     effectivePlan,
-    funnelActive:
-      funnelActive ||
-      (state !== 'ready' && isUnderProMilestone(words, streak)),
+    funnelActive,
   });
-
-  if (!enabled || !show) return null;
-  // Chưa ready + không chắc under mốc → đừng flash skeleton cho nick cũ
-  if (loading && !isUnderProMilestone(words, streak) && !funnelActive) return null;
+  if (!show) return null;
 
   const streakPct = Math.min(100, Math.round((streak / minStreak) * 100));
   const wordsPct = Math.min(100, Math.round((words / minWords) * 100));
@@ -206,7 +221,6 @@ export function ProTrialMilestoneCard({
       data-onboarding="pro-milestone"
       aria-label="Nhiệm vụ nhận Pro miễn phí"
     >
-      {/* Header */}
       <div className="flex items-center gap-3 border-b border-amber-100 bg-gradient-to-r from-amber-400/90 to-orange-400/90 px-3.5 py-3 sm:px-4">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-2xl shadow-sm">
           🎁
@@ -223,7 +237,6 @@ export function ProTrialMilestoneCard({
       </div>
 
       <div className="space-y-3 p-3.5 sm:p-4">
-        {/* Task list */}
         <ul className="space-y-2">
           <TaskRow
             done={streakMet}
@@ -247,11 +260,10 @@ export function ProTrialMilestoneCard({
           />
         </ul>
 
-        {/* Nút nhận quà — luôn hiện */}
         <button
           type="button"
           onClick={() => void handleClaim()}
-          disabled={!eligible || claiming || loading}
+          disabled={!eligible || claiming}
           className={`flex h-12 w-full items-center justify-center gap-2 rounded-2xl text-sm font-black shadow-md transition-all sm:text-base ${
             eligible && !claiming
               ? 'cursor-pointer border-b-4 border-emerald-800 bg-emerald-600 text-white shadow-emerald-200 hover:bg-emerald-700 active:translate-y-0.5 active:border-b-0'
@@ -265,10 +277,6 @@ export function ProTrialMilestoneCard({
           ) : eligible ? (
             <>
               <Gift className="h-5 w-5" /> Nhận quà Pro {PRO_MILESTONE_LABEL}
-            </>
-          ) : loading ? (
-            <>
-              <Loader2 className="h-5 w-5 animate-spin" /> Đang tải nhiệm vụ...
             </>
           ) : (
             <>
