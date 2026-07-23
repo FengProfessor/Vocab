@@ -14,7 +14,7 @@ const MODES = [
     href: '/practice/codemix',
     emoji: '✨',
     title: 'Đặt câu',
-    desc: 'Chọn từ · viết đoạn có từ · AI nâng full English',
+    desc: 'Yếu / đang nhớ / vững · viết đoạn · AI nâng full English',
     ring: 'border-violet-200 from-violet-50 to-amber-50 hover:border-violet-400',
     badge: 'bg-violet-600',
     text: 'text-violet-900',

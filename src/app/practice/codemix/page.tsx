@@ -28,11 +28,40 @@ import { StudentShell } from '@/components/student/StudentShell';
 
 type Phase = 'pick' | 'write' | 'upgrade';
 
+type MemoryBucket = 'weak' | 'learning' | 'solid';
+
 interface DrillWord {
   id?: string;
   word: string;
   vi: string;
   pos?: string;
+  review_count?: number;
+  srsLevel?: number;
+  stability?: number;
+  isDue?: boolean;
+  bucket?: MemoryBucket;
+}
+
+const BUCKET_META: Record<
+  MemoryBucket,
+  { label: string; hint: string }
+> = {
+  weak: { label: 'Cần củng cố', hint: 'Chưa ôn / due / L1–2' },
+  learning: { label: 'Đang nhớ', hint: 'L3–4 · chưa vững' },
+  solid: { label: 'Ổn / vững', hint: 'L5–6 · ôn nhẹ' },
+};
+
+function bucketForMemory(w: {
+  review_count: number;
+  srsLevel: number;
+  stability: number;
+  isDue: boolean;
+}): MemoryBucket {
+  if (w.review_count <= 0 || w.isDue || w.srsLevel <= 2 || w.stability < 1.5) {
+    return 'weak';
+  }
+  if (w.srsLevel >= 5) return 'solid';
+  return 'learning';
 }
 
 interface WowWord {
@@ -62,31 +91,31 @@ interface QuotaInfo {
 }
 
 const DEMO_POOL: DrillWord[] = [
-  { word: 'wake up', vi: 'thức dậy', pos: 'v' },
-  { word: 'eat', vi: 'ăn', pos: 'v' },
-  { word: 'go', vi: 'đi', pos: 'v' },
-  { word: 'study', vi: 'học', pos: 'v' },
-  { word: 'sleep', vi: 'ngủ', pos: 'v' },
-  { word: 'buy', vi: 'mua', pos: 'v' },
-  { word: 'drink', vi: 'uống', pos: 'v' },
-  { word: 'meet', vi: 'gặp', pos: 'v' },
-  { word: 'like', vi: 'thích', pos: 'v' },
-  { word: 'need', vi: 'cần', pos: 'v' },
-  { word: 'want', vi: 'muốn', pos: 'v' },
-  { word: 'have', vi: 'có', pos: 'v' },
-  { word: 'make', vi: 'làm / tạo', pos: 'v' },
-  { word: 'take', vi: 'lấy / mất (thời gian)', pos: 'v' },
-  { word: 'read', vi: 'đọc', pos: 'v' },
-  { word: 'write', vi: 'viết', pos: 'v' },
-  { word: 'play', vi: 'chơi', pos: 'v' },
-  { word: 'help', vi: 'giúp', pos: 'v' },
-  { word: 'finish', vi: 'hoàn thành', pos: 'v' },
-  { word: 'start', vi: 'bắt đầu', pos: 'v' },
-  { word: 'happy', vi: 'vui vẻ', pos: 'adj' },
-  { word: 'tired', vi: 'mệt', pos: 'adj' },
-  { word: 'school', vi: 'trường học', pos: 'n' },
-  { word: 'friend', vi: 'bạn bè', pos: 'n' },
-  { word: 'homework', vi: 'bài tập về nhà', pos: 'n' },
+  { word: 'wake up', vi: 'thức dậy', pos: 'v', bucket: 'weak', srsLevel: 1, review_count: 0, isDue: true },
+  { word: 'eat', vi: 'ăn', pos: 'v', bucket: 'weak', srsLevel: 1, review_count: 0, isDue: true },
+  { word: 'go', vi: 'đi', pos: 'v', bucket: 'weak', srsLevel: 2, review_count: 1, isDue: true },
+  { word: 'study', vi: 'học', pos: 'v', bucket: 'learning', srsLevel: 3, review_count: 3, isDue: false },
+  { word: 'sleep', vi: 'ngủ', pos: 'v', bucket: 'learning', srsLevel: 3, review_count: 2, isDue: false },
+  { word: 'buy', vi: 'mua', pos: 'v', bucket: 'learning', srsLevel: 4, review_count: 4, isDue: false },
+  { word: 'drink', vi: 'uống', pos: 'v', bucket: 'solid', srsLevel: 5, review_count: 8, isDue: false },
+  { word: 'meet', vi: 'gặp', pos: 'v', bucket: 'weak', srsLevel: 1, review_count: 0, isDue: true },
+  { word: 'like', vi: 'thích', pos: 'v', bucket: 'solid', srsLevel: 6, review_count: 10, isDue: false },
+  { word: 'need', vi: 'cần', pos: 'v', bucket: 'learning', srsLevel: 4, review_count: 5, isDue: false },
+  { word: 'want', vi: 'muốn', pos: 'v', bucket: 'weak', srsLevel: 2, review_count: 1, isDue: false },
+  { word: 'have', vi: 'có', pos: 'v', bucket: 'solid', srsLevel: 5, review_count: 7, isDue: false },
+  { word: 'make', vi: 'làm / tạo', pos: 'v', bucket: 'learning', srsLevel: 3, review_count: 3, isDue: false },
+  { word: 'take', vi: 'lấy / mất (thời gian)', pos: 'v', bucket: 'weak', srsLevel: 1, review_count: 0, isDue: true },
+  { word: 'read', vi: 'đọc', pos: 'v', bucket: 'learning', srsLevel: 4, review_count: 4, isDue: false },
+  { word: 'write', vi: 'viết', pos: 'v', bucket: 'weak', srsLevel: 2, review_count: 2, isDue: true },
+  { word: 'play', vi: 'chơi', pos: 'v', bucket: 'solid', srsLevel: 5, review_count: 6, isDue: false },
+  { word: 'help', vi: 'giúp', pos: 'v', bucket: 'learning', srsLevel: 3, review_count: 3, isDue: false },
+  { word: 'finish', vi: 'hoàn thành', pos: 'v', bucket: 'weak', srsLevel: 1, review_count: 0, isDue: true },
+  { word: 'start', vi: 'bắt đầu', pos: 'v', bucket: 'learning', srsLevel: 3, review_count: 2, isDue: false },
+  { word: 'happy', vi: 'vui vẻ', pos: 'adj', bucket: 'solid', srsLevel: 5, review_count: 5, isDue: false },
+  { word: 'tired', vi: 'mệt', pos: 'adj', bucket: 'weak', srsLevel: 2, review_count: 1, isDue: false },
+  { word: 'school', vi: 'trường học', pos: 'n', bucket: 'learning', srsLevel: 4, review_count: 4, isDue: false },
+  { word: 'friend', vi: 'bạn bè', pos: 'n', bucket: 'solid', srsLevel: 6, review_count: 9, isDue: false },
+  { word: 'homework', vi: 'bài tập về nhà', pos: 'n', bucket: 'weak', srsLevel: 1, review_count: 0, isDue: true },
 ];
 
 function normalize(s: string): string {
@@ -177,6 +206,7 @@ function CodeMixPracticeInner() {
   const [pool, setPool] = useState<DrillWord[]>(DEMO_POOL);
   const [poolSource, setPoolSource] = useState<'demo' | 'mine'>('demo');
   const [poolLoading, setPoolLoading] = useState(true);
+  const [bucket, setBucket] = useState<MemoryBucket>('weak');
   const [query, setQuery] = useState('');
   const [selectedKeys, setSelectedKeys] = useState<Set<string>>(() => new Set());
 
@@ -191,27 +221,34 @@ function CodeMixPracticeInner() {
   const [quota, setQuota] = useState<QuotaInfo | null>(null);
   const [quotaBlocked, setQuotaBlocked] = useState(false);
 
-  // Load từ thật của user
+  // Load từ user + SRS → bucket mức nhớ (giống luyện đọc)
   useEffect(() => {
     let cancelled = false;
     (async () => {
       setPoolLoading(true);
       try {
-        // API cap limit ≤ 50/page
-        const res = await authFetch('/api/words?limit=50');
-        const json = (await res.json()) as {
-          success?: boolean;
-          data?: Array<{
-            id?: string;
-            word?: string;
-            translation?: string;
-            pos?: string;
-          }>;
-        };
-        if (cancelled) return;
-        if (json.success && Array.isArray(json.data) && json.data.length >= CODEMIX_MIN_WORDS) {
-          const mapped: DrillWord[] = [];
-          const seen = new Set<string>();
+        const mapped: DrillWord[] = [];
+        const seen = new Set<string>();
+
+        for (const offset of [0, 50]) {
+          const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
+          const json = (await res.json()) as {
+            success?: boolean;
+            data?: Array<{
+              id?: string;
+              word?: string;
+              translation?: string;
+              pos?: string;
+              isDue?: boolean;
+              srsLevel?: number;
+              reviewCount?: number;
+              srs?: {
+                stability?: number;
+                review_count?: number;
+              } | null;
+            }>;
+          };
+          if (!json.success || !Array.isArray(json.data)) break;
           for (const w of json.data) {
             const word = (w.word || '').trim();
             if (!word || word.length > 40) continue;
@@ -219,24 +256,50 @@ function CodeMixPracticeInner() {
             if (seen.has(key)) continue;
             seen.add(key);
             const vi = (w.translation || '').trim();
-            if (!vi || vi.includes('failed') || vi.includes('Analyzing')) continue;
+            if (!vi || vi.includes('failed') || vi.includes('Analyzing') || vi.includes('⏳')) {
+              continue;
+            }
+            const review_count = w.srs?.review_count ?? w.reviewCount ?? 0;
+            const stability = Number(w.srs?.stability ?? 0);
+            const srsLevel = Number(w.srsLevel ?? 1);
+            const isDue = Boolean(w.isDue);
             mapped.push({
               id: w.id,
               word,
               vi,
               pos: w.pos,
+              review_count,
+              srsLevel,
+              stability,
+              isDue,
+              bucket: bucketForMemory({ review_count, srsLevel, stability, isDue }),
             });
             if (mapped.length >= 120) break;
           }
-          if (mapped.length >= CODEMIX_MIN_WORDS) {
-            setPool(mapped);
-            setPoolSource('mine');
-            // preselect first 5
-            // Preselect tối đa 5 (gợi ý A1); min chọn = 1
-            setSelectedKeys(new Set(mapped.slice(0, Math.min(5, mapped.length)).map(wordKey)));
-            setPoolLoading(false);
-            return;
+          if (json.data.length < 50 || mapped.length >= 120) break;
+        }
+
+        if (cancelled) return;
+
+        if (mapped.length >= CODEMIX_MIN_WORDS) {
+          setPool(mapped);
+          setPoolSource('mine');
+          const order: MemoryBucket[] = ['weak', 'learning', 'solid'];
+          let start: MemoryBucket = 'weak';
+          for (const b of order) {
+            if (mapped.filter((w) => w.bucket === b).length >= CODEMIX_MIN_WORDS) {
+              start = b;
+              break;
+            }
+            if (mapped.some((w) => w.bucket === b)) start = b;
           }
+          setBucket(start);
+          const pre = mapped
+            .filter((w) => w.bucket === start)
+            .slice(0, Math.min(5, CODEMIX_MAX_WORDS));
+          setSelectedKeys(new Set(pre.map(wordKey)));
+          setPoolLoading(false);
+          return;
         }
       } catch {
         /* fallback demo */
@@ -244,7 +307,14 @@ function CodeMixPracticeInner() {
       if (!cancelled) {
         setPool(DEMO_POOL);
         setPoolSource('demo');
-        setSelectedKeys(new Set(DEMO_POOL.slice(0, 5).map(wordKey)));
+        setBucket('weak');
+        setSelectedKeys(
+          new Set(
+            DEMO_POOL.filter((w) => w.bucket === 'weak')
+              .slice(0, 5)
+              .map(wordKey),
+          ),
+        );
         setPoolLoading(false);
       }
     })();
@@ -252,6 +322,15 @@ function CodeMixPracticeInner() {
       cancelled = true;
     };
   }, []);
+
+  const countsByBucket = useMemo(() => {
+    const c: Record<MemoryBucket, number> = { weak: 0, learning: 0, solid: 0 };
+    for (const w of pool) {
+      const b = w.bucket ?? 'weak';
+      c[b]++;
+    }
+    return c;
+  }, [pool]);
 
   const selected = useMemo(() => {
     const map = new Map(pool.map((w) => [wordKey(w), w]));
@@ -266,14 +345,16 @@ function CodeMixPracticeInner() {
 
   const filteredPool = useMemo(() => {
     const q = normalize(query);
-    if (!q) return pool;
-    return pool.filter(
-      (w) =>
+    return pool.filter((w) => {
+      if ((w.bucket ?? 'weak') !== bucket) return false;
+      if (!q) return true;
+      return (
         normalize(w.word).includes(q) ||
         normalize(w.vi).includes(q) ||
-        (w.pos && normalize(w.pos).includes(q))
-    );
-  }, [pool, query]);
+        (!!w.pos && normalize(w.pos).includes(q))
+      );
+    });
+  }, [pool, query, bucket]);
 
   const toggleWord = useCallback((w: DrillWord) => {
     const k = wordKey(w);
@@ -289,16 +370,35 @@ function CodeMixPracticeInner() {
     });
   }, []);
 
+  /** Random chỉ trong bucket đang mở */
   const pickRandom = useCallback(
     (n: number) => {
-      const take = Math.min(n, CODEMIX_MAX_WORDS, pool.length);
-      const picked = shuffle(pool).slice(0, Math.max(CODEMIX_MIN_WORDS, take));
+      const source = pool.filter((w) => (w.bucket ?? 'weak') === bucket);
+      const take = Math.min(n, CODEMIX_MAX_WORDS, source.length);
+      if (take < CODEMIX_MIN_WORDS) return;
+      const picked = shuffle(source).slice(0, Math.max(CODEMIX_MIN_WORDS, take));
       setSelectedKeys(new Set(picked.map(wordKey)));
     },
-    [pool]
+    [pool, bucket],
   );
 
   const clearSelection = useCallback(() => setSelectedKeys(new Set()), []);
+
+  const switchBucket = useCallback(
+    (b: MemoryBucket) => {
+      setBucket(b);
+      setQuery('');
+      const inBucket = pool.filter((w) => (w.bucket ?? 'weak') === b);
+      if (inBucket.length >= CODEMIX_MIN_WORDS) {
+        setSelectedKeys(
+          new Set(inBucket.slice(0, Math.min(5, CODEMIX_MAX_WORDS)).map(wordKey)),
+        );
+      } else {
+        setSelectedKeys(new Set(inBucket.map(wordKey)));
+      }
+    },
+    [pool],
+  );
 
   const cmFound = useMemo(() => findTargets(codemix, selected), [codemix, selected]);
 
@@ -412,10 +512,10 @@ function CodeMixPracticeInner() {
               LingoPro · Practice
             </p>
             <h1 className="mt-1 text-2xl font-black tracking-tight sm:text-3xl">
-              Sử dụng từ / Đặt câu
+              Đặt câu
             </h1>
             <p className="mt-1 text-sm text-slate-500">
-              Chọn {CODEMIX_MIN_WORDS}–{CODEMIX_MAX_WORDS} từ / lượt
+              Sử dụng từ · chọn theo mức nhớ · {CODEMIX_MIN_WORDS}–{CODEMIX_MAX_WORDS} từ
               {!planLoading && (
                 <span
                   className={`ml-2 inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-bold uppercase ${
@@ -443,7 +543,7 @@ function CodeMixPracticeInner() {
               href="/practice"
               className="shrink-0 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm hover:bg-slate-50"
             >
-              ← Dashboard
+              ← Sử dụng từ
             </Link>
           )}
         </div>
@@ -491,8 +591,11 @@ function CodeMixPracticeInner() {
           <section className="space-y-4">
             <div className="rounded-2xl border border-violet-200 bg-violet-50/80 p-4">
               <p className="text-sm font-semibold text-violet-900">
-                Chọn bulk <span className="text-violet-600">{CODEMIX_MIN_WORDS}–{CODEMIX_MAX_WORDS}</span>{' '}
-                từ cho 1 lượt
+                Chọn{' '}
+                <span className="text-violet-600">
+                  {CODEMIX_MIN_WORDS}–{CODEMIX_MAX_WORDS}
+                </span>{' '}
+                từ theo <strong>mức nhớ</strong> (không random lung tung)
               </p>
               <p className="mt-1 text-xs text-violet-800/70">
                 Nguồn:{' '}
@@ -501,11 +604,51 @@ function CodeMixPracticeInner() {
                 ) : (
                   <span className="font-bold">pack demo</span>
                 )}{' '}
-                · {pool.length} từ · gợi ý A1: 5–8 · tối thiểu 1
+                · {pool.length} từ · ưu tiên nhóm yếu
               </p>
             </div>
 
-            {/* Counter + actions */}
+            {/* Memory buckets — giống luyện đọc */}
+            <div className="grid grid-cols-3 gap-1.5">
+              {(['weak', 'learning', 'solid'] as MemoryBucket[]).map((b) => {
+                const on = bucket === b;
+                const meta = BUCKET_META[b];
+                return (
+                  <button
+                    key={b}
+                    type="button"
+                    onClick={() => switchBucket(b)}
+                    className={`rounded-2xl border px-2 py-2.5 text-center transition-all ${
+                      on
+                        ? b === 'weak'
+                          ? 'border-rose-400 bg-rose-50 shadow ring-2 ring-rose-200'
+                          : b === 'learning'
+                            ? 'border-amber-400 bg-amber-50 shadow ring-2 ring-amber-200'
+                            : 'border-emerald-400 bg-emerald-50 shadow ring-2 ring-emerald-200'
+                        : 'border-slate-200 bg-white hover:border-violet-200'
+                    }`}
+                  >
+                    <p className="text-xs font-black text-slate-800">{meta.label}</p>
+                    <p className="text-[10px] font-medium text-slate-400">{meta.hint}</p>
+                    <p
+                      className={`mt-0.5 text-sm font-black tabular-nums ${
+                        on
+                          ? b === 'weak'
+                            ? 'text-rose-700'
+                            : b === 'learning'
+                              ? 'text-amber-700'
+                              : 'text-emerald-700'
+                          : 'text-slate-500'
+                      }`}
+                    >
+                      {countsByBucket[b]}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Counter + actions trong bucket */}
             <div className="flex flex-wrap items-center gap-2">
               <span
                 className={`rounded-full px-3 py-1 text-sm font-black ${
@@ -522,23 +665,18 @@ function CodeMixPracticeInner() {
               <button
                 type="button"
                 onClick={() => pickRandom(5)}
-                className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-600 hover:bg-slate-50"
+                disabled={countsByBucket[bucket] < CODEMIX_MIN_WORDS}
+                className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40"
               >
-                Random 5
+                Random 5 · nhóm này
               </button>
               <button
                 type="button"
                 onClick={() => pickRandom(10)}
-                className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-600 hover:bg-slate-50"
+                disabled={countsByBucket[bucket] < CODEMIX_MIN_WORDS}
+                className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40"
               >
-                Random 10
-              </button>
-              <button
-                type="button"
-                onClick={() => pickRandom(CODEMIX_MAX_WORDS)}
-                className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-600 hover:bg-slate-50"
-              >
-                Random 20
+                Random 10 · nhóm này
               </button>
               <button
                 type="button"
@@ -549,13 +687,13 @@ function CodeMixPracticeInner() {
               </button>
             </div>
 
-            {/* Search */}
+            {/* Search trong bucket */}
             <div className="relative">
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Tìm từ / nghĩa…"
+                placeholder={`Tìm trong «${BUCKET_META[bucket].label}»…`}
                 className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-200"
               />
             </div>
@@ -615,12 +753,22 @@ function CodeMixPracticeInner() {
                         <span className={`ml-1.5 text-xs ${on ? 'text-violet-100' : 'text-slate-400'}`}>
                           {w.vi}
                         </span>
+                        {w.srsLevel != null && (
+                          <span
+                            className={`ml-1 text-[10px] font-bold tabular-nums ${
+                              on ? 'text-violet-200' : 'text-slate-300'
+                            }`}
+                          >
+                            L{w.srsLevel}
+                            {w.isDue ? '·due' : ''}
+                          </span>
+                        )}
                       </button>
                     );
                   })}
                   {filteredPool.length === 0 && (
                     <p className="w-full py-8 text-center text-sm text-slate-400">
-                      Không thấy từ khớp
+                      Không có từ trong «{BUCKET_META[bucket].label}». Thử nhóm khác.
                     </p>
                   )}
                 </div>
