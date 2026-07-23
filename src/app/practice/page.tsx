@@ -14,7 +14,7 @@ const MODES = [
     href: '/practice/codemix',
     emoji: '✨',
     title: 'Đặt câu',
-    desc: 'Viết VI + chèn từ · AI nâng full EN',
+    desc: 'Chọn vài từ → viết câu → xem bản tiếng Anh',
     ring: 'border-violet-200 bg-violet-50/70 hover:border-violet-400 hover:bg-violet-50',
     badge: 'bg-violet-600',
     text: 'text-violet-900',
@@ -25,7 +25,7 @@ const MODES = [
     href: '/practice/pack-reading',
     emoji: '📖',
     title: 'Luyện đọc',
-    desc: 'Gen đoạn chứa từ · hỏi + điền từ',
+    desc: 'Đọc đoạn có từ của bạn + trả lời câu hỏi',
     ring: 'border-teal-200 bg-teal-50/70 hover:border-teal-400 hover:bg-teal-50',
     badge: 'bg-teal-600',
     text: 'text-teal-900',
@@ -41,7 +41,7 @@ export default function PracticeHubPage() {
         <div>
           <h1 className="text-lg font-black tracking-tight text-slate-900">Sử dụng từ</h1>
           <p className="mt-0.5 text-xs font-medium text-slate-500">
-            Luyện chủ động — không chờ đến hạn thẻ
+            2 cách luyện — chọn 1 và làm theo
           </p>
         </div>
 

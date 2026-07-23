@@ -16,7 +16,6 @@ import {
   Loader2,
   Search,
   Sparkles,
-  X,
   Zap,
 } from 'lucide-react';
 import { authFetch } from '@/lib/auth-fetch';
@@ -621,149 +620,136 @@ function PackReadingInner() {
               </div>
             ) : (
               <>
-                <p className="text-[11px] font-medium text-slate-500">
-                  Chọn {PACK_PASSAGE_MIN_WORDS}–{PACK_PASSAGE_MAX_WORDS} từ theo mức nhớ ·{' '}
-                  <span className="font-semibold text-slate-700">{pool.length} từ</span>
-                </p>
-
-                <div className="grid grid-cols-3 gap-1">
-                  {(['weak', 'learning', 'solid'] as MemoryBucket[]).map((b) => {
-                    const on = bucket === b;
-                    const meta = BUCKET_META[b];
-                    return (
-                      <button
-                        key={b}
-                        type="button"
-                        onClick={() => switchBucket(b)}
-                        className={`rounded-lg border px-1.5 py-1.5 text-center transition ${
-                          on
-                            ? b === 'weak'
-                              ? 'border-rose-400 bg-rose-50 ring-1 ring-rose-200'
-                              : b === 'learning'
-                                ? 'border-amber-400 bg-amber-50 ring-1 ring-amber-200'
-                                : 'border-emerald-400 bg-emerald-50 ring-1 ring-emerald-200'
-                            : 'border-slate-200 bg-white hover:border-teal-200'
-                        }`}
-                      >
-                        <p className="text-[11px] font-black text-slate-800">
-                          {meta.label}{' '}
-                          <span
-                            className={`tabular-nums ${
-                              on
-                                ? b === 'weak'
-                                  ? 'text-rose-700'
-                                  : b === 'learning'
-                                    ? 'text-amber-700'
-                                    : 'text-emerald-700'
-                                : 'text-slate-400'
-                            }`}
-                          >
-                            {countsByBucket[b]}
-                          </span>
-                        </p>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span
-                    className={`rounded-md px-2 py-0.5 text-[11px] font-black tabular-nums ${
-                      wordsOk ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-800'
-                    }`}
-                  >
-                    {selectedCount}/{PACK_PASSAGE_MAX_WORDS}
-                    {!wordsOk && ` · ≥${PACK_PASSAGE_MIN_WORDS}`}
-                  </span>
+                {/* Đường dễ */}
+                <div className="rounded-xl border border-teal-200 bg-teal-50/60 px-2.5 py-2.5">
+                  <p className="text-[12px] font-black text-teal-950">Bắt đầu nhanh</p>
+                  <p className="mt-0.5 text-[11px] text-teal-800/80">
+                    Gợi ý {Math.min(8, PACK_PASSAGE_MAX_WORDS)} từ yếu → chọn chủ đề → đọc.
+                  </p>
                   <button
                     type="button"
-                    className="text-[11px] font-semibold text-teal-600 hover:underline"
-                    onClick={selectAllVisible}
+                    className="mt-2 w-full rounded-xl bg-teal-600 py-2.5 text-sm font-bold text-white hover:bg-teal-700"
+                    onClick={() => {
+                      const order: MemoryBucket[] = ['weak', 'learning', 'solid'];
+                      let b: MemoryBucket = 'weak';
+                      for (const x of order) {
+                        if (countsByBucket[x] >= PACK_PASSAGE_MIN_WORDS) {
+                          b = x;
+                          break;
+                        }
+                      }
+                      setBucket(b);
+                      const list = pool.filter((w) => w.bucket === b);
+                      const take = Math.min(8, PACK_PASSAGE_MAX_WORDS, list.length);
+                      setSelectedKeys(new Set(list.slice(0, take).map(wordKey)));
+                      setQuery('');
+                      setError(null);
+                      if (take >= PACK_PASSAGE_MIN_WORDS) setStep(2);
+                    }}
                   >
-                    + nhóm
+                    Gợi ý {Math.min(8, PACK_PASSAGE_MAX_WORDS)} từ →
                   </button>
-                  {selectedCount > 0 && (
-                    <button
-                      type="button"
-                      className="text-[11px] font-medium text-slate-400 hover:text-slate-600"
-                      onClick={clearSelection}
-                    >
-                      Xóa
-                    </button>
-                  )}
-                  <div className="relative ml-auto min-w-[7rem] flex-1 sm:max-w-[12rem]">
-                    <Search className="pointer-events-none absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                      placeholder="Tìm…"
-                      className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pl-7 pr-2 text-xs"
-                    />
-                  </div>
                 </div>
 
-                {selected.length > 0 && (
-                  <div className="flex flex-wrap gap-1">
-                    {selected.map((w) => (
-                      <button
-                        key={wordKey(w)}
-                        type="button"
-                        onClick={() => toggleWord(w)}
-                        className="inline-flex items-center gap-0.5 rounded-full bg-teal-600 px-2 py-0.5 text-[11px] font-bold text-white"
-                      >
-                        {w.word}
-                        <X className="h-2.5 w-2.5 opacity-80" />
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                <div className="max-h-[38vh] space-y-0.5 overflow-y-auto rounded-lg border border-slate-100 p-0.5">
-                  {filteredPool.length === 0 ? (
-                    <p className="px-2 py-5 text-center text-[11px] text-slate-400">
-                      Không có từ «{BUCKET_META[bucket].label}» — thử nhóm khác
-                    </p>
-                  ) : (
-                    filteredPool.map((w) => {
-                      const on = selectedKeys.has(wordKey(w));
-                      const full = !on && selectedCount >= PACK_PASSAGE_MAX_WORDS;
-                      return (
-                        <button
-                          key={wordKey(w)}
-                          type="button"
-                          disabled={full}
-                          onClick={() => toggleWord(w)}
-                          className={`flex w-full items-center gap-1.5 rounded-lg px-2 py-1.5 text-left text-xs transition-colors ${
-                            on
-                              ? 'bg-teal-50 ring-1 ring-teal-300'
-                              : full
-                                ? 'opacity-40'
-                                : 'hover:bg-slate-50'
-                          }`}
-                        >
-                          <span
-                            className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border text-[9px] ${
+                <details className="rounded-lg border border-slate-200 open:bg-slate-50/50">
+                  <summary className="cursor-pointer px-2.5 py-2 text-[11px] font-bold text-slate-600">
+                    Tự chọn · {selectedCount} từ
+                    {!wordsOk && selectedCount > 0
+                      ? ` (cần ≥${PACK_PASSAGE_MIN_WORDS})`
+                      : ''}
+                  </summary>
+                  <div className="space-y-2 border-t border-slate-100 px-2 pb-2 pt-2">
+                    <div className="grid grid-cols-3 gap-1">
+                      {(['weak', 'learning', 'solid'] as MemoryBucket[]).map((b) => {
+                        const on = bucket === b;
+                        return (
+                          <button
+                            key={b}
+                            type="button"
+                            onClick={() => switchBucket(b)}
+                            className={`rounded-lg border px-1 py-1.5 text-[11px] font-bold ${
                               on
-                                ? 'border-teal-600 bg-teal-600 text-white'
-                                : 'border-slate-300 bg-white'
+                                ? b === 'weak'
+                                  ? 'border-rose-400 bg-rose-50 text-rose-800'
+                                  : b === 'learning'
+                                    ? 'border-amber-400 bg-amber-50 text-amber-900'
+                                    : 'border-emerald-400 bg-emerald-50 text-emerald-800'
+                                : 'border-slate-200 text-slate-500'
                             }`}
                           >
-                            {on ? <Check className="h-2.5 w-2.5" /> : null}
-                          </span>
-                          <span className="min-w-0 flex-1 truncate">
-                            <span className="font-bold text-slate-800">{w.word}</span>
-                            <span className="text-slate-400"> · </span>
-                            <span className="text-slate-600">{w.translation}</span>
-                          </span>
-                          <span className="shrink-0 text-[10px] font-semibold tabular-nums text-slate-400">
-                            L{w.srsLevel}
-                            {w.isDue ? '·d' : ''}
-                          </span>
+                            {BUCKET_META[b].label}{' '}
+                            <span className="tabular-nums opacity-70">{countsByBucket[b]}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        className="text-[11px] font-semibold text-teal-600"
+                        onClick={selectAllVisible}
+                      >
+                        + cả nhóm
+                      </button>
+                      {selectedCount > 0 && (
+                        <button
+                          type="button"
+                          className="text-[11px] text-slate-400"
+                          onClick={clearSelection}
+                        >
+                          Xóa
                         </button>
-                      );
-                    })
-                  )}
-                </div>
+                      )}
+                      <div className="relative ml-auto min-w-0 flex-1 max-w-[9rem]">
+                        <Search className="pointer-events-none absolute left-2 top-1/2 h-3 w-3 -translate-y-1/2 text-slate-400" />
+                        <input
+                          value={query}
+                          onChange={(e) => setQuery(e.target.value)}
+                          placeholder="Tìm…"
+                          className="w-full rounded-lg border border-slate-200 bg-white py-1 pl-6 pr-2 text-[11px]"
+                        />
+                      </div>
+                    </div>
+                    <div className="max-h-[28vh] space-y-0.5 overflow-y-auto">
+                      {filteredPool.length === 0 ? (
+                        <p className="py-4 text-center text-[11px] text-slate-400">
+                          Không có từ — thử nhóm khác
+                        </p>
+                      ) : (
+                        filteredPool.map((w) => {
+                          const on = selectedKeys.has(wordKey(w));
+                          const full = !on && selectedCount >= PACK_PASSAGE_MAX_WORDS;
+                          return (
+                            <button
+                              key={wordKey(w)}
+                              type="button"
+                              disabled={full}
+                              onClick={() => toggleWord(w)}
+                              className={`flex w-full items-center gap-1.5 rounded-lg px-2 py-1.5 text-left text-xs ${
+                                on ? 'bg-teal-50 ring-1 ring-teal-300' : full ? 'opacity-40' : ''
+                              }`}
+                            >
+                              <span
+                                className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
+                                  on
+                                    ? 'border-teal-600 bg-teal-600 text-white'
+                                    : 'border-slate-300'
+                                }`}
+                              >
+                                {on ? <Check className="h-2.5 w-2.5" /> : null}
+                              </span>
+                              <span className="min-w-0 flex-1 truncate">
+                                <span className="font-bold text-slate-800">{w.word}</span>
+                                <span className="text-slate-400"> · </span>
+                                <span className="text-slate-600">{w.translation}</span>
+                              </span>
+                            </button>
+                          );
+                        })
+                      )}
+                    </div>
+                  </div>
+                </details>
               </>
             )}
 
@@ -775,7 +761,7 @@ function PackReadingInner() {
                 setStep(2);
               }}
             >
-              Tiếp · Chủ đề & cấp độ
+              Tiếp · chọn chủ đề
             </Button>
           </div>
         )}
