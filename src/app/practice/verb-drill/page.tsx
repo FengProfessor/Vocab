@@ -691,11 +691,6 @@ export default function VerbDrillPage() {
                 <p className="mt-3 text-lg font-bold leading-snug text-slate-900">
                   {current.stem}
                 </p>
-                {current.exampleVi && (
-                  <p className="mt-2 text-[12px] font-medium italic text-slate-500">
-                    {current.exampleVi}
-                  </p>
-                )}
                 {currentPos && (
                   <p className="mt-2 text-[12px] font-semibold text-teal-800">
                     <span className="rounded-md bg-teal-100 px-2 py-0.5 font-black">
