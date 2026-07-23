@@ -65,6 +65,35 @@ export function evaluateProMilestone(input: {
   };
 }
 
+/** localStorage: nick đã từng thấy card khi còn dưới mốc → giữ đến claim. */
+export const PRO_MILESTONE_FUNNEL_LS_KEY = 'lp:pro_milestone_funnel';
+
+/** Còn dưới cả 2 mốc (nick mới: <50 từ và streak <3). */
+export function isUnderProMilestone(words: number, streak: number): boolean {
+  return words < PRO_MILESTONE_MIN_WORDS && streak < PRO_MILESTONE_MIN_STREAK;
+}
+
+/**
+ * Card chỉ hiện cho nick free chưa claim và:
+ *  - đang dưới cả 2 mốc (<50 từ + streak <3), hoặc
+ *  - đã vào funnel (từng dưới mốc) và đang tiến tới claim.
+ * Nick đã ≥50 từ hoặc streak ≥3 từ đầu (không qua funnel) → không hiện.
+ */
+export function shouldShowProMilestoneCard(input: {
+  words: number;
+  streak: number;
+  alreadyClaimed: boolean;
+  effectivePlan: Plan;
+  funnelActive?: boolean;
+}): boolean {
+  if (input.alreadyClaimed) return false;
+  if (input.effectivePlan !== 'free') return false;
+  if (isUnderProMilestone(input.words, input.streak)) return true;
+  // Đã vào funnel: giữ card (kể cả khi eligible claim)
+  if (input.funnelActive) return true;
+  return false;
+}
+
 /**
  * Đếm từ học của user: max(SRS rows, words.added_by).
  * SRS = đã ôn/học; added_by = đã lưu vào kho.
