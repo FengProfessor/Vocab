@@ -14,7 +14,7 @@ const MODES = [
     href: '/practice/verb-drill',
     emoji: '⚡',
     title: 'Quiz từ vựng',
-    desc: 'Từ EN → chọn nghĩa VI (toàn bank)',
+    desc: 'Kho đã học: chọn nghĩa / điền chỗ trống (example sẵn)',
     ring: 'border-amber-200 bg-amber-50/70 hover:border-amber-400 hover:bg-amber-50',
     badge: 'bg-amber-500',
     text: 'text-amber-950',
@@ -52,7 +52,7 @@ export default function PracticeHubPage() {
         <div>
           <h1 className="text-lg font-black tracking-tight text-slate-900">Sử dụng từ</h1>
           <p className="mt-0.5 text-xs font-medium text-slate-500">
-            Chọn 1 cách luyện — drill động từ sẵn cho lớp
+            Quiz kho từ đã học · đặt câu · luyện đọc
           </p>
         </div>
 
