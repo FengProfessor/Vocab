@@ -29,7 +29,8 @@ export async function GET(req: NextRequest) {
     const { supabase, user } = await authUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const snapshot = await getProMilestoneSnapshot(supabase, user.id);
+    // allowEnroll: ghi nhận funnel khi còn dưới mốc — power user không được enroll
+    const snapshot = await getProMilestoneSnapshot(supabase, user.id, { allowEnroll: true });
     return NextResponse.json(
       {
         success: true,
@@ -41,7 +42,7 @@ export async function GET(req: NextRequest) {
           coupon: PRO_MILESTONE_COUPON,
         },
       },
-      { headers: { 'Cache-Control': 'private, max-age=15, stale-while-revalidate=30' } },
+      { headers: { 'Cache-Control': 'private, no-store' } },
     );
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
@@ -55,7 +56,8 @@ export async function POST(req: NextRequest) {
     const { supabase, user } = await authUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const snapshot = await getProMilestoneSnapshot(supabase, user.id);
+    // Không enroll tại claim — chỉ user đã enroll khi under mốc mới eligible
+    const snapshot = await getProMilestoneSnapshot(supabase, user.id, { allowEnroll: false });
     if (!snapshot.eligible) {
       return NextResponse.json(
         {
@@ -73,7 +75,7 @@ export async function POST(req: NextRequest) {
       paymentMethod: 'manual',
       couponCode: PRO_MILESTONE_COUPON,
       orderKind: 'individual',
-      note: `pro_milestone:streak${snapshot.streak}+words${snapshot.words}`,
+      note: `pro_milestone:enrolled|streak${snapshot.streak}+words${snapshot.words}`,
     });
 
     const order = result.order as {
@@ -83,7 +85,7 @@ export async function POST(req: NextRequest) {
       status: string;
     };
 
-    const after = await getProMilestoneSnapshot(supabase, user.id);
+    const after = await getProMilestoneSnapshot(supabase, user.id, { allowEnroll: false });
 
     return NextResponse.json({
       success: true,

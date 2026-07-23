@@ -312,9 +312,9 @@ export async function createOrder(
       periodMonths,
     });
 
-    // NEWBIE*: chỉ redeem khi đạt mốc học (streak + từ) — không tặng sau tour
+    // NEWBIE*: enrolled funnel + streak/từ — không enroll tại claim (chặn power user)
     if (coupon && isMilestoneGatedCoupon(couponCode)) {
-      const snap = await getProMilestoneSnapshot(supabase, userId);
+      const snap = await getProMilestoneSnapshot(supabase, userId, { allowEnroll: false });
       if (!snap.eligible) {
         throw new Error(milestoneGateErrorMessage(snap));
       }

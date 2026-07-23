@@ -135,6 +135,14 @@ export function ProTrialMilestoneCard({
     void load();
   }, [load]);
 
+  // Sync LS với server enroll
+  useEffect(() => {
+    if (snap?.enrolled) {
+      markFunnelActive();
+      setFunnelActive(true);
+    }
+  }, [snap?.enrolled]);
+
   useEffect(() => {
     if (!enabled) return;
     const onRefresh = () => {
@@ -201,6 +209,7 @@ export function ProTrialMilestoneCard({
     eligible,
     alreadyClaimed,
     effectivePlan,
+    enrolled,
   } = snap;
 
   const show = shouldShowProMilestoneCard({
@@ -208,7 +217,8 @@ export function ProTrialMilestoneCard({
     streak,
     alreadyClaimed,
     effectivePlan,
-    funnelActive,
+    funnelActive: funnelActive || enrolled,
+    enrolled,
   });
   if (!show) return null;
 
