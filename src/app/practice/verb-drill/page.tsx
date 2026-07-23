@@ -1,9 +1,8 @@
 'use client';
 
 /**
- * Drill động từ tối nay — bank pre-gen (meaning + l2 + colo sạch).
+ * Drill động từ — curriculum tay (nghĩa đầy + ví dụ + cụm).
  * URL: /practice/verb-drill
- * Không cloze/error (phase 2 AG).
  */
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -18,6 +17,8 @@ interface DrillItem {
   lemma: string;
   pos?: string;
   sense_vi?: string;
+  example_en?: string;
+  example_vi?: string;
   type: ItemType;
   stem: { q: string; opts: string[] };
   answer: string;
@@ -29,6 +30,8 @@ interface Pack {
   note?: string;
   lemmas: string[];
   items: DrillItem[];
+  lemma_count?: number;
+  item_count?: number;
 }
 
 type Phase = 'setup' | 'quiz' | 'done';
@@ -44,7 +47,7 @@ function shuffle<T>(arr: T[]): T[] {
 
 function typeLabel(t: ItemType): string {
   if (t === 'meaning_mcq') return 'Nghĩa';
-  if (t === 'l2_to_en') return 'VI → EN';
+  if (t === 'l2_to_en') return 'Chọn từ EN';
   return 'Cụm từ';
 }
 
@@ -53,7 +56,7 @@ export default function VerbDrillPage() {
   const [loadErr, setLoadErr] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>('setup');
   const [wordCount, setWordCount] = useState(10);
-  const [qCount, setQCount] = useState(12);
+  const [qCount, setQCount] = useState(15);
   const [queue, setQueue] = useState<DrillItem[]>([]);
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
@@ -65,7 +68,9 @@ export default function VerbDrillPage() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch('/data/tonight-verb-drill.json', { cache: 'no-store' });
+        const res = await fetch(`/data/tonight-verb-drill.json?v=${Date.now()}`, {
+          cache: 'no-store',
+        });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = (await res.json()) as Pack;
         if (!cancelled) setPack(json);
@@ -80,28 +85,28 @@ export default function VerbDrillPage() {
     };
   }, []);
 
-  const maxWords = pack?.lemmas?.length ?? 40;
+  const maxWords = pack?.lemmas?.length ?? 20;
 
   const start = useCallback(() => {
     if (!pack?.items?.length) return;
     const lemmas = pack.lemmas.slice(0, Math.min(wordCount, pack.lemmas.length));
-    const setL = new Set(lemmas);
-    const pool = pack.items.filter((it) => setL.has(it.lemma.toLowerCase()) || setL.has(it.lemma));
-    // Ưu tiên mỗi lemma 1 meaning + trộn thêm
+    const setL = new Set(lemmas.map((x) => x.toLowerCase()));
+    const pool = pack.items.filter((it) => setL.has(it.lemma.toLowerCase()));
     const byL = new Map<string, DrillItem[]>();
     for (const it of pool) {
       const k = it.lemma.toLowerCase();
       if (!byL.has(k)) byL.set(k, []);
       byL.get(k)!.push(it);
     }
+    // Mỗi từ: ưu tiên 1 meaning + 1 colo + 1 l2 (nếu đủ câu)
     const seeded: DrillItem[] = [];
     for (const [, list] of byL) {
-      const meaning = list.find((x) => x.type === 'meaning_mcq');
-      if (meaning) seeded.push(meaning);
-      else if (list[0]) seeded.push(list[0]);
+      for (const t of ['meaning_mcq', 'collocation_mcq', 'l2_to_en'] as ItemType[]) {
+        const hit = list.find((x) => x.type === t);
+        if (hit) seeded.push(hit);
+      }
     }
-    const rest = shuffle(pool.filter((it) => !seeded.includes(it)));
-    const q = shuffle([...seeded, ...rest]).slice(0, Math.min(qCount, seeded.length + rest.length));
+    const q = shuffle(seeded).slice(0, Math.min(qCount, seeded.length));
     if (q.length < 1) return;
     setQueue(q);
     setIdx(0);
@@ -153,7 +158,7 @@ export default function VerbDrillPage() {
 
         {loadErr && (
           <div className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-800">
-            Lỗi tải bank: {loadErr}. Chạy <code className="font-mono">node scripts/build-tonight-verb-drill.mjs</code>
+            {loadErr}
           </div>
         )}
 
@@ -164,47 +169,59 @@ export default function VerbDrillPage() {
         )}
 
         {pack && phase === 'setup' && (
-          <section className="space-y-3 rounded-2xl border border-violet-100 bg-white p-3 shadow-sm">
-            <p className="text-sm font-bold text-slate-800">{pack.title}</p>
-            <p className="text-[11px] leading-relaxed text-slate-500">
-              {pack.note || 'Nghĩa · VI→EN · Cụm từ. Phù hợp dạy/luyện tối nay.'}
+          <section className="space-y-3 rounded-2xl border border-amber-100 bg-white p-3 shadow-sm">
+            <p className="text-sm font-bold text-slate-900">{pack.title}</p>
+            <p className="text-[12px] leading-relaxed text-slate-600">
+              {pack.note ||
+                'Mỗi từ: nghĩa đầy đủ + ví dụ + cụm hay dùng. Không template máy.'}
             </p>
-            <p className="text-[11px] font-semibold text-emerald-700">
-              Bank: {pack.lemmas.length} động từ · {pack.items.length} câu (đã lọc)
+            <div className="rounded-xl bg-amber-50/80 px-2.5 py-2 text-[11px] text-amber-950">
+              <p className="font-bold">Gợi ý dạy lớp</p>
+              <p className="mt-0.5 leading-snug">
+                8–12 từ · 15–20 câu · sau mỗi câu đọc phần giải thích (màu vàng) cho HS
+                nhắc lại cụm.
+              </p>
+            </div>
+            <p className="text-[11px] font-semibold text-emerald-800">
+              {pack.lemma_count ?? pack.lemmas.length} động từ ·{' '}
+              {pack.item_count ?? pack.items.length} câu curriculum
             </p>
 
             <label className="block text-[11px] font-bold text-slate-600">
-              Số từ (top tần suất)
+              Số từ
               <input
                 type="range"
                 min={5}
-                max={Math.min(40, maxWords)}
-                value={wordCount}
+                max={Math.min(30, maxWords)}
+                value={Math.min(wordCount, maxWords)}
                 onChange={(e) => setWordCount(Number(e.target.value))}
                 className="mt-1 w-full"
               />
-              <span className="tabular-nums text-violet-700">{wordCount} từ</span>
+              <span className="tabular-nums text-amber-800">
+                {Math.min(wordCount, maxWords)} từ
+              </span>
             </label>
 
             <label className="block text-[11px] font-bold text-slate-600">
               Số câu hỏi
               <input
                 type="range"
-                min={5}
-                max={30}
+                min={6}
+                max={36}
                 value={qCount}
                 onChange={(e) => setQCount(Number(e.target.value))}
                 className="mt-1 w-full"
               />
-              <span className="tabular-nums text-violet-700">{qCount} câu</span>
+              <span className="tabular-nums text-amber-800">{qCount} câu</span>
             </label>
 
-            <p className="text-[10px] text-slate-400">
-              Ví dụ từ: {pack.lemmas.slice(0, 8).join(', ')}…
+            <p className="text-[10px] leading-snug text-slate-400">
+              Gồm: {pack.lemmas.slice(0, 12).join(', ')}
+              {pack.lemmas.length > 12 ? '…' : ''}
             </p>
 
             <Button
-              className="h-11 w-full rounded-xl bg-violet-600 text-sm font-bold hover:bg-violet-700"
+              className="h-11 w-full rounded-xl bg-amber-500 text-sm font-bold text-white hover:bg-amber-600"
               onClick={start}
             >
               Bắt đầu luyện
@@ -214,20 +231,41 @@ export default function VerbDrillPage() {
 
         {phase === 'quiz' && current && (
           <section className="space-y-3">
-            <div className="flex items-center justify-between text-[11px] font-semibold text-slate-500">
+            <div className="flex flex-wrap items-center justify-between gap-1 text-[11px] font-semibold text-slate-500">
               <span>
-                Câu {idx + 1}/{queue.length}
+                {idx + 1}/{queue.length}
               </span>
-              <span className="rounded-md bg-violet-50 px-2 py-0.5 text-violet-800">
-                {typeLabel(current.type)} · {current.lemma}
+              <span className="rounded-md bg-amber-50 px-2 py-0.5 text-amber-900">
+                {typeLabel(current.type)} · <span className="font-black">{current.lemma}</span>
               </span>
               <span className="tabular-nums text-emerald-700">✓ {correctN}</span>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
-              <p className="text-[15px] font-bold leading-snug text-slate-900">{current.stem.q}</p>
-              {current.sense_vi && current.type !== 'meaning_mcq' && (
-                <p className="mt-1 text-[11px] text-slate-400">Gợi ý: {current.sense_vi}</p>
+            <div className="rounded-2xl border border-slate-200 bg-white p-3.5 shadow-sm">
+              <p className="text-[15px] font-bold leading-snug text-slate-900">
+                {current.stem.q}
+              </p>
+              {current.type === 'meaning_mcq' && current.example_en && (
+                <div className="mt-2.5 rounded-lg border border-slate-100 bg-slate-50 px-2.5 py-2">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    Ví dụ
+                  </p>
+                  <p className="mt-0.5 text-[13px] font-semibold leading-snug text-slate-800">
+                    {current.example_en}
+                  </p>
+                  {current.example_vi && (
+                    <p className="mt-0.5 text-[12px] leading-snug text-slate-500">
+                      {current.example_vi}
+                    </p>
+                  )}
+                </div>
+              )}
+              {current.type !== 'meaning_mcq' && current.sense_vi && (
+                <p className="mt-2 text-[11px] leading-snug text-slate-500">
+                  <span className="font-bold text-slate-600">{current.lemma}</span>
+                  {' — '}
+                  {current.sense_vi}
+                </p>
               )}
             </div>
 
@@ -236,13 +274,13 @@ export default function VerbDrillPage() {
                 const isAns = o === current.answer;
                 const isPick = o === picked;
                 let cls =
-                  'w-full rounded-xl border px-3 py-2.5 text-left text-sm font-semibold transition ';
+                  'w-full rounded-xl border px-3 py-2.5 text-left text-[13px] font-semibold leading-snug transition ';
                 if (!revealed) {
-                  cls += 'border-slate-200 bg-white hover:border-violet-300 hover:bg-violet-50';
+                  cls += 'border-slate-200 bg-white hover:border-amber-300 hover:bg-amber-50';
                 } else if (isAns) {
-                  cls += 'border-emerald-400 bg-emerald-50 text-emerald-900';
+                  cls += 'border-emerald-400 bg-emerald-50 text-emerald-950';
                 } else if (isPick) {
-                  cls += 'border-red-300 bg-red-50 text-red-800';
+                  cls += 'border-red-300 bg-red-50 text-red-900';
                 } else {
                   cls += 'border-slate-100 bg-slate-50 text-slate-400';
                 }
@@ -254,10 +292,14 @@ export default function VerbDrillPage() {
                     onClick={() => onPick(o)}
                     className={cls}
                   >
-                    <span className="inline-flex items-center gap-1.5">
-                      {revealed && isAns && <Check className="h-3.5 w-3.5" />}
-                      {revealed && isPick && !isAns && <X className="h-3.5 w-3.5" />}
-                      {o}
+                    <span className="inline-flex items-start gap-1.5">
+                      {revealed && isAns && (
+                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                      )}
+                      {revealed && isPick && !isAns && (
+                        <X className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                      )}
+                      <span>{o}</span>
                     </span>
                   </button>
                 );
@@ -267,12 +309,15 @@ export default function VerbDrillPage() {
             {revealed && (
               <div className="space-y-2">
                 {current.explain_vi && (
-                  <p className="rounded-lg bg-amber-50 px-2.5 py-2 text-xs leading-relaxed text-amber-950">
-                    {current.explain_vi}
-                  </p>
+                  <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2.5 text-[12px] leading-relaxed text-amber-950 whitespace-pre-line">
+                    <p className="text-[10px] font-black uppercase tracking-wide text-amber-700">
+                      Giải thích / mẹo
+                    </p>
+                    <p className="mt-1">{current.explain_vi}</p>
+                  </div>
                 )}
                 <Button
-                  className="h-10 w-full rounded-xl bg-violet-600 font-bold hover:bg-violet-700"
+                  className="h-10 w-full rounded-xl bg-amber-500 font-bold text-white hover:bg-amber-600"
                   onClick={next}
                 >
                   {idx + 1 >= queue.length ? 'Xem kết quả' : 'Câu tiếp →'}
@@ -284,11 +329,14 @@ export default function VerbDrillPage() {
 
         {phase === 'done' && (
           <section className="space-y-3 rounded-2xl border border-emerald-200 bg-white p-4 text-center shadow-sm">
-            <p className="text-lg font-black text-slate-900">Xong!</p>
-            <p className="text-3xl font-black tabular-nums text-violet-700">{pct}%</p>
+            <p className="text-lg font-black text-slate-900">Xong buổi luyện!</p>
+            <p className="text-3xl font-black tabular-nums text-amber-600">{pct}%</p>
             <p className="text-sm text-slate-600">
-              Đúng <span className="font-bold text-emerald-700">{correctN}</span> / {queue.length}{' '}
-              câu
+              Đúng <span className="font-bold text-emerald-700">{correctN}</span> /{' '}
+              {queue.length} câu
+            </p>
+            <p className="text-[11px] text-slate-500">
+              Gợi ý: cho HS nhắc lại 3 cụm vừa sai trước khi kết thúc lớp.
             </p>
             <div className="flex gap-2 pt-1">
               <Button
@@ -299,7 +347,7 @@ export default function VerbDrillPage() {
                 <RotateCcw className="mr-1 h-3.5 w-3.5" /> Cài lại
               </Button>
               <Button
-                className="h-10 flex-1 rounded-xl bg-violet-600 font-bold hover:bg-violet-700"
+                className="h-10 flex-1 rounded-xl bg-amber-500 font-bold text-white hover:bg-amber-600"
                 onClick={start}
               >
                 Luyện tiếp

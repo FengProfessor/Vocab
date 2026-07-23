@@ -1,7 +1,5 @@
 /**
- * Build pack dạy tối nay: meaning + l2 + colo (đã lọc distractor rác).
- * Không dùng cloze/error (chất chưa đủ).
- *
+ * Build pack dạy tối nay từ curriculum tay (nghĩa đầy, ví dụ, bẫy VN).
  * node scripts/build-tonight-verb-drill.mjs
  */
 import fs from 'fs';
@@ -9,124 +7,77 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const bankDir = path.join(root, 'data/vocab-test-bank/p2-r1-final-verbs');
-const goldPath = path.join(root, 'data/vocab-test-bank/gold/verb-sense-keywords-vi.json');
-const queuePath = path.join(root, 'data/vocab-test-bank/p2-lemma-lists/p2-verbs-top300.txt');
-
-const TONIGHT_N = 40; // top 40 tần suất
-const KEEP_TYPES = new Set(['meaning_mcq', 'l2_to_en', 'collocation_mcq']);
-const GARBAGE =
-  /in wrong way|without care|for nothing|apply\s+\S+\s+correctly|make\s+\S+\s+wrong|do\s+\S+\s+badly|the task\s+(successfully|wrongly)/i;
-
-const gold = JSON.parse(fs.readFileSync(goldPath, 'utf8'));
-const queue = fs
-  .readFileSync(queuePath, 'utf8')
-  .split(/\n/)
-  .map((l) => l.trim().toLowerCase())
-  .filter((l) => l && !l.startsWith('#'));
-
-const tonightLemmas = queue.slice(0, TONIGHT_N);
-
-/** Load all bank items */
-const byLemma = new Map();
-for (const f of fs.readdirSync(bankDir).filter((x) => x.endsWith('.json'))) {
-  const j = JSON.parse(fs.readFileSync(path.join(bankDir, f), 'utf8'));
-  for (const it of j.items || []) {
-    const L = String(it.lemma).toLowerCase();
-    if (!byLemma.has(L)) byLemma.set(L, []);
-    byLemma.get(L).push(it);
-  }
-}
-
-function senseOk(lemma, item) {
-  const keys = gold[lemma];
-  if (!keys?.length) return true;
-  const blob = `${item.answer || ''} ${item.sense_vi || ''}`.toLowerCase();
-  return keys.some((k) => blob.includes(String(k).toLowerCase()));
-}
-
-function cleanColo(item, lemma) {
-  const ans = String(item.answer || '').trim();
-  let opts = (item.stem?.opts || []).map(String).filter((o) => !GARBAGE.test(o));
-  if (!opts.includes(ans)) opts = [ans, ...opts];
-  const fillers = [
-    ans.replace(/^\S+/, 'make'),
-    ans.replace(/^\S+/, 'do'),
-    ans.replace(/^\S+/, 'take'),
-    'make a mistake',
-    'do homework',
-    'get ready',
-    'take a break',
-    'look after someone',
-  ].filter((o) => o.includes(' ') && o.toLowerCase() !== ans.toLowerCase());
-
-  const out = [];
-  const seen = new Set();
-  for (const o of [...opts, ...fillers]) {
-    const k = o.toLowerCase();
-    if (seen.has(k) || GARBAGE.test(o)) continue;
-    seen.add(k);
-    out.push(o);
-    if (out.length >= 4) break;
-  }
-  while (out.length < 4) {
-    out.push(`${lemma} something else ${out.length}`);
-  }
-  // ensure answer first then shuffle later in UI
-  if (!out.includes(ans)) out[0] = ans;
-  return {
-    ...item,
-    stem: { ...item.stem, opts: out.slice(0, 4) },
-    answer: ans,
-    meta: { ...(item.meta || {}), tonight: true, colo_cleaned: true },
-  };
-}
+const src = path.join(root, 'data/vocab-test-bank/tonight-verb-curriculum.json');
+const raw = JSON.parse(fs.readFileSync(src, 'utf8'));
+const lemmas = raw.lemmas || [];
 
 const items = [];
-const lemmasOut = [];
-const skipped = [];
+const lemmaList = [];
 
-for (const lemma of tonightLemmas) {
-  const list = byLemma.get(lemma) || [];
-  if (!list.length) {
-    skipped.push({ lemma, reason: 'missing_bank' });
-    continue;
-  }
-  const kept = [];
-  for (const it of list) {
-    if (!KEEP_TYPES.has(it.type)) continue;
-    if (it.type === 'meaning_mcq' && !senseOk(lemma, it)) {
-      skipped.push({ lemma, reason: 'bad_meaning', type: it.type });
-      continue;
-    }
-    if (it.type === 'collocation_mcq') {
-      kept.push(cleanColo(it, lemma));
-    } else {
-      kept.push({ ...it, meta: { ...(it.meta || {}), tonight: true } });
-    }
-  }
-  const types = new Set(kept.map((i) => i.type));
-  if (!types.has('meaning_mcq') || !types.has('l2_to_en')) {
-    skipped.push({ lemma, reason: 'missing_core_types', have: [...types] });
-    continue;
-  }
-  lemmasOut.push(lemma);
-  items.push(...kept);
+for (const L of lemmas) {
+  const lemma = L.lemma;
+  lemmaList.push(lemma);
+
+  items.push({
+    lemma,
+    pos: L.pos || 'v',
+    sense_vi: L.sense_vi,
+    example_en: L.example_en,
+    example_vi: L.example_vi,
+    type: 'meaning_mcq',
+    stem: {
+      q: `${lemma} (động từ) — chọn nghĩa đúng nhất:`,
+      opts: L.meaning_opts,
+    },
+    answer: L.meaning_answer,
+    explain_vi: `${L.sense_vi}\nVí dụ: ${L.example_en}\n→ ${L.example_vi}`,
+    meta: { quality: 'curriculum', skill: 'meaning' },
+  });
+
+  items.push({
+    lemma,
+    pos: L.pos || 'v',
+    sense_vi: L.sense_vi,
+    example_en: L.example_en,
+    example_vi: L.example_vi,
+    type: 'l2_to_en',
+    stem: {
+      q: L.l2_q,
+      opts: L.l2_opts,
+    },
+    answer: L.l2_answer,
+    explain_vi: L.l2_explain,
+    meta: { quality: 'curriculum', skill: 'l2_to_en' },
+  });
+
+  items.push({
+    lemma,
+    pos: L.pos || 'v',
+    sense_vi: L.sense_vi,
+    example_en: L.example_en,
+    example_vi: L.example_vi,
+    type: 'collocation_mcq',
+    stem: {
+      q: L.colo_q,
+      opts: L.colo_opts,
+    },
+    answer: L.colo_answer,
+    explain_vi: L.colo_explain,
+    meta: { quality: 'curriculum', skill: 'collocation' },
+  });
 }
 
 const pack = {
-  version: 1,
+  version: 2,
   id: 'tonight-verb-drill',
-  title: 'Drill động từ tối nay',
-  title_en: 'Tonight verb drill',
-  note: 'Chỉ meaning + l2 + colo (đã lọc). Không cloze/error — AG phase 2.',
+  title: 'Drill động từ (curriculum)',
+  note: 'Nghĩa đầy đủ · ví dụ EN/VI · cụm thật · bẫy make/do/look for… Soạn tay cho lớp, không template máy.',
   built_at: new Date().toISOString(),
   types: ['meaning_mcq', 'l2_to_en', 'collocation_mcq'],
-  lemmas: lemmasOut,
-  lemma_count: lemmasOut.length,
+  lemmas: lemmaList,
+  lemma_count: lemmaList.length,
   item_count: items.length,
   items,
-  skipped,
 };
 
 const outData = path.join(root, 'data/vocab-test-bank/tonight-verb-drill.json');
@@ -139,10 +90,7 @@ console.log(
     {
       lemmas: pack.lemma_count,
       items: pack.item_count,
-      skipped: skipped.length,
-      outData,
-      outPublic,
-      sample: lemmasOut.slice(0, 12),
+      sample: lemmaList.slice(0, 10),
     },
     null,
     2,
