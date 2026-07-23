@@ -317,10 +317,8 @@ function PackReadingInner() {
             if (mapped.filter((w) => w.bucket === b).length > 0) startBucket = b;
           }
           setBucket(startBucket);
-          const pre = mapped
-            .filter((w) => w.bucket === startBucket)
-            .slice(0, Math.min(12, PACK_PASSAGE_MAX_WORDS));
-          setSelectedKeys(new Set(pre.map(wordKey)));
+          // Không auto-chọn — user tự chọn (+ nhóm / từng từ)
+          setSelectedKeys(new Set());
         } else {
           setPool([]);
           setPoolSource('empty');
@@ -414,22 +412,12 @@ function PackReadingInner() {
     setPassage(null);
   }, []);
 
-  const switchBucket = useCallback(
-    (b: MemoryBucket) => {
-      setBucket(b);
-      setQuery('');
-      const inBucket = pool.filter((w) => w.bucket === b);
-      if (inBucket.length >= PACK_PASSAGE_MIN_WORDS) {
-        setSelectedKeys(
-          new Set(
-            inBucket.slice(0, Math.min(12, PACK_PASSAGE_MAX_WORDS)).map(wordKey),
-          ),
-        );
-      }
-      setPassage(null);
-    },
-    [pool],
-  );
+  const switchBucket = useCallback((b: MemoryBucket) => {
+    setBucket(b);
+    setQuery('');
+    // Giữ selection xuyên bucket; không auto-fill nhóm mới
+    setPassage(null);
+  }, []);
 
   const genPassage = useCallback(async () => {
     if (!themeId) {

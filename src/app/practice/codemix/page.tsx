@@ -291,10 +291,8 @@ function CodeMixPracticeInner() {
             if (mapped.some((w) => w.bucket === b)) start = b;
           }
           setBucket(start);
-          const pre = mapped
-            .filter((w) => w.bucket === start)
-            .slice(0, Math.min(5, CODEMIX_MAX_WORDS));
-          setSelectedKeys(new Set(pre.map(wordKey)));
+          // Không auto-chọn — user tự chọn (hoặc Rnd 5/10)
+          setSelectedKeys(new Set());
           setPoolLoading(false);
           return;
         }
@@ -305,13 +303,7 @@ function CodeMixPracticeInner() {
         setPool(DEMO_POOL);
         setPoolSource('demo');
         setBucket('weak');
-        setSelectedKeys(
-          new Set(
-            DEMO_POOL.filter((w) => w.bucket === 'weak')
-              .slice(0, 5)
-              .map(wordKey),
-          ),
-        );
+        setSelectedKeys(new Set());
         setPoolLoading(false);
       }
     })();
@@ -381,21 +373,11 @@ function CodeMixPracticeInner() {
 
   const clearSelection = useCallback(() => setSelectedKeys(new Set()), []);
 
-  const switchBucket = useCallback(
-    (b: MemoryBucket) => {
-      setBucket(b);
-      setQuery('');
-      const inBucket = pool.filter((w) => (w.bucket ?? 'weak') === b);
-      if (inBucket.length >= CODEMIX_MIN_WORDS) {
-        setSelectedKeys(
-          new Set(inBucket.slice(0, Math.min(5, CODEMIX_MAX_WORDS)).map(wordKey)),
-        );
-      } else {
-        setSelectedKeys(new Set(inBucket.map(wordKey)));
-      }
-    },
-    [pool],
-  );
+  const switchBucket = useCallback((b: MemoryBucket) => {
+    setBucket(b);
+    setQuery('');
+    // Giữ selection xuyên bucket (từ đã chọn vẫn hiện chip); không auto-fill nhóm mới
+  }, []);
 
   const cmFound = useMemo(() => findTargets(codemix, selected), [codemix, selected]);
 
