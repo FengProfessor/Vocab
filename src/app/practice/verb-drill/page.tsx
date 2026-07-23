@@ -721,15 +721,16 @@ export default function VerbDrillPage() {
                     </button>
                   </div>
                 )}
+                {/* Chỉ hiện từ lần 2 — lần 1 không cần chữ */}
                 <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
-                  {knownHits > 0 && !revealed && (
+                  {knownHits > 1 && !revealed && (
                     <span
                       className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(knownHits)}`}
                     >
                       đã đúng {tierLabel(knownHits)} lần
                     </span>
                   )}
-                  {revealed && justHitTier != null && (
+                  {revealed && justHitTier != null && justHitTier > 1 && (
                     <span
                       className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(justHitTier)}`}
                     >
@@ -767,21 +768,21 @@ export default function VerbDrillPage() {
                   </p>
                 )}
                 <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
-                  {knownHits > 0 && !revealed && (
+                  {knownHits > 1 && !revealed && (
                     <span
                       className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(knownHits)}`}
                     >
                       đã đúng {tierLabel(knownHits)} lần
                     </span>
                   )}
-                  {revealed && justHitTier != null && (
+                  {revealed && justHitTier != null && justHitTier > 1 && (
                     <span
                       className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(justHitTier)}`}
                     >
                       Đúng lần {tierLabel(justHitTier)}
                     </span>
                   )}
-                  {revealed && justHitTier == null && knownHits > 0 && (
+                  {revealed && justHitTier == null && knownHits > 1 && (
                     <span
                       className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(knownHits)}`}
                     >
