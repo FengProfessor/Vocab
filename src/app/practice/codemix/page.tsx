@@ -704,22 +704,50 @@ function CodeMixPracticeInner() {
               </button>
             </div>
 
+            {/* Chip: EN + nghĩa VI (bắt buộc khi viết) — không thêm field nặng */}
             <div className="flex flex-wrap gap-1.5">
               {selected.map((w) => {
                 const done = cmFound.has(normalize(w.word));
+                const reviews = w.review_count ?? 0;
                 return (
                   <button
                     key={wordKey(w)}
                     type="button"
                     onClick={() => !done && insertWord(w.word)}
                     disabled={done}
-                    className={`rounded-full border px-2.5 py-1.5 text-xs font-semibold ${
+                    className={`max-w-full rounded-xl border px-2.5 py-1.5 text-left transition active:scale-[0.98] ${
                       done
-                        ? 'border-emerald-300 bg-emerald-50 text-emerald-700 line-through opacity-60'
-                        : 'border-violet-300 bg-violet-50 text-violet-900 active:scale-95'
+                        ? 'border-emerald-300 bg-emerald-50 opacity-60'
+                        : 'border-violet-300 bg-violet-50 hover:border-violet-400'
                     }`}
                   >
-                    {w.word}
+                    <span className="flex items-baseline gap-1.5">
+                      <span
+                        className={`text-xs font-bold ${
+                          done
+                            ? 'text-emerald-700 line-through'
+                            : 'text-violet-950'
+                        }`}
+                      >
+                        {w.word}
+                      </span>
+                      {/* review_count SRS đã load sẵn — badge phụ, không query thêm */}
+                      {reviews > 0 && (
+                        <span
+                          className="text-[10px] font-semibold tabular-nums text-slate-400"
+                          title={`${reviews} lần ôn (SRS)`}
+                        >
+                          ×{reviews}
+                        </span>
+                      )}
+                    </span>
+                    <span
+                      className={`mt-0.5 block truncate text-[11px] leading-snug ${
+                        done ? 'text-emerald-600/80 line-through' : 'text-slate-500'
+                      }`}
+                    >
+                      {w.vi}
+                    </span>
                   </button>
                 );
               })}
