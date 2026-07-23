@@ -41,6 +41,14 @@ const DEAD_TOKEN_CODES = [
   'messaging/invalid-registration-token',
 ];
 
+type TokenRow = { token: string; lastUsedAt: number };
+
+/**
+ * Gửi push tới ĐÚNG 1 endpoint tươi nhất của user.
+ * - Trước đây multicast mọi token → 1 máy cài 2 app / Chrome+PWA = N bubble cùng lúc.
+ * - Giờ: sort last_used_at DESC → thử token #1; chết thì dọn + thử #2… đến khi 1 cái success.
+ * → Dù DT hay MT, mỗi lần nhắc chỉ 1 thông báo (trên thiết bị dùng gần nhất).
+ */
 export async function sendPushNotificationToUser(
   userId: string,
   title: string,
@@ -52,44 +60,101 @@ export async function sendPushNotificationToUser(
   try {
     const supabase = createServiceClient();
 
-    // Gom token đa thiết bị: bảng fcm_tokens + legacy profiles.fcm_token
-    const tokens = new Set<string>();
-    const { data: rows } = await supabase.from('fcm_tokens').select('token').eq('user_id', userId);
-    rows?.forEach((r: { token: string | null }) => { if (r.token) tokens.add(r.token); });
+    // Token đa thiết bị + thời điểm dùng gần nhất (ưu tiên endpoint tươi).
+    const { data: rows } = await supabase
+      .from('fcm_tokens')
+      .select('token, last_used_at')
+      .eq('user_id', userId);
 
-    const { data: profile } = await supabase.from('profiles').select('fcm_token').eq('id', userId).single();
-    if (profile?.fcm_token) tokens.add(profile.fcm_token);
+    const byToken = new Map<string, TokenRow>();
+    rows?.forEach((r: { token: string | null; last_used_at: string | null }) => {
+      if (!r.token) return;
+      const ts = r.last_used_at ? new Date(r.last_used_at).getTime() : 0;
+      const prev = byToken.get(r.token);
+      if (!prev || ts > prev.lastUsedAt) {
+        byToken.set(r.token, { token: r.token, lastUsedAt: ts });
+      }
+    });
 
-    if (tokens.size === 0) return { error: `No token for user ${userId}` };
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('fcm_token')
+      .eq('id', userId)
+      .single();
+
+    // Legacy: chỉ thêm nếu chưa có trong fcm_tokens (ưu tiên thấp hơn token có last_used).
+    if (profile?.fcm_token && !byToken.has(profile.fcm_token)) {
+      byToken.set(profile.fcm_token, { token: profile.fcm_token, lastUsedAt: 0 });
+    }
+
+    if (byToken.size === 0) return { error: `No token for user ${userId}` };
+
+    // Mới dùng trước → 1 notif trên máy/app đang active.
+    const ordered = Array.from(byToken.values()).sort((a, b) => b.lastUsedAt - a.lastUsedAt);
 
     const link = `https://lingopro.online${url}`;
-    const tokenArr = Array.from(tokens);
-    const deadTokens: string[] = [];
-
-    // Gửi 1 lần tới TẤT CẢ thiết bị của user (sendEachForMulticast: tối đa 500 token/call,
-    // 1 round-trip thay vì N — tránh nghẽn khi cron bắn hàng loạt user).
-    const resp = await admin.messaging().sendEachForMulticast({
-      tokens: tokenArr,
+    const payload = {
       notification: { title, body: message },
       data: { url: link },
       webpush: {
         fcmOptions: { link },
-        notification: { icon: '/icons/icon-192.webp', badge: '/icons/icon-192.webp' },
+        notification: {
+          icon: '/icons/icon-192.webp',
+          badge: '/icons/icon-192.webp',
+          // Tag cố định: nếu cùng browser còn bubble cũ, thay thế thay vì xếp chồng (web).
+          tag: 'lingopro-due',
+          renotify: true,
+        },
       },
-    });
+      // Android/Capacitor: collapse cùng key → 1 slot notif thay vì chồng.
+      android: {
+        collapseKey: 'lingopro-due',
+        notification: { tag: 'lingopro-due' },
+      },
+    };
 
-    let lastId = '';
-    resp.responses.forEach((r, i) => {
-      if (r.success) {
-        lastId = r.messageId || lastId;
-      } else {
-        const code = (r.error as { code?: string } | undefined)?.code || '';
-        if (DEAD_TOKEN_CODES.includes(code)) deadTokens.push(tokenArr[i]);
+    const deadTokens: string[] = [];
+    let lastError = '';
+
+    for (const { token } of ordered) {
+      try {
+        const messageId = await admin.messaging().send({
+          token,
+          ...payload,
+        });
+
+        // Dọn token chết đã gặp trước khi gửi thành công.
+        if (deadTokens.length) {
+          await supabase.from('fcm_tokens').delete().in('token', deadTokens);
+          if (profile?.fcm_token && deadTokens.includes(profile.fcm_token)) {
+            await supabase.from('profiles').update({ fcm_token: null }).eq('id', userId);
+          }
+          console.log(`[FCM] Cleared ${deadTokens.length} dead token(s) for user ${userId}`);
+        }
+
+        // Đồng bộ legacy = token vừa gửi OK (thiết bị đang active).
+        if (profile && profile.fcm_token !== token) {
+          await supabase.from('profiles').update({ fcm_token: token }).eq('id', userId);
+        }
+
+        console.log(
+          `[FCM] Sent 1/1 (primary of ${ordered.length} token(s)) user=${userId.slice(0, 8)} id=${messageId}`
+        );
+        return { messageId, sentCount: 1, tried: ordered.length, skipped: ordered.length - 1 };
+      } catch (err: unknown) {
+        const e = err as { code?: string; message?: string } | undefined;
+        const code = e?.code || '';
+        lastError = e?.message || code || 'unknown';
+        if (DEAD_TOKEN_CODES.includes(code)) {
+          deadTokens.push(token);
+          continue;
+        }
+        // Lỗi khác (quota, network…) → không đốt hết token; dừng.
+        console.warn(`[FCM] Send failed non-dead for user ${userId.slice(0, 8)}:`, lastError);
+        break;
       }
-    });
-    const sentCount = resp.successCount;
+    }
 
-    // Dọn token chết khỏi cả 2 nơi
     if (deadTokens.length) {
       await supabase.from('fcm_tokens').delete().in('token', deadTokens);
       if (profile?.fcm_token && deadTokens.includes(profile.fcm_token)) {
@@ -98,8 +163,9 @@ export async function sendPushNotificationToUser(
       console.log(`[FCM] Cleared ${deadTokens.length} dead token(s) for user ${userId}`);
     }
 
-    if (sentCount > 0) return { messageId: lastId, sentCount };
-    return { error: `All ${tokens.size} token(s) failed for user ${userId}` };
+    return {
+      error: `All ${ordered.length} token(s) failed for user ${userId}: ${lastError || 'unknown'}`,
+    };
   } catch (err: unknown) {
     const e = err as { message?: string; code?: string } | undefined;
     return { error: `Firebase error: ${e?.message || e?.code || 'unknown'}` };
