@@ -39,6 +39,8 @@ interface DrillWord {
   stability?: number;
   isDue?: boolean;
   bucket?: MemoryBucket;
+  /** Số lần đúng quiz nhớ nhanh (localStorage, cùng key verb-drill) */
+  quizHits?: number;
 }
 
 const BUCKET_META: Record<MemoryBucket, { label: string }> = {
@@ -47,13 +49,43 @@ const BUCKET_META: Record<MemoryBucket, { label: string }> = {
   solid: { label: 'Vững' },
 };
 
+/** Cùng key với /practice/verb-drill */
+const QUIZ_CORRECT_LS_KEY = 'verb-drill-correct-v1';
+const MAX_LEARNED_POOL = 200;
+
+function loadQuizHitsMap(): Record<string, number> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = localStorage.getItem(QUIZ_CORRECT_LS_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+    const out: Record<string, number> = {};
+    for (const [k, v] of Object.entries(parsed as Record<string, unknown>)) {
+      const n = typeof v === 'number' ? v : Number(v);
+      if (k && Number.isFinite(n) && n > 0) out[k.toLowerCase()] = Math.floor(n);
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+/** Nhãn gọn: 1 / 2 / 3 / >3 */
+function quizHitsLabel(n: number): string {
+  if (n <= 0) return '';
+  if (n > 3) return '>3';
+  return String(n);
+}
+
 function bucketForMemory(w: {
   review_count: number;
   srsLevel: number;
   stability: number;
   isDue: boolean;
 }): MemoryBucket {
-  if (w.review_count <= 0 || w.isDue || w.srsLevel <= 2 || w.stability < 1.5) {
+  // Chỉ dùng cho từ đã học (review_count > 0); due / L thấp → Yếu
+  if (w.isDue || w.srsLevel <= 2 || w.stability < 1.5) {
     return 'weak';
   }
   if (w.srsLevel >= 5) return 'solid';
@@ -194,16 +226,18 @@ function CodeMixPracticeInner() {
   const [quota, setQuota] = useState<QuotaInfo | null>(null);
   const [quotaBlocked, setQuotaBlocked] = useState(false);
 
-  // Load từ user + SRS → bucket mức nhớ (giống luyện đọc)
+  // Load chỉ từ ĐÃ HỌC + SRS bucket + lần đúng quiz (local)
   useEffect(() => {
     let cancelled = false;
     (async () => {
       setPoolLoading(true);
       try {
+        const quizMap = loadQuizHitsMap();
         const mapped: DrillWord[] = [];
         const seen = new Set<string>();
 
-        for (const offset of [0, 50]) {
+        for (let page = 0; page < 6; page++) {
+          const offset = page * 50;
           const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
           const json = (await res.json()) as {
             success?: boolean;
@@ -233,9 +267,12 @@ function CodeMixPracticeInner() {
               continue;
             }
             const review_count = w.srs?.review_count ?? w.reviewCount ?? 0;
+            // Chỉ từ đã học flashcard/SRS
+            if (review_count <= 0) continue;
             const stability = Number(w.srs?.stability ?? 0);
             const srsLevel = Number(w.srsLevel ?? 1);
             const isDue = Boolean(w.isDue);
+            const quizHits = quizMap[key] ?? 0;
             mapped.push({
               id: w.id,
               word,
@@ -245,11 +282,12 @@ function CodeMixPracticeInner() {
               srsLevel,
               stability,
               isDue,
+              quizHits,
               bucket: bucketForMemory({ review_count, srsLevel, stability, isDue }),
             });
-            if (mapped.length >= 120) break;
+            if (mapped.length >= MAX_LEARNED_POOL) break;
           }
-          if (json.data.length < 50 || mapped.length >= 120) break;
+          if (json.data.length < 50 || mapped.length >= MAX_LEARNED_POOL) break;
         }
 
         if (cancelled) return;
@@ -267,7 +305,7 @@ function CodeMixPracticeInner() {
             if (mapped.some((w) => w.bucket === b)) start = b;
           }
           setBucket(start);
-          // Không auto-chọn — user tự chọn (hoặc Rnd 5/10)
+          // Không auto-chọn từ — user tự chọn (hoặc Rnd 5)
           setSelectedKeys(new Set());
           setPoolLoading(false);
           return;
@@ -555,7 +593,7 @@ function CodeMixPracticeInner() {
             <div className="rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-white p-3 shadow-sm">
               <p className="text-sm font-black text-violet-950">Bắt đầu nhanh</p>
               <p className="mt-0.5 text-[11px] leading-snug text-violet-800/80">
-                App chọn giúp 5 từ (ưu tiên nhóm Yếu) → bạn chỉ việc viết câu.
+                Chỉ từ đã học · app chọn 5 (ưu tiên Yếu) → bạn viết câu.
               </p>
               <button
                 type="button"
@@ -605,6 +643,11 @@ function CodeMixPracticeInner() {
                     );
                   })}
                 </div>
+                <p className="text-[10px] text-slate-400">
+                  {poolSource === 'mine'
+                    ? `${pool.length} từ đã học · số nhỏ trên chip = lần đúng quiz`
+                    : 'Demo — đăng nhập để dùng kho đã học'}
+                </p>
 
                 <div className="flex items-center gap-1.5">
                   <span className="text-[11px] font-bold tabular-nums text-slate-500">
@@ -650,6 +693,7 @@ function CodeMixPracticeInner() {
                       const k = wordKey(w);
                       const on = selectedKeys.has(k);
                       const full = !on && selectedCount >= CODEMIX_MAX_WORDS;
+                      const qLabel = quizHitsLabel(w.quizHits ?? 0);
                       return (
                         <button
                           key={k}
@@ -666,6 +710,16 @@ function CodeMixPracticeInner() {
                         >
                           {on && <Check className="mr-0.5 inline h-2.5 w-2.5" />}
                           <span className="font-semibold">{w.word}</span>
+                          {qLabel ? (
+                            <span
+                              className={`ml-0.5 text-[9px] font-black tabular-nums ${
+                                on ? 'text-violet-100' : 'text-slate-400'
+                              }`}
+                              title={`Đúng quiz ${qLabel} lần`}
+                            >
+                              ·{qLabel}
+                            </span>
+                          ) : null}
                         </button>
                       );
                     })
