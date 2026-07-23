@@ -240,7 +240,6 @@ export default function VerbDrillPage() {
   const [revealed, setRevealed] = useState(false);
   const [correctN, setCorrectN] = useState(0);
   const [correctMap, setCorrectMap] = useState<CorrectMap>({});
-  const [justHitTier, setJustHitTier] = useState<number | null>(null);
 
   useEffect(() => {
     setCorrectMap(loadCorrectMap());
@@ -420,13 +419,10 @@ export default function VerbDrillPage() {
     setPicked(null);
     setRevealed(false);
     setCorrectN(0);
-    setJustHitTier(null);
     setPhase('quiz');
   }, [canQuiz, poolWords, wordCount, allMeanings, allLemmas]);
 
   const current = queue[idx] ?? null;
-  const currentKey = current?.lemma.toLowerCase() ?? '';
-  const knownHits = currentKey ? correctMap[currentKey] ?? 0 : 0;
   const currentPos = current ? posLabel(current.pos) : null;
   const currentIpa = current?.ipa ? parseIpa(current.ipa) : '';
 
@@ -456,7 +452,6 @@ export default function VerbDrillPage() {
       }
       setPicked(null);
       setRevealed(false);
-      setJustHitTier(null);
       return i + 1;
     });
   }, [queue.length]);
@@ -468,36 +463,64 @@ export default function VerbDrillPage() {
     if (revealed || !current) return;
     setPicked(o);
     setRevealed(true);
-    const ok = answersMatch(o, current.answer);
-    // Cloze: sau khi chọn → nghe từ đúng (lemma)
-    if (current.type === 'cloze') {
-      stopSpeak();
-      speak(current.lemma, 1.0);
-    }
-    if (ok) {
+    if (answersMatch(o, current.answer)) {
       setCorrectN((n) => n + 1);
       const key = current.lemma.toLowerCase();
       setCorrectMap((prev) => {
         const nextN = (prev[key] ?? 0) + 1;
         const nextMap = { ...prev, [key]: nextN };
         saveCorrectMap(nextMap);
-        setJustHitTier(nextN);
         return nextMap;
       });
-    } else {
-      setJustHitTier(null);
     }
   };
 
-  // Đúng 1s · sai 3.5s rồi next
+  /**
+   * Next timing:
+   * - nghĩa đúng: 1s (đã auto nghe lúc hiện thẻ)
+   * - cloze đúng: chờ phát âm xong mới next (không theo timer)
+   * - sai (mọi loại): 3.5s; cloze vẫn phát từ đúng khi chờ
+   */
   useEffect(() => {
     if (phase !== 'quiz' || !revealed || !current || picked == null) return;
     const ok = answersMatch(picked, current.answer);
+    let cancelled = false;
+
+    if (current.type === 'cloze' && ok) {
+      (async () => {
+        try {
+          stopSpeak();
+          const { playWordAudio } = await import('@/lib/audio');
+          if (cancelled) return;
+          await playWordAudio(current.lemma, null, 1.0);
+        } catch {
+          /* ignore audio fail */
+        }
+        if (!cancelled) {
+          window.setTimeout(() => {
+            if (!cancelled) next();
+          }, 120);
+        }
+      })();
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    // Cloze sai: phát từ đúng trong lúc chờ 3.5s
+    if (current.type === 'cloze' && !ok) {
+      stopSpeak();
+      speak(current.lemma, 1.0);
+    }
+
     const delay = ok ? 1000 : 3500;
     const t = window.setTimeout(() => {
-      next();
+      if (!cancelled) next();
     }, delay);
-    return () => window.clearTimeout(t);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(t);
+    };
   }, [phase, revealed, idx, next, picked, current]);
 
   const pct = useMemo(() => {
@@ -708,23 +731,6 @@ export default function VerbDrillPage() {
                     </button>
                   </div>
                 )}
-                {/* Chỉ hiện từ lần 2 — lần 1 không cần chữ */}
-                <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
-                  {knownHits > 1 && !revealed && (
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(knownHits)}`}
-                    >
-                      đã đúng {tierLabel(knownHits)} lần
-                    </span>
-                  )}
-                  {revealed && justHitTier != null && justHitTier > 1 && (
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(justHitTier)}`}
-                    >
-                      Đúng lần {tierLabel(justHitTier)}
-                    </span>
-                  )}
-                </div>
               </div>
             ) : (
               <div className="rounded-2xl border border-violet-100 bg-violet-50/50 py-7 text-center">
@@ -754,29 +760,6 @@ export default function VerbDrillPage() {
                     <span className="ml-1.5 text-violet-600/80">{currentPos.vi}</span>
                   </p>
                 )}
-                <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
-                  {knownHits > 1 && !revealed && (
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(knownHits)}`}
-                    >
-                      đã đúng {tierLabel(knownHits)} lần
-                    </span>
-                  )}
-                  {revealed && justHitTier != null && justHitTier > 1 && (
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(justHitTier)}`}
-                    >
-                      Đúng lần {tierLabel(justHitTier)}
-                    </span>
-                  )}
-                  {revealed && justHitTier == null && knownHits > 1 && (
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-[11px] font-black ${tierBadgeClass(knownHits)}`}
-                    >
-                      vẫn {tierLabel(knownHits)} lần đúng
-                    </span>
-                  )}
-                </div>
               </div>
             )}
 
@@ -826,7 +809,9 @@ export default function VerbDrillPage() {
                 {idx + 1 >= queue.length
                   ? 'Sắp xem kết quả…'
                   : answersMatch(picked, current.answer)
-                    ? 'Tự sang câu tiếp (1s)…'
+                    ? current.type === 'cloze'
+                      ? 'Đang nghe từ đúng…'
+                      : 'Tự sang câu tiếp (1s)…'
                     : 'Tự sang câu tiếp (3.5s)…'}
               </p>
             )}
