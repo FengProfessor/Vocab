@@ -170,7 +170,22 @@ export function buildGrammarLessonPdfHtml(input: GrammarPdfInput): string {
         </ol>
         <p class="meta-line">Đối chiếu trên app: drill chấm điểm + SRS tiến độ.</p>
       </section>`
-    : '';
+    : `<section class="block answers no-print" style="display:none">
+        <h2>🔑 Đáp án (Ẩn)</h2>
+        <ol class="ans-list">
+          ${exercises
+            .map((e, i) => {
+              const ans = formatAnswer(
+                e.answer !== undefined ? e.answer : e.correct_answer,
+              );
+              const fb = e.fb || e.explanation || '';
+              return `<li><strong>${i + 1}.</strong> ${escapeHtml(ans)}${
+                fb ? ` <span class="fb">— ${escapeHtml(fb)}</span>` : ''
+              }</li>`;
+            })
+            .join('')}
+        </ol>
+      </section>`;
 
   const mistakes = (input.mistakes ?? []).slice(0, 12);
   const mistakesHtml = mistakes.length

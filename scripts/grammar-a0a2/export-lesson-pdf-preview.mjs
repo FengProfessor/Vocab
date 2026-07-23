@@ -30,7 +30,9 @@ function loadEnv() {
   return env;
 }
 
-const slug = process.argv[2] || 'countable-uncountable';
+const args = process.argv.slice(2);
+const noAnswers = args.includes('--no-answers');
+const slug = args.find((a) => !a.startsWith('--')) || 'countable-uncountable';
 const env = loadEnv();
 const sb = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
 
@@ -71,7 +73,7 @@ const html = buildGrammarLessonPdfHtml({
   wordbanks: sections.wordbanks,
   exercises: lesson.exercises,
   exerciseCap: 0, // all exercises (print handout)
-  withAnswers: true,
+  withAnswers: !noAnswers,
   siteUrl: 'https://lingopro.online',
 });
 
