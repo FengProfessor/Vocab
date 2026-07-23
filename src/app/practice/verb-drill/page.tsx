@@ -231,10 +231,8 @@ export default function VerbDrillPage() {
   const [loading, setLoading] = useState(true);
   const [loadErr, setLoadErr] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>('setup');
-  /** Kho theo bậc đúng — mặc định chọn hết */
-  const [selectedTiers, setSelectedTiers] = useState<Set<TierKey>>(
-    () => new Set(ALL_TIERS),
-  );
+  /** Kho theo bậc đúng — không auto chọn, user tự bật 1+ kho */
+  const [selectedTiers, setSelectedTiers] = useState<Set<TierKey>>(() => new Set());
   const [wordCount, setWordCount] = useState(15);
   const [queue, setQueue] = useState<QuizQ[]>([]);
   const [idx, setIdx] = useState(0);
@@ -369,8 +367,6 @@ export default function VerbDrillPage() {
       const next = new Set(prev);
       if (next.has(t)) next.delete(t);
       else next.add(t);
-      // không cho bỏ hết — nếu rỗng thì bật lại
-      if (next.size === 0) next.add(t);
       return next;
     });
   };
@@ -591,22 +587,28 @@ export default function VerbDrillPage() {
             <p className="text-[12px] text-slate-500">
               {words.length} từ đã học · đúng thì lên bậc
             </p>
+            <p className="text-[12px] font-semibold text-slate-600">
+              Chọn 1 hoặc nhiều kho từ
+            </p>
 
             <div>
-              <p className="mb-1.5 text-[11px] font-semibold text-slate-500">Chọn kho theo bậc</p>
               <div className="flex flex-wrap gap-1.5">
                 {ALL_TIERS.map((t) => {
                   const on = selectedTiers.has(t);
                   const count = tierStats[t];
+                  const empty = count === 0;
                   return (
                     <button
                       key={t}
                       type="button"
+                      disabled={empty}
                       onClick={() => toggleTier(t)}
                       className={`rounded-lg border px-2.5 py-1.5 text-[11px] font-black transition ${
                         on
                           ? `${tierBadgeClass(t === 4 ? 4 : t)} border-transparent ring-2 ring-violet-400 ring-offset-1`
-                          : 'border-slate-200 bg-white text-slate-400'
+                          : empty
+                            ? 'cursor-not-allowed border-slate-100 bg-slate-50 text-slate-300'
+                            : 'border-slate-200 bg-white text-slate-500 active:bg-slate-50'
                       }`}
                     >
                       {TIER_CHIP[t]}: {count}
@@ -615,7 +617,9 @@ export default function VerbDrillPage() {
                 })}
               </div>
               <p className="mt-1.5 text-[10px] text-slate-400">
-                Đang chọn {poolWords.length} từ
+                {selectedTiers.size === 0
+                  ? 'Chưa chọn kho'
+                  : `Đang chọn ${poolWords.length} từ`}
               </p>
             </div>
 
@@ -637,7 +641,7 @@ export default function VerbDrillPage() {
               onClick={start}
               disabled={!canQuiz || poolWords.length === 0}
             >
-              Bắt đầu
+              {selectedTiers.size === 0 ? 'Chọn kho từ trước' : 'Bắt đầu'}
             </Button>
           </section>
         )}
