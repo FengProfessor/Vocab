@@ -468,8 +468,13 @@ export default function VerbDrillPage() {
     if (revealed || !current) return;
     setPicked(o);
     setRevealed(true);
-    // Đúng = khớp surface blank (cloze) hoặc nghĩa VI (meaning)
-    if (answersMatch(o, current.answer)) {
+    const ok = answersMatch(o, current.answer);
+    // Cloze: sau khi chọn → nghe từ đúng (lemma)
+    if (current.type === 'cloze') {
+      stopSpeak();
+      speak(current.lemma, 1.0);
+    }
+    if (ok) {
       setCorrectN((n) => n + 1);
       const key = current.lemma.toLowerCase();
       setCorrectMap((prev) => {
@@ -484,13 +489,16 @@ export default function VerbDrillPage() {
     }
   };
 
+  // Đúng 1s · sai 3.5s rồi next
   useEffect(() => {
-    if (phase !== 'quiz' || !revealed) return;
+    if (phase !== 'quiz' || !revealed || !current || picked == null) return;
+    const ok = answersMatch(picked, current.answer);
+    const delay = ok ? 1000 : 3500;
     const t = window.setTimeout(() => {
       next();
-    }, 1000);
+    }, delay);
     return () => window.clearTimeout(t);
-  }, [phase, revealed, idx, next]);
+  }, [phase, revealed, idx, next, picked, current]);
 
   const pct = useMemo(() => {
     if (!queue.length || phase !== 'done') return 0;
@@ -813,9 +821,13 @@ export default function VerbDrillPage() {
               })}
             </div>
 
-            {revealed && (
+            {revealed && picked != null && (
               <p className="text-center text-[11px] font-medium text-slate-400">
-                {idx + 1 >= queue.length ? 'Sắp xem kết quả…' : 'Tự sang câu tiếp (1s)…'}
+                {idx + 1 >= queue.length
+                  ? 'Sắp xem kết quả…'
+                  : answersMatch(picked, current.answer)
+                    ? 'Tự sang câu tiếp (1s)…'
+                    : 'Tự sang câu tiếp (3.5s)…'}
               </p>
             )}
           </section>
