@@ -54,12 +54,13 @@ export function buildStudentNavItems(opts: {
       onboardingId: 'nav-review',
     },
     {
-      href: '/practice/codemix',
-      label: 'Sử dụng từ / Đặt câu',
-      emoji: '✨',
+      href: '/practice',
+      label: 'Sử dụng từ',
+      emoji: '✍️',
       color: '#7c3aed',
       tile: '#f3e8ff',
       match: (pathname) => pathname.startsWith('/practice'),
+      onboardingId: 'practice-use-words',
     },
     {
       href: '/grammar/learn',

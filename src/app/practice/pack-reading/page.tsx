@@ -548,15 +548,16 @@ function PackReadingInner() {
       <div className="mx-auto max-w-2xl space-y-4 px-3 py-4 pb-24 sm:px-4">
         <div className="flex items-center gap-2">
           <Link
-            href="/student"
+            href="/practice"
             className="flex h-9 w-9 items-center justify-center rounded-xl border bg-white text-slate-600 shadow-sm"
+            aria-label="Về Sử dụng từ"
           >
             <ChevronLeft className="h-5 w-5" />
           </Link>
           <div className="min-w-0 flex-1">
-            <h1 className="text-lg font-black text-slate-900">Luyện đọc gói từ</h1>
+            <h1 className="text-lg font-black text-slate-900">Luyện đọc</h1>
             <p className="text-[11px] font-semibold text-slate-500">
-              Chọn từ theo mức nhớ → chủ đề → cấp độ → Gen AI
+              Sử dụng từ · mức nhớ → chủ đề → cấp độ → Gen AI
             </p>
           </div>
           <BookOpen className="h-6 w-6 text-teal-600" />
