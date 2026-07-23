@@ -235,8 +235,15 @@ export default function VerbDrillPage() {
               <span>
                 {idx + 1}/{queue.length}
               </span>
+              {/* L2: không hiện lemma — answer chính là lemma → lộ đáp án */}
               <span className="rounded-md bg-amber-50 px-2 py-0.5 text-amber-900">
-                {typeLabel(current.type)} · <span className="font-black">{current.lemma}</span>
+                {typeLabel(current.type)}
+                {current.type !== 'l2_to_en' && (
+                  <>
+                    {' · '}
+                    <span className="font-black">{current.lemma}</span>
+                  </>
+                )}
               </span>
               <span className="tabular-nums text-emerald-700">✓ {correctN}</span>
             </div>
@@ -245,28 +252,25 @@ export default function VerbDrillPage() {
               <p className="text-[15px] font-bold leading-snug text-slate-900">
                 {current.stem.q}
               </p>
-              {current.type === 'meaning_mcq' && current.example_en && (
-                <div className="mt-2.5 rounded-lg border border-slate-100 bg-slate-50 px-2.5 py-2">
-                  <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
-                    Ví dụ
-                  </p>
-                  <p className="mt-0.5 text-[13px] font-semibold leading-snug text-slate-800">
-                    {current.example_en}
-                  </p>
-                  {current.example_vi && (
-                    <p className="mt-0.5 text-[12px] leading-snug text-slate-500">
-                      {current.example_vi}
+              {/* Nghĩa: ví dụ chỉ SAU khi trả lời — trước đó lộ context quá mạnh / lệch cụm */}
+              {current.type === 'meaning_mcq' &&
+                revealed &&
+                current.example_en && (
+                  <div className="mt-2.5 rounded-lg border border-slate-100 bg-slate-50 px-2.5 py-2">
+                    <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                      Ví dụ
                     </p>
-                  )}
-                </div>
-              )}
-              {current.type !== 'meaning_mcq' && current.sense_vi && (
-                <p className="mt-2 text-[11px] leading-snug text-slate-500">
-                  <span className="font-bold text-slate-600">{current.lemma}</span>
-                  {' — '}
-                  {current.sense_vi}
-                </p>
-              )}
+                    <p className="mt-0.5 text-[13px] font-semibold leading-snug text-slate-800">
+                      {current.example_en}
+                    </p>
+                    {current.example_vi && (
+                      <p className="mt-0.5 text-[12px] leading-snug text-slate-500">
+                        {current.example_vi}
+                      </p>
+                    )}
+                  </div>
+                )}
+              {/* Không hiện sense_vi trước khi trả lời (L2/colo) — spoiler + lệch nghĩa cụm (get up ≠ nhận tin) */}
             </div>
 
             <div className="space-y-1.5">

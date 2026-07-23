@@ -33,7 +33,7 @@
       "colo_q": "Chọn cụm đúng:",
       "colo_opts": ["get up early", "get on early", "make up early", "do up early"],
       "colo_answer": "get up early",
-      "colo_explain": "get up = thức dậy. get on = lên xe / hòa hợp (khác nghĩa)."
+      "colo_explain": "Cụm get up = thức dậy (khác nghĩa «nhận được»). get on = lên xe / hòa hợp với ai."
     },
     {
       "lemma": "think",
@@ -135,7 +135,7 @@
       "colo_q": "Chọn cụm đúng:",
       "colo_opts": ["call me on the phone", "call to me on the phone", "call me at the phone", "call me with the phone"],
       "colo_answer": "call me on the phone",
-      "colo_explain": "call someone / call someone on the phone. Không call to me."
+      "colo_explain": "call someone / call someone on the phone. Không: call to me."
     },
     {
       "lemma": "try",
