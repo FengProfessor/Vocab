@@ -1,10 +1,11 @@
 'use client';
 
 /**
- * Quiz từ vựng từ kho đã học:
+ * Quiz nhớ nhanh từ kho đã học (không FSRS / không ôn sâu).
  * 1) meaning — EN → chọn nghĩa VI
- * 2) cloze — điền chỗ trống từ example sẵn (không gen câu)
- * 3) mix — xen kẽ cloze khi có example, còn lại meaning
+ * 2) cloze — blank example sẵn (MCQ, không gen)
+ * 3) mix — xen kẽ cloze + meaning
+ * Ôn due + nghe + gõ + schedule → /review
  */
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -502,7 +503,7 @@ export default function VerbDrillPage() {
   };
 
   return (
-    <StudentShell title="Quiz từ vựng" contentClassName="p-0" hideMobileNav>
+    <StudentShell title="Quiz nhớ nhanh" contentClassName="p-0" hideMobileNav>
       <div className="mx-auto max-w-md space-y-3 px-3 py-3 pb-24">
         <div className="flex items-center gap-2">
           <Link
@@ -511,7 +512,7 @@ export default function VerbDrillPage() {
           >
             <ChevronLeft className="inline h-3.5 w-3.5" />
           </Link>
-          <h1 className="text-base font-black text-slate-900">Quiz từ vựng</h1>
+          <h1 className="text-base font-black text-slate-900">Quiz nhớ nhanh</h1>
         </div>
 
         {loading && (
@@ -588,9 +589,15 @@ export default function VerbDrillPage() {
 
         {!loading && !loadErr && canMeaning && phase === 'setup' && (
           <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4">
-            <p className="text-sm font-bold text-slate-800">Quiz từ kho đã học</p>
+            <p className="text-sm font-bold text-slate-800">Quiz nhớ nhanh · kho đã học</p>
             <p className="text-[12px] text-slate-500">
-              {words.length} từ đã học · {clozeCount} có example (cloze) · không gen câu mới
+              {words.length} từ · {clozeCount} cloze · MCQ tốc độ · không ghi FSRS
+            </p>
+            <p className="text-[11px] text-slate-400">
+              Muốn ôn due / nghe / gõ sâu →{' '}
+              <Link href="/review" className="font-bold text-violet-600 underline-offset-2 hover:underline">
+                Ôn tập
+              </Link>
             </p>
 
             <div className="grid grid-cols-3 gap-1.5">
