@@ -1,8 +1,8 @@
 'use client';
 
 /**
- * Quiz đơn giản: từ EN → chọn nghĩa VI (toàn bank).
- * /practice/verb-drill
+ * Quiz đơn giản: từ EN → chọn nghĩa VI.
+ * Bank chỉ có lemma + vi; 3 nhiễu + thứ tự ABCD random lúc runtime.
  */
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -11,19 +11,30 @@ import { Check, ChevronLeft, Loader2, RotateCcw, X } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 
-interface DrillItem {
+interface WordEntry {
   lemma: string;
-  type: string;
-  stem: { q: string; opts: string[] };
-  answer: string;
+  vi: string;
 }
 
 interface Pack {
   title: string;
   note?: string;
-  lemmas: string[];
-  items: DrillItem[];
+  lemmas?: string[];
+  words?: WordEntry[];
+  /** legacy: items with stem.opts */
+  items?: {
+    lemma: string;
+    stem: { q: string; opts: string[] };
+    answer: string;
+  }[];
   lemma_count?: number;
+  randomize_options?: boolean;
+}
+
+interface QuizQ {
+  lemma: string;
+  answer: string;
+  opts: string[];
 }
 
 type Phase = 'setup' | 'quiz' | 'done';
@@ -37,38 +48,72 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+/** 3 nghĩa nhiễu random từ pool (khác đáp án) + xáo 4 lựa chọn */
+function buildOpts(answer: string, allMeanings: string[]): string[] {
+  const pool = shuffle(allMeanings.filter((v) => v !== answer));
+  const wrong: string[] = [];
+  const seen = new Set<string>([answer]);
+  for (const v of pool) {
+    if (seen.has(v)) continue;
+    seen.add(v);
+    wrong.push(v);
+    if (wrong.length >= 3) break;
+  }
+  let i = 0;
+  while (wrong.length < 3) {
+    wrong.push(`(khác ${++i})`);
+  }
+  return shuffle([answer, ...wrong]);
+}
+
+function normalizePack(raw: Pack): { title: string; words: WordEntry[] } {
+  if (raw.words?.length) {
+    return {
+      title: raw.title || 'Quiz từ vựng',
+      words: raw.words.map((w) => ({ lemma: w.lemma, vi: w.vi })),
+    };
+  }
+  // legacy items → words
+  const words: WordEntry[] = [];
+  const seen = new Set<string>();
+  for (const it of raw.items || []) {
+    const L = it.lemma.toLowerCase();
+    if (seen.has(L)) continue;
+    seen.add(L);
+    words.push({ lemma: it.lemma, vi: it.answer });
+  }
+  return { title: raw.title || 'Quiz từ vựng', words };
+}
+
 export default function VerbDrillPage() {
-  const [pack, setPack] = useState<Pack | null>(null);
+  const [pack, setPack] = useState<{ title: string; words: WordEntry[] } | null>(null);
   const [loadErr, setLoadErr] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>('setup');
   const [wordCount, setWordCount] = useState(15);
-  const [queue, setQueue] = useState<DrillItem[]>([]);
+  const [queue, setQueue] = useState<QuizQ[]>([]);
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [correctN, setCorrectN] = useState(0);
-  const [opts, setOpts] = useState<string[]>([]);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        // full bank (cùng format simple EN→VI)
-        const res = await fetch(`/data/simple-vocab-quiz-all.json?v=${Date.now()}`, {
-          cache: 'no-store',
-        });
-        if (!res.ok) {
-          // fallback pack tối
-          const r2 = await fetch(`/data/tonight-verb-drill.json?v=${Date.now()}`, {
-            cache: 'no-store',
-          });
-          if (!r2.ok) throw new Error(`HTTP ${res.status}`);
-          const j2 = (await r2.json()) as Pack;
-          if (!cancelled) setPack(j2);
-          return;
+        const urls = [
+          `/data/simple-vocab-quiz-all.json?v=${Date.now()}`,
+          `/data/tonight-verb-drill.json?v=${Date.now()}`,
+        ];
+        let raw: Pack | null = null;
+        for (const url of urls) {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (res.ok) {
+            raw = (await res.json()) as Pack;
+            break;
+          }
         }
-        const json = (await res.json()) as Pack;
-        if (!cancelled) setPack(json);
+        if (!raw) throw new Error('Không tải được bank');
+        if (!cancelled) setPack(normalizePack(raw));
       } catch (e) {
         if (!cancelled) setLoadErr(e instanceof Error ? e.message : 'Lỗi tải');
       }
@@ -78,32 +123,29 @@ export default function VerbDrillPage() {
     };
   }, []);
 
-  const maxWords = pack?.lemmas?.length ?? 50;
+  const maxWords = pack?.words.length ?? 50;
+  const allMeanings = useMemo(
+    () => (pack ? [...new Set(pack.words.map((w) => w.vi))] : []),
+    [pack],
+  );
 
   const start = useCallback(() => {
-    if (!pack?.items?.length) return;
-    // Random N từ trong toàn bank
-    const lemmas = shuffle(pack.lemmas).slice(0, Math.min(wordCount, pack.lemmas.length));
-    const setL = new Set(lemmas.map((x) => x.toLowerCase()));
-    const pool = pack.items.filter(
-      (it) => it.type === 'meaning_mcq' && setL.has(it.lemma.toLowerCase()),
-    );
-    // 1 câu / từ
-    const byL = new Map<string, DrillItem>();
-    for (const it of pool) {
-      const k = it.lemma.toLowerCase();
-      if (!byL.has(k)) byL.set(k, it);
-    }
-    const q = shuffle([...byL.values()]);
-    if (!q.length) return;
-    setQueue(q);
+    if (!pack?.words.length) return;
+    const pickedWords = shuffle(pack.words).slice(0, Math.min(wordCount, pack.words.length));
+    const q: QuizQ[] = pickedWords.map((w) => ({
+      lemma: w.lemma,
+      answer: w.vi,
+      // Random nhiễu + random thứ tự mỗi lần start / mỗi câu
+      opts: buildOpts(w.vi, allMeanings),
+    }));
+    const queueShuffled = shuffle(q);
+    setQueue(queueShuffled);
     setIdx(0);
     setPicked(null);
     setRevealed(false);
     setCorrectN(0);
-    setOpts(shuffle(q[0].stem.opts));
     setPhase('quiz');
-  }, [pack, wordCount]);
+  }, [pack, wordCount, allMeanings]);
 
   const current = queue[idx] ?? null;
 
@@ -123,7 +165,6 @@ export default function VerbDrillPage() {
     setIdx(n);
     setPicked(null);
     setRevealed(false);
-    setOpts(shuffle(queue[n].stem.opts));
   };
 
   const pct = useMemo(() => {
@@ -158,7 +199,7 @@ export default function VerbDrillPage() {
           <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4">
             <p className="text-sm font-bold text-slate-800">Từ tiếng Anh → chọn nghĩa</p>
             <p className="text-[12px] text-slate-500">
-              {pack.lemma_count ?? pack.lemmas.length} từ trong bank · 1 câu / từ
+              {pack.words.length} từ · đáp án A/B/C/D random mỗi lần
             </p>
             <label className="block text-[12px] font-semibold text-slate-600">
               Số từ mỗi lượt: {Math.min(wordCount, maxWords)}
@@ -189,15 +230,17 @@ export default function VerbDrillPage() {
 
             <div className="rounded-2xl border border-violet-100 bg-violet-50/50 py-8 text-center">
               <p className="text-3xl font-black tracking-tight text-slate-900">
-                {current.stem.q}
+                {current.lemma}
               </p>
             </div>
 
             <div className="space-y-2">
-              {opts.map((o) => {
+              {current.opts.map((o, i) => {
+                const label = String.fromCharCode(65 + i); // A B C D
                 const isAns = o === current.answer;
                 const isPick = o === picked;
-                let cls = 'w-full rounded-xl border px-3 py-3 text-left text-sm font-semibold ';
+                let cls =
+                  'flex w-full items-center gap-2 rounded-xl border px-3 py-3 text-left text-sm font-semibold ';
                 if (!revealed) {
                   cls += 'border-slate-200 bg-white active:bg-violet-50';
                 } else if (isAns) {
@@ -209,17 +252,24 @@ export default function VerbDrillPage() {
                 }
                 return (
                   <button
-                    key={o}
+                    key={`${current.lemma}-${i}-${o}`}
                     type="button"
                     disabled={revealed}
                     onClick={() => onPick(o)}
                     className={cls}
                   >
-                    {revealed && isAns && <Check className="mr-1 inline h-3.5 w-3.5" />}
-                    {revealed && isPick && !isAns && (
-                      <X className="mr-1 inline h-3.5 w-3.5" />
-                    )}
-                    {o}
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-slate-100 text-[11px] font-black text-slate-600">
+                      {label}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      {revealed && isAns && (
+                        <Check className="mr-1 inline h-3.5 w-3.5" />
+                      )}
+                      {revealed && isPick && !isAns && (
+                        <X className="mr-1 inline h-3.5 w-3.5" />
+                      )}
+                      {o}
+                    </span>
                   </button>
                 );
               })}
