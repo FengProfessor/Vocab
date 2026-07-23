@@ -51,6 +51,40 @@ export const FORCE_TRUE_PATTERNS = [
   /^We are ready\.?$/i,
   /^He is a doctor\.?$/i,
   /^They are happy\.?$/i,
+  /^Is this your bag\??$/i,
+  /^There is some furniture in the room\.?$/i,
+  /^The cat wagged its tail\.?$/i,
+  /^Does he live here\??$/i,
+  /^I was playing football yesterday at 4\.?$/i,
+  /^They are not tired\.?$/i,
+  /^They aren't tired\.?$/i,
+  /^Sara and I are classmates\.?$/i,
+  /^This is my (bag|book|jacket|pen)\.?$/i,
+  /^The red pen is mine\.?$/i,
+  /^I wish I were rich\.?$/i,
+  /^If I were you, I would consult a doctor\.?$/i,
+];
+
+/** High-confidence wrong English — TF must be false; must not be the keyed answer alone */
+export const FORCE_FALSE_PATTERNS = [
+  /^They is\b/i,
+  /^Tom are\b/i,
+  /^She am\b/i,
+  /^I is\b/i,
+  /^mine pen$/i,
+  /^mine jacket$/i,
+  /yours bag/i,
+  /her's box/i,
+  /it's tail/i,
+  /an information/i,
+  /three furnitures/i,
+  /He was born at \d{4}/i,
+  /looking forward to meet/i,
+  /I am knowing\b/i,
+  /Do he live/i,
+  /I was play football/i,
+  /They not is tired/i,
+  /has to goes/i,
 ];
 
 const POISON_BE_PATTERNS = [
@@ -170,15 +204,21 @@ export function auditExercise(e, index, topicSlug) {
     }
   }
 
-  // C) Check TF Scanner
+  // C) Check TF Scanner (incl. "grammatically correct")
   if (type === 'tf') {
-    const tfMatch = q.match(/["“']([^"”']+)["”']\s+is correct/i) || q.match(/^["“']([^"”']+)["”']$/i);
+    const tfMatch =
+      q.match(/["“']([^"”']+)["”']\s+is(?:\s+grammatically)?\s+correct/i) ||
+      q.match(/sentence\s+["“']([^"”']+)["”']/i) ||
+      q.match(/^["“']([^"”']+)["”']$/i);
     if (tfMatch) {
       const sent = tfMatch[1].trim();
+      const ansFalse =
+        rawAns === false || String(rawAns).trim().toLowerCase() === 'false';
+      const ansTrue =
+        rawAns === true || String(rawAns).trim().toLowerCase() === 'true';
 
-      // Check FORCE_TRUE patterns
       for (const pattern of FORCE_TRUE_PATTERNS) {
-        if (pattern.test(sent) && rawAns === false) {
+        if (pattern.test(sent) && ansFalse) {
           findings.push({
             code: 'TF_FORCE_TRUE_KEYED_FALSE',
             severity: 'P0',
@@ -189,8 +229,19 @@ export function auditExercise(e, index, topicSlug) {
         }
       }
 
-      // Check "Is everyone OK?"
-      if (/^Is everyone (OK|okay)\??$/i.test(sent) && rawAns === false) {
+      for (const pattern of FORCE_FALSE_PATTERNS) {
+        if (pattern.test(sent) && ansTrue) {
+          findings.push({
+            code: 'TF_FORCE_FALSE_KEYED_TRUE',
+            severity: 'P0',
+            message: `Sentence "${sent}" is wrong English but TF is keyed TRUE`,
+            detail: { sent, rawAns },
+          });
+          break;
+        }
+      }
+
+      if (/^Is everyone (OK|okay)\??$/i.test(sent) && ansFalse) {
         findings.push({
           code: 'TF_EVERYONE_OK_FALSE',
           severity: 'P0',
@@ -199,7 +250,6 @@ export function auditExercise(e, index, topicSlug) {
         });
       }
 
-      // Check pronoun mismatch in feedback
       if (/I love Tom/i.test(sent) && /\b(they|them|họ)\b/i.test(fb)) {
         findings.push({
           code: 'TF_FB_PRONOUN_MISMATCH',
@@ -207,6 +257,25 @@ export function auditExercise(e, index, topicSlug) {
           message: `Feedback for "I love Tom" mentions unrelated pronouns (they/them)`,
           detail: { sent, fb },
         });
+      }
+    }
+  }
+
+  // C2) Error stem already correct (high-confidence whitelist)
+  if (type === 'error' || /find the error/i.test(q)) {
+    const stemM = q.match(/find the error\s*:\s*(.+)/i);
+    if (stemM) {
+      const stem = stemM[1].trim();
+      for (const pattern of FORCE_TRUE_PATTERNS) {
+        if (pattern.test(stem.replace(/[.?!]+$/, ''))) {
+          findings.push({
+            code: 'ERROR_STEM_IS_CORRECT',
+            severity: 'P0',
+            message: `Find-the-error stem is already correct English: "${stem}"`,
+            detail: { stem, ansStr },
+          });
+          break;
+        }
       }
     }
   }
