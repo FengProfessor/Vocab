@@ -24,7 +24,6 @@ import { usePlan } from '@/hooks/usePlan';
 import { FREE_PACK_READING_DAILY_LIMIT } from '@/lib/entitlement';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { PACK_THEMES, type PackTheme } from '@/lib/pack-themes';
 import {
@@ -84,25 +83,10 @@ interface PassageData {
 type Step = 1 | 2 | 3;
 type ResultTab = 'passage' | 'cloze';
 
-const BUCKET_META: Record<
-  MemoryBucket,
-  { label: string; hint: string; badge: string }
-> = {
-  weak: {
-    label: 'Cần củng cố',
-    hint: 'Chưa ôn / due / L1–2',
-    badge: 'Yếu',
-  },
-  learning: {
-    label: 'Đang nhớ',
-    hint: 'L3–4 · chưa vững',
-    badge: 'Học',
-  },
-  solid: {
-    label: 'Ổn / vững',
-    hint: 'L5–6 · ôn nhẹ',
-    badge: 'Vững',
-  },
+const BUCKET_META: Record<MemoryBucket, { label: string }> = {
+  weak: { label: 'Yếu' },
+  learning: { label: 'Đang nhớ' },
+  solid: { label: 'Vững' },
 };
 
 function normalize(s: string): string {
@@ -544,452 +528,418 @@ function PackReadingInner() {
   }, [passage, clozeAnswers, clozeRevealed]);
 
   return (
-    <StudentShell title="Luyện đọc gói từ">
-      <div className="mx-auto max-w-2xl space-y-4 px-3 py-4 pb-24 sm:px-4">
+    <StudentShell title="Luyện đọc">
+      <div className="mx-auto max-w-2xl space-y-2.5 px-3 py-3 pb-24 sm:px-4">
+        {/* Header gọn */}
         <div className="flex items-center gap-2">
           <Link
             href="/practice"
-            className="flex h-9 w-9 items-center justify-center rounded-xl border bg-white text-slate-600 shadow-sm"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-white text-slate-600"
             aria-label="Về Sử dụng từ"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-4 w-4" />
           </Link>
           <div className="min-w-0 flex-1">
-            <h1 className="text-lg font-black text-slate-900">Luyện đọc</h1>
-            <p className="text-[11px] font-semibold text-slate-500">
-              Sử dụng từ · mức nhớ → chủ đề → cấp độ → Gen AI
-            </p>
-          </div>
-          <BookOpen className="h-6 w-6 text-teal-600" />
-        </div>
-
-        {/* Quota / Pro CTA */}
-        {!planLoading && (
-          <div
-            className={`flex flex-wrap items-center gap-2 rounded-2xl border px-3 py-2.5 text-xs font-semibold ${
-              isPaid
-                ? 'border-amber-200 bg-amber-50 text-amber-900'
-                : 'border-slate-200 bg-slate-50 text-slate-700'
-            }`}
-          >
-            {isPaid ? (
-              <>
-                <Zap className="h-4 w-4 text-amber-600" />
-                <span>
-                  <strong className="font-black">Pro</strong> · Gen nhanh (Gemini) · không giới hạn
+            <div className="flex flex-wrap items-center gap-1.5">
+              <h1 className="text-base font-black text-slate-900">Luyện đọc</h1>
+              {!planLoading && (
+                <span
+                  className={`inline-flex items-center gap-0.5 rounded-full border px-1.5 py-0.5 text-[10px] font-bold ${
+                    isPaid
+                      ? 'border-amber-200 bg-amber-50 text-amber-800'
+                      : 'border-slate-200 bg-slate-50 text-slate-500'
+                  }`}
+                >
+                  {isPaid ? (
+                    <>
+                      <Zap className="h-2.5 w-2.5" /> Pro
+                    </>
+                  ) : (
+                    <>
+                      Free {FREE_PACK_READING_DAILY_LIMIT}/ngày
+                      {quotaInfo?.remaining != null
+                        ? ` · ${quotaInfo.remaining}`
+                        : ''}
+                    </>
+                  )}
                 </span>
-              </>
-            ) : (
-              <>
-                <span className="font-black text-slate-800">
-                  Free · {FREE_PACK_READING_DAILY_LIMIT} lượt Gen/ngày
-                </span>
-                <span className="text-slate-500">· model chậm hơn</span>
-                {quotaInfo?.remaining != null && (
-                  <Badge variant="outline" className="text-[10px]">
-                    Còn {quotaInfo.remaining}/{FREE_PACK_READING_DAILY_LIMIT}
-                  </Badge>
-                )}
+              )}
+              {!planLoading && !isPaid && (
                 <Link
                   href="/upgrade?from=pack_reading"
-                  className="ml-auto inline-flex items-center gap-1 rounded-full bg-violet-600 px-2.5 py-1 text-[11px] font-black text-white shadow-sm hover:bg-violet-700"
+                  className="inline-flex items-center gap-0.5 rounded-full bg-violet-600 px-1.5 py-0.5 text-[10px] font-bold text-white"
                 >
-                  <Crown className="h-3 w-3" />
-                  Nâng Pro · nhanh + hay hơn
+                  <Crown className="h-2.5 w-2.5" /> Pro
                 </Link>
-              </>
-            )}
+              )}
+            </div>
           </div>
-        )}
-
-        <div className="flex gap-1">
-          {([1, 2, 3] as const).map((s) => (
-            <button
-              key={s}
-              type="button"
-              onClick={() => {
-                if (s === 1) setStep(1);
-                if (s === 2 && canGoTheme) setStep(2);
-                if (s === 3 && passage) setStep(3);
-              }}
-              className={`h-1.5 flex-1 rounded-full transition-colors ${
-                step >= s ? 'bg-teal-500' : 'bg-slate-200'
-              }`}
-              aria-label={`Bước ${s}`}
-            />
-          ))}
+          <BookOpen className="h-5 w-5 shrink-0 text-teal-600" />
         </div>
-        <p className="text-center text-[11px] font-bold text-slate-500">
-          {step === 1 && 'B1 · Chọn từ theo mức nhớ'}
-          {step === 2 && 'B2 · Chủ đề + cấp độ đọc'}
-          {step === 3 && 'B3 · Đọc & trả lời'}
-        </p>
+
+        {/* Stepper: bar + label 1 dòng */}
+        <div className="flex items-center gap-2">
+          <div className="flex min-w-0 flex-1 gap-1">
+            {([1, 2, 3] as const).map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => {
+                  if (s === 1) setStep(1);
+                  if (s === 2 && canGoTheme) setStep(2);
+                  if (s === 3 && passage) setStep(3);
+                }}
+                className={`h-1 flex-1 rounded-full transition-colors ${
+                  step >= s ? 'bg-teal-500' : 'bg-slate-200'
+                }`}
+                aria-label={`Bước ${s}`}
+              />
+            ))}
+          </div>
+          <span className="shrink-0 text-[10px] font-bold text-slate-500">
+            {step === 1 && '1. Chọn từ'}
+            {step === 2 && '2. Chủ đề'}
+            {step === 3 && '3. Đọc'}
+          </span>
+        </div>
 
         {error && (
-          <div className="space-y-2 rounded-xl border border-red-200 bg-red-50 px-3 py-3 text-sm text-red-800">
+          <div className="space-y-1.5 rounded-lg border border-red-200 bg-red-50 px-2.5 py-2 text-xs text-red-800">
             <p className="font-semibold">{error}</p>
             {quotaBlocked && (
               <Link
                 href="/upgrade?from=pack_reading"
-                className="inline-flex items-center gap-1.5 rounded-xl bg-violet-600 px-3 py-2 text-xs font-black text-white shadow hover:bg-violet-700"
+                className="inline-flex items-center gap-1 rounded-lg bg-violet-600 px-2.5 py-1.5 text-[11px] font-bold text-white"
               >
-                <Crown className="h-3.5 w-3.5" />
-                Nâng Pro — Gen nhanh (Gemini) · không giới hạn lượt
+                <Crown className="h-3 w-3" /> Nâng Pro
               </Link>
             )}
           </div>
         )}
 
-        {/* ── Step 1: pick words by age ── */}
+        {/* ── Step 1: pick ── */}
         {step === 1 && (
-          <Card className="border-teal-100 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">1. Chọn từ theo mức nhớ</CardTitle>
-              <p className="text-xs text-muted-foreground">
-                Ưu tiên từ <strong>yếu / due</strong> · chọn{' '}
-                {PACK_PASSAGE_MIN_WORDS}–{PACK_PASSAGE_MAX_WORDS} từ (giống Đặt câu)
-              </p>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {poolLoading ? (
-                <div className="flex items-center justify-center gap-2 py-10 text-sm text-slate-500">
-                  <Loader2 className="h-5 w-5 animate-spin" /> Đang tải từ của bạn…
-                </div>
-              ) : poolSource === 'empty' ? (
-                <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-4 text-sm text-amber-900">
-                  Chưa có từ trong kho (hoặc chưa đăng nhập).{' '}
-                  <Link href="/import" className="font-bold underline">
-                    Thêm từ
-                  </Link>{' '}
-                  rồi quay lại.
-                </div>
-              ) : (
-                <>
-                  {/* Memory buckets */}
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {(['weak', 'learning', 'solid'] as MemoryBucket[]).map((b) => {
-                      const on = bucket === b;
-                      const meta = BUCKET_META[b];
-                      return (
-                        <button
-                          key={b}
-                          type="button"
-                          onClick={() => switchBucket(b)}
-                          className={`rounded-2xl border px-2 py-2.5 text-center transition-all ${
-                            on
-                              ? b === 'weak'
-                                ? 'border-rose-400 bg-rose-50 shadow ring-2 ring-rose-200'
-                                : b === 'learning'
-                                  ? 'border-amber-400 bg-amber-50 shadow ring-2 ring-amber-200'
-                                  : 'border-emerald-400 bg-emerald-50 shadow ring-2 ring-emerald-200'
-                              : 'border-slate-200 bg-white hover:border-teal-200'
-                          }`}
-                        >
-                          <p className="text-xs font-black text-slate-800">{meta.label}</p>
-                          <p className="text-[10px] font-medium text-slate-400">{meta.hint}</p>
-                          <p
-                            className={`mt-0.5 text-sm font-black tabular-nums ${
+          <div className="space-y-2.5 rounded-xl border border-teal-100 bg-white p-2.5 shadow-sm">
+            {poolLoading ? (
+              <div className="flex items-center justify-center gap-2 py-8 text-xs text-slate-500">
+                <Loader2 className="h-4 w-4 animate-spin" /> Đang tải…
+              </div>
+            ) : poolSource === 'empty' ? (
+              <div className="rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-3 text-xs text-amber-900">
+                Chưa có từ.{' '}
+                <Link href="/import" className="font-bold underline">
+                  Thêm từ
+                </Link>
+              </div>
+            ) : (
+              <>
+                <p className="text-[11px] font-medium text-slate-500">
+                  Chọn {PACK_PASSAGE_MIN_WORDS}–{PACK_PASSAGE_MAX_WORDS} từ theo mức nhớ ·{' '}
+                  <span className="font-semibold text-slate-700">{pool.length} từ</span>
+                </p>
+
+                <div className="grid grid-cols-3 gap-1">
+                  {(['weak', 'learning', 'solid'] as MemoryBucket[]).map((b) => {
+                    const on = bucket === b;
+                    const meta = BUCKET_META[b];
+                    return (
+                      <button
+                        key={b}
+                        type="button"
+                        onClick={() => switchBucket(b)}
+                        className={`rounded-lg border px-1.5 py-1.5 text-center transition ${
+                          on
+                            ? b === 'weak'
+                              ? 'border-rose-400 bg-rose-50 ring-1 ring-rose-200'
+                              : b === 'learning'
+                                ? 'border-amber-400 bg-amber-50 ring-1 ring-amber-200'
+                                : 'border-emerald-400 bg-emerald-50 ring-1 ring-emerald-200'
+                            : 'border-slate-200 bg-white hover:border-teal-200'
+                        }`}
+                      >
+                        <p className="text-[11px] font-black text-slate-800">
+                          {meta.label}{' '}
+                          <span
+                            className={`tabular-nums ${
                               on
                                 ? b === 'weak'
                                   ? 'text-rose-700'
                                   : b === 'learning'
                                     ? 'text-amber-700'
                                     : 'text-emerald-700'
-                                : 'text-slate-500'
+                                : 'text-slate-400'
                             }`}
                           >
                             {countsByBucket[b]}
-                          </p>
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  <div className="relative">
-                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                    <input
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                      placeholder="Tìm trong nhóm này…"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm"
-                    />
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-slate-500">
-                    <span
-                      className={
-                        wordsOk ? 'text-emerald-600' : 'text-amber-600'
-                      }
-                    >
-                      Đã chọn {selectedCount}/{PACK_PASSAGE_MAX_WORDS}
-                      {!wordsOk && ` · cần ≥${PACK_PASSAGE_MIN_WORDS}`}
-                    </span>
-                    <button
-                      type="button"
-                      className="text-teal-600 underline"
-                      onClick={selectAllVisible}
-                    >
-                      Chọn thêm nhóm này
-                    </button>
-                    {selectedCount > 0 && (
-                      <button
-                        type="button"
-                        className="text-slate-400 underline"
-                        onClick={clearSelection}
-                      >
-                        Bỏ chọn
-                      </button>
-                    )}
-                  </div>
-
-                  {/* Selected chips */}
-                  {selected.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 rounded-xl border border-teal-100 bg-teal-50/50 p-2">
-                      {selected.map((w) => (
-                        <button
-                          key={wordKey(w)}
-                          type="button"
-                          onClick={() => toggleWord(w)}
-                          className="inline-flex items-center gap-1 rounded-full bg-teal-600 px-2.5 py-1 text-[11px] font-bold text-white"
-                        >
-                          {w.word}
-                          <X className="h-3 w-3 opacity-80" />
-                        </button>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Word list */}
-                  <div className="max-h-[320px] space-y-1 overflow-y-auto rounded-xl border border-slate-100 p-1">
-                    {filteredPool.length === 0 ? (
-                      <p className="px-2 py-6 text-center text-xs text-slate-400">
-                        Không có từ trong nhóm «{BUCKET_META[bucket].label}».
-                        Thử nhóm khác.
-                      </p>
-                    ) : (
-                      filteredPool.map((w) => {
-                        const on = selectedKeys.has(wordKey(w));
-                        const full =
-                          !on && selectedCount >= PACK_PASSAGE_MAX_WORDS;
-                        return (
-                          <button
-                            key={wordKey(w)}
-                            type="button"
-                            disabled={full}
-                            onClick={() => toggleWord(w)}
-                            className={`flex w-full items-center gap-2 rounded-xl px-2.5 py-2 text-left text-sm transition-colors ${
-                              on
-                                ? 'bg-teal-50 ring-1 ring-teal-300'
-                                : full
-                                  ? 'opacity-40'
-                                  : 'hover:bg-slate-50'
-                            }`}
-                          >
-                            <span
-                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border text-[10px] ${
-                                on
-                                  ? 'border-teal-600 bg-teal-600 text-white'
-                                  : 'border-slate-300 bg-white'
-                              }`}
-                            >
-                              {on ? <Check className="h-3 w-3" /> : null}
-                            </span>
-                            <span className="min-w-0 flex-1">
-                              <span className="font-bold text-slate-800">{w.word}</span>
-                              <span className="text-slate-400"> · </span>
-                              <span className="text-slate-600">{w.translation}</span>
-                            </span>
-                            <span className="shrink-0 text-[10px] font-semibold tabular-nums text-slate-400">
-                              L{w.srsLevel}
-                              {w.isDue ? ' · due' : ''}
-                            </span>
-                          </button>
-                        );
-                      })
-                    )}
-                  </div>
-
-                  <p className="text-[10px] font-medium text-slate-400">
-                    {pool.length} từ · Yếu = chưa ôn / due / L1–2 · Vững = L5–6
-                  </p>
-                </>
-              )}
-
-              <Button
-                className="h-12 w-full rounded-xl bg-teal-600 font-black hover:bg-teal-700"
-                disabled={!canGoTheme}
-                onClick={() => {
-                  setError(null);
-                  setStep(2);
-                }}
-              >
-                Tiếp · Chủ đề & cấp độ
-              </Button>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* ── Step 2: theme + level ── */}
-        {step === 2 && (
-          <Card className="border-teal-100 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">2. Chủ đề & cấp độ đọc</CardTitle>
-              <p className="text-xs text-muted-foreground">
-                Chủ đề bao trùm <strong>tất cả</strong> {selectedCount} từ đã chọn · cấp
-                độ quyết định độ dài/khó
-              </p>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex flex-wrap gap-1.5">
-                {selected.slice(0, 12).map((w) => (
-                  <Badge key={wordKey(w)} variant="outline" className="text-[10px]">
-                    {w.word}
-                  </Badge>
-                ))}
-                {selected.length > 12 && (
-                  <Badge variant="secondary" className="text-[10px]">
-                    +{selected.length - 12}
-                  </Badge>
-                )}
-              </div>
-
-              <div>
-                <p className="mb-2 text-[11px] font-black uppercase tracking-wide text-slate-500">
-                  Chủ đề
-                </p>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-                  {PACK_THEMES.map((t) => {
-                    const on = themeId === t.id;
-                    return (
-                      <button
-                        key={t.id}
-                        type="button"
-                        onClick={() => {
-                          setThemeId(t.id);
-                          setPassage(null);
-                        }}
-                        className={`rounded-2xl border px-2.5 py-3 text-left transition-all ${
-                          on
-                            ? 'border-teal-500 bg-teal-50 shadow-md ring-2 ring-teal-200'
-                            : 'border-slate-200 bg-white hover:border-teal-200 hover:bg-teal-50/40'
-                        }`}
-                      >
-                        <span className="text-lg">{t.emoji}</span>
-                        <p className="mt-1 text-xs font-black leading-snug text-slate-800">
-                          {t.labelVi}
+                          </span>
                         </p>
                       </button>
                     );
                   })}
                 </div>
-              </div>
 
-              <div>
-                <p className="mb-2 text-[11px] font-black uppercase tracking-wide text-slate-500">
-                  Cấp độ bài đọc
-                </p>
-                <div className="grid gap-2">
-                  {PACK_READING_LEVELS.map((lv) => {
-                    const on = readingLevelId === lv.id;
-                    return (
-                      <button
-                        key={lv.id}
-                        type="button"
-                        onClick={() => {
-                          setReadingLevelId(lv.id);
-                          setPassage(null);
-                        }}
-                        className={`rounded-2xl border px-3 py-2.5 text-left transition-all ${
-                          on
-                            ? 'border-indigo-500 bg-indigo-50 shadow-md ring-2 ring-indigo-200'
-                            : 'border-slate-200 bg-white hover:border-indigo-200'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="text-base">{lv.emoji}</span>
-                          <div className="min-w-0 flex-1">
-                            <p className="text-sm font-black text-slate-800">
-                              {lv.labelVi}{' '}
-                              <span className="font-bold text-indigo-600">{lv.cefr}</span>
-                            </p>
-                            <p className="text-[11px] font-medium text-slate-500">
-                              {lv.minWords}–{lv.maxWords} từ · {lv.hintVi}
-                            </p>
-                          </div>
-                          {on && <Check className="h-4 w-4 shrink-0 text-indigo-600" />}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  className="h-12 flex-1 rounded-xl font-bold"
-                  onClick={() => setStep(1)}
-                >
-                  Quay lại
-                </Button>
-                <Button
-                  className="h-12 flex-[1.4] rounded-xl bg-teal-600 font-black hover:bg-teal-700"
-                  disabled={!canGen}
-                  onClick={() => void genPassage()}
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Đang Gen AI…
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="mr-2 h-4 w-4" />
-                      Gen AI đoạn đọc
-                    </>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span
+                    className={`rounded-md px-2 py-0.5 text-[11px] font-black tabular-nums ${
+                      wordsOk ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {selectedCount}/{PACK_PASSAGE_MAX_WORDS}
+                    {!wordsOk && ` · ≥${PACK_PASSAGE_MIN_WORDS}`}
+                  </span>
+                  <button
+                    type="button"
+                    className="text-[11px] font-semibold text-teal-600 hover:underline"
+                    onClick={selectAllVisible}
+                  >
+                    + nhóm
+                  </button>
+                  {selectedCount > 0 && (
+                    <button
+                      type="button"
+                      className="text-[11px] font-medium text-slate-400 hover:text-slate-600"
+                      onClick={clearSelection}
+                    >
+                      Xóa
+                    </button>
                   )}
-                </Button>
-              </div>
-              <p className="text-center text-[10px] font-medium text-slate-400">
-                {isPaid
-                  ? 'Pro · Gemini nhanh khi bấm Gen'
-                  : `Free · Zhipu (chậm hơn) · ${FREE_PACK_READING_DAILY_LIMIT} lượt/ngày`}
-                {selectedTheme && selectedLevel
-                  ? ` · ${selectedTheme.labelVi} · ${selectedLevel.cefr}`
-                  : ''}
-              </p>
-              {!isPaid && (
-                <Link
-                  href="/upgrade?from=pack_reading"
-                  className="flex items-center justify-center gap-1.5 rounded-xl border border-violet-200 bg-violet-50 px-3 py-2.5 text-[11px] font-black text-violet-800 hover:bg-violet-100"
+                  <div className="relative ml-auto min-w-[7rem] flex-1 sm:max-w-[12rem]">
+                    <Search className="pointer-events-none absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
+                    <input
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      placeholder="Tìm…"
+                      className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pl-7 pr-2 text-xs"
+                    />
+                  </div>
+                </div>
+
+                {selected.length > 0 && (
+                  <div className="flex flex-wrap gap-1">
+                    {selected.map((w) => (
+                      <button
+                        key={wordKey(w)}
+                        type="button"
+                        onClick={() => toggleWord(w)}
+                        className="inline-flex items-center gap-0.5 rounded-full bg-teal-600 px-2 py-0.5 text-[11px] font-bold text-white"
+                      >
+                        {w.word}
+                        <X className="h-2.5 w-2.5 opacity-80" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                <div className="max-h-[38vh] space-y-0.5 overflow-y-auto rounded-lg border border-slate-100 p-0.5">
+                  {filteredPool.length === 0 ? (
+                    <p className="px-2 py-5 text-center text-[11px] text-slate-400">
+                      Không có từ «{BUCKET_META[bucket].label}» — thử nhóm khác
+                    </p>
+                  ) : (
+                    filteredPool.map((w) => {
+                      const on = selectedKeys.has(wordKey(w));
+                      const full = !on && selectedCount >= PACK_PASSAGE_MAX_WORDS;
+                      return (
+                        <button
+                          key={wordKey(w)}
+                          type="button"
+                          disabled={full}
+                          onClick={() => toggleWord(w)}
+                          className={`flex w-full items-center gap-1.5 rounded-lg px-2 py-1.5 text-left text-xs transition-colors ${
+                            on
+                              ? 'bg-teal-50 ring-1 ring-teal-300'
+                              : full
+                                ? 'opacity-40'
+                                : 'hover:bg-slate-50'
+                          }`}
+                        >
+                          <span
+                            className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border text-[9px] ${
+                              on
+                                ? 'border-teal-600 bg-teal-600 text-white'
+                                : 'border-slate-300 bg-white'
+                            }`}
+                          >
+                            {on ? <Check className="h-2.5 w-2.5" /> : null}
+                          </span>
+                          <span className="min-w-0 flex-1 truncate">
+                            <span className="font-bold text-slate-800">{w.word}</span>
+                            <span className="text-slate-400"> · </span>
+                            <span className="text-slate-600">{w.translation}</span>
+                          </span>
+                          <span className="shrink-0 text-[10px] font-semibold tabular-nums text-slate-400">
+                            L{w.srsLevel}
+                            {w.isDue ? '·d' : ''}
+                          </span>
+                        </button>
+                      );
+                    })
+                  )}
+                </div>
+              </>
+            )}
+
+            <Button
+              className="h-10 w-full rounded-xl bg-teal-600 text-sm font-bold hover:bg-teal-700"
+              disabled={!canGoTheme}
+              onClick={() => {
+                setError(null);
+                setStep(2);
+              }}
+            >
+              Tiếp · Chủ đề & cấp độ
+            </Button>
+          </div>
+        )}
+
+        {/* ── Step 2: theme + level ── */}
+        {step === 2 && (
+          <div className="space-y-2.5 rounded-xl border border-teal-100 bg-white p-2.5 shadow-sm">
+            <div className="flex flex-wrap gap-1">
+              {selected.slice(0, 10).map((w) => (
+                <span
+                  key={wordKey(w)}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-1.5 py-0.5 text-[10px] font-semibold text-slate-600"
                 >
-                  <Crown className="h-3.5 w-3.5" />
-                  Muốn nhanh + hay hơn? Nâng Pro
-                </Link>
+                  {w.word}
+                </span>
+              ))}
+              {selected.length > 10 && (
+                <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-500">
+                  +{selected.length - 10}
+                </span>
               )}
-            </CardContent>
-          </Card>
+            </div>
+
+            <div>
+              <p className="mb-1 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                Chủ đề
+              </p>
+              <div className="grid grid-cols-3 gap-1 sm:grid-cols-4">
+                {PACK_THEMES.map((t) => {
+                  const on = themeId === t.id;
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => {
+                        setThemeId(t.id);
+                        setPassage(null);
+                      }}
+                      className={`rounded-lg border px-1.5 py-1.5 text-left transition ${
+                        on
+                          ? 'border-teal-500 bg-teal-50 ring-1 ring-teal-200'
+                          : 'border-slate-200 bg-white hover:border-teal-200'
+                      }`}
+                    >
+                      <span className="text-sm leading-none">{t.emoji}</span>
+                      <p className="mt-0.5 text-[10px] font-bold leading-tight text-slate-800">
+                        {t.labelVi}
+                      </p>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div>
+              <p className="mb-1 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                Cấp độ
+              </p>
+              <div className="grid gap-1">
+                {PACK_READING_LEVELS.map((lv) => {
+                  const on = readingLevelId === lv.id;
+                  return (
+                    <button
+                      key={lv.id}
+                      type="button"
+                      onClick={() => {
+                        setReadingLevelId(lv.id);
+                        setPassage(null);
+                      }}
+                      className={`flex items-center gap-2 rounded-lg border px-2 py-1.5 text-left transition ${
+                        on
+                          ? 'border-indigo-500 bg-indigo-50 ring-1 ring-indigo-200'
+                          : 'border-slate-200 bg-white hover:border-indigo-200'
+                      }`}
+                    >
+                      <span className="text-sm">{lv.emoji}</span>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs font-black text-slate-800">
+                          {lv.labelVi}{' '}
+                          <span className="font-bold text-indigo-600">{lv.cefr}</span>
+                        </p>
+                        <p className="text-[10px] font-medium text-slate-500">
+                          {lv.minWords}–{lv.maxWords} từ
+                        </p>
+                      </div>
+                      {on && <Check className="h-3.5 w-3.5 shrink-0 text-indigo-600" />}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="flex gap-1.5">
+              <Button
+                variant="outline"
+                className="h-10 flex-1 rounded-xl text-sm font-bold"
+                onClick={() => setStep(1)}
+              >
+                ← Từ
+              </Button>
+              <Button
+                className="h-10 flex-[1.6] rounded-xl bg-teal-600 text-sm font-bold hover:bg-teal-700"
+                disabled={!canGen}
+                onClick={() => void genPassage()}
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
+                    Đang Gen…
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="mr-1.5 h-3.5 w-3.5" />
+                    Gen đoạn
+                  </>
+                )}
+              </Button>
+            </div>
+            {!isPaid && (
+              <Link
+                href="/upgrade?from=pack_reading"
+                className="flex items-center justify-center gap-1 text-[10px] font-semibold text-violet-700 hover:underline"
+              >
+                <Crown className="h-3 w-3" />
+                Pro · nhanh hơn
+              </Link>
+            )}
+          </div>
         )}
 
         {/* ── Step 3: result ── */}
         {step === 3 && passage && (
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge className="bg-teal-600">
+          <div className="space-y-2.5">
+            <div className="flex flex-wrap items-center gap-1">
+              <Badge className="bg-teal-600 text-[10px]">
                 {passage.themeLabelVi || selectedTheme?.labelVi}
               </Badge>
-              <Badge className="bg-indigo-600">
-                {passage.readingLevelLabelVi || selectedLevel?.labelVi} · {passage.level}
+              <Badge className="bg-indigo-600 text-[10px]">
+                {passage.level}
               </Badge>
-              <Badge variant="outline">{passage.wordCount} words</Badge>
+              <Badge variant="outline" className="text-[10px]">
+                {passage.wordCount}w
+              </Badge>
               <Badge
                 variant={passage.coverage >= 0.75 ? 'default' : 'destructive'}
+                className="text-[10px]"
               >
-                coverage {Math.round(passage.coverage * 100)}%
+                {Math.round(passage.coverage * 100)}%
               </Badge>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-1">
               {(
                 [
                   ['passage', 'Đọc + hỏi'],
@@ -1000,7 +950,7 @@ function PackReadingInner() {
                   key={id}
                   type="button"
                   onClick={() => setResultTab(id)}
-                  className={`rounded-full px-3 py-1.5 text-xs font-black ${
+                  className={`rounded-lg px-2.5 py-1 text-[11px] font-bold ${
                     resultTab === id
                       ? 'bg-teal-600 text-white'
                       : 'bg-slate-100 text-slate-600'
@@ -1012,128 +962,118 @@ function PackReadingInner() {
             </div>
 
             {resultTab === 'passage' && (
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg">{passage.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-[15px] leading-relaxed text-slate-800">
-                    {highlightPassage(passage.passage)}
+              <div className="space-y-3 rounded-xl border bg-white p-3 shadow-sm">
+                <h2 className="text-base font-black text-slate-900">{passage.title}</h2>
+                <p className="text-sm leading-relaxed text-slate-800">
+                  {highlightPassage(passage.passage)}
+                </p>
+                {passage.missingWords.length > 0 && (
+                  <p className="text-[10px] text-amber-700">
+                    Thiếu: {passage.missingWords.join(', ')}
                   </p>
-                  {passage.missingWords.length > 0 && (
-                    <p className="text-[11px] text-amber-700">
-                      Thiếu trong đoạn: {passage.missingWords.join(', ')}
-                    </p>
-                  )}
+                )}
 
-                  <div className="space-y-3 border-t pt-3">
-                    <p className="text-xs font-black uppercase tracking-wide text-slate-500">
-                      Câu hỏi
-                    </p>
-                    {passage.questions.map((q, i) => (
-                      <div key={i} className="rounded-xl border bg-slate-50/80 p-3">
-                        <p className="text-sm font-semibold text-slate-800">
-                          {i + 1}. {q.q}
-                        </p>
-                        <div className="mt-2 grid gap-1.5">
-                          {q.options.map((opt) => {
-                            const sel = qAnswers[i] === opt;
-                            const show = qRevealed;
-                            const correct = opt === q.answer;
-                            return (
-                              <button
-                                key={opt}
-                                type="button"
-                                disabled={qRevealed}
-                                onClick={() =>
-                                  setQAnswers((prev) => ({ ...prev, [i]: opt }))
-                                }
-                                className={`rounded-lg border px-3 py-2 text-left text-sm ${
-                                  show && correct
-                                    ? 'border-emerald-400 bg-emerald-50'
-                                    : show && sel && !correct
-                                      ? 'border-red-300 bg-red-50'
-                                      : sel
-                                        ? 'border-teal-400 bg-teal-50'
-                                        : 'border-slate-200 bg-white'
-                                }`}
-                              >
-                                {opt}
-                              </button>
-                            );
-                          })}
-                        </div>
-                        {qRevealed && q.explain && (
-                          <p className="mt-2 text-xs text-slate-500">{q.explain}</p>
-                        )}
+                <div className="space-y-2 border-t pt-2">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    Câu hỏi
+                  </p>
+                  {passage.questions.map((q, i) => (
+                    <div key={i} className="rounded-lg border bg-slate-50/80 p-2">
+                      <p className="text-xs font-semibold text-slate-800">
+                        {i + 1}. {q.q}
+                      </p>
+                      <div className="mt-1.5 grid gap-1">
+                        {q.options.map((opt) => {
+                          const sel = qAnswers[i] === opt;
+                          const show = qRevealed;
+                          const correct = opt === q.answer;
+                          return (
+                            <button
+                              key={opt}
+                              type="button"
+                              disabled={qRevealed}
+                              onClick={() =>
+                                setQAnswers((prev) => ({ ...prev, [i]: opt }))
+                              }
+                              className={`rounded-md border px-2 py-1.5 text-left text-xs ${
+                                show && correct
+                                  ? 'border-emerald-400 bg-emerald-50'
+                                  : show && sel && !correct
+                                    ? 'border-red-300 bg-red-50'
+                                    : sel
+                                      ? 'border-teal-400 bg-teal-50'
+                                      : 'border-slate-200 bg-white'
+                              }`}
+                            >
+                              {opt}
+                            </button>
+                          );
+                        })}
                       </div>
-                    ))}
-                    <div className="flex gap-2">
-                      {!qRevealed ? (
-                        <Button
-                          className="flex-1 rounded-xl font-bold"
-                          onClick={() => setQRevealed(true)}
-                        >
-                          Chấm điểm
-                        </Button>
-                      ) : (
-                        <p className="flex flex-1 items-center gap-2 text-sm font-bold text-teal-700">
-                          <Check className="h-4 w-4" />
-                          {qScore?.ok}/{qScore?.total} đúng
-                        </p>
+                      {qRevealed && q.explain && (
+                        <p className="mt-1.5 text-[10px] text-slate-500">{q.explain}</p>
                       )}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  ))}
+                  {!qRevealed ? (
+                    <Button
+                      className="h-9 w-full rounded-lg text-xs font-bold"
+                      onClick={() => setQRevealed(true)}
+                    >
+                      Chấm điểm
+                    </Button>
+                  ) : (
+                    <p className="flex items-center gap-1.5 text-xs font-bold text-teal-700">
+                      <Check className="h-3.5 w-3.5" />
+                      {qScore?.ok}/{qScore?.total} đúng
+                    </p>
+                  )}
+                </div>
+              </div>
             )}
 
             {resultTab === 'cloze' && (
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base">Điền từ vào đoạn</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-[15px] leading-relaxed">
-                    {renderClozeText(
-                      passage.cloze.text,
-                      passage.cloze.blanks,
-                      clozeAnswers,
-                      (id, value) =>
-                        setClozeAnswers((prev) => ({ ...prev, [id]: value })),
-                      clozeRevealed,
-                    )}
-                  </p>
-                  {!clozeRevealed ? (
-                    <Button
-                      className="w-full rounded-xl font-bold"
-                      onClick={() => setClozeRevealed(true)}
-                    >
-                      Chấm cloze
-                    </Button>
-                  ) : (
-                    <p className="text-sm font-bold text-teal-700">
-                      {clozeScore?.ok}/{clozeScore?.total} chỗ đúng
-                    </p>
+              <div className="space-y-2.5 rounded-xl border bg-white p-3 shadow-sm">
+                <p className="text-[10px] font-bold uppercase text-slate-400">Điền từ</p>
+                <p className="text-sm leading-relaxed">
+                  {renderClozeText(
+                    passage.cloze.text,
+                    passage.cloze.blanks,
+                    clozeAnswers,
+                    (id, value) =>
+                      setClozeAnswers((prev) => ({ ...prev, [id]: value })),
+                    clozeRevealed,
                   )}
-                </CardContent>
-              </Card>
+                </p>
+                {!clozeRevealed ? (
+                  <Button
+                    className="h-9 w-full rounded-lg text-xs font-bold"
+                    onClick={() => setClozeRevealed(true)}
+                  >
+                    Chấm cloze
+                  </Button>
+                ) : (
+                  <p className="text-xs font-bold text-teal-700">
+                    {clozeScore?.ok}/{clozeScore?.total} chỗ đúng
+                  </p>
+                )}
+              </div>
             )}
 
-            <div className="flex gap-2">
+            <div className="flex gap-1.5">
               <Button
                 variant="outline"
-                className="flex-1 rounded-xl font-bold"
+                className="h-9 flex-1 rounded-lg text-xs font-bold"
                 onClick={() => {
                   setStep(2);
                   setPassage(null);
                 }}
               >
-                Đổi theme / level
+                Đổi theme
               </Button>
               <Button
                 variant="outline"
-                className="flex-1 rounded-xl font-bold"
+                className="h-9 flex-1 rounded-lg text-xs font-bold"
                 onClick={() => {
                   setStep(1);
                   setPassage(null);
@@ -1146,9 +1086,9 @@ function PackReadingInner() {
         )}
 
         {loading && step === 2 && (
-          <div className="flex items-center justify-center gap-2 py-8 text-sm font-semibold text-teal-700">
-            <Loader2 className="h-5 w-5 animate-spin" />
-            AI đang viết đoạn theo chủ đề & cấp độ…
+          <div className="flex items-center justify-center gap-2 py-6 text-xs font-semibold text-teal-700">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            AI đang viết đoạn…
           </div>
         )}
       </div>
