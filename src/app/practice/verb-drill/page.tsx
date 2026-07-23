@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Quiz đơn giản: hiện từ EN → chọn nghĩa VI.
+ * Quiz đơn giản: từ EN → chọn nghĩa VI (toàn bank).
  * /practice/verb-drill
  */
 
@@ -23,6 +23,7 @@ interface Pack {
   note?: string;
   lemmas: string[];
   items: DrillItem[];
+  lemma_count?: number;
 }
 
 type Phase = 'setup' | 'quiz' | 'done';
@@ -40,7 +41,7 @@ export default function VerbDrillPage() {
   const [pack, setPack] = useState<Pack | null>(null);
   const [loadErr, setLoadErr] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>('setup');
-  const [wordCount, setWordCount] = useState(10);
+  const [wordCount, setWordCount] = useState(15);
   const [queue, setQueue] = useState<DrillItem[]>([]);
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
@@ -52,10 +53,20 @@ export default function VerbDrillPage() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch(`/data/tonight-verb-drill.json?v=${Date.now()}`, {
+        // full bank (cùng format simple EN→VI)
+        const res = await fetch(`/data/simple-vocab-quiz-all.json?v=${Date.now()}`, {
           cache: 'no-store',
         });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          // fallback pack tối
+          const r2 = await fetch(`/data/tonight-verb-drill.json?v=${Date.now()}`, {
+            cache: 'no-store',
+          });
+          if (!r2.ok) throw new Error(`HTTP ${res.status}`);
+          const j2 = (await r2.json()) as Pack;
+          if (!cancelled) setPack(j2);
+          return;
+        }
         const json = (await res.json()) as Pack;
         if (!cancelled) setPack(json);
       } catch (e) {
@@ -67,14 +78,23 @@ export default function VerbDrillPage() {
     };
   }, []);
 
-  const maxWords = pack?.lemmas?.length ?? 20;
+  const maxWords = pack?.lemmas?.length ?? 50;
 
   const start = useCallback(() => {
     if (!pack?.items?.length) return;
-    const lemmas = pack.lemmas.slice(0, Math.min(wordCount, pack.lemmas.length));
+    // Random N từ trong toàn bank
+    const lemmas = shuffle(pack.lemmas).slice(0, Math.min(wordCount, pack.lemmas.length));
     const setL = new Set(lemmas.map((x) => x.toLowerCase()));
-    const pool = pack.items.filter((it) => setL.has(it.lemma.toLowerCase()));
-    const q = shuffle(pool);
+    const pool = pack.items.filter(
+      (it) => it.type === 'meaning_mcq' && setL.has(it.lemma.toLowerCase()),
+    );
+    // 1 câu / từ
+    const byL = new Map<string, DrillItem>();
+    for (const it of pool) {
+      const k = it.lemma.toLowerCase();
+      if (!byL.has(k)) byL.set(k, it);
+    }
+    const q = shuffle([...byL.values()]);
     if (!q.length) return;
     setQueue(q);
     setIdx(0);
@@ -112,7 +132,7 @@ export default function VerbDrillPage() {
   }, [correctN, queue.length, phase]);
 
   return (
-    <StudentShell title="Drill động từ" contentClassName="p-0" hideMobileNav>
+    <StudentShell title="Quiz từ vựng" contentClassName="p-0" hideMobileNav>
       <div className="mx-auto max-w-md space-y-3 px-3 py-3 pb-24">
         <div className="flex items-center gap-2">
           <Link
@@ -121,7 +141,7 @@ export default function VerbDrillPage() {
           >
             <ChevronLeft className="inline h-3.5 w-3.5" />
           </Link>
-          <h1 className="text-base font-black text-slate-900">Drill động từ</h1>
+          <h1 className="text-base font-black text-slate-900">Quiz từ vựng</h1>
         </div>
 
         {loadErr && (
@@ -138,14 +158,14 @@ export default function VerbDrillPage() {
           <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4">
             <p className="text-sm font-bold text-slate-800">Từ tiếng Anh → chọn nghĩa</p>
             <p className="text-[12px] text-slate-500">
-              {pack.lemmas.length} động từ · 1 câu / từ
+              {pack.lemma_count ?? pack.lemmas.length} từ trong bank · 1 câu / từ
             </p>
             <label className="block text-[12px] font-semibold text-slate-600">
-              Số từ: {Math.min(wordCount, maxWords)}
+              Số từ mỗi lượt: {Math.min(wordCount, maxWords)}
               <input
                 type="range"
                 min={5}
-                max={maxWords}
+                max={Math.min(50, maxWords)}
                 value={Math.min(wordCount, maxWords)}
                 onChange={(e) => setWordCount(Number(e.target.value))}
                 className="mt-2 w-full"
@@ -177,8 +197,7 @@ export default function VerbDrillPage() {
               {opts.map((o) => {
                 const isAns = o === current.answer;
                 const isPick = o === picked;
-                let cls =
-                  'w-full rounded-xl border px-3 py-3 text-left text-sm font-semibold ';
+                let cls = 'w-full rounded-xl border px-3 py-3 text-left text-sm font-semibold ';
                 if (!revealed) {
                   cls += 'border-slate-200 bg-white active:bg-violet-50';
                 } else if (isAns) {
@@ -196,9 +215,7 @@ export default function VerbDrillPage() {
                     onClick={() => onPick(o)}
                     className={cls}
                   >
-                    {revealed && isAns && (
-                      <Check className="mr-1 inline h-3.5 w-3.5" />
-                    )}
+                    {revealed && isAns && <Check className="mr-1 inline h-3.5 w-3.5" />}
                     {revealed && isPick && !isAns && (
                       <X className="mr-1 inline h-3.5 w-3.5" />
                     )}

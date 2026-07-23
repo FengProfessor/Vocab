@@ -13,8 +13,8 @@ const MODES = [
   {
     href: '/practice/verb-drill',
     emoji: '⚡',
-    title: 'Drill động từ',
-    desc: 'Nghĩa · VI→EN · cụm — sẵn dạy/luyện nhanh',
+    title: 'Quiz từ vựng',
+    desc: 'Từ EN → chọn nghĩa VI (toàn bank)',
     ring: 'border-amber-200 bg-amber-50/70 hover:border-amber-400 hover:bg-amber-50',
     badge: 'bg-amber-500',
     text: 'text-amber-950',
