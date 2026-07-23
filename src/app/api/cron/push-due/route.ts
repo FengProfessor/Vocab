@@ -17,9 +17,19 @@ type ProfileRow = {
 };
 type PushResult = { userId: string; name: string | null; dueCount: number; sent: boolean };
 
-// Khung giờ nhắc trong ngày (giờ VN). Cron chạy mỗi giờ nhưng chỉ gửi vào các mốc này.
-// Nhiều mốc → user ít bỏ lỡ từ đến hạn. Sửa mảng này để đổi lịch nhắc.
-const REMINDER_HOURS = [8, 12, 20]; // sáng / trưa / tối
+/**
+ * Chế độ "dày nhưng không spam":
+ * - Cron poll mỗi ~15p → từ vừa đến hạn được bắt sớm (không chờ mốc 8/12/20).
+ * - COOLDOWN_MINUTES = khoảng cách tối thiểu giữa 2 lần push nếu user VẪN chưa ôn
+ *   (1–2h; mặc định 90p). Poll 15p chỉ để phát hiện due, không gửi lại mỗi 15p.
+ * - QUIET_HOURS: im ban đêm (giờ VN).
+ * - last_due_push_slot lưu `ts:{epochMs}` = mốc gửi gần nhất (true cooldown, không bucket lịch).
+ */
+const COOLDOWN_MINUTES = 90;
+const COOLDOWN_MS = COOLDOWN_MINUTES * 60 * 1000;
+/** [start, end) giờ VN — im lặng. 22→7 = 22:00–06:59. */
+const QUIET_START_HOUR = 22;
+const QUIET_END_HOUR = 7;
 
 /**
  * Lấy giờ hiện tại theo múi giờ Việt Nam (Asia/Ho_Chi_Minh, UTC+7, không DST).
@@ -43,21 +53,70 @@ function getVietnamMinute(): number {
   return parseInt(str, 10) % 60;
 }
 
-/** Ngày hiện tại theo giờ VN, dạng 'YYYY-MM-DD' (để ghép slot khử push trùng). */
-function getVietnamDateStr(): string {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Ho_Chi_Minh',
-    year: 'numeric', month: '2-digit', day: '2-digit',
-  }).format(new Date());
+/** true nếu đang trong khung im lặng ban đêm (giờ VN). */
+function isQuietHour(hour: number): boolean {
+  // Wrap qua nửa đêm (22→7): im khi hour >= 22 hoặc hour < 7
+  if (QUIET_START_HOUR > QUIET_END_HOUR) {
+    return hour >= QUIET_START_HOUR || hour < QUIET_END_HOUR;
+  }
+  if (QUIET_START_HOUR < QUIET_END_HOUR) {
+    return hour >= QUIET_START_HOUR && hour < QUIET_END_HOUR;
+  }
+  return false; // start === end → không im
+}
+
+/** Parse mốc gửi gần nhất từ last_due_push_slot (`ts:1716…`). Legacy slot (YYYY-MM-DD-…) → null = hết cooldown. */
+function parsePushTs(slot: string | null | undefined): number | null {
+  if (!slot || !slot.startsWith('ts:')) return null;
+  const n = Number(slot.slice(3));
+  return Number.isFinite(n) ? n : null;
+}
+
+function makePushSlot(nowMs: number = Date.now()): string {
+  return `ts:${nowMs}`;
+}
+
+/** true nếu user còn trong cửa sổ cooldown (đã nhận push gần đây). */
+function inCooldown(slot: string | null | undefined, nowMs: number = Date.now()): boolean {
+  const prevTs = parsePushTs(slot);
+  if (prevTs === null) return false;
+  return nowMs - prevTs < COOLDOWN_MS;
+}
+
+/** Title/body theo độ "nặng" due — user lười thì copy gắt hơn. */
+function buildCopy(firstName: string, dueCount: number): { title: string; body: string } {
+  if (dueCount >= 40) {
+    return {
+      title: '🔥 Cháy bài rồi — ôn ngay!',
+      body: `${firstName} ơi, ${dueCount} từ đang chờ. Càng để lâu càng quên. 2 phút thôi! 🧠`,
+    };
+  }
+  if (dueCount >= 15) {
+    return {
+      title: '⏰ Nhiều từ đến hạn!',
+      body: `${firstName} ơi, bạn có ${dueCount} từ cần ôn. Học ngay kẻo mất streak 🧠`,
+    };
+  }
+  if (dueCount >= 5) {
+    return {
+      title: '⏰ Từ đến hạn — ôn luôn!',
+      body: `${firstName} ơi, ${dueCount} từ đang chờ ôn. Mở app học ngay nhé! 🧠`,
+    };
+  }
+  return {
+    title: '⏰ Từ vừa đến hạn!',
+    body: `${firstName} ơi, có ${dueCount} từ đến hạn ôn. Học ngay để không quên nhé! 🧠`,
+  };
 }
 
 /**
  * GET /api/cron/push-due
- * Chạy MỖI GIỜ (GitHub Actions). Chỉ gửi vào các khung REMINDER_HOURS (giờ VN):
- * mỗi user có fcm_token + có từ đến hạn được nhắc ở từng mốc → ít bỏ lỡ.
+ * Poll ~15p (GitHub Actions). User có token + có từ due → push sớm khi vừa đến hạn;
+ * nếu vẫn chưa ôn thì re-nag sau COOLDOWN_MINUTES (~90p), không spam mỗi lần poll.
+ * Im ban đêm (QUIET_*).
  *
  * Authorization: Bearer <CRON_SECRET> (không dùng ?secret= — tránh leak access log)
- * Test: ?hour=20 (ép giờ; phải thuộc REMINDER_HOURS) hoặc ?all=1 (bỏ cổng giờ, gửi mọi user có từ due).
+ * Test: ?all=1 (bỏ quiet + dedup), ?hour=N (ép giờ VN), ?force=1 (bỏ quiet giờ).
  */
 export async function GET(req: Request): Promise<NextResponse> {
   try {
@@ -70,24 +129,32 @@ export async function GET(req: Request): Promise<NextResponse> {
     // Giờ mục tiêu: mặc định = giờ VN hiện tại; ?hour= để test
     const hourParam = searchParams.get('hour');
     const sendAll = searchParams.get('all') === '1';
+    const forceQuiet = searchParams.get('force') === '1';
     const targetHour =
       hourParam !== null ? parseInt(hourParam, 10) % 24 : getVietnamHour();
+    const targetMinute = hourParam !== null ? 0 : getVietnamMinute();
 
-    // Cổng giờ: chỉ nhắc vào các khung REMINDER_HOURS (trừ khi ?all=1 để test)
-    if (!sendAll && !REMINDER_HOURS.includes(targetHour)) {
+    // Im ban đêm — trừ test (?all=1 / ?force=1)
+    if (!sendAll && !forceQuiet && isQuietHour(targetHour)) {
       return NextResponse.json({
-        success: true, vnHour: targetHour, skipped: 'not a reminder hour',
-        reminderHours: REMINDER_HOURS, total: 0, notified: 0, results: [],
+        success: true,
+        vnHour: targetHour,
+        vnMinute: targetMinute,
+        skipped: 'quiet hours',
+        quiet: { start: QUIET_START_HOUR, end: QUIET_END_HOUR },
+        total: 0,
+        notified: 0,
+        results: [],
       });
     }
 
     const supabase = createServiceClient();
     const now = new Date().toISOString();
 
-    // Slot khử trùng: 1 user chỉ nhận 1 push/mốc/ngày dù nhiều nguồn cron cùng bắn.
+    // Cooldown: 1 user tối đa 1 push / COOLDOWN_MINUTES khi vẫn còn due (tránh spam 15p).
     // Bỏ qua khi test (?hour= hoặc ?all=1) để không vướng dedup lúc thử.
     const isTest = hourParam !== null || sendAll;
-    const slotKey = `${getVietnamDateStr()}-${targetHour}`;
+    const runStartedAt = Date.now();
 
     // ── Chia tải theo thời gian (chống timeout khi nhiều user) — OPT-IN ──
     // Mặc định (không truyền ?size=/?page=): xử lý TOÀN BỘ như cũ → an toàn tới ~vài trăm user
@@ -111,8 +178,10 @@ export async function GET(req: Request): Promise<NextResponse> {
     legacyRows?.forEach((r: { id: string }) => { if (r.id) userIds.add(r.id); });
 
     if (userIds.size === 0) {
-      console.log(`[Cron/push-due] No users with tokens for hour ${targetHour} (VN)`);
-      return NextResponse.json({ success: true, vnHour: targetHour, total: 0, notified: 0, results: [] });
+      console.log(`[Cron/push-due] No users with tokens (VN ${targetHour}:${String(targetMinute).padStart(2, '0')})`);
+      return NextResponse.json({
+        success: true, vnHour: targetHour, vnMinute: targetMinute, total: 0, notified: 0, results: [],
+      });
     }
 
     // Sắp xếp ổn định theo id → cắt trang (thứ tự nhất quán giữa các lần gọi trong slot).
@@ -124,7 +193,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (pageIds.length === 0) {
       // Trang vượt quá danh sách (đã hết user) → no-op.
       return NextResponse.json({
-        success: true, vnHour: targetHour, page, totalPages, totalCandidates,
+        success: true, vnHour: targetHour, vnMinute: targetMinute, page, totalPages, totalCandidates,
         total: 0, notified: 0, results: [],
       });
     }
@@ -146,11 +215,16 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     if (!profiles.length) {
-      console.log(`[Cron/push-due] No candidate users for hour ${targetHour} (VN)`);
-      return NextResponse.json({ success: true, vnHour: targetHour, page, totalPages, total: 0, notified: 0, results: [] });
+      console.log(`[Cron/push-due] No candidate users (VN ${targetHour}:${String(targetMinute).padStart(2, '0')})`);
+      return NextResponse.json({
+        success: true, vnHour: targetHour, vnMinute: targetMinute, page, totalPages, total: 0, notified: 0, results: [],
+      });
     }
 
-    console.log(`[Cron/push-due] page ${page}/${totalPages} — ${profiles.length} candidate(s) for hour ${targetHour} (VN)`);
+    console.log(
+      `[Cron/push-due] page ${page}/${totalPages} — ${profiles.length} candidate(s) ` +
+      `cooldown=${COOLDOWN_MINUTES}m (VN ${targetHour}:${String(targetMinute).padStart(2, '0')})`
+    );
 
     // ── Bulk-count từ đến hạn qua RPC (1 query cho CẢ trang, thay N+1) ──
     // Nếu RPC chưa tồn tại (migration 20260714 chưa chạy prod) → dueMap=null → fallback
@@ -207,42 +281,51 @@ export async function GET(req: Request): Promise<NextResponse> {
 
       if (dueCount === 0) return null;
 
-      // Khử trùng đa nguồn cron: claim slot bằng UPDATE có điều kiện (atomic per-row trong
-      // Postgres). Chỉ nguồn claim được mới gửi; nguồn khác thấy slot trùng → 0 row → skip.
-      // Nếu cột chưa tồn tại (migration chưa chạy) → claimErr → vẫn gửi như cũ (không chặn).
+      // Cooldown thật: đã push gần đây (< COOLDOWN_MINUTES) → bỏ qua, chờ poll sau.
       const prevSlot = profile.last_due_push_slot ?? null;
+      if (!isTest && inCooldown(prevSlot, runStartedAt)) {
+        return null;
+      }
+
+      // Claim optimistic: UPDATE chỉ khi last_due_push_slot vẫn = giá trị đã đọc
+      // (hoặc null). 2 cron song song → chỉ 1 claim được → tránh double push.
+      // Nếu cột chưa tồn tại (migration chưa chạy) → claimErr → vẫn gửi như cũ.
+      const newSlot = makePushSlot(Date.now());
       if (!isTest) {
-        const { data: claimed, error: claimErr } = await supabase
+        let claimQ = supabase
           .from('profiles')
-          .update({ last_due_push_slot: slotKey })
-          .eq('id', profile.id)
-          .or(`last_due_push_slot.is.null,last_due_push_slot.neq.${slotKey}`)
-          .select('id');
+          .update({ last_due_push_slot: newSlot })
+          .eq('id', profile.id);
+        claimQ = prevSlot === null
+          ? claimQ.is('last_due_push_slot', null)
+          : claimQ.eq('last_due_push_slot', prevSlot);
+        const { data: claimed, error: claimErr } = await claimQ.select('id');
         if (claimErr) {
           console.warn('[Cron/push-due] dedup claim skipped:', claimErr.message);
         } else if (!claimed?.length) {
-          return null; // slot đã được nguồn cron khác gửi
+          return null; // race / đã được nguồn khác claim
         }
       }
 
-      const firstName = (profile.full_name || 'bạn').split(' ').pop();
+      const firstName = (profile.full_name || 'bạn').split(' ').pop() || 'bạn';
+      const { title, body } = buildCopy(firstName, dueCount);
 
       const sendResult = await sendPushNotificationToUser(
         profile.id,
-        '⏰ Thời Điểm Ôn Tập!',
-        `${firstName} ơi, bạn có ${dueCount} từ đang chờ ôn tập. Học ngay để không quên nhé! 🧠`,
+        title,
+        body,
         '/student'
       );
 
       const sent = !!(sendResult as { messageId?: string } | undefined)?.messageId;
 
-      // Gửi fail → rollback slot để mốc sau / cron retry còn cơ hội (tránh claim xong im lặng).
+      // Gửi fail → rollback slot để poll sau còn cơ hội (tránh claim xong im lặng).
       if (!sent && !isTest) {
         const { error: rbErr } = await supabase
           .from('profiles')
           .update({ last_due_push_slot: prevSlot })
           .eq('id', profile.id)
-          .eq('last_due_push_slot', slotKey);
+          .eq('last_due_push_slot', newSlot);
         if (rbErr) console.warn('[Cron/push-due] slot rollback failed:', rbErr.message);
         else console.warn(`[Cron/push-due] send fail → rollback slot for ${profile.id.slice(0, 8)}`);
       }
@@ -270,11 +353,16 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     const notified = results.filter(r => r.sent).length;
-    console.log(`[Cron/push-due] Sent ${notified}/${profiles.length} notifications (hour ${targetHour} VN)`);
+    console.log(
+      `[Cron/push-due] Sent ${notified}/${profiles.length} notifications ` +
+      `(cooldown ${COOLDOWN_MINUTES}m, VN ${targetHour}:${String(targetMinute).padStart(2, '0')})`
+    );
 
     return NextResponse.json({
       success: true,
       vnHour: targetHour,
+      vnMinute: targetMinute,
+      cooldownMinutes: COOLDOWN_MINUTES,
       page,
       totalPages,
       totalCandidates,

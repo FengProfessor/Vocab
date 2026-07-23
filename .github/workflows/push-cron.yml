@@ -1,17 +1,20 @@
-name: Hourly Push Notifications
+name: Dense Due Push Notifications
 
-# Lịch tự động trigger /api/cron/push-due. GitHub Actions là nguồn cron CHÍNH
-# (in-repo, xem được lịch sử chạy ở tab Actions) vì cron-job.org không tự verify được.
-# Chạy đúng 3 mốc nhắc 8h/12h/20h VN = 1h/5h/13h UTC (route tự gate REMINDER_HOURS).
-# GitHub Actions schedule có thể trễ ~vài phút nhưng vẫn trong cùng giờ → route vẫn khớp.
+# Lịch tự động trigger /api/cron/push-due.
+# Poll mỗi 15 phút để BẮT due sớm (không cố định 8/12/20).
+# Route cooldown ~90 phút giữa 2 lần push nếu user vẫn chưa ôn (không spam 15p/lần).
+# Im ban đêm 22:00–06:59 VN.
 #
-# Yêu cầu: repo secret CRON_SECRET khớp env CRON_SECRET trên Vercel.
-# ⚠️ Nếu cron-job.org cũng đang bật cho cùng URL → TẮT 1 trong 2 để tránh push trùng.
+# GitHub Actions schedule có thể trễ vài phút — route dùng giờ VN thực tế lúc chạy.
+#
+# Yêu cầu: repo secret CRON_SECRET khớp env CRON_SECRET trên Vercel/host.
+# ⚠️ Nếu cron-job.org cũng đang bật cho cùng URL → TẮT cron-job.org (tránh double load).
 
 on:
   schedule:
-    - cron: '0 1,5,13 * * *' # 8h/12h/20h VN (UTC+7). Route gate đúng các mốc này.
-  workflow_dispatch: {} # vẫn cho chạy thủ công để test
+    # Poll 15p: phát hiện due sớm. Tần suất push thực tế do COOLDOWN_MINUTES (route, ~90p).
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {} # chạy thủ công để test
 
 jobs:
   ping:
