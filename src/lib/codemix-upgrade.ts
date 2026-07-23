@@ -1,12 +1,16 @@
 /**
  * AI: nâng đoạn code-mix (VI + từ EN target) → full English + giải thích wow.
+ * Pro → Gemini (fallback Zhipu); Free → Zhipu.
  */
 import { getRouter } from '@/lib/ai-router';
 import { sanitizeForPrompt } from '@/lib/api-security';
+import { geminiGenerate, hasGeminiKeys, resolveGeminiModel } from '@/lib/gemini-multi';
 
 export interface CodeMixWord {
   word: string;
   translation?: string;
+  /** n / v / adj / adv / … — giúp AI đúng collocation */
+  pos?: string;
 }
 
 /** Số từ target / lượt luyện (bulk chọn). */
@@ -40,10 +44,14 @@ export interface CodeMixUpgradeResult {
 }
 
 function parseJsonObject(raw: string): Record<string, unknown> {
+  const cleaned = raw
+    .replace(/^```(?:json)?\s*/i, '')
+    .replace(/\s*```$/i, '')
+    .trim();
   try {
-    return JSON.parse(raw) as Record<string, unknown>;
+    return JSON.parse(cleaned) as Record<string, unknown>;
   } catch {
-    const match = raw.match(/\{[\s\S]*\}/);
+    const match = cleaned.match(/\{[\s\S]*\}/);
     if (!match) throw new Error('AI không trả JSON hợp lệ');
     return JSON.parse(match[0]) as Record<string, unknown>;
   }
@@ -57,49 +65,79 @@ function stripBold(s: string): string {
   return s.replace(/\*\*([^*]+)\*\*/g, '$1');
 }
 
+/** Dọn markdown / rác model dính vào field VI */
+function cleanVi(s: string, maxLen: number): string {
+  const t = stripBold(s)
+    .replace(/#{1,6}\s*/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/\bWow\b[,!.]?\s*/gi, '')
+    .trim();
+  return sanitizeForPrompt(t, maxLen);
+}
+
+function cleanEn(s: string, maxLen: number): string {
+  // Giữ **target** bold; bỏ control / fence
+  return s
+    .replace(/[\x00-\x1F\x7F]/g, '')
+    .replace(/```/g, '')
+    .trim()
+    .slice(0, maxLen);
+}
+
 function buildPrompt(codemix: string, words: CodeMixWord[], level: string): string {
   const wordLines = words
     .map((w) => {
       const t = w.translation ? ` = ${sanitizeForPrompt(w.translation, 80)}` : '';
-      return `- ${sanitizeForPrompt(w.word, 40)}${t}`;
+      const p = w.pos ? ` [${sanitizeForPrompt(w.pos, 12)}]` : '';
+      return `- ${sanitizeForPrompt(w.word, 40)}${p}${t}`;
     })
     .join('\n');
 
-  return `You are a warm ESL coach for Vietnamese teens (CEFR ${sanitizeForPrompt(level, 12)}).
+  return `You are a careful ESL coach for Vietnamese learners.
 
-The student wrote a CODE-MIX paragraph: Vietnamese shell + some English target words inserted.
+The student wrote CODE-MIX text (Vietnamese + some English target words).
 
 STUDENT TEXT:
 """
 ${sanitizeForPrompt(codemix, 1200)}
 """
 
-TARGET WORDS (keep these English forms; teach natural use):
+TARGET WORDS (with POS when known):
 ${wordLines}
 
-TASK:
-1) Rewrite into NATURAL full English that keeps the student's meaning/story.
-2) KEEP every target word that already appears; if a target is missing, add it only if it still fits the story — never force awkwardly.
-3) Wrap each target word in **double asterisks** in the english field (e.g. I **wake up** at 6).
-4) For EACH target that appears in the upgrade, explain in Vietnamese HOW it is used (pattern + why + tip) so the student says "wow, so that's how you use it".
-5) Keep grammar A1–A2 simple, natural collocations.
+CRITICAL RULES (must follow):
+1) Output NATURAL, GRAMMATICAL English first. Never sacrifice grammar to cram targets together.
+2) Respect part of speech:
+   - adjective + noun (an academic problem) — NOT "academic perilously situation"
+   - adverb modifies verb/adjective/adverb (perilously close, almost perilously late) — NOT before a noun like an adjective
+   - verb + object, noun as subject/object, etc.
+3) Prefer CORRECT collocations. If the student misused a form, FIX it in the upgrade and teach the right form in why_vi/tip_vi.
+4) You may use a closely related form of a target when needed for grammar (perilously → perilous; academic → academically). Bold the form that actually appears: **perilous**.
+5) If the student only dumped words / short fragments, invent a short clear story (2–4 simple sentences) that uses the targets correctly — do not invent nonsense.
+6) Keep every target sense that fits; if two targets cannot sit in the same phrase, put them in separate clauses/sentences.
+7) Level: aim ${sanitizeForPrompt(level, 12)} structure, but raise to B1 if targets require it — never produce broken English for "simplicity".
+8) Vietnamese fields: plain Vietnamese only. No English dump, no markdown **, no mixing wow_note into tip_vi.
+9) meaning_vi must accurately translate YOUR english (not invent wrong senses like "academic = học viện" when it means "học thuật / liên quan học tập").
+10) wow_note_vi: 1–2 short encouraging insights in Vietnamese about how the targets are used.
 
 Return ONLY valid JSON (no markdown fences):
 {
-  "english": "Full EN paragraph with **targets** bolded",
-  "meaning_vi": "Bản dịch VI mượt của đoạn EN",
-  "level": "A1",
-  "wow_note_vi": "1–2 câu khen + insight ngắn (tiếng Việt)",
+  "english": "Full EN with **targets** bolded where they appear",
+  "meaning_vi": "Bản dịch VI chính xác của đoạn EN",
+  "level": "A2",
+  "wow_note_vi": "1–2 câu insight tiếng Việt",
   "words": [
     {
-      "word": "wake up",
-      "in_sentence": "I wake up at 6 o'clock.",
-      "pattern": "wake up + at + time",
-      "why_vi": "…",
-      "tip_vi": "…"
+      "word": "academic",
+      "in_sentence": "She is in a difficult academic situation.",
+      "pattern": "academic + noun (problem/career/year)",
+      "why_vi": "Tính từ: academic + danh từ — 'vấn đề học tập / học thuật', không phải tên trường.",
+      "tip_vi": "academic year, academic pressure, academic writing."
     }
   ]
-}`;
+}
+
+words[]: one entry per target that appears (use the dictionary headword as "word"). in_sentence must be a correct English clause from your upgrade.`;
 }
 
 function normalizeWords(
@@ -116,10 +154,10 @@ function normalizeWords(
     if (!word) continue;
     byWord.set(word, {
       word: sanitizeForPrompt(asString(o.word), 40),
-      in_sentence: sanitizeForPrompt(asString(o.in_sentence), 200),
-      pattern: sanitizeForPrompt(asString(o.pattern), 120),
-      why_vi: sanitizeForPrompt(asString(o.why_vi), 280),
-      tip_vi: sanitizeForPrompt(asString(o.tip_vi), 200),
+      in_sentence: cleanEn(stripBold(asString(o.in_sentence)), 200),
+      pattern: cleanVi(asString(o.pattern), 120),
+      why_vi: cleanVi(asString(o.why_vi), 320),
+      tip_vi: cleanVi(asString(o.tip_vi), 220),
     });
   }
 
@@ -129,7 +167,6 @@ function normalizeWords(
     const hit = byWord.get(t.word.toLowerCase());
     if (hit) ordered.push(hit);
   }
-  // extras
   for (const [k, v] of byWord) {
     if (!ordered.some((x) => x.word.toLowerCase() === k)) ordered.push(v);
   }
@@ -179,9 +216,10 @@ export function offlineCodeMixUpgrade(
       why_vi: 'Ngủ — trạng từ thời gian: early, late, well.',
       tip_vi: 'go to sleep / go to bed = bắt đầu đi ngủ.',
     },
-  ].filter((e) =>
-    words.some((w) => w.word.toLowerCase() === e.word.toLowerCase()) ||
-    codemix.toLowerCase().includes(e.word.toLowerCase())
+  ].filter(
+    (e) =>
+      words.some((w) => w.word.toLowerCase() === e.word.toLowerCase()) ||
+      codemix.toLowerCase().includes(e.word.toLowerCase())
   );
 
   return {
@@ -207,39 +245,73 @@ export function offlineCodeMixUpgrade(
   };
 }
 
+export type UpgradeCodeMixOpts = {
+  level?: string;
+  /** Pro: Gemini trước, fail → Zhipu. Free: Zhipu. */
+  preferGemini?: boolean;
+};
+
 export async function upgradeCodeMixToEnglish(
   codemix: string,
   words: CodeMixWord[],
-  opts?: { level?: string }
+  opts?: UpgradeCodeMixOpts
 ): Promise<CodeMixUpgradeResult> {
   const text = codemix.trim();
   if (text.length < 12) throw new Error('Đoạn quá ngắn');
   if (text.length > 2000) throw new Error('Đoạn quá dài (max ~2000 ký tự)');
   if (words.length < CODEMIX_MIN_WORDS) {
-    throw new Error(`Cần chọn ${CODEMIX_MIN_WORDS}–${CODEMIX_MAX_WORDS} từ (hiện ${words.length})`);
+    throw new Error(
+      `Cần chọn ${CODEMIX_MIN_WORDS}–${CODEMIX_MAX_WORDS} từ (hiện ${words.length})`
+    );
   }
   if (words.length > CODEMIX_MAX_WORDS) {
-    throw new Error(`Tối đa ${CODEMIX_MAX_WORDS} từ/lượt (hiện ${words.length})`);
+    throw new Error(
+      `Tối đa ${CODEMIX_MAX_WORDS} từ/lượt (hiện ${words.length})`
+    );
   }
 
-  const level = opts?.level || 'A1-A2';
-  const router = getRouter();
+  const level = opts?.level || 'A2';
+  const preferGemini = opts?.preferGemini === true && hasGeminiKeys();
   const prompt = buildPrompt(text, words, level);
-  const rawText = await router.generate(prompt, 'smart', true);
+
+  let rawText: string;
+  let providerNote: string;
+
+  if (preferGemini) {
+    try {
+      rawText = await geminiGenerate(prompt, { json: true, temperature: 0.25 });
+      providerNote = `gemini:${resolveGeminiModel()}`;
+    } catch (gemErr: unknown) {
+      const gmsg = gemErr instanceof Error ? gemErr.message : String(gemErr);
+      console.warn(`[CodeMixUpgrade] Gemini fail → Zhipu: ${gmsg.slice(0, 160)}`);
+      rawText = await getRouter().generate(prompt, 'smart', true);
+      providerNote = 'zhipu-fallback';
+    }
+  } else {
+    rawText = await getRouter().generate(prompt, 'smart', true);
+    providerNote = 'zhipu';
+  }
+
   const parsed = parseJsonObject(rawText);
 
-  const english = asString(parsed.english);
-  if (!english || english.length < 20) {
+  const english = cleanEn(asString(parsed.english), 2000);
+  if (!english || stripBold(english).length < 20) {
     throw new Error('AI trả english rỗng/quá ngắn');
   }
 
+  // Cảnh báo nhẹ nếu model vẫn nhồi adj+adv sai kiểu "... academic perilously ..."
+  const plainLower = stripBold(english).toLowerCase();
+  if (/\bacademic\s+perilously\b/.test(plainLower)) {
+    console.warn('[CodeMixUpgrade] suspicious collocation academic+perilously in output');
+  }
+
   return {
-    english: sanitizeForPrompt(english, 2000),
+    english,
     english_plain: stripBold(english),
-    meaning_vi: sanitizeForPrompt(asString(parsed.meaning_vi), 800),
+    meaning_vi: cleanVi(asString(parsed.meaning_vi), 800),
     level: sanitizeForPrompt(asString(parsed.level, level), 20),
-    wow_note_vi: sanitizeForPrompt(asString(parsed.wow_note_vi), 400),
+    wow_note_vi: cleanVi(asString(parsed.wow_note_vi), 400),
     words: normalizeWords(parsed.words, words),
-    meta: { providerNote: 'ai-router (Zhipu/Groq)' },
+    meta: { providerNote },
   };
 }

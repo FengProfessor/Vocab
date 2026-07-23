@@ -425,8 +425,13 @@ function CodeMixPracticeInner() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             text,
-            words: selected.map((t) => ({ word: t.word, translation: t.vi })),
-            level: 'A1-A2',
+            words: selected.map((t) => ({
+              word: t.word,
+              translation: t.vi,
+              pos: t.pos,
+            })),
+            // A2 base; backend/prompt được phép nâng B1 nếu từ khó (academic…)
+            level: 'A2',
             offline: forceOffline,
           }),
         });

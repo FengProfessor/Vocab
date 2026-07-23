@@ -81,6 +81,12 @@ export async function POST(req: Request): Promise<NextResponse> {
         const o = item as Record<string, unknown>;
         const word = typeof o.word === 'string' ? o.word.trim() : '';
         if (!word || word.length > 40) continue;
+        const posRaw =
+          typeof o.pos === 'string'
+            ? o.pos.trim().slice(0, 12)
+            : typeof o.partOfSpeech === 'string'
+              ? o.partOfSpeech.trim().slice(0, 12)
+              : undefined;
         words.push({
           word,
           translation:
@@ -89,6 +95,7 @@ export async function POST(req: Request): Promise<NextResponse> {
               : typeof o.vi === 'string'
                 ? o.vi.trim().slice(0, 80)
                 : undefined,
+          pos: posRaw || undefined,
         });
         if (words.length >= CODEMIX_MAX_WORDS) break;
       }
@@ -159,13 +166,27 @@ export async function POST(req: Request): Promise<NextResponse> {
       counted: plan === 'free',
     };
 
+    // Pro → Gemini (nhanh/chất hơn); Free → Zhipu
+    const isPro = plan !== 'free';
+    const preferGemini = isPro;
+
+    console.log(
+      `[CodeMixUpgrade] plan=${plan} gemini=${preferGemini} words=${words.length} level=${level}`,
+    );
+
     try {
-      const data = await upgradeCodeMixToEnglish(text, words, { level });
+      const data = await upgradeCodeMixToEnglish(text, words, {
+        level,
+        preferGemini,
+      });
       return NextResponse.json({
         success: true,
         data,
         offline: false,
-        quota: quotaPayload,
+        quota: {
+          ...quotaPayload,
+          provider: data.meta?.providerNote ?? (preferGemini ? 'gemini' : 'zhipu'),
+        },
       });
     } catch (aiErr: unknown) {
       const msg = aiErr instanceof Error ? aiErr.message : String(aiErr);
