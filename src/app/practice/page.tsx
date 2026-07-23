@@ -14,7 +14,7 @@ const MODES = [
     href: '/practice/verb-drill',
     emoji: '⚡',
     title: 'Quiz nhớ nhanh',
-    desc: 'MCQ tốc độ từ kho đã học — không FSRS, không ôn sâu',
+    desc: 'MCQ mix nghĩa + cloze · đúng thì lên bậc',
     ring: 'border-amber-200 bg-amber-50/70 hover:border-amber-400 hover:bg-amber-50',
     badge: 'bg-amber-500',
     text: 'text-amber-950',

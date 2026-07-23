@@ -20,9 +20,27 @@ const CORRECT_LS_KEY = 'verb-drill-correct-v1';
 const MIN_LEARNED = 4;
 const MAX_POOL = 200;
 
-type QuizMode = 'meaning' | 'cloze' | 'mix';
 type QType = 'meaning' | 'cloze';
 type Phase = 'setup' | 'quiz' | 'done';
+/** Bậc đúng quiz: 0=chưa, 1, 2, 3, 4=>3 */
+type TierKey = 0 | 1 | 2 | 3 | 4;
+
+function tierOfHits(n: number): TierKey {
+  if (n <= 0) return 0;
+  if (n === 1) return 1;
+  if (n === 2) return 2;
+  if (n === 3) return 3;
+  return 4;
+}
+
+const ALL_TIERS: TierKey[] = [0, 1, 2, 3, 4];
+const TIER_CHIP: Record<TierKey, string> = {
+  0: 'chưa',
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '>3',
+};
 
 interface WordEntry {
   id?: string;
@@ -213,7 +231,10 @@ export default function VerbDrillPage() {
   const [loading, setLoading] = useState(true);
   const [loadErr, setLoadErr] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>('setup');
-  const [mode, setMode] = useState<QuizMode>('mix');
+  /** Kho theo bậc đúng — mặc định chọn hết */
+  const [selectedTiers, setSelectedTiers] = useState<Set<TierKey>>(
+    () => new Set(ALL_TIERS),
+  );
   const [wordCount, setWordCount] = useState(15);
   const [queue, setQueue] = useState<QuizQ[]>([]);
   const [idx, setIdx] = useState(0);
@@ -312,16 +333,7 @@ export default function VerbDrillPage() {
     };
   }, []);
 
-  /** Từ blank được example → cloze */
-  const clozeReady = useMemo(() => {
-    return words.filter((w) => blankInExample(w.example, w.lemma) != null);
-  }, [words]);
-
-  const clozeCount = clozeReady.length;
   const canMeaning = words.length >= MIN_LEARNED;
-  const canCloze = clozeCount >= MIN_LEARNED;
-  const canQuiz =
-    mode === 'cloze' ? canCloze : mode === 'meaning' ? canMeaning : canMeaning;
 
   const allMeanings = useMemo(
     () => [...new Set(words.map((w) => w.vi))],
@@ -333,45 +345,51 @@ export default function VerbDrillPage() {
   );
 
   const tierStats = useMemo(() => {
-    const stats = { t0: 0, t1: 0, t2: 0, t3: 0, tOver: 0 };
+    const stats: Record<TierKey, number> = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0 };
     for (const w of words) {
-      const n = correctMap[w.lemma.toLowerCase()] ?? 0;
-      if (n <= 0) stats.t0 += 1;
-      else if (n === 1) stats.t1 += 1;
-      else if (n === 2) stats.t2 += 1;
-      else if (n === 3) stats.t3 += 1;
-      else stats.tOver += 1;
+      const t = tierOfHits(correctMap[w.lemma.toLowerCase()] ?? 0);
+      stats[t] += 1;
     }
     return stats;
   }, [words, correctMap]);
 
+  /** Pool theo kho bậc đã chọn */
+  const poolWords = useMemo(() => {
+    if (selectedTiers.size === 0) return [];
+    return words.filter((w) => {
+      const t = tierOfHits(correctMap[w.lemma.toLowerCase()] ?? 0);
+      return selectedTiers.has(t);
+    });
+  }, [words, correctMap, selectedTiers]);
+
+  const canQuiz = poolWords.length >= 1 && words.length >= MIN_LEARNED;
+
+  const toggleTier = (t: TierKey) => {
+    setSelectedTiers((prev) => {
+      const next = new Set(prev);
+      if (next.has(t)) next.delete(t);
+      else next.add(t);
+      // không cho bỏ hết — nếu rỗng thì bật lại
+      if (next.size === 0) next.add(t);
+      return next;
+    });
+  };
+
   const start = useCallback(() => {
-    if (!canQuiz) return;
+    if (!canQuiz || poolWords.length === 0) return;
 
-    let pool: WordEntry[] = [];
-    if (mode === 'cloze') {
-      pool = shuffle(clozeReady);
-    } else if (mode === 'meaning') {
-      pool = shuffle(words);
-    } else {
-      // mix: ưu tiên cloze-ready, bổ sung meaning-only
-      pool = shuffle(words);
-    }
-
+    // Mix cố định: có example blank được → cloze (~55%), không → nghĩa
+    const pool = shuffle(poolWords);
     const n = Math.min(wordCount, pool.length);
     const pickedWords = pool.slice(0, n);
 
     const q: QuizQ[] = [];
     for (const w of pickedWords) {
       const blank = blankInExample(w.example, w.lemma);
-      const wantCloze =
-        mode === 'cloze' || (mode === 'mix' && blank != null && Math.random() < 0.55);
+      const wantCloze = blank != null && Math.random() < 0.55;
 
       if (wantCloze && blank) {
-        // Đáp án = surface trong câu (walks) — opts = lemma/surface từ kho
-        // Dùng surface làm answer; opts lấy lemma khác (display EN)
         const answer = blank.surface;
-        // Nhiễu = lemma EN khác trong kho (không nhét lemma gốc khi surface khác — dễ oan)
         const distractorPool = allLemmas.filter(
           (L) =>
             L.toLowerCase() !== w.lemma.toLowerCase() &&
@@ -408,7 +426,7 @@ export default function VerbDrillPage() {
     setCorrectN(0);
     setJustHitTier(null);
     setPhase('quiz');
-  }, [canQuiz, mode, clozeReady, words, wordCount, allMeanings, allLemmas]);
+  }, [canQuiz, poolWords, wordCount, allMeanings, allLemmas]);
 
   const current = queue[idx] ?? null;
   const currentKey = current?.lemma.toLowerCase() ?? '';
@@ -483,24 +501,7 @@ export default function VerbDrillPage() {
     return buckets;
   }, [phase, queue, correctMap]);
 
-  const poolSize =
-    mode === 'cloze' ? clozeCount : words.length;
-  const maxWords = poolSize;
-
-  const modeMeta: Record<QuizMode, { title: string; desc: string }> = {
-    meaning: {
-      title: 'Chọn nghĩa',
-      desc: 'EN → nghĩa VI',
-    },
-    cloze: {
-      title: 'Điền chỗ trống',
-      desc: 'Example sẵn → chọn từ EN',
-    },
-    mix: {
-      title: 'Xen kẽ',
-      desc: 'Cloze + nghĩa (ưu tiên có example)',
-    },
-  };
+  const maxWords = poolWords.length;
 
   return (
     <StudentShell title="Quiz nhớ nhanh" contentClassName="p-0" hideMobileNav>
@@ -557,9 +558,6 @@ export default function VerbDrillPage() {
               <p>
                 · Đã học: <strong>{words.length}</strong> / cần ≥ {MIN_LEARNED}
               </p>
-              <p>
-                · Có example (cloze): <strong>{clozeCount}</strong>
-              </p>
             </div>
             <div className="flex flex-col gap-2">
               {savedTotal === 0 ? (
@@ -589,72 +587,43 @@ export default function VerbDrillPage() {
 
         {!loading && !loadErr && canMeaning && phase === 'setup' && (
           <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4">
-            <p className="text-sm font-bold text-slate-800">Quiz nhớ nhanh · kho đã học</p>
+            <p className="text-sm font-bold text-slate-800">Quiz nhớ nhanh</p>
             <p className="text-[12px] text-slate-500">
-              {words.length} từ · {clozeCount} cloze · MCQ tốc độ · không ghi FSRS
-            </p>
-            <p className="text-[11px] text-slate-400">
-              Muốn ôn due / nghe / gõ sâu →{' '}
-              <Link href="/review" className="font-bold text-violet-600 underline-offset-2 hover:underline">
-                Ôn tập
-              </Link>
+              {words.length} từ đã học · đúng thì lên bậc
             </p>
 
-            <div className="grid grid-cols-3 gap-1.5">
-              {(['mix', 'cloze', 'meaning'] as QuizMode[]).map((m) => {
-                const disabled = m === 'cloze' && !canCloze;
-                const active = mode === m;
-                return (
-                  <button
-                    key={m}
-                    type="button"
-                    disabled={disabled}
-                    onClick={() => setMode(m)}
-                    className={`rounded-xl border px-1.5 py-2 text-center transition ${
-                      active
-                        ? 'border-violet-500 bg-violet-50 text-violet-900'
-                        : disabled
-                          ? 'cursor-not-allowed border-slate-100 bg-slate-50 text-slate-300'
-                          : 'border-slate-200 bg-white text-slate-700 active:bg-slate-50'
-                    }`}
-                  >
-                    <p className="text-[11px] font-black leading-tight">{modeMeta[m].title}</p>
-                    <p className="mt-0.5 text-[9px] font-medium leading-tight opacity-80">
-                      {m === 'cloze' && !canCloze
-                        ? `cần ≥${MIN_LEARNED} example`
-                        : modeMeta[m].desc}
-                    </p>
-                  </button>
-                );
-              })}
-            </div>
-
-            <p className="text-[11px] text-slate-500">
-              {mode === 'cloze'
-                ? 'Dùng example trong kho → blank từ → chọn A/B/C/D (EN).'
-                : mode === 'mix'
-                  ? 'Có example thì cloze; không có thì hỏi nghĩa VI.'
-                  : 'EN + IPA → chọn nghĩa VI.'}{' '}
-              Mỗi lần đúng: 1 · 2 · 3 · &gt;3
-            </p>
-
-            <div className="flex flex-wrap gap-1.5 text-[10px] font-bold">
-              <span className={`rounded-md px-2 py-0.5 ${tierBadgeClass(0)}`}>
-                chưa: {tierStats.t0}
-              </span>
-              <span className={`rounded-md px-2 py-0.5 ${tierBadgeClass(1)}`}>1: {tierStats.t1}</span>
-              <span className={`rounded-md px-2 py-0.5 ${tierBadgeClass(2)}`}>2: {tierStats.t2}</span>
-              <span className={`rounded-md px-2 py-0.5 ${tierBadgeClass(3)}`}>3: {tierStats.t3}</span>
-              <span className={`rounded-md px-2 py-0.5 ${tierBadgeClass(4)}`}>
-                &gt;3: {tierStats.tOver}
-              </span>
+            <div>
+              <p className="mb-1.5 text-[11px] font-semibold text-slate-500">Chọn kho theo bậc</p>
+              <div className="flex flex-wrap gap-1.5">
+                {ALL_TIERS.map((t) => {
+                  const on = selectedTiers.has(t);
+                  const count = tierStats[t];
+                  return (
+                    <button
+                      key={t}
+                      type="button"
+                      onClick={() => toggleTier(t)}
+                      className={`rounded-lg border px-2.5 py-1.5 text-[11px] font-black transition ${
+                        on
+                          ? `${tierBadgeClass(t === 4 ? 4 : t)} border-transparent ring-2 ring-violet-400 ring-offset-1`
+                          : 'border-slate-200 bg-white text-slate-400'
+                      }`}
+                    >
+                      {TIER_CHIP[t]}: {count}
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="mt-1.5 text-[10px] text-slate-400">
+                Đang chọn {poolWords.length} từ
+              </p>
             </div>
 
             <label className="block text-[12px] font-semibold text-slate-600">
               Số câu mỗi lượt: {Math.min(wordCount, Math.max(maxWords, 1))}
               <input
                 type="range"
-                min={Math.min(MIN_LEARNED, Math.max(maxWords, 1))}
+                min={1}
                 max={Math.min(50, Math.max(maxWords, 1))}
                 value={Math.min(wordCount, Math.max(maxWords, 1))}
                 onChange={(e) => setWordCount(Number(e.target.value))}
@@ -663,20 +632,13 @@ export default function VerbDrillPage() {
               />
             </label>
 
-            {mode === 'cloze' && !canCloze ? (
-              <p className="rounded-lg bg-amber-50 px-3 py-2 text-[11px] text-amber-900">
-                Cần ≥ {MIN_LEARNED} từ đã học có example chứa đúng từ đó. Hiện: {clozeCount}.
-                Học thêm hoặc chọn «Chọn nghĩa» / «Xen kẽ».
-              </p>
-            ) : (
-              <Button
-                className="h-11 w-full rounded-xl bg-violet-600 text-sm font-bold hover:bg-violet-700"
-                onClick={start}
-                disabled={!canQuiz}
-              >
-                Bắt đầu · {modeMeta[mode].title}
-              </Button>
-            )}
+            <Button
+              className="h-11 w-full rounded-xl bg-violet-600 text-sm font-bold hover:bg-violet-700"
+              onClick={start}
+              disabled={!canQuiz || poolWords.length === 0}
+            >
+              Bắt đầu
+            </Button>
           </section>
         )}
 
