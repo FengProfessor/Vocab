@@ -630,30 +630,57 @@ function GrammarContent() {
   };
 
   const submitGrammarProgress = async (finalCorrect: number, total: number) => {
-    if (!lessonId || !userId) return;
+    if (!lessonId || !userId) {
+      if (roadmapStepId) {
+        toast.error('Chưa đăng nhập — không ghi được tiến độ lộ trình.');
+      }
+      return;
+    }
     const accuracy = total > 0 ? finalCorrect / total : 0;
     try {
       const { data: { session } } = await supabase.auth.getSession();
-      await fetch('/api/grammar/progress', {
+      if (!session?.access_token) {
+        toast.error('Phiên đăng nhập hết hạn — tải lại trang rồi làm lại bài.');
+        return;
+      }
+      const res = await fetch('/api/grammar/progress', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
+          Authorization: `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({ lessonId, accuracy }),
       });
-      // Drill xong từ lộ trình → ghi step + về journey
+      const data = await res.json().catch(() => null) as {
+        success?: boolean;
+        error?: string;
+        roadmapCredited?: number;
+      } | null;
+      if (!res.ok || !data?.success) {
+        console.error('[Grammar] progress save failed:', data?.error || res.status);
+        toast.error(data?.error || 'Không lưu được tiến độ ngữ pháp. Thử lại.');
+        return;
+      }
+      const credited = typeof data.roadmapCredited === 'number' ? data.roadmapCredited : 0;
+      // Drill xong: credit server chỉ tick khi topic đã học hết bài.
+      // completeRoadmapStep chỉ gọi khi đã credit (tránh tick sớm 1/nhiều bài).
       if (roadmapStepId) {
-        const result = await completeRoadmapStep(roadmapStepId);
-        if (result) {
-          toast.success(`+${result.xpAwarded} XP lộ trình — chặng ngữ pháp đã ghi!`);
+        if (credited > 0) {
+          const result = await completeRoadmapStep(roadmapStepId);
+          if (result) {
+            toast.success(`+${result.xpAwarded} XP lộ trình — chặng ngữ pháp đã ghi!`);
+          } else {
+            toast.success('Đã đồng bộ tiến độ vào lộ trình.');
+          }
           router.push('/journey');
         } else {
-          toast.error(getLastRoadmapStepError() || 'Chưa ghi được chặng lộ trình.');
+          toast.success('Đã lưu kết quả bài tập. Học hết các bài còn lại trong chủ đề để hoàn thành chặng lộ trình.');
+          router.push(roadmapStepId ? `/grammar/learn?roadmapStep=${encodeURIComponent(roadmapStepId)}` : '/grammar/learn');
         }
       }
-    } catch {
-      /* bỏ qua lỗi — không chặn UI */
+    } catch (err) {
+      console.error('[Grammar] submitGrammarProgress:', err);
+      toast.error('Lỗi mạng khi lưu tiến độ. Kiểm tra kết nối rồi thử lại.');
     }
   };
 

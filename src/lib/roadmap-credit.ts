@@ -22,19 +22,20 @@ export interface CreditResult {
 
 type Cand = { id: string; type: string; ref: string; unitId: string };
 
+/**
+ * Thu thập step vocab/grammar chưa completed.
+ * Credit CẢ level dưới start (review) — HS B2 học lại A0 vẫn được tick.
+ * `startLevelId` giữ tham số để caller không đổi; không lọc theo start.
+ */
 function collectCandidates(
   track: RoadmapTrack,
-  startLevelId: RoadmapLevelId,
+  _startLevelId: RoadmapLevelId,
   alreadyDone: Set<string>,
   onlyGrammarSlug?: string,
 ): Cand[] {
-  const ORDER = levelOrder(track);
-  const startIdx = Math.max(0, ORDER.indexOf(startLevelId));
   const levels = getRoadmapLevels(track);
   const candidates: Cand[] = [];
   for (const level of levels) {
-    const idx = ORDER.indexOf(level.id);
-    if (idx < startIdx) continue;
     for (const unit of level.units) {
       for (const step of unit.steps) {
         if (alreadyDone.has(step.id)) continue;
@@ -178,9 +179,17 @@ export async function creditRoadmapFromLibrary(
           }
           for (const g of gp ?? []) learnedLessons.add(g.lesson_id);
         }
+        // Topic complete = MỌI lesson đã có progress (không bắt mastery ≥ 80)
+        const lessonsByTopic = new Map<string, string[]>();
         for (const lesson of lessons) {
-          if (learnedLessons.has(lesson.id)) {
-            const slug = slugById.get(lesson.topic_id);
+          const tid = lesson.topic_id as string;
+          const arr = lessonsByTopic.get(tid) ?? [];
+          arr.push(lesson.id);
+          lessonsByTopic.set(tid, arr);
+        }
+        for (const [tid, lids] of lessonsByTopic) {
+          if (lids.length > 0 && lids.every((id) => learnedLessons.has(id))) {
+            const slug = slugById.get(tid);
             if (slug) learnedGrammarSlugs.add(slug);
           }
         }
@@ -232,8 +241,8 @@ export async function creditAllEnrolledTracksFromLibrary(
 
 /**
  * Sau khi học 1 lesson ngữ pháp (kể cả NGOÀI lộ trình):
- * tìm topic.slug → ghi completed mọi step grammar cùng ref trên các track đã enroll.
- * Không cộng XP, không check tuần tự (user đã học thật trong kho).
+ * chỉ tick step khi topic đã học HẾT bài (mọi lesson có grammar_progress).
+ * Không cộng XP, không check tuần tự.
  */
 export async function creditGrammarLessonToRoadmap(
   supabase: SupabaseClient,
@@ -254,16 +263,52 @@ export async function creditGrammarLessonToRoadmap(
   const topicRaw = lesson.topic as { slug?: string } | { slug?: string }[] | null;
   const topicObj = Array.isArray(topicRaw) ? topicRaw[0] : topicRaw;
   let slug = topicObj?.slug ?? null;
-  if (!slug && lesson.topic_id) {
+  const topicId = (lesson.topic_id as string | null) ?? null;
+  if (!slug && topicId) {
     const { data: t } = await supabase
       .from('grammar_topics')
       .select('slug')
-      .eq('id', lesson.topic_id)
+      .eq('id', topicId)
       .maybeSingle();
     slug = t?.slug ?? null;
   }
-  if (!slug) {
+  if (!slug || !topicId) {
     console.warn('[RoadmapCredit] no topic slug for lesson', lessonId);
+    return { creditedStepIds: [] };
+  }
+
+  // Chỉ credit khi đã học hết lesson trong topic
+  const { data: topicLessons, error: tlErr } = await supabase
+    .from('grammar_lessons')
+    .select('id')
+    .eq('topic_id', topicId);
+  if (tlErr) {
+    console.error('[RoadmapCredit] topic lessons:', tlErr.message);
+    return { creditedStepIds: [] };
+  }
+  const allLessonIds = (topicLessons ?? []).map((l) => l.id as string);
+  if (allLessonIds.length === 0) return { creditedStepIds: [] };
+
+  const learned = new Set<string>();
+  for (let i = 0; i < allLessonIds.length; i += 100) {
+    const chunk = allLessonIds.slice(i, i + 100);
+    const { data: gp, error: gErr } = await supabase
+      .from('grammar_progress')
+      .select('lesson_id')
+      .eq('user_id', userId)
+      .in('lesson_id', chunk);
+    if (gErr) {
+      console.error('[RoadmapCredit] grammar progress:', gErr.message);
+      return { creditedStepIds: [] };
+    }
+    for (const g of gp ?? []) learned.add(g.lesson_id as string);
+  }
+  // Lesson vừa POST có thể chưa kịp thấy nếu race — đảm bảo include lessonId hiện tại
+  learned.add(lessonId);
+  if (!allLessonIds.every((id) => learned.has(id))) {
+    console.log(
+      `[RoadmapCredit] topic incomplete slug=${slug} learned=${learned.size}/${allLessonIds.length}`,
+    );
     return { creditedStepIds: [] };
   }
 
@@ -286,7 +331,6 @@ export async function creditGrammarLessonToRoadmap(
     const track = (en.track === 'thpt' ? 'thpt' : 'cefr') as RoadmapTrack;
     const levelId = en.level_id as RoadmapLevelId;
     const cands = collectCandidates(track, levelId, alreadyDone, slug);
-    // Chỉ grammar cùng slug — đã filter trong collectCandidates
     const credited = await upsertCreditRows(supabase, userId, track, cands);
     for (const id of credited) {
       alreadyDone.add(id);
@@ -294,7 +338,7 @@ export async function creditGrammarLessonToRoadmap(
     }
   }
   if (all.length > 0) {
-    console.log(`[RoadmapCredit] grammar lesson→roadmap slug=${slug} steps=${all.length}`);
+    console.log(`[RoadmapCredit] grammar topic complete→roadmap slug=${slug} steps=${all.length}`);
   }
   return { creditedStepIds: all };
 }

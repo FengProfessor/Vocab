@@ -31,6 +31,8 @@ interface TopicProgressSummary {
   titleVi: string | null;
   level: string;
   totalLessons: number;
+  /** Có progress (đã đọc/làm) — nguồn tick "đã hoàn thành". */
+  learnedLessons: number;
   masteredLessons: number;
   avgMasteryScore: number;
   nextDueDate: string | null;
@@ -240,9 +242,9 @@ function GrammarLearnContent() {
         const lessons = (res?.success ? res.data : []) as GrammarLesson[];
         if (lessons.length > 0) {
           setLessonsByTopic((prev) => ({ ...prev, [target.id]: lessons }));
-          // Bất kỳ lesson nào đã có progress = coi topic đã học trong kho (trừ replay)
-          const anyLearned = lessons.some((l) => !!progressMap[l.id]);
-          if (anyLearned && roadmapStepId && !forceReplay) {
+          // Đã học HẾT bài trong topic = tick step lộ trình (trừ replay)
+          const allLearned = lessons.length > 0 && lessons.every((l) => !!progressMap[l.id]);
+          if (allLearned && roadmapStepId && !forceReplay) {
             const result = await completeRoadmapStep(roadmapStepId);
             if (result) {
               toast.success(`+${result.xpAwarded} XP — chủ đề này bạn đã học trong kho, sang bước kế tiếp nhé!`);
@@ -288,11 +290,19 @@ function GrammarLearnContent() {
       });
       const data = await res.json();
       if (data.success) {
-        setProgressMap((prev) => ({ ...prev, [activeLesson.id]: data.data }));
+        const row = data.data as GrammarProgress;
+        const nextMap = { ...progressMap, [activeLesson.id]: row };
+        setProgressMap(nextMap);
+        bumpTopicProgress(activeLesson, row);
         // Server đã credit step grammar → lộ trình (kể cả học ngoài journey)
         const credited = typeof data.roadmapCredited === 'number' ? data.roadmapCredited : 0;
-        if (roadmapStepId) {
-          // Vẫn gọi complete để cộng XP + validate tuần tự khi mở từ journey
+        const topicId = activeLesson.topic_id || activeLesson.topic?.id;
+        const siblingLessons = topicId ? (lessonsByTopic[topicId] ?? [activeLesson]) : [activeLesson];
+        const topicAllLearned =
+          siblingLessons.length > 0 && siblingLessons.every((l) => !!nextMap[l.id]);
+
+        if (roadmapStepId && topicAllLearned) {
+          // Đủ hết bài trong topic → complete + XP; credit server là backup
           const result = await completeRoadmapStep(roadmapStepId);
           if (result) {
             toast.success(`+${result.xpAwarded} XP · đã ghi chặng lộ trình.`);
@@ -307,7 +317,15 @@ function GrammarLearnContent() {
           toast.success(
             hasPriorProgress
               ? `Đã ôn lại! Lộ trình đã tick ${credited} bước ngữ pháp liên quan.`
-              : `Đã đọc xong! Lộ trình đã tick ${credited} bước ngữ pháp liên quan.`,
+              : `Đã học xong chủ đề! Lộ trình đã tick ${credited} bước ngữ pháp liên quan.`,
+          );
+          if (roadmapStepId) router.push('/journey');
+        } else if (roadmapStepId && !topicAllLearned) {
+          const left = siblingLessons.filter((l) => !nextMap[l.id]).length;
+          toast.success(
+            hasPriorProgress
+              ? 'Đã ôn lại bài này.'
+              : `Đã ghi nhận bài này. Còn ${left} bài trong chủ đề — học hết để hoàn thành chặng lộ trình.`,
           );
         } else {
           toast.success(
@@ -399,10 +417,47 @@ function GrammarLearnContent() {
     });
   }, [activeLesson?.id]);
 
+  /** new = chưa học; learned = đã học (kể cả đang due); due = đã học + tới lịch ôn. */
   const lessonStatus = (lessonId: string): 'new' | 'learned' | 'due' => {
     const p = progressMap[lessonId];
     if (!p) return 'new';
     return new Date(p.next_review_date).getTime() <= Date.now() ? 'due' : 'learned';
+  };
+
+  /** Topic hoàn thành = đã học hết bài (không bắt mastery ≥ 80). */
+  const topicDonePct = (tp: TopicProgressSummary | undefined): number => {
+    if (!tp || tp.totalLessons <= 0) return 0;
+    const learned = typeof tp.learnedLessons === 'number' ? tp.learnedLessons : tp.masteredLessons;
+    return Math.round((learned / tp.totalLessons) * 100);
+  };
+
+  /** Cập nhật summary topic sau khi ghi progress 1 lesson (tránh phải reload). */
+  const bumpTopicProgress = (lesson: GrammarLesson, row: GrammarProgress) => {
+    const topicId = lesson.topic_id || lesson.topic?.id;
+    if (!topicId) return;
+    setTopicProgress((prev) => {
+      const existing = prev.find((t) => t.topicId === topicId);
+      const hadProgress = !!progressMap[lesson.id];
+      const wasMastered = (() => {
+        const old = progressMap[lesson.id];
+        return !!old && (old.state === 'mastered' || (old.mastery_score ?? 0) >= 80);
+      })();
+      const nowMastered = row.state === 'mastered' || (row.mastery_score ?? 0) >= 80;
+      if (!existing) {
+        // Chưa có summary (edge) — để fetch lần sau; không bịa totalLessons
+        return prev;
+      }
+      return prev.map((t) => {
+        if (t.topicId !== topicId) return t;
+        const learnedLessons = hadProgress
+          ? (typeof t.learnedLessons === 'number' ? t.learnedLessons : t.masteredLessons)
+          : (typeof t.learnedLessons === 'number' ? t.learnedLessons : t.masteredLessons) + 1;
+        let masteredLessons = t.masteredLessons;
+        if (!wasMastered && nowMastered) masteredLessons += 1;
+        if (wasMastered && !nowMastered) masteredLessons = Math.max(0, masteredLessons - 1);
+        return { ...t, learnedLessons, masteredLessons };
+      });
+    });
   };
 
   if (isLoading) {
@@ -637,14 +692,15 @@ function GrammarLearnContent() {
     topicProgress.map((tp) => [tp.topicId, tp]),
   );
 
-  /** Sidebar: list topics với progress bar */
+  /** Sidebar: list topics — % theo bài đã học (không bắt mastery ≥ 80) */
   const ProgressSidebar = () => (
     <nav className="space-y-1.5">
       {topicProgress.length === 0 && (
         <p className="text-xs text-muted-foreground px-1">Chưa có dữ liệu tiến độ.</p>
       )}
       {topicProgress.map((tp) => {
-        const pct = tp.totalLessons > 0 ? Math.round((tp.masteredLessons / tp.totalLessons) * 100) : 0;
+        const pct = topicDonePct(tp);
+        const learned = typeof tp.learnedLessons === 'number' ? tp.learnedLessons : tp.masteredLessons;
         const isDue = tp.nextDueDate !== null && new Date(tp.nextDueDate).getTime() <= now;
         const barColor =
           pct === 100 ? 'bg-emerald-500' :
@@ -675,7 +731,7 @@ function GrammarLearnContent() {
                 />
               </div>
               <span className="shrink-0 text-[10px] text-muted-foreground tabular-nums">
-                {tp.masteredLessons}/{tp.totalLessons}
+                {learned}/{tp.totalLessons}
               </span>
             </div>
           </button>
@@ -753,7 +809,11 @@ function GrammarLearnContent() {
             const lvProg = lvTopics.reduce(
               (acc, t) => {
                 const tp = progressByTopic[t.id];
-                if (tp) { acc.done += tp.masteredLessons; acc.total += tp.totalLessons; }
+                if (tp) {
+                  const learned = typeof tp.learnedLessons === 'number' ? tp.learnedLessons : tp.masteredLessons;
+                  acc.done += learned;
+                  acc.total += tp.totalLessons;
+                }
                 return acc;
               },
               { done: 0, total: 0 },
@@ -783,7 +843,10 @@ function GrammarLearnContent() {
                   const lessons = lessonsByTopic[topic.id] || [];
                   const isOpen = expandedTopic === topic.id;
                   const tp = progressByTopic[topic.id];
-                  const pct = tp && tp.totalLessons > 0 ? Math.round((tp.masteredLessons / tp.totalLessons) * 100) : 0;
+                  const pct = topicDonePct(tp);
+                  const learnedCount = tp
+                    ? (typeof tp.learnedLessons === 'number' ? tp.learnedLessons : tp.masteredLessons)
+                    : 0;
                   const isDue = tp?.nextDueDate != null && new Date(tp.nextDueDate).getTime() <= now;
                   return (
                     <div
@@ -822,7 +885,7 @@ function GrammarLearnContent() {
                                 />
                               </div>
                               <span className="text-[10px] text-muted-foreground tabular-nums">
-                                {tp.masteredLessons}/{tp.totalLessons}
+                                {learnedCount}/{tp.totalLessons}
                               </span>
                             </div>
                           )}
@@ -844,6 +907,7 @@ function GrammarLearnContent() {
                           )}
                           {lessons.map((lesson, idx) => {
                             const status = lessonStatus(lesson.id);
+                            const done = status === 'learned' || status === 'due';
                             return (
                               <button
                                 key={lesson.id}
@@ -855,11 +919,11 @@ function GrammarLearnContent() {
                                     status === 'learned'
                                       ? 'bg-emerald-500 border-emerald-500 text-white'
                                       : status === 'due'
-                                        ? 'bg-amber-100 border-amber-300 text-amber-700'
+                                        ? 'bg-amber-500 border-amber-500 text-white'
                                         : 'bg-background border-slate-200 text-slate-500'
                                   }`}
                                 >
-                                  {status === 'learned' ? <CheckCircle2 className="h-4 w-4" /> : idx + 1}
+                                  {done ? <CheckCircle2 className="h-4 w-4" /> : idx + 1}
                                 </span>
                                 <span className="flex-1 min-w-0 text-sm font-medium text-slate-700 truncate">{lesson.title}</span>
                                 {status === 'due' && (

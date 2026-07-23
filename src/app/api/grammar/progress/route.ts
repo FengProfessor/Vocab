@@ -19,6 +19,9 @@ export interface TopicProgressSummary {
   titleVi: string | null;
   level: string;
   totalLessons: number;
+  /** Số bài đã từng học (có hàng grammar_progress) — dùng để tick "đã hoàn thành". */
+  learnedLessons: number;
+  /** Số bài mastery_score ≥ 80 hoặc state=mastered. */
   masteredLessons: number;
   avgMasteryScore: number;
   nextDueDate: string | null;
@@ -109,6 +112,7 @@ export async function GET(req: Request): Promise<NextResponse> {
 
       for (const [topicId, info] of topicMap) {
         const total = info.lessonIds.length;
+        let learned = 0;
         let mastered = 0;
         let scoreSum = 0;
         let scored = 0;
@@ -117,6 +121,7 @@ export async function GET(req: Request): Promise<NextResponse> {
         for (const lid of info.lessonIds) {
           const p = progressByLesson.get(lid);
           if (!p) continue;
+          learned++;
           if (p.state === 'mastered' || p.mastery_score >= 80) mastered++;
           scoreSum += p.mastery_score;
           scored++;
@@ -134,6 +139,7 @@ export async function GET(req: Request): Promise<NextResponse> {
           titleVi: info.titleVi,
           level: info.level,
           totalLessons: total,
+          learnedLessons: learned,
           masteredLessons: mastered,
           avgMasteryScore: scored > 0 ? Math.round(scoreSum / scored) : 0,
           nextDueDate: nextDue,
