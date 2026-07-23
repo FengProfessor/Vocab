@@ -1,6 +1,8 @@
 /**
  * AI: nâng đoạn code-mix (VI + từ EN target) → full English + giải thích wow.
- * Pro → Gemini (fallback Zhipu); Free → Zhipu.
+ *
+ * Prompt = ESL teacher brief + prompt-engineer pack (grammar-first, POS, golden example).
+ * Pro → Gemini (fallback Zhipu); Free → Zhipu. Hard-validate + 1 retry.
  */
 import { getRouter } from '@/lib/ai-router';
 import { sanitizeForPrompt } from '@/lib/api-security';
@@ -9,7 +11,7 @@ import { geminiGenerate, hasGeminiKeys, resolveGeminiModel } from '@/lib/gemini-
 export interface CodeMixWord {
   word: string;
   translation?: string;
-  /** n / v / adj / adv / … — giúp AI đúng collocation */
+  /** n / v / adj / adv / … — POS authoritative for syntax */
   pos?: string;
 }
 
@@ -43,6 +45,20 @@ export interface CodeMixUpgradeResult {
   meta: { providerNote: string };
 }
 
+const LOG = '[CodeMixUpgrade]';
+
+/** Retry khi hard-fail validation (teacher rubric). */
+const RETRY_SUFFIX = `
+
+PREVIOUS OUTPUT FAILED TEACHER QA. Fix ALL of:
+- Natural grammar; never ADJ+ADV+NOUN (e.g. "academic perilously situation").
+- Adv only before adj/verb (perilously close); before a noun use adj form (perilous situation).
+- VI fields: plain Vietnamese only — no **, no #, no "Wow," token, no field bleed.
+- meaning_vi must accurately translate YOUR english (academic ≈ học thuật/học tập, not "học viện" unless institution name).
+- 2–4 clean sentences; separate clauses if targets cannot share one phrase.
+- words[]: one headword each; in_sentence = correct clause from english; pattern short; why_vi ≠ tip_vi.
+Return ONLY valid JSON.`;
+
 function parseJsonObject(raw: string): Record<string, unknown> {
   const cleaned = raw
     .replace(/^```(?:json)?\s*/i, '')
@@ -65,7 +81,7 @@ function stripBold(s: string): string {
   return s.replace(/\*\*([^*]+)\*\*/g, '$1');
 }
 
-/** Dọn markdown / rác model dính vào field VI */
+/** Dọn markdown / rác model dính vào field VI (plain text cho HS). */
 function cleanVi(s: string, maxLen: number): string {
   const t = stripBold(s)
     .replace(/#{1,6}\s*/g, '')
@@ -76,7 +92,6 @@ function cleanVi(s: string, maxLen: number): string {
 }
 
 function cleanEn(s: string, maxLen: number): string {
-  // Giữ **target** bold; bỏ control / fence
   return s
     .replace(/[\x00-\x1F\x7F]/g, '')
     .replace(/```/g, '')
@@ -84,60 +99,133 @@ function cleanEn(s: string, maxLen: number): string {
     .slice(0, maxLen);
 }
 
-function buildPrompt(codemix: string, words: CodeMixWord[], level: string): string {
-  const wordLines = words
+function formatTargetLines(words: CodeMixWord[]): string {
+  return words
     .map((w) => {
-      const t = w.translation ? ` = ${sanitizeForPrompt(w.translation, 80)}` : '';
-      const p = w.pos ? ` [${sanitizeForPrompt(w.pos, 12)}]` : '';
-      return `- ${sanitizeForPrompt(w.word, 40)}${p}${t}`;
+      const pos = w.pos ? sanitizeForPrompt(w.pos, 12) : '?';
+      const gloss = w.translation
+        ? sanitizeForPrompt(w.translation, 80)
+        : '(no gloss)';
+      // POS authoritative; gloss = sense hint only
+      return `- ${sanitizeForPrompt(w.word, 40)} | ${pos} | ${gloss}`;
     })
     .join('\n');
+}
 
-  return `You are a careful ESL coach for Vietnamese learners.
+/**
+ * Prompt = ESL pedagogy + prompt-engineer pack.
+ * Priority: grammar > collocation > coverage > student wording.
+ */
+function buildPrompt(codemix: string, words: CodeMixWord[], level: string): string {
+  const wordLines = formatTargetLines(words);
+  const levelSafe = sanitizeForPrompt(level, 12);
 
-The student wrote CODE-MIX text (Vietnamese + some English target words).
+  return `You are a warm, careful ESL writing coach for Vietnamese teens (A1–B1).
+Task: rewrite CODE-MIX (Vietnamese + English targets) into natural full English, then teach each target so the student gets a 30–60s "wow" micro-lesson.
+
+PRIORITY: grammar > collocation > target coverage > copying student wording.
+
+RULES
+1) Natural grammatical English first. Never force targets adjacent if that breaks English.
+2) Respect POS strictly:
+   - adj + noun (academic problem / academic situation)
+   - adv modifies verb/adj/adv only (perilously close) — NEVER "academic perilously situation"
+   - verb + object; noun as subject/object
+3) Fix student mistakes in "english". Explain the fix in why_vi (POS + sense + optional wrong→right).
+4) Related forms OK when grammar needs them (perilously→perilous; academic→academically). Bold the SURFACE form that appears: **perilous**.
+5) If two targets cannot share one phrase safely → separate clauses/sentences (2–4 sentences, ~35–80 words total).
+6) Fragments / word dumps → invent a short clear teen-school story using targets correctly. Never mirror broken code-mix.
+7) Level aim ${levelSafe}; raise to B1 if targets require it — never produce broken English for "simplicity".
+8) Vietnamese fields: PLAIN Vietnamese only. No **, no #, no English dumps in meaning_vi, no "Wow," token, no mixing wow_note into tip_vi.
+9) meaning_vi = accurate translation of YOUR english only. Sense-in-context: academic ≈ học thuật / liên quan học tập — NOT "học viện" unless the sentence is about an institution name.
+10) wow_note_vi = [short encourage] + [ONE insight about POS/collocation/form-change]. Max 2 sentences.
+11) words[]: one object per target headword. pattern = short chunk (≤60 chars). why_vi = POS + meaning + contrast if fixed. tip_vi = 2–3 collocations or 1 memory rule (≠ copy of why_vi). in_sentence = correct EN clause from your upgrade.
+
+BANNED
+- ADJ+ADV+NOUN mashups ("academic perilously situation")
+- Adv immediately before a noun as if it were an adj
+- VI markdown / "Wow," spam / field bleed
+- Forcing rare wrong sense of academic (= học viện) when context is study/exams
+
+GOLDEN EXAMPLE
+Student: "Hôm nay mình academic perilously situation vì deadline gần."
+Targets: academic | adj | học thuật — perilously | adv | suýt / nguy hiểm
+GOOD english: "Today I am in a difficult **academic** situation because the deadline is **perilously** close."
+BAD english: "Today I face **academic** **perilously** situation because deadline."
 
 STUDENT TEXT:
 """
 ${sanitizeForPrompt(codemix, 1200)}
 """
 
-TARGET WORDS (with POS when known):
+TARGET WORDS (headword | POS | VI gloss — POS rules syntax; gloss is sense hint only, not a forced phrase):
 ${wordLines}
 
-CRITICAL RULES (must follow):
-1) Output NATURAL, GRAMMATICAL English first. Never sacrifice grammar to cram targets together.
-2) Respect part of speech:
-   - adjective + noun (an academic problem) — NOT "academic perilously situation"
-   - adverb modifies verb/adjective/adverb (perilously close, almost perilously late) — NOT before a noun like an adjective
-   - verb + object, noun as subject/object, etc.
-3) Prefer CORRECT collocations. If the student misused a form, FIX it in the upgrade and teach the right form in why_vi/tip_vi.
-4) You may use a closely related form of a target when needed for grammar (perilously → perilous; academic → academically). Bold the form that actually appears: **perilous**.
-5) If the student only dumped words / short fragments, invent a short clear story (2–4 simple sentences) that uses the targets correctly — do not invent nonsense.
-6) Keep every target sense that fits; if two targets cannot sit in the same phrase, put them in separate clauses/sentences.
-7) Level: aim ${sanitizeForPrompt(level, 12)} structure, but raise to B1 if targets require it — never produce broken English for "simplicity".
-8) Vietnamese fields: plain Vietnamese only. No English dump, no markdown **, no mixing wow_note into tip_vi.
-9) meaning_vi must accurately translate YOUR english (not invent wrong senses like "academic = học viện" when it means "học thuật / liên quan học tập").
-10) wow_note_vi: 1–2 short encouraging insights in Vietnamese about how the targets are used.
+LEVEL AIM: ${levelSafe}
 
-Return ONLY valid JSON (no markdown fences):
-{
-  "english": "Full EN with **targets** bolded where they appear",
-  "meaning_vi": "Bản dịch VI chính xác của đoạn EN",
-  "level": "A2",
-  "wow_note_vi": "1–2 câu insight tiếng Việt",
-  "words": [
-    {
-      "word": "academic",
-      "in_sentence": "She is in a difficult academic situation.",
-      "pattern": "academic + noun (problem/career/year)",
-      "why_vi": "Tính từ: academic + danh từ — 'vấn đề học tập / học thuật', không phải tên trường.",
-      "tip_vi": "academic year, academic pressure, academic writing."
-    }
-  ]
+Return ONLY valid JSON (no markdown fences, no text outside JSON):
+{"english":"EN with **surface forms** bolded","meaning_vi":"Bản dịch VI plain khớp english","level":"A2","wow_note_vi":"1–2 câu khen + 1 insight POS/collocation","words":[{"word":"headword","in_sentence":"clause from english","pattern":"collocation chunk","why_vi":"POS + nghĩa + (sai→đúng nếu có)","tip_vi":"2–3 collocation hoặc 1 rule nhớ"}]}`;
 }
 
-words[]: one entry per target that appears (use the dictionary headword as "word"). in_sentence must be a correct English clause from your upgrade.`;
+type QaResult = { ok: boolean; hard: string[]; soft: string[] };
+
+/** Teacher rubric — hard fail = reject & retry. */
+function validateUpgrade(
+  parsed: Record<string, unknown>,
+  targets: CodeMixWord[]
+): QaResult {
+  const hard: string[] = [];
+  const soft: string[] = [];
+
+  const english = asString(parsed.english);
+  const plain = stripBold(english);
+  const meaning = asString(parsed.meaning_vi);
+  const wow = asString(parsed.wow_note_vi);
+  const wordsRaw = Array.isArray(parsed.words) ? parsed.words : [];
+
+  if (plain.length < 20) hard.push('english_too_short');
+  if (meaning.trim().length < 8) hard.push('meaning_vi_empty');
+
+  const viMarkdown = (s: string) => /\*\*|#{1,6}\s|```/.test(s);
+  if (viMarkdown(meaning) || viMarkdown(wow)) hard.push('vi_markdown');
+
+  // Adv jammed before common nouns (classic POS fail)
+  if (
+    /\bacademic\s+perilously\b/i.test(plain) ||
+    /\b\w+ly\s+(situation|problem|pressure|issue|condition|decision|moment|position)\b/i.test(
+      plain
+    )
+  ) {
+    hard.push('bad_collocation_adv_before_noun');
+  }
+
+  if (targets.length > 0 && wordsRaw.length === 0) hard.push('words_empty');
+
+  for (const item of wordsRaw) {
+    if (!item || typeof item !== 'object') continue;
+    const o = item as Record<string, unknown>;
+    const word = asString(o.word);
+    if (/\bacademic\s+peril/i.test(word) || word.split(/\s+/).length > 3) {
+      hard.push('word_not_headword');
+    }
+    for (const k of ['why_vi', 'tip_vi'] as const) {
+      if (viMarkdown(asString(o[k]))) hard.push(`vi_markdown_${k}`);
+    }
+  }
+
+  // Soft: coverage (stem heuristic)
+  const low = plain.toLowerCase();
+  const missing = targets.filter((t) => {
+    const w = t.word.toLowerCase();
+    const stem = w.replace(/ly$/i, '').replace(/e$/i, '');
+    return !low.includes(w) && !(stem.length >= 4 && low.includes(stem));
+  });
+  if (missing.length) {
+    soft.push(`missing_targets:${missing.map((m) => m.word).join(',')}`);
+  }
+  if (/\bWow\b/i.test(meaning) || /\bWow\b/i.test(wow)) soft.push('wow_token');
+
+  return { ok: hard.length === 0, hard, soft };
 }
 
 function normalizeWords(
@@ -155,13 +243,13 @@ function normalizeWords(
     byWord.set(word, {
       word: sanitizeForPrompt(asString(o.word), 40),
       in_sentence: cleanEn(stripBold(asString(o.in_sentence)), 200),
-      pattern: cleanVi(asString(o.pattern), 120),
-      why_vi: cleanVi(asString(o.why_vi), 320),
-      tip_vi: cleanVi(asString(o.tip_vi), 220),
+      // Teacher caps: pattern short, why/tip tight
+      pattern: cleanVi(asString(o.pattern), 80),
+      why_vi: cleanVi(asString(o.why_vi), 200),
+      tip_vi: cleanVi(asString(o.tip_vi), 140),
     });
   }
 
-  // Ưu tiên order theo targets
   const ordered: WordWowExplain[] = [];
   for (const t of targets) {
     const hit = byWord.get(t.word.toLowerCase());
@@ -171,6 +259,29 @@ function normalizeWords(
     if (!ordered.some((x) => x.word.toLowerCase() === k)) ordered.push(v);
   }
   return ordered.slice(0, 12);
+}
+
+function toResult(
+  parsed: Record<string, unknown>,
+  words: CodeMixWord[],
+  level: string,
+  providerNote: string
+): CodeMixUpgradeResult {
+  const english = cleanEn(asString(parsed.english), 2000);
+  if (!english || stripBold(english).length < 20) {
+    throw new Error('AI trả english rỗng/quá ngắn');
+  }
+
+  return {
+    english,
+    english_plain: stripBold(english),
+    meaning_vi: cleanVi(asString(parsed.meaning_vi), 800),
+    level: sanitizeForPrompt(asString(parsed.level, level), 20),
+    // Teacher: encourage + 1 insight
+    wow_note_vi: cleanVi(asString(parsed.wow_note_vi), 220),
+    words: normalizeWords(parsed.words, words),
+    meta: { providerNote },
+  };
 }
 
 /** Offline fallback khi AI fail — vẫn demo được UI wow */
@@ -251,6 +362,28 @@ export type UpgradeCodeMixOpts = {
   preferGemini?: boolean;
 };
 
+async function callModel(
+  prompt: string,
+  preferGemini: boolean
+): Promise<{ rawText: string; providerNote: string }> {
+  if (preferGemini) {
+    try {
+      const rawText = await geminiGenerate(prompt, {
+        json: true,
+        temperature: 0.22,
+      });
+      return { rawText, providerNote: `gemini:${resolveGeminiModel()}` };
+    } catch (gemErr: unknown) {
+      const gmsg = gemErr instanceof Error ? gemErr.message : String(gemErr);
+      console.warn(`${LOG} Gemini fail → Zhipu: ${gmsg.slice(0, 160)}`);
+      const rawText = await getRouter().generate(prompt, 'smart', true);
+      return { rawText, providerNote: 'zhipu-fallback' };
+    }
+  }
+  const rawText = await getRouter().generate(prompt, 'smart', true);
+  return { rawText, providerNote: 'zhipu' };
+}
+
 export async function upgradeCodeMixToEnglish(
   codemix: string,
   words: CodeMixWord[],
@@ -272,46 +405,47 @@ export async function upgradeCodeMixToEnglish(
 
   const level = opts?.level || 'A2';
   const preferGemini = opts?.preferGemini === true && hasGeminiKeys();
-  const prompt = buildPrompt(text, words, level);
+  let prompt = buildPrompt(text, words, level);
 
-  let rawText: string;
-  let providerNote: string;
+  let lastHard: string[] = [];
+  let lastProvider = preferGemini ? 'gemini' : 'zhipu';
 
-  if (preferGemini) {
-    try {
-      rawText = await geminiGenerate(prompt, { json: true, temperature: 0.25 });
-      providerNote = `gemini:${resolveGeminiModel()}`;
-    } catch (gemErr: unknown) {
-      const gmsg = gemErr instanceof Error ? gemErr.message : String(gemErr);
-      console.warn(`[CodeMixUpgrade] Gemini fail → Zhipu: ${gmsg.slice(0, 160)}`);
-      rawText = await getRouter().generate(prompt, 'smart', true);
-      providerNote = 'zhipu-fallback';
+  for (let attempt = 0; attempt < 2; attempt++) {
+    if (attempt === 1) {
+      prompt = `${buildPrompt(text, words, level)}${RETRY_SUFFIX}`;
+      console.warn(`${LOG} retry after hard QA: ${lastHard.join(',')}`);
     }
-  } else {
-    rawText = await getRouter().generate(prompt, 'smart', true);
-    providerNote = 'zhipu';
+
+    const { rawText, providerNote } = await callModel(prompt, preferGemini);
+    lastProvider = providerNote;
+
+    let parsed: Record<string, unknown>;
+    try {
+      parsed = parseJsonObject(rawText);
+    } catch (e) {
+      lastHard = ['not_json'];
+      if (attempt === 0) continue;
+      throw e instanceof Error ? e : new Error(String(e));
+    }
+
+    const qa = validateUpgrade(parsed, words);
+    if (qa.soft.length) {
+      console.warn(`${LOG} soft QA: ${qa.soft.join('; ')}`);
+    }
+    if (!qa.ok) {
+      lastHard = qa.hard;
+      console.warn(`${LOG} hard QA fail (attempt ${attempt + 1}): ${qa.hard.join(',')}`);
+      if (attempt === 0) continue;
+      // Lần 2 vẫn hard-fail → vẫn trả (đã clean) để HS không trắng màn; log để theo dõi
+      console.error(`${LOG} serving after failed retry: ${qa.hard.join(',')}`);
+    }
+
+    const result = toResult(parsed, words, level, providerNote);
+    if (attempt === 1) {
+      result.meta.providerNote = `${providerNote}+retry`;
+    }
+    return result;
   }
 
-  const parsed = parseJsonObject(rawText);
-
-  const english = cleanEn(asString(parsed.english), 2000);
-  if (!english || stripBold(english).length < 20) {
-    throw new Error('AI trả english rỗng/quá ngắn');
-  }
-
-  // Cảnh báo nhẹ nếu model vẫn nhồi adj+adv sai kiểu "... academic perilously ..."
-  const plainLower = stripBold(english).toLowerCase();
-  if (/\bacademic\s+perilously\b/.test(plainLower)) {
-    console.warn('[CodeMixUpgrade] suspicious collocation academic+perilously in output');
-  }
-
-  return {
-    english,
-    english_plain: stripBold(english),
-    meaning_vi: cleanVi(asString(parsed.meaning_vi), 800),
-    level: sanitizeForPrompt(asString(parsed.level, level), 20),
-    wow_note_vi: cleanVi(asString(parsed.wow_note_vi), 400),
-    words: normalizeWords(parsed.words, words),
-    meta: { providerNote },
-  };
+  throw new Error(`AI QA fail (${lastProvider}): ${lastHard.join(',') || 'unknown'}`);
 }
