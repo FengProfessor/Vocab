@@ -120,13 +120,16 @@ export function shouldShowProMilestoneCard(input: {
 }
 
 /**
- * Đếm từ học của user: max(SRS rows, words.added_by).
+ * Đếm từ học của user — lấy MAX các nguồn để tránh undercount (enroll nhầm power user):
+ *  - srs_progress (đã ôn)
+ *  - words.added_by
+ *  - words trong personal classroom (__personal__)
  */
 export async function countUserLearningWords(
   supabase: SupabaseClient,
   userId: string,
 ): Promise<number> {
-  const [srsRes, wordsRes] = await Promise.all([
+  const [srsRes, wordsRes, personalCls] = await Promise.all([
     supabase
       .from('srs_progress')
       .select('word_id', { count: 'exact', head: true })
@@ -135,6 +138,12 @@ export async function countUserLearningWords(
       .from('words')
       .select('id', { count: 'exact', head: true })
       .eq('added_by', userId),
+    supabase
+      .from('classrooms')
+      .select('id')
+      .eq('teacher_id', userId)
+      .eq('name', '__personal__')
+      .maybeSingle(),
   ]);
 
   if (srsRes.error) {
@@ -144,7 +153,21 @@ export async function countUserLearningWords(
     console.warn('[ProMilestone] words count failed:', wordsRes.error.message);
   }
 
-  return Math.max(srsRes.count ?? 0, wordsRes.count ?? 0);
+  let personalCount = 0;
+  const clsId = personalCls.data?.id as string | undefined;
+  if (clsId) {
+    const { count, error } = await supabase
+      .from('words')
+      .select('id', { count: 'exact', head: true })
+      .eq('classroom_id', clsId);
+    if (error) {
+      console.warn('[ProMilestone] personal words count failed:', error.message);
+    } else {
+      personalCount = count ?? 0;
+    }
+  }
+
+  return Math.max(srsRes.count ?? 0, wordsRes.count ?? 0, personalCount);
 }
 
 /** Đã từng redeem mã NEWBIE* (paid order)? */
@@ -216,6 +239,7 @@ async function writeEnrolledAt(
   userId: string,
   at: string,
 ): Promise<boolean> {
+  let profileOk = false;
   // 1) profiles column (nếu đã migrate)
   const { error: profileErr } = await supabase
     .from('profiles')
@@ -223,11 +247,13 @@ async function writeEnrolledAt(
     .eq('id', userId)
     .is('pro_milestone_enrolled_at', null);
 
-  if (profileErr && !profileErr.message?.includes('pro_milestone_enrolled_at')) {
+  if (!profileErr) {
+    profileOk = true;
+  } else if (!profileErr.message?.includes('pro_milestone_enrolled_at')) {
     console.warn('[ProMilestone] profile enroll write:', profileErr.message);
   }
 
-  // 2) user_metadata — nguồn chính khi chưa có cột / backup
+  // 2) user_metadata — bắt buộc có (nguồn claim khi chưa migrate cột)
   try {
     const { data: existing } = await supabase.auth.admin.getUserById(userId);
     const prev = existing?.user?.user_metadata ?? {};
@@ -242,12 +268,12 @@ async function writeEnrolledAt(
     });
     if (metaErr) {
       console.warn('[ProMilestone] metadata enroll write:', metaErr.message);
-      return !profileErr;
+      return profileOk;
     }
     return true;
   } catch (err) {
     console.warn('[ProMilestone] metadata enroll exception:', err);
-    return !profileErr;
+    return profileOk;
   }
 }
 
@@ -311,7 +337,7 @@ export async function getProMilestoneSnapshot(
       .maybeSingle(),
   ]);
 
-  // Cột chưa migrate → fallback (enrolled luôn false → không claim)
+  // Cột chưa migrate → fallback plan only
   let profileData = profileFull.data as {
     plan?: string;
     plan_expires_at?: string | null;
@@ -319,15 +345,16 @@ export async function getProMilestoneSnapshot(
   } | null;
 
   if (profileFull.error) {
-    console.warn('[ProMilestone] profile select failed:', profileFull.error.message);
+    // im lặng nếu thiếu cột; chỉ warn lỗi khác
+    if (!profileFull.error.message?.includes('pro_milestone_enrolled_at')) {
+      console.warn('[ProMilestone] profile select failed:', profileFull.error.message);
+    }
     const fb = await supabase
       .from('profiles')
       .select('plan, plan_expires_at')
       .eq('id', userId)
       .maybeSingle();
-    profileData = fb.data
-      ? { ...fb.data, pro_milestone_enrolled_at: null }
-      : null;
+    profileData = fb.data ?? null;
   }
 
   const streak = (gamRes.data?.current_streak as number | undefined) ?? 0;
@@ -336,20 +363,21 @@ export async function getProMilestoneSnapshot(
     profileData?.plan_expires_at as string | null | undefined,
   );
 
-  let enrolledAt =
-    typeof profileData?.pro_milestone_enrolled_at === 'string' &&
-    profileData.pro_milestone_enrolled_at.length > 0
-      ? profileData.pro_milestone_enrolled_at
-      : null;
-
-  // Enroll CHỈ khi allowEnroll + đang under mốc (GET dashboard)
-  if (allowEnroll && !enrolledAt) {
+  /**
+   * Enrolled: LUÔN resolve qua readEnrolledAt (profiles + user_metadata).
+   * Bug cũ: chỉ đọc cột profiles → cột chưa có thì claim/redeem coi như chưa enroll
+   * hoặc (ngược lại) logic lệch. GET allowEnroll mới được ghi enroll khi under.
+   */
+  let enrolledAt: string | null;
+  if (allowEnroll) {
     enrolledAt = await ensureProMilestoneEnrollment(supabase, userId, {
       words,
       streak,
       effectivePlan,
       alreadyClaimed: claim.claimed,
     });
+  } else {
+    enrolledAt = await readEnrolledAt(supabase, userId);
   }
 
   return evaluateProMilestone({
