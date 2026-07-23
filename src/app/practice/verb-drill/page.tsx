@@ -430,11 +430,22 @@ export default function VerbDrillPage() {
   const currentPos = current ? posLabel(current.pos) : null;
   const currentIpa = current?.ipa ? parseIpa(current.ipa) : '';
 
+  // Meaning card: auto nghe lemma (cloze không — spoil đáp án)
   useEffect(() => {
+    if (phase !== 'quiz' || !current || current.type !== 'meaning') {
+      return () => {
+        stopSpeak();
+      };
+    }
+    stopSpeak();
+    const t = window.setTimeout(() => {
+      speak(current.lemma, 1.0);
+    }, 180);
     return () => {
+      window.clearTimeout(t);
       stopSpeak();
     };
-  }, [idx, phase]);
+  }, [phase, idx, current?.lemma, current?.type]);
 
   const next = useCallback(() => {
     stopSpeak();
