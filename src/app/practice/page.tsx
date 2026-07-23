@@ -11,6 +11,17 @@ import { StudentShell } from '@/components/student/StudentShell';
 
 const MODES = [
   {
+    href: '/practice/verb-drill',
+    emoji: '⚡',
+    title: 'Drill động từ',
+    desc: 'Nghĩa · VI→EN · cụm — sẵn dạy/luyện nhanh',
+    ring: 'border-amber-200 bg-amber-50/70 hover:border-amber-400 hover:bg-amber-50',
+    badge: 'bg-amber-500',
+    text: 'text-amber-950',
+    sub: 'text-amber-800/80',
+    arrow: 'text-amber-400',
+  },
+  {
     href: '/practice/codemix',
     emoji: '✨',
     title: 'Đặt câu',
@@ -41,7 +52,7 @@ export default function PracticeHubPage() {
         <div>
           <h1 className="text-lg font-black tracking-tight text-slate-900">Sử dụng từ</h1>
           <p className="mt-0.5 text-xs font-medium text-slate-500">
-            2 cách luyện — chọn 1 và làm theo
+            Chọn 1 cách luyện — drill động từ sẵn cho lớp
           </p>
         </div>
 

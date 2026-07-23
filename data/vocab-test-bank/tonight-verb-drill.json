@@ -1,0 +1,3700 @@
+{
+  "version": 1,
+  "id": "tonight-verb-drill",
+  "title": "Drill động từ tối nay",
+  "title_en": "Tonight verb drill",
+  "note": "Chỉ meaning + l2 + colo (đã lọc). Không cloze/error — AG phase 2.",
+  "built_at": "2026-07-23T13:03:13.826Z",
+  "types": [
+    "meaning_mcq",
+    "l2_to_en",
+    "collocation_mcq"
+  ],
+  "lemmas": [
+    "do",
+    "get",
+    "think",
+    "look",
+    "use",
+    "find",
+    "tell",
+    "call",
+    "try",
+    "ask",
+    "feel",
+    "become",
+    "leave",
+    "put",
+    "mean",
+    "keep",
+    "let",
+    "begin",
+    "talk",
+    "turn",
+    "show",
+    "hear",
+    "move",
+    "live",
+    "believe",
+    "hold",
+    "bring",
+    "happen",
+    "sit",
+    "stand",
+    "lose",
+    "pay",
+    "meet",
+    "include",
+    "continue",
+    "set",
+    "learn",
+    "change",
+    "lead",
+    "understand"
+  ],
+  "lemma_count": 40,
+  "item_count": 120,
+  "items": [
+    {
+      "lemma": "do",
+      "pos": "v",
+      "sense_vi": "làm bài tập",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "do (v.)",
+        "opts": [
+          "làm bài tập",
+          "giữ bí mật",
+          "thêm muối",
+          "đoán câu trả lời"
+        ]
+      },
+      "answer": "làm bài tập",
+      "explain_vi": "Động từ do mang nghĩa chính xác là: làm bài tập.",
+      "content_hash": "do|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "do gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "do homework",
+        "vn_trap": "past tense did",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "do",
+      "pos": "v",
+      "sense_vi": "làm bài tập",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'làm bài tập', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "do",
+          "dos",
+          "doing",
+          "did"
+        ]
+      },
+      "answer": "do",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là do.",
+      "content_hash": "do|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "do l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "do homework",
+        "vn_trap": "past tense did",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "do",
+      "pos": "v",
+      "sense_vi": "làm bài tập",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'do':",
+        "opts": [
+          "do homework",
+          "make homework",
+          "do a mistake",
+          "make exercise"
+        ]
+      },
+      "answer": "do homework",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: do homework.",
+      "content_hash": "do|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "do collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "do homework",
+        "vn_trap": "past tense did",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "get",
+      "pos": "v",
+      "sense_vi": "nhận được tin nhắn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "get (v.)",
+        "opts": [
+          "nhận được tin nhắn",
+          "cho phép đi",
+          "dành thời gian",
+          "ghét làm việc"
+        ]
+      },
+      "answer": "nhận được tin nhắn",
+      "explain_vi": "Động từ get mang nghĩa chính xác là: nhận được tin nhắn.",
+      "content_hash": "get|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "get gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "get up early",
+        "vn_trap": "past tense got",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "get",
+      "pos": "v",
+      "sense_vi": "nhận được tin nhắn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'nhận được tin nhắn' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "get",
+          "gets",
+          "geting",
+          "got"
+        ]
+      },
+      "answer": "get",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là get.",
+      "content_hash": "get|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "get l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "get up early",
+        "vn_trap": "past tense got",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "get",
+      "pos": "v",
+      "sense_vi": "nhận được tin nhắn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'get':",
+        "opts": [
+          "get up early",
+          "get on early",
+          "get out early",
+          "get into early"
+        ]
+      },
+      "answer": "get up early",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: get up early.",
+      "content_hash": "get|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "get collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "get up early",
+        "vn_trap": "past tense got",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "think",
+      "pos": "v",
+      "sense_vi": "suy nghĩ kỹ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "think (v.)",
+        "opts": [
+          "suy nghĩ kỹ",
+          "bắt đầu học",
+          "lớn nhanh",
+          "tham gia câu lạc bộ"
+        ]
+      },
+      "answer": "suy nghĩ kỹ",
+      "explain_vi": "Động từ think mang nghĩa chính xác là: suy nghĩ kỹ.",
+      "content_hash": "think|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "think gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "think about someone",
+        "vn_trap": "past tense thought",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "think",
+      "pos": "v",
+      "sense_vi": "suy nghĩ kỹ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'suy nghĩ kỹ', từ tiếng Anh đúng là:",
+        "opts": [
+          "think",
+          "thinks",
+          "thinking",
+          "thought"
+        ]
+      },
+      "answer": "think",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là think.",
+      "content_hash": "think|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "think l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "think about someone",
+        "vn_trap": "past tense thought",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "think",
+      "pos": "v",
+      "sense_vi": "suy nghĩ kỹ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'think':",
+        "opts": [
+          "think about someone",
+          "make about someone",
+          "do about someone",
+          "take about someone"
+        ]
+      },
+      "answer": "think about someone",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: think about someone.",
+      "content_hash": "think|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "think collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "think about someone",
+        "vn_trap": "past tense thought",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "look",
+      "pos": "v",
+      "sense_vi": "nhìn bảng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "look (v.)",
+        "opts": [
+          "nhìn bảng",
+          "nói chuyện với bạn",
+          "mở cửa",
+          "cười to"
+        ]
+      },
+      "answer": "nhìn bảng",
+      "explain_vi": "Động từ look mang nghĩa chính xác là: nhìn bảng.",
+      "content_hash": "look|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "look gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "look for missing keys",
+        "vn_trap": "past tense looked",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "look",
+      "pos": "v",
+      "sense_vi": "nhìn bảng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'nhìn bảng' là:",
+        "opts": [
+          "look",
+          "looks",
+          "looking",
+          "looked"
+        ]
+      },
+      "answer": "look",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là look.",
+      "content_hash": "look|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "look l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "look for missing keys",
+        "vn_trap": "past tense looked",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "look",
+      "pos": "v",
+      "sense_vi": "nhìn bảng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'look':",
+        "opts": [
+          "look for missing keys",
+          "look at someone",
+          "look for someone",
+          "look into someone"
+        ]
+      },
+      "answer": "look for missing keys",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: look for missing keys.",
+      "content_hash": "look|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "look collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "look for missing keys",
+        "vn_trap": "past tense looked",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "use",
+      "pos": "v",
+      "sense_vi": "dùng máy tính",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "use (v.)",
+        "opts": [
+          "dùng máy tính",
+          "quay lại đằng sau",
+          "thắng trận đấu",
+          "bỏ lỡ xe buýt"
+        ]
+      },
+      "answer": "dùng máy tính",
+      "explain_vi": "Động từ use mang nghĩa chính xác là: dùng máy tính.",
+      "content_hash": "use|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "use gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "used to do something",
+        "vn_trap": "past tense used",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "use",
+      "pos": "v",
+      "sense_vi": "dùng máy tính",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'dùng máy tính' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "use",
+          "uses",
+          "useing",
+          "used"
+        ]
+      },
+      "answer": "use",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là use.",
+      "content_hash": "use|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "use l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "used to do something",
+        "vn_trap": "past tense used",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "use",
+      "pos": "v",
+      "sense_vi": "dùng máy tính",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'use':",
+        "opts": [
+          "used to do something",
+          "make to do something",
+          "do to do something",
+          "take to do something"
+        ]
+      },
+      "answer": "used to do something",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: used to do something.",
+      "content_hash": "use|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "use collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "used to do something",
+        "vn_trap": "past tense used",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "find",
+      "pos": "v",
+      "sense_vi": "tìm thấy chìa khóa",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "find (v.)",
+        "opts": [
+          "tìm thấy chìa khóa",
+          "cho xem ảnh",
+          "đề nghị giúp đỡ",
+          "gọi món ăn"
+        ]
+      },
+      "answer": "tìm thấy chìa khóa",
+      "explain_vi": "Động từ find mang nghĩa chính xác là: tìm thấy chìa khóa.",
+      "content_hash": "find|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "find gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "find out the truth",
+        "vn_trap": "past tense found",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "find",
+      "pos": "v",
+      "sense_vi": "tìm thấy chìa khóa",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'tìm thấy chìa khóa' là:",
+        "opts": [
+          "find",
+          "finds",
+          "finding",
+          "found"
+        ]
+      },
+      "answer": "find",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là find.",
+      "content_hash": "find|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "find l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "find out the truth",
+        "vn_trap": "past tense found",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "find",
+      "pos": "v",
+      "sense_vi": "tìm thấy chìa khóa",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'find':",
+        "opts": [
+          "find out the truth",
+          "make out the truth",
+          "do out the truth",
+          "take out the truth"
+        ]
+      },
+      "answer": "find out the truth",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: find out the truth.",
+      "content_hash": "find|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "find collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "find out the truth",
+        "vn_trap": "past tense found",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "tell",
+      "pos": "v",
+      "sense_vi": "nói sự thật",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tell (v.)",
+        "opts": [
+          "nói sự thật",
+          "nghe tiếng động",
+          "cân nhắc kỹ",
+          "sở hữu ô tô"
+        ]
+      },
+      "answer": "nói sự thật",
+      "explain_vi": "Động từ tell mang nghĩa chính xác là: nói sự thật.",
+      "content_hash": "tell|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "tell gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tell a story",
+        "vn_trap": "past tense told",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "tell",
+      "pos": "v",
+      "sense_vi": "nói sự thật",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'nói sự thật' được dịch là:",
+        "opts": [
+          "tell",
+          "tells",
+          "telling",
+          "told"
+        ]
+      },
+      "answer": "tell",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là tell.",
+      "content_hash": "tell|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "tell l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tell a story",
+        "vn_trap": "past tense told",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "tell",
+      "pos": "v",
+      "sense_vi": "nói sự thật",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'tell':",
+        "opts": [
+          "tell a story",
+          "make a story",
+          "do a story",
+          "take a story"
+        ]
+      },
+      "answer": "tell a story",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: tell a story.",
+      "content_hash": "tell|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "tell collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tell a story",
+        "vn_trap": "past tense told",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "call",
+      "pos": "v",
+      "sense_vi": "gọi điện thoại",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "call (v.)",
+        "opts": [
+          "gọi điện thoại",
+          "di chuyển đồ đạc",
+          "xuất hiện bất ngờ",
+          "sơn bức tường"
+        ]
+      },
+      "answer": "gọi điện thoại",
+      "explain_vi": "Động từ call mang nghĩa chính xác là: gọi điện thoại.",
+      "content_hash": "call|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "call gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "call someone on phone",
+        "vn_trap": "past tense called",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "call",
+      "pos": "v",
+      "sense_vi": "gọi điện thoại",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'gọi điện thoại', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "call",
+          "calls",
+          "calling",
+          "called"
+        ]
+      },
+      "answer": "call",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là call.",
+      "content_hash": "call|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "call l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "call someone on phone",
+        "vn_trap": "past tense called",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "call",
+      "pos": "v",
+      "sense_vi": "gọi điện thoại",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'call':",
+        "opts": [
+          "call someone on phone",
+          "make someone on phone",
+          "do someone on phone",
+          "take someone on phone"
+        ]
+      },
+      "answer": "call someone on phone",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: call someone on phone.",
+      "content_hash": "call|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "call collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "call someone on phone",
+        "vn_trap": "past tense called",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "try",
+      "pos": "v",
+      "sense_vi": "cố gắng làm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "try (v.)",
+        "opts": [
+          "cố gắng làm",
+          "sống ở thành phố",
+          "mua sách mới",
+          "chọn đồ vật"
+        ]
+      },
+      "answer": "cố gắng làm",
+      "explain_vi": "Động từ try mang nghĩa chính xác là: cố gắng làm.",
+      "content_hash": "try|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "try gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "try to do best",
+        "vn_trap": "past tense tried",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "try",
+      "pos": "v",
+      "sense_vi": "cố gắng làm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'cố gắng làm' là:",
+        "opts": [
+          "try",
+          "trys",
+          "trying",
+          "tried"
+        ]
+      },
+      "answer": "try",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là try.",
+      "content_hash": "try|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "try l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "try to do best",
+        "vn_trap": "past tense tried",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "try",
+      "pos": "v",
+      "sense_vi": "cố gắng làm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'try':",
+        "opts": [
+          "try to do best",
+          "make to do best",
+          "do to do best",
+          "take to do best"
+        ]
+      },
+      "answer": "try to do best",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: try to do best.",
+      "content_hash": "try|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "try collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "try to do best",
+        "vn_trap": "past tense tried",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "ask",
+      "pos": "v",
+      "sense_vi": "hỏi câu hỏi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ask (v.)",
+        "opts": [
+          "hỏi câu hỏi",
+          "tin tưởng vào bản thân",
+          "chờ xe buýt",
+          "chuẩn bị bài"
+        ]
+      },
+      "answer": "hỏi câu hỏi",
+      "explain_vi": "Động từ ask mang nghĩa chính xác là: hỏi câu hỏi.",
+      "content_hash": "ask|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "ask gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ask for help",
+        "vn_trap": "past tense asked",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "ask",
+      "pos": "v",
+      "sense_vi": "hỏi câu hỏi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'hỏi câu hỏi' là:",
+        "opts": [
+          "ask",
+          "asks",
+          "asking",
+          "asked"
+        ]
+      },
+      "answer": "ask",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là ask.",
+      "content_hash": "ask|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "ask l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ask for help",
+        "vn_trap": "past tense asked",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "ask",
+      "pos": "v",
+      "sense_vi": "hỏi câu hỏi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'ask':",
+        "opts": [
+          "ask for help",
+          "make for help",
+          "do for help",
+          "take for help"
+        ]
+      },
+      "answer": "ask for help",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: ask for help.",
+      "content_hash": "ask|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "ask collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ask for help",
+        "vn_trap": "past tense asked",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "feel",
+      "pos": "v",
+      "sense_vi": "cảm thấy vui",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "feel (v.)",
+        "opts": [
+          "cảm thấy vui",
+          "cầm chiếc cốc",
+          "phục vụ khách",
+          "đẩy nút"
+        ]
+      },
+      "answer": "cảm thấy vui",
+      "explain_vi": "Động từ feel mang nghĩa chính xác là: cảm thấy vui.",
+      "content_hash": "feel|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "feel gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "feel happy today",
+        "vn_trap": "past tense felt",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "feel",
+      "pos": "v",
+      "sense_vi": "cảm thấy vui",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'cảm thấy vui', người Anh dùng:",
+        "opts": [
+          "feel",
+          "feels",
+          "feeling",
+          "felt"
+        ]
+      },
+      "answer": "feel",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là feel.",
+      "content_hash": "feel|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "feel l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "feel happy today",
+        "vn_trap": "past tense felt",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "feel",
+      "pos": "v",
+      "sense_vi": "cảm thấy vui",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'feel':",
+        "opts": [
+          "feel happy today",
+          "make happy today",
+          "do happy today",
+          "take happy today"
+        ]
+      },
+      "answer": "feel happy today",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: feel happy today.",
+      "content_hash": "feel|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "feel collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "feel happy today",
+        "vn_trap": "past tense felt",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "become",
+      "pos": "v",
+      "sense_vi": "trở thành bác sĩ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "become (v.)",
+        "opts": [
+          "trở thành bác sĩ",
+          "mang theo ô",
+          "gửi thư",
+          "nhận quà"
+        ]
+      },
+      "answer": "trở thành bác sĩ",
+      "explain_vi": "Động từ become mang nghĩa chính xác là: trở thành bác sĩ.",
+      "content_hash": "become|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "become gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "become a doctor",
+        "vn_trap": "past tense became",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "become",
+      "pos": "v",
+      "sense_vi": "trở thành bác sĩ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'trở thành bác sĩ' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "become",
+          "becomes",
+          "becomeing",
+          "became"
+        ]
+      },
+      "answer": "become",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là become.",
+      "content_hash": "become|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "become l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "become a doctor",
+        "vn_trap": "past tense became",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "become",
+      "pos": "v",
+      "sense_vi": "trở thành bác sĩ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'become':",
+        "opts": [
+          "become a doctor",
+          "make a doctor",
+          "do a doctor",
+          "take a doctor"
+        ]
+      },
+      "answer": "become a doctor",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: become a doctor.",
+      "content_hash": "become|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "become collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "become a doctor",
+        "vn_trap": "past tense became",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "leave",
+      "pos": "v",
+      "sense_vi": "rời khỏi nhà",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "leave (v.)",
+        "opts": [
+          "rời khỏi nhà",
+          "xảy ra bất ngờ",
+          "mong chờ tin tốt",
+          "thư giãn cuối tuần"
+        ]
+      },
+      "answer": "rời khỏi nhà",
+      "explain_vi": "Động từ leave mang nghĩa chính xác là: rời khỏi nhà.",
+      "content_hash": "leave|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "leave gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "leave home early",
+        "vn_trap": "past tense left",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "leave",
+      "pos": "v",
+      "sense_vi": "rời khỏi nhà",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'rời khỏi nhà', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "leave",
+          "leaves",
+          "leaveing",
+          "left"
+        ]
+      },
+      "answer": "leave",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là leave.",
+      "content_hash": "leave|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "leave l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "leave home early",
+        "vn_trap": "past tense left",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "leave",
+      "pos": "v",
+      "sense_vi": "rời khỏi nhà",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'leave':",
+        "opts": [
+          "leave home early",
+          "make home early",
+          "do home early",
+          "take home early"
+        ]
+      },
+      "answer": "leave home early",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: leave home early.",
+      "content_hash": "leave|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "leave collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "leave home early",
+        "vn_trap": "past tense left",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "put",
+      "pos": "v",
+      "sense_vi": "đặt cuốn sách",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "put (v.)",
+        "opts": [
+          "đặt cuốn sách",
+          "ngồi ghế",
+          "xây nhà",
+          "lặp lại câu"
+        ]
+      },
+      "answer": "đặt cuốn sách",
+      "explain_vi": "Động từ put mang nghĩa chính xác là: đặt cuốn sách.",
+      "content_hash": "put|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "put gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "put on clothes",
+        "vn_trap": "past tense put",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "put",
+      "pos": "v",
+      "sense_vi": "đặt cuốn sách",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'đặt cuốn sách' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "put",
+          "puts",
+          "puting",
+          "re-put"
+        ]
+      },
+      "answer": "put",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là put.",
+      "content_hash": "put|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "put l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "put on clothes",
+        "vn_trap": "past tense put",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "put",
+      "pos": "v",
+      "sense_vi": "đặt cuốn sách",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'put':",
+        "opts": [
+          "put on clothes",
+          "make on clothes",
+          "do on clothes",
+          "take on clothes"
+        ]
+      },
+      "answer": "put on clothes",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: put on clothes.",
+      "content_hash": "put|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "put collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "put on clothes",
+        "vn_trap": "past tense put",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "mean",
+      "pos": "v",
+      "sense_vi": "có nghĩa là",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "mean (v.)",
+        "opts": [
+          "có nghĩa là",
+          "đứng dậy",
+          "ở lại khách sạn",
+          "tiết kiệm tiền"
+        ]
+      },
+      "answer": "có nghĩa là",
+      "explain_vi": "Động từ mean mang nghĩa chính xác là: có nghĩa là.",
+      "content_hash": "mean|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "mean gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mean to do something",
+        "vn_trap": "past tense meant",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "mean",
+      "pos": "v",
+      "sense_vi": "có nghĩa là",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'có nghĩa là', từ tiếng Anh đúng là:",
+        "opts": [
+          "mean",
+          "means",
+          "meaning",
+          "meant"
+        ]
+      },
+      "answer": "mean",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là mean.",
+      "content_hash": "mean|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "mean l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mean to do something",
+        "vn_trap": "past tense meant",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "mean",
+      "pos": "v",
+      "sense_vi": "có nghĩa là",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'mean':",
+        "opts": [
+          "mean to do something",
+          "make to do something",
+          "do to do something",
+          "take to do something"
+        ]
+      },
+      "answer": "mean to do something",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: mean to do something.",
+      "content_hash": "mean|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "mean collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mean to do something",
+        "vn_trap": "past tense meant",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "keep",
+      "pos": "v",
+      "sense_vi": "giữ bí mật",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "keep (v.)",
+        "opts": [
+          "giữ bí mật",
+          "mất chìa khóa",
+          "ngã xuống đất",
+          "chia sẻ thông tin"
+        ]
+      },
+      "answer": "giữ bí mật",
+      "explain_vi": "Động từ keep mang nghĩa chính xác là: giữ bí mật.",
+      "content_hash": "keep|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "keep gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "keep in touch",
+        "vn_trap": "past tense kept",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "keep",
+      "pos": "v",
+      "sense_vi": "giữ bí mật",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'giữ bí mật' là:",
+        "opts": [
+          "keep",
+          "keeps",
+          "keeping",
+          "kept"
+        ]
+      },
+      "answer": "keep",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là keep.",
+      "content_hash": "keep|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "keep l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "keep in touch",
+        "vn_trap": "past tense kept",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "keep",
+      "pos": "v",
+      "sense_vi": "giữ bí mật",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'keep':",
+        "opts": [
+          "keep in touch",
+          "make in touch",
+          "do in touch",
+          "take in touch"
+        ]
+      },
+      "answer": "keep in touch",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: keep in touch.",
+      "content_hash": "keep|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "keep collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "keep in touch",
+        "vn_trap": "past tense kept",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "let",
+      "pos": "v",
+      "sense_vi": "cho phép đi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "let (v.)",
+        "opts": [
+          "cho phép đi",
+          "trả tiền ăn",
+          "cắt giấy",
+          "hát bài hát"
+        ]
+      },
+      "answer": "cho phép đi",
+      "explain_vi": "Động từ let mang nghĩa chính xác là: cho phép đi.",
+      "content_hash": "let|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "let gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "let someone go",
+        "vn_trap": "past tense let",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "let",
+      "pos": "v",
+      "sense_vi": "cho phép đi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'cho phép đi' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "let",
+          "lets",
+          "leting",
+          "re-let"
+        ]
+      },
+      "answer": "let",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là let.",
+      "content_hash": "let|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "let l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "let someone go",
+        "vn_trap": "past tense let",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "let",
+      "pos": "v",
+      "sense_vi": "cho phép đi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'let':",
+        "opts": [
+          "let someone go",
+          "make someone go",
+          "do someone go",
+          "take someone go"
+        ]
+      },
+      "answer": "let someone go",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: let someone go.",
+      "content_hash": "let|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "let collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "let someone go",
+        "vn_trap": "past tense let",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "begin",
+      "pos": "v",
+      "sense_vi": "bắt đầu học",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "begin (v.)",
+        "opts": [
+          "bắt đầu học",
+          "gặp người mới",
+          "đến đích",
+          "ngửi thấy hương thơm"
+        ]
+      },
+      "answer": "bắt đầu học",
+      "explain_vi": "Động từ begin mang nghĩa chính xác là: bắt đầu học.",
+      "content_hash": "begin|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "begin gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "begin to read",
+        "vn_trap": "past tense began",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "begin",
+      "pos": "v",
+      "sense_vi": "bắt đầu học",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'bắt đầu học' là:",
+        "opts": [
+          "begin",
+          "begins",
+          "begining",
+          "began"
+        ]
+      },
+      "answer": "begin",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là begin.",
+      "content_hash": "begin|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "begin l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "begin to read",
+        "vn_trap": "past tense began",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "begin",
+      "pos": "v",
+      "sense_vi": "bắt đầu học",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'begin':",
+        "opts": [
+          "begin to read",
+          "make to read",
+          "do to read",
+          "take to read"
+        ]
+      },
+      "answer": "begin to read",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: begin to read.",
+      "content_hash": "begin|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "begin collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "begin to read",
+        "vn_trap": "past tense began",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "talk",
+      "pos": "v",
+      "sense_vi": "nói chuyện với bạn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "talk (v.)",
+        "opts": [
+          "nói chuyện với bạn",
+          "bao gồm tên",
+          "giết thời gian",
+          "mỉm cười vui"
+        ]
+      },
+      "answer": "nói chuyện với bạn",
+      "explain_vi": "Động từ talk mang nghĩa chính xác là: nói chuyện với bạn.",
+      "content_hash": "talk|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "talk gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "talk to friends",
+        "vn_trap": "past tense talked",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "talk",
+      "pos": "v",
+      "sense_vi": "nói chuyện với bạn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'nói chuyện với bạn' được dịch là:",
+        "opts": [
+          "talk",
+          "talks",
+          "talking",
+          "talked"
+        ]
+      },
+      "answer": "talk",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là talk.",
+      "content_hash": "talk|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "talk l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "talk to friends",
+        "vn_trap": "past tense talked",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "talk",
+      "pos": "v",
+      "sense_vi": "nói chuyện với bạn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'talk':",
+        "opts": [
+          "talk to friends",
+          "make to friends",
+          "do to friends",
+          "take to friends"
+        ]
+      },
+      "answer": "talk to friends",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: talk to friends.",
+      "content_hash": "talk|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "talk collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "talk to friends",
+        "vn_trap": "past tense talked",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "turn",
+      "pos": "v",
+      "sense_vi": "quay lại đằng sau",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "turn (v.)",
+        "opts": [
+          "quay lại đằng sau",
+          "tiếp tục học",
+          "vẫn còn nguyên",
+          "nghe có vẻ hay"
+        ]
+      },
+      "answer": "quay lại đằng sau",
+      "explain_vi": "Động từ turn mang nghĩa chính xác là: quay lại đằng sau.",
+      "content_hash": "turn|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "turn gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "turn on the light",
+        "vn_trap": "past tense turned",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "turn",
+      "pos": "v",
+      "sense_vi": "quay lại đằng sau",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'quay lại đằng sau', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "turn",
+          "turns",
+          "turning",
+          "turned"
+        ]
+      },
+      "answer": "turn",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là turn.",
+      "content_hash": "turn|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "turn l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "turn on the light",
+        "vn_trap": "past tense turned",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "turn",
+      "pos": "v",
+      "sense_vi": "quay lại đằng sau",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'turn':",
+        "opts": [
+          "turn on the light",
+          "make on the light",
+          "do on the light",
+          "take on the light"
+        ]
+      },
+      "answer": "turn on the light",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: turn on the light.",
+      "content_hash": "turn|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "turn collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "turn on the light",
+        "vn_trap": "past tense turned",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "show",
+      "pos": "v",
+      "sense_vi": "cho xem ảnh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "show (v.)",
+        "opts": [
+          "cho xem ảnh",
+          "đặt mục tiêu",
+          "gợi ý cách làm",
+          "dạy học sinh"
+        ]
+      },
+      "answer": "cho xem ảnh",
+      "explain_vi": "Động từ show mang nghĩa chính xác là: cho xem ảnh.",
+      "content_hash": "show|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "show gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "show the picture",
+        "vn_trap": "past tense showed",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "show",
+      "pos": "v",
+      "sense_vi": "cho xem ảnh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'cho xem ảnh' là:",
+        "opts": [
+          "show",
+          "shows",
+          "showing",
+          "showed"
+        ]
+      },
+      "answer": "show",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là show.",
+      "content_hash": "show|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "show l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "show the picture",
+        "vn_trap": "past tense showed",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "show",
+      "pos": "v",
+      "sense_vi": "cho xem ảnh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'show':",
+        "opts": [
+          "show the picture",
+          "make the picture",
+          "do the picture",
+          "take the picture"
+        ]
+      },
+      "answer": "show the picture",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: show the picture.",
+      "content_hash": "show|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "show collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "show the picture",
+        "vn_trap": "past tense showed",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "hear",
+      "pos": "v",
+      "sense_vi": "nghe tiếng động",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hear (v.)",
+        "opts": [
+          "nghe tiếng động",
+          "học tiếng Anh",
+          "nâng tay lên",
+          "cảm ơn bạn"
+        ]
+      },
+      "answer": "nghe tiếng động",
+      "explain_vi": "Động từ hear mang nghĩa chính xác là: nghe tiếng động.",
+      "content_hash": "hear|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "hear gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hear a loud noise",
+        "vn_trap": "past tense heard",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "hear",
+      "pos": "v",
+      "sense_vi": "nghe tiếng động",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'nghe tiếng động' là:",
+        "opts": [
+          "hear",
+          "hears",
+          "hearing",
+          "heard"
+        ]
+      },
+      "answer": "hear",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hear.",
+      "content_hash": "hear|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "hear l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hear a loud noise",
+        "vn_trap": "past tense heard",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "hear",
+      "pos": "v",
+      "sense_vi": "nghe tiếng động",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hear':",
+        "opts": [
+          "hear a loud noise",
+          "make a loud noise",
+          "do a loud noise",
+          "take a loud noise"
+        ]
+      },
+      "answer": "hear a loud noise",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hear a loud noise.",
+      "content_hash": "hear|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "hear collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hear a loud noise",
+        "vn_trap": "past tense heard",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "move",
+      "pos": "v",
+      "sense_vi": "di chuyển đồ đạc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "move (v.)",
+        "opts": [
+          "di chuyển đồ đạc",
+          "thay đổi ý định",
+          "đỗ kỳ thi",
+          "chạm màn hình"
+        ]
+      },
+      "answer": "di chuyển đồ đạc",
+      "explain_vi": "Động từ move mang nghĩa chính xác là: di chuyển đồ đạc.",
+      "content_hash": "move|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "move gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "move to new house",
+        "vn_trap": "past tense moved",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "move",
+      "pos": "v",
+      "sense_vi": "di chuyển đồ đạc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'di chuyển đồ đạc', người Anh dùng:",
+        "opts": [
+          "move",
+          "moves",
+          "moveing",
+          "moved"
+        ]
+      },
+      "answer": "move",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là move.",
+      "content_hash": "move|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "move l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "move to new house",
+        "vn_trap": "past tense moved",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "move",
+      "pos": "v",
+      "sense_vi": "di chuyển đồ đạc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'move':",
+        "opts": [
+          "move to new house",
+          "make to new house",
+          "do to new house",
+          "take to new house"
+        ]
+      },
+      "answer": "move to new house",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: move to new house.",
+      "content_hash": "move|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "move collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "move to new house",
+        "vn_trap": "past tense moved",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "live",
+      "pos": "v",
+      "sense_vi": "sống ở thành phố",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "live (v.)",
+        "opts": [
+          "sống ở thành phố",
+          "dẫn đường",
+          "bán quần áo",
+          "du lịch nước ngoài"
+        ]
+      },
+      "answer": "sống ở thành phố",
+      "explain_vi": "Động từ live mang nghĩa chính xác là: sống ở thành phố.",
+      "content_hash": "live|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "live gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "live in a city",
+        "vn_trap": "past tense lived",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "live",
+      "pos": "v",
+      "sense_vi": "sống ở thành phố",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'sống ở thành phố' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "live",
+          "lives",
+          "liveing",
+          "lived"
+        ]
+      },
+      "answer": "live",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là live.",
+      "content_hash": "live|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "live l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "live in a city",
+        "vn_trap": "past tense lived",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "live",
+      "pos": "v",
+      "sense_vi": "sống ở thành phố",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'live':",
+        "opts": [
+          "live in a city",
+          "make in a city",
+          "do in a city",
+          "take in a city"
+        ]
+      },
+      "answer": "live in a city",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: live in a city.",
+      "content_hash": "live|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "live collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "live in a city",
+        "vn_trap": "past tense lived",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "believe",
+      "pos": "v",
+      "sense_vi": "tin tưởng vào bản thân",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "believe (v.)",
+        "opts": [
+          "tin tưởng vào bản thân",
+          "hiểu bài giảng",
+          "yêu cầu thời gian",
+          "thăm ông bà"
+        ]
+      },
+      "answer": "tin tưởng vào bản thân",
+      "explain_vi": "Động từ believe mang nghĩa chính xác là: tin tưởng vào bản thân.",
+      "content_hash": "believe|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "believe gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "believe in success",
+        "vn_trap": "past tense believed",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "believe",
+      "pos": "v",
+      "sense_vi": "tin tưởng vào bản thân",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'tin tưởng vào bản thân', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "believe",
+          "believes",
+          "believeing",
+          "believed"
+        ]
+      },
+      "answer": "believe",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là believe.",
+      "content_hash": "believe|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "believe l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "believe in success",
+        "vn_trap": "past tense believed",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "believe",
+      "pos": "v",
+      "sense_vi": "tin tưởng vào bản thân",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'believe':",
+        "opts": [
+          "believe in success",
+          "make in success",
+          "do in success",
+          "take in success"
+        ]
+      },
+      "answer": "believe in success",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: believe in success.",
+      "content_hash": "believe|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "believe collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "believe in success",
+        "vn_trap": "past tense believed",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "hold",
+      "pos": "v",
+      "sense_vi": "cầm chiếc cốc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hold (v.)",
+        "opts": [
+          "cầm chiếc cốc",
+          "xem phim",
+          "báo cáo tin tức",
+          "thức dậy sớm"
+        ]
+      },
+      "answer": "cầm chiếc cốc",
+      "explain_vi": "Động từ hold mang nghĩa chính xác là: cầm chiếc cốc.",
+      "content_hash": "hold|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "hold gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hold a meeting",
+        "vn_trap": "past tense held",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "hold",
+      "pos": "v",
+      "sense_vi": "cầm chiếc cốc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'cầm chiếc cốc' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "hold",
+          "holds",
+          "holding",
+          "held"
+        ]
+      },
+      "answer": "hold",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hold.",
+      "content_hash": "hold|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "hold l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hold a meeting",
+        "vn_trap": "past tense held",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "hold",
+      "pos": "v",
+      "sense_vi": "cầm chiếc cốc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hold':",
+        "opts": [
+          "hold a meeting",
+          "make a meeting",
+          "do a meeting",
+          "take a meeting"
+        ]
+      },
+      "answer": "hold a meeting",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hold a meeting.",
+      "content_hash": "hold|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "hold collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hold a meeting",
+        "vn_trap": "past tense held",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "bring",
+      "pos": "v",
+      "sense_vi": "mang theo ô",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "bring (v.)",
+        "opts": [
+          "mang theo ô",
+          "theo hướng dẫn",
+          "quyết định đi",
+          "mặc áo phông"
+        ]
+      },
+      "answer": "mang theo ô",
+      "explain_vi": "Động từ bring mang nghĩa chính xác là: mang theo ô.",
+      "content_hash": "bring|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "bring gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "bring some food",
+        "vn_trap": "past tense brought",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "bring",
+      "pos": "v",
+      "sense_vi": "mang theo ô",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'mang theo ô', từ tiếng Anh đúng là:",
+        "opts": [
+          "bring",
+          "brings",
+          "bringing",
+          "brought"
+        ]
+      },
+      "answer": "bring",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là bring.",
+      "content_hash": "bring|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "bring l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "bring some food",
+        "vn_trap": "past tense brought",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "bring",
+      "pos": "v",
+      "sense_vi": "mang theo ô",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'bring':",
+        "opts": [
+          "bring some food",
+          "make some food",
+          "do some food",
+          "take some food"
+        ]
+      },
+      "answer": "bring some food",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: bring some food.",
+      "content_hash": "bring|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "bring collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "bring some food",
+        "vn_trap": "past tense brought",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "happen",
+      "pos": "v",
+      "sense_vi": "xảy ra bất ngờ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "happen (v.)",
+        "opts": [
+          "xảy ra bất ngờ",
+          "dừng xe",
+          "kéo cửa",
+          "ước điều ước"
+        ]
+      },
+      "answer": "xảy ra bất ngờ",
+      "explain_vi": "Động từ happen mang nghĩa chính xác là: xảy ra bất ngờ.",
+      "content_hash": "happen|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "happen gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "happen by chance",
+        "vn_trap": "past tense happened",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "happen",
+      "pos": "v",
+      "sense_vi": "xảy ra bất ngờ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'xảy ra bất ngờ' là:",
+        "opts": [
+          "happen",
+          "happens",
+          "happening",
+          "happened"
+        ]
+      },
+      "answer": "happen",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là happen.",
+      "content_hash": "happen|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "happen l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "happen by chance",
+        "vn_trap": "past tense happened",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "happen",
+      "pos": "v",
+      "sense_vi": "xảy ra bất ngờ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'happen':",
+        "opts": [
+          "happen by chance",
+          "make by chance",
+          "do by chance",
+          "take by chance"
+        ]
+      },
+      "answer": "happen by chance",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: happen by chance.",
+      "content_hash": "happen|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "happen collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "happen by chance",
+        "vn_trap": "past tense happened",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "sit",
+      "pos": "v",
+      "sense_vi": "ngồi ghế",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sit (v.)",
+        "opts": [
+          "ngồi ghế",
+          "tạo tài khoản",
+          "trở về nhà",
+          "lo lắng thi cử"
+        ]
+      },
+      "answer": "ngồi ghế",
+      "explain_vi": "Động từ sit mang nghĩa chính xác là: ngồi ghế.",
+      "content_hash": "sit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "sit gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sit on a chair",
+        "vn_trap": "past tense sat",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "sit",
+      "pos": "v",
+      "sense_vi": "ngồi ghế",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'ngồi ghế' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "sit",
+          "sits",
+          "siting",
+          "sat"
+        ]
+      },
+      "answer": "sit",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là sit.",
+      "content_hash": "sit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "sit l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sit on a chair",
+        "vn_trap": "past tense sat",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "sit",
+      "pos": "v",
+      "sense_vi": "ngồi ghế",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sit':",
+        "opts": [
+          "sit on a chair",
+          "make on a chair",
+          "do on a chair",
+          "take on a chair"
+        ]
+      },
+      "answer": "sit on a chair",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: sit on a chair.",
+      "content_hash": "sit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "sit collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sit on a chair",
+        "vn_trap": "past tense sat",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "stand",
+      "pos": "v",
+      "sense_vi": "đứng dậy",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "stand (v.)",
+        "opts": [
+          "đứng dậy",
+          "cho phép ra ngoài",
+          "giải thích bài học",
+          "đóng cửa sổ"
+        ]
+      },
+      "answer": "đứng dậy",
+      "explain_vi": "Động từ stand mang nghĩa chính xác là: đứng dậy.",
+      "content_hash": "stand|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "stand gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stand in line",
+        "vn_trap": "past tense stood",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "stand",
+      "pos": "v",
+      "sense_vi": "đứng dậy",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'đứng dậy' là:",
+        "opts": [
+          "stand",
+          "stands",
+          "standing",
+          "stood"
+        ]
+      },
+      "answer": "stand",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là stand.",
+      "content_hash": "stand|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "stand l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stand in line",
+        "vn_trap": "past tense stood",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "stand",
+      "pos": "v",
+      "sense_vi": "đứng dậy",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'stand':",
+        "opts": [
+          "stand in line",
+          "make in line",
+          "do in line",
+          "take in line"
+        ]
+      },
+      "answer": "stand in line",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: stand in line.",
+      "content_hash": "stand|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "stand collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stand in line",
+        "vn_trap": "past tense stood",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "lose",
+      "pos": "v",
+      "sense_vi": "mất chìa khóa",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lose (v.)",
+        "opts": [
+          "mất chìa khóa",
+          "thêm muối",
+          "hy vọng thắng",
+          "tốn nhiều tiền"
+        ]
+      },
+      "answer": "mất chìa khóa",
+      "explain_vi": "Động từ lose mang nghĩa chính xác là: mất chìa khóa.",
+      "content_hash": "lose|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "lose gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lose the key",
+        "vn_trap": "past tense lost",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "lose",
+      "pos": "v",
+      "sense_vi": "mất chìa khóa",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'mất chìa khóa' được dịch là:",
+        "opts": [
+          "lose",
+          "loses",
+          "loseing",
+          "lost"
+        ]
+      },
+      "answer": "lose",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là lose.",
+      "content_hash": "lose|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "lose l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lose the key",
+        "vn_trap": "past tense lost",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "lose",
+      "pos": "v",
+      "sense_vi": "mất chìa khóa",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'lose':",
+        "opts": [
+          "lose the key",
+          "make the key",
+          "do the key",
+          "take the key"
+        ]
+      },
+      "answer": "lose the key",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: lose the key.",
+      "content_hash": "lose|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "lose collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lose the key",
+        "vn_trap": "past tense lost",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "pay",
+      "pos": "v",
+      "sense_vi": "trả tiền ăn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pay (v.)",
+        "opts": [
+          "trả tiền ăn",
+          "dành thời gian",
+          "phát triển kỹ năng",
+          "đếm từ một"
+        ]
+      },
+      "answer": "trả tiền ăn",
+      "explain_vi": "Động từ pay mang nghĩa chính xác là: trả tiền ăn.",
+      "content_hash": "pay|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "pay gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pay for dinner",
+        "vn_trap": "past tense paid",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "pay",
+      "pos": "v",
+      "sense_vi": "trả tiền ăn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'trả tiền ăn', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "pay",
+          "pays",
+          "paying",
+          "paid"
+        ]
+      },
+      "answer": "pay",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là pay.",
+      "content_hash": "pay|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "pay l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pay for dinner",
+        "vn_trap": "past tense paid",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "pay",
+      "pos": "v",
+      "sense_vi": "trả tiền ăn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'pay':",
+        "opts": [
+          "pay for dinner",
+          "make for dinner",
+          "do for dinner",
+          "take for dinner"
+        ]
+      },
+      "answer": "pay for dinner",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: pay for dinner.",
+      "content_hash": "pay|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "pay collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pay for dinner",
+        "vn_trap": "past tense paid",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "meet",
+      "pos": "v",
+      "sense_vi": "gặp người mới",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "meet (v.)",
+        "opts": [
+          "gặp người mới",
+          "lớn nhanh",
+          "mang cặp nặng",
+          "che hộp quà"
+        ]
+      },
+      "answer": "gặp người mới",
+      "explain_vi": "Động từ meet mang nghĩa chính xác là: gặp người mới.",
+      "content_hash": "meet|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "meet gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "meet new people",
+        "vn_trap": "past tense met",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "meet",
+      "pos": "v",
+      "sense_vi": "gặp người mới",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'gặp người mới' là:",
+        "opts": [
+          "meet",
+          "meets",
+          "meeting",
+          "met"
+        ]
+      },
+      "answer": "meet",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là meet.",
+      "content_hash": "meet|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "meet l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "meet new people",
+        "vn_trap": "past tense met",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "meet",
+      "pos": "v",
+      "sense_vi": "gặp người mới",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'meet':",
+        "opts": [
+          "meet new people",
+          "make new people",
+          "do new people",
+          "take new people"
+        ]
+      },
+      "answer": "meet new people",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: meet new people.",
+      "content_hash": "meet|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "meet collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "meet new people",
+        "vn_trap": "past tense met",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "include",
+      "pos": "v",
+      "sense_vi": "bao gồm tên",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "include (v.)",
+        "opts": [
+          "bao gồm tên",
+          "mở cửa",
+          "kiểm tra đáp án",
+          "băng qua đường"
+        ]
+      },
+      "answer": "bao gồm tên",
+      "explain_vi": "Động từ include mang nghĩa chính xác là: bao gồm tên.",
+      "content_hash": "include|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "include gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "include in the list",
+        "vn_trap": "past tense included",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "include",
+      "pos": "v",
+      "sense_vi": "bao gồm tên",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'bao gồm tên' là:",
+        "opts": [
+          "include",
+          "includes",
+          "includeing",
+          "included"
+        ]
+      },
+      "answer": "include",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là include.",
+      "content_hash": "include|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "include l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "include in the list",
+        "vn_trap": "past tense included",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "include",
+      "pos": "v",
+      "sense_vi": "bao gồm tên",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'include':",
+        "opts": [
+          "include in the list",
+          "make in the list",
+          "do in the list",
+          "take in the list"
+        ]
+      },
+      "answer": "include in the list",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: include in the list.",
+      "content_hash": "include|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "include collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "include in the list",
+        "vn_trap": "past tense included",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "continue",
+      "pos": "v",
+      "sense_vi": "tiếp tục học",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "continue (v.)",
+        "opts": [
+          "tiếp tục học",
+          "thắng trận đấu",
+          "chọn đáp án",
+          "khóc lớn"
+        ]
+      },
+      "answer": "tiếp tục học",
+      "explain_vi": "Động từ continue mang nghĩa chính xác là: tiếp tục học.",
+      "content_hash": "continue|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "continue gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "continue doing work",
+        "vn_trap": "past tense continued",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "continue",
+      "pos": "v",
+      "sense_vi": "tiếp tục học",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'tiếp tục học', người Anh dùng:",
+        "opts": [
+          "continue",
+          "continues",
+          "continueing",
+          "continued"
+        ]
+      },
+      "answer": "continue",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là continue.",
+      "content_hash": "continue|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "continue l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "continue doing work",
+        "vn_trap": "past tense continued",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "continue",
+      "pos": "v",
+      "sense_vi": "tiếp tục học",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'continue':",
+        "opts": [
+          "continue doing work",
+          "make doing work",
+          "do doing work",
+          "take doing work"
+        ]
+      },
+      "answer": "continue doing work",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: continue doing work.",
+      "content_hash": "continue|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "continue collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "continue doing work",
+        "vn_trap": "past tense continued",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "set",
+      "pos": "v",
+      "sense_vi": "đặt mục tiêu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "set (v.)",
+        "opts": [
+          "đặt mục tiêu",
+          "đề nghị giúp đỡ",
+          "bắt xe buýt",
+          "nhảy múa"
+        ]
+      },
+      "answer": "đặt mục tiêu",
+      "explain_vi": "Động từ set mang nghĩa chính xác là: đặt mục tiêu.",
+      "content_hash": "set|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "set gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "set a clear goal",
+        "vn_trap": "past tense set",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "set",
+      "pos": "v",
+      "sense_vi": "đặt mục tiêu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'đặt mục tiêu' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "set",
+          "sets",
+          "seting",
+          "re-set"
+        ]
+      },
+      "answer": "set",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là set.",
+      "content_hash": "set|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "set l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "set a clear goal",
+        "vn_trap": "past tense set",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "set",
+      "pos": "v",
+      "sense_vi": "đặt mục tiêu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'set':",
+        "opts": [
+          "set a clear goal",
+          "make a clear goal",
+          "do a clear goal",
+          "take a clear goal"
+        ]
+      },
+      "answer": "set a clear goal",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: set a clear goal.",
+      "content_hash": "set|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "set collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "set a clear goal",
+        "vn_trap": "past tense set",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "learn",
+      "pos": "v",
+      "sense_vi": "học tiếng Anh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "learn (v.)",
+        "opts": [
+          "học tiếng Anh",
+          "cân nhắc kỹ",
+          "vẽ bức tranh",
+          "miêu tả bức tranh"
+        ]
+      },
+      "answer": "học tiếng Anh",
+      "explain_vi": "Động từ learn mang nghĩa chính xác là: học tiếng Anh.",
+      "content_hash": "learn|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "learn gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "learn a language",
+        "vn_trap": "past tense learned",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "learn",
+      "pos": "v",
+      "sense_vi": "học tiếng Anh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'học tiếng Anh', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "learn",
+          "learns",
+          "learning",
+          "learned"
+        ]
+      },
+      "answer": "learn",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là learn.",
+      "content_hash": "learn|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "learn l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "learn a language",
+        "vn_trap": "past tense learned",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "learn",
+      "pos": "v",
+      "sense_vi": "học tiếng Anh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'learn':",
+        "opts": [
+          "learn a language",
+          "make a language",
+          "do a language",
+          "take a language"
+        ]
+      },
+      "answer": "learn a language",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: learn a language.",
+      "content_hash": "learn|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "learn collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "learn a language",
+        "vn_trap": "past tense learned",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "change",
+      "pos": "v",
+      "sense_vi": "thay đổi ý định",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "change (v.)",
+        "opts": [
+          "thay đổi ý định",
+          "xuất hiện bất ngờ",
+          "điền thông tin",
+          "chết trong chiến tranh"
+        ]
+      },
+      "answer": "thay đổi ý định",
+      "explain_vi": "Động từ change mang nghĩa chính xác là: thay đổi ý định.",
+      "content_hash": "change|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "change gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "change one's mind",
+        "vn_trap": "past tense changed",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "change",
+      "pos": "v",
+      "sense_vi": "thay đổi ý định",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'thay đổi ý định' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "change",
+          "changes",
+          "changeing",
+          "changed"
+        ]
+      },
+      "answer": "change",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là change.",
+      "content_hash": "change|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "change l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "change one's mind",
+        "vn_trap": "past tense changed",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "change",
+      "pos": "v",
+      "sense_vi": "thay đổi ý định",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'change':",
+        "opts": [
+          "change one's mind",
+          "make one's mind",
+          "do one's mind",
+          "take one's mind"
+        ]
+      },
+      "answer": "change one's mind",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: change one's mind.",
+      "content_hash": "change|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "change collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "change one's mind",
+        "vn_trap": "past tense changed",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "lead",
+      "pos": "v",
+      "sense_vi": "dẫn đường",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lead (v.)",
+        "opts": [
+          "dẫn đường",
+          "mua sách mới",
+          "sửa xe đạp",
+          "khám phá nơi mới"
+        ]
+      },
+      "answer": "dẫn đường",
+      "explain_vi": "Động từ lead mang nghĩa chính xác là: dẫn đường.",
+      "content_hash": "lead|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "lead gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lead to success",
+        "vn_trap": "past tense led",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "lead",
+      "pos": "v",
+      "sense_vi": "dẫn đường",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'dẫn đường', từ tiếng Anh đúng là:",
+        "opts": [
+          "lead",
+          "leads",
+          "leading",
+          "led"
+        ]
+      },
+      "answer": "lead",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là lead.",
+      "content_hash": "lead|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "lead l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lead to success",
+        "vn_trap": "past tense led",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "lead",
+      "pos": "v",
+      "sense_vi": "dẫn đường",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'lead':",
+        "opts": [
+          "lead to success",
+          "make to success",
+          "do to success",
+          "take to success"
+        ]
+      },
+      "answer": "lead to success",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: lead to success.",
+      "content_hash": "lead|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "lead collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lead to success",
+        "vn_trap": "past tense led",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    },
+    {
+      "lemma": "understand",
+      "pos": "v",
+      "sense_vi": "hiểu bài giảng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "understand (v.)",
+        "opts": [
+          "hiểu bài giảng",
+          "chờ xe buýt",
+          "quên tên",
+          "lái ô tô"
+        ]
+      },
+      "answer": "hiểu bài giảng",
+      "explain_vi": "Động từ understand mang nghĩa chính xác là: hiểu bài giảng.",
+      "content_hash": "understand|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "understand gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "understand the lesson",
+        "vn_trap": "past tense understood",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "understand",
+      "pos": "v",
+      "sense_vi": "hiểu bài giảng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'hiểu bài giảng' là:",
+        "opts": [
+          "understand",
+          "understands",
+          "understanding",
+          "understood"
+        ]
+      },
+      "answer": "understand",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là understand.",
+      "content_hash": "understand|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "understand l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "understand the lesson",
+        "vn_trap": "past tense understood",
+        "tonight": true
+      }
+    },
+    {
+      "lemma": "understand",
+      "pos": "v",
+      "sense_vi": "hiểu bài giảng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'understand':",
+        "opts": [
+          "understand the lesson",
+          "make the lesson",
+          "do the lesson",
+          "take the lesson"
+        ]
+      },
+      "answer": "understand the lesson",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: understand the lesson.",
+      "content_hash": "understand|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "understand collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "understand the lesson",
+        "vn_trap": "past tense understood",
+        "tonight": true,
+        "colo_cleaned": true
+      }
+    }
+  ],
+  "skipped": []
+}
