@@ -36,7 +36,7 @@ const MODES = [
     href: '/practice/pack-reading',
     emoji: '📖',
     title: 'Luyện đọc',
-    desc: 'Đọc đoạn có từ của bạn + trả lời câu hỏi',
+    desc: 'Từ đã học · Yếu/Đang nhớ/Vững · đọc đoạn + quiz',
     ring: 'border-teal-200 bg-teal-50/70 hover:border-teal-400 hover:bg-teal-50',
     badge: 'bg-teal-600',
     text: 'text-teal-900',

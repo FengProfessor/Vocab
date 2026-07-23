@@ -46,10 +46,40 @@ interface PoolWord {
   isDue: boolean;
   mastery: number;
   bucket: MemoryBucket;
+  /** Lần đúng quiz nhớ nhanh (localStorage, cùng key verb-drill) */
+  quizHits?: number;
 }
 
-/** Mức ghi nhớ — không dùng ngày lưu */
+/** Mức ghi nhớ FSRS — không dùng ngày lưu */
 type MemoryBucket = 'weak' | 'learning' | 'solid';
+
+/** Cùng key với quiz / đặt câu */
+const QUIZ_CORRECT_LS_KEY = 'verb-drill-correct-v1';
+const MAX_LEARNED_POOL = 200;
+
+function loadQuizHitsMap(): Record<string, number> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = localStorage.getItem(QUIZ_CORRECT_LS_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+    const out: Record<string, number> = {};
+    for (const [k, v] of Object.entries(parsed as Record<string, unknown>)) {
+      const n = typeof v === 'number' ? v : Number(v);
+      if (k && Number.isFinite(n) && n > 0) out[k.toLowerCase()] = Math.floor(n);
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+function quizHitsLabel(n: number): string {
+  if (n <= 0) return '';
+  if (n > 3) return '>3';
+  return String(n);
+}
 
 interface PassageQuestion {
   q: string;
@@ -97,9 +127,8 @@ function wordKey(w: PoolWord): string {
 }
 
 /**
- * weak: chưa ôn | đến hạn | L1–2 | stability thấp
- * solid: L5–6
- * learning: còn lại
+ * Chỉ gọi cho từ đã học (review_count > 0).
+ * weak: đến hạn | L1–2 | stability thấp · solid: L5–6 · learning: còn lại
  */
 function bucketForMemory(w: {
   review_count: number;
@@ -107,12 +136,7 @@ function bucketForMemory(w: {
   stability: number;
   isDue: boolean;
 }): MemoryBucket {
-  if (
-    w.review_count <= 0 ||
-    w.isDue ||
-    w.srsLevel <= 2 ||
-    w.stability < 1.5
-  ) {
+  if (w.isDue || w.srsLevel <= 2 || w.stability < 1.5) {
     return 'weak';
   }
   if (w.srsLevel >= 5) return 'solid';
@@ -233,16 +257,18 @@ function PackReadingInner() {
   const [clozeAnswers, setClozeAnswers] = useState<Record<number, string>>({});
   const [clozeRevealed, setClozeRevealed] = useState(false);
 
-  // Load từ user + SRS (mức nhớ) — 2 trang × 50
+  // Load chỉ từ ĐÃ HỌC + SRS bucket + lần đúng quiz (giống quiz / đặt câu)
   useEffect(() => {
     let cancelled = false;
     (async () => {
       setPoolLoading(true);
       try {
+        const quizMap = loadQuizHitsMap();
         const mapped: PoolWord[] = [];
         const seen = new Set<string>();
 
-        for (const offset of [0, 50]) {
+        for (let page = 0; page < 6; page++) {
+          const offset = page * 50;
           const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
           let json: {
             success?: boolean;
@@ -279,11 +305,13 @@ function PackReadingInner() {
               continue;
             }
             const review_count = w.srs?.review_count ?? w.reviewCount ?? 0;
+            if (review_count <= 0) continue;
             const stability = Number(w.srs?.stability ?? 0);
             const srsLevel = Number(w.srsLevel ?? 1);
             const isDue = Boolean(w.isDue);
             const mastery = Number(w.mastery ?? 0);
             const mem = { review_count, srsLevel, stability, isDue };
+            const quizHits = quizMap[key] ?? 0;
             mapped.push({
               id: w.id,
               word,
@@ -294,10 +322,12 @@ function PackReadingInner() {
               stability,
               isDue,
               mastery,
+              quizHits,
               bucket: bucketForMemory(mem),
             });
+            if (mapped.length >= MAX_LEARNED_POOL) break;
           }
-          if (json.data.length < 50) break;
+          if (json.data.length < 50 || mapped.length >= MAX_LEARNED_POOL) break;
         }
 
         if (cancelled) return;
@@ -613,7 +643,11 @@ function PackReadingInner() {
               </div>
             ) : poolSource === 'empty' ? (
               <div className="rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-3 text-xs text-amber-900">
-                Chưa có từ.{' '}
+                Chưa có từ đã học.{' '}
+                <Link href="/flashcard" className="font-bold underline">
+                  Học flashcard
+                </Link>
+                {' · '}
                 <Link href="/import" className="font-bold underline">
                   Thêm từ
                 </Link>
@@ -624,7 +658,8 @@ function PackReadingInner() {
                 <div className="rounded-xl border border-teal-200 bg-teal-50/60 px-2.5 py-2.5">
                   <p className="text-[12px] font-black text-teal-950">Bắt đầu nhanh</p>
                   <p className="mt-0.5 text-[11px] text-teal-800/80">
-                    Gợi ý {Math.min(8, PACK_PASSAGE_MAX_WORDS)} từ yếu → chọn chủ đề → đọc.
+                    Chỉ từ đã học · gợi ý {Math.min(8, PACK_PASSAGE_MAX_WORDS)} từ yếu → chủ đề →
+                    đọc.
                   </p>
                   <button
                     type="button"
@@ -683,6 +718,9 @@ function PackReadingInner() {
                         );
                       })}
                     </div>
+                    <p className="text-[10px] text-slate-400">
+                      {pool.length} từ đã học · số nhỏ trên chip = lần đúng quiz
+                    </p>
                     <div className="flex items-center gap-1.5">
                       <button
                         type="button"
@@ -719,6 +757,7 @@ function PackReadingInner() {
                         filteredPool.map((w) => {
                           const on = selectedKeys.has(wordKey(w));
                           const full = !on && selectedCount >= PACK_PASSAGE_MAX_WORDS;
+                          const qLabel = quizHitsLabel(w.quizHits ?? 0);
                           return (
                             <button
                               key={wordKey(w)}
@@ -740,6 +779,14 @@ function PackReadingInner() {
                               </span>
                               <span className="min-w-0 flex-1 truncate">
                                 <span className="font-bold text-slate-800">{w.word}</span>
+                                {qLabel ? (
+                                  <span
+                                    className="ml-0.5 text-[9px] font-black tabular-nums text-slate-400"
+                                    title={`Đúng quiz ${qLabel} lần`}
+                                  >
+                                    ·{qLabel}
+                                  </span>
+                                ) : null}
                                 <span className="text-slate-400"> · </span>
                                 <span className="text-slate-600">{w.translation}</span>
                               </span>
