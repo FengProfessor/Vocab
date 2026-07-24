@@ -2,7 +2,7 @@
 export const PUSH_PROMPT_DISMISS_KEY = 'lingopro_push_prompt_dismissed';
 export const PUSH_PROMPT_DISMISS_AT_KEY = 'lingopro_push_prompt_dismissed_at';
 /** Chỉ set khi user chủ động bấm bật (không set từ auto-register nền). */
-export const PUSH_DEVICE_REGISTERED_KEY = 'lingopro_push_device_registered_v2';
+export const PUSH_DEVICE_REGISTERED_KEY = 'lingopro_push_device_registered_v2';// re-export name used by force-reconnect UI
 const PUSH_DEVICE_REGISTERED_LEGACY = 'lingopro_push_device_registered';
 export const PUSH_RECONNECT_DISMISS_KEY = 'lingopro_push_reconnect_dismissed';
 

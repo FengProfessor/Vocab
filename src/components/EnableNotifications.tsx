@@ -12,9 +12,39 @@ import {
   isPushDeviceRegistered,
   isReconnectDismissedThisSession,
   markPushDeviceRegistered,
+  PUSH_DEVICE_REGISTERED_KEY,
 } from '@/lib/push-device-state';
+import { PUSH_FORCE_GEN, PUSH_FORCE_GEN_STORAGE_KEY } from '@/lib/push-force-gen';
 
 const STALE_DAYS = 5;
+
+function getLocalForceGen(): number {
+  try {
+    return Number(localStorage.getItem(PUSH_FORCE_GEN_STORAGE_KEY) || '0') || 0;
+  } catch {
+    return 0;
+  }
+}
+
+function markForceGenAck(): void {
+  try {
+    localStorage.setItem(PUSH_FORCE_GEN_STORAGE_KEY, String(PUSH_FORCE_GEN));
+  } catch {
+    // ignore
+  }
+}
+
+/** Server bump forceGen → xóa cờ đã-đăng-ký để hiện lại banner reconnect. */
+function applyForceGenIfNeeded(serverGen: number | undefined): boolean {
+  if (typeof serverGen !== 'number' || serverGen <= getLocalForceGen()) return false;
+  try {
+    localStorage.removeItem(PUSH_DEVICE_REGISTERED_KEY);
+    sessionStorage.removeItem('lingopro_push_reconnect_dismissed');
+  } catch {
+    // ignore
+  }
+  return true;
+}
 
 /**
  * Popup nhắc bật Push — mobile: bottom sheet nổi; desktop: banner.
@@ -64,9 +94,15 @@ export function EnableNotifications() {
         const res = await fetch('/api/push/fcm-register', {
           headers: { Authorization: `Bearer ${session.access_token}` },
         });
-        const data = await res.json() as { success?: boolean; count?: number; staleDays?: number };
+        const data = await res.json() as {
+          success?: boolean;
+          count?: number;
+          staleDays?: number;
+          forceGen?: number;
+        };
+        const forced = applyForceGenIfNeeded(data?.forceGen);
         const stale = typeof data?.staleDays === 'number' && data.staleDays >= STALE_DAYS;
-        if (data?.success && (data.count === 0 || stale)) {
+        if (data?.success && (forced || data.count === 0 || stale || !isPushDeviceRegistered())) {
           setMode('reconnect');
           setShow(true);
         }
@@ -101,6 +137,7 @@ export function EnableNotifications() {
           throw new Error(result.error || 'Không lưu được token thông báo lên server.');
         }
         markPushDeviceRegistered();
+        markForceGenAck();
       }
       toast.success('Đã bật nhắc ôn tập! 🔔');
       setShow(false);

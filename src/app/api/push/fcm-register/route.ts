@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
+import { PUSH_FORCE_GEN } from '@/lib/push-force-gen';
 
 export async function POST(req: Request): Promise<NextResponse> {
   try {
@@ -70,7 +71,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     }
 
     console.log(`[FCM] Token registered for user ${userId}`);
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, forceGen: PUSH_FORCE_GEN });
   } catch (err: unknown) {
     return safeErrorResponse(err, 'Internal Server Error');
   }
@@ -117,7 +118,12 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (prof?.fcm_token) { total = 1; staleDays = null; }
     }
 
-    return NextResponse.json({ success: true, count: total, staleDays });
+    return NextResponse.json({
+      success: true,
+      count: total,
+      staleDays,
+      forceGen: PUSH_FORCE_GEN,
+    });
   } catch (err: unknown) {
     return safeErrorResponse(err, 'Internal Server Error');
   }
