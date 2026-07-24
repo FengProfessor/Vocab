@@ -497,8 +497,27 @@ function SessionContent() {
                       <Snail className="h-7 w-7" />
                     </button>
                   </div>
-                  {verdict !== null && (
-                    <p className="text-2xl font-black text-slate-900">{current?.word}</p>
+                  {verdict !== null && current && (
+                    <div className="mt-1 w-full max-w-xs space-y-2 text-center">
+                      {/* Sau chọn đáp án: nghĩa EN + VI — không lộ trước khi trả lời */}
+                      <div className="space-y-0.5">
+                        <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+                          EN
+                        </p>
+                        <p className="text-2xl font-black text-slate-900">{current.word}</p>
+                        {current.ipa && (
+                          <p className="font-mono text-sm text-slate-400">{parseIpa(current.ipa)}</p>
+                        )}
+                      </div>
+                      <div className="space-y-0.5 border-t border-slate-100 pt-2">
+                        <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+                          VI
+                        </p>
+                        <p className="text-base font-bold leading-snug text-slate-700">
+                          {current.translation}
+                        </p>
+                      </div>
+                    </div>
                   )}
                 </div>
               )}
