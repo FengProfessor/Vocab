@@ -20,6 +20,7 @@ import { StudentShell } from '@/components/student/StudentShell';
 import {
   speak, canAutoFocus, parseIpa, type Verdict,
 } from '@/lib/study';
+import { stopWordAudio } from '@/lib/audio';
 import {
   type ItemMode,
   type ReviewSessionMode,
@@ -80,10 +81,19 @@ function SessionContent() {
   const startedAt = useRef<number>(0);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const advanceFn = useRef<(() => void) | null>(null);
+  /** Timeout auto-play listen — phải clear khi sang thẻ mới, không để speak từ cũ trễ. */
+  const listenTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const modeMeta = useMemo(() => itemModeLabel(itemMode), [itemMode]);
 
   const setupCard = useCallback((word: WordItem, all: WordItem[], mode: ReviewSessionMode) => {
+    // Hủy auto-play + audio từ thẻ trước (lookup freeDict có thể còn treo)
+    if (listenTimer.current) {
+      clearTimeout(listenTimer.current);
+      listenTimer.current = null;
+    }
+    stopWordAudio();
+
     const hasEx = all.some((w) => {
       const c = makeCloze(w.example, w.word);
       return Boolean(c && c.stem.includes('___') && c.stem !== '___' && c.full !== c.answer);
@@ -117,13 +127,12 @@ function SessionContent() {
       setClozeStem('');
       setAnswer(word.word);
       setChoices(buildWordChoices(word, all, 'word'));
-      // Auto play
-      setTimeout(() => speak(word.word, 1.0), 200);
+      listenTimer.current = setTimeout(() => speak(word.word, 1.0), 200);
     } else if (im === 'listen_type') {
       setClozeStem('');
       setAnswer(word.word);
       setChoices([]);
-      setTimeout(() => speak(word.word, 1.0), 200);
+      listenTimer.current = setTimeout(() => speak(word.word, 1.0), 200);
     } else {
       // type_vi_en
       setClozeStem('');
@@ -222,6 +231,8 @@ function SessionContent() {
 
   useEffect(() => () => {
     if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    if (listenTimer.current) clearTimeout(listenTimer.current);
+    stopWordAudio();
   }, []);
 
   const goNext = useCallback((wasWrong: boolean) => {
@@ -230,6 +241,12 @@ function SessionContent() {
       advanceTimer.current = null;
     }
     advanceFn.current = null;
+    // Chặn tiếng từ cũ lướt theo sau khi UI đã sang từ mới
+    if (listenTimer.current) {
+      clearTimeout(listenTimer.current);
+      listenTimer.current = null;
+    }
+    stopWordAudio();
 
     const head = queueRef.current[0];
     const rest = queueRef.current.slice(1);
@@ -513,9 +530,7 @@ function SessionContent() {
                       </span>
                     ))}
                   </p>
-                  {current?.translation && (
-                    <p className="text-sm font-medium text-slate-400">💡 {current.translation}</p>
-                  )}
+                  {/* Cloze: không hiện gợi ý/VI — lộ đáp án */}
                 </div>
               )}
 
