@@ -73,6 +73,20 @@ function verifyPayOSSignature(data: Record<string, unknown>, signature: string, 
   }
 }
 
+/**
+ * Vercel env set bằng PowerShell `echo` từng dính literal `\r\n` (hoặc CRLF thật)
+ * → secret 64 ký tự thành 68 → so khớp SePay header fail → 401.
+ * Giống fix VAPID trong firebase-public-config.
+ */
+function cleanSecret(value: string | null | undefined): string {
+  return (value ?? '')
+    .replace(/\r/g, '')
+    .replace(/\n/g, '')
+    .replace(/\\r/g, '')
+    .replace(/\\n/g, '')
+    .trim();
+}
+
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const body = await req.json().catch(() => null);
@@ -103,10 +117,13 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     // If not authorized by PayOS signature, fallback to Casso / SePay / secure token
     if (!isAuthorized) {
       // SePay: Authorization: Apikey <key> · Casso: secure-token · khác: Bearer / x-webhook-secret
-      const token = req.headers.get('secure-token') ||
-                    req.headers.get('x-webhook-secret') ||
-                    req.headers.get('x-api-key') ||
-                    req.headers.get('authorization')?.replace(/^Bearer\s+/i, '').replace(/^Apikey\s+/i, '');
+      const rawToken =
+        req.headers.get('secure-token') ||
+        req.headers.get('x-webhook-secret') ||
+        req.headers.get('x-api-key') ||
+        req.headers.get('authorization')?.replace(/^Bearer\s+/i, '').replace(/^Apikey\s+/i, '') ||
+        '';
+      const token = cleanSecret(rawToken);
 
       // Chấp nhận WEBHOOK_SECRET (khuyến nghị) hoặc SEPAY_API_KEY nếu gắn nhầm key webhook = API key
       const secrets = [
@@ -114,7 +131,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         process.env.CRON_SECRET,
         process.env.SEPAY_WEBHOOK_KEY,
         process.env.SEPAY_API_KEY,
-      ].filter((s): s is string => Boolean(s && s.trim()));
+      ]
+        .map(cleanSecret)
+        .filter((s) => s.length > 0);
 
       if (token && secrets.some((s) => s === token)) {
         console.log('[Webhook] Secure-token/secret validation succeeded.');
@@ -122,9 +141,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       } else {
         console.warn(
           '[Webhook] Unauthorized. token=',
-          token ? 'present' : 'none',
+          token ? `present(len=${token.length})` : 'none',
           'secretsConfigured=',
           secrets.length,
+          'secretLens=',
+          secrets.map((s) => s.length).join(','),
         );
       }
     }
