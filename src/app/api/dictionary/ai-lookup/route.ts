@@ -40,11 +40,12 @@ export async function POST(req: NextRequest) {
     if (!word || typeof word !== 'string') {
       return NextResponse.json({ success: false, error: "Missing word" }, { status: 400 });
     }
-    if (word.length > 50) {
-      return NextResponse.json({ success: false, error: "word must not exceed 50 characters" }, { status: 400 });
+    // 80: đủ collocation/phrasal ngắn (look up, take into account…); câu dài → ai-sentence
+    if (word.length > 80) {
+      return NextResponse.json({ success: false, error: "word must not exceed 80 characters" }, { status: 400 });
     }
 
-    const cleanWord = sanitizeForPrompt(word, 50).toLowerCase();
+    const cleanWord = sanitizeForPrompt(word, 80).toLowerCase();
     const supabase = createServiceClient();
 
     // 1. Kiểm tra Cache trong global_dictionary trước

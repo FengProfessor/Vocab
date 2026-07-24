@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import {
-  ChevronLeft, Search, Loader2, Volume2, BookOpen, X, CheckCircle2
+  Search, Loader2, Volume2, X, CheckCircle2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { StudentShell } from '@/components/student/StudentShell';
@@ -21,7 +21,19 @@ const MAX_HISTORY = 20;
 // Regex phát hiện kết quả rác từ AI (từ không tồn tại)
 const GARBAGE_PATTERNS = /không có trong từ điển|not a real word|word not found|không tồn tại/i;
 
-type SourceBadge = 'Kho từ điển' | 'Wiktionary' | 'AI' | 'Câu · giáo án' | 'Câu · AI' | 'Câu · ước lượng';
+type SourceBadge =
+  | 'Kho từ điển'
+  | 'Wiktionary'
+  | 'AI'
+  | 'Cụm · kho'
+  | 'Cụm · AI'
+  | 'Câu · giáo án'
+  | 'Câu · AI'
+  | 'Câu · ước lượng';
+
+/** Auto-route: user chỉ gõ — không chọn mode. */
+type LookupKind = 'word' | 'phrase' | 'sentence';
+type LookupForce = LookupKind | 'auto';
 
 interface SentenceKernel {
   text: string;
@@ -68,13 +80,45 @@ interface LookupResult {
   imageUrl?: string;
   /** Từ user gõ vào — luôn dùng làm heading thay vì data.word từ external */
   queriedWord: string;
-  /** Có khi tra cụm/câu (≥2 từ) qua ai-sentence */
+  /** word | phrase = thẻ nghĩa; sentence = SVO */
+  kind: LookupKind;
+  /** Có khi tra câu qua ai-sentence */
   sentence?: SentenceAnalysis;
   aiSource?: 'golden' | 'ai' | 'heuristic' | string;
 }
 
+function wordCount(s: string): number {
+  return s.trim().split(/\s+/).filter(Boolean).length;
+}
+
 function isMultiWord(s: string): boolean {
-  return s.trim().split(/\s+/).filter(Boolean).length >= 2;
+  return wordCount(s) >= 2;
+}
+
+/** Câu ngắn kiểu "I look up words" — không nhầm collocation. */
+function looksLikeClause(s: string): boolean {
+  const t = s.trim();
+  const n = wordCount(t);
+  if (n < 3) return false;
+  if (/^(i|you|he|she|we|they|it)\s+[a-z]/i.test(t)) return true;
+  if (/\b(because|although|when|while|if|that|which|who|whom|whose)\b/i.test(t) && n >= 4) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Auto phân loại — mất gốc không cần biết collocation.
+ * 1 từ → word; 2–5 từ không dấu câu → phrase; còn lại → sentence.
+ */
+function classifyLookup(raw: string, force: LookupForce = 'auto'): LookupKind {
+  if (force !== 'auto') return force;
+  const t = raw.trim();
+  const n = wordCount(t);
+  if (n <= 1) return 'word';
+  if (/[.?!;:]/.test(t) || n >= 6 || looksLikeClause(t)) return 'sentence';
+  if (n <= 5) return 'phrase';
+  return 'sentence';
 }
 
 function looksVietnameseText(s: string): boolean {
@@ -91,6 +135,27 @@ function sentenceSourceBadge(aiSource?: string): SourceBadge {
   if (aiSource === 'golden') return 'Câu · giáo án';
   if (aiSource === 'heuristic') return 'Câu · ước lượng';
   return 'Câu · AI';
+}
+
+/** Chuẩn hóa payload ai-phrase-lookup → DictionaryData. */
+function phrasePayloadToDict(
+  phrase: string,
+  payload: {
+    resolvedWord?: string;
+    results?: DictionaryData['results'];
+    pronunciations?: DictionaryData['pronunciations'];
+    word?: string;
+  },
+): DictionaryData {
+  const first = payload.results?.[0];
+  const nestedPron = (
+    first as { pronunciations?: DictionaryData['pronunciations'] } | undefined
+  )?.pronunciations;
+  return {
+    word: payload.resolvedWord || payload.word || phrase,
+    pronunciations: payload.pronunciations || nestedPron || [],
+    results: payload.results || [],
+  };
 }
 
 function getHistory(): string[] {
@@ -215,12 +280,175 @@ export default function DictionaryPage() {
     }
   }, []);
 
-  const lookup = useCallback(async (word: string) => {
+  const lookupLexical = useCallback(
+    async (
+      trimmed: string,
+      kind: 'word' | 'phrase',
+    ): Promise<LookupResult | null> => {
+      const isPhrase = kind === 'phrase';
+
+      // Tier 1: local dictionary (cụm nếu đã có trong kho)
+      try {
+        const res = await fetch(
+          `/api/dictionary/lookup?word=${encodeURIComponent(trimmed)}`,
+          { signal: AbortSignal.timeout(4000) },
+        );
+        if (res.ok) {
+          const json = await res.json();
+          if (json.results && json.results.length > 0) {
+            const data: DictionaryData = json;
+            if (!isGarbageResult(data)) {
+              return {
+                data,
+                source: isPhrase ? 'Cụm · kho' : 'Kho từ điển',
+                imageUrl: json.image_url,
+                queriedWord: trimmed,
+                kind,
+              };
+            }
+          }
+        }
+      } catch {
+        // fall through
+      }
+
+      // Tier 2: external (từ đơn hiệu quả hơn; cụm thử luôn)
+      try {
+        const res = await fetch(
+          `/api/dictionary/external?word=${encodeURIComponent(trimmed)}`,
+          { signal: AbortSignal.timeout(6000) },
+        );
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && (json.results?.length > 0 || json.pronunciations?.length > 0)) {
+            const data: DictionaryData = json;
+            if (!isGarbageResult(data)) {
+              return {
+                data,
+                source: isPhrase ? 'Cụm · kho' : 'Wiktionary',
+                queriedWord: trimmed,
+                kind,
+              };
+            }
+          }
+        }
+      } catch {
+        // fall through
+      }
+
+      // Tier 3: AI word/phrase (free có quota ngày — prompt đã hỗ trợ phrase)
+      if (trimmed.length <= 80) {
+        try {
+          const res = await authFetch('/api/dictionary/ai-lookup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ word: trimmed }),
+            signal: AbortSignal.timeout(12000),
+          });
+          if (res.status === 429) {
+            toast.error('AI đang bận, chờ chút rồi thử lại');
+            return null;
+          }
+          if (res.ok) {
+            const json = await res.json();
+            if (json.success && json.data) {
+              const data: DictionaryData = json.data;
+              if (!isGarbageResult(data)) {
+                return {
+                  data,
+                  source: isPhrase ? 'Cụm · AI' : 'AI',
+                  queriedWord: trimmed,
+                  kind,
+                };
+              }
+            }
+          }
+        } catch {
+          // fall through
+        }
+      }
+
+      // Tier 4 (cụm): ai-phrase-lookup Pro — normalize collocation base form
+      if (isPhrase) {
+        try {
+          const res = await authFetch('/api/dictionary/ai-phrase-lookup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phrase: trimmed }),
+            signal: AbortSignal.timeout(15000),
+          });
+          if (res.ok) {
+            const json = (await res.json()) as {
+              success?: boolean;
+              data?: Parameters<typeof phrasePayloadToDict>[1];
+            };
+            if (json.success && json.data) {
+              const data = phrasePayloadToDict(trimmed, json.data);
+              if (!isGarbageResult(data) && (data.results?.length ?? 0) > 0) {
+                return {
+                  data,
+                  source: 'Cụm · AI',
+                  queriedWord: trimmed,
+                  kind: 'phrase',
+                };
+              }
+            }
+          }
+        } catch {
+          // fall through
+        }
+      }
+
+      return null;
+    },
+    [],
+  );
+
+  const lookupSentence = useCallback(async (trimmed: string): Promise<LookupResult | 'pro' | 'busy' | null> => {
+    try {
+      const res = await authFetch('/api/dictionary/ai-sentence', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sentence: trimmed }),
+        signal: AbortSignal.timeout(28000),
+      });
+      const json = (await res.json().catch(() => ({}))) as {
+        success?: boolean;
+        error?: string;
+        code?: string;
+        analysis?: SentenceAnalysis;
+        data?: { sentenceAnalysis?: SentenceAnalysis } & DictionaryData;
+        aiSource?: string;
+      };
+      if (res.status === 403 && json.code === 'PRO_REQUIRED') return 'pro';
+      if (res.status === 429) return 'busy';
+      if (res.ok && json.success) {
+        const analysis = json.analysis || json.data?.sentenceAnalysis || null;
+        if (analysis?.kernel || analysis?.translation_vi) {
+          return {
+            data: (json.data as DictionaryData) || { word: trimmed },
+            source: sentenceSourceBadge(json.aiSource),
+            queriedWord: trimmed,
+            kind: 'sentence',
+            sentence: analysis,
+            aiSource: json.aiSource,
+          };
+        }
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const lookup = useCallback(async (word: string, force: LookupForce = 'auto') => {
     const raw = word.trim();
     if (!raw) return;
-    // Câu/cụm: giữ nguyên hoa thường; từ đơn: lower
-    const isSentence = isMultiWord(raw);
-    const trimmed = isSentence ? raw.slice(0, 400) : raw.toLowerCase();
+
+    const kind = classifyLookup(raw, force);
+    // Câu: giữ hoa thường; từ/cụm: lower (match DB)
+    const trimmed =
+      kind === 'sentence' ? raw.slice(0, 400) : raw.toLowerCase().slice(0, 100);
 
     setLoading(true);
     setResult(null);
@@ -228,155 +456,77 @@ export default function DictionaryPage() {
     setWordAlreadySaved(false);
     setShowSuggest(false);
 
-    // ── ≥2 từ → rã câu (giống Desktop) ──
-    if (isSentence) {
-      try {
-        const res = await authFetch('/api/dictionary/ai-sentence', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ sentence: trimmed }),
-          signal: AbortSignal.timeout(28000),
-        });
-        const json = (await res.json().catch(() => ({}))) as {
-          success?: boolean;
-          error?: string;
-          code?: string;
-          analysis?: SentenceAnalysis;
-          data?: { sentenceAnalysis?: SentenceAnalysis } & DictionaryData;
-          aiSource?: string;
-        };
-        if (res.status === 403 && json.code === 'PRO_REQUIRED') {
-          toast.error('Cần gói Pro để tra câu AI');
-          setError('Tra câu cần gói Pro. Nâng cấp để bóc xương S–V–O.');
-          setLoading(false);
-          return;
-        }
-        if (res.status === 429) {
-          toast.error('AI đang bận, chờ chút rồi thử lại');
-          setError('Quá nhiều yêu cầu tra câu — thử lại sau.');
-          setLoading(false);
-          return;
-        }
-        if (res.ok && json.success) {
-          const analysis =
-            json.analysis
-            || json.data?.sentenceAnalysis
-            || null;
-          if (analysis?.kernel || analysis?.translation_vi) {
-            const r: LookupResult = {
-              data: (json.data as DictionaryData) || { word: trimmed },
-              source: sentenceSourceBadge(json.aiSource),
-              queriedWord: trimmed,
-              sentence: analysis,
-              aiSource: json.aiSource,
-            };
-            setResult(r);
-            pushHistory(trimmed);
-            setHistory(getHistory());
-            setLoading(false);
-            return;
-          }
-        }
-        setError(json.error || `Không phân tích được câu: "${trimmed.slice(0, 60)}…"`);
-        setLoading(false);
-        return;
-      } catch {
-        setError('Lỗi mạng khi tra câu — thử lại.');
+    // ── CÂU ──
+    if (kind === 'sentence') {
+      const sent = await lookupSentence(trimmed);
+      if (sent === 'pro') {
+        toast.error('Cần gói Pro để tra câu AI');
+        setError('Tra câu cần gói Pro. Nâng cấp để phân tích câu dài.');
         setLoading(false);
         return;
       }
-    }
-
-    // ── Từ đơn: DB → external → AI ──
-    // Tier 1: local dictionary
-    try {
-      const res = await fetch(
-        `/api/dictionary/lookup?word=${encodeURIComponent(trimmed)}`,
-        { signal: AbortSignal.timeout(4000) }
-      );
-      if (res.ok) {
-        const json = await res.json();
-        if (json.results && json.results.length > 0) {
-          const data: DictionaryData = json;
-          if (!isGarbageResult(data)) {
-            const imageUrl: string | undefined = json.image_url;
-            const r = { data, source: 'Kho từ điển' as SourceBadge, imageUrl, queriedWord: trimmed };
-            setResult(r);
-            pushHistory(trimmed);
-            setHistory(getHistory());
-            setLoading(false);
-            void checkWordSaved(trimmed);
-            return;
-          }
-        }
-      }
-    } catch {
-      // fall through
-    }
-
-    // Tier 2: external (dict.minhqnd proxy)
-    try {
-      const res = await fetch(
-        `/api/dictionary/external?word=${encodeURIComponent(trimmed)}`,
-        { signal: AbortSignal.timeout(6000) }
-      );
-      if (res.ok) {
-        const json = await res.json();
-        if (json.success && (json.results?.length > 0 || json.pronunciations?.length > 0)) {
-          const data: DictionaryData = json;
-          if (!isGarbageResult(data)) {
-            // queriedWord = từ user gõ — KHÔNG dùng data.word từ external (tránh headword sai)
-            const r = { data, source: 'Wiktionary' as SourceBadge, queriedWord: trimmed };
-            setResult(r);
-            pushHistory(trimmed);
-            setHistory(getHistory());
-            setLoading(false);
-            void checkWordSaved(trimmed);
-            return;
-          }
-        }
-      }
-    } catch {
-      // fall through
-    }
-
-    // Tier 3: AI lookup
-    try {
-      const res = await authFetch('/api/dictionary/ai-lookup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word: trimmed }),
-        signal: AbortSignal.timeout(12000),
-      });
-      if (res.status === 429) {
+      if (sent === 'busy') {
         toast.error('AI đang bận, chờ chút rồi thử lại');
-        setError(`Không tìm được nghĩa cho "${trimmed}"`);
+        setError('Quá nhiều yêu cầu tra câu — thử lại sau.');
         setLoading(false);
         return;
       }
-      if (res.ok) {
-        const json = await res.json();
-        if (json.success && json.data) {
-          const data: DictionaryData = json.data;
-          // Phòng thủ phía client: lọc kết quả rác từ AI tier
-          if (!isGarbageResult(data)) {
-            const r = { data, source: 'AI' as SourceBadge, queriedWord: trimmed };
-            setResult(r);
-            pushHistory(trimmed);
-            setHistory(getHistory());
-            setLoading(false);
-            void checkWordSaved(trimmed);
-            return;
-          }
+      if (sent) {
+        setResult(sent);
+        pushHistory(trimmed);
+        setHistory(getHistory());
+        setLoading(false);
+        return;
+      }
+      // Force sentence fail + input ngắn: thử lexical 1 lần
+      if (force === 'sentence' && wordCount(trimmed) <= 5) {
+        const lex = await lookupLexical(trimmed.toLowerCase(), 'phrase');
+        if (lex) {
+          setResult(lex);
+          pushHistory(lex.queriedWord);
+          setHistory(getHistory());
+          setLoading(false);
+          void checkWordSaved(lex.queriedWord);
+          return;
         }
       }
-    } catch {
-      // fall through
+      setError(`Không phân tích được: "${trimmed.slice(0, 60)}${trimmed.length > 60 ? '…' : ''}"`);
+      setLoading(false);
+      return;
+    }
+
+    // ── TỪ / CỤM (cùng UI thẻ nghĩa) ──
+    const lex = await lookupLexical(trimmed, kind);
+    if (lex) {
+      setResult(lex);
+      pushHistory(trimmed);
+      setHistory(getHistory());
+      setLoading(false);
+      void checkWordSaved(trimmed);
+      return;
+    }
+
+    // Cụm miss → auto fallback câu (user không chọn mode)
+    if (kind === 'phrase' && force === 'auto') {
+      const sent = await lookupSentence(raw.slice(0, 400));
+      if (sent && sent !== 'pro' && sent !== 'busy') {
+        setResult(sent);
+        pushHistory(raw.slice(0, 400));
+        setHistory(getHistory());
+        setLoading(false);
+        return;
+      }
+      if (sent === 'pro') {
+        // Cụm miss + free: không ép Pro — báo nghĩa cụm chưa có
+        setError(`Chưa tìm được nghĩa cho "${trimmed}". Thử từ đơn hơn, hoặc nâng Pro để phân tích cả câu.`);
+        setLoading(false);
+        return;
+      }
     }
 
     setError(`Không tìm được nghĩa cho "${trimmed}"`);
     setLoading(false);
-  }, [checkWordSaved]);
+  }, [checkWordSaved, lookupLexical, lookupSentence]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -565,21 +715,19 @@ export default function DictionaryPage() {
 
   return (
     <StudentShell title="Tra từ điển" contentClassName="p-0">
-      {/* overflow-x-hidden là mitigation tầng cuối phòng ngừa layout overflow khi có text cực dài */}
+      {/* overflow-x-hidden: mitigation layout overflow text dài */}
       <div className="w-full min-w-0 min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-background overflow-x-hidden">
-      {/* Header */}
-      <header className="sticky top-header-safe z-30 flex items-center gap-3 border-b bg-background/80 px-4 py-3 backdrop-blur min-w-0 max-w-full">
-        <Link href="/student" className="p-2 rounded-full hover:bg-muted transition-colors">
-          <ChevronLeft className="h-5 w-5" />
-        </Link>
-        <BookOpen className="h-5 w-5 text-primary" />
-        <span className="font-bold text-lg">Tra từ / câu</span>
-      </header>
-
-      <div className="max-w-2xl mx-auto px-4 pt-6 pb-24 min-w-0">
-        {/* Search form + autocomplete */}
-        <div className="relative mb-6" data-onboarding="dict-search">
-          <form onSubmit={handleSubmit} className="flex gap-2">
+      {/*
+        Không dùng sub-header sticky thứ 2 (trùng title shell → che ô nhập).
+        Sticky = đúng form search, dính dưới shell header.
+      */}
+      <div className="max-w-2xl mx-auto px-4 pb-24 min-w-0">
+        {/* Search form + autocomplete — sticky dưới shell, không che content */}
+        <div
+          className="sticky top-header-safe z-20 -mx-4 mb-4 border-b border-border/60 bg-background/95 px-4 pt-3 pb-3 backdrop-blur min-w-0"
+          data-onboarding="dict-search"
+        >
+          <form onSubmit={handleSubmit} className="relative flex min-w-0 gap-2">
             <input
               ref={inputRef}
               type="text"
@@ -587,8 +735,8 @@ export default function DictionaryPage() {
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
               onFocus={() => { if (suggestions.length > 0) setShowSuggest(true); }}
-              placeholder="Từ đơn · hoặc dán cả câu để bóc xương S–V–O"
-              className="flex-1 h-12 px-4 rounded-xl border border-border bg-background text-base focus:outline-none focus:ring-2 focus:ring-ring"
+              placeholder="Gõ từ, cụm hoặc dán câu…"
+              className="min-w-0 flex-1 h-12 px-4 rounded-xl border border-border bg-background text-base focus:outline-none focus:ring-2 focus:ring-ring"
               autoComplete="off"
               autoCorrect="off"
               spellCheck={false}
@@ -598,45 +746,49 @@ export default function DictionaryPage() {
               variant="chunky"
               size="lg"
               disabled={loading || query.trim().length === 0}
-              className="h-12 px-4"
+              className="h-12 shrink-0 px-4"
             >
               {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Search className="h-5 w-5" />}
             </Button>
-          </form>
 
-          {/* Autocomplete dropdown */}
-          {showSuggest && suggestions.length > 0 && !loading && (
-            <div
-              ref={suggestRef}
-              className="absolute left-0 right-12 top-[calc(100%+4px)] z-[9999] bg-background border border-border rounded-xl shadow-lg overflow-hidden"
-            >
-              {suggestions.map((word, idx) => (
-                <button
-                  key={word}
-                  type="button"
-                  onMouseDown={(e) => {
-                    e.preventDefault(); // tránh blur input trước khi click
-                    setQuery(word);
-                    setShowSuggest(false);
-                    setSelectedSuggestIdx(-1);
-                    void lookup(word);
-                  }}
-                  className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors ${
-                    idx === selectedSuggestIdx ? 'bg-muted' : ''
-                  }`}
-                >
-                  {word}
-                </button>
-              ))}
-            </div>
-          )}
+            {/* Autocomplete dropdown — trong form sticky để không bị clip */}
+            {showSuggest && suggestions.length > 0 && !loading && (
+              <div
+                ref={suggestRef}
+                className="absolute left-0 right-14 top-[calc(100%+4px)] z-[9999] bg-background border border-border rounded-xl shadow-lg overflow-hidden"
+              >
+                {suggestions.map((word, idx) => (
+                  <button
+                    key={word}
+                    type="button"
+                    onMouseDown={(e) => {
+                      e.preventDefault(); // tránh blur input trước khi click
+                      setQuery(word);
+                      setShowSuggest(false);
+                      setSelectedSuggestIdx(-1);
+                      void lookup(word);
+                    }}
+                    className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors ${
+                      idx === selectedSuggestIdx ? 'bg-muted' : ''
+                    }`}
+                  >
+                    {word}
+                  </button>
+                ))}
+              </div>
+            )}
+          </form>
         </div>
 
-        {/* Loading */}
+        {/* Loading — copy trung tính, không lộ jargon mode */}
         {loading && (
           <div className="flex items-center justify-center py-12 gap-3 text-muted-foreground">
             <Loader2 className="h-6 w-6 animate-spin" />
-            <span>{isMultiWord(query) ? 'Đang bóc xương câu...' : 'Đang tra từ...'}</span>
+            <span>
+              {classifyLookup(query) === 'sentence'
+                ? 'Đang phân tích câu...'
+                : 'Đang tra...'}
+            </span>
           </div>
         )}
 
@@ -652,10 +804,15 @@ export default function DictionaryPage() {
                 Nâng Pro
               </Link>
             )}
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-2 flex-wrap">
               <Button variant="outline" onClick={() => lookup(query)}>
                 Thử lại
               </Button>
+              {isMultiWord(query) && wordCount(query) <= 5 && (
+                <Button variant="ghost" size="sm" onClick={() => lookup(query, 'sentence')}>
+                  Thử như câu
+                </Button>
+              )}
             </div>
           </div>
         )}
@@ -795,21 +952,40 @@ export default function DictionaryPage() {
             <p className="text-[11px] text-muted-foreground">
               Tip: bấm chip S/V/O hoặc chunk để tra từ đơn. Copy nhanh ngoài trình duyệt → dùng Desktop.
             </p>
+            {/* Override ẩn: chỉ khi cụm ngắn bị nhận nhầm thành câu */}
+            {wordCount(displayWord) <= 5 && !/[.?!;:]/.test(displayWord) && (
+              <p className="text-[11px] text-muted-foreground">
+                Chỉ cần nghĩa cụm?{' '}
+                <button
+                  type="button"
+                  className="underline underline-offset-2 hover:text-foreground font-medium"
+                  onClick={() => lookup(displayWord, 'phrase')}
+                >
+                  Tra lại như cụm
+                </button>
+              </p>
+            )}
           </div>
         )}
 
-        {/* Result — TỪ ĐƠN */}
+        {/* Result — TỪ / CỤM (cùng thẻ nghĩa) */}
         {!loading && result && !result.sentence && (
           <div className="space-y-4">
             {/* Word header */}
             <div className="flex items-start gap-4">
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap min-w-0">
                   <h1 className="text-3xl font-black min-w-0 break-words [overflow-wrap:anywhere]">{displayWord}</h1>
                   {/* Source badge */}
                   <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium shrink-0">
                     {result.source}
                   </span>
+                  {/* Nhãn nhẹ — không phải mode selector */}
+                  {result.kind === 'phrase' && (
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300 font-medium shrink-0">
+                      Cụm cố định
+                    </span>
+                  )}
                   {/* Badge từ đã lưu */}
                   {wordAlreadySaved && (
                     <span className="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 font-medium flex items-center gap-1 shrink-0">
@@ -1001,6 +1177,20 @@ export default function DictionaryPage() {
             {/* No meanings fallback */}
             {Object.keys(grouped).length === 0 && hasPronunciations && (
               <p className="text-muted-foreground text-sm">Chỉ tìm được phát âm, không có nghĩa.</p>
+            )}
+
+            {/* Override phụ — chỉ cụm, không lộ mode trước khi tra */}
+            {result.kind === 'phrase' && (
+              <p className="text-[11px] text-muted-foreground pt-1">
+                Muốn xem như cả câu?{' '}
+                <button
+                  type="button"
+                  className="underline underline-offset-2 hover:text-foreground font-medium"
+                  onClick={() => lookup(displayWord, 'sentence')}
+                >
+                  Phân tích câu
+                </button>
+              </p>
             )}
           </div>
         )}
