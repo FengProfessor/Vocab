@@ -61,11 +61,10 @@ interface QuizQ {
   pos: string;
   ipa: string;
   opts: string[];
-  /** Câu example đã blank (cloze) */
+  /** Câu example đã blank (cloze) — chỉ EN, không sub VI */
   stem?: string;
   /** Surface form bị blank trong câu (có thể khác lemma: walks) */
   blankSurface?: string;
-  exampleVi?: string;
 }
 
 type CorrectMap = Record<string, number>;
@@ -398,7 +397,6 @@ export default function VerbDrillPage() {
           ipa: w.ipa,
           stem: blank.stem,
           blankSurface: blank.surface,
-          exampleVi: w.exampleVi || undefined,
           opts: buildOpts(answer, distractorPool),
         });
       } else {
@@ -477,49 +475,47 @@ export default function VerbDrillPage() {
 
   /**
    * Next timing:
+   * - cloze (đúng/sai): luôn phát âm từ đúng → rồi next (đúng ~0.4s sau audio, sai ~2.5s)
    * - nghĩa đúng: 1s (đã auto nghe lúc hiện thẻ)
-   * - cloze đúng: chờ phát âm xong mới next (không theo timer)
-   * - sai (mọi loại): 3.5s; cloze vẫn phát từ đúng khi chờ
+   * - nghĩa sai: 3.5s
    */
   useEffect(() => {
     if (phase !== 'quiz' || !revealed || !current || picked == null) return;
     const ok = answersMatch(picked, current.answer);
     let cancelled = false;
+    let t: number | undefined;
 
-    if (current.type === 'cloze' && ok) {
+    if (current.type === 'cloze') {
+      // Surface blank (walks) ưu tiên hơn lemma (walk)
+      const speakWord = (current.blankSurface || current.answer || current.lemma).trim();
       (async () => {
+        stopSpeak();
         try {
-          stopSpeak();
           const { playWordAudio } = await import('@/lib/audio');
           if (cancelled) return;
-          await playWordAudio(current.lemma, null, 1.0);
+          await playWordAudio(speakWord, null, 1.0);
         } catch {
-          /* ignore audio fail */
+          if (!cancelled) speak(speakWord, 1.0);
         }
-        if (!cancelled) {
-          window.setTimeout(() => {
-            if (!cancelled) next();
-          }, 120);
-        }
+        if (cancelled) return;
+        const afterAudioMs = ok ? 400 : 2500;
+        t = window.setTimeout(() => {
+          if (!cancelled) next();
+        }, afterAudioMs);
       })();
       return () => {
         cancelled = true;
+        if (t !== undefined) window.clearTimeout(t);
       };
     }
 
-    // Cloze sai: phát từ đúng trong lúc chờ 3.5s
-    if (current.type === 'cloze' && !ok) {
-      stopSpeak();
-      speak(current.lemma, 1.0);
-    }
-
     const delay = ok ? 1000 : 3500;
-    const t = window.setTimeout(() => {
+    t = window.setTimeout(() => {
       if (!cancelled) next();
     }, delay);
     return () => {
       cancelled = true;
-      window.clearTimeout(t);
+      if (t !== undefined) window.clearTimeout(t);
     };
   }, [phase, revealed, idx, next, picked, current]);
 
@@ -703,27 +699,24 @@ export default function VerbDrillPage() {
                 <p className="text-[11px] font-bold uppercase tracking-wide text-teal-700/80">
                   Điền vào chỗ trống
                 </p>
+                {/* Chỉ câu EN có blank — không sub VI / POS VI (lộ nghĩa) */}
                 <p className="mt-3 text-lg font-bold leading-snug text-slate-900">
                   {current.stem}
                 </p>
-                {currentPos && (
-                  <p className="mt-2 text-[12px] font-semibold text-teal-800">
-                    <span className="rounded-md bg-teal-100 px-2 py-0.5 font-black">
-                      {currentPos.short}
-                    </span>
-                    <span className="ml-1.5 text-teal-700/80">{currentPos.vi}</span>
-                  </p>
-                )}
-                {/* Sau khi trả lời: lộ lemma + IPA + nghe */}
+                {/* Sau khi trả lời: lộ lemma + IPA + nghe lại */}
                 {revealed && (
                   <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-                    <span className="text-sm font-black text-slate-800">{current.lemma}</span>
+                    <span className="text-sm font-black text-slate-800">
+                      {current.blankSurface || current.lemma}
+                    </span>
                     {currentIpa && (
                       <span className="font-mono text-xs text-slate-500">/{currentIpa}/</span>
                     )}
                     <button
                       type="button"
-                      onClick={() => speak(current.lemma, 1.0)}
+                      onClick={() =>
+                        speak((current.blankSurface || current.lemma).trim(), 1.0)
+                      }
                       className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-teal-200 bg-white text-teal-700"
                       aria-label="Nghe"
                     >
@@ -808,11 +801,11 @@ export default function VerbDrillPage() {
               <p className="text-center text-[11px] font-medium text-slate-400">
                 {idx + 1 >= queue.length
                   ? 'Sắp xem kết quả…'
-                  : answersMatch(picked, current.answer)
-                    ? current.type === 'cloze'
-                      ? 'Đang nghe từ đúng…'
-                      : 'Tự sang câu tiếp (1s)…'
-                    : 'Tự sang câu tiếp (3.5s)…'}
+                  : current.type === 'cloze'
+                    ? 'Đang nghe từ đúng…'
+                    : answersMatch(picked, current.answer)
+                      ? 'Tự sang câu tiếp (1s)…'
+                      : 'Tự sang câu tiếp (3.5s)…'}
               </p>
             )}
           </section>
