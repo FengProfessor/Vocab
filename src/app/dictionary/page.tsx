@@ -721,10 +721,17 @@ export default function DictionaryPage() {
         Không dùng sub-header sticky thứ 2 (trùng title shell → che ô nhập).
         Sticky = đúng form search, dính dưới shell header.
       */}
-      <div className="max-w-2xl mx-auto px-4 pb-24 min-w-0">
-        {/* Search form + autocomplete — sticky dưới shell, không che content */}
+      <div className="max-w-2xl mx-auto px-4 pt-3 pb-24 min-w-0">
+        {/*
+          Sticky search CHỈ khi đã có kết quả (scroll định nghĩa).
+          Empty/lịch sử: flow thường — sticky sẽ đè “Đã tra gần đây”.
+        */}
         <div
-          className="sticky top-header-safe z-20 -mx-4 mb-4 border-b border-border/60 bg-background/95 px-4 pt-3 pb-3 backdrop-blur min-w-0"
+          className={
+            result || loading
+              ? 'sticky top-header-safe z-20 -mx-4 mb-4 border-b border-border/60 bg-background/95 px-4 pt-1 pb-3 backdrop-blur min-w-0'
+              : 'relative z-10 mb-5 min-w-0'
+          }
           data-onboarding="dict-search"
         >
           <form onSubmit={handleSubmit} className="relative flex min-w-0 gap-2">
