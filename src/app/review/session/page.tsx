@@ -43,8 +43,10 @@ interface WordItem extends ReviewWordLike {
   isDue: boolean;
 }
 
-const NEXT_OK_MS = 1400;
-const NEXT_BAD_MS = 2600;
+const NEXT_OK_MS = 1600;
+const NEXT_BAD_MS = 2800;
+/** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án. */
+const FEEDBACK_LOCK_MS = 700;
 const SESSION_CAP = 25;
 
 function parseSessionMode(raw: string | null): ReviewSessionMode {
@@ -76,6 +78,8 @@ function SessionContent() {
   const [total, setTotal] = useState(0);
   const [stats, setStats] = useState({ correct: 0, close: 0, wrong: 0 });
   const [shakingIdx, setShakingIdx] = useState<number | null>(null);
+  /** Sau chấm: true khi đã hết lock — cho bấm Next / Enter skip. */
+  const [canSkip, setCanSkip] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const startedAt = useRef<number>(0);
@@ -83,6 +87,9 @@ function SessionContent() {
   const advanceFn = useRef<(() => void) | null>(null);
   /** Timeout auto-play listen — phải clear khi sang thẻ mới, không để speak từ cũ trễ. */
   const listenTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const feedbackLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** Guard cứng (tránh stale verdict / double-tap) — không phụ thuộc render. */
+  const answeredRef = useRef(false);
 
   const modeMeta = useMemo(() => itemModeLabel(itemMode), [itemMode]);
 
@@ -91,6 +98,10 @@ function SessionContent() {
     if (listenTimer.current) {
       clearTimeout(listenTimer.current);
       listenTimer.current = null;
+    }
+    if (feedbackLockTimer.current) {
+      clearTimeout(feedbackLockTimer.current);
+      feedbackLockTimer.current = null;
     }
     stopWordAudio();
 
@@ -103,7 +114,9 @@ function SessionContent() {
     setInput('');
     setSelected(null);
     setVerdict(null);
+    setCanSkip(false);
     setShakingIdx(null);
+    answeredRef.current = false;
     startedAt.current = Date.now();
 
     if (im === 'cloze_mcq' || im === 'cloze_type') {
@@ -232,6 +245,7 @@ function SessionContent() {
   useEffect(() => () => {
     if (advanceTimer.current) clearTimeout(advanceTimer.current);
     if (listenTimer.current) clearTimeout(listenTimer.current);
+    if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
     stopWordAudio();
   }, []);
 
@@ -245,6 +259,10 @@ function SessionContent() {
     if (listenTimer.current) {
       clearTimeout(listenTimer.current);
       listenTimer.current = null;
+    }
+    if (feedbackLockTimer.current) {
+      clearTimeout(feedbackLockTimer.current);
+      feedbackLockTimer.current = null;
     }
     stopWordAudio();
 
@@ -269,10 +287,13 @@ function SessionContent() {
 
   const finalize = useCallback(
     (isCorrect: boolean, isClose: boolean, quality: 0 | 3 | 4 | 5) => {
-      if (!current || !userId || verdict !== null) return;
+      // Guard ref — không dùng verdict state (stale closure / double-tap)
+      if (!current || !userId || answeredRef.current) return;
+      answeredRef.current = true;
 
       const v: Verdict = isCorrect ? 'correct' : isClose ? 'close' : 'wrong';
       setVerdict(v);
+      setCanSkip(false);
       setStats((s) => ({
         correct: s.correct + (isCorrect ? 1 : 0),
         close: s.close + (isClose && !isCorrect ? 1 : 0),
@@ -288,19 +309,27 @@ function SessionContent() {
         body: JSON.stringify({ wordId: current.id, quality }),
       }).catch((err) => console.error('[ReviewSession] SRS:', err));
 
+      // Mở skip sau lock — tránh ghost-click từ chạm đáp án
+      if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
+      feedbackLockTimer.current = setTimeout(() => {
+        setCanSkip(true);
+        feedbackLockTimer.current = null;
+      }, FEEDBACK_LOCK_MS);
+
       const delay = isCorrect ? NEXT_OK_MS : NEXT_BAD_MS;
       const advance = () => {
         if (advanceFn.current !== advance) return;
         goNext(!isCorrect && !isClose);
       };
       advanceFn.current = advance;
+      if (advanceTimer.current) clearTimeout(advanceTimer.current);
       advanceTimer.current = setTimeout(advance, delay);
     },
-    [current, userId, verdict, goNext],
+    [current, userId, goNext],
   );
 
   const handleMcq = (choice: string, idx: number) => {
-    if (selected || !current || verdict !== null) return;
+    if (answeredRef.current || !current) return;
     setSelected(choice);
     const ok = choice.trim().toLowerCase() === answer.trim().toLowerCase();
     if (!ok) {
@@ -316,7 +345,7 @@ function SessionContent() {
   };
 
   const handleTypeSubmit = () => {
-    if (!current || verdict !== null) return;
+    if (answeredRef.current || !current) return;
     const guess = input.trim();
     if (!guess) return;
     const { verdict: v, quality } = verdictAndQuality(
@@ -329,7 +358,7 @@ function SessionContent() {
   };
 
   const skipWait = () => {
-    if (verdict === null) return;
+    if (!answeredRef.current || !canSkip) return;
     advanceFn.current?.();
   };
 
@@ -341,12 +370,13 @@ function SessionContent() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (done || isLoading || !current) return;
-      if (verdict !== null && (e.key === 'Enter' || e.key === ' ')) {
+      if (answeredRef.current && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
-        skipWait();
+        // Chỉ skip khi hết feedback lock (tránh Enter double-fire sau gõ)
+        if (canSkip) skipWait();
         return;
       }
-      if (verdict !== null) return;
+      if (answeredRef.current) return;
 
       if (['1', '2', '3', '4'].includes(e.key) && choices.length > 0) {
         const idx = parseInt(e.key, 10) - 1;
@@ -356,7 +386,7 @@ function SessionContent() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [done, isLoading, current, choices, verdict, selected]);
+  }, [done, isLoading, current, choices, verdict, selected, canSkip]);
 
   const hubHref = classroomId ? `/review?class=${classroomId}` : '/review';
   const sessionTitle =
@@ -659,8 +689,11 @@ function SessionContent() {
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                       e.preventDefault();
-                      if (verdict !== null) skipWait();
-                      else handleTypeSubmit();
+                      if (answeredRef.current) {
+                        if (canSkip) skipWait();
+                      } else {
+                        handleTypeSubmit();
+                      }
                     }
                   }}
                   autoComplete="off"
@@ -687,8 +720,9 @@ function SessionContent() {
                 ) : (
                   <Button
                     onClick={skipWait}
+                    disabled={!canSkip}
                     variant="outline"
-                    className="h-11 w-full rounded-xl text-sm font-bold"
+                    className="h-11 w-full rounded-xl text-sm font-bold disabled:opacity-40"
                   >
                     Tiếp theo →
                   </Button>
@@ -699,8 +733,9 @@ function SessionContent() {
             {isMcq && verdict !== null && (
               <Button
                 onClick={skipWait}
+                disabled={!canSkip}
                 variant="outline"
-                className="h-11 w-full shrink-0 rounded-xl text-sm font-bold"
+                className="h-11 w-full shrink-0 rounded-xl text-sm font-bold disabled:opacity-40"
               >
                 Tiếp theo →
               </Button>
