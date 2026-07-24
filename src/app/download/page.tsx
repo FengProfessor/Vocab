@@ -15,7 +15,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 
-const DESKTOP_VERSION = '0.1.4';
+const DESKTOP_VERSION = '0.1.5';
 const DESKTOP_RELEASE_TAG = `desktop-v${DESKTOP_VERSION}`;
 const DESKTOP_SETUP_FILE = `LingoPro-Desktop-${DESKTOP_VERSION}-Setup.exe`;
 const DESKTOP_ZIP_FILE = `LingoPro-Desktop-${DESKTOP_VERSION}-Windows.zip`;
@@ -61,8 +61,8 @@ const features = [
     icon: Keyboard,
     color: '#0ea5e9',
     tile: '#e2f5fe',
-    title: 'Hotkey Ctrl+Shift+L',
-    text: 'Bôi đen cụm từ rồi bấm phím tắt để tra cả cụm.',
+    title: 'Ctrl×2 tra câu',
+    text: 'Bôi từ/câu rồi bấm Ctrl hai lần (tay trái) — kernel S–V–O + dịch VI.',
   },
   {
     icon: Repeat2,
