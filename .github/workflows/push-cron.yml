@@ -1,20 +1,15 @@
 name: Dense Due Push Notifications
 
-# Lịch tự động trigger /api/cron/push-due.
-# Poll mỗi 15 phút để BẮT due sớm (không cố định 8/12/20).
-# Route cooldown ~90 phút giữa 2 lần push nếu user vẫn chưa ôn (không spam 15p/lần).
-# Im ban đêm 22:30–05:30 VN.
+# Trigger /api/cron/push-due mỗi 15 phút (backup song song Vercel hourly cron).
+# Cooldown re-nag ~90p trong route; im 22:30–05:30 VN.
 #
-# GitHub Actions schedule có thể trễ vài phút — route dùng giờ VN thực tế lúc chạy.
-#
-# Yêu cầu: repo secret CRON_SECRET khớp env CRON_SECRET trên Vercel/host.
-# ⚠️ Nếu cron-job.org cũng đang bật cho cùng URL → TẮT cron-job.org (tránh double load).
+# BẮT BUỘC: GitHub repo secret CRON_SECRET = đúng env CRON_SECRET production (Vercel).
+# Secret sai → HTTP 401 → học sinh không nhận TB. Check: Actions tab + log HTTP code.
 
 on:
   schedule:
-    # Poll 15p: phát hiện due sớm. Tần suất push thực tế do COOLDOWN_MINUTES (route, ~90p).
     - cron: '*/15 * * * *'
-  workflow_dispatch: {} # chạy thủ công để test
+  workflow_dispatch: {}
 
 jobs:
   ping:
@@ -25,12 +20,21 @@ jobs:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
         run: |
           if [ -z "$CRON_SECRET" ]; then
-            echo "::error::Missing CRON_SECRET repo secret"
+            echo "::error::Missing CRON_SECRET repo secret — set it to match Vercel CRON_SECRET"
             exit 1
           fi
           code=$(curl -sS -o /tmp/resp.json -w "%{http_code}" \
+            --max-time 90 \
             -H "Authorization: Bearer $CRON_SECRET" \
             "https://lingopro.online/api/cron/push-due")
           echo "HTTP $code"
-          cat /tmp/resp.json
-          test "$code" = "200"
+          cat /tmp/resp.json || true
+          echo ""
+          if [ "$code" != "200" ]; then
+            echo "::error::push-due failed HTTP $code (thường do CRON_SECRET sai so với Vercel)"
+            exit 1
+          fi
+          # Log tóm tắt notified nếu JSON parse được
+          if command -v jq >/dev/null 2>&1; then
+            jq '{success, vnHour, vnMinute, notified, total, skipped, cooldownMinutes}' /tmp/resp.json || true
+          fi

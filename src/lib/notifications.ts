@@ -36,18 +36,25 @@ if (typeof window === 'undefined' && !admin.apps.length) {
   }
 }
 
-const DEAD_TOKEN_CODES = [
+const DEAD_TOKEN_CODES = new Set([
   'messaging/registration-token-not-registered',
   'messaging/invalid-registration-token',
-];
+  'messaging/mismatched-credential',
+]);
 
 type TokenRow = { token: string; lastUsedAt: number };
 
+function isDeadTokenError(err: unknown): boolean {
+  const code = (err as { code?: string } | undefined)?.code || '';
+  if (DEAD_TOKEN_CODES.has(code)) return true;
+  const msg = (err as { message?: string } | undefined)?.message || '';
+  return /not.?registered|invalid.?registration|registration-token/i.test(msg);
+}
+
 /**
- * Gửi push tới ĐÚNG 1 endpoint tươi nhất của user.
- * - Trước đây multicast mọi token → 1 máy cài 2 app / Chrome+PWA = N bubble cùng lúc.
- * - Giờ: sort last_used_at DESC → thử token #1; chết thì dọn + thử #2… đến khi 1 cái success.
- * → Dù DT hay MT, mỗi lần nhắc chỉ 1 thông báo (trên thiết bị dùng gần nhất).
+ * Gửi push tới ĐÚNG 1 endpoint (token tươi nhất).
+ * - Token chết / lỗi → thử token kế (fallback), dọn dead.
+ * - fcm-register prune còn 1 token/user → thường chỉ 1 vòng.
  */
 export async function sendPushNotificationToUser(
   userId: string,
@@ -60,7 +67,6 @@ export async function sendPushNotificationToUser(
   try {
     const supabase = createServiceClient();
 
-    // Token đa thiết bị + thời điểm dùng gần nhất (ưu tiên endpoint tươi).
     const { data: rows } = await supabase
       .from('fcm_tokens')
       .select('token, last_used_at')
@@ -82,18 +88,17 @@ export async function sendPushNotificationToUser(
       .eq('id', userId)
       .single();
 
-    // Legacy: chỉ thêm nếu chưa có trong fcm_tokens (ưu tiên thấp hơn token có last_used).
     if (profile?.fcm_token && !byToken.has(profile.fcm_token)) {
       byToken.set(profile.fcm_token, { token: profile.fcm_token, lastUsedAt: 0 });
     }
 
     if (byToken.size === 0) return { error: `No token for user ${userId}` };
 
-    // Mới dùng trước → 1 notif trên máy/app đang active.
     const ordered = Array.from(byToken.values()).sort((a, b) => b.lastUsedAt - a.lastUsedAt);
 
     const link = `https://lingopro.online${url}`;
-    const payload = {
+    // Payload tối giản — tránh field platform lạ làm FCM reject một số token web/Capacitor.
+    const baseMessage = {
       notification: { title, body: message },
       data: { url: link },
       webpush: {
@@ -101,29 +106,24 @@ export async function sendPushNotificationToUser(
         notification: {
           icon: '/icons/icon-192.webp',
           badge: '/icons/icon-192.webp',
-          // Tag cố định: nếu cùng browser còn bubble cũ, thay thế thay vì xếp chồng (web).
           tag: 'lingopro-due',
           renotify: true,
         },
       },
-      // Android/Capacitor: collapse cùng key → 1 slot notif thay vì chồng.
       android: {
         collapseKey: 'lingopro-due',
+        priority: 'high' as const,
         notification: { tag: 'lingopro-due' },
       },
     };
 
     const deadTokens: string[] = [];
-    let lastError = '';
+    const errors: string[] = [];
 
     for (const { token } of ordered) {
       try {
-        const messageId = await admin.messaging().send({
-          token,
-          ...payload,
-        });
+        const messageId = await admin.messaging().send({ token, ...baseMessage });
 
-        // Dọn token chết đã gặp trước khi gửi thành công.
         if (deadTokens.length) {
           await supabase.from('fcm_tokens').delete().in('token', deadTokens);
           if (profile?.fcm_token && deadTokens.includes(profile.fcm_token)) {
@@ -132,26 +132,30 @@ export async function sendPushNotificationToUser(
           console.log(`[FCM] Cleared ${deadTokens.length} dead token(s) for user ${userId}`);
         }
 
-        // Đồng bộ legacy = token vừa gửi OK (thiết bị đang active).
         if (profile && profile.fcm_token !== token) {
           await supabase.from('profiles').update({ fcm_token: token }).eq('id', userId);
         }
 
         console.log(
-          `[FCM] Sent 1/1 (primary of ${ordered.length} token(s)) user=${userId.slice(0, 8)} id=${messageId}`
+          `[FCM] Sent 1 notif (tried ${errors.length + 1}/${ordered.length}) user=${userId.slice(0, 8)}`
         );
-        return { messageId, sentCount: 1, tried: ordered.length, skipped: ordered.length - 1 };
+        return {
+          messageId,
+          sentCount: 1,
+          tried: errors.length + 1,
+          tokenCount: ordered.length,
+        };
       } catch (err: unknown) {
         const e = err as { code?: string; message?: string } | undefined;
-        const code = e?.code || '';
-        lastError = e?.message || code || 'unknown';
-        if (DEAD_TOKEN_CODES.includes(code)) {
+        const detail = e?.message || e?.code || 'unknown';
+        errors.push(detail);
+        if (isDeadTokenError(err)) {
           deadTokens.push(token);
           continue;
         }
-        // Lỗi khác (quota, network…) → không đốt hết token; dừng.
-        console.warn(`[FCM] Send failed non-dead for user ${userId.slice(0, 8)}:`, lastError);
-        break;
+        // Lỗi khác: vẫn thử token kế (tránh 1 token web hỏng chặn hết phone).
+        console.warn(`[FCM] token fail user=${userId.slice(0, 8)}: ${detail}`);
+        continue;
       }
     }
 
@@ -164,7 +168,7 @@ export async function sendPushNotificationToUser(
     }
 
     return {
-      error: `All ${ordered.length} token(s) failed for user ${userId}: ${lastError || 'unknown'}`,
+      error: `All ${ordered.length} token(s) failed for user ${userId}: ${errors.slice(0, 3).join(' | ')}`,
     };
   } catch (err: unknown) {
     const e = err as { message?: string; code?: string } | undefined;
