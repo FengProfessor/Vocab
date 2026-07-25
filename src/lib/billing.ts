@@ -12,6 +12,10 @@ import {
   isMilestoneGatedCoupon,
   milestoneGateErrorMessage,
 } from '@/lib/pro-trial-milestone';
+import {
+  applyCohortProPromo,
+  isCohortProPromoActive,
+} from '@/lib/cohort-pro-promo';
 
 /**
  * Coupon tặng trial theo NGÀY (override period_months của RPC = 1 tháng).
@@ -61,6 +65,11 @@ export function assertCouponAllowedForOrder(input: {
         `Mã ${code} chỉ áp dụng kỳ 1 tháng (quà ${trialCouponDays(code)} ngày Pro). Hãy chọn "1 tháng" rồi áp mã lại.`,
       );
     }
+  }
+
+  // B6: Pro cá nhân = giá ~nhóm 3 người (−38%). Không stack lên order group.
+  if (code === 'LIVEB6' && input.orderKind === 'group') {
+    throw new Error('Mã LIVEB6 chỉ dùng gói Pro cá nhân (không áp gói nhóm).');
   }
 
   // Mọi mã 100% free: chặn kỳ > 1 tháng (không free 1 năm)
@@ -331,7 +340,16 @@ export async function createOrder(
     ? computeGroupPrice(seats, periodMonths)
     : computeBasePrice(plan, periodMonths);
 
-  const amount = applyDiscount(basePrice, coupon);
+  // Coupon (nếu có) ưu tiên; không coupon + Pro cá nhân + còn flash sale khóa → tự −38%
+  let amount = applyDiscount(basePrice, coupon);
+  if (
+    !coupon &&
+    orderKind === 'individual' &&
+    plan === 'pro' &&
+    isCohortProPromoActive()
+  ) {
+    amount = applyCohortProPromo(basePrice);
+  }
   // Gói nhóm không cho redeem free qua coupon (RPC chỉ tạo entitlement cá nhân, không dựng group).
   if (amount === 0 && orderKind === 'group') {
     throw new Error('Group orders cannot be zero-value.');

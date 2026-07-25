@@ -16,6 +16,7 @@ import {
 import { NotificationBell } from '@/components/NotificationBell';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { FreeQuotaBanner } from '@/components/upsell/FreeQuotaBanner';
+import { CohortProPromoBanner } from '@/components/upsell/CohortProPromoBanner';
 import { useGamification } from '@/hooks/useGamification';
 import { supabase, type Profile } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
@@ -519,6 +520,10 @@ export function StudentShell({
           effectiveImmersive && 'min-h-[100dvh]',
         )}
       >
+        {/* Flash sale Pro (kết thúc khóa) — trên banner quota */}
+        {showChrome && !effectiveImmersive ? (
+          <CohortProPromoBanner variant="dashboard" />
+        ) : null}
         {/* Free ≥150: banner dính + ép modal — lead upsell chắc thấy */}
         {showChrome && !effectiveImmersive ? <FreeQuotaBanner /> : null}
 

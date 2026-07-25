@@ -37,6 +37,16 @@ import {
   type Coupon,
 } from '@/lib/billing';
 import type { Plan } from '@/lib/supabase';
+import {
+  COHORT_PRO_PROMO_DEFAULT_MONTHS,
+  COHORT_PRO_PROMO_DISCOUNT_PCT,
+  applyCohortProPromo,
+  isCohortProPromoActive,
+} from '@/lib/cohort-pro-promo';
+import { CohortProPromoBanner } from '@/components/upsell/CohortProPromoBanner';
+
+/** Tạm ẩn khung Nhận quà (LIVE trial) — bật lại khi cần quà live */
+const SHOW_GIFT_REDEEM = false;
 
 const BANK_INFO = {
   bank: process.env.NEXT_PUBLIC_BANK_NAME || 'MB Bank',
@@ -91,7 +101,10 @@ function UpgradePageContent() {
   const [currentPlan, setCurrentPlan] = useState<Plan>('free');
   const [expiresAt, setExpiresAt] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [periodMonths, setPeriodMonths] = useState(12);
+  const [periodMonths, setPeriodMonths] = useState(() =>
+    isCohortProPromoActive() ? COHORT_PRO_PROMO_DEFAULT_MONTHS : 12,
+  );
+  const [cohortPromoOn, setCohortPromoOn] = useState(() => isCohortProPromoActive());
   const [checkoutTarget, setCheckoutTarget] = useState<CheckoutTarget>(initialTarget);
   const [seats, setSeats] = useState(GROUP_SEATS_DEFAULT);
   const [couponCode, setCouponCode] = useState('');
@@ -117,6 +130,14 @@ function UpgradePageContent() {
     const g = searchParams.get('gift') || searchParams.get('code');
     if (g) setGiftCode(g.trim().toUpperCase());
   }, [searchParams]);
+
+  // Flash sale khóa — tick để tắt UI khi hết hạn
+  useEffect(() => {
+    const tick = () => setCohortPromoOn(isCohortProPromoActive());
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -205,15 +226,22 @@ function UpgradePageContent() {
   const afterPeriodDiscount = isGroup
     ? computeGroupPrice(seats, periodMonths)
     : computeBasePrice(selectedPlan, periodMonths);
-  const afterCoupon = couponValid ? applyDiscount(afterPeriodDiscount, couponValid) : afterPeriodDiscount;
+  // Coupon > flash sale khóa (Pro cá nhân, không group)
+  const afterPromo =
+    !isGroup && !couponValid && cohortPromoOn
+      ? applyCohortProPromo(afterPeriodDiscount)
+      : afterPeriodDiscount;
+  const afterCoupon = couponValid ? applyDiscount(afterPeriodDiscount, couponValid) : afterPromo;
   const totalSaved = basePrice - afterCoupon;
   const remaining = getRemainingDays(expiresAt);
   const periodLabel = PERIOD_OPTIONS.find((o) => o.months === periodMonths)?.label ?? `${periodMonths} tháng`;
 
   const proMonthlyDisplay = useMemo(() => {
     const total = computeBasePrice('pro', periodMonths);
-    return Math.round(total / periodMonths);
-  }, [periodMonths]);
+    const withPromo =
+      !isGroup && cohortPromoOn && !couponValid ? applyCohortProPromo(total) : total;
+    return Math.round(withPromo / periodMonths);
+  }, [periodMonths, cohortPromoOn, couponValid, isGroup]);
 
   const groupSeatMonthlyDisplay = useMemo(() => {
     const total = computeGroupPrice(seats, periodMonths);
@@ -581,13 +609,26 @@ function UpgradePageContent() {
         <>
           <div className="text-[11px] font-medium uppercase tracking-[0.14em] text-[#8a8778] lg:text-xs">
             {formatVND(proMonthlyDisplay)}/tháng
+            {cohortPromoOn && !couponValid ? (
+              <span className="ml-1.5 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-800">
+                −{COHORT_PRO_PROMO_DISCOUNT_PCT}%
+              </span>
+            ) : null}
           </div>
-          <div className="mt-1 text-2xl font-semibold tabular-nums tracking-tight lg:mt-2 lg:text-3xl">
-            {formatVND(afterCoupon)}
+          <div className="mt-1 flex items-baseline justify-center gap-2 lg:mt-2">
+            {cohortPromoOn && !couponValid && afterPeriodDiscount > afterCoupon ? (
+              <span className="text-base font-medium tabular-nums text-[#8a8778] line-through lg:text-lg">
+                {formatVND(afterPeriodDiscount)}
+              </span>
+            ) : null}
+            <span className="text-2xl font-semibold tabular-nums tracking-tight lg:text-3xl">
+              {formatVND(afterCoupon)}
+            </span>
           </div>
           <p className="mt-0.5 text-xs text-[#5e5d59] lg:mt-1 lg:text-sm">
             Thanh toán {periodLabel.toLowerCase()}
             {totalSaved > 0 ? ` · tiết kiệm ${formatVND(totalSaved)}` : ''}
+            {cohortPromoOn && !couponValid ? ' · tự áp sale' : ''}
           </p>
         </>
       )}
@@ -694,12 +735,15 @@ function UpgradePageContent() {
               : ''}
         </p>
       )}
-      {(basePrice > afterPeriodDiscount || (couponValid && afterCoupon < afterPeriodDiscount)) && (
+      {(basePrice > afterCoupon || afterPeriodDiscount > afterCoupon) && (
         <p className="mt-1 text-[11px] text-[#8a8778] lg:text-xs">
           Gốc {formatVND(basePrice)}
           {basePrice > afterPeriodDiscount && ` · kỳ hạn −${formatVND(basePrice - afterPeriodDiscount)}`}
           {couponValid && afterCoupon < afterPeriodDiscount && (
             <> · mã −{formatVND(afterPeriodDiscount - afterCoupon)}</>
+          )}
+          {!couponValid && !isGroup && cohortPromoOn && afterCoupon < afterPeriodDiscount && (
+            <> · sale khóa −{formatVND(afterPeriodDiscount - afterCoupon)}</>
           )}
         </p>
       )}
@@ -737,6 +781,10 @@ function UpgradePageContent() {
         }
       />
 
+      {cohortPromoOn && !isGroup ? (
+        <CohortProPromoBanner variant="upgrade" dismissible={false} />
+      ) : null}
+
       <main className="mx-auto max-w-lg px-4 pb-32 pt-6 sm:max-w-xl sm:px-6 sm:pb-16 sm:pt-10 lg:max-w-5xl lg:pb-16 lg:pt-12">
         {/* Hero */}
         <div className="text-center lg:mx-auto lg:max-w-2xl">
@@ -746,7 +794,9 @@ function UpgradePageContent() {
           <p className="mt-2 text-[13px] leading-5 text-[#5e5d59] sm:text-sm sm:leading-6 lg:mt-3 lg:text-base">
             {isGroup
               ? 'Một người thanh toán — cả nhóm dùng quyền Pro.'
-              : 'AI tra từ + phân tích câu, không còn giới hạn lượt.'}
+              : cohortPromoOn
+                ? `Flash sale −${COHORT_PRO_PROMO_DISCOUNT_PCT}% đến hết khóa — giá tự áp, không cần mã.`
+                : 'AI tra từ + phân tích câu, không còn giới hạn lượt.'}
           </p>
           {currentPlan !== 'free' && remaining != null && (
             <p className="mt-2 text-xs text-[#8a8778] lg:text-sm">
@@ -756,76 +806,82 @@ function UpgradePageContent() {
           )}
         </div>
 
-        {/* ── Nhận quà live (tách khỏi mua gói) ── */}
-        <section
-          id="nhan-qua"
-          className="mx-auto mt-6 max-w-lg scroll-mt-24 rounded-2xl border border-[#d7bb76]/50 bg-gradient-to-br from-[#fff9eb] to-white p-4 shadow-sm sm:p-5 lg:mt-8"
-        >
-          {giftDone ? (
-            <div className="text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#edf7f1] text-[#2d7f5e]">
-                <Check className="h-6 w-6" strokeWidth={2.5} />
-              </div>
-              <h2 className="mt-3 text-lg font-semibold tracking-tight">Đã nhận quà!</h2>
-              <p className="mt-1.5 text-sm leading-6 text-[#5e5d59]">
-                Tài khoản của bạn có <b className="text-[#1a1915]">{giftDone.days} ngày Pro</b> miễn phí.
-                Không phải gói trả phí 1 tháng / 1 năm.
-              </p>
-              <Link
-                href="/student"
-                className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-[#1a1915] px-5 py-3 text-sm font-semibold text-white"
-              >
-                Vào học ngay
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          ) : (
-            <>
-              <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1a1915] text-[#d7bb76]">
-                  <Gift className="h-5 w-5" />
+        {/* ── Nhận quà live (tách khỏi mua gói) — tạm ẩn SHOW_GIFT_REDEEM ── */}
+        {SHOW_GIFT_REDEEM ? (
+          <section
+            id="nhan-qua"
+            className="mx-auto mt-6 max-w-lg scroll-mt-24 rounded-2xl border border-[#d7bb76]/50 bg-gradient-to-br from-[#fff9eb] to-white p-4 shadow-sm sm:p-5 lg:mt-8"
+          >
+            {giftDone ? (
+              <div className="text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#edf7f1] text-[#2d7f5e]">
+                  <Check className="h-6 w-6" strokeWidth={2.5} />
                 </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9a7b2f]">
-                    Quà live / mã tặng
-                  </p>
-                  <h2 className="mt-0.5 text-base font-semibold tracking-tight sm:text-lg">
-                    Nhận quà
-                  </h2>
-                </div>
-              </div>
-              <div className="mt-4 flex gap-2">
-                <input
-                  type="text"
-                  value={giftCode}
-                  onChange={(e) => setGiftCode(e.target.value.toUpperCase())}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      e.preventDefault();
-                      void handleRedeemGift();
-                    }
-                  }}
-                  placeholder="Nhập mã quà"
-                  className="min-w-0 flex-1 rounded-xl border border-[#e8e6dc] bg-white px-3 py-2.5 font-mono text-sm font-bold uppercase text-[#1a1915] outline-none focus:border-[#1a1915]/30 focus:ring-2 focus:ring-[#1a1915]/8"
-                />
-                <button
-                  type="button"
-                  onClick={() => void handleRedeemGift()}
-                  disabled={giftLoading || !giftCode.trim()}
-                  className="shrink-0 rounded-xl bg-[#1a1915] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+                <h2 className="mt-3 text-lg font-semibold tracking-tight">Đã nhận quà!</h2>
+                <p className="mt-1.5 text-sm leading-6 text-[#5e5d59]">
+                  Tài khoản của bạn có <b className="text-[#1a1915]">{giftDone.days} ngày Pro</b> miễn phí.
+                  Không phải gói trả phí 1 tháng / 1 năm.
+                </p>
+                <Link
+                  href="/student"
+                  className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-[#1a1915] px-5 py-3 text-sm font-semibold text-white"
                 >
-                  {giftLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Nhận quà'}
-                </button>
+                  Vào học ngay
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
-            </>
-          )}
-        </section>
+            ) : (
+              <>
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1a1915] text-[#d7bb76]">
+                    <Gift className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9a7b2f]">
+                      Quà live / mã tặng
+                    </p>
+                    <h2 className="mt-0.5 text-base font-semibold tracking-tight sm:text-lg">
+                      Nhận quà
+                    </h2>
+                  </div>
+                </div>
+                <div className="mt-4 flex gap-2">
+                  <input
+                    type="text"
+                    value={giftCode}
+                    onChange={(e) => setGiftCode(e.target.value.toUpperCase())}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        void handleRedeemGift();
+                      }
+                    }}
+                    placeholder="Nhập mã quà"
+                    className="min-w-0 flex-1 rounded-xl border border-[#e8e6dc] bg-white px-3 py-2.5 font-mono text-sm font-bold uppercase text-[#1a1915] outline-none focus:border-[#1a1915]/30 focus:ring-2 focus:ring-[#1a1915]/8"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => void handleRedeemGift()}
+                    disabled={giftLoading || !giftCode.trim()}
+                    className="shrink-0 rounded-xl bg-[#1a1915] px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+                  >
+                    {giftLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Nhận quà'}
+                  </button>
+                </div>
+              </>
+            )}
+          </section>
+        ) : null}
 
-        <div className="mx-auto mt-8 max-w-lg border-t border-[#e8e6dc] pt-6 text-center lg:max-w-none">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a8778]">
-            Hoặc mua gói Pro / Nhóm
-          </p>
-        </div>
+        {SHOW_GIFT_REDEEM ? (
+          <div className="mx-auto mt-8 max-w-lg border-t border-[#e8e6dc] pt-6 text-center lg:max-w-none">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a8778]">
+              Hoặc mua gói Pro / Nhóm
+            </p>
+          </div>
+        ) : (
+          <div className="mx-auto mt-6 max-w-lg lg:mt-8 lg:max-w-none" />
+        )}
 
         {/* Tab Pro | Nhóm */}
         <div className="mx-auto mt-4 flex max-w-xs rounded-full border border-[#e8e6dc] bg-white p-1 shadow-sm lg:mt-5 lg:max-w-sm">
@@ -856,19 +912,28 @@ function UpgradePageContent() {
           <div className="grid grid-cols-4 gap-1 rounded-2xl border border-[#e8e6dc] bg-white p-1">
             {PERIOD_OPTIONS.map((opt) => {
               const active = periodMonths === opt.months;
+              const saleHot = !isGroup && cohortPromoOn && opt.months === 3;
               const badge =
-                opt.months === 12
-                  ? '−37%'
-                  : opt.discountPct != null && opt.discountPct > 0
-                    ? `−${opt.discountPct}%`
-                    : null;
+                !isGroup && cohortPromoOn
+                  ? opt.months === 3
+                    ? 'HOT'
+                    : `−${COHORT_PRO_PROMO_DISCOUNT_PCT}%`
+                  : opt.months === 12
+                    ? '−37%'
+                    : opt.discountPct != null && opt.discountPct > 0
+                      ? `−${opt.discountPct}%`
+                      : null;
               return (
                 <button
                   key={opt.months}
                   type="button"
                   onClick={() => setPeriodMonths(opt.months)}
                   className={`flex min-h-11 flex-col items-center justify-center rounded-xl px-0.5 py-1.5 transition lg:min-h-12 ${
-                    active ? 'bg-[#1a1915] text-white' : 'text-[#5e5d59] hover:bg-[#faf9f5]'
+                    active
+                      ? 'bg-[#1a1915] text-white'
+                      : saleHot
+                        ? 'bg-emerald-50 text-emerald-900 ring-1 ring-emerald-200'
+                        : 'text-[#5e5d59] hover:bg-[#faf9f5]'
                   }`}
                 >
                   <span className="text-[12px] font-semibold leading-none lg:text-sm">
@@ -879,12 +944,16 @@ function UpgradePageContent() {
                     <span
                       className={`mt-0.5 text-[9px] font-semibold leading-none lg:mt-1 lg:text-[10px] ${
                         active
-                          ? opt.months === 12
-                            ? 'text-[#d7bb76]'
-                            : 'text-white/65'
-                          : opt.months === 12
-                            ? 'text-[#b5502f]'
-                            : 'text-[#2d7f5e]'
+                          ? saleHot || opt.months === 3
+                            ? 'text-[#86efac]'
+                            : opt.months === 12
+                              ? 'text-[#d7bb76]'
+                              : 'text-white/65'
+                          : saleHot
+                            ? 'text-emerald-700'
+                            : opt.months === 12
+                              ? 'text-[#b5502f]'
+                              : 'text-[#2d7f5e]'
                       }`}
                     >
                       {badge}
@@ -903,7 +972,9 @@ function UpgradePageContent() {
           {compareTable}
           {couponBlock}
           <p className="-mt-1 px-1 text-[11px] leading-4 text-[#8a8778]">
-            Mã giảm % mua gói (không phải LIVEB3). Quà live → khung «Nhận quà» phía trên.
+            {cohortPromoOn && !isGroup
+              ? 'Sale khóa tự áp giá — không cần mã. Mã % khác (nếu có) dán bên dưới.'
+              : 'Mã giảm % mua gói (nếu có).'}
           </p>
           <SupportContactCard />
         </div>
@@ -922,7 +993,9 @@ function UpgradePageContent() {
               <div className="text-xs font-medium text-[#5e5d59]">Mã giảm giá</div>
               <div className="mt-2">{couponBlock}</div>
               <p className="mt-2 text-[11px] leading-4 text-[#8a8778]">
-                Mã % mua gói. Quà live <b>LIVEB3</b> → mục «Nhận quà» phía trên.
+                {cohortPromoOn && !isGroup
+                  ? 'Sale khóa tự áp — không cần mã. Ô này chỉ khi có mã % khác.'
+                  : 'Mã giảm % mua gói (nếu có).'}
               </p>
             </div>
             {ctaButton({
