@@ -45,9 +45,7 @@ export async function GET(req: Request) {
     const supabase = createServiceClient();
 
     // Single/topic: CDN OK. Bulk list: private — giảm scrape kho IP
-    const CACHE_HEADERS = isBulkList
-      ? { 'Cache-Control': 'private, no-store' }
-      : { 'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=3600' };
+    const CACHE_HEADERS = { 'Cache-Control': 'no-store, no-cache, must-revalidate' };
 
     if (id) {
       const { data, error } = await supabase
