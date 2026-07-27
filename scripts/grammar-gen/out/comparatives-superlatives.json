@@ -408,113 +408,12 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "Chọn câu dùng đúng Comparatives & Superlatives.",
-      "opts": [
-        "This room is brighter than mine.",
-        "Not correctly: short adjective + -er / the + -est.",
-        "Wrong structure for this meaning."
-      ],
-      "answer": "This room is brighter than mine.",
-      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn cấu trúc phù hợp nhất.",
-      "opts": [
-        "short adjective + -er / the + -est",
-        "more / the most + long adjective",
-        "as + adjective + as"
-      ],
-      "answer": "short adjective + -er / the + -est",
-      "fb": "Mẫu trọng tâm là short adjective + -er / the + -est."
-    },
-    {
       "type": "fill",
       "q": "Hoàn thành theo mẫu: Lan ___ the tallest student in the class.",
       "answer": [
         "is"
       ],
       "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
-      "answer": [
-        "Comparatives & Superlatives",
-        "comparatives & superlatives"
-      ],
-      "fb": "Chủ điểm là Comparatives & Superlatives."
-    },
-    {
-      "type": "tf",
-      "q": "Câu này tự nhiên và đúng ngữ pháp: “The train is more comfortable than the bus.”",
-      "answer": true,
-      "fb": "Đúng; câu minh họa một biến thể quan trọng."
-    },
-    {
-      "type": "tf",
-      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Comparatives & Superlatives chính xác.",
-      "answer": false,
-      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
-    },
-    {
-      "type": "error",
-      "q": "Câu/mô tả nào SAI?",
-      "opts": [
-        "That was the most useful lesson.",
-        "Today is less humid than yesterday.",
-        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
-      ],
-      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
-      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
-    },
-    {
-      "type": "mcq",
-      "q": "Điều cần kiểm tra đầu tiên là gì?",
-      "opts": [
-        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-        "Chỉ số lượng từ trong câu",
-        "Chỉ độ dài câu"
-      ],
-      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Dịch sang tiếng Anh: “Túi của bạn nặng bằng túi tôi.”",
-      "answer": [
-        "Your bag is as heavy as mine."
-      ],
-      "fb": "Your bag is as heavy as mine."
-    },
-    {
-      "type": "tf",
-      "q": "“This room is brighter than mine.” là một ví dụ đúng.",
-      "answer": true,
-      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
-    },
-    {
-      "type": "error",
-      "q": "Chọn lời khuyên SAI.",
-      "opts": [
-        "Học cấu trúc cùng ví dụ.",
-        "Kiểm tra dạng động từ.",
-        "Dịch máy móc từng từ luôn cho kết quả đúng."
-      ],
-      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
-      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
-    },
-    {
-      "type": "mcq",
-      "q": "Câu nào là một ví dụ đúng khác?",
-      "opts": [
-        "Your bag is as heavy as mine.",
-        "This sentence missing required grammar.",
-        "Incorrectly structure sentence."
-      ],
-      "answer": "Your bag is as heavy as mine.",
-      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
     },
     {
       "type": "multiple_choice",

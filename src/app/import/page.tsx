@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { toast } from 'sonner';
 import {
   Brain, ChevronLeft, Upload, FileText, Camera, Loader2,
-  CheckCircle2, XCircle, SkipForward, Trash2, Plus, BookMarked, ArrowRight
+  CheckCircle2, XCircle, SkipForward, Trash2, Plus,
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import type { Row } from 'exceljs';
@@ -221,12 +221,18 @@ export default function ImportPage() {
   };
 
   // ── Parse bulk text into words ──
-  const parseText = () => {
-    if (!bulkText.trim()) return;
+  const buildTextWordList = (): ImportWord[] => {
+    if (!bulkText.trim()) return [];
     const lines = bulkText.split(/[\n,;]+/).map(l => l.trim()).filter(l => l.length > 0 && l.length < 80);
     const limited = limitUniqueWords(lines.map((word) => ({ word })));
-    setWordList(limited.items.map(({ word }, i) => ({ id: String(i), word, status: 'pending' })));
     setWordOverflow(limited.overflow);
+    return limited.items.map(({ word }, i) => ({ id: String(i), word, status: 'pending' as const }));
+  };
+
+  const parseText = () => {
+    const list = buildTextWordList();
+    if (list.length === 0) return;
+    setWordList(list);
   };
 
   // ── Parse Excel/CSV ──
@@ -475,6 +481,14 @@ export default function ImportPage() {
     setIsImporting(false);
   };
 
+  /** Dán xong → tách + lưu ngay (1 chạm, đỡ bỏ lỡ bước 2). */
+  const parseAndImportText = async () => {
+    const list = buildTextWordList();
+    if (list.length === 0) return;
+    setWordList(list);
+    await importWords(list, setWordList);
+  };
+
   const removeWord = (id: string, setWords: React.Dispatch<React.SetStateAction<ImportWord[]>>) => {
     setWords(prev => prev.filter(w => w.id !== id));
   };
@@ -560,7 +574,7 @@ export default function ImportPage() {
     <StudentShell title="Nhập danh sách riêng" contentClassName="p-0">
       <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/20 font-sans">
       {/* Header */}
-      <header className="sticky top-[62px] z-10 flex h-16 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur sm:px-6">
+      <header className="sticky top-header-safe z-10 flex h-16 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur sm:px-6">
         <Link href="/student">
           <button className="flex items-center gap-2 text-muted-foreground hover:text-indigo-600 font-bold text-sm transition-colors">
             <ChevronLeft className="h-5 w-5" /> Trang học
@@ -572,41 +586,27 @@ export default function ImportPage() {
         </div>
       </header>
 
-      <div className="max-w-2xl mx-auto p-4 sm:p-8 space-y-6">
-        {/* Banner dẫn sang Thư viện chuyên đề (đã tách khỏi đây cho dễ tìm) */}
-        <Link
-          href="/library"
-          className="group flex items-center gap-4 rounded-2xl p-4 bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-200/50 hover:brightness-110 transition-all"
-        >
-          <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
-            <BookMarked className="h-6 w-6" />
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="font-black text-sm sm:text-base">Ưu tiên học từ Thư viện theo chủ đề</p>
-            <p className="text-xs text-white/80 font-medium">Chọn micro-pack ngắn, đúng mục tiêu và nhập một chạm. Công cụ thủ công chỉ dành cho lô nhỏ.</p>
-          </div>
-          <ArrowRight className="h-5 w-5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
-        </Link>
-
-        {/* Tab switcher */}
-        <div className="bg-white border rounded-2xl p-1.5 flex gap-1 shadow-sm flex-wrap">
+      <div className="max-w-2xl mx-auto p-4 sm:p-8 space-y-6 pb-mobile-nav">
+        {/* Tab switcher — nhãn ngắn hiện cả mobile, tránh chỉ còn icon */}
+        <div className="bg-white border rounded-2xl p-1.5 flex gap-1 shadow-sm">
           {([
-            { key: 'text', icon: FileText, label: 'Dán văn bản' },
-            { key: 'file', icon: Upload, label: 'Excel / CSV' },
-            { key: 'csv', icon: FileText, label: 'CSV + Nghĩa' },
-            { key: 'ocr', icon: Camera, label: 'Quét ảnh' },
+            { key: 'text', icon: FileText, label: 'Dán text', short: 'Dán' },
+            { key: 'file', icon: Upload, label: 'Excel/CSV', short: 'File' },
+            { key: 'csv', icon: FileText, label: 'CSV+nghĩa', short: 'CSV' },
+            { key: 'ocr', icon: Camera, label: 'Quét ảnh', short: 'Ảnh' },
           ] as const).map(t => (
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
-              className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+              className={`flex-1 flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-2 py-2.5 px-1.5 sm:px-3 rounded-xl font-bold text-[11px] sm:text-sm transition-all ${
                 tab === t.key
                   ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200'
                   : 'text-muted-foreground hover:bg-muted/50'
               }`}
             >
-              <t.icon className="h-4 w-4" />
-              <span className="hidden md:inline">{t.label}</span>
+              <t.icon className="h-4 w-4 shrink-0" />
+              <span className="sm:hidden leading-tight">{t.short}</span>
+              <span className="hidden sm:inline">{t.label}</span>
             </button>
           ))}
         </div>
@@ -626,13 +626,22 @@ export default function ImportPage() {
               placeholder={"apple\nbanana, cherry\nMỗi dòng một từ..."}
               className="w-full h-48 border rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400 font-mono"
             />
-            <button
-              onClick={parseText}
-              disabled={!bulkText.trim()}
-              className="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
-            >
-              Tách danh sách từ →
-            </button>
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <button
+                onClick={() => void parseAndImportText()}
+                disabled={!bulkText.trim() || isImporting}
+                className="flex-1 bg-indigo-600 text-white font-bold py-3 rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50"
+              >
+                {isImporting ? 'Đang nhập...' : 'Nhập ngay'}
+              </button>
+              <button
+                onClick={parseText}
+                disabled={!bulkText.trim() || isImporting}
+                className="sm:w-auto px-4 py-3 rounded-xl border border-slate-200 font-bold text-sm text-slate-600 hover:bg-slate-50 transition-colors disabled:opacity-50"
+              >
+                Chỉ xem trước
+              </button>
+            </div>
             <WordListPanel
               words={wordList}
               setWords={setWordList}
@@ -866,6 +875,12 @@ export default function ImportPage() {
           </div>
         )}
 
+        <p className="pb-2 text-center text-xs text-slate-500">
+          Muốn gói sẵn theo chủ đề?{' '}
+          <Link href="/library" className="font-bold text-indigo-700 underline-offset-2 hover:underline">
+            Mở Thư viện
+          </Link>
+        </p>
       </div>
       </div>
     </StudentShell>

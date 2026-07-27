@@ -252,3 +252,17 @@ Thang: theory / wordbanks / quiz keys / density / overall = A–F (A = ship; F =
 ---
 
 *Report-only. Không ghi Supabase. Không commit/deploy.*
+
+---
+
+## Post-audit hotfix (same day)
+
+Applied after FAIL verdict (DB write):
+
+1. `hotfix-p0-quiz.mjs` — present-perfect 4 error keys; present-simple always late; obligation double *to*; inversion empty q; mixed-conditionals keys; **full refill** passive-voice + second-conditional (20 each).
+2. `hotfix-p0-pollution-2.mjs` — subjunctive plural pollution (3); relative modal-copy errors (3); modals-perfect bleed (1).
+
+Re-audit recommended: re-run teacher agent on FAIL slugs only.
+Normalize audit after hotfix: emptyQ/noOpts/ansMiss = 0.
+
+**Updated ship note:** Beginner GOLD still strongest. Intermediate passive/second-cond now refilled on-topic. Remaining risk: wish-if-only / modals-perfect residual bleed not fully purged; advanced banks still need second pass.

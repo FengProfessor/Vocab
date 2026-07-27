@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-17",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "press",
+    "prevent",
+    "print",
+    "protect",
+    "prove",
+    "provide",
+    "publish",
+    "realize",
+    "recognize",
+    "record"
+  ],
+  "items": [
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ấn nút mở",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "press (v.)",
+        "opts": [
+          "ấn nút mở",
+          "tin cậy vào bạn",
+          "phân loại rác",
+          "hành động ngay"
+        ]
+      },
+      "answer": "ấn nút mở",
+      "explain_vi": "Động từ press mang nghĩa chính xác là: ấn nút mở.",
+      "content_hash": "press|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "press gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "press the start button",
+        "vn_trap": "past tense pressed"
+      }
+    },
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ấn nút mở",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'ấn nút mở' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "press",
+          "presss",
+          "pressing",
+          "pressed"
+        ]
+      },
+      "answer": "press",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là press.",
+      "content_hash": "press|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "press l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "press the start button",
+        "vn_trap": "past tense pressed"
+      }
+    },
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ấn nút mở",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Keep working hard to ___ your dreams in life.",
+        "opts": [
+          "press",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "press",
+      "explain_vi": "Điền 'press' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "press|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "press cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "press the start button",
+        "vn_trap": "past tense pressed"
+      }
+    },
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ấn nút mở",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She presss the song very beautiful yesterday.'",
+        "opts": [
+          "She pressed the song very beautifully yesterday.",
+          "She presss the song very beautiful yesterday.",
+          "They She presss the song very beautiful yesterday.",
+          "She was pressing when I came yesterday."
+        ]
+      },
+      "answer": "She pressed the song very beautifully yesterday.",
+      "explain_vi": "Trạng từ 'beautifully' bổ nghĩa cho động từ.",
+      "content_hash": "press|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "press error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "press the start button",
+        "vn_trap": "past tense pressed"
+      }
+    },
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ấn nút mở",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'press':",
+        "opts": [
+          "press the start button",
+          "press in wrong way",
+          "press without care",
+          "press for nothing"
+        ]
+      },
+      "answer": "press the start button",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: press the start button.",
+      "content_hash": "press|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "press collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "press the start button",
+        "vn_trap": "past tense pressed"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ngăn bệnh tật",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "prevent (v.)",
+        "opts": [
+          "ngăn bệnh tật",
+          "gỡ nhãn dán",
+          "phết bơ lên",
+          "thừa nhận lỗi"
+        ]
+      },
+      "answer": "ngăn bệnh tật",
+      "explain_vi": "Động từ prevent mang nghĩa chính xác là: ngăn bệnh tật.",
+      "content_hash": "prevent|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "prevent gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prevent serious illness",
+        "vn_trap": "past tense prevented"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ngăn bệnh tật",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'ngăn bệnh tật' là:",
+        "opts": [
+          "prevent",
+          "prevents",
+          "preventing",
+          "prevented"
+        ]
+      },
+      "answer": "prevent",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là prevent.",
+      "content_hash": "prevent|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "prevent l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prevent serious illness",
+        "vn_trap": "past tense prevented"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ngăn bệnh tật",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Learning how to ___ a foreign language takes time.",
+        "opts": [
+          "prevent",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "prevent",
+      "explain_vi": "Điền 'prevent' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "prevent|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "prevent cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prevent serious illness",
+        "vn_trap": "past tense prevented"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ngăn bệnh tật",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was preventing when I arrived home.'",
+        "opts": [
+          "They were preventing when I arrived home.",
+          "They was preventing when I arrived home.",
+          "They They was preventing when I arrived home.",
+          "She was preventing when I came yesterday."
+        ]
+      },
+      "answer": "They were preventing when I arrived home.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were'.",
+      "content_hash": "prevent|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "prevent error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prevent serious illness",
+        "vn_trap": "past tense prevented"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ngăn bệnh tật",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'prevent':",
+        "opts": [
+          "prevent serious illness",
+          "prevent in wrong way",
+          "prevent without care",
+          "prevent for nothing"
+        ]
+      },
+      "answer": "prevent serious illness",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: prevent serious illness.",
+      "content_hash": "prevent|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "prevent collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prevent serious illness",
+        "vn_trap": "past tense prevented"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "in tài liệu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "print (v.)",
+        "opts": [
+          "in tài liệu",
+          "thuê căn hộ",
+          "phát biểu ý kiến",
+          "khuyên nên làm"
+        ]
+      },
+      "answer": "in tài liệu",
+      "explain_vi": "Động từ print mang nghĩa chính xác là: in tài liệu.",
+      "content_hash": "print|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "print gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "print out the document",
+        "vn_trap": "past tense printed"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "in tài liệu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'in tài liệu' được dịch là:",
+        "opts": [
+          "print",
+          "prints",
+          "printing",
+          "printed"
+        ]
+      },
+      "answer": "print",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là print.",
+      "content_hash": "print|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "print l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "print out the document",
+        "vn_trap": "past tense printed"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "in tài liệu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Many people choose to ___ abroad during summer.",
+        "opts": [
+          "print",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "print",
+      "explain_vi": "Điền 'print' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "print|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "print cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "print out the document",
+        "vn_trap": "past tense printed"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "in tài liệu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He prints without ask for permission.'",
+        "opts": [
+          "He printed without asking for permission.",
+          "He prints without ask for permission.",
+          "They He prints without ask for permission.",
+          "She was printing when I came yesterday."
+        ]
+      },
+      "answer": "He printed without asking for permission.",
+      "explain_vi": "Sau giới từ 'without' cần V-ing.",
+      "content_hash": "print|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "print error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "print out the document",
+        "vn_trap": "past tense printed"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "in tài liệu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'print':",
+        "opts": [
+          "print out the document",
+          "print in wrong way",
+          "print without care",
+          "print for nothing"
+        ]
+      },
+      "answer": "print out the document",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: print out the document.",
+      "content_hash": "print|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "print collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "print out the document",
+        "vn_trap": "past tense printed"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "bảo vệ động vật",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "protect (v.)",
+        "opts": [
+          "bảo vệ động vật",
+          "sửa xe đạp",
+          "dán dính lên",
+          "ảnh hưởng sức khỏe"
+        ]
+      },
+      "answer": "bảo vệ động vật",
+      "explain_vi": "Động từ protect mang nghĩa chính xác là: bảo vệ động vật.",
+      "content_hash": "protect|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "protect gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "protect wild animals",
+        "vn_trap": "past tense protected"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "bảo vệ động vật",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'bảo vệ động vật', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "protect",
+          "protects",
+          "protecting",
+          "protected"
+        ]
+      },
+      "answer": "protect",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là protect.",
+      "content_hash": "protect|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "protect l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "protect wild animals",
+        "vn_trap": "past tense protected"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "bảo vệ động vật",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Never hesitate to ___ for help when you need it.",
+        "opts": [
+          "protect",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "protect",
+      "explain_vi": "Điền 'protect' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "protect|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "protect cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "protect wild animals",
+        "vn_trap": "past tense protected"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "bảo vệ động vật",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is protecting since early this morning.'",
+        "opts": [
+          "She has been protecting since early this morning.",
+          "She is protecting since early this morning.",
+          "They She is protecting since early this morning.",
+          "She was protecting when I came yesterday."
+        ]
+      },
+      "answer": "She has been protecting since early this morning.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "protect|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "protect error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "protect wild animals",
+        "vn_trap": "past tense protected"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "bảo vệ động vật",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'protect':",
+        "opts": [
+          "protect wild animals",
+          "protect in wrong way",
+          "protect without care",
+          "protect for nothing"
+        ]
+      },
+      "answer": "protect wild animals",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: protect wild animals.",
+      "content_hash": "protect|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "protect collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "protect wild animals",
+        "vn_trap": "past tense protected"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "chứng minh ý kiến",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "prove (v.)",
+        "opts": [
+          "chứng minh ý kiến",
+          "thay thế linh kiện",
+          "lưu trữ dữ liệu",
+          "đồng ý ý kiến"
+        ]
+      },
+      "answer": "chứng minh ý kiến",
+      "explain_vi": "Động từ prove mang nghĩa chính xác là: chứng minh ý kiến.",
+      "content_hash": "prove|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "prove gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prove the main point",
+        "vn_trap": "past tense proved"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "chứng minh ý kiến",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'chứng minh ý kiến' là:",
+        "opts": [
+          "prove",
+          "proves",
+          "proveing",
+          "proved"
+        ]
+      },
+      "answer": "prove",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là prove.",
+      "content_hash": "prove|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "prove l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prove the main point",
+        "vn_trap": "past tense proved"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "chứng minh ý kiến",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Our team hopes to ___ the championship match.",
+        "opts": [
+          "prove",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "prove",
+      "explain_vi": "Điền 'prove' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "prove|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "prove cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prove the main point",
+        "vn_trap": "past tense proved"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "chứng minh ý kiến",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If she proves more, she would succeed.'",
+        "opts": [
+          "If she proved more, she would succeed.",
+          "If she proves more, she would succeed.",
+          "They If she proves more, she would succeed.",
+          "She was proveing when I came yesterday."
+        ]
+      },
+      "answer": "If she proved more, she would succeed.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "prove|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "prove error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prove the main point",
+        "vn_trap": "past tense proved"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "chứng minh ý kiến",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'prove':",
+        "opts": [
+          "prove the main point",
+          "prove in wrong way",
+          "prove without care",
+          "prove for nothing"
+        ]
+      },
+      "answer": "prove the main point",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: prove the main point.",
+      "content_hash": "prove|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "prove collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prove the main point",
+        "vn_trap": "past tense proved"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "cung cấp hỗ trợ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "provide (v.)",
+        "opts": [
+          "cung cấp hỗ trợ",
+          "trả lời tin nhắn",
+          "duỗi cơ thể",
+          "nhắm tới mục tiêu"
+        ]
+      },
+      "answer": "cung cấp hỗ trợ",
+      "explain_vi": "Động từ provide mang nghĩa chính xác là: cung cấp hỗ trợ.",
+      "content_hash": "provide|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "provide gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "provide financial support",
+        "vn_trap": "past tense provided"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "cung cấp hỗ trợ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'cung cấp hỗ trợ' là:",
+        "opts": [
+          "provide",
+          "provides",
+          "provideing",
+          "provided"
+        ]
+      },
+      "answer": "provide",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là provide.",
+      "content_hash": "provide|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "provide l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "provide financial support",
+        "vn_trap": "past tense provided"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "cung cấp hỗ trợ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please feel free to ___ your thoughts with us.",
+        "opts": [
+          "provide",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "provide",
+      "explain_vi": "Điền 'provide' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "provide|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "provide cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "provide financial support",
+        "vn_trap": "past tense provided"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "cung cấp hỗ trợ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She loves to provideing every afternoon.'",
+        "opts": [
+          "She loves to provide every afternoon.",
+          "She loves to provideing every afternoon.",
+          "They She loves to provideing every afternoon.",
+          "She was provideing when I came yesterday."
+        ]
+      },
+      "answer": "She loves to provide every afternoon.",
+      "explain_vi": "Sau 'to' dùng động từ nguyên mẫu.",
+      "content_hash": "provide|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "provide error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "provide financial support",
+        "vn_trap": "past tense provided"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "cung cấp hỗ trợ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'provide':",
+        "opts": [
+          "provide financial support",
+          "provide in wrong way",
+          "provide without care",
+          "provide for nothing"
+        ]
+      },
+      "answer": "provide financial support",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: provide financial support.",
+      "content_hash": "provide|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "provide collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "provide financial support",
+        "vn_trap": "past tense provided"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "xuất bản sách",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "publish (v.)",
+        "opts": [
+          "xuất bản sách",
+          "đại diện công ty",
+          "đánh quả bóng",
+          "thông báo tin tức"
+        ]
+      },
+      "answer": "xuất bản sách",
+      "explain_vi": "Động từ publish mang nghĩa chính xác là: xuất bản sách.",
+      "content_hash": "publish|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "publish gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "publish a new book",
+        "vn_trap": "past tense published"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "xuất bản sách",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'xuất bản sách', người Anh dùng:",
+        "opts": [
+          "publish",
+          "publishs",
+          "publishing",
+          "published"
+        ]
+      },
+      "answer": "publish",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là publish.",
+      "content_hash": "publish|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "publish l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "publish a new book",
+        "vn_trap": "past tense published"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "xuất bản sách",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Quietly step inside so you don't ___ the baby.",
+        "opts": [
+          "publish",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "publish",
+      "explain_vi": "Điền 'publish' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "publish|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "publish cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "publish a new book",
+        "vn_trap": "past tense published"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "xuất bản sách",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is bored with publish the same thing.'",
+        "opts": [
+          "He is bored with publishing the same thing.",
+          "He is bored with publish the same thing.",
+          "They He is bored with publish the same thing.",
+          "She was publishing when I came yesterday."
+        ]
+      },
+      "answer": "He is bored with publishing the same thing.",
+      "explain_vi": "Sau giới từ 'with' dùng V-ing.",
+      "content_hash": "publish|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "publish error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "publish a new book",
+        "vn_trap": "past tense published"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "xuất bản sách",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'publish':",
+        "opts": [
+          "publish a new book",
+          "publish in wrong way",
+          "publish without care",
+          "publish for nothing"
+        ]
+      },
+      "answer": "publish a new book",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: publish a new book.",
+      "content_hash": "publish|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "publish collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "publish a new book",
+        "vn_trap": "past tense published"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "nhận ra sai lầm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "realize (v.)",
+        "opts": [
+          "nhận ra sai lầm",
+          "yêu cầu hỗ trợ",
+          "vật lộn với khó khăn",
+          "xin lỗi về lỗi"
+        ]
+      },
+      "answer": "nhận ra sai lầm",
+      "explain_vi": "Động từ realize mang nghĩa chính xác là: nhận ra sai lầm.",
+      "content_hash": "realize|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "realize gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "realize the bad mistake",
+        "vn_trap": "past tense realized"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "nhận ra sai lầm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'nhận ra sai lầm' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "realize",
+          "realizes",
+          "realizeing",
+          "realized"
+        ]
+      },
+      "answer": "realize",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là realize.",
+      "content_hash": "realize|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "realize l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "realize the bad mistake",
+        "vn_trap": "past tense realized"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "nhận ra sai lầm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ the lights before going to bed.",
+        "opts": [
+          "realize",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "realize",
+      "explain_vi": "Điền 'realize' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "realize|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "realize cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "realize the bad mistake",
+        "vn_trap": "past tense realized"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "nhận ra sai lầm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'In spite of she was ill, she went to realize.'",
+        "opts": [
+          "Although she was ill, she went to realize.",
+          "In spite of she was ill, she went to realize.",
+          "They In spite of she was ill, she went to realize.",
+          "She was realizeing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was ill, she went to realize.",
+      "explain_vi": "Dùng 'Although' thay cho 'In spite of' trước mệnh đề.",
+      "content_hash": "realize|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "realize error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "realize the bad mistake",
+        "vn_trap": "past tense realized"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "nhận ra sai lầm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'realize':",
+        "opts": [
+          "realize the bad mistake",
+          "realize in wrong way",
+          "realize without care",
+          "realize for nothing"
+        ]
+      },
+      "answer": "realize the bad mistake",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: realize the bad mistake.",
+      "content_hash": "realize|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "realize collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "realize the bad mistake",
+        "vn_trap": "past tense realized"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "nhận ra quen thuộc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "recognize (v.)",
+        "opts": [
+          "nhận ra quen thuộc",
+          "nghỉ ngơi sau làm",
+          "thành công trong đời",
+          "nộp đơn xin việc"
+        ]
+      },
+      "answer": "nhận ra quen thuộc",
+      "explain_vi": "Động từ recognize mang nghĩa chính xác là: nhận ra quen thuộc.",
+      "content_hash": "recognize|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "recognize gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "recognize a familiar face",
+        "vn_trap": "past tense recognized"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "nhận ra quen thuộc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'nhận ra quen thuộc', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "recognize",
+          "recognizes",
+          "recognizeing",
+          "recognized"
+        ]
+      },
+      "answer": "recognize",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là recognize.",
+      "content_hash": "recognize|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "recognize l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "recognize a familiar face",
+        "vn_trap": "past tense recognized"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "nhận ra quen thuộc",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "She promised to ___ her parents every weekend.",
+        "opts": [
+          "recognize",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "recognize",
+      "explain_vi": "Điền 'recognize' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "recognize|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "recognize cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "recognize a familiar face",
+        "vn_trap": "past tense recognized"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "nhận ra quen thuộc",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has recognizeded the letter last week.'",
+        "opts": [
+          "She recognized the letter last week.",
+          "She has recognizeded the letter last week.",
+          "They She has recognizeded the letter last week.",
+          "She was recognizeing when I came yesterday."
+        ]
+      },
+      "answer": "She recognized the letter last week.",
+      "explain_vi": "Thời gian xác định trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "recognize|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "recognize error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "recognize a familiar face",
+        "vn_trap": "past tense recognized"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "nhận ra quen thuộc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'recognize':",
+        "opts": [
+          "recognize a familiar face",
+          "recognize in wrong way",
+          "recognize without care",
+          "recognize for nothing"
+        ]
+      },
+      "answer": "recognize a familiar face",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: recognize a familiar face.",
+      "content_hash": "recognize|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "recognize collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "recognize a familiar face",
+        "vn_trap": "past tense recognized"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ghi âm giọng nói",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "record (v.)",
+        "opts": [
+          "ghi âm giọng nói",
+          "dẫn đến thành công",
+          "chịu đựng nỗi đau",
+          "tranh luận vấn đề"
+        ]
+      },
+      "answer": "ghi âm giọng nói",
+      "explain_vi": "Động từ record mang nghĩa chính xác là: ghi âm giọng nói.",
+      "content_hash": "record|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "record gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "record a music video",
+        "vn_trap": "past tense recorded"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ghi âm giọng nói",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'ghi âm giọng nói' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "record",
+          "records",
+          "recording",
+          "recorded"
+        ]
+      },
+      "answer": "record",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là record.",
+      "content_hash": "record|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "record l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "record a music video",
+        "vn_trap": "past tense recorded"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ghi âm giọng nói",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "They plan to ___ a new office building next year.",
+        "opts": [
+          "record",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "record",
+      "explain_vi": "Điền 'record' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "record|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "record cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "record a music video",
+        "vn_trap": "past tense recorded"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ghi âm giọng nói",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped recording to take a short break.'",
+        "opts": [
+          "He stopped to record to take a short break.",
+          "He stopped recording to take a short break.",
+          "They He stopped recording to take a short break.",
+          "She was recording when I came yesterday."
+        ]
+      },
+      "answer": "He stopped to record to take a short break.",
+      "explain_vi": "Dừng lại để làm việc khác dùng 'stop to V'.",
+      "content_hash": "record|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "record error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "record a music video",
+        "vn_trap": "past tense recorded"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ghi âm giọng nói",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'record':",
+        "opts": [
+          "record a music video",
+          "record in wrong way",
+          "record without care",
+          "record for nothing"
+        ]
+      },
+      "answer": "record a music video",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: record a music video.",
+      "content_hash": "record|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "record collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "record a music video",
+        "vn_trap": "past tense recorded"
+      }
+    }
+  ]
+}

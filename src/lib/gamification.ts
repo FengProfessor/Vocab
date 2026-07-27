@@ -8,6 +8,146 @@ export const XP_BY_QUALITY: Record<number, number> = {
   5: 15,
 };
 
+/**
+ * Streak = số ngày HỌC LIÊN TIẾP (không phải tổng ngày đã học).
+ *
+ * Nguồn hiển thị (dashboard/profile): consecutiveStudyStreak(dailyActivity)
+ *   — đếm lùi từ hôm nay, gặp gap = dừng. Không cộng dồn ngày rải rác.
+ *
+ * Nguồn ghi DB: RPC award_xp (current_date server). Có thể stale / lệch TZ.
+ * Đọc raw current_streak phải qua effectiveCurrentStreak hoặc resolveDisplayStreak.
+ */
+
+/** Múi giờ sản phẩm (VN). Heatmap + streak UI luôn theo lịch này. */
+export const APP_TIMEZONE = 'Asia/Ho_Chi_Minh';
+
+/** YYYY-MM-DD theo múi giờ (mặc định VN). */
+export function dateKeyInTimeZone(
+  d: Date = new Date(),
+  timeZone: string = APP_TIMEZONE,
+): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(d);
+}
+
+/** @deprecated dùng dateKeyInTimeZone — giữ alias cho call site cũ */
+export function utcDateKey(d: Date = new Date()): string {
+  return d.toISOString().slice(0, 10);
+}
+
+/** Cộng/trừ ngày trên khóa YYYY-MM-DD (lịch, không phụ thuộc TZ runtime). */
+export function shiftDateKey(dateKey: string, deltaDays: number): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateKey.slice(0, 10));
+  if (!m) return dateKey.slice(0, 10);
+  const dt = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]) + deltaDays));
+  return dt.toISOString().slice(0, 10);
+}
+
+/**
+ * Build mảng activity N ngày (index 0 = cũ nhất, cuối = hôm nay VN).
+ * timestamps ISO → gán vào đúng ngày lịch VN (không dùng server local/UTC getDate).
+ */
+export function buildDailyActivity(
+  timestamps: ReadonlyArray<string | null | undefined>,
+  days = 30,
+  now: Date = new Date(),
+): { date: string; count: number }[] {
+  const dayMap: Record<string, number> = {};
+  for (const ts of timestamps) {
+    if (!ts) continue;
+    const key = dateKeyInTimeZone(new Date(ts));
+    dayMap[key] = (dayMap[key] ?? 0) + 1;
+  }
+  const todayKey = dateKeyInTimeZone(now);
+  return Array.from({ length: days }, (_, i) => {
+    const key = shiftDateKey(todayKey, -(days - 1 - i));
+    return { date: key, count: dayMap[key] ?? 0 };
+  });
+}
+
+/**
+ * Streak còn hiệu lực tại thời điểm đọc (theo lịch VN).
+ * - last_active = hôm nay hoặc hôm qua → giữ current_streak
+ * - last_active cũ hơn → 0 (đã gãy)
+ */
+export function effectiveCurrentStreak(
+  currentStreak: number | null | undefined,
+  lastActiveDate: string | null | undefined,
+  now: Date = new Date(),
+): number {
+  const raw = Math.max(0, Math.floor(currentStreak ?? 0));
+  if (raw <= 0) return 0;
+  if (!lastActiveDate) return 0;
+
+  const last = lastActiveDate.slice(0, 10);
+  const today = dateKeyInTimeZone(now);
+  const yesterday = shiftDateKey(today, -1);
+
+  if (last === today || last === yesterday) return raw;
+  return 0;
+}
+
+/**
+ * Streak liên tiếp từ mảng activity (index 0 = cũ nhất, cuối = hôm nay).
+ * Grace: chưa học hôm nay vẫn tính nếu hôm qua có học.
+ * Gặp 1 ngày count=0 → dừng (KHÔNG đếm tổng ngày rải rác).
+ */
+export function consecutiveStudyStreak(
+  dailyActivity: ReadonlyArray<{ count: number }>,
+): number {
+  if (dailyActivity.length === 0) return 0;
+
+  let i = dailyActivity.length - 1;
+  if ((dailyActivity[i]?.count ?? 0) <= 0) {
+    i -= 1;
+    if (i < 0 || (dailyActivity[i]?.count ?? 0) <= 0) return 0;
+  }
+
+  let streak = 0;
+  for (; i >= 0; i--) {
+    if ((dailyActivity[i]?.count ?? 0) > 0) streak += 1;
+    else break;
+  }
+  return streak;
+}
+
+/**
+ * Streak hiển thị dashboard/profile.
+ * Ưu tiên activity thật (ngày liên tiếp). DB chỉ fallback khi chưa có heatmap
+ * hoặc chuỗi đầy cửa sổ 30 ngày và gamification còn sống + cao hơn.
+ */
+export function resolveDisplayStreak(input: {
+  currentStreak?: number | null;
+  lastActiveDate?: string | null;
+  dailyActivity?: ReadonlyArray<{ count: number }> | null;
+  now?: Date;
+}): number {
+  const now = input.now ?? new Date();
+  const gam = effectiveCurrentStreak(input.currentStreak, input.lastActiveDate, now);
+  const activity = input.dailyActivity;
+
+  if (!activity || activity.length === 0) return gam;
+
+  const fromActivity = consecutiveStudyStreak(activity);
+  // Cửa sổ 30 ngày đầy liên tiếp → cho phép tin gam nếu còn sống và dài hơn
+  if (fromActivity >= activity.length && gam > fromActivity) return gam;
+  return fromActivity;
+}
+
+/** last_active suy ra từ activity (ngày học gần nhất có count > 0). */
+export function lastActiveFromActivity(
+  dailyActivity: ReadonlyArray<{ date: string; count: number }>,
+): string | null {
+  for (let i = dailyActivity.length - 1; i >= 0; i--) {
+    if ((dailyActivity[i]?.count ?? 0) > 0) return dailyActivity[i]!.date;
+  }
+  return null;
+}
+
 export const XP_PER_CORRECT_QUIZ = 8;
 
 // Lingo Level: thresholds XP tích luỹ

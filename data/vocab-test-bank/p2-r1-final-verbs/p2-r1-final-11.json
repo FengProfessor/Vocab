@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-11",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "share",
+    "sing",
+    "smell",
+    "smile",
+    "sound",
+    "teach",
+    "thank",
+    "touch",
+    "travel",
+    "visit"
+  ],
+  "items": [
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "chia sẻ thông tin",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "share (v.)",
+        "opts": [
+          "chia sẻ thông tin",
+          "tốn nhiều tiền",
+          "đặt đồ xuống",
+          "đi xe đạp"
+        ]
+      },
+      "answer": "chia sẻ thông tin",
+      "explain_vi": "Động từ share mang nghĩa chính xác là: chia sẻ thông tin.",
+      "content_hash": "share|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "share gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "share with close friends",
+        "vn_trap": "past tense shared"
+      }
+    },
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "chia sẻ thông tin",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'chia sẻ thông tin' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "share",
+          "shares",
+          "shareing",
+          "shared"
+        ]
+      },
+      "answer": "share",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là share.",
+      "content_hash": "share|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "share l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "share with close friends",
+        "vn_trap": "past tense shared"
+      }
+    },
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "chia sẻ thông tin",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Keep working hard to ___ your dreams in life.",
+        "opts": [
+          "share",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "share",
+      "explain_vi": "Điền 'share' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "share|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "share cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "share with close friends",
+        "vn_trap": "past tense shared"
+      }
+    },
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "chia sẻ thông tin",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She shares the song very beautiful yesterday.'",
+        "opts": [
+          "She shared the song very beautifully yesterday.",
+          "She shares the song very beautiful yesterday.",
+          "They She shares the song very beautiful yesterday.",
+          "She was shareing when I came yesterday."
+        ]
+      },
+      "answer": "She shared the song very beautifully yesterday.",
+      "explain_vi": "Trạng từ 'beautifully' bổ nghĩa cho động từ.",
+      "content_hash": "share|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "share error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "share with close friends",
+        "vn_trap": "past tense shared"
+      }
+    },
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "chia sẻ thông tin",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'share':",
+        "opts": [
+          "share with close friends",
+          "share in wrong way",
+          "share without care",
+          "share for nothing"
+        ]
+      },
+      "answer": "share with close friends",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: share with close friends.",
+      "content_hash": "share|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "share collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "share with close friends",
+        "vn_trap": "past tense shared"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "hát bài hát",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sing (v.)",
+        "opts": [
+          "hát bài hát",
+          "đếm từ một",
+          "nằm nghỉ ngơi",
+          "gọi chuông cửa"
+        ]
+      },
+      "answer": "hát bài hát",
+      "explain_vi": "Động từ sing mang nghĩa chính xác là: hát bài hát.",
+      "content_hash": "sing|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "sing gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sing a favorite song",
+        "vn_trap": "past tense sang"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "hát bài hát",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'hát bài hát' là:",
+        "opts": [
+          "sing",
+          "sings",
+          "singing",
+          "sang"
+        ]
+      },
+      "answer": "sing",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là sing.",
+      "content_hash": "sing|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "sing l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sing a favorite song",
+        "vn_trap": "past tense sang"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "hát bài hát",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Learning how to ___ a foreign language takes time.",
+        "opts": [
+          "sing",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "sing",
+      "explain_vi": "Điền 'sing' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "sing|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "sing cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sing a favorite song",
+        "vn_trap": "past tense sang"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "hát bài hát",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was singing when I arrived home.'",
+        "opts": [
+          "They were singing when I arrived home.",
+          "They was singing when I arrived home.",
+          "They They was singing when I arrived home.",
+          "She was singing when I came yesterday."
+        ]
+      },
+      "answer": "They were singing when I arrived home.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were'.",
+      "content_hash": "sing|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "sing error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sing a favorite song",
+        "vn_trap": "past tense sang"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "hát bài hát",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sing':",
+        "opts": [
+          "sing a favorite song",
+          "sing in wrong way",
+          "sing without care",
+          "sing for nothing"
+        ]
+      },
+      "answer": "sing a favorite song",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: sing a favorite song.",
+      "content_hash": "sing|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "sing collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sing a favorite song",
+        "vn_trap": "past tense sang"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "ngửi thấy hương thơm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "smell (v.)",
+        "opts": [
+          "ngửi thấy hương thơm",
+          "che hộp quà",
+          "nâng vật nặng",
+          "tăng giá cả"
+        ]
+      },
+      "answer": "ngửi thấy hương thơm",
+      "explain_vi": "Động từ smell mang nghĩa chính xác là: ngửi thấy hương thơm.",
+      "content_hash": "smell|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "smell gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smell good scent",
+        "vn_trap": "past tense smelled"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "ngửi thấy hương thơm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'ngửi thấy hương thơm' được dịch là:",
+        "opts": [
+          "smell",
+          "smells",
+          "smelling",
+          "smelled"
+        ]
+      },
+      "answer": "smell",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là smell.",
+      "content_hash": "smell|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "smell l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smell good scent",
+        "vn_trap": "past tense smelled"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "ngửi thấy hương thơm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Many people choose to ___ abroad during summer.",
+        "opts": [
+          "smell",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "smell",
+      "explain_vi": "Điền 'smell' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "smell|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "smell cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smell good scent",
+        "vn_trap": "past tense smelled"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "ngửi thấy hương thơm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He smells without ask for permission.'",
+        "opts": [
+          "He smelled without asking for permission.",
+          "He smells without ask for permission.",
+          "They He smells without ask for permission.",
+          "She was smelling when I came yesterday."
+        ]
+      },
+      "answer": "He smelled without asking for permission.",
+      "explain_vi": "Sau giới từ 'without' cần V-ing.",
+      "content_hash": "smell|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "smell error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smell good scent",
+        "vn_trap": "past tense smelled"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "ngửi thấy hương thơm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'smell':",
+        "opts": [
+          "smell good scent",
+          "smell in wrong way",
+          "smell without care",
+          "smell for nothing"
+        ]
+      },
+      "answer": "smell good scent",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: smell good scent.",
+      "content_hash": "smell|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "smell collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smell good scent",
+        "vn_trap": "past tense smelled"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "mỉm cười vui",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "smile (v.)",
+        "opts": [
+          "mỉm cười vui",
+          "băng qua đường",
+          "thắp ngọn nến",
+          "lăn quả bóng"
+        ]
+      },
+      "answer": "mỉm cười vui",
+      "explain_vi": "Động từ smile mang nghĩa chính xác là: mỉm cười vui.",
+      "content_hash": "smile|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "smile gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smile happily at all",
+        "vn_trap": "past tense smiled"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "mỉm cười vui",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'mỉm cười vui', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "smile",
+          "smiles",
+          "smileing",
+          "smiled"
+        ]
+      },
+      "answer": "smile",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là smile.",
+      "content_hash": "smile|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "smile l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smile happily at all",
+        "vn_trap": "past tense smiled"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "mỉm cười vui",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Never hesitate to ___ for help when you need it.",
+        "opts": [
+          "smile",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "smile",
+      "explain_vi": "Điền 'smile' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "smile|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "smile cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smile happily at all",
+        "vn_trap": "past tense smiled"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "mỉm cười vui",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is smileing since early this morning.'",
+        "opts": [
+          "She has been smileing since early this morning.",
+          "She is smileing since early this morning.",
+          "They She is smileing since early this morning.",
+          "She was smileing when I came yesterday."
+        ]
+      },
+      "answer": "She has been smileing since early this morning.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "smile|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "smile error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smile happily at all",
+        "vn_trap": "past tense smiled"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "mỉm cười vui",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'smile':",
+        "opts": [
+          "smile happily at all",
+          "smile in wrong way",
+          "smile without care",
+          "smile for nothing"
+        ]
+      },
+      "answer": "smile happily at all",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: smile happily at all.",
+      "content_hash": "smile|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "smile collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "smile happily at all",
+        "vn_trap": "past tense smiled"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "nghe có vẻ hay",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sound (v.)",
+        "opts": [
+          "nghe có vẻ hay",
+          "khóc lớn",
+          "khóa cửa phòng",
+          "quy định luật lệ"
+        ]
+      },
+      "answer": "nghe có vẻ hay",
+      "explain_vi": "Động từ sound mang nghĩa chính xác là: nghe có vẻ hay.",
+      "content_hash": "sound|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "sound gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sound like a great idea",
+        "vn_trap": "past tense sounded"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "nghe có vẻ hay",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'nghe có vẻ hay' là:",
+        "opts": [
+          "sound",
+          "sounds",
+          "sounding",
+          "sounded"
+        ]
+      },
+      "answer": "sound",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là sound.",
+      "content_hash": "sound|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "sound l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sound like a great idea",
+        "vn_trap": "past tense sounded"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "nghe có vẻ hay",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Our team hopes to ___ the championship match.",
+        "opts": [
+          "sound",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "sound",
+      "explain_vi": "Điền 'sound' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "sound|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "sound cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sound like a great idea",
+        "vn_trap": "past tense sounded"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "nghe có vẻ hay",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If she sounds more, she would succeed.'",
+        "opts": [
+          "If she sounded more, she would succeed.",
+          "If she sounds more, she would succeed.",
+          "They If she sounds more, she would succeed.",
+          "She was sounding when I came yesterday."
+        ]
+      },
+      "answer": "If she sounded more, she would succeed.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "sound|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "sound error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sound like a great idea",
+        "vn_trap": "past tense sounded"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "nghe có vẻ hay",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sound':",
+        "opts": [
+          "sound like a great idea",
+          "sound in wrong way",
+          "sound without care",
+          "sound for nothing"
+        ]
+      },
+      "answer": "sound like a great idea",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: sound like a great idea.",
+      "content_hash": "sound|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "sound collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sound like a great idea",
+        "vn_trap": "past tense sounded"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "dạy học sinh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "teach (v.)",
+        "opts": [
+          "dạy học sinh",
+          "nhảy múa",
+          "quản lý công việc",
+          "vội vã đi"
+        ]
+      },
+      "answer": "dạy học sinh",
+      "explain_vi": "Động từ teach mang nghĩa chính xác là: dạy học sinh.",
+      "content_hash": "teach|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "teach gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "teach young students",
+        "vn_trap": "past tense taught"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "dạy học sinh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'dạy học sinh' là:",
+        "opts": [
+          "teach",
+          "teachs",
+          "teaching",
+          "taught"
+        ]
+      },
+      "answer": "teach",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là teach.",
+      "content_hash": "teach|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "teach l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "teach young students",
+        "vn_trap": "past tense taught"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "dạy học sinh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please feel free to ___ your thoughts with us.",
+        "opts": [
+          "teach",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "teach",
+      "explain_vi": "Điền 'teach' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "teach|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "teach cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "teach young students",
+        "vn_trap": "past tense taught"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "dạy học sinh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She loves to teaching every afternoon.'",
+        "opts": [
+          "She loves to teach every afternoon.",
+          "She loves to teaching every afternoon.",
+          "They She loves to teaching every afternoon.",
+          "She was teaching when I came yesterday."
+        ]
+      },
+      "answer": "She loves to teach every afternoon.",
+      "explain_vi": "Sau 'to' dùng động từ nguyên mẫu.",
+      "content_hash": "teach|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "teach error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "teach young students",
+        "vn_trap": "past tense taught"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "dạy học sinh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'teach':",
+        "opts": [
+          "teach young students",
+          "teach in wrong way",
+          "teach without care",
+          "teach for nothing"
+        ]
+      },
+      "answer": "teach young students",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: teach young students.",
+      "content_hash": "teach|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "teach collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "teach young students",
+        "vn_trap": "past tense taught"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "cảm ơn bạn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "thank (v.)",
+        "opts": [
+          "cảm ơn bạn",
+          "miêu tả bức tranh",
+          "kết hôn năm nay",
+          "tìm kiếm thông tin"
+        ]
+      },
+      "answer": "cảm ơn bạn",
+      "explain_vi": "Động từ thank mang nghĩa chính xác là: cảm ơn bạn.",
+      "content_hash": "thank|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thank gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "thank someone for help",
+        "vn_trap": "past tense thanked"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "cảm ơn bạn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'cảm ơn bạn', người Anh dùng:",
+        "opts": [
+          "thank",
+          "thanks",
+          "thanking",
+          "thanked"
+        ]
+      },
+      "answer": "thank",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là thank.",
+      "content_hash": "thank|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thank l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "thank someone for help",
+        "vn_trap": "past tense thanked"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "cảm ơn bạn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Quietly step inside so you don't ___ the baby.",
+        "opts": [
+          "thank",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "thank",
+      "explain_vi": "Điền 'thank' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "thank|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thank cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "thank someone for help",
+        "vn_trap": "past tense thanked"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "cảm ơn bạn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is bored with thank the same thing.'",
+        "opts": [
+          "He is bored with thanking the same thing.",
+          "He is bored with thank the same thing.",
+          "They He is bored with thank the same thing.",
+          "She was thanking when I came yesterday."
+        ]
+      },
+      "answer": "He is bored with thanking the same thing.",
+      "explain_vi": "Sau giới từ 'with' dùng V-ing.",
+      "content_hash": "thank|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thank error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "thank someone for help",
+        "vn_trap": "past tense thanked"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "cảm ơn bạn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'thank':",
+        "opts": [
+          "thank someone for help",
+          "thank in wrong way",
+          "thank without care",
+          "thank for nothing"
+        ]
+      },
+      "answer": "thank someone for help",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: thank someone for help.",
+      "content_hash": "thank|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thank collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "thank someone for help",
+        "vn_trap": "past tense thanked"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "chạm màn hình",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "touch (v.)",
+        "opts": [
+          "chạm màn hình",
+          "chết trong chiến tranh",
+          "đo chiều dài",
+          "có vẻ vui"
+        ]
+      },
+      "answer": "chạm màn hình",
+      "explain_vi": "Động từ touch mang nghĩa chính xác là: chạm màn hình.",
+      "content_hash": "touch|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "touch gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "touch the mobile screen",
+        "vn_trap": "past tense touched"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "chạm màn hình",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'chạm màn hình' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "touch",
+          "touchs",
+          "touching",
+          "touched"
+        ]
+      },
+      "answer": "touch",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là touch.",
+      "content_hash": "touch|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "touch l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "touch the mobile screen",
+        "vn_trap": "past tense touched"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "chạm màn hình",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ the lights before going to bed.",
+        "opts": [
+          "touch",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "touch",
+      "explain_vi": "Điền 'touch' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "touch|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "touch cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "touch the mobile screen",
+        "vn_trap": "past tense touched"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "chạm màn hình",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'In spite of she was ill, she went to touch.'",
+        "opts": [
+          "Although she was ill, she went to touch.",
+          "In spite of she was ill, she went to touch.",
+          "They In spite of she was ill, she went to touch.",
+          "She was touching when I came yesterday."
+        ]
+      },
+      "answer": "Although she was ill, she went to touch.",
+      "explain_vi": "Dùng 'Although' thay cho 'In spite of' trước mệnh đề.",
+      "content_hash": "touch|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "touch error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "touch the mobile screen",
+        "vn_trap": "past tense touched"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "chạm màn hình",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'touch':",
+        "opts": [
+          "touch the mobile screen",
+          "touch in wrong way",
+          "touch without care",
+          "touch for nothing"
+        ]
+      },
+      "answer": "touch the mobile screen",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: touch the mobile screen.",
+      "content_hash": "touch|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "touch collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "touch the mobile screen",
+        "vn_trap": "past tense touched"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "du lịch nước ngoài",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "travel (v.)",
+        "opts": [
+          "du lịch nước ngoài",
+          "khám phá nơi mới",
+          "đề cập chủ đề",
+          "chọn phương án"
+        ]
+      },
+      "answer": "du lịch nước ngoài",
+      "explain_vi": "Động từ travel mang nghĩa chính xác là: du lịch nước ngoài.",
+      "content_hash": "travel|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "travel gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "travel by airplane",
+        "vn_trap": "past tense traveled"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "du lịch nước ngoài",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'du lịch nước ngoài', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "travel",
+          "travels",
+          "traveling",
+          "traveled"
+        ]
+      },
+      "answer": "travel",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là travel.",
+      "content_hash": "travel|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "travel l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "travel by airplane",
+        "vn_trap": "past tense traveled"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "du lịch nước ngoài",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "She promised to ___ her parents every weekend.",
+        "opts": [
+          "travel",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "travel",
+      "explain_vi": "Điền 'travel' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "travel|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "travel cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "travel by airplane",
+        "vn_trap": "past tense traveled"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "du lịch nước ngoài",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has traveleded the letter last week.'",
+        "opts": [
+          "She traveled the letter last week.",
+          "She has traveleded the letter last week.",
+          "They She has traveleded the letter last week.",
+          "She was traveling when I came yesterday."
+        ]
+      },
+      "answer": "She traveled the letter last week.",
+      "explain_vi": "Thời gian xác định trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "travel|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "travel error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "travel by airplane",
+        "vn_trap": "past tense traveled"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "du lịch nước ngoài",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'travel':",
+        "opts": [
+          "travel by airplane",
+          "travel in wrong way",
+          "travel without care",
+          "travel for nothing"
+        ]
+      },
+      "answer": "travel by airplane",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: travel by airplane.",
+      "content_hash": "travel|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "travel collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "travel by airplane",
+        "vn_trap": "past tense traveled"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thăm ông bà",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "visit (v.)",
+        "opts": [
+          "thăm ông bà",
+          "lái ô tô",
+          "phiền lòng",
+          "tách hai nhóm"
+        ]
+      },
+      "answer": "thăm ông bà",
+      "explain_vi": "Động từ visit mang nghĩa chính xác là: thăm ông bà.",
+      "content_hash": "visit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "visit gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "visit grandparents often",
+        "vn_trap": "past tense visited"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thăm ông bà",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'thăm ông bà' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "visit",
+          "visits",
+          "visiting",
+          "visited"
+        ]
+      },
+      "answer": "visit",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là visit.",
+      "content_hash": "visit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "visit l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "visit grandparents often",
+        "vn_trap": "past tense visited"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thăm ông bà",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "They plan to ___ a new office building next year.",
+        "opts": [
+          "visit",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "visit",
+      "explain_vi": "Điền 'visit' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "visit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "visit cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "visit grandparents often",
+        "vn_trap": "past tense visited"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thăm ông bà",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped visiting to take a short break.'",
+        "opts": [
+          "He stopped to visit to take a short break.",
+          "He stopped visiting to take a short break.",
+          "They He stopped visiting to take a short break.",
+          "She was visiting when I came yesterday."
+        ]
+      },
+      "answer": "He stopped to visit to take a short break.",
+      "explain_vi": "Dừng lại để làm việc khác dùng 'stop to V'.",
+      "content_hash": "visit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "visit error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "visit grandparents often",
+        "vn_trap": "past tense visited"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thăm ông bà",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'visit':",
+        "opts": [
+          "visit grandparents often",
+          "visit in wrong way",
+          "visit without care",
+          "visit for nothing"
+        ]
+      },
+      "answer": "visit grandparents often",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: visit grandparents often.",
+      "content_hash": "visit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "visit collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "visit grandparents often",
+        "vn_trap": "past tense visited"
+      }
+    }
+  ]
+}

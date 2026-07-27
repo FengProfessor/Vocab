@@ -1,0 +1,43 @@
+◇ injected env (44) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+◇ injected env (0) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "dcf" → senses=1 syn=0 dist=0
+   #1: tài chính | Analysts used a DCF model to estimate the company's true value.
+[2/1000] "die" → senses=3 syn=3 dist=1
+   #1: chết, qua đời | She died at the age of 92.
+[3/1000] "dig" → senses=3 syn=6 dist=1
+   #1: đào, xới đất | They are digging a trench for the new water pipe.
+[4/1000] "dip" → senses=3 syn=6 dist=2
+   #1: nhúng, chấm | She dipped her toe into the pool to test the water temperature.
+[5/1000] "dog" → senses=3 syn=5 dist=0
+   #1: con chó | They have two dogs and a cat at home.
+[6/1000] "dot" → senses=3 syn=5 dist=1
+   #1: chấm tròn nhỏ | She wore a white dress with blue dots.
+[7/1000] "dry" → senses=3 syn=5 dist=1
+   #1: khô, không ướt | The clothes are finally dry.
+[8/1000] "due" → senses=3 syn=4 dist=1
+   #1: dự kiến, đến hạn | The train is due at 3 p.m.
+[9/1000] "dvd" → senses=1 syn=1 dist=0
+   #1: đĩa DVD | We rented a DVD and watched the movie at home last night.
+[10/1000] "ear" → senses=3 syn=2 dist=1
+   #1: cơ quan thính giác | She whispered something in his ear.
+[11/1000] "eat" → senses=3 syn=6 dist=2
+   #1: ăn thức ăn | I usually eat breakfast at 7 a.m.
+[12/1000] "ecg" → senses=1 syn=2 dist=1
+   #1: y học, viết tắt | The doctor ordered an ECG to check for any heart problems.
+[13/1000] "egg" → senses=3 syn=5 dist=1
+   #1: thực phẩm | I had two boiled eggs for breakfast.
+[14/1000] "ego" ✗ Unexpected token 'ý', ..."tion_vi": ý thức về "... is not valid JSON
+[15/1000] "ekg" → senses=1 syn=2 dist=1
+   #1: viết tắt y khoa | The doctor ordered an EKG to check for irregular heartbeats.
+[16/1000] "end"

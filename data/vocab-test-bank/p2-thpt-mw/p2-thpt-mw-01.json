@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-thpt-mw-01",
+  "priority": "P2",
+  "queue": "thpt_multi",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "register for",
+    "sign up for",
+    "application form",
+    "participate in",
+    "free of charge",
+    "in advance",
+    "on behalf of",
+    "contact details",
+    "further information",
+    "opening hours",
+    "limited offer",
+    "valid until",
+    "global warming",
+    "greenhouse gas",
+    "endangered species",
+    "plastic waste",
+    "protect the environment",
+    "reduce pollution",
+    "natural resources",
+    "deadline extension"
+  ],
+  "items": [
+    {
+      "lemma": "register for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký tham gia",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "register for (phrase.)",
+        "opts": [
+          "đăng ký tham gia",
+          "sự từ chối đối với register for",
+          "trạng thái thiếu register for",
+          "hành động ngược lại với register for"
+        ]
+      },
+      "answer": "đăng ký tham gia",
+      "explain_vi": "Từ/cụm từ 'register for' (phrase.) có nghĩa chính xác là: đăng ký tham gia.",
+      "content_hash": "register-for|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "register for course - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "register for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký tham gia",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'đăng ký tham gia':",
+        "opts": [
+          "register for",
+          "register fors",
+          "un-register for",
+          "register fored"
+        ]
+      },
+      "answer": "register for",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là register for.",
+      "content_hash": "register-for|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "register for course - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "register for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký tham gia",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "register for",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "register for",
+      "explain_vi": "Điền 'register for' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "register-for|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "register for course - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "register for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký tham gia",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to register for on time.'",
+        "opts": [
+          "She failed to register for on time.",
+          "She fail to register for on time.",
+          "She failing to register for on time.",
+          "She was fail to register for on time."
+        ]
+      },
+      "answer": "She failed to register for on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "register-for|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "register for course - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "register for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký tham gia",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'register for':",
+        "opts": [
+          "apply register for correctly",
+          "make register for wrong",
+          "do register for badly",
+          "take register for off"
+        ]
+      },
+      "answer": "apply register for correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply register for correctly.",
+      "content_hash": "register-for|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "register for course - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "sign up for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký lớp học",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sign up for (phrase.)",
+        "opts": [
+          "đăng ký lớp học",
+          "sự từ chối đối với sign up for",
+          "trạng thái thiếu sign up for",
+          "hành động ngược lại với sign up for"
+        ]
+      },
+      "answer": "đăng ký lớp học",
+      "explain_vi": "Từ/cụm từ 'sign up for' (phrase.) có nghĩa chính xác là: đăng ký lớp học.",
+      "content_hash": "sign-up-for|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "sign up for class - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "sign up for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký lớp học",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'đăng ký lớp học':",
+        "opts": [
+          "sign up for",
+          "sign up fors",
+          "un-sign up for",
+          "sign up fored"
+        ]
+      },
+      "answer": "sign up for",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là sign up for.",
+      "content_hash": "sign-up-for|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "sign up for class - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "sign up for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký lớp học",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "sign up for",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "sign up for",
+      "explain_vi": "Điền 'sign up for' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "sign-up-for|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "sign up for class - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "sign up for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký lớp học",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to sign up for on time.'",
+        "opts": [
+          "She failed to sign up for on time.",
+          "She fail to sign up for on time.",
+          "She failing to sign up for on time.",
+          "She was fail to sign up for on time."
+        ]
+      },
+      "answer": "She failed to sign up for on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "sign-up-for|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "sign up for class - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "sign up for",
+      "pos": "phrase",
+      "sense_vi": "đăng ký lớp học",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'sign up for':",
+        "opts": [
+          "apply sign up for correctly",
+          "make sign up for wrong",
+          "do sign up for badly",
+          "take sign up for off"
+        ]
+      },
+      "answer": "apply sign up for correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply sign up for correctly.",
+      "content_hash": "sign-up-for|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "sign up for class - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "application form",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của application form",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "application form (phrase.)",
+        "opts": [
+          "ý nghĩa của application form",
+          "sự từ chối đối với application form",
+          "trạng thái thiếu application form",
+          "hành động ngược lại với application form"
+        ]
+      },
+      "answer": "ý nghĩa của application form",
+      "explain_vi": "Từ/cụm từ 'application form' (phrase.) có nghĩa chính xác là: ý nghĩa của application form.",
+      "content_hash": "application-form|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item application form - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "application form",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của application form",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của application form':",
+        "opts": [
+          "application form",
+          "application forms",
+          "un-application form",
+          "application formed"
+        ]
+      },
+      "answer": "application form",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là application form.",
+      "content_hash": "application-form|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item application form - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "application form",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của application form",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "application form",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "application form",
+      "explain_vi": "Điền 'application form' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "application-form|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item application form - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "application form",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của application form",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to application form on time.'",
+        "opts": [
+          "She failed to application form on time.",
+          "She fail to application form on time.",
+          "She failing to application form on time.",
+          "She was fail to application form on time."
+        ]
+      },
+      "answer": "She failed to application form on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "application-form|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item application form - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "application form",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của application form",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'application form':",
+        "opts": [
+          "apply application form correctly",
+          "make application form wrong",
+          "do application form badly",
+          "take application form off"
+        ]
+      },
+      "answer": "apply application form correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply application form correctly.",
+      "content_hash": "application-form|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item application form - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "participate in",
+      "pos": "phrase",
+      "sense_vi": "tham gia vào",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "participate in (phrase.)",
+        "opts": [
+          "tham gia vào",
+          "sự từ chối đối với participate in",
+          "trạng thái thiếu participate in",
+          "hành động ngược lại với participate in"
+        ]
+      },
+      "answer": "tham gia vào",
+      "explain_vi": "Từ/cụm từ 'participate in' (phrase.) có nghĩa chính xác là: tham gia vào.",
+      "content_hash": "participate-in|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "participate in activity - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "participate in",
+      "pos": "phrase",
+      "sense_vi": "tham gia vào",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'tham gia vào':",
+        "opts": [
+          "participate in",
+          "participate ins",
+          "un-participate in",
+          "participate ined"
+        ]
+      },
+      "answer": "participate in",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là participate in.",
+      "content_hash": "participate-in|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "participate in activity - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "participate in",
+      "pos": "phrase",
+      "sense_vi": "tham gia vào",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "participate in",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "participate in",
+      "explain_vi": "Điền 'participate in' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "participate-in|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "participate in activity - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "participate in",
+      "pos": "phrase",
+      "sense_vi": "tham gia vào",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to participate in on time.'",
+        "opts": [
+          "She failed to participate in on time.",
+          "She fail to participate in on time.",
+          "She failing to participate in on time.",
+          "She was fail to participate in on time."
+        ]
+      },
+      "answer": "She failed to participate in on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "participate-in|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "participate in activity - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "participate in",
+      "pos": "phrase",
+      "sense_vi": "tham gia vào",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'participate in':",
+        "opts": [
+          "apply participate in correctly",
+          "make participate in wrong",
+          "do participate in badly",
+          "take participate in off"
+        ]
+      },
+      "answer": "apply participate in correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply participate in correctly.",
+      "content_hash": "participate-in|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "participate in activity - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "free of charge",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của free of charge",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "free of charge (phrase.)",
+        "opts": [
+          "ý nghĩa của free of charge",
+          "sự từ chối đối với free of charge",
+          "trạng thái thiếu free of charge",
+          "hành động ngược lại với free of charge"
+        ]
+      },
+      "answer": "ý nghĩa của free of charge",
+      "explain_vi": "Từ/cụm từ 'free of charge' (phrase.) có nghĩa chính xác là: ý nghĩa của free of charge.",
+      "content_hash": "free-of-charge|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item free of charge - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "free of charge",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của free of charge",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của free of charge':",
+        "opts": [
+          "free of charge",
+          "free of charges",
+          "un-free of charge",
+          "free of chargeed"
+        ]
+      },
+      "answer": "free of charge",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là free of charge.",
+      "content_hash": "free-of-charge|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item free of charge - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "free of charge",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của free of charge",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "free of charge",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "free of charge",
+      "explain_vi": "Điền 'free of charge' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "free-of-charge|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item free of charge - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "free of charge",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của free of charge",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to free of charge on time.'",
+        "opts": [
+          "She failed to free of charge on time.",
+          "She fail to free of charge on time.",
+          "She failing to free of charge on time.",
+          "She was fail to free of charge on time."
+        ]
+      },
+      "answer": "She failed to free of charge on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "free-of-charge|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item free of charge - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "free of charge",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của free of charge",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'free of charge':",
+        "opts": [
+          "apply free of charge correctly",
+          "make free of charge wrong",
+          "do free of charge badly",
+          "take free of charge off"
+        ]
+      },
+      "answer": "apply free of charge correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply free of charge correctly.",
+      "content_hash": "free-of-charge|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item free of charge - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "in advance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in advance",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "in advance (phrase.)",
+        "opts": [
+          "ý nghĩa của in advance",
+          "sự từ chối đối với in advance",
+          "trạng thái thiếu in advance",
+          "hành động ngược lại với in advance"
+        ]
+      },
+      "answer": "ý nghĩa của in advance",
+      "explain_vi": "Từ/cụm từ 'in advance' (phrase.) có nghĩa chính xác là: ý nghĩa của in advance.",
+      "content_hash": "in-advance|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item in advance - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "in advance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in advance",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của in advance':",
+        "opts": [
+          "in advance",
+          "in advances",
+          "un-in advance",
+          "in advanceed"
+        ]
+      },
+      "answer": "in advance",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là in advance.",
+      "content_hash": "in-advance|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item in advance - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "in advance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in advance",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "in advance",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "in advance",
+      "explain_vi": "Điền 'in advance' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "in-advance|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item in advance - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "in advance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in advance",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to in advance on time.'",
+        "opts": [
+          "She failed to in advance on time.",
+          "She fail to in advance on time.",
+          "She failing to in advance on time.",
+          "She was fail to in advance on time."
+        ]
+      },
+      "answer": "She failed to in advance on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "in-advance|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item in advance - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "in advance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in advance",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'in advance':",
+        "opts": [
+          "apply in advance correctly",
+          "make in advance wrong",
+          "do in advance badly",
+          "take in advance off"
+        ]
+      },
+      "answer": "apply in advance correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply in advance correctly.",
+      "content_hash": "in-advance|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item in advance - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "on behalf of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on behalf of",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "on behalf of (phrase.)",
+        "opts": [
+          "ý nghĩa của on behalf of",
+          "sự từ chối đối với on behalf of",
+          "trạng thái thiếu on behalf of",
+          "hành động ngược lại với on behalf of"
+        ]
+      },
+      "answer": "ý nghĩa của on behalf of",
+      "explain_vi": "Từ/cụm từ 'on behalf of' (phrase.) có nghĩa chính xác là: ý nghĩa của on behalf of.",
+      "content_hash": "on-behalf-of|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item on behalf of - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "on behalf of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on behalf of",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của on behalf of':",
+        "opts": [
+          "on behalf of",
+          "on behalf ofs",
+          "un-on behalf of",
+          "on behalf ofed"
+        ]
+      },
+      "answer": "on behalf of",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là on behalf of.",
+      "content_hash": "on-behalf-of|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item on behalf of - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "on behalf of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on behalf of",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "on behalf of",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "on behalf of",
+      "explain_vi": "Điền 'on behalf of' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "on-behalf-of|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item on behalf of - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "on behalf of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on behalf of",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to on behalf of on time.'",
+        "opts": [
+          "She failed to on behalf of on time.",
+          "She fail to on behalf of on time.",
+          "She failing to on behalf of on time.",
+          "She was fail to on behalf of on time."
+        ]
+      },
+      "answer": "She failed to on behalf of on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "on-behalf-of|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item on behalf of - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "on behalf of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on behalf of",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'on behalf of':",
+        "opts": [
+          "apply on behalf of correctly",
+          "make on behalf of wrong",
+          "do on behalf of badly",
+          "take on behalf of off"
+        ]
+      },
+      "answer": "apply on behalf of correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply on behalf of correctly.",
+      "content_hash": "on-behalf-of|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item on behalf of - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "contact details",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của contact details",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "contact details (phrase.)",
+        "opts": [
+          "ý nghĩa của contact details",
+          "sự từ chối đối với contact details",
+          "trạng thái thiếu contact details",
+          "hành động ngược lại với contact details"
+        ]
+      },
+      "answer": "ý nghĩa của contact details",
+      "explain_vi": "Từ/cụm từ 'contact details' (phrase.) có nghĩa chính xác là: ý nghĩa của contact details.",
+      "content_hash": "contact-details|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item contact details - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "contact details",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của contact details",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của contact details':",
+        "opts": [
+          "contact details",
+          "contact detailss",
+          "un-contact details",
+          "contact detailsed"
+        ]
+      },
+      "answer": "contact details",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là contact details.",
+      "content_hash": "contact-details|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item contact details - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "contact details",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của contact details",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "contact details",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "contact details",
+      "explain_vi": "Điền 'contact details' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "contact-details|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item contact details - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "contact details",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của contact details",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to contact details on time.'",
+        "opts": [
+          "She failed to contact details on time.",
+          "She fail to contact details on time.",
+          "She failing to contact details on time.",
+          "She was fail to contact details on time."
+        ]
+      },
+      "answer": "She failed to contact details on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "contact-details|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item contact details - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "contact details",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của contact details",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'contact details':",
+        "opts": [
+          "apply contact details correctly",
+          "make contact details wrong",
+          "do contact details badly",
+          "take contact details off"
+        ]
+      },
+      "answer": "apply contact details correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply contact details correctly.",
+      "content_hash": "contact-details|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item contact details - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "further information",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của further information",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "further information (phrase.)",
+        "opts": [
+          "ý nghĩa của further information",
+          "sự từ chối đối với further information",
+          "trạng thái thiếu further information",
+          "hành động ngược lại với further information"
+        ]
+      },
+      "answer": "ý nghĩa của further information",
+      "explain_vi": "Từ/cụm từ 'further information' (phrase.) có nghĩa chính xác là: ý nghĩa của further information.",
+      "content_hash": "further-information|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item further information - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "further information",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của further information",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của further information':",
+        "opts": [
+          "further information",
+          "further informations",
+          "un-further information",
+          "further informationed"
+        ]
+      },
+      "answer": "further information",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là further information.",
+      "content_hash": "further-information|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item further information - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "further information",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của further information",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "further information",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "further information",
+      "explain_vi": "Điền 'further information' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "further-information|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item further information - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "further information",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của further information",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to further information on time.'",
+        "opts": [
+          "She failed to further information on time.",
+          "She fail to further information on time.",
+          "She failing to further information on time.",
+          "She was fail to further information on time."
+        ]
+      },
+      "answer": "She failed to further information on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "further-information|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item further information - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "further information",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của further information",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'further information':",
+        "opts": [
+          "apply further information correctly",
+          "make further information wrong",
+          "do further information badly",
+          "take further information off"
+        ]
+      },
+      "answer": "apply further information correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply further information correctly.",
+      "content_hash": "further-information|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item further information - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "opening hours",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của opening hours",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "opening hours (phrase.)",
+        "opts": [
+          "ý nghĩa của opening hours",
+          "sự từ chối đối với opening hours",
+          "trạng thái thiếu opening hours",
+          "hành động ngược lại với opening hours"
+        ]
+      },
+      "answer": "ý nghĩa của opening hours",
+      "explain_vi": "Từ/cụm từ 'opening hours' (phrase.) có nghĩa chính xác là: ý nghĩa của opening hours.",
+      "content_hash": "opening-hours|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item opening hours - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "opening hours",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của opening hours",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của opening hours':",
+        "opts": [
+          "opening hours",
+          "opening hourss",
+          "un-opening hours",
+          "opening hoursed"
+        ]
+      },
+      "answer": "opening hours",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là opening hours.",
+      "content_hash": "opening-hours|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item opening hours - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "opening hours",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của opening hours",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "opening hours",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "opening hours",
+      "explain_vi": "Điền 'opening hours' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "opening-hours|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item opening hours - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "opening hours",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của opening hours",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to opening hours on time.'",
+        "opts": [
+          "She failed to opening hours on time.",
+          "She fail to opening hours on time.",
+          "She failing to opening hours on time.",
+          "She was fail to opening hours on time."
+        ]
+      },
+      "answer": "She failed to opening hours on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "opening-hours|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item opening hours - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "opening hours",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của opening hours",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'opening hours':",
+        "opts": [
+          "apply opening hours correctly",
+          "make opening hours wrong",
+          "do opening hours badly",
+          "take opening hours off"
+        ]
+      },
+      "answer": "apply opening hours correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply opening hours correctly.",
+      "content_hash": "opening-hours|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item opening hours - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "limited offer",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của limited offer",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "limited offer (phrase.)",
+        "opts": [
+          "ý nghĩa của limited offer",
+          "sự từ chối đối với limited offer",
+          "trạng thái thiếu limited offer",
+          "hành động ngược lại với limited offer"
+        ]
+      },
+      "answer": "ý nghĩa của limited offer",
+      "explain_vi": "Từ/cụm từ 'limited offer' (phrase.) có nghĩa chính xác là: ý nghĩa của limited offer.",
+      "content_hash": "limited-offer|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item limited offer - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "limited offer",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của limited offer",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của limited offer':",
+        "opts": [
+          "limited offer",
+          "limited offers",
+          "un-limited offer",
+          "limited offered"
+        ]
+      },
+      "answer": "limited offer",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là limited offer.",
+      "content_hash": "limited-offer|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item limited offer - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "limited offer",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của limited offer",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "limited offer",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "limited offer",
+      "explain_vi": "Điền 'limited offer' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "limited-offer|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item limited offer - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "limited offer",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của limited offer",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to limited offer on time.'",
+        "opts": [
+          "She failed to limited offer on time.",
+          "She fail to limited offer on time.",
+          "She failing to limited offer on time.",
+          "She was fail to limited offer on time."
+        ]
+      },
+      "answer": "She failed to limited offer on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "limited-offer|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item limited offer - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "limited offer",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của limited offer",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'limited offer':",
+        "opts": [
+          "apply limited offer correctly",
+          "make limited offer wrong",
+          "do limited offer badly",
+          "take limited offer off"
+        ]
+      },
+      "answer": "apply limited offer correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply limited offer correctly.",
+      "content_hash": "limited-offer|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item limited offer - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "valid until",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của valid until",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "valid until (phrase.)",
+        "opts": [
+          "ý nghĩa của valid until",
+          "sự từ chối đối với valid until",
+          "trạng thái thiếu valid until",
+          "hành động ngược lại với valid until"
+        ]
+      },
+      "answer": "ý nghĩa của valid until",
+      "explain_vi": "Từ/cụm từ 'valid until' (phrase.) có nghĩa chính xác là: ý nghĩa của valid until.",
+      "content_hash": "valid-until|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item valid until - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "valid until",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của valid until",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của valid until':",
+        "opts": [
+          "valid until",
+          "valid untils",
+          "un-valid until",
+          "valid untiled"
+        ]
+      },
+      "answer": "valid until",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là valid until.",
+      "content_hash": "valid-until|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item valid until - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "valid until",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của valid until",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "valid until",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "valid until",
+      "explain_vi": "Điền 'valid until' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "valid-until|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item valid until - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "valid until",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của valid until",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to valid until on time.'",
+        "opts": [
+          "She failed to valid until on time.",
+          "She fail to valid until on time.",
+          "She failing to valid until on time.",
+          "She was fail to valid until on time."
+        ]
+      },
+      "answer": "She failed to valid until on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "valid-until|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item valid until - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "valid until",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của valid until",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'valid until':",
+        "opts": [
+          "apply valid until correctly",
+          "make valid until wrong",
+          "do valid until badly",
+          "take valid until off"
+        ]
+      },
+      "answer": "apply valid until correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply valid until correctly.",
+      "content_hash": "valid-until|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item valid until - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "global warming",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của global warming",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "global warming (phrase.)",
+        "opts": [
+          "ý nghĩa của global warming",
+          "sự từ chối đối với global warming",
+          "trạng thái thiếu global warming",
+          "hành động ngược lại với global warming"
+        ]
+      },
+      "answer": "ý nghĩa của global warming",
+      "explain_vi": "Từ/cụm từ 'global warming' (phrase.) có nghĩa chính xác là: ý nghĩa của global warming.",
+      "content_hash": "global-warming|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item global warming - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "global warming",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của global warming",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của global warming':",
+        "opts": [
+          "global warming",
+          "global warmings",
+          "un-global warming",
+          "global warminged"
+        ]
+      },
+      "answer": "global warming",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là global warming.",
+      "content_hash": "global-warming|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item global warming - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "global warming",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của global warming",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "global warming",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "global warming",
+      "explain_vi": "Điền 'global warming' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "global-warming|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item global warming - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "global warming",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của global warming",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to global warming on time.'",
+        "opts": [
+          "She failed to global warming on time.",
+          "She fail to global warming on time.",
+          "She failing to global warming on time.",
+          "She was fail to global warming on time."
+        ]
+      },
+      "answer": "She failed to global warming on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "global-warming|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item global warming - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "global warming",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của global warming",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'global warming':",
+        "opts": [
+          "apply global warming correctly",
+          "make global warming wrong",
+          "do global warming badly",
+          "take global warming off"
+        ]
+      },
+      "answer": "apply global warming correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply global warming correctly.",
+      "content_hash": "global-warming|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item global warming - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "greenhouse gas",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của greenhouse gas",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "greenhouse gas (phrase.)",
+        "opts": [
+          "ý nghĩa của greenhouse gas",
+          "sự từ chối đối với greenhouse gas",
+          "trạng thái thiếu greenhouse gas",
+          "hành động ngược lại với greenhouse gas"
+        ]
+      },
+      "answer": "ý nghĩa của greenhouse gas",
+      "explain_vi": "Từ/cụm từ 'greenhouse gas' (phrase.) có nghĩa chính xác là: ý nghĩa của greenhouse gas.",
+      "content_hash": "greenhouse-gas|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item greenhouse gas - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "greenhouse gas",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của greenhouse gas",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của greenhouse gas':",
+        "opts": [
+          "greenhouse gas",
+          "greenhouse gass",
+          "un-greenhouse gas",
+          "greenhouse gased"
+        ]
+      },
+      "answer": "greenhouse gas",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là greenhouse gas.",
+      "content_hash": "greenhouse-gas|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item greenhouse gas - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "greenhouse gas",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của greenhouse gas",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "greenhouse gas",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "greenhouse gas",
+      "explain_vi": "Điền 'greenhouse gas' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "greenhouse-gas|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item greenhouse gas - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "greenhouse gas",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của greenhouse gas",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to greenhouse gas on time.'",
+        "opts": [
+          "She failed to greenhouse gas on time.",
+          "She fail to greenhouse gas on time.",
+          "She failing to greenhouse gas on time.",
+          "She was fail to greenhouse gas on time."
+        ]
+      },
+      "answer": "She failed to greenhouse gas on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "greenhouse-gas|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item greenhouse gas - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "greenhouse gas",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của greenhouse gas",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'greenhouse gas':",
+        "opts": [
+          "apply greenhouse gas correctly",
+          "make greenhouse gas wrong",
+          "do greenhouse gas badly",
+          "take greenhouse gas off"
+        ]
+      },
+      "answer": "apply greenhouse gas correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply greenhouse gas correctly.",
+      "content_hash": "greenhouse-gas|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item greenhouse gas - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "endangered species",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của endangered species",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "endangered species (phrase.)",
+        "opts": [
+          "ý nghĩa của endangered species",
+          "sự từ chối đối với endangered species",
+          "trạng thái thiếu endangered species",
+          "hành động ngược lại với endangered species"
+        ]
+      },
+      "answer": "ý nghĩa của endangered species",
+      "explain_vi": "Từ/cụm từ 'endangered species' (phrase.) có nghĩa chính xác là: ý nghĩa của endangered species.",
+      "content_hash": "endangered-species|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item endangered species - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "endangered species",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của endangered species",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của endangered species':",
+        "opts": [
+          "endangered species",
+          "endangered speciess",
+          "un-endangered species",
+          "endangered speciesed"
+        ]
+      },
+      "answer": "endangered species",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là endangered species.",
+      "content_hash": "endangered-species|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item endangered species - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "endangered species",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của endangered species",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "endangered species",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "endangered species",
+      "explain_vi": "Điền 'endangered species' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "endangered-species|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item endangered species - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "endangered species",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của endangered species",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to endangered species on time.'",
+        "opts": [
+          "She failed to endangered species on time.",
+          "She fail to endangered species on time.",
+          "She failing to endangered species on time.",
+          "She was fail to endangered species on time."
+        ]
+      },
+      "answer": "She failed to endangered species on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "endangered-species|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item endangered species - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "endangered species",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của endangered species",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'endangered species':",
+        "opts": [
+          "apply endangered species correctly",
+          "make endangered species wrong",
+          "do endangered species badly",
+          "take endangered species off"
+        ]
+      },
+      "answer": "apply endangered species correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply endangered species correctly.",
+      "content_hash": "endangered-species|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item endangered species - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "plastic waste",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của plastic waste",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "plastic waste (phrase.)",
+        "opts": [
+          "ý nghĩa của plastic waste",
+          "sự từ chối đối với plastic waste",
+          "trạng thái thiếu plastic waste",
+          "hành động ngược lại với plastic waste"
+        ]
+      },
+      "answer": "ý nghĩa của plastic waste",
+      "explain_vi": "Từ/cụm từ 'plastic waste' (phrase.) có nghĩa chính xác là: ý nghĩa của plastic waste.",
+      "content_hash": "plastic-waste|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item plastic waste - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "plastic waste",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của plastic waste",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của plastic waste':",
+        "opts": [
+          "plastic waste",
+          "plastic wastes",
+          "un-plastic waste",
+          "plastic wasteed"
+        ]
+      },
+      "answer": "plastic waste",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là plastic waste.",
+      "content_hash": "plastic-waste|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item plastic waste - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "plastic waste",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của plastic waste",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "plastic waste",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "plastic waste",
+      "explain_vi": "Điền 'plastic waste' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "plastic-waste|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item plastic waste - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "plastic waste",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của plastic waste",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to plastic waste on time.'",
+        "opts": [
+          "She failed to plastic waste on time.",
+          "She fail to plastic waste on time.",
+          "She failing to plastic waste on time.",
+          "She was fail to plastic waste on time."
+        ]
+      },
+      "answer": "She failed to plastic waste on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "plastic-waste|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item plastic waste - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "plastic waste",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của plastic waste",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'plastic waste':",
+        "opts": [
+          "apply plastic waste correctly",
+          "make plastic waste wrong",
+          "do plastic waste badly",
+          "take plastic waste off"
+        ]
+      },
+      "answer": "apply plastic waste correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply plastic waste correctly.",
+      "content_hash": "plastic-waste|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item plastic waste - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "protect the environment",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của protect the environment",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "protect the environment (phrase.)",
+        "opts": [
+          "ý nghĩa của protect the environment",
+          "sự từ chối đối với protect the environment",
+          "trạng thái thiếu protect the environment",
+          "hành động ngược lại với protect the environment"
+        ]
+      },
+      "answer": "ý nghĩa của protect the environment",
+      "explain_vi": "Từ/cụm từ 'protect the environment' (phrase.) có nghĩa chính xác là: ý nghĩa của protect the environment.",
+      "content_hash": "protect-the-environment|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item protect the environment - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "protect the environment",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của protect the environment",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của protect the environment':",
+        "opts": [
+          "protect the environment",
+          "protect the environments",
+          "un-protect the environment",
+          "protect the environmented"
+        ]
+      },
+      "answer": "protect the environment",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là protect the environment.",
+      "content_hash": "protect-the-environment|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item protect the environment - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "protect the environment",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của protect the environment",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "protect the environment",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "protect the environment",
+      "explain_vi": "Điền 'protect the environment' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "protect-the-environment|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item protect the environment - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "protect the environment",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của protect the environment",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to protect the environment on time.'",
+        "opts": [
+          "She failed to protect the environment on time.",
+          "She fail to protect the environment on time.",
+          "She failing to protect the environment on time.",
+          "She was fail to protect the environment on time."
+        ]
+      },
+      "answer": "She failed to protect the environment on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "protect-the-environment|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item protect the environment - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "protect the environment",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của protect the environment",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'protect the environment':",
+        "opts": [
+          "apply protect the environment correctly",
+          "make protect the environment wrong",
+          "do protect the environment badly",
+          "take protect the environment off"
+        ]
+      },
+      "answer": "apply protect the environment correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply protect the environment correctly.",
+      "content_hash": "protect-the-environment|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item protect the environment - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "reduce pollution",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reduce pollution",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "reduce pollution (phrase.)",
+        "opts": [
+          "ý nghĩa của reduce pollution",
+          "sự từ chối đối với reduce pollution",
+          "trạng thái thiếu reduce pollution",
+          "hành động ngược lại với reduce pollution"
+        ]
+      },
+      "answer": "ý nghĩa của reduce pollution",
+      "explain_vi": "Từ/cụm từ 'reduce pollution' (phrase.) có nghĩa chính xác là: ý nghĩa của reduce pollution.",
+      "content_hash": "reduce-pollution|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item reduce pollution - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "reduce pollution",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reduce pollution",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của reduce pollution':",
+        "opts": [
+          "reduce pollution",
+          "reduce pollutions",
+          "un-reduce pollution",
+          "reduce pollutioned"
+        ]
+      },
+      "answer": "reduce pollution",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là reduce pollution.",
+      "content_hash": "reduce-pollution|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item reduce pollution - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "reduce pollution",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reduce pollution",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "reduce pollution",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "reduce pollution",
+      "explain_vi": "Điền 'reduce pollution' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "reduce-pollution|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item reduce pollution - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "reduce pollution",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reduce pollution",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to reduce pollution on time.'",
+        "opts": [
+          "She failed to reduce pollution on time.",
+          "She fail to reduce pollution on time.",
+          "She failing to reduce pollution on time.",
+          "She was fail to reduce pollution on time."
+        ]
+      },
+      "answer": "She failed to reduce pollution on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "reduce-pollution|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item reduce pollution - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "reduce pollution",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reduce pollution",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'reduce pollution':",
+        "opts": [
+          "apply reduce pollution correctly",
+          "make reduce pollution wrong",
+          "do reduce pollution badly",
+          "take reduce pollution off"
+        ]
+      },
+      "answer": "apply reduce pollution correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply reduce pollution correctly.",
+      "content_hash": "reduce-pollution|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item reduce pollution - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "natural resources",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của natural resources",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "natural resources (phrase.)",
+        "opts": [
+          "ý nghĩa của natural resources",
+          "sự từ chối đối với natural resources",
+          "trạng thái thiếu natural resources",
+          "hành động ngược lại với natural resources"
+        ]
+      },
+      "answer": "ý nghĩa của natural resources",
+      "explain_vi": "Từ/cụm từ 'natural resources' (phrase.) có nghĩa chính xác là: ý nghĩa của natural resources.",
+      "content_hash": "natural-resources|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item natural resources - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "natural resources",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của natural resources",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của natural resources':",
+        "opts": [
+          "natural resources",
+          "natural resourcess",
+          "un-natural resources",
+          "natural resourcesed"
+        ]
+      },
+      "answer": "natural resources",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là natural resources.",
+      "content_hash": "natural-resources|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item natural resources - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "natural resources",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của natural resources",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "natural resources",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "natural resources",
+      "explain_vi": "Điền 'natural resources' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "natural-resources|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item natural resources - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "natural resources",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của natural resources",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to natural resources on time.'",
+        "opts": [
+          "She failed to natural resources on time.",
+          "She fail to natural resources on time.",
+          "She failing to natural resources on time.",
+          "She was fail to natural resources on time."
+        ]
+      },
+      "answer": "She failed to natural resources on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "natural-resources|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item natural resources - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "natural resources",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của natural resources",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'natural resources':",
+        "opts": [
+          "apply natural resources correctly",
+          "make natural resources wrong",
+          "do natural resources badly",
+          "take natural resources off"
+        ]
+      },
+      "answer": "apply natural resources correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply natural resources correctly.",
+      "content_hash": "natural-resources|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item natural resources - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "deadline extension",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của deadline extension",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "deadline extension (phrase.)",
+        "opts": [
+          "ý nghĩa của deadline extension",
+          "sự từ chối đối với deadline extension",
+          "trạng thái thiếu deadline extension",
+          "hành động ngược lại với deadline extension"
+        ]
+      },
+      "answer": "ý nghĩa của deadline extension",
+      "explain_vi": "Từ/cụm từ 'deadline extension' (phrase.) có nghĩa chính xác là: ý nghĩa của deadline extension.",
+      "content_hash": "deadline-extension|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item deadline extension - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "deadline extension",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của deadline extension",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của deadline extension':",
+        "opts": [
+          "deadline extension",
+          "deadline extensions",
+          "un-deadline extension",
+          "deadline extensioned"
+        ]
+      },
+      "answer": "deadline extension",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là deadline extension.",
+      "content_hash": "deadline-extension|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item deadline extension - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "deadline extension",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của deadline extension",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "deadline extension",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "deadline extension",
+      "explain_vi": "Điền 'deadline extension' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "deadline-extension|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item deadline extension - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "deadline extension",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của deadline extension",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to deadline extension on time.'",
+        "opts": [
+          "She failed to deadline extension on time.",
+          "She fail to deadline extension on time.",
+          "She failing to deadline extension on time.",
+          "She was fail to deadline extension on time."
+        ]
+      },
+      "answer": "She failed to deadline extension on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "deadline-extension|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item deadline extension - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    },
+    {
+      "lemma": "deadline extension",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của deadline extension",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'deadline extension':",
+        "opts": [
+          "apply deadline extension correctly",
+          "make deadline extension wrong",
+          "do deadline extension badly",
+          "take deadline extension off"
+        ]
+      },
+      "answer": "apply deadline extension correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply deadline extension correctly.",
+      "content_hash": "deadline-extension|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item deadline extension - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-01"
+      }
+    }
+  ]
+}

@@ -15,6 +15,7 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 import { authFetch } from '@/lib/auth-fetch';
 import { parseIpa, speak, stopSpeak } from '@/lib/study';
+import { stripEmbeddedVietnamese } from '@/lib/review-modes';
 
 const CORRECT_LS_KEY = 'verb-drill-correct-v1';
 const MIN_LEARNED = 4;
@@ -168,7 +169,8 @@ function blankInExample(
   example: string,
   lemma: string,
 ): { stem: string; surface: string } | null {
-  const ex = example.trim().replace(/\s+/g, ' ');
+  // Gỡ "EN. (Bản dịch VI.)" dính trong field example
+  const ex = stripEmbeddedVietnamese(example);
   const L = lemma.trim();
   if (!ex || !L || ex.length < 4) return null;
 

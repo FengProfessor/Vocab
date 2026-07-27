@@ -416,113 +416,12 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "Chọn câu dùng đúng Future in the Past.",
-      "opts": [
-        "I knew she would succeed.",
-        "Not correctly: would + V.",
-        "Wrong structure for this meaning."
-      ],
-      "answer": "I knew she would succeed.",
-      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn cấu trúc phù hợp nhất.",
-      "opts": [
-        "would + V",
-        "was/were going to + V",
-        "was/were about to + V"
-      ],
-      "answer": "would + V",
-      "fb": "Mẫu trọng tâm là would + V."
-    },
-    {
       "type": "fill",
       "q": "Hoàn thành theo mẫu: They ___ going to leave, but it rained.",
       "answer": [
         "were"
       ],
       "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
-      "answer": [
-        "Future in the Past",
-        "future in the past"
-      ],
-      "fb": "Chủ điểm là Future in the Past."
-    },
-    {
-      "type": "tf",
-      "q": "Câu này tự nhiên và đúng ngữ pháp: “He was about to speak when the phone rang.”",
-      "answer": true,
-      "fb": "Đúng; câu minh họa một biến thể quan trọng."
-    },
-    {
-      "type": "tf",
-      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Future in the Past chính xác.",
-      "answer": false,
-      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
-    },
-    {
-      "type": "error",
-      "q": "Câu/mô tả nào SAI?",
-      "opts": [
-        "She promised she would call.",
-        "We were to meet the next day.",
-        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
-      ],
-      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
-      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
-    },
-    {
-      "type": "mcq",
-      "q": "Điều cần kiểm tra đầu tiên là gì?",
-      "opts": [
-        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-        "Chỉ số lượng từ trong câu",
-        "Chỉ độ dài câu"
-      ],
-      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Dịch sang tiếng Anh: “Tôi đã nghĩ chuyến đi sẽ dễ dàng.”",
-      "answer": [
-        "I thought the journey would be easy."
-      ],
-      "fb": "I thought the journey would be easy."
-    },
-    {
-      "type": "tf",
-      "q": "“I knew she would succeed.” là một ví dụ đúng.",
-      "answer": true,
-      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
-    },
-    {
-      "type": "error",
-      "q": "Chọn lời khuyên SAI.",
-      "opts": [
-        "Học cấu trúc cùng ví dụ.",
-        "Kiểm tra dạng động từ.",
-        "Dịch máy móc từng từ luôn cho kết quả đúng."
-      ],
-      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
-      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
-    },
-    {
-      "type": "mcq",
-      "q": "Câu nào là một ví dụ đúng khác?",
-      "opts": [
-        "I thought the journey would be easy.",
-        "This sentence missing required grammar.",
-        "Incorrectly structure sentence."
-      ],
-      "answer": "I thought the journey would be easy.",
-      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
     },
     {
       "type": "multiple_choice",

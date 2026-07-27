@@ -26,6 +26,25 @@ export function createServiceClient() {
   );
 }
 
+/**
+ * Helper to fetch all rows beyond Supabase's default 1000-row limit.
+ * Pass a callback that builds the query with a `.range(from, to)`.
+ */
+export async function fetchAllRows<T = any>(buildQuery: (from: number, to: number) => any): Promise<T[]> {
+  let all: T[] = [];
+  let from = 0;
+  const step = 1000;
+  while (true) {
+    const { data, error } = await buildQuery(from, from + step - 1);
+    if (error) throw error;
+    if (!data || data.length === 0) break;
+    all.push(...data);
+    if (data.length < step) break;
+    from += step;
+  }
+  return all;
+}
+
 
 // Type definitions matching the schema
 export type UserRole = 'teacher' | 'student';

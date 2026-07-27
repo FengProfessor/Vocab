@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-21",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "skate",
+    "ski",
+    "slide",
+    "slow",
+    "solve",
+    "sort",
+    "spread",
+    "state",
+    "stick",
+    "store"
+  ],
+  "items": [
+    {
+      "lemma": "skate",
+      "pos": "v",
+      "sense_vi": "trượt băng nghệ thuật",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "skate (v.)",
+        "opts": [
+          "trượt băng nghệ thuật",
+          "phù hợp kích thước",
+          "hành động ngay",
+          "nói chuyện với bạn"
+        ]
+      },
+      "answer": "trượt băng nghệ thuật",
+      "explain_vi": "Động từ skate mang nghĩa chính xác là: trượt băng nghệ thuật.",
+      "content_hash": "skate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "skate gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "skate on ice rink",
+        "vn_trap": "past tense skated"
+      }
+    },
+    {
+      "lemma": "skate",
+      "pos": "v",
+      "sense_vi": "trượt băng nghệ thuật",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'trượt băng nghệ thuật' là:",
+        "opts": [
+          "skate",
+          "skates",
+          "skateing",
+          "skated"
+        ]
+      },
+      "answer": "skate",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là skate.",
+      "content_hash": "skate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "skate l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "skate on ice rink",
+        "vn_trap": "past tense skated"
+      }
+    },
+    {
+      "lemma": "skate",
+      "pos": "v",
+      "sense_vi": "trượt băng nghệ thuật",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "skate",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "skate",
+      "explain_vi": "Điền 'skate' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "skate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "skate cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "skate on ice rink",
+        "vn_trap": "past tense skated"
+      }
+    },
+    {
+      "lemma": "skate",
+      "pos": "v",
+      "sense_vi": "trượt băng nghệ thuật",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She skates the exercise very slow yesterday.'",
+        "opts": [
+          "She skated the exercise very slowly yesterday.",
+          "She skates the exercise very slow yesterday.",
+          "They She skates the exercise very slow yesterday.",
+          "She was skateing when I came yesterday."
+        ]
+      },
+      "answer": "She skated the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "skate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "skate error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "skate on ice rink",
+        "vn_trap": "past tense skated"
+      }
+    },
+    {
+      "lemma": "skate",
+      "pos": "v",
+      "sense_vi": "trượt băng nghệ thuật",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'skate':",
+        "opts": [
+          "skate on ice rink",
+          "skate in wrong way",
+          "skate without care",
+          "skate for nothing"
+        ]
+      },
+      "answer": "skate on ice rink",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: skate on ice rink.",
+      "content_hash": "skate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "skate collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "skate on ice rink",
+        "vn_trap": "past tense skated"
+      }
+    },
+    {
+      "lemma": "ski",
+      "pos": "v",
+      "sense_vi": "trượt tuyết mùa đông",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ski (v.)",
+        "opts": [
+          "trượt tuyết mùa đông",
+          "hỗ trợ đồng đội",
+          "thừa nhận lỗi",
+          "quay lại đằng sau"
+        ]
+      },
+      "answer": "trượt tuyết mùa đông",
+      "explain_vi": "Động từ ski mang nghĩa chính xác là: trượt tuyết mùa đông.",
+      "content_hash": "ski|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "ski gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ski in snowy mountains",
+        "vn_trap": "past tense skied"
+      }
+    },
+    {
+      "lemma": "ski",
+      "pos": "v",
+      "sense_vi": "trượt tuyết mùa đông",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'trượt tuyết mùa đông' là:",
+        "opts": [
+          "ski",
+          "skis",
+          "skiing",
+          "skied"
+        ]
+      },
+      "answer": "ski",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là ski.",
+      "content_hash": "ski|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "ski l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ski in snowy mountains",
+        "vn_trap": "past tense skied"
+      }
+    },
+    {
+      "lemma": "ski",
+      "pos": "v",
+      "sense_vi": "trượt tuyết mùa đông",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "ski",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "ski",
+      "explain_vi": "Điền 'ski' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "ski|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "ski cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ski in snowy mountains",
+        "vn_trap": "past tense skied"
+      }
+    },
+    {
+      "lemma": "ski",
+      "pos": "v",
+      "sense_vi": "trượt tuyết mùa đông",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was skiing when the lights went out.'",
+        "opts": [
+          "They were skiing when the lights went out.",
+          "They was skiing when the lights went out.",
+          "They They was skiing when the lights went out.",
+          "She was skiing when I came yesterday."
+        ]
+      },
+      "answer": "They were skiing when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "ski|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "ski error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ski in snowy mountains",
+        "vn_trap": "past tense skied"
+      }
+    },
+    {
+      "lemma": "ski",
+      "pos": "v",
+      "sense_vi": "trượt tuyết mùa đông",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'ski':",
+        "opts": [
+          "ski in snowy mountains",
+          "ski in wrong way",
+          "ski without care",
+          "ski for nothing"
+        ]
+      },
+      "answer": "ski in snowy mountains",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: ski in snowy mountains.",
+      "content_hash": "ski|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "ski collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ski in snowy mountains",
+        "vn_trap": "past tense skied"
+      }
+    },
+    {
+      "lemma": "slide",
+      "pos": "v",
+      "sense_vi": "trượt dài xuống",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "slide (v.)",
+        "opts": [
+          "trượt dài xuống",
+          "cho rằng đúng",
+          "khuyên nên làm",
+          "cho xem ảnh"
+        ]
+      },
+      "answer": "trượt dài xuống",
+      "explain_vi": "Động từ slide mang nghĩa chính xác là: trượt dài xuống.",
+      "content_hash": "slide|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "slide gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slide down smooth slope",
+        "vn_trap": "past tense slid"
+      }
+    },
+    {
+      "lemma": "slide",
+      "pos": "v",
+      "sense_vi": "trượt dài xuống",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'trượt dài xuống', người Anh dùng:",
+        "opts": [
+          "slide",
+          "slides",
+          "slideing",
+          "slid"
+        ]
+      },
+      "answer": "slide",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là slide.",
+      "content_hash": "slide|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "slide l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slide down smooth slope",
+        "vn_trap": "past tense slid"
+      }
+    },
+    {
+      "lemma": "slide",
+      "pos": "v",
+      "sense_vi": "trượt dài xuống",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "slide",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "slide",
+      "explain_vi": "Điền 'slide' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "slide|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "slide cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slide down smooth slope",
+        "vn_trap": "past tense slid"
+      }
+    },
+    {
+      "lemma": "slide",
+      "pos": "v",
+      "sense_vi": "trượt dài xuống",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He slides without check the answers first.'",
+        "opts": [
+          "He slid without checking the answers first.",
+          "He slides without check the answers first.",
+          "They He slides without check the answers first.",
+          "She was slideing when I came yesterday."
+        ]
+      },
+      "answer": "He slid without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "slide|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "slide error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slide down smooth slope",
+        "vn_trap": "past tense slid"
+      }
+    },
+    {
+      "lemma": "slide",
+      "pos": "v",
+      "sense_vi": "trượt dài xuống",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'slide':",
+        "opts": [
+          "slide down smooth slope",
+          "slide in wrong way",
+          "slide without care",
+          "slide for nothing"
+        ]
+      },
+      "answer": "slide down smooth slope",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: slide down smooth slope.",
+      "content_hash": "slide|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "slide collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slide down smooth slope",
+        "vn_trap": "past tense slid"
+      }
+    },
+    {
+      "lemma": "slow",
+      "pos": "v",
+      "sense_vi": "làm chậm lại",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "slow (v.)",
+        "opts": [
+          "làm chậm lại",
+          "sống sót qua bão",
+          "ảnh hưởng sức khỏe",
+          "nghe tiếng động"
+        ]
+      },
+      "answer": "làm chậm lại",
+      "explain_vi": "Động từ slow mang nghĩa chính xác là: làm chậm lại.",
+      "content_hash": "slow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "slow gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slow down the speed",
+        "vn_trap": "past tense slowed"
+      }
+    },
+    {
+      "lemma": "slow",
+      "pos": "v",
+      "sense_vi": "làm chậm lại",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'làm chậm lại' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "slow",
+          "slows",
+          "slowing",
+          "slowed"
+        ]
+      },
+      "answer": "slow",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là slow.",
+      "content_hash": "slow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "slow l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slow down the speed",
+        "vn_trap": "past tense slowed"
+      }
+    },
+    {
+      "lemma": "slow",
+      "pos": "v",
+      "sense_vi": "làm chậm lại",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "slow",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "slow",
+      "explain_vi": "Điền 'slow' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "slow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "slow cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slow down the speed",
+        "vn_trap": "past tense slowed"
+      }
+    },
+    {
+      "lemma": "slow",
+      "pos": "v",
+      "sense_vi": "làm chậm lại",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is slowing since last year.'",
+        "opts": [
+          "She has been slowing since last year.",
+          "She is slowing since last year.",
+          "They She is slowing since last year.",
+          "She was slowing when I came yesterday."
+        ]
+      },
+      "answer": "She has been slowing since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "slow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "slow error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slow down the speed",
+        "vn_trap": "past tense slowed"
+      }
+    },
+    {
+      "lemma": "slow",
+      "pos": "v",
+      "sense_vi": "làm chậm lại",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'slow':",
+        "opts": [
+          "slow down the speed",
+          "slow in wrong way",
+          "slow without care",
+          "slow for nothing"
+        ]
+      },
+      "answer": "slow down the speed",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: slow down the speed.",
+      "content_hash": "slow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "slow collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "slow down the speed",
+        "vn_trap": "past tense slowed"
+      }
+    },
+    {
+      "lemma": "solve",
+      "pos": "v",
+      "sense_vi": "giải bài toán",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "solve (v.)",
+        "opts": [
+          "giải bài toán",
+          "bơi dưới biển",
+          "đồng ý ý kiến",
+          "di chuyển đồ đạc"
+        ]
+      },
+      "answer": "giải bài toán",
+      "explain_vi": "Động từ solve mang nghĩa chính xác là: giải bài toán.",
+      "content_hash": "solve|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "solve gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "solve the hard puzzle",
+        "vn_trap": "past tense solved"
+      }
+    },
+    {
+      "lemma": "solve",
+      "pos": "v",
+      "sense_vi": "giải bài toán",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'giải bài toán', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "solve",
+          "solves",
+          "solveing",
+          "solved"
+        ]
+      },
+      "answer": "solve",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là solve.",
+      "content_hash": "solve|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "solve l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "solve the hard puzzle",
+        "vn_trap": "past tense solved"
+      }
+    },
+    {
+      "lemma": "solve",
+      "pos": "v",
+      "sense_vi": "giải bài toán",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "solve",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "solve",
+      "explain_vi": "Điền 'solve' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "solve|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "solve cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "solve the hard puzzle",
+        "vn_trap": "past tense solved"
+      }
+    },
+    {
+      "lemma": "solve",
+      "pos": "v",
+      "sense_vi": "giải bài toán",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they solves earlier, they would win.'",
+        "opts": [
+          "If they solved earlier, they would win.",
+          "If they solves earlier, they would win.",
+          "They If they solves earlier, they would win.",
+          "She was solveing when I came yesterday."
+        ]
+      },
+      "answer": "If they solved earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "solve|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "solve error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "solve the hard puzzle",
+        "vn_trap": "past tense solved"
+      }
+    },
+    {
+      "lemma": "solve",
+      "pos": "v",
+      "sense_vi": "giải bài toán",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'solve':",
+        "opts": [
+          "solve the hard puzzle",
+          "solve in wrong way",
+          "solve without care",
+          "solve for nothing"
+        ]
+      },
+      "answer": "solve the hard puzzle",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: solve the hard puzzle.",
+      "content_hash": "solve|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "solve collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "solve the hard puzzle",
+        "vn_trap": "past tense solved"
+      }
+    },
+    {
+      "lemma": "sort",
+      "pos": "v",
+      "sense_vi": "phân loại rác",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sort (v.)",
+        "opts": [
+          "phân loại rác",
+          "bật tắt đèn",
+          "nhắm tới mục tiêu",
+          "sống ở thành phố"
+        ]
+      },
+      "answer": "phân loại rác",
+      "explain_vi": "Động từ sort mang nghĩa chính xác là: phân loại rác.",
+      "content_hash": "sort|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "sort gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sort out useful trash",
+        "vn_trap": "past tense sorted"
+      }
+    },
+    {
+      "lemma": "sort",
+      "pos": "v",
+      "sense_vi": "phân loại rác",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'phân loại rác' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "sort",
+          "sorts",
+          "sorting",
+          "sorted"
+        ]
+      },
+      "answer": "sort",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là sort.",
+      "content_hash": "sort|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "sort l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sort out useful trash",
+        "vn_trap": "past tense sorted"
+      }
+    },
+    {
+      "lemma": "sort",
+      "pos": "v",
+      "sense_vi": "phân loại rác",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "sort",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "sort",
+      "explain_vi": "Điền 'sort' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "sort|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "sort cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sort out useful trash",
+        "vn_trap": "past tense sorted"
+      }
+    },
+    {
+      "lemma": "sort",
+      "pos": "v",
+      "sense_vi": "phân loại rác",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to sort when she is busy.'",
+        "opts": [
+          "She avoids sorting when she is busy.",
+          "She avoids to sort when she is busy.",
+          "They She avoids to sort when she is busy.",
+          "She was sorting when I came yesterday."
+        ]
+      },
+      "answer": "She avoids sorting when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "sort|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "sort error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sort out useful trash",
+        "vn_trap": "past tense sorted"
+      }
+    },
+    {
+      "lemma": "sort",
+      "pos": "v",
+      "sense_vi": "phân loại rác",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sort':",
+        "opts": [
+          "sort out useful trash",
+          "sort in wrong way",
+          "sort without care",
+          "sort for nothing"
+        ]
+      },
+      "answer": "sort out useful trash",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: sort out useful trash.",
+      "content_hash": "sort|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "sort collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sort out useful trash",
+        "vn_trap": "past tense sorted"
+      }
+    },
+    {
+      "lemma": "spread",
+      "pos": "v",
+      "sense_vi": "phết bơ lên",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "spread (v.)",
+        "opts": [
+          "phết bơ lên",
+          "nếm thử thức ăn",
+          "thông báo tin tức",
+          "tin tưởng vào bản thân"
+        ]
+      },
+      "answer": "phết bơ lên",
+      "explain_vi": "Động từ spread mang nghĩa chính xác là: phết bơ lên.",
+      "content_hash": "spread|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "spread gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spread butter on bread",
+        "vn_trap": "past tense spread"
+      }
+    },
+    {
+      "lemma": "spread",
+      "pos": "v",
+      "sense_vi": "phết bơ lên",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'phết bơ lên', từ tiếng Anh đúng là:",
+        "opts": [
+          "spread",
+          "spreads",
+          "spreading",
+          "re-spread"
+        ]
+      },
+      "answer": "spread",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là spread.",
+      "content_hash": "spread|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "spread l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spread butter on bread",
+        "vn_trap": "past tense spread"
+      }
+    },
+    {
+      "lemma": "spread",
+      "pos": "v",
+      "sense_vi": "phết bơ lên",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "spread",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "spread",
+      "explain_vi": "Điền 'spread' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "spread|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "spread cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spread butter on bread",
+        "vn_trap": "past tense spread"
+      }
+    },
+    {
+      "lemma": "spread",
+      "pos": "v",
+      "sense_vi": "phết bơ lên",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at spread in public places.'",
+        "opts": [
+          "He is good at spreading in public places.",
+          "He is good at spread in public places.",
+          "They He is good at spread in public places.",
+          "She was spreading when I came yesterday."
+        ]
+      },
+      "answer": "He is good at spreading in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "spread|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "spread error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spread butter on bread",
+        "vn_trap": "past tense spread"
+      }
+    },
+    {
+      "lemma": "spread",
+      "pos": "v",
+      "sense_vi": "phết bơ lên",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'spread':",
+        "opts": [
+          "spread butter on bread",
+          "spread in wrong way",
+          "spread without care",
+          "spread for nothing"
+        ]
+      },
+      "answer": "spread butter on bread",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: spread butter on bread.",
+      "content_hash": "spread|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "spread collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spread butter on bread",
+        "vn_trap": "past tense spread"
+      }
+    },
+    {
+      "lemma": "state",
+      "pos": "v",
+      "sense_vi": "phát biểu ý kiến",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "state (v.)",
+        "opts": [
+          "phát biểu ý kiến",
+          "có xu hướng thích",
+          "xin lỗi về lỗi",
+          "cầm chiếc cốc"
+        ]
+      },
+      "answer": "phát biểu ý kiến",
+      "explain_vi": "Động từ state mang nghĩa chính xác là: phát biểu ý kiến.",
+      "content_hash": "state|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "state gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "state the official opinion",
+        "vn_trap": "past tense stated"
+      }
+    },
+    {
+      "lemma": "state",
+      "pos": "v",
+      "sense_vi": "phát biểu ý kiến",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'phát biểu ý kiến' là:",
+        "opts": [
+          "state",
+          "states",
+          "stateing",
+          "stated"
+        ]
+      },
+      "answer": "state",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là state.",
+      "content_hash": "state|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "state l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "state the official opinion",
+        "vn_trap": "past tense stated"
+      }
+    },
+    {
+      "lemma": "state",
+      "pos": "v",
+      "sense_vi": "phát biểu ý kiến",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Before you leave, make sure to ___ the door.",
+        "opts": [
+          "state",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "state",
+      "explain_vi": "Điền 'state' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "state|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "state cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "state the official opinion",
+        "vn_trap": "past tense stated"
+      }
+    },
+    {
+      "lemma": "state",
+      "pos": "v",
+      "sense_vi": "phát biểu ý kiến",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite of the rain, she went out to state.'",
+        "opts": [
+          "Despite the rain, she went out to state.",
+          "Despite of the rain, she went out to state.",
+          "They Despite of the rain, she went out to state.",
+          "She was stateing when I came yesterday."
+        ]
+      },
+      "answer": "Despite the rain, she went out to state.",
+      "explain_vi": "Dùng 'Despite' (không có 'of').",
+      "content_hash": "state|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "state error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "state the official opinion",
+        "vn_trap": "past tense stated"
+      }
+    },
+    {
+      "lemma": "state",
+      "pos": "v",
+      "sense_vi": "phát biểu ý kiến",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'state':",
+        "opts": [
+          "state the official opinion",
+          "state in wrong way",
+          "state without care",
+          "state for nothing"
+        ]
+      },
+      "answer": "state the official opinion",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: state the official opinion.",
+      "content_hash": "state|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "state collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "state the official opinion",
+        "vn_trap": "past tense stated"
+      }
+    },
+    {
+      "lemma": "stick",
+      "pos": "v",
+      "sense_vi": "dán dính lên",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "stick (v.)",
+        "opts": [
+          "dán dính lên",
+          "kiểm tra phần mềm",
+          "nộp đơn xin việc",
+          "mang theo ô"
+        ]
+      },
+      "answer": "dán dính lên",
+      "explain_vi": "Động từ stick mang nghĩa chính xác là: dán dính lên.",
+      "content_hash": "stick|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "stick gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stick on the wall",
+        "vn_trap": "past tense stuck"
+      }
+    },
+    {
+      "lemma": "stick",
+      "pos": "v",
+      "sense_vi": "dán dính lên",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'dán dính lên' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "stick",
+          "sticks",
+          "sticking",
+          "stuck"
+        ]
+      },
+      "answer": "stick",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là stick.",
+      "content_hash": "stick|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "stick l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stick on the wall",
+        "vn_trap": "past tense stuck"
+      }
+    },
+    {
+      "lemma": "stick",
+      "pos": "v",
+      "sense_vi": "dán dính lên",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love to ___ games in the playground.",
+        "opts": [
+          "stick",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "stick",
+      "explain_vi": "Điền 'stick' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "stick|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "stick cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stick on the wall",
+        "vn_trap": "past tense stuck"
+      }
+    },
+    {
+      "lemma": "stick",
+      "pos": "v",
+      "sense_vi": "dán dính lên",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has stucked the book yesterday evening.'",
+        "opts": [
+          "She stuck the book yesterday evening.",
+          "She has stucked the book yesterday evening.",
+          "They She has stucked the book yesterday evening.",
+          "She was sticking when I came yesterday."
+        ]
+      },
+      "answer": "She stuck the book yesterday evening.",
+      "explain_vi": "Quá khứ xác định dùng quá khứ đơn.",
+      "content_hash": "stick|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "stick error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stick on the wall",
+        "vn_trap": "past tense stuck"
+      }
+    },
+    {
+      "lemma": "stick",
+      "pos": "v",
+      "sense_vi": "dán dính lên",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'stick':",
+        "opts": [
+          "stick on the wall",
+          "stick in wrong way",
+          "stick without care",
+          "stick for nothing"
+        ]
+      },
+      "answer": "stick on the wall",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: stick on the wall.",
+      "content_hash": "stick|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "stick collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stick on the wall",
+        "vn_trap": "past tense stuck"
+      }
+    },
+    {
+      "lemma": "store",
+      "pos": "v",
+      "sense_vi": "lưu trữ dữ liệu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "store (v.)",
+        "opts": [
+          "lưu trữ dữ liệu",
+          "ném quả bóng",
+          "tranh luận vấn đề",
+          "xảy ra bất ngờ"
+        ]
+      },
+      "answer": "lưu trữ dữ liệu",
+      "explain_vi": "Động từ store mang nghĩa chính xác là: lưu trữ dữ liệu.",
+      "content_hash": "store|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "store gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "store data in cloud",
+        "vn_trap": "past tense stored"
+      }
+    },
+    {
+      "lemma": "store",
+      "pos": "v",
+      "sense_vi": "lưu trữ dữ liệu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'lưu trữ dữ liệu' là:",
+        "opts": [
+          "store",
+          "stores",
+          "storeing",
+          "stored"
+        ]
+      },
+      "answer": "store",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là store.",
+      "content_hash": "store|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "store l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "store data in cloud",
+        "vn_trap": "past tense stored"
+      }
+    },
+    {
+      "lemma": "store",
+      "pos": "v",
+      "sense_vi": "lưu trữ dữ liệu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "During the lesson, please ___ to the teacher.",
+        "opts": [
+          "store",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "store",
+      "explain_vi": "Điền 'store' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "store|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "store cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "store data in cloud",
+        "vn_trap": "past tense stored"
+      }
+    },
+    {
+      "lemma": "store",
+      "pos": "v",
+      "sense_vi": "lưu trữ dữ liệu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He remembered to storeing the door before leaving.'",
+        "opts": [
+          "He remembered to store the door before leaving.",
+          "He remembered to storeing the door before leaving.",
+          "They He remembered to storeing the door before leaving.",
+          "She was storeing when I came yesterday."
+        ]
+      },
+      "answer": "He remembered to store the door before leaving.",
+      "explain_vi": "Nhớ phải làm gì dùng 'remember to V'.",
+      "content_hash": "store|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "store error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "store data in cloud",
+        "vn_trap": "past tense stored"
+      }
+    },
+    {
+      "lemma": "store",
+      "pos": "v",
+      "sense_vi": "lưu trữ dữ liệu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'store':",
+        "opts": [
+          "store data in cloud",
+          "store in wrong way",
+          "store without care",
+          "store for nothing"
+        ]
+      },
+      "answer": "store data in cloud",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: store data in cloud.",
+      "content_hash": "store|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "store collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "store data in cloud",
+        "vn_trap": "past tense stored"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+◇ injected env (44) from .env.local // tip: ◈ encrypted .env [www.dotenvx.com]
+◇ injected env (0) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=500 delay=200
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 500 words to process
+
+[1/500] "sharp" → senses=3 syn=6 dist=1
+   #1: Sắc, nhọn | Be careful with that sharp knife.
+[2/500] "sheep" → senses=2 syn=6 dist=2
+   #1: động vật nuôi | The farmer keeps a flock of sheep on the hillside.
+[3/500] "sheer" → senses=3 syn=6 dist=1
+   #1: hoàn toàn, tuyệt đối | It was sheer luck that we found the house.
+[4/500] "sheet" → senses=3 syn=4 dist=1
+   #1: Ga trải giường | She pulled the sheets up to her chin to keep warm.
+[5/500] "shelf" → senses=2 syn=4 dist=1
+   #1: kệ, giá để đồ | She placed the books on the top shelf.
+[6/500] "shell" → senses=3 syn=5 dist=2
+   #1: vỏ cứng | She cracked the shell of the boiled egg and peeled it off.
+[7/500] "shift" → senses=3 syn=5 dist=2
+   #1: di chuyển, dời đổi | She shifted the chair closer to the window.
+[8/500] "shine" → senses=3 syn=6 dist=1
+   #1: động từ: tỏa sáng | The sun was shining brightly all morning.
+[9/500] "shiny" → senses=2 syn=6 dist=2
+   #1: bóng loáng | She has beautiful shiny black hair.
+[10/500] "shirk" → senses=2 syn=5 dist=1
+   #1: trốn tránh trách nhiệm | He was accused of shirking his responsibilities as a parent.
+[11/500] "shirt" → senses=2 syn=4 dist=1
+   #1: áo sơ mi | He was wearing a white shirt and a blue tie.
+[12/500] "shock"

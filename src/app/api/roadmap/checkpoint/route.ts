@@ -3,6 +3,7 @@ import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { resolveUnit, getPronunciationLesson, getStarterPack } from '@/lib/roadmap';
 import { resolvePack } from '@/lib/vocab-catalog';
+import { normalizeLessonExercise } from '@/lib/grammar-exercises';
 
 // Shape JSONB của global_dictionary.data (như /api/import/packages)
 type GdMeaning = { pos?: string; definition?: string };
@@ -141,24 +142,29 @@ export async function GET(req: NextRequest) {
     // ── Grammar: lấy exercises từ lesson của topic trong chặng ──
     const grammarSlug = unit.steps.find((s) => s.type === 'grammar')?.ref;
     if (grammarSlug) {
-      const { data: topic } = await supabase.from('grammar_topics').select('id').eq('slug', grammarSlug).maybeSingle();
+      const { data: topic } = await supabase.from('grammar_topics').select('id, title, level').eq('slug', grammarSlug).maybeSingle();
       if (topic) {
-        const { data: lessons } = await supabase.from('grammar_lessons').select('exercises').eq('topic_id', topic.id).limit(1);
-        const exercises = ((lessons?.[0]?.exercises ?? []) as LessonExercise[])
+        const { data: lessons } = await supabase.from('grammar_lessons').select('id, exercises').eq('topic_id', topic.id).limit(1);
+        const lessonId = lessons?.[0]?.id ?? grammarSlug;
+        const rawList = (lessons?.[0]?.exercises ?? []) as LessonExercise[];
+        const normalized = rawList
+          .map((raw, i) => normalizeLessonExercise(raw, lessonId, i, topic.title || grammarSlug, topic.level || 'intermediate', 'cp'))
           .filter((e) => {
-            const type = e.type ?? '';
-            const opts = e.options ?? e.opts;
-            const ans = e.correct_answer !== undefined ? e.correct_answer : e.answer;
-            return (type === 'mcq' || type === 'error' || type === 'multiple_choice' || type === 'error_correction')
-              && Array.isArray(opts) && typeof ans === 'string' && opts.includes(ans);
+            // Cần có đề + ≥2 options + đáp án khớp mềm
+            if (!e.question.trim() || e.options.length < 2 || !e.correct_answer) return false;
+            const soft = e.options.some(
+              (o) => o.trim().toLowerCase() === e.correct_answer.trim().toLowerCase(),
+            );
+            return soft;
           });
-        for (const [i, e] of shuffle(exercises).slice(0, 4).entries()) {
+        for (const [i, e] of shuffle(normalized).slice(0, 4).entries()) {
           questions.push({
-            id: `cq-gr-${grammarSlug}-${i}`, type: 'grammar-mcq',
-            prompt: String(e.question ?? e.q),
-            options: (e.options ?? e.opts) as string[],
-            answer: String(e.correct_answer !== undefined ? e.correct_answer : e.answer),
-            explanation: String(e.explanation ?? e.fb ?? ''),
+            id: `cq-gr-${grammarSlug}-${i}`,
+            type: 'grammar-mcq',
+            prompt: e.question,
+            options: e.options,
+            answer: e.correct_answer,
+            explanation: e.explanation || undefined,
           });
         }
       }

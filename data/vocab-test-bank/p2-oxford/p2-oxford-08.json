@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-oxford-08",
+  "priority": "P2",
+  "queue": "oxford",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "delicious",
+    "butter",
+    "cheese",
+    "beef",
+    "soup",
+    "salad",
+    "sandwich",
+    "cake",
+    "biscuit",
+    "chocolate",
+    "sugar",
+    "salt",
+    "pepper",
+    "oil",
+    "cream",
+    "juice",
+    "wine",
+    "beer",
+    "alcohol",
+    "apple"
+  ],
+  "items": [
+    {
+      "lemma": "delicious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của delicious",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "delicious (adj.)",
+        "opts": [
+          "ý nghĩa của delicious",
+          "sự từ chối đối với delicious",
+          "trạng thái thiếu delicious",
+          "hành động ngược lại với delicious"
+        ]
+      },
+      "answer": "ý nghĩa của delicious",
+      "explain_vi": "Từ/cụm từ 'delicious' (adj.) có nghĩa chính xác là: ý nghĩa của delicious.",
+      "content_hash": "delicious|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item delicious - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "delicious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của delicious",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của delicious':",
+        "opts": [
+          "delicious",
+          "deliciousing",
+          "delicioused",
+          "re-delicious"
+        ]
+      },
+      "answer": "delicious",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là delicious.",
+      "content_hash": "delicious|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item delicious - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "delicious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của delicious",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "delicious",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "delicious",
+      "explain_vi": "Điền 'delicious' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "delicious|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item delicious - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "delicious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của delicious",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to delicious without proper preparation yesterday.'",
+        "opts": [
+          "He tried to delicious without proper preparation yesterday.",
+          "He try to delicious without proper preparation yesterday.",
+          "He trying to delicious without proper preparation yesterday.",
+          "He was try to delicious without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to delicious without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "delicious|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item delicious - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "delicious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của delicious",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'delicious':",
+        "opts": [
+          "apply delicious correctly",
+          "make delicious wrong",
+          "do delicious badly",
+          "take delicious off"
+        ]
+      },
+      "answer": "apply delicious correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply delicious correctly.",
+      "content_hash": "delicious|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item delicious - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "butter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của butter",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "butter (n.)",
+        "opts": [
+          "ý nghĩa của butter",
+          "sự từ chối đối với butter",
+          "trạng thái thiếu butter",
+          "hành động ngược lại với butter"
+        ]
+      },
+      "answer": "ý nghĩa của butter",
+      "explain_vi": "Từ/cụm từ 'butter' (n.) có nghĩa chính xác là: ý nghĩa của butter.",
+      "content_hash": "butter|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item butter - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "butter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của butter",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của butter':",
+        "opts": [
+          "butter",
+          "buttering",
+          "buttered",
+          "re-butter"
+        ]
+      },
+      "answer": "butter",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là butter.",
+      "content_hash": "butter|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item butter - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "butter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của butter",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "butter",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "butter",
+      "explain_vi": "Điền 'butter' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "butter|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item butter - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "butter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của butter",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to butter without proper preparation yesterday.'",
+        "opts": [
+          "He tried to butter without proper preparation yesterday.",
+          "He try to butter without proper preparation yesterday.",
+          "He trying to butter without proper preparation yesterday.",
+          "He was try to butter without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to butter without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "butter|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item butter - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "butter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của butter",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'butter':",
+        "opts": [
+          "apply butter correctly",
+          "make butter wrong",
+          "do butter badly",
+          "take butter off"
+        ]
+      },
+      "answer": "apply butter correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply butter correctly.",
+      "content_hash": "butter|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item butter - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cheese",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cheese",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cheese (n.)",
+        "opts": [
+          "ý nghĩa của cheese",
+          "sự từ chối đối với cheese",
+          "trạng thái thiếu cheese",
+          "hành động ngược lại với cheese"
+        ]
+      },
+      "answer": "ý nghĩa của cheese",
+      "explain_vi": "Từ/cụm từ 'cheese' (n.) có nghĩa chính xác là: ý nghĩa của cheese.",
+      "content_hash": "cheese|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item cheese - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cheese",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cheese",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của cheese':",
+        "opts": [
+          "cheese",
+          "cheeseing",
+          "cheeseed",
+          "re-cheese"
+        ]
+      },
+      "answer": "cheese",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là cheese.",
+      "content_hash": "cheese|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item cheese - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cheese",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cheese",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "cheese",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "cheese",
+      "explain_vi": "Điền 'cheese' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "cheese|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item cheese - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cheese",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cheese",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to cheese without proper preparation yesterday.'",
+        "opts": [
+          "He tried to cheese without proper preparation yesterday.",
+          "He try to cheese without proper preparation yesterday.",
+          "He trying to cheese without proper preparation yesterday.",
+          "He was try to cheese without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to cheese without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "cheese|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item cheese - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cheese",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cheese",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'cheese':",
+        "opts": [
+          "apply cheese correctly",
+          "make cheese wrong",
+          "do cheese badly",
+          "take cheese off"
+        ]
+      },
+      "answer": "apply cheese correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply cheese correctly.",
+      "content_hash": "cheese|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item cheese - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beef",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beef",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "beef (n.)",
+        "opts": [
+          "ý nghĩa của beef",
+          "sự từ chối đối với beef",
+          "trạng thái thiếu beef",
+          "hành động ngược lại với beef"
+        ]
+      },
+      "answer": "ý nghĩa của beef",
+      "explain_vi": "Từ/cụm từ 'beef' (n.) có nghĩa chính xác là: ý nghĩa của beef.",
+      "content_hash": "beef|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item beef - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beef",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beef",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của beef':",
+        "opts": [
+          "beef",
+          "beefing",
+          "beefed",
+          "re-beef"
+        ]
+      },
+      "answer": "beef",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là beef.",
+      "content_hash": "beef|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item beef - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beef",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beef",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "beef",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "beef",
+      "explain_vi": "Điền 'beef' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "beef|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item beef - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beef",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beef",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to beef without proper preparation yesterday.'",
+        "opts": [
+          "He tried to beef without proper preparation yesterday.",
+          "He try to beef without proper preparation yesterday.",
+          "He trying to beef without proper preparation yesterday.",
+          "He was try to beef without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to beef without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "beef|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item beef - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beef",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beef",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'beef':",
+        "opts": [
+          "apply beef correctly",
+          "make beef wrong",
+          "do beef badly",
+          "take beef off"
+        ]
+      },
+      "answer": "apply beef correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply beef correctly.",
+      "content_hash": "beef|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item beef - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "soup",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của soup",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "soup (n.)",
+        "opts": [
+          "ý nghĩa của soup",
+          "sự từ chối đối với soup",
+          "trạng thái thiếu soup",
+          "hành động ngược lại với soup"
+        ]
+      },
+      "answer": "ý nghĩa của soup",
+      "explain_vi": "Từ/cụm từ 'soup' (n.) có nghĩa chính xác là: ý nghĩa của soup.",
+      "content_hash": "soup|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item soup - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "soup",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của soup",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của soup':",
+        "opts": [
+          "soup",
+          "souping",
+          "souped",
+          "re-soup"
+        ]
+      },
+      "answer": "soup",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là soup.",
+      "content_hash": "soup|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item soup - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "soup",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của soup",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "soup",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "soup",
+      "explain_vi": "Điền 'soup' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "soup|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item soup - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "soup",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của soup",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to soup without proper preparation yesterday.'",
+        "opts": [
+          "He tried to soup without proper preparation yesterday.",
+          "He try to soup without proper preparation yesterday.",
+          "He trying to soup without proper preparation yesterday.",
+          "He was try to soup without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to soup without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "soup|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item soup - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "soup",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của soup",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'soup':",
+        "opts": [
+          "apply soup correctly",
+          "make soup wrong",
+          "do soup badly",
+          "take soup off"
+        ]
+      },
+      "answer": "apply soup correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply soup correctly.",
+      "content_hash": "soup|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item soup - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salad",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "salad (n.)",
+        "opts": [
+          "ý nghĩa của salad",
+          "sự từ chối đối với salad",
+          "trạng thái thiếu salad",
+          "hành động ngược lại với salad"
+        ]
+      },
+      "answer": "ý nghĩa của salad",
+      "explain_vi": "Từ/cụm từ 'salad' (n.) có nghĩa chính xác là: ý nghĩa của salad.",
+      "content_hash": "salad|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item salad - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salad",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của salad':",
+        "opts": [
+          "salad",
+          "salading",
+          "saladed",
+          "re-salad"
+        ]
+      },
+      "answer": "salad",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là salad.",
+      "content_hash": "salad|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item salad - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salad",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "salad",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "salad",
+      "explain_vi": "Điền 'salad' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "salad|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "oxford item salad - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salad",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to salad without proper preparation yesterday.'",
+        "opts": [
+          "He tried to salad without proper preparation yesterday.",
+          "He try to salad without proper preparation yesterday.",
+          "He trying to salad without proper preparation yesterday.",
+          "He was try to salad without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to salad without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "salad|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item salad - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salad",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'salad':",
+        "opts": [
+          "apply salad correctly",
+          "make salad wrong",
+          "do salad badly",
+          "take salad off"
+        ]
+      },
+      "answer": "apply salad correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply salad correctly.",
+      "content_hash": "salad|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item salad - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sandwich",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sandwich",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sandwich (n.)",
+        "opts": [
+          "ý nghĩa của sandwich",
+          "sự từ chối đối với sandwich",
+          "trạng thái thiếu sandwich",
+          "hành động ngược lại với sandwich"
+        ]
+      },
+      "answer": "ý nghĩa của sandwich",
+      "explain_vi": "Từ/cụm từ 'sandwich' (n.) có nghĩa chính xác là: ý nghĩa của sandwich.",
+      "content_hash": "sandwich|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item sandwich - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sandwich",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sandwich",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của sandwich':",
+        "opts": [
+          "sandwich",
+          "sandwiching",
+          "sandwiched",
+          "re-sandwich"
+        ]
+      },
+      "answer": "sandwich",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là sandwich.",
+      "content_hash": "sandwich|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item sandwich - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sandwich",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sandwich",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "sandwich",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "sandwich",
+      "explain_vi": "Điền 'sandwich' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "sandwich|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item sandwich - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sandwich",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sandwich",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to sandwich without proper preparation yesterday.'",
+        "opts": [
+          "He tried to sandwich without proper preparation yesterday.",
+          "He try to sandwich without proper preparation yesterday.",
+          "He trying to sandwich without proper preparation yesterday.",
+          "He was try to sandwich without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to sandwich without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "sandwich|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item sandwich - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sandwich",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sandwich",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'sandwich':",
+        "opts": [
+          "apply sandwich correctly",
+          "make sandwich wrong",
+          "do sandwich badly",
+          "take sandwich off"
+        ]
+      },
+      "answer": "apply sandwich correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply sandwich correctly.",
+      "content_hash": "sandwich|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item sandwich - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cake",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cake",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cake (n.)",
+        "opts": [
+          "ý nghĩa của cake",
+          "sự từ chối đối với cake",
+          "trạng thái thiếu cake",
+          "hành động ngược lại với cake"
+        ]
+      },
+      "answer": "ý nghĩa của cake",
+      "explain_vi": "Từ/cụm từ 'cake' (n.) có nghĩa chính xác là: ý nghĩa của cake.",
+      "content_hash": "cake|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item cake - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cake",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cake",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của cake':",
+        "opts": [
+          "cake",
+          "cakeing",
+          "cakeed",
+          "re-cake"
+        ]
+      },
+      "answer": "cake",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là cake.",
+      "content_hash": "cake|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item cake - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cake",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cake",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "cake",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "cake",
+      "explain_vi": "Điền 'cake' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "cake|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item cake - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cake",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cake",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to cake without proper preparation yesterday.'",
+        "opts": [
+          "He tried to cake without proper preparation yesterday.",
+          "He try to cake without proper preparation yesterday.",
+          "He trying to cake without proper preparation yesterday.",
+          "He was try to cake without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to cake without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "cake|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item cake - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cake",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cake",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'cake':",
+        "opts": [
+          "apply cake correctly",
+          "make cake wrong",
+          "do cake badly",
+          "take cake off"
+        ]
+      },
+      "answer": "apply cake correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply cake correctly.",
+      "content_hash": "cake|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item cake - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "biscuit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của biscuit",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "biscuit (n.)",
+        "opts": [
+          "ý nghĩa của biscuit",
+          "sự từ chối đối với biscuit",
+          "trạng thái thiếu biscuit",
+          "hành động ngược lại với biscuit"
+        ]
+      },
+      "answer": "ý nghĩa của biscuit",
+      "explain_vi": "Từ/cụm từ 'biscuit' (n.) có nghĩa chính xác là: ý nghĩa của biscuit.",
+      "content_hash": "biscuit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item biscuit - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "biscuit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của biscuit",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của biscuit':",
+        "opts": [
+          "biscuit",
+          "biscuiting",
+          "biscuited",
+          "re-biscuit"
+        ]
+      },
+      "answer": "biscuit",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là biscuit.",
+      "content_hash": "biscuit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item biscuit - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "biscuit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của biscuit",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "biscuit",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "biscuit",
+      "explain_vi": "Điền 'biscuit' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "biscuit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item biscuit - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "biscuit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của biscuit",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to biscuit without proper preparation yesterday.'",
+        "opts": [
+          "He tried to biscuit without proper preparation yesterday.",
+          "He try to biscuit without proper preparation yesterday.",
+          "He trying to biscuit without proper preparation yesterday.",
+          "He was try to biscuit without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to biscuit without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "biscuit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "oxford item biscuit - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "biscuit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của biscuit",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'biscuit':",
+        "opts": [
+          "apply biscuit correctly",
+          "make biscuit wrong",
+          "do biscuit badly",
+          "take biscuit off"
+        ]
+      },
+      "answer": "apply biscuit correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply biscuit correctly.",
+      "content_hash": "biscuit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item biscuit - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "chocolate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chocolate",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "chocolate (n.)",
+        "opts": [
+          "ý nghĩa của chocolate",
+          "sự từ chối đối với chocolate",
+          "trạng thái thiếu chocolate",
+          "hành động ngược lại với chocolate"
+        ]
+      },
+      "answer": "ý nghĩa của chocolate",
+      "explain_vi": "Từ/cụm từ 'chocolate' (n.) có nghĩa chính xác là: ý nghĩa của chocolate.",
+      "content_hash": "chocolate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item chocolate - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "chocolate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chocolate",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của chocolate':",
+        "opts": [
+          "chocolate",
+          "chocolateing",
+          "chocolateed",
+          "re-chocolate"
+        ]
+      },
+      "answer": "chocolate",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là chocolate.",
+      "content_hash": "chocolate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item chocolate - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "chocolate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chocolate",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "chocolate",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "chocolate",
+      "explain_vi": "Điền 'chocolate' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "chocolate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item chocolate - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "chocolate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chocolate",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to chocolate without proper preparation yesterday.'",
+        "opts": [
+          "He tried to chocolate without proper preparation yesterday.",
+          "He try to chocolate without proper preparation yesterday.",
+          "He trying to chocolate without proper preparation yesterday.",
+          "He was try to chocolate without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to chocolate without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "chocolate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item chocolate - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "chocolate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chocolate",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'chocolate':",
+        "opts": [
+          "apply chocolate correctly",
+          "make chocolate wrong",
+          "do chocolate badly",
+          "take chocolate off"
+        ]
+      },
+      "answer": "apply chocolate correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply chocolate correctly.",
+      "content_hash": "chocolate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item chocolate - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sugar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sugar",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sugar (n.)",
+        "opts": [
+          "ý nghĩa của sugar",
+          "sự từ chối đối với sugar",
+          "trạng thái thiếu sugar",
+          "hành động ngược lại với sugar"
+        ]
+      },
+      "answer": "ý nghĩa của sugar",
+      "explain_vi": "Từ/cụm từ 'sugar' (n.) có nghĩa chính xác là: ý nghĩa của sugar.",
+      "content_hash": "sugar|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item sugar - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sugar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sugar",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của sugar':",
+        "opts": [
+          "sugar",
+          "sugaring",
+          "sugared",
+          "re-sugar"
+        ]
+      },
+      "answer": "sugar",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là sugar.",
+      "content_hash": "sugar|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item sugar - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sugar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sugar",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "sugar",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "sugar",
+      "explain_vi": "Điền 'sugar' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "sugar|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item sugar - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sugar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sugar",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to sugar without proper preparation yesterday.'",
+        "opts": [
+          "He tried to sugar without proper preparation yesterday.",
+          "He try to sugar without proper preparation yesterday.",
+          "He trying to sugar without proper preparation yesterday.",
+          "He was try to sugar without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to sugar without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "sugar|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item sugar - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "sugar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sugar",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'sugar':",
+        "opts": [
+          "apply sugar correctly",
+          "make sugar wrong",
+          "do sugar badly",
+          "take sugar off"
+        ]
+      },
+      "answer": "apply sugar correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply sugar correctly.",
+      "content_hash": "sugar|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item sugar - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "salt (n.)",
+        "opts": [
+          "ý nghĩa của salt",
+          "sự từ chối đối với salt",
+          "trạng thái thiếu salt",
+          "hành động ngược lại với salt"
+        ]
+      },
+      "answer": "ý nghĩa của salt",
+      "explain_vi": "Từ/cụm từ 'salt' (n.) có nghĩa chính xác là: ý nghĩa của salt.",
+      "content_hash": "salt|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item salt - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của salt':",
+        "opts": [
+          "salt",
+          "salting",
+          "salted",
+          "re-salt"
+        ]
+      },
+      "answer": "salt",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là salt.",
+      "content_hash": "salt|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item salt - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "salt",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "salt",
+      "explain_vi": "Điền 'salt' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "salt|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item salt - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to salt without proper preparation yesterday.'",
+        "opts": [
+          "He tried to salt without proper preparation yesterday.",
+          "He try to salt without proper preparation yesterday.",
+          "He trying to salt without proper preparation yesterday.",
+          "He was try to salt without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to salt without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "salt|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item salt - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "salt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của salt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'salt':",
+        "opts": [
+          "apply salt correctly",
+          "make salt wrong",
+          "do salt badly",
+          "take salt off"
+        ]
+      },
+      "answer": "apply salt correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply salt correctly.",
+      "content_hash": "salt|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "oxford item salt - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "pepper",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pepper",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pepper (n.)",
+        "opts": [
+          "ý nghĩa của pepper",
+          "sự từ chối đối với pepper",
+          "trạng thái thiếu pepper",
+          "hành động ngược lại với pepper"
+        ]
+      },
+      "answer": "ý nghĩa của pepper",
+      "explain_vi": "Từ/cụm từ 'pepper' (n.) có nghĩa chính xác là: ý nghĩa của pepper.",
+      "content_hash": "pepper|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item pepper - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "pepper",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pepper",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của pepper':",
+        "opts": [
+          "pepper",
+          "peppering",
+          "peppered",
+          "re-pepper"
+        ]
+      },
+      "answer": "pepper",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là pepper.",
+      "content_hash": "pepper|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item pepper - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "pepper",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pepper",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "pepper",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "pepper",
+      "explain_vi": "Điền 'pepper' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "pepper|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item pepper - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "pepper",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pepper",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to pepper without proper preparation yesterday.'",
+        "opts": [
+          "He tried to pepper without proper preparation yesterday.",
+          "He try to pepper without proper preparation yesterday.",
+          "He trying to pepper without proper preparation yesterday.",
+          "He was try to pepper without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to pepper without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "pepper|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item pepper - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "pepper",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pepper",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'pepper':",
+        "opts": [
+          "apply pepper correctly",
+          "make pepper wrong",
+          "do pepper badly",
+          "take pepper off"
+        ]
+      },
+      "answer": "apply pepper correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply pepper correctly.",
+      "content_hash": "pepper|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item pepper - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "oil",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của oil",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "oil (n.)",
+        "opts": [
+          "ý nghĩa của oil",
+          "sự từ chối đối với oil",
+          "trạng thái thiếu oil",
+          "hành động ngược lại với oil"
+        ]
+      },
+      "answer": "ý nghĩa của oil",
+      "explain_vi": "Từ/cụm từ 'oil' (n.) có nghĩa chính xác là: ý nghĩa của oil.",
+      "content_hash": "oil|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item oil - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "oil",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của oil",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của oil':",
+        "opts": [
+          "oil",
+          "oiling",
+          "oiled",
+          "re-oil"
+        ]
+      },
+      "answer": "oil",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là oil.",
+      "content_hash": "oil|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item oil - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "oil",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của oil",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "oil",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "oil",
+      "explain_vi": "Điền 'oil' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "oil|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item oil - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "oil",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của oil",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to oil without proper preparation yesterday.'",
+        "opts": [
+          "He tried to oil without proper preparation yesterday.",
+          "He try to oil without proper preparation yesterday.",
+          "He trying to oil without proper preparation yesterday.",
+          "He was try to oil without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to oil without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "oil|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item oil - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "oil",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của oil",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'oil':",
+        "opts": [
+          "apply oil correctly",
+          "make oil wrong",
+          "do oil badly",
+          "take oil off"
+        ]
+      },
+      "answer": "apply oil correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply oil correctly.",
+      "content_hash": "oil|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item oil - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cream",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cream",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cream (n.)",
+        "opts": [
+          "ý nghĩa của cream",
+          "sự từ chối đối với cream",
+          "trạng thái thiếu cream",
+          "hành động ngược lại với cream"
+        ]
+      },
+      "answer": "ý nghĩa của cream",
+      "explain_vi": "Từ/cụm từ 'cream' (n.) có nghĩa chính xác là: ý nghĩa của cream.",
+      "content_hash": "cream|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item cream - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cream",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cream",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của cream':",
+        "opts": [
+          "cream",
+          "creaming",
+          "creamed",
+          "re-cream"
+        ]
+      },
+      "answer": "cream",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là cream.",
+      "content_hash": "cream|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item cream - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cream",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cream",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "cream",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "cream",
+      "explain_vi": "Điền 'cream' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "cream|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item cream - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cream",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cream",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to cream without proper preparation yesterday.'",
+        "opts": [
+          "He tried to cream without proper preparation yesterday.",
+          "He try to cream without proper preparation yesterday.",
+          "He trying to cream without proper preparation yesterday.",
+          "He was try to cream without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to cream without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "cream|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item cream - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "cream",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cream",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'cream':",
+        "opts": [
+          "apply cream correctly",
+          "make cream wrong",
+          "do cream badly",
+          "take cream off"
+        ]
+      },
+      "answer": "apply cream correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply cream correctly.",
+      "content_hash": "cream|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item cream - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "juice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của juice",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "juice (n.)",
+        "opts": [
+          "ý nghĩa của juice",
+          "sự từ chối đối với juice",
+          "trạng thái thiếu juice",
+          "hành động ngược lại với juice"
+        ]
+      },
+      "answer": "ý nghĩa của juice",
+      "explain_vi": "Từ/cụm từ 'juice' (n.) có nghĩa chính xác là: ý nghĩa của juice.",
+      "content_hash": "juice|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item juice - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "juice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của juice",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của juice':",
+        "opts": [
+          "juice",
+          "juiceing",
+          "juiceed",
+          "re-juice"
+        ]
+      },
+      "answer": "juice",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là juice.",
+      "content_hash": "juice|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item juice - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "juice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của juice",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "juice",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "juice",
+      "explain_vi": "Điền 'juice' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "juice|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item juice - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "juice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của juice",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to juice without proper preparation yesterday.'",
+        "opts": [
+          "He tried to juice without proper preparation yesterday.",
+          "He try to juice without proper preparation yesterday.",
+          "He trying to juice without proper preparation yesterday.",
+          "He was try to juice without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to juice without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "juice|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item juice - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "juice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của juice",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'juice':",
+        "opts": [
+          "apply juice correctly",
+          "make juice wrong",
+          "do juice badly",
+          "take juice off"
+        ]
+      },
+      "answer": "apply juice correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply juice correctly.",
+      "content_hash": "juice|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item juice - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "wine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wine",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wine (n.)",
+        "opts": [
+          "ý nghĩa của wine",
+          "sự từ chối đối với wine",
+          "trạng thái thiếu wine",
+          "hành động ngược lại với wine"
+        ]
+      },
+      "answer": "ý nghĩa của wine",
+      "explain_vi": "Từ/cụm từ 'wine' (n.) có nghĩa chính xác là: ý nghĩa của wine.",
+      "content_hash": "wine|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item wine - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "wine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wine",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của wine':",
+        "opts": [
+          "wine",
+          "wineing",
+          "wineed",
+          "re-wine"
+        ]
+      },
+      "answer": "wine",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là wine.",
+      "content_hash": "wine|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item wine - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "wine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wine",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "wine",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "wine",
+      "explain_vi": "Điền 'wine' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "wine|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item wine - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "wine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wine",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to wine without proper preparation yesterday.'",
+        "opts": [
+          "He tried to wine without proper preparation yesterday.",
+          "He try to wine without proper preparation yesterday.",
+          "He trying to wine without proper preparation yesterday.",
+          "He was try to wine without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to wine without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "wine|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item wine - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "wine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wine",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'wine':",
+        "opts": [
+          "apply wine correctly",
+          "make wine wrong",
+          "do wine badly",
+          "take wine off"
+        ]
+      },
+      "answer": "apply wine correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply wine correctly.",
+      "content_hash": "wine|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item wine - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beer",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beer",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "beer (n.)",
+        "opts": [
+          "ý nghĩa của beer",
+          "sự từ chối đối với beer",
+          "trạng thái thiếu beer",
+          "hành động ngược lại với beer"
+        ]
+      },
+      "answer": "ý nghĩa của beer",
+      "explain_vi": "Từ/cụm từ 'beer' (n.) có nghĩa chính xác là: ý nghĩa của beer.",
+      "content_hash": "beer|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item beer - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beer",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beer",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của beer':",
+        "opts": [
+          "beer",
+          "beering",
+          "beered",
+          "re-beer"
+        ]
+      },
+      "answer": "beer",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là beer.",
+      "content_hash": "beer|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item beer - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beer",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beer",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "beer",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "beer",
+      "explain_vi": "Điền 'beer' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "beer|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "oxford item beer - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beer",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beer",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to beer without proper preparation yesterday.'",
+        "opts": [
+          "He tried to beer without proper preparation yesterday.",
+          "He try to beer without proper preparation yesterday.",
+          "He trying to beer without proper preparation yesterday.",
+          "He was try to beer without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to beer without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "beer|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item beer - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "beer",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của beer",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'beer':",
+        "opts": [
+          "apply beer correctly",
+          "make beer wrong",
+          "do beer badly",
+          "take beer off"
+        ]
+      },
+      "answer": "apply beer correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply beer correctly.",
+      "content_hash": "beer|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item beer - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "alcohol",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của alcohol",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "alcohol (n.)",
+        "opts": [
+          "ý nghĩa của alcohol",
+          "sự từ chối đối với alcohol",
+          "trạng thái thiếu alcohol",
+          "hành động ngược lại với alcohol"
+        ]
+      },
+      "answer": "ý nghĩa của alcohol",
+      "explain_vi": "Từ/cụm từ 'alcohol' (n.) có nghĩa chính xác là: ý nghĩa của alcohol.",
+      "content_hash": "alcohol|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item alcohol - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "alcohol",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của alcohol",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của alcohol':",
+        "opts": [
+          "alcohol",
+          "alcoholing",
+          "alcoholed",
+          "re-alcohol"
+        ]
+      },
+      "answer": "alcohol",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là alcohol.",
+      "content_hash": "alcohol|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item alcohol - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "alcohol",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của alcohol",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "alcohol",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "alcohol",
+      "explain_vi": "Điền 'alcohol' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "alcohol|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item alcohol - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "alcohol",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của alcohol",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to alcohol without proper preparation yesterday.'",
+        "opts": [
+          "He tried to alcohol without proper preparation yesterday.",
+          "He try to alcohol without proper preparation yesterday.",
+          "He trying to alcohol without proper preparation yesterday.",
+          "He was try to alcohol without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to alcohol without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "alcohol|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item alcohol - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "alcohol",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của alcohol",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'alcohol':",
+        "opts": [
+          "apply alcohol correctly",
+          "make alcohol wrong",
+          "do alcohol badly",
+          "take alcohol off"
+        ]
+      },
+      "answer": "apply alcohol correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply alcohol correctly.",
+      "content_hash": "alcohol|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item alcohol - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "apple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apple",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "apple (n.)",
+        "opts": [
+          "ý nghĩa của apple",
+          "sự từ chối đối với apple",
+          "trạng thái thiếu apple",
+          "hành động ngược lại với apple"
+        ]
+      },
+      "answer": "ý nghĩa của apple",
+      "explain_vi": "Từ/cụm từ 'apple' (n.) có nghĩa chính xác là: ý nghĩa của apple.",
+      "content_hash": "apple|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item apple - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "apple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apple",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của apple':",
+        "opts": [
+          "apple",
+          "appleing",
+          "appleed",
+          "re-apple"
+        ]
+      },
+      "answer": "apple",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là apple.",
+      "content_hash": "apple|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item apple - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "apple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apple",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "apple",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "apple",
+      "explain_vi": "Điền 'apple' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "apple|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item apple - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "apple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apple",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to apple without proper preparation yesterday.'",
+        "opts": [
+          "He tried to apple without proper preparation yesterday.",
+          "He try to apple without proper preparation yesterday.",
+          "He trying to apple without proper preparation yesterday.",
+          "He was try to apple without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to apple without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "apple|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item apple - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    },
+    {
+      "lemma": "apple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apple",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'apple':",
+        "opts": [
+          "apply apple correctly",
+          "make apple wrong",
+          "do apple badly",
+          "take apple off"
+        ]
+      },
+      "answer": "apply apple correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply apple correctly.",
+      "content_hash": "apple|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item apple - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-08"
+      }
+    }
+  ]
+}

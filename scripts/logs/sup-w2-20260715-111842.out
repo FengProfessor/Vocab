@@ -1,0 +1,42 @@
+◇ injected env (44) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+◇ injected env (0) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "corps" → senses=3 syn=6 dist=1
+   #1: quân đoàn, đơn vị quân sự | He commanded an entire army corps during the campaign.
+[2/1000] "couch" → senses=2 syn=5 dist=1
+   #1: ghế sofa | He was asleep on the couch.
+[3/1000] "cough" → senses=2 syn=3 dist=1
+   #1: động từ chỉ hành động | He coughed loudly during the exam and disturbed everyone.
+[4/1000] "could" → senses=3 syn=2 dist=2
+   #1: khả năng có thể | It could rain later, so take an umbrella.
+[5/1000] "count" → senses=3 syn=5 dist=1
+   #1: đếm số | She counted the money carefully before putting it in her wallet.
+[6/1000] "court" → senses=3 syn=5 dist=1
+   #1: tòa án, tòa | The case will go to court next month.
+[7/1000] "cover" → senses=3 syn=6 dist=1
+   #1: che phủ, bao phủ | She covered the food with a cloth to keep it warm.
+[8/1000] "covet" → senses=2 syn=3 dist=1
+   #1: thèm khát thứ của người khác | She coveted her neighbor's success and worked hard to achieve her own.
+[9/1000] "crack" → senses=3 syn=5 dist=1
+   #1: làm nứt, làm gãy | She cracked the window when she slammed the door.
+[10/1000] "craft" → senses=3 syn=6 dist=1
+   #1: nghề thủ công | He learned the craft of woodworking from his grandfather.
+[11/1000] "cramp" → senses=3 syn=5 dist=1
+   #1: chuột rút, co thắt cơ | I got a cramp in my leg while swimming and had to stop.
+[12/1000] "crane" → senses=3 syn=5 dist=1
+   #1: máy cần cẩu | A crane was used to lift the steel beams into place.
+[13/1000] "crash" → senses=3 syn=5 dist=1
+   #1: tai nạn, va chạm | He was seriously injured in a car crash on the highway.
+[14/1000] "crate" → senses=2 syn=5 dist=2
+   #1: thùng hàng, thùng gỗ | The oranges were packed in wooden crates.
+[15/1000] "crawl"

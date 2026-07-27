@@ -1,0 +1,44 @@
+◇ injected env (44) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+◇ injected env (0) from .env.local // tip: ⌘ enable debugging { debug: true }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=500 delay=200
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 500 words to process
+
+[1/500] "bread" → senses=3 syn=4 dist=1
+   #1: thức ăn từ bột mì | Would you like some bread with your soup?
+[2/500] "break" → senses=3 syn=6 dist=2
+   #1: làm vỡ, gãy | She accidentally broke the vase while cleaning the shelf.
+[3/500] "breed" → senses=3 syn=6 dist=1
+   #1: giống động vật | Labradors are a popular breed of dog.
+[4/500] "bribe" → senses=2 syn=5 dist=1
+   #1: danh từ | He was accused of accepting bribes from local businesses.
+[5/500] "brick" → senses=3 syn=4 dist=1
+   #1: vật liệu xây dựng | They built the wall using red bricks.
+[6/500] "bride" → senses=1 syn=2 dist=1
+   #1: cô dâu | The bride wore a beautiful white dress.
+[7/500] "brief" → senses=3 syn=6 dist=1
+   #1: ngắn ngủi, ngắn | The meeting was brief, lasting only fifteen minutes.
+[8/500] "bring" → senses=3 syn=6 dist=1
+   #1: mang theo, mang đến | Don't forget to bring your umbrella.
+[9/500] "brink" → senses=2 syn=5 dist=2
+   #1: bờ vực nguy hiểm | The country is on the brink of economic collapse.
+[10/500] "brisk" → senses=3 syn=5 dist=1
+   #1: nhanh nhẹn, hoạt bát | We took a brisk walk along the beach.
+[11/500] "broad" → senses=3 syn=5 dist=1
+   #1: rộng (vật lý) | The river is too broad to swim across.
+[12/500] "brook" → senses=2 syn=6 dist=2
+   #1: dòng suối nhỏ | The children loved playing by the brook behind their grandparents' house.
+[13/500] "brown" → senses=3 syn=5 dist=2
+   #1: màu nâu | She has beautiful brown eyes.
+[14/500] "brush" → senses=3 syn=6 dist=1
+   #1: chải, đánh (răng) | She brushed her teeth and went to bed.
+[15/500] "buddy" → senses=3 syn=6 dist=2
+   #1: bạn thân, bạn bè | He's my best buddy from college.
+[16/500] "build"

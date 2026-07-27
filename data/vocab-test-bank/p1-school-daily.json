@@ -1,0 +1,3139 @@
+{
+  "version": 2,
+  "batch_id": "p1-school-daily",
+  "priority": "P1",
+  "pack_ids": [
+    "school-daily-ext"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "homework (n.)",
+        "opts": [
+          "bài tập về nhà",
+          "việc nhà",
+          "bài kiểm tra",
+          "sách giáo khoa"
+        ]
+      },
+      "answer": "bài tập về nhà",
+      "explain_vi": "homework nghĩa là bài tập về nhà.",
+      "content_hash": "homework|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bài tập",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nhiệm vụ học tập thầy cô giao làm ở nhà:",
+        "opts": [
+          "homework",
+          "housework",
+          "assignment",
+          "classwork"
+        ]
+      },
+      "answer": "homework",
+      "explain_vi": "Bài tập về nhà là homework (housework là việc nhà).",
+      "content_hash": "homework|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss housework",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "You should complete your math ___ before watching TV.",
+        "opts": [
+          "homework",
+          "housework",
+          "job",
+          "chore"
+        ]
+      },
+      "answer": "homework",
+      "explain_vi": "Complete your homework (làm xong bài tập).",
+      "content_hash": "homework|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "complete homework",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She makes her homework after dinner every night.'",
+        "opts": [
+          "She does her homework after dinner every night.",
+          "She makes her homework after dinner every night.",
+          "She creates her homework after dinner every night.",
+          "She works her homework after dinner every night."
+        ]
+      },
+      "answer": "She does her homework after dinner every night.",
+      "explain_vi": "Kết hợp từ chuẩn là do homework, không dùng make homework.",
+      "content_hash": "homework|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy do homework vs make",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm làm bài tập về nhà chuẩn:",
+        "opts": [
+          "do homework",
+          "make homework",
+          "create homework",
+          "work homework"
+        ]
+      },
+      "answer": "do homework",
+      "explain_vi": "Cụm kết hợp đúng: do homework.",
+      "content_hash": "homework|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm do homework",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tired (adj.)",
+        "opts": [
+          "mệt mỏi",
+          "vui vẻ",
+          "lo lắng",
+          "tức giận"
+        ]
+      },
+      "answer": "mệt mỏi",
+      "explain_vi": "tired có nghĩa là mệt mỏi.",
+      "content_hash": "tired|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa mệt mỏi",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cảm giác kiệt sức cần nghỉ ngơi:",
+        "opts": [
+          "tired",
+          "tiring",
+          "bored",
+          "scared"
+        ]
+      },
+      "answer": "tired",
+      "explain_vi": "Trạng thái cảm giác của người dùng tired (tiring là gây mệt).",
+      "content_hash": "tired|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss tiring",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "After working all day in the garden, she felt very ___.",
+        "opts": [
+          "tired",
+          "hungry",
+          "thirsty",
+          "excited"
+        ]
+      },
+      "answer": "tired",
+      "explain_vi": "Felt tired after working all day.",
+      "content_hash": "tired|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "felt tired",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I am very tiring after a long football match.'",
+        "opts": [
+          "I am very tired after a long football match.",
+          "I am very tiring after a long football match.",
+          "I am very tire after a long football match.",
+          "I feel tiring after a long football match."
+        ]
+      },
+      "answer": "I am very tired after a long football match.",
+      "explain_vi": "Mô tả cảm xúc con người dùng tính từ đuôi -ed: tired.",
+      "content_hash": "tired|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy tired vs tiring",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm mệt mỏi vì công việc chuẩn:",
+        "opts": [
+          "tired of work",
+          "tiring of work",
+          "tired with work",
+          "tired at work"
+        ]
+      },
+      "answer": "tired of work",
+      "explain_vi": "Mệt mỏi chán nản điều gì dùng 'tired of work'.",
+      "content_hash": "tired|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm tired of",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "breakfast (n.)",
+        "opts": [
+          "bữa sáng",
+          "bữa trưa",
+          "bữa tối",
+          "bữa phụ"
+        ]
+      },
+      "answer": "bữa sáng",
+      "explain_vi": "breakfast nghĩa là bữa ăn buổi sáng.",
+      "content_hash": "breakfast|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bữa sáng",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bữa ăn đầu tiên trong ngày vào buổi sáng:",
+        "opts": [
+          "breakfast",
+          "lunch",
+          "dinner",
+          "supper"
+        ]
+      },
+      "answer": "breakfast",
+      "explain_vi": "Bữa sáng là breakfast.",
+      "content_hash": "breakfast|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss các bữa ăn",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "I always have bread and milk for ___ at 7 AM.",
+        "opts": [
+          "breakfast",
+          "lunch",
+          "dinner",
+          "snack"
+        ]
+      },
+      "answer": "breakfast",
+      "explain_vi": "Have bread for breakfast (ăn gì cho bữa sáng).",
+      "content_hash": "breakfast|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "have for breakfast",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He eats a breakfast at 7 o'clock every morning.'",
+        "opts": [
+          "He eats breakfast at 7 o'clock every morning.",
+          "He eats a breakfast at 7 o'clock every morning.",
+          "He make breakfast at 7 o'clock every morning.",
+          "He having breakfast at 7 o'clock every morning."
+        ]
+      },
+      "answer": "He eats breakfast at 7 o'clock every morning.",
+      "explain_vi": "Không dùng mạo từ 'a' trước danh từ bữa ăn chung chung 'breakfast'.",
+      "content_hash": "breakfast|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy eat breakfast (no a)",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ăn bữa sáng chuẩn:",
+        "opts": [
+          "have breakfast",
+          "eat breakfast",
+          "make breakfast",
+          "do breakfast"
+        ]
+      },
+      "answer": "have breakfast",
+      "explain_vi": "Ăn bữa sáng tự nhiên phổ biến nhất là have breakfast.",
+      "content_hash": "breakfast|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm have breakfast",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "happy (adj.)",
+        "opts": [
+          "vui vẻ / hạnh phúc",
+          "buồn bã",
+          "tức giận",
+          "lo lắng"
+        ]
+      },
+      "answer": "vui vẻ / hạnh phúc",
+      "explain_vi": "happy nghĩa là vui vẻ.",
+      "content_hash": "happy|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa vui vẻ",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trạng thái cảm xúc vui sướng, hài lòng:",
+        "opts": [
+          "happy",
+          "happily",
+          "happiness",
+          "unhappy"
+        ]
+      },
+      "answer": "happy",
+      "explain_vi": "Tính từ vui vẻ là happy (happily là trạng từ, happiness là danh từ).",
+      "content_hash": "happy|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss happily/happiness",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "All the children looked very ___ when receiving gifts.",
+        "opts": [
+          "happy",
+          "sad",
+          "upset",
+          "scared"
+        ]
+      },
+      "answer": "happy",
+      "explain_vi": "Looked happy when receiving gifts (vui khi nhận quà).",
+      "content_hash": "happy|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "looked happy",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She felt happily when she got high marks.'",
+        "opts": [
+          "She felt happy when she got high marks.",
+          "She felt happily when she got high marks.",
+          "She feel happy when she got high marks.",
+          "She is happily when she got high marks."
+        ]
+      },
+      "answer": "She felt happy when she got high marks.",
+      "explain_vi": "Động từ nối 'feel' đi với tính từ happy, không dùng trạng từ happily.",
+      "content_hash": "happy|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy feel happy vs happily",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chúc mừng sinh nhật vui vẻ chuẩn:",
+        "opts": [
+          "Happy Birthday",
+          "Good Birthday",
+          "Nice Birthday",
+          "Fine Birthday"
+        ]
+      },
+      "answer": "Happy Birthday",
+      "explain_vi": "Chúc mừng sinh nhật là Happy Birthday.",
+      "content_hash": "happy|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Happy Birthday",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "finish (v.)",
+        "opts": [
+          "hoàn thành / kết thúc",
+          "bắt đầu",
+          "tạm dừng",
+          "bỏ dở"
+        ]
+      },
+      "answer": "hoàn thành / kết thúc",
+      "explain_vi": "finish nghĩa là làm xong, hoàn thành.",
+      "content_hash": "finish|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa hoàn thành",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Làm xong hoặc hoàn thành công việc:",
+        "opts": [
+          "finish",
+          "finished",
+          "finishing",
+          "fine"
+        ]
+      },
+      "answer": "finish",
+      "explain_vi": "Hoàn thành là finish.",
+      "content_hash": "finish|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss form",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ your report before 5 PM today.",
+        "opts": [
+          "finish",
+          "start",
+          "delay",
+          "forget"
+        ]
+      },
+      "answer": "finish",
+      "explain_vi": "Finish your report (hoàn thành báo cáo).",
+      "content_hash": "finish|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "finish report",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He finished to write the essay at 10 PM.'",
+        "opts": [
+          "He finished writing the essay at 10 PM.",
+          "He finished to write the essay at 10 PM.",
+          "He finished write the essay at 10 PM.",
+          "He finished for writing the essay at 10 PM."
+        ]
+      },
+      "answer": "He finished writing the essay at 10 PM.",
+      "explain_vi": "Sau động từ finish đi với danh động từ V-ing: finish writing.",
+      "content_hash": "finish|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy finish + Ving",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm làm xong công việc chuẩn:",
+        "opts": [
+          "finish work",
+          "finish to work",
+          "finish working",
+          "finish at work"
+        ]
+      },
+      "answer": "finish work",
+      "explain_vi": "Làm xong việc dùng cụm finish work (hoặc finish working).",
+      "content_hash": "finish|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm finish work",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "start (v.)",
+        "opts": [
+          "bắt đầu",
+          "kết thúc",
+          "dừng lại",
+          "hủy bỏ"
+        ]
+      },
+      "answer": "bắt đầu",
+      "explain_vi": "start nghĩa là khởi đầu, bắt đầu.",
+      "content_hash": "start|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bắt đầu",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bắt tay vào tiến hành công việc:",
+        "opts": [
+          "start",
+          "started",
+          "starting",
+          "star"
+        ]
+      },
+      "answer": "start",
+      "explain_vi": "Bắt đầu là start (star là ngôi sao).",
+      "content_hash": "start|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss star",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "The English test will ___ at 8:00 AM sharp.",
+        "opts": [
+          "start",
+          "finish",
+          "close",
+          "leave"
+        ]
+      },
+      "answer": "start",
+      "explain_vi": "Test will start at 8 AM (bắt đầu lúc 8h).",
+      "content_hash": "start|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "start at 8 AM",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The movie starts in 7 PM every Sunday.'",
+        "opts": [
+          "The movie starts at 7 PM every Sunday.",
+          "The movie starts in 7 PM every Sunday.",
+          "The movie starts on 7 PM every Sunday.",
+          "The movie starts for 7 PM every Sunday."
+        ]
+      },
+      "answer": "The movie starts at 7 PM every Sunday.",
+      "explain_vi": "Mốc giờ giấc dùng giới từ 'at 7 PM', không dùng 'in 7 PM'.",
+      "content_hash": "start|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy starts at 7 PM",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bắt đầu một ngày mới chuẩn:",
+        "opts": [
+          "start a new day",
+          "make a new day",
+          "do a new day",
+          "begin a new day"
+        ]
+      },
+      "answer": "start a new day",
+      "explain_vi": "Cụm bắt đầu ngày mới: start a new day.",
+      "content_hash": "start|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm start a new day",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "need (v.)",
+        "opts": [
+          "cần / nhu cầu",
+          "muốn",
+          "thích",
+          "ghét"
+        ]
+      },
+      "answer": "cần / nhu cầu",
+      "explain_vi": "need diễn tả sự cần thiết.",
+      "content_hash": "need|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cần",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bắt buộc hoặc cần có điều gì thiết yếu:",
+        "opts": [
+          "need",
+          "needs",
+          "needed",
+          "neat"
+        ]
+      },
+      "answer": "need",
+      "explain_vi": "Cần là need (neat là gọn gàng).",
+      "content_hash": "need|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss neat",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "You ___ a passport to travel to another country.",
+        "opts": [
+          "need",
+          "want",
+          "like",
+          "wish"
+        ]
+      },
+      "answer": "need",
+      "explain_vi": "You need a passport (bạn cần hộ chiếu).",
+      "content_hash": "need|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "need passport",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He needs go to the doctor immediately.'",
+        "opts": [
+          "He needs to go to the doctor immediately.",
+          "He needs go to the doctor immediately.",
+          "He need to go to the doctor immediately.",
+          "He is needing go to the doctor immediately."
+        ]
+      },
+      "answer": "He needs to go to the doctor immediately.",
+      "explain_vi": "Động từ need đi với động từ nguyên mẫu có to: need to go.",
+      "content_hash": "need|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy need to V",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm cần sự giúp đỡ chuẩn:",
+        "opts": [
+          "need help",
+          "need a help",
+          "need to help",
+          "need helping"
+        ]
+      },
+      "answer": "need help",
+      "explain_vi": "Cần trợ giúp dùng cụm 'need help'.",
+      "content_hash": "need|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm need help",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "late (adj.)",
+        "opts": [
+          "trễ / muộn",
+          "sớm",
+          "đúng giờ",
+          "nhanh"
+        ]
+      },
+      "answer": "trễ / muộn",
+      "explain_vi": "late nghĩa là trễ, muộn.",
+      "content_hash": "late|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa trễ/muộn",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Đến sau thời gian quy định:",
+        "opts": [
+          "late",
+          "lately",
+          "later",
+          "latest"
+        ]
+      },
+      "answer": "late",
+      "explain_vi": "Trễ/muộn là late (lately là dạo gần đây).",
+      "content_hash": "late|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss lately",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Hurry up, or we will be ___ for class!",
+        "opts": [
+          "late",
+          "early",
+          "ready",
+          "slow"
+        ]
+      },
+      "answer": "late",
+      "explain_vi": "Be late for class (bị muộn học).",
+      "content_hash": "late|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "be late for class",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He arrived lately for the meeting yesterday.'",
+        "opts": [
+          "He arrived late for the meeting yesterday.",
+          "He arrived lately for the meeting yesterday.",
+          "He arrived late to the meeting yesterday.",
+          "He was lately for the meeting yesterday."
+        ]
+      },
+      "answer": "He arrived late for the meeting yesterday.",
+      "explain_vi": "Đến muộn dùng trạng từ 'late', không dùng 'lately' (dạo gần đây).",
+      "content_hash": "late|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy late vs lately",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bị muộn / trễ học chuẩn:",
+        "opts": [
+          "be late for school",
+          "be late to school",
+          "be lately for school",
+          "be late in school"
+        ]
+      },
+      "answer": "be late for school",
+      "explain_vi": "Trễ học dùng cấu trúc 'be late for school'.",
+      "content_hash": "late|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm be late for school",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "early (adj./adv.)",
+        "opts": [
+          "sớm",
+          "muộn",
+          "chậm",
+          "kịp lúc"
+        ]
+      },
+      "answer": "sớm",
+      "explain_vi": "early nghĩa là sớm.",
+      "content_hash": "early|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa sớm",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Đến trước thời gian dự định:",
+        "opts": [
+          "early",
+          "earlily",
+          "earlier",
+          "earliest"
+        ]
+      },
+      "answer": "early",
+      "explain_vi": "Sớm là early (không có từ earlily).",
+      "content_hash": "early|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss earlily",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "She set off ___ in the morning to avoid traffic.",
+        "opts": [
+          "early",
+          "late",
+          "soon",
+          "fast"
+        ]
+      },
+      "answer": "early",
+      "explain_vi": "Set off early in the morning (khởi hành sớm).",
+      "content_hash": "early|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "early in the morning",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'We arrived earlily at the station.'",
+        "opts": [
+          "We arrived early at the station.",
+          "We arrived earlily at the station.",
+          "We arrived early on the station.",
+          "We arrived earliness at the station."
+        ]
+      },
+      "answer": "We arrived early at the station.",
+      "explain_vi": "Trạng từ của early vẫn là early, không có dạng earlily.",
+      "content_hash": "early|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy earlily",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thức dậy sớm chuẩn:",
+        "opts": [
+          "wake up early",
+          "get up early",
+          "rise early",
+          "stand up early"
+        ]
+      },
+      "answer": "wake up early",
+      "explain_vi": "Thức dậy sớm dùng cụm wake up early / get up early.",
+      "content_hash": "early|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm wake up early",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "classroom (n.)",
+        "opts": [
+          "phòng học",
+          "sân trường",
+          "nhà ăn",
+          "thư viện"
+        ]
+      },
+      "answer": "phòng học",
+      "explain_vi": "classroom nghĩa là phòng học.",
+      "content_hash": "classroom|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa phòng học",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Căn phòng nơi học sinh ngồi học bài:",
+        "opts": [
+          "classroom",
+          "classmate",
+          "classwork",
+          "classy"
+        ]
+      },
+      "answer": "classroom",
+      "explain_vi": "Phòng học là classroom.",
+      "content_hash": "classroom|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss classmate",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Students walked quietly into the ___ when the bell rang.",
+        "opts": [
+          "classroom",
+          "playground",
+          "canteen",
+          "stadium"
+        ]
+      },
+      "answer": "classroom",
+      "explain_vi": "Walked into the classroom (đi vào phòng học).",
+      "content_hash": "classroom|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "into classroom",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There are thirty desks into the classroom.'",
+        "opts": [
+          "There are thirty desks in the classroom.",
+          "There are thirty desks into the classroom.",
+          "There are thirty desks at classroom.",
+          "There have thirty desks in the classroom."
+        ]
+      },
+      "answer": "There are thirty desks in the classroom.",
+      "explain_vi": "Chỉ vị trí bên trong không gian phòng học dùng giới từ 'in'.",
+      "content_hash": "classroom|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy in the classroom",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nội quy phòng học chuẩn:",
+        "opts": [
+          "classroom rules",
+          "classroom laws",
+          "classroom orders",
+          "classroom notes"
+        ]
+      },
+      "answer": "classroom rules",
+      "explain_vi": "Nội quy lớp học là classroom rules.",
+      "content_hash": "classroom|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm classroom rules",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "teacher (n.)",
+        "opts": [
+          "giáo viên",
+          "học sinh",
+          "bác sĩ",
+          "kỹ sư"
+        ]
+      },
+      "answer": "giáo viên",
+      "explain_vi": "teacher nghĩa là giáo viên.",
+      "content_hash": "teacher|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa giáo viên",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người truyền đạt kiến thức cho học sinh tại trường:",
+        "opts": [
+          "teacher",
+          "teach",
+          "teaching",
+          "trainer"
+        ]
+      },
+      "answer": "teacher",
+      "explain_vi": "Giáo viên là teacher (teach là động từ dạy).",
+      "content_hash": "teacher|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss teach",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Our English ___ explains grammar clearly.",
+        "opts": [
+          "teacher",
+          "student",
+          "worker",
+          "driver"
+        ]
+      },
+      "answer": "teacher",
+      "explain_vi": "English teacher (giáo viên tiếng Anh).",
+      "content_hash": "teacher|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "English teacher",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'My mother is teacher of English at a school.'",
+        "opts": [
+          "My mother is a teacher of English at a school.",
+          "My mother is teacher of English at a school.",
+          "My mother is an teacher of English at a school.",
+          "My mother works like teacher of English."
+        ]
+      },
+      "answer": "My mother is a teacher of English at a school.",
+      "explain_vi": "Danh từ chỉ nghề nghiệp cần có mạo từ 'a teacher'.",
+      "content_hash": "teacher|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy a teacher",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm giáo viên chủ nhiệm chuẩn:",
+        "opts": [
+          "homeroom teacher",
+          "head teacher",
+          "main teacher",
+          "class teacher"
+        ]
+      },
+      "answer": "homeroom teacher",
+      "explain_vi": "Giáo viên chủ nhiệm lớp gọi là homeroom teacher.",
+      "content_hash": "teacher|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm homeroom teacher",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "break (n.)",
+        "opts": [
+          "giờ giải lao / nghỉ ngơi",
+          "bài kiểm tra",
+          "tiết học",
+          "buổi lễ"
+        ]
+      },
+      "answer": "giờ giải lao / nghỉ ngơi",
+      "explain_vi": "break nghĩa là giờ giải lao ngắn.",
+      "content_hash": "break|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa giờ giải lao",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khoảng thời gian nghỉ ngắn giữa giờ học:",
+        "opts": [
+          "break",
+          "brake",
+          "broke",
+          "broken"
+        ]
+      },
+      "answer": "break",
+      "explain_vi": "Giờ giải lao là break (đồng âm với brake - phanh xe).",
+      "content_hash": "break|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss brake/broke",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Let's take a ten-minute ___ after finishing this exercise.",
+        "opts": [
+          "break",
+          "pause",
+          "stop",
+          "rest"
+        ]
+      },
+      "answer": "break",
+      "explain_vi": "Take a break (nghỉ giải lao).",
+      "content_hash": "break|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "take a break",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'We have a short break on the meeting.'",
+        "opts": [
+          "We have a short break during the meeting.",
+          "We have a short break on the meeting.",
+          "We have short break in the meeting.",
+          "We make a short break on the meeting."
+        ]
+      },
+      "answer": "We have a short break during the meeting.",
+      "explain_vi": "Diễn tả nghỉ giải lao trong cuộc họp dùng giới từ 'during the meeting'.",
+      "content_hash": "break|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy during the meeting",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nghỉ giải lao chuẩn:",
+        "opts": [
+          "take a break",
+          "make a break",
+          "do a break",
+          "give a break"
+        ]
+      },
+      "answer": "take a break",
+      "explain_vi": "Kết hợp từ chuẩn: take a break.",
+      "content_hash": "break|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm take a break",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "exam (n.)",
+        "opts": [
+          "kỳ thi / bài kiểm tra",
+          "bài giảng",
+          "kỳ nghỉ",
+          "dự án"
+        ]
+      },
+      "answer": "kỳ thi / bài kiểm tra",
+      "explain_vi": "exam nghĩa là kỳ thi chính thức.",
+      "content_hash": "exam|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa kỳ thi",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bài kiểm tra trình độ chính thức ở trường:",
+        "opts": [
+          "exam",
+          "examination",
+          "example",
+          "exercise"
+        ]
+      },
+      "answer": "exam",
+      "explain_vi": "Kỳ thi là exam (viết tắt của examination).",
+      "content_hash": "exam|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss example",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "She revised all the lessons to prepare for the final ___.",
+        "opts": [
+          "exam",
+          "lesson",
+          "class",
+          "break"
+        ]
+      },
+      "answer": "exam",
+      "explain_vi": "Final exam (kỳ thi cuối kỳ).",
+      "content_hash": "exam|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "final exam",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He passed in the exam with flying colors.'",
+        "opts": [
+          "He passed the exam with flying colors.",
+          "He passed in the exam with flying colors.",
+          "He passed at the exam with flying colors.",
+          "He passed on the exam with flying colors."
+        ]
+      },
+      "answer": "He passed the exam with flying colors.",
+      "explain_vi": "Động từ pass đi trực tiếp tân ngữ 'passed the exam' (không dùng pass in).",
+      "content_hash": "exam|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy pass the exam",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thi đỗ kỳ thi chuẩn:",
+        "opts": [
+          "pass the exam",
+          "win the exam",
+          "do the exam",
+          "get the exam"
+        ]
+      },
+      "answer": "pass the exam",
+      "explain_vi": "Thi đỗ kỳ thi là pass the exam.",
+      "content_hash": "exam|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm pass the exam",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "remember (v.)",
+        "opts": [
+          "ghi nhớ / nhớ lại",
+          "quên mất",
+          "bỏ qua",
+          "nhầm lẫn"
+        ]
+      },
+      "answer": "ghi nhớ / nhớ lại",
+      "explain_vi": "remember nghĩa là ghi nhớ.",
+      "content_hash": "remember|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa ghi nhớ",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Lưu giữ thông tin trong trí nhớ:",
+        "opts": [
+          "remember",
+          "remind",
+          "recall",
+          "member"
+        ]
+      },
+      "answer": "remember",
+      "explain_vi": "Ghi nhớ là remember (remind là nhắc nhở).",
+      "content_hash": "remember|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss remind",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ to turn off the lights before leaving.",
+        "opts": [
+          "remember",
+          "remind",
+          "recall",
+          "memorize"
+        ]
+      },
+      "answer": "remember",
+      "explain_vi": "Remember to turn off (nhớ phải tắt đèn).",
+      "content_hash": "remember|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "remember to turn off",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I remember to lock the door when I left this morning.'",
+        "opts": [
+          "I remember locking the door when I left this morning.",
+          "I remember to lock the door when I left this morning.",
+          "I remember lock the door when I left this morning.",
+          "I am remember locking the door when I left this morning."
+        ]
+      },
+      "answer": "I remember locking the door when I left this morning.",
+      "explain_vi": "Nhớ đã làm việc gì trong quá khứ dùng 'remember + V-ing': remember locking.",
+      "content_hash": "remember|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy remember Ving vs toV",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nhớ làm gì trong tương lai chuẩn:",
+        "opts": [
+          "remember to do something",
+          "remember doing something",
+          "remember for doing something",
+          "remember at do something"
+        ]
+      },
+      "answer": "remember to do something",
+      "explain_vi": "Nhớ phải làm gì trong tương lai: remember to do something.",
+      "content_hash": "remember|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm remember to do",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "lesson",
+      "pos": "n",
+      "sense_vi": "bài học",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lesson (n.)",
+        "opts": [
+          "bài học / tiết học",
+          "bài kiểm tra",
+          "kỳ nghỉ",
+          "sách giáo khoa"
+        ]
+      },
+      "answer": "bài học / tiết học",
+      "explain_vi": "lesson nghĩa là bài học.",
+      "content_hash": "lesson|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bài học",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "lesson",
+      "pos": "n",
+      "sense_vi": "bài học",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Đơn vị nội dung được dạy trong một tiết học:",
+        "opts": [
+          "lesson",
+          "lessen",
+          "listen",
+          "lecture"
+        ]
+      },
+      "answer": "lesson",
+      "explain_vi": "Bài học là lesson (lessen là giảm bớt).",
+      "content_hash": "lesson|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss lessen",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "lesson",
+      "pos": "n",
+      "sense_vi": "bài học",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "The teacher explained the grammar ___ clearly.",
+        "opts": [
+          "lesson",
+          "exam",
+          "break",
+          "test"
+        ]
+      },
+      "answer": "lesson",
+      "explain_vi": "Grammar lesson (bài học ngữ pháp).",
+      "content_hash": "lesson|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "grammar lesson",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "lesson",
+      "pos": "n",
+      "sense_vi": "bài học",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'We learned an useful lesson yesterday.'",
+        "opts": [
+          "We learned a useful lesson yesterday.",
+          "We learned an useful lesson yesterday.",
+          "We learned a useful lessons yesterday.",
+          "We learn a useful lesson yesterday."
+        ]
+      },
+      "answer": "We learned a useful lesson yesterday.",
+      "explain_vi": "Từ useful bắt đầu bằng âm bán nguyên âm /j/ nên dùng mạo từ 'a useful lesson'.",
+      "content_hash": "lesson|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy a/an useful",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "lesson",
+      "pos": "n",
+      "sense_vi": "bài học",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm rút ra bài học kinh nghiệm chuẩn:",
+        "opts": [
+          "learn a lesson",
+          "study a lesson",
+          "take a lesson",
+          "make a lesson"
+        ]
+      },
+      "answer": "learn a lesson",
+      "explain_vi": "Rút ra bài học kinh nghiệm là learn a lesson.",
+      "content_hash": "lesson|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm learn a lesson",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "student",
+      "pos": "n",
+      "sense_vi": "học sinh",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "student (n.)",
+        "opts": [
+          "học sinh / sinh viên",
+          "giáo viên",
+          "bác sĩ",
+          "kỹ sư"
+        ]
+      },
+      "answer": "học sinh / sinh viên",
+      "explain_vi": "student nghĩa là học sinh.",
+      "content_hash": "student|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa học sinh",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "student",
+      "pos": "n",
+      "sense_vi": "học sinh",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người đang đi học tại trường học:",
+        "opts": [
+          "student",
+          "studious",
+          "study",
+          "pupil"
+        ]
+      },
+      "answer": "student",
+      "explain_vi": "Học sinh là student (studious là chăm chỉ).",
+      "content_hash": "student|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss studious",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "student",
+      "pos": "n",
+      "sense_vi": "học sinh",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Nam is a hard-working ___ in our class.",
+        "opts": [
+          "student",
+          "teacher",
+          "worker",
+          "driver"
+        ]
+      },
+      "answer": "student",
+      "explain_vi": "Hard-working student (học sinh chăm chỉ).",
+      "content_hash": "student|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "hard-working student",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "student",
+      "pos": "n",
+      "sense_vi": "học sinh",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There are thirty student in my class.'",
+        "opts": [
+          "There are thirty students in my class.",
+          "There are thirty student in my class.",
+          "There is thirty students in my class.",
+          "There have thirty students in my class."
+        ]
+      },
+      "answer": "There are thirty students in my class.",
+      "explain_vi": "Số lượng 'thirty' đi với danh từ số nhiều students (có s).",
+      "content_hash": "student|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy plural students",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "student",
+      "pos": "n",
+      "sense_vi": "học sinh",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thẻ học sinh chuẩn:",
+        "opts": [
+          "student ID card",
+          "student paper",
+          "student note",
+          "student ticket"
+        ]
+      },
+      "answer": "student ID card",
+      "explain_vi": "Thẻ học sinh là student ID card.",
+      "content_hash": "student|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm student ID card",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "textbook",
+      "pos": "n",
+      "sense_vi": "sách giáo khoa",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "textbook (n.)",
+        "opts": [
+          "sách giáo khoa",
+          "vở ghi chép",
+          "từ điển",
+          "truyện tranh"
+        ]
+      },
+      "answer": "sách giáo khoa",
+      "explain_vi": "textbook nghĩa là sách giáo khoa.",
+      "content_hash": "textbook|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa sách giáo khoa",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "textbook",
+      "pos": "n",
+      "sense_vi": "sách giáo khoa",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cuốn sách chuẩn dùng dạy và học môn học ở trường:",
+        "opts": [
+          "textbook",
+          "notebook",
+          "workbook",
+          "storybook"
+        ]
+      },
+      "answer": "textbook",
+      "explain_vi": "Sách giáo khoa là textbook.",
+      "content_hash": "textbook|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss notebook/workbook",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "textbook",
+      "pos": "n",
+      "sense_vi": "sách giáo khoa",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Bring your English ___ to class every day.",
+        "opts": [
+          "textbook",
+          "bag",
+          "pen",
+          "table"
+        ]
+      },
+      "answer": "textbook",
+      "explain_vi": "English textbook (sách giáo khoa tiếng Anh).",
+      "content_hash": "textbook|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "English textbook",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "textbook",
+      "pos": "n",
+      "sense_vi": "sách giáo khoa",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Open your textbooks on page 15.'",
+        "opts": [
+          "Open your textbooks to page 15.",
+          "Open your textbooks on page 15.",
+          "Open your textbooks at page 15.",
+          "Open your textbooks in page 15."
+        ]
+      },
+      "answer": "Open your textbooks to page 15.",
+      "explain_vi": "Mở sách đến trang bao nhiêu dùng giới từ 'to page 15'.",
+      "content_hash": "textbook|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy open to page",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "textbook",
+      "pos": "n",
+      "sense_vi": "sách giáo khoa",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm mở sách giáo khoa ra chuẩn:",
+        "opts": [
+          "open your textbook",
+          "uncover your textbook",
+          "start your textbook",
+          "free your textbook"
+        ]
+      },
+      "answer": "open your textbook",
+      "explain_vi": "Mở sách giáo khoa ra là open your textbook.",
+      "content_hash": "textbook|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm open textbook",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "notebook",
+      "pos": "n",
+      "sense_vi": "vở ghi chép",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "notebook (n.)",
+        "opts": [
+          "vở ghi chép",
+          "sách giáo khoa",
+          "tờ báo",
+          "thước kẻ"
+        ]
+      },
+      "answer": "vở ghi chép",
+      "explain_vi": "notebook nghĩa là cuốn vở ghi chép.",
+      "content_hash": "notebook|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa vở ghi chép",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "notebook",
+      "pos": "n",
+      "sense_vi": "vở ghi chép",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cuốn tập giấy trắng dùng để chép bài:",
+        "opts": [
+          "notebook",
+          "textbook",
+          "laptop",
+          "notepaper"
+        ]
+      },
+      "answer": "notebook",
+      "explain_vi": "Vở ghi chép là notebook.",
+      "content_hash": "notebook|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss textbook/laptop",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "notebook",
+      "pos": "n",
+      "sense_vi": "vở ghi chép",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Write down the main ideas in your ___.",
+        "opts": [
+          "notebook",
+          "school",
+          "desk",
+          "chair"
+        ]
+      },
+      "answer": "notebook",
+      "explain_vi": "Write down in your notebook (ghi vào vở).",
+      "content_hash": "notebook|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "in your notebook",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "notebook",
+      "pos": "n",
+      "sense_vi": "vở ghi chép",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She wrote the lesson into her notebook.'",
+        "opts": [
+          "She wrote the lesson in her notebook.",
+          "She wrote the lesson into her notebook.",
+          "She write the lesson in her notebook.",
+          "She is wrote the lesson in notebook."
+        ]
+      },
+      "answer": "She wrote the lesson in her notebook.",
+      "explain_vi": "Ghi bài trong vở dùng giới từ 'in her notebook'.",
+      "content_hash": "notebook|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy in notebook",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "notebook",
+      "pos": "n",
+      "sense_vi": "vở ghi chép",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ghi chú vào vở chuẩn:",
+        "opts": [
+          "take notes in a notebook",
+          "make notes in a notebook",
+          "do notes in a notebook",
+          "write notes on a notebook"
+        ]
+      },
+      "answer": "take notes in a notebook",
+      "explain_vi": "Ghi chép bài vào vở dùng 'take notes in a notebook'.",
+      "content_hash": "notebook|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm take notes in a notebook",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "listen",
+      "pos": "v",
+      "sense_vi": "lắng nghe",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "listen (v.)",
+        "opts": [
+          "lắng nghe",
+          "nhìn ngắm",
+          "nói chuyện",
+          "viết lách"
+        ]
+      },
+      "answer": "lắng nghe",
+      "explain_vi": "listen nghĩa là tập trung nghe.",
+      "content_hash": "listen|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa lắng nghe",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "listen",
+      "pos": "v",
+      "sense_vi": "lắng nghe",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tập trung chú ý nghe âm thanh:",
+        "opts": [
+          "listen",
+          "hear",
+          "list",
+          "silent"
+        ]
+      },
+      "answer": "listen",
+      "explain_vi": "Lắng nghe là listen (hear là nghe thấy thụ động).",
+      "content_hash": "listen|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss hear",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "listen",
+      "pos": "v",
+      "sense_vi": "lắng nghe",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ carefully to the teacher's instructions.",
+        "opts": [
+          "listen",
+          "hear",
+          "look",
+          "watch"
+        ]
+      },
+      "answer": "listen",
+      "explain_vi": "Listen to the instructions (nghe hướng dẫn).",
+      "content_hash": "listen|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "listen to instructions",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "listen",
+      "pos": "v",
+      "sense_vi": "lắng nghe",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She likes to listen music in her free time.'",
+        "opts": [
+          "She likes to listen to music in her free time.",
+          "She likes to listen music in her free time.",
+          "She likes to listen at music in her free time.",
+          "She like to listen to music in her free time."
+        ]
+      },
+      "answer": "She likes to listen to music in her free time.",
+      "explain_vi": "Động từ listen đi với tân ngữ cần giới từ 'to': listen to music.",
+      "content_hash": "listen|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy listen to music",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "listen",
+      "pos": "v",
+      "sense_vi": "lắng nghe",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nghe nhạc chuẩn:",
+        "opts": [
+          "listen to music",
+          "listen music",
+          "hear music",
+          "hear to music"
+        ]
+      },
+      "answer": "listen to music",
+      "explain_vi": "Nghe nhạc phải có giới từ 'to': listen to music.",
+      "content_hash": "listen|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm listen to music",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "speak",
+      "pos": "v",
+      "sense_vi": "nói chuyện / phát biểu",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "speak (v.)",
+        "opts": [
+          "nói / phát biểu",
+          "lắng nghe",
+          "viết",
+          "đọc"
+        ]
+      },
+      "answer": "nói / phát biểu",
+      "explain_vi": "speak nghĩa là thốt ra lời nói / phát biểu.",
+      "content_hash": "speak|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa nói",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "speak",
+      "pos": "v",
+      "sense_vi": "nói chuyện / phát biểu",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thốt ra từ ngữ hoặc nói một ngôn ngữ:",
+        "opts": [
+          "speak",
+          "spoke",
+          "spoken",
+          "talk"
+        ]
+      },
+      "answer": "speak",
+      "explain_vi": "Nói là speak (spoke là quá khứ).",
+      "content_hash": "speak|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss spoke",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "speak",
+      "pos": "v",
+      "sense_vi": "nói chuyện / phát biểu",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "He can ___ English very fluently.",
+        "opts": [
+          "speak",
+          "say",
+          "tell",
+          "talk"
+        ]
+      },
+      "answer": "speak",
+      "explain_vi": "Speak English (nói tiếng Anh).",
+      "content_hash": "speak|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "speak English",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "speak",
+      "pos": "v",
+      "sense_vi": "nói chuyện / phát biểu",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She can talk English very well.'",
+        "opts": [
+          "She can speak English very well.",
+          "She can talk English very well.",
+          "She can say English very well.",
+          "She can tell English very well."
+        ]
+      },
+      "answer": "She can speak English very well.",
+      "explain_vi": "Nói một ngôn ngữ dùng động từ 'speak English' (không dùng talk/say/tell).",
+      "content_hash": "speak|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy speak English vs talk",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "speak",
+      "pos": "v",
+      "sense_vi": "nói chuyện / phát biểu",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nói tiếng Anh thành thạo chuẩn:",
+        "opts": [
+          "speak English fluently",
+          "say English fluently",
+          "talk English fluently",
+          "tell English fluently"
+        ]
+      },
+      "answer": "speak English fluently",
+      "explain_vi": "Nói tiếng Anh lưu khoát: speak English fluently.",
+      "content_hash": "speak|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm speak English fluently",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "answer",
+      "pos": "v",
+      "sense_vi": "trả lời",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "answer (v./n.)",
+        "opts": [
+          "trả lời / đáp án",
+          "hỏi",
+          "bỏ qua",
+          "từ chối"
+        ]
+      },
+      "answer": "trả lời / đáp án",
+      "explain_vi": "answer nghĩa là trả lời câu hỏi.",
+      "content_hash": "answer|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa trả lời",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "answer",
+      "pos": "v",
+      "sense_vi": "trả lời",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Đưa ra câu đáp cho một câu hỏi:",
+        "opts": [
+          "answer",
+          "answered",
+          "ask",
+          "reply"
+        ]
+      },
+      "answer": "answer",
+      "explain_vi": "Trả lời là answer.",
+      "content_hash": "answer|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss reply/ask",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "answer",
+      "pos": "v",
+      "sense_vi": "trả lời",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you ___ this difficult question?",
+        "opts": [
+          "answer",
+          "ask",
+          "say",
+          "speak"
+        ]
+      },
+      "answer": "answer",
+      "explain_vi": "Answer the question (trả lời câu hỏi).",
+      "content_hash": "answer|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "answer question",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "answer",
+      "pos": "v",
+      "sense_vi": "trả lời",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She answered to my question quickly.'",
+        "opts": [
+          "She answered my question quickly.",
+          "She answered to my question quickly.",
+          "She answer my question quickly.",
+          "She is answered my question quickly."
+        ]
+      },
+      "answer": "She answered my question quickly.",
+      "explain_vi": "Động từ answer đi trực tiếp với tân ngữ: answered my question (không dùng to).",
+      "content_hash": "answer|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy answered my question",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "answer",
+      "pos": "v",
+      "sense_vi": "trả lời",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm trả lời điện thoại chuẩn:",
+        "opts": [
+          "answer the phone",
+          "reply the phone",
+          "say the phone",
+          "talk the phone"
+        ]
+      },
+      "answer": "answer the phone",
+      "explain_vi": "Nhấc máy trả lời điện thoại là answer the phone.",
+      "content_hash": "answer|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm answer the phone",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "question",
+      "pos": "n",
+      "sense_vi": "câu hỏi",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "question (n.)",
+        "opts": [
+          "câu hỏi / thắc mắc",
+          "câu trả lời",
+          "bài giảng",
+          "bài tập"
+        ]
+      },
+      "answer": "câu hỏi / thắc mắc",
+      "explain_vi": "question nghĩa là câu hỏi.",
+      "content_hash": "question|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa câu hỏi",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "question",
+      "pos": "n",
+      "sense_vi": "câu hỏi",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Lời đặt ra để yêu cầu người khác giải đáp:",
+        "opts": [
+          "question",
+          "quest",
+          "request",
+          "answer"
+        ]
+      },
+      "answer": "question",
+      "explain_vi": "Câu hỏi là question (quest là cuộc tìm kiếm).",
+      "content_hash": "question|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss quest",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "question",
+      "pos": "n",
+      "sense_vi": "câu hỏi",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "If you have any ___, please raise your hand.",
+        "opts": [
+          "question",
+          "answer",
+          "book",
+          "pen"
+        ]
+      },
+      "answer": "question",
+      "explain_vi": "Have any question (có câu hỏi/thắc mắc).",
+      "content_hash": "question|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "have question",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "question",
+      "pos": "n",
+      "sense_vi": "câu hỏi",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He asked a question to the teacher.'",
+        "opts": [
+          "He asked the teacher a question.",
+          "He asked a question to the teacher.",
+          "He ask the teacher a question.",
+          "He is asked the teacher a question."
+        ]
+      },
+      "answer": "He asked the teacher a question.",
+      "explain_vi": "Cấu trúc chuẩn: ask someone a question.",
+      "content_hash": "question|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy ask someone a question",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "question",
+      "pos": "n",
+      "sense_vi": "câu hỏi",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đặt câu hỏi chuẩn:",
+        "opts": [
+          "ask a question",
+          "do a question",
+          "make a question",
+          "say a question"
+        ]
+      },
+      "answer": "ask a question",
+      "explain_vi": "Đặt câu hỏi dùng cụm 'ask a question'.",
+      "content_hash": "question|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm ask a question",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "afternoon",
+      "pos": "n",
+      "sense_vi": "buổi chiều",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "afternoon (n.)",
+        "opts": [
+          "buổi chiều",
+          "buổi sáng",
+          "buổi tối",
+          "nửa đêm"
+        ]
+      },
+      "answer": "buổi chiều",
+      "explain_vi": "afternoon nghĩa là buổi chiều (từ 12h trưa đến chiều tối).",
+      "content_hash": "afternoon|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa buổi chiều",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "afternoon",
+      "pos": "n",
+      "sense_vi": "buổi chiều",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khoảng thời gian từ 12 giờ trưa đến trước buổi tối:",
+        "opts": [
+          "afternoon",
+          "morning",
+          "evening",
+          "midnight"
+        ]
+      },
+      "answer": "afternoon",
+      "explain_vi": "Buổi chiều là afternoon.",
+      "content_hash": "afternoon|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss thời gian",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "afternoon",
+      "pos": "n",
+      "sense_vi": "buổi chiều",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "We play football together in the ___.",
+        "opts": [
+          "afternoon",
+          "night",
+          "midnight",
+          "dawn"
+        ]
+      },
+      "answer": "afternoon",
+      "explain_vi": "In the afternoon (vào buổi chiều).",
+      "content_hash": "afternoon|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "in the afternoon",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "afternoon",
+      "pos": "n",
+      "sense_vi": "buổi chiều",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'We say good afternoon at 8 AM.'",
+        "opts": [
+          "We say good afternoon at 2 PM.",
+          "We say good afternoon at 8 AM.",
+          "We say good afternoon at 9 PM.",
+          "We speak good afternoon at 2 PM."
+        ]
+      },
+      "answer": "We say good afternoon at 2 PM.",
+      "explain_vi": "Good afternoon chào vào buổi chiều (2 PM), không chào 8 AM.",
+      "content_hash": "afternoon|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy AM/PM afternoon",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "afternoon",
+      "pos": "n",
+      "sense_vi": "buổi chiều",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chào buổi chiều chuẩn:",
+        "opts": [
+          "Good afternoon",
+          "Fine afternoon",
+          "Well afternoon",
+          "Nice afternoon"
+        ]
+      },
+      "answer": "Good afternoon",
+      "explain_vi": "Lời chào buổi chiều lịch sự là Good afternoon.",
+      "content_hash": "afternoon|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Good afternoon",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "evening",
+      "pos": "n",
+      "sense_vi": "buổi tối",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "evening (n.)",
+        "opts": [
+          "buổi tối",
+          "buổi sáng",
+          "buổi trưa",
+          "bình minh"
+        ]
+      },
+      "answer": "buổi tối",
+      "explain_vi": "evening nghĩa là buổi tối (từ khoảng 6h tối đến trước khi ngủ).",
+      "content_hash": "evening|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa buổi tối",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "evening",
+      "pos": "n",
+      "sense_vi": "buổi tối",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khoảng thời gian từ lúc mặt trời lặn đến trước khi đi ngủ:",
+        "opts": [
+          "evening",
+          "event",
+          "even",
+          "afternoon"
+        ]
+      },
+      "answer": "evening",
+      "explain_vi": "Buổi tối là evening (event là sự kiện).",
+      "content_hash": "evening|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss event",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "evening",
+      "pos": "n",
+      "sense_vi": "buổi tối",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "My family watches TV together in the ___.",
+        "opts": [
+          "evening",
+          "morning",
+          "noon",
+          "dawn"
+        ]
+      },
+      "answer": "evening",
+      "explain_vi": "In the evening (vào buổi tối).",
+      "content_hash": "evening|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "in the evening",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "evening",
+      "pos": "n",
+      "sense_vi": "buổi tối",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He goes to bed and says good evening.'",
+        "opts": [
+          "He goes to bed and says good night.",
+          "He goes to bed and says good evening.",
+          "He goes to bed and says good morning.",
+          "He goes to bed and says good afternoon."
+        ]
+      },
+      "answer": "He goes to bed and says good night.",
+      "explain_vi": "Khi đi ngủ phải chào 'good night', 'good evening' là lời chào gặp mặt buổi tối.",
+      "content_hash": "evening|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy good evening vs night",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    },
+    {
+      "lemma": "evening",
+      "pos": "n",
+      "sense_vi": "buổi tối",
+      "level": "A1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chào buổi tối gặp mặt chuẩn:",
+        "opts": [
+          "Good evening",
+          "Good night",
+          "Fine evening",
+          "Nice evening"
+        ]
+      },
+      "answer": "Good evening",
+      "explain_vi": "Chào gặp mặt buổi tối dùng Good evening.",
+      "content_hash": "evening|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Good evening",
+        "pack_id": "school-daily-ext",
+        "priority": "P1"
+      }
+    }
+  ]
+}

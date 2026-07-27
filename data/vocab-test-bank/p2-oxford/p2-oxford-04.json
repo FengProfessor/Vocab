@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-oxford-04",
+  "priority": "P2",
+  "queue": "oxford",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "back",
+    "chest",
+    "stomach",
+    "heart",
+    "blood",
+    "bone",
+    "brain",
+    "muscle",
+    "skin",
+    "voice",
+    "breath",
+    "breathing",
+    "health",
+    "healthy",
+    "ill",
+    "illness",
+    "sick",
+    "pain",
+    "injury",
+    "doctor"
+  ],
+  "items": [
+    {
+      "lemma": "back",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của back",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "back (n.)",
+        "opts": [
+          "ý nghĩa của back",
+          "sự từ chối đối với back",
+          "trạng thái thiếu back",
+          "hành động ngược lại với back"
+        ]
+      },
+      "answer": "ý nghĩa của back",
+      "explain_vi": "Từ/cụm từ 'back' (n.) có nghĩa chính xác là: ý nghĩa của back.",
+      "content_hash": "back|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item back - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "back",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của back",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của back':",
+        "opts": [
+          "back",
+          "backing",
+          "backed",
+          "re-back"
+        ]
+      },
+      "answer": "back",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là back.",
+      "content_hash": "back|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item back - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "back",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của back",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "back",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "back",
+      "explain_vi": "Điền 'back' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "back|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item back - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "back",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của back",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to back without proper preparation yesterday.'",
+        "opts": [
+          "He tried to back without proper preparation yesterday.",
+          "He try to back without proper preparation yesterday.",
+          "He trying to back without proper preparation yesterday.",
+          "He was try to back without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to back without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "back|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item back - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "back",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của back",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'back':",
+        "opts": [
+          "apply back correctly",
+          "make back wrong",
+          "do back badly",
+          "take back off"
+        ]
+      },
+      "answer": "apply back correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply back correctly.",
+      "content_hash": "back|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item back - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "chest",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chest",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "chest (n.)",
+        "opts": [
+          "ý nghĩa của chest",
+          "sự từ chối đối với chest",
+          "trạng thái thiếu chest",
+          "hành động ngược lại với chest"
+        ]
+      },
+      "answer": "ý nghĩa của chest",
+      "explain_vi": "Từ/cụm từ 'chest' (n.) có nghĩa chính xác là: ý nghĩa của chest.",
+      "content_hash": "chest|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item chest - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "chest",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chest",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của chest':",
+        "opts": [
+          "chest",
+          "chesting",
+          "chested",
+          "re-chest"
+        ]
+      },
+      "answer": "chest",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là chest.",
+      "content_hash": "chest|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item chest - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "chest",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chest",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "chest",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "chest",
+      "explain_vi": "Điền 'chest' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "chest|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "oxford item chest - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "chest",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chest",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to chest without proper preparation yesterday.'",
+        "opts": [
+          "He tried to chest without proper preparation yesterday.",
+          "He try to chest without proper preparation yesterday.",
+          "He trying to chest without proper preparation yesterday.",
+          "He was try to chest without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to chest without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "chest|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item chest - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "chest",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chest",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'chest':",
+        "opts": [
+          "apply chest correctly",
+          "make chest wrong",
+          "do chest badly",
+          "take chest off"
+        ]
+      },
+      "answer": "apply chest correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply chest correctly.",
+      "content_hash": "chest|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item chest - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "stomach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của stomach",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "stomach (n.)",
+        "opts": [
+          "ý nghĩa của stomach",
+          "sự từ chối đối với stomach",
+          "trạng thái thiếu stomach",
+          "hành động ngược lại với stomach"
+        ]
+      },
+      "answer": "ý nghĩa của stomach",
+      "explain_vi": "Từ/cụm từ 'stomach' (n.) có nghĩa chính xác là: ý nghĩa của stomach.",
+      "content_hash": "stomach|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item stomach - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "stomach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của stomach",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của stomach':",
+        "opts": [
+          "stomach",
+          "stomaching",
+          "stomached",
+          "re-stomach"
+        ]
+      },
+      "answer": "stomach",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là stomach.",
+      "content_hash": "stomach|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item stomach - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "stomach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của stomach",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "stomach",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "stomach",
+      "explain_vi": "Điền 'stomach' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "stomach|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item stomach - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "stomach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của stomach",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to stomach without proper preparation yesterday.'",
+        "opts": [
+          "He tried to stomach without proper preparation yesterday.",
+          "He try to stomach without proper preparation yesterday.",
+          "He trying to stomach without proper preparation yesterday.",
+          "He was try to stomach without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to stomach without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "stomach|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item stomach - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "stomach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của stomach",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'stomach':",
+        "opts": [
+          "apply stomach correctly",
+          "make stomach wrong",
+          "do stomach badly",
+          "take stomach off"
+        ]
+      },
+      "answer": "apply stomach correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply stomach correctly.",
+      "content_hash": "stomach|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item stomach - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "heart",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của heart",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "heart (n.)",
+        "opts": [
+          "ý nghĩa của heart",
+          "sự từ chối đối với heart",
+          "trạng thái thiếu heart",
+          "hành động ngược lại với heart"
+        ]
+      },
+      "answer": "ý nghĩa của heart",
+      "explain_vi": "Từ/cụm từ 'heart' (n.) có nghĩa chính xác là: ý nghĩa của heart.",
+      "content_hash": "heart|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item heart - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "heart",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của heart",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của heart':",
+        "opts": [
+          "heart",
+          "hearting",
+          "hearted",
+          "re-heart"
+        ]
+      },
+      "answer": "heart",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là heart.",
+      "content_hash": "heart|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item heart - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "heart",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của heart",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "heart",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "heart",
+      "explain_vi": "Điền 'heart' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "heart|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item heart - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "heart",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của heart",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to heart without proper preparation yesterday.'",
+        "opts": [
+          "He tried to heart without proper preparation yesterday.",
+          "He try to heart without proper preparation yesterday.",
+          "He trying to heart without proper preparation yesterday.",
+          "He was try to heart without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to heart without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "heart|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item heart - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "heart",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của heart",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'heart':",
+        "opts": [
+          "apply heart correctly",
+          "make heart wrong",
+          "do heart badly",
+          "take heart off"
+        ]
+      },
+      "answer": "apply heart correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply heart correctly.",
+      "content_hash": "heart|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item heart - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "blood",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của blood",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "blood (n.)",
+        "opts": [
+          "ý nghĩa của blood",
+          "sự từ chối đối với blood",
+          "trạng thái thiếu blood",
+          "hành động ngược lại với blood"
+        ]
+      },
+      "answer": "ý nghĩa của blood",
+      "explain_vi": "Từ/cụm từ 'blood' (n.) có nghĩa chính xác là: ý nghĩa của blood.",
+      "content_hash": "blood|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item blood - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "blood",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của blood",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của blood':",
+        "opts": [
+          "blood",
+          "blooding",
+          "blooded",
+          "re-blood"
+        ]
+      },
+      "answer": "blood",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là blood.",
+      "content_hash": "blood|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item blood - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "blood",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của blood",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "blood",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "blood",
+      "explain_vi": "Điền 'blood' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "blood|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item blood - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "blood",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của blood",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to blood without proper preparation yesterday.'",
+        "opts": [
+          "He tried to blood without proper preparation yesterday.",
+          "He try to blood without proper preparation yesterday.",
+          "He trying to blood without proper preparation yesterday.",
+          "He was try to blood without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to blood without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "blood|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "oxford item blood - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "blood",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của blood",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'blood':",
+        "opts": [
+          "apply blood correctly",
+          "make blood wrong",
+          "do blood badly",
+          "take blood off"
+        ]
+      },
+      "answer": "apply blood correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply blood correctly.",
+      "content_hash": "blood|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item blood - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "bone",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bone",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "bone (n.)",
+        "opts": [
+          "ý nghĩa của bone",
+          "sự từ chối đối với bone",
+          "trạng thái thiếu bone",
+          "hành động ngược lại với bone"
+        ]
+      },
+      "answer": "ý nghĩa của bone",
+      "explain_vi": "Từ/cụm từ 'bone' (n.) có nghĩa chính xác là: ý nghĩa của bone.",
+      "content_hash": "bone|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item bone - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "bone",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bone",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của bone':",
+        "opts": [
+          "bone",
+          "boneing",
+          "boneed",
+          "re-bone"
+        ]
+      },
+      "answer": "bone",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là bone.",
+      "content_hash": "bone|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item bone - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "bone",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bone",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "bone",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "bone",
+      "explain_vi": "Điền 'bone' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "bone|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item bone - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "bone",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bone",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to bone without proper preparation yesterday.'",
+        "opts": [
+          "He tried to bone without proper preparation yesterday.",
+          "He try to bone without proper preparation yesterday.",
+          "He trying to bone without proper preparation yesterday.",
+          "He was try to bone without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to bone without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "bone|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item bone - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "bone",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bone",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'bone':",
+        "opts": [
+          "apply bone correctly",
+          "make bone wrong",
+          "do bone badly",
+          "take bone off"
+        ]
+      },
+      "answer": "apply bone correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply bone correctly.",
+      "content_hash": "bone|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item bone - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "brain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của brain",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "brain (n.)",
+        "opts": [
+          "ý nghĩa của brain",
+          "sự từ chối đối với brain",
+          "trạng thái thiếu brain",
+          "hành động ngược lại với brain"
+        ]
+      },
+      "answer": "ý nghĩa của brain",
+      "explain_vi": "Từ/cụm từ 'brain' (n.) có nghĩa chính xác là: ý nghĩa của brain.",
+      "content_hash": "brain|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item brain - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "brain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của brain",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của brain':",
+        "opts": [
+          "brain",
+          "braining",
+          "brained",
+          "re-brain"
+        ]
+      },
+      "answer": "brain",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là brain.",
+      "content_hash": "brain|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item brain - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "brain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của brain",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "brain",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "brain",
+      "explain_vi": "Điền 'brain' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "brain|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item brain - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "brain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của brain",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to brain without proper preparation yesterday.'",
+        "opts": [
+          "He tried to brain without proper preparation yesterday.",
+          "He try to brain without proper preparation yesterday.",
+          "He trying to brain without proper preparation yesterday.",
+          "He was try to brain without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to brain without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "brain|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item brain - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "brain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của brain",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'brain':",
+        "opts": [
+          "apply brain correctly",
+          "make brain wrong",
+          "do brain badly",
+          "take brain off"
+        ]
+      },
+      "answer": "apply brain correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply brain correctly.",
+      "content_hash": "brain|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item brain - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "muscle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của muscle",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "muscle (n.)",
+        "opts": [
+          "ý nghĩa của muscle",
+          "sự từ chối đối với muscle",
+          "trạng thái thiếu muscle",
+          "hành động ngược lại với muscle"
+        ]
+      },
+      "answer": "ý nghĩa của muscle",
+      "explain_vi": "Từ/cụm từ 'muscle' (n.) có nghĩa chính xác là: ý nghĩa của muscle.",
+      "content_hash": "muscle|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item muscle - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "muscle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của muscle",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của muscle':",
+        "opts": [
+          "muscle",
+          "muscleing",
+          "muscleed",
+          "re-muscle"
+        ]
+      },
+      "answer": "muscle",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là muscle.",
+      "content_hash": "muscle|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item muscle - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "muscle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của muscle",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "muscle",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "muscle",
+      "explain_vi": "Điền 'muscle' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "muscle|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item muscle - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "muscle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của muscle",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to muscle without proper preparation yesterday.'",
+        "opts": [
+          "He tried to muscle without proper preparation yesterday.",
+          "He try to muscle without proper preparation yesterday.",
+          "He trying to muscle without proper preparation yesterday.",
+          "He was try to muscle without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to muscle without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "muscle|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item muscle - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "muscle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của muscle",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'muscle':",
+        "opts": [
+          "apply muscle correctly",
+          "make muscle wrong",
+          "do muscle badly",
+          "take muscle off"
+        ]
+      },
+      "answer": "apply muscle correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply muscle correctly.",
+      "content_hash": "muscle|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "oxford item muscle - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "skin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của skin",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "skin (n.)",
+        "opts": [
+          "ý nghĩa của skin",
+          "sự từ chối đối với skin",
+          "trạng thái thiếu skin",
+          "hành động ngược lại với skin"
+        ]
+      },
+      "answer": "ý nghĩa của skin",
+      "explain_vi": "Từ/cụm từ 'skin' (n.) có nghĩa chính xác là: ý nghĩa của skin.",
+      "content_hash": "skin|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item skin - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "skin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của skin",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của skin':",
+        "opts": [
+          "skin",
+          "skining",
+          "skined",
+          "re-skin"
+        ]
+      },
+      "answer": "skin",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là skin.",
+      "content_hash": "skin|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item skin - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "skin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của skin",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "skin",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "skin",
+      "explain_vi": "Điền 'skin' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "skin|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item skin - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "skin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của skin",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to skin without proper preparation yesterday.'",
+        "opts": [
+          "He tried to skin without proper preparation yesterday.",
+          "He try to skin without proper preparation yesterday.",
+          "He trying to skin without proper preparation yesterday.",
+          "He was try to skin without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to skin without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "skin|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item skin - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "skin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của skin",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'skin':",
+        "opts": [
+          "apply skin correctly",
+          "make skin wrong",
+          "do skin badly",
+          "take skin off"
+        ]
+      },
+      "answer": "apply skin correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply skin correctly.",
+      "content_hash": "skin|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item skin - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "voice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của voice",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "voice (n.)",
+        "opts": [
+          "ý nghĩa của voice",
+          "sự từ chối đối với voice",
+          "trạng thái thiếu voice",
+          "hành động ngược lại với voice"
+        ]
+      },
+      "answer": "ý nghĩa của voice",
+      "explain_vi": "Từ/cụm từ 'voice' (n.) có nghĩa chính xác là: ý nghĩa của voice.",
+      "content_hash": "voice|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item voice - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "voice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của voice",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của voice':",
+        "opts": [
+          "voice",
+          "voiceing",
+          "voiceed",
+          "re-voice"
+        ]
+      },
+      "answer": "voice",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là voice.",
+      "content_hash": "voice|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item voice - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "voice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của voice",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "voice",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "voice",
+      "explain_vi": "Điền 'voice' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "voice|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item voice - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "voice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của voice",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to voice without proper preparation yesterday.'",
+        "opts": [
+          "He tried to voice without proper preparation yesterday.",
+          "He try to voice without proper preparation yesterday.",
+          "He trying to voice without proper preparation yesterday.",
+          "He was try to voice without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to voice without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "voice|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item voice - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "voice",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của voice",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'voice':",
+        "opts": [
+          "apply voice correctly",
+          "make voice wrong",
+          "do voice badly",
+          "take voice off"
+        ]
+      },
+      "answer": "apply voice correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply voice correctly.",
+      "content_hash": "voice|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item voice - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breath",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breath",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "breath (n.)",
+        "opts": [
+          "ý nghĩa của breath",
+          "sự từ chối đối với breath",
+          "trạng thái thiếu breath",
+          "hành động ngược lại với breath"
+        ]
+      },
+      "answer": "ý nghĩa của breath",
+      "explain_vi": "Từ/cụm từ 'breath' (n.) có nghĩa chính xác là: ý nghĩa của breath.",
+      "content_hash": "breath|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item breath - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breath",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breath",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của breath':",
+        "opts": [
+          "breath",
+          "breathing",
+          "breathed",
+          "re-breath"
+        ]
+      },
+      "answer": "breath",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là breath.",
+      "content_hash": "breath|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item breath - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breath",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breath",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "breath",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "breath",
+      "explain_vi": "Điền 'breath' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "breath|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item breath - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breath",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breath",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to breath without proper preparation yesterday.'",
+        "opts": [
+          "He tried to breath without proper preparation yesterday.",
+          "He try to breath without proper preparation yesterday.",
+          "He trying to breath without proper preparation yesterday.",
+          "He was try to breath without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to breath without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "breath|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item breath - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breath",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breath",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'breath':",
+        "opts": [
+          "apply breath correctly",
+          "make breath wrong",
+          "do breath badly",
+          "take breath off"
+        ]
+      },
+      "answer": "apply breath correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply breath correctly.",
+      "content_hash": "breath|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item breath - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breathing",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breathing",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "breathing (n.)",
+        "opts": [
+          "ý nghĩa của breathing",
+          "sự từ chối đối với breathing",
+          "trạng thái thiếu breathing",
+          "hành động ngược lại với breathing"
+        ]
+      },
+      "answer": "ý nghĩa của breathing",
+      "explain_vi": "Từ/cụm từ 'breathing' (n.) có nghĩa chính xác là: ý nghĩa của breathing.",
+      "content_hash": "breathing|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item breathing - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breathing",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breathing",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của breathing':",
+        "opts": [
+          "breathing",
+          "breathinging",
+          "breathinged",
+          "re-breathing"
+        ]
+      },
+      "answer": "breathing",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là breathing.",
+      "content_hash": "breathing|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item breathing - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breathing",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breathing",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "breathing",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "breathing",
+      "explain_vi": "Điền 'breathing' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "breathing|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item breathing - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breathing",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breathing",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to breathing without proper preparation yesterday.'",
+        "opts": [
+          "He tried to breathing without proper preparation yesterday.",
+          "He try to breathing without proper preparation yesterday.",
+          "He trying to breathing without proper preparation yesterday.",
+          "He was try to breathing without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to breathing without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "breathing|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item breathing - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "breathing",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của breathing",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'breathing':",
+        "opts": [
+          "apply breathing correctly",
+          "make breathing wrong",
+          "do breathing badly",
+          "take breathing off"
+        ]
+      },
+      "answer": "apply breathing correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply breathing correctly.",
+      "content_hash": "breathing|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item breathing - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "health",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của health",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "health (n.)",
+        "opts": [
+          "ý nghĩa của health",
+          "sự từ chối đối với health",
+          "trạng thái thiếu health",
+          "hành động ngược lại với health"
+        ]
+      },
+      "answer": "ý nghĩa của health",
+      "explain_vi": "Từ/cụm từ 'health' (n.) có nghĩa chính xác là: ý nghĩa của health.",
+      "content_hash": "health|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item health - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "health",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của health",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của health':",
+        "opts": [
+          "health",
+          "healthing",
+          "healthed",
+          "re-health"
+        ]
+      },
+      "answer": "health",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là health.",
+      "content_hash": "health|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item health - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "health",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của health",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "health",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "health",
+      "explain_vi": "Điền 'health' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "health|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item health - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "health",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của health",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to health without proper preparation yesterday.'",
+        "opts": [
+          "He tried to health without proper preparation yesterday.",
+          "He try to health without proper preparation yesterday.",
+          "He trying to health without proper preparation yesterday.",
+          "He was try to health without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to health without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "health|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item health - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "health",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của health",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'health':",
+        "opts": [
+          "apply health correctly",
+          "make health wrong",
+          "do health badly",
+          "take health off"
+        ]
+      },
+      "answer": "apply health correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply health correctly.",
+      "content_hash": "health|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item health - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "healthy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của healthy",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "healthy (n.)",
+        "opts": [
+          "ý nghĩa của healthy",
+          "sự từ chối đối với healthy",
+          "trạng thái thiếu healthy",
+          "hành động ngược lại với healthy"
+        ]
+      },
+      "answer": "ý nghĩa của healthy",
+      "explain_vi": "Từ/cụm từ 'healthy' (n.) có nghĩa chính xác là: ý nghĩa của healthy.",
+      "content_hash": "healthy|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item healthy - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "healthy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của healthy",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của healthy':",
+        "opts": [
+          "healthy",
+          "healthying",
+          "healthyed",
+          "re-healthy"
+        ]
+      },
+      "answer": "healthy",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là healthy.",
+      "content_hash": "healthy|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item healthy - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "healthy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của healthy",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "healthy",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "healthy",
+      "explain_vi": "Điền 'healthy' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "healthy|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "oxford item healthy - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "healthy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của healthy",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to healthy without proper preparation yesterday.'",
+        "opts": [
+          "He tried to healthy without proper preparation yesterday.",
+          "He try to healthy without proper preparation yesterday.",
+          "He trying to healthy without proper preparation yesterday.",
+          "He was try to healthy without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to healthy without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "healthy|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item healthy - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "healthy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của healthy",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'healthy':",
+        "opts": [
+          "apply healthy correctly",
+          "make healthy wrong",
+          "do healthy badly",
+          "take healthy off"
+        ]
+      },
+      "answer": "apply healthy correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply healthy correctly.",
+      "content_hash": "healthy|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item healthy - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "ill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ill",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ill (n.)",
+        "opts": [
+          "ý nghĩa của ill",
+          "sự từ chối đối với ill",
+          "trạng thái thiếu ill",
+          "hành động ngược lại với ill"
+        ]
+      },
+      "answer": "ý nghĩa của ill",
+      "explain_vi": "Từ/cụm từ 'ill' (n.) có nghĩa chính xác là: ý nghĩa của ill.",
+      "content_hash": "ill|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item ill - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "ill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ill",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của ill':",
+        "opts": [
+          "ill",
+          "illing",
+          "illed",
+          "re-ill"
+        ]
+      },
+      "answer": "ill",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là ill.",
+      "content_hash": "ill|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item ill - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "ill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ill",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "ill",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "ill",
+      "explain_vi": "Điền 'ill' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "ill|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item ill - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "ill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ill",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to ill without proper preparation yesterday.'",
+        "opts": [
+          "He tried to ill without proper preparation yesterday.",
+          "He try to ill without proper preparation yesterday.",
+          "He trying to ill without proper preparation yesterday.",
+          "He was try to ill without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to ill without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "ill|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item ill - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "ill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ill",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'ill':",
+        "opts": [
+          "apply ill correctly",
+          "make ill wrong",
+          "do ill badly",
+          "take ill off"
+        ]
+      },
+      "answer": "apply ill correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply ill correctly.",
+      "content_hash": "ill|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item ill - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "illness",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của illness",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "illness (n.)",
+        "opts": [
+          "ý nghĩa của illness",
+          "sự từ chối đối với illness",
+          "trạng thái thiếu illness",
+          "hành động ngược lại với illness"
+        ]
+      },
+      "answer": "ý nghĩa của illness",
+      "explain_vi": "Từ/cụm từ 'illness' (n.) có nghĩa chính xác là: ý nghĩa của illness.",
+      "content_hash": "illness|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item illness - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "illness",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của illness",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của illness':",
+        "opts": [
+          "illness",
+          "illnessing",
+          "illnessed",
+          "re-illness"
+        ]
+      },
+      "answer": "illness",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là illness.",
+      "content_hash": "illness|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item illness - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "illness",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của illness",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "illness",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "illness",
+      "explain_vi": "Điền 'illness' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "illness|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item illness - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "illness",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của illness",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to illness without proper preparation yesterday.'",
+        "opts": [
+          "He tried to illness without proper preparation yesterday.",
+          "He try to illness without proper preparation yesterday.",
+          "He trying to illness without proper preparation yesterday.",
+          "He was try to illness without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to illness without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "illness|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item illness - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "illness",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của illness",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'illness':",
+        "opts": [
+          "apply illness correctly",
+          "make illness wrong",
+          "do illness badly",
+          "take illness off"
+        ]
+      },
+      "answer": "apply illness correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply illness correctly.",
+      "content_hash": "illness|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item illness - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "sick",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sick",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sick (n.)",
+        "opts": [
+          "ý nghĩa của sick",
+          "sự từ chối đối với sick",
+          "trạng thái thiếu sick",
+          "hành động ngược lại với sick"
+        ]
+      },
+      "answer": "ý nghĩa của sick",
+      "explain_vi": "Từ/cụm từ 'sick' (n.) có nghĩa chính xác là: ý nghĩa của sick.",
+      "content_hash": "sick|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item sick - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "sick",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sick",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của sick':",
+        "opts": [
+          "sick",
+          "sicking",
+          "sicked",
+          "re-sick"
+        ]
+      },
+      "answer": "sick",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là sick.",
+      "content_hash": "sick|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item sick - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "sick",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sick",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "sick",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "sick",
+      "explain_vi": "Điền 'sick' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "sick|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item sick - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "sick",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sick",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to sick without proper preparation yesterday.'",
+        "opts": [
+          "He tried to sick without proper preparation yesterday.",
+          "He try to sick without proper preparation yesterday.",
+          "He trying to sick without proper preparation yesterday.",
+          "He was try to sick without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to sick without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "sick|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "oxford item sick - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "sick",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sick",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'sick':",
+        "opts": [
+          "apply sick correctly",
+          "make sick wrong",
+          "do sick badly",
+          "take sick off"
+        ]
+      },
+      "answer": "apply sick correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply sick correctly.",
+      "content_hash": "sick|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item sick - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "pain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pain",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pain (n.)",
+        "opts": [
+          "ý nghĩa của pain",
+          "sự từ chối đối với pain",
+          "trạng thái thiếu pain",
+          "hành động ngược lại với pain"
+        ]
+      },
+      "answer": "ý nghĩa của pain",
+      "explain_vi": "Từ/cụm từ 'pain' (n.) có nghĩa chính xác là: ý nghĩa của pain.",
+      "content_hash": "pain|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item pain - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "pain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pain",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của pain':",
+        "opts": [
+          "pain",
+          "paining",
+          "pained",
+          "re-pain"
+        ]
+      },
+      "answer": "pain",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là pain.",
+      "content_hash": "pain|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item pain - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "pain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pain",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "pain",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "pain",
+      "explain_vi": "Điền 'pain' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "pain|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item pain - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "pain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pain",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to pain without proper preparation yesterday.'",
+        "opts": [
+          "He tried to pain without proper preparation yesterday.",
+          "He try to pain without proper preparation yesterday.",
+          "He trying to pain without proper preparation yesterday.",
+          "He was try to pain without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to pain without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "pain|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item pain - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "pain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của pain",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'pain':",
+        "opts": [
+          "apply pain correctly",
+          "make pain wrong",
+          "do pain badly",
+          "take pain off"
+        ]
+      },
+      "answer": "apply pain correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply pain correctly.",
+      "content_hash": "pain|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item pain - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "injury",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của injury",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "injury (n.)",
+        "opts": [
+          "ý nghĩa của injury",
+          "sự từ chối đối với injury",
+          "trạng thái thiếu injury",
+          "hành động ngược lại với injury"
+        ]
+      },
+      "answer": "ý nghĩa của injury",
+      "explain_vi": "Từ/cụm từ 'injury' (n.) có nghĩa chính xác là: ý nghĩa của injury.",
+      "content_hash": "injury|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item injury - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "injury",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của injury",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của injury':",
+        "opts": [
+          "injury",
+          "injurying",
+          "injuryed",
+          "re-injury"
+        ]
+      },
+      "answer": "injury",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là injury.",
+      "content_hash": "injury|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item injury - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "injury",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của injury",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "injury",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "injury",
+      "explain_vi": "Điền 'injury' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "injury|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item injury - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "injury",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của injury",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to injury without proper preparation yesterday.'",
+        "opts": [
+          "He tried to injury without proper preparation yesterday.",
+          "He try to injury without proper preparation yesterday.",
+          "He trying to injury without proper preparation yesterday.",
+          "He was try to injury without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to injury without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "injury|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item injury - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "injury",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của injury",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'injury':",
+        "opts": [
+          "apply injury correctly",
+          "make injury wrong",
+          "do injury badly",
+          "take injury off"
+        ]
+      },
+      "answer": "apply injury correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply injury correctly.",
+      "content_hash": "injury|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item injury - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "doctor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của doctor",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "doctor (n.)",
+        "opts": [
+          "ý nghĩa của doctor",
+          "sự từ chối đối với doctor",
+          "trạng thái thiếu doctor",
+          "hành động ngược lại với doctor"
+        ]
+      },
+      "answer": "ý nghĩa của doctor",
+      "explain_vi": "Từ/cụm từ 'doctor' (n.) có nghĩa chính xác là: ý nghĩa của doctor.",
+      "content_hash": "doctor|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item doctor - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "doctor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của doctor",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của doctor':",
+        "opts": [
+          "doctor",
+          "doctoring",
+          "doctored",
+          "re-doctor"
+        ]
+      },
+      "answer": "doctor",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là doctor.",
+      "content_hash": "doctor|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item doctor - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "doctor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của doctor",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "doctor",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "doctor",
+      "explain_vi": "Điền 'doctor' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "doctor|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item doctor - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "doctor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của doctor",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to doctor without proper preparation yesterday.'",
+        "opts": [
+          "He tried to doctor without proper preparation yesterday.",
+          "He try to doctor without proper preparation yesterday.",
+          "He trying to doctor without proper preparation yesterday.",
+          "He was try to doctor without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to doctor without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "doctor|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item doctor - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    },
+    {
+      "lemma": "doctor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của doctor",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'doctor':",
+        "opts": [
+          "apply doctor correctly",
+          "make doctor wrong",
+          "do doctor badly",
+          "take doctor off"
+        ]
+      },
+      "answer": "apply doctor correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply doctor correctly.",
+      "content_hash": "doctor|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "oxford item doctor - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-04"
+      }
+    }
+  ]
+}

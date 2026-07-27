@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Crown, Flame, BookOpen, Loader2, Check, Gift, Lock } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
@@ -13,6 +14,12 @@ import {
   PRO_MILESTONE_LABEL,
   shouldShowProMilestoneCard,
 } from '@/lib/pro-trial-milestone';
+import type { MilestonePopupPayload } from '@/components/gamification/MilestonePopup';
+
+const MilestonePopup = dynamic(
+  () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),
+  { ssr: false },
+);
 
 interface Props {
   enabled?: boolean;
@@ -65,6 +72,7 @@ export function ProTrialMilestoneCard({
   const [snap, setSnap] = useState<ProMilestoneSnapshot | null>(null);
   const [claiming, setClaiming] = useState(false);
   const [funnelActive, setFunnelActive] = useState(false);
+  const [claimPopup, setClaimPopup] = useState<MilestonePopupPayload | null>(null);
 
   const load = useCallback(async () => {
     if (!enabled) return;
@@ -183,7 +191,7 @@ export function ProTrialMilestoneCard({
       if (data.milestone) setSnap(data.milestone);
       clearFunnelActive();
       setFunnelActive(false);
-      toast.success(data.message || `Pro ${PRO_MILESTONE_LABEL} đã bật!`);
+      setClaimPopup({ kind: 'pro', intensity: 'epic' });
       onClaimed?.();
       window.dispatchEvent(new Event('lingopro-plan-changed'));
     } catch (err) {
@@ -195,9 +203,18 @@ export function ProTrialMilestoneCard({
     }
   };
 
-  // ── Anti-flash: tuyệt đối không paint trước ready + snap ──
-  if (!enabled) return null;
-  if (state !== 'ready' || !snap) return null;
+  // Popup claim luôn mount được (card ẩn sau claim vẫn show chúc mừng)
+  const claimPopupEl = (
+    <MilestonePopup
+      open={!!claimPopup}
+      payload={claimPopup}
+      onClose={() => setClaimPopup(null)}
+    />
+  );
+
+  // ── Anti-flash: tuyệt đối không paint card trước ready + snap ──
+  if (!enabled) return claimPopupEl;
+  if (state !== 'ready' || !snap) return claimPopupEl;
 
   const {
     streak,
@@ -220,93 +237,96 @@ export function ProTrialMilestoneCard({
     funnelActive: funnelActive || enrolled,
     enrolled,
   });
-  if (!show) return null;
+  if (!show) return claimPopupEl;
 
   const streakPct = Math.min(100, Math.round((streak / minStreak) * 100));
   const wordsPct = Math.min(100, Math.round((words / minWords) * 100));
 
   return (
-    <section
-      className={`overflow-hidden rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 via-white to-violet-50 shadow-md ${className}`}
-      data-onboarding="pro-milestone"
-      aria-label="Nhiệm vụ nhận Pro miễn phí"
-    >
-      <div className="flex items-center gap-3 border-b border-amber-100 bg-gradient-to-r from-amber-400/90 to-orange-400/90 px-3.5 py-3 sm:px-4">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-2xl shadow-sm">
-          🎁
+    <>
+      {claimPopupEl}
+      <section
+        className={`overflow-hidden rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 via-white to-violet-50 shadow-md ${className}`}
+        data-onboarding="pro-milestone"
+        aria-label="Nhiệm vụ nhận Pro miễn phí"
+      >
+        <div className="flex items-center gap-3 border-b border-amber-100 bg-gradient-to-r from-amber-400/90 to-orange-400/90 px-3.5 py-3 sm:px-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-2xl shadow-sm">
+            🎁
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-sm font-black text-white drop-shadow-sm sm:text-base">
+              Nhiệm vụ · Nhận Pro {PRO_MILESTONE_LABEL}
+            </h3>
+            <p className="text-[11px] font-bold text-white/90">
+              Free Pro {PRO_MILESTONE_DAYS} ngày khi xong 2 nhiệm vụ dưới
+            </p>
+          </div>
+          <Crown className="h-6 w-6 shrink-0 text-white/90" aria-hidden />
         </div>
-        <div className="min-w-0 flex-1">
-          <h3 className="text-sm font-black text-white drop-shadow-sm sm:text-base">
-            Nhiệm vụ · Nhận Pro {PRO_MILESTONE_LABEL}
-          </h3>
-          <p className="text-[11px] font-bold text-white/90">
-            Free Pro {PRO_MILESTONE_DAYS} ngày khi xong 2 nhiệm vụ dưới
-          </p>
-        </div>
-        <Crown className="h-6 w-6 shrink-0 text-white/90" aria-hidden />
-      </div>
 
-      <div className="space-y-3 p-3.5 sm:p-4">
-        <ul className="space-y-2">
-          <TaskRow
-            done={streakMet}
-            icon={<Flame className={`h-4 w-4 ${streakMet ? 'text-orange-500' : 'text-slate-400'}`} />}
-            title={`Streak ${minStreak} ngày liên tiếp`}
-            progressLabel={`${streak}/${minStreak} ngày`}
-            pct={streakPct}
-            barClass="bg-orange-500"
-            hint={!streakMet ? 'Học mỗi ngày để giữ lửa' : 'Đã xong!'}
-            cta={!streakMet ? { href: '/flashcard', label: 'Ôn ngay' } : undefined}
-          />
-          <TaskRow
-            done={wordsMet}
-            icon={<BookOpen className={`h-4 w-4 ${wordsMet ? 'text-indigo-600' : 'text-slate-400'}`} />}
-            title={`Có ít nhất ${minWords} từ trong kho`}
-            progressLabel={`${words}/${minWords} từ`}
-            pct={wordsPct}
-            barClass="bg-indigo-600"
-            hint={!wordsMet ? 'Thêm gói từ thư viện hoặc import list' : 'Đã xong!'}
-            cta={!wordsMet ? { href: '/library', label: 'Thư viện' } : undefined}
-          />
-        </ul>
+        <div className="space-y-3 p-3.5 sm:p-4">
+          <ul className="space-y-2">
+            <TaskRow
+              done={streakMet}
+              icon={<Flame className={`h-4 w-4 ${streakMet ? 'text-orange-500' : 'text-slate-400'}`} />}
+              title={`Streak ${minStreak} ngày liên tiếp`}
+              progressLabel={`${streak}/${minStreak} ngày`}
+              pct={streakPct}
+              barClass="bg-orange-500"
+              hint={!streakMet ? 'Học mỗi ngày để giữ lửa' : 'Đã xong!'}
+              cta={!streakMet ? { href: '/flashcard', label: 'Ôn ngay' } : undefined}
+            />
+            <TaskRow
+              done={wordsMet}
+              icon={<BookOpen className={`h-4 w-4 ${wordsMet ? 'text-indigo-600' : 'text-slate-400'}`} />}
+              title={`Có ít nhất ${minWords} từ trong kho`}
+              progressLabel={`${words}/${minWords} từ`}
+              pct={wordsPct}
+              barClass="bg-indigo-600"
+              hint={!wordsMet ? 'Thêm gói từ thư viện hoặc import list' : 'Đã xong!'}
+              cta={!wordsMet ? { href: '/library', label: 'Thư viện' } : undefined}
+            />
+          </ul>
 
-        <button
-          type="button"
-          onClick={() => void handleClaim()}
-          disabled={!eligible || claiming}
-          className={`flex h-12 w-full items-center justify-center gap-2 rounded-2xl text-sm font-black shadow-md transition-all sm:text-base ${
-            eligible && !claiming
-              ? 'cursor-pointer border-b-4 border-emerald-800 bg-emerald-600 text-white shadow-emerald-200 hover:bg-emerald-700 active:translate-y-0.5 active:border-b-0'
-              : 'cursor-not-allowed border border-slate-200 bg-slate-100 text-slate-400'
-          }`}
-        >
-          {claiming ? (
-            <>
-              <Loader2 className="h-5 w-5 animate-spin" /> Đang nhận quà...
-            </>
-          ) : eligible ? (
-            <>
-              <Gift className="h-5 w-5" /> Nhận quà Pro {PRO_MILESTONE_LABEL}
-            </>
-          ) : (
-            <>
-              <Lock className="h-4 w-4" />
-              {!streakMet && !wordsMet
-                ? `Còn thiếu streak + từ`
-                : !streakMet
-                  ? `Còn ${minStreak - streak} ngày streak`
-                  : `Còn ${minWords - words} từ`}
-            </>
+          <button
+            type="button"
+            onClick={() => void handleClaim()}
+            disabled={!eligible || claiming}
+            className={`flex h-12 w-full items-center justify-center gap-2 rounded-2xl text-sm font-black shadow-md transition-all sm:text-base ${
+              eligible && !claiming
+                ? 'cursor-pointer border-b-4 border-emerald-800 bg-emerald-600 text-white shadow-emerald-200 hover:bg-emerald-700 active:translate-y-0.5 active:border-b-0'
+                : 'cursor-not-allowed border border-slate-200 bg-slate-100 text-slate-400'
+            }`}
+          >
+            {claiming ? (
+              <>
+                <Loader2 className="h-5 w-5 animate-spin" /> Đang nhận quà...
+              </>
+            ) : eligible ? (
+              <>
+                <Gift className="h-5 w-5" /> Nhận quà Pro {PRO_MILESTONE_LABEL}
+              </>
+            ) : (
+              <>
+                <Lock className="h-4 w-4" />
+                {!streakMet && !wordsMet
+                  ? `Còn thiếu streak + từ`
+                  : !streakMet
+                    ? `Còn ${minStreak - streak} ngày streak`
+                    : `Còn ${minWords - words} từ`}
+              </>
+            )}
+          </button>
+
+          {eligible && (
+            <p className="text-center text-[11px] font-extrabold text-emerald-700">
+              ✓ Đủ mốc — bấm nhận quà để mở Pro {PRO_MILESTONE_DAYS} ngày
+            </p>
           )}
-        </button>
-
-        {eligible && (
-          <p className="text-center text-[11px] font-extrabold text-emerald-700">
-            ✓ Đủ mốc — bấm nhận quà để mở Pro {PRO_MILESTONE_DAYS} ngày
-          </p>
-        )}
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
 

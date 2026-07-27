@@ -27,7 +27,11 @@ import { Badge } from '@/components/ui/badge';
 import { useGamification } from '@/hooks/useGamification';
 import { requestForToken } from '@/lib/firebase';
 import { markPushDeviceRegistered } from '@/lib/push-device-state';
-import { xpToLevel } from '@/lib/gamification';
+import {
+  lastActiveFromActivity,
+  resolveDisplayStreak,
+  xpToLevel,
+} from '@/lib/gamification';
 import { supabase, type Profile } from '@/lib/supabase';
 
 type StudentProfile = Profile & {
@@ -87,6 +91,19 @@ export default function ProfilePage() {
 
   const router = useRouter();
   const { data: gamification } = useGamification(profile?.id ?? null);
+
+  /** Streak = ngày học liên tiếp (từ stats heatmap), không phải tổng ngày học / raw DB. */
+  const displayStreak =
+    typeof stats?.studyStreak === 'number'
+      ? stats.studyStreak
+      : resolveDisplayStreak({
+          currentStreak: gamification.current_streak,
+          lastActiveDate: gamification.last_active_date,
+          dailyActivity: stats?.dailyActivity ?? null,
+        });
+  const displayLastActive =
+    (stats?.dailyActivity ? lastActiveFromActivity(stats.dailyActivity) : null) ??
+    gamification.last_active_date;
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -328,8 +345,8 @@ export default function ProfilePage() {
         <div className="grid grid-cols-2 gap-2">
           <XpBadge totalXp={gamification.total_xp} variant="detailed" />
           <StreakCounter
-            streak={gamification.current_streak}
-            lastActiveDate={gamification.last_active_date}
+            streak={displayStreak}
+            lastActiveDate={displayLastActive}
             variant="detailed"
           />
         </div>
@@ -350,8 +367,13 @@ export default function ProfilePage() {
             <p className="text-xs text-muted-foreground">Chưa tải được thống kê.</p>
           ) : (
             <>
-              <div className="grid grid-cols-3 gap-1.5">
+              <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-4">
                 {[
+                  {
+                    icon: <Flame className="h-3.5 w-3.5 text-orange-500" />,
+                    label: 'Streak liên tiếp',
+                    value: `${typeof stats.studyStreak === 'number' ? stats.studyStreak : displayStreak}`,
+                  },
                   {
                     icon: <BookOpen className="h-3.5 w-3.5 text-blue-500" />,
                     label: 'Từ',
@@ -385,7 +407,7 @@ export default function ProfilePage() {
                 <div className="space-y-1.5">
                   <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
                     <Flame className="h-3 w-3 text-orange-500" />
-                    Hoạt động
+                    Ngày có học (không phải streak)
                   </p>
                   <div className="space-y-1">
                     {statsWeeks.map((week, weekIndex) => (

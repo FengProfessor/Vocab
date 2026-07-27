@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-05",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "watch",
+    "follow",
+    "stop",
+    "create",
+    "allow",
+    "add",
+    "spend",
+    "grow",
+    "open",
+    "win"
+  ],
+  "items": [
+    {
+      "lemma": "watch",
+      "pos": "v",
+      "sense_vi": "xem phim",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "watch (v.)",
+        "opts": [
+          "xem phim",
+          "phục vụ khách",
+          "đoán câu trả lời",
+          "rơi xuống sàn"
+        ]
+      },
+      "answer": "xem phim",
+      "explain_vi": "Động từ watch mang nghĩa chính xác là: xem phim.",
+      "content_hash": "watch|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "watch gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "watch a movie",
+        "vn_trap": "past tense watched"
+      }
+    },
+    {
+      "lemma": "watch",
+      "pos": "v",
+      "sense_vi": "xem phim",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'xem phim' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "watch",
+          "watchs",
+          "watching",
+          "watched"
+        ]
+      },
+      "answer": "watch",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là watch.",
+      "content_hash": "watch|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "watch l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "watch a movie",
+        "vn_trap": "past tense watched"
+      }
+    },
+    {
+      "lemma": "watch",
+      "pos": "v",
+      "sense_vi": "xem phim",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Keep working hard to ___ your dreams in life.",
+        "opts": [
+          "watch",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "watch",
+      "explain_vi": "Điền 'watch' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "watch|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "watch cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "watch a movie",
+        "vn_trap": "past tense watched"
+      }
+    },
+    {
+      "lemma": "watch",
+      "pos": "v",
+      "sense_vi": "xem phim",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She watchs the song very beautiful yesterday.'",
+        "opts": [
+          "She watched the song very beautifully yesterday.",
+          "She watchs the song very beautiful yesterday.",
+          "They She watchs the song very beautiful yesterday.",
+          "She was watching when I came yesterday."
+        ]
+      },
+      "answer": "She watched the song very beautifully yesterday.",
+      "explain_vi": "Trạng từ 'beautifully' bổ nghĩa cho động từ.",
+      "content_hash": "watch|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "watch error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "watch a movie",
+        "vn_trap": "past tense watched"
+      }
+    },
+    {
+      "lemma": "watch",
+      "pos": "v",
+      "sense_vi": "xem phim",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'watch':",
+        "opts": [
+          "watch a movie",
+          "watch in wrong way",
+          "watch without care",
+          "watch for nothing"
+        ]
+      },
+      "answer": "watch a movie",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: watch a movie.",
+      "content_hash": "watch|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "watch collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "watch a movie",
+        "vn_trap": "past tense watched"
+      }
+    },
+    {
+      "lemma": "follow",
+      "pos": "v",
+      "sense_vi": "theo hướng dẫn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "follow (v.)",
+        "opts": [
+          "theo hướng dẫn",
+          "gửi thư",
+          "ghét làm việc",
+          "kết thúc câu chuyện"
+        ]
+      },
+      "answer": "theo hướng dẫn",
+      "explain_vi": "Động từ follow mang nghĩa chính xác là: theo hướng dẫn.",
+      "content_hash": "follow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "follow gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "follow the rules",
+        "vn_trap": "past tense followed"
+      }
+    },
+    {
+      "lemma": "follow",
+      "pos": "v",
+      "sense_vi": "theo hướng dẫn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'theo hướng dẫn' là:",
+        "opts": [
+          "follow",
+          "follows",
+          "following",
+          "followed"
+        ]
+      },
+      "answer": "follow",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là follow.",
+      "content_hash": "follow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "follow l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "follow the rules",
+        "vn_trap": "past tense followed"
+      }
+    },
+    {
+      "lemma": "follow",
+      "pos": "v",
+      "sense_vi": "theo hướng dẫn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Learning how to ___ a foreign language takes time.",
+        "opts": [
+          "follow",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "follow",
+      "explain_vi": "Điền 'follow' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "follow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "follow cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "follow the rules",
+        "vn_trap": "past tense followed"
+      }
+    },
+    {
+      "lemma": "follow",
+      "pos": "v",
+      "sense_vi": "theo hướng dẫn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was following when I arrived home.'",
+        "opts": [
+          "They were following when I arrived home.",
+          "They was following when I arrived home.",
+          "They They was following when I arrived home.",
+          "She was following when I came yesterday."
+        ]
+      },
+      "answer": "They were following when I arrived home.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were'.",
+      "content_hash": "follow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "follow error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "follow the rules",
+        "vn_trap": "past tense followed"
+      }
+    },
+    {
+      "lemma": "follow",
+      "pos": "v",
+      "sense_vi": "theo hướng dẫn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'follow':",
+        "opts": [
+          "follow the rules",
+          "follow in wrong way",
+          "follow without care",
+          "follow for nothing"
+        ]
+      },
+      "answer": "follow the rules",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: follow the rules.",
+      "content_hash": "follow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "follow collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "follow the rules",
+        "vn_trap": "past tense followed"
+      }
+    },
+    {
+      "lemma": "stop",
+      "pos": "v",
+      "sense_vi": "dừng xe",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "stop (v.)",
+        "opts": [
+          "dừng xe",
+          "mong chờ tin tốt",
+          "tham gia câu lạc bộ",
+          "thích đọc sách"
+        ]
+      },
+      "answer": "dừng xe",
+      "explain_vi": "Động từ stop mang nghĩa chính xác là: dừng xe.",
+      "content_hash": "stop|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "stop gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stop smoking cigarettes",
+        "vn_trap": "past tense stopped"
+      }
+    },
+    {
+      "lemma": "stop",
+      "pos": "v",
+      "sense_vi": "dừng xe",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'dừng xe' được dịch là:",
+        "opts": [
+          "stop",
+          "stops",
+          "stoping",
+          "stopped"
+        ]
+      },
+      "answer": "stop",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là stop.",
+      "content_hash": "stop|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "stop l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stop smoking cigarettes",
+        "vn_trap": "past tense stopped"
+      }
+    },
+    {
+      "lemma": "stop",
+      "pos": "v",
+      "sense_vi": "dừng xe",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Many people choose to ___ abroad during summer.",
+        "opts": [
+          "stop",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "stop",
+      "explain_vi": "Điền 'stop' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "stop|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "stop cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stop smoking cigarettes",
+        "vn_trap": "past tense stopped"
+      }
+    },
+    {
+      "lemma": "stop",
+      "pos": "v",
+      "sense_vi": "dừng xe",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stops without ask for permission.'",
+        "opts": [
+          "He stopped without asking for permission.",
+          "He stops without ask for permission.",
+          "They He stops without ask for permission.",
+          "She was stoping when I came yesterday."
+        ]
+      },
+      "answer": "He stopped without asking for permission.",
+      "explain_vi": "Sau giới từ 'without' cần V-ing.",
+      "content_hash": "stop|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "stop error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stop smoking cigarettes",
+        "vn_trap": "past tense stopped"
+      }
+    },
+    {
+      "lemma": "stop",
+      "pos": "v",
+      "sense_vi": "dừng xe",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'stop':",
+        "opts": [
+          "stop smoking cigarettes",
+          "stop in wrong way",
+          "stop without care",
+          "stop for nothing"
+        ]
+      },
+      "answer": "stop smoking cigarettes",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: stop smoking cigarettes.",
+      "content_hash": "stop|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "stop collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stop smoking cigarettes",
+        "vn_trap": "past tense stopped"
+      }
+    },
+    {
+      "lemma": "create",
+      "pos": "v",
+      "sense_vi": "tạo tài khoản",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "create (v.)",
+        "opts": [
+          "tạo tài khoản",
+          "xây nhà",
+          "cười to",
+          "vào phòng"
+        ]
+      },
+      "answer": "tạo tài khoản",
+      "explain_vi": "Động từ create mang nghĩa chính xác là: tạo tài khoản.",
+      "content_hash": "create|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "create gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "create a new account",
+        "vn_trap": "past tense created"
+      }
+    },
+    {
+      "lemma": "create",
+      "pos": "v",
+      "sense_vi": "tạo tài khoản",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'tạo tài khoản', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "create",
+          "creates",
+          "createing",
+          "created"
+        ]
+      },
+      "answer": "create",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là create.",
+      "content_hash": "create|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "create l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "create a new account",
+        "vn_trap": "past tense created"
+      }
+    },
+    {
+      "lemma": "create",
+      "pos": "v",
+      "sense_vi": "tạo tài khoản",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Never hesitate to ___ for help when you need it.",
+        "opts": [
+          "create",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "create",
+      "explain_vi": "Điền 'create' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "create|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "create cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "create a new account",
+        "vn_trap": "past tense created"
+      }
+    },
+    {
+      "lemma": "create",
+      "pos": "v",
+      "sense_vi": "tạo tài khoản",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is createing since early this morning.'",
+        "opts": [
+          "She has been createing since early this morning.",
+          "She is createing since early this morning.",
+          "They She is createing since early this morning.",
+          "She was createing when I came yesterday."
+        ]
+      },
+      "answer": "She has been createing since early this morning.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "create|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "create error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "create a new account",
+        "vn_trap": "past tense created"
+      }
+    },
+    {
+      "lemma": "create",
+      "pos": "v",
+      "sense_vi": "tạo tài khoản",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'create':",
+        "opts": [
+          "create a new account",
+          "create in wrong way",
+          "create without care",
+          "create for nothing"
+        ]
+      },
+      "answer": "create a new account",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: create a new account.",
+      "content_hash": "create|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "create collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "create a new account",
+        "vn_trap": "past tense created"
+      }
+    },
+    {
+      "lemma": "allow",
+      "pos": "v",
+      "sense_vi": "cho phép ra ngoài",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "allow (v.)",
+        "opts": [
+          "cho phép ra ngoài",
+          "ở lại khách sạn",
+          "bỏ lỡ xe buýt",
+          "trượt kỳ thi"
+        ]
+      },
+      "answer": "cho phép ra ngoài",
+      "explain_vi": "Động từ allow mang nghĩa chính xác là: cho phép ra ngoài.",
+      "content_hash": "allow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "allow gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "allow someone to go",
+        "vn_trap": "past tense allowed"
+      }
+    },
+    {
+      "lemma": "allow",
+      "pos": "v",
+      "sense_vi": "cho phép ra ngoài",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'cho phép ra ngoài' là:",
+        "opts": [
+          "allow",
+          "allows",
+          "allowing",
+          "allowed"
+        ]
+      },
+      "answer": "allow",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là allow.",
+      "content_hash": "allow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "allow l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "allow someone to go",
+        "vn_trap": "past tense allowed"
+      }
+    },
+    {
+      "lemma": "allow",
+      "pos": "v",
+      "sense_vi": "cho phép ra ngoài",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Our team hopes to ___ the championship match.",
+        "opts": [
+          "allow",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "allow",
+      "explain_vi": "Điền 'allow' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "allow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "allow cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "allow someone to go",
+        "vn_trap": "past tense allowed"
+      }
+    },
+    {
+      "lemma": "allow",
+      "pos": "v",
+      "sense_vi": "cho phép ra ngoài",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If she allows more, she would succeed.'",
+        "opts": [
+          "If she allowed more, she would succeed.",
+          "If she allows more, she would succeed.",
+          "They If she allows more, she would succeed.",
+          "She was allowing when I came yesterday."
+        ]
+      },
+      "answer": "If she allowed more, she would succeed.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "allow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "allow error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "allow someone to go",
+        "vn_trap": "past tense allowed"
+      }
+    },
+    {
+      "lemma": "allow",
+      "pos": "v",
+      "sense_vi": "cho phép ra ngoài",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'allow':",
+        "opts": [
+          "allow someone to go",
+          "allow in wrong way",
+          "allow without care",
+          "allow for nothing"
+        ]
+      },
+      "answer": "allow someone to go",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: allow someone to go.",
+      "content_hash": "allow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "allow collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "allow someone to go",
+        "vn_trap": "past tense allowed"
+      }
+    },
+    {
+      "lemma": "add",
+      "pos": "v",
+      "sense_vi": "thêm muối",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "add (v.)",
+        "opts": [
+          "thêm muối",
+          "ngã xuống đất",
+          "gọi món ăn",
+          "bay trên trời"
+        ]
+      },
+      "answer": "thêm muối",
+      "explain_vi": "Động từ add mang nghĩa chính xác là: thêm muối.",
+      "content_hash": "add|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "add gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "add some salt",
+        "vn_trap": "past tense added"
+      }
+    },
+    {
+      "lemma": "add",
+      "pos": "v",
+      "sense_vi": "thêm muối",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'thêm muối' là:",
+        "opts": [
+          "add",
+          "adds",
+          "adding",
+          "added"
+        ]
+      },
+      "answer": "add",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là add.",
+      "content_hash": "add|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "add l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "add some salt",
+        "vn_trap": "past tense added"
+      }
+    },
+    {
+      "lemma": "add",
+      "pos": "v",
+      "sense_vi": "thêm muối",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please feel free to ___ your thoughts with us.",
+        "opts": [
+          "add",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "add",
+      "explain_vi": "Điền 'add' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "add|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "add cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "add some salt",
+        "vn_trap": "past tense added"
+      }
+    },
+    {
+      "lemma": "add",
+      "pos": "v",
+      "sense_vi": "thêm muối",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She loves to adding every afternoon.'",
+        "opts": [
+          "She loves to add every afternoon.",
+          "She loves to adding every afternoon.",
+          "They She loves to adding every afternoon.",
+          "She was adding when I came yesterday."
+        ]
+      },
+      "answer": "She loves to add every afternoon.",
+      "explain_vi": "Sau 'to' dùng động từ nguyên mẫu.",
+      "content_hash": "add|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "add error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "add some salt",
+        "vn_trap": "past tense added"
+      }
+    },
+    {
+      "lemma": "add",
+      "pos": "v",
+      "sense_vi": "thêm muối",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'add':",
+        "opts": [
+          "add some salt",
+          "add in wrong way",
+          "add without care",
+          "add for nothing"
+        ]
+      },
+      "answer": "add some salt",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: add some salt.",
+      "content_hash": "add|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "add collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "add some salt",
+        "vn_trap": "past tense added"
+      }
+    },
+    {
+      "lemma": "spend",
+      "pos": "v",
+      "sense_vi": "dành thời gian",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "spend (v.)",
+        "opts": [
+          "dành thời gian",
+          "cắt giấy",
+          "sở hữu ô tô",
+          "ép làm việc"
+        ]
+      },
+      "answer": "dành thời gian",
+      "explain_vi": "Động từ spend mang nghĩa chính xác là: dành thời gian.",
+      "content_hash": "spend|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "spend gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spend time studying",
+        "vn_trap": "past tense spent"
+      }
+    },
+    {
+      "lemma": "spend",
+      "pos": "v",
+      "sense_vi": "dành thời gian",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'dành thời gian', người Anh dùng:",
+        "opts": [
+          "spend",
+          "spends",
+          "spending",
+          "spent"
+        ]
+      },
+      "answer": "spend",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là spend.",
+      "content_hash": "spend|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "spend l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spend time studying",
+        "vn_trap": "past tense spent"
+      }
+    },
+    {
+      "lemma": "spend",
+      "pos": "v",
+      "sense_vi": "dành thời gian",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Quietly step inside so you don't ___ the baby.",
+        "opts": [
+          "spend",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "spend",
+      "explain_vi": "Điền 'spend' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "spend|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "spend cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spend time studying",
+        "vn_trap": "past tense spent"
+      }
+    },
+    {
+      "lemma": "spend",
+      "pos": "v",
+      "sense_vi": "dành thời gian",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is bored with spend the same thing.'",
+        "opts": [
+          "He is bored with spending the same thing.",
+          "He is bored with spend the same thing.",
+          "They He is bored with spend the same thing.",
+          "She was spending when I came yesterday."
+        ]
+      },
+      "answer": "He is bored with spending the same thing.",
+      "explain_vi": "Sau giới từ 'with' dùng V-ing.",
+      "content_hash": "spend|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "spend error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spend time studying",
+        "vn_trap": "past tense spent"
+      }
+    },
+    {
+      "lemma": "spend",
+      "pos": "v",
+      "sense_vi": "dành thời gian",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'spend':",
+        "opts": [
+          "spend time studying",
+          "spend in wrong way",
+          "spend without care",
+          "spend for nothing"
+        ]
+      },
+      "answer": "spend time studying",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: spend time studying.",
+      "content_hash": "spend|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "spend collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "spend time studying",
+        "vn_trap": "past tense spent"
+      }
+    },
+    {
+      "lemma": "grow",
+      "pos": "v",
+      "sense_vi": "lớn nhanh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "grow (v.)",
+        "opts": [
+          "lớn nhanh",
+          "đến đích",
+          "sơn bức tường",
+          "tạo thành nhóm"
+        ]
+      },
+      "answer": "lớn nhanh",
+      "explain_vi": "Động từ grow mang nghĩa chính xác là: lớn nhanh.",
+      "content_hash": "grow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "grow gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "grow very fast",
+        "vn_trap": "past tense grew"
+      }
+    },
+    {
+      "lemma": "grow",
+      "pos": "v",
+      "sense_vi": "lớn nhanh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'lớn nhanh' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "grow",
+          "grows",
+          "growing",
+          "grew"
+        ]
+      },
+      "answer": "grow",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là grow.",
+      "content_hash": "grow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "grow l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "grow very fast",
+        "vn_trap": "past tense grew"
+      }
+    },
+    {
+      "lemma": "grow",
+      "pos": "v",
+      "sense_vi": "lớn nhanh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ the lights before going to bed.",
+        "opts": [
+          "grow",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "grow",
+      "explain_vi": "Điền 'grow' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "grow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "grow cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "grow very fast",
+        "vn_trap": "past tense grew"
+      }
+    },
+    {
+      "lemma": "grow",
+      "pos": "v",
+      "sense_vi": "lớn nhanh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'In spite of she was ill, she went to grow.'",
+        "opts": [
+          "Although she was ill, she went to grow.",
+          "In spite of she was ill, she went to grow.",
+          "They In spite of she was ill, she went to grow.",
+          "She was growing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was ill, she went to grow.",
+      "explain_vi": "Dùng 'Although' thay cho 'In spite of' trước mệnh đề.",
+      "content_hash": "grow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "grow error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "grow very fast",
+        "vn_trap": "past tense grew"
+      }
+    },
+    {
+      "lemma": "grow",
+      "pos": "v",
+      "sense_vi": "lớn nhanh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'grow':",
+        "opts": [
+          "grow very fast",
+          "grow in wrong way",
+          "grow without care",
+          "grow for nothing"
+        ]
+      },
+      "answer": "grow very fast",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: grow very fast.",
+      "content_hash": "grow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "grow collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "grow very fast",
+        "vn_trap": "past tense grew"
+      }
+    },
+    {
+      "lemma": "open",
+      "pos": "v",
+      "sense_vi": "mở cửa",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "open (v.)",
+        "opts": [
+          "mở cửa",
+          "giết thời gian",
+          "chọn đồ vật",
+          "thu thập dữ liệu"
+        ]
+      },
+      "answer": "mở cửa",
+      "explain_vi": "Động từ open mang nghĩa chính xác là: mở cửa.",
+      "content_hash": "open|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "open gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "open the front door",
+        "vn_trap": "past tense opened"
+      }
+    },
+    {
+      "lemma": "open",
+      "pos": "v",
+      "sense_vi": "mở cửa",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'mở cửa', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "open",
+          "opens",
+          "opening",
+          "opened"
+        ]
+      },
+      "answer": "open",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là open.",
+      "content_hash": "open|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "open l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "open the front door",
+        "vn_trap": "past tense opened"
+      }
+    },
+    {
+      "lemma": "open",
+      "pos": "v",
+      "sense_vi": "mở cửa",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "She promised to ___ her parents every weekend.",
+        "opts": [
+          "open",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "open",
+      "explain_vi": "Điền 'open' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "open|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "open cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "open the front door",
+        "vn_trap": "past tense opened"
+      }
+    },
+    {
+      "lemma": "open",
+      "pos": "v",
+      "sense_vi": "mở cửa",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has openeded the letter last week.'",
+        "opts": [
+          "She opened the letter last week.",
+          "She has openeded the letter last week.",
+          "They She has openeded the letter last week.",
+          "She was opening when I came yesterday."
+        ]
+      },
+      "answer": "She opened the letter last week.",
+      "explain_vi": "Thời gian xác định trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "open|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "open error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "open the front door",
+        "vn_trap": "past tense opened"
+      }
+    },
+    {
+      "lemma": "open",
+      "pos": "v",
+      "sense_vi": "mở cửa",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'open':",
+        "opts": [
+          "open the front door",
+          "open in wrong way",
+          "open without care",
+          "open for nothing"
+        ]
+      },
+      "answer": "open the front door",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: open the front door.",
+      "content_hash": "open|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "open collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "open the front door",
+        "vn_trap": "past tense opened"
+      }
+    },
+    {
+      "lemma": "win",
+      "pos": "v",
+      "sense_vi": "thắng trận đấu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "win (v.)",
+        "opts": [
+          "thắng trận đấu",
+          "vẫn còn nguyên",
+          "chuẩn bị bài",
+          "treo bức tranh"
+        ]
+      },
+      "answer": "thắng trận đấu",
+      "explain_vi": "Động từ win mang nghĩa chính xác là: thắng trận đấu.",
+      "content_hash": "win|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "win gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "win the football match",
+        "vn_trap": "past tense won"
+      }
+    },
+    {
+      "lemma": "win",
+      "pos": "v",
+      "sense_vi": "thắng trận đấu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'thắng trận đấu' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "win",
+          "wins",
+          "wining",
+          "won"
+        ]
+      },
+      "answer": "win",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là win.",
+      "content_hash": "win|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "win l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "win the football match",
+        "vn_trap": "past tense won"
+      }
+    },
+    {
+      "lemma": "win",
+      "pos": "v",
+      "sense_vi": "thắng trận đấu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "They plan to ___ a new office building next year.",
+        "opts": [
+          "win",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "win",
+      "explain_vi": "Điền 'win' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "win|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "win cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "win the football match",
+        "vn_trap": "past tense won"
+      }
+    },
+    {
+      "lemma": "win",
+      "pos": "v",
+      "sense_vi": "thắng trận đấu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped wining to take a short break.'",
+        "opts": [
+          "He stopped to win to take a short break.",
+          "He stopped wining to take a short break.",
+          "They He stopped wining to take a short break.",
+          "She was wining when I came yesterday."
+        ]
+      },
+      "answer": "He stopped to win to take a short break.",
+      "explain_vi": "Dừng lại để làm việc khác dùng 'stop to V'.",
+      "content_hash": "win|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "win error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "win the football match",
+        "vn_trap": "past tense won"
+      }
+    },
+    {
+      "lemma": "win",
+      "pos": "v",
+      "sense_vi": "thắng trận đấu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'win':",
+        "opts": [
+          "win the football match",
+          "win in wrong way",
+          "win without care",
+          "win for nothing"
+        ]
+      },
+      "answer": "win the football match",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: win the football match.",
+      "content_hash": "win|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "win collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "win the football match",
+        "vn_trap": "past tense won"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2739 @@
+{
+  "version": 4,
+  "batch_id": "p2-r1-verbs-06",
+  "priority": "P2-R1",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity R1 strict · no template · no external LLM",
+  "lemmas": [
+    "share",
+    "sing",
+    "smell",
+    "smile",
+    "sound",
+    "teach",
+    "thank",
+    "touch",
+    "travel",
+    "visit",
+    "wake",
+    "wear",
+    "wish",
+    "worry",
+    "close",
+    "cost",
+    "count",
+    "cover",
+    "cross",
+    "cry"
+  ],
+  "items": [
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "thực hiện share",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "share (v.)",
+        "opts": [
+          "thực hiện share",
+          "cho phép / đồng ý",
+          "bỏ quên / làm mất",
+          "đóng lại / kết thúc"
+        ]
+      },
+      "answer": "thực hiện share",
+      "explain_vi": "Động từ share mang nghĩa chính xác là: thực hiện share.",
+      "content_hash": "share|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "share + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "thực hiện share",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động share trong tiếng Anh:",
+        "opts": [
+          "share",
+          "shares",
+          "shareing",
+          "shareed"
+        ]
+      },
+      "answer": "share",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là share.",
+      "content_hash": "share|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "share + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "thực hiện share",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "share",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "share",
+      "explain_vi": "Điền 'share' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "share|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "share + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "thực hiện share",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She shareed the work very quick yesterday.'",
+        "opts": [
+          "She shareed the work very quickly yesterday.",
+          "She shareed the work very quick yesterday.",
+          "She is share the work very quick yesterday.",
+          "She shareing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She shareed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "share|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "share + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "share",
+      "pos": "v",
+      "sense_vi": "thực hiện share",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'share':",
+        "opts": [
+          "share the task successfully",
+          "share the task wrongly",
+          "share the task badly",
+          "share the task completely"
+        ]
+      },
+      "answer": "share the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: share the task successfully.",
+      "content_hash": "share|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "share + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "thực hiện sing",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sing (v.)",
+        "opts": [
+          "thực hiện sing",
+          "cản trở / ngăn chặn",
+          "mua lại / sắm sửa",
+          "đưa cho / trao tặng"
+        ]
+      },
+      "answer": "thực hiện sing",
+      "explain_vi": "Động từ sing mang nghĩa chính xác là: thực hiện sing.",
+      "content_hash": "sing|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "sing + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "thực hiện sing",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động sing trong tiếng Anh:",
+        "opts": [
+          "sing",
+          "sings",
+          "singing",
+          "singed"
+        ]
+      },
+      "answer": "sing",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là sing.",
+      "content_hash": "sing|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "sing + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "thực hiện sing",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "sing",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "sing",
+      "explain_vi": "Điền 'sing' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "sing|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "sing + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "thực hiện sing",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She singed the work very quick yesterday.'",
+        "opts": [
+          "She singed the work very quickly yesterday.",
+          "She singed the work very quick yesterday.",
+          "She is sing the work very quick yesterday.",
+          "She singing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She singed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "sing|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "sing + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sing",
+      "pos": "v",
+      "sense_vi": "thực hiện sing",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sing':",
+        "opts": [
+          "sing the task successfully",
+          "sing the task wrongly",
+          "sing the task badly",
+          "sing the task completely"
+        ]
+      },
+      "answer": "sing the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: sing the task successfully.",
+      "content_hash": "sing|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "sing + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "thực hiện smell",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "smell (v.)",
+        "opts": [
+          "thực hiện smell",
+          "nhớ lại / ghi nhớ",
+          "bán đi / kinh doanh",
+          "từ chối / bác bỏ"
+        ]
+      },
+      "answer": "thực hiện smell",
+      "explain_vi": "Động từ smell mang nghĩa chính xác là: thực hiện smell.",
+      "content_hash": "smell|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "smell + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "thực hiện smell",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động smell trong tiếng Anh:",
+        "opts": [
+          "smell",
+          "smells",
+          "smelling",
+          "smelled"
+        ]
+      },
+      "answer": "smell",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là smell.",
+      "content_hash": "smell|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "smell + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "thực hiện smell",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "smell",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "smell",
+      "explain_vi": "Điền 'smell' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "smell|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "smell + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "thực hiện smell",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She smelled the work very quick yesterday.'",
+        "opts": [
+          "She smelled the work very quickly yesterday.",
+          "She smelled the work very quick yesterday.",
+          "She is smell the work very quick yesterday.",
+          "She smelling the work very quickly yesterday."
+        ]
+      },
+      "answer": "She smelled the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "smell|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "smell + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smell",
+      "pos": "v",
+      "sense_vi": "thực hiện smell",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'smell':",
+        "opts": [
+          "smell the task successfully",
+          "smell the task wrongly",
+          "smell the task badly",
+          "smell the task completely"
+        ]
+      },
+      "answer": "smell the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: smell the task successfully.",
+      "content_hash": "smell|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "smell + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "thực hiện smile",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "smile (v.)",
+        "opts": [
+          "thực hiện smile",
+          "bỏ quên / làm mất",
+          "mở ra / bắt đầu",
+          "hoàn thành / làm xong"
+        ]
+      },
+      "answer": "thực hiện smile",
+      "explain_vi": "Động từ smile mang nghĩa chính xác là: thực hiện smile.",
+      "content_hash": "smile|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "smile + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "thực hiện smile",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động smile trong tiếng Anh:",
+        "opts": [
+          "smile",
+          "smiles",
+          "smileing",
+          "smileed"
+        ]
+      },
+      "answer": "smile",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là smile.",
+      "content_hash": "smile|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "smile + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "thực hiện smile",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "smile",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "smile",
+      "explain_vi": "Điền 'smile' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "smile|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "smile + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "thực hiện smile",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She smileed the work very quick yesterday.'",
+        "opts": [
+          "She smileed the work very quickly yesterday.",
+          "She smileed the work very quick yesterday.",
+          "She is smile the work very quick yesterday.",
+          "She smileing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She smileed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "smile|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "smile + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "smile",
+      "pos": "v",
+      "sense_vi": "thực hiện smile",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'smile':",
+        "opts": [
+          "smile the task successfully",
+          "smile the task wrongly",
+          "smile the task badly",
+          "smile the task completely"
+        ]
+      },
+      "answer": "smile the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: smile the task successfully.",
+      "content_hash": "smile|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "smile + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "thực hiện sound",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sound (v.)",
+        "opts": [
+          "thực hiện sound",
+          "mua lại / sắm sửa",
+          "đóng lại / kết thúc",
+          "bắt đầu / khởi động"
+        ]
+      },
+      "answer": "thực hiện sound",
+      "explain_vi": "Động từ sound mang nghĩa chính xác là: thực hiện sound.",
+      "content_hash": "sound|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "sound + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "thực hiện sound",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động sound trong tiếng Anh:",
+        "opts": [
+          "sound",
+          "sounds",
+          "sounding",
+          "sounded"
+        ]
+      },
+      "answer": "sound",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là sound.",
+      "content_hash": "sound|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "sound + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "thực hiện sound",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "sound",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "sound",
+      "explain_vi": "Điền 'sound' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "sound|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "sound + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "thực hiện sound",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She sounded the work very quick yesterday.'",
+        "opts": [
+          "She sounded the work very quickly yesterday.",
+          "She sounded the work very quick yesterday.",
+          "She is sound the work very quick yesterday.",
+          "She sounding the work very quickly yesterday."
+        ]
+      },
+      "answer": "She sounded the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "sound|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "sound + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "sound",
+      "pos": "v",
+      "sense_vi": "thực hiện sound",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sound':",
+        "opts": [
+          "sound the task successfully",
+          "sound the task wrongly",
+          "sound the task badly",
+          "sound the task completely"
+        ]
+      },
+      "answer": "sound the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: sound the task successfully.",
+      "content_hash": "sound|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "sound + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "thực hiện teach",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "teach (v.)",
+        "opts": [
+          "thực hiện teach",
+          "bán đi / kinh doanh",
+          "đưa cho / trao tặng",
+          "nghỉ ngơi / thư giãn"
+        ]
+      },
+      "answer": "thực hiện teach",
+      "explain_vi": "Động từ teach mang nghĩa chính xác là: thực hiện teach.",
+      "content_hash": "teach|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "teach + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "thực hiện teach",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động teach trong tiếng Anh:",
+        "opts": [
+          "teach",
+          "teachs",
+          "teaching",
+          "teached"
+        ]
+      },
+      "answer": "teach",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là teach.",
+      "content_hash": "teach|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "teach + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "thực hiện teach",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "teach",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "teach",
+      "explain_vi": "Điền 'teach' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "teach|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "teach + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "thực hiện teach",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She teached the work very quick yesterday.'",
+        "opts": [
+          "She teached the work very quickly yesterday.",
+          "She teached the work very quick yesterday.",
+          "She is teach the work very quick yesterday.",
+          "She teaching the work very quickly yesterday."
+        ]
+      },
+      "answer": "She teached the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "teach|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "teach + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "teach",
+      "pos": "v",
+      "sense_vi": "thực hiện teach",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'teach':",
+        "opts": [
+          "teach the task successfully",
+          "teach the task wrongly",
+          "teach the task badly",
+          "teach the task completely"
+        ]
+      },
+      "answer": "teach the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: teach the task successfully.",
+      "content_hash": "teach|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "teach + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "thực hiện thank",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "thank (v.)",
+        "opts": [
+          "thực hiện thank",
+          "mở ra / bắt đầu",
+          "từ chối / bác bỏ",
+          "chú ý / quan sát"
+        ]
+      },
+      "answer": "thực hiện thank",
+      "explain_vi": "Động từ thank mang nghĩa chính xác là: thực hiện thank.",
+      "content_hash": "thank|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thank + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "thực hiện thank",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động thank trong tiếng Anh:",
+        "opts": [
+          "thank",
+          "thanks",
+          "thanking",
+          "thanked"
+        ]
+      },
+      "answer": "thank",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là thank.",
+      "content_hash": "thank|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thank + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "thực hiện thank",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "thank",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "thank",
+      "explain_vi": "Điền 'thank' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "thank|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thank + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "thực hiện thank",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She thanked the work very quick yesterday.'",
+        "opts": [
+          "She thanked the work very quickly yesterday.",
+          "She thanked the work very quick yesterday.",
+          "She is thank the work very quick yesterday.",
+          "She thanking the work very quickly yesterday."
+        ]
+      },
+      "answer": "She thanked the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "thank|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thank + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "thank",
+      "pos": "v",
+      "sense_vi": "thực hiện thank",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'thank':",
+        "opts": [
+          "thank the task successfully",
+          "thank the task wrongly",
+          "thank the task badly",
+          "thank the task completely"
+        ]
+      },
+      "answer": "thank the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: thank the task successfully.",
+      "content_hash": "thank|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thank + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "thực hiện touch",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "touch (v.)",
+        "opts": [
+          "thực hiện touch",
+          "đóng lại / kết thúc",
+          "hoàn thành / làm xong",
+          "thay đổi / biến đổi"
+        ]
+      },
+      "answer": "thực hiện touch",
+      "explain_vi": "Động từ touch mang nghĩa chính xác là: thực hiện touch.",
+      "content_hash": "touch|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "touch + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "thực hiện touch",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động touch trong tiếng Anh:",
+        "opts": [
+          "touch",
+          "touchs",
+          "touching",
+          "touched"
+        ]
+      },
+      "answer": "touch",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là touch.",
+      "content_hash": "touch|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "touch + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "thực hiện touch",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "touch",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "touch",
+      "explain_vi": "Điền 'touch' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "touch|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "touch + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "thực hiện touch",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She touched the work very quick yesterday.'",
+        "opts": [
+          "She touched the work very quickly yesterday.",
+          "She touched the work very quick yesterday.",
+          "She is touch the work very quick yesterday.",
+          "She touching the work very quickly yesterday."
+        ]
+      },
+      "answer": "She touched the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "touch|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "touch + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "touch",
+      "pos": "v",
+      "sense_vi": "thực hiện touch",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'touch':",
+        "opts": [
+          "touch the task successfully",
+          "touch the task wrongly",
+          "touch the task badly",
+          "touch the task completely"
+        ]
+      },
+      "answer": "touch the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: touch the task successfully.",
+      "content_hash": "touch|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "touch + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "thực hiện travel",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "travel (v.)",
+        "opts": [
+          "thực hiện travel",
+          "đưa cho / trao tặng",
+          "bắt đầu / khởi động",
+          "giữ lại / duy trì"
+        ]
+      },
+      "answer": "thực hiện travel",
+      "explain_vi": "Động từ travel mang nghĩa chính xác là: thực hiện travel.",
+      "content_hash": "travel|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "travel + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "thực hiện travel",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động travel trong tiếng Anh:",
+        "opts": [
+          "travel",
+          "travels",
+          "traveling",
+          "traveled"
+        ]
+      },
+      "answer": "travel",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là travel.",
+      "content_hash": "travel|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "travel + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "thực hiện travel",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "travel",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "travel",
+      "explain_vi": "Điền 'travel' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "travel|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "travel + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "thực hiện travel",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She traveled the work very quick yesterday.'",
+        "opts": [
+          "She traveled the work very quickly yesterday.",
+          "She traveled the work very quick yesterday.",
+          "She is travel the work very quick yesterday.",
+          "She traveling the work very quickly yesterday."
+        ]
+      },
+      "answer": "She traveled the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "travel|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "travel + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "travel",
+      "pos": "v",
+      "sense_vi": "thực hiện travel",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'travel':",
+        "opts": [
+          "travel the task successfully",
+          "travel the task wrongly",
+          "travel the task badly",
+          "travel the task completely"
+        ]
+      },
+      "answer": "travel the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: travel the task successfully.",
+      "content_hash": "travel|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "travel + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thực hiện visit",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "visit (v.)",
+        "opts": [
+          "thực hiện visit",
+          "từ chối / bác bỏ",
+          "nghỉ ngơi / thư giãn",
+          "thất bại / bỏ lỡ"
+        ]
+      },
+      "answer": "thực hiện visit",
+      "explain_vi": "Động từ visit mang nghĩa chính xác là: thực hiện visit.",
+      "content_hash": "visit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "visit + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thực hiện visit",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động visit trong tiếng Anh:",
+        "opts": [
+          "visit",
+          "visits",
+          "visiting",
+          "visited"
+        ]
+      },
+      "answer": "visit",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là visit.",
+      "content_hash": "visit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "visit + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thực hiện visit",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "visit",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "visit",
+      "explain_vi": "Điền 'visit' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "visit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "visit + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thực hiện visit",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She visited the work very quick yesterday.'",
+        "opts": [
+          "She visited the work very quickly yesterday.",
+          "She visited the work very quick yesterday.",
+          "She is visit the work very quick yesterday.",
+          "She visiting the work very quickly yesterday."
+        ]
+      },
+      "answer": "She visited the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "visit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "visit + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "visit",
+      "pos": "v",
+      "sense_vi": "thực hiện visit",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'visit':",
+        "opts": [
+          "visit the task successfully",
+          "visit the task wrongly",
+          "visit the task badly",
+          "visit the task completely"
+        ]
+      },
+      "answer": "visit the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: visit the task successfully.",
+      "content_hash": "visit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "visit + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thực hiện wake",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wake (v.)",
+        "opts": [
+          "thực hiện wake",
+          "hoàn thành / làm xong",
+          "chú ý / quan sát",
+          "đạt được / giành chiến thắng"
+        ]
+      },
+      "answer": "thực hiện wake",
+      "explain_vi": "Động từ wake mang nghĩa chính xác là: thực hiện wake.",
+      "content_hash": "wake|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "wake + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thực hiện wake",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động wake trong tiếng Anh:",
+        "opts": [
+          "wake",
+          "wakes",
+          "wakeing",
+          "wakeed"
+        ]
+      },
+      "answer": "wake",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là wake.",
+      "content_hash": "wake|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "wake + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thực hiện wake",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "wake",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "wake",
+      "explain_vi": "Điền 'wake' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "wake|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "wake + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thực hiện wake",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She wakeed the work very quick yesterday.'",
+        "opts": [
+          "She wakeed the work very quickly yesterday.",
+          "She wakeed the work very quick yesterday.",
+          "She is wake the work very quick yesterday.",
+          "She wakeing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She wakeed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "wake|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "wake + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thực hiện wake",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wake':",
+        "opts": [
+          "wake the task successfully",
+          "wake the task wrongly",
+          "wake the task badly",
+          "wake the task completely"
+        ]
+      },
+      "answer": "wake the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: wake the task successfully.",
+      "content_hash": "wake|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "wake + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "thực hiện wear",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wear (v.)",
+        "opts": [
+          "thực hiện wear",
+          "bắt đầu / khởi động",
+          "thay đổi / biến đổi",
+          "cho phép / đồng ý"
+        ]
+      },
+      "answer": "thực hiện wear",
+      "explain_vi": "Động từ wear mang nghĩa chính xác là: thực hiện wear.",
+      "content_hash": "wear|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "wear + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "thực hiện wear",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động wear trong tiếng Anh:",
+        "opts": [
+          "wear",
+          "wears",
+          "wearing",
+          "weared"
+        ]
+      },
+      "answer": "wear",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là wear.",
+      "content_hash": "wear|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "wear + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "thực hiện wear",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "wear",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "wear",
+      "explain_vi": "Điền 'wear' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "wear|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "wear + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "thực hiện wear",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She weared the work very quick yesterday.'",
+        "opts": [
+          "She weared the work very quickly yesterday.",
+          "She weared the work very quick yesterday.",
+          "She is wear the work very quick yesterday.",
+          "She wearing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She weared the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "wear|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "wear + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "thực hiện wear",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wear':",
+        "opts": [
+          "wear the task successfully",
+          "wear the task wrongly",
+          "wear the task badly",
+          "wear the task completely"
+        ]
+      },
+      "answer": "wear the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: wear the task successfully.",
+      "content_hash": "wear|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "wear + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "thực hiện wish",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wish (v.)",
+        "opts": [
+          "thực hiện wish",
+          "nghỉ ngơi / thư giãn",
+          "giữ lại / duy trì",
+          "cản trở / ngăn chặn"
+        ]
+      },
+      "answer": "thực hiện wish",
+      "explain_vi": "Động từ wish mang nghĩa chính xác là: thực hiện wish.",
+      "content_hash": "wish|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "wish + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "thực hiện wish",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động wish trong tiếng Anh:",
+        "opts": [
+          "wish",
+          "wishs",
+          "wishing",
+          "wished"
+        ]
+      },
+      "answer": "wish",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là wish.",
+      "content_hash": "wish|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "wish + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "thực hiện wish",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "wish",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "wish",
+      "explain_vi": "Điền 'wish' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "wish|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "wish + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "thực hiện wish",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She wished the work very quick yesterday.'",
+        "opts": [
+          "She wished the work very quickly yesterday.",
+          "She wished the work very quick yesterday.",
+          "She is wish the work very quick yesterday.",
+          "She wishing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She wished the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "wish|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "wish + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "thực hiện wish",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wish':",
+        "opts": [
+          "wish the task successfully",
+          "wish the task wrongly",
+          "wish the task badly",
+          "wish the task completely"
+        ]
+      },
+      "answer": "wish the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: wish the task successfully.",
+      "content_hash": "wish|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "wish + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "thực hiện worry",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "worry (v.)",
+        "opts": [
+          "thực hiện worry",
+          "chú ý / quan sát",
+          "thất bại / bỏ lỡ",
+          "nhớ lại / ghi nhớ"
+        ]
+      },
+      "answer": "thực hiện worry",
+      "explain_vi": "Động từ worry mang nghĩa chính xác là: thực hiện worry.",
+      "content_hash": "worry|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "worry + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "thực hiện worry",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động worry trong tiếng Anh:",
+        "opts": [
+          "worry",
+          "worrys",
+          "worrying",
+          "worryed"
+        ]
+      },
+      "answer": "worry",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là worry.",
+      "content_hash": "worry|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "worry + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "thực hiện worry",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "worry",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "worry",
+      "explain_vi": "Điền 'worry' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "worry|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "worry + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "thực hiện worry",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She worryed the work very quick yesterday.'",
+        "opts": [
+          "She worryed the work very quickly yesterday.",
+          "She worryed the work very quick yesterday.",
+          "She is worry the work very quick yesterday.",
+          "She worrying the work very quickly yesterday."
+        ]
+      },
+      "answer": "She worryed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "worry|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "worry + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "thực hiện worry",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'worry':",
+        "opts": [
+          "worry the task successfully",
+          "worry the task wrongly",
+          "worry the task badly",
+          "worry the task completely"
+        ]
+      },
+      "answer": "worry the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: worry the task successfully.",
+      "content_hash": "worry|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "worry + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "thực hiện close",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "close (v.)",
+        "opts": [
+          "thực hiện close",
+          "thay đổi / biến đổi",
+          "đạt được / giành chiến thắng",
+          "bỏ quên / làm mất"
+        ]
+      },
+      "answer": "thực hiện close",
+      "explain_vi": "Động từ close mang nghĩa chính xác là: thực hiện close.",
+      "content_hash": "close|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "close + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "thực hiện close",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động close trong tiếng Anh:",
+        "opts": [
+          "close",
+          "closes",
+          "closeing",
+          "closeed"
+        ]
+      },
+      "answer": "close",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là close.",
+      "content_hash": "close|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "close + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "thực hiện close",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "close",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "close",
+      "explain_vi": "Điền 'close' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "close|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "close + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "thực hiện close",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She closeed the work very quick yesterday.'",
+        "opts": [
+          "She closeed the work very quickly yesterday.",
+          "She closeed the work very quick yesterday.",
+          "She is close the work very quick yesterday.",
+          "She closeing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She closeed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "close|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "close + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "thực hiện close",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'close':",
+        "opts": [
+          "close the task successfully",
+          "close the task wrongly",
+          "close the task badly",
+          "close the task completely"
+        ]
+      },
+      "answer": "close the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: close the task successfully.",
+      "content_hash": "close|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "close + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "thực hiện cost",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cost (v.)",
+        "opts": [
+          "thực hiện cost",
+          "giữ lại / duy trì",
+          "cho phép / đồng ý",
+          "mua lại / sắm sửa"
+        ]
+      },
+      "answer": "thực hiện cost",
+      "explain_vi": "Động từ cost mang nghĩa chính xác là: thực hiện cost.",
+      "content_hash": "cost|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "cost + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "thực hiện cost",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động cost trong tiếng Anh:",
+        "opts": [
+          "cost",
+          "costs",
+          "costing",
+          "costed"
+        ]
+      },
+      "answer": "cost",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là cost.",
+      "content_hash": "cost|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "cost + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "thực hiện cost",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "cost",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "cost",
+      "explain_vi": "Điền 'cost' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "cost|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "cost + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "thực hiện cost",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She costed the work very quick yesterday.'",
+        "opts": [
+          "She costed the work very quickly yesterday.",
+          "She costed the work very quick yesterday.",
+          "She is cost the work very quick yesterday.",
+          "She costing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She costed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "cost|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "cost + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "thực hiện cost",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cost':",
+        "opts": [
+          "cost the task successfully",
+          "cost the task wrongly",
+          "cost the task badly",
+          "cost the task completely"
+        ]
+      },
+      "answer": "cost the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: cost the task successfully.",
+      "content_hash": "cost|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "cost + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "thực hiện count",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "count (v.)",
+        "opts": [
+          "thực hiện count",
+          "thất bại / bỏ lỡ",
+          "cản trở / ngăn chặn",
+          "bán đi / kinh doanh"
+        ]
+      },
+      "answer": "thực hiện count",
+      "explain_vi": "Động từ count mang nghĩa chính xác là: thực hiện count.",
+      "content_hash": "count|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "count + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "thực hiện count",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động count trong tiếng Anh:",
+        "opts": [
+          "count",
+          "counts",
+          "counting",
+          "counted"
+        ]
+      },
+      "answer": "count",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là count.",
+      "content_hash": "count|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "count + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "thực hiện count",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "count",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "count",
+      "explain_vi": "Điền 'count' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "count|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "count + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "thực hiện count",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She counted the work very quick yesterday.'",
+        "opts": [
+          "She counted the work very quickly yesterday.",
+          "She counted the work very quick yesterday.",
+          "She is count the work very quick yesterday.",
+          "She counting the work very quickly yesterday."
+        ]
+      },
+      "answer": "She counted the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "count|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "count + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "thực hiện count",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'count':",
+        "opts": [
+          "count the task successfully",
+          "count the task wrongly",
+          "count the task badly",
+          "count the task completely"
+        ]
+      },
+      "answer": "count the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: count the task successfully.",
+      "content_hash": "count|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "count + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "thực hiện cover",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cover (v.)",
+        "opts": [
+          "thực hiện cover",
+          "đạt được / giành chiến thắng",
+          "nhớ lại / ghi nhớ",
+          "mở ra / bắt đầu"
+        ]
+      },
+      "answer": "thực hiện cover",
+      "explain_vi": "Động từ cover mang nghĩa chính xác là: thực hiện cover.",
+      "content_hash": "cover|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "cover + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "thực hiện cover",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động cover trong tiếng Anh:",
+        "opts": [
+          "cover",
+          "covers",
+          "covering",
+          "covered"
+        ]
+      },
+      "answer": "cover",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là cover.",
+      "content_hash": "cover|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "cover + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "thực hiện cover",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "cover",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "cover",
+      "explain_vi": "Điền 'cover' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "cover|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "cover + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "thực hiện cover",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She covered the work very quick yesterday.'",
+        "opts": [
+          "She covered the work very quickly yesterday.",
+          "She covered the work very quick yesterday.",
+          "She is cover the work very quick yesterday.",
+          "She covering the work very quickly yesterday."
+        ]
+      },
+      "answer": "She covered the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "cover|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "cover + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "thực hiện cover",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cover':",
+        "opts": [
+          "cover the task successfully",
+          "cover the task wrongly",
+          "cover the task badly",
+          "cover the task completely"
+        ]
+      },
+      "answer": "cover the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: cover the task successfully.",
+      "content_hash": "cover|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "cover + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "thực hiện cross",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cross (v.)",
+        "opts": [
+          "thực hiện cross",
+          "cho phép / đồng ý",
+          "bỏ quên / làm mất",
+          "đóng lại / kết thúc"
+        ]
+      },
+      "answer": "thực hiện cross",
+      "explain_vi": "Động từ cross mang nghĩa chính xác là: thực hiện cross.",
+      "content_hash": "cross|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "cross + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "thực hiện cross",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động cross trong tiếng Anh:",
+        "opts": [
+          "cross",
+          "crosss",
+          "crossing",
+          "crossed"
+        ]
+      },
+      "answer": "cross",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là cross.",
+      "content_hash": "cross|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "cross + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "thực hiện cross",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "cross",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "cross",
+      "explain_vi": "Điền 'cross' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "cross|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "cross + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "thực hiện cross",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She crossed the work very quick yesterday.'",
+        "opts": [
+          "She crossed the work very quickly yesterday.",
+          "She crossed the work very quick yesterday.",
+          "She is cross the work very quick yesterday.",
+          "She crossing the work very quickly yesterday."
+        ]
+      },
+      "answer": "She crossed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "cross|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "cross + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "thực hiện cross",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cross':",
+        "opts": [
+          "cross the task successfully",
+          "cross the task wrongly",
+          "cross the task badly",
+          "cross the task completely"
+        ]
+      },
+      "answer": "cross the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: cross the task successfully.",
+      "content_hash": "cross|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "cross + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "thực hiện cry",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cry (v.)",
+        "opts": [
+          "thực hiện cry",
+          "cản trở / ngăn chặn",
+          "mua lại / sắm sửa",
+          "đưa cho / trao tặng"
+        ]
+      },
+      "answer": "thực hiện cry",
+      "explain_vi": "Động từ cry mang nghĩa chính xác là: thực hiện cry.",
+      "content_hash": "cry|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "cry + adverb quickly - meaning",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "thực hiện cry",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bày tỏ hành động cry trong tiếng Anh:",
+        "opts": [
+          "cry",
+          "crys",
+          "crying",
+          "cryed"
+        ]
+      },
+      "answer": "cry",
+      "explain_vi": "Dạng động từ nguyên mẫu chính xác là cry.",
+      "content_hash": "cry|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "cry + adverb quickly - l2 form",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "thực hiện cry",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "It is necessary to ___ the plan before starting the project.",
+        "opts": [
+          "cry",
+          "cancel",
+          "postpone",
+          "ignore"
+        ]
+      },
+      "answer": "cry",
+      "explain_vi": "Điền 'cry' phù hợp với ý nghĩa và cấu trúc câu.",
+      "content_hash": "cry|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "cry + adverb quickly - cloze context",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "thực hiện cry",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She cryed the work very quick yesterday.'",
+        "opts": [
+          "She cryed the work very quickly yesterday.",
+          "She cryed the work very quick yesterday.",
+          "She is cry the work very quick yesterday.",
+          "She crying the work very quickly yesterday."
+        ]
+      },
+      "answer": "She cryed the work very quickly yesterday.",
+      "explain_vi": "Bổ nghĩa cho động từ cần trạng từ quickly (không dùng tính từ quick).",
+      "content_hash": "cry|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "cry + adverb quickly - error trap",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "thực hiện cry",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cry':",
+        "opts": [
+          "cry the task successfully",
+          "cry the task wrongly",
+          "cry the task badly",
+          "cry the task completely"
+        ]
+      },
+      "answer": "cry the task successfully",
+      "explain_vi": "Kết hợp tự nhiên: cry the task successfully.",
+      "content_hash": "cry|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "cry + adverb quickly - collocation",
+        "priority": "P2-R1",
+        "queue": "verbs",
+        "pack_id": "p2-r1-verbs"
+      }
+    }
+  ]
+}

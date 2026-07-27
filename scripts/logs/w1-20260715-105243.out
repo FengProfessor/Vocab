@@ -1,0 +1,46 @@
+◇ injected env (44) from .env.local // tip: ⌘ override existing { override: true }
+◇ injected env (0) from .env.local // tip: ◈ encrypted .env [www.dotenvx.com]
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=500 delay=200
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 500 words to process
+
+[1/500] "app" → senses=1 syn=4 dist=1
+   #1: ứng dụng phần mềm | I downloaded a new app to track my daily steps.
+[2/500] "arc" → senses=3 syn=5 dist=1
+   #1: Đường cong hình cung | The ball flew in a wide arc across the sky.
+[3/500] "arm" → senses=3 syn=5 dist=1
+   #1: bộ phận cơ thể | She broke her arm when she fell off her bike.
+[4/500] "art" → senses=3 syn=5 dist=2
+   #1: nghệ thuật sáng tạo | She has always been interested in art and design.
+[5/500] "bad" → senses=3 syn=6 dist=1
+   #1: kém chất lượng | The weather has been really bad all week.
+[6/500] "cav" → senses=2 syn=0 dist=0
+   #1: thuật ngữ kỹ thuật | Older CD-ROM drives used CAV technology to spin discs at a constant rate.
+[7/500] "ceo" → senses=1 syn=1 dist=2
+   #1: chức danh công ty | She was appointed CEO of the tech startup last year.
+[8/500] "cfo" → senses=1 syn=1 dist=2
+   #1: Giám đốc tài chính | The CFO presented the quarterly financial results to the board of directors.
+[9/500] "cow" → senses=3 syn=6 dist=3
+   #1: con bò cái | The cows were grazing peacefully in the meadow.
+[10/500] "cpa" → senses=1 syn=3 dist=1
+   #1: chứng chỉ kế toán | She hired a CPA to handle her company's tax returns.
+[11/500] "cpi" → senses=2 syn=0 dist=0
+   #1: viết tắt kinh tế | The CPI rose by 3.2% last month, signaling increased inflation.
+[12/500] "cpr" → senses=1 syn=0 dist=2
+   #1: y tế, cấp cứu | The paramedic performed CPR on the victim until the ambulance arrived.
+[13/500] "cpu" → senses=1 syn=3 dist=2
+   #1: bộ xử lý trung tâm | This laptop has a faster CPU, so it runs heavy applications more smoothly.
+[14/500] "cry" → senses=3 syn=6 dist=2
+   #1: khóc (chảy nước mắt) | The little boy started crying when he fell off his bike.
+[15/500] "cub" → senses=3 syn=5 dist=2
+   #1: con non thú dữ | The mother bear protected her cubs fiercely.
+[16/500] "cue" → senses=3 syn=5 dist=1
+   #1: tín hiệu hành động | When I nod my head, that's your cue to start speaking.
+[17/500] "cup"

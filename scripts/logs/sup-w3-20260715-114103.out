@@ -1,0 +1,48 @@
+◇ injected env (44) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+◇ injected env (0) from .env.local // tip: ⌘ suppress logs { quiet: true }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "garage" → senses=3 syn=1 dist=1
+   #1: nhà để xe | He backed the car out of the garage.
+[2/1000] "garden" → senses=3 syn=5 dist=1
+   #1: khu vườn nhà | She spends every weekend working in the garden.
+[3/1000] "gather" → senses=3 syn=5 dist=1
+   #1: Tụ tập, tập hợp | A crowd gathered outside the building.
+[4/1000] "gauche" → senses=2 syn=6 dist=1
+   #1: vụng về xã giao | His gauche behaviour at the dinner party embarrassed everyone.
+[5/1000] "gender" → senses=3 syn=1 dist=1
+   #1: giới tính | The company promotes gender equality in all departments.
+[6/1000] "genius" → senses=3 syn=6 dist=2
+   #1: người tài năng xuất chúng | Einstein was one of the greatest geniuses of the 20th century.
+[7/1000] "genome" → senses=1 syn=1 dist=1
+   #1: danh từ sinh học | Scientists have successfully mapped the human genome.
+[8/1000] "gentle" → senses=3 syn=5 dist=2
+   #1: Tính cách, hành vi | He was a gentle man who would never hurt anyone.
+[9/1000] "global" → senses=3 syn=5 dist=1
+   #1: thuộc toàn cầu | Climate change is a global problem that affects every country.
+[10/1000] "gossip" → senses=3 syn=4 dist=1
+   #1: chuyện phiếm, tin đồn | She loves reading celebrity gossip in magazines.
+[11/1000] "govern" → senses=2 syn=6 dist=1
+   #1: quản lý, điều hành | The party governed the country for over a decade.
+[12/1000] "graham" → senses=3 syn=1 dist=1
+   #1: tên riêng nam | Graham is coming to the party on Saturday.
+[13/1000] "greedy" → senses=2 syn=5 dist=1
+   #1: tham ăn, ăn nhiều | Don't be so greedy — leave some cake for the others!
+[14/1000] "grotto" → senses=1 syn=5 dist=1
+   #1: hang động nhỏ | The children visited a grotto decorated with fairy lights and statues.
+[15/1000] "ground" → senses=3 syn=5 dist=1
+   #1: mặt đất | He slipped and fell to the ground.
+[16/1000] "growth" → senses=3 syn=5 dist=2
+   #1: Sự tăng trưởng | The company has experienced rapid growth in the last two years.
+[17/1000] "grudge" → senses=2 syn=6 dist=2
+   #1: mối thù cá nhân | He still holds a grudge against his former boss for firing him.
+[18/1000] "guilty"

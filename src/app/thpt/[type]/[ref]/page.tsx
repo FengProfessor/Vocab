@@ -10,7 +10,7 @@
  */
 import { useMemo, useState } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { completeRoadmapStep } from '@/lib/roadmap-client';
+import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
@@ -109,7 +109,7 @@ export default function ThptPlayerPage() {
       setSubmitting(true);
       const result = await completeRoadmapStep(stepId, isExam ? pct : undefined);
       setSubmitting(false);
-      if (result) { sessionStorage.setItem('roadmap_celebrate', result.levelCompleted ? 'level' : 'unit'); router.push('/journey'); }
+      if (result) { setRoadmapCelebrateFlag(result); router.push('/journey'); }
     }
   };
 
@@ -154,7 +154,13 @@ export default function ThptPlayerPage() {
       {q.context && (
         <Card><CardContent className="p-4 whitespace-pre-line text-sm leading-relaxed">{q.context}</CardContent></Card>
       )}
-      <h1 className="text-base font-bold">{q.prompt}</h1>
+      <h1 className="text-base font-bold">
+        {q.prompt?.trim()
+          ? q.prompt
+          : q.kind === 'arrange'
+            ? 'Sắp xếp các câu theo thứ tự đúng'
+            : 'Chọn đáp án đúng cho chỗ trống / câu hỏi'}
+      </h1>
 
       {q.kind === 'arrange' ? (
         <div className="space-y-3">

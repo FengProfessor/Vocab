@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "existing_p0p1": 155,
+  "order": [
+    "p2-verbs-top300.txt",
+    "p2-thpt-multiword.txt",
+    "p2-thpt-single.txt",
+    "p2-oxford-part300.txt"
+  ],
+  "counts": {
+    "verbs_new": 267,
+    "thpt_multi": 78,
+    "thpt_single": 326,
+    "oxford_part": 300,
+    "total_lemmas": 971,
+    "approx_items": 4855
+  },
+  "samples": {
+    "verbs": [
+      "do",
+      "get",
+      "think",
+      "look",
+      "use",
+      "find",
+      "tell",
+      "call"
+    ],
+    "thpt_multi": [
+      "register for",
+      "sign up for",
+      "application form",
+      "participate in",
+      "free of charge",
+      "in advance",
+      "on behalf of",
+      "contact details"
+    ],
+    "thpt_single": [
+      "leaflet",
+      "registration",
+      "attendee",
+      "admission",
+      "refreshments",
+      "queries",
+      "eligibility",
+      "mandatory"
+    ],
+    "oxford": [
+      "mum",
+      "dad",
+      "parent",
+      "son",
+      "daughter",
+      "child",
+      "kid",
+      "wife"
+    ]
+  }
+}

@@ -17,12 +17,18 @@ import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
 import { WordCardSkeleton } from '@/components/ui/WordCardSkeleton';
 import { useGamification } from '@/hooks/useGamification';
-import { earnedBadges, xpToLevel } from '@/lib/gamification';
+import {
+  earnedBadges,
+  lastActiveFromActivity,
+  resolveDisplayStreak,
+  xpToLevel,
+} from '@/lib/gamification';
+import { STREAK_MILESTONES } from '@/lib/encouragement';
 import { Mascot, type MascotMood } from '@/components/gamification/Mascot';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpGoalCard } from '@/components/gamification/XpGoalCard';
 import { ProTrialMilestoneCard } from '@/components/gamification/ProTrialMilestoneCard';
-import type { CelebrationIntensity } from '@/components/gamification/Celebration';
+import type { MilestonePopupPayload } from '@/components/gamification/MilestonePopup';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { StudentShell } from '@/components/student/StudentShell';
 import { NotificationBell } from '@/components/NotificationBell';
@@ -34,11 +40,6 @@ import {
 import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 import { STAMPEDE_MODE } from '@/lib/stampede';
 
-// Lazy load: canvas-confetti chỉ chạy client-side, không cần SSR + chỉ tải khi cần
-const Celebration = dynamic(
-  () => import('@/components/gamification/Celebration').then((m) => m.Celebration),
-  { ssr: false }
-);
 // Modal — chỉ tải khi mở / sau shell
 const WordDetailModal = dynamic(
   () => import('@/components/student/WordDetailModal').then((m) => m.WordDetailModal),
@@ -47,6 +48,10 @@ const WordDetailModal = dynamic(
 const BadgeGrid = dynamic(
   () => import('@/components/gamification/BadgeGrid').then((m) => m.BadgeGrid),
   { ssr: false, loading: () => <div className="h-24 animate-pulse rounded-xl bg-slate-100" /> }
+);
+const MilestonePopup = dynamic(
+  () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),
+  { ssr: false },
 );
 
 interface ActiveVocabPack {
@@ -109,9 +114,11 @@ export default function StudentDashboard() {
   const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'az' | 'hardest'>('newest');
   const router = useRouter();
   const { data: gamification, refresh: refreshGamification } = useGamification(profile?.id ?? null);
+  /** Streak hiển thị = ngày LIÊN TIẾP từ heatmap (không dùng raw current_streak / tổng ngày học). */
+  const [studyStreak, setStudyStreak] = useState(0);
 
-  // Celebration state — fire khi level up / badge unlock / streak milestone
-  const [celebration, setCelebration] = useState<{ key: string; intensity: CelebrationIntensity } | null>(null);
+  // Popup chúc mừng mốc (level / badge / streak)
+  const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
   const [prevSnapshot, setPrevSnapshot] = useState<{ level: number; badgeIds: string[]; streak: number } | null>(null);
 
   // Chặn double-load: getSession + onAuthStateChange SIGNED_IN/INITIAL_SESSION
@@ -198,7 +205,7 @@ export default function StudentDashboard() {
     });
   };
 
-  /** Heatmap + đếm từ hôm nay (stats lite). Gọi sau shell. */
+  /** Heatmap + streak liên tiếp (stats lite). Gọi sau shell. */
   const loadActivityStats = (token?: string | null) => {
     void authFetch('/api/student/stats?lite=1', {}, token)
       .then((r) => r.json())
@@ -206,12 +213,28 @@ export default function StudentDashboard() {
         if (!st?.success) return;
         const activity: { date: string; count: number }[] = st.data?.dailyActivity ?? [];
         setDailyActivity(activity);
-        const n = new Date();
-        const todayKey = `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
-        setTodayWords(activity.find((a) => a.date === todayKey)?.count ?? 0);
+        if (typeof st.data?.studyStreak === 'number') {
+          setStudyStreak(st.data.studyStreak);
+        }
+        if (typeof st.data?.todayWords === 'number') {
+          setTodayWords(st.data.todayWords);
+        } else if (typeof st.data?.todayKey === 'string') {
+          setTodayWords(activity.find((a) => a.date === st.data.todayKey)?.count ?? 0);
+        }
       })
       .catch(() => {});
   };
+
+  // Đồng bộ streak hiển thị: ưu tiên heatmap liên tiếp, không tin raw current_streak
+  useEffect(() => {
+    setStudyStreak(
+      resolveDisplayStreak({
+        currentStreak: gamification.current_streak,
+        lastActiveDate: gamification.last_active_date,
+        dailyActivity: dailyActivity.length > 0 ? dailyActivity : null,
+      }),
+    );
+  }, [dailyActivity, gamification.current_streak, gamification.last_active_date]);
 
   /** Levels L1–L6 + grammar due + packs — idle, không chặn first paint. */
   const loadSecondaryDashboard = (userId: string, token?: string | null) => {
@@ -449,43 +472,45 @@ export default function StudentDashboard() {
     return () => window.clearInterval(id);
   }, [profile?.id]);
 
-  // === Detect milestones (level up / new badge / streak milestone) → trigger Celebration ===
+  // === Detect mốc (level / badge / streak liên tiếp) → popup chúc mừng ===
   useEffect(() => {
     if (!profile?.id) return;
     const masteredCount = words.filter((w: Word & { srsLevel?: number }) => w.srsLevel === 5).length;
     const currentLevel = xpToLevel(gamification.total_xp);
-    const currentBadges = earnedBadges(gamification, masteredCount)
-      .filter(b => b.earned)
-      .map(b => b.id);
+    const earned = earnedBadges(
+      { ...gamification, current_streak: studyStreak },
+      masteredCount,
+    ).filter((b) => b.earned);
+    const currentBadges = earned.map((b) => b.id);
 
     // Lần đầu chỉ snapshot, không fire
     if (!prevSnapshot) {
       setPrevSnapshot({
         level: currentLevel,
         badgeIds: currentBadges,
-        streak: gamification.current_streak,
+        streak: studyStreak,
       });
       return;
     }
 
-    // Level up
+    // Ưu tiên: level up > badge > streak milestone
     if (currentLevel > prevSnapshot.level) {
-      setCelebration({ key: `level-${currentLevel}`, intensity: 'epic' });
-      toast.success(`🎉 Lên Level ${currentLevel}!`, { duration: 4000 });
+      setMilestonePopup({ kind: 'level', value: currentLevel, intensity: 'epic' });
     } else {
-      // Badge mới
-      const newBadge = currentBadges.find(id => !prevSnapshot.badgeIds.includes(id));
-      if (newBadge) {
-        setCelebration({ key: `badge-${newBadge}`, intensity: 'strong' });
-        toast.success('🏆 Mở khoá thành tích mới!', { duration: 4000 });
+      const newBadgeId = currentBadges.find((id) => !prevSnapshot.badgeIds.includes(id));
+      if (newBadgeId) {
+        const label = earned.find((b) => b.id === newBadgeId)?.label;
+        setMilestonePopup({
+          kind: 'badge',
+          badgeLabel: label,
+          intensity: 'strong',
+        });
       } else {
-        // Streak milestone (3, 7, 14, 30, 60, 100)
-        const MILESTONES = [3, 7, 14, 30, 60, 100];
-        const hitMilestone = MILESTONES.includes(gamification.current_streak)
-          && gamification.current_streak > prevSnapshot.streak;
-        if (hitMilestone) {
-          setCelebration({ key: `streak-${gamification.current_streak}`, intensity: 'strong' });
-          toast.success(`🔥 Streak ${gamification.current_streak} ngày!`, { duration: 4000 });
+        const hitStreak =
+          (STREAK_MILESTONES as readonly number[]).includes(studyStreak) &&
+          studyStreak > prevSnapshot.streak;
+        if (hitStreak) {
+          setMilestonePopup({ kind: 'streak', value: studyStreak, intensity: 'strong' });
         }
       }
     }
@@ -493,10 +518,10 @@ export default function StudentDashboard() {
     setPrevSnapshot({
       level: currentLevel,
       badgeIds: currentBadges,
-      streak: gamification.current_streak,
+      streak: studyStreak,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: so sánh snapshot cũ vs mới, không re-run khi prevSnapshot đổi
-  }, [gamification.total_xp, gamification.current_streak, words.length, profile?.id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: so sánh snapshot cũ vs mới
+  }, [gamification.total_xp, studyStreak, words.length, profile?.id]);
 
   // Đóng dropdown profile khi click ra ngoài
   useEffect(() => {
@@ -685,7 +710,7 @@ export default function StudentDashboard() {
   const masteredCount = words.filter((w) => w.srsLevel === 5).length;
   const badges = earnedBadges(gamification, masteredCount);
 
-  const mascotMood: MascotMood = reviewDueCount > 0 ? 'cheer' : gamification.current_streak === 0 ? 'sleepy' : 'happy';
+  const mascotMood: MascotMood = reviewDueCount > 0 ? 'cheer' : studyStreak === 0 ? 'sleepy' : 'happy';
   const greeting = (() => {
     const h = new Date().getHours();
     if (h < 12) return 'Chào buổi sáng';
@@ -694,8 +719,6 @@ export default function StudentDashboard() {
   })();
 
   const hasClass = joinedClass;
-
-  const FB_COMMUNITY_URL = 'https://www.facebook.com/groups/1586345819865575';
 
   return (
     <StudentShell
@@ -794,7 +817,7 @@ export default function StudentDashboard() {
           {profile?.id && (
             <ProTrialMilestoneCard
               enabled
-              hintStreak={gamification.current_streak}
+              hintStreak={studyStreak}
               hintWords={countsReady ? totalWords : undefined}
               onClaimed={() => {
                 void refreshGamification();
@@ -832,7 +855,10 @@ export default function StudentDashboard() {
             className="grid grid-cols-[1fr_minmax(0,0.95fr)] items-stretch gap-1.5 sm:grid-cols-2 sm:gap-2.5"
           >
             <StreakCounter
-              streak={gamification.current_streak}
+              streak={studyStreak}
+              lastActiveDate={
+                lastActiveFromActivity(dailyActivity) ?? gamification.last_active_date
+              }
               variant="calendar"
               dailyCounts={dailyActivity}
               className="min-w-0"
@@ -1178,15 +1204,14 @@ export default function StudentDashboard() {
             <BadgeGrid badges={badges} />
           </div>
 
-          {/* Milestone celebration (level up / new badge / streak milestone) */}
-          {celebration && (
-            <Celebration
-              trigger
-              triggerKey={celebration.key}
-              intensity={celebration.intensity}
-            />
-          )}
         </div>
+
+      {/* Popup chúc mừng mốc (level / badge / streak) */}
+      <MilestonePopup
+        open={!!milestonePopup}
+        payload={milestonePopup}
+        onClose={() => setMilestonePopup(null)}
+      />
 
       {/* ═══ WORD DETAIL MODAL ═══ */}
       <WordDetailModal

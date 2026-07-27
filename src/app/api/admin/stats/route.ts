@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient, fetchAllRows } from '@/lib/supabase';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
 type ProfileRow = { id: string; email: string; full_name: string; role: string; created_at: string };
@@ -43,25 +43,29 @@ export async function GET(req: Request): Promise<NextResponse> {
     const userIds = profileList.map((p) => p.id);
 
     // ── Bulk-fetch thay cho N+1 (trước đây ~3 query/user → bão hoà pool Supabase) ──
-    // 3 truy vấn tổng: personal classrooms + quiz_results song song, rồi words theo classroom.
-    const [classRes, quizRes] = userIds.length > 0
-      ? await Promise.all([
-          supabase.from('classrooms').select('id, teacher_id').eq('name', '__personal__').in('teacher_id', userIds),
-          supabase.from('quiz_results').select('user_id, accuracy, completed_at').in('user_id', userIds),
-        ])
-      : [{ data: [] }, { data: [] }];
+    // Do query `in(id, ...)` có thể dài quá URL length limit hoặc trả về > 1000 dòng, ta chunk id.
+    const CHUNK_SIZE = 50;
+    const classrooms: { id: string; teacher_id: string }[] = [];
+    const quizRows: QuizRow[] = [];
 
-    const classrooms = (classRes.data || []) as { id: string; teacher_id: string }[];
+    for (let i = 0; i < userIds.length; i += CHUNK_SIZE) {
+      const chunk = userIds.slice(i, i + CHUNK_SIZE);
+      const [classRes, qRes] = await Promise.all([
+        supabase.from('classrooms').select('id, teacher_id').eq('name', '__personal__').in('teacher_id', chunk),
+        fetchAllRows((f, t) => supabase.from('quiz_results').select('user_id, accuracy, completed_at').in('user_id', chunk).range(f, t))
+      ]);
+      if (classRes.data) classrooms.push(...classRes.data);
+      if (qRes) quizRows.push(...qRes);
+    }
+
     const classroomIds = classrooms.map((c) => c.id);
     const classroomToUser = new Map(classrooms.map((c) => [c.id, c.teacher_id]));
 
-    let wordRows: { classroom_id: string; created_at: string }[] = [];
-    if (classroomIds.length > 0) {
-      const { data: words } = await supabase
-        .from('words')
-        .select('classroom_id, created_at')
-        .in('classroom_id', classroomIds);
-      wordRows = (words || []) as { classroom_id: string; created_at: string }[];
+    const wordRows: { classroom_id: string; created_at: string }[] = [];
+    for (let i = 0; i < classroomIds.length; i += CHUNK_SIZE) {
+      const chunk = classroomIds.slice(i, i + CHUNK_SIZE);
+      const wRes = await fetchAllRows((f, t) => supabase.from('words').select('classroom_id, created_at').in('classroom_id', chunk).range(f, t));
+      if (wRes) wordRows.push(...wRes);
     }
 
     // Gộp per-user trong bộ nhớ (thay cho việc truy vấn từng user)
@@ -83,7 +87,7 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const quizCountMap = new Map<string, number>();
     const quizSumMap = new Map<string, number>();
-    for (const q of (quizRes.data || []) as QuizRow[]) {
+    for (const q of quizRows) {
       quizCountMap.set(q.user_id, (quizCountMap.get(q.user_id) || 0) + 1);
       quizSumMap.set(q.user_id, (quizSumMap.get(q.user_id) || 0) + (q.accuracy || 0));
       bumpLastActive(q.user_id, q.completed_at);

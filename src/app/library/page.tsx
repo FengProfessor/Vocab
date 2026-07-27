@@ -407,9 +407,10 @@ export default function LibraryPage() {
           <Link
             href="/import"
             data-onboarding="lib-import"
-            className="ml-auto flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-indigo-700"
+            className="ml-auto inline-flex items-center gap-1 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-1.5 text-xs font-extrabold text-indigo-700 hover:bg-indigo-100 active:brightness-110"
           >
-            <Upload className="h-3.5 w-3.5" aria-hidden />Nhập tay
+            <Upload className="h-3.5 w-3.5" aria-hidden />
+            List riêng
           </Link>
         </header>
 
@@ -425,6 +426,13 @@ export default function LibraryPage() {
               <span className="rounded-lg bg-white/15 px-2 py-1">{totals.packs} chặng</span>
               <span className="rounded-lg bg-white/15 px-2 py-1">{totals.words.toLocaleString('vi-VN')} từ</span>
             </div>
+            <Link
+              href="/import"
+              className="mt-3 inline-flex items-center gap-1.5 rounded-xl bg-white/15 px-3 py-2 text-xs font-extrabold text-white ring-1 ring-white/25 hover:bg-white/25"
+            >
+              <Upload className="h-3.5 w-3.5" aria-hidden />
+              Có list riêng? Nhập tại đây
+            </Link>
           </section>
 
           {loading ? (
@@ -460,9 +468,9 @@ export default function LibraryPage() {
           )}
 
           <p className="pb-2 text-center text-xs text-slate-500">
-            Có list riêng?{' '}
+            Có list giáo viên / Excel của bạn?{' '}
             <Link href="/import" className="font-bold text-indigo-700 underline-offset-2 hover:underline">
-              Nhập thủ công
+              Nhập list riêng
             </Link>
           </p>
         </main>

@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-07-body",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-body"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "head",
+      "pos": "n",
+      "sense_vi": "cái đầu",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "head (n.)",
+        "opts": [
+          "cái đầu",
+          "bàn tay",
+          "bàn chân",
+          "cái lưng"
+        ]
+      },
+      "answer": "cái đầu",
+      "explain_vi": "head nghĩa là cái đầu.",
+      "content_hash": "head|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cái đầu",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "head",
+      "pos": "n",
+      "sense_vi": "cái đầu",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bộ phận trên cùng cơ thể chứa não bộ:",
+        "opts": [
+          "head",
+          "ahead",
+          "heap",
+          "heal"
+        ]
+      },
+      "answer": "head",
+      "explain_vi": "Cái đầu là head (ahead là phía trước).",
+      "content_hash": "head|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss ahead",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "head",
+      "pos": "n",
+      "sense_vi": "cái đầu",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Wear a hat to protect your ___ from the hot sun.",
+        "opts": [
+          "head",
+          "hand",
+          "foot",
+          "leg"
+        ]
+      },
+      "answer": "head",
+      "explain_vi": "Đội mũ bảo vệ đầu: protect your head.",
+      "content_hash": "head|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "protect head",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "head",
+      "pos": "n",
+      "sense_vi": "cái đầu",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I have a headache in my head.'",
+        "opts": [
+          "I have a headache.",
+          "I have a headache in my head.",
+          "I am headache in my head.",
+          "I feel headache in head."
+        ]
+      },
+      "answer": "I have a headache.",
+      "explain_vi": "Đau đầu dùng tự nhiên 'I have a headache' (không lặp 'in my head').",
+      "content_hash": "head|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy I have a headache",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "head",
+      "pos": "n",
+      "sense_vi": "cái đầu",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đầu đến chân chuẩn:",
+        "opts": [
+          "from head to toe",
+          "from head to foot",
+          "from head to leg",
+          "from head to body"
+        ]
+      },
+      "answer": "from head to toe",
+      "explain_vi": "Cụm thành ngữ từ đầu đến chân là 'from head to toe'.",
+      "content_hash": "head|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm from head to toe",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eye",
+      "pos": "n",
+      "sense_vi": "mắt",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "eye (n.)",
+        "opts": [
+          "mắt / đôi mắt",
+          "tai",
+          "mũi",
+          "miệng"
+        ]
+      },
+      "answer": "mắt / đôi mắt",
+      "explain_vi": "eye nghĩa là con mắt.",
+      "content_hash": "eye|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con mắt",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eye",
+      "pos": "n",
+      "sense_vi": "mắt",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cơ quan thị giác dùng để nhìn:",
+        "opts": [
+          "eye",
+          "eyes",
+          "ice",
+          "aye"
+        ]
+      },
+      "answer": "eye",
+      "explain_vi": "Con mắt số ít là eye (đồng âm với I / aye).",
+      "content_hash": "eye|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss ice/aye",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eye",
+      "pos": "n",
+      "sense_vi": "mắt",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Close your ___ and make a wish.",
+        "opts": [
+          "eyes",
+          "ears",
+          "hands",
+          "feet"
+        ]
+      },
+      "answer": "eyes",
+      "explain_vi": "Close your eyes (nhắm mắt lại).",
+      "content_hash": "eye|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "close your eyes",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eye",
+      "pos": "n",
+      "sense_vi": "mắt",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has a blue eyes.'",
+        "opts": [
+          "She has blue eyes.",
+          "She has a blue eyes.",
+          "She has an blue eyes.",
+          "She have blue eyes."
+        ]
+      },
+      "answer": "She has blue eyes.",
+      "explain_vi": "Eyes số nhiều không dùng mạo từ 'a'.",
+      "content_hash": "eye|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy a blue eyes",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eye",
+      "pos": "n",
+      "sense_vi": "mắt",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm mở to mắt chuẩn:",
+        "opts": [
+          "open your eyes",
+          "unlock your eyes",
+          "start your eyes",
+          "free your eyes"
+        ]
+      },
+      "answer": "open your eyes",
+      "explain_vi": "Mở mắt ra: open your eyes.",
+      "content_hash": "eye|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm open your eyes",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ear",
+      "pos": "n",
+      "sense_vi": "tai",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ear (n.)",
+        "opts": [
+          "tai / lổ tai",
+          "mắt",
+          "mũi",
+          "răng"
+        ]
+      },
+      "answer": "tai / lổ tai",
+      "explain_vi": "ear nghĩa là cái tai.",
+      "content_hash": "ear|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cái tai",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ear",
+      "pos": "n",
+      "sense_vi": "tai",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cơ quan thính giác dùng để nghe:",
+        "opts": [
+          "ear",
+          "ears",
+          "year",
+          "hear"
+        ]
+      },
+      "answer": "ear",
+      "explain_vi": "Cái tai là ear (year là năm, hear là nghe).",
+      "content_hash": "ear|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss hear/year",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ear",
+      "pos": "n",
+      "sense_vi": "tai",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I wear headphones over my ___ to listen to music.",
+        "opts": [
+          "ears",
+          "eyes",
+          "legs",
+          "arms"
+        ]
+      },
+      "answer": "ears",
+      "explain_vi": "Đeo tai nghe qua tai: over my ears.",
+      "content_hash": "ear|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "over ears",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ear",
+      "pos": "n",
+      "sense_vi": "tai",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He has an earache in his ear.'",
+        "opts": [
+          "He has an earache.",
+          "He has an earache in his ear.",
+          "He is earache in his ear.",
+          "He feel an earache in ear."
+        ]
+      },
+      "answer": "He has an earache.",
+      "explain_vi": "Đau tai diễn đạt 'He has an earache'.",
+      "content_hash": "ear|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy earache",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ear",
+      "pos": "n",
+      "sense_vi": "tai",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đeo bông tai chuẩn:",
+        "opts": [
+          "wear earrings",
+          "wear ear rings",
+          "wear ear jewelry",
+          "wear ear items"
+        ]
+      },
+      "answer": "wear earrings",
+      "explain_vi": "Đeo khuyên tai là wear earrings.",
+      "content_hash": "ear|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm wear earrings",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nose",
+      "pos": "n",
+      "sense_vi": "mũi",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "nose (n.)",
+        "opts": [
+          "cái mũi",
+          "cái miệng",
+          "cái cằm",
+          "cái cổ"
+        ]
+      },
+      "answer": "cái mũi",
+      "explain_vi": "nose nghĩa là cái mũi.",
+      "content_hash": "nose|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cái mũi",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nose",
+      "pos": "n",
+      "sense_vi": "mũi",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cơ quan khứu giác nằm trên mặt dùng để thở và ngửi:",
+        "opts": [
+          "nose",
+          "knows",
+          "noise",
+          "rose"
+        ]
+      },
+      "answer": "nose",
+      "explain_vi": "Cái mũi là nose (đồng âm với knows - biết).",
+      "content_hash": "nose|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss knows/noise",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nose",
+      "pos": "n",
+      "sense_vi": "mũi",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Use a tissue to blow your ___ when you have a cold.",
+        "opts": [
+          "nose",
+          "eyes",
+          "mouth",
+          "hands"
+        ]
+      },
+      "answer": "nose",
+      "explain_vi": "Cụm blow your nose (hỉ mũi).",
+      "content_hash": "nose|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "blow your nose",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nose",
+      "pos": "n",
+      "sense_vi": "mũi",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Pinocchio has a long noses when he lies.'",
+        "opts": [
+          "Pinocchio has a long nose when he lies.",
+          "Pinocchio has a long noses when he lies.",
+          "Pinocchio have a long nose when he lies.",
+          "Pinocchio having a long nose when he lies."
+        ]
+      },
+      "answer": "Pinocchio has a long nose when he lies.",
+      "explain_vi": "Mỗi người có một cái mũi nên dùng số ít 'a long nose'.",
+      "content_hash": "nose|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy singular nose",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nose",
+      "pos": "n",
+      "sense_vi": "mũi",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hỉ mũi chuẩn:",
+        "opts": [
+          "blow your nose",
+          "clean your nose",
+          "wash your nose",
+          "open your nose"
+        ]
+      },
+      "answer": "blow your nose",
+      "explain_vi": "Cụm hỉ mũi là 'blow your nose'.",
+      "content_hash": "nose|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm blow your nose",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mouth",
+      "pos": "n",
+      "sense_vi": "miệng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "mouth (n.)",
+        "opts": [
+          "cái miệng",
+          "cái mũi",
+          "cái tai",
+          "cái cổ"
+        ]
+      },
+      "answer": "cái miệng",
+      "explain_vi": "mouth nghĩa là cái miệng.",
+      "content_hash": "mouth|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cái miệng",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mouth",
+      "pos": "n",
+      "sense_vi": "miệng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cơ quan dùng để nói và ăn uống:",
+        "opts": [
+          "mouth",
+          "mouse",
+          "month",
+          "math"
+        ]
+      },
+      "answer": "mouth",
+      "explain_vi": "Cái miệng là mouth (mouse là con chuột, month là tháng).",
+      "content_hash": "mouth|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss mouse/month",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mouth",
+      "pos": "n",
+      "sense_vi": "miệng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Open your ___ wide so the dentist can check your teeth.",
+        "opts": [
+          "mouth",
+          "eyes",
+          "ears",
+          "nose"
+        ]
+      },
+      "answer": "mouth",
+      "explain_vi": "Open your mouth (há miệng ra).",
+      "content_hash": "mouth|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "open mouth",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mouth",
+      "pos": "n",
+      "sense_vi": "miệng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Don't speak with your mouse full.'",
+        "opts": [
+          "Don't speak with your mouth full.",
+          "Don't speak with your mouse full.",
+          "Don't speak with your month full.",
+          "Don't speak by your mouth full."
+        ]
+      },
+      "answer": "Don't speak with your mouth full.",
+      "explain_vi": "Không nói khi miệng đầy thức ăn: with your mouth full (viết mouth, không mouse).",
+      "content_hash": "mouth|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy mouth vs mouse",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mouth",
+      "pos": "n",
+      "sense_vi": "miệng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm không nói khi đang ăn chuẩn:",
+        "opts": [
+          "with your mouth full",
+          "with your mouth fill",
+          "with your mouth all",
+          "with your mouth big"
+        ]
+      },
+      "answer": "with your mouth full",
+      "explain_vi": "Thành ngữ: with your mouth full.",
+      "content_hash": "mouth|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm with your mouth full",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hand",
+      "pos": "n",
+      "sense_vi": "bàn tay",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hand (n.)",
+        "opts": [
+          "bàn tay",
+          "bàn chân",
+          "cánh tay",
+          "ngón chân"
+        ]
+      },
+      "answer": "bàn tay",
+      "explain_vi": "hand nghĩa là bàn tay.",
+      "content_hash": "hand|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bàn tay",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hand",
+      "pos": "n",
+      "sense_vi": "bàn tay",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bộ phận ở cuối cánh tay gồm các ngón tay:",
+        "opts": [
+          "hand",
+          "hard",
+          "band",
+          "head"
+        ]
+      },
+      "answer": "hand",
+      "explain_vi": "Bàn tay là hand (hard là cứng/chăm chỉ).",
+      "content_hash": "hand|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss hard/band",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hand",
+      "pos": "n",
+      "sense_vi": "bàn tay",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Wash your ___ with soap before meals.",
+        "opts": [
+          "hands",
+          "feet",
+          "eyes",
+          "ears"
+        ]
+      },
+      "answer": "hands",
+      "explain_vi": "Wash your hands (rửa tay).",
+      "content_hash": "hand|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "wash hands",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hand",
+      "pos": "n",
+      "sense_vi": "bàn tay",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Give me a hands with this heavy box.'",
+        "opts": [
+          "Give me a hand with this heavy box.",
+          "Give me a hands with this heavy box.",
+          "Give me hand with this heavy box.",
+          "Give me a hand for this heavy box."
+        ]
+      },
+      "answer": "Give me a hand with this heavy box.",
+      "explain_vi": "Thành ngữ giúp một tay: give me a hand with sth.",
+      "content_hash": "hand|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy give me a hand",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hand",
+      "pos": "n",
+      "sense_vi": "bàn tay",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bắt tay giao tiếp chuẩn:",
+        "opts": [
+          "shake hands",
+          "make hands",
+          "give hands",
+          "touch hands"
+        ]
+      },
+      "answer": "shake hands",
+      "explain_vi": "Hành động bắt tay xã giao là shake hands.",
+      "content_hash": "hand|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm shake hands",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "foot",
+      "pos": "n",
+      "sense_vi": "bàn chân",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "foot (n.)",
+        "opts": [
+          "bàn chân",
+          "bàn tay",
+          "đầu gối",
+          "bắp chân"
+        ]
+      },
+      "answer": "bàn chân",
+      "explain_vi": "foot nghĩa là bàn chân.",
+      "content_hash": "foot|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bàn chân",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "foot",
+      "pos": "n",
+      "sense_vi": "bàn chân",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bộ phận cơ thể chạm đất dùng để đứng và đi:",
+        "opts": [
+          "foot",
+          "feet",
+          "food",
+          "fool"
+        ]
+      },
+      "answer": "foot",
+      "explain_vi": "Bàn chân số ít là foot (feet là số nhiều, food là thức ăn).",
+      "content_hash": "foot|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss feet/food",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "foot",
+      "pos": "n",
+      "sense_vi": "bàn chân",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I walk to school on ___ every day.",
+        "opts": [
+          "foot",
+          "feet",
+          "hand",
+          "leg"
+        ]
+      },
+      "answer": "foot",
+      "explain_vi": "Thành ngữ đi bộ: on foot.",
+      "content_hash": "foot|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "on foot",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "foot",
+      "pos": "n",
+      "sense_vi": "bàn chân",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He goes to work by foot.'",
+        "opts": [
+          "He goes to work on foot.",
+          "He goes to work by foot.",
+          "He goes to work in foot.",
+          "He goes to work with foot."
+        ]
+      },
+      "answer": "He goes to work on foot.",
+      "explain_vi": "Đi bộ dùng giới từ 'on foot', không dùng 'by foot'.",
+      "content_hash": "foot|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy on foot vs by foot",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "foot",
+      "pos": "n",
+      "sense_vi": "bàn chân",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đi bộ chuẩn:",
+        "opts": [
+          "on foot",
+          "by foot",
+          "with foot",
+          "in foot"
+        ]
+      },
+      "answer": "on foot",
+      "explain_vi": "Cụm cố định đi bộ là on foot.",
+      "content_hash": "foot|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm on foot",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hair",
+      "pos": "n",
+      "sense_vi": "mái tóc",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hair (n.)",
+        "opts": [
+          "mái tóc / tóc",
+          "lông mày",
+          "râu",
+          "móng tay"
+        ]
+      },
+      "answer": "mái tóc / tóc",
+      "explain_vi": "hair nghĩa là mái tóc.",
+      "content_hash": "hair|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa mái tóc",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hair",
+      "pos": "n",
+      "sense_vi": "mái tóc",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Lớp sợ mọc trên đầu người:",
+        "opts": [
+          "hair",
+          "hare",
+          "air",
+          "pair"
+        ]
+      },
+      "answer": "hair",
+      "explain_vi": "Tóc là hair (đồng âm với hare - thỏ rừng).",
+      "content_hash": "hair|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm hare",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hair",
+      "pos": "n",
+      "sense_vi": "mái tóc",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "She has long smooth black ___.",
+        "opts": [
+          "hair",
+          "head",
+          "face",
+          "skin"
+        ]
+      },
+      "answer": "hair",
+      "explain_vi": "Long black hair (mái tóc đen dài).",
+      "content_hash": "hair|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "long black hair",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hair",
+      "pos": "n",
+      "sense_vi": "mái tóc",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is combing her hairs in front of the mirror.'",
+        "opts": [
+          "She is combing her hair in front of the mirror.",
+          "She is combing her hairs in front of the mirror.",
+          "She is comb her hair in front of the mirror.",
+          "She are combing her hair in front of the mirror."
+        ]
+      },
+      "answer": "She is combing her hair in front of the mirror.",
+      "explain_vi": "Hair (tóc) danh từ không đếm được dạng chung không thêm 's'.",
+      "content_hash": "hair|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy hair số nhiều",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hair",
+      "pos": "n",
+      "sense_vi": "mái tóc",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chải tóc chuẩn:",
+        "opts": [
+          "comb your hair",
+          "brush your hair",
+          "clean your hair",
+          "do your hair"
+        ]
+      },
+      "answer": "comb your hair",
+      "explain_vi": "Chải tóc bằng lược là comb your hair.",
+      "content_hash": "hair|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm comb your hair",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "face",
+      "pos": "n",
+      "sense_vi": "khuôn mặt",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "face (n.)",
+        "opts": [
+          "khuôn mặt",
+          "cái đầu",
+          "cái cổ",
+          "bờ vai"
+        ]
+      },
+      "answer": "khuôn mặt",
+      "explain_vi": "face nghĩa là khuôn mặt.",
+      "content_hash": "face|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa khuôn mặt",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "face",
+      "pos": "n",
+      "sense_vi": "khuôn mặt",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Phần phía trước của đầu gồm mắt, mũi, miệng:",
+        "opts": [
+          "face",
+          "fact",
+          "fade",
+          "pace"
+        ]
+      },
+      "answer": "face",
+      "explain_vi": "Khuôn mặt là face (fact là sự thật).",
+      "content_hash": "face|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss fact",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "face",
+      "pos": "n",
+      "sense_vi": "khuôn mặt",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Wash your ___ with clean water when you wake up.",
+        "opts": [
+          "face",
+          "head",
+          "hair",
+          "neck"
+        ]
+      },
+      "answer": "face",
+      "explain_vi": "Wash your face (rửa mặt).",
+      "content_hash": "face|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "wash face",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "face",
+      "pos": "n",
+      "sense_vi": "khuôn mặt",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has a happy smile on her face.'",
+        "opts": [
+          "She has a happy smile on her face.",
+          "She has a happy smile in her face.",
+          "She has a happy smile at her face.",
+          "She have a happy smile on her face."
+        ]
+      },
+      "answer": "She has a happy smile on her face.",
+      "explain_vi": "Nụ cười trên mặt dùng 'on her face'.",
+      "content_hash": "face|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy on her face",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "face",
+      "pos": "n",
+      "sense_vi": "khuôn mặt",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm rửa mặt chuẩn:",
+        "opts": [
+          "wash your face",
+          "clean your face",
+          "do your face",
+          "make your face"
+        ]
+      },
+      "answer": "wash your face",
+      "explain_vi": "Rửa mặt là wash your face.",
+      "content_hash": "face|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm wash your face",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "leg",
+      "pos": "n",
+      "sense_vi": "cái chân",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "leg (n.)",
+        "opts": [
+          "cái chân / cẳng chân",
+          "cánh tay",
+          "bàn tay",
+          "ngón tay"
+        ]
+      },
+      "answer": "cái chân / cẳng chân",
+      "explain_vi": "leg nghĩa là cái chân.",
+      "content_hash": "leg|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cái chân",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "leg",
+      "pos": "n",
+      "sense_vi": "cái chân",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bộ phận cơ thể từ hông xuống bàn chân dùng để đi đứng:",
+        "opts": [
+          "leg",
+          "legs",
+          "log",
+          "let"
+        ]
+      },
+      "answer": "leg",
+      "explain_vi": "Cái chân là leg (log là khúc gỗ).",
+      "content_hash": "leg|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss log",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "leg",
+      "pos": "n",
+      "sense_vi": "cái chân",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "He broke his left ___ while playing football.",
+        "opts": [
+          "leg",
+          "foot",
+          "arm",
+          "hand"
+        ]
+      },
+      "answer": "leg",
+      "explain_vi": "Broke his left leg (gãy chân trái).",
+      "content_hash": "leg|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "broke leg",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "leg",
+      "pos": "n",
+      "sense_vi": "cái chân",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has two long leg.'",
+        "opts": [
+          "She has two long legs.",
+          "She has two long leg.",
+          "She have two long legs.",
+          "She is having two long leg."
+        ]
+      },
+      "answer": "She has two long legs.",
+      "explain_vi": "Two đi với danh từ số nhiều legs (có s).",
+      "content_hash": "leg|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy two long legs",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "leg",
+      "pos": "n",
+      "sense_vi": "cái chân",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm vắt chân lên đùi / khoanh chân chuẩn:",
+        "opts": [
+          "cross your legs",
+          "fold your legs",
+          "mix your legs",
+          "close your legs"
+        ]
+      },
+      "answer": "cross your legs",
+      "explain_vi": "Khoanh chân / bắt chéo chân là cross your legs.",
+      "content_hash": "leg|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm cross your legs",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "arm",
+      "pos": "n",
+      "sense_vi": "cánh tay",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "arm (n.)",
+        "opts": [
+          "cánh tay",
+          "cẳng chân",
+          "bàn tay",
+          "bờ vai"
+        ]
+      },
+      "answer": "cánh tay",
+      "explain_vi": "arm nghĩa là cánh tay.",
+      "content_hash": "arm|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cánh tay",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "arm",
+      "pos": "n",
+      "sense_vi": "cánh tay",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bộ phận từ vai đến bàn tay:",
+        "opts": [
+          "arm",
+          "arms",
+          "aim",
+          "art"
+        ]
+      },
+      "answer": "arm",
+      "explain_vi": "Cánh tay là arm (aim là mục tiêu, art là nghệ thuật).",
+      "content_hash": "arm|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss aim/art",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "arm",
+      "pos": "n",
+      "sense_vi": "cánh tay",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "He wrapped his ___ around his mother to give her a hug.",
+        "opts": [
+          "arms",
+          "legs",
+          "feet",
+          "eyes"
+        ]
+      },
+      "answer": "arms",
+      "explain_vi": "Wrapped his arms around (khoác tay ôm).",
+      "content_hash": "arm|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "wrap arms around",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "arm",
+      "pos": "n",
+      "sense_vi": "cánh tay",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She hurt a arm in the game.'",
+        "opts": [
+          "She hurt her arm in the game.",
+          "She hurt a arm in the game.",
+          "She hurt an arm in the game.",
+          "She hurts an arm in the game."
+        ]
+      },
+      "answer": "She hurt her arm in the game.",
+      "explain_vi": "Bị thương tay của mình dùng tính từ sở hữu 'her arm'.",
+      "content_hash": "arm|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy hurt her arm",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "arm",
+      "pos": "n",
+      "sense_vi": "cánh tay",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm khoanh tay trước ngực chuẩn:",
+        "opts": [
+          "fold your arms",
+          "cross your arms",
+          "close your arms",
+          "hold your arms"
+        ]
+      },
+      "answer": "fold your arms",
+      "explain_vi": "Khoanh tay trước ngực là fold your arms (hoặc cross your arms).",
+      "content_hash": "arm|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm fold your arms",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "body",
+      "pos": "n",
+      "sense_vi": "cơ thể",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "body (n.)",
+        "opts": [
+          "cơ thể / thân thể",
+          "khuôn mặt",
+          "bàn tay",
+          "đầu óc"
+        ]
+      },
+      "answer": "cơ thể / thân thể",
+      "explain_vi": "body nghĩa là toàn bộ cơ thể.",
+      "content_hash": "body|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cơ thể",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "body",
+      "pos": "n",
+      "sense_vi": "cơ thể",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Toàn bộ cấu trúc thể chất của con người:",
+        "opts": [
+          "body",
+          "bodies",
+          "buddy",
+          "bony"
+        ]
+      },
+      "answer": "body",
+      "explain_vi": "Cơ thể là body (buddy là bạn thân, bony là gầy giơ xương).",
+      "content_hash": "body|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss buddy/bony",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "body",
+      "pos": "n",
+      "sense_vi": "cơ thể",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Exercise regularly to keep your ___ healthy.",
+        "opts": [
+          "body",
+          "head",
+          "mind",
+          "hair"
+        ]
+      },
+      "answer": "body",
+      "explain_vi": "Keep your body healthy (giữ cơ thể khỏe mạnh).",
+      "content_hash": "body|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "healthy body",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "body",
+      "pos": "n",
+      "sense_vi": "cơ thể",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Fresh air is good for your body.'",
+        "opts": [
+          "Fresh air is good for your body.",
+          "Fresh air is good to your body.",
+          "Fresh air is well for your body.",
+          "Fresh air is good for your bodies."
+        ]
+      },
+      "answer": "Fresh air is good for your body.",
+      "explain_vi": "Tốt cho cái gì dùng 'good for your body'.",
+      "content_hash": "body|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy good for body",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "body",
+      "pos": "n",
+      "sense_vi": "cơ thể",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ngôn ngữ cơ thể chuẩn:",
+        "opts": [
+          "body language",
+          "body word",
+          "body speech",
+          "body talk"
+        ]
+      },
+      "answer": "body language",
+      "explain_vi": "Ngôn ngữ cơ thể là body language.",
+      "content_hash": "body|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm body language",
+        "pack_id": "starter-a0-body",
+        "priority": "P0"
+      }
+    }
+  ]
+}

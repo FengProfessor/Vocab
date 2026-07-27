@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-22",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "stretch",
+    "strike",
+    "struggle",
+    "succeed",
+    "suffer",
+    "suit",
+    "support",
+    "suppose",
+    "survive",
+    "swim"
+  ],
+  "items": [
+    {
+      "lemma": "stretch",
+      "pos": "v",
+      "sense_vi": "duỗi cơ thể",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "stretch (v.)",
+        "opts": [
+          "duỗi cơ thể",
+          "buộc dây giày",
+          "sắp xếp cuộc họp",
+          "ngồi ghế"
+        ]
+      },
+      "answer": "duỗi cơ thể",
+      "explain_vi": "Động từ stretch mang nghĩa chính xác là: duỗi cơ thể.",
+      "content_hash": "stretch|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "stretch gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stretch body in morning",
+        "vn_trap": "past tense stretched"
+      }
+    },
+    {
+      "lemma": "stretch",
+      "pos": "v",
+      "sense_vi": "duỗi cơ thể",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'duỗi cơ thể' được dịch là:",
+        "opts": [
+          "stretch",
+          "stretchs",
+          "stretching",
+          "stretched"
+        ]
+      },
+      "answer": "stretch",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là stretch.",
+      "content_hash": "stretch|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "stretch l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stretch body in morning",
+        "vn_trap": "past tense stretched"
+      }
+    },
+    {
+      "lemma": "stretch",
+      "pos": "v",
+      "sense_vi": "duỗi cơ thể",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Always remember to ___ your homework on time.",
+        "opts": [
+          "stretch",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "stretch",
+      "explain_vi": "Điền 'stretch' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "stretch|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "stretch cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stretch body in morning",
+        "vn_trap": "past tense stretched"
+      }
+    },
+    {
+      "lemma": "stretch",
+      "pos": "v",
+      "sense_vi": "duỗi cơ thể",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She stretchs the work very good yesterday.'",
+        "opts": [
+          "She stretched the work very well yesterday.",
+          "She stretchs the work very good yesterday.",
+          "She stretchs the task very good yesterday.",
+          "She was stretching when I came yesterday."
+        ]
+      },
+      "answer": "She stretched the work very well yesterday.",
+      "explain_vi": "Dùng trạng từ 'well' bổ nghĩa cho động từ, không dùng tính từ 'good'.",
+      "content_hash": "stretch|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "stretch error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stretch body in morning",
+        "vn_trap": "past tense stretched"
+      }
+    },
+    {
+      "lemma": "stretch",
+      "pos": "v",
+      "sense_vi": "duỗi cơ thể",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'stretch':",
+        "opts": [
+          "stretch body in morning",
+          "stretch in wrong way",
+          "stretch without care",
+          "stretch for nothing"
+        ]
+      },
+      "answer": "stretch body in morning",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: stretch body in morning.",
+      "content_hash": "stretch|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "stretch collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stretch body in morning",
+        "vn_trap": "past tense stretched"
+      }
+    },
+    {
+      "lemma": "strike",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "strike (v.)",
+        "opts": [
+          "đánh quả bóng",
+          "đào tạo nhân viên",
+          "đến đúng giờ",
+          "đứng dậy"
+        ]
+      },
+      "answer": "đánh quả bóng",
+      "explain_vi": "Động từ strike mang nghĩa chính xác là: đánh quả bóng.",
+      "content_hash": "strike|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "strike gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "strike the bowling pins",
+        "vn_trap": "past tense struck"
+      }
+    },
+    {
+      "lemma": "strike",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'đánh quả bóng', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "strike",
+          "strikes",
+          "strikeing",
+          "struck"
+        ]
+      },
+      "answer": "strike",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là strike.",
+      "content_hash": "strike|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "strike l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "strike the bowling pins",
+        "vn_trap": "past tense struck"
+      }
+    },
+    {
+      "lemma": "strike",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Be careful when you ___ the street tomorrow morning.",
+        "opts": [
+          "strike",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "strike",
+      "explain_vi": "Điền 'strike' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "strike|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "strike cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "strike the bowling pins",
+        "vn_trap": "past tense struck"
+      }
+    },
+    {
+      "lemma": "strike",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was strikeing when the bell rang.'",
+        "opts": [
+          "They were strikeing when the bell rang.",
+          "They was strikeing when the bell rang.",
+          "They They was strikeing when the bell rang.",
+          "She was strikeing when I came yesterday."
+        ]
+      },
+      "answer": "They were strikeing when the bell rang.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were', không dùng 'was'.",
+      "content_hash": "strike|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "strike error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "strike the bowling pins",
+        "vn_trap": "past tense struck"
+      }
+    },
+    {
+      "lemma": "strike",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'strike':",
+        "opts": [
+          "strike the bowling pins",
+          "strike in wrong way",
+          "strike without care",
+          "strike for nothing"
+        ]
+      },
+      "answer": "strike the bowling pins",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: strike the bowling pins.",
+      "content_hash": "strike|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "strike collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "strike the bowling pins",
+        "vn_trap": "past tense struck"
+      }
+    },
+    {
+      "lemma": "struggle",
+      "pos": "v",
+      "sense_vi": "vật lộn với khó khăn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "struggle (v.)",
+        "opts": [
+          "vật lộn với khó khăn",
+          "dịch sang tiếng Việt",
+          "tấn công kẻ địch",
+          "mất chìa khóa"
+        ]
+      },
+      "answer": "vật lộn với khó khăn",
+      "explain_vi": "Động từ struggle mang nghĩa chính xác là: vật lộn với khó khăn.",
+      "content_hash": "struggle|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "struggle gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "struggle with financial problems",
+        "vn_trap": "past tense struggled"
+      }
+    },
+    {
+      "lemma": "struggle",
+      "pos": "v",
+      "sense_vi": "vật lộn với khó khăn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'vật lộn với khó khăn' là:",
+        "opts": [
+          "struggle",
+          "struggles",
+          "struggleing",
+          "struggled"
+        ]
+      },
+      "answer": "struggle",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là struggle.",
+      "content_hash": "struggle|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "struggle l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "struggle with financial problems",
+        "vn_trap": "past tense struggled"
+      }
+    },
+    {
+      "lemma": "struggle",
+      "pos": "v",
+      "sense_vi": "vật lộn với khó khăn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you help me ___ this difficult problem today?",
+        "opts": [
+          "struggle",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "struggle",
+      "explain_vi": "Điền 'struggle' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "struggle|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "struggle cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "struggle with financial problems",
+        "vn_trap": "past tense struggled"
+      }
+    },
+    {
+      "lemma": "struggle",
+      "pos": "v",
+      "sense_vi": "vật lộn với khó khăn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He struggleed without inform anyone first.'",
+        "opts": [
+          "He struggled without informing anyone first.",
+          "He struggleed without inform anyone first.",
+          "They He struggleed without inform anyone first.",
+          "She was struggleing when I came yesterday."
+        ]
+      },
+      "answer": "He struggled without informing anyone first.",
+      "explain_vi": "Sau giới từ 'without' cần động từ dạng V-ing.",
+      "content_hash": "struggle|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "struggle error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "struggle with financial problems",
+        "vn_trap": "past tense struggled"
+      }
+    },
+    {
+      "lemma": "struggle",
+      "pos": "v",
+      "sense_vi": "vật lộn với khó khăn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'struggle':",
+        "opts": [
+          "struggle with financial problems",
+          "struggle in wrong way",
+          "struggle without care",
+          "struggle for nothing"
+        ]
+      },
+      "answer": "struggle with financial problems",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: struggle with financial problems.",
+      "content_hash": "struggle|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "struggle collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "struggle with financial problems",
+        "vn_trap": "past tense struggled"
+      }
+    },
+    {
+      "lemma": "succeed",
+      "pos": "v",
+      "sense_vi": "thành công trong đời",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "succeed (v.)",
+        "opts": [
+          "thành công trong đời",
+          "đối xử tốt",
+          "tham dự lớp học",
+          "trả tiền ăn"
+        ]
+      },
+      "answer": "thành công trong đời",
+      "explain_vi": "Động từ succeed mang nghĩa chính xác là: thành công trong đời.",
+      "content_hash": "succeed|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "succeed gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "succeed in passing exam",
+        "vn_trap": "past tense succeeded"
+      }
+    },
+    {
+      "lemma": "succeed",
+      "pos": "v",
+      "sense_vi": "thành công trong đời",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'thành công trong đời' là:",
+        "opts": [
+          "succeed",
+          "succeeds",
+          "succeeding",
+          "succeeded"
+        ]
+      },
+      "answer": "succeed",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là succeed.",
+      "content_hash": "succeed|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "succeed l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "succeed in passing exam",
+        "vn_trap": "past tense succeeded"
+      }
+    },
+    {
+      "lemma": "succeed",
+      "pos": "v",
+      "sense_vi": "thành công trong đời",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Do not forget to ___ your passport before traveling.",
+        "opts": [
+          "succeed",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "succeed",
+      "explain_vi": "Điền 'succeed' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "succeed|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "succeed cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "succeed in passing exam",
+        "vn_trap": "past tense succeeded"
+      }
+    },
+    {
+      "lemma": "succeed",
+      "pos": "v",
+      "sense_vi": "thành công trong đời",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is succeeding since two o'clock.'",
+        "opts": [
+          "She has been succeeding since two o'clock.",
+          "She is succeeding since two o'clock.",
+          "They She is succeeding since two o'clock.",
+          "She was succeeding when I came yesterday."
+        ]
+      },
+      "answer": "She has been succeeding since two o'clock.",
+      "explain_vi": "Hành động có 'since' kéo dài đến nay dùng hiện tại hoàn thành tiếp diễn.",
+      "content_hash": "succeed|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "succeed error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "succeed in passing exam",
+        "vn_trap": "past tense succeeded"
+      }
+    },
+    {
+      "lemma": "succeed",
+      "pos": "v",
+      "sense_vi": "thành công trong đời",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'succeed':",
+        "opts": [
+          "succeed in passing exam",
+          "succeed in wrong way",
+          "succeed without care",
+          "succeed for nothing"
+        ]
+      },
+      "answer": "succeed in passing exam",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: succeed in passing exam.",
+      "content_hash": "succeed|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "succeed collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "succeed in passing exam",
+        "vn_trap": "past tense succeeded"
+      }
+    },
+    {
+      "lemma": "suffer",
+      "pos": "v",
+      "sense_vi": "chịu đựng nỗi đau",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "suffer (v.)",
+        "opts": [
+          "chịu đựng nỗi đau",
+          "tin tưởng bạn thân",
+          "tránh mắc lỗi",
+          "gặp người mới"
+        ]
+      },
+      "answer": "chịu đựng nỗi đau",
+      "explain_vi": "Động từ suffer mang nghĩa chính xác là: chịu đựng nỗi đau.",
+      "content_hash": "suffer|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "suffer gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suffer from serious illness",
+        "vn_trap": "past tense suffered"
+      }
+    },
+    {
+      "lemma": "suffer",
+      "pos": "v",
+      "sense_vi": "chịu đựng nỗi đau",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'chịu đựng nỗi đau', người Anh dùng:",
+        "opts": [
+          "suffer",
+          "suffers",
+          "suffering",
+          "suffered"
+        ]
+      },
+      "answer": "suffer",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là suffer.",
+      "content_hash": "suffer|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "suffer l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suffer from serious illness",
+        "vn_trap": "past tense suffered"
+      }
+    },
+    {
+      "lemma": "suffer",
+      "pos": "v",
+      "sense_vi": "chịu đựng nỗi đau",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Every student should ___ their goals before the new term.",
+        "opts": [
+          "suffer",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "suffer",
+      "explain_vi": "Điền 'suffer' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "suffer|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "suffer cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suffer from serious illness",
+        "vn_trap": "past tense suffered"
+      }
+    },
+    {
+      "lemma": "suffer",
+      "pos": "v",
+      "sense_vi": "chịu đựng nỗi đau",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If he suffers harder, he would pass easily.'",
+        "opts": [
+          "If he suffered harder, he would pass easily.",
+          "If he suffers harder, he would pass easily.",
+          "They If he suffers harder, he would pass easily.",
+          "She was suffering when I came yesterday."
+        ]
+      },
+      "answer": "If he suffered harder, he would pass easily.",
+      "explain_vi": "Mệnh đề điều kiện loại 2 dùng quá khứ đơn ở mệnh đề IF.",
+      "content_hash": "suffer|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "suffer error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suffer from serious illness",
+        "vn_trap": "past tense suffered"
+      }
+    },
+    {
+      "lemma": "suffer",
+      "pos": "v",
+      "sense_vi": "chịu đựng nỗi đau",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'suffer':",
+        "opts": [
+          "suffer from serious illness",
+          "suffer in wrong way",
+          "suffer without care",
+          "suffer for nothing"
+        ]
+      },
+      "answer": "suffer from serious illness",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: suffer from serious illness.",
+      "content_hash": "suffer|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "suffer collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suffer from serious illness",
+        "vn_trap": "past tense suffered"
+      }
+    },
+    {
+      "lemma": "suit",
+      "pos": "v",
+      "sense_vi": "phù hợp kích thước",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "suit (v.)",
+        "opts": [
+          "phù hợp kích thước",
+          "gõ văn bản",
+          "dựa trên thực tế",
+          "bao gồm tên"
+        ]
+      },
+      "answer": "phù hợp kích thước",
+      "explain_vi": "Động từ suit mang nghĩa chính xác là: phù hợp kích thước.",
+      "content_hash": "suit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "suit gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suit your personal style",
+        "vn_trap": "past tense suited"
+      }
+    },
+    {
+      "lemma": "suit",
+      "pos": "v",
+      "sense_vi": "phù hợp kích thước",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'phù hợp kích thước' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "suit",
+          "suits",
+          "suiting",
+          "suited"
+        ]
+      },
+      "answer": "suit",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là suit.",
+      "content_hash": "suit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "suit l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suit your personal style",
+        "vn_trap": "past tense suited"
+      }
+    },
+    {
+      "lemma": "suit",
+      "pos": "v",
+      "sense_vi": "phù hợp kích thước",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Fortunately, she managed to ___ the train on time.",
+        "opts": [
+          "suit",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "suit",
+      "explain_vi": "Điền 'suit' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "suit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "suit cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suit your personal style",
+        "vn_trap": "past tense suited"
+      }
+    },
+    {
+      "lemma": "suit",
+      "pos": "v",
+      "sense_vi": "phù hợp kích thước",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She enjoys to suit in her free time.'",
+        "opts": [
+          "She enjoys suiting in her free time.",
+          "She enjoys to suit in her free time.",
+          "They She enjoys to suit in her free time.",
+          "She was suiting when I came yesterday."
+        ]
+      },
+      "answer": "She enjoys suiting in her free time.",
+      "explain_vi": "Sau động từ 'enjoy' dùng V-ing (enjoy doing sth).",
+      "content_hash": "suit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "suit error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suit your personal style",
+        "vn_trap": "past tense suited"
+      }
+    },
+    {
+      "lemma": "suit",
+      "pos": "v",
+      "sense_vi": "phù hợp kích thước",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'suit':",
+        "opts": [
+          "suit your personal style",
+          "suit in wrong way",
+          "suit without care",
+          "suit for nothing"
+        ]
+      },
+      "answer": "suit your personal style",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: suit your personal style.",
+      "content_hash": "suit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "suit collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suit your personal style",
+        "vn_trap": "past tense suited"
+      }
+    },
+    {
+      "lemma": "support",
+      "pos": "v",
+      "sense_vi": "hỗ trợ đồng đội",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "support (v.)",
+        "opts": [
+          "hỗ trợ đồng đội",
+          "đoàn kết mọi người",
+          "thuộc về tôi",
+          "tiếp tục học"
+        ]
+      },
+      "answer": "hỗ trợ đồng đội",
+      "explain_vi": "Động từ support mang nghĩa chính xác là: hỗ trợ đồng đội.",
+      "content_hash": "support|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "support gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "support favorite sports team",
+        "vn_trap": "past tense supported"
+      }
+    },
+    {
+      "lemma": "support",
+      "pos": "v",
+      "sense_vi": "hỗ trợ đồng đội",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'hỗ trợ đồng đội', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "support",
+          "supports",
+          "supporting",
+          "supported"
+        ]
+      },
+      "answer": "support",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là support.",
+      "content_hash": "support|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "support l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "support favorite sports team",
+        "vn_trap": "past tense supported"
+      }
+    },
+    {
+      "lemma": "support",
+      "pos": "v",
+      "sense_vi": "hỗ trợ đồng đội",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Good students always ___ their teachers with respect.",
+        "opts": [
+          "support",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "support",
+      "explain_vi": "Điền 'support' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "support|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "support cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "support favorite sports team",
+        "vn_trap": "past tense supported"
+      }
+    },
+    {
+      "lemma": "support",
+      "pos": "v",
+      "sense_vi": "hỗ trợ đồng đội",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is interesting in supporting new things.'",
+        "opts": [
+          "He is interested in supporting new things.",
+          "He is interesting in supporting new things.",
+          "They He is interesting in supporting new things.",
+          "She was supporting when I came yesterday."
+        ]
+      },
+      "answer": "He is interested in supporting new things.",
+      "explain_vi": "Cấu trúc be interested in (hứng thú với cái gì).",
+      "content_hash": "support|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "support error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "support favorite sports team",
+        "vn_trap": "past tense supported"
+      }
+    },
+    {
+      "lemma": "support",
+      "pos": "v",
+      "sense_vi": "hỗ trợ đồng đội",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'support':",
+        "opts": [
+          "support favorite sports team",
+          "support in wrong way",
+          "support without care",
+          "support for nothing"
+        ]
+      },
+      "answer": "support favorite sports team",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: support favorite sports team.",
+      "content_hash": "support|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "support collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "support favorite sports team",
+        "vn_trap": "past tense supported"
+      }
+    },
+    {
+      "lemma": "suppose",
+      "pos": "v",
+      "sense_vi": "cho rằng đúng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "suppose (v.)",
+        "opts": [
+          "cho rằng đúng",
+          "cập nhật phần mềm",
+          "đổ lỗi cho ai",
+          "đặt mục tiêu"
+        ]
+      },
+      "answer": "cho rằng đúng",
+      "explain_vi": "Động từ suppose mang nghĩa chính xác là: cho rằng đúng.",
+      "content_hash": "suppose|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "suppose gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suppose that is true",
+        "vn_trap": "past tense supposed"
+      }
+    },
+    {
+      "lemma": "suppose",
+      "pos": "v",
+      "sense_vi": "cho rằng đúng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'cho rằng đúng' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "suppose",
+          "supposes",
+          "supposeing",
+          "supposed"
+        ]
+      },
+      "answer": "suppose",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là suppose.",
+      "content_hash": "suppose|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "suppose l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suppose that is true",
+        "vn_trap": "past tense supposed"
+      }
+    },
+    {
+      "lemma": "suppose",
+      "pos": "v",
+      "sense_vi": "cho rằng đúng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "He decided to ___ a new house in the city center.",
+        "opts": [
+          "suppose",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "suppose",
+      "explain_vi": "Điền 'suppose' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "suppose|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "suppose cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suppose that is true",
+        "vn_trap": "past tense supposed"
+      }
+    },
+    {
+      "lemma": "suppose",
+      "pos": "v",
+      "sense_vi": "cho rằng đúng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite she was tired, she continued to suppose.'",
+        "opts": [
+          "Although she was tired, she continued to suppose.",
+          "Despite she was tired, she continued to suppose.",
+          "They Despite she was tired, she continued to suppose.",
+          "She was supposeing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was tired, she continued to suppose.",
+      "explain_vi": "Dùng 'Although' đứng trước một mệnh đề, không dùng 'Despite'.",
+      "content_hash": "suppose|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "suppose error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suppose that is true",
+        "vn_trap": "past tense supposed"
+      }
+    },
+    {
+      "lemma": "suppose",
+      "pos": "v",
+      "sense_vi": "cho rằng đúng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'suppose':",
+        "opts": [
+          "suppose that is true",
+          "suppose in wrong way",
+          "suppose without care",
+          "suppose for nothing"
+        ]
+      },
+      "answer": "suppose that is true",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: suppose that is true.",
+      "content_hash": "suppose|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "suppose collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suppose that is true",
+        "vn_trap": "past tense supposed"
+      }
+    },
+    {
+      "lemma": "survive",
+      "pos": "v",
+      "sense_vi": "sống sót qua bão",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "survive (v.)",
+        "opts": [
+          "sống sót qua bão",
+          "làm buồn",
+          "mượn cuốn sách",
+          "học tiếng Anh"
+        ]
+      },
+      "answer": "sống sót qua bão",
+      "explain_vi": "Động từ survive mang nghĩa chính xác là: sống sót qua bão.",
+      "content_hash": "survive|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "survive gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "survive the heavy storm",
+        "vn_trap": "past tense survived"
+      }
+    },
+    {
+      "lemma": "survive",
+      "pos": "v",
+      "sense_vi": "sống sót qua bão",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'sống sót qua bão', từ tiếng Anh đúng là:",
+        "opts": [
+          "survive",
+          "survives",
+          "surviveing",
+          "survived"
+        ]
+      },
+      "answer": "survive",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là survive.",
+      "content_hash": "survive|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "survive l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "survive the heavy storm",
+        "vn_trap": "past tense survived"
+      }
+    },
+    {
+      "lemma": "survive",
+      "pos": "v",
+      "sense_vi": "sống sót qua bão",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "In order to ___ your English, you must practice daily.",
+        "opts": [
+          "survive",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "survive",
+      "explain_vi": "Điền 'survive' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "survive|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "survive cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "survive the heavy storm",
+        "vn_trap": "past tense survived"
+      }
+    },
+    {
+      "lemma": "survive",
+      "pos": "v",
+      "sense_vi": "sống sót qua bão",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has surviveded to the house two days ago.'",
+        "opts": [
+          "She survived to the house two days ago.",
+          "She has surviveded to the house two days ago.",
+          "They She has surviveded to the house two days ago.",
+          "She was surviveing when I came yesterday."
+        ]
+      },
+      "answer": "She survived to the house two days ago.",
+      "explain_vi": "Có thời gian xác định 'ago' trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "survive|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "survive error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "survive the heavy storm",
+        "vn_trap": "past tense survived"
+      }
+    },
+    {
+      "lemma": "survive",
+      "pos": "v",
+      "sense_vi": "sống sót qua bão",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'survive':",
+        "opts": [
+          "survive the heavy storm",
+          "survive in wrong way",
+          "survive without care",
+          "survive for nothing"
+        ]
+      },
+      "answer": "survive the heavy storm",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: survive the heavy storm.",
+      "content_hash": "survive|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "survive collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "survive the heavy storm",
+        "vn_trap": "past tense survived"
+      }
+    },
+    {
+      "lemma": "swim",
+      "pos": "v",
+      "sense_vi": "bơi dưới biển",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "swim (v.)",
+        "opts": [
+          "bơi dưới biển",
+          "trân trọng thời gian",
+          "thở sâu",
+          "thay đổi ý định"
+        ]
+      },
+      "answer": "bơi dưới biển",
+      "explain_vi": "Động từ swim mang nghĩa chính xác là: bơi dưới biển.",
+      "content_hash": "swim|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "swim gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "swim in deep sea",
+        "vn_trap": "past tense swam"
+      }
+    },
+    {
+      "lemma": "swim",
+      "pos": "v",
+      "sense_vi": "bơi dưới biển",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'bơi dưới biển' là:",
+        "opts": [
+          "swim",
+          "swims",
+          "swiming",
+          "swam"
+        ]
+      },
+      "answer": "swim",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là swim.",
+      "content_hash": "swim|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "swim l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "swim in deep sea",
+        "vn_trap": "past tense swam"
+      }
+    },
+    {
+      "lemma": "swim",
+      "pos": "v",
+      "sense_vi": "bơi dưới biển",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Just try your best to ___ the final examination.",
+        "opts": [
+          "swim",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "swim",
+      "explain_vi": "Điền 'swim' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "swim|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "swim cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "swim in deep sea",
+        "vn_trap": "past tense swam"
+      }
+    },
+    {
+      "lemma": "swim",
+      "pos": "v",
+      "sense_vi": "bơi dưới biển",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped to swim because he was tired.'",
+        "opts": [
+          "He stopped swiming because he was tired.",
+          "He stopped to swim because he was tired.",
+          "They He stopped to swim because he was tired.",
+          "She was swiming when I came yesterday."
+        ]
+      },
+      "answer": "He stopped swiming because he was tired.",
+      "explain_vi": "Dừng hẳn một việc đang làm dùng 'stop V-ing'.",
+      "content_hash": "swim|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "swim error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "swim in deep sea",
+        "vn_trap": "past tense swam"
+      }
+    },
+    {
+      "lemma": "swim",
+      "pos": "v",
+      "sense_vi": "bơi dưới biển",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'swim':",
+        "opts": [
+          "swim in deep sea",
+          "swim in wrong way",
+          "swim without care",
+          "swim for nothing"
+        ]
+      },
+      "answer": "swim in deep sea",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: swim in deep sea.",
+      "content_hash": "swim|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "swim collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "swim in deep sea",
+        "vn_trap": "past tense swam"
+      }
+    }
+  ]
+}

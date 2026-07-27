@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-20",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "rush",
+    "search",
+    "seem",
+    "select",
+    "separate",
+    "settle",
+    "shake",
+    "shoot",
+    "shut",
+    "sign"
+  ],
+  "items": [
+    {
+      "lemma": "rush",
+      "pos": "v",
+      "sense_vi": "vội vã đi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rush (v.)",
+        "opts": [
+          "vội vã đi",
+          "phân loại rác",
+          "thay đổi kích thước",
+          "cố gắng làm"
+        ]
+      },
+      "answer": "vội vã đi",
+      "explain_vi": "Động từ rush mang nghĩa chính xác là: vội vã đi.",
+      "content_hash": "rush|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "rush gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rush to school gate",
+        "vn_trap": "past tense rushed"
+      }
+    },
+    {
+      "lemma": "rush",
+      "pos": "v",
+      "sense_vi": "vội vã đi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'vội vã đi', người Anh dùng:",
+        "opts": [
+          "rush",
+          "rushs",
+          "rushing",
+          "rushed"
+        ]
+      },
+      "answer": "rush",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là rush.",
+      "content_hash": "rush|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "rush l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rush to school gate",
+        "vn_trap": "past tense rushed"
+      }
+    },
+    {
+      "lemma": "rush",
+      "pos": "v",
+      "sense_vi": "vội vã đi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Keep working hard to ___ your dreams in life.",
+        "opts": [
+          "rush",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "rush",
+      "explain_vi": "Điền 'rush' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "rush|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "rush cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rush to school gate",
+        "vn_trap": "past tense rushed"
+      }
+    },
+    {
+      "lemma": "rush",
+      "pos": "v",
+      "sense_vi": "vội vã đi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She rushs the song very beautiful yesterday.'",
+        "opts": [
+          "She rushed the song very beautifully yesterday.",
+          "She rushs the song very beautiful yesterday.",
+          "They She rushs the song very beautiful yesterday.",
+          "She was rushing when I came yesterday."
+        ]
+      },
+      "answer": "She rushed the song very beautifully yesterday.",
+      "explain_vi": "Trạng từ 'beautifully' bổ nghĩa cho động từ.",
+      "content_hash": "rush|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "rush error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rush to school gate",
+        "vn_trap": "past tense rushed"
+      }
+    },
+    {
+      "lemma": "rush",
+      "pos": "v",
+      "sense_vi": "vội vã đi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'rush':",
+        "opts": [
+          "rush to school gate",
+          "rush in wrong way",
+          "rush without care",
+          "rush for nothing"
+        ]
+      },
+      "answer": "rush to school gate",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: rush to school gate.",
+      "content_hash": "rush|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "rush collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rush to school gate",
+        "vn_trap": "past tense rushed"
+      }
+    },
+    {
+      "lemma": "search",
+      "pos": "v",
+      "sense_vi": "tìm kiếm thông tin",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "search (v.)",
+        "opts": [
+          "tìm kiếm thông tin",
+          "phết bơ lên",
+          "xem bức ảnh",
+          "hỏi câu hỏi"
+        ]
+      },
+      "answer": "tìm kiếm thông tin",
+      "explain_vi": "Động từ search mang nghĩa chính xác là: tìm kiếm thông tin.",
+      "content_hash": "search|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "search gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "search for lost information",
+        "vn_trap": "past tense searched"
+      }
+    },
+    {
+      "lemma": "search",
+      "pos": "v",
+      "sense_vi": "tìm kiếm thông tin",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'tìm kiếm thông tin' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "search",
+          "searchs",
+          "searching",
+          "searched"
+        ]
+      },
+      "answer": "search",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là search.",
+      "content_hash": "search|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "search l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "search for lost information",
+        "vn_trap": "past tense searched"
+      }
+    },
+    {
+      "lemma": "search",
+      "pos": "v",
+      "sense_vi": "tìm kiếm thông tin",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Learning how to ___ a foreign language takes time.",
+        "opts": [
+          "search",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "search",
+      "explain_vi": "Điền 'search' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "search|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "search cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "search for lost information",
+        "vn_trap": "past tense searched"
+      }
+    },
+    {
+      "lemma": "search",
+      "pos": "v",
+      "sense_vi": "tìm kiếm thông tin",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was searching when I arrived home.'",
+        "opts": [
+          "They were searching when I arrived home.",
+          "They was searching when I arrived home.",
+          "They They was searching when I arrived home.",
+          "She was searching when I came yesterday."
+        ]
+      },
+      "answer": "They were searching when I arrived home.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were'.",
+      "content_hash": "search|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "search error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "search for lost information",
+        "vn_trap": "past tense searched"
+      }
+    },
+    {
+      "lemma": "search",
+      "pos": "v",
+      "sense_vi": "tìm kiếm thông tin",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'search':",
+        "opts": [
+          "search for lost information",
+          "search in wrong way",
+          "search without care",
+          "search for nothing"
+        ]
+      },
+      "answer": "search for lost information",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: search for lost information.",
+      "content_hash": "search|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "search collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "search for lost information",
+        "vn_trap": "past tense searched"
+      }
+    },
+    {
+      "lemma": "seem",
+      "pos": "v",
+      "sense_vi": "có vẻ vui",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "seem (v.)",
+        "opts": [
+          "có vẻ vui",
+          "phát biểu ý kiến",
+          "bỏ phiếu bầu",
+          "cảm thấy vui"
+        ]
+      },
+      "answer": "có vẻ vui",
+      "explain_vi": "Động từ seem mang nghĩa chính xác là: có vẻ vui.",
+      "content_hash": "seem|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "seem gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "seem happy today",
+        "vn_trap": "past tense seemed"
+      }
+    },
+    {
+      "lemma": "seem",
+      "pos": "v",
+      "sense_vi": "có vẻ vui",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'có vẻ vui', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "seem",
+          "seems",
+          "seeming",
+          "seemed"
+        ]
+      },
+      "answer": "seem",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là seem.",
+      "content_hash": "seem|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "seem l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "seem happy today",
+        "vn_trap": "past tense seemed"
+      }
+    },
+    {
+      "lemma": "seem",
+      "pos": "v",
+      "sense_vi": "có vẻ vui",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Many people choose to ___ abroad during summer.",
+        "opts": [
+          "seem",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "seem",
+      "explain_vi": "Điền 'seem' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "seem|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "seem cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "seem happy today",
+        "vn_trap": "past tense seemed"
+      }
+    },
+    {
+      "lemma": "seem",
+      "pos": "v",
+      "sense_vi": "có vẻ vui",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He seems without ask for permission.'",
+        "opts": [
+          "He seemed without asking for permission.",
+          "He seems without ask for permission.",
+          "They He seems without ask for permission.",
+          "She was seeming when I came yesterday."
+        ]
+      },
+      "answer": "He seemed without asking for permission.",
+      "explain_vi": "Sau giới từ 'without' cần V-ing.",
+      "content_hash": "seem|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "seem error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "seem happy today",
+        "vn_trap": "past tense seemed"
+      }
+    },
+    {
+      "lemma": "seem",
+      "pos": "v",
+      "sense_vi": "có vẻ vui",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'seem':",
+        "opts": [
+          "seem happy today",
+          "seem in wrong way",
+          "seem without care",
+          "seem for nothing"
+        ]
+      },
+      "answer": "seem happy today",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: seem happy today.",
+      "content_hash": "seem|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "seem collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "seem happy today",
+        "vn_trap": "past tense seemed"
+      }
+    },
+    {
+      "lemma": "select",
+      "pos": "v",
+      "sense_vi": "chọn phương án",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "select (v.)",
+        "opts": [
+          "chọn phương án",
+          "dán dính lên",
+          "cảnh báo nguy hiểm",
+          "trở thành bác sĩ"
+        ]
+      },
+      "answer": "chọn phương án",
+      "explain_vi": "Động từ select mang nghĩa chính xác là: chọn phương án.",
+      "content_hash": "select|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "select gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "select the right option",
+        "vn_trap": "past tense selected"
+      }
+    },
+    {
+      "lemma": "select",
+      "pos": "v",
+      "sense_vi": "chọn phương án",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'chọn phương án' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "select",
+          "selects",
+          "selecting",
+          "selected"
+        ]
+      },
+      "answer": "select",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là select.",
+      "content_hash": "select|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "select l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "select the right option",
+        "vn_trap": "past tense selected"
+      }
+    },
+    {
+      "lemma": "select",
+      "pos": "v",
+      "sense_vi": "chọn phương án",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Never hesitate to ___ for help when you need it.",
+        "opts": [
+          "select",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "select",
+      "explain_vi": "Điền 'select' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "select|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "select cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "select the right option",
+        "vn_trap": "past tense selected"
+      }
+    },
+    {
+      "lemma": "select",
+      "pos": "v",
+      "sense_vi": "chọn phương án",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is selecting since early this morning.'",
+        "opts": [
+          "She has been selecting since early this morning.",
+          "She is selecting since early this morning.",
+          "They She is selecting since early this morning.",
+          "She was selecting when I came yesterday."
+        ]
+      },
+      "answer": "She has been selecting since early this morning.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "select|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "select error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "select the right option",
+        "vn_trap": "past tense selected"
+      }
+    },
+    {
+      "lemma": "select",
+      "pos": "v",
+      "sense_vi": "chọn phương án",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'select':",
+        "opts": [
+          "select the right option",
+          "select in wrong way",
+          "select without care",
+          "select for nothing"
+        ]
+      },
+      "answer": "select the right option",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: select the right option.",
+      "content_hash": "select|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "select collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "select the right option",
+        "vn_trap": "past tense selected"
+      }
+    },
+    {
+      "lemma": "separate",
+      "pos": "v",
+      "sense_vi": "tách hai nhóm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "separate (v.)",
+        "opts": [
+          "tách hai nhóm",
+          "lưu trữ dữ liệu",
+          "lãng phí thời gian",
+          "rời khỏi nhà"
+        ]
+      },
+      "answer": "tách hai nhóm",
+      "explain_vi": "Động từ separate mang nghĩa chính xác là: tách hai nhóm.",
+      "content_hash": "separate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "separate gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "separate into two groups",
+        "vn_trap": "past tense separated"
+      }
+    },
+    {
+      "lemma": "separate",
+      "pos": "v",
+      "sense_vi": "tách hai nhóm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'tách hai nhóm', từ tiếng Anh đúng là:",
+        "opts": [
+          "separate",
+          "separates",
+          "separateing",
+          "separated"
+        ]
+      },
+      "answer": "separate",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là separate.",
+      "content_hash": "separate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "separate l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "separate into two groups",
+        "vn_trap": "past tense separated"
+      }
+    },
+    {
+      "lemma": "separate",
+      "pos": "v",
+      "sense_vi": "tách hai nhóm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Our team hopes to ___ the championship match.",
+        "opts": [
+          "separate",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "separate",
+      "explain_vi": "Điền 'separate' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "separate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "separate cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "separate into two groups",
+        "vn_trap": "past tense separated"
+      }
+    },
+    {
+      "lemma": "separate",
+      "pos": "v",
+      "sense_vi": "tách hai nhóm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If she separates more, she would succeed.'",
+        "opts": [
+          "If she separated more, she would succeed.",
+          "If she separates more, she would succeed.",
+          "They If she separates more, she would succeed.",
+          "She was separateing when I came yesterday."
+        ]
+      },
+      "answer": "If she separated more, she would succeed.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "separate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "separate error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "separate into two groups",
+        "vn_trap": "past tense separated"
+      }
+    },
+    {
+      "lemma": "separate",
+      "pos": "v",
+      "sense_vi": "tách hai nhóm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'separate':",
+        "opts": [
+          "separate into two groups",
+          "separate in wrong way",
+          "separate without care",
+          "separate for nothing"
+        ]
+      },
+      "answer": "separate into two groups",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: separate into two groups.",
+      "content_hash": "separate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "separate collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "separate into two groups",
+        "vn_trap": "past tense separated"
+      }
+    },
+    {
+      "lemma": "settle",
+      "pos": "v",
+      "sense_vi": "ổn định cuộc sống",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "settle (v.)",
+        "opts": [
+          "ổn định cuộc sống",
+          "duỗi cơ thể",
+          "vẫy tay chào",
+          "đặt cuốn sách"
+        ]
+      },
+      "answer": "ổn định cuộc sống",
+      "explain_vi": "Động từ settle mang nghĩa chính xác là: ổn định cuộc sống.",
+      "content_hash": "settle|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "settle gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "settle down in town",
+        "vn_trap": "past tense settled"
+      }
+    },
+    {
+      "lemma": "settle",
+      "pos": "v",
+      "sense_vi": "ổn định cuộc sống",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'ổn định cuộc sống' là:",
+        "opts": [
+          "settle",
+          "settles",
+          "settleing",
+          "settled"
+        ]
+      },
+      "answer": "settle",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là settle.",
+      "content_hash": "settle|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "settle l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "settle down in town",
+        "vn_trap": "past tense settled"
+      }
+    },
+    {
+      "lemma": "settle",
+      "pos": "v",
+      "sense_vi": "ổn định cuộc sống",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please feel free to ___ your thoughts with us.",
+        "opts": [
+          "settle",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "settle",
+      "explain_vi": "Điền 'settle' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "settle|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "settle cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "settle down in town",
+        "vn_trap": "past tense settled"
+      }
+    },
+    {
+      "lemma": "settle",
+      "pos": "v",
+      "sense_vi": "ổn định cuộc sống",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She loves to settleing every afternoon.'",
+        "opts": [
+          "She loves to settle every afternoon.",
+          "She loves to settleing every afternoon.",
+          "They She loves to settleing every afternoon.",
+          "She was settleing when I came yesterday."
+        ]
+      },
+      "answer": "She loves to settle every afternoon.",
+      "explain_vi": "Sau 'to' dùng động từ nguyên mẫu.",
+      "content_hash": "settle|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "settle error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "settle down in town",
+        "vn_trap": "past tense settled"
+      }
+    },
+    {
+      "lemma": "settle",
+      "pos": "v",
+      "sense_vi": "ổn định cuộc sống",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'settle':",
+        "opts": [
+          "settle down in town",
+          "settle in wrong way",
+          "settle without care",
+          "settle for nothing"
+        ]
+      },
+      "answer": "settle down in town",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: settle down in town.",
+      "content_hash": "settle|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "settle collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "settle down in town",
+        "vn_trap": "past tense settled"
+      }
+    },
+    {
+      "lemma": "shake",
+      "pos": "v",
+      "sense_vi": "lắc tay chào",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "shake (v.)",
+        "opts": [
+          "lắc tay chào",
+          "đánh quả bóng",
+          "tự hỏi tại sao",
+          "có nghĩa là"
+        ]
+      },
+      "answer": "lắc tay chào",
+      "explain_vi": "Động từ shake mang nghĩa chính xác là: lắc tay chào.",
+      "content_hash": "shake|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "shake gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shake hands warmly",
+        "vn_trap": "past tense shook"
+      }
+    },
+    {
+      "lemma": "shake",
+      "pos": "v",
+      "sense_vi": "lắc tay chào",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'lắc tay chào' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "shake",
+          "shakes",
+          "shakeing",
+          "shook"
+        ]
+      },
+      "answer": "shake",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là shake.",
+      "content_hash": "shake|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "shake l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shake hands warmly",
+        "vn_trap": "past tense shook"
+      }
+    },
+    {
+      "lemma": "shake",
+      "pos": "v",
+      "sense_vi": "lắc tay chào",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Quietly step inside so you don't ___ the baby.",
+        "opts": [
+          "shake",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "shake",
+      "explain_vi": "Điền 'shake' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "shake|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "shake cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shake hands warmly",
+        "vn_trap": "past tense shook"
+      }
+    },
+    {
+      "lemma": "shake",
+      "pos": "v",
+      "sense_vi": "lắc tay chào",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is bored with shake the same thing.'",
+        "opts": [
+          "He is bored with shakeing the same thing.",
+          "He is bored with shake the same thing.",
+          "They He is bored with shake the same thing.",
+          "She was shakeing when I came yesterday."
+        ]
+      },
+      "answer": "He is bored with shakeing the same thing.",
+      "explain_vi": "Sau giới từ 'with' dùng V-ing.",
+      "content_hash": "shake|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "shake error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shake hands warmly",
+        "vn_trap": "past tense shook"
+      }
+    },
+    {
+      "lemma": "shake",
+      "pos": "v",
+      "sense_vi": "lắc tay chào",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'shake':",
+        "opts": [
+          "shake hands warmly",
+          "shake in wrong way",
+          "shake without care",
+          "shake for nothing"
+        ]
+      },
+      "answer": "shake hands warmly",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: shake hands warmly.",
+      "content_hash": "shake|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "shake collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shake hands warmly",
+        "vn_trap": "past tense shook"
+      }
+    },
+    {
+      "lemma": "shoot",
+      "pos": "v",
+      "sense_vi": "bắn mục tiêu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "shoot (v.)",
+        "opts": [
+          "bắn mục tiêu",
+          "vật lộn với khó khăn",
+          "la hét to",
+          "giữ bí mật"
+        ]
+      },
+      "answer": "bắn mục tiêu",
+      "explain_vi": "Động từ shoot mang nghĩa chính xác là: bắn mục tiêu.",
+      "content_hash": "shoot|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "shoot gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shoot at the target",
+        "vn_trap": "past tense shot"
+      }
+    },
+    {
+      "lemma": "shoot",
+      "pos": "v",
+      "sense_vi": "bắn mục tiêu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'bắn mục tiêu' là:",
+        "opts": [
+          "shoot",
+          "shoots",
+          "shooting",
+          "shot"
+        ]
+      },
+      "answer": "shoot",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là shoot.",
+      "content_hash": "shoot|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "shoot l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shoot at the target",
+        "vn_trap": "past tense shot"
+      }
+    },
+    {
+      "lemma": "shoot",
+      "pos": "v",
+      "sense_vi": "bắn mục tiêu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ the lights before going to bed.",
+        "opts": [
+          "shoot",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "shoot",
+      "explain_vi": "Điền 'shoot' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "shoot|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "shoot cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shoot at the target",
+        "vn_trap": "past tense shot"
+      }
+    },
+    {
+      "lemma": "shoot",
+      "pos": "v",
+      "sense_vi": "bắn mục tiêu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'In spite of she was ill, she went to shoot.'",
+        "opts": [
+          "Although she was ill, she went to shoot.",
+          "In spite of she was ill, she went to shoot.",
+          "They In spite of she was ill, she went to shoot.",
+          "She was shooting when I came yesterday."
+        ]
+      },
+      "answer": "Although she was ill, she went to shoot.",
+      "explain_vi": "Dùng 'Although' thay cho 'In spite of' trước mệnh đề.",
+      "content_hash": "shoot|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "shoot error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shoot at the target",
+        "vn_trap": "past tense shot"
+      }
+    },
+    {
+      "lemma": "shoot",
+      "pos": "v",
+      "sense_vi": "bắn mục tiêu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'shoot':",
+        "opts": [
+          "shoot at the target",
+          "shoot in wrong way",
+          "shoot without care",
+          "shoot for nothing"
+        ]
+      },
+      "answer": "shoot at the target",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: shoot at the target.",
+      "content_hash": "shoot|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "shoot collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shoot at the target",
+        "vn_trap": "past tense shot"
+      }
+    },
+    {
+      "lemma": "shut",
+      "pos": "v",
+      "sense_vi": "đóng cửa lại",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "shut (v.)",
+        "opts": [
+          "đóng cửa lại",
+          "thành công trong đời",
+          "chấp nhận lời mời",
+          "cho phép đi"
+        ]
+      },
+      "answer": "đóng cửa lại",
+      "explain_vi": "Động từ shut mang nghĩa chính xác là: đóng cửa lại.",
+      "content_hash": "shut|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "shut gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shut the heavy door",
+        "vn_trap": "past tense shut"
+      }
+    },
+    {
+      "lemma": "shut",
+      "pos": "v",
+      "sense_vi": "đóng cửa lại",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'đóng cửa lại' được dịch là:",
+        "opts": [
+          "shut",
+          "shuts",
+          "shuting",
+          "re-shut"
+        ]
+      },
+      "answer": "shut",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là shut.",
+      "content_hash": "shut|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "shut l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shut the heavy door",
+        "vn_trap": "past tense shut"
+      }
+    },
+    {
+      "lemma": "shut",
+      "pos": "v",
+      "sense_vi": "đóng cửa lại",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "She promised to ___ her parents every weekend.",
+        "opts": [
+          "shut",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "shut",
+      "explain_vi": "Điền 'shut' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "shut|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "shut cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shut the heavy door",
+        "vn_trap": "past tense shut"
+      }
+    },
+    {
+      "lemma": "shut",
+      "pos": "v",
+      "sense_vi": "đóng cửa lại",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has shuted the letter last week.'",
+        "opts": [
+          "She shut the letter last week.",
+          "She has shuted the letter last week.",
+          "They She has shuted the letter last week.",
+          "She was shuting when I came yesterday."
+        ]
+      },
+      "answer": "She shut the letter last week.",
+      "explain_vi": "Thời gian xác định trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "shut|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "shut error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shut the heavy door",
+        "vn_trap": "past tense shut"
+      }
+    },
+    {
+      "lemma": "shut",
+      "pos": "v",
+      "sense_vi": "đóng cửa lại",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'shut':",
+        "opts": [
+          "shut the heavy door",
+          "shut in wrong way",
+          "shut without care",
+          "shut for nothing"
+        ]
+      },
+      "answer": "shut the heavy door",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: shut the heavy door.",
+      "content_hash": "shut|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "shut collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "shut the heavy door",
+        "vn_trap": "past tense shut"
+      }
+    },
+    {
+      "lemma": "sign",
+      "pos": "v",
+      "sense_vi": "ký tên vào",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sign (v.)",
+        "opts": [
+          "ký tên vào",
+          "chịu đựng nỗi đau",
+          "đạt được mục tiêu",
+          "bắt đầu học"
+        ]
+      },
+      "answer": "ký tên vào",
+      "explain_vi": "Động từ sign mang nghĩa chính xác là: ký tên vào.",
+      "content_hash": "sign|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "sign gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sign name on paper",
+        "vn_trap": "past tense signed"
+      }
+    },
+    {
+      "lemma": "sign",
+      "pos": "v",
+      "sense_vi": "ký tên vào",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'ký tên vào', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "sign",
+          "signs",
+          "signing",
+          "signed"
+        ]
+      },
+      "answer": "sign",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là sign.",
+      "content_hash": "sign|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "sign l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sign name on paper",
+        "vn_trap": "past tense signed"
+      }
+    },
+    {
+      "lemma": "sign",
+      "pos": "v",
+      "sense_vi": "ký tên vào",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "They plan to ___ a new office building next year.",
+        "opts": [
+          "sign",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "sign",
+      "explain_vi": "Điền 'sign' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "sign|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "sign cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sign name on paper",
+        "vn_trap": "past tense signed"
+      }
+    },
+    {
+      "lemma": "sign",
+      "pos": "v",
+      "sense_vi": "ký tên vào",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped signing to take a short break.'",
+        "opts": [
+          "He stopped to sign to take a short break.",
+          "He stopped signing to take a short break.",
+          "They He stopped signing to take a short break.",
+          "She was signing when I came yesterday."
+        ]
+      },
+      "answer": "He stopped to sign to take a short break.",
+      "explain_vi": "Dừng lại để làm việc khác dùng 'stop to V'.",
+      "content_hash": "sign|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "sign error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sign name on paper",
+        "vn_trap": "past tense signed"
+      }
+    },
+    {
+      "lemma": "sign",
+      "pos": "v",
+      "sense_vi": "ký tên vào",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sign':",
+        "opts": [
+          "sign name on paper",
+          "sign in wrong way",
+          "sign without care",
+          "sign for nothing"
+        ]
+      },
+      "answer": "sign name on paper",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: sign name on paper.",
+      "content_hash": "sign|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "sign collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sign name on paper",
+        "vn_trap": "past tense signed"
+      }
+    }
+  ]
+}

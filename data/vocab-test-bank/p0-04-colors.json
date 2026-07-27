@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-04-colors",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-colors"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "red",
+      "pos": "adj",
+      "sense_vi": "màu đỏ",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "red (adj.)",
+        "opts": [
+          "màu đỏ",
+          "màu xanh dương",
+          "màu vàng",
+          "màu đen"
+        ]
+      },
+      "answer": "màu đỏ",
+      "explain_vi": "red nghĩa là màu đỏ.",
+      "content_hash": "red|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu đỏ",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "red",
+      "pos": "adj",
+      "sense_vi": "màu đỏ",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu sắc của quả táo chín hoặc quả dâu tây:",
+        "opts": [
+          "red",
+          "rad",
+          "read",
+          "ride"
+        ]
+      },
+      "answer": "red",
+      "explain_vi": "Màu đỏ là red (nhầm với read / rad).",
+      "content_hash": "red|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "red",
+      "pos": "adj",
+      "sense_vi": "màu đỏ",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "She loves wearing a bright ___ dress to parties.",
+        "opts": [
+          "red",
+          "read",
+          "ride",
+          "rod"
+        ]
+      },
+      "answer": "red",
+      "explain_vi": "Điền tính từ chỉ màu sắc red dress.",
+      "content_hash": "red|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "red dress",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "red",
+      "pos": "adj",
+      "sense_vi": "màu đỏ",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He bought a red pens yesterday.'",
+        "opts": [
+          "He bought a red pen yesterday.",
+          "He bought a red pens yesterday.",
+          "He bought a red of pen yesterday.",
+          "He buy a red pen yesterday."
+        ]
+      },
+      "answer": "He bought a red pen yesterday.",
+      "explain_vi": "Mạo từ 'a' đi với danh từ số ít red pen (không có s).",
+      "content_hash": "red|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy a + singular",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "red",
+      "pos": "adj",
+      "sense_vi": "màu đỏ",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đèn đỏ giao thông chuẩn:",
+        "opts": [
+          "red light",
+          "red lamp",
+          "red torch",
+          "red fire"
+        ]
+      },
+      "answer": "red light",
+      "explain_vi": "Đèn đỏ giao thông là red light.",
+      "content_hash": "red|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm red light",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "blue",
+      "pos": "adj",
+      "sense_vi": "màu xanh dương",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "blue (adj.)",
+        "opts": [
+          "màu xanh dương",
+          "màu lá cây",
+          "màu đỏ",
+          "màu vàng"
+        ]
+      },
+      "answer": "màu xanh dương",
+      "explain_vi": "blue nghĩa là màu xanh dương / xanh nước biển.",
+      "content_hash": "blue|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu xanh dương",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "blue",
+      "pos": "adj",
+      "sense_vi": "màu xanh dương",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu sắc của bầu trời quang mây hoặc đại dương:",
+        "opts": [
+          "blue",
+          "blew",
+          "blur",
+          "blow"
+        ]
+      },
+      "answer": "blue",
+      "explain_vi": "Màu xanh dương là blue (blew là quá khứ của blow).",
+      "content_hash": "blue|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm blew",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "blue",
+      "pos": "adj",
+      "sense_vi": "màu xanh dương",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The clear sky is ___ today.",
+        "opts": [
+          "blue",
+          "blew",
+          "black",
+          "brown"
+        ]
+      },
+      "answer": "blue",
+      "explain_vi": "Bầu trời quang mây có màu xanh (blue sky).",
+      "content_hash": "blue|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "blue sky",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "blue",
+      "pos": "adj",
+      "sense_vi": "màu xanh dương",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The sky is blew and beautiful.'",
+        "opts": [
+          "The sky is blue and beautiful.",
+          "The sky is blew and beautiful.",
+          "The sky is blueness and beautiful.",
+          "The sky have blue and beautiful."
+        ]
+      },
+      "answer": "The sky is blue and beautiful.",
+      "explain_vi": "Màu xanh viết là blue, không viết blew.",
+      "content_hash": "blue|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy blue vs blew",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "blue",
+      "pos": "adj",
+      "sense_vi": "màu xanh dương",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bầu trời xanh chuẩn:",
+        "opts": [
+          "blue sky",
+          "blue heaven",
+          "blue cloud",
+          "blue air"
+        ]
+      },
+      "answer": "blue sky",
+      "explain_vi": "Cụm bầu trời xanh là blue sky.",
+      "content_hash": "blue|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm blue sky",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "green",
+      "pos": "adj",
+      "sense_vi": "màu xanh lá cây",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "green (adj.)",
+        "opts": [
+          "màu xanh lá cây",
+          "màu xanh dương",
+          "màu vàng",
+          "màu tím"
+        ]
+      },
+      "answer": "màu xanh lá cây",
+      "explain_vi": "green là màu xanh lá cây.",
+      "content_hash": "green|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa xanh lá",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "green",
+      "pos": "adj",
+      "sense_vi": "màu xanh lá cây",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu sắc của cỏ tươi và lá cây:",
+        "opts": [
+          "green",
+          "grin",
+          "grain",
+          "grown"
+        ]
+      },
+      "answer": "green",
+      "explain_vi": "Xanh lá cây là green (grin là cười mỉm).",
+      "content_hash": "green|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss grin",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "green",
+      "pos": "adj",
+      "sense_vi": "màu xanh lá cây",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Cows eat fresh ___ grass in the field.",
+        "opts": [
+          "green",
+          "grin",
+          "grey",
+          "gold"
+        ]
+      },
+      "answer": "green",
+      "explain_vi": "Điền green grass (cỏ xanh).",
+      "content_hash": "green|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "green grass",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "green",
+      "pos": "adj",
+      "sense_vi": "màu xanh lá cây",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The trees has green leaves in spring.'",
+        "opts": [
+          "The trees have green leaves in spring.",
+          "The trees has green leaves in spring.",
+          "The trees having green leaves in spring.",
+          "The trees is green leaves in spring."
+        ]
+      },
+      "answer": "The trees have green leaves in spring.",
+      "explain_vi": "Chủ ngữ số nhiều The trees đi với động từ have.",
+      "content_hash": "green|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy plural have",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "green",
+      "pos": "adj",
+      "sense_vi": "màu xanh lá cây",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thảm cỏ xanh chuẩn:",
+        "opts": [
+          "green grass",
+          "green weed",
+          "green leaf",
+          "green plant"
+        ]
+      },
+      "answer": "green grass",
+      "explain_vi": "Cỏ xanh tươi là green grass.",
+      "content_hash": "green|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm green grass",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yellow",
+      "pos": "adj",
+      "sense_vi": "màu vàng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "yellow (adj.)",
+        "opts": [
+          "màu vàng",
+          "màu đỏ",
+          "màu trắng",
+          "màu da cam"
+        ]
+      },
+      "answer": "màu vàng",
+      "explain_vi": "yellow nghĩa là màu vàng.",
+      "content_hash": "yellow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu vàng",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yellow",
+      "pos": "adj",
+      "sense_vi": "màu vàng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu sắc của quả chuối chín và ánh mặt trời:",
+        "opts": [
+          "yellow",
+          "yallow",
+          "yell",
+          "yolk"
+        ]
+      },
+      "answer": "yellow",
+      "explain_vi": "Màu vàng là yellow.",
+      "content_hash": "yellow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yellow",
+      "pos": "adj",
+      "sense_vi": "màu vàng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Bananas turn bright ___ when they are ripe.",
+        "opts": [
+          "yellow",
+          "black",
+          "blue",
+          "purple"
+        ]
+      },
+      "answer": "yellow",
+      "explain_vi": "Chuối chín có màu vàng (yellow).",
+      "content_hash": "yellow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "yellow bananas",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yellow",
+      "pos": "adj",
+      "sense_vi": "màu vàng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is wearing a yellow shoes.'",
+        "opts": [
+          "She is wearing yellow shoes.",
+          "She is wearing a yellow shoes.",
+          "She is wearing an yellow shoes.",
+          "She wear a yellow shoes."
+        ]
+      },
+      "answer": "She is wearing yellow shoes.",
+      "explain_vi": "Shoes số nhiều không dùng mạo từ 'a': yellow shoes.",
+      "content_hash": "yellow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy a + plural",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yellow",
+      "pos": "adj",
+      "sense_vi": "màu vàng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm xe buýt trường học màu vàng chuẩn:",
+        "opts": [
+          "yellow school bus",
+          "yellow bus school",
+          "yellow bus of school",
+          "school bus yellow"
+        ]
+      },
+      "answer": "yellow school bus",
+      "explain_vi": "Xe buýt vàng đi học là yellow school bus.",
+      "content_hash": "yellow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm yellow school bus",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "black",
+      "pos": "adj",
+      "sense_vi": "màu đen",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "black (adj.)",
+        "opts": [
+          "màu đen",
+          "màu trắng",
+          "màu xám",
+          "màu nâu"
+        ]
+      },
+      "answer": "màu đen",
+      "explain_vi": "black nghĩa là màu đen.",
+      "content_hash": "black|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu đen",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "black",
+      "pos": "adj",
+      "sense_vi": "màu đen",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu tối nhất, màu của than đá hay đêm tối:",
+        "opts": [
+          "black",
+          "blank",
+          "block",
+          "back"
+        ]
+      },
+      "answer": "black",
+      "explain_vi": "Màu đen là black (blank là để trống, block là khối).",
+      "content_hash": "black|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss blank/block",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "black",
+      "pos": "adj",
+      "sense_vi": "màu đen",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My father wears a neat ___ suit to formal meetings.",
+        "opts": [
+          "black",
+          "blank",
+          "bright",
+          "pink"
+        ]
+      },
+      "answer": "black",
+      "explain_vi": "Bộ vest đen là black suit.",
+      "content_hash": "black|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "black suit",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "black",
+      "pos": "adj",
+      "sense_vi": "màu đen",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I have a black hair.'",
+        "opts": [
+          "I have black hair.",
+          "I have a black hair.",
+          "I have an black hair.",
+          "I am having a black hair."
+        ]
+      },
+      "answer": "I have black hair.",
+      "explain_vi": "Hair (tóc) là danh từ không đếm được, không dùng mạo từ 'a'.",
+      "content_hash": "black|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy a black hair",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "black",
+      "pos": "adj",
+      "sense_vi": "màu đen",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm cà phê đen chuẩn:",
+        "opts": [
+          "black coffee",
+          "dark coffee",
+          "night coffee",
+          "bitter coffee"
+        ]
+      },
+      "answer": "black coffee",
+      "explain_vi": "Cà phê không đường sữa là black coffee.",
+      "content_hash": "black|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm black coffee",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "white",
+      "pos": "adj",
+      "sense_vi": "màu trắng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "white (adj.)",
+        "opts": [
+          "màu trắng",
+          "màu đen",
+          "màu xám",
+          "màu ghi"
+        ]
+      },
+      "answer": "màu trắng",
+      "explain_vi": "white nghĩa là màu trắng.",
+      "content_hash": "white|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu trắng",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "white",
+      "pos": "adj",
+      "sense_vi": "màu trắng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu sắc của tuyết và sữa tươi:",
+        "opts": [
+          "white",
+          "wight",
+          "quite",
+          "write"
+        ]
+      },
+      "answer": "white",
+      "explain_vi": "Màu trắng là white (đồng âm với wight).",
+      "content_hash": "white|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss write/quite",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "white",
+      "pos": "adj",
+      "sense_vi": "màu trắng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The doctor wore a clean ___ coat.",
+        "opts": [
+          "white",
+          "write",
+          "wheat",
+          "wide"
+        ]
+      },
+      "answer": "white",
+      "explain_vi": "Áo blouse bác sĩ màu trắng: white coat.",
+      "content_hash": "white|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "white coat",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "white",
+      "pos": "adj",
+      "sense_vi": "màu trắng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The clouds is white in the sky.'",
+        "opts": [
+          "The clouds are white in the sky.",
+          "The clouds is white in the sky.",
+          "The clouds am white in the sky.",
+          "The clouds be white in the sky."
+        ]
+      },
+      "answer": "The clouds are white in the sky.",
+      "explain_vi": "Chủ ngữ số nhiều The clouds đi với tobe 'are'.",
+      "content_hash": "white|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy tobe plural clouds",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "white",
+      "pos": "adj",
+      "sense_vi": "màu trắng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm áo sơ mi trắng chuẩn:",
+        "opts": [
+          "white shirt",
+          "white t-shirt",
+          "white dress",
+          "white clothes"
+        ]
+      },
+      "answer": "white shirt",
+      "explain_vi": "Áo sơ mi trắng là white shirt.",
+      "content_hash": "white|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm white shirt",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "orange",
+      "pos": "adj",
+      "sense_vi": "màu cam",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "orange (adj./n.)",
+        "opts": [
+          "màu da cam / quả cam",
+          "màu vàng",
+          "màu đỏ",
+          "màu tím"
+        ]
+      },
+      "answer": "màu da cam / quả cam",
+      "explain_vi": "orange vừa là màu cam vừa là quả cam.",
+      "content_hash": "orange|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu cam",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "orange",
+      "pos": "adj",
+      "sense_vi": "màu cam",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu sắc pha giữa đỏ và vàng:",
+        "opts": [
+          "orange",
+          "oranges",
+          "range",
+          "arrange"
+        ]
+      },
+      "answer": "orange",
+      "explain_vi": "Màu da cam là orange.",
+      "content_hash": "orange|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss range",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "orange",
+      "pos": "adj",
+      "sense_vi": "màu cam",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "She drank a glass of fresh ___ juice for breakfast.",
+        "opts": [
+          "orange",
+          "range",
+          "apple",
+          "lemon"
+        ]
+      },
+      "answer": "orange",
+      "explain_vi": "Nước cam ép: orange juice.",
+      "content_hash": "orange|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "orange juice",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "orange",
+      "pos": "adj",
+      "sense_vi": "màu cam",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He ate a orange after lunch.'",
+        "opts": [
+          "He ate an orange after lunch.",
+          "He ate a orange after lunch.",
+          "He ate orange after lunch.",
+          "He eat an orange after lunch."
+        ]
+      },
+      "answer": "He ate an orange after lunch.",
+      "explain_vi": "Danh từ bắt đầu bằng nguyên âm 'o' dùng mạo từ 'an': an orange.",
+      "content_hash": "orange|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy a/an orange",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "orange",
+      "pos": "adj",
+      "sense_vi": "màu cam",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nước cam ép chuẩn:",
+        "opts": [
+          "orange juice",
+          "orange water",
+          "orange drink",
+          "orange liquid"
+        ]
+      },
+      "answer": "orange juice",
+      "explain_vi": "Nước ép cam là orange juice.",
+      "content_hash": "orange|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm orange juice",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pink",
+      "pos": "adj",
+      "sense_vi": "màu hồng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pink (adj.)",
+        "opts": [
+          "màu hồng",
+          "màu đỏ",
+          "màu tím",
+          "màu cam"
+        ]
+      },
+      "answer": "màu hồng",
+      "explain_vi": "pink nghĩa là màu hồng.",
+      "content_hash": "pink|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu hồng",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pink",
+      "pos": "adj",
+      "sense_vi": "màu hồng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu sắc nhẹ nhàng pha giữa đỏ và trắng:",
+        "opts": [
+          "pink",
+          "pick",
+          "pack",
+          "panc"
+        ]
+      },
+      "answer": "pink",
+      "explain_vi": "Màu hồng là pink (pick là hái/chọn).",
+      "content_hash": "pink|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss pick",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pink",
+      "pos": "adj",
+      "sense_vi": "màu hồng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The little girl loves her new ___ school bag.",
+        "opts": [
+          "pink",
+          "pick",
+          "pack",
+          "pork"
+        ]
+      },
+      "answer": "pink",
+      "explain_vi": "Cặp sách màu hồng: pink school bag.",
+      "content_hash": "pink|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "pink bag",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pink",
+      "pos": "adj",
+      "sense_vi": "màu hồng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She buy a pink shirt yesterday.'",
+        "opts": [
+          "She bought a pink shirt yesterday.",
+          "She buy a pink shirt yesterday.",
+          "She is buy a pink shirt yesterday.",
+          "She buying a pink shirt yesterday."
+        ]
+      },
+      "answer": "She bought a pink shirt yesterday.",
+      "explain_vi": "Trạng từ yesterday yêu cầu động từ quá khứ 'bought'.",
+      "content_hash": "pink|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy past tense bought",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pink",
+      "pos": "adj",
+      "sense_vi": "màu hồng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bông hoa màu hồng chuẩn:",
+        "opts": [
+          "pink flower",
+          "pink plant",
+          "pink rose",
+          "pink leaf"
+        ]
+      },
+      "answer": "pink flower",
+      "explain_vi": "Bông hoa màu hồng là pink flower.",
+      "content_hash": "pink|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm pink flower",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brown",
+      "pos": "adj",
+      "sense_vi": "màu nâu",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "brown (adj.)",
+        "opts": [
+          "màu nâu",
+          "màu đen",
+          "màu xám",
+          "màu vàng"
+        ]
+      },
+      "answer": "màu nâu",
+      "explain_vi": "brown nghĩa là màu nâu.",
+      "content_hash": "brown|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu nâu",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brown",
+      "pos": "adj",
+      "sense_vi": "màu nâu",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu sắc của đất khô hay thân cây gỗ:",
+        "opts": [
+          "brown",
+          "crown",
+          "drown",
+          "blown"
+        ]
+      },
+      "answer": "brown",
+      "explain_vi": "Màu nâu là brown (crown là vương miện).",
+      "content_hash": "brown|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss crown",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brown",
+      "pos": "adj",
+      "sense_vi": "màu nâu",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The cute puppy has soft ___ fur.",
+        "opts": [
+          "brown",
+          "crown",
+          "down",
+          "town"
+        ]
+      },
+      "answer": "brown",
+      "explain_vi": "Bộ lông màu nâu: brown fur.",
+      "content_hash": "brown|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "brown fur",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brown",
+      "pos": "adj",
+      "sense_vi": "màu nâu",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He has a brown eyes.'",
+        "opts": [
+          "He has brown eyes.",
+          "He has a brown eyes.",
+          "He has an brown eyes.",
+          "He have brown eyes."
+        ]
+      },
+      "answer": "He has brown eyes.",
+      "explain_vi": "Eyes số nhiều không có mạo từ 'a': brown eyes.",
+      "content_hash": "brown|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy a + plural eyes",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brown",
+      "pos": "adj",
+      "sense_vi": "màu nâu",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đôi mắt màu nâu chuẩn:",
+        "opts": [
+          "brown eyes",
+          "brown eye",
+          "brown vision",
+          "brown sight"
+        ]
+      },
+      "answer": "brown eyes",
+      "explain_vi": "Đôi mắt màu nâu là brown eyes.",
+      "content_hash": "brown|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm brown eyes",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "purple",
+      "pos": "adj",
+      "sense_vi": "màu tím",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "purple (adj.)",
+        "opts": [
+          "màu tím",
+          "màu hồng",
+          "màu xanh",
+          "màu đỏ"
+        ]
+      },
+      "answer": "màu tím",
+      "explain_vi": "purple nghĩa là màu tím.",
+      "content_hash": "purple|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu tím",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "purple",
+      "pos": "adj",
+      "sense_vi": "màu tím",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Màu pha giữa xanh dương và đỏ:",
+        "opts": [
+          "purple",
+          "purplish",
+          "people",
+          "purpose"
+        ]
+      },
+      "answer": "purple",
+      "explain_vi": "Màu tím là purple (purpose là mục đích).",
+      "content_hash": "purple|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss purpose",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "purple",
+      "pos": "adj",
+      "sense_vi": "màu tím",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "She bought a pretty ___ notebook for school.",
+        "opts": [
+          "purple",
+          "people",
+          "pupil",
+          "paper"
+        ]
+      },
+      "answer": "purple",
+      "explain_vi": "Cuốn sổ màu tím: purple notebook.",
+      "content_hash": "purple|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "purple notebook",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "purple",
+      "pos": "adj",
+      "sense_vi": "màu tím",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She likes wearing purple clothes.'",
+        "opts": [
+          "She likes wearing purple clothes.",
+          "She like wearing purple clothes.",
+          "She is like wearing purple clothes.",
+          "She liking wearing purple clothes."
+        ]
+      },
+      "answer": "She likes wearing purple clothes.",
+      "explain_vi": "Chủ ngữ She thì hiện tại đơn đi với động từ chia 'likes'.",
+      "content_hash": "purple|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia động từ likes",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "purple",
+      "pos": "adj",
+      "sense_vi": "màu tím",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chùm nho màu tím chuẩn:",
+        "opts": [
+          "purple grapes",
+          "purple apples",
+          "purple bananas",
+          "purple lemons"
+        ]
+      },
+      "answer": "purple grapes",
+      "explain_vi": "Những quả nho tím là purple grapes.",
+      "content_hash": "purple|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm purple grapes",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "color",
+      "pos": "n",
+      "sense_vi": "màu sắc",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "color (n.)",
+        "opts": [
+          "màu sắc",
+          "hình dáng",
+          "kích thước",
+          "âm thanh"
+        ]
+      },
+      "answer": "màu sắc",
+      "explain_vi": "color nghĩa là màu sắc.",
+      "content_hash": "color|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa màu sắc",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "color",
+      "pos": "n",
+      "sense_vi": "màu sắc",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Sắc thái hình ảnh như đỏ, xanh, vàng...:",
+        "opts": [
+          "color",
+          "colour",
+          "collar",
+          "cooler"
+        ]
+      },
+      "answer": "color",
+      "explain_vi": "Màu sắc theo tiếng Anh Mỹ là color (collar là cổ áo).",
+      "content_hash": "color|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss collar",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "color",
+      "pos": "n",
+      "sense_vi": "màu sắc",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "What is your favorite ___? — I like blue.",
+        "opts": [
+          "color",
+          "animal",
+          "food",
+          "subject"
+        ]
+      },
+      "answer": "color",
+      "explain_vi": "Hỏi màu yêu thích: What is your favorite color?",
+      "content_hash": "color|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "favorite color",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "color",
+      "pos": "n",
+      "sense_vi": "màu sắc",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'What color is your new car?'",
+        "opts": [
+          "What color is your new car?",
+          "What color your new car is?",
+          "Which color is your new car like?",
+          "How color is your new car?"
+        ]
+      },
+      "answer": "What color is your new car?",
+      "explain_vi": "Hỏi xe màu gì: What color is + N?",
+      "content_hash": "color|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy hỏi What color is",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "color",
+      "pos": "n",
+      "sense_vi": "màu sắc",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm màu sắc yêu thích nhất chuẩn:",
+        "opts": [
+          "favorite color",
+          "best color",
+          "top color",
+          "high color"
+        ]
+      },
+      "answer": "favorite color",
+      "explain_vi": "Màu sắc yêu thích nhất là favorite color.",
+      "content_hash": "color|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm favorite color",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dark",
+      "pos": "adj",
+      "sense_vi": "tối / u tối",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "dark (adj.)",
+        "opts": [
+          "tối / sẫm màu",
+          "sáng",
+          "rực rỡ",
+          "nóng"
+        ]
+      },
+      "answer": "tối / sẫm màu",
+      "explain_vi": "dark có nghĩa là tối, thiếu ánh sáng hoặc màu sẫm.",
+      "content_hash": "dark|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa tối/sẫm",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dark",
+      "pos": "adj",
+      "sense_vi": "tối / u tối",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trạng thái không có ánh sáng hoặc màu đậm/sẫm:",
+        "opts": [
+          "dark",
+          "duck",
+          "dock",
+          "desk"
+        ]
+      },
+      "answer": "dark",
+      "explain_vi": "Tối/sẫm màu là dark.",
+      "content_hash": "dark|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss duck/dock",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dark",
+      "pos": "adj",
+      "sense_vi": "tối / u tối",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Turn on the light, it is getting ___ outside.",
+        "opts": [
+          "dark",
+          "bright",
+          "sunny",
+          "hot"
+        ]
+      },
+      "answer": "dark",
+      "explain_vi": "Trời đang tối dần: getting dark.",
+      "content_hash": "dark|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "getting dark",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dark",
+      "pos": "adj",
+      "sense_vi": "tối / u tối",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'It is very dark in the room.'",
+        "opts": [
+          "It is very dark in the room.",
+          "It is very darkness in the room.",
+          "It are very dark in the room.",
+          "It feel very darkness in the room."
+        ]
+      },
+      "answer": "It is very dark in the room.",
+      "explain_vi": "Sau tobe (is) dùng tính từ dark, không dùng danh từ darkness.",
+      "content_hash": "dark|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy dark vs darkness",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dark",
+      "pos": "adj",
+      "sense_vi": "tối / u tối",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm trước khi trời tối chuẩn:",
+        "opts": [
+          "before it gets dark",
+          "before it makes dark",
+          "before it does dark",
+          "before it has dark"
+        ]
+      },
+      "answer": "before it gets dark",
+      "explain_vi": "Trước khi trời tối: before it gets dark.",
+      "content_hash": "dark|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm before it gets dark",
+        "pack_id": "starter-a0-colors",
+        "priority": "P0"
+      }
+    }
+  ]
+}

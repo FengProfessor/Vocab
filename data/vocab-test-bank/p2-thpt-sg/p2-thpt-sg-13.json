@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-thpt-sg-13",
+  "priority": "P2",
+  "queue": "thpt_single",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "emerge",
+    "emotion",
+    "emphasis",
+    "employ",
+    "enable",
+    "encounter",
+    "encourage",
+    "energy",
+    "engage",
+    "enhance",
+    "enormous",
+    "ensure",
+    "enterprise",
+    "entertain",
+    "entire",
+    "environment",
+    "equal",
+    "equipment",
+    "essential",
+    "establish"
+  ],
+  "items": [
+    {
+      "lemma": "emerge",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emerge",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "emerge (n.)",
+        "opts": [
+          "ý nghĩa của emerge",
+          "sự từ chối đối với emerge",
+          "trạng thái thiếu emerge",
+          "hành động ngược lại với emerge"
+        ]
+      },
+      "answer": "ý nghĩa của emerge",
+      "explain_vi": "Từ/cụm từ 'emerge' (n.) có nghĩa chính xác là: ý nghĩa của emerge.",
+      "content_hash": "emerge|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item emerge - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emerge",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emerge",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của emerge':",
+        "opts": [
+          "emerge",
+          "emergeing",
+          "emergeed",
+          "re-emerge"
+        ]
+      },
+      "answer": "emerge",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là emerge.",
+      "content_hash": "emerge|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item emerge - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emerge",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emerge",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "emerge",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "emerge",
+      "explain_vi": "Điền 'emerge' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "emerge|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item emerge - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emerge",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emerge",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to emerge without proper preparation yesterday.'",
+        "opts": [
+          "He tried to emerge without proper preparation yesterday.",
+          "He try to emerge without proper preparation yesterday.",
+          "He trying to emerge without proper preparation yesterday.",
+          "He was try to emerge without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to emerge without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "emerge|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item emerge - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emerge",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emerge",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'emerge':",
+        "opts": [
+          "apply emerge correctly",
+          "make emerge wrong",
+          "do emerge badly",
+          "take emerge off"
+        ]
+      },
+      "answer": "apply emerge correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply emerge correctly.",
+      "content_hash": "emerge|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item emerge - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emotion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emotion",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "emotion (n.)",
+        "opts": [
+          "ý nghĩa của emotion",
+          "sự từ chối đối với emotion",
+          "trạng thái thiếu emotion",
+          "hành động ngược lại với emotion"
+        ]
+      },
+      "answer": "ý nghĩa của emotion",
+      "explain_vi": "Từ/cụm từ 'emotion' (n.) có nghĩa chính xác là: ý nghĩa của emotion.",
+      "content_hash": "emotion|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item emotion - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emotion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emotion",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của emotion':",
+        "opts": [
+          "emotion",
+          "emotioning",
+          "emotioned",
+          "re-emotion"
+        ]
+      },
+      "answer": "emotion",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là emotion.",
+      "content_hash": "emotion|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item emotion - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emotion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emotion",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "emotion",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "emotion",
+      "explain_vi": "Điền 'emotion' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "emotion|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item emotion - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emotion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emotion",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to emotion without proper preparation yesterday.'",
+        "opts": [
+          "He tried to emotion without proper preparation yesterday.",
+          "He try to emotion without proper preparation yesterday.",
+          "He trying to emotion without proper preparation yesterday.",
+          "He was try to emotion without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to emotion without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "emotion|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item emotion - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emotion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emotion",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'emotion':",
+        "opts": [
+          "apply emotion correctly",
+          "make emotion wrong",
+          "do emotion badly",
+          "take emotion off"
+        ]
+      },
+      "answer": "apply emotion correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply emotion correctly.",
+      "content_hash": "emotion|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item emotion - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emphasis",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emphasis",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "emphasis (n.)",
+        "opts": [
+          "ý nghĩa của emphasis",
+          "sự từ chối đối với emphasis",
+          "trạng thái thiếu emphasis",
+          "hành động ngược lại với emphasis"
+        ]
+      },
+      "answer": "ý nghĩa của emphasis",
+      "explain_vi": "Từ/cụm từ 'emphasis' (n.) có nghĩa chính xác là: ý nghĩa của emphasis.",
+      "content_hash": "emphasis|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item emphasis - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emphasis",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emphasis",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của emphasis':",
+        "opts": [
+          "emphasis",
+          "emphasising",
+          "emphasised",
+          "re-emphasis"
+        ]
+      },
+      "answer": "emphasis",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là emphasis.",
+      "content_hash": "emphasis|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item emphasis - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emphasis",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emphasis",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "emphasis",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "emphasis",
+      "explain_vi": "Điền 'emphasis' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "emphasis|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item emphasis - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emphasis",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emphasis",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to emphasis without proper preparation yesterday.'",
+        "opts": [
+          "He tried to emphasis without proper preparation yesterday.",
+          "He try to emphasis without proper preparation yesterday.",
+          "He trying to emphasis without proper preparation yesterday.",
+          "He was try to emphasis without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to emphasis without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "emphasis|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item emphasis - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "emphasis",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của emphasis",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'emphasis':",
+        "opts": [
+          "apply emphasis correctly",
+          "make emphasis wrong",
+          "do emphasis badly",
+          "take emphasis off"
+        ]
+      },
+      "answer": "apply emphasis correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply emphasis correctly.",
+      "content_hash": "emphasis|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item emphasis - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "employ",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của employ",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "employ (n.)",
+        "opts": [
+          "ý nghĩa của employ",
+          "sự từ chối đối với employ",
+          "trạng thái thiếu employ",
+          "hành động ngược lại với employ"
+        ]
+      },
+      "answer": "ý nghĩa của employ",
+      "explain_vi": "Từ/cụm từ 'employ' (n.) có nghĩa chính xác là: ý nghĩa của employ.",
+      "content_hash": "employ|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item employ - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "employ",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của employ",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của employ':",
+        "opts": [
+          "employ",
+          "employing",
+          "employed",
+          "re-employ"
+        ]
+      },
+      "answer": "employ",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là employ.",
+      "content_hash": "employ|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item employ - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "employ",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của employ",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "employ",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "employ",
+      "explain_vi": "Điền 'employ' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "employ|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item employ - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "employ",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của employ",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to employ without proper preparation yesterday.'",
+        "opts": [
+          "He tried to employ without proper preparation yesterday.",
+          "He try to employ without proper preparation yesterday.",
+          "He trying to employ without proper preparation yesterday.",
+          "He was try to employ without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to employ without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "employ|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item employ - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "employ",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của employ",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'employ':",
+        "opts": [
+          "apply employ correctly",
+          "make employ wrong",
+          "do employ badly",
+          "take employ off"
+        ]
+      },
+      "answer": "apply employ correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply employ correctly.",
+      "content_hash": "employ|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item employ - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enable",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enable",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "enable (adj.)",
+        "opts": [
+          "ý nghĩa của enable",
+          "sự từ chối đối với enable",
+          "trạng thái thiếu enable",
+          "hành động ngược lại với enable"
+        ]
+      },
+      "answer": "ý nghĩa của enable",
+      "explain_vi": "Từ/cụm từ 'enable' (adj.) có nghĩa chính xác là: ý nghĩa của enable.",
+      "content_hash": "enable|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item enable - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enable",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enable",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của enable':",
+        "opts": [
+          "enable",
+          "enableing",
+          "enableed",
+          "re-enable"
+        ]
+      },
+      "answer": "enable",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là enable.",
+      "content_hash": "enable|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item enable - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enable",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enable",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "enable",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "enable",
+      "explain_vi": "Điền 'enable' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "enable|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item enable - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enable",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enable",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to enable without proper preparation yesterday.'",
+        "opts": [
+          "He tried to enable without proper preparation yesterday.",
+          "He try to enable without proper preparation yesterday.",
+          "He trying to enable without proper preparation yesterday.",
+          "He was try to enable without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to enable without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "enable|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item enable - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enable",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enable",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'enable':",
+        "opts": [
+          "apply enable correctly",
+          "make enable wrong",
+          "do enable badly",
+          "take enable off"
+        ]
+      },
+      "answer": "apply enable correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply enable correctly.",
+      "content_hash": "enable|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item enable - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encounter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encounter",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "encounter (n.)",
+        "opts": [
+          "ý nghĩa của encounter",
+          "sự từ chối đối với encounter",
+          "trạng thái thiếu encounter",
+          "hành động ngược lại với encounter"
+        ]
+      },
+      "answer": "ý nghĩa của encounter",
+      "explain_vi": "Từ/cụm từ 'encounter' (n.) có nghĩa chính xác là: ý nghĩa của encounter.",
+      "content_hash": "encounter|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item encounter - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encounter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encounter",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của encounter':",
+        "opts": [
+          "encounter",
+          "encountering",
+          "encountered",
+          "re-encounter"
+        ]
+      },
+      "answer": "encounter",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là encounter.",
+      "content_hash": "encounter|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item encounter - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encounter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encounter",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "encounter",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "encounter",
+      "explain_vi": "Điền 'encounter' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "encounter|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item encounter - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encounter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encounter",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to encounter without proper preparation yesterday.'",
+        "opts": [
+          "He tried to encounter without proper preparation yesterday.",
+          "He try to encounter without proper preparation yesterday.",
+          "He trying to encounter without proper preparation yesterday.",
+          "He was try to encounter without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to encounter without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "encounter|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item encounter - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encounter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encounter",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'encounter':",
+        "opts": [
+          "apply encounter correctly",
+          "make encounter wrong",
+          "do encounter badly",
+          "take encounter off"
+        ]
+      },
+      "answer": "apply encounter correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply encounter correctly.",
+      "content_hash": "encounter|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item encounter - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encourage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encourage",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "encourage (n.)",
+        "opts": [
+          "ý nghĩa của encourage",
+          "sự từ chối đối với encourage",
+          "trạng thái thiếu encourage",
+          "hành động ngược lại với encourage"
+        ]
+      },
+      "answer": "ý nghĩa của encourage",
+      "explain_vi": "Từ/cụm từ 'encourage' (n.) có nghĩa chính xác là: ý nghĩa của encourage.",
+      "content_hash": "encourage|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item encourage - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encourage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encourage",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của encourage':",
+        "opts": [
+          "encourage",
+          "encourageing",
+          "encourageed",
+          "re-encourage"
+        ]
+      },
+      "answer": "encourage",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là encourage.",
+      "content_hash": "encourage|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item encourage - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encourage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encourage",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "encourage",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "encourage",
+      "explain_vi": "Điền 'encourage' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "encourage|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item encourage - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encourage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encourage",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to encourage without proper preparation yesterday.'",
+        "opts": [
+          "He tried to encourage without proper preparation yesterday.",
+          "He try to encourage without proper preparation yesterday.",
+          "He trying to encourage without proper preparation yesterday.",
+          "He was try to encourage without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to encourage without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "encourage|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item encourage - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "encourage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của encourage",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'encourage':",
+        "opts": [
+          "apply encourage correctly",
+          "make encourage wrong",
+          "do encourage badly",
+          "take encourage off"
+        ]
+      },
+      "answer": "apply encourage correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply encourage correctly.",
+      "content_hash": "encourage|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item encourage - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "energy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của energy",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "energy (n.)",
+        "opts": [
+          "ý nghĩa của energy",
+          "sự từ chối đối với energy",
+          "trạng thái thiếu energy",
+          "hành động ngược lại với energy"
+        ]
+      },
+      "answer": "ý nghĩa của energy",
+      "explain_vi": "Từ/cụm từ 'energy' (n.) có nghĩa chính xác là: ý nghĩa của energy.",
+      "content_hash": "energy|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item energy - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "energy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của energy",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của energy':",
+        "opts": [
+          "energy",
+          "energying",
+          "energyed",
+          "re-energy"
+        ]
+      },
+      "answer": "energy",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là energy.",
+      "content_hash": "energy|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item energy - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "energy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của energy",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "energy",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "energy",
+      "explain_vi": "Điền 'energy' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "energy|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item energy - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "energy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của energy",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to energy without proper preparation yesterday.'",
+        "opts": [
+          "He tried to energy without proper preparation yesterday.",
+          "He try to energy without proper preparation yesterday.",
+          "He trying to energy without proper preparation yesterday.",
+          "He was try to energy without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to energy without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "energy|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item energy - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "energy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của energy",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'energy':",
+        "opts": [
+          "apply energy correctly",
+          "make energy wrong",
+          "do energy badly",
+          "take energy off"
+        ]
+      },
+      "answer": "apply energy correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply energy correctly.",
+      "content_hash": "energy|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item energy - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "engage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của engage",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "engage (n.)",
+        "opts": [
+          "ý nghĩa của engage",
+          "sự từ chối đối với engage",
+          "trạng thái thiếu engage",
+          "hành động ngược lại với engage"
+        ]
+      },
+      "answer": "ý nghĩa của engage",
+      "explain_vi": "Từ/cụm từ 'engage' (n.) có nghĩa chính xác là: ý nghĩa của engage.",
+      "content_hash": "engage|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item engage - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "engage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của engage",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của engage':",
+        "opts": [
+          "engage",
+          "engageing",
+          "engageed",
+          "re-engage"
+        ]
+      },
+      "answer": "engage",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là engage.",
+      "content_hash": "engage|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item engage - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "engage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của engage",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "engage",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "engage",
+      "explain_vi": "Điền 'engage' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "engage|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item engage - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "engage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của engage",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to engage without proper preparation yesterday.'",
+        "opts": [
+          "He tried to engage without proper preparation yesterday.",
+          "He try to engage without proper preparation yesterday.",
+          "He trying to engage without proper preparation yesterday.",
+          "He was try to engage without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to engage without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "engage|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item engage - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "engage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của engage",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'engage':",
+        "opts": [
+          "apply engage correctly",
+          "make engage wrong",
+          "do engage badly",
+          "take engage off"
+        ]
+      },
+      "answer": "apply engage correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply engage correctly.",
+      "content_hash": "engage|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item engage - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enhance",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enhance",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "enhance (n.)",
+        "opts": [
+          "ý nghĩa của enhance",
+          "sự từ chối đối với enhance",
+          "trạng thái thiếu enhance",
+          "hành động ngược lại với enhance"
+        ]
+      },
+      "answer": "ý nghĩa của enhance",
+      "explain_vi": "Từ/cụm từ 'enhance' (n.) có nghĩa chính xác là: ý nghĩa của enhance.",
+      "content_hash": "enhance|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item enhance - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enhance",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enhance",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của enhance':",
+        "opts": [
+          "enhance",
+          "enhanceing",
+          "enhanceed",
+          "re-enhance"
+        ]
+      },
+      "answer": "enhance",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là enhance.",
+      "content_hash": "enhance|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item enhance - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enhance",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enhance",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "enhance",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "enhance",
+      "explain_vi": "Điền 'enhance' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "enhance|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item enhance - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enhance",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enhance",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to enhance without proper preparation yesterday.'",
+        "opts": [
+          "He tried to enhance without proper preparation yesterday.",
+          "He try to enhance without proper preparation yesterday.",
+          "He trying to enhance without proper preparation yesterday.",
+          "He was try to enhance without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to enhance without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "enhance|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item enhance - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enhance",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enhance",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'enhance':",
+        "opts": [
+          "apply enhance correctly",
+          "make enhance wrong",
+          "do enhance badly",
+          "take enhance off"
+        ]
+      },
+      "answer": "apply enhance correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply enhance correctly.",
+      "content_hash": "enhance|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item enhance - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enormous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enormous",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "enormous (adj.)",
+        "opts": [
+          "ý nghĩa của enormous",
+          "sự từ chối đối với enormous",
+          "trạng thái thiếu enormous",
+          "hành động ngược lại với enormous"
+        ]
+      },
+      "answer": "ý nghĩa của enormous",
+      "explain_vi": "Từ/cụm từ 'enormous' (adj.) có nghĩa chính xác là: ý nghĩa của enormous.",
+      "content_hash": "enormous|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item enormous - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enormous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enormous",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của enormous':",
+        "opts": [
+          "enormous",
+          "enormousing",
+          "enormoused",
+          "re-enormous"
+        ]
+      },
+      "answer": "enormous",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là enormous.",
+      "content_hash": "enormous|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item enormous - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enormous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enormous",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "enormous",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "enormous",
+      "explain_vi": "Điền 'enormous' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "enormous|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item enormous - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enormous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enormous",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to enormous without proper preparation yesterday.'",
+        "opts": [
+          "He tried to enormous without proper preparation yesterday.",
+          "He try to enormous without proper preparation yesterday.",
+          "He trying to enormous without proper preparation yesterday.",
+          "He was try to enormous without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to enormous without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "enormous|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item enormous - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enormous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của enormous",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'enormous':",
+        "opts": [
+          "apply enormous correctly",
+          "make enormous wrong",
+          "do enormous badly",
+          "take enormous off"
+        ]
+      },
+      "answer": "apply enormous correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply enormous correctly.",
+      "content_hash": "enormous|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item enormous - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "ensure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ensure",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ensure (n.)",
+        "opts": [
+          "ý nghĩa của ensure",
+          "sự từ chối đối với ensure",
+          "trạng thái thiếu ensure",
+          "hành động ngược lại với ensure"
+        ]
+      },
+      "answer": "ý nghĩa của ensure",
+      "explain_vi": "Từ/cụm từ 'ensure' (n.) có nghĩa chính xác là: ý nghĩa của ensure.",
+      "content_hash": "ensure|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item ensure - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "ensure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ensure",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của ensure':",
+        "opts": [
+          "ensure",
+          "ensureing",
+          "ensureed",
+          "re-ensure"
+        ]
+      },
+      "answer": "ensure",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là ensure.",
+      "content_hash": "ensure|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item ensure - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "ensure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ensure",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "ensure",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "ensure",
+      "explain_vi": "Điền 'ensure' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "ensure|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item ensure - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "ensure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ensure",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to ensure without proper preparation yesterday.'",
+        "opts": [
+          "He tried to ensure without proper preparation yesterday.",
+          "He try to ensure without proper preparation yesterday.",
+          "He trying to ensure without proper preparation yesterday.",
+          "He was try to ensure without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to ensure without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "ensure|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item ensure - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "ensure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của ensure",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'ensure':",
+        "opts": [
+          "apply ensure correctly",
+          "make ensure wrong",
+          "do ensure badly",
+          "take ensure off"
+        ]
+      },
+      "answer": "apply ensure correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply ensure correctly.",
+      "content_hash": "ensure|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item ensure - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enterprise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enterprise",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "enterprise (n.)",
+        "opts": [
+          "ý nghĩa của enterprise",
+          "sự từ chối đối với enterprise",
+          "trạng thái thiếu enterprise",
+          "hành động ngược lại với enterprise"
+        ]
+      },
+      "answer": "ý nghĩa của enterprise",
+      "explain_vi": "Từ/cụm từ 'enterprise' (n.) có nghĩa chính xác là: ý nghĩa của enterprise.",
+      "content_hash": "enterprise|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item enterprise - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enterprise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enterprise",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của enterprise':",
+        "opts": [
+          "enterprise",
+          "enterpriseing",
+          "enterpriseed",
+          "re-enterprise"
+        ]
+      },
+      "answer": "enterprise",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là enterprise.",
+      "content_hash": "enterprise|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item enterprise - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enterprise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enterprise",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "enterprise",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "enterprise",
+      "explain_vi": "Điền 'enterprise' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "enterprise|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item enterprise - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enterprise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enterprise",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to enterprise without proper preparation yesterday.'",
+        "opts": [
+          "He tried to enterprise without proper preparation yesterday.",
+          "He try to enterprise without proper preparation yesterday.",
+          "He trying to enterprise without proper preparation yesterday.",
+          "He was try to enterprise without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to enterprise without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "enterprise|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item enterprise - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "enterprise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của enterprise",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'enterprise':",
+        "opts": [
+          "apply enterprise correctly",
+          "make enterprise wrong",
+          "do enterprise badly",
+          "take enterprise off"
+        ]
+      },
+      "answer": "apply enterprise correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply enterprise correctly.",
+      "content_hash": "enterprise|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item enterprise - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entertain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entertain",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "entertain (n.)",
+        "opts": [
+          "ý nghĩa của entertain",
+          "sự từ chối đối với entertain",
+          "trạng thái thiếu entertain",
+          "hành động ngược lại với entertain"
+        ]
+      },
+      "answer": "ý nghĩa của entertain",
+      "explain_vi": "Từ/cụm từ 'entertain' (n.) có nghĩa chính xác là: ý nghĩa của entertain.",
+      "content_hash": "entertain|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item entertain - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entertain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entertain",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của entertain':",
+        "opts": [
+          "entertain",
+          "entertaining",
+          "entertained",
+          "re-entertain"
+        ]
+      },
+      "answer": "entertain",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là entertain.",
+      "content_hash": "entertain|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item entertain - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entertain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entertain",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "entertain",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "entertain",
+      "explain_vi": "Điền 'entertain' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "entertain|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item entertain - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entertain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entertain",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to entertain without proper preparation yesterday.'",
+        "opts": [
+          "He tried to entertain without proper preparation yesterday.",
+          "He try to entertain without proper preparation yesterday.",
+          "He trying to entertain without proper preparation yesterday.",
+          "He was try to entertain without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to entertain without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "entertain|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item entertain - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entertain",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entertain",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'entertain':",
+        "opts": [
+          "apply entertain correctly",
+          "make entertain wrong",
+          "do entertain badly",
+          "take entertain off"
+        ]
+      },
+      "answer": "apply entertain correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply entertain correctly.",
+      "content_hash": "entertain|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item entertain - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entire",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entire",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "entire (n.)",
+        "opts": [
+          "ý nghĩa của entire",
+          "sự từ chối đối với entire",
+          "trạng thái thiếu entire",
+          "hành động ngược lại với entire"
+        ]
+      },
+      "answer": "ý nghĩa của entire",
+      "explain_vi": "Từ/cụm từ 'entire' (n.) có nghĩa chính xác là: ý nghĩa của entire.",
+      "content_hash": "entire|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item entire - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entire",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entire",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của entire':",
+        "opts": [
+          "entire",
+          "entireing",
+          "entireed",
+          "re-entire"
+        ]
+      },
+      "answer": "entire",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là entire.",
+      "content_hash": "entire|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item entire - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entire",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entire",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "entire",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "entire",
+      "explain_vi": "Điền 'entire' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "entire|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item entire - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entire",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entire",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to entire without proper preparation yesterday.'",
+        "opts": [
+          "He tried to entire without proper preparation yesterday.",
+          "He try to entire without proper preparation yesterday.",
+          "He trying to entire without proper preparation yesterday.",
+          "He was try to entire without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to entire without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "entire|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item entire - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "entire",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của entire",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'entire':",
+        "opts": [
+          "apply entire correctly",
+          "make entire wrong",
+          "do entire badly",
+          "take entire off"
+        ]
+      },
+      "answer": "apply entire correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply entire correctly.",
+      "content_hash": "entire|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item entire - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "environment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của environment",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "environment (n.)",
+        "opts": [
+          "ý nghĩa của environment",
+          "sự từ chối đối với environment",
+          "trạng thái thiếu environment",
+          "hành động ngược lại với environment"
+        ]
+      },
+      "answer": "ý nghĩa của environment",
+      "explain_vi": "Từ/cụm từ 'environment' (n.) có nghĩa chính xác là: ý nghĩa của environment.",
+      "content_hash": "environment|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item environment - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "environment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của environment",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của environment':",
+        "opts": [
+          "environment",
+          "environmenting",
+          "environmented",
+          "re-environment"
+        ]
+      },
+      "answer": "environment",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là environment.",
+      "content_hash": "environment|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item environment - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "environment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của environment",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "environment",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "environment",
+      "explain_vi": "Điền 'environment' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "environment|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item environment - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "environment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của environment",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to environment without proper preparation yesterday.'",
+        "opts": [
+          "He tried to environment without proper preparation yesterday.",
+          "He try to environment without proper preparation yesterday.",
+          "He trying to environment without proper preparation yesterday.",
+          "He was try to environment without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to environment without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "environment|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item environment - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "environment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của environment",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'environment':",
+        "opts": [
+          "apply environment correctly",
+          "make environment wrong",
+          "do environment badly",
+          "take environment off"
+        ]
+      },
+      "answer": "apply environment correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply environment correctly.",
+      "content_hash": "environment|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item environment - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equal",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "equal (n.)",
+        "opts": [
+          "ý nghĩa của equal",
+          "sự từ chối đối với equal",
+          "trạng thái thiếu equal",
+          "hành động ngược lại với equal"
+        ]
+      },
+      "answer": "ý nghĩa của equal",
+      "explain_vi": "Từ/cụm từ 'equal' (n.) có nghĩa chính xác là: ý nghĩa của equal.",
+      "content_hash": "equal|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item equal - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equal",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của equal':",
+        "opts": [
+          "equal",
+          "equaling",
+          "equaled",
+          "re-equal"
+        ]
+      },
+      "answer": "equal",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là equal.",
+      "content_hash": "equal|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item equal - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equal",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "equal",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "equal",
+      "explain_vi": "Điền 'equal' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "equal|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item equal - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equal",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to equal without proper preparation yesterday.'",
+        "opts": [
+          "He tried to equal without proper preparation yesterday.",
+          "He try to equal without proper preparation yesterday.",
+          "He trying to equal without proper preparation yesterday.",
+          "He was try to equal without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to equal without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "equal|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item equal - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equal",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'equal':",
+        "opts": [
+          "apply equal correctly",
+          "make equal wrong",
+          "do equal badly",
+          "take equal off"
+        ]
+      },
+      "answer": "apply equal correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply equal correctly.",
+      "content_hash": "equal|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item equal - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equipment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equipment",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "equipment (n.)",
+        "opts": [
+          "ý nghĩa của equipment",
+          "sự từ chối đối với equipment",
+          "trạng thái thiếu equipment",
+          "hành động ngược lại với equipment"
+        ]
+      },
+      "answer": "ý nghĩa của equipment",
+      "explain_vi": "Từ/cụm từ 'equipment' (n.) có nghĩa chính xác là: ý nghĩa của equipment.",
+      "content_hash": "equipment|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item equipment - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equipment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equipment",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của equipment':",
+        "opts": [
+          "equipment",
+          "equipmenting",
+          "equipmented",
+          "re-equipment"
+        ]
+      },
+      "answer": "equipment",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là equipment.",
+      "content_hash": "equipment|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item equipment - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equipment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equipment",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "equipment",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "equipment",
+      "explain_vi": "Điền 'equipment' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "equipment|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item equipment - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equipment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equipment",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to equipment without proper preparation yesterday.'",
+        "opts": [
+          "He tried to equipment without proper preparation yesterday.",
+          "He try to equipment without proper preparation yesterday.",
+          "He trying to equipment without proper preparation yesterday.",
+          "He was try to equipment without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to equipment without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "equipment|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item equipment - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "equipment",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của equipment",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'equipment':",
+        "opts": [
+          "apply equipment correctly",
+          "make equipment wrong",
+          "do equipment badly",
+          "take equipment off"
+        ]
+      },
+      "answer": "apply equipment correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply equipment correctly.",
+      "content_hash": "equipment|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item equipment - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "essential",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của essential",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "essential (n.)",
+        "opts": [
+          "ý nghĩa của essential",
+          "sự từ chối đối với essential",
+          "trạng thái thiếu essential",
+          "hành động ngược lại với essential"
+        ]
+      },
+      "answer": "ý nghĩa của essential",
+      "explain_vi": "Từ/cụm từ 'essential' (n.) có nghĩa chính xác là: ý nghĩa của essential.",
+      "content_hash": "essential|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item essential - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "essential",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của essential",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của essential':",
+        "opts": [
+          "essential",
+          "essentialing",
+          "essentialed",
+          "re-essential"
+        ]
+      },
+      "answer": "essential",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là essential.",
+      "content_hash": "essential|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item essential - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "essential",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của essential",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "essential",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "essential",
+      "explain_vi": "Điền 'essential' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "essential|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item essential - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "essential",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của essential",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to essential without proper preparation yesterday.'",
+        "opts": [
+          "He tried to essential without proper preparation yesterday.",
+          "He try to essential without proper preparation yesterday.",
+          "He trying to essential without proper preparation yesterday.",
+          "He was try to essential without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to essential without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "essential|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item essential - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "essential",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của essential",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'essential':",
+        "opts": [
+          "apply essential correctly",
+          "make essential wrong",
+          "do essential badly",
+          "take essential off"
+        ]
+      },
+      "answer": "apply essential correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply essential correctly.",
+      "content_hash": "essential|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item essential - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "establish",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của establish",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "establish (n.)",
+        "opts": [
+          "ý nghĩa của establish",
+          "sự từ chối đối với establish",
+          "trạng thái thiếu establish",
+          "hành động ngược lại với establish"
+        ]
+      },
+      "answer": "ý nghĩa của establish",
+      "explain_vi": "Từ/cụm từ 'establish' (n.) có nghĩa chính xác là: ý nghĩa của establish.",
+      "content_hash": "establish|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item establish - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "establish",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của establish",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của establish':",
+        "opts": [
+          "establish",
+          "establishing",
+          "established",
+          "re-establish"
+        ]
+      },
+      "answer": "establish",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là establish.",
+      "content_hash": "establish|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item establish - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "establish",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của establish",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "establish",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "establish",
+      "explain_vi": "Điền 'establish' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "establish|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item establish - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "establish",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của establish",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to establish without proper preparation yesterday.'",
+        "opts": [
+          "He tried to establish without proper preparation yesterday.",
+          "He try to establish without proper preparation yesterday.",
+          "He trying to establish without proper preparation yesterday.",
+          "He was try to establish without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to establish without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "establish|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item establish - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    },
+    {
+      "lemma": "establish",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của establish",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'establish':",
+        "opts": [
+          "apply establish correctly",
+          "make establish wrong",
+          "do establish badly",
+          "take establish off"
+        ]
+      },
+      "answer": "apply establish correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply establish correctly.",
+      "content_hash": "establish|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item establish - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-13"
+      }
+    }
+  ]
+}

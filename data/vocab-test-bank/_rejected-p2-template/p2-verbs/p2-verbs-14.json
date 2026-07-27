@@ -1,0 +1,971 @@
+{
+  "version": 3,
+  "batch_id": "p2-verbs-14",
+  "priority": "P2",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "base",
+    "belong",
+    "blame",
+    "borrow",
+    "breathe",
+    "burn",
+    "cancel"
+  ],
+  "items": [
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của base",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "base (v.)",
+        "opts": [
+          "ý nghĩa của base",
+          "sự từ chối đối với base",
+          "trạng thái thiếu base",
+          "hành động ngược lại với base"
+        ]
+      },
+      "answer": "ý nghĩa của base",
+      "explain_vi": "Từ/cụm từ 'base' (v.) có nghĩa chính xác là: ý nghĩa của base.",
+      "content_hash": "base|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item base - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của base",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của base':",
+        "opts": [
+          "base",
+          "baseing",
+          "baseed",
+          "re-base"
+        ]
+      },
+      "answer": "base",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là base.",
+      "content_hash": "base|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item base - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của base",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "base",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "base",
+      "explain_vi": "Điền 'base' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "base|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item base - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của base",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to base without proper preparation yesterday.'",
+        "opts": [
+          "He tried to base without proper preparation yesterday.",
+          "He try to base without proper preparation yesterday.",
+          "He trying to base without proper preparation yesterday.",
+          "He was try to base without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to base without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "base|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item base - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của base",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'base':",
+        "opts": [
+          "apply base correctly",
+          "make base wrong",
+          "do base badly",
+          "take base off"
+        ]
+      },
+      "answer": "apply base correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply base correctly.",
+      "content_hash": "base|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item base - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của belong",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "belong (v.)",
+        "opts": [
+          "ý nghĩa của belong",
+          "sự từ chối đối với belong",
+          "trạng thái thiếu belong",
+          "hành động ngược lại với belong"
+        ]
+      },
+      "answer": "ý nghĩa của belong",
+      "explain_vi": "Từ/cụm từ 'belong' (v.) có nghĩa chính xác là: ý nghĩa của belong.",
+      "content_hash": "belong|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item belong - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của belong",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của belong':",
+        "opts": [
+          "belong",
+          "belonging",
+          "belonged",
+          "re-belong"
+        ]
+      },
+      "answer": "belong",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là belong.",
+      "content_hash": "belong|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item belong - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của belong",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "belong",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "belong",
+      "explain_vi": "Điền 'belong' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "belong|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item belong - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của belong",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to belong without proper preparation yesterday.'",
+        "opts": [
+          "He tried to belong without proper preparation yesterday.",
+          "He try to belong without proper preparation yesterday.",
+          "He trying to belong without proper preparation yesterday.",
+          "He was try to belong without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to belong without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "belong|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item belong - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của belong",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'belong':",
+        "opts": [
+          "apply belong correctly",
+          "make belong wrong",
+          "do belong badly",
+          "take belong off"
+        ]
+      },
+      "answer": "apply belong correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply belong correctly.",
+      "content_hash": "belong|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item belong - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của blame",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "blame (v.)",
+        "opts": [
+          "ý nghĩa của blame",
+          "sự từ chối đối với blame",
+          "trạng thái thiếu blame",
+          "hành động ngược lại với blame"
+        ]
+      },
+      "answer": "ý nghĩa của blame",
+      "explain_vi": "Từ/cụm từ 'blame' (v.) có nghĩa chính xác là: ý nghĩa của blame.",
+      "content_hash": "blame|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item blame - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của blame",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của blame':",
+        "opts": [
+          "blame",
+          "blameing",
+          "blameed",
+          "re-blame"
+        ]
+      },
+      "answer": "blame",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là blame.",
+      "content_hash": "blame|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "verbs item blame - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của blame",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "blame",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "blame",
+      "explain_vi": "Điền 'blame' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "blame|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item blame - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của blame",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to blame without proper preparation yesterday.'",
+        "opts": [
+          "He tried to blame without proper preparation yesterday.",
+          "He try to blame without proper preparation yesterday.",
+          "He trying to blame without proper preparation yesterday.",
+          "He was try to blame without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to blame without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "blame|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item blame - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của blame",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'blame':",
+        "opts": [
+          "apply blame correctly",
+          "make blame wrong",
+          "do blame badly",
+          "take blame off"
+        ]
+      },
+      "answer": "apply blame correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply blame correctly.",
+      "content_hash": "blame|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item blame - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của borrow",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "borrow (v.)",
+        "opts": [
+          "ý nghĩa của borrow",
+          "sự từ chối đối với borrow",
+          "trạng thái thiếu borrow",
+          "hành động ngược lại với borrow"
+        ]
+      },
+      "answer": "ý nghĩa của borrow",
+      "explain_vi": "Từ/cụm từ 'borrow' (v.) có nghĩa chính xác là: ý nghĩa của borrow.",
+      "content_hash": "borrow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item borrow - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của borrow",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của borrow':",
+        "opts": [
+          "borrow",
+          "borrowing",
+          "borrowed",
+          "re-borrow"
+        ]
+      },
+      "answer": "borrow",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là borrow.",
+      "content_hash": "borrow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item borrow - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của borrow",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "borrow",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "borrow",
+      "explain_vi": "Điền 'borrow' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "borrow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item borrow - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của borrow",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to borrow without proper preparation yesterday.'",
+        "opts": [
+          "He tried to borrow without proper preparation yesterday.",
+          "He try to borrow without proper preparation yesterday.",
+          "He trying to borrow without proper preparation yesterday.",
+          "He was try to borrow without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to borrow without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "borrow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item borrow - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của borrow",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'borrow':",
+        "opts": [
+          "apply borrow correctly",
+          "make borrow wrong",
+          "do borrow badly",
+          "take borrow off"
+        ]
+      },
+      "answer": "apply borrow correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply borrow correctly.",
+      "content_hash": "borrow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item borrow - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của breathe",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "breathe (v.)",
+        "opts": [
+          "ý nghĩa của breathe",
+          "sự từ chối đối với breathe",
+          "trạng thái thiếu breathe",
+          "hành động ngược lại với breathe"
+        ]
+      },
+      "answer": "ý nghĩa của breathe",
+      "explain_vi": "Từ/cụm từ 'breathe' (v.) có nghĩa chính xác là: ý nghĩa của breathe.",
+      "content_hash": "breathe|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item breathe - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của breathe",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của breathe':",
+        "opts": [
+          "breathe",
+          "breatheing",
+          "breatheed",
+          "re-breathe"
+        ]
+      },
+      "answer": "breathe",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là breathe.",
+      "content_hash": "breathe|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item breathe - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của breathe",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "breathe",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "breathe",
+      "explain_vi": "Điền 'breathe' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "breathe|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item breathe - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của breathe",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to breathe without proper preparation yesterday.'",
+        "opts": [
+          "He tried to breathe without proper preparation yesterday.",
+          "He try to breathe without proper preparation yesterday.",
+          "He trying to breathe without proper preparation yesterday.",
+          "He was try to breathe without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to breathe without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "breathe|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item breathe - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của breathe",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'breathe':",
+        "opts": [
+          "apply breathe correctly",
+          "make breathe wrong",
+          "do breathe badly",
+          "take breathe off"
+        ]
+      },
+      "answer": "apply breathe correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply breathe correctly.",
+      "content_hash": "breathe|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item breathe - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của burn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "burn (v.)",
+        "opts": [
+          "ý nghĩa của burn",
+          "sự từ chối đối với burn",
+          "trạng thái thiếu burn",
+          "hành động ngược lại với burn"
+        ]
+      },
+      "answer": "ý nghĩa của burn",
+      "explain_vi": "Từ/cụm từ 'burn' (v.) có nghĩa chính xác là: ý nghĩa của burn.",
+      "content_hash": "burn|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item burn - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của burn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của burn':",
+        "opts": [
+          "burn",
+          "burning",
+          "burned",
+          "re-burn"
+        ]
+      },
+      "answer": "burn",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là burn.",
+      "content_hash": "burn|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item burn - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của burn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "burn",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "burn",
+      "explain_vi": "Điền 'burn' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "burn|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "verbs item burn - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của burn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to burn without proper preparation yesterday.'",
+        "opts": [
+          "He tried to burn without proper preparation yesterday.",
+          "He try to burn without proper preparation yesterday.",
+          "He trying to burn without proper preparation yesterday.",
+          "He was try to burn without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to burn without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "burn|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item burn - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của burn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'burn':",
+        "opts": [
+          "apply burn correctly",
+          "make burn wrong",
+          "do burn badly",
+          "take burn off"
+        ]
+      },
+      "answer": "apply burn correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply burn correctly.",
+      "content_hash": "burn|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item burn - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của cancel",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cancel (v.)",
+        "opts": [
+          "ý nghĩa của cancel",
+          "sự từ chối đối với cancel",
+          "trạng thái thiếu cancel",
+          "hành động ngược lại với cancel"
+        ]
+      },
+      "answer": "ý nghĩa của cancel",
+      "explain_vi": "Từ/cụm từ 'cancel' (v.) có nghĩa chính xác là: ý nghĩa của cancel.",
+      "content_hash": "cancel|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item cancel - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của cancel",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của cancel':",
+        "opts": [
+          "cancel",
+          "canceling",
+          "canceled",
+          "re-cancel"
+        ]
+      },
+      "answer": "cancel",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là cancel.",
+      "content_hash": "cancel|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item cancel - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của cancel",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "cancel",
+          "ignore",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "cancel",
+      "explain_vi": "Điền 'cancel' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "cancel|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item cancel - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của cancel",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to cancel without proper preparation yesterday.'",
+        "opts": [
+          "He tried to cancel without proper preparation yesterday.",
+          "He try to cancel without proper preparation yesterday.",
+          "He trying to cancel without proper preparation yesterday.",
+          "He was try to cancel without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to cancel without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "cancel|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item cancel - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của cancel",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'cancel':",
+        "opts": [
+          "apply cancel correctly",
+          "make cancel wrong",
+          "do cancel badly",
+          "take cancel off"
+        ]
+      },
+      "answer": "apply cancel correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply cancel correctly.",
+      "content_hash": "cancel|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item cancel - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-14"
+      }
+    }
+  ]
+}

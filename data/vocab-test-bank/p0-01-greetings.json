@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-01-greetings",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-greetings"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "hello",
+      "pos": "interj",
+      "sense_vi": "xin chào",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hello (interj.)",
+        "opts": [
+          "xin chào",
+          "tạm biệt",
+          "cảm ơn",
+          "xin lỗi"
+        ]
+      },
+      "answer": "xin chào",
+      "explain_vi": "hello là lời chào gặp mặt thông dụng.",
+      "content_hash": "hello|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "chào hỏi cơ bản",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hello",
+      "pos": "interj",
+      "sense_vi": "xin chào",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Lời chào khi gặp ai đó:",
+        "opts": [
+          "hello",
+          "halloo",
+          "goodbye",
+          "welcome"
+        ]
+      },
+      "answer": "hello",
+      "explain_vi": "Lời chào khi gặp nhau là hello (chú ý chính tả halloo là từ cổ/sai).",
+      "content_hash": "hello|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hello",
+      "pos": "interj",
+      "sense_vi": "xin chào",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "When you meet a friend, you say ___ to them.",
+        "opts": [
+          "hello",
+          "sorry",
+          "thanks",
+          "night"
+        ]
+      },
+      "answer": "hello",
+      "explain_vi": "Dùng hello khi gặp mặt bạn bè.",
+      "content_hash": "hello|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ngữ cảnh gặp mặt",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hello",
+      "pos": "interj",
+      "sense_vi": "xin chào",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He say hello to the teacher when entering class.'",
+        "opts": [
+          "He says hello to the teacher when entering class.",
+          "He say hello to the teacher when entering class.",
+          "He speaking hello to the teacher when entering class.",
+          "He is say hello to the teacher when entering class."
+        ]
+      },
+      "answer": "He says hello to the teacher when entering class.",
+      "explain_vi": "Chủ ngữ He thì hiện tại đơn đi với says hello.",
+      "content_hash": "hello|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia động từ",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hello",
+      "pos": "interj",
+      "sense_vi": "xin chào",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đúng dùng khi gửi lời chào ai đó:",
+        "opts": [
+          "say hello to someone",
+          "speak hello to someone",
+          "tell hello to someone",
+          "talk hello to someone"
+        ]
+      },
+      "answer": "say hello to someone",
+      "explain_vi": "Cụm chuẩn là say hello to someone (gửi lời chào đến ai).",
+      "content_hash": "hello|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm say hello to",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "goodbye",
+      "pos": "interj",
+      "sense_vi": "tạm biệt",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "goodbye (interj.)",
+        "opts": [
+          "tạm biệt",
+          "xin chào",
+          "hoan nghênh",
+          "làm ơn"
+        ]
+      },
+      "answer": "tạm biệt",
+      "explain_vi": "goodbye là lời chào tạm biệt khi chia tay.",
+      "content_hash": "goodbye|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa chào tạm biệt",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "goodbye",
+      "pos": "interj",
+      "sense_vi": "tạm biệt",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Lời chào khi chia tay ra về:",
+        "opts": [
+          "goodbye",
+          "goodby",
+          "hello",
+          "welcome"
+        ]
+      },
+      "answer": "goodbye",
+      "explain_vi": "Lời chào tạm biệt đúng chính tả là goodbye.",
+      "content_hash": "goodbye|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "goodbye",
+      "pos": "interj",
+      "sense_vi": "tạm biệt",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "It is 5 PM. I must say ___ and go home now.",
+        "opts": [
+          "goodbye",
+          "hello",
+          "please",
+          "thanks"
+        ]
+      },
+      "answer": "goodbye",
+      "explain_vi": "Điền goodbye hợp ngữ cảnh chào chia tay để về nhà.",
+      "content_hash": "goodbye|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ngữ cảnh ra về",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "goodbye",
+      "pos": "interj",
+      "sense_vi": "tạm biệt",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She said goodbye with her mother before school.'",
+        "opts": [
+          "She said goodbye to her mother before school.",
+          "She said goodbye with her mother before school.",
+          "She told goodbye to her mother before school.",
+          "She spoke goodbye to her mother before school."
+        ]
+      },
+      "answer": "She said goodbye to her mother before school.",
+      "explain_vi": "Cụm đúng là say goodbye to someone, không dùng with.",
+      "content_hash": "goodbye|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy giới từ with/to",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "goodbye",
+      "pos": "interj",
+      "sense_vi": "tạm biệt",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đúng dùng khi chào tạm biệt ai đó:",
+        "opts": [
+          "say goodbye to someone",
+          "make goodbye to someone",
+          "tell goodbye to someone",
+          "give goodbye to someone"
+        ]
+      },
+      "answer": "say goodbye to someone",
+      "explain_vi": "Kết hợp từ chuẩn là say goodbye to someone.",
+      "content_hash": "goodbye|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm say goodbye to",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "please",
+      "pos": "adv",
+      "sense_vi": "làm ơn",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "please (adv.)",
+        "opts": [
+          "làm ơn / xin vui lòng",
+          "xin lỗi",
+          "cảm ơn",
+          "tất nhiên"
+        ]
+      },
+      "answer": "làm ơn / xin vui lòng",
+      "explain_vi": "please dùng để đưa ra lời yêu cầu lịch sự.",
+      "content_hash": "please|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa lịch sự",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "please",
+      "pos": "adv",
+      "sense_vi": "làm ơn",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ dùng khi nhờ vả lịch sự (làm ơn / vui lòng):",
+        "opts": [
+          "please",
+          "pleas",
+          "sorry",
+          "pardon"
+        ]
+      },
+      "answer": "please",
+      "explain_vi": "Từ nhờ vả lịch sự là please.",
+      "content_hash": "please|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "please",
+      "pos": "adv",
+      "sense_vi": "làm ơn",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Pass me the water, ___. I am very thirsty.",
+        "opts": [
+          "please",
+          "sorry",
+          "thanks",
+          "hello"
+        ]
+      },
+      "answer": "please",
+      "explain_vi": "Thêm please ở cuối câu nhờ vả để tỏ sự lịch sự.",
+      "content_hash": "please|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ngữ cảnh nhờ vả",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "please",
+      "pos": "adv",
+      "sense_vi": "làm ơn",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Could you help me, pleas?'",
+        "opts": [
+          "Could you help me, please?",
+          "Could you help me, pleas?",
+          "Could you help me, pleasing?",
+          "Could you help me, pleased?"
+        ]
+      },
+      "answer": "Could you help me, please?",
+      "explain_vi": "Từ đúng chính tả là please.",
+      "content_hash": "please|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chính tả",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "please",
+      "pos": "adv",
+      "sense_vi": "làm ơn",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm giao tiếp lịch sự chuẩn:",
+        "opts": [
+          "Yes, please.",
+          "Yes, sorry.",
+          "Yes, excuse.",
+          "Yes, welcome."
+        ]
+      },
+      "answer": "Yes, please.",
+      "explain_vi": "Dùng 'Yes, please' khi đồng ý nhận lời giúp đỡ/mời đồ ăn lịch sự.",
+      "content_hash": "please|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Yes please",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sorry",
+      "pos": "adj",
+      "sense_vi": "xin lỗi",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sorry (adj.)",
+        "opts": [
+          "xin lỗi / lấy làm tiếc",
+          "vui vẻ",
+          "tức giận",
+          "sợ hãi"
+        ]
+      },
+      "answer": "xin lỗi / lấy làm tiếc",
+      "explain_vi": "sorry dùng khi muốn xin lỗi hoặc bày tỏ sự tiếc nuối.",
+      "content_hash": "sorry|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa xin lỗi",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sorry",
+      "pos": "adj",
+      "sense_vi": "xin lỗi",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ dùng để xin lỗi khi mắc lỗi:",
+        "opts": [
+          "sorry",
+          "sorrow",
+          "please",
+          "excuse"
+        ]
+      },
+      "answer": "sorry",
+      "explain_vi": "Từ xin lỗi là sorry (sorrow là danh từ sự buồn phiền).",
+      "content_hash": "sorry|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss từ loại",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sorry",
+      "pos": "adj",
+      "sense_vi": "xin lỗi",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I am ___ for being late for the meeting today.",
+        "opts": [
+          "sorry",
+          "happy",
+          "glad",
+          "welcome"
+        ]
+      },
+      "answer": "sorry",
+      "explain_vi": "Cụm be sorry for + V-ing (xin lỗi vì điều gì).",
+      "content_hash": "sorry|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "be sorry for",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sorry",
+      "pos": "adj",
+      "sense_vi": "xin lỗi",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I am sorry about be late.'",
+        "opts": [
+          "I am sorry for being late.",
+          "I am sorry about be late.",
+          "I am sorry for be late.",
+          "I make sorry for being late."
+        ]
+      },
+      "answer": "I am sorry for being late.",
+      "explain_vi": "Cấu trúc chuẩn: be sorry for + V-ing.",
+      "content_hash": "sorry|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy giới từ + Ving",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sorry",
+      "pos": "adj",
+      "sense_vi": "xin lỗi",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ chuẩn diễn tả lời xin lỗi:",
+        "opts": [
+          "feel sorry for someone",
+          "make sorry for someone",
+          "do sorry for someone",
+          "take sorry for someone"
+        ]
+      },
+      "answer": "feel sorry for someone",
+      "explain_vi": "Kết hợp từ chuẩn: feel sorry for someone (cảm thấy tiếc cho ai).",
+      "content_hash": "sorry|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm feel sorry for",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "thanks",
+      "pos": "n",
+      "sense_vi": "lời cảm ơn",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "thanks (n.)",
+        "opts": [
+          "lời cảm ơn",
+          "lời xin lỗi",
+          "lời chào",
+          "lời hứa"
+        ]
+      },
+      "answer": "lời cảm ơn",
+      "explain_vi": "thanks nghĩa là lời cảm ơn (dạng ngắn của thank you).",
+      "content_hash": "thanks|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cảm ơn",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "thanks",
+      "pos": "n",
+      "sense_vi": "lời cảm ơn",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ dùng để bày tỏ sự biết ơn khi ai đó giúp mình:",
+        "opts": [
+          "thanks",
+          "thankful",
+          "please",
+          "sorry"
+        ]
+      },
+      "answer": "thanks",
+      "explain_vi": "Bày tỏ lời cảm ơn dùng thanks.",
+      "content_hash": "thanks|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss từ loại",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "thanks",
+      "pos": "n",
+      "sense_vi": "lời cảm ơn",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Many ___ for helping me carry these books.",
+        "opts": [
+          "thanks",
+          "pleases",
+          "sorries",
+          "hellos"
+        ]
+      },
+      "answer": "thanks",
+      "explain_vi": "Cụm Many thanks for + V-ing (Cảm ơn nhiều vì...).",
+      "content_hash": "thanks|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "Many thanks for",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "thanks",
+      "pos": "n",
+      "sense_vi": "lời cảm ơn",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Thank for your kind help.'",
+        "opts": [
+          "Thanks for your kind help.",
+          "Thank for your kind help.",
+          "Thanks to your kind help for me.",
+          "Thanking for your kind help."
+        ]
+      },
+      "answer": "Thanks for your kind help.",
+      "explain_vi": "Dùng Thanks for + N (không dùng 'Thank for' thiếu s).",
+      "content_hash": "thanks|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy Thanks for",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "thanks",
+      "pos": "n",
+      "sense_vi": "lời cảm ơn",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm cảm ơn chuẩn:",
+        "opts": [
+          "Thanks a lot",
+          "Thanks many",
+          "Thanks big",
+          "Thanks high"
+        ]
+      },
+      "answer": "Thanks a lot",
+      "explain_vi": "Cụm cảm ơn nhiều phổ biến là Thanks a lot.",
+      "content_hash": "thanks|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Thanks a lot",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yes",
+      "pos": "adv",
+      "sense_vi": "có / vâng / đúng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "yes (adv.)",
+        "opts": [
+          "vâng / có / đúng",
+          "không",
+          "có lẽ",
+          "chưa"
+        ]
+      },
+      "answer": "vâng / có / đúng",
+      "explain_vi": "yes dùng để đồng ý hoặc trả lời khẳng định.",
+      "content_hash": "yes|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa đồng ý",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yes",
+      "pos": "adv",
+      "sense_vi": "có / vâng / đúng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ trả lời khẳng định (vâng / đúng vậy):",
+        "opts": [
+          "yes",
+          "yet",
+          "no",
+          "not"
+        ]
+      },
+      "answer": "yes",
+      "explain_vi": "Khẳng định là yes (yet có nghĩa là chưa).",
+      "content_hash": "yes|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả yet",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yes",
+      "pos": "adv",
+      "sense_vi": "có / vâng / đúng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "'Are you a student?' — '___, I am.'",
+        "opts": [
+          "Yes",
+          "No",
+          "Not",
+          "Never"
+        ]
+      },
+      "answer": "Yes",
+      "explain_vi": "Trả lời khẳng định câu hỏi Yes/No: Yes, I am.",
+      "content_hash": "yes|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "trả lời Yes/No",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yes",
+      "pos": "adv",
+      "sense_vi": "có / vâng / đúng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Yes, I do not like tea.'",
+        "opts": [
+          "No, I do not like tea.",
+          "Yes, I do not like tea.",
+          "Yes, I am not like tea.",
+          "Yes, I don't."
+        ]
+      },
+      "answer": "No, I do not like tea.",
+      "explain_vi": "Ý phủ định không thích trà phải trả lời bắt đầu bằng No.",
+      "content_hash": "yes|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy mâu thuẫn Yes/No",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "yes",
+      "pos": "adv",
+      "sense_vi": "có / vâng / đúng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm trả lời đồng ý lịch sự:",
+        "opts": [
+          "Yes, of course.",
+          "Yes, of cause.",
+          "Yes, of off.",
+          "Yes, of default."
+        ]
+      },
+      "answer": "Yes, of course.",
+      "explain_vi": "Cụm 'Yes, of course' nghĩa là 'Dĩ nhiên rồi'.",
+      "content_hash": "yes|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Yes of course",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "no",
+      "pos": "adv",
+      "sense_vi": "không",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "no (adv.)",
+        "opts": [
+          "không",
+          "có",
+          "được",
+          "luôn luôn"
+        ]
+      },
+      "answer": "không",
+      "explain_vi": "no dùng để từ chối hoặc trả lời phủ định.",
+      "content_hash": "no|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa phủ định",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "no",
+      "pos": "adv",
+      "sense_vi": "không",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ trả lời phủ định (không):",
+        "opts": [
+          "no",
+          "know",
+          "now",
+          "not"
+        ]
+      },
+      "answer": "no",
+      "explain_vi": "Từ phủ định là no (đồng âm với know - biết).",
+      "content_hash": "no|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss đồng âm know",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "no",
+      "pos": "adv",
+      "sense_vi": "không",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "'Do you have a car?' — '___, I walk to school.'",
+        "opts": [
+          "No",
+          "Yes",
+          "Always",
+          "Sure"
+        ]
+      },
+      "answer": "No",
+      "explain_vi": "Đi bộ nên trả lời No (không có xe).",
+      "content_hash": "no|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ngữ cảnh phủ định",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "no",
+      "pos": "adv",
+      "sense_vi": "không",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There is no any milk left in the bottle.'",
+        "opts": [
+          "There is no milk left in the bottle.",
+          "There is no any milk left in the bottle.",
+          "There is not milk left in the bottle.",
+          "There is no of milk left in the bottle."
+        ]
+      },
+      "answer": "There is no milk left in the bottle.",
+      "explain_vi": "Dùng 'no milk' trực tiếp, không dùng 'no any milk'.",
+      "content_hash": "no|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy no + any",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "no",
+      "pos": "adv",
+      "sense_vi": "không",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thông báo ngắn đúng:",
+        "opts": [
+          "No problem",
+          "No question",
+          "No matter problem",
+          "No answer"
+        ]
+      },
+      "answer": "No problem",
+      "explain_vi": "Cụm 'No problem' nghĩa là 'Không vấn đề gì / Không sao'.",
+      "content_hash": "no|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm No problem",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "name",
+      "pos": "n",
+      "sense_vi": "tên",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "name (n.)",
+        "opts": [
+          "tên / danh xưng",
+          "tuổi",
+          "địa chỉ",
+          "trường học"
+        ]
+      },
+      "answer": "tên / danh xưng",
+      "explain_vi": "name là tên gọi của một người hoặc vật.",
+      "content_hash": "name|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa tên",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "name",
+      "pos": "n",
+      "sense_vi": "tên",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ chỉ tên gọi của con người:",
+        "opts": [
+          "name",
+          "naming",
+          "fame",
+          "game"
+        ]
+      },
+      "answer": "name",
+      "explain_vi": "Tên gọi là name.",
+      "content_hash": "name|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss vần ame",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "name",
+      "pos": "n",
+      "sense_vi": "tên",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My ___ is Nam, and I am twelve years old.",
+        "opts": [
+          "name",
+          "age",
+          "job",
+          "class"
+        ]
+      },
+      "answer": "name",
+      "explain_vi": "Điền name trong cấu trúc My name is...",
+      "content_hash": "name|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "My name is",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "name",
+      "pos": "n",
+      "sense_vi": "tên",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'What is your name call?'",
+        "opts": [
+          "What is your name?",
+          "What is your name call?",
+          "What name are you?",
+          "How is your name?"
+        ]
+      },
+      "answer": "What is your name?",
+      "explain_vi": "Hỏi tên đúng là 'What is your name?' (không dùng 'How is your name').",
+      "content_hash": "name|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy hỏi tên VN",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "name",
+      "pos": "n",
+      "sense_vi": "tên",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hỏi họ tên đầy đủ:",
+        "opts": [
+          "full name",
+          "complete name",
+          "whole name",
+          "total name"
+        ]
+      },
+      "answer": "full name",
+      "explain_vi": "Cụm chỉ họ tên đầy đủ là full name.",
+      "content_hash": "name|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm full name",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "morning",
+      "pos": "n",
+      "sense_vi": "buổi sáng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "morning (n.)",
+        "opts": [
+          "buổi sáng",
+          "buổi trưa",
+          "buổi chiều",
+          "buổi tối"
+        ]
+      },
+      "answer": "buổi sáng",
+      "explain_vi": "morning là khoảng thời gian từ sáng sớm đến trước 12 giờ trưa.",
+      "content_hash": "morning|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa buổi sáng",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "morning",
+      "pos": "n",
+      "sense_vi": "buổi sáng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khoảng thời gian từ lúc bình minh đến trưa:",
+        "opts": [
+          "morning",
+          "mourning",
+          "afternoon",
+          "evening"
+        ]
+      },
+      "answer": "morning",
+      "explain_vi": "Buổi sáng là morning (mourning có nghĩa là sự tang tóc).",
+      "content_hash": "morning|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss mourning",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "morning",
+      "pos": "n",
+      "sense_vi": "buổi sáng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I wake up early in the ___ to exercise.",
+        "opts": [
+          "morning",
+          "night",
+          "evening",
+          "midnight"
+        ]
+      },
+      "answer": "morning",
+      "explain_vi": "Cụm in the morning (vào buổi sáng).",
+      "content_hash": "morning|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "in the morning",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "morning",
+      "pos": "n",
+      "sense_vi": "buổi sáng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'We say good morning at 8 PM.'",
+        "opts": [
+          "We say good morning at 8 AM.",
+          "We say good morning at 8 PM.",
+          "We say good morning in night.",
+          "We speak good morning at 8 AM."
+        ]
+      },
+      "answer": "We say good morning at 8 AM.",
+      "explain_vi": "Good morning chào vào buổi sáng (8 AM), không dùng cho 8 PM.",
+      "content_hash": "morning|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy AM/PM",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "morning",
+      "pos": "n",
+      "sense_vi": "buổi sáng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chào buổi sáng chuẩn:",
+        "opts": [
+          "Good morning",
+          "Nice morning",
+          "Fine morning",
+          "Well morning"
+        ]
+      },
+      "answer": "Good morning",
+      "explain_vi": "Lời chào buổi sáng lịch sự là Good morning.",
+      "content_hash": "morning|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Good morning",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "night",
+      "pos": "n",
+      "sense_vi": "ban đêm",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "night (n.)",
+        "opts": [
+          "ban đêm / buổi tối",
+          "buổi sáng",
+          "buổi trưa",
+          "bình minh"
+        ]
+      },
+      "answer": "ban đêm / buổi tối",
+      "explain_vi": "night là khoảng thời gian đêm tối khi trời đã lặn.",
+      "content_hash": "night|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa ban đêm",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "night",
+      "pos": "n",
+      "sense_vi": "ban đêm",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khoảng thời gian trời tối ban đêm:",
+        "opts": [
+          "night",
+          "knight",
+          "light",
+          "day"
+        ]
+      },
+      "answer": "night",
+      "explain_vi": "Ban đêm là night (knight là hiệp sĩ).",
+      "content_hash": "night|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss knight",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "night",
+      "pos": "n",
+      "sense_vi": "ban đêm",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The stars shine brightly in the sky at ___.",
+        "opts": [
+          "night",
+          "morning",
+          "noon",
+          "daybreak"
+        ]
+      },
+      "answer": "night",
+      "explain_vi": "Cụm at night (vào ban đêm).",
+      "content_hash": "night|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "at night",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "night",
+      "pos": "n",
+      "sense_vi": "ban đêm",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She usually reads books in the night.'",
+        "opts": [
+          "She usually reads books at night.",
+          "She usually reads books in the night.",
+          "She usually reads books on night.",
+          "She usually reads books for night."
+        ]
+      },
+      "answer": "She usually reads books at night.",
+      "explain_vi": "Đi với night dùng giới từ 'at night', không dùng 'in the night'.",
+      "content_hash": "night|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy giới từ at/in night",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "night",
+      "pos": "n",
+      "sense_vi": "ban đêm",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chúc ngủ ngon chuẩn:",
+        "opts": [
+          "Good night",
+          "Fine night",
+          "Well night",
+          "Nice night"
+        ]
+      },
+      "answer": "Good night",
+      "explain_vi": "Chúc ngủ ngon dùng Good night.",
+      "content_hash": "night|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Good night",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "friend (n.)",
+        "opts": [
+          "bạn bè",
+          "kẻ thù",
+          "người lạ",
+          "thầy cô"
+        ]
+      },
+      "answer": "bạn bè",
+      "explain_vi": "friend nghĩa là người bạn thân thiết.",
+      "content_hash": "friend|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bạn bè",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người bạn quen biết và yêu quý:",
+        "opts": [
+          "friend",
+          "friendly",
+          "friendship",
+          "fiend"
+        ]
+      },
+      "answer": "friend",
+      "explain_vi": "Người bạn là danh từ friend (friendly là tính từ, fiend là kẻ xấu).",
+      "content_hash": "friend|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss từ loại",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Lan is a very close ___ of mine at school.",
+        "opts": [
+          "friend",
+          "teacher",
+          "stranger",
+          "enemy"
+        ]
+      },
+      "answer": "friend",
+      "explain_vi": "Điền friend hợp cấu trúc close friend (bạn thân).",
+      "content_hash": "friend|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "close friend",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is very friend with everyone.'",
+        "opts": [
+          "He is very friendly with everyone.",
+          "He is very friend with everyone.",
+          "He is very friendship with everyone.",
+          "He is a friendly with everyone."
+        ]
+      },
+      "answer": "He is very friendly with everyone.",
+      "explain_vi": "Sau tobe (is) cần tính từ friendly, không dùng danh từ friend.",
+      "content_hash": "friend|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy friend/friendly",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chỉ bạn thân thiết nhất:",
+        "opts": [
+          "best friend",
+          "goodest friend",
+          "top friend",
+          "first friend"
+        ]
+      },
+      "answer": "best friend",
+      "explain_vi": "Cụm chỉ bạn thân nhất là best friend.",
+      "content_hash": "friend|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm best friend",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "welcome",
+      "pos": "v",
+      "sense_vi": "chào đón",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "welcome (v.)",
+        "opts": [
+          "chào đón / hoan nghênh",
+          "từ chối",
+          "xua đuổi",
+          "tạm biệt"
+        ]
+      },
+      "answer": "chào đón / hoan nghênh",
+      "explain_vi": "welcome có nghĩa là đón tiếp nồng nhiệt.",
+      "content_hash": "welcome|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa chào đón",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "welcome",
+      "pos": "v",
+      "sense_vi": "chào đón",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động chào đón khách đến chơi:",
+        "opts": [
+          "welcome",
+          "wellcome",
+          "welcoming",
+          "farewell"
+        ]
+      },
+      "answer": "welcome",
+      "explain_vi": "Từ đúng chính tả là welcome (chỉ có 1 chữ l).",
+      "content_hash": "welcome|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả wellcome",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "welcome",
+      "pos": "v",
+      "sense_vi": "chào đón",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We ___ all new students to our English club.",
+        "opts": [
+          "welcome",
+          "goodbye",
+          "sorry",
+          "thanks"
+        ]
+      },
+      "answer": "welcome",
+      "explain_vi": "Động từ welcome new students (chào đón học sinh mới).",
+      "content_hash": "welcome|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "welcome students",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "welcome",
+      "pos": "v",
+      "sense_vi": "chào đón",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'You are welcome to helping yourself.'",
+        "opts": [
+          "You are welcome to help yourself.",
+          "You are welcome to helping yourself.",
+          "You are welcome help yourself.",
+          "You welcome to help yourself."
+        ]
+      },
+      "answer": "You are welcome to help yourself.",
+      "explain_vi": "Cấu trúc be welcome to do something (thoải mái làm gì).",
+      "content_hash": "welcome|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy be welcome to V",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "welcome",
+      "pos": "v",
+      "sense_vi": "chào đón",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đáp lại lời cảm ơn chuẩn lịch sự:",
+        "opts": [
+          "You are welcome",
+          "You welcome",
+          "You have welcome",
+          "You be welcome"
+        ]
+      },
+      "answer": "You are welcome",
+      "explain_vi": "Cụm 'You are welcome' dùng để đáp lại 'Thank you'.",
+      "content_hash": "welcome|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm You are welcome",
+        "pack_id": "starter-a0-greetings",
+        "priority": "P0"
+      }
+    }
+  ]
+}

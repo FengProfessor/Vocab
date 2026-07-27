@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-19",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "reply",
+    "represent",
+    "request",
+    "rest",
+    "result",
+    "ride",
+    "ring",
+    "rise",
+    "roll",
+    "rule"
+  ],
+  "items": [
+    {
+      "lemma": "reply",
+      "pos": "v",
+      "sense_vi": "trả lời tin nhắn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "reply (v.)",
+        "opts": [
+          "trả lời tin nhắn",
+          "ổn định cuộc sống",
+          "buộc dây giày",
+          "đốt củi"
+        ]
+      },
+      "answer": "trả lời tin nhắn",
+      "explain_vi": "Động từ reply mang nghĩa chính xác là: trả lời tin nhắn.",
+      "content_hash": "reply|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "reply gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reply to text message",
+        "vn_trap": "past tense replied"
+      }
+    },
+    {
+      "lemma": "reply",
+      "pos": "v",
+      "sense_vi": "trả lời tin nhắn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'trả lời tin nhắn', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "reply",
+          "replys",
+          "replying",
+          "replied"
+        ]
+      },
+      "answer": "reply",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là reply.",
+      "content_hash": "reply|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "reply l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reply to text message",
+        "vn_trap": "past tense replied"
+      }
+    },
+    {
+      "lemma": "reply",
+      "pos": "v",
+      "sense_vi": "trả lời tin nhắn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Always remember to ___ your homework on time.",
+        "opts": [
+          "reply",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "reply",
+      "explain_vi": "Điền 'reply' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "reply|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "reply cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reply to text message",
+        "vn_trap": "past tense replied"
+      }
+    },
+    {
+      "lemma": "reply",
+      "pos": "v",
+      "sense_vi": "trả lời tin nhắn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She replys the work very good yesterday.'",
+        "opts": [
+          "She replied the work very well yesterday.",
+          "She replys the work very good yesterday.",
+          "She replys the task very good yesterday.",
+          "She was replying when I came yesterday."
+        ]
+      },
+      "answer": "She replied the work very well yesterday.",
+      "explain_vi": "Dùng trạng từ 'well' bổ nghĩa cho động từ, không dùng tính từ 'good'.",
+      "content_hash": "reply|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "reply error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reply to text message",
+        "vn_trap": "past tense replied"
+      }
+    },
+    {
+      "lemma": "reply",
+      "pos": "v",
+      "sense_vi": "trả lời tin nhắn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'reply':",
+        "opts": [
+          "reply to text message",
+          "reply in wrong way",
+          "reply without care",
+          "reply for nothing"
+        ]
+      },
+      "answer": "reply to text message",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: reply to text message.",
+      "content_hash": "reply|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "reply collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reply to text message",
+        "vn_trap": "past tense replied"
+      }
+    },
+    {
+      "lemma": "represent",
+      "pos": "v",
+      "sense_vi": "đại diện công ty",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "represent (v.)",
+        "opts": [
+          "đại diện công ty",
+          "lắc tay chào",
+          "đào tạo nhân viên",
+          "hủy cuộc họp"
+        ]
+      },
+      "answer": "đại diện công ty",
+      "explain_vi": "Động từ represent mang nghĩa chính xác là: đại diện công ty.",
+      "content_hash": "represent|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "represent gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "represent the whole company",
+        "vn_trap": "past tense represented"
+      }
+    },
+    {
+      "lemma": "represent",
+      "pos": "v",
+      "sense_vi": "đại diện công ty",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'đại diện công ty' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "represent",
+          "represents",
+          "representing",
+          "represented"
+        ]
+      },
+      "answer": "represent",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là represent.",
+      "content_hash": "represent|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "represent l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "represent the whole company",
+        "vn_trap": "past tense represented"
+      }
+    },
+    {
+      "lemma": "represent",
+      "pos": "v",
+      "sense_vi": "đại diện công ty",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Be careful when you ___ the street tomorrow morning.",
+        "opts": [
+          "represent",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "represent",
+      "explain_vi": "Điền 'represent' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "represent|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "represent cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "represent the whole company",
+        "vn_trap": "past tense represented"
+      }
+    },
+    {
+      "lemma": "represent",
+      "pos": "v",
+      "sense_vi": "đại diện công ty",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was representing when the bell rang.'",
+        "opts": [
+          "They were representing when the bell rang.",
+          "They was representing when the bell rang.",
+          "They They was representing when the bell rang.",
+          "She was representing when I came yesterday."
+        ]
+      },
+      "answer": "They were representing when the bell rang.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were', không dùng 'was'.",
+      "content_hash": "represent|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "represent error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "represent the whole company",
+        "vn_trap": "past tense represented"
+      }
+    },
+    {
+      "lemma": "represent",
+      "pos": "v",
+      "sense_vi": "đại diện công ty",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'represent':",
+        "opts": [
+          "represent the whole company",
+          "represent in wrong way",
+          "represent without care",
+          "represent for nothing"
+        ]
+      },
+      "answer": "represent the whole company",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: represent the whole company.",
+      "content_hash": "represent|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "represent collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "represent the whole company",
+        "vn_trap": "past tense represented"
+      }
+    },
+    {
+      "lemma": "request",
+      "pos": "v",
+      "sense_vi": "yêu cầu hỗ trợ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "request (v.)",
+        "opts": [
+          "yêu cầu hỗ trợ",
+          "bắn mục tiêu",
+          "dịch sang tiếng Việt",
+          "làm bài tập"
+        ]
+      },
+      "answer": "yêu cầu hỗ trợ",
+      "explain_vi": "Động từ request mang nghĩa chính xác là: yêu cầu hỗ trợ.",
+      "content_hash": "request|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "request gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "request more detailed information",
+        "vn_trap": "past tense requested"
+      }
+    },
+    {
+      "lemma": "request",
+      "pos": "v",
+      "sense_vi": "yêu cầu hỗ trợ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'yêu cầu hỗ trợ', từ tiếng Anh đúng là:",
+        "opts": [
+          "request",
+          "requests",
+          "requesting",
+          "requested"
+        ]
+      },
+      "answer": "request",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là request.",
+      "content_hash": "request|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "request l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "request more detailed information",
+        "vn_trap": "past tense requested"
+      }
+    },
+    {
+      "lemma": "request",
+      "pos": "v",
+      "sense_vi": "yêu cầu hỗ trợ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you help me ___ this difficult problem today?",
+        "opts": [
+          "request",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "request",
+      "explain_vi": "Điền 'request' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "request|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "request cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "request more detailed information",
+        "vn_trap": "past tense requested"
+      }
+    },
+    {
+      "lemma": "request",
+      "pos": "v",
+      "sense_vi": "yêu cầu hỗ trợ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He requested without inform anyone first.'",
+        "opts": [
+          "He requested without informing anyone first.",
+          "He requested without inform anyone first.",
+          "They He requested without inform anyone first.",
+          "She was requesting when I came yesterday."
+        ]
+      },
+      "answer": "He requested without informing anyone first.",
+      "explain_vi": "Sau giới từ 'without' cần động từ dạng V-ing.",
+      "content_hash": "request|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "request error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "request more detailed information",
+        "vn_trap": "past tense requested"
+      }
+    },
+    {
+      "lemma": "request",
+      "pos": "v",
+      "sense_vi": "yêu cầu hỗ trợ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'request':",
+        "opts": [
+          "request more detailed information",
+          "request in wrong way",
+          "request without care",
+          "request for nothing"
+        ]
+      },
+      "answer": "request more detailed information",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: request more detailed information.",
+      "content_hash": "request|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "request collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "request more detailed information",
+        "vn_trap": "past tense requested"
+      }
+    },
+    {
+      "lemma": "rest",
+      "pos": "v",
+      "sense_vi": "nghỉ ngơi sau làm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rest (v.)",
+        "opts": [
+          "nghỉ ngơi sau làm",
+          "đóng cửa lại",
+          "đối xử tốt",
+          "nhận được tin nhắn"
+        ]
+      },
+      "answer": "nghỉ ngơi sau làm",
+      "explain_vi": "Động từ rest mang nghĩa chính xác là: nghỉ ngơi sau làm.",
+      "content_hash": "rest|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "rest gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rest after hard work",
+        "vn_trap": "past tense rested"
+      }
+    },
+    {
+      "lemma": "rest",
+      "pos": "v",
+      "sense_vi": "nghỉ ngơi sau làm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'nghỉ ngơi sau làm' là:",
+        "opts": [
+          "rest",
+          "rests",
+          "resting",
+          "rested"
+        ]
+      },
+      "answer": "rest",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là rest.",
+      "content_hash": "rest|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "rest l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rest after hard work",
+        "vn_trap": "past tense rested"
+      }
+    },
+    {
+      "lemma": "rest",
+      "pos": "v",
+      "sense_vi": "nghỉ ngơi sau làm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Do not forget to ___ your passport before traveling.",
+        "opts": [
+          "rest",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "rest",
+      "explain_vi": "Điền 'rest' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "rest|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "rest cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rest after hard work",
+        "vn_trap": "past tense rested"
+      }
+    },
+    {
+      "lemma": "rest",
+      "pos": "v",
+      "sense_vi": "nghỉ ngơi sau làm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is resting since two o'clock.'",
+        "opts": [
+          "She has been resting since two o'clock.",
+          "She is resting since two o'clock.",
+          "They She is resting since two o'clock.",
+          "She was resting when I came yesterday."
+        ]
+      },
+      "answer": "She has been resting since two o'clock.",
+      "explain_vi": "Hành động có 'since' kéo dài đến nay dùng hiện tại hoàn thành tiếp diễn.",
+      "content_hash": "rest|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "rest error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rest after hard work",
+        "vn_trap": "past tense rested"
+      }
+    },
+    {
+      "lemma": "rest",
+      "pos": "v",
+      "sense_vi": "nghỉ ngơi sau làm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'rest':",
+        "opts": [
+          "rest after hard work",
+          "rest in wrong way",
+          "rest without care",
+          "rest for nothing"
+        ]
+      },
+      "answer": "rest after hard work",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: rest after hard work.",
+      "content_hash": "rest|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "rest collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rest after hard work",
+        "vn_trap": "past tense rested"
+      }
+    },
+    {
+      "lemma": "result",
+      "pos": "v",
+      "sense_vi": "dẫn đến thành công",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "result (v.)",
+        "opts": [
+          "dẫn đến thành công",
+          "ký tên vào",
+          "tin tưởng bạn thân",
+          "suy nghĩ kỹ"
+        ]
+      },
+      "answer": "dẫn đến thành công",
+      "explain_vi": "Động từ result mang nghĩa chính xác là: dẫn đến thành công.",
+      "content_hash": "result|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "result gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "result in great success",
+        "vn_trap": "past tense resulted"
+      }
+    },
+    {
+      "lemma": "result",
+      "pos": "v",
+      "sense_vi": "dẫn đến thành công",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'dẫn đến thành công' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "result",
+          "results",
+          "resulting",
+          "resulted"
+        ]
+      },
+      "answer": "result",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là result.",
+      "content_hash": "result|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "result l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "result in great success",
+        "vn_trap": "past tense resulted"
+      }
+    },
+    {
+      "lemma": "result",
+      "pos": "v",
+      "sense_vi": "dẫn đến thành công",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Every student should ___ their goals before the new term.",
+        "opts": [
+          "result",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "result",
+      "explain_vi": "Điền 'result' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "result|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "result cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "result in great success",
+        "vn_trap": "past tense resulted"
+      }
+    },
+    {
+      "lemma": "result",
+      "pos": "v",
+      "sense_vi": "dẫn đến thành công",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If he results harder, he would pass easily.'",
+        "opts": [
+          "If he resulted harder, he would pass easily.",
+          "If he results harder, he would pass easily.",
+          "They If he results harder, he would pass easily.",
+          "She was resulting when I came yesterday."
+        ]
+      },
+      "answer": "If he resulted harder, he would pass easily.",
+      "explain_vi": "Mệnh đề điều kiện loại 2 dùng quá khứ đơn ở mệnh đề IF.",
+      "content_hash": "result|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "result error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "result in great success",
+        "vn_trap": "past tense resulted"
+      }
+    },
+    {
+      "lemma": "result",
+      "pos": "v",
+      "sense_vi": "dẫn đến thành công",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'result':",
+        "opts": [
+          "result in great success",
+          "result in wrong way",
+          "result without care",
+          "result for nothing"
+        ]
+      },
+      "answer": "result in great success",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: result in great success.",
+      "content_hash": "result|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "result collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "result in great success",
+        "vn_trap": "past tense resulted"
+      }
+    },
+    {
+      "lemma": "ride",
+      "pos": "v",
+      "sense_vi": "đi xe đạp",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ride (v.)",
+        "opts": [
+          "đi xe đạp",
+          "trượt băng nghệ thuật",
+          "gõ văn bản",
+          "nhìn bảng"
+        ]
+      },
+      "answer": "đi xe đạp",
+      "explain_vi": "Động từ ride mang nghĩa chính xác là: đi xe đạp.",
+      "content_hash": "ride|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "ride gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ride a mountain bicycle",
+        "vn_trap": "past tense rode"
+      }
+    },
+    {
+      "lemma": "ride",
+      "pos": "v",
+      "sense_vi": "đi xe đạp",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'đi xe đạp' là:",
+        "opts": [
+          "ride",
+          "rides",
+          "rideing",
+          "rode"
+        ]
+      },
+      "answer": "ride",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là ride.",
+      "content_hash": "ride|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "ride l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ride a mountain bicycle",
+        "vn_trap": "past tense rode"
+      }
+    },
+    {
+      "lemma": "ride",
+      "pos": "v",
+      "sense_vi": "đi xe đạp",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Fortunately, she managed to ___ the train on time.",
+        "opts": [
+          "ride",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "ride",
+      "explain_vi": "Điền 'ride' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "ride|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "ride cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ride a mountain bicycle",
+        "vn_trap": "past tense rode"
+      }
+    },
+    {
+      "lemma": "ride",
+      "pos": "v",
+      "sense_vi": "đi xe đạp",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She enjoys to ride in her free time.'",
+        "opts": [
+          "She enjoys rideing in her free time.",
+          "She enjoys to ride in her free time.",
+          "They She enjoys to ride in her free time.",
+          "She was rideing when I came yesterday."
+        ]
+      },
+      "answer": "She enjoys rideing in her free time.",
+      "explain_vi": "Sau động từ 'enjoy' dùng V-ing (enjoy doing sth).",
+      "content_hash": "ride|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "ride error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ride a mountain bicycle",
+        "vn_trap": "past tense rode"
+      }
+    },
+    {
+      "lemma": "ride",
+      "pos": "v",
+      "sense_vi": "đi xe đạp",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'ride':",
+        "opts": [
+          "ride a mountain bicycle",
+          "ride in wrong way",
+          "ride without care",
+          "ride for nothing"
+        ]
+      },
+      "answer": "ride a mountain bicycle",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: ride a mountain bicycle.",
+      "content_hash": "ride|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "ride collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ride a mountain bicycle",
+        "vn_trap": "past tense rode"
+      }
+    },
+    {
+      "lemma": "ring",
+      "pos": "v",
+      "sense_vi": "gọi chuông cửa",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ring (v.)",
+        "opts": [
+          "gọi chuông cửa",
+          "trượt tuyết mùa đông",
+          "đoàn kết mọi người",
+          "dùng máy tính"
+        ]
+      },
+      "answer": "gọi chuông cửa",
+      "explain_vi": "Động từ ring mang nghĩa chính xác là: gọi chuông cửa.",
+      "content_hash": "ring|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "ring gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ring the door bell",
+        "vn_trap": "past tense rang"
+      }
+    },
+    {
+      "lemma": "ring",
+      "pos": "v",
+      "sense_vi": "gọi chuông cửa",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'gọi chuông cửa' được dịch là:",
+        "opts": [
+          "ring",
+          "rings",
+          "ringing",
+          "rang"
+        ]
+      },
+      "answer": "ring",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là ring.",
+      "content_hash": "ring|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "ring l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ring the door bell",
+        "vn_trap": "past tense rang"
+      }
+    },
+    {
+      "lemma": "ring",
+      "pos": "v",
+      "sense_vi": "gọi chuông cửa",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Good students always ___ their teachers with respect.",
+        "opts": [
+          "ring",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "ring",
+      "explain_vi": "Điền 'ring' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "ring|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "ring cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ring the door bell",
+        "vn_trap": "past tense rang"
+      }
+    },
+    {
+      "lemma": "ring",
+      "pos": "v",
+      "sense_vi": "gọi chuông cửa",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is interesting in ringing new things.'",
+        "opts": [
+          "He is interested in ringing new things.",
+          "He is interesting in ringing new things.",
+          "They He is interesting in ringing new things.",
+          "She was ringing when I came yesterday."
+        ]
+      },
+      "answer": "He is interested in ringing new things.",
+      "explain_vi": "Cấu trúc be interested in (hứng thú với cái gì).",
+      "content_hash": "ring|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "ring error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ring the door bell",
+        "vn_trap": "past tense rang"
+      }
+    },
+    {
+      "lemma": "ring",
+      "pos": "v",
+      "sense_vi": "gọi chuông cửa",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'ring':",
+        "opts": [
+          "ring the door bell",
+          "ring in wrong way",
+          "ring without care",
+          "ring for nothing"
+        ]
+      },
+      "answer": "ring the door bell",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: ring the door bell.",
+      "content_hash": "ring|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "ring collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ring the door bell",
+        "vn_trap": "past tense rang"
+      }
+    },
+    {
+      "lemma": "rise",
+      "pos": "v",
+      "sense_vi": "tăng giá cả",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rise (v.)",
+        "opts": [
+          "tăng giá cả",
+          "trượt dài xuống",
+          "cập nhật phần mềm",
+          "tìm thấy chìa khóa"
+        ]
+      },
+      "answer": "tăng giá cả",
+      "explain_vi": "Động từ rise mang nghĩa chính xác là: tăng giá cả.",
+      "content_hash": "rise|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "rise gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rise early every morning",
+        "vn_trap": "past tense rose"
+      }
+    },
+    {
+      "lemma": "rise",
+      "pos": "v",
+      "sense_vi": "tăng giá cả",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'tăng giá cả', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "rise",
+          "rises",
+          "riseing",
+          "rose"
+        ]
+      },
+      "answer": "rise",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là rise.",
+      "content_hash": "rise|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "rise l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rise early every morning",
+        "vn_trap": "past tense rose"
+      }
+    },
+    {
+      "lemma": "rise",
+      "pos": "v",
+      "sense_vi": "tăng giá cả",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "He decided to ___ a new house in the city center.",
+        "opts": [
+          "rise",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "rise",
+      "explain_vi": "Điền 'rise' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "rise|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "rise cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rise early every morning",
+        "vn_trap": "past tense rose"
+      }
+    },
+    {
+      "lemma": "rise",
+      "pos": "v",
+      "sense_vi": "tăng giá cả",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite she was tired, she continued to rise.'",
+        "opts": [
+          "Although she was tired, she continued to rise.",
+          "Despite she was tired, she continued to rise.",
+          "They Despite she was tired, she continued to rise.",
+          "She was riseing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was tired, she continued to rise.",
+      "explain_vi": "Dùng 'Although' đứng trước một mệnh đề, không dùng 'Despite'.",
+      "content_hash": "rise|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "rise error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rise early every morning",
+        "vn_trap": "past tense rose"
+      }
+    },
+    {
+      "lemma": "rise",
+      "pos": "v",
+      "sense_vi": "tăng giá cả",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'rise':",
+        "opts": [
+          "rise early every morning",
+          "rise in wrong way",
+          "rise without care",
+          "rise for nothing"
+        ]
+      },
+      "answer": "rise early every morning",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: rise early every morning.",
+      "content_hash": "rise|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "rise collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rise early every morning",
+        "vn_trap": "past tense rose"
+      }
+    },
+    {
+      "lemma": "roll",
+      "pos": "v",
+      "sense_vi": "lăn quả bóng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "roll (v.)",
+        "opts": [
+          "lăn quả bóng",
+          "làm chậm lại",
+          "làm buồn",
+          "nói sự thật"
+        ]
+      },
+      "answer": "lăn quả bóng",
+      "explain_vi": "Động từ roll mang nghĩa chính xác là: lăn quả bóng.",
+      "content_hash": "roll|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "roll gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "roll the rubber ball",
+        "vn_trap": "past tense rolled"
+      }
+    },
+    {
+      "lemma": "roll",
+      "pos": "v",
+      "sense_vi": "lăn quả bóng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'lăn quả bóng' là:",
+        "opts": [
+          "roll",
+          "rolls",
+          "rolling",
+          "rolled"
+        ]
+      },
+      "answer": "roll",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là roll.",
+      "content_hash": "roll|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "roll l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "roll the rubber ball",
+        "vn_trap": "past tense rolled"
+      }
+    },
+    {
+      "lemma": "roll",
+      "pos": "v",
+      "sense_vi": "lăn quả bóng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "In order to ___ your English, you must practice daily.",
+        "opts": [
+          "roll",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "roll",
+      "explain_vi": "Điền 'roll' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "roll|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "roll cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "roll the rubber ball",
+        "vn_trap": "past tense rolled"
+      }
+    },
+    {
+      "lemma": "roll",
+      "pos": "v",
+      "sense_vi": "lăn quả bóng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has rolleded to the house two days ago.'",
+        "opts": [
+          "She rolled to the house two days ago.",
+          "She has rolleded to the house two days ago.",
+          "They She has rolleded to the house two days ago.",
+          "She was rolling when I came yesterday."
+        ]
+      },
+      "answer": "She rolled to the house two days ago.",
+      "explain_vi": "Có thời gian xác định 'ago' trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "roll|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "roll error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "roll the rubber ball",
+        "vn_trap": "past tense rolled"
+      }
+    },
+    {
+      "lemma": "roll",
+      "pos": "v",
+      "sense_vi": "lăn quả bóng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'roll':",
+        "opts": [
+          "roll the rubber ball",
+          "roll in wrong way",
+          "roll without care",
+          "roll for nothing"
+        ]
+      },
+      "answer": "roll the rubber ball",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: roll the rubber ball.",
+      "content_hash": "roll|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "roll collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "roll the rubber ball",
+        "vn_trap": "past tense rolled"
+      }
+    },
+    {
+      "lemma": "rule",
+      "pos": "v",
+      "sense_vi": "quy định luật lệ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rule (v.)",
+        "opts": [
+          "quy định luật lệ",
+          "giải bài toán",
+          "trân trọng thời gian",
+          "gọi điện thoại"
+        ]
+      },
+      "answer": "quy định luật lệ",
+      "explain_vi": "Động từ rule mang nghĩa chính xác là: quy định luật lệ.",
+      "content_hash": "rule|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "rule gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rule the whole kingdom",
+        "vn_trap": "past tense ruled"
+      }
+    },
+    {
+      "lemma": "rule",
+      "pos": "v",
+      "sense_vi": "quy định luật lệ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'quy định luật lệ' là:",
+        "opts": [
+          "rule",
+          "rules",
+          "ruleing",
+          "ruled"
+        ]
+      },
+      "answer": "rule",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là rule.",
+      "content_hash": "rule|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "rule l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rule the whole kingdom",
+        "vn_trap": "past tense ruled"
+      }
+    },
+    {
+      "lemma": "rule",
+      "pos": "v",
+      "sense_vi": "quy định luật lệ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Just try your best to ___ the final examination.",
+        "opts": [
+          "rule",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "rule",
+      "explain_vi": "Điền 'rule' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "rule|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "rule cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rule the whole kingdom",
+        "vn_trap": "past tense ruled"
+      }
+    },
+    {
+      "lemma": "rule",
+      "pos": "v",
+      "sense_vi": "quy định luật lệ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped to rule because he was tired.'",
+        "opts": [
+          "He stopped ruleing because he was tired.",
+          "He stopped to rule because he was tired.",
+          "They He stopped to rule because he was tired.",
+          "She was ruleing when I came yesterday."
+        ]
+      },
+      "answer": "He stopped ruleing because he was tired.",
+      "explain_vi": "Dừng hẳn một việc đang làm dùng 'stop V-ing'.",
+      "content_hash": "rule|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "rule error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rule the whole kingdom",
+        "vn_trap": "past tense ruled"
+      }
+    },
+    {
+      "lemma": "rule",
+      "pos": "v",
+      "sense_vi": "quy định luật lệ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'rule':",
+        "opts": [
+          "rule the whole kingdom",
+          "rule in wrong way",
+          "rule without care",
+          "rule for nothing"
+        ]
+      },
+      "answer": "rule the whole kingdom",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: rule the whole kingdom.",
+      "content_hash": "rule|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "rule collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rule the whole kingdom",
+        "vn_trap": "past tense ruled"
+      }
+    }
+  ]
+}

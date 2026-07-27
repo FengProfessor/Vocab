@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient, fetchAllRows } from '@/lib/supabase';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 import { effectiveCurrentStreak } from '@/lib/gamification';
 
@@ -103,25 +103,27 @@ export async function GET(
     const [
       { data: profiles, error: profilesErr },
       { data: gamifRows },
-      { data: srsRows },
-      { data: quizRows },
+      srsRows,
+      quizRows,
     ] = await Promise.all([
       supabase.from('profiles').select('id, full_name').in('id', studentIds),
       supabase
         .from('user_gamification')
         .select('user_id, total_xp, today_xp, current_streak, last_active_date, today_date')
         .in('user_id', studentIds),
-      supabase
+      fetchAllRows((f, t) => supabase
         .from('srs_progress')
         .select('user_id, word_id, words!inner(classroom_id)')
         .eq('words.classroom_id', classroomId)
         .in('user_id', studentIds)
-        .gte('review_count', 1),
-      supabase
+        .gte('review_count', 1)
+        .range(f, t)),
+      fetchAllRows((f, t) => supabase
         .from('quiz_results')
         .select('user_id, accuracy')
         .eq('classroom_id', classroomId)
-        .in('user_id', studentIds),
+        .in('user_id', studentIds)
+        .range(f, t)),
     ]);
 
     if (profilesErr || !profiles) {

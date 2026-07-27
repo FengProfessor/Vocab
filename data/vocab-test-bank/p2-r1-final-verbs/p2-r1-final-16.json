@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-16",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "manage",
+    "marry",
+    "measure",
+    "mention",
+    "mind",
+    "notice",
+    "plan",
+    "point",
+    "prefer",
+    "present"
+  ],
+  "items": [
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "quản lý công việc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "manage (v.)",
+        "opts": [
+          "quản lý công việc",
+          "cung cấp hỗ trợ",
+          "ổn định cuộc sống",
+          "thay đổi kích thước"
+        ]
+      },
+      "answer": "quản lý công việc",
+      "explain_vi": "Động từ manage mang nghĩa chính xác là: quản lý công việc.",
+      "content_hash": "manage|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "manage gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "manage a project team",
+        "vn_trap": "past tense managed"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "quản lý công việc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'quản lý công việc' được dịch là:",
+        "opts": [
+          "manage",
+          "manages",
+          "manageing",
+          "managed"
+        ]
+      },
+      "answer": "manage",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là manage.",
+      "content_hash": "manage|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "manage l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "manage a project team",
+        "vn_trap": "past tense managed"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "quản lý công việc",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Always remember to ___ your homework on time.",
+        "opts": [
+          "manage",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "manage",
+      "explain_vi": "Điền 'manage' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "manage|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "manage cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "manage a project team",
+        "vn_trap": "past tense managed"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "quản lý công việc",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She manages the work very good yesterday.'",
+        "opts": [
+          "She managed the work very well yesterday.",
+          "She manages the work very good yesterday.",
+          "She manages the task very good yesterday.",
+          "She was manageing when I came yesterday."
+        ]
+      },
+      "answer": "She managed the work very well yesterday.",
+      "explain_vi": "Dùng trạng từ 'well' bổ nghĩa cho động từ, không dùng tính từ 'good'.",
+      "content_hash": "manage|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "manage error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "manage a project team",
+        "vn_trap": "past tense managed"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "quản lý công việc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'manage':",
+        "opts": [
+          "manage a project team",
+          "manage in wrong way",
+          "manage without care",
+          "manage for nothing"
+        ]
+      },
+      "answer": "manage a project team",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: manage a project team.",
+      "content_hash": "manage|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "manage collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "manage a project team",
+        "vn_trap": "past tense managed"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "kết hôn năm nay",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "marry (v.)",
+        "opts": [
+          "kết hôn năm nay",
+          "xuất bản sách",
+          "lắc tay chào",
+          "xem bức ảnh"
+        ]
+      },
+      "answer": "kết hôn năm nay",
+      "explain_vi": "Động từ marry mang nghĩa chính xác là: kết hôn năm nay.",
+      "content_hash": "marry|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "marry gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "marry a famous doctor",
+        "vn_trap": "past tense married"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "kết hôn năm nay",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'kết hôn năm nay', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "marry",
+          "marrys",
+          "marrying",
+          "married"
+        ]
+      },
+      "answer": "marry",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là marry.",
+      "content_hash": "marry|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "marry l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "marry a famous doctor",
+        "vn_trap": "past tense married"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "kết hôn năm nay",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Be careful when you ___ the street tomorrow morning.",
+        "opts": [
+          "marry",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "marry",
+      "explain_vi": "Điền 'marry' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "marry|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "marry cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "marry a famous doctor",
+        "vn_trap": "past tense married"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "kết hôn năm nay",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was marrying when the bell rang.'",
+        "opts": [
+          "They were marrying when the bell rang.",
+          "They was marrying when the bell rang.",
+          "They They was marrying when the bell rang.",
+          "She was marrying when I came yesterday."
+        ]
+      },
+      "answer": "They were marrying when the bell rang.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were', không dùng 'was'.",
+      "content_hash": "marry|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "marry error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "marry a famous doctor",
+        "vn_trap": "past tense married"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "kết hôn năm nay",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'marry':",
+        "opts": [
+          "marry a famous doctor",
+          "marry in wrong way",
+          "marry without care",
+          "marry for nothing"
+        ]
+      },
+      "answer": "marry a famous doctor",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: marry a famous doctor.",
+      "content_hash": "marry|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "marry collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "marry a famous doctor",
+        "vn_trap": "past tense married"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "đo chiều dài",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "measure (v.)",
+        "opts": [
+          "đo chiều dài",
+          "nhận ra sai lầm",
+          "bắn mục tiêu",
+          "bỏ phiếu bầu"
+        ]
+      },
+      "answer": "đo chiều dài",
+      "explain_vi": "Động từ measure mang nghĩa chính xác là: đo chiều dài.",
+      "content_hash": "measure|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "measure gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "measure the room length",
+        "vn_trap": "past tense measured"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "đo chiều dài",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'đo chiều dài' là:",
+        "opts": [
+          "measure",
+          "measures",
+          "measureing",
+          "measured"
+        ]
+      },
+      "answer": "measure",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là measure.",
+      "content_hash": "measure|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "measure l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "measure the room length",
+        "vn_trap": "past tense measured"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "đo chiều dài",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you help me ___ this difficult problem today?",
+        "opts": [
+          "measure",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "measure",
+      "explain_vi": "Điền 'measure' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "measure|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "measure cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "measure the room length",
+        "vn_trap": "past tense measured"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "đo chiều dài",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He measureed without inform anyone first.'",
+        "opts": [
+          "He measured without informing anyone first.",
+          "He measureed without inform anyone first.",
+          "They He measureed without inform anyone first.",
+          "She was measureing when I came yesterday."
+        ]
+      },
+      "answer": "He measured without informing anyone first.",
+      "explain_vi": "Sau giới từ 'without' cần động từ dạng V-ing.",
+      "content_hash": "measure|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "measure error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "measure the room length",
+        "vn_trap": "past tense measured"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "đo chiều dài",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'measure':",
+        "opts": [
+          "measure the room length",
+          "measure in wrong way",
+          "measure without care",
+          "measure for nothing"
+        ]
+      },
+      "answer": "measure the room length",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: measure the room length.",
+      "content_hash": "measure|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "measure collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "measure the room length",
+        "vn_trap": "past tense measured"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "đề cập chủ đề",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "mention (v.)",
+        "opts": [
+          "đề cập chủ đề",
+          "nhận ra quen thuộc",
+          "đóng cửa lại",
+          "cảnh báo nguy hiểm"
+        ]
+      },
+      "answer": "đề cập chủ đề",
+      "explain_vi": "Động từ mention mang nghĩa chính xác là: đề cập chủ đề.",
+      "content_hash": "mention|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "mention gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mention the main topic",
+        "vn_trap": "past tense mentioned"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "đề cập chủ đề",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'đề cập chủ đề' là:",
+        "opts": [
+          "mention",
+          "mentions",
+          "mentioning",
+          "mentioned"
+        ]
+      },
+      "answer": "mention",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là mention.",
+      "content_hash": "mention|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "mention l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mention the main topic",
+        "vn_trap": "past tense mentioned"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "đề cập chủ đề",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Do not forget to ___ your passport before traveling.",
+        "opts": [
+          "mention",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "mention",
+      "explain_vi": "Điền 'mention' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "mention|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "mention cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mention the main topic",
+        "vn_trap": "past tense mentioned"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "đề cập chủ đề",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is mentioning since two o'clock.'",
+        "opts": [
+          "She has been mentioning since two o'clock.",
+          "She is mentioning since two o'clock.",
+          "They She is mentioning since two o'clock.",
+          "She was mentioning when I came yesterday."
+        ]
+      },
+      "answer": "She has been mentioning since two o'clock.",
+      "explain_vi": "Hành động có 'since' kéo dài đến nay dùng hiện tại hoàn thành tiếp diễn.",
+      "content_hash": "mention|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "mention error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mention the main topic",
+        "vn_trap": "past tense mentioned"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "đề cập chủ đề",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'mention':",
+        "opts": [
+          "mention the main topic",
+          "mention in wrong way",
+          "mention without care",
+          "mention for nothing"
+        ]
+      },
+      "answer": "mention the main topic",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: mention the main topic.",
+      "content_hash": "mention|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "mention collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mention the main topic",
+        "vn_trap": "past tense mentioned"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "phiền lòng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "mind (v.)",
+        "opts": [
+          "phiền lòng",
+          "ghi âm giọng nói",
+          "ký tên vào",
+          "lãng phí thời gian"
+        ]
+      },
+      "answer": "phiền lòng",
+      "explain_vi": "Động từ mind mang nghĩa chính xác là: phiền lòng.",
+      "content_hash": "mind|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "mind gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mind doing something small",
+        "vn_trap": "past tense minded"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "phiền lòng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'phiền lòng', người Anh dùng:",
+        "opts": [
+          "mind",
+          "minds",
+          "minding",
+          "minded"
+        ]
+      },
+      "answer": "mind",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là mind.",
+      "content_hash": "mind|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "mind l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mind doing something small",
+        "vn_trap": "past tense minded"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "phiền lòng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Every student should ___ their goals before the new term.",
+        "opts": [
+          "mind",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "mind",
+      "explain_vi": "Điền 'mind' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "mind|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "mind cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mind doing something small",
+        "vn_trap": "past tense minded"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "phiền lòng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If he minds harder, he would pass easily.'",
+        "opts": [
+          "If he minded harder, he would pass easily.",
+          "If he minds harder, he would pass easily.",
+          "They If he minds harder, he would pass easily.",
+          "She was minding when I came yesterday."
+        ]
+      },
+      "answer": "If he minded harder, he would pass easily.",
+      "explain_vi": "Mệnh đề điều kiện loại 2 dùng quá khứ đơn ở mệnh đề IF.",
+      "content_hash": "mind|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "mind error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mind doing something small",
+        "vn_trap": "past tense minded"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "phiền lòng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'mind':",
+        "opts": [
+          "mind doing something small",
+          "mind in wrong way",
+          "mind without care",
+          "mind for nothing"
+        ]
+      },
+      "answer": "mind doing something small",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: mind doing something small.",
+      "content_hash": "mind|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "mind collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "mind doing something small",
+        "vn_trap": "past tense minded"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "để ý biển báo",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "notice (v.)",
+        "opts": [
+          "để ý biển báo",
+          "giảm ô nhiễm",
+          "trượt băng nghệ thuật",
+          "vẫy tay chào"
+        ]
+      },
+      "answer": "để ý biển báo",
+      "explain_vi": "Động từ notice mang nghĩa chính xác là: để ý biển báo.",
+      "content_hash": "notice|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "notice gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "notice the warning sign",
+        "vn_trap": "past tense noticed"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "để ý biển báo",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'để ý biển báo' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "notice",
+          "notices",
+          "noticeing",
+          "noticed"
+        ]
+      },
+      "answer": "notice",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là notice.",
+      "content_hash": "notice|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "notice l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "notice the warning sign",
+        "vn_trap": "past tense noticed"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "để ý biển báo",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Fortunately, she managed to ___ the train on time.",
+        "opts": [
+          "notice",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "notice",
+      "explain_vi": "Điền 'notice' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "notice|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "notice cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "notice the warning sign",
+        "vn_trap": "past tense noticed"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "để ý biển báo",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She enjoys to notice in her free time.'",
+        "opts": [
+          "She enjoys noticeing in her free time.",
+          "She enjoys to notice in her free time.",
+          "They She enjoys to notice in her free time.",
+          "She was noticeing when I came yesterday."
+        ]
+      },
+      "answer": "She enjoys noticeing in her free time.",
+      "explain_vi": "Sau động từ 'enjoy' dùng V-ing (enjoy doing sth).",
+      "content_hash": "notice|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "notice error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "notice the warning sign",
+        "vn_trap": "past tense noticed"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "để ý biển báo",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'notice':",
+        "opts": [
+          "notice the warning sign",
+          "notice in wrong way",
+          "notice without care",
+          "notice for nothing"
+        ]
+      },
+      "answer": "notice the warning sign",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: notice the warning sign.",
+      "content_hash": "notice|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "notice collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "notice the warning sign",
+        "vn_trap": "past tense noticed"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "lên kế hoạch đi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "plan (v.)",
+        "opts": [
+          "lên kế hoạch đi",
+          "từ chối trả lời",
+          "trượt tuyết mùa đông",
+          "tự hỏi tại sao"
+        ]
+      },
+      "answer": "lên kế hoạch đi",
+      "explain_vi": "Động từ plan mang nghĩa chính xác là: lên kế hoạch đi.",
+      "content_hash": "plan|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "plan gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "plan a summer trip",
+        "vn_trap": "past tense planned"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "lên kế hoạch đi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'lên kế hoạch đi', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "plan",
+          "plans",
+          "planing",
+          "planned"
+        ]
+      },
+      "answer": "plan",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là plan.",
+      "content_hash": "plan|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "plan l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "plan a summer trip",
+        "vn_trap": "past tense planned"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "lên kế hoạch đi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Good students always ___ their teachers with respect.",
+        "opts": [
+          "plan",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "plan",
+      "explain_vi": "Điền 'plan' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "plan|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "plan cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "plan a summer trip",
+        "vn_trap": "past tense planned"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "lên kế hoạch đi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is interesting in planing new things.'",
+        "opts": [
+          "He is interested in planing new things.",
+          "He is interesting in planing new things.",
+          "They He is interesting in planing new things.",
+          "She was planing when I came yesterday."
+        ]
+      },
+      "answer": "He is interested in planing new things.",
+      "explain_vi": "Cấu trúc be interested in (hứng thú với cái gì).",
+      "content_hash": "plan|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "plan error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "plan a summer trip",
+        "vn_trap": "past tense planned"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "lên kế hoạch đi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'plan':",
+        "opts": [
+          "plan a summer trip",
+          "plan in wrong way",
+          "plan without care",
+          "plan for nothing"
+        ]
+      },
+      "answer": "plan a summer trip",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: plan a summer trip.",
+      "content_hash": "plan|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "plan collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "plan a summer trip",
+        "vn_trap": "past tense planned"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "chỉ vào bức ảnh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "point (v.)",
+        "opts": [
+          "chỉ vào bức ảnh",
+          "coi như quan trọng",
+          "trượt dài xuống",
+          "la hét to"
+        ]
+      },
+      "answer": "chỉ vào bức ảnh",
+      "explain_vi": "Động từ point mang nghĩa chính xác là: chỉ vào bức ảnh.",
+      "content_hash": "point|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "point gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "point at something far",
+        "vn_trap": "past tense pointed"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "chỉ vào bức ảnh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'chỉ vào bức ảnh' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "point",
+          "points",
+          "pointing",
+          "pointed"
+        ]
+      },
+      "answer": "point",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là point.",
+      "content_hash": "point|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "point l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "point at something far",
+        "vn_trap": "past tense pointed"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "chỉ vào bức ảnh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "He decided to ___ a new house in the city center.",
+        "opts": [
+          "point",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "point",
+      "explain_vi": "Điền 'point' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "point|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "point cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "point at something far",
+        "vn_trap": "past tense pointed"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "chỉ vào bức ảnh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite she was tired, she continued to point.'",
+        "opts": [
+          "Although she was tired, she continued to point.",
+          "Despite she was tired, she continued to point.",
+          "They Despite she was tired, she continued to point.",
+          "She was pointing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was tired, she continued to point.",
+      "explain_vi": "Dùng 'Although' đứng trước một mệnh đề, không dùng 'Despite'.",
+      "content_hash": "point|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "point error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "point at something far",
+        "vn_trap": "past tense pointed"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "chỉ vào bức ảnh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'point':",
+        "opts": [
+          "point at something far",
+          "point in wrong way",
+          "point without care",
+          "point for nothing"
+        ]
+      },
+      "answer": "point at something far",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: point at something far.",
+      "content_hash": "point|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "point collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "point at something far",
+        "vn_trap": "past tense pointed"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "thích hơn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "prefer (v.)",
+        "opts": [
+          "thích hơn",
+          "liên quan chủ đề",
+          "làm chậm lại",
+          "chấp nhận lời mời"
+        ]
+      },
+      "answer": "thích hơn",
+      "explain_vi": "Động từ prefer mang nghĩa chính xác là: thích hơn.",
+      "content_hash": "prefer|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "prefer gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prefer tea to coffee",
+        "vn_trap": "past tense preferred"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "thích hơn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'thích hơn', từ tiếng Anh đúng là:",
+        "opts": [
+          "prefer",
+          "prefers",
+          "prefering",
+          "preferred"
+        ]
+      },
+      "answer": "prefer",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là prefer.",
+      "content_hash": "prefer|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "prefer l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prefer tea to coffee",
+        "vn_trap": "past tense preferred"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "thích hơn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "In order to ___ your English, you must practice daily.",
+        "opts": [
+          "prefer",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "prefer",
+      "explain_vi": "Điền 'prefer' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "prefer|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "prefer cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prefer tea to coffee",
+        "vn_trap": "past tense preferred"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "thích hơn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has preferreded to the house two days ago.'",
+        "opts": [
+          "She preferred to the house two days ago.",
+          "She has preferreded to the house two days ago.",
+          "They She has preferreded to the house two days ago.",
+          "She was prefering when I came yesterday."
+        ]
+      },
+      "answer": "She preferred to the house two days ago.",
+      "explain_vi": "Có thời gian xác định 'ago' trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "prefer|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "prefer error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prefer tea to coffee",
+        "vn_trap": "past tense preferred"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "thích hơn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'prefer':",
+        "opts": [
+          "prefer tea to coffee",
+          "prefer in wrong way",
+          "prefer without care",
+          "prefer for nothing"
+        ]
+      },
+      "answer": "prefer tea to coffee",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: prefer tea to coffee.",
+      "content_hash": "prefer|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "prefer collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prefer tea to coffee",
+        "vn_trap": "past tense preferred"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "trình bày ý tưởng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "present (v.)",
+        "opts": [
+          "trình bày ý tưởng",
+          "phát hành phim",
+          "giải bài toán",
+          "đạt được mục tiêu"
+        ]
+      },
+      "answer": "trình bày ý tưởng",
+      "explain_vi": "Động từ present mang nghĩa chính xác là: trình bày ý tưởng.",
+      "content_hash": "present|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "present gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "present a new idea",
+        "vn_trap": "past tense presented"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "trình bày ý tưởng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'trình bày ý tưởng' là:",
+        "opts": [
+          "present",
+          "presents",
+          "presenting",
+          "presented"
+        ]
+      },
+      "answer": "present",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là present.",
+      "content_hash": "present|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "present l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "present a new idea",
+        "vn_trap": "past tense presented"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "trình bày ý tưởng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Just try your best to ___ the final examination.",
+        "opts": [
+          "present",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "present",
+      "explain_vi": "Điền 'present' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "present|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "present cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "present a new idea",
+        "vn_trap": "past tense presented"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "trình bày ý tưởng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped to present because he was tired.'",
+        "opts": [
+          "He stopped presenting because he was tired.",
+          "He stopped to present because he was tired.",
+          "They He stopped to present because he was tired.",
+          "She was presenting when I came yesterday."
+        ]
+      },
+      "answer": "He stopped presenting because he was tired.",
+      "explain_vi": "Dừng hẳn một việc đang làm dùng 'stop V-ing'.",
+      "content_hash": "present|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "present error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "present a new idea",
+        "vn_trap": "past tense presented"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "trình bày ý tưởng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'present':",
+        "opts": [
+          "present a new idea",
+          "present in wrong way",
+          "present without care",
+          "present for nothing"
+        ]
+      },
+      "answer": "present a new idea",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: present a new idea.",
+      "content_hash": "present|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "present collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "present a new idea",
+        "vn_trap": "past tense presented"
+      }
+    }
+  ]
+}

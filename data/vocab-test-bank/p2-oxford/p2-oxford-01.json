@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-oxford-01",
+  "priority": "P2",
+  "queue": "oxford",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "mum",
+    "dad",
+    "parent",
+    "son",
+    "daughter",
+    "child",
+    "kid",
+    "wife",
+    "husband",
+    "married",
+    "marriage",
+    "wedding",
+    "bride",
+    "couple",
+    "divorced",
+    "relative",
+    "uncle",
+    "aunt",
+    "cousin",
+    "grandmother"
+  ],
+  "items": [
+    {
+      "lemma": "mum",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của mum",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "mum (n.)",
+        "opts": [
+          "ý nghĩa của mum",
+          "sự từ chối đối với mum",
+          "trạng thái thiếu mum",
+          "hành động ngược lại với mum"
+        ]
+      },
+      "answer": "ý nghĩa của mum",
+      "explain_vi": "Từ/cụm từ 'mum' (n.) có nghĩa chính xác là: ý nghĩa của mum.",
+      "content_hash": "mum|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item mum - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "mum",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của mum",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của mum':",
+        "opts": [
+          "mum",
+          "muming",
+          "mumed",
+          "re-mum"
+        ]
+      },
+      "answer": "mum",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là mum.",
+      "content_hash": "mum|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item mum - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "mum",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của mum",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "mum",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "mum",
+      "explain_vi": "Điền 'mum' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "mum|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item mum - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "mum",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của mum",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to mum without proper preparation yesterday.'",
+        "opts": [
+          "He tried to mum without proper preparation yesterday.",
+          "He try to mum without proper preparation yesterday.",
+          "He trying to mum without proper preparation yesterday.",
+          "He was try to mum without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to mum without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "mum|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item mum - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "mum",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của mum",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'mum':",
+        "opts": [
+          "apply mum correctly",
+          "make mum wrong",
+          "do mum badly",
+          "take mum off"
+        ]
+      },
+      "answer": "apply mum correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply mum correctly.",
+      "content_hash": "mum|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item mum - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "dad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của dad",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "dad (n.)",
+        "opts": [
+          "ý nghĩa của dad",
+          "sự từ chối đối với dad",
+          "trạng thái thiếu dad",
+          "hành động ngược lại với dad"
+        ]
+      },
+      "answer": "ý nghĩa của dad",
+      "explain_vi": "Từ/cụm từ 'dad' (n.) có nghĩa chính xác là: ý nghĩa của dad.",
+      "content_hash": "dad|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item dad - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "dad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của dad",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của dad':",
+        "opts": [
+          "dad",
+          "dading",
+          "daded",
+          "re-dad"
+        ]
+      },
+      "answer": "dad",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là dad.",
+      "content_hash": "dad|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item dad - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "dad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của dad",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "dad",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "dad",
+      "explain_vi": "Điền 'dad' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "dad|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "oxford item dad - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "dad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của dad",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to dad without proper preparation yesterday.'",
+        "opts": [
+          "He tried to dad without proper preparation yesterday.",
+          "He try to dad without proper preparation yesterday.",
+          "He trying to dad without proper preparation yesterday.",
+          "He was try to dad without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to dad without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "dad|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item dad - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "dad",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của dad",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'dad':",
+        "opts": [
+          "apply dad correctly",
+          "make dad wrong",
+          "do dad badly",
+          "take dad off"
+        ]
+      },
+      "answer": "apply dad correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply dad correctly.",
+      "content_hash": "dad|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item dad - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "parent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của parent",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "parent (n.)",
+        "opts": [
+          "ý nghĩa của parent",
+          "sự từ chối đối với parent",
+          "trạng thái thiếu parent",
+          "hành động ngược lại với parent"
+        ]
+      },
+      "answer": "ý nghĩa của parent",
+      "explain_vi": "Từ/cụm từ 'parent' (n.) có nghĩa chính xác là: ý nghĩa của parent.",
+      "content_hash": "parent|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item parent - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "parent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của parent",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của parent':",
+        "opts": [
+          "parent",
+          "parenting",
+          "parented",
+          "re-parent"
+        ]
+      },
+      "answer": "parent",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là parent.",
+      "content_hash": "parent|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item parent - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "parent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của parent",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "parent",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "parent",
+      "explain_vi": "Điền 'parent' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "parent|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item parent - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "parent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của parent",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to parent without proper preparation yesterday.'",
+        "opts": [
+          "He tried to parent without proper preparation yesterday.",
+          "He try to parent without proper preparation yesterday.",
+          "He trying to parent without proper preparation yesterday.",
+          "He was try to parent without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to parent without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "parent|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item parent - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "parent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của parent",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'parent':",
+        "opts": [
+          "apply parent correctly",
+          "make parent wrong",
+          "do parent badly",
+          "take parent off"
+        ]
+      },
+      "answer": "apply parent correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply parent correctly.",
+      "content_hash": "parent|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item parent - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "son",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của son",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "son (n.)",
+        "opts": [
+          "ý nghĩa của son",
+          "sự từ chối đối với son",
+          "trạng thái thiếu son",
+          "hành động ngược lại với son"
+        ]
+      },
+      "answer": "ý nghĩa của son",
+      "explain_vi": "Từ/cụm từ 'son' (n.) có nghĩa chính xác là: ý nghĩa của son.",
+      "content_hash": "son|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item son - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "son",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của son",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của son':",
+        "opts": [
+          "son",
+          "soning",
+          "soned",
+          "re-son"
+        ]
+      },
+      "answer": "son",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là son.",
+      "content_hash": "son|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item son - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "son",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của son",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "son",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "son",
+      "explain_vi": "Điền 'son' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "son|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item son - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "son",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của son",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to son without proper preparation yesterday.'",
+        "opts": [
+          "He tried to son without proper preparation yesterday.",
+          "He try to son without proper preparation yesterday.",
+          "He trying to son without proper preparation yesterday.",
+          "He was try to son without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to son without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "son|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item son - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "son",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của son",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'son':",
+        "opts": [
+          "apply son correctly",
+          "make son wrong",
+          "do son badly",
+          "take son off"
+        ]
+      },
+      "answer": "apply son correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply son correctly.",
+      "content_hash": "son|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item son - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "daughter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của daughter",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "daughter (n.)",
+        "opts": [
+          "ý nghĩa của daughter",
+          "sự từ chối đối với daughter",
+          "trạng thái thiếu daughter",
+          "hành động ngược lại với daughter"
+        ]
+      },
+      "answer": "ý nghĩa của daughter",
+      "explain_vi": "Từ/cụm từ 'daughter' (n.) có nghĩa chính xác là: ý nghĩa của daughter.",
+      "content_hash": "daughter|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item daughter - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "daughter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của daughter",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của daughter':",
+        "opts": [
+          "daughter",
+          "daughtering",
+          "daughtered",
+          "re-daughter"
+        ]
+      },
+      "answer": "daughter",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là daughter.",
+      "content_hash": "daughter|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item daughter - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "daughter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của daughter",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "daughter",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "daughter",
+      "explain_vi": "Điền 'daughter' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "daughter|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item daughter - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "daughter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của daughter",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to daughter without proper preparation yesterday.'",
+        "opts": [
+          "He tried to daughter without proper preparation yesterday.",
+          "He try to daughter without proper preparation yesterday.",
+          "He trying to daughter without proper preparation yesterday.",
+          "He was try to daughter without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to daughter without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "daughter|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "oxford item daughter - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "daughter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của daughter",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'daughter':",
+        "opts": [
+          "apply daughter correctly",
+          "make daughter wrong",
+          "do daughter badly",
+          "take daughter off"
+        ]
+      },
+      "answer": "apply daughter correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply daughter correctly.",
+      "content_hash": "daughter|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item daughter - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "child",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của child",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "child (n.)",
+        "opts": [
+          "ý nghĩa của child",
+          "sự từ chối đối với child",
+          "trạng thái thiếu child",
+          "hành động ngược lại với child"
+        ]
+      },
+      "answer": "ý nghĩa của child",
+      "explain_vi": "Từ/cụm từ 'child' (n.) có nghĩa chính xác là: ý nghĩa của child.",
+      "content_hash": "child|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item child - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "child",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của child",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của child':",
+        "opts": [
+          "child",
+          "childing",
+          "childed",
+          "re-child"
+        ]
+      },
+      "answer": "child",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là child.",
+      "content_hash": "child|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item child - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "child",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của child",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "child",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "child",
+      "explain_vi": "Điền 'child' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "child|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item child - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "child",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của child",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to child without proper preparation yesterday.'",
+        "opts": [
+          "He tried to child without proper preparation yesterday.",
+          "He try to child without proper preparation yesterday.",
+          "He trying to child without proper preparation yesterday.",
+          "He was try to child without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to child without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "child|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item child - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "child",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của child",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'child':",
+        "opts": [
+          "apply child correctly",
+          "make child wrong",
+          "do child badly",
+          "take child off"
+        ]
+      },
+      "answer": "apply child correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply child correctly.",
+      "content_hash": "child|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item child - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "kid",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của kid",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "kid (n.)",
+        "opts": [
+          "ý nghĩa của kid",
+          "sự từ chối đối với kid",
+          "trạng thái thiếu kid",
+          "hành động ngược lại với kid"
+        ]
+      },
+      "answer": "ý nghĩa của kid",
+      "explain_vi": "Từ/cụm từ 'kid' (n.) có nghĩa chính xác là: ý nghĩa của kid.",
+      "content_hash": "kid|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item kid - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "kid",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của kid",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của kid':",
+        "opts": [
+          "kid",
+          "kiding",
+          "kided",
+          "re-kid"
+        ]
+      },
+      "answer": "kid",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là kid.",
+      "content_hash": "kid|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item kid - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "kid",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của kid",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "kid",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "kid",
+      "explain_vi": "Điền 'kid' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "kid|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item kid - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "kid",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của kid",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to kid without proper preparation yesterday.'",
+        "opts": [
+          "He tried to kid without proper preparation yesterday.",
+          "He try to kid without proper preparation yesterday.",
+          "He trying to kid without proper preparation yesterday.",
+          "He was try to kid without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to kid without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "kid|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item kid - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "kid",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của kid",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'kid':",
+        "opts": [
+          "apply kid correctly",
+          "make kid wrong",
+          "do kid badly",
+          "take kid off"
+        ]
+      },
+      "answer": "apply kid correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply kid correctly.",
+      "content_hash": "kid|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item kid - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wife",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wife",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wife (n.)",
+        "opts": [
+          "ý nghĩa của wife",
+          "sự từ chối đối với wife",
+          "trạng thái thiếu wife",
+          "hành động ngược lại với wife"
+        ]
+      },
+      "answer": "ý nghĩa của wife",
+      "explain_vi": "Từ/cụm từ 'wife' (n.) có nghĩa chính xác là: ý nghĩa của wife.",
+      "content_hash": "wife|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item wife - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wife",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wife",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của wife':",
+        "opts": [
+          "wife",
+          "wifeing",
+          "wifeed",
+          "re-wife"
+        ]
+      },
+      "answer": "wife",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là wife.",
+      "content_hash": "wife|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item wife - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wife",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wife",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "wife",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "wife",
+      "explain_vi": "Điền 'wife' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "wife|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item wife - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wife",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wife",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to wife without proper preparation yesterday.'",
+        "opts": [
+          "He tried to wife without proper preparation yesterday.",
+          "He try to wife without proper preparation yesterday.",
+          "He trying to wife without proper preparation yesterday.",
+          "He was try to wife without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to wife without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "wife|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item wife - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wife",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wife",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'wife':",
+        "opts": [
+          "apply wife correctly",
+          "make wife wrong",
+          "do wife badly",
+          "take wife off"
+        ]
+      },
+      "answer": "apply wife correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply wife correctly.",
+      "content_hash": "wife|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "oxford item wife - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "husband",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của husband",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "husband (n.)",
+        "opts": [
+          "ý nghĩa của husband",
+          "sự từ chối đối với husband",
+          "trạng thái thiếu husband",
+          "hành động ngược lại với husband"
+        ]
+      },
+      "answer": "ý nghĩa của husband",
+      "explain_vi": "Từ/cụm từ 'husband' (n.) có nghĩa chính xác là: ý nghĩa của husband.",
+      "content_hash": "husband|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item husband - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "husband",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của husband",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của husband':",
+        "opts": [
+          "husband",
+          "husbanding",
+          "husbanded",
+          "re-husband"
+        ]
+      },
+      "answer": "husband",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là husband.",
+      "content_hash": "husband|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item husband - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "husband",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của husband",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "husband",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "husband",
+      "explain_vi": "Điền 'husband' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "husband|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item husband - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "husband",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của husband",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to husband without proper preparation yesterday.'",
+        "opts": [
+          "He tried to husband without proper preparation yesterday.",
+          "He try to husband without proper preparation yesterday.",
+          "He trying to husband without proper preparation yesterday.",
+          "He was try to husband without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to husband without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "husband|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item husband - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "husband",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của husband",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'husband':",
+        "opts": [
+          "apply husband correctly",
+          "make husband wrong",
+          "do husband badly",
+          "take husband off"
+        ]
+      },
+      "answer": "apply husband correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply husband correctly.",
+      "content_hash": "husband|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item husband - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "married",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của married",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "married (n.)",
+        "opts": [
+          "ý nghĩa của married",
+          "sự từ chối đối với married",
+          "trạng thái thiếu married",
+          "hành động ngược lại với married"
+        ]
+      },
+      "answer": "ý nghĩa của married",
+      "explain_vi": "Từ/cụm từ 'married' (n.) có nghĩa chính xác là: ý nghĩa của married.",
+      "content_hash": "married|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item married - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "married",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của married",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của married':",
+        "opts": [
+          "married",
+          "marrieding",
+          "marrieded",
+          "re-married"
+        ]
+      },
+      "answer": "married",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là married.",
+      "content_hash": "married|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item married - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "married",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của married",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "married",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "married",
+      "explain_vi": "Điền 'married' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "married|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item married - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "married",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của married",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to married without proper preparation yesterday.'",
+        "opts": [
+          "He tried to married without proper preparation yesterday.",
+          "He try to married without proper preparation yesterday.",
+          "He trying to married without proper preparation yesterday.",
+          "He was try to married without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to married without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "married|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item married - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "married",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của married",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'married':",
+        "opts": [
+          "apply married correctly",
+          "make married wrong",
+          "do married badly",
+          "take married off"
+        ]
+      },
+      "answer": "apply married correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply married correctly.",
+      "content_hash": "married|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item married - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "marriage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của marriage",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "marriage (n.)",
+        "opts": [
+          "ý nghĩa của marriage",
+          "sự từ chối đối với marriage",
+          "trạng thái thiếu marriage",
+          "hành động ngược lại với marriage"
+        ]
+      },
+      "answer": "ý nghĩa của marriage",
+      "explain_vi": "Từ/cụm từ 'marriage' (n.) có nghĩa chính xác là: ý nghĩa của marriage.",
+      "content_hash": "marriage|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item marriage - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "marriage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của marriage",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của marriage':",
+        "opts": [
+          "marriage",
+          "marriageing",
+          "marriageed",
+          "re-marriage"
+        ]
+      },
+      "answer": "marriage",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là marriage.",
+      "content_hash": "marriage|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item marriage - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "marriage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của marriage",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "marriage",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "marriage",
+      "explain_vi": "Điền 'marriage' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "marriage|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item marriage - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "marriage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của marriage",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to marriage without proper preparation yesterday.'",
+        "opts": [
+          "He tried to marriage without proper preparation yesterday.",
+          "He try to marriage without proper preparation yesterday.",
+          "He trying to marriage without proper preparation yesterday.",
+          "He was try to marriage without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to marriage without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "marriage|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item marriage - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "marriage",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của marriage",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'marriage':",
+        "opts": [
+          "apply marriage correctly",
+          "make marriage wrong",
+          "do marriage badly",
+          "take marriage off"
+        ]
+      },
+      "answer": "apply marriage correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply marriage correctly.",
+      "content_hash": "marriage|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item marriage - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wedding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wedding",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wedding (n.)",
+        "opts": [
+          "ý nghĩa của wedding",
+          "sự từ chối đối với wedding",
+          "trạng thái thiếu wedding",
+          "hành động ngược lại với wedding"
+        ]
+      },
+      "answer": "ý nghĩa của wedding",
+      "explain_vi": "Từ/cụm từ 'wedding' (n.) có nghĩa chính xác là: ý nghĩa của wedding.",
+      "content_hash": "wedding|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item wedding - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wedding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wedding",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của wedding':",
+        "opts": [
+          "wedding",
+          "weddinging",
+          "weddinged",
+          "re-wedding"
+        ]
+      },
+      "answer": "wedding",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là wedding.",
+      "content_hash": "wedding|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item wedding - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wedding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wedding",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "wedding",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "wedding",
+      "explain_vi": "Điền 'wedding' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "wedding|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item wedding - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wedding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wedding",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to wedding without proper preparation yesterday.'",
+        "opts": [
+          "He tried to wedding without proper preparation yesterday.",
+          "He try to wedding without proper preparation yesterday.",
+          "He trying to wedding without proper preparation yesterday.",
+          "He was try to wedding without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to wedding without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "wedding|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item wedding - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "wedding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của wedding",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'wedding':",
+        "opts": [
+          "apply wedding correctly",
+          "make wedding wrong",
+          "do wedding badly",
+          "take wedding off"
+        ]
+      },
+      "answer": "apply wedding correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply wedding correctly.",
+      "content_hash": "wedding|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item wedding - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "bride",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bride",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "bride (n.)",
+        "opts": [
+          "ý nghĩa của bride",
+          "sự từ chối đối với bride",
+          "trạng thái thiếu bride",
+          "hành động ngược lại với bride"
+        ]
+      },
+      "answer": "ý nghĩa của bride",
+      "explain_vi": "Từ/cụm từ 'bride' (n.) có nghĩa chính xác là: ý nghĩa của bride.",
+      "content_hash": "bride|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item bride - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "bride",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bride",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của bride':",
+        "opts": [
+          "bride",
+          "brideing",
+          "brideed",
+          "re-bride"
+        ]
+      },
+      "answer": "bride",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là bride.",
+      "content_hash": "bride|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item bride - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "bride",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bride",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "bride",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "bride",
+      "explain_vi": "Điền 'bride' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "bride|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item bride - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "bride",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bride",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to bride without proper preparation yesterday.'",
+        "opts": [
+          "He tried to bride without proper preparation yesterday.",
+          "He try to bride without proper preparation yesterday.",
+          "He trying to bride without proper preparation yesterday.",
+          "He was try to bride without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to bride without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "bride|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item bride - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "bride",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của bride",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'bride':",
+        "opts": [
+          "apply bride correctly",
+          "make bride wrong",
+          "do bride badly",
+          "take bride off"
+        ]
+      },
+      "answer": "apply bride correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply bride correctly.",
+      "content_hash": "bride|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item bride - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "couple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của couple",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "couple (n.)",
+        "opts": [
+          "ý nghĩa của couple",
+          "sự từ chối đối với couple",
+          "trạng thái thiếu couple",
+          "hành động ngược lại với couple"
+        ]
+      },
+      "answer": "ý nghĩa của couple",
+      "explain_vi": "Từ/cụm từ 'couple' (n.) có nghĩa chính xác là: ý nghĩa của couple.",
+      "content_hash": "couple|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item couple - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "couple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của couple",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của couple':",
+        "opts": [
+          "couple",
+          "coupleing",
+          "coupleed",
+          "re-couple"
+        ]
+      },
+      "answer": "couple",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là couple.",
+      "content_hash": "couple|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item couple - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "couple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của couple",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "couple",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "couple",
+      "explain_vi": "Điền 'couple' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "couple|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "oxford item couple - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "couple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của couple",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to couple without proper preparation yesterday.'",
+        "opts": [
+          "He tried to couple without proper preparation yesterday.",
+          "He try to couple without proper preparation yesterday.",
+          "He trying to couple without proper preparation yesterday.",
+          "He was try to couple without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to couple without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "couple|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item couple - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "couple",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của couple",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'couple':",
+        "opts": [
+          "apply couple correctly",
+          "make couple wrong",
+          "do couple badly",
+          "take couple off"
+        ]
+      },
+      "answer": "apply couple correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply couple correctly.",
+      "content_hash": "couple|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item couple - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "divorced",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của divorced",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "divorced (n.)",
+        "opts": [
+          "ý nghĩa của divorced",
+          "sự từ chối đối với divorced",
+          "trạng thái thiếu divorced",
+          "hành động ngược lại với divorced"
+        ]
+      },
+      "answer": "ý nghĩa của divorced",
+      "explain_vi": "Từ/cụm từ 'divorced' (n.) có nghĩa chính xác là: ý nghĩa của divorced.",
+      "content_hash": "divorced|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item divorced - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "divorced",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của divorced",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của divorced':",
+        "opts": [
+          "divorced",
+          "divorceding",
+          "divorceded",
+          "re-divorced"
+        ]
+      },
+      "answer": "divorced",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là divorced.",
+      "content_hash": "divorced|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item divorced - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "divorced",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của divorced",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "divorced",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "divorced",
+      "explain_vi": "Điền 'divorced' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "divorced|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item divorced - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "divorced",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của divorced",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to divorced without proper preparation yesterday.'",
+        "opts": [
+          "He tried to divorced without proper preparation yesterday.",
+          "He try to divorced without proper preparation yesterday.",
+          "He trying to divorced without proper preparation yesterday.",
+          "He was try to divorced without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to divorced without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "divorced|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item divorced - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "divorced",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của divorced",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'divorced':",
+        "opts": [
+          "apply divorced correctly",
+          "make divorced wrong",
+          "do divorced badly",
+          "take divorced off"
+        ]
+      },
+      "answer": "apply divorced correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply divorced correctly.",
+      "content_hash": "divorced|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item divorced - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "relative",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của relative",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "relative (adj.)",
+        "opts": [
+          "ý nghĩa của relative",
+          "sự từ chối đối với relative",
+          "trạng thái thiếu relative",
+          "hành động ngược lại với relative"
+        ]
+      },
+      "answer": "ý nghĩa của relative",
+      "explain_vi": "Từ/cụm từ 'relative' (adj.) có nghĩa chính xác là: ý nghĩa của relative.",
+      "content_hash": "relative|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item relative - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "relative",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của relative",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của relative':",
+        "opts": [
+          "relative",
+          "relativeing",
+          "relativeed",
+          "re-relative"
+        ]
+      },
+      "answer": "relative",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là relative.",
+      "content_hash": "relative|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item relative - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "relative",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của relative",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "relative",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "relative",
+      "explain_vi": "Điền 'relative' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "relative|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item relative - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "relative",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của relative",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to relative without proper preparation yesterday.'",
+        "opts": [
+          "He tried to relative without proper preparation yesterday.",
+          "He try to relative without proper preparation yesterday.",
+          "He trying to relative without proper preparation yesterday.",
+          "He was try to relative without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to relative without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "relative|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item relative - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "relative",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của relative",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'relative':",
+        "opts": [
+          "apply relative correctly",
+          "make relative wrong",
+          "do relative badly",
+          "take relative off"
+        ]
+      },
+      "answer": "apply relative correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply relative correctly.",
+      "content_hash": "relative|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item relative - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "uncle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của uncle",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "uncle (n.)",
+        "opts": [
+          "ý nghĩa của uncle",
+          "sự từ chối đối với uncle",
+          "trạng thái thiếu uncle",
+          "hành động ngược lại với uncle"
+        ]
+      },
+      "answer": "ý nghĩa của uncle",
+      "explain_vi": "Từ/cụm từ 'uncle' (n.) có nghĩa chính xác là: ý nghĩa của uncle.",
+      "content_hash": "uncle|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item uncle - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "uncle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của uncle",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của uncle':",
+        "opts": [
+          "uncle",
+          "uncleing",
+          "uncleed",
+          "re-uncle"
+        ]
+      },
+      "answer": "uncle",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là uncle.",
+      "content_hash": "uncle|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item uncle - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "uncle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của uncle",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "uncle",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "uncle",
+      "explain_vi": "Điền 'uncle' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "uncle|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item uncle - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "uncle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của uncle",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to uncle without proper preparation yesterday.'",
+        "opts": [
+          "He tried to uncle without proper preparation yesterday.",
+          "He try to uncle without proper preparation yesterday.",
+          "He trying to uncle without proper preparation yesterday.",
+          "He was try to uncle without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to uncle without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "uncle|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "oxford item uncle - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "uncle",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của uncle",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'uncle':",
+        "opts": [
+          "apply uncle correctly",
+          "make uncle wrong",
+          "do uncle badly",
+          "take uncle off"
+        ]
+      },
+      "answer": "apply uncle correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply uncle correctly.",
+      "content_hash": "uncle|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item uncle - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "aunt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aunt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "aunt (n.)",
+        "opts": [
+          "ý nghĩa của aunt",
+          "sự từ chối đối với aunt",
+          "trạng thái thiếu aunt",
+          "hành động ngược lại với aunt"
+        ]
+      },
+      "answer": "ý nghĩa của aunt",
+      "explain_vi": "Từ/cụm từ 'aunt' (n.) có nghĩa chính xác là: ý nghĩa của aunt.",
+      "content_hash": "aunt|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item aunt - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "aunt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aunt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của aunt':",
+        "opts": [
+          "aunt",
+          "aunting",
+          "aunted",
+          "re-aunt"
+        ]
+      },
+      "answer": "aunt",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là aunt.",
+      "content_hash": "aunt|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item aunt - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "aunt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aunt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "aunt",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "aunt",
+      "explain_vi": "Điền 'aunt' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "aunt|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item aunt - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "aunt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aunt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to aunt without proper preparation yesterday.'",
+        "opts": [
+          "He tried to aunt without proper preparation yesterday.",
+          "He try to aunt without proper preparation yesterday.",
+          "He trying to aunt without proper preparation yesterday.",
+          "He was try to aunt without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to aunt without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "aunt|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item aunt - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "aunt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aunt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'aunt':",
+        "opts": [
+          "apply aunt correctly",
+          "make aunt wrong",
+          "do aunt badly",
+          "take aunt off"
+        ]
+      },
+      "answer": "apply aunt correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply aunt correctly.",
+      "content_hash": "aunt|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item aunt - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "cousin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cousin",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cousin (n.)",
+        "opts": [
+          "ý nghĩa của cousin",
+          "sự từ chối đối với cousin",
+          "trạng thái thiếu cousin",
+          "hành động ngược lại với cousin"
+        ]
+      },
+      "answer": "ý nghĩa của cousin",
+      "explain_vi": "Từ/cụm từ 'cousin' (n.) có nghĩa chính xác là: ý nghĩa của cousin.",
+      "content_hash": "cousin|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item cousin - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "cousin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cousin",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của cousin':",
+        "opts": [
+          "cousin",
+          "cousining",
+          "cousined",
+          "re-cousin"
+        ]
+      },
+      "answer": "cousin",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là cousin.",
+      "content_hash": "cousin|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item cousin - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "cousin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cousin",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "cousin",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "cousin",
+      "explain_vi": "Điền 'cousin' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "cousin|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item cousin - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "cousin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cousin",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to cousin without proper preparation yesterday.'",
+        "opts": [
+          "He tried to cousin without proper preparation yesterday.",
+          "He try to cousin without proper preparation yesterday.",
+          "He trying to cousin without proper preparation yesterday.",
+          "He was try to cousin without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to cousin without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "cousin|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item cousin - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "cousin",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của cousin",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'cousin':",
+        "opts": [
+          "apply cousin correctly",
+          "make cousin wrong",
+          "do cousin badly",
+          "take cousin off"
+        ]
+      },
+      "answer": "apply cousin correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply cousin correctly.",
+      "content_hash": "cousin|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item cousin - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "grandmother",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của grandmother",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "grandmother (n.)",
+        "opts": [
+          "ý nghĩa của grandmother",
+          "sự từ chối đối với grandmother",
+          "trạng thái thiếu grandmother",
+          "hành động ngược lại với grandmother"
+        ]
+      },
+      "answer": "ý nghĩa của grandmother",
+      "explain_vi": "Từ/cụm từ 'grandmother' (n.) có nghĩa chính xác là: ý nghĩa của grandmother.",
+      "content_hash": "grandmother|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item grandmother - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "grandmother",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của grandmother",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của grandmother':",
+        "opts": [
+          "grandmother",
+          "grandmothering",
+          "grandmothered",
+          "re-grandmother"
+        ]
+      },
+      "answer": "grandmother",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là grandmother.",
+      "content_hash": "grandmother|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item grandmother - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "grandmother",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của grandmother",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "grandmother",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "grandmother",
+      "explain_vi": "Điền 'grandmother' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "grandmother|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item grandmother - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "grandmother",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của grandmother",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to grandmother without proper preparation yesterday.'",
+        "opts": [
+          "He tried to grandmother without proper preparation yesterday.",
+          "He try to grandmother without proper preparation yesterday.",
+          "He trying to grandmother without proper preparation yesterday.",
+          "He was try to grandmother without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to grandmother without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "grandmother|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item grandmother - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    },
+    {
+      "lemma": "grandmother",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của grandmother",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'grandmother':",
+        "opts": [
+          "apply grandmother correctly",
+          "make grandmother wrong",
+          "do grandmother badly",
+          "take grandmother off"
+        ]
+      },
+      "answer": "apply grandmother correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply grandmother correctly.",
+      "content_hash": "grandmother|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "oxford item grandmother - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-01"
+      }
+    }
+  ]
+}

@@ -447,113 +447,12 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "Chọn câu dùng đúng Advanced Relative Clauses.",
-      "opts": [
-        "The person to whom I spoke was helpful.",
-        "Not correctly: preposition + whom/which.",
-        "Wrong structure for this meaning."
-      ],
-      "answer": "The person to whom I spoke was helpful.",
-      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn cấu trúc phù hợp nhất.",
-      "opts": [
-        "preposition + whom/which",
-        "quantifier + of whom/which",
-        "which tham chiếu cả mệnh đề trước"
-      ],
-      "answer": "preposition + whom/which",
-      "fb": "Mẫu trọng tâm là preposition + whom/which."
-    },
-    {
       "type": "fill",
       "q": "Hoàn thành theo mẫu: She ___ three sons, all of whom are doctors.",
       "answer": [
         "has"
       ],
       "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
-      "answer": [
-        "Advanced Relative Clauses",
-        "advanced relative clauses"
-      ],
-      "fb": "Chủ điểm là Advanced Relative Clauses."
-    },
-    {
-      "type": "tf",
-      "q": "Câu này tự nhiên và đúng ngữ pháp: “The meeting was cancelled, which surprised us.”",
-      "answer": true,
-      "fb": "Đúng; câu minh họa một biến thể quan trọng."
-    },
-    {
-      "type": "tf",
-      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Advanced Relative Clauses chính xác.",
-      "answer": false,
-      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
-    },
-    {
-      "type": "error",
-      "q": "Câu/mô tả nào SAI?",
-      "opts": [
-        "This is the issue about which we argued.",
-        "The house, the roof of which was damaged, is empty.",
-        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
-      ],
-      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
-      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
-    },
-    {
-      "type": "mcq",
-      "q": "Điều cần kiểm tra đầu tiên là gì?",
-      "opts": [
-        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-        "Chỉ số lượng từ trong câu",
-        "Chỉ độ dài câu"
-      ],
-      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Dịch sang tiếng Anh: “Dù bạn quyết định gì, tôi sẽ ủng hộ.”",
-      "answer": [
-        "Whatever you decide, I will support you."
-      ],
-      "fb": "Whatever you decide, I will support you."
-    },
-    {
-      "type": "tf",
-      "q": "“The person to whom I spoke was helpful.” là một ví dụ đúng.",
-      "answer": true,
-      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
-    },
-    {
-      "type": "error",
-      "q": "Chọn lời khuyên SAI.",
-      "opts": [
-        "Học cấu trúc cùng ví dụ.",
-        "Kiểm tra dạng động từ.",
-        "Dịch máy móc từng từ luôn cho kết quả đúng."
-      ],
-      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
-      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
-    },
-    {
-      "type": "mcq",
-      "q": "Câu nào là một ví dụ đúng khác?",
-      "opts": [
-        "Whatever you decide, I will support you.",
-        "This sentence missing required grammar.",
-        "Incorrectly structure sentence."
-      ],
-      "answer": "Whatever you decide, I will support you.",
-      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
     },
     {
       "type": "multiple_choice",

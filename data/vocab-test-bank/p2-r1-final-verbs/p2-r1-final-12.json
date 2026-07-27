@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-12",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "wake",
+    "wear",
+    "wish",
+    "worry",
+    "close",
+    "cost",
+    "count",
+    "cover",
+    "cross",
+    "cry"
+  ],
+  "items": [
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thức dậy sớm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wake (v.)",
+        "opts": [
+          "thức dậy sớm",
+          "rơi xuống sàn",
+          "để ý biển báo",
+          "ổn định cuộc sống"
+        ]
+      },
+      "answer": "thức dậy sớm",
+      "explain_vi": "Động từ wake mang nghĩa chính xác là: thức dậy sớm.",
+      "content_hash": "wake|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "wake gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wake up early morning",
+        "vn_trap": "past tense woke"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thức dậy sớm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'thức dậy sớm', từ tiếng Anh đúng là:",
+        "opts": [
+          "wake",
+          "wakes",
+          "wakeing",
+          "woke"
+        ]
+      },
+      "answer": "wake",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là wake.",
+      "content_hash": "wake|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "wake l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wake up early morning",
+        "vn_trap": "past tense woke"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thức dậy sớm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "wake",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "wake",
+      "explain_vi": "Điền 'wake' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "wake|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "wake cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wake up early morning",
+        "vn_trap": "past tense woke"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thức dậy sớm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She wakes the exercise very slow yesterday.'",
+        "opts": [
+          "She woke the exercise very slowly yesterday.",
+          "She wakes the exercise very slow yesterday.",
+          "They She wakes the exercise very slow yesterday.",
+          "She was wakeing when I came yesterday."
+        ]
+      },
+      "answer": "She woke the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "wake|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "wake error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wake up early morning",
+        "vn_trap": "past tense woke"
+      }
+    },
+    {
+      "lemma": "wake",
+      "pos": "v",
+      "sense_vi": "thức dậy sớm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wake':",
+        "opts": [
+          "wake up early morning",
+          "wake in wrong way",
+          "wake without care",
+          "wake for nothing"
+        ]
+      },
+      "answer": "wake up early morning",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: wake up early morning.",
+      "content_hash": "wake|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "wake collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wake up early morning",
+        "vn_trap": "past tense woke"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "mặc áo phông",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wear (v.)",
+        "opts": [
+          "mặc áo phông",
+          "kết thúc câu chuyện",
+          "lên kế hoạch đi",
+          "lắc tay chào"
+        ]
+      },
+      "answer": "mặc áo phông",
+      "explain_vi": "Động từ wear mang nghĩa chính xác là: mặc áo phông.",
+      "content_hash": "wear|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "wear gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wear a comfortable hat",
+        "vn_trap": "past tense wore"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "mặc áo phông",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'mặc áo phông' là:",
+        "opts": [
+          "wear",
+          "wears",
+          "wearing",
+          "wore"
+        ]
+      },
+      "answer": "wear",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là wear.",
+      "content_hash": "wear|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "wear l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wear a comfortable hat",
+        "vn_trap": "past tense wore"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "mặc áo phông",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "wear",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "wear",
+      "explain_vi": "Điền 'wear' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "wear|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "wear cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wear a comfortable hat",
+        "vn_trap": "past tense wore"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "mặc áo phông",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was wearing when the lights went out.'",
+        "opts": [
+          "They were wearing when the lights went out.",
+          "They was wearing when the lights went out.",
+          "They They was wearing when the lights went out.",
+          "She was wearing when I came yesterday."
+        ]
+      },
+      "answer": "They were wearing when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "wear|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "wear error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wear a comfortable hat",
+        "vn_trap": "past tense wore"
+      }
+    },
+    {
+      "lemma": "wear",
+      "pos": "v",
+      "sense_vi": "mặc áo phông",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wear':",
+        "opts": [
+          "wear a comfortable hat",
+          "wear in wrong way",
+          "wear without care",
+          "wear for nothing"
+        ]
+      },
+      "answer": "wear a comfortable hat",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: wear a comfortable hat.",
+      "content_hash": "wear|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "wear collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wear a comfortable hat",
+        "vn_trap": "past tense wore"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "ước điều ước",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wish (v.)",
+        "opts": [
+          "ước điều ước",
+          "thích đọc sách",
+          "chỉ vào bức ảnh",
+          "bắn mục tiêu"
+        ]
+      },
+      "answer": "ước điều ước",
+      "explain_vi": "Động từ wish mang nghĩa chính xác là: ước điều ước.",
+      "content_hash": "wish|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "wish gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wish for good luck",
+        "vn_trap": "past tense wished"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "ước điều ước",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'ước điều ước' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "wish",
+          "wishs",
+          "wishing",
+          "wished"
+        ]
+      },
+      "answer": "wish",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là wish.",
+      "content_hash": "wish|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "wish l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wish for good luck",
+        "vn_trap": "past tense wished"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "ước điều ước",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "wish",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "wish",
+      "explain_vi": "Điền 'wish' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "wish|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "wish cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wish for good luck",
+        "vn_trap": "past tense wished"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "ước điều ước",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He wishs without check the answers first.'",
+        "opts": [
+          "He wished without checking the answers first.",
+          "He wishs without check the answers first.",
+          "They He wishs without check the answers first.",
+          "She was wishing when I came yesterday."
+        ]
+      },
+      "answer": "He wished without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "wish|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "wish error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wish for good luck",
+        "vn_trap": "past tense wished"
+      }
+    },
+    {
+      "lemma": "wish",
+      "pos": "v",
+      "sense_vi": "ước điều ước",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wish':",
+        "opts": [
+          "wish for good luck",
+          "wish in wrong way",
+          "wish without care",
+          "wish for nothing"
+        ]
+      },
+      "answer": "wish for good luck",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: wish for good luck.",
+      "content_hash": "wish|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "wish collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wish for good luck",
+        "vn_trap": "past tense wished"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "lo lắng thi cử",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "worry (v.)",
+        "opts": [
+          "lo lắng thi cử",
+          "vào phòng",
+          "thích hơn",
+          "đóng cửa lại"
+        ]
+      },
+      "answer": "lo lắng thi cử",
+      "explain_vi": "Động từ worry mang nghĩa chính xác là: lo lắng thi cử.",
+      "content_hash": "worry|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "worry gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "worry about upcoming exam",
+        "vn_trap": "past tense worried"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "lo lắng thi cử",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'lo lắng thi cử' là:",
+        "opts": [
+          "worry",
+          "worrys",
+          "worrying",
+          "worried"
+        ]
+      },
+      "answer": "worry",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là worry.",
+      "content_hash": "worry|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "worry l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "worry about upcoming exam",
+        "vn_trap": "past tense worried"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "lo lắng thi cử",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "worry",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "worry",
+      "explain_vi": "Điền 'worry' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "worry|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "worry cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "worry about upcoming exam",
+        "vn_trap": "past tense worried"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "lo lắng thi cử",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is worrying since last year.'",
+        "opts": [
+          "She has been worrying since last year.",
+          "She is worrying since last year.",
+          "They She is worrying since last year.",
+          "She was worrying when I came yesterday."
+        ]
+      },
+      "answer": "She has been worrying since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "worry|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "worry error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "worry about upcoming exam",
+        "vn_trap": "past tense worried"
+      }
+    },
+    {
+      "lemma": "worry",
+      "pos": "v",
+      "sense_vi": "lo lắng thi cử",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'worry':",
+        "opts": [
+          "worry about upcoming exam",
+          "worry in wrong way",
+          "worry without care",
+          "worry for nothing"
+        ]
+      },
+      "answer": "worry about upcoming exam",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: worry about upcoming exam.",
+      "content_hash": "worry|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "worry collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "worry about upcoming exam",
+        "vn_trap": "past tense worried"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "đóng cửa sổ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "close (v.)",
+        "opts": [
+          "đóng cửa sổ",
+          "trượt kỳ thi",
+          "trình bày ý tưởng",
+          "ký tên vào"
+        ]
+      },
+      "answer": "đóng cửa sổ",
+      "explain_vi": "Động từ close mang nghĩa chính xác là: đóng cửa sổ.",
+      "content_hash": "close|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "close gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "close the room window",
+        "vn_trap": "past tense closed"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "đóng cửa sổ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'đóng cửa sổ' được dịch là:",
+        "opts": [
+          "close",
+          "closes",
+          "closeing",
+          "closed"
+        ]
+      },
+      "answer": "close",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là close.",
+      "content_hash": "close|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "close l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "close the room window",
+        "vn_trap": "past tense closed"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "đóng cửa sổ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "close",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "close",
+      "explain_vi": "Điền 'close' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "close|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "close cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "close the room window",
+        "vn_trap": "past tense closed"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "đóng cửa sổ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they closes earlier, they would win.'",
+        "opts": [
+          "If they closed earlier, they would win.",
+          "If they closes earlier, they would win.",
+          "They If they closes earlier, they would win.",
+          "She was closeing when I came yesterday."
+        ]
+      },
+      "answer": "If they closed earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "close|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "close error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "close the room window",
+        "vn_trap": "past tense closed"
+      }
+    },
+    {
+      "lemma": "close",
+      "pos": "v",
+      "sense_vi": "đóng cửa sổ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'close':",
+        "opts": [
+          "close the room window",
+          "close in wrong way",
+          "close without care",
+          "close for nothing"
+        ]
+      },
+      "answer": "close the room window",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: close the room window.",
+      "content_hash": "close|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "close collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "close the room window",
+        "vn_trap": "past tense closed"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "tốn nhiều tiền",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cost (v.)",
+        "opts": [
+          "tốn nhiều tiền",
+          "bay trên trời",
+          "ấn nút mở",
+          "trượt băng nghệ thuật"
+        ]
+      },
+      "answer": "tốn nhiều tiền",
+      "explain_vi": "Động từ cost mang nghĩa chính xác là: tốn nhiều tiền.",
+      "content_hash": "cost|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "cost gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cost a lot of money",
+        "vn_trap": "past tense cost"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "tốn nhiều tiền",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'tốn nhiều tiền', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "cost",
+          "costs",
+          "costing",
+          "re-cost"
+        ]
+      },
+      "answer": "cost",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là cost.",
+      "content_hash": "cost|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "cost l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cost a lot of money",
+        "vn_trap": "past tense cost"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "tốn nhiều tiền",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "cost",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "cost",
+      "explain_vi": "Điền 'cost' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "cost|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "cost cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cost a lot of money",
+        "vn_trap": "past tense cost"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "tốn nhiều tiền",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to cost when she is busy.'",
+        "opts": [
+          "She avoids costing when she is busy.",
+          "She avoids to cost when she is busy.",
+          "They She avoids to cost when she is busy.",
+          "She was costing when I came yesterday."
+        ]
+      },
+      "answer": "She avoids costing when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "cost|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "cost error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cost a lot of money",
+        "vn_trap": "past tense cost"
+      }
+    },
+    {
+      "lemma": "cost",
+      "pos": "v",
+      "sense_vi": "tốn nhiều tiền",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cost':",
+        "opts": [
+          "cost a lot of money",
+          "cost in wrong way",
+          "cost without care",
+          "cost for nothing"
+        ]
+      },
+      "answer": "cost a lot of money",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: cost a lot of money.",
+      "content_hash": "cost|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cost collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cost a lot of money",
+        "vn_trap": "past tense cost"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "đếm từ một",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "count (v.)",
+        "opts": [
+          "đếm từ một",
+          "ép làm việc",
+          "ngăn bệnh tật",
+          "trượt tuyết mùa đông"
+        ]
+      },
+      "answer": "đếm từ một",
+      "explain_vi": "Động từ count mang nghĩa chính xác là: đếm từ một.",
+      "content_hash": "count|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "count gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "count numbers out loud",
+        "vn_trap": "past tense counted"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "đếm từ một",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'đếm từ một' là:",
+        "opts": [
+          "count",
+          "counts",
+          "counting",
+          "counted"
+        ]
+      },
+      "answer": "count",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là count.",
+      "content_hash": "count|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "count l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "count numbers out loud",
+        "vn_trap": "past tense counted"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "đếm từ một",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "count",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "count",
+      "explain_vi": "Điền 'count' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "count|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "count cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "count numbers out loud",
+        "vn_trap": "past tense counted"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "đếm từ một",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at count in public places.'",
+        "opts": [
+          "He is good at counting in public places.",
+          "He is good at count in public places.",
+          "They He is good at count in public places.",
+          "She was counting when I came yesterday."
+        ]
+      },
+      "answer": "He is good at counting in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "count|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "count error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "count numbers out loud",
+        "vn_trap": "past tense counted"
+      }
+    },
+    {
+      "lemma": "count",
+      "pos": "v",
+      "sense_vi": "đếm từ một",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'count':",
+        "opts": [
+          "count numbers out loud",
+          "count in wrong way",
+          "count without care",
+          "count for nothing"
+        ]
+      },
+      "answer": "count numbers out loud",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: count numbers out loud.",
+      "content_hash": "count|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "count collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "count numbers out loud",
+        "vn_trap": "past tense counted"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "che hộp quà",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cover (v.)",
+        "opts": [
+          "che hộp quà",
+          "tạo thành nhóm",
+          "in tài liệu",
+          "trượt dài xuống"
+        ]
+      },
+      "answer": "che hộp quà",
+      "explain_vi": "Động từ cover mang nghĩa chính xác là: che hộp quà.",
+      "content_hash": "cover|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "cover gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cover the gift box",
+        "vn_trap": "past tense covered"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "che hộp quà",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'che hộp quà' là:",
+        "opts": [
+          "cover",
+          "covers",
+          "covering",
+          "covered"
+        ]
+      },
+      "answer": "cover",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là cover.",
+      "content_hash": "cover|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "cover l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cover the gift box",
+        "vn_trap": "past tense covered"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "che hộp quà",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Before you leave, make sure to ___ the door.",
+        "opts": [
+          "cover",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "cover",
+      "explain_vi": "Điền 'cover' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "cover|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "cover cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cover the gift box",
+        "vn_trap": "past tense covered"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "che hộp quà",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite of the rain, she went out to cover.'",
+        "opts": [
+          "Despite the rain, she went out to cover.",
+          "Despite of the rain, she went out to cover.",
+          "They Despite of the rain, she went out to cover.",
+          "She was covering when I came yesterday."
+        ]
+      },
+      "answer": "Despite the rain, she went out to cover.",
+      "explain_vi": "Dùng 'Despite' (không có 'of').",
+      "content_hash": "cover|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "cover error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cover the gift box",
+        "vn_trap": "past tense covered"
+      }
+    },
+    {
+      "lemma": "cover",
+      "pos": "v",
+      "sense_vi": "che hộp quà",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cover':",
+        "opts": [
+          "cover the gift box",
+          "cover in wrong way",
+          "cover without care",
+          "cover for nothing"
+        ]
+      },
+      "answer": "cover the gift box",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: cover the gift box.",
+      "content_hash": "cover|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "cover collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cover the gift box",
+        "vn_trap": "past tense covered"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "băng qua đường",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cross (v.)",
+        "opts": [
+          "băng qua đường",
+          "thu thập dữ liệu",
+          "bảo vệ động vật",
+          "làm chậm lại"
+        ]
+      },
+      "answer": "băng qua đường",
+      "explain_vi": "Động từ cross mang nghĩa chính xác là: băng qua đường.",
+      "content_hash": "cross|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "cross gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cross the busy street",
+        "vn_trap": "past tense crossed"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "băng qua đường",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'băng qua đường', người Anh dùng:",
+        "opts": [
+          "cross",
+          "crosss",
+          "crossing",
+          "crossed"
+        ]
+      },
+      "answer": "cross",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là cross.",
+      "content_hash": "cross|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "cross l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cross the busy street",
+        "vn_trap": "past tense crossed"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "băng qua đường",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love to ___ games in the playground.",
+        "opts": [
+          "cross",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "cross",
+      "explain_vi": "Điền 'cross' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "cross|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "cross cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cross the busy street",
+        "vn_trap": "past tense crossed"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "băng qua đường",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has crosseded the book yesterday evening.'",
+        "opts": [
+          "She crossed the book yesterday evening.",
+          "She has crosseded the book yesterday evening.",
+          "They She has crosseded the book yesterday evening.",
+          "She was crossing when I came yesterday."
+        ]
+      },
+      "answer": "She crossed the book yesterday evening.",
+      "explain_vi": "Quá khứ xác định dùng quá khứ đơn.",
+      "content_hash": "cross|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "cross error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cross the busy street",
+        "vn_trap": "past tense crossed"
+      }
+    },
+    {
+      "lemma": "cross",
+      "pos": "v",
+      "sense_vi": "băng qua đường",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cross':",
+        "opts": [
+          "cross the busy street",
+          "cross in wrong way",
+          "cross without care",
+          "cross for nothing"
+        ]
+      },
+      "answer": "cross the busy street",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: cross the busy street.",
+      "content_hash": "cross|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "cross collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cross the busy street",
+        "vn_trap": "past tense crossed"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "khóc lớn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cry (v.)",
+        "opts": [
+          "khóc lớn",
+          "treo bức tranh",
+          "chứng minh ý kiến",
+          "giải bài toán"
+        ]
+      },
+      "answer": "khóc lớn",
+      "explain_vi": "Động từ cry mang nghĩa chính xác là: khóc lớn.",
+      "content_hash": "cry|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "cry gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cry out loud in pain",
+        "vn_trap": "past tense cried"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "khóc lớn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'khóc lớn' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "cry",
+          "crys",
+          "crying",
+          "cried"
+        ]
+      },
+      "answer": "cry",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là cry.",
+      "content_hash": "cry|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "cry l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cry out loud in pain",
+        "vn_trap": "past tense cried"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "khóc lớn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "During the lesson, please ___ to the teacher.",
+        "opts": [
+          "cry",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "cry",
+      "explain_vi": "Điền 'cry' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "cry|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "cry cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cry out loud in pain",
+        "vn_trap": "past tense cried"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "khóc lớn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He remembered to crying the door before leaving.'",
+        "opts": [
+          "He remembered to cry the door before leaving.",
+          "He remembered to crying the door before leaving.",
+          "They He remembered to crying the door before leaving.",
+          "She was crying when I came yesterday."
+        ]
+      },
+      "answer": "He remembered to cry the door before leaving.",
+      "explain_vi": "Nhớ phải làm gì dùng 'remember to V'.",
+      "content_hash": "cry|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "cry error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cry out loud in pain",
+        "vn_trap": "past tense cried"
+      }
+    },
+    {
+      "lemma": "cry",
+      "pos": "v",
+      "sense_vi": "khóc lớn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cry':",
+        "opts": [
+          "cry out loud in pain",
+          "cry in wrong way",
+          "cry without care",
+          "cry for nothing"
+        ]
+      },
+      "answer": "cry out loud in pain",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: cry out loud in pain.",
+      "content_hash": "cry|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "cry collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cry out loud in pain",
+        "vn_trap": "past tense cried"
+      }
+    }
+  ]
+}

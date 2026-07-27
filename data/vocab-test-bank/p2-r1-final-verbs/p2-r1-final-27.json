@@ -1,0 +1,1041 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-27",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "base",
+    "belong",
+    "blame",
+    "borrow",
+    "breathe",
+    "burn",
+    "cancel"
+  ],
+  "items": [
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "dựa trên thực tế",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "base (v.)",
+        "opts": [
+          "dựa trên thực tế",
+          "cố gắng làm",
+          "dẫn đường",
+          "kiểm tra đáp án"
+        ]
+      },
+      "answer": "dựa trên thực tế",
+      "explain_vi": "Động từ base mang nghĩa chính xác là: dựa trên thực tế.",
+      "content_hash": "base|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "base gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "base on true facts",
+        "vn_trap": "past tense based"
+      }
+    },
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "dựa trên thực tế",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'dựa trên thực tế' là:",
+        "opts": [
+          "base",
+          "bases",
+          "baseing",
+          "based"
+        ]
+      },
+      "answer": "base",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là base.",
+      "content_hash": "base|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "base l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "base on true facts",
+        "vn_trap": "past tense based"
+      }
+    },
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "dựa trên thực tế",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "base",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "base",
+      "explain_vi": "Điền 'base' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "base|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "base cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "base on true facts",
+        "vn_trap": "past tense based"
+      }
+    },
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "dựa trên thực tế",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She bases the exercise very slow yesterday.'",
+        "opts": [
+          "She based the exercise very slowly yesterday.",
+          "She bases the exercise very slow yesterday.",
+          "They She bases the exercise very slow yesterday.",
+          "She was baseing when I came yesterday."
+        ]
+      },
+      "answer": "She based the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "base|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "base error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "base on true facts",
+        "vn_trap": "past tense based"
+      }
+    },
+    {
+      "lemma": "base",
+      "pos": "v",
+      "sense_vi": "dựa trên thực tế",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'base':",
+        "opts": [
+          "base on true facts",
+          "base in wrong way",
+          "base without care",
+          "base for nothing"
+        ]
+      },
+      "answer": "base on true facts",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: base on true facts.",
+      "content_hash": "base|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "base collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "base on true facts",
+        "vn_trap": "past tense based"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "thuộc về tôi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "belong (v.)",
+        "opts": [
+          "thuộc về tôi",
+          "hỏi câu hỏi",
+          "hiểu bài giảng",
+          "chọn đáp án"
+        ]
+      },
+      "answer": "thuộc về tôi",
+      "explain_vi": "Động từ belong mang nghĩa chính xác là: thuộc về tôi.",
+      "content_hash": "belong|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "belong gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "belong to my family",
+        "vn_trap": "past tense belonged"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "thuộc về tôi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'thuộc về tôi' là:",
+        "opts": [
+          "belong",
+          "belongs",
+          "belonging",
+          "belonged"
+        ]
+      },
+      "answer": "belong",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là belong.",
+      "content_hash": "belong|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "belong l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "belong to my family",
+        "vn_trap": "past tense belonged"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "thuộc về tôi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "belong",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "belong",
+      "explain_vi": "Điền 'belong' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "belong|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "belong cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "belong to my family",
+        "vn_trap": "past tense belonged"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "thuộc về tôi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was belonging when the lights went out.'",
+        "opts": [
+          "They were belonging when the lights went out.",
+          "They was belonging when the lights went out.",
+          "They They was belonging when the lights went out.",
+          "She was belonging when I came yesterday."
+        ]
+      },
+      "answer": "They were belonging when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "belong|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "belong error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "belong to my family",
+        "vn_trap": "past tense belonged"
+      }
+    },
+    {
+      "lemma": "belong",
+      "pos": "v",
+      "sense_vi": "thuộc về tôi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'belong':",
+        "opts": [
+          "belong to my family",
+          "belong in wrong way",
+          "belong without care",
+          "belong for nothing"
+        ]
+      },
+      "answer": "belong to my family",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: belong to my family.",
+      "content_hash": "belong|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "belong collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "belong to my family",
+        "vn_trap": "past tense belonged"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "đổ lỗi cho ai",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "blame (v.)",
+        "opts": [
+          "đổ lỗi cho ai",
+          "cảm thấy vui",
+          "xem phim",
+          "bắt xe buýt"
+        ]
+      },
+      "answer": "đổ lỗi cho ai",
+      "explain_vi": "Động từ blame mang nghĩa chính xác là: đổ lỗi cho ai.",
+      "content_hash": "blame|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "blame gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "blame someone for failure",
+        "vn_trap": "past tense blamed"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "đổ lỗi cho ai",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'đổ lỗi cho ai', người Anh dùng:",
+        "opts": [
+          "blame",
+          "blames",
+          "blameing",
+          "blamed"
+        ]
+      },
+      "answer": "blame",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là blame.",
+      "content_hash": "blame|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "blame l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "blame someone for failure",
+        "vn_trap": "past tense blamed"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "đổ lỗi cho ai",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "blame",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "blame",
+      "explain_vi": "Điền 'blame' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "blame|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "blame cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "blame someone for failure",
+        "vn_trap": "past tense blamed"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "đổ lỗi cho ai",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He blames without check the answers first.'",
+        "opts": [
+          "He blamed without checking the answers first.",
+          "He blames without check the answers first.",
+          "They He blames without check the answers first.",
+          "She was blameing when I came yesterday."
+        ]
+      },
+      "answer": "He blamed without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "blame|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "blame error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "blame someone for failure",
+        "vn_trap": "past tense blamed"
+      }
+    },
+    {
+      "lemma": "blame",
+      "pos": "v",
+      "sense_vi": "đổ lỗi cho ai",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'blame':",
+        "opts": [
+          "blame someone for failure",
+          "blame in wrong way",
+          "blame without care",
+          "blame for nothing"
+        ]
+      },
+      "answer": "blame someone for failure",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: blame someone for failure.",
+      "content_hash": "blame|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "blame collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "blame someone for failure",
+        "vn_trap": "past tense blamed"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "mượn cuốn sách",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "borrow (v.)",
+        "opts": [
+          "mượn cuốn sách",
+          "trở thành bác sĩ",
+          "theo hướng dẫn",
+          "vẽ bức tranh"
+        ]
+      },
+      "answer": "mượn cuốn sách",
+      "explain_vi": "Động từ borrow mang nghĩa chính xác là: mượn cuốn sách.",
+      "content_hash": "borrow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "borrow gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "borrow a library book",
+        "vn_trap": "past tense borrowed"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "mượn cuốn sách",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'mượn cuốn sách' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "borrow",
+          "borrows",
+          "borrowing",
+          "borrowed"
+        ]
+      },
+      "answer": "borrow",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là borrow.",
+      "content_hash": "borrow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "borrow l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "borrow a library book",
+        "vn_trap": "past tense borrowed"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "mượn cuốn sách",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "borrow",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "borrow",
+      "explain_vi": "Điền 'borrow' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "borrow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "borrow cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "borrow a library book",
+        "vn_trap": "past tense borrowed"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "mượn cuốn sách",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is borrowing since last year.'",
+        "opts": [
+          "She has been borrowing since last year.",
+          "She is borrowing since last year.",
+          "They She is borrowing since last year.",
+          "She was borrowing when I came yesterday."
+        ]
+      },
+      "answer": "She has been borrowing since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "borrow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "borrow error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "borrow a library book",
+        "vn_trap": "past tense borrowed"
+      }
+    },
+    {
+      "lemma": "borrow",
+      "pos": "v",
+      "sense_vi": "mượn cuốn sách",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'borrow':",
+        "opts": [
+          "borrow a library book",
+          "borrow in wrong way",
+          "borrow without care",
+          "borrow for nothing"
+        ]
+      },
+      "answer": "borrow a library book",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: borrow a library book.",
+      "content_hash": "borrow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "borrow collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "borrow a library book",
+        "vn_trap": "past tense borrowed"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "thở sâu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "breathe (v.)",
+        "opts": [
+          "thở sâu",
+          "rời khỏi nhà",
+          "dừng xe",
+          "điền thông tin"
+        ]
+      },
+      "answer": "thở sâu",
+      "explain_vi": "Động từ breathe mang nghĩa chính xác là: thở sâu.",
+      "content_hash": "breathe|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "breathe gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "breathe fresh morning air",
+        "vn_trap": "past tense breathed"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "thở sâu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'thở sâu', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "breathe",
+          "breathes",
+          "breatheing",
+          "breathed"
+        ]
+      },
+      "answer": "breathe",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là breathe.",
+      "content_hash": "breathe|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "breathe l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "breathe fresh morning air",
+        "vn_trap": "past tense breathed"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "thở sâu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "breathe",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "breathe",
+      "explain_vi": "Điền 'breathe' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "breathe|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "breathe cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "breathe fresh morning air",
+        "vn_trap": "past tense breathed"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "thở sâu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they breathes earlier, they would win.'",
+        "opts": [
+          "If they breathed earlier, they would win.",
+          "If they breathes earlier, they would win.",
+          "They If they breathes earlier, they would win.",
+          "She was breatheing when I came yesterday."
+        ]
+      },
+      "answer": "If they breathed earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "breathe|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "breathe error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "breathe fresh morning air",
+        "vn_trap": "past tense breathed"
+      }
+    },
+    {
+      "lemma": "breathe",
+      "pos": "v",
+      "sense_vi": "thở sâu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'breathe':",
+        "opts": [
+          "breathe fresh morning air",
+          "breathe in wrong way",
+          "breathe without care",
+          "breathe for nothing"
+        ]
+      },
+      "answer": "breathe fresh morning air",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: breathe fresh morning air.",
+      "content_hash": "breathe|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "breathe collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "breathe fresh morning air",
+        "vn_trap": "past tense breathed"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "đốt củi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "burn (v.)",
+        "opts": [
+          "đốt củi",
+          "đặt cuốn sách",
+          "tạo tài khoản",
+          "sửa xe đạp"
+        ]
+      },
+      "answer": "đốt củi",
+      "explain_vi": "Động từ burn mang nghĩa chính xác là: đốt củi.",
+      "content_hash": "burn|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "burn gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "burn dry wood fire",
+        "vn_trap": "past tense burned"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "đốt củi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'đốt củi' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "burn",
+          "burns",
+          "burning",
+          "burned"
+        ]
+      },
+      "answer": "burn",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là burn.",
+      "content_hash": "burn|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "burn l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "burn dry wood fire",
+        "vn_trap": "past tense burned"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "đốt củi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "burn",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "burn",
+      "explain_vi": "Điền 'burn' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "burn|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "burn cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "burn dry wood fire",
+        "vn_trap": "past tense burned"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "đốt củi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to burn when she is busy.'",
+        "opts": [
+          "She avoids burning when she is busy.",
+          "She avoids to burn when she is busy.",
+          "They She avoids to burn when she is busy.",
+          "She was burning when I came yesterday."
+        ]
+      },
+      "answer": "She avoids burning when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "burn|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "burn error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "burn dry wood fire",
+        "vn_trap": "past tense burned"
+      }
+    },
+    {
+      "lemma": "burn",
+      "pos": "v",
+      "sense_vi": "đốt củi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'burn':",
+        "opts": [
+          "burn dry wood fire",
+          "burn in wrong way",
+          "burn without care",
+          "burn for nothing"
+        ]
+      },
+      "answer": "burn dry wood fire",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: burn dry wood fire.",
+      "content_hash": "burn|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "burn collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "burn dry wood fire",
+        "vn_trap": "past tense burned"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "hủy cuộc họp",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cancel (v.)",
+        "opts": [
+          "hủy cuộc họp",
+          "có nghĩa là",
+          "cho phép ra ngoài",
+          "quên tên"
+        ]
+      },
+      "answer": "hủy cuộc họp",
+      "explain_vi": "Động từ cancel mang nghĩa chính xác là: hủy cuộc họp.",
+      "content_hash": "cancel|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "cancel gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cancel the flight ticket",
+        "vn_trap": "past tense canceled"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "hủy cuộc họp",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'hủy cuộc họp', từ tiếng Anh đúng là:",
+        "opts": [
+          "cancel",
+          "cancels",
+          "canceling",
+          "canceled"
+        ]
+      },
+      "answer": "cancel",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là cancel.",
+      "content_hash": "cancel|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "cancel l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cancel the flight ticket",
+        "vn_trap": "past tense canceled"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "hủy cuộc họp",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "cancel",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "cancel",
+      "explain_vi": "Điền 'cancel' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "cancel|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "cancel cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cancel the flight ticket",
+        "vn_trap": "past tense canceled"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "hủy cuộc họp",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at cancel in public places.'",
+        "opts": [
+          "He is good at canceling in public places.",
+          "He is good at cancel in public places.",
+          "They He is good at cancel in public places.",
+          "She was canceling when I came yesterday."
+        ]
+      },
+      "answer": "He is good at canceling in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "cancel|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "cancel error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cancel the flight ticket",
+        "vn_trap": "past tense canceled"
+      }
+    },
+    {
+      "lemma": "cancel",
+      "pos": "v",
+      "sense_vi": "hủy cuộc họp",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cancel':",
+        "opts": [
+          "cancel the flight ticket",
+          "cancel in wrong way",
+          "cancel without care",
+          "cancel for nothing"
+        ]
+      },
+      "answer": "cancel the flight ticket",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: cancel the flight ticket.",
+      "content_hash": "cancel|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "cancel collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cancel the flight ticket",
+        "vn_trap": "past tense canceled"
+      }
+    }
+  ]
+}

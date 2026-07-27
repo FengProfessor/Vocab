@@ -1,5 +1,6 @@
 'use client';
 import { useCallback, useEffect, useState } from 'react';
+import { effectiveCurrentStreak } from '@/lib/gamification';
 import { supabase } from '@/lib/supabase';
 import type { UserGamification } from '@/lib/supabase';
 
@@ -14,6 +15,14 @@ const DEFAULT: UserGamification = {
   today_date: null,
 };
 
+/** current_streak hiển thị = chuỗi liên tiếp còn sống (0 nếu đã gãy, không phải tổng ngày học). */
+function normalizeGamification(row: UserGamification): UserGamification {
+  return {
+    ...row,
+    current_streak: effectiveCurrentStreak(row.current_streak, row.last_active_date),
+  };
+}
+
 export function useGamification(userId: string | null) {
   const [data, setData] = useState<UserGamification>(DEFAULT);
   const [loading, setLoading] = useState(true);
@@ -25,7 +34,7 @@ export function useGamification(userId: string | null) {
       .select('*')
       .eq('user_id', userId)
       .single();
-    if (row) setData(row as UserGamification);
+    if (row) setData(normalizeGamification(row as UserGamification));
   }, [userId]);
 
   useEffect(() => {
@@ -44,7 +53,7 @@ export function useGamification(userId: string | null) {
       .single()
       .then(({ data: row }) => {
         if (cancelled) return;
-        if (row) setData(row as UserGamification);
+        if (row) setData(normalizeGamification(row as UserGamification));
         setLoading(false);
       });
     return () => { cancelled = true; clearTimeout(startTimer); };

@@ -1,0 +1,51 @@
+◇ injected env (44) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+◇ injected env (0) from .env.local // tip: ⌘ enable debugging { debug: true }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "drain" → senses=3 syn=6 dist=2
+   #1: cống, ống thoát nước | The water flowed down the drain in the middle of the road.
+[2/1000] "drama" → senses=3 syn=5 dist=1
+   #1: Kịch, phim truyền hình | She studied drama at college.
+[3/1000] "dream" → senses=3 syn=5 dist=2
+   #1: giấc mơ | I had a strange dream about flying last night.
+[4/1000] "dress" → senses=3 syn=5 dist=2
+   #1: váy, đầm | She wore a beautiful red dress to the party.
+[5/1000] "drift" → senses=3 syn=6 dist=1
+   #1: trôi dạt, trôi theo | The empty boat drifted slowly toward the shore.
+[6/1000] "drill"◇ injected env (44) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+◇ injected env (0) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+05:26:19 ══════════════════════════════════════════════
+05:26:19  GLM-5.2 core_senses backfill (Oxford-style)
+05:26:19  model=glm-5.2 forever=false shard=0/1
+05:26:19  base=https://open.bigmodel.cn/api/paas/v4 dry=false force=false limit=1000 delay=300
+05:26:19 ══════════════════════════════════════════════
+05:26:19 Smoke test GLM...
+05:26:22 Smoke OK {"ok":true}
+05:26:27 round fetch=1000 shard=0/1
+05:26:42 [1/1000] ✓ eager · háo hức, mong chờ | The children were eager to open their presents on Christmas morning.
+◇ injected env (44) from .env.local // tip: ⌘ override existing { override: true }
+◇ injected env (0) from .env.local // tip: ◈ encrypted .env [www.dotenvx.com]
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+05:27:16 ══════════════════════════════════════════════
+05:27:16  GLM-5.2 core_senses backfill (Oxford-style)
+05:27:16  model=glm-5.2 forever=false shard=0/1
+05:27:16  base=https://open.bigmodel.cn/api/paas/v4 dry=false force=false limit=1000 delay=300
+05:27:16 ══════════════════════════════════════════════
+05:27:16 Smoke test GLM...
+05:27:18 Smoke OK {"ok":true}
+05:27:21 round fetch=1000 shard=0/1
+05:27:52 [1/1000] ✓ early · sớm, đầu thời gian | She took an early train to London.
+05:28:16 [2/1000] ✓ earth · hành tinh Trái Đất | The earth travels around the sun once a year.
+05:28:32 [3/1000] ✓ edema · y khoa - sưng phù | The patient developed edema in both legs after surgery.
+05:28:49 [4/1000] ✓ eight · số đếm | My daughter is eight years old.
+05:29:17 [5/1000] ✓ eject · đuổi ra, trục xuất | Security guards ejected the disruptive fan from the stadium.

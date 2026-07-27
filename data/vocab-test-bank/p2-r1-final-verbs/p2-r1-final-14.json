@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-14",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "fly",
+    "force",
+    "form",
+    "gather",
+    "hang",
+    "hide",
+    "hit",
+    "hurt",
+    "imagine",
+    "improve"
+  ],
+  "items": [
+    {
+      "lemma": "fly",
+      "pos": "v",
+      "sense_vi": "bay trên trời",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fly (v.)",
+        "opts": [
+          "bay trên trời",
+          "đặt đồ xuống",
+          "tin cậy vào bạn",
+          "phù hợp kích thước"
+        ]
+      },
+      "answer": "bay trên trời",
+      "explain_vi": "Động từ fly mang nghĩa chính xác là: bay trên trời.",
+      "content_hash": "fly|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "fly gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fly in the blue sky",
+        "vn_trap": "past tense flew"
+      }
+    },
+    {
+      "lemma": "fly",
+      "pos": "v",
+      "sense_vi": "bay trên trời",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'bay trên trời', người Anh dùng:",
+        "opts": [
+          "fly",
+          "flys",
+          "flying",
+          "flew"
+        ]
+      },
+      "answer": "fly",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là fly.",
+      "content_hash": "fly|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "fly l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fly in the blue sky",
+        "vn_trap": "past tense flew"
+      }
+    },
+    {
+      "lemma": "fly",
+      "pos": "v",
+      "sense_vi": "bay trên trời",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Keep working hard to ___ your dreams in life.",
+        "opts": [
+          "fly",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "fly",
+      "explain_vi": "Điền 'fly' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "fly|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "fly cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fly in the blue sky",
+        "vn_trap": "past tense flew"
+      }
+    },
+    {
+      "lemma": "fly",
+      "pos": "v",
+      "sense_vi": "bay trên trời",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She flys the song very beautiful yesterday.'",
+        "opts": [
+          "She flew the song very beautifully yesterday.",
+          "She flys the song very beautiful yesterday.",
+          "They She flys the song very beautiful yesterday.",
+          "She was flying when I came yesterday."
+        ]
+      },
+      "answer": "She flew the song very beautifully yesterday.",
+      "explain_vi": "Trạng từ 'beautifully' bổ nghĩa cho động từ.",
+      "content_hash": "fly|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "fly error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fly in the blue sky",
+        "vn_trap": "past tense flew"
+      }
+    },
+    {
+      "lemma": "fly",
+      "pos": "v",
+      "sense_vi": "bay trên trời",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'fly':",
+        "opts": [
+          "fly in the blue sky",
+          "fly in wrong way",
+          "fly without care",
+          "fly for nothing"
+        ]
+      },
+      "answer": "fly in the blue sky",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: fly in the blue sky.",
+      "content_hash": "fly|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "fly collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fly in the blue sky",
+        "vn_trap": "past tense flew"
+      }
+    },
+    {
+      "lemma": "force",
+      "pos": "v",
+      "sense_vi": "ép làm việc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "force (v.)",
+        "opts": [
+          "ép làm việc",
+          "nằm nghỉ ngơi",
+          "gỡ nhãn dán",
+          "hỗ trợ đồng đội"
+        ]
+      },
+      "answer": "ép làm việc",
+      "explain_vi": "Động từ force mang nghĩa chính xác là: ép làm việc.",
+      "content_hash": "force|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "force gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "force someone to work",
+        "vn_trap": "past tense forced"
+      }
+    },
+    {
+      "lemma": "force",
+      "pos": "v",
+      "sense_vi": "ép làm việc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'ép làm việc' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "force",
+          "forces",
+          "forceing",
+          "forced"
+        ]
+      },
+      "answer": "force",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là force.",
+      "content_hash": "force|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "force l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "force someone to work",
+        "vn_trap": "past tense forced"
+      }
+    },
+    {
+      "lemma": "force",
+      "pos": "v",
+      "sense_vi": "ép làm việc",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Learning how to ___ a foreign language takes time.",
+        "opts": [
+          "force",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "force",
+      "explain_vi": "Điền 'force' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "force|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "force cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "force someone to work",
+        "vn_trap": "past tense forced"
+      }
+    },
+    {
+      "lemma": "force",
+      "pos": "v",
+      "sense_vi": "ép làm việc",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was forceing when I arrived home.'",
+        "opts": [
+          "They were forceing when I arrived home.",
+          "They was forceing when I arrived home.",
+          "They They was forceing when I arrived home.",
+          "She was forceing when I came yesterday."
+        ]
+      },
+      "answer": "They were forceing when I arrived home.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were'.",
+      "content_hash": "force|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "force error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "force someone to work",
+        "vn_trap": "past tense forced"
+      }
+    },
+    {
+      "lemma": "force",
+      "pos": "v",
+      "sense_vi": "ép làm việc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'force':",
+        "opts": [
+          "force someone to work",
+          "force in wrong way",
+          "force without care",
+          "force for nothing"
+        ]
+      },
+      "answer": "force someone to work",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: force someone to work.",
+      "content_hash": "force|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "force collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "force someone to work",
+        "vn_trap": "past tense forced"
+      }
+    },
+    {
+      "lemma": "form",
+      "pos": "v",
+      "sense_vi": "tạo thành nhóm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "form (v.)",
+        "opts": [
+          "tạo thành nhóm",
+          "nâng vật nặng",
+          "thuê căn hộ",
+          "cho rằng đúng"
+        ]
+      },
+      "answer": "tạo thành nhóm",
+      "explain_vi": "Động từ form mang nghĩa chính xác là: tạo thành nhóm.",
+      "content_hash": "form|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "form gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "form a new team",
+        "vn_trap": "past tense formed"
+      }
+    },
+    {
+      "lemma": "form",
+      "pos": "v",
+      "sense_vi": "tạo thành nhóm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'tạo thành nhóm', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "form",
+          "forms",
+          "forming",
+          "formed"
+        ]
+      },
+      "answer": "form",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là form.",
+      "content_hash": "form|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "form l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "form a new team",
+        "vn_trap": "past tense formed"
+      }
+    },
+    {
+      "lemma": "form",
+      "pos": "v",
+      "sense_vi": "tạo thành nhóm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Many people choose to ___ abroad during summer.",
+        "opts": [
+          "form",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "form",
+      "explain_vi": "Điền 'form' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "form|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "form cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "form a new team",
+        "vn_trap": "past tense formed"
+      }
+    },
+    {
+      "lemma": "form",
+      "pos": "v",
+      "sense_vi": "tạo thành nhóm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He forms without ask for permission.'",
+        "opts": [
+          "He formed without asking for permission.",
+          "He forms without ask for permission.",
+          "They He forms without ask for permission.",
+          "She was forming when I came yesterday."
+        ]
+      },
+      "answer": "He formed without asking for permission.",
+      "explain_vi": "Sau giới từ 'without' cần V-ing.",
+      "content_hash": "form|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "form error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "form a new team",
+        "vn_trap": "past tense formed"
+      }
+    },
+    {
+      "lemma": "form",
+      "pos": "v",
+      "sense_vi": "tạo thành nhóm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'form':",
+        "opts": [
+          "form a new team",
+          "form in wrong way",
+          "form without care",
+          "form for nothing"
+        ]
+      },
+      "answer": "form a new team",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: form a new team.",
+      "content_hash": "form|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "form collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "form a new team",
+        "vn_trap": "past tense formed"
+      }
+    },
+    {
+      "lemma": "gather",
+      "pos": "v",
+      "sense_vi": "thu thập dữ liệu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "gather (v.)",
+        "opts": [
+          "thu thập dữ liệu",
+          "thắp ngọn nến",
+          "sửa xe đạp",
+          "sống sót qua bão"
+        ]
+      },
+      "answer": "thu thập dữ liệu",
+      "explain_vi": "Động từ gather mang nghĩa chính xác là: thu thập dữ liệu.",
+      "content_hash": "gather|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "gather gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "gather together at night",
+        "vn_trap": "past tense gathered"
+      }
+    },
+    {
+      "lemma": "gather",
+      "pos": "v",
+      "sense_vi": "thu thập dữ liệu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'thu thập dữ liệu' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "gather",
+          "gathers",
+          "gathering",
+          "gathered"
+        ]
+      },
+      "answer": "gather",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là gather.",
+      "content_hash": "gather|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "gather l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "gather together at night",
+        "vn_trap": "past tense gathered"
+      }
+    },
+    {
+      "lemma": "gather",
+      "pos": "v",
+      "sense_vi": "thu thập dữ liệu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Never hesitate to ___ for help when you need it.",
+        "opts": [
+          "gather",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "gather",
+      "explain_vi": "Điền 'gather' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "gather|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "gather cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "gather together at night",
+        "vn_trap": "past tense gathered"
+      }
+    },
+    {
+      "lemma": "gather",
+      "pos": "v",
+      "sense_vi": "thu thập dữ liệu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is gathering since early this morning.'",
+        "opts": [
+          "She has been gathering since early this morning.",
+          "She is gathering since early this morning.",
+          "They She is gathering since early this morning.",
+          "She was gathering when I came yesterday."
+        ]
+      },
+      "answer": "She has been gathering since early this morning.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "gather|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "gather error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "gather together at night",
+        "vn_trap": "past tense gathered"
+      }
+    },
+    {
+      "lemma": "gather",
+      "pos": "v",
+      "sense_vi": "thu thập dữ liệu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'gather':",
+        "opts": [
+          "gather together at night",
+          "gather in wrong way",
+          "gather without care",
+          "gather for nothing"
+        ]
+      },
+      "answer": "gather together at night",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: gather together at night.",
+      "content_hash": "gather|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "gather collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "gather together at night",
+        "vn_trap": "past tense gathered"
+      }
+    },
+    {
+      "lemma": "hang",
+      "pos": "v",
+      "sense_vi": "treo bức tranh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hang (v.)",
+        "opts": [
+          "treo bức tranh",
+          "khóa cửa phòng",
+          "thay thế linh kiện",
+          "bơi dưới biển"
+        ]
+      },
+      "answer": "treo bức tranh",
+      "explain_vi": "Động từ hang mang nghĩa chính xác là: treo bức tranh.",
+      "content_hash": "hang|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "hang gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hang on the wall",
+        "vn_trap": "past tense hung"
+      }
+    },
+    {
+      "lemma": "hang",
+      "pos": "v",
+      "sense_vi": "treo bức tranh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'treo bức tranh', từ tiếng Anh đúng là:",
+        "opts": [
+          "hang",
+          "hangs",
+          "hanging",
+          "hung"
+        ]
+      },
+      "answer": "hang",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hang.",
+      "content_hash": "hang|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "hang l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hang on the wall",
+        "vn_trap": "past tense hung"
+      }
+    },
+    {
+      "lemma": "hang",
+      "pos": "v",
+      "sense_vi": "treo bức tranh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Our team hopes to ___ the championship match.",
+        "opts": [
+          "hang",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "hang",
+      "explain_vi": "Điền 'hang' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "hang|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "hang cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hang on the wall",
+        "vn_trap": "past tense hung"
+      }
+    },
+    {
+      "lemma": "hang",
+      "pos": "v",
+      "sense_vi": "treo bức tranh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If she hangs more, she would succeed.'",
+        "opts": [
+          "If she hung more, she would succeed.",
+          "If she hangs more, she would succeed.",
+          "They If she hangs more, she would succeed.",
+          "She was hanging when I came yesterday."
+        ]
+      },
+      "answer": "If she hung more, she would succeed.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "hang|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "hang error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hang on the wall",
+        "vn_trap": "past tense hung"
+      }
+    },
+    {
+      "lemma": "hang",
+      "pos": "v",
+      "sense_vi": "treo bức tranh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hang':",
+        "opts": [
+          "hang on the wall",
+          "hang in wrong way",
+          "hang without care",
+          "hang for nothing"
+        ]
+      },
+      "answer": "hang on the wall",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hang on the wall.",
+      "content_hash": "hang|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "hang collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hang on the wall",
+        "vn_trap": "past tense hung"
+      }
+    },
+    {
+      "lemma": "hide",
+      "pos": "v",
+      "sense_vi": "trốn dưới giường",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hide (v.)",
+        "opts": [
+          "trốn dưới giường",
+          "quản lý công việc",
+          "trả lời tin nhắn",
+          "bật tắt đèn"
+        ]
+      },
+      "answer": "trốn dưới giường",
+      "explain_vi": "Động từ hide mang nghĩa chính xác là: trốn dưới giường.",
+      "content_hash": "hide|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "hide gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hide under the bed",
+        "vn_trap": "past tense hid"
+      }
+    },
+    {
+      "lemma": "hide",
+      "pos": "v",
+      "sense_vi": "trốn dưới giường",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'trốn dưới giường' là:",
+        "opts": [
+          "hide",
+          "hides",
+          "hideing",
+          "hid"
+        ]
+      },
+      "answer": "hide",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hide.",
+      "content_hash": "hide|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "hide l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hide under the bed",
+        "vn_trap": "past tense hid"
+      }
+    },
+    {
+      "lemma": "hide",
+      "pos": "v",
+      "sense_vi": "trốn dưới giường",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please feel free to ___ your thoughts with us.",
+        "opts": [
+          "hide",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "hide",
+      "explain_vi": "Điền 'hide' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "hide|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "hide cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hide under the bed",
+        "vn_trap": "past tense hid"
+      }
+    },
+    {
+      "lemma": "hide",
+      "pos": "v",
+      "sense_vi": "trốn dưới giường",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She loves to hideing every afternoon.'",
+        "opts": [
+          "She loves to hide every afternoon.",
+          "She loves to hideing every afternoon.",
+          "They She loves to hideing every afternoon.",
+          "She was hideing when I came yesterday."
+        ]
+      },
+      "answer": "She loves to hide every afternoon.",
+      "explain_vi": "Sau 'to' dùng động từ nguyên mẫu.",
+      "content_hash": "hide|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "hide error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hide under the bed",
+        "vn_trap": "past tense hid"
+      }
+    },
+    {
+      "lemma": "hide",
+      "pos": "v",
+      "sense_vi": "trốn dưới giường",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hide':",
+        "opts": [
+          "hide under the bed",
+          "hide in wrong way",
+          "hide without care",
+          "hide for nothing"
+        ]
+      },
+      "answer": "hide under the bed",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hide under the bed.",
+      "content_hash": "hide|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "hide collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hide under the bed",
+        "vn_trap": "past tense hid"
+      }
+    },
+    {
+      "lemma": "hit",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hit (v.)",
+        "opts": [
+          "đánh quả bóng",
+          "kết hôn năm nay",
+          "đại diện công ty",
+          "nếm thử thức ăn"
+        ]
+      },
+      "answer": "đánh quả bóng",
+      "explain_vi": "Động từ hit mang nghĩa chính xác là: đánh quả bóng.",
+      "content_hash": "hit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "hit gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hit the tennis ball",
+        "vn_trap": "past tense hit"
+      }
+    },
+    {
+      "lemma": "hit",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'đánh quả bóng' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "hit",
+          "hits",
+          "hiting",
+          "re-hit"
+        ]
+      },
+      "answer": "hit",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hit.",
+      "content_hash": "hit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "hit l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hit the tennis ball",
+        "vn_trap": "past tense hit"
+      }
+    },
+    {
+      "lemma": "hit",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Quietly step inside so you don't ___ the baby.",
+        "opts": [
+          "hit",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "hit",
+      "explain_vi": "Điền 'hit' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "hit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "hit cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hit the tennis ball",
+        "vn_trap": "past tense hit"
+      }
+    },
+    {
+      "lemma": "hit",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is bored with hit the same thing.'",
+        "opts": [
+          "He is bored with hiting the same thing.",
+          "He is bored with hit the same thing.",
+          "They He is bored with hit the same thing.",
+          "She was hiting when I came yesterday."
+        ]
+      },
+      "answer": "He is bored with hiting the same thing.",
+      "explain_vi": "Sau giới từ 'with' dùng V-ing.",
+      "content_hash": "hit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "hit error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hit the tennis ball",
+        "vn_trap": "past tense hit"
+      }
+    },
+    {
+      "lemma": "hit",
+      "pos": "v",
+      "sense_vi": "đánh quả bóng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hit':",
+        "opts": [
+          "hit the tennis ball",
+          "hit in wrong way",
+          "hit without care",
+          "hit for nothing"
+        ]
+      },
+      "answer": "hit the tennis ball",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hit the tennis ball.",
+      "content_hash": "hit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "hit collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hit the tennis ball",
+        "vn_trap": "past tense hit"
+      }
+    },
+    {
+      "lemma": "hurt",
+      "pos": "v",
+      "sense_vi": "đau chân",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hurt (v.)",
+        "opts": [
+          "đau chân",
+          "đo chiều dài",
+          "yêu cầu hỗ trợ",
+          "có xu hướng thích"
+        ]
+      },
+      "answer": "đau chân",
+      "explain_vi": "Động từ hurt mang nghĩa chính xác là: đau chân.",
+      "content_hash": "hurt|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "hurt gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hurt left leg badly",
+        "vn_trap": "past tense hurt"
+      }
+    },
+    {
+      "lemma": "hurt",
+      "pos": "v",
+      "sense_vi": "đau chân",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'đau chân' là:",
+        "opts": [
+          "hurt",
+          "hurts",
+          "hurting",
+          "re-hurt"
+        ]
+      },
+      "answer": "hurt",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hurt.",
+      "content_hash": "hurt|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "hurt l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hurt left leg badly",
+        "vn_trap": "past tense hurt"
+      }
+    },
+    {
+      "lemma": "hurt",
+      "pos": "v",
+      "sense_vi": "đau chân",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ the lights before going to bed.",
+        "opts": [
+          "hurt",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "hurt",
+      "explain_vi": "Điền 'hurt' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "hurt|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "hurt cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hurt left leg badly",
+        "vn_trap": "past tense hurt"
+      }
+    },
+    {
+      "lemma": "hurt",
+      "pos": "v",
+      "sense_vi": "đau chân",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'In spite of she was ill, she went to hurt.'",
+        "opts": [
+          "Although she was ill, she went to hurt.",
+          "In spite of she was ill, she went to hurt.",
+          "They In spite of she was ill, she went to hurt.",
+          "She was hurting when I came yesterday."
+        ]
+      },
+      "answer": "Although she was ill, she went to hurt.",
+      "explain_vi": "Dùng 'Although' thay cho 'In spite of' trước mệnh đề.",
+      "content_hash": "hurt|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "hurt error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hurt left leg badly",
+        "vn_trap": "past tense hurt"
+      }
+    },
+    {
+      "lemma": "hurt",
+      "pos": "v",
+      "sense_vi": "đau chân",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hurt':",
+        "opts": [
+          "hurt left leg badly",
+          "hurt in wrong way",
+          "hurt without care",
+          "hurt for nothing"
+        ]
+      },
+      "answer": "hurt left leg badly",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hurt left leg badly.",
+      "content_hash": "hurt|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "hurt collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hurt left leg badly",
+        "vn_trap": "past tense hurt"
+      }
+    },
+    {
+      "lemma": "imagine",
+      "pos": "v",
+      "sense_vi": "tưởng tượng tương lai",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "imagine (v.)",
+        "opts": [
+          "tưởng tượng tương lai",
+          "đề cập chủ đề",
+          "nghỉ ngơi sau làm",
+          "kiểm tra phần mềm"
+        ]
+      },
+      "answer": "tưởng tượng tương lai",
+      "explain_vi": "Động từ imagine mang nghĩa chính xác là: tưởng tượng tương lai.",
+      "content_hash": "imagine|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "imagine gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "imagine the bright future",
+        "vn_trap": "past tense imagined"
+      }
+    },
+    {
+      "lemma": "imagine",
+      "pos": "v",
+      "sense_vi": "tưởng tượng tương lai",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'tưởng tượng tương lai' được dịch là:",
+        "opts": [
+          "imagine",
+          "imagines",
+          "imagineing",
+          "imagined"
+        ]
+      },
+      "answer": "imagine",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là imagine.",
+      "content_hash": "imagine|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "imagine l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "imagine the bright future",
+        "vn_trap": "past tense imagined"
+      }
+    },
+    {
+      "lemma": "imagine",
+      "pos": "v",
+      "sense_vi": "tưởng tượng tương lai",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "She promised to ___ her parents every weekend.",
+        "opts": [
+          "imagine",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "imagine",
+      "explain_vi": "Điền 'imagine' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "imagine|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "imagine cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "imagine the bright future",
+        "vn_trap": "past tense imagined"
+      }
+    },
+    {
+      "lemma": "imagine",
+      "pos": "v",
+      "sense_vi": "tưởng tượng tương lai",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has imagineded the letter last week.'",
+        "opts": [
+          "She imagined the letter last week.",
+          "She has imagineded the letter last week.",
+          "They She has imagineded the letter last week.",
+          "She was imagineing when I came yesterday."
+        ]
+      },
+      "answer": "She imagined the letter last week.",
+      "explain_vi": "Thời gian xác định trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "imagine|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "imagine error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "imagine the bright future",
+        "vn_trap": "past tense imagined"
+      }
+    },
+    {
+      "lemma": "imagine",
+      "pos": "v",
+      "sense_vi": "tưởng tượng tương lai",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'imagine':",
+        "opts": [
+          "imagine the bright future",
+          "imagine in wrong way",
+          "imagine without care",
+          "imagine for nothing"
+        ]
+      },
+      "answer": "imagine the bright future",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: imagine the bright future.",
+      "content_hash": "imagine|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "imagine collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "imagine the bright future",
+        "vn_trap": "past tense imagined"
+      }
+    },
+    {
+      "lemma": "improve",
+      "pos": "v",
+      "sense_vi": "cải thiện tiếng Anh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "improve (v.)",
+        "opts": [
+          "cải thiện tiếng Anh",
+          "phiền lòng",
+          "dẫn đến thành công",
+          "ném quả bóng"
+        ]
+      },
+      "answer": "cải thiện tiếng Anh",
+      "explain_vi": "Động từ improve mang nghĩa chính xác là: cải thiện tiếng Anh.",
+      "content_hash": "improve|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "improve gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "improve English speaking skills",
+        "vn_trap": "past tense improved"
+      }
+    },
+    {
+      "lemma": "improve",
+      "pos": "v",
+      "sense_vi": "cải thiện tiếng Anh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'cải thiện tiếng Anh', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "improve",
+          "improves",
+          "improveing",
+          "improved"
+        ]
+      },
+      "answer": "improve",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là improve.",
+      "content_hash": "improve|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "improve l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "improve English speaking skills",
+        "vn_trap": "past tense improved"
+      }
+    },
+    {
+      "lemma": "improve",
+      "pos": "v",
+      "sense_vi": "cải thiện tiếng Anh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "They plan to ___ a new office building next year.",
+        "opts": [
+          "improve",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "improve",
+      "explain_vi": "Điền 'improve' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "improve|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "improve cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "improve English speaking skills",
+        "vn_trap": "past tense improved"
+      }
+    },
+    {
+      "lemma": "improve",
+      "pos": "v",
+      "sense_vi": "cải thiện tiếng Anh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped improveing to take a short break.'",
+        "opts": [
+          "He stopped to improve to take a short break.",
+          "He stopped improveing to take a short break.",
+          "They He stopped improveing to take a short break.",
+          "She was improveing when I came yesterday."
+        ]
+      },
+      "answer": "He stopped to improve to take a short break.",
+      "explain_vi": "Dừng lại để làm việc khác dùng 'stop to V'.",
+      "content_hash": "improve|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "improve error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "improve English speaking skills",
+        "vn_trap": "past tense improved"
+      }
+    },
+    {
+      "lemma": "improve",
+      "pos": "v",
+      "sense_vi": "cải thiện tiếng Anh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'improve':",
+        "opts": [
+          "improve English speaking skills",
+          "improve in wrong way",
+          "improve without care",
+          "improve for nothing"
+        ]
+      },
+      "answer": "improve English speaking skills",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: improve English speaking skills.",
+      "content_hash": "improve|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "improve collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "improve English speaking skills",
+        "vn_trap": "past tense improved"
+      }
+    }
+  ]
+}

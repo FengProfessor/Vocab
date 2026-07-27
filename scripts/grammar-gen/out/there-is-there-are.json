@@ -364,113 +364,12 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "Chọn câu dùng đúng There is / There are.",
-      "opts": [
-        "There is a pharmacy near my house.",
-        "Not correctly: There is + danh từ số ít/không đếm được.",
-        "Wrong structure for this meaning."
-      ],
-      "answer": "There is a pharmacy near my house.",
-      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn cấu trúc phù hợp nhất.",
-      "opts": [
-        "There is + danh từ số ít/không đếm được",
-        "There are + danh từ số nhiều",
-        "Is there ...? / Are there ...?"
-      ],
-      "answer": "There is + danh từ số ít/không đếm được",
-      "fb": "Mẫu trọng tâm là There is + danh từ số ít/không đếm được."
-    },
-    {
       "type": "fill",
       "q": "Hoàn thành theo mẫu: There ___ two messages for you.",
       "answer": [
         "are"
       ],
       "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
-      "answer": [
-        "There is / There are",
-        "there is / there are"
-      ],
-      "fb": "Chủ điểm là There is / There are."
-    },
-    {
-      "type": "tf",
-      "q": "Câu này tự nhiên và đúng ngữ pháp: “There isn't any milk left.”",
-      "answer": true,
-      "fb": "Đúng; câu minh họa một biến thể quan trọng."
-    },
-    {
-      "type": "tf",
-      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo There is / There are chính xác.",
-      "answer": false,
-      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
-    },
-    {
-      "type": "error",
-      "q": "Câu/mô tả nào SAI?",
-      "opts": [
-        "Are there enough chairs?",
-        "There was a power cut last night.",
-        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
-      ],
-      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
-      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
-    },
-    {
-      "type": "mcq",
-      "q": "Điều cần kiểm tra đầu tiên là gì?",
-      "opts": [
-        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-        "Chỉ số lượng từ trong câu",
-        "Chỉ độ dài câu"
-      ],
-      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Dịch sang tiếng Anh: “Ngày mai sẽ có một cuộc họp.”",
-      "answer": [
-        "There will be a meeting tomorrow."
-      ],
-      "fb": "There will be a meeting tomorrow."
-    },
-    {
-      "type": "tf",
-      "q": "“There is a pharmacy near my house.” là một ví dụ đúng.",
-      "answer": true,
-      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
-    },
-    {
-      "type": "error",
-      "q": "Chọn lời khuyên SAI.",
-      "opts": [
-        "Học cấu trúc cùng ví dụ.",
-        "Kiểm tra dạng động từ.",
-        "Dịch máy móc từng từ luôn cho kết quả đúng."
-      ],
-      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
-      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
-    },
-    {
-      "type": "mcq",
-      "q": "Câu nào là một ví dụ đúng khác?",
-      "opts": [
-        "There will be a meeting tomorrow.",
-        "This sentence missing required grammar.",
-        "Incorrectly structure sentence."
-      ],
-      "answer": "There will be a meeting tomorrow.",
-      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
     }
   ]
 }

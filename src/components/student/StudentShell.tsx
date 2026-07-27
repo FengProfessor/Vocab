@@ -43,8 +43,6 @@ type NavItem = {
   footerDup?: boolean;
 };
 
-const FB_COMMUNITY_URL = 'https://www.facebook.com/groups/1586345819865575';
-
 interface StudentShellProps {
   title: string;
   children: ReactNode;
@@ -400,18 +398,6 @@ export function StudentShell({
                 </span>
                 <span>Nhóm của tôi</span>
               </Link>
-              <a
-                href={FB_COMMUNITY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] bg-[#e7f0ff] px-2.5 py-2 text-sm font-extrabold text-[#1877f2]"
-              >
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px]">
-                  💬
-                </span>
-                <span className="truncate">Nhóm live &amp; trao đổi</span>
-              </a>
               <button
                 type="button"
                 onClick={handleSignOut}
@@ -487,17 +473,6 @@ export function StudentShell({
             </span>
             <span>Nhóm của tôi</span>
           </Link>
-          <a
-            href={FB_COMMUNITY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-[11px] rounded-[11px] bg-[#e7f0ff] px-2.5 py-2 text-sm font-extrabold text-[#1877f2] transition-colors hover:brightness-95"
-          >
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px]">
-              💬
-            </span>
-            <span className="truncate">Nhóm live &amp; trao đổi</span>
-          </a>
           <button
             type="button"
             onClick={handleSignOut}

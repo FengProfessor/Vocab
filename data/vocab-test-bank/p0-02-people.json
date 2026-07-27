@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-02-people",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-people"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "mother",
+      "pos": "n",
+      "sense_vi": "mẹ",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "mother (n.)",
+        "opts": [
+          "mẹ",
+          "bố",
+          "chị gái",
+          "bà"
+        ]
+      },
+      "answer": "mẹ",
+      "explain_vi": "mother có nghĩa là mẹ.",
+      "content_hash": "mother|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa mẹ",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mother",
+      "pos": "n",
+      "sense_vi": "mẹ",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người phụ nữ sinh ra và nuôi dưỡng mình:",
+        "opts": [
+          "mother",
+          "mum",
+          "father",
+          "sister"
+        ]
+      },
+      "answer": "mother",
+      "explain_vi": "Mẹ trong từ vựng chính thức là mother.",
+      "content_hash": "mother|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss từ gia đình",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mother",
+      "pos": "n",
+      "sense_vi": "mẹ",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My ___ cooks delicious meals for our family every day.",
+        "opts": [
+          "mother",
+          "brother",
+          "father",
+          "son"
+        ]
+      },
+      "answer": "mother",
+      "explain_vi": "Dùng mother hợp ngữ cảnh mẹ nấu ăn.",
+      "content_hash": "mother|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ngữ cảnh mẹ nấu ăn",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mother",
+      "pos": "n",
+      "sense_vi": "mẹ",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Her mother are a gentle teacher.'",
+        "opts": [
+          "Her mother is a gentle teacher.",
+          "Her mother are a gentle teacher.",
+          "Her mother am a gentle teacher.",
+          "Her mother be a gentle teacher."
+        ]
+      },
+      "answer": "Her mother is a gentle teacher.",
+      "explain_vi": "Her mother là danh từ số ít, đi với is.",
+      "content_hash": "mother|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy tobe số ít",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "mother",
+      "pos": "n",
+      "sense_vi": "mẹ",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ thân mật gọi mẹ phổ biến:",
+        "opts": [
+          "mother and father",
+          "mother and son",
+          "single mother",
+          "house mother"
+        ]
+      },
+      "answer": "mother and father",
+      "explain_vi": "Cụm 'mother and father' chỉ bố mẹ.",
+      "content_hash": "mother|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm mother and father",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "father",
+      "pos": "n",
+      "sense_vi": "bố / cha",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "father (n.)",
+        "opts": [
+          "bố / cha",
+          "mẹ",
+          "ông",
+          "anh trai"
+        ]
+      },
+      "answer": "bố / cha",
+      "explain_vi": "father có nghĩa là bố, cha.",
+      "content_hash": "father|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bố",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "father",
+      "pos": "n",
+      "sense_vi": "bố / cha",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người đàn ông sinh ra mình (bố/cha):",
+        "opts": [
+          "father",
+          "feather",
+          "mother",
+          "brother"
+        ]
+      },
+      "answer": "father",
+      "explain_vi": "Bố là father (feather là lông vũ).",
+      "content_hash": "father|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss feather",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "father",
+      "pos": "n",
+      "sense_vi": "bố / cha",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My ___ drives me to school every morning.",
+        "opts": [
+          "father",
+          "mother",
+          "sister",
+          "aunt"
+        ]
+      },
+      "answer": "father",
+      "explain_vi": "Điền father hợp ngữ cảnh bố lái xe đưa đi học.",
+      "content_hash": "father|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ngữ cảnh bố đưa đi học",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "father",
+      "pos": "n",
+      "sense_vi": "bố / cha",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'His father work in a big hospital.'",
+        "opts": [
+          "His father works in a big hospital.",
+          "His father work in a big hospital.",
+          "His father working in a big hospital.",
+          "His father is work in a big hospital."
+        ]
+      },
+      "answer": "His father works in a big hospital.",
+      "explain_vi": "Chủ ngữ số ít His father đi với chia động từ works.",
+      "content_hash": "father|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia động từ số ít",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "father",
+      "pos": "n",
+      "sense_vi": "bố / cha",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chỉ cha mẹ chuẩn:",
+        "opts": [
+          "father and mother",
+          "father and boy",
+          "father and brother",
+          "father and uncle"
+        ]
+      },
+      "answer": "father and mother",
+      "explain_vi": "Cụm 'father and mother' nghĩa là cha và mẹ.",
+      "content_hash": "father|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm father and mother",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sister",
+      "pos": "n",
+      "sense_vi": "chị / em gái",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sister (n.)",
+        "opts": [
+          "chị / em gái",
+          "anh / em trai",
+          "mẹ",
+          "bà"
+        ]
+      },
+      "answer": "chị / em gái",
+      "explain_vi": "sister nghĩa là chị gái hoặc em gái.",
+      "content_hash": "sister|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa chị/em gái",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sister",
+      "pos": "n",
+      "sense_vi": "chị / em gái",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người con gái cùng cha mẹ với mình:",
+        "opts": [
+          "sister",
+          "sitter",
+          "brother",
+          "mother"
+        ]
+      },
+      "answer": "sister",
+      "explain_vi": "Chị/em gái là sister (sitter là người trông trẻ).",
+      "content_hash": "sister|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss sitter",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sister",
+      "pos": "n",
+      "sense_vi": "chị / em gái",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My older ___ helps me with my English homework.",
+        "opts": [
+          "sister",
+          "brother",
+          "father",
+          "uncle"
+        ]
+      },
+      "answer": "sister",
+      "explain_vi": "Cụm older sister (chị gái).",
+      "content_hash": "sister|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "older sister",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sister",
+      "pos": "n",
+      "sense_vi": "chị / em gái",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has two older sister.'",
+        "opts": [
+          "She has two older sisters.",
+          "She has two older sister.",
+          "She have two older sisters.",
+          "She having two older sisters."
+        ]
+      },
+      "answer": "She has two older sisters.",
+      "explain_vi": "Số lượng 'two' đi với danh từ số nhiều 'sisters'.",
+      "content_hash": "sister|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy danh từ số nhiều s",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sister",
+      "pos": "n",
+      "sense_vi": "chị / em gái",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chỉ em gái chuẩn:",
+        "opts": [
+          "younger sister",
+          "small sister",
+          "child sister",
+          "baby sister"
+        ]
+      },
+      "answer": "younger sister",
+      "explain_vi": "Em gái dùng cụm younger sister.",
+      "content_hash": "sister|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm younger sister",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brother",
+      "pos": "n",
+      "sense_vi": "anh / em trai",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "brother (n.)",
+        "opts": [
+          "anh / em trai",
+          "chị / em gái",
+          "bố",
+          "ông"
+        ]
+      },
+      "answer": "anh / em trai",
+      "explain_vi": "brother có nghĩa là anh trai hoặc em trai.",
+      "content_hash": "brother|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa anh/em trai",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brother",
+      "pos": "n",
+      "sense_vi": "anh / em trai",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người con trai cùng cha mẹ với mình:",
+        "opts": [
+          "brother",
+          "bother",
+          "sister",
+          "father"
+        ]
+      },
+      "answer": "brother",
+      "explain_vi": "Anh/em trai là brother (bother là làm phiền).",
+      "content_hash": "brother|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss bother",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brother",
+      "pos": "n",
+      "sense_vi": "anh / em trai",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My younger ___ is five years old and loves toys.",
+        "opts": [
+          "brother",
+          "sister",
+          "father",
+          "mother"
+        ]
+      },
+      "answer": "brother",
+      "explain_vi": "Cụm younger brother (em trai).",
+      "content_hash": "brother|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "younger brother",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brother",
+      "pos": "n",
+      "sense_vi": "anh / em trai",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He play football with his brother yesterday.'",
+        "opts": [
+          "He played football with his brother yesterday.",
+          "He play football with his brother yesterday.",
+          "He is play football with his brother yesterday.",
+          "He playing football with his brother yesterday."
+        ]
+      },
+      "answer": "He played football with his brother yesterday.",
+      "explain_vi": "Trạng từ yesterday yêu cầu chia quá khứ đơn: played.",
+      "content_hash": "brother|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy thì quá khứ",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "brother",
+      "pos": "n",
+      "sense_vi": "anh / em trai",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chỉ anh trai chuẩn:",
+        "opts": [
+          "older brother",
+          "big brother",
+          "top brother",
+          "tall brother"
+        ]
+      },
+      "answer": "older brother",
+      "explain_vi": "Anh trai chuẩn dùng cụm older brother.",
+      "content_hash": "brother|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm older brother",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "family",
+      "pos": "n",
+      "sense_vi": "gia đình",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "family (n.)",
+        "opts": [
+          "gia đình",
+          "xóm giềng",
+          "trường học",
+          "công ty"
+        ]
+      },
+      "answer": "gia đình",
+      "explain_vi": "family nghĩa là gia đình.",
+      "content_hash": "family|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa gia đình",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "family",
+      "pos": "n",
+      "sense_vi": "gia đình",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tập hợp bố, mẹ, con cái sống chung một nhà:",
+        "opts": [
+          "family",
+          "familiar",
+          "classmate",
+          "team"
+        ]
+      },
+      "answer": "family",
+      "explain_vi": "Gia đình là family (familiar là quen thuộc).",
+      "content_hash": "family|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss familiar",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "family",
+      "pos": "n",
+      "sense_vi": "gia đình",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We often eat dinner together as a happy ___.",
+        "opts": [
+          "family",
+          "school",
+          "group",
+          "class"
+        ]
+      },
+      "answer": "family",
+      "explain_vi": "Điền family trong happy family.",
+      "content_hash": "family|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "happy family",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "family",
+      "pos": "n",
+      "sense_vi": "gia đình",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'My family are very big and happy.'",
+        "opts": [
+          "My family is very big and happy.",
+          "My family are very big and happy.",
+          "My family am very big and happy.",
+          "My family be very big and happy."
+        ]
+      },
+      "answer": "My family is very big and happy.",
+      "explain_vi": "Family làm chủ ngữ số ít tập hợp đi với tobe 'is'.",
+      "content_hash": "family|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy tobe family",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "family",
+      "pos": "n",
+      "sense_vi": "gia đình",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thành viên gia đình chuẩn:",
+        "opts": [
+          "family member",
+          "family people",
+          "family person",
+          "family worker"
+        ]
+      },
+      "answer": "family member",
+      "explain_vi": "Thành viên gia đình là family member.",
+      "content_hash": "family|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm family member",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "baby",
+      "pos": "n",
+      "sense_vi": "em bé",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "baby (n.)",
+        "opts": [
+          "em bé / trẻ sơ sinh",
+          "người lớn",
+          "bà cụ",
+          "học sinh"
+        ]
+      },
+      "answer": "em bé / trẻ sơ sinh",
+      "explain_vi": "baby có nghĩa là em bé mới sinh.",
+      "content_hash": "baby|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa em bé",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "baby",
+      "pos": "n",
+      "sense_vi": "em bé",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trẻ nhỏ mới sinh hoặc còn rất bé:",
+        "opts": [
+          "baby",
+          "babies",
+          "child",
+          "adult"
+        ]
+      },
+      "answer": "baby",
+      "explain_vi": "Em bé dạng số ít là baby (babies là số nhiều).",
+      "content_hash": "baby|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss số nhiều",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "baby",
+      "pos": "n",
+      "sense_vi": "em bé",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The cute ___ is sleeping peacefully in the crib.",
+        "opts": [
+          "baby",
+          "man",
+          "woman",
+          "teacher"
+        ]
+      },
+      "answer": "baby",
+      "explain_vi": "Dùng baby hợp ngữ cảnh em bé ngủ trong nôi.",
+      "content_hash": "baby|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ngữ cảnh em bé ngủ",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "baby",
+      "pos": "n",
+      "sense_vi": "em bé",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The baby cry loudly when he is hungry.'",
+        "opts": [
+          "The baby cries loudly when he is hungry.",
+          "The baby cry loudly when he is hungry.",
+          "The baby crying loudly when he is hungry.",
+          "The baby is cry loudly when he is hungry."
+        ]
+      },
+      "answer": "The baby cries loudly when he is hungry.",
+      "explain_vi": "Chủ ngữ The baby số ít đi với động từ chia 'cries'.",
+      "content_hash": "baby|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia y->ies",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "baby",
+      "pos": "n",
+      "sense_vi": "em bé",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm em bé gái chuẩn:",
+        "opts": [
+          "baby girl",
+          "child girl",
+          "kid girl",
+          "small girl"
+        ]
+      },
+      "answer": "baby girl",
+      "explain_vi": "Bé gái sơ sinh dùng baby girl.",
+      "content_hash": "baby|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm baby girl",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "man",
+      "pos": "n",
+      "sense_vi": "người đàn ông",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "man (n.)",
+        "opts": [
+          "người đàn ông",
+          "người phụ nữ",
+          "cậu bé",
+          "cô gái"
+        ]
+      },
+      "answer": "người đàn ông",
+      "explain_vi": "man có nghĩa là người đàn ông trưởng thành.",
+      "content_hash": "man|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa người đàn ông",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "man",
+      "pos": "n",
+      "sense_vi": "người đàn ông",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người nam trưởng thành:",
+        "opts": [
+          "man",
+          "men",
+          "boy",
+          "woman"
+        ]
+      },
+      "answer": "man",
+      "explain_vi": "Người đàn ông số ít là man (men là số nhiều).",
+      "content_hash": "man|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss số nhiều men",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "man",
+      "pos": "n",
+      "sense_vi": "người đàn ông",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "That tall ___ over there is our new PE teacher.",
+        "opts": [
+          "man",
+          "woman",
+          "girl",
+          "baby"
+        ]
+      },
+      "answer": "man",
+      "explain_vi": "Dùng man phù hợp mô tả người đàn ông cao lớn.",
+      "content_hash": "man|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "tall man",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "man",
+      "pos": "n",
+      "sense_vi": "người đàn ông",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There are two man standing near the door.'",
+        "opts": [
+          "There are two men standing near the door.",
+          "There are two man standing near the door.",
+          "There are two mans standing near the door.",
+          "There are two manes standing near the door."
+        ]
+      },
+      "answer": "There are two men standing near the door.",
+      "explain_vi": "Số nhiều bất quy tắc của man là men, không phải mans.",
+      "content_hash": "man|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy số nhiều man/men",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "man",
+      "pos": "n",
+      "sense_vi": "người đàn ông",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm người đàn ông trẻ tuổi chuẩn:",
+        "opts": [
+          "young man",
+          "youth man",
+          "child man",
+          "new man"
+        ]
+      },
+      "answer": "young man",
+      "explain_vi": "Người đàn ông trẻ tuổi dùng young man.",
+      "content_hash": "man|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm young man",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "woman",
+      "pos": "n",
+      "sense_vi": "người phụ nữ",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "woman (n.)",
+        "opts": [
+          "người phụ nữ",
+          "người đàn ông",
+          "cậu bé",
+          "ông lão"
+        ]
+      },
+      "answer": "người phụ nữ",
+      "explain_vi": "woman là người nữ trưởng thành.",
+      "content_hash": "woman|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa người phụ nữ",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "woman",
+      "pos": "n",
+      "sense_vi": "người phụ nữ",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người nữ trưởng thành:",
+        "opts": [
+          "woman",
+          "women",
+          "girl",
+          "female"
+        ]
+      },
+      "answer": "woman",
+      "explain_vi": "Người phụ nữ số ít là woman (women là số nhiều).",
+      "content_hash": "woman|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss số nhiều women",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "woman",
+      "pos": "n",
+      "sense_vi": "người phụ nữ",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The kind ___ gave us directions to the museum.",
+        "opts": [
+          "woman",
+          "boy",
+          "man",
+          "brother"
+        ]
+      },
+      "answer": "woman",
+      "explain_vi": "Điền woman hợp ngữ cảnh người phụ nữ tốt bụng.",
+      "content_hash": "woman|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "kind woman",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "woman",
+      "pos": "n",
+      "sense_vi": "người phụ nữ",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Three woman are working in the office.'",
+        "opts": [
+          "Three women are working in the office.",
+          "Three woman are working in the office.",
+          "Three womans are working in the office.",
+          "Three womanes are working in the office."
+        ]
+      },
+      "answer": "Three women are working in the office.",
+      "explain_vi": "Số nhiều bất quy tắc của woman là women.",
+      "content_hash": "woman|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy số nhiều woman/women",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "woman",
+      "pos": "n",
+      "sense_vi": "người phụ nữ",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm người phụ nữ trẻ chuẩn:",
+        "opts": [
+          "young woman",
+          "child woman",
+          "youth woman",
+          "new woman"
+        ]
+      },
+      "answer": "young woman",
+      "explain_vi": "Cụm chỉ người phụ nữ trẻ là young woman.",
+      "content_hash": "woman|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm young woman",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "boy",
+      "pos": "n",
+      "sense_vi": "cậu bé",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "boy (n.)",
+        "opts": [
+          "cậu bé / con trai",
+          "cô gái",
+          "người lớn",
+          "em bé"
+        ]
+      },
+      "answer": "cậu bé / con trai",
+      "explain_vi": "boy nghĩa là cậu bé hoặc bé trai.",
+      "content_hash": "boy|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cậu bé",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "boy",
+      "pos": "n",
+      "sense_vi": "cậu bé",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bé trai hoặc trẻ em nam:",
+        "opts": [
+          "boy",
+          "boys",
+          "girl",
+          "man"
+        ]
+      },
+      "answer": "boy",
+      "explain_vi": "Bé trai dạng số ít là boy.",
+      "content_hash": "boy|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss số nhiều boys",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "boy",
+      "pos": "n",
+      "sense_vi": "cậu bé",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The little ___ is playing with his toy car.",
+        "opts": [
+          "boy",
+          "woman",
+          "mother",
+          "girl"
+        ]
+      },
+      "answer": "boy",
+      "explain_vi": "Cụm little boy (cậu bé nhỏ).",
+      "content_hash": "boy|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "little boy",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "boy",
+      "pos": "n",
+      "sense_vi": "cậu bé",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The boy are playing in the garden.'",
+        "opts": [
+          "The boy is playing in the garden.",
+          "The boy are playing in the garden.",
+          "The boy am playing in the garden.",
+          "The boy be playing in the garden."
+        ]
+      },
+      "answer": "The boy is playing in the garden.",
+      "explain_vi": "Chủ ngữ số ít The boy đi với tobe 'is'.",
+      "content_hash": "boy|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy tobe số ít",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "boy",
+      "pos": "n",
+      "sense_vi": "cậu bé",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chỉ bé trai nhỏ tuổi chuẩn:",
+        "opts": [
+          "little boy",
+          "small boy",
+          "baby boy",
+          "child boy"
+        ]
+      },
+      "answer": "little boy",
+      "explain_vi": "Cụm thông dụng chỉ cậu bé nhỏ là little boy.",
+      "content_hash": "boy|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm little boy",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "girl",
+      "pos": "n",
+      "sense_vi": "cô gái",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "girl (n.)",
+        "opts": [
+          "cô gái / bé gái",
+          "cậu bé",
+          "người đàn ông",
+          "ông lão"
+        ]
+      },
+      "answer": "cô gái / bé gái",
+      "explain_vi": "girl nghĩa là bé gái hoặc cô gái trẻ.",
+      "content_hash": "girl|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cô gái",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "girl",
+      "pos": "n",
+      "sense_vi": "cô gái",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trẻ em nữ hoặc cô gái trẻ:",
+        "opts": [
+          "girl",
+          "girls",
+          "boy",
+          "woman"
+        ]
+      },
+      "answer": "girl",
+      "explain_vi": "Bé gái dạng số ít là girl.",
+      "content_hash": "girl|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss girls",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "girl",
+      "pos": "n",
+      "sense_vi": "cô gái",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The little ___ is wearing a beautiful pink dress.",
+        "opts": [
+          "girl",
+          "boy",
+          "man",
+          "father"
+        ]
+      },
+      "answer": "girl",
+      "explain_vi": "Cụm little girl (bé gái nhỏ).",
+      "content_hash": "girl|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "little girl",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "girl",
+      "pos": "n",
+      "sense_vi": "cô gái",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is a smart girls in our class.'",
+        "opts": [
+          "She is a smart girl in our class.",
+          "She is a smart girls in our class.",
+          "She is smart girls in our class.",
+          "She are a smart girl in our class."
+        ]
+      },
+      "answer": "She is a smart girl in our class.",
+      "explain_vi": "Mạo từ 'a' đi với danh từ số ít 'girl'.",
+      "content_hash": "girl|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy mạo từ a + singular",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "girl",
+      "pos": "n",
+      "sense_vi": "cô gái",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bé gái nhỏ chuẩn:",
+        "opts": [
+          "little girl",
+          "small girl",
+          "baby girl",
+          "child girl"
+        ]
+      },
+      "answer": "little girl",
+      "explain_vi": "Bé gái nhỏ thường dùng cụm little girl.",
+      "content_hash": "girl|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm little girl",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "people",
+      "pos": "n",
+      "sense_vi": "mọi người",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "people (n.)",
+        "opts": [
+          "mọi người / con người",
+          "động vật",
+          "đồ vật",
+          "cây cối"
+        ]
+      },
+      "answer": "mọi người / con người",
+      "explain_vi": "people nghĩa là mọi người (số nhiều của person).",
+      "content_hash": "people|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa mọi người",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "people",
+      "pos": "n",
+      "sense_vi": "mọi người",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nhiều người nói chung:",
+        "opts": [
+          "people",
+          "person",
+          "peoples",
+          "populace"
+        ]
+      },
+      "answer": "people",
+      "explain_vi": "Danh từ tập hợp chỉ nhiều người là people.",
+      "content_hash": "people|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss person",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "people",
+      "pos": "n",
+      "sense_vi": "mọi người",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "There are many ___ waiting at the bus stop.",
+        "opts": [
+          "people",
+          "person",
+          "child",
+          "man"
+        ]
+      },
+      "answer": "people",
+      "explain_vi": "Cụm many people (nhiều người).",
+      "content_hash": "people|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "many people",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "people",
+      "pos": "n",
+      "sense_vi": "mọi người",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Many people is standing in line.'",
+        "opts": [
+          "Many people are standing in line.",
+          "Many people is standing in line.",
+          "Many people am standing in line.",
+          "Many people be standing in line."
+        ]
+      },
+      "answer": "Many people are standing in line.",
+      "explain_vi": "People là danh từ số nhiều, động từ chia 'are'.",
+      "content_hash": "people|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy chia tobe với people",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "people",
+      "pos": "n",
+      "sense_vi": "mọi người",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chỉ người trẻ tuổi chuẩn:",
+        "opts": [
+          "young people",
+          "youth people",
+          "child people",
+          "new people"
+        ]
+      },
+      "answer": "young people",
+      "explain_vi": "Giới trẻ / người trẻ tuổi là young people.",
+      "content_hash": "people|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm young people",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "love",
+      "pos": "v",
+      "sense_vi": "yêu thích",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "love (v.)",
+        "opts": [
+          "yêu thích / yêu thương",
+          "ghét bỏ",
+          "tức giận",
+          "sợ hãi"
+        ]
+      },
+      "answer": "yêu thích / yêu thương",
+      "explain_vi": "love nghĩa là yêu thương hoặc rất thích điều gì.",
+      "content_hash": "love|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa yêu thích",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "love",
+      "pos": "v",
+      "sense_vi": "yêu thích",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động yêu thương hoặc rất thích:",
+        "opts": [
+          "love",
+          "loving",
+          "lovely",
+          "like"
+        ]
+      },
+      "answer": "love",
+      "explain_vi": "Động từ yêu thương là love (lovely là tính từ đáng yêu).",
+      "content_hash": "love|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss lovely",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "love",
+      "pos": "v",
+      "sense_vi": "yêu thích",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I ___ my parents very much.",
+        "opts": [
+          "love",
+          "hate",
+          "scare",
+          "angry"
+        ]
+      },
+      "answer": "love",
+      "explain_vi": "Điền love hợp ngữ cảnh yêu thương bố mẹ.",
+      "content_hash": "love|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "love my parents",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "love",
+      "pos": "v",
+      "sense_vi": "yêu thích",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She love listening to music every evening.'",
+        "opts": [
+          "She loves listening to music every evening.",
+          "She love listening to music every evening.",
+          "She is love listening to music every evening.",
+          "She loving listening to music every evening."
+        ]
+      },
+      "answer": "She loves listening to music every evening.",
+      "explain_vi": "Chủ ngữ She thì hiện tại đơn đi với động từ chia 'loves'.",
+      "content_hash": "love|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia động từ ngôi 3",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "love",
+      "pos": "v",
+      "sense_vi": "yêu thích",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm động từ yêu thích làm gì chuẩn:",
+        "opts": [
+          "love to do something",
+          "love at doing something",
+          "love for do something",
+          "love on doing something"
+        ]
+      },
+      "answer": "love to do something",
+      "explain_vi": "Cấu trúc love to do / love doing something.",
+      "content_hash": "love|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm love to do",
+        "pack_id": "starter-a0-people",
+        "priority": "P0"
+      }
+    }
+  ]
+}

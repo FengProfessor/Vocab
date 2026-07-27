@@ -13,6 +13,7 @@
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { getEffectivePlan } from '@/lib/entitlement';
+import { effectiveCurrentStreak } from '@/lib/gamification';
 import type { Plan } from '@/lib/supabase';
 
 export const PRO_MILESTONE_MIN_STREAK = 3;
@@ -325,7 +326,7 @@ export async function getProMilestoneSnapshot(
   const [gamRes, words, claim, profileFull] = await Promise.all([
     supabase
       .from('user_gamification')
-      .select('current_streak')
+      .select('current_streak, last_active_date')
       .eq('user_id', userId)
       .maybeSingle(),
     countUserLearningWords(supabase, userId),
@@ -357,7 +358,11 @@ export async function getProMilestoneSnapshot(
     profileData = fb.data ?? null;
   }
 
-  const streak = (gamRes.data?.current_streak as number | undefined) ?? 0;
+  // Streak = ngày liên tiếp còn sống (last_active hôm nay/hôm qua). Raw DB có thể stale sau khi gãy.
+  const streak = effectiveCurrentStreak(
+    gamRes.data?.current_streak as number | undefined,
+    gamRes.data?.last_active_date as string | null | undefined,
+  );
   const effectivePlan = getEffectivePlan(
     profileData?.plan as Plan | undefined,
     profileData?.plan_expires_at as string | null | undefined,

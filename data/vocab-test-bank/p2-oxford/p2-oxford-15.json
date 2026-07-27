@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-oxford-15",
+  "priority": "P2",
+  "queue": "oxford",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "memory",
+    "understanding",
+    "example",
+    "idea",
+    "theory",
+    "fact",
+    "information",
+    "data",
+    "problem",
+    "solution",
+    "number",
+    "list",
+    "note",
+    "summary",
+    "title",
+    "chapter",
+    "paragraph",
+    "sentence",
+    "word",
+    "spelling"
+  ],
+  "items": [
+    {
+      "lemma": "memory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của memory",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "memory (n.)",
+        "opts": [
+          "ý nghĩa của memory",
+          "sự từ chối đối với memory",
+          "trạng thái thiếu memory",
+          "hành động ngược lại với memory"
+        ]
+      },
+      "answer": "ý nghĩa của memory",
+      "explain_vi": "Từ/cụm từ 'memory' (n.) có nghĩa chính xác là: ý nghĩa của memory.",
+      "content_hash": "memory|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item memory - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "memory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của memory",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của memory':",
+        "opts": [
+          "memory",
+          "memorying",
+          "memoryed",
+          "re-memory"
+        ]
+      },
+      "answer": "memory",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là memory.",
+      "content_hash": "memory|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item memory - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "memory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của memory",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "memory",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "memory",
+      "explain_vi": "Điền 'memory' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "memory|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item memory - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "memory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của memory",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to memory without proper preparation yesterday.'",
+        "opts": [
+          "He tried to memory without proper preparation yesterday.",
+          "He try to memory without proper preparation yesterday.",
+          "He trying to memory without proper preparation yesterday.",
+          "He was try to memory without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to memory without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "memory|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "oxford item memory - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "memory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của memory",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'memory':",
+        "opts": [
+          "apply memory correctly",
+          "make memory wrong",
+          "do memory badly",
+          "take memory off"
+        ]
+      },
+      "answer": "apply memory correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply memory correctly.",
+      "content_hash": "memory|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item memory - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "understanding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của understanding",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "understanding (n.)",
+        "opts": [
+          "ý nghĩa của understanding",
+          "sự từ chối đối với understanding",
+          "trạng thái thiếu understanding",
+          "hành động ngược lại với understanding"
+        ]
+      },
+      "answer": "ý nghĩa của understanding",
+      "explain_vi": "Từ/cụm từ 'understanding' (n.) có nghĩa chính xác là: ý nghĩa của understanding.",
+      "content_hash": "understanding|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item understanding - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "understanding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của understanding",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của understanding':",
+        "opts": [
+          "understanding",
+          "understandinging",
+          "understandinged",
+          "re-understanding"
+        ]
+      },
+      "answer": "understanding",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là understanding.",
+      "content_hash": "understanding|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item understanding - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "understanding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của understanding",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "understanding",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "understanding",
+      "explain_vi": "Điền 'understanding' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "understanding|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item understanding - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "understanding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của understanding",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to understanding without proper preparation yesterday.'",
+        "opts": [
+          "He tried to understanding without proper preparation yesterday.",
+          "He try to understanding without proper preparation yesterday.",
+          "He trying to understanding without proper preparation yesterday.",
+          "He was try to understanding without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to understanding without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "understanding|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item understanding - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "understanding",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của understanding",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'understanding':",
+        "opts": [
+          "apply understanding correctly",
+          "make understanding wrong",
+          "do understanding badly",
+          "take understanding off"
+        ]
+      },
+      "answer": "apply understanding correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply understanding correctly.",
+      "content_hash": "understanding|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item understanding - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "example",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của example",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "example (n.)",
+        "opts": [
+          "ý nghĩa của example",
+          "sự từ chối đối với example",
+          "trạng thái thiếu example",
+          "hành động ngược lại với example"
+        ]
+      },
+      "answer": "ý nghĩa của example",
+      "explain_vi": "Từ/cụm từ 'example' (n.) có nghĩa chính xác là: ý nghĩa của example.",
+      "content_hash": "example|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item example - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "example",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của example",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của example':",
+        "opts": [
+          "example",
+          "exampleing",
+          "exampleed",
+          "re-example"
+        ]
+      },
+      "answer": "example",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là example.",
+      "content_hash": "example|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item example - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "example",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của example",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "example",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "example",
+      "explain_vi": "Điền 'example' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "example|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item example - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "example",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của example",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to example without proper preparation yesterday.'",
+        "opts": [
+          "He tried to example without proper preparation yesterday.",
+          "He try to example without proper preparation yesterday.",
+          "He trying to example without proper preparation yesterday.",
+          "He was try to example without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to example without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "example|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item example - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "example",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của example",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'example':",
+        "opts": [
+          "apply example correctly",
+          "make example wrong",
+          "do example badly",
+          "take example off"
+        ]
+      },
+      "answer": "apply example correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply example correctly.",
+      "content_hash": "example|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item example - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "idea",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của idea",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "idea (n.)",
+        "opts": [
+          "ý nghĩa của idea",
+          "sự từ chối đối với idea",
+          "trạng thái thiếu idea",
+          "hành động ngược lại với idea"
+        ]
+      },
+      "answer": "ý nghĩa của idea",
+      "explain_vi": "Từ/cụm từ 'idea' (n.) có nghĩa chính xác là: ý nghĩa của idea.",
+      "content_hash": "idea|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item idea - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "idea",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của idea",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của idea':",
+        "opts": [
+          "idea",
+          "ideaing",
+          "ideaed",
+          "re-idea"
+        ]
+      },
+      "answer": "idea",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là idea.",
+      "content_hash": "idea|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item idea - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "idea",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của idea",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "idea",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "idea",
+      "explain_vi": "Điền 'idea' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "idea|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item idea - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "idea",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của idea",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to idea without proper preparation yesterday.'",
+        "opts": [
+          "He tried to idea without proper preparation yesterday.",
+          "He try to idea without proper preparation yesterday.",
+          "He trying to idea without proper preparation yesterday.",
+          "He was try to idea without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to idea without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "idea|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item idea - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "idea",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của idea",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'idea':",
+        "opts": [
+          "apply idea correctly",
+          "make idea wrong",
+          "do idea badly",
+          "take idea off"
+        ]
+      },
+      "answer": "apply idea correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply idea correctly.",
+      "content_hash": "idea|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "oxford item idea - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "theory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của theory",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "theory (n.)",
+        "opts": [
+          "ý nghĩa của theory",
+          "sự từ chối đối với theory",
+          "trạng thái thiếu theory",
+          "hành động ngược lại với theory"
+        ]
+      },
+      "answer": "ý nghĩa của theory",
+      "explain_vi": "Từ/cụm từ 'theory' (n.) có nghĩa chính xác là: ý nghĩa của theory.",
+      "content_hash": "theory|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item theory - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "theory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của theory",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của theory':",
+        "opts": [
+          "theory",
+          "theorying",
+          "theoryed",
+          "re-theory"
+        ]
+      },
+      "answer": "theory",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là theory.",
+      "content_hash": "theory|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item theory - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "theory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của theory",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "theory",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "theory",
+      "explain_vi": "Điền 'theory' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "theory|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item theory - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "theory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của theory",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to theory without proper preparation yesterday.'",
+        "opts": [
+          "He tried to theory without proper preparation yesterday.",
+          "He try to theory without proper preparation yesterday.",
+          "He trying to theory without proper preparation yesterday.",
+          "He was try to theory without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to theory without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "theory|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item theory - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "theory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của theory",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'theory':",
+        "opts": [
+          "apply theory correctly",
+          "make theory wrong",
+          "do theory badly",
+          "take theory off"
+        ]
+      },
+      "answer": "apply theory correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply theory correctly.",
+      "content_hash": "theory|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item theory - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "fact",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fact",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fact (n.)",
+        "opts": [
+          "ý nghĩa của fact",
+          "sự từ chối đối với fact",
+          "trạng thái thiếu fact",
+          "hành động ngược lại với fact"
+        ]
+      },
+      "answer": "ý nghĩa của fact",
+      "explain_vi": "Từ/cụm từ 'fact' (n.) có nghĩa chính xác là: ý nghĩa của fact.",
+      "content_hash": "fact|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item fact - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "fact",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fact",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fact':",
+        "opts": [
+          "fact",
+          "facting",
+          "facted",
+          "re-fact"
+        ]
+      },
+      "answer": "fact",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fact.",
+      "content_hash": "fact|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item fact - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "fact",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fact",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fact",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fact",
+      "explain_vi": "Điền 'fact' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fact|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item fact - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "fact",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fact",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fact without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fact without proper preparation yesterday.",
+          "He try to fact without proper preparation yesterday.",
+          "He trying to fact without proper preparation yesterday.",
+          "He was try to fact without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fact without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fact|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item fact - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "fact",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fact",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fact':",
+        "opts": [
+          "apply fact correctly",
+          "make fact wrong",
+          "do fact badly",
+          "take fact off"
+        ]
+      },
+      "answer": "apply fact correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fact correctly.",
+      "content_hash": "fact|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item fact - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "information",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của information",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "information (n.)",
+        "opts": [
+          "ý nghĩa của information",
+          "sự từ chối đối với information",
+          "trạng thái thiếu information",
+          "hành động ngược lại với information"
+        ]
+      },
+      "answer": "ý nghĩa của information",
+      "explain_vi": "Từ/cụm từ 'information' (n.) có nghĩa chính xác là: ý nghĩa của information.",
+      "content_hash": "information|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item information - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "information",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của information",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của information':",
+        "opts": [
+          "information",
+          "informationing",
+          "informationed",
+          "re-information"
+        ]
+      },
+      "answer": "information",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là information.",
+      "content_hash": "information|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item information - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "information",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của information",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "information",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "information",
+      "explain_vi": "Điền 'information' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "information|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item information - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "information",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của information",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to information without proper preparation yesterday.'",
+        "opts": [
+          "He tried to information without proper preparation yesterday.",
+          "He try to information without proper preparation yesterday.",
+          "He trying to information without proper preparation yesterday.",
+          "He was try to information without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to information without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "information|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item information - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "information",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của information",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'information':",
+        "opts": [
+          "apply information correctly",
+          "make information wrong",
+          "do information badly",
+          "take information off"
+        ]
+      },
+      "answer": "apply information correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply information correctly.",
+      "content_hash": "information|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item information - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "data",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của data",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "data (n.)",
+        "opts": [
+          "ý nghĩa của data",
+          "sự từ chối đối với data",
+          "trạng thái thiếu data",
+          "hành động ngược lại với data"
+        ]
+      },
+      "answer": "ý nghĩa của data",
+      "explain_vi": "Từ/cụm từ 'data' (n.) có nghĩa chính xác là: ý nghĩa của data.",
+      "content_hash": "data|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item data - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "data",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của data",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của data':",
+        "opts": [
+          "data",
+          "dataing",
+          "dataed",
+          "re-data"
+        ]
+      },
+      "answer": "data",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là data.",
+      "content_hash": "data|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item data - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "data",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của data",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "data",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "data",
+      "explain_vi": "Điền 'data' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "data|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item data - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "data",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của data",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to data without proper preparation yesterday.'",
+        "opts": [
+          "He tried to data without proper preparation yesterday.",
+          "He try to data without proper preparation yesterday.",
+          "He trying to data without proper preparation yesterday.",
+          "He was try to data without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to data without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "data|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item data - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "data",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của data",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'data':",
+        "opts": [
+          "apply data correctly",
+          "make data wrong",
+          "do data badly",
+          "take data off"
+        ]
+      },
+      "answer": "apply data correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply data correctly.",
+      "content_hash": "data|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item data - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "problem",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của problem",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "problem (n.)",
+        "opts": [
+          "ý nghĩa của problem",
+          "sự từ chối đối với problem",
+          "trạng thái thiếu problem",
+          "hành động ngược lại với problem"
+        ]
+      },
+      "answer": "ý nghĩa của problem",
+      "explain_vi": "Từ/cụm từ 'problem' (n.) có nghĩa chính xác là: ý nghĩa của problem.",
+      "content_hash": "problem|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item problem - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "problem",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của problem",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của problem':",
+        "opts": [
+          "problem",
+          "probleming",
+          "problemed",
+          "re-problem"
+        ]
+      },
+      "answer": "problem",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là problem.",
+      "content_hash": "problem|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item problem - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "problem",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của problem",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "problem",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "problem",
+      "explain_vi": "Điền 'problem' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "problem|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item problem - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "problem",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của problem",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to problem without proper preparation yesterday.'",
+        "opts": [
+          "He tried to problem without proper preparation yesterday.",
+          "He try to problem without proper preparation yesterday.",
+          "He trying to problem without proper preparation yesterday.",
+          "He was try to problem without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to problem without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "problem|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item problem - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "problem",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của problem",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'problem':",
+        "opts": [
+          "apply problem correctly",
+          "make problem wrong",
+          "do problem badly",
+          "take problem off"
+        ]
+      },
+      "answer": "apply problem correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply problem correctly.",
+      "content_hash": "problem|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item problem - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "solution",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của solution",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "solution (n.)",
+        "opts": [
+          "ý nghĩa của solution",
+          "sự từ chối đối với solution",
+          "trạng thái thiếu solution",
+          "hành động ngược lại với solution"
+        ]
+      },
+      "answer": "ý nghĩa của solution",
+      "explain_vi": "Từ/cụm từ 'solution' (n.) có nghĩa chính xác là: ý nghĩa của solution.",
+      "content_hash": "solution|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item solution - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "solution",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của solution",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của solution':",
+        "opts": [
+          "solution",
+          "solutioning",
+          "solutioned",
+          "re-solution"
+        ]
+      },
+      "answer": "solution",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là solution.",
+      "content_hash": "solution|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item solution - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "solution",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của solution",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "solution",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "solution",
+      "explain_vi": "Điền 'solution' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "solution|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "oxford item solution - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "solution",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của solution",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to solution without proper preparation yesterday.'",
+        "opts": [
+          "He tried to solution without proper preparation yesterday.",
+          "He try to solution without proper preparation yesterday.",
+          "He trying to solution without proper preparation yesterday.",
+          "He was try to solution without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to solution without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "solution|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item solution - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "solution",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của solution",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'solution':",
+        "opts": [
+          "apply solution correctly",
+          "make solution wrong",
+          "do solution badly",
+          "take solution off"
+        ]
+      },
+      "answer": "apply solution correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply solution correctly.",
+      "content_hash": "solution|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item solution - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "number",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của number",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "number (n.)",
+        "opts": [
+          "ý nghĩa của number",
+          "sự từ chối đối với number",
+          "trạng thái thiếu number",
+          "hành động ngược lại với number"
+        ]
+      },
+      "answer": "ý nghĩa của number",
+      "explain_vi": "Từ/cụm từ 'number' (n.) có nghĩa chính xác là: ý nghĩa của number.",
+      "content_hash": "number|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item number - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "number",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của number",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của number':",
+        "opts": [
+          "number",
+          "numbering",
+          "numbered",
+          "re-number"
+        ]
+      },
+      "answer": "number",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là number.",
+      "content_hash": "number|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item number - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "number",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của number",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "number",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "number",
+      "explain_vi": "Điền 'number' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "number|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item number - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "number",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của number",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to number without proper preparation yesterday.'",
+        "opts": [
+          "He tried to number without proper preparation yesterday.",
+          "He try to number without proper preparation yesterday.",
+          "He trying to number without proper preparation yesterday.",
+          "He was try to number without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to number without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "number|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item number - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "number",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của number",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'number':",
+        "opts": [
+          "apply number correctly",
+          "make number wrong",
+          "do number badly",
+          "take number off"
+        ]
+      },
+      "answer": "apply number correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply number correctly.",
+      "content_hash": "number|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item number - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "list",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của list",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "list (n.)",
+        "opts": [
+          "ý nghĩa của list",
+          "sự từ chối đối với list",
+          "trạng thái thiếu list",
+          "hành động ngược lại với list"
+        ]
+      },
+      "answer": "ý nghĩa của list",
+      "explain_vi": "Từ/cụm từ 'list' (n.) có nghĩa chính xác là: ý nghĩa của list.",
+      "content_hash": "list|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item list - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "list",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của list",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của list':",
+        "opts": [
+          "list",
+          "listing",
+          "listed",
+          "re-list"
+        ]
+      },
+      "answer": "list",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là list.",
+      "content_hash": "list|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item list - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "list",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của list",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "list",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "list",
+      "explain_vi": "Điền 'list' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "list|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item list - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "list",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của list",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to list without proper preparation yesterday.'",
+        "opts": [
+          "He tried to list without proper preparation yesterday.",
+          "He try to list without proper preparation yesterday.",
+          "He trying to list without proper preparation yesterday.",
+          "He was try to list without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to list without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "list|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item list - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "list",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của list",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'list':",
+        "opts": [
+          "apply list correctly",
+          "make list wrong",
+          "do list badly",
+          "take list off"
+        ]
+      },
+      "answer": "apply list correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply list correctly.",
+      "content_hash": "list|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item list - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "note",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của note",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "note (n.)",
+        "opts": [
+          "ý nghĩa của note",
+          "sự từ chối đối với note",
+          "trạng thái thiếu note",
+          "hành động ngược lại với note"
+        ]
+      },
+      "answer": "ý nghĩa của note",
+      "explain_vi": "Từ/cụm từ 'note' (n.) có nghĩa chính xác là: ý nghĩa của note.",
+      "content_hash": "note|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item note - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "note",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của note",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của note':",
+        "opts": [
+          "note",
+          "noteing",
+          "noteed",
+          "re-note"
+        ]
+      },
+      "answer": "note",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là note.",
+      "content_hash": "note|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item note - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "note",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của note",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "note",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "note",
+      "explain_vi": "Điền 'note' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "note|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item note - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "note",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của note",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to note without proper preparation yesterday.'",
+        "opts": [
+          "He tried to note without proper preparation yesterday.",
+          "He try to note without proper preparation yesterday.",
+          "He trying to note without proper preparation yesterday.",
+          "He was try to note without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to note without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "note|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "oxford item note - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "note",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của note",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'note':",
+        "opts": [
+          "apply note correctly",
+          "make note wrong",
+          "do note badly",
+          "take note off"
+        ]
+      },
+      "answer": "apply note correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply note correctly.",
+      "content_hash": "note|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item note - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "summary",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của summary",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "summary (n.)",
+        "opts": [
+          "ý nghĩa của summary",
+          "sự từ chối đối với summary",
+          "trạng thái thiếu summary",
+          "hành động ngược lại với summary"
+        ]
+      },
+      "answer": "ý nghĩa của summary",
+      "explain_vi": "Từ/cụm từ 'summary' (n.) có nghĩa chính xác là: ý nghĩa của summary.",
+      "content_hash": "summary|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item summary - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "summary",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của summary",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của summary':",
+        "opts": [
+          "summary",
+          "summarying",
+          "summaryed",
+          "re-summary"
+        ]
+      },
+      "answer": "summary",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là summary.",
+      "content_hash": "summary|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item summary - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "summary",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của summary",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "summary",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "summary",
+      "explain_vi": "Điền 'summary' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "summary|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item summary - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "summary",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của summary",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to summary without proper preparation yesterday.'",
+        "opts": [
+          "He tried to summary without proper preparation yesterday.",
+          "He try to summary without proper preparation yesterday.",
+          "He trying to summary without proper preparation yesterday.",
+          "He was try to summary without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to summary without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "summary|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item summary - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "summary",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của summary",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'summary':",
+        "opts": [
+          "apply summary correctly",
+          "make summary wrong",
+          "do summary badly",
+          "take summary off"
+        ]
+      },
+      "answer": "apply summary correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply summary correctly.",
+      "content_hash": "summary|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item summary - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "title",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của title",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "title (n.)",
+        "opts": [
+          "ý nghĩa của title",
+          "sự từ chối đối với title",
+          "trạng thái thiếu title",
+          "hành động ngược lại với title"
+        ]
+      },
+      "answer": "ý nghĩa của title",
+      "explain_vi": "Từ/cụm từ 'title' (n.) có nghĩa chính xác là: ý nghĩa của title.",
+      "content_hash": "title|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item title - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "title",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của title",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của title':",
+        "opts": [
+          "title",
+          "titleing",
+          "titleed",
+          "re-title"
+        ]
+      },
+      "answer": "title",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là title.",
+      "content_hash": "title|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item title - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "title",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của title",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "title",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "title",
+      "explain_vi": "Điền 'title' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "title|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item title - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "title",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của title",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to title without proper preparation yesterday.'",
+        "opts": [
+          "He tried to title without proper preparation yesterday.",
+          "He try to title without proper preparation yesterday.",
+          "He trying to title without proper preparation yesterday.",
+          "He was try to title without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to title without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "title|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item title - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "title",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của title",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'title':",
+        "opts": [
+          "apply title correctly",
+          "make title wrong",
+          "do title badly",
+          "take title off"
+        ]
+      },
+      "answer": "apply title correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply title correctly.",
+      "content_hash": "title|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item title - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "chapter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chapter",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "chapter (n.)",
+        "opts": [
+          "ý nghĩa của chapter",
+          "sự từ chối đối với chapter",
+          "trạng thái thiếu chapter",
+          "hành động ngược lại với chapter"
+        ]
+      },
+      "answer": "ý nghĩa của chapter",
+      "explain_vi": "Từ/cụm từ 'chapter' (n.) có nghĩa chính xác là: ý nghĩa của chapter.",
+      "content_hash": "chapter|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item chapter - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "chapter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chapter",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của chapter':",
+        "opts": [
+          "chapter",
+          "chaptering",
+          "chaptered",
+          "re-chapter"
+        ]
+      },
+      "answer": "chapter",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là chapter.",
+      "content_hash": "chapter|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item chapter - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "chapter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chapter",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "chapter",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "chapter",
+      "explain_vi": "Điền 'chapter' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "chapter|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item chapter - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "chapter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chapter",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to chapter without proper preparation yesterday.'",
+        "opts": [
+          "He tried to chapter without proper preparation yesterday.",
+          "He try to chapter without proper preparation yesterday.",
+          "He trying to chapter without proper preparation yesterday.",
+          "He was try to chapter without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to chapter without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "chapter|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item chapter - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "chapter",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của chapter",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'chapter':",
+        "opts": [
+          "apply chapter correctly",
+          "make chapter wrong",
+          "do chapter badly",
+          "take chapter off"
+        ]
+      },
+      "answer": "apply chapter correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply chapter correctly.",
+      "content_hash": "chapter|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "oxford item chapter - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "paragraph",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của paragraph",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "paragraph (n.)",
+        "opts": [
+          "ý nghĩa của paragraph",
+          "sự từ chối đối với paragraph",
+          "trạng thái thiếu paragraph",
+          "hành động ngược lại với paragraph"
+        ]
+      },
+      "answer": "ý nghĩa của paragraph",
+      "explain_vi": "Từ/cụm từ 'paragraph' (n.) có nghĩa chính xác là: ý nghĩa của paragraph.",
+      "content_hash": "paragraph|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item paragraph - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "paragraph",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của paragraph",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của paragraph':",
+        "opts": [
+          "paragraph",
+          "paragraphing",
+          "paragraphed",
+          "re-paragraph"
+        ]
+      },
+      "answer": "paragraph",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là paragraph.",
+      "content_hash": "paragraph|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item paragraph - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "paragraph",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của paragraph",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "paragraph",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "paragraph",
+      "explain_vi": "Điền 'paragraph' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "paragraph|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item paragraph - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "paragraph",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của paragraph",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to paragraph without proper preparation yesterday.'",
+        "opts": [
+          "He tried to paragraph without proper preparation yesterday.",
+          "He try to paragraph without proper preparation yesterday.",
+          "He trying to paragraph without proper preparation yesterday.",
+          "He was try to paragraph without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to paragraph without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "paragraph|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item paragraph - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "paragraph",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của paragraph",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'paragraph':",
+        "opts": [
+          "apply paragraph correctly",
+          "make paragraph wrong",
+          "do paragraph badly",
+          "take paragraph off"
+        ]
+      },
+      "answer": "apply paragraph correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply paragraph correctly.",
+      "content_hash": "paragraph|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item paragraph - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "sentence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sentence",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sentence (n.)",
+        "opts": [
+          "ý nghĩa của sentence",
+          "sự từ chối đối với sentence",
+          "trạng thái thiếu sentence",
+          "hành động ngược lại với sentence"
+        ]
+      },
+      "answer": "ý nghĩa của sentence",
+      "explain_vi": "Từ/cụm từ 'sentence' (n.) có nghĩa chính xác là: ý nghĩa của sentence.",
+      "content_hash": "sentence|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item sentence - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "sentence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sentence",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của sentence':",
+        "opts": [
+          "sentence",
+          "sentenceing",
+          "sentenceed",
+          "re-sentence"
+        ]
+      },
+      "answer": "sentence",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là sentence.",
+      "content_hash": "sentence|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "oxford item sentence - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "sentence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sentence",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "sentence",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "sentence",
+      "explain_vi": "Điền 'sentence' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "sentence|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "oxford item sentence - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "sentence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sentence",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to sentence without proper preparation yesterday.'",
+        "opts": [
+          "He tried to sentence without proper preparation yesterday.",
+          "He try to sentence without proper preparation yesterday.",
+          "He trying to sentence without proper preparation yesterday.",
+          "He was try to sentence without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to sentence without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "sentence|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "oxford item sentence - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "sentence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của sentence",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'sentence':",
+        "opts": [
+          "apply sentence correctly",
+          "make sentence wrong",
+          "do sentence badly",
+          "take sentence off"
+        ]
+      },
+      "answer": "apply sentence correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply sentence correctly.",
+      "content_hash": "sentence|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "oxford item sentence - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "word",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của word",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "word (n.)",
+        "opts": [
+          "ý nghĩa của word",
+          "sự từ chối đối với word",
+          "trạng thái thiếu word",
+          "hành động ngược lại với word"
+        ]
+      },
+      "answer": "ý nghĩa của word",
+      "explain_vi": "Từ/cụm từ 'word' (n.) có nghĩa chính xác là: ý nghĩa của word.",
+      "content_hash": "word|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item word - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "word",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của word",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của word':",
+        "opts": [
+          "word",
+          "wording",
+          "worded",
+          "re-word"
+        ]
+      },
+      "answer": "word",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là word.",
+      "content_hash": "word|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "oxford item word - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "word",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của word",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "word",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "word",
+      "explain_vi": "Điền 'word' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "word|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "oxford item word - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "word",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của word",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to word without proper preparation yesterday.'",
+        "opts": [
+          "He tried to word without proper preparation yesterday.",
+          "He try to word without proper preparation yesterday.",
+          "He trying to word without proper preparation yesterday.",
+          "He was try to word without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to word without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "word|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "oxford item word - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "word",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của word",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'word':",
+        "opts": [
+          "apply word correctly",
+          "make word wrong",
+          "do word badly",
+          "take word off"
+        ]
+      },
+      "answer": "apply word correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply word correctly.",
+      "content_hash": "word|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "oxford item word - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "spelling",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của spelling",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "spelling (n.)",
+        "opts": [
+          "ý nghĩa của spelling",
+          "sự từ chối đối với spelling",
+          "trạng thái thiếu spelling",
+          "hành động ngược lại với spelling"
+        ]
+      },
+      "answer": "ý nghĩa của spelling",
+      "explain_vi": "Từ/cụm từ 'spelling' (n.) có nghĩa chính xác là: ý nghĩa của spelling.",
+      "content_hash": "spelling|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item spelling - meaning",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "spelling",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của spelling",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của spelling':",
+        "opts": [
+          "spelling",
+          "spellinging",
+          "spellinged",
+          "re-spelling"
+        ]
+      },
+      "answer": "spelling",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là spelling.",
+      "content_hash": "spelling|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "oxford item spelling - near miss form",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "spelling",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của spelling",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "spelling",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "spelling",
+      "explain_vi": "Điền 'spelling' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "spelling|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "oxford item spelling - context cloze",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "spelling",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của spelling",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to spelling without proper preparation yesterday.'",
+        "opts": [
+          "He tried to spelling without proper preparation yesterday.",
+          "He try to spelling without proper preparation yesterday.",
+          "He trying to spelling without proper preparation yesterday.",
+          "He was try to spelling without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to spelling without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "spelling|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "oxford item spelling - error identification",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    },
+    {
+      "lemma": "spelling",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của spelling",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'spelling':",
+        "opts": [
+          "apply spelling correctly",
+          "make spelling wrong",
+          "do spelling badly",
+          "take spelling off"
+        ]
+      },
+      "answer": "apply spelling correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply spelling correctly.",
+      "content_hash": "spelling|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "oxford item spelling - collocation phrase",
+        "priority": "P2",
+        "queue": "oxford",
+        "pack_id": "p2-oxford-15"
+      }
+    }
+  ]
+}

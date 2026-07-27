@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-18",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "reduce",
+    "refuse",
+    "regard",
+    "relate",
+    "release",
+    "rely",
+    "remove",
+    "rent",
+    "repair",
+    "replace"
+  ],
+  "items": [
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "giảm ô nhiễm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "reduce (v.)",
+        "opts": [
+          "giảm ô nhiễm",
+          "đi xe đạp",
+          "phù hợp kích thước",
+          "sắp xếp cuộc họp"
+        ]
+      },
+      "answer": "giảm ô nhiễm",
+      "explain_vi": "Động từ reduce mang nghĩa chính xác là: giảm ô nhiễm.",
+      "content_hash": "reduce|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "reduce gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reduce environmental pollution",
+        "vn_trap": "past tense reduced"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "giảm ô nhiễm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'giảm ô nhiễm', từ tiếng Anh đúng là:",
+        "opts": [
+          "reduce",
+          "reduces",
+          "reduceing",
+          "reduced"
+        ]
+      },
+      "answer": "reduce",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là reduce.",
+      "content_hash": "reduce|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "reduce l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reduce environmental pollution",
+        "vn_trap": "past tense reduced"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "giảm ô nhiễm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "reduce",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "reduce",
+      "explain_vi": "Điền 'reduce' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "reduce|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "reduce cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reduce environmental pollution",
+        "vn_trap": "past tense reduced"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "giảm ô nhiễm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She reduces the exercise very slow yesterday.'",
+        "opts": [
+          "She reduced the exercise very slowly yesterday.",
+          "She reduces the exercise very slow yesterday.",
+          "They She reduces the exercise very slow yesterday.",
+          "She was reduceing when I came yesterday."
+        ]
+      },
+      "answer": "She reduced the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "reduce|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "reduce error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reduce environmental pollution",
+        "vn_trap": "past tense reduced"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "giảm ô nhiễm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'reduce':",
+        "opts": [
+          "reduce environmental pollution",
+          "reduce in wrong way",
+          "reduce without care",
+          "reduce for nothing"
+        ]
+      },
+      "answer": "reduce environmental pollution",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: reduce environmental pollution.",
+      "content_hash": "reduce|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "reduce collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reduce environmental pollution",
+        "vn_trap": "past tense reduced"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "từ chối trả lời",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "refuse (v.)",
+        "opts": [
+          "từ chối trả lời",
+          "gọi chuông cửa",
+          "hỗ trợ đồng đội",
+          "đến đúng giờ"
+        ]
+      },
+      "answer": "từ chối trả lời",
+      "explain_vi": "Động từ refuse mang nghĩa chính xác là: từ chối trả lời.",
+      "content_hash": "refuse|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "refuse gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "refuse to answer questions",
+        "vn_trap": "past tense refused"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "từ chối trả lời",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'từ chối trả lời' là:",
+        "opts": [
+          "refuse",
+          "refuses",
+          "refuseing",
+          "refused"
+        ]
+      },
+      "answer": "refuse",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là refuse.",
+      "content_hash": "refuse|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "refuse l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "refuse to answer questions",
+        "vn_trap": "past tense refused"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "từ chối trả lời",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "refuse",
+          "reject",
+          "deny",
+          "avoid"
+        ]
+      },
+      "answer": "refuse",
+      "explain_vi": "Điền 'refuse' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "refuse|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "refuse cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "refuse to answer questions",
+        "vn_trap": "past tense refused"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "từ chối trả lời",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was refuseing when the lights went out.'",
+        "opts": [
+          "They were refuseing when the lights went out.",
+          "They was refuseing when the lights went out.",
+          "They They was refuseing when the lights went out.",
+          "She was refuseing when I came yesterday."
+        ]
+      },
+      "answer": "They were refuseing when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "refuse|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "refuse error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "refuse to answer questions",
+        "vn_trap": "past tense refused"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "từ chối trả lời",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'refuse':",
+        "opts": [
+          "refuse to answer questions",
+          "refuse in wrong way",
+          "refuse without care",
+          "refuse for nothing"
+        ]
+      },
+      "answer": "refuse to answer questions",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: refuse to answer questions.",
+      "content_hash": "refuse|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "refuse collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "refuse to answer questions",
+        "vn_trap": "past tense refused"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "coi như quan trọng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "regard (v.)",
+        "opts": [
+          "coi như quan trọng",
+          "tăng giá cả",
+          "cho rằng đúng",
+          "tấn công kẻ địch"
+        ]
+      },
+      "answer": "coi như quan trọng",
+      "explain_vi": "Động từ regard mang nghĩa chính xác là: coi như quan trọng.",
+      "content_hash": "regard|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "regard gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "regard as very important",
+        "vn_trap": "past tense regarded"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "coi như quan trọng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'coi như quan trọng' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "regard",
+          "regards",
+          "regarding",
+          "regarded"
+        ]
+      },
+      "answer": "regard",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là regard.",
+      "content_hash": "regard|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "regard l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "regard as very important",
+        "vn_trap": "past tense regarded"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "coi như quan trọng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "regard",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "regard",
+      "explain_vi": "Điền 'regard' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "regard|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "regard cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "regard as very important",
+        "vn_trap": "past tense regarded"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "coi như quan trọng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He regards without check the answers first.'",
+        "opts": [
+          "He regarded without checking the answers first.",
+          "He regards without check the answers first.",
+          "They He regards without check the answers first.",
+          "She was regarding when I came yesterday."
+        ]
+      },
+      "answer": "He regarded without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "regard|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "regard error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "regard as very important",
+        "vn_trap": "past tense regarded"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "coi như quan trọng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'regard':",
+        "opts": [
+          "regard as very important",
+          "regard in wrong way",
+          "regard without care",
+          "regard for nothing"
+        ]
+      },
+      "answer": "regard as very important",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: regard as very important.",
+      "content_hash": "regard|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "regard collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "regard as very important",
+        "vn_trap": "past tense regarded"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "liên quan chủ đề",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "relate (v.)",
+        "opts": [
+          "liên quan chủ đề",
+          "lăn quả bóng",
+          "sống sót qua bão",
+          "tham dự lớp học"
+        ]
+      },
+      "answer": "liên quan chủ đề",
+      "explain_vi": "Động từ relate mang nghĩa chính xác là: liên quan chủ đề.",
+      "content_hash": "relate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "relate gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relate to the topic",
+        "vn_trap": "past tense related"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "liên quan chủ đề",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'liên quan chủ đề' là:",
+        "opts": [
+          "relate",
+          "relates",
+          "relateing",
+          "related"
+        ]
+      },
+      "answer": "relate",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là relate.",
+      "content_hash": "relate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "relate l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relate to the topic",
+        "vn_trap": "past tense related"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "liên quan chủ đề",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "relate",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "relate",
+      "explain_vi": "Điền 'relate' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "relate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "relate cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relate to the topic",
+        "vn_trap": "past tense related"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "liên quan chủ đề",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is relateing since last year.'",
+        "opts": [
+          "She has been relateing since last year.",
+          "She is relateing since last year.",
+          "They She is relateing since last year.",
+          "She was relateing when I came yesterday."
+        ]
+      },
+      "answer": "She has been relateing since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "relate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "relate error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relate to the topic",
+        "vn_trap": "past tense related"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "liên quan chủ đề",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'relate':",
+        "opts": [
+          "relate to the topic",
+          "relate in wrong way",
+          "relate without care",
+          "relate for nothing"
+        ]
+      },
+      "answer": "relate to the topic",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: relate to the topic.",
+      "content_hash": "relate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "relate collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relate to the topic",
+        "vn_trap": "past tense related"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "phát hành phim",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "release (v.)",
+        "opts": [
+          "phát hành phim",
+          "quy định luật lệ",
+          "bơi dưới biển",
+          "tránh mắc lỗi"
+        ]
+      },
+      "answer": "phát hành phim",
+      "explain_vi": "Động từ release mang nghĩa chính xác là: phát hành phim.",
+      "content_hash": "release|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "release gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "release a new movie",
+        "vn_trap": "past tense released"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "phát hành phim",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'phát hành phim' được dịch là:",
+        "opts": [
+          "release",
+          "releases",
+          "releaseing",
+          "released"
+        ]
+      },
+      "answer": "release",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là release.",
+      "content_hash": "release|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "release l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "release a new movie",
+        "vn_trap": "past tense released"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "phát hành phim",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "release",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "release",
+      "explain_vi": "Điền 'release' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "release|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "release cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "release a new movie",
+        "vn_trap": "past tense released"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "phát hành phim",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they releases earlier, they would win.'",
+        "opts": [
+          "If they released earlier, they would win.",
+          "If they releases earlier, they would win.",
+          "They If they releases earlier, they would win.",
+          "She was releaseing when I came yesterday."
+        ]
+      },
+      "answer": "If they released earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "release|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "release error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "release a new movie",
+        "vn_trap": "past tense released"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "phát hành phim",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'release':",
+        "opts": [
+          "release a new movie",
+          "release in wrong way",
+          "release without care",
+          "release for nothing"
+        ]
+      },
+      "answer": "release a new movie",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: release a new movie.",
+      "content_hash": "release|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "release collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "release a new movie",
+        "vn_trap": "past tense released"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "v",
+      "sense_vi": "tin cậy vào bạn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rely (v.)",
+        "opts": [
+          "tin cậy vào bạn",
+          "vội vã đi",
+          "bật tắt đèn",
+          "dựa trên thực tế"
+        ]
+      },
+      "answer": "tin cậy vào bạn",
+      "explain_vi": "Động từ rely mang nghĩa chính xác là: tin cậy vào bạn.",
+      "content_hash": "rely|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "rely gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rely on good friends",
+        "vn_trap": "past tense relied"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "v",
+      "sense_vi": "tin cậy vào bạn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'tin cậy vào bạn', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "rely",
+          "relys",
+          "relying",
+          "relied"
+        ]
+      },
+      "answer": "rely",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là rely.",
+      "content_hash": "rely|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "rely l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rely on good friends",
+        "vn_trap": "past tense relied"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "v",
+      "sense_vi": "tin cậy vào bạn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "rely",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "rely",
+      "explain_vi": "Điền 'rely' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "rely|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "rely cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rely on good friends",
+        "vn_trap": "past tense relied"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "v",
+      "sense_vi": "tin cậy vào bạn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to rely when she is busy.'",
+        "opts": [
+          "She avoids relying when she is busy.",
+          "She avoids to rely when she is busy.",
+          "They She avoids to rely when she is busy.",
+          "She was relying when I came yesterday."
+        ]
+      },
+      "answer": "She avoids relying when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "rely|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "rely error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rely on good friends",
+        "vn_trap": "past tense relied"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "v",
+      "sense_vi": "tin cậy vào bạn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'rely':",
+        "opts": [
+          "rely on good friends",
+          "rely in wrong way",
+          "rely without care",
+          "rely for nothing"
+        ]
+      },
+      "answer": "rely on good friends",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: rely on good friends.",
+      "content_hash": "rely|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "rely collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rely on good friends",
+        "vn_trap": "past tense relied"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "gỡ nhãn dán",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "remove (v.)",
+        "opts": [
+          "gỡ nhãn dán",
+          "tìm kiếm thông tin",
+          "nếm thử thức ăn",
+          "thuộc về tôi"
+        ]
+      },
+      "answer": "gỡ nhãn dán",
+      "explain_vi": "Động từ remove mang nghĩa chính xác là: gỡ nhãn dán.",
+      "content_hash": "remove|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "remove gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remove the price sticker",
+        "vn_trap": "past tense removed"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "gỡ nhãn dán",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'gỡ nhãn dán' là:",
+        "opts": [
+          "remove",
+          "removes",
+          "removeing",
+          "removed"
+        ]
+      },
+      "answer": "remove",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là remove.",
+      "content_hash": "remove|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "remove l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remove the price sticker",
+        "vn_trap": "past tense removed"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "gỡ nhãn dán",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "remove",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "remove",
+      "explain_vi": "Điền 'remove' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "remove|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "remove cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remove the price sticker",
+        "vn_trap": "past tense removed"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "gỡ nhãn dán",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at remove in public places.'",
+        "opts": [
+          "He is good at removeing in public places.",
+          "He is good at remove in public places.",
+          "They He is good at remove in public places.",
+          "She was removeing when I came yesterday."
+        ]
+      },
+      "answer": "He is good at removeing in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "remove|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "remove error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remove the price sticker",
+        "vn_trap": "past tense removed"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "gỡ nhãn dán",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'remove':",
+        "opts": [
+          "remove the price sticker",
+          "remove in wrong way",
+          "remove without care",
+          "remove for nothing"
+        ]
+      },
+      "answer": "remove the price sticker",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: remove the price sticker.",
+      "content_hash": "remove|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "remove collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remove the price sticker",
+        "vn_trap": "past tense removed"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "thuê căn hộ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rent (v.)",
+        "opts": [
+          "thuê căn hộ",
+          "có vẻ vui",
+          "có xu hướng thích",
+          "đổ lỗi cho ai"
+        ]
+      },
+      "answer": "thuê căn hộ",
+      "explain_vi": "Động từ rent mang nghĩa chính xác là: thuê căn hộ.",
+      "content_hash": "rent|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "rent gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rent a small apartment",
+        "vn_trap": "past tense rented"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "thuê căn hộ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'thuê căn hộ' là:",
+        "opts": [
+          "rent",
+          "rents",
+          "renting",
+          "rented"
+        ]
+      },
+      "answer": "rent",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là rent.",
+      "content_hash": "rent|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "rent l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rent a small apartment",
+        "vn_trap": "past tense rented"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "thuê căn hộ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Before you leave, make sure to ___ the door.",
+        "opts": [
+          "rent",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "rent",
+      "explain_vi": "Điền 'rent' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "rent|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "rent cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rent a small apartment",
+        "vn_trap": "past tense rented"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "thuê căn hộ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite of the rain, she went out to rent.'",
+        "opts": [
+          "Despite the rain, she went out to rent.",
+          "Despite of the rain, she went out to rent.",
+          "They Despite of the rain, she went out to rent.",
+          "She was renting when I came yesterday."
+        ]
+      },
+      "answer": "Despite the rain, she went out to rent.",
+      "explain_vi": "Dùng 'Despite' (không có 'of').",
+      "content_hash": "rent|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "rent error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rent a small apartment",
+        "vn_trap": "past tense rented"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "thuê căn hộ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'rent':",
+        "opts": [
+          "rent a small apartment",
+          "rent in wrong way",
+          "rent without care",
+          "rent for nothing"
+        ]
+      },
+      "answer": "rent a small apartment",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: rent a small apartment.",
+      "content_hash": "rent|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "rent collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "rent a small apartment",
+        "vn_trap": "past tense rented"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "repair (v.)",
+        "opts": [
+          "sửa xe đạp",
+          "chọn phương án",
+          "kiểm tra phần mềm",
+          "mượn cuốn sách"
+        ]
+      },
+      "answer": "sửa xe đạp",
+      "explain_vi": "Động từ repair mang nghĩa chính xác là: sửa xe đạp.",
+      "content_hash": "repair|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "repair gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repair the broken bicycle",
+        "vn_trap": "past tense repaired"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'sửa xe đạp', người Anh dùng:",
+        "opts": [
+          "repair",
+          "repairs",
+          "repairing",
+          "repaired"
+        ]
+      },
+      "answer": "repair",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là repair.",
+      "content_hash": "repair|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "repair l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repair the broken bicycle",
+        "vn_trap": "past tense repaired"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love to ___ games in the playground.",
+        "opts": [
+          "repair",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "repair",
+      "explain_vi": "Điền 'repair' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "repair|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "repair cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repair the broken bicycle",
+        "vn_trap": "past tense repaired"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has repaireded the book yesterday evening.'",
+        "opts": [
+          "She repaired the book yesterday evening.",
+          "She has repaireded the book yesterday evening.",
+          "They She has repaireded the book yesterday evening.",
+          "She was repairing when I came yesterday."
+        ]
+      },
+      "answer": "She repaired the book yesterday evening.",
+      "explain_vi": "Quá khứ xác định dùng quá khứ đơn.",
+      "content_hash": "repair|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "repair error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repair the broken bicycle",
+        "vn_trap": "past tense repaired"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'repair':",
+        "opts": [
+          "repair the broken bicycle",
+          "repair in wrong way",
+          "repair without care",
+          "repair for nothing"
+        ]
+      },
+      "answer": "repair the broken bicycle",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: repair the broken bicycle.",
+      "content_hash": "repair|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "repair collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repair the broken bicycle",
+        "vn_trap": "past tense repaired"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "thay thế linh kiện",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "replace (v.)",
+        "opts": [
+          "thay thế linh kiện",
+          "tách hai nhóm",
+          "ném quả bóng",
+          "thở sâu"
+        ]
+      },
+      "answer": "thay thế linh kiện",
+      "explain_vi": "Động từ replace mang nghĩa chính xác là: thay thế linh kiện.",
+      "content_hash": "replace|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "replace gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "replace the broken part",
+        "vn_trap": "past tense replaced"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "thay thế linh kiện",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'thay thế linh kiện' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "replace",
+          "replaces",
+          "replaceing",
+          "replaced"
+        ]
+      },
+      "answer": "replace",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là replace.",
+      "content_hash": "replace|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "replace l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "replace the broken part",
+        "vn_trap": "past tense replaced"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "thay thế linh kiện",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "During the lesson, please ___ to the teacher.",
+        "opts": [
+          "replace",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "replace",
+      "explain_vi": "Điền 'replace' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "replace|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "replace cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "replace the broken part",
+        "vn_trap": "past tense replaced"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "thay thế linh kiện",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He remembered to replaceing the door before leaving.'",
+        "opts": [
+          "He remembered to replace the door before leaving.",
+          "He remembered to replaceing the door before leaving.",
+          "They He remembered to replaceing the door before leaving.",
+          "She was replaceing when I came yesterday."
+        ]
+      },
+      "answer": "He remembered to replace the door before leaving.",
+      "explain_vi": "Nhớ phải làm gì dùng 'remember to V'.",
+      "content_hash": "replace|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "replace error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "replace the broken part",
+        "vn_trap": "past tense replaced"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "thay thế linh kiện",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'replace':",
+        "opts": [
+          "replace the broken part",
+          "replace in wrong way",
+          "replace without care",
+          "replace for nothing"
+        ]
+      },
+      "answer": "replace the broken part",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: replace the broken part.",
+      "content_hash": "replace|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "replace collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "replace the broken part",
+        "vn_trap": "past tense replaced"
+      }
+    }
+  ]
+}

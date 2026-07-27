@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-11-daily",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-daily"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wake up (phrase)",
+        "opts": [
+          "thức dậy",
+          "đi ngủ",
+          "nằm xuống",
+          "ngáp"
+        ]
+      },
+      "answer": "thức dậy",
+      "explain_vi": "wake up nghĩa là tỉnh giấc / thức dậy.",
+      "content_hash": "wake-up|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa thức dậy",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động tỉnh giấc vào buổi sáng:",
+        "opts": [
+          "wake up",
+          "wake",
+          "woke up",
+          "awake"
+        ]
+      },
+      "answer": "wake up",
+      "explain_vi": "Cụm động từ thức dậy là wake up.",
+      "content_hash": "wake-up|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss wake/woke",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I usually ___ at 6 AM every morning.",
+        "opts": [
+          "wake up",
+          "stand up",
+          "look up",
+          "grow up"
+        ]
+      },
+      "answer": "wake up",
+      "explain_vi": "Wake up at 6 AM (thức dậy lúc 6h).",
+      "content_hash": "wake-up|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "wake up at 6 AM",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I wake on early every morning to prepare for class.'",
+        "opts": [
+          "I wake up early every morning to prepare for class.",
+          "I wake on early every morning to prepare for class.",
+          "I wake off early every morning to prepare for class.",
+          "I waking early every morning to prepare for class."
+        ]
+      },
+      "answer": "I wake up early every morning to prepare for class.",
+      "explain_vi": "Cụm đúng là wake up (thức dậy), không dùng wake on.",
+      "content_hash": "wake-up|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy wake on vs wake up",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thức dậy sớm chuẩn:",
+        "opts": [
+          "wake up early",
+          "wake up soon",
+          "wake up fast",
+          "wake up quick"
+        ]
+      },
+      "answer": "wake up early",
+      "explain_vi": "Thức dậy sớm dùng cụm wake up early.",
+      "content_hash": "wake-up|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm wake up early",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sleep",
+      "pos": "v",
+      "sense_vi": "ngủ",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sleep (v./n.)",
+        "opts": [
+          "ngủ / giấc ngủ",
+          "thức dậy",
+          "thức khuya",
+          "chơi đùa"
+        ]
+      },
+      "answer": "ngủ / giấc ngủ",
+      "explain_vi": "sleep nghĩa là ngủ.",
+      "content_hash": "sleep|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa ngủ",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sleep",
+      "pos": "v",
+      "sense_vi": "ngủ",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động nghỉ ngơi nhắm mắt vào ban đêm:",
+        "opts": [
+          "sleep",
+          "slept",
+          "asleep",
+          "slip"
+        ]
+      },
+      "answer": "sleep",
+      "explain_vi": "Ngủ là sleep (slept là quá khứ, slip là trượt chân).",
+      "content_hash": "sleep|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss slept/slip",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sleep",
+      "pos": "v",
+      "sense_vi": "ngủ",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Children should ___ for 8 hours every night.",
+        "opts": [
+          "sleep",
+          "slip",
+          "slap",
+          "slope"
+        ]
+      },
+      "answer": "sleep",
+      "explain_vi": "Sleep for 8 hours (ngủ 8 tiếng).",
+      "content_hash": "sleep|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "sleep 8 hours",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sleep",
+      "pos": "v",
+      "sense_vi": "ngủ",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He slept very good last night.'",
+        "opts": [
+          "He slept very well last night.",
+          "He slept very good last night.",
+          "He sleep very well last night.",
+          "He is slept very well last night."
+        ]
+      },
+      "answer": "He slept very well last night.",
+      "explain_vi": "Bổ nghĩa cho động từ slept dùng trạng từ well, không dùng tính từ good.",
+      "content_hash": "sleep|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy sleep well vs good",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sleep",
+      "pos": "v",
+      "sense_vi": "ngủ",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ngủ ngon giấc chuẩn:",
+        "opts": [
+          "sleep well",
+          "sleep good",
+          "sleep fine",
+          "sleep nice"
+        ]
+      },
+      "answer": "sleep well",
+      "explain_vi": "Ngủ ngon giấc dùng cụm 'sleep well'.",
+      "content_hash": "sleep|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm sleep well",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wash",
+      "pos": "v",
+      "sense_vi": "rửa / giặt",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wash (v.)",
+        "opts": [
+          "rửa / giặt sạch",
+          "làm bẩn",
+          "lau khô",
+          "sấy"
+        ]
+      },
+      "answer": "rửa / giặt sạch",
+      "explain_vi": "wash nghĩa là rửa hoặc giặt bằng nước.",
+      "content_hash": "wash|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa rửa/giặt",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wash",
+      "pos": "v",
+      "sense_vi": "rửa / giặt",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Làm sạch bằng nước và xà phòng:",
+        "opts": [
+          "wash",
+          "washed",
+          "wish",
+          "watch"
+        ]
+      },
+      "answer": "wash",
+      "explain_vi": "Rửa là wash (watch là xem tivi, wish là ước).",
+      "content_hash": "wash|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss wish/watch",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wash",
+      "pos": "v",
+      "sense_vi": "rửa / giặt",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Always ___ your hands before eating meals.",
+        "opts": [
+          "wash",
+          "watch",
+          "wish",
+          "walk"
+        ]
+      },
+      "answer": "wash",
+      "explain_vi": "Wash your hands (rửa tay).",
+      "content_hash": "wash|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "wash hands",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wash",
+      "pos": "v",
+      "sense_vi": "rửa / giặt",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She wash the dishes after dinner every night.'",
+        "opts": [
+          "She washes the dishes after dinner every night.",
+          "She wash the dishes after dinner every night.",
+          "She is wash the dishes after dinner every night.",
+          "She washing the dishes after dinner every night."
+        ]
+      },
+      "answer": "She washes the dishes after dinner every night.",
+      "explain_vi": "Chủ ngữ She đi với động từ đuôi -sh chia 'washes'.",
+      "content_hash": "wash|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy chia washes",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wash",
+      "pos": "v",
+      "sense_vi": "rửa / giặt",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm rửa bát đĩa chuẩn:",
+        "opts": [
+          "wash the dishes",
+          "do the dishes",
+          "clean the dishes",
+          "make the dishes"
+        ]
+      },
+      "answer": "wash the dishes",
+      "explain_vi": "Rửa bát dùng wash the dishes (hoặc do the dishes).",
+      "content_hash": "wash|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm wash the dishes",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cook",
+      "pos": "v",
+      "sense_vi": "nấu ăn",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cook (v./n.)",
+        "opts": [
+          "nấu ăn / đầu bếp",
+          "ăn uống",
+          "dọn dẹp",
+          "rửa bát"
+        ]
+      },
+      "answer": "nấu ăn / đầu bếp",
+      "explain_vi": "cook nghĩa là nấu ăn hoặc đầu bếp.",
+      "content_hash": "cook|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa nấu ăn",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cook",
+      "pos": "v",
+      "sense_vi": "nấu ăn",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Chế biến thức ăn bằng nhiệt độ:",
+        "opts": [
+          "cook",
+          "cooked",
+          "cooker",
+          "book"
+        ]
+      },
+      "answer": "cook",
+      "explain_vi": "Nấu ăn là cook (cooker là nồi nấu/nếp nấu).",
+      "content_hash": "cook|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss cooker",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cook",
+      "pos": "v",
+      "sense_vi": "nấu ăn",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My father loves to ___ dinner for the whole family on weekends.",
+        "opts": [
+          "cook",
+          "make",
+          "eat",
+          "bake"
+        ]
+      },
+      "answer": "cook",
+      "explain_vi": "Cook dinner (nấu bữa tối).",
+      "content_hash": "cook|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "cook dinner",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cook",
+      "pos": "v",
+      "sense_vi": "nấu ăn",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'My mother is a good cooker in our house.'",
+        "opts": [
+          "My mother is a good cook in our house.",
+          "My mother is a good cooker in our house.",
+          "My mother is a good cooking in our house.",
+          "My mother cook good in our house."
+        ]
+      },
+      "answer": "My mother is a good cook in our house.",
+      "explain_vi": "Người đầu bếp / người nấu ăn giỏi là 'a good cook' (cooker là cái nồi).",
+      "content_hash": "cook|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy cook vs cooker",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cook",
+      "pos": "v",
+      "sense_vi": "nấu ăn",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nấu bữa tối chuẩn:",
+        "opts": [
+          "cook dinner",
+          "make dinner",
+          "prepare dinner",
+          "do dinner"
+        ]
+      },
+      "answer": "cook dinner",
+      "explain_vi": "Nấu bữa tối dùng cook dinner.",
+      "content_hash": "cook|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm cook dinner",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "clean",
+      "pos": "v",
+      "sense_vi": "dọn dẹp / lau chùi",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "clean (v./adj.)",
+        "opts": [
+          "dọn dẹp / sạch sẽ",
+          "làm bẩn",
+          "bừa bộn",
+          "sắp xếp"
+        ]
+      },
+      "answer": "dọn dẹp / sạch sẽ",
+      "explain_vi": "clean vừa là động từ dọn dẹp vừa là tính từ sạch sẽ.",
+      "content_hash": "clean|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa dọn dẹp",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "clean",
+      "pos": "v",
+      "sense_vi": "dọn dẹp / lau chùi",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Làm cho căn phòng hoặc nhà cửa gọn gàng sạch sẽ:",
+        "opts": [
+          "clean",
+          "cleaned",
+          "clear",
+          "lean"
+        ]
+      },
+      "answer": "clean",
+      "explain_vi": "Dọn dẹp là clean (clear là làm trong/rõ ràng).",
+      "content_hash": "clean|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss clear",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "clean",
+      "pos": "v",
+      "sense_vi": "dọn dẹp / lau chùi",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We must ___ our room every Sunday morning.",
+        "opts": [
+          "clean",
+          "clear",
+          "wash",
+          "sweep"
+        ]
+      },
+      "answer": "clean",
+      "explain_vi": "Clean our room (dọn dẹp phòng).",
+      "content_hash": "clean|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "clean room",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "clean",
+      "pos": "v",
+      "sense_vi": "dọn dẹp / lau chùi",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He clean his room two days ago.'",
+        "opts": [
+          "He cleaned his room two days ago.",
+          "He clean his room two days ago.",
+          "He cleaning his room two days ago.",
+          "He is clean his room two days ago."
+        ]
+      },
+      "answer": "He cleaned his room two days ago.",
+      "explain_vi": "Two days ago yêu cầu quá khứ đơn 'cleaned'.",
+      "content_hash": "clean|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy quá khứ cleaned",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "clean",
+      "pos": "v",
+      "sense_vi": "dọn dẹp / lau chùi",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm dọn dẹp nhà cửa chuẩn:",
+        "opts": [
+          "clean the house",
+          "do the house",
+          "make the house",
+          "wash the house"
+        ]
+      },
+      "answer": "clean the house",
+      "explain_vi": "Dọn dẹp nhà cửa là clean the house.",
+      "content_hash": "clean|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm clean the house",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "study (v.)",
+        "opts": [
+          "học tập / ôn bài",
+          "giảng dạy",
+          "vui chơi",
+          "nghỉ ngơi"
+        ]
+      },
+      "answer": "học tập / ôn bài",
+      "explain_vi": "study nghĩa là học tập.",
+      "content_hash": "study|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa học tập",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dành thời gian đọc sách tiếp thu kiến thức:",
+        "opts": [
+          "study",
+          "studies",
+          "studied",
+          "student"
+        ]
+      },
+      "answer": "study",
+      "explain_vi": "Học tập là study (student là học sinh).",
+      "content_hash": "study|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss student",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I ___ English for two hours every evening.",
+        "opts": [
+          "study",
+          "learn",
+          "teach",
+          "read"
+        ]
+      },
+      "answer": "study",
+      "explain_vi": "Study English (học tiếng Anh).",
+      "content_hash": "study|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "study English",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She study hard for the final exam.'",
+        "opts": [
+          "She studies hard for the final exam.",
+          "She study hard for the final exam.",
+          "She studying hard for the final exam.",
+          "She is study hard for the final exam."
+        ]
+      },
+      "answer": "She studies hard for the final exam.",
+      "explain_vi": "Chủ ngữ She ngôi 3 số ít chia động từ 'studies' (y -> ies).",
+      "content_hash": "study|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy y->ies studies",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm học tập chăm chỉ chuẩn:",
+        "opts": [
+          "study hard",
+          "study heavy",
+          "study strong",
+          "study high"
+        ]
+      },
+      "answer": "study hard",
+      "explain_vi": "Học tập chăm chỉ là study hard.",
+      "content_hash": "study|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm study hard",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "work",
+      "pos": "v",
+      "sense_vi": "làm việc",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "work (v./n.)",
+        "opts": [
+          "làm việc / công việc",
+          "vui chơi",
+          "nghỉ ngơi",
+          "đi du lịch"
+        ]
+      },
+      "answer": "làm việc / công việc",
+      "explain_vi": "work nghĩa là làm việc hoặc công việc.",
+      "content_hash": "work|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa làm việc",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "work",
+      "pos": "v",
+      "sense_vi": "làm việc",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thực hiện nhiệm vụ được giao tại cơ quan/công ty:",
+        "opts": [
+          "work",
+          "worked",
+          "worker",
+          "walk"
+        ]
+      },
+      "answer": "work",
+      "explain_vi": "Làm việc là work (walk là đi bộ, worker là công nhân).",
+      "content_hash": "work|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss walk/worker",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "work",
+      "pos": "v",
+      "sense_vi": "làm việc",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My father goes to ___ at 7:30 AM every morning.",
+        "opts": [
+          "work",
+          "walk",
+          "word",
+          "world"
+        ]
+      },
+      "answer": "work",
+      "explain_vi": "Goes to work (đi làm).",
+      "content_hash": "work|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "goes to work",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "work",
+      "pos": "v",
+      "sense_vi": "làm việc",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He works like a doctor in a hospital.'",
+        "opts": [
+          "He works as a doctor in a hospital.",
+          "He works like a doctor in a hospital.",
+          "He work as a doctor in a hospital.",
+          "He is work as a doctor."
+        ]
+      },
+      "answer": "He works as a doctor in a hospital.",
+      "explain_vi": "Nói về vai trò nghề nghiệp dùng 'work as a doctor' (không dùng like).",
+      "content_hash": "work|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy work as a doctor",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "work",
+      "pos": "v",
+      "sense_vi": "làm việc",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm làm việc chăm chỉ chuẩn:",
+        "opts": [
+          "work hard",
+          "work heavy",
+          "work strong",
+          "work tough"
+        ]
+      },
+      "answer": "work hard",
+      "explain_vi": "Làm việc chăm chỉ dùng cụm work hard.",
+      "content_hash": "work|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm work hard",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "play",
+      "pos": "v",
+      "sense_vi": "chơi đùa",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "play (v.)",
+        "opts": [
+          "chơi đùa / chơi thể thao",
+          "làm việc",
+          "học tập",
+          "ngủ"
+        ]
+      },
+      "answer": "chơi đùa / chơi thể thao",
+      "explain_vi": "play nghĩa là chơi trò chơi hoặc môn thể thao.",
+      "content_hash": "play|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa chơi đùa",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "play",
+      "pos": "v",
+      "sense_vi": "chơi đùa",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tham gia trò chơi hoặc môn thể thao:",
+        "opts": [
+          "play",
+          "played",
+          "player",
+          "pray"
+        ]
+      },
+      "answer": "play",
+      "explain_vi": "Chơi là play (pray là cầu nguyện, player là người chơi).",
+      "content_hash": "play|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss pray/player",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "play",
+      "pos": "v",
+      "sense_vi": "chơi đùa",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The children like to ___ football in the yard.",
+        "opts": [
+          "play",
+          "do",
+          "make",
+          "go"
+        ]
+      },
+      "answer": "play",
+      "explain_vi": "Play football (chơi đá bóng).",
+      "content_hash": "play|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "play football",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "play",
+      "pos": "v",
+      "sense_vi": "chơi đùa",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He plays the football every afternoon.'",
+        "opts": [
+          "He plays football every afternoon.",
+          "He plays the football every afternoon.",
+          "He play football every afternoon.",
+          "He is play football every afternoon."
+        ]
+      },
+      "answer": "He plays football every afternoon.",
+      "explain_vi": "Tên môn thể thao không dùng mạo từ 'the': play football.",
+      "content_hash": "play|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy play football (no the)",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "play",
+      "pos": "v",
+      "sense_vi": "chơi đùa",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chơi nhạc cụ vĩ cầm chuẩn:",
+        "opts": [
+          "play the violin",
+          "play violin",
+          "do the violin",
+          "make the violin"
+        ]
+      },
+      "answer": "play the violin",
+      "explain_vi": "Chơi nhạc cụ cần có mạo từ 'the': play the violin.",
+      "content_hash": "play|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm play the violin",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "walk",
+      "pos": "v",
+      "sense_vi": "đi bộ",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "walk (v.)",
+        "opts": [
+          "đi bộ / tản bộ",
+          "chạy",
+          "lái xe",
+          "bơi"
+        ]
+      },
+      "answer": "đi bộ / tản bộ",
+      "explain_vi": "walk nghĩa là đi bộ.",
+      "content_hash": "walk|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa đi bộ",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "walk",
+      "pos": "v",
+      "sense_vi": "đi bộ",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Di chuyển bằng hai chân với tốc độ bình thường:",
+        "opts": [
+          "walk",
+          "walked",
+          "work",
+          "wall"
+        ]
+      },
+      "answer": "walk",
+      "explain_vi": "Đi bộ là walk (work là làm việc, wall là bức tường).",
+      "content_hash": "walk|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss work/wall",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "walk",
+      "pos": "v",
+      "sense_vi": "đi bộ",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I usually ___ to school because it is near my house.",
+        "opts": [
+          "walk",
+          "work",
+          "wake",
+          "wash"
+        ]
+      },
+      "answer": "walk",
+      "explain_vi": "Walk to school (đi bộ đến trường).",
+      "content_hash": "walk|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "walk to school",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "walk",
+      "pos": "v",
+      "sense_vi": "đi bộ",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She walked to home yesterday.'",
+        "opts": [
+          "She walked home yesterday.",
+          "She walked to home yesterday.",
+          "She walk home yesterday.",
+          "She is walk home yesterday."
+        ]
+      },
+      "answer": "She walked home yesterday.",
+      "explain_vi": "Đi về nhà dùng cụm walk home / go home, không có giới từ 'to'.",
+      "content_hash": "walk|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy walk home (no to)",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "walk",
+      "pos": "v",
+      "sense_vi": "đi bộ",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đi dạo tản bộ chuẩn:",
+        "opts": [
+          "go for a walk",
+          "take for a walk",
+          "do a walk",
+          "make a walk"
+        ]
+      },
+      "answer": "go for a walk",
+      "explain_vi": "Đi dạo tản bộ dùng cụm 'go for a walk'.",
+      "content_hash": "walk|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm go for a walk",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "run",
+      "pos": "v",
+      "sense_vi": "chạy",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "run (v.)",
+        "opts": [
+          "chạy / di chuyển nhanh",
+          "đi bộ",
+          "ngồi",
+          "đứng"
+        ]
+      },
+      "answer": "chạy / di chuyển nhanh",
+      "explain_vi": "run nghĩa là chạy nhanh.",
+      "content_hash": "run|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa chạy",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "run",
+      "pos": "v",
+      "sense_vi": "chạy",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Di chuyển bằng hai chân rất nhanh:",
+        "opts": [
+          "run",
+          "ran",
+          "runner",
+          "rain"
+        ]
+      },
+      "answer": "run",
+      "explain_vi": "Chạy là run (ran là quá khứ).",
+      "content_hash": "run|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss ran",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "run",
+      "pos": "v",
+      "sense_vi": "chạy",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "He can ___ very fast in sports competitions.",
+        "opts": [
+          "run",
+          "walk",
+          "sit",
+          "sleep"
+        ]
+      },
+      "answer": "run",
+      "explain_vi": "Run very fast (chạy rất nhanh).",
+      "content_hash": "run|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "run fast",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "run",
+      "pos": "v",
+      "sense_vi": "chạy",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He ran fastly to catch the bus.'",
+        "opts": [
+          "He ran fast to catch the bus.",
+          "He ran fastly to catch the bus.",
+          "He run fast to catch the bus.",
+          "He is ran fast to catch the bus."
+        ]
+      },
+      "answer": "He ran fast to catch the bus.",
+      "explain_vi": "Trạng từ fast giữ nguyên dạng, không dùng fastly.",
+      "content_hash": "run|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy ran fast",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "run",
+      "pos": "v",
+      "sense_vi": "chạy",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hết sạch thời gian chuẩn:",
+        "opts": [
+          "run out of time",
+          "run off time",
+          "run away time",
+          "run down time"
+        ]
+      },
+      "answer": "run out of time",
+      "explain_vi": "Hết sạch thời gian là run out of time.",
+      "content_hash": "run|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm run out of time",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "read",
+      "pos": "v",
+      "sense_vi": "đọc",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "read (v.)",
+        "opts": [
+          "đọc sách / xem chữ",
+          "viết",
+          "nói",
+          "nghe"
+        ]
+      },
+      "answer": "đọc sách / xem chữ",
+      "explain_vi": "read nghĩa là đọc sách chữ.",
+      "content_hash": "read|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa đọc",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "read",
+      "pos": "v",
+      "sense_vi": "đọc",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nhìn vào chữ và hiểu ý nghĩa:",
+        "opts": [
+          "read",
+          "reader",
+          "red",
+          "ride"
+        ]
+      },
+      "answer": "read",
+      "explain_vi": "Đọc là read (đồng âm với quá khứ red).",
+      "content_hash": "read|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss red/ride",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "read",
+      "pos": "v",
+      "sense_vi": "đọc",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I love to ___ storybooks before bedtime.",
+        "opts": [
+          "read",
+          "write",
+          "speak",
+          "listen"
+        ]
+      },
+      "answer": "read",
+      "explain_vi": "Read storybooks (đọc sách truyện).",
+      "content_hash": "read|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "read books",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "read",
+      "pos": "v",
+      "sense_vi": "đọc",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He readed three books last month.'",
+        "opts": [
+          "He read three books last month.",
+          "He readed three books last month.",
+          "He reading three books last month.",
+          "He is read three books last month."
+        ]
+      },
+      "answer": "He read three books last month.",
+      "explain_vi": "Động từ quá khứ read giữ nguyên chính tả read (phát âm /red/).",
+      "content_hash": "read|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy quá khứ readed",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "read",
+      "pos": "v",
+      "sense_vi": "đọc",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đọc to thành tiếng chuẩn:",
+        "opts": [
+          "read aloud",
+          "read loudly",
+          "read big",
+          "read high"
+        ]
+      },
+      "answer": "read aloud",
+      "explain_vi": "Đọc to thành tiếng dùng 'read aloud'.",
+      "content_hash": "read|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm read aloud",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "write",
+      "pos": "v",
+      "sense_vi": "viết",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "write (v.)",
+        "opts": [
+          "viết chữ / ghi chép",
+          "đọc",
+          "vẽ",
+          "tô màu"
+        ]
+      },
+      "answer": "viết chữ / ghi chép",
+      "explain_vi": "write nghĩa là viết chữ.",
+      "content_hash": "write|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa viết",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "write",
+      "pos": "v",
+      "sense_vi": "viết",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dùng bút tạo ra chữ viết trên giấy:",
+        "opts": [
+          "write",
+          "wrote",
+          "right",
+          "ride"
+        ]
+      },
+      "answer": "write",
+      "explain_vi": "Viết là write (đồng âm với right - bên phải/đúng).",
+      "content_hash": "write|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm right",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "write",
+      "pos": "v",
+      "sense_vi": "viết",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ your name on the test paper.",
+        "opts": [
+          "write",
+          "read",
+          "say",
+          "speak"
+        ]
+      },
+      "answer": "write",
+      "explain_vi": "Write your name (viết tên bạn).",
+      "content_hash": "write|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "write name",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "write",
+      "pos": "v",
+      "sense_vi": "viết",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She writed a letter to her friend yesterday.'",
+        "opts": [
+          "She wrote a letter to her friend yesterday.",
+          "She writed a letter to her friend yesterday.",
+          "She write a letter to her friend yesterday.",
+          "She is wrote a letter yesterday."
+        ]
+      },
+      "answer": "She wrote a letter to her friend yesterday.",
+      "explain_vi": "Quá khứ của write là wrote, không phải writed.",
+      "content_hash": "write|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy quá khứ wrote",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "write",
+      "pos": "v",
+      "sense_vi": "viết",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm viết thư cho ai chuẩn:",
+        "opts": [
+          "write a letter to someone",
+          "write a letter for someone",
+          "write a letter with someone",
+          "write a letter at someone"
+        ]
+      },
+      "answer": "write a letter to someone",
+      "explain_vi": "Viết thư gửi cho ai: write a letter to someone.",
+      "content_hash": "write|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm write a letter to",
+        "pack_id": "starter-a0-daily",
+        "priority": "P0"
+      }
+    }
+  ]
+}

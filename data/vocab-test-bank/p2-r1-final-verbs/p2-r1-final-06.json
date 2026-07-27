@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-06",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "offer",
+    "consider",
+    "appear",
+    "buy",
+    "wait",
+    "serve",
+    "send",
+    "expect",
+    "build",
+    "stay"
+  ],
+  "items": [
+    {
+      "lemma": "offer",
+      "pos": "v",
+      "sense_vi": "đề nghị giúp đỡ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "offer (v.)",
+        "opts": [
+          "đề nghị giúp đỡ",
+          "gợi ý cách làm",
+          "đẩy nút",
+          "trốn dưới giường"
+        ]
+      },
+      "answer": "đề nghị giúp đỡ",
+      "explain_vi": "Động từ offer mang nghĩa chính xác là: đề nghị giúp đỡ.",
+      "content_hash": "offer|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "offer gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "offer some help",
+        "vn_trap": "past tense offered"
+      }
+    },
+    {
+      "lemma": "offer",
+      "pos": "v",
+      "sense_vi": "đề nghị giúp đỡ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'đề nghị giúp đỡ', từ tiếng Anh đúng là:",
+        "opts": [
+          "offer",
+          "offers",
+          "offering",
+          "offered"
+        ]
+      },
+      "answer": "offer",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là offer.",
+      "content_hash": "offer|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "offer l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "offer some help",
+        "vn_trap": "past tense offered"
+      }
+    },
+    {
+      "lemma": "offer",
+      "pos": "v",
+      "sense_vi": "đề nghị giúp đỡ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "offer",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "offer",
+      "explain_vi": "Điền 'offer' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "offer|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "offer cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "offer some help",
+        "vn_trap": "past tense offered"
+      }
+    },
+    {
+      "lemma": "offer",
+      "pos": "v",
+      "sense_vi": "đề nghị giúp đỡ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She offers the exercise very slow yesterday.'",
+        "opts": [
+          "She offered the exercise very slowly yesterday.",
+          "She offers the exercise very slow yesterday.",
+          "They She offers the exercise very slow yesterday.",
+          "She was offering when I came yesterday."
+        ]
+      },
+      "answer": "She offered the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "offer|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "offer error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "offer some help",
+        "vn_trap": "past tense offered"
+      }
+    },
+    {
+      "lemma": "offer",
+      "pos": "v",
+      "sense_vi": "đề nghị giúp đỡ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'offer':",
+        "opts": [
+          "offer some help",
+          "offer in wrong way",
+          "offer without care",
+          "offer for nothing"
+        ]
+      },
+      "answer": "offer some help",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: offer some help.",
+      "content_hash": "offer|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "offer collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "offer some help",
+        "vn_trap": "past tense offered"
+      }
+    },
+    {
+      "lemma": "consider",
+      "pos": "v",
+      "sense_vi": "cân nhắc kỹ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "consider (v.)",
+        "opts": [
+          "cân nhắc kỹ",
+          "nâng tay lên",
+          "nhận quà",
+          "đánh quả bóng"
+        ]
+      },
+      "answer": "cân nhắc kỹ",
+      "explain_vi": "Động từ consider mang nghĩa chính xác là: cân nhắc kỹ.",
+      "content_hash": "consider|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "consider gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "consider doing something",
+        "vn_trap": "past tense considered"
+      }
+    },
+    {
+      "lemma": "consider",
+      "pos": "v",
+      "sense_vi": "cân nhắc kỹ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'cân nhắc kỹ' là:",
+        "opts": [
+          "consider",
+          "considers",
+          "considering",
+          "considered"
+        ]
+      },
+      "answer": "consider",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là consider.",
+      "content_hash": "consider|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "consider l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "consider doing something",
+        "vn_trap": "past tense considered"
+      }
+    },
+    {
+      "lemma": "consider",
+      "pos": "v",
+      "sense_vi": "cân nhắc kỹ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "consider",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "consider",
+      "explain_vi": "Điền 'consider' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "consider|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "consider cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "consider doing something",
+        "vn_trap": "past tense considered"
+      }
+    },
+    {
+      "lemma": "consider",
+      "pos": "v",
+      "sense_vi": "cân nhắc kỹ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was considering when the lights went out.'",
+        "opts": [
+          "They were considering when the lights went out.",
+          "They was considering when the lights went out.",
+          "They They was considering when the lights went out.",
+          "She was considering when I came yesterday."
+        ]
+      },
+      "answer": "They were considering when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "consider|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "consider error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "consider doing something",
+        "vn_trap": "past tense considered"
+      }
+    },
+    {
+      "lemma": "consider",
+      "pos": "v",
+      "sense_vi": "cân nhắc kỹ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'consider':",
+        "opts": [
+          "consider doing something",
+          "consider in wrong way",
+          "consider without care",
+          "consider for nothing"
+        ]
+      },
+      "answer": "consider doing something",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: consider doing something.",
+      "content_hash": "consider|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "consider collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "consider doing something",
+        "vn_trap": "past tense considered"
+      }
+    },
+    {
+      "lemma": "appear",
+      "pos": "v",
+      "sense_vi": "xuất hiện bất ngờ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "appear (v.)",
+        "opts": [
+          "xuất hiện bất ngờ",
+          "đỗ kỳ thi",
+          "thư giãn cuối tuần",
+          "đau chân"
+        ]
+      },
+      "answer": "xuất hiện bất ngờ",
+      "explain_vi": "Động từ appear mang nghĩa chính xác là: xuất hiện bất ngờ.",
+      "content_hash": "appear|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "appear gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "appear on television",
+        "vn_trap": "past tense appeared"
+      }
+    },
+    {
+      "lemma": "appear",
+      "pos": "v",
+      "sense_vi": "xuất hiện bất ngờ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'xuất hiện bất ngờ' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "appear",
+          "appears",
+          "appearing",
+          "appeared"
+        ]
+      },
+      "answer": "appear",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là appear.",
+      "content_hash": "appear|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "appear l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "appear on television",
+        "vn_trap": "past tense appeared"
+      }
+    },
+    {
+      "lemma": "appear",
+      "pos": "v",
+      "sense_vi": "xuất hiện bất ngờ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "appear",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "appear",
+      "explain_vi": "Điền 'appear' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "appear|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "appear cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "appear on television",
+        "vn_trap": "past tense appeared"
+      }
+    },
+    {
+      "lemma": "appear",
+      "pos": "v",
+      "sense_vi": "xuất hiện bất ngờ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He appears without check the answers first.'",
+        "opts": [
+          "He appeared without checking the answers first.",
+          "He appears without check the answers first.",
+          "They He appears without check the answers first.",
+          "She was appearing when I came yesterday."
+        ]
+      },
+      "answer": "He appeared without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "appear|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "appear error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "appear on television",
+        "vn_trap": "past tense appeared"
+      }
+    },
+    {
+      "lemma": "appear",
+      "pos": "v",
+      "sense_vi": "xuất hiện bất ngờ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'appear':",
+        "opts": [
+          "appear on television",
+          "appear in wrong way",
+          "appear without care",
+          "appear for nothing"
+        ]
+      },
+      "answer": "appear on television",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: appear on television.",
+      "content_hash": "appear|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "appear collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "appear on television",
+        "vn_trap": "past tense appeared"
+      }
+    },
+    {
+      "lemma": "buy",
+      "pos": "v",
+      "sense_vi": "mua sách mới",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "buy (v.)",
+        "opts": [
+          "mua sách mới",
+          "bán quần áo",
+          "lặp lại câu",
+          "tưởng tượng tương lai"
+        ]
+      },
+      "answer": "mua sách mới",
+      "explain_vi": "Động từ buy mang nghĩa chính xác là: mua sách mới.",
+      "content_hash": "buy|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "buy gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "buy a new book",
+        "vn_trap": "past tense bought"
+      }
+    },
+    {
+      "lemma": "buy",
+      "pos": "v",
+      "sense_vi": "mua sách mới",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'mua sách mới' là:",
+        "opts": [
+          "buy",
+          "buys",
+          "buying",
+          "bought"
+        ]
+      },
+      "answer": "buy",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là buy.",
+      "content_hash": "buy|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "buy l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "buy a new book",
+        "vn_trap": "past tense bought"
+      }
+    },
+    {
+      "lemma": "buy",
+      "pos": "v",
+      "sense_vi": "mua sách mới",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "buy",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "buy",
+      "explain_vi": "Điền 'buy' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "buy|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "buy cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "buy a new book",
+        "vn_trap": "past tense bought"
+      }
+    },
+    {
+      "lemma": "buy",
+      "pos": "v",
+      "sense_vi": "mua sách mới",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is buying since last year.'",
+        "opts": [
+          "She has been buying since last year.",
+          "She is buying since last year.",
+          "They She is buying since last year.",
+          "She was buying when I came yesterday."
+        ]
+      },
+      "answer": "She has been buying since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "buy|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "buy error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "buy a new book",
+        "vn_trap": "past tense bought"
+      }
+    },
+    {
+      "lemma": "buy",
+      "pos": "v",
+      "sense_vi": "mua sách mới",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'buy':",
+        "opts": [
+          "buy a new book",
+          "buy in wrong way",
+          "buy without care",
+          "buy for nothing"
+        ]
+      },
+      "answer": "buy a new book",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: buy a new book.",
+      "content_hash": "buy|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "buy collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "buy a new book",
+        "vn_trap": "past tense bought"
+      }
+    },
+    {
+      "lemma": "wait",
+      "pos": "v",
+      "sense_vi": "chờ xe buýt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wait (v.)",
+        "opts": [
+          "chờ xe buýt",
+          "yêu cầu thời gian",
+          "tiết kiệm tiền",
+          "cải thiện tiếng Anh"
+        ]
+      },
+      "answer": "chờ xe buýt",
+      "explain_vi": "Động từ wait mang nghĩa chính xác là: chờ xe buýt.",
+      "content_hash": "wait|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "wait gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wait for the bus",
+        "vn_trap": "past tense waited"
+      }
+    },
+    {
+      "lemma": "wait",
+      "pos": "v",
+      "sense_vi": "chờ xe buýt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'chờ xe buýt' được dịch là:",
+        "opts": [
+          "wait",
+          "waits",
+          "waiting",
+          "waited"
+        ]
+      },
+      "answer": "wait",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là wait.",
+      "content_hash": "wait|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "wait l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wait for the bus",
+        "vn_trap": "past tense waited"
+      }
+    },
+    {
+      "lemma": "wait",
+      "pos": "v",
+      "sense_vi": "chờ xe buýt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "wait",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "wait",
+      "explain_vi": "Điền 'wait' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "wait|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "wait cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wait for the bus",
+        "vn_trap": "past tense waited"
+      }
+    },
+    {
+      "lemma": "wait",
+      "pos": "v",
+      "sense_vi": "chờ xe buýt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they waits earlier, they would win.'",
+        "opts": [
+          "If they waited earlier, they would win.",
+          "If they waits earlier, they would win.",
+          "They If they waits earlier, they would win.",
+          "She was waiting when I came yesterday."
+        ]
+      },
+      "answer": "If they waited earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "wait|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "wait error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wait for the bus",
+        "vn_trap": "past tense waited"
+      }
+    },
+    {
+      "lemma": "wait",
+      "pos": "v",
+      "sense_vi": "chờ xe buýt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wait':",
+        "opts": [
+          "wait for the bus",
+          "wait in wrong way",
+          "wait without care",
+          "wait for nothing"
+        ]
+      },
+      "answer": "wait for the bus",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: wait for the bus.",
+      "content_hash": "wait|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "wait collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wait for the bus",
+        "vn_trap": "past tense waited"
+      }
+    },
+    {
+      "lemma": "serve",
+      "pos": "v",
+      "sense_vi": "phục vụ khách",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "serve (v.)",
+        "opts": [
+          "phục vụ khách",
+          "báo cáo tin tức",
+          "chia sẻ thông tin",
+          "giới thiệu bản thân"
+        ]
+      },
+      "answer": "phục vụ khách",
+      "explain_vi": "Động từ serve mang nghĩa chính xác là: phục vụ khách.",
+      "content_hash": "serve|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "serve gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "serve the customers",
+        "vn_trap": "past tense served"
+      }
+    },
+    {
+      "lemma": "serve",
+      "pos": "v",
+      "sense_vi": "phục vụ khách",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'phục vụ khách', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "serve",
+          "serves",
+          "serveing",
+          "served"
+        ]
+      },
+      "answer": "serve",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là serve.",
+      "content_hash": "serve|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "serve l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "serve the customers",
+        "vn_trap": "past tense served"
+      }
+    },
+    {
+      "lemma": "serve",
+      "pos": "v",
+      "sense_vi": "phục vụ khách",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "serve",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "serve",
+      "explain_vi": "Điền 'serve' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "serve|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "serve cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "serve the customers",
+        "vn_trap": "past tense served"
+      }
+    },
+    {
+      "lemma": "serve",
+      "pos": "v",
+      "sense_vi": "phục vụ khách",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to serve when she is busy.'",
+        "opts": [
+          "She avoids serveing when she is busy.",
+          "She avoids to serve when she is busy.",
+          "They She avoids to serve when she is busy.",
+          "She was serveing when I came yesterday."
+        ]
+      },
+      "answer": "She avoids serveing when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "serve|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "serve error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "serve the customers",
+        "vn_trap": "past tense served"
+      }
+    },
+    {
+      "lemma": "serve",
+      "pos": "v",
+      "sense_vi": "phục vụ khách",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'serve':",
+        "opts": [
+          "serve the customers",
+          "serve in wrong way",
+          "serve without care",
+          "serve for nothing"
+        ]
+      },
+      "answer": "serve the customers",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: serve the customers.",
+      "content_hash": "serve|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "serve collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "serve the customers",
+        "vn_trap": "past tense served"
+      }
+    },
+    {
+      "lemma": "send",
+      "pos": "v",
+      "sense_vi": "gửi thư",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "send (v.)",
+        "opts": [
+          "gửi thư",
+          "quyết định đi",
+          "hát bài hát",
+          "mời dự tiệc"
+        ]
+      },
+      "answer": "gửi thư",
+      "explain_vi": "Động từ send mang nghĩa chính xác là: gửi thư.",
+      "content_hash": "send|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "send gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "send an email",
+        "vn_trap": "past tense sent"
+      }
+    },
+    {
+      "lemma": "send",
+      "pos": "v",
+      "sense_vi": "gửi thư",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'gửi thư' là:",
+        "opts": [
+          "send",
+          "sends",
+          "sending",
+          "sent"
+        ]
+      },
+      "answer": "send",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là send.",
+      "content_hash": "send|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "send l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "send an email",
+        "vn_trap": "past tense sent"
+      }
+    },
+    {
+      "lemma": "send",
+      "pos": "v",
+      "sense_vi": "gửi thư",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "send",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "send",
+      "explain_vi": "Điền 'send' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "send|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "send cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "send an email",
+        "vn_trap": "past tense sent"
+      }
+    },
+    {
+      "lemma": "send",
+      "pos": "v",
+      "sense_vi": "gửi thư",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at send in public places.'",
+        "opts": [
+          "He is good at sending in public places.",
+          "He is good at send in public places.",
+          "They He is good at send in public places.",
+          "She was sending when I came yesterday."
+        ]
+      },
+      "answer": "He is good at sending in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "send|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "send error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "send an email",
+        "vn_trap": "past tense sent"
+      }
+    },
+    {
+      "lemma": "send",
+      "pos": "v",
+      "sense_vi": "gửi thư",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'send':",
+        "opts": [
+          "send an email",
+          "send in wrong way",
+          "send without care",
+          "send for nothing"
+        ]
+      },
+      "answer": "send an email",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: send an email.",
+      "content_hash": "send|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "send collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "send an email",
+        "vn_trap": "past tense sent"
+      }
+    },
+    {
+      "lemma": "expect",
+      "pos": "v",
+      "sense_vi": "mong chờ tin tốt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "expect (v.)",
+        "opts": [
+          "mong chờ tin tốt",
+          "kéo cửa",
+          "ngửi thấy hương thơm",
+          "nhảy qua rào"
+        ]
+      },
+      "answer": "mong chờ tin tốt",
+      "explain_vi": "Động từ expect mang nghĩa chính xác là: mong chờ tin tốt.",
+      "content_hash": "expect|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "expect gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "expect good news",
+        "vn_trap": "past tense expected"
+      }
+    },
+    {
+      "lemma": "expect",
+      "pos": "v",
+      "sense_vi": "mong chờ tin tốt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'mong chờ tin tốt' là:",
+        "opts": [
+          "expect",
+          "expects",
+          "expecting",
+          "expected"
+        ]
+      },
+      "answer": "expect",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là expect.",
+      "content_hash": "expect|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "expect l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "expect good news",
+        "vn_trap": "past tense expected"
+      }
+    },
+    {
+      "lemma": "expect",
+      "pos": "v",
+      "sense_vi": "mong chờ tin tốt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Before you leave, make sure to ___ the door.",
+        "opts": [
+          "expect",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "expect",
+      "explain_vi": "Điền 'expect' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "expect|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "expect cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "expect good news",
+        "vn_trap": "past tense expected"
+      }
+    },
+    {
+      "lemma": "expect",
+      "pos": "v",
+      "sense_vi": "mong chờ tin tốt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite of the rain, she went out to expect.'",
+        "opts": [
+          "Despite the rain, she went out to expect.",
+          "Despite of the rain, she went out to expect.",
+          "They Despite of the rain, she went out to expect.",
+          "She was expecting when I came yesterday."
+        ]
+      },
+      "answer": "Despite the rain, she went out to expect.",
+      "explain_vi": "Dùng 'Despite' (không có 'of').",
+      "content_hash": "expect|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "expect error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "expect good news",
+        "vn_trap": "past tense expected"
+      }
+    },
+    {
+      "lemma": "expect",
+      "pos": "v",
+      "sense_vi": "mong chờ tin tốt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'expect':",
+        "opts": [
+          "expect good news",
+          "expect in wrong way",
+          "expect without care",
+          "expect for nothing"
+        ]
+      },
+      "answer": "expect good news",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: expect good news.",
+      "content_hash": "expect|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "expect collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "expect good news",
+        "vn_trap": "past tense expected"
+      }
+    },
+    {
+      "lemma": "build",
+      "pos": "v",
+      "sense_vi": "xây nhà",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "build (v.)",
+        "opts": [
+          "xây nhà",
+          "trở về nhà",
+          "mỉm cười vui",
+          "đá quả bóng"
+        ]
+      },
+      "answer": "xây nhà",
+      "explain_vi": "Động từ build mang nghĩa chính xác là: xây nhà.",
+      "content_hash": "build|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "build gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "build a new house",
+        "vn_trap": "past tense built"
+      }
+    },
+    {
+      "lemma": "build",
+      "pos": "v",
+      "sense_vi": "xây nhà",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'xây nhà', người Anh dùng:",
+        "opts": [
+          "build",
+          "builds",
+          "building",
+          "built"
+        ]
+      },
+      "answer": "build",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là build.",
+      "content_hash": "build|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "build l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "build a new house",
+        "vn_trap": "past tense built"
+      }
+    },
+    {
+      "lemma": "build",
+      "pos": "v",
+      "sense_vi": "xây nhà",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love to ___ games in the playground.",
+        "opts": [
+          "build",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "build",
+      "explain_vi": "Điền 'build' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "build|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "build cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "build a new house",
+        "vn_trap": "past tense built"
+      }
+    },
+    {
+      "lemma": "build",
+      "pos": "v",
+      "sense_vi": "xây nhà",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has builted the book yesterday evening.'",
+        "opts": [
+          "She built the book yesterday evening.",
+          "She has builted the book yesterday evening.",
+          "They She has builted the book yesterday evening.",
+          "She was building when I came yesterday."
+        ]
+      },
+      "answer": "She built the book yesterday evening.",
+      "explain_vi": "Quá khứ xác định dùng quá khứ đơn.",
+      "content_hash": "build|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "build error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "build a new house",
+        "vn_trap": "past tense built"
+      }
+    },
+    {
+      "lemma": "build",
+      "pos": "v",
+      "sense_vi": "xây nhà",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'build':",
+        "opts": [
+          "build a new house",
+          "build in wrong way",
+          "build without care",
+          "build for nothing"
+        ]
+      },
+      "answer": "build a new house",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: build a new house.",
+      "content_hash": "build|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "build collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "build a new house",
+        "vn_trap": "past tense built"
+      }
+    },
+    {
+      "lemma": "stay",
+      "pos": "v",
+      "sense_vi": "ở lại khách sạn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "stay (v.)",
+        "opts": [
+          "ở lại khách sạn",
+          "giải thích bài học",
+          "nghe có vẻ hay",
+          "hôn tạm biệt"
+        ]
+      },
+      "answer": "ở lại khách sạn",
+      "explain_vi": "Động từ stay mang nghĩa chính xác là: ở lại khách sạn.",
+      "content_hash": "stay|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "stay gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stay at a hotel",
+        "vn_trap": "past tense stayed"
+      }
+    },
+    {
+      "lemma": "stay",
+      "pos": "v",
+      "sense_vi": "ở lại khách sạn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'ở lại khách sạn' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "stay",
+          "stays",
+          "staying",
+          "stayed"
+        ]
+      },
+      "answer": "stay",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là stay.",
+      "content_hash": "stay|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "stay l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stay at a hotel",
+        "vn_trap": "past tense stayed"
+      }
+    },
+    {
+      "lemma": "stay",
+      "pos": "v",
+      "sense_vi": "ở lại khách sạn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "During the lesson, please ___ to the teacher.",
+        "opts": [
+          "stay",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "stay",
+      "explain_vi": "Điền 'stay' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "stay|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "stay cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stay at a hotel",
+        "vn_trap": "past tense stayed"
+      }
+    },
+    {
+      "lemma": "stay",
+      "pos": "v",
+      "sense_vi": "ở lại khách sạn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He remembered to staying the door before leaving.'",
+        "opts": [
+          "He remembered to stay the door before leaving.",
+          "He remembered to staying the door before leaving.",
+          "They He remembered to staying the door before leaving.",
+          "She was staying when I came yesterday."
+        ]
+      },
+      "answer": "He remembered to stay the door before leaving.",
+      "explain_vi": "Nhớ phải làm gì dùng 'remember to V'.",
+      "content_hash": "stay|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "stay error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stay at a hotel",
+        "vn_trap": "past tense stayed"
+      }
+    },
+    {
+      "lemma": "stay",
+      "pos": "v",
+      "sense_vi": "ở lại khách sạn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'stay':",
+        "opts": [
+          "stay at a hotel",
+          "stay in wrong way",
+          "stay without care",
+          "stay for nothing"
+        ]
+      },
+      "answer": "stay at a hotel",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: stay at a hotel.",
+      "content_hash": "stay|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "stay collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stay at a hotel",
+        "vn_trap": "past tense stayed"
+      }
+    }
+  ]
+}

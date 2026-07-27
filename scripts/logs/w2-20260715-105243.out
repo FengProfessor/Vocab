@@ -1,0 +1,43 @@
+◇ injected env (44) from .env.local // tip: ⌘ enable debugging { debug: true }
+◇ injected env (0) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=500 delay=200
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 500 words to process
+
+[1/500] "iron" → senses=3 syn=5 dist=1
+   #1: kim loại sắt | The bridge is made of iron and steel.
+[2/500] "item" → senses=3 syn=6 dist=2
+   #1: món đồ, vật dụng | Please make sure you have all your personal items before leaving the train.
+[3/500] "jail" → senses=2 syn=5 dist=1
+   #1: nhà tù, trại giam | He was sent to jail for armed robbery.
+[4/500] "jazz" → senses=3 syn=4 dist=1
+   #1: nhạc jazz | She has been listening to jazz since she was a teenager.
+[5/500] "join" → senses=3 syn=6 dist=2
+   #1: tham gia, gia nhập | She joined the chess club when she was twelve.
+[6/500] "joke" → senses=3 syn=6 dist=1
+   #1: trò đùa, câu cười | He told a funny joke about a talking parrot.
+[7/500] "judo" → senses=1 syn=0 dist=2
+   #1: môn thể thao/võ thuật | He has been practising judo since he was ten years old.
+[8/500] "july" → senses=1 syn=0 dist=0
+   #1: tháng trong năm | We're going on holiday in July.
+[9/500] "jump" → senses=3 syn=5 dist=2
+   #1: nhảy, nhảy lên | She jumped over the puddle to keep her shoes dry.
+[10/500] "june" → senses=1 syn=0 dist=0
+   #1: tháng trong năm | My birthday is in June.
+[11/500] "junk" → senses=3 syn=6 dist=2
+   #1: đồ bỏ đi | The garage was full of old junk that nobody wanted.
+[12/500] "jury" → senses=2 syn=4 dist=1
+   #1: tòa án | The jury found him guilty of murder.
+[13/500] "just" → senses=3 syn=6 dist=1
+   #1: chỉ, đơn giản là | I just want to ask you a quick question.
+[14/500] "keen" → senses=3 syn=6 dist=1
+   #1: say mê, hào hứng | She's keen on learning Japanese and practices every day.
+[15/500] "keep" → senses=3 syn=6 dist=2
+   #1: giữ lại, lưu giữ | You can keep the book—I don't need it back.

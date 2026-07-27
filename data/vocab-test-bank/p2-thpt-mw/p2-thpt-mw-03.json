@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-thpt-mw-03",
+  "priority": "P2",
+  "queue": "thpt_multi",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "pose a threat",
+    "raise money",
+    "run a business",
+    "meet the demand",
+    "set a goal",
+    "reach a goal",
+    "gain experience",
+    "draw a conclusion",
+    "get rid of",
+    "depend on",
+    "rely on",
+    "account for",
+    "result in",
+    "lead to",
+    "in addition",
+    "in contrast",
+    "on the contrary",
+    "as a result",
+    "for instance",
+    "for example"
+  ],
+  "items": [
+    {
+      "lemma": "pose a threat",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của pose a threat",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pose a threat (phrase.)",
+        "opts": [
+          "ý nghĩa của pose a threat",
+          "sự từ chối đối với pose a threat",
+          "trạng thái thiếu pose a threat",
+          "hành động ngược lại với pose a threat"
+        ]
+      },
+      "answer": "ý nghĩa của pose a threat",
+      "explain_vi": "Từ/cụm từ 'pose a threat' (phrase.) có nghĩa chính xác là: ý nghĩa của pose a threat.",
+      "content_hash": "pose-a-threat|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item pose a threat - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "pose a threat",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của pose a threat",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của pose a threat':",
+        "opts": [
+          "pose a threat",
+          "pose a threats",
+          "un-pose a threat",
+          "pose a threated"
+        ]
+      },
+      "answer": "pose a threat",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là pose a threat.",
+      "content_hash": "pose-a-threat|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item pose a threat - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "pose a threat",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của pose a threat",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "pose a threat",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "pose a threat",
+      "explain_vi": "Điền 'pose a threat' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "pose-a-threat|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item pose a threat - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "pose a threat",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của pose a threat",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to pose a threat on time.'",
+        "opts": [
+          "She failed to pose a threat on time.",
+          "She fail to pose a threat on time.",
+          "She failing to pose a threat on time.",
+          "She was fail to pose a threat on time."
+        ]
+      },
+      "answer": "She failed to pose a threat on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "pose-a-threat|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item pose a threat - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "pose a threat",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của pose a threat",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'pose a threat':",
+        "opts": [
+          "apply pose a threat correctly",
+          "make pose a threat wrong",
+          "do pose a threat badly",
+          "take pose a threat off"
+        ]
+      },
+      "answer": "apply pose a threat correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply pose a threat correctly.",
+      "content_hash": "pose-a-threat|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item pose a threat - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "raise money",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của raise money",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "raise money (phrase.)",
+        "opts": [
+          "ý nghĩa của raise money",
+          "sự từ chối đối với raise money",
+          "trạng thái thiếu raise money",
+          "hành động ngược lại với raise money"
+        ]
+      },
+      "answer": "ý nghĩa của raise money",
+      "explain_vi": "Từ/cụm từ 'raise money' (phrase.) có nghĩa chính xác là: ý nghĩa của raise money.",
+      "content_hash": "raise-money|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item raise money - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "raise money",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của raise money",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của raise money':",
+        "opts": [
+          "raise money",
+          "raise moneys",
+          "un-raise money",
+          "raise moneyed"
+        ]
+      },
+      "answer": "raise money",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là raise money.",
+      "content_hash": "raise-money|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item raise money - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "raise money",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của raise money",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "raise money",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "raise money",
+      "explain_vi": "Điền 'raise money' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "raise-money|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item raise money - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "raise money",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của raise money",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to raise money on time.'",
+        "opts": [
+          "She failed to raise money on time.",
+          "She fail to raise money on time.",
+          "She failing to raise money on time.",
+          "She was fail to raise money on time."
+        ]
+      },
+      "answer": "She failed to raise money on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "raise-money|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item raise money - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "raise money",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của raise money",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'raise money':",
+        "opts": [
+          "apply raise money correctly",
+          "make raise money wrong",
+          "do raise money badly",
+          "take raise money off"
+        ]
+      },
+      "answer": "apply raise money correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply raise money correctly.",
+      "content_hash": "raise-money|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item raise money - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "run a business",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của run a business",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "run a business (phrase.)",
+        "opts": [
+          "ý nghĩa của run a business",
+          "sự từ chối đối với run a business",
+          "trạng thái thiếu run a business",
+          "hành động ngược lại với run a business"
+        ]
+      },
+      "answer": "ý nghĩa của run a business",
+      "explain_vi": "Từ/cụm từ 'run a business' (phrase.) có nghĩa chính xác là: ý nghĩa của run a business.",
+      "content_hash": "run-a-business|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item run a business - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "run a business",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của run a business",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của run a business':",
+        "opts": [
+          "run a business",
+          "run a businesss",
+          "un-run a business",
+          "run a businessed"
+        ]
+      },
+      "answer": "run a business",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là run a business.",
+      "content_hash": "run-a-business|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item run a business - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "run a business",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của run a business",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "run a business",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "run a business",
+      "explain_vi": "Điền 'run a business' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "run-a-business|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item run a business - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "run a business",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của run a business",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to run a business on time.'",
+        "opts": [
+          "She failed to run a business on time.",
+          "She fail to run a business on time.",
+          "She failing to run a business on time.",
+          "She was fail to run a business on time."
+        ]
+      },
+      "answer": "She failed to run a business on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "run-a-business|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item run a business - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "run a business",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của run a business",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'run a business':",
+        "opts": [
+          "apply run a business correctly",
+          "make run a business wrong",
+          "do run a business badly",
+          "take run a business off"
+        ]
+      },
+      "answer": "apply run a business correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply run a business correctly.",
+      "content_hash": "run-a-business|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item run a business - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "meet the demand",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của meet the demand",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "meet the demand (phrase.)",
+        "opts": [
+          "ý nghĩa của meet the demand",
+          "sự từ chối đối với meet the demand",
+          "trạng thái thiếu meet the demand",
+          "hành động ngược lại với meet the demand"
+        ]
+      },
+      "answer": "ý nghĩa của meet the demand",
+      "explain_vi": "Từ/cụm từ 'meet the demand' (phrase.) có nghĩa chính xác là: ý nghĩa của meet the demand.",
+      "content_hash": "meet-the-demand|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item meet the demand - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "meet the demand",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của meet the demand",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của meet the demand':",
+        "opts": [
+          "meet the demand",
+          "meet the demands",
+          "un-meet the demand",
+          "meet the demanded"
+        ]
+      },
+      "answer": "meet the demand",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là meet the demand.",
+      "content_hash": "meet-the-demand|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item meet the demand - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "meet the demand",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của meet the demand",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "meet the demand",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "meet the demand",
+      "explain_vi": "Điền 'meet the demand' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "meet-the-demand|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item meet the demand - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "meet the demand",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của meet the demand",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to meet the demand on time.'",
+        "opts": [
+          "She failed to meet the demand on time.",
+          "She fail to meet the demand on time.",
+          "She failing to meet the demand on time.",
+          "She was fail to meet the demand on time."
+        ]
+      },
+      "answer": "She failed to meet the demand on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "meet-the-demand|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item meet the demand - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "meet the demand",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của meet the demand",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'meet the demand':",
+        "opts": [
+          "apply meet the demand correctly",
+          "make meet the demand wrong",
+          "do meet the demand badly",
+          "take meet the demand off"
+        ]
+      },
+      "answer": "apply meet the demand correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply meet the demand correctly.",
+      "content_hash": "meet-the-demand|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item meet the demand - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "set a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của set a goal",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "set a goal (phrase.)",
+        "opts": [
+          "ý nghĩa của set a goal",
+          "sự từ chối đối với set a goal",
+          "trạng thái thiếu set a goal",
+          "hành động ngược lại với set a goal"
+        ]
+      },
+      "answer": "ý nghĩa của set a goal",
+      "explain_vi": "Từ/cụm từ 'set a goal' (phrase.) có nghĩa chính xác là: ý nghĩa của set a goal.",
+      "content_hash": "set-a-goal|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item set a goal - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "set a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của set a goal",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của set a goal':",
+        "opts": [
+          "set a goal",
+          "set a goals",
+          "un-set a goal",
+          "set a goaled"
+        ]
+      },
+      "answer": "set a goal",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là set a goal.",
+      "content_hash": "set-a-goal|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item set a goal - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "set a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của set a goal",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "set a goal",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "set a goal",
+      "explain_vi": "Điền 'set a goal' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "set-a-goal|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item set a goal - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "set a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của set a goal",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to set a goal on time.'",
+        "opts": [
+          "She failed to set a goal on time.",
+          "She fail to set a goal on time.",
+          "She failing to set a goal on time.",
+          "She was fail to set a goal on time."
+        ]
+      },
+      "answer": "She failed to set a goal on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "set-a-goal|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item set a goal - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "set a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của set a goal",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'set a goal':",
+        "opts": [
+          "apply set a goal correctly",
+          "make set a goal wrong",
+          "do set a goal badly",
+          "take set a goal off"
+        ]
+      },
+      "answer": "apply set a goal correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply set a goal correctly.",
+      "content_hash": "set-a-goal|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item set a goal - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "reach a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reach a goal",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "reach a goal (phrase.)",
+        "opts": [
+          "ý nghĩa của reach a goal",
+          "sự từ chối đối với reach a goal",
+          "trạng thái thiếu reach a goal",
+          "hành động ngược lại với reach a goal"
+        ]
+      },
+      "answer": "ý nghĩa của reach a goal",
+      "explain_vi": "Từ/cụm từ 'reach a goal' (phrase.) có nghĩa chính xác là: ý nghĩa của reach a goal.",
+      "content_hash": "reach-a-goal|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item reach a goal - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "reach a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reach a goal",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của reach a goal':",
+        "opts": [
+          "reach a goal",
+          "reach a goals",
+          "un-reach a goal",
+          "reach a goaled"
+        ]
+      },
+      "answer": "reach a goal",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là reach a goal.",
+      "content_hash": "reach-a-goal|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item reach a goal - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "reach a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reach a goal",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "reach a goal",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "reach a goal",
+      "explain_vi": "Điền 'reach a goal' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "reach-a-goal|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item reach a goal - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "reach a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reach a goal",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to reach a goal on time.'",
+        "opts": [
+          "She failed to reach a goal on time.",
+          "She fail to reach a goal on time.",
+          "She failing to reach a goal on time.",
+          "She was fail to reach a goal on time."
+        ]
+      },
+      "answer": "She failed to reach a goal on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "reach-a-goal|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item reach a goal - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "reach a goal",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của reach a goal",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'reach a goal':",
+        "opts": [
+          "apply reach a goal correctly",
+          "make reach a goal wrong",
+          "do reach a goal badly",
+          "take reach a goal off"
+        ]
+      },
+      "answer": "apply reach a goal correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply reach a goal correctly.",
+      "content_hash": "reach-a-goal|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item reach a goal - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "gain experience",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của gain experience",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "gain experience (phrase.)",
+        "opts": [
+          "ý nghĩa của gain experience",
+          "sự từ chối đối với gain experience",
+          "trạng thái thiếu gain experience",
+          "hành động ngược lại với gain experience"
+        ]
+      },
+      "answer": "ý nghĩa của gain experience",
+      "explain_vi": "Từ/cụm từ 'gain experience' (phrase.) có nghĩa chính xác là: ý nghĩa của gain experience.",
+      "content_hash": "gain-experience|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item gain experience - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "gain experience",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của gain experience",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của gain experience':",
+        "opts": [
+          "gain experience",
+          "gain experiences",
+          "un-gain experience",
+          "gain experienceed"
+        ]
+      },
+      "answer": "gain experience",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là gain experience.",
+      "content_hash": "gain-experience|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item gain experience - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "gain experience",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của gain experience",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "gain experience",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "gain experience",
+      "explain_vi": "Điền 'gain experience' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "gain-experience|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item gain experience - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "gain experience",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của gain experience",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to gain experience on time.'",
+        "opts": [
+          "She failed to gain experience on time.",
+          "She fail to gain experience on time.",
+          "She failing to gain experience on time.",
+          "She was fail to gain experience on time."
+        ]
+      },
+      "answer": "She failed to gain experience on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "gain-experience|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item gain experience - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "gain experience",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của gain experience",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'gain experience':",
+        "opts": [
+          "apply gain experience correctly",
+          "make gain experience wrong",
+          "do gain experience badly",
+          "take gain experience off"
+        ]
+      },
+      "answer": "apply gain experience correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply gain experience correctly.",
+      "content_hash": "gain-experience|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item gain experience - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "draw a conclusion",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của draw a conclusion",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "draw a conclusion (phrase.)",
+        "opts": [
+          "ý nghĩa của draw a conclusion",
+          "sự từ chối đối với draw a conclusion",
+          "trạng thái thiếu draw a conclusion",
+          "hành động ngược lại với draw a conclusion"
+        ]
+      },
+      "answer": "ý nghĩa của draw a conclusion",
+      "explain_vi": "Từ/cụm từ 'draw a conclusion' (phrase.) có nghĩa chính xác là: ý nghĩa của draw a conclusion.",
+      "content_hash": "draw-a-conclusion|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item draw a conclusion - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "draw a conclusion",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của draw a conclusion",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của draw a conclusion':",
+        "opts": [
+          "draw a conclusion",
+          "draw a conclusions",
+          "un-draw a conclusion",
+          "draw a conclusioned"
+        ]
+      },
+      "answer": "draw a conclusion",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là draw a conclusion.",
+      "content_hash": "draw-a-conclusion|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item draw a conclusion - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "draw a conclusion",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của draw a conclusion",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "draw a conclusion",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "draw a conclusion",
+      "explain_vi": "Điền 'draw a conclusion' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "draw-a-conclusion|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item draw a conclusion - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "draw a conclusion",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của draw a conclusion",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to draw a conclusion on time.'",
+        "opts": [
+          "She failed to draw a conclusion on time.",
+          "She fail to draw a conclusion on time.",
+          "She failing to draw a conclusion on time.",
+          "She was fail to draw a conclusion on time."
+        ]
+      },
+      "answer": "She failed to draw a conclusion on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "draw-a-conclusion|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item draw a conclusion - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "draw a conclusion",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của draw a conclusion",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'draw a conclusion':",
+        "opts": [
+          "apply draw a conclusion correctly",
+          "make draw a conclusion wrong",
+          "do draw a conclusion badly",
+          "take draw a conclusion off"
+        ]
+      },
+      "answer": "apply draw a conclusion correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply draw a conclusion correctly.",
+      "content_hash": "draw-a-conclusion|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item draw a conclusion - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "get rid of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của get rid of",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "get rid of (phrase.)",
+        "opts": [
+          "ý nghĩa của get rid of",
+          "sự từ chối đối với get rid of",
+          "trạng thái thiếu get rid of",
+          "hành động ngược lại với get rid of"
+        ]
+      },
+      "answer": "ý nghĩa của get rid of",
+      "explain_vi": "Từ/cụm từ 'get rid of' (phrase.) có nghĩa chính xác là: ý nghĩa của get rid of.",
+      "content_hash": "get-rid-of|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item get rid of - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "get rid of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của get rid of",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của get rid of':",
+        "opts": [
+          "get rid of",
+          "get rid ofs",
+          "un-get rid of",
+          "get rid ofed"
+        ]
+      },
+      "answer": "get rid of",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là get rid of.",
+      "content_hash": "get-rid-of|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item get rid of - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "get rid of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của get rid of",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "get rid of",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "get rid of",
+      "explain_vi": "Điền 'get rid of' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "get-rid-of|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item get rid of - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "get rid of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của get rid of",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to get rid of on time.'",
+        "opts": [
+          "She failed to get rid of on time.",
+          "She fail to get rid of on time.",
+          "She failing to get rid of on time.",
+          "She was fail to get rid of on time."
+        ]
+      },
+      "answer": "She failed to get rid of on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "get-rid-of|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item get rid of - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "get rid of",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của get rid of",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'get rid of':",
+        "opts": [
+          "apply get rid of correctly",
+          "make get rid of wrong",
+          "do get rid of badly",
+          "take get rid of off"
+        ]
+      },
+      "answer": "apply get rid of correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply get rid of correctly.",
+      "content_hash": "get-rid-of|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item get rid of - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "depend on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của depend on",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "depend on (phrase.)",
+        "opts": [
+          "ý nghĩa của depend on",
+          "sự từ chối đối với depend on",
+          "trạng thái thiếu depend on",
+          "hành động ngược lại với depend on"
+        ]
+      },
+      "answer": "ý nghĩa của depend on",
+      "explain_vi": "Từ/cụm từ 'depend on' (phrase.) có nghĩa chính xác là: ý nghĩa của depend on.",
+      "content_hash": "depend-on|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item depend on - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "depend on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của depend on",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của depend on':",
+        "opts": [
+          "depend on",
+          "depend ons",
+          "un-depend on",
+          "depend oned"
+        ]
+      },
+      "answer": "depend on",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là depend on.",
+      "content_hash": "depend-on|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item depend on - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "depend on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của depend on",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "depend on",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "depend on",
+      "explain_vi": "Điền 'depend on' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "depend-on|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item depend on - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "depend on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của depend on",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to depend on on time.'",
+        "opts": [
+          "She failed to depend on on time.",
+          "She fail to depend on on time.",
+          "She failing to depend on on time.",
+          "She was fail to depend on on time."
+        ]
+      },
+      "answer": "She failed to depend on on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "depend-on|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item depend on - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "depend on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của depend on",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'depend on':",
+        "opts": [
+          "apply depend on correctly",
+          "make depend on wrong",
+          "do depend on badly",
+          "take depend on off"
+        ]
+      },
+      "answer": "apply depend on correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply depend on correctly.",
+      "content_hash": "depend-on|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item depend on - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "rely on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của rely on",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rely on (phrase.)",
+        "opts": [
+          "ý nghĩa của rely on",
+          "sự từ chối đối với rely on",
+          "trạng thái thiếu rely on",
+          "hành động ngược lại với rely on"
+        ]
+      },
+      "answer": "ý nghĩa của rely on",
+      "explain_vi": "Từ/cụm từ 'rely on' (phrase.) có nghĩa chính xác là: ý nghĩa của rely on.",
+      "content_hash": "rely-on|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item rely on - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "rely on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của rely on",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của rely on':",
+        "opts": [
+          "rely on",
+          "rely ons",
+          "un-rely on",
+          "rely oned"
+        ]
+      },
+      "answer": "rely on",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là rely on.",
+      "content_hash": "rely-on|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item rely on - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "rely on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của rely on",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "rely on",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "rely on",
+      "explain_vi": "Điền 'rely on' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "rely-on|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item rely on - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "rely on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của rely on",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to rely on on time.'",
+        "opts": [
+          "She failed to rely on on time.",
+          "She fail to rely on on time.",
+          "She failing to rely on on time.",
+          "She was fail to rely on on time."
+        ]
+      },
+      "answer": "She failed to rely on on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "rely-on|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item rely on - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "rely on",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của rely on",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'rely on':",
+        "opts": [
+          "apply rely on correctly",
+          "make rely on wrong",
+          "do rely on badly",
+          "take rely on off"
+        ]
+      },
+      "answer": "apply rely on correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply rely on correctly.",
+      "content_hash": "rely-on|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item rely on - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "account for",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của account for",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "account for (phrase.)",
+        "opts": [
+          "ý nghĩa của account for",
+          "sự từ chối đối với account for",
+          "trạng thái thiếu account for",
+          "hành động ngược lại với account for"
+        ]
+      },
+      "answer": "ý nghĩa của account for",
+      "explain_vi": "Từ/cụm từ 'account for' (phrase.) có nghĩa chính xác là: ý nghĩa của account for.",
+      "content_hash": "account-for|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item account for - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "account for",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của account for",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của account for':",
+        "opts": [
+          "account for",
+          "account fors",
+          "un-account for",
+          "account fored"
+        ]
+      },
+      "answer": "account for",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là account for.",
+      "content_hash": "account-for|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item account for - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "account for",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của account for",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "account for",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "account for",
+      "explain_vi": "Điền 'account for' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "account-for|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item account for - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "account for",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của account for",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to account for on time.'",
+        "opts": [
+          "She failed to account for on time.",
+          "She fail to account for on time.",
+          "She failing to account for on time.",
+          "She was fail to account for on time."
+        ]
+      },
+      "answer": "She failed to account for on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "account-for|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item account for - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "account for",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của account for",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'account for':",
+        "opts": [
+          "apply account for correctly",
+          "make account for wrong",
+          "do account for badly",
+          "take account for off"
+        ]
+      },
+      "answer": "apply account for correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply account for correctly.",
+      "content_hash": "account-for|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item account for - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "result in",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của result in",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "result in (phrase.)",
+        "opts": [
+          "ý nghĩa của result in",
+          "sự từ chối đối với result in",
+          "trạng thái thiếu result in",
+          "hành động ngược lại với result in"
+        ]
+      },
+      "answer": "ý nghĩa của result in",
+      "explain_vi": "Từ/cụm từ 'result in' (phrase.) có nghĩa chính xác là: ý nghĩa của result in.",
+      "content_hash": "result-in|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item result in - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "result in",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của result in",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của result in':",
+        "opts": [
+          "result in",
+          "result ins",
+          "un-result in",
+          "result ined"
+        ]
+      },
+      "answer": "result in",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là result in.",
+      "content_hash": "result-in|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item result in - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "result in",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của result in",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "result in",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "result in",
+      "explain_vi": "Điền 'result in' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "result-in|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item result in - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "result in",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của result in",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to result in on time.'",
+        "opts": [
+          "She failed to result in on time.",
+          "She fail to result in on time.",
+          "She failing to result in on time.",
+          "She was fail to result in on time."
+        ]
+      },
+      "answer": "She failed to result in on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "result-in|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item result in - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "result in",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của result in",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'result in':",
+        "opts": [
+          "apply result in correctly",
+          "make result in wrong",
+          "do result in badly",
+          "take result in off"
+        ]
+      },
+      "answer": "apply result in correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply result in correctly.",
+      "content_hash": "result-in|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item result in - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "lead to",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của lead to",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lead to (phrase.)",
+        "opts": [
+          "ý nghĩa của lead to",
+          "sự từ chối đối với lead to",
+          "trạng thái thiếu lead to",
+          "hành động ngược lại với lead to"
+        ]
+      },
+      "answer": "ý nghĩa của lead to",
+      "explain_vi": "Từ/cụm từ 'lead to' (phrase.) có nghĩa chính xác là: ý nghĩa của lead to.",
+      "content_hash": "lead-to|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item lead to - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "lead to",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của lead to",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của lead to':",
+        "opts": [
+          "lead to",
+          "lead tos",
+          "un-lead to",
+          "lead toed"
+        ]
+      },
+      "answer": "lead to",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là lead to.",
+      "content_hash": "lead-to|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item lead to - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "lead to",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của lead to",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "lead to",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "lead to",
+      "explain_vi": "Điền 'lead to' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "lead-to|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item lead to - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "lead to",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của lead to",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to lead to on time.'",
+        "opts": [
+          "She failed to lead to on time.",
+          "She fail to lead to on time.",
+          "She failing to lead to on time.",
+          "She was fail to lead to on time."
+        ]
+      },
+      "answer": "She failed to lead to on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "lead-to|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item lead to - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "lead to",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của lead to",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'lead to':",
+        "opts": [
+          "apply lead to correctly",
+          "make lead to wrong",
+          "do lead to badly",
+          "take lead to off"
+        ]
+      },
+      "answer": "apply lead to correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply lead to correctly.",
+      "content_hash": "lead-to|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item lead to - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in addition",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in addition",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "in addition (phrase.)",
+        "opts": [
+          "ý nghĩa của in addition",
+          "sự từ chối đối với in addition",
+          "trạng thái thiếu in addition",
+          "hành động ngược lại với in addition"
+        ]
+      },
+      "answer": "ý nghĩa của in addition",
+      "explain_vi": "Từ/cụm từ 'in addition' (phrase.) có nghĩa chính xác là: ý nghĩa của in addition.",
+      "content_hash": "in-addition|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item in addition - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in addition",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in addition",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của in addition':",
+        "opts": [
+          "in addition",
+          "in additions",
+          "un-in addition",
+          "in additioned"
+        ]
+      },
+      "answer": "in addition",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là in addition.",
+      "content_hash": "in-addition|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item in addition - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in addition",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in addition",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "in addition",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "in addition",
+      "explain_vi": "Điền 'in addition' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "in-addition|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item in addition - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in addition",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in addition",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to in addition on time.'",
+        "opts": [
+          "She failed to in addition on time.",
+          "She fail to in addition on time.",
+          "She failing to in addition on time.",
+          "She was fail to in addition on time."
+        ]
+      },
+      "answer": "She failed to in addition on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "in-addition|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item in addition - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in addition",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in addition",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'in addition':",
+        "opts": [
+          "apply in addition correctly",
+          "make in addition wrong",
+          "do in addition badly",
+          "take in addition off"
+        ]
+      },
+      "answer": "apply in addition correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply in addition correctly.",
+      "content_hash": "in-addition|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item in addition - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in contrast",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in contrast",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "in contrast (phrase.)",
+        "opts": [
+          "ý nghĩa của in contrast",
+          "sự từ chối đối với in contrast",
+          "trạng thái thiếu in contrast",
+          "hành động ngược lại với in contrast"
+        ]
+      },
+      "answer": "ý nghĩa của in contrast",
+      "explain_vi": "Từ/cụm từ 'in contrast' (phrase.) có nghĩa chính xác là: ý nghĩa của in contrast.",
+      "content_hash": "in-contrast|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item in contrast - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in contrast",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in contrast",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của in contrast':",
+        "opts": [
+          "in contrast",
+          "in contrasts",
+          "un-in contrast",
+          "in contrasted"
+        ]
+      },
+      "answer": "in contrast",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là in contrast.",
+      "content_hash": "in-contrast|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item in contrast - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in contrast",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in contrast",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "in contrast",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "in contrast",
+      "explain_vi": "Điền 'in contrast' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "in-contrast|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item in contrast - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in contrast",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in contrast",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to in contrast on time.'",
+        "opts": [
+          "She failed to in contrast on time.",
+          "She fail to in contrast on time.",
+          "She failing to in contrast on time.",
+          "She was fail to in contrast on time."
+        ]
+      },
+      "answer": "She failed to in contrast on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "in-contrast|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item in contrast - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "in contrast",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của in contrast",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'in contrast':",
+        "opts": [
+          "apply in contrast correctly",
+          "make in contrast wrong",
+          "do in contrast badly",
+          "take in contrast off"
+        ]
+      },
+      "answer": "apply in contrast correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply in contrast correctly.",
+      "content_hash": "in-contrast|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item in contrast - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "on the contrary",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on the contrary",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "on the contrary (phrase.)",
+        "opts": [
+          "ý nghĩa của on the contrary",
+          "sự từ chối đối với on the contrary",
+          "trạng thái thiếu on the contrary",
+          "hành động ngược lại với on the contrary"
+        ]
+      },
+      "answer": "ý nghĩa của on the contrary",
+      "explain_vi": "Từ/cụm từ 'on the contrary' (phrase.) có nghĩa chính xác là: ý nghĩa của on the contrary.",
+      "content_hash": "on-the-contrary|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item on the contrary - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "on the contrary",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on the contrary",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của on the contrary':",
+        "opts": [
+          "on the contrary",
+          "on the contrarys",
+          "un-on the contrary",
+          "on the contraryed"
+        ]
+      },
+      "answer": "on the contrary",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là on the contrary.",
+      "content_hash": "on-the-contrary|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item on the contrary - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "on the contrary",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on the contrary",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "on the contrary",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "on the contrary",
+      "explain_vi": "Điền 'on the contrary' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "on-the-contrary|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item on the contrary - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "on the contrary",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on the contrary",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to on the contrary on time.'",
+        "opts": [
+          "She failed to on the contrary on time.",
+          "She fail to on the contrary on time.",
+          "She failing to on the contrary on time.",
+          "She was fail to on the contrary on time."
+        ]
+      },
+      "answer": "She failed to on the contrary on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "on-the-contrary|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item on the contrary - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "on the contrary",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của on the contrary",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'on the contrary':",
+        "opts": [
+          "apply on the contrary correctly",
+          "make on the contrary wrong",
+          "do on the contrary badly",
+          "take on the contrary off"
+        ]
+      },
+      "answer": "apply on the contrary correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply on the contrary correctly.",
+      "content_hash": "on-the-contrary|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item on the contrary - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "as a result",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của as a result",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "as a result (phrase.)",
+        "opts": [
+          "ý nghĩa của as a result",
+          "sự từ chối đối với as a result",
+          "trạng thái thiếu as a result",
+          "hành động ngược lại với as a result"
+        ]
+      },
+      "answer": "ý nghĩa của as a result",
+      "explain_vi": "Từ/cụm từ 'as a result' (phrase.) có nghĩa chính xác là: ý nghĩa của as a result.",
+      "content_hash": "as-a-result|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item as a result - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "as a result",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của as a result",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của as a result':",
+        "opts": [
+          "as a result",
+          "as a results",
+          "un-as a result",
+          "as a resulted"
+        ]
+      },
+      "answer": "as a result",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là as a result.",
+      "content_hash": "as-a-result|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_multi item as a result - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "as a result",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của as a result",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "as a result",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "as a result",
+      "explain_vi": "Điền 'as a result' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "as-a-result|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_multi item as a result - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "as a result",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của as a result",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to as a result on time.'",
+        "opts": [
+          "She failed to as a result on time.",
+          "She fail to as a result on time.",
+          "She failing to as a result on time.",
+          "She was fail to as a result on time."
+        ]
+      },
+      "answer": "She failed to as a result on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "as-a-result|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_multi item as a result - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "as a result",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của as a result",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'as a result':",
+        "opts": [
+          "apply as a result correctly",
+          "make as a result wrong",
+          "do as a result badly",
+          "take as a result off"
+        ]
+      },
+      "answer": "apply as a result correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply as a result correctly.",
+      "content_hash": "as-a-result|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_multi item as a result - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for instance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for instance",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "for instance (phrase.)",
+        "opts": [
+          "ý nghĩa của for instance",
+          "sự từ chối đối với for instance",
+          "trạng thái thiếu for instance",
+          "hành động ngược lại với for instance"
+        ]
+      },
+      "answer": "ý nghĩa của for instance",
+      "explain_vi": "Từ/cụm từ 'for instance' (phrase.) có nghĩa chính xác là: ý nghĩa của for instance.",
+      "content_hash": "for-instance|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item for instance - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for instance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for instance",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của for instance':",
+        "opts": [
+          "for instance",
+          "for instances",
+          "un-for instance",
+          "for instanceed"
+        ]
+      },
+      "answer": "for instance",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là for instance.",
+      "content_hash": "for-instance|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_multi item for instance - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for instance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for instance",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "for instance",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "for instance",
+      "explain_vi": "Điền 'for instance' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "for-instance|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_multi item for instance - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for instance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for instance",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to for instance on time.'",
+        "opts": [
+          "She failed to for instance on time.",
+          "She fail to for instance on time.",
+          "She failing to for instance on time.",
+          "She was fail to for instance on time."
+        ]
+      },
+      "answer": "She failed to for instance on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "for-instance|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_multi item for instance - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for instance",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for instance",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'for instance':",
+        "opts": [
+          "apply for instance correctly",
+          "make for instance wrong",
+          "do for instance badly",
+          "take for instance off"
+        ]
+      },
+      "answer": "apply for instance correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply for instance correctly.",
+      "content_hash": "for-instance|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_multi item for instance - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for example",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for example",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "for example (phrase.)",
+        "opts": [
+          "ý nghĩa của for example",
+          "sự từ chối đối với for example",
+          "trạng thái thiếu for example",
+          "hành động ngược lại với for example"
+        ]
+      },
+      "answer": "ý nghĩa của for example",
+      "explain_vi": "Từ/cụm từ 'for example' (phrase.) có nghĩa chính xác là: ý nghĩa của for example.",
+      "content_hash": "for-example|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item for example - meaning",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for example",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for example",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của for example':",
+        "opts": [
+          "for example",
+          "for examples",
+          "un-for example",
+          "for exampleed"
+        ]
+      },
+      "answer": "for example",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là for example.",
+      "content_hash": "for-example|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_multi item for example - near miss form",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for example",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for example",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "for example",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "for example",
+      "explain_vi": "Điền 'for example' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "for-example|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_multi item for example - context cloze",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for example",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for example",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She fail to for example on time.'",
+        "opts": [
+          "She failed to for example on time.",
+          "She fail to for example on time.",
+          "She failing to for example on time.",
+          "She was fail to for example on time."
+        ]
+      },
+      "answer": "She failed to for example on time.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "for-example|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_multi item for example - error identification",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    },
+    {
+      "lemma": "for example",
+      "pos": "phrase",
+      "sense_vi": "ý nghĩa của for example",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'for example':",
+        "opts": [
+          "apply for example correctly",
+          "make for example wrong",
+          "do for example badly",
+          "take for example off"
+        ]
+      },
+      "answer": "apply for example correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply for example correctly.",
+      "content_hash": "for-example|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_multi item for example - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_multi",
+        "pack_id": "p2-thpt-mw-03"
+      }
+    }
+  ]
+}

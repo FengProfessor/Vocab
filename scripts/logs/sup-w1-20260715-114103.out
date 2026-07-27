@@ -1,0 +1,46 @@
+◇ injected env (44) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+◇ injected env (0) from .env.local // tip: ◈ encrypted .env [www.dotenvx.com]
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "eye" → senses=3 syn=6 dist=2
+   #1: cơ quan thị giác | She closed her eyes and tried to sleep.
+[2/1000] "few" → senses=3 syn=2 dist=2
+   #1: một vài, một số | I've read a few books by this author.
+[3/1000] "fit" → senses=3 syn=5 dist=1
+   #1: Vừa vặn (kích cỡ) | These shoes don't fit me anymore.
+[4/1000] "fix" → senses=3 syn=6 dist=1
+   #1: sửa chữa | I need to fix my bike before I can ride it to school.
+[5/1000] "flu" → senses=1 syn=3 dist=1
+   #1: bệnh truyền nhiễm | She's in bed with the flu and won't be at work today.
+[6/1000] "fly" → senses=3 syn=3 dist=1
+   #1: Động từ: Bay | The bird flew over the lake.
+[7/1000] "fog" → senses=3 syn=6 dist=1
+   #1: hiện tượng thời tiết | Driving in heavy fog can be extremely dangerous.
+[8/1000] "for" → senses=3 syn=1 dist=2
+   #1: cho, để (mục đích) | I bought this gift for you.
+[9/1000] "fry" → senses=3 syn=3 dist=2
+   #1: chiên, rán | She fried the eggs in a little butter.
+[10/1000] "fun" → senses=3 syn=5 dist=1
+   #1: niềm vui, sự vui vẻ | We had a lot of fun at the party last night.
+[11/1000] "fur" → senses=3 syn=5 dist=2
+   #1: Lông động vật | The cat curled up on the rug, its fur warm and soft.
+[12/1000] "gap" → senses=3 syn=6 dist=1
+   #1: khoảng trống vật lý | There's a small gap between the wardrobe and the wall.
+[13/1000] "gas" → senses=3 syn=5 dist=2
+   #1: khí đốt, khí gas | Turn off the gas before you leave the house.
+[14/1000] "gdp" → senses=1 syn=0 dist=1
+   #1: viết tắt kinh tế | The country's GDP grew by 3.2% last year.
+[15/1000] "get" → senses=3 syn=6 dist=2
+   #1: nhận được, có được | I got an email from the company this morning.
+[16/1000] "gnp" → senses=1 syn=0 dist=1
+   #1: kinh tế học | The country's GNP grew by 3.2% last year.
+[17/1000] "god"

@@ -1,0 +1,51 @@
+◇ injected env (44) from .env.local // tip: ⌁ auth for agents [www.vestauth.com]
+◇ injected env (0) from .env.local // tip: ◈ secrets for agents [www.dotenvx.com]
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "god" → senses=3 syn=5 dist=1
+   #1: Thiên Chúa, Chúa | Do you believe in God?
+[2/1000] "gun" → senses=3 syn=5 dist=2
+   #1: vũ khí bắn đạn | He pointed the gun at the target and fired.
+[3/1000] "gut" → senses=3 syn=5 dist=1
+   #1: bụng, dạ dày | He took a hard punch to the gut during the fight.
+[4/1000] "guy" → senses=3 syn=6 dist=1
+   #1: người đàn ông | He's a really nice guy once you get to know him.
+[5/1000] "gym" → senses=2 syn=0 dist=1
+   #1: phòng tập thể dục | I go to the gym three times a week.
+[6/1000] "hat"◇ injected env (44) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+◇ injected env (0) from .env.local // tip: ⌁ auth for agents [www.vestauth.com]
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+05:26:17 ══════════════════════════════════════════════
+05:26:17  GLM-5.2 core_senses backfill (Oxford-style)
+05:26:17  model=glm-5.2 forever=false shard=0/1
+05:26:17  base=https://open.bigmodel.cn/api/paas/v4 dry=false force=false limit=1000 delay=300
+05:26:17 ══════════════════════════════════════════════
+05:26:17 Smoke test GLM...
+05:26:27 Smoke OK {"ok":true}
+05:26:30 round fetch=1000 shard=0/1
+◇ injected env (44) from .env.local // tip: ◈ secrets for agents [www.dotenvx.com]
+◇ injected env (0) from .env.local // tip: ⌘ suppress logs { quiet: true }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+05:27:14 ══════════════════════════════════════════════
+05:27:14  GLM-5.2 core_senses backfill (Oxford-style)
+05:27:14  model=glm-5.2 forever=false shard=0/1
+05:27:14  base=https://open.bigmodel.cn/api/paas/v4 dry=false force=false limit=1000 delay=300
+05:27:14 ══════════════════════════════════════════════
+05:27:14 Smoke test GLM...
+05:27:18 Smoke OK {"ok":true}
+05:27:20 round fetch=1000 shard=0/1
+05:27:36 [1/1000] ✓ hat · cái mũ (có vành) | He was wearing a wide-brimmed hat to protect himself from the sun.
+05:28:02 [2/1000] ✓ her · đại từ tân ngữ | I called her yesterday but she didn't answer.
+05:28:25 [3/1000] ✓ hey · thán từ gọi | Hey, wait for me!
+05:28:49 [4/1000] ✓ hip · bộ phận cơ thể | She put her hands on her hips and stared at him.
+05:29:10 [5/1000] ✓ his · tính từ sở hữu | He left his phone on the table.
+05:29:28 [6/1000] ✓ hit · đánh, va chạm | He hit the ball over the fence.

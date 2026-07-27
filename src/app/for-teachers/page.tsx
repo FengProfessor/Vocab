@@ -13,6 +13,7 @@ import {
   Layers3,
   LineChart,
   MessageSquareText,
+  Phone,
   School,
   Sparkles,
   Target,
@@ -76,7 +77,7 @@ const teacherJsonLd = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'VND',
-        description: 'Tạo lớp miễn phí — gói trả phí theo quy mô',
+        description: 'Tạo lớp miễn phí — báo giá gói trả phí theo quy mô (liên hệ)',
       },
     },
     {
@@ -178,14 +179,18 @@ const features = [
   },
 ];
 
+/** Giá công khai ẩn — chốt tay qua Zalo/điện thoại (pilot). */
+const CONTACT_PHONE = '0949317036';
+const CONTACT_PHONE_DISPLAY = '0949 317 036';
+const CONTACT_NAME = 'Mr Phong';
+
 const plans = [
   {
     key: 'tutor',
     name: 'Gia sư',
     audience: 'Dạy 1:1 hoặc nhóm nhỏ',
-    price: '299.000đ',
-    unit: '/ tháng',
-    note: 'Ưu đãi early-access',
+    price: 'Báo giá',
+    note: 'Liên hệ nhận giá',
     icon: GraduationCap,
     featured: false,
     features: ['Tối đa 3 lớp', 'Tối đa 30 học sinh', 'Dashboard tiến độ', 'Giao từ vựng và ngữ pháp', 'AI coaching insight', 'Trả năm: tặng 2 tháng'],
@@ -194,8 +199,7 @@ const plans = [
     key: 'teacher_pro',
     name: 'Giáo viên Pro',
     audience: 'Giáo viên có nhiều lớp',
-    price: '599.000đ',
-    unit: '/ tháng',
+    price: 'Báo giá',
     note: 'Phù hợp nhất',
     icon: Users,
     featured: true,
@@ -206,8 +210,7 @@ const plans = [
     name: 'Trung tâm',
     audience: 'Nhiều giáo viên, cần triển khai chung',
     price: 'Báo giá',
-    unit: '',
-    note: 'Báo giá theo quy mô',
+    note: 'Theo quy mô',
     icon: School,
     featured: false,
     features: ['Từ 10 tài khoản giáo viên', 'Từ 500 học sinh', 'Onboarding đội ngũ', 'Báo cáo vận hành', 'Hỗ trợ triển khai riêng'],
@@ -236,7 +239,7 @@ export default function ForTeachersPage() {
             <a href="#giai-phap" className="transition-colors hover:text-[#17231d]">Giải pháp</a>
             <a href="#tinh-nang" className="transition-colors hover:text-[#17231d]">Tính năng</a>
             <a href="#demo" className="transition-colors hover:text-[#17231d]">Demo</a>
-            <a href="#bang-gia" className="transition-colors hover:text-[#17231d]">Bảng giá</a>
+            <a href="#bang-gia" className="transition-colors hover:text-[#17231d]">Gói & báo giá</a>
             <a href="#faq" className="transition-colors hover:text-[#17231d]">FAQ</a>
           </nav>
           <PilotLink
@@ -525,13 +528,13 @@ export default function ForTeachersPage() {
             </div>
         </section>
 
-        {/* 9. Bảng giá */}
+        {/* 9. Gói & báo giá (ẩn số tiền — chốt qua điện thoại) */}
         <section id="bang-gia" className="border-t border-[#17231d]/10 px-4 py-24 sm:px-6">
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-4xl font-black tracking-[-0.04em] sm:text-5xl">Giá minh bạch, hủy bất cứ lúc nào.</h2>
+              <h2 className="text-4xl font-black tracking-[-0.04em] sm:text-5xl">Chọn gói theo quy mô. Báo giá khi liên hệ.</h2>
               <p className="mt-5 font-medium leading-7 text-[#657269]">
-                Chọn gói theo quy mô lớp. Bắt đầu miễn phí, nâng cấp khi cần.
+                Bắt đầu miễn phí. Mức giá chốt theo số lớp / học sinh thực tế — gọi hoặc nhắn {CONTACT_NAME}.
               </p>
             </div>
             <div className="mt-12 grid items-stretch gap-5 lg:grid-cols-3">
@@ -554,7 +557,6 @@ export default function ForTeachersPage() {
                   <p className={`mt-1 text-sm font-semibold ${plan.featured ? 'text-[#aab5ae]' : 'text-[#657269]'}`}>{plan.audience}</p>
                   <div className="mt-7">
                     <span className="text-3xl font-black tracking-[-0.04em]">{plan.price}</span>
-                    {plan.unit && <span className={`ml-1 text-sm font-semibold ${plan.featured ? 'text-[#aab5ae]' : 'text-[#657269]'}`}>{plan.unit}</span>}
                   </div>
                   <p className={`mt-2 text-xs font-bold uppercase tracking-wider ${plan.featured ? 'text-[#d7ff64]' : 'text-[#567600]'}`}>{plan.note}</p>
                   <ul className="mt-7 flex-1 space-y-3">
@@ -578,8 +580,22 @@ export default function ForTeachersPage() {
                 </div>
               ))}
             </div>
+            <div className="mx-auto mt-10 max-w-xl rounded-[1.75rem] border border-[#17231d]/10 bg-white p-6 text-center sm:p-8">
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-[#567600]">Báo giá · Liên hệ</p>
+              <p className="mt-3 text-2xl font-black tracking-tight sm:text-3xl">{CONTACT_NAME}</p>
+              <a
+                href={`tel:${CONTACT_PHONE}`}
+                className="mt-4 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#17231d] px-6 py-3.5 text-lg font-black text-white transition-transform hover:-translate-y-0.5"
+              >
+                <Phone className="size-5" />
+                {CONTACT_PHONE_DISPLAY}
+              </a>
+              <p className="mt-4 text-sm font-semibold text-[#657269]">
+                Zalo / gọi trực tiếp · Phản hồi trong ngày làm việc
+              </p>
+            </div>
             <p className="mt-8 text-center text-sm font-semibold text-[#657269]">
-                Không cần thẻ · Hoàn tiền 30 ngày · Trả năm tặng 2 tháng · Hủy bất cứ lúc nào
+              Không cần thẻ · Bắt đầu miễn phí · Hủy bất cứ lúc nào · Hỗ trợ tiếng Việt
             </p>
           </div>
         </section>

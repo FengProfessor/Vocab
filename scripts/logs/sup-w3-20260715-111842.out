@@ -1,0 +1,48 @@
+◇ injected env (44) from .env.local // tip: ⌘ enable debugging { debug: true }
+◇ injected env (0) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "finish" → senses=3 syn=5 dist=1
+   #1: hoàn thành, kết thúc | I finished my homework before dinner.
+[2/1000] "finite" → senses=2 syn=5 dist=1
+   #1: có giới hạn | We have a finite amount of time to complete this project.
+[3/1000] "firmly" → senses=3 syn=6 dist=2
+   #1: kiên quyết, vững vàng | She firmly believes that education is the key to success.
+[4/1000] "fiscal" → senses=2 syn=4 dist=1
+   #1: thuộc ngân sách nhà nước | The government announced a new fiscal policy to reduce the budget deficit.
+[5/1000] "flavor" → senses=3 syn=5 dist=2
+   #1: hương vị thức ăn | This ice cream comes in three flavors: chocolate, vanilla, and strawberry.
+[6/1000] "flight" → senses=3 syn=1 dist=1
+   #1: chuyến bay | Our flight to Tokyo was delayed by two hours.
+[7/1000] "florid" → senses=2 syn=6 dist=1
+   #1: sắc mặt đỏ bừng | He had a florid complexion from years of heavy drinking.
+[8/1000] "flower" → senses=2 syn=5 dist=2
+   #1: hoa (thực vật) | She picked a beautiful yellow flower from the garden.
+[9/1000] "fluent" → senses=3 syn=5 dist=2
+   #1: lưu loát ngôn ngữ | She is fluent in French and Spanish.
+[10/1000] "flying" → senses=3 syn=4 dist=1
+   #1: việc đi máy bay | She hates flying, so she always takes the train when she can.
+[11/1000] "foible" → senses=1 syn=6 dist=2
+   #1: nhược điểm nhỏ | We all have our little foibles, and we should learn to accept them in each other.
+[12/1000] "follow" → senses=3 syn=5 dist=1
+   #1: Đi theo sau | The dog followed me all the way home.
+[13/1000] "foment" → senses=2 syn=4 dist=1
+   #1: kích động, xúi giục | The group was accused of fomenting violence in the capital.
+[14/1000] "forbid" → senses=2 syn=6 dist=2
+   #1: cấm, không cho phép | Her parents forbade her from going out alone at night.
+[15/1000] "forest" → senses=3 syn=5 dist=2
+   #1: khu rừng | The children got lost in the forest while hiking.
+[16/1000] "forget" → senses=3 syn=4 dist=1
+   #1: quên thông tin/sự việc | I've forgotten her name.
+[17/1000] "formal" → senses=3 syn=5 dist=2
+   #1: chính thức | You need to make a formal complaint in writing.
+[18/1000] "format"

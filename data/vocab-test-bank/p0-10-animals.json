@@ -1,0 +1,1449 @@
+{
+  "version": 2,
+  "batch_id": "p0-10-animals",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-animals"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "dog",
+      "pos": "n",
+      "sense_vi": "con chó",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "dog (n.)",
+        "opts": [
+          "con chó",
+          "con mèo",
+          "con lợn",
+          "con gà"
+        ]
+      },
+      "answer": "con chó",
+      "explain_vi": "dog nghĩa là con chó.",
+      "content_hash": "dog|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con chó",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dog",
+      "pos": "n",
+      "sense_vi": "con chó",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Vật nuôi trung thành hay sủa gâu gâu:",
+        "opts": [
+          "dog",
+          "dock",
+          "dig",
+          "fog"
+        ]
+      },
+      "answer": "dog",
+      "explain_vi": "Con chó là dog (dock là bến tàu).",
+      "content_hash": "dog|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss dock",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dog",
+      "pos": "n",
+      "sense_vi": "con chó",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The loyal ___ barked to welcome its owner home.",
+        "opts": [
+          "dog",
+          "cat",
+          "bird",
+          "pig"
+        ]
+      },
+      "answer": "dog",
+      "explain_vi": "The loyal dog barked (chó sủa chào chủ).",
+      "content_hash": "dog|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "loyal dog",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dog",
+      "pos": "n",
+      "sense_vi": "con chó",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'My dog love running in the park.'",
+        "opts": [
+          "My dog loves running in the park.",
+          "My dog love running in the park.",
+          "My dog loving running in the park.",
+          "My dog is love running in the park."
+        ]
+      },
+      "answer": "My dog loves running in the park.",
+      "explain_vi": "My dog số ít đi với động từ chia 'loves'.",
+      "content_hash": "dog|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia động từ loves",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "dog",
+      "pos": "n",
+      "sense_vi": "con chó",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm dắt chó đi dạo chuẩn:",
+        "opts": [
+          "walk the dog",
+          "go the dog",
+          "run the dog",
+          "take the dog walk"
+        ]
+      },
+      "answer": "walk the dog",
+      "explain_vi": "Dắt chó đi dạo dùng cụm 'walk the dog'.",
+      "content_hash": "dog|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm walk the dog",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cat",
+      "pos": "n",
+      "sense_vi": "con mèo",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cat (n.)",
+        "opts": [
+          "con mèo",
+          "con chó",
+          "con chuột",
+          "con thỏ"
+        ]
+      },
+      "answer": "con mèo",
+      "explain_vi": "cat nghĩa là con mèo.",
+      "content_hash": "cat|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con mèo",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cat",
+      "pos": "n",
+      "sense_vi": "con mèo",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Vật nuôi hay kêu meo meo và thích bắt chuột:",
+        "opts": [
+          "cat",
+          "cot",
+          "cut",
+          "cap"
+        ]
+      },
+      "answer": "cat",
+      "explain_vi": "Con mèo là cat (cot là giường cửi).",
+      "content_hash": "cat|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss cot/cut",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cat",
+      "pos": "n",
+      "sense_vi": "con mèo",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The cute black ___ is sleeping on the sofa.",
+        "opts": [
+          "cat",
+          "dog",
+          "cow",
+          "pig"
+        ]
+      },
+      "answer": "cat",
+      "explain_vi": "The cat is sleeping on the sofa.",
+      "content_hash": "cat|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "cute cat",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cat",
+      "pos": "n",
+      "sense_vi": "con mèo",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The cat catch a mouse yesterday.'",
+        "opts": [
+          "The cat caught a mouse yesterday.",
+          "The cat catch a mouse yesterday.",
+          "The cat catched a mouse yesterday.",
+          "The cat is catch a mouse yesterday."
+        ]
+      },
+      "answer": "The cat caught a mouse yesterday.",
+      "explain_vi": "Yesterday dùng động từ quá khứ bất quy tắc 'caught'.",
+      "content_hash": "cat|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy quá khứ caught",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cat",
+      "pos": "n",
+      "sense_vi": "con mèo",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm con mèo con chuẩn:",
+        "opts": [
+          "kitten",
+          "baby cat",
+          "small cat",
+          "child cat"
+        ]
+      },
+      "answer": "kitten",
+      "explain_vi": "Con mèo con gọi là kitten (hoặc baby cat).",
+      "content_hash": "cat|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm kitten",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bird",
+      "pos": "n",
+      "sense_vi": "con chim",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "bird (n.)",
+        "opts": [
+          "con chim",
+          "con bướm",
+          "con cá",
+          "con ếch"
+        ]
+      },
+      "answer": "con chim",
+      "explain_vi": "bird nghĩa là con chim.",
+      "content_hash": "bird|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con chim",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bird",
+      "pos": "n",
+      "sense_vi": "con chim",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Động vật có lông vũ và cánh biết bay:",
+        "opts": [
+          "bird",
+          "bard",
+          "board",
+          "beard"
+        ]
+      },
+      "answer": "bird",
+      "explain_vi": "Con chim là bird (beard là bộ râu).",
+      "content_hash": "bird|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss beard/board",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bird",
+      "pos": "n",
+      "sense_vi": "con chim",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "A colorful ___ is singing nicely in the tree.",
+        "opts": [
+          "bird",
+          "cat",
+          "dog",
+          "cow"
+        ]
+      },
+      "answer": "bird",
+      "explain_vi": "A bird is singing in the tree (chim hót trên cây).",
+      "content_hash": "bird|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "bird singing",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bird",
+      "pos": "n",
+      "sense_vi": "con chim",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Two bird are flying in the sky.'",
+        "opts": [
+          "Two birds are flying in the sky.",
+          "Two bird are flying in the sky.",
+          "Two bird is flying in the sky.",
+          "Two birds is flying in the sky."
+        ]
+      },
+      "answer": "Two birds are flying in the sky.",
+      "explain_vi": "Two đi với danh từ số nhiều birds và động từ are.",
+      "content_hash": "bird|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy two birds are",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bird",
+      "pos": "n",
+      "sense_vi": "con chim",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm lồng chim chuẩn:",
+        "opts": [
+          "birdcage",
+          "birdbox",
+          "birdroom",
+          "birdhouse"
+        ]
+      },
+      "answer": "birdcage",
+      "explain_vi": "Lồng nuôi chim là birdcage.",
+      "content_hash": "bird|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm birdcage",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cow",
+      "pos": "n",
+      "sense_vi": "con bò",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cow (n.)",
+        "opts": [
+          "con bò / bò sữa",
+          "con ngựa",
+          "con cừu",
+          "con dê"
+        ]
+      },
+      "answer": "con bò / bò sữa",
+      "explain_vi": "cow nghĩa là con bò.",
+      "content_hash": "cow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con bò",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cow",
+      "pos": "n",
+      "sense_vi": "con bò",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Gia súc lớn cho sữa và thịt:",
+        "opts": [
+          "cow",
+          "how",
+          "now",
+          "crow"
+        ]
+      },
+      "answer": "cow",
+      "explain_vi": "Con bò là cow (crow là con quạ).",
+      "content_hash": "cow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss crow",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cow",
+      "pos": "n",
+      "sense_vi": "con bò",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The farmer milks the ___ every morning.",
+        "opts": [
+          "cow",
+          "dog",
+          "cat",
+          "bird"
+        ]
+      },
+      "answer": "cow",
+      "explain_vi": "Milks the cow (vắt sữa bò).",
+      "content_hash": "cow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "milk the cow",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cow",
+      "pos": "n",
+      "sense_vi": "con bò",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The cows gives fresh milk daily.'",
+        "opts": [
+          "The cows give fresh milk daily.",
+          "The cows gives fresh milk daily.",
+          "The cows is give fresh milk daily.",
+          "The cows giving fresh milk daily."
+        ]
+      },
+      "answer": "The cows give fresh milk daily.",
+      "explain_vi": "Chủ ngữ số nhiều The cows đi với động từ nguyên mẫu give.",
+      "content_hash": "cow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy plural cows give",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cow",
+      "pos": "n",
+      "sense_vi": "con bò",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bò sữa chuẩn:",
+        "opts": [
+          "milch cow",
+          "milk cow",
+          "dairy cow",
+          "farm cow"
+        ]
+      },
+      "answer": "dairy cow",
+      "explain_vi": "Bò nuôi lấy sữa gọi là dairy cow.",
+      "content_hash": "cow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm dairy cow",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pig",
+      "pos": "n",
+      "sense_vi": "con lợn",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pig (n.)",
+        "opts": [
+          "con lợn / con heo",
+          "con bò",
+          "con gà",
+          "con vịt"
+        ]
+      },
+      "answer": "con lợn / con heo",
+      "explain_vi": "pig nghĩa là con lợn (heo).",
+      "content_hash": "pig|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con lợn",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pig",
+      "pos": "n",
+      "sense_vi": "con lợn",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Động vật nuôi kêu ủn ỉn thích tắm bùn:",
+        "opts": [
+          "pig",
+          "big",
+          "peg",
+          "pug"
+        ]
+      },
+      "answer": "pig",
+      "explain_vi": "Con lợn là pig (peg là cái kẹp).",
+      "content_hash": "pig|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss peg/big",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pig",
+      "pos": "n",
+      "sense_vi": "con lợn",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The pink ___ is sleeping in the mud.",
+        "opts": [
+          "pig",
+          "bird",
+          "cat",
+          "tiger"
+        ]
+      },
+      "answer": "pig",
+      "explain_vi": "The pink pig (con lợn hồng).",
+      "content_hash": "pig|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "pink pig",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pig",
+      "pos": "n",
+      "sense_vi": "con lợn",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Pigs eats vegetables and corn.'",
+        "opts": [
+          "Pigs eat vegetables and corn.",
+          "Pigs eats vegetables and corn.",
+          "Pigs is eat vegetables and corn.",
+          "Pigs eating vegetables and corn."
+        ]
+      },
+      "answer": "Pigs eat vegetables and corn.",
+      "explain_vi": "Chủ ngữ số nhiều Pigs đi với động từ không chia 'eat'.",
+      "content_hash": "pig|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy plural pigs eat",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pig",
+      "pos": "n",
+      "sense_vi": "con lợn",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chuồng lợn chuẩn:",
+        "opts": [
+          "pigsty",
+          "pighouse",
+          "pigroom",
+          "pigpen"
+        ]
+      },
+      "answer": "pigsty",
+      "explain_vi": "Chuồng nuôi lợn gọi là pigsty (hoặc pigpen).",
+      "content_hash": "pig|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm pigsty",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "duck",
+      "pos": "n",
+      "sense_vi": "con vịt",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "duck (n.)",
+        "opts": [
+          "con vịt",
+          "con gà",
+          "con ngỗng",
+          "con chim"
+        ]
+      },
+      "answer": "con vịt",
+      "explain_vi": "duck nghĩa là con vịt.",
+      "content_hash": "duck|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con vịt",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "duck",
+      "pos": "n",
+      "sense_vi": "con vịt",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Loài chim nước kêu quạc quạc bơi giỏi:",
+        "opts": [
+          "duck",
+          "dock",
+          "deck",
+          "dusk"
+        ]
+      },
+      "answer": "duck",
+      "explain_vi": "Con vịt là duck (dusk là hoàng hôn, dock là bến tàu).",
+      "content_hash": "duck|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss dock/dusk",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "duck",
+      "pos": "n",
+      "sense_vi": "con vịt",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The yellow ___ is swimming gracefully in the pond.",
+        "opts": [
+          "duck",
+          "dog",
+          "cat",
+          "pig"
+        ]
+      },
+      "answer": "duck",
+      "explain_vi": "The duck is swimming in the pond.",
+      "content_hash": "duck|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "duck swimming",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "duck",
+      "pos": "n",
+      "sense_vi": "con vịt",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Look at those yellow duckling!'",
+        "opts": [
+          "Look at those yellow ducklings!",
+          "Look at those yellow duckling!",
+          "Look at that yellow ducklings!",
+          "Look at those yellow ducklinges!"
+        ]
+      },
+      "answer": "Look at those yellow ducklings!",
+      "explain_vi": "Those đi với danh từ số nhiều ducklings (những con vịt con).",
+      "content_hash": "duck|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy those ducklings",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "duck",
+      "pos": "n",
+      "sense_vi": "con vịt",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm vịt con chuẩn:",
+        "opts": [
+          "duckling",
+          "baby duck",
+          "small duck",
+          "child duck"
+        ]
+      },
+      "answer": "duckling",
+      "explain_vi": "Con vịt con gọi là duckling.",
+      "content_hash": "duck|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm duckling",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "horse",
+      "pos": "n",
+      "sense_vi": "con ngựa",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "horse (n.)",
+        "opts": [
+          "con ngựa",
+          "con bò",
+          "con lừa",
+          "con vượn"
+        ]
+      },
+      "answer": "con ngựa",
+      "explain_vi": "horse nghĩa là con ngựa.",
+      "content_hash": "horse|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con ngựa",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "horse",
+      "pos": "n",
+      "sense_vi": "con ngựa",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Động vật 4 chân phi nhanh người ta hay cưỡi:",
+        "opts": [
+          "horse",
+          "house",
+          "hose",
+          "hoarse"
+        ]
+      },
+      "answer": "horse",
+      "explain_vi": "Con ngựa là horse (đồng âm hoarse - khàn tiếng, house là nhà).",
+      "content_hash": "horse|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss house/hoarse",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "horse",
+      "pos": "n",
+      "sense_vi": "con ngựa",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "He learned how to ride a ___ at the farm.",
+        "opts": [
+          "horse",
+          "house",
+          "mouse",
+          "cow"
+        ]
+      },
+      "answer": "horse",
+      "explain_vi": "Ride a horse (cưỡi ngựa).",
+      "content_hash": "horse|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ride a horse",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "horse",
+      "pos": "n",
+      "sense_vi": "con ngựa",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She rides a horse very fastly.'",
+        "opts": [
+          "She rides a horse very fast.",
+          "She rides a horse very fastly.",
+          "She ride a horse very fast.",
+          "She is ride a horse very fast."
+        ]
+      },
+      "answer": "She rides a horse very fast.",
+      "explain_vi": "Trạng từ của fast vẫn giữ nguyên là fast (không có fastly).",
+      "content_hash": "horse|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy fastly",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "horse",
+      "pos": "n",
+      "sense_vi": "con ngựa",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm cưỡi ngựa chuẩn:",
+        "opts": [
+          "ride a horse",
+          "drive a horse",
+          "run a horse",
+          "walk a horse"
+        ]
+      },
+      "answer": "ride a horse",
+      "explain_vi": "Hành động cưỡi ngựa là ride a horse.",
+      "content_hash": "horse|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm ride a horse",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chicken",
+      "pos": "n",
+      "sense_vi": "con gà / thịt gà",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "chicken (n.)",
+        "opts": [
+          "con gà / thịt gà",
+          "con vịt",
+          "con chim",
+          "con heo"
+        ]
+      },
+      "answer": "con gà / thịt gà",
+      "explain_vi": "chicken nghĩa là con gà hoặc thịt gà.",
+      "content_hash": "chicken|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con gà",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chicken",
+      "pos": "n",
+      "sense_vi": "con gà / thịt gà",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Gia cầm đẻ trứng kêu cục tác:",
+        "opts": [
+          "chicken",
+          "kitchen",
+          "chick",
+          "checken"
+        ]
+      },
+      "answer": "chicken",
+      "explain_vi": "Con gà là chicken (kitchen là nhà bếp).",
+      "content_hash": "chicken|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss kitchen",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chicken",
+      "pos": "n",
+      "sense_vi": "con gà / thịt gà",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We had fried ___ and chips for dinner.",
+        "opts": [
+          "chicken",
+          "cat",
+          "dog",
+          "horse"
+        ]
+      },
+      "answer": "chicken",
+      "explain_vi": "Fried chicken (thịt gà rán).",
+      "content_hash": "chicken|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "fried chicken",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chicken",
+      "pos": "n",
+      "sense_vi": "con gà / thịt gà",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The hen lay an egg this morning.'",
+        "opts": [
+          "The hen laid an egg this morning.",
+          "The hen lay an egg this morning.",
+          "The hen layed an egg this morning.",
+          "The hen is lay an egg this morning."
+        ]
+      },
+      "answer": "The hen laid an egg this morning.",
+      "explain_vi": "Quá khứ của động từ lay (đẻ trứng) là laid.",
+      "content_hash": "chicken|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy quá khứ laid",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chicken",
+      "pos": "n",
+      "sense_vi": "con gà / thịt gà",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm gà rán chuẩn:",
+        "opts": [
+          "fried chicken",
+          "roast chicken",
+          "cook chicken",
+          "boil chicken"
+        ]
+      },
+      "answer": "fried chicken",
+      "explain_vi": "Gà rán nổi tiếng là fried chicken.",
+      "content_hash": "chicken|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm fried chicken",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tiger",
+      "pos": "n",
+      "sense_vi": "con hổ",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tiger (n.)",
+        "opts": [
+          "con hổ / con cọp",
+          "con sư tử",
+          "con báo",
+          "con gấu"
+        ]
+      },
+      "answer": "con hổ / con cọp",
+      "explain_vi": "tiger nghĩa là con hổ.",
+      "content_hash": "tiger|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con hổ",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tiger",
+      "pos": "n",
+      "sense_vi": "con hổ",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Loài thú ăn thịt họ mèo lớn có vằn dũng mãnh:",
+        "opts": [
+          "tiger",
+          "tigers",
+          "tight",
+          "timber"
+        ]
+      },
+      "answer": "tiger",
+      "explain_vi": "Con hổ là tiger (tight là chật chội).",
+      "content_hash": "tiger|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss tight",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tiger",
+      "pos": "n",
+      "sense_vi": "con hổ",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The fierce ___ has black stripes on its orange fur.",
+        "opts": [
+          "tiger",
+          "cat",
+          "dog",
+          "cow"
+        ]
+      },
+      "answer": "tiger",
+      "explain_vi": "The tiger has black stripes (hổ có vằn đen).",
+      "content_hash": "tiger|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "tiger stripes",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tiger",
+      "pos": "n",
+      "sense_vi": "con hổ",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Tigers lives in the deep jungle.'",
+        "opts": [
+          "Tigers live in the deep jungle.",
+          "Tigers lives in the deep jungle.",
+          "Tigers is live in the deep jungle.",
+          "Tigers living in the deep jungle."
+        ]
+      },
+      "answer": "Tigers live in the deep jungle.",
+      "explain_vi": "Chủ ngữ số nhiều Tigers đi với động từ không chia 'live'.",
+      "content_hash": "tiger|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy plural tigers live",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tiger",
+      "pos": "n",
+      "sense_vi": "con hổ",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm vằn trên mình hổ chuẩn:",
+        "opts": [
+          "tiger stripes",
+          "tiger lines",
+          "tiger marks",
+          "tiger spots"
+        ]
+      },
+      "answer": "tiger stripes",
+      "explain_vi": "Vằn trên mình hổ là tiger stripes.",
+      "content_hash": "tiger|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm tiger stripes",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "elephant",
+      "pos": "n",
+      "sense_vi": "con voi",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "elephant (n.)",
+        "opts": [
+          "con voi",
+          "con hà mã",
+          "con tê giác",
+          "con hươu cao cổ"
+        ]
+      },
+      "answer": "con voi",
+      "explain_vi": "elephant nghĩa là con voi.",
+      "content_hash": "elephant|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con voi",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "elephant",
+      "pos": "n",
+      "sense_vi": "con voi",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Động vật trên bối lớn nhất có vòi dài và ngà:",
+        "opts": [
+          "elephant",
+          "elephants",
+          "element",
+          "elevator"
+        ]
+      },
+      "answer": "elephant",
+      "explain_vi": "Con voi là elephant (element là yếu tố, elevator là thang máy).",
+      "content_hash": "elephant|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss element",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "elephant",
+      "pos": "n",
+      "sense_vi": "con voi",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The massive ___ used its long trunk to drink water.",
+        "opts": [
+          "elephant",
+          "tiger",
+          "duck",
+          "bird"
+        ]
+      },
+      "answer": "elephant",
+      "explain_vi": "The elephant used its trunk (voi dùng vòi).",
+      "content_hash": "elephant|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "elephant trunk",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "elephant",
+      "pos": "n",
+      "sense_vi": "con voi",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I saw a elephant at the zoo yesterday.'",
+        "opts": [
+          "I saw an elephant at the zoo yesterday.",
+          "I saw a elephant at the zoo yesterday.",
+          "I see an elephant at the zoo yesterday.",
+          "I am seeing an elephant at the zoo."
+        ]
+      },
+      "answer": "I saw an elephant at the zoo yesterday.",
+      "explain_vi": "Danh từ elephant bắt đầu bằng nguyên âm 'e' dùng mạo từ 'an'.",
+      "content_hash": "elephant|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy a/an elephant",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "elephant",
+      "pos": "n",
+      "sense_vi": "con voi",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm vòi voi chuẩn:",
+        "opts": [
+          "elephant trunk",
+          "elephant nose",
+          "elephant pipe",
+          "elephant arm"
+        ]
+      },
+      "answer": "elephant trunk",
+      "explain_vi": "Vòi con voi gọi là elephant trunk.",
+      "content_hash": "elephant|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm elephant trunk",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "animal",
+      "pos": "n",
+      "sense_vi": "động vật",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "animal (n.)",
+        "opts": [
+          "động vật / thú cưng",
+          "thực vật",
+          "đồ vật",
+          "con người"
+        ]
+      },
+      "answer": "động vật / thú cưng",
+      "explain_vi": "animal nghĩa là động vật nói chung.",
+      "content_hash": "animal|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa động vật",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "animal",
+      "pos": "n",
+      "sense_vi": "động vật",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tên gọi chung cho các sinh vật sống như chó, mèo, hổ, voi...:",
+        "opts": [
+          "animal",
+          "animated",
+          "anime",
+          "annual"
+        ]
+      },
+      "answer": "animal",
+      "explain_vi": "Động vật là animal (annual là hằng năm).",
+      "content_hash": "animal|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss annual",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "animal",
+      "pos": "n",
+      "sense_vi": "động vật",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Lions and tigers are wild ___.",
+        "opts": [
+          "animal",
+          "plant",
+          "tree",
+          "object"
+        ]
+      },
+      "answer": "animal",
+      "explain_vi": "Wild animal (động vật hoang dã).",
+      "content_hash": "animal|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "wild animal",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "animal",
+      "pos": "n",
+      "sense_vi": "động vật",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The zoo has a many wild animals.'",
+        "opts": [
+          "The zoo has many wild animals.",
+          "The zoo has a many wild animals.",
+          "The zoo have many wild animals.",
+          "The zoo is have many wild animals."
+        ]
+      },
+      "answer": "The zoo has many wild animals.",
+      "explain_vi": "Không dùng mạo từ 'a' trước 'many': many wild animals.",
+      "content_hash": "animal|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy a many",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "animal",
+      "pos": "n",
+      "sense_vi": "động vật",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm động vật hoang dã chuẩn:",
+        "opts": [
+          "wild animals",
+          "nature animals",
+          "forest animals",
+          "jungle animals"
+        ]
+      },
+      "answer": "wild animals",
+      "explain_vi": "Động vật hoang dã là wild animals.",
+      "content_hash": "animal|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm wild animals",
+        "pack_id": "starter-a0-animals",
+        "priority": "P0"
+      }
+    }
+  ]
+}

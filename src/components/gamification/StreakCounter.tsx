@@ -125,7 +125,7 @@ export function StreakCounter({
           <div className="min-w-0">
             <div className="flex items-baseline gap-0.5">
               <span className="text-[13px] font-black leading-none text-orange-600 sm:text-[21px]">{streak}</span>
-              <span className="text-[8px] font-bold text-orange-400 sm:text-[11px]">ngày</span>
+              <span className="text-[8px] font-bold text-orange-400 sm:text-[11px]">liên tiếp</span>
             </div>
             <div className="hidden text-[10.5px] font-bold text-[#aab0bd] sm:block">{MONTH_LABELS[month]}</div>
           </div>
@@ -135,8 +135,8 @@ export function StreakCounter({
         <div className="min-w-0 sm:flex-1">
           <div className="mb-1 hidden items-center justify-between sm:mb-[3px] sm:flex">
             <span className="text-[11px] font-extrabold text-[#0f172a]">Bảng hoạt động hàng tháng</span>
-            <span className="text-[10px] font-bold text-[#aab0bd]">
-              {activeDays} ngày · {totalReviews} lượt
+            <span className="text-[10px] font-bold text-[#aab0bd]" title="Số ngày có học trong tháng — khác streak liên tiếp">
+              {activeDays} ngày có học · {totalReviews} lượt
             </span>
           </div>
 
@@ -253,11 +253,14 @@ export function StreakCounter({
               {streak}
             </span>
             <span className={`text-xs font-black uppercase tracking-widest ${isActive ? 'text-orange-500' : 'text-slate-400'}`}>
-              ngày streak
+              ngày liên tiếp
             </span>
           </div>
           {!isActive && (
-            <p className="mt-0.5 text-[11px] font-bold text-orange-600/80">Bắt đầu streak hôm nay!</p>
+            <p className="mt-0.5 text-[11px] font-bold text-orange-600/80">Học hôm nay để mở streak!</p>
+          )}
+          {isActive && (
+            <p className="mt-0.5 text-[11px] font-semibold text-slate-500">Không tính ngày rải rác</p>
           )}
         </div>
       </div>

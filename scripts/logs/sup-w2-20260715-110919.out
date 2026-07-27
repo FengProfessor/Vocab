@@ -1,0 +1,46 @@
+◇ injected env (44) from .env.local // tip: ◈ secrets for agents [www.dotenvx.com]
+◇ injected env (0) from .env.local // tip: ⌘ override existing { override: true }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "chore" → senses=2 syn=5 dist=2
+   #1: việc vặt trong nhà | The children help with household chores like washing the dishes and taking out the rubbish.
+[2/1000] "chunk" → senses=3 syn=6 dist=2
+   #1: khúc, miếng dày | She cut a thick chunk of cheese from the block.
+[3/1000] "cigar" → senses=1 syn=3 dist=1
+   #1: xì gà, điếu xì gà | He sat back in his chair and lit a cigar.
+[4/1000] "circa" → senses=1 syn=4 dist=1
+   #1: khoảng, chừng (ngày tháng) | The castle was built circa 1200.
+[5/1000] "civic" → senses=2 syn=5 dist=1
+   #1: thuộc công dân | Voting is considered a civic duty in many democracies.
+[6/1000] "civil" → senses=3 syn=5 dist=1
+   #1: thuộc công dân | Many people marched to demand their civil rights.
+[7/1000] "claim" → senses=3 syn=5 dist=2
+   #1: khẳng định, tuyên bố | The company claims that its product is the best on the market.
+[8/1000] "clash" → senses=3 syn=5 dist=2
+   #1: xung đột, bất đồng | The two ministers clashed over immigration policy.
+[9/1000] "clasp" → senses=3 syn=6 dist=3
+   #1: nắm/ôm chặt | She clasped her hands together and closed her eyes in prayer.
+[10/1000] "class" → senses=3 syn=6 dist=2
+   #1: lớp học | I have an English class at 9 a.m. tomorrow.
+[11/1000] "clean" → senses=3 syn=6 dist=2
+   #1: sạch, sạch sẽ | Make sure your hands are clean before eating.
+[12/1000] "clear" → senses=3 syn=6 dist=1
+   #1: rõ ràng, dễ hiểu | The instructions were not clear enough for me to follow.
+[13/1000] "clerk" → senses=3 syn=4 dist=2
+   #1: nhân viên văn phòng | She works as a clerk at a law firm in the city centre.
+[14/1000] "click" → senses=3 syn=5 dist=2
+   #1: nhấp chuột | Click here to download the file.
+[15/1000] "cliff" → senses=2 syn=5 dist=2
+   #1: vách đá dốc đứng | They stood at the edge of the cliff and looked down at the waves.
+[16/1000] "climb" → senses=3 syn=4 dist=1
+   #1: leo, trèo | The children climbed over the fence to get the ball.
+[17/1000] "cling"

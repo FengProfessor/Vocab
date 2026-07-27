@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-13",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "dance",
+    "describe",
+    "die",
+    "discover",
+    "drive",
+    "drop",
+    "end",
+    "enjoy",
+    "enter",
+    "fail"
+  ],
+  "items": [
+    {
+      "lemma": "dance",
+      "pos": "v",
+      "sense_vi": "nhảy múa",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "dance (v.)",
+        "opts": [
+          "nhảy múa",
+          "trốn dưới giường",
+          "cung cấp hỗ trợ",
+          "phân loại rác"
+        ]
+      },
+      "answer": "nhảy múa",
+      "explain_vi": "Động từ dance mang nghĩa chính xác là: nhảy múa.",
+      "content_hash": "dance|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "dance gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "dance to pop music",
+        "vn_trap": "past tense danced"
+      }
+    },
+    {
+      "lemma": "dance",
+      "pos": "v",
+      "sense_vi": "nhảy múa",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'nhảy múa', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "dance",
+          "dances",
+          "danceing",
+          "danced"
+        ]
+      },
+      "answer": "dance",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là dance.",
+      "content_hash": "dance|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "dance l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "dance to pop music",
+        "vn_trap": "past tense danced"
+      }
+    },
+    {
+      "lemma": "dance",
+      "pos": "v",
+      "sense_vi": "nhảy múa",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Always remember to ___ your homework on time.",
+        "opts": [
+          "dance",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "dance",
+      "explain_vi": "Điền 'dance' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "dance|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "dance cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "dance to pop music",
+        "vn_trap": "past tense danced"
+      }
+    },
+    {
+      "lemma": "dance",
+      "pos": "v",
+      "sense_vi": "nhảy múa",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She dances the work very good yesterday.'",
+        "opts": [
+          "She danced the work very well yesterday.",
+          "She dances the work very good yesterday.",
+          "She dances the task very good yesterday.",
+          "She was danceing when I came yesterday."
+        ]
+      },
+      "answer": "She danced the work very well yesterday.",
+      "explain_vi": "Dùng trạng từ 'well' bổ nghĩa cho động từ, không dùng tính từ 'good'.",
+      "content_hash": "dance|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "dance error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "dance to pop music",
+        "vn_trap": "past tense danced"
+      }
+    },
+    {
+      "lemma": "dance",
+      "pos": "v",
+      "sense_vi": "nhảy múa",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'dance':",
+        "opts": [
+          "dance to pop music",
+          "dance in wrong way",
+          "dance without care",
+          "dance for nothing"
+        ]
+      },
+      "answer": "dance to pop music",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: dance to pop music.",
+      "content_hash": "dance|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "dance collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "dance to pop music",
+        "vn_trap": "past tense danced"
+      }
+    },
+    {
+      "lemma": "describe",
+      "pos": "v",
+      "sense_vi": "miêu tả bức tranh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "describe (v.)",
+        "opts": [
+          "miêu tả bức tranh",
+          "đánh quả bóng",
+          "xuất bản sách",
+          "phết bơ lên"
+        ]
+      },
+      "answer": "miêu tả bức tranh",
+      "explain_vi": "Động từ describe mang nghĩa chính xác là: miêu tả bức tranh.",
+      "content_hash": "describe|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "describe gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "describe the main picture",
+        "vn_trap": "past tense described"
+      }
+    },
+    {
+      "lemma": "describe",
+      "pos": "v",
+      "sense_vi": "miêu tả bức tranh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'miêu tả bức tranh' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "describe",
+          "describes",
+          "describeing",
+          "described"
+        ]
+      },
+      "answer": "describe",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là describe.",
+      "content_hash": "describe|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "describe l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "describe the main picture",
+        "vn_trap": "past tense described"
+      }
+    },
+    {
+      "lemma": "describe",
+      "pos": "v",
+      "sense_vi": "miêu tả bức tranh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Be careful when you ___ the street tomorrow morning.",
+        "opts": [
+          "describe",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "describe",
+      "explain_vi": "Điền 'describe' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "describe|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "describe cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "describe the main picture",
+        "vn_trap": "past tense described"
+      }
+    },
+    {
+      "lemma": "describe",
+      "pos": "v",
+      "sense_vi": "miêu tả bức tranh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was describeing when the bell rang.'",
+        "opts": [
+          "They were describeing when the bell rang.",
+          "They was describeing when the bell rang.",
+          "They They was describeing when the bell rang.",
+          "She was describeing when I came yesterday."
+        ]
+      },
+      "answer": "They were describeing when the bell rang.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were', không dùng 'was'.",
+      "content_hash": "describe|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "describe error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "describe the main picture",
+        "vn_trap": "past tense described"
+      }
+    },
+    {
+      "lemma": "describe",
+      "pos": "v",
+      "sense_vi": "miêu tả bức tranh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'describe':",
+        "opts": [
+          "describe the main picture",
+          "describe in wrong way",
+          "describe without care",
+          "describe for nothing"
+        ]
+      },
+      "answer": "describe the main picture",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: describe the main picture.",
+      "content_hash": "describe|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "describe collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "describe the main picture",
+        "vn_trap": "past tense described"
+      }
+    },
+    {
+      "lemma": "die",
+      "pos": "v",
+      "sense_vi": "chết trong chiến tranh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "die (v.)",
+        "opts": [
+          "chết trong chiến tranh",
+          "đau chân",
+          "nhận ra sai lầm",
+          "phát biểu ý kiến"
+        ]
+      },
+      "answer": "chết trong chiến tranh",
+      "explain_vi": "Động từ die mang nghĩa chính xác là: chết trong chiến tranh.",
+      "content_hash": "die|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "die gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "die in historical war",
+        "vn_trap": "past tense died"
+      }
+    },
+    {
+      "lemma": "die",
+      "pos": "v",
+      "sense_vi": "chết trong chiến tranh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'chết trong chiến tranh', từ tiếng Anh đúng là:",
+        "opts": [
+          "die",
+          "dies",
+          "dieing",
+          "died"
+        ]
+      },
+      "answer": "die",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là die.",
+      "content_hash": "die|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "die l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "die in historical war",
+        "vn_trap": "past tense died"
+      }
+    },
+    {
+      "lemma": "die",
+      "pos": "v",
+      "sense_vi": "chết trong chiến tranh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you help me ___ this difficult problem today?",
+        "opts": [
+          "die",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "die",
+      "explain_vi": "Điền 'die' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "die|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "die cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "die in historical war",
+        "vn_trap": "past tense died"
+      }
+    },
+    {
+      "lemma": "die",
+      "pos": "v",
+      "sense_vi": "chết trong chiến tranh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He dieed without inform anyone first.'",
+        "opts": [
+          "He died without informing anyone first.",
+          "He dieed without inform anyone first.",
+          "They He dieed without inform anyone first.",
+          "She was dieing when I came yesterday."
+        ]
+      },
+      "answer": "He died without informing anyone first.",
+      "explain_vi": "Sau giới từ 'without' cần động từ dạng V-ing.",
+      "content_hash": "die|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "die error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "die in historical war",
+        "vn_trap": "past tense died"
+      }
+    },
+    {
+      "lemma": "die",
+      "pos": "v",
+      "sense_vi": "chết trong chiến tranh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'die':",
+        "opts": [
+          "die in historical war",
+          "die in wrong way",
+          "die without care",
+          "die for nothing"
+        ]
+      },
+      "answer": "die in historical war",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: die in historical war.",
+      "content_hash": "die|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "die collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "die in historical war",
+        "vn_trap": "past tense died"
+      }
+    },
+    {
+      "lemma": "discover",
+      "pos": "v",
+      "sense_vi": "khám phá nơi mới",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "discover (v.)",
+        "opts": [
+          "khám phá nơi mới",
+          "tưởng tượng tương lai",
+          "nhận ra quen thuộc",
+          "dán dính lên"
+        ]
+      },
+      "answer": "khám phá nơi mới",
+      "explain_vi": "Động từ discover mang nghĩa chính xác là: khám phá nơi mới.",
+      "content_hash": "discover|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "discover gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "discover new interesting places",
+        "vn_trap": "past tense discovered"
+      }
+    },
+    {
+      "lemma": "discover",
+      "pos": "v",
+      "sense_vi": "khám phá nơi mới",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'khám phá nơi mới' là:",
+        "opts": [
+          "discover",
+          "discovers",
+          "discovering",
+          "discovered"
+        ]
+      },
+      "answer": "discover",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là discover.",
+      "content_hash": "discover|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "discover l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "discover new interesting places",
+        "vn_trap": "past tense discovered"
+      }
+    },
+    {
+      "lemma": "discover",
+      "pos": "v",
+      "sense_vi": "khám phá nơi mới",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Do not forget to ___ your passport before traveling.",
+        "opts": [
+          "discover",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "discover",
+      "explain_vi": "Điền 'discover' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "discover|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "discover cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "discover new interesting places",
+        "vn_trap": "past tense discovered"
+      }
+    },
+    {
+      "lemma": "discover",
+      "pos": "v",
+      "sense_vi": "khám phá nơi mới",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is discovering since two o'clock.'",
+        "opts": [
+          "She has been discovering since two o'clock.",
+          "She is discovering since two o'clock.",
+          "They She is discovering since two o'clock.",
+          "She was discovering when I came yesterday."
+        ]
+      },
+      "answer": "She has been discovering since two o'clock.",
+      "explain_vi": "Hành động có 'since' kéo dài đến nay dùng hiện tại hoàn thành tiếp diễn.",
+      "content_hash": "discover|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "discover error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "discover new interesting places",
+        "vn_trap": "past tense discovered"
+      }
+    },
+    {
+      "lemma": "discover",
+      "pos": "v",
+      "sense_vi": "khám phá nơi mới",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'discover':",
+        "opts": [
+          "discover new interesting places",
+          "discover in wrong way",
+          "discover without care",
+          "discover for nothing"
+        ]
+      },
+      "answer": "discover new interesting places",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: discover new interesting places.",
+      "content_hash": "discover|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "discover collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "discover new interesting places",
+        "vn_trap": "past tense discovered"
+      }
+    },
+    {
+      "lemma": "drive",
+      "pos": "v",
+      "sense_vi": "lái ô tô",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "drive (v.)",
+        "opts": [
+          "lái ô tô",
+          "cải thiện tiếng Anh",
+          "ghi âm giọng nói",
+          "lưu trữ dữ liệu"
+        ]
+      },
+      "answer": "lái ô tô",
+      "explain_vi": "Động từ drive mang nghĩa chính xác là: lái ô tô.",
+      "content_hash": "drive|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "drive gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drive a modern car",
+        "vn_trap": "past tense drove"
+      }
+    },
+    {
+      "lemma": "drive",
+      "pos": "v",
+      "sense_vi": "lái ô tô",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'lái ô tô' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "drive",
+          "drives",
+          "driveing",
+          "drove"
+        ]
+      },
+      "answer": "drive",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là drive.",
+      "content_hash": "drive|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "drive l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drive a modern car",
+        "vn_trap": "past tense drove"
+      }
+    },
+    {
+      "lemma": "drive",
+      "pos": "v",
+      "sense_vi": "lái ô tô",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Every student should ___ their goals before the new term.",
+        "opts": [
+          "drive",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "drive",
+      "explain_vi": "Điền 'drive' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "drive|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "drive cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drive a modern car",
+        "vn_trap": "past tense drove"
+      }
+    },
+    {
+      "lemma": "drive",
+      "pos": "v",
+      "sense_vi": "lái ô tô",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If he drives harder, he would pass easily.'",
+        "opts": [
+          "If he drove harder, he would pass easily.",
+          "If he drives harder, he would pass easily.",
+          "They If he drives harder, he would pass easily.",
+          "She was driveing when I came yesterday."
+        ]
+      },
+      "answer": "If he drove harder, he would pass easily.",
+      "explain_vi": "Mệnh đề điều kiện loại 2 dùng quá khứ đơn ở mệnh đề IF.",
+      "content_hash": "drive|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "drive error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drive a modern car",
+        "vn_trap": "past tense drove"
+      }
+    },
+    {
+      "lemma": "drive",
+      "pos": "v",
+      "sense_vi": "lái ô tô",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'drive':",
+        "opts": [
+          "drive a modern car",
+          "drive in wrong way",
+          "drive without care",
+          "drive for nothing"
+        ]
+      },
+      "answer": "drive a modern car",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: drive a modern car.",
+      "content_hash": "drive|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "drive collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drive a modern car",
+        "vn_trap": "past tense drove"
+      }
+    },
+    {
+      "lemma": "drop",
+      "pos": "v",
+      "sense_vi": "rơi xuống sàn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "drop (v.)",
+        "opts": [
+          "rơi xuống sàn",
+          "giới thiệu bản thân",
+          "giảm ô nhiễm",
+          "duỗi cơ thể"
+        ]
+      },
+      "answer": "rơi xuống sàn",
+      "explain_vi": "Động từ drop mang nghĩa chính xác là: rơi xuống sàn.",
+      "content_hash": "drop|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "drop gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drop on the wooden floor",
+        "vn_trap": "past tense dropped"
+      }
+    },
+    {
+      "lemma": "drop",
+      "pos": "v",
+      "sense_vi": "rơi xuống sàn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'rơi xuống sàn' là:",
+        "opts": [
+          "drop",
+          "drops",
+          "droping",
+          "dropped"
+        ]
+      },
+      "answer": "drop",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là drop.",
+      "content_hash": "drop|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "drop l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drop on the wooden floor",
+        "vn_trap": "past tense dropped"
+      }
+    },
+    {
+      "lemma": "drop",
+      "pos": "v",
+      "sense_vi": "rơi xuống sàn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Fortunately, she managed to ___ the train on time.",
+        "opts": [
+          "drop",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "drop",
+      "explain_vi": "Điền 'drop' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "drop|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "drop cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drop on the wooden floor",
+        "vn_trap": "past tense dropped"
+      }
+    },
+    {
+      "lemma": "drop",
+      "pos": "v",
+      "sense_vi": "rơi xuống sàn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She enjoys to drop in her free time.'",
+        "opts": [
+          "She enjoys droping in her free time.",
+          "She enjoys to drop in her free time.",
+          "They She enjoys to drop in her free time.",
+          "She was droping when I came yesterday."
+        ]
+      },
+      "answer": "She enjoys droping in her free time.",
+      "explain_vi": "Sau động từ 'enjoy' dùng V-ing (enjoy doing sth).",
+      "content_hash": "drop|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "drop error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drop on the wooden floor",
+        "vn_trap": "past tense dropped"
+      }
+    },
+    {
+      "lemma": "drop",
+      "pos": "v",
+      "sense_vi": "rơi xuống sàn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'drop':",
+        "opts": [
+          "drop on the wooden floor",
+          "drop in wrong way",
+          "drop without care",
+          "drop for nothing"
+        ]
+      },
+      "answer": "drop on the wooden floor",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: drop on the wooden floor.",
+      "content_hash": "drop|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "drop collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "drop on the wooden floor",
+        "vn_trap": "past tense dropped"
+      }
+    },
+    {
+      "lemma": "end",
+      "pos": "v",
+      "sense_vi": "kết thúc câu chuyện",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "end (v.)",
+        "opts": [
+          "kết thúc câu chuyện",
+          "mời dự tiệc",
+          "từ chối trả lời",
+          "đánh quả bóng"
+        ]
+      },
+      "answer": "kết thúc câu chuyện",
+      "explain_vi": "Động từ end mang nghĩa chính xác là: kết thúc câu chuyện.",
+      "content_hash": "end|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "end gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "end of the story",
+        "vn_trap": "past tense ended"
+      }
+    },
+    {
+      "lemma": "end",
+      "pos": "v",
+      "sense_vi": "kết thúc câu chuyện",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'kết thúc câu chuyện' được dịch là:",
+        "opts": [
+          "end",
+          "ends",
+          "ending",
+          "ended"
+        ]
+      },
+      "answer": "end",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là end.",
+      "content_hash": "end|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "end l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "end of the story",
+        "vn_trap": "past tense ended"
+      }
+    },
+    {
+      "lemma": "end",
+      "pos": "v",
+      "sense_vi": "kết thúc câu chuyện",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Good students always ___ their teachers with respect.",
+        "opts": [
+          "end",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "end",
+      "explain_vi": "Điền 'end' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "end|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "end cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "end of the story",
+        "vn_trap": "past tense ended"
+      }
+    },
+    {
+      "lemma": "end",
+      "pos": "v",
+      "sense_vi": "kết thúc câu chuyện",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is interesting in ending new things.'",
+        "opts": [
+          "He is interested in ending new things.",
+          "He is interesting in ending new things.",
+          "They He is interesting in ending new things.",
+          "She was ending when I came yesterday."
+        ]
+      },
+      "answer": "He is interested in ending new things.",
+      "explain_vi": "Cấu trúc be interested in (hứng thú với cái gì).",
+      "content_hash": "end|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "end error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "end of the story",
+        "vn_trap": "past tense ended"
+      }
+    },
+    {
+      "lemma": "end",
+      "pos": "v",
+      "sense_vi": "kết thúc câu chuyện",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'end':",
+        "opts": [
+          "end of the story",
+          "end in wrong way",
+          "end without care",
+          "end for nothing"
+        ]
+      },
+      "answer": "end of the story",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: end of the story.",
+      "content_hash": "end|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "end collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "end of the story",
+        "vn_trap": "past tense ended"
+      }
+    },
+    {
+      "lemma": "enjoy",
+      "pos": "v",
+      "sense_vi": "thích đọc sách",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "enjoy (v.)",
+        "opts": [
+          "thích đọc sách",
+          "nhảy qua rào",
+          "coi như quan trọng",
+          "vật lộn với khó khăn"
+        ]
+      },
+      "answer": "thích đọc sách",
+      "explain_vi": "Động từ enjoy mang nghĩa chính xác là: thích đọc sách.",
+      "content_hash": "enjoy|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "enjoy gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enjoy reading comic books",
+        "vn_trap": "past tense enjoyed"
+      }
+    },
+    {
+      "lemma": "enjoy",
+      "pos": "v",
+      "sense_vi": "thích đọc sách",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'thích đọc sách', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "enjoy",
+          "enjoys",
+          "enjoying",
+          "enjoyed"
+        ]
+      },
+      "answer": "enjoy",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là enjoy.",
+      "content_hash": "enjoy|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "enjoy l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enjoy reading comic books",
+        "vn_trap": "past tense enjoyed"
+      }
+    },
+    {
+      "lemma": "enjoy",
+      "pos": "v",
+      "sense_vi": "thích đọc sách",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "He decided to ___ a new house in the city center.",
+        "opts": [
+          "enjoy",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "enjoy",
+      "explain_vi": "Điền 'enjoy' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "enjoy|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "enjoy cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enjoy reading comic books",
+        "vn_trap": "past tense enjoyed"
+      }
+    },
+    {
+      "lemma": "enjoy",
+      "pos": "v",
+      "sense_vi": "thích đọc sách",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite she was tired, she continued to enjoy.'",
+        "opts": [
+          "Although she was tired, she continued to enjoy.",
+          "Despite she was tired, she continued to enjoy.",
+          "They Despite she was tired, she continued to enjoy.",
+          "She was enjoying when I came yesterday."
+        ]
+      },
+      "answer": "Although she was tired, she continued to enjoy.",
+      "explain_vi": "Dùng 'Although' đứng trước một mệnh đề, không dùng 'Despite'.",
+      "content_hash": "enjoy|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "enjoy error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enjoy reading comic books",
+        "vn_trap": "past tense enjoyed"
+      }
+    },
+    {
+      "lemma": "enjoy",
+      "pos": "v",
+      "sense_vi": "thích đọc sách",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'enjoy':",
+        "opts": [
+          "enjoy reading comic books",
+          "enjoy in wrong way",
+          "enjoy without care",
+          "enjoy for nothing"
+        ]
+      },
+      "answer": "enjoy reading comic books",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: enjoy reading comic books.",
+      "content_hash": "enjoy|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "enjoy collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enjoy reading comic books",
+        "vn_trap": "past tense enjoyed"
+      }
+    },
+    {
+      "lemma": "enter",
+      "pos": "v",
+      "sense_vi": "vào phòng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "enter (v.)",
+        "opts": [
+          "vào phòng",
+          "đá quả bóng",
+          "liên quan chủ đề",
+          "thành công trong đời"
+        ]
+      },
+      "answer": "vào phòng",
+      "explain_vi": "Động từ enter mang nghĩa chính xác là: vào phòng.",
+      "content_hash": "enter|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "enter gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enter the conference room",
+        "vn_trap": "past tense entered"
+      }
+    },
+    {
+      "lemma": "enter",
+      "pos": "v",
+      "sense_vi": "vào phòng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'vào phòng' là:",
+        "opts": [
+          "enter",
+          "enters",
+          "entering",
+          "entered"
+        ]
+      },
+      "answer": "enter",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là enter.",
+      "content_hash": "enter|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "enter l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enter the conference room",
+        "vn_trap": "past tense entered"
+      }
+    },
+    {
+      "lemma": "enter",
+      "pos": "v",
+      "sense_vi": "vào phòng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "In order to ___ your English, you must practice daily.",
+        "opts": [
+          "enter",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "enter",
+      "explain_vi": "Điền 'enter' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "enter|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "enter cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enter the conference room",
+        "vn_trap": "past tense entered"
+      }
+    },
+    {
+      "lemma": "enter",
+      "pos": "v",
+      "sense_vi": "vào phòng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has entereded to the house two days ago.'",
+        "opts": [
+          "She entered to the house two days ago.",
+          "She has entereded to the house two days ago.",
+          "They She has entereded to the house two days ago.",
+          "She was entering when I came yesterday."
+        ]
+      },
+      "answer": "She entered to the house two days ago.",
+      "explain_vi": "Có thời gian xác định 'ago' trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "enter|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "enter error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enter the conference room",
+        "vn_trap": "past tense entered"
+      }
+    },
+    {
+      "lemma": "enter",
+      "pos": "v",
+      "sense_vi": "vào phòng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'enter':",
+        "opts": [
+          "enter the conference room",
+          "enter in wrong way",
+          "enter without care",
+          "enter for nothing"
+        ]
+      },
+      "answer": "enter the conference room",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: enter the conference room.",
+      "content_hash": "enter|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "enter collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "enter the conference room",
+        "vn_trap": "past tense entered"
+      }
+    },
+    {
+      "lemma": "fail",
+      "pos": "v",
+      "sense_vi": "trượt kỳ thi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fail (v.)",
+        "opts": [
+          "trượt kỳ thi",
+          "hôn tạm biệt",
+          "phát hành phim",
+          "chịu đựng nỗi đau"
+        ]
+      },
+      "answer": "trượt kỳ thi",
+      "explain_vi": "Động từ fail mang nghĩa chính xác là: trượt kỳ thi.",
+      "content_hash": "fail|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "fail gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fail the English test",
+        "vn_trap": "past tense failed"
+      }
+    },
+    {
+      "lemma": "fail",
+      "pos": "v",
+      "sense_vi": "trượt kỳ thi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'trượt kỳ thi' là:",
+        "opts": [
+          "fail",
+          "fails",
+          "failing",
+          "failed"
+        ]
+      },
+      "answer": "fail",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là fail.",
+      "content_hash": "fail|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "fail l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fail the English test",
+        "vn_trap": "past tense failed"
+      }
+    },
+    {
+      "lemma": "fail",
+      "pos": "v",
+      "sense_vi": "trượt kỳ thi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Just try your best to ___ the final examination.",
+        "opts": [
+          "fail",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "fail",
+      "explain_vi": "Điền 'fail' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "fail|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "fail cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fail the English test",
+        "vn_trap": "past tense failed"
+      }
+    },
+    {
+      "lemma": "fail",
+      "pos": "v",
+      "sense_vi": "trượt kỳ thi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped to fail because he was tired.'",
+        "opts": [
+          "He stopped failing because he was tired.",
+          "He stopped to fail because he was tired.",
+          "They He stopped to fail because he was tired.",
+          "She was failing when I came yesterday."
+        ]
+      },
+      "answer": "He stopped failing because he was tired.",
+      "explain_vi": "Dừng hẳn một việc đang làm dùng 'stop V-ing'.",
+      "content_hash": "fail|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "fail error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fail the English test",
+        "vn_trap": "past tense failed"
+      }
+    },
+    {
+      "lemma": "fail",
+      "pos": "v",
+      "sense_vi": "trượt kỳ thi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'fail':",
+        "opts": [
+          "fail the English test",
+          "fail in wrong way",
+          "fail without care",
+          "fail for nothing"
+        ]
+      },
+      "answer": "fail the English test",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: fail the English test.",
+      "content_hash": "fail|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "fail collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fail the English test",
+        "vn_trap": "past tense failed"
+      }
+    }
+  ]
+}

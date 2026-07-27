@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-thpt-sg-08",
+  "priority": "P2",
+  "queue": "thpt_single",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "combine",
+    "commit",
+    "community",
+    "compare",
+    "compete",
+    "complex",
+    "complicated",
+    "component",
+    "compromise",
+    "concentrate",
+    "concept",
+    "conclude",
+    "condition",
+    "conduct",
+    "confidence",
+    "conflict",
+    "confusion",
+    "connect",
+    "conscious",
+    "consequence"
+  ],
+  "items": [
+    {
+      "lemma": "combine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của combine",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "combine (n.)",
+        "opts": [
+          "ý nghĩa của combine",
+          "sự từ chối đối với combine",
+          "trạng thái thiếu combine",
+          "hành động ngược lại với combine"
+        ]
+      },
+      "answer": "ý nghĩa của combine",
+      "explain_vi": "Từ/cụm từ 'combine' (n.) có nghĩa chính xác là: ý nghĩa của combine.",
+      "content_hash": "combine|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item combine - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "combine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của combine",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của combine':",
+        "opts": [
+          "combine",
+          "combineing",
+          "combineed",
+          "re-combine"
+        ]
+      },
+      "answer": "combine",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là combine.",
+      "content_hash": "combine|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item combine - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "combine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của combine",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "combine",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "combine",
+      "explain_vi": "Điền 'combine' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "combine|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item combine - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "combine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của combine",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to combine without proper preparation yesterday.'",
+        "opts": [
+          "He tried to combine without proper preparation yesterday.",
+          "He try to combine without proper preparation yesterday.",
+          "He trying to combine without proper preparation yesterday.",
+          "He was try to combine without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to combine without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "combine|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item combine - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "combine",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của combine",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'combine':",
+        "opts": [
+          "apply combine correctly",
+          "make combine wrong",
+          "do combine badly",
+          "take combine off"
+        ]
+      },
+      "answer": "apply combine correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply combine correctly.",
+      "content_hash": "combine|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item combine - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "commit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của commit",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "commit (n.)",
+        "opts": [
+          "ý nghĩa của commit",
+          "sự từ chối đối với commit",
+          "trạng thái thiếu commit",
+          "hành động ngược lại với commit"
+        ]
+      },
+      "answer": "ý nghĩa của commit",
+      "explain_vi": "Từ/cụm từ 'commit' (n.) có nghĩa chính xác là: ý nghĩa của commit.",
+      "content_hash": "commit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item commit - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "commit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của commit",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của commit':",
+        "opts": [
+          "commit",
+          "commiting",
+          "commited",
+          "re-commit"
+        ]
+      },
+      "answer": "commit",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là commit.",
+      "content_hash": "commit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item commit - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "commit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của commit",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "commit",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "commit",
+      "explain_vi": "Điền 'commit' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "commit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item commit - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "commit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của commit",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to commit without proper preparation yesterday.'",
+        "opts": [
+          "He tried to commit without proper preparation yesterday.",
+          "He try to commit without proper preparation yesterday.",
+          "He trying to commit without proper preparation yesterday.",
+          "He was try to commit without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to commit without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "commit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item commit - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "commit",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của commit",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'commit':",
+        "opts": [
+          "apply commit correctly",
+          "make commit wrong",
+          "do commit badly",
+          "take commit off"
+        ]
+      },
+      "answer": "apply commit correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply commit correctly.",
+      "content_hash": "commit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item commit - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "community",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của community",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "community (n.)",
+        "opts": [
+          "ý nghĩa của community",
+          "sự từ chối đối với community",
+          "trạng thái thiếu community",
+          "hành động ngược lại với community"
+        ]
+      },
+      "answer": "ý nghĩa của community",
+      "explain_vi": "Từ/cụm từ 'community' (n.) có nghĩa chính xác là: ý nghĩa của community.",
+      "content_hash": "community|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item community - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "community",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của community",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của community':",
+        "opts": [
+          "community",
+          "communitying",
+          "communityed",
+          "re-community"
+        ]
+      },
+      "answer": "community",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là community.",
+      "content_hash": "community|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item community - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "community",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của community",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "community",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "community",
+      "explain_vi": "Điền 'community' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "community|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item community - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "community",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của community",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to community without proper preparation yesterday.'",
+        "opts": [
+          "He tried to community without proper preparation yesterday.",
+          "He try to community without proper preparation yesterday.",
+          "He trying to community without proper preparation yesterday.",
+          "He was try to community without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to community without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "community|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item community - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "community",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của community",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'community':",
+        "opts": [
+          "apply community correctly",
+          "make community wrong",
+          "do community badly",
+          "take community off"
+        ]
+      },
+      "answer": "apply community correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply community correctly.",
+      "content_hash": "community|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item community - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compare",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compare",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "compare (n.)",
+        "opts": [
+          "ý nghĩa của compare",
+          "sự từ chối đối với compare",
+          "trạng thái thiếu compare",
+          "hành động ngược lại với compare"
+        ]
+      },
+      "answer": "ý nghĩa của compare",
+      "explain_vi": "Từ/cụm từ 'compare' (n.) có nghĩa chính xác là: ý nghĩa của compare.",
+      "content_hash": "compare|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item compare - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compare",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compare",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của compare':",
+        "opts": [
+          "compare",
+          "compareing",
+          "compareed",
+          "re-compare"
+        ]
+      },
+      "answer": "compare",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là compare.",
+      "content_hash": "compare|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item compare - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compare",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compare",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "compare",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "compare",
+      "explain_vi": "Điền 'compare' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "compare|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item compare - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compare",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compare",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to compare without proper preparation yesterday.'",
+        "opts": [
+          "He tried to compare without proper preparation yesterday.",
+          "He try to compare without proper preparation yesterday.",
+          "He trying to compare without proper preparation yesterday.",
+          "He was try to compare without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to compare without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "compare|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item compare - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compare",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compare",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'compare':",
+        "opts": [
+          "apply compare correctly",
+          "make compare wrong",
+          "do compare badly",
+          "take compare off"
+        ]
+      },
+      "answer": "apply compare correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply compare correctly.",
+      "content_hash": "compare|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item compare - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compete",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compete",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "compete (n.)",
+        "opts": [
+          "ý nghĩa của compete",
+          "sự từ chối đối với compete",
+          "trạng thái thiếu compete",
+          "hành động ngược lại với compete"
+        ]
+      },
+      "answer": "ý nghĩa của compete",
+      "explain_vi": "Từ/cụm từ 'compete' (n.) có nghĩa chính xác là: ý nghĩa của compete.",
+      "content_hash": "compete|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item compete - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compete",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compete",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của compete':",
+        "opts": [
+          "compete",
+          "competeing",
+          "competeed",
+          "re-compete"
+        ]
+      },
+      "answer": "compete",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là compete.",
+      "content_hash": "compete|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item compete - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compete",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compete",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "compete",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "compete",
+      "explain_vi": "Điền 'compete' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "compete|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item compete - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compete",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compete",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to compete without proper preparation yesterday.'",
+        "opts": [
+          "He tried to compete without proper preparation yesterday.",
+          "He try to compete without proper preparation yesterday.",
+          "He trying to compete without proper preparation yesterday.",
+          "He was try to compete without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to compete without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "compete|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item compete - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compete",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compete",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'compete':",
+        "opts": [
+          "apply compete correctly",
+          "make compete wrong",
+          "do compete badly",
+          "take compete off"
+        ]
+      },
+      "answer": "apply compete correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply compete correctly.",
+      "content_hash": "compete|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item compete - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complex",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complex",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "complex (n.)",
+        "opts": [
+          "ý nghĩa của complex",
+          "sự từ chối đối với complex",
+          "trạng thái thiếu complex",
+          "hành động ngược lại với complex"
+        ]
+      },
+      "answer": "ý nghĩa của complex",
+      "explain_vi": "Từ/cụm từ 'complex' (n.) có nghĩa chính xác là: ý nghĩa của complex.",
+      "content_hash": "complex|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item complex - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complex",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complex",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của complex':",
+        "opts": [
+          "complex",
+          "complexing",
+          "complexed",
+          "re-complex"
+        ]
+      },
+      "answer": "complex",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là complex.",
+      "content_hash": "complex|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item complex - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complex",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complex",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "complex",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "complex",
+      "explain_vi": "Điền 'complex' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "complex|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item complex - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complex",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complex",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to complex without proper preparation yesterday.'",
+        "opts": [
+          "He tried to complex without proper preparation yesterday.",
+          "He try to complex without proper preparation yesterday.",
+          "He trying to complex without proper preparation yesterday.",
+          "He was try to complex without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to complex without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "complex|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item complex - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complex",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complex",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'complex':",
+        "opts": [
+          "apply complex correctly",
+          "make complex wrong",
+          "do complex badly",
+          "take complex off"
+        ]
+      },
+      "answer": "apply complex correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply complex correctly.",
+      "content_hash": "complex|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item complex - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complicated",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complicated",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "complicated (n.)",
+        "opts": [
+          "ý nghĩa của complicated",
+          "sự từ chối đối với complicated",
+          "trạng thái thiếu complicated",
+          "hành động ngược lại với complicated"
+        ]
+      },
+      "answer": "ý nghĩa của complicated",
+      "explain_vi": "Từ/cụm từ 'complicated' (n.) có nghĩa chính xác là: ý nghĩa của complicated.",
+      "content_hash": "complicated|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item complicated - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complicated",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complicated",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của complicated':",
+        "opts": [
+          "complicated",
+          "complicateding",
+          "complicateded",
+          "re-complicated"
+        ]
+      },
+      "answer": "complicated",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là complicated.",
+      "content_hash": "complicated|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item complicated - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complicated",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complicated",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "complicated",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "complicated",
+      "explain_vi": "Điền 'complicated' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "complicated|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item complicated - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complicated",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complicated",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to complicated without proper preparation yesterday.'",
+        "opts": [
+          "He tried to complicated without proper preparation yesterday.",
+          "He try to complicated without proper preparation yesterday.",
+          "He trying to complicated without proper preparation yesterday.",
+          "He was try to complicated without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to complicated without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "complicated|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item complicated - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "complicated",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của complicated",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'complicated':",
+        "opts": [
+          "apply complicated correctly",
+          "make complicated wrong",
+          "do complicated badly",
+          "take complicated off"
+        ]
+      },
+      "answer": "apply complicated correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply complicated correctly.",
+      "content_hash": "complicated|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item complicated - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "component",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của component",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "component (n.)",
+        "opts": [
+          "ý nghĩa của component",
+          "sự từ chối đối với component",
+          "trạng thái thiếu component",
+          "hành động ngược lại với component"
+        ]
+      },
+      "answer": "ý nghĩa của component",
+      "explain_vi": "Từ/cụm từ 'component' (n.) có nghĩa chính xác là: ý nghĩa của component.",
+      "content_hash": "component|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item component - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "component",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của component",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của component':",
+        "opts": [
+          "component",
+          "componenting",
+          "componented",
+          "re-component"
+        ]
+      },
+      "answer": "component",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là component.",
+      "content_hash": "component|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item component - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "component",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của component",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "component",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "component",
+      "explain_vi": "Điền 'component' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "component|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item component - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "component",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của component",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to component without proper preparation yesterday.'",
+        "opts": [
+          "He tried to component without proper preparation yesterday.",
+          "He try to component without proper preparation yesterday.",
+          "He trying to component without proper preparation yesterday.",
+          "He was try to component without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to component without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "component|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item component - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "component",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của component",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'component':",
+        "opts": [
+          "apply component correctly",
+          "make component wrong",
+          "do component badly",
+          "take component off"
+        ]
+      },
+      "answer": "apply component correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply component correctly.",
+      "content_hash": "component|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item component - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compromise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compromise",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "compromise (n.)",
+        "opts": [
+          "ý nghĩa của compromise",
+          "sự từ chối đối với compromise",
+          "trạng thái thiếu compromise",
+          "hành động ngược lại với compromise"
+        ]
+      },
+      "answer": "ý nghĩa của compromise",
+      "explain_vi": "Từ/cụm từ 'compromise' (n.) có nghĩa chính xác là: ý nghĩa của compromise.",
+      "content_hash": "compromise|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item compromise - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compromise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compromise",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của compromise':",
+        "opts": [
+          "compromise",
+          "compromiseing",
+          "compromiseed",
+          "re-compromise"
+        ]
+      },
+      "answer": "compromise",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là compromise.",
+      "content_hash": "compromise|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item compromise - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compromise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compromise",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "compromise",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "compromise",
+      "explain_vi": "Điền 'compromise' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "compromise|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item compromise - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compromise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compromise",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to compromise without proper preparation yesterday.'",
+        "opts": [
+          "He tried to compromise without proper preparation yesterday.",
+          "He try to compromise without proper preparation yesterday.",
+          "He trying to compromise without proper preparation yesterday.",
+          "He was try to compromise without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to compromise without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "compromise|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item compromise - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "compromise",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của compromise",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'compromise':",
+        "opts": [
+          "apply compromise correctly",
+          "make compromise wrong",
+          "do compromise badly",
+          "take compromise off"
+        ]
+      },
+      "answer": "apply compromise correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply compromise correctly.",
+      "content_hash": "compromise|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item compromise - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concentrate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concentrate",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "concentrate (n.)",
+        "opts": [
+          "ý nghĩa của concentrate",
+          "sự từ chối đối với concentrate",
+          "trạng thái thiếu concentrate",
+          "hành động ngược lại với concentrate"
+        ]
+      },
+      "answer": "ý nghĩa của concentrate",
+      "explain_vi": "Từ/cụm từ 'concentrate' (n.) có nghĩa chính xác là: ý nghĩa của concentrate.",
+      "content_hash": "concentrate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item concentrate - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concentrate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concentrate",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của concentrate':",
+        "opts": [
+          "concentrate",
+          "concentrateing",
+          "concentrateed",
+          "re-concentrate"
+        ]
+      },
+      "answer": "concentrate",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là concentrate.",
+      "content_hash": "concentrate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item concentrate - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concentrate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concentrate",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "concentrate",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "concentrate",
+      "explain_vi": "Điền 'concentrate' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "concentrate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item concentrate - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concentrate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concentrate",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to concentrate without proper preparation yesterday.'",
+        "opts": [
+          "He tried to concentrate without proper preparation yesterday.",
+          "He try to concentrate without proper preparation yesterday.",
+          "He trying to concentrate without proper preparation yesterday.",
+          "He was try to concentrate without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to concentrate without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "concentrate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item concentrate - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concentrate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concentrate",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'concentrate':",
+        "opts": [
+          "apply concentrate correctly",
+          "make concentrate wrong",
+          "do concentrate badly",
+          "take concentrate off"
+        ]
+      },
+      "answer": "apply concentrate correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply concentrate correctly.",
+      "content_hash": "concentrate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item concentrate - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concept",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concept",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "concept (n.)",
+        "opts": [
+          "ý nghĩa của concept",
+          "sự từ chối đối với concept",
+          "trạng thái thiếu concept",
+          "hành động ngược lại với concept"
+        ]
+      },
+      "answer": "ý nghĩa của concept",
+      "explain_vi": "Từ/cụm từ 'concept' (n.) có nghĩa chính xác là: ý nghĩa của concept.",
+      "content_hash": "concept|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item concept - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concept",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concept",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của concept':",
+        "opts": [
+          "concept",
+          "concepting",
+          "concepted",
+          "re-concept"
+        ]
+      },
+      "answer": "concept",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là concept.",
+      "content_hash": "concept|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item concept - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concept",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concept",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "concept",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "concept",
+      "explain_vi": "Điền 'concept' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "concept|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item concept - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concept",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concept",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to concept without proper preparation yesterday.'",
+        "opts": [
+          "He tried to concept without proper preparation yesterday.",
+          "He try to concept without proper preparation yesterday.",
+          "He trying to concept without proper preparation yesterday.",
+          "He was try to concept without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to concept without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "concept|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item concept - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "concept",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của concept",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'concept':",
+        "opts": [
+          "apply concept correctly",
+          "make concept wrong",
+          "do concept badly",
+          "take concept off"
+        ]
+      },
+      "answer": "apply concept correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply concept correctly.",
+      "content_hash": "concept|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item concept - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conclude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conclude",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "conclude (n.)",
+        "opts": [
+          "ý nghĩa của conclude",
+          "sự từ chối đối với conclude",
+          "trạng thái thiếu conclude",
+          "hành động ngược lại với conclude"
+        ]
+      },
+      "answer": "ý nghĩa của conclude",
+      "explain_vi": "Từ/cụm từ 'conclude' (n.) có nghĩa chính xác là: ý nghĩa của conclude.",
+      "content_hash": "conclude|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item conclude - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conclude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conclude",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của conclude':",
+        "opts": [
+          "conclude",
+          "concludeing",
+          "concludeed",
+          "re-conclude"
+        ]
+      },
+      "answer": "conclude",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là conclude.",
+      "content_hash": "conclude|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item conclude - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conclude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conclude",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "conclude",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "conclude",
+      "explain_vi": "Điền 'conclude' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "conclude|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item conclude - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conclude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conclude",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to conclude without proper preparation yesterday.'",
+        "opts": [
+          "He tried to conclude without proper preparation yesterday.",
+          "He try to conclude without proper preparation yesterday.",
+          "He trying to conclude without proper preparation yesterday.",
+          "He was try to conclude without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to conclude without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "conclude|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item conclude - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conclude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conclude",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'conclude':",
+        "opts": [
+          "apply conclude correctly",
+          "make conclude wrong",
+          "do conclude badly",
+          "take conclude off"
+        ]
+      },
+      "answer": "apply conclude correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply conclude correctly.",
+      "content_hash": "conclude|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item conclude - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "condition",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của condition",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "condition (n.)",
+        "opts": [
+          "ý nghĩa của condition",
+          "sự từ chối đối với condition",
+          "trạng thái thiếu condition",
+          "hành động ngược lại với condition"
+        ]
+      },
+      "answer": "ý nghĩa của condition",
+      "explain_vi": "Từ/cụm từ 'condition' (n.) có nghĩa chính xác là: ý nghĩa của condition.",
+      "content_hash": "condition|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item condition - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "condition",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của condition",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của condition':",
+        "opts": [
+          "condition",
+          "conditioning",
+          "conditioned",
+          "re-condition"
+        ]
+      },
+      "answer": "condition",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là condition.",
+      "content_hash": "condition|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item condition - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "condition",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của condition",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "condition",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "condition",
+      "explain_vi": "Điền 'condition' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "condition|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item condition - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "condition",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của condition",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to condition without proper preparation yesterday.'",
+        "opts": [
+          "He tried to condition without proper preparation yesterday.",
+          "He try to condition without proper preparation yesterday.",
+          "He trying to condition without proper preparation yesterday.",
+          "He was try to condition without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to condition without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "condition|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item condition - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "condition",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của condition",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'condition':",
+        "opts": [
+          "apply condition correctly",
+          "make condition wrong",
+          "do condition badly",
+          "take condition off"
+        ]
+      },
+      "answer": "apply condition correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply condition correctly.",
+      "content_hash": "condition|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item condition - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conduct",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conduct",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "conduct (n.)",
+        "opts": [
+          "ý nghĩa của conduct",
+          "sự từ chối đối với conduct",
+          "trạng thái thiếu conduct",
+          "hành động ngược lại với conduct"
+        ]
+      },
+      "answer": "ý nghĩa của conduct",
+      "explain_vi": "Từ/cụm từ 'conduct' (n.) có nghĩa chính xác là: ý nghĩa của conduct.",
+      "content_hash": "conduct|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item conduct - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conduct",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conduct",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của conduct':",
+        "opts": [
+          "conduct",
+          "conducting",
+          "conducted",
+          "re-conduct"
+        ]
+      },
+      "answer": "conduct",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là conduct.",
+      "content_hash": "conduct|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item conduct - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conduct",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conduct",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "conduct",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "conduct",
+      "explain_vi": "Điền 'conduct' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "conduct|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item conduct - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conduct",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conduct",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to conduct without proper preparation yesterday.'",
+        "opts": [
+          "He tried to conduct without proper preparation yesterday.",
+          "He try to conduct without proper preparation yesterday.",
+          "He trying to conduct without proper preparation yesterday.",
+          "He was try to conduct without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to conduct without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "conduct|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item conduct - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conduct",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conduct",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'conduct':",
+        "opts": [
+          "apply conduct correctly",
+          "make conduct wrong",
+          "do conduct badly",
+          "take conduct off"
+        ]
+      },
+      "answer": "apply conduct correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply conduct correctly.",
+      "content_hash": "conduct|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item conduct - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confidence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confidence",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "confidence (n.)",
+        "opts": [
+          "ý nghĩa của confidence",
+          "sự từ chối đối với confidence",
+          "trạng thái thiếu confidence",
+          "hành động ngược lại với confidence"
+        ]
+      },
+      "answer": "ý nghĩa của confidence",
+      "explain_vi": "Từ/cụm từ 'confidence' (n.) có nghĩa chính xác là: ý nghĩa của confidence.",
+      "content_hash": "confidence|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item confidence - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confidence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confidence",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của confidence':",
+        "opts": [
+          "confidence",
+          "confidenceing",
+          "confidenceed",
+          "re-confidence"
+        ]
+      },
+      "answer": "confidence",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là confidence.",
+      "content_hash": "confidence|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item confidence - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confidence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confidence",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "confidence",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "confidence",
+      "explain_vi": "Điền 'confidence' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "confidence|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item confidence - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confidence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confidence",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to confidence without proper preparation yesterday.'",
+        "opts": [
+          "He tried to confidence without proper preparation yesterday.",
+          "He try to confidence without proper preparation yesterday.",
+          "He trying to confidence without proper preparation yesterday.",
+          "He was try to confidence without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to confidence without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "confidence|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item confidence - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confidence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confidence",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'confidence':",
+        "opts": [
+          "apply confidence correctly",
+          "make confidence wrong",
+          "do confidence badly",
+          "take confidence off"
+        ]
+      },
+      "answer": "apply confidence correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply confidence correctly.",
+      "content_hash": "confidence|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item confidence - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conflict",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conflict",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "conflict (n.)",
+        "opts": [
+          "ý nghĩa của conflict",
+          "sự từ chối đối với conflict",
+          "trạng thái thiếu conflict",
+          "hành động ngược lại với conflict"
+        ]
+      },
+      "answer": "ý nghĩa của conflict",
+      "explain_vi": "Từ/cụm từ 'conflict' (n.) có nghĩa chính xác là: ý nghĩa của conflict.",
+      "content_hash": "conflict|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item conflict - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conflict",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conflict",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của conflict':",
+        "opts": [
+          "conflict",
+          "conflicting",
+          "conflicted",
+          "re-conflict"
+        ]
+      },
+      "answer": "conflict",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là conflict.",
+      "content_hash": "conflict|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item conflict - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conflict",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conflict",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "conflict",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "conflict",
+      "explain_vi": "Điền 'conflict' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "conflict|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item conflict - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conflict",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conflict",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to conflict without proper preparation yesterday.'",
+        "opts": [
+          "He tried to conflict without proper preparation yesterday.",
+          "He try to conflict without proper preparation yesterday.",
+          "He trying to conflict without proper preparation yesterday.",
+          "He was try to conflict without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to conflict without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "conflict|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item conflict - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conflict",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của conflict",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'conflict':",
+        "opts": [
+          "apply conflict correctly",
+          "make conflict wrong",
+          "do conflict badly",
+          "take conflict off"
+        ]
+      },
+      "answer": "apply conflict correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply conflict correctly.",
+      "content_hash": "conflict|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item conflict - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confusion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confusion",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "confusion (n.)",
+        "opts": [
+          "ý nghĩa của confusion",
+          "sự từ chối đối với confusion",
+          "trạng thái thiếu confusion",
+          "hành động ngược lại với confusion"
+        ]
+      },
+      "answer": "ý nghĩa của confusion",
+      "explain_vi": "Từ/cụm từ 'confusion' (n.) có nghĩa chính xác là: ý nghĩa của confusion.",
+      "content_hash": "confusion|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item confusion - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confusion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confusion",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của confusion':",
+        "opts": [
+          "confusion",
+          "confusioning",
+          "confusioned",
+          "re-confusion"
+        ]
+      },
+      "answer": "confusion",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là confusion.",
+      "content_hash": "confusion|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item confusion - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confusion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confusion",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "confusion",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "confusion",
+      "explain_vi": "Điền 'confusion' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "confusion|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item confusion - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confusion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confusion",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to confusion without proper preparation yesterday.'",
+        "opts": [
+          "He tried to confusion without proper preparation yesterday.",
+          "He try to confusion without proper preparation yesterday.",
+          "He trying to confusion without proper preparation yesterday.",
+          "He was try to confusion without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to confusion without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "confusion|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item confusion - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "confusion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của confusion",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'confusion':",
+        "opts": [
+          "apply confusion correctly",
+          "make confusion wrong",
+          "do confusion badly",
+          "take confusion off"
+        ]
+      },
+      "answer": "apply confusion correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply confusion correctly.",
+      "content_hash": "confusion|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item confusion - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "connect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của connect",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "connect (n.)",
+        "opts": [
+          "ý nghĩa của connect",
+          "sự từ chối đối với connect",
+          "trạng thái thiếu connect",
+          "hành động ngược lại với connect"
+        ]
+      },
+      "answer": "ý nghĩa của connect",
+      "explain_vi": "Từ/cụm từ 'connect' (n.) có nghĩa chính xác là: ý nghĩa của connect.",
+      "content_hash": "connect|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item connect - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "connect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của connect",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của connect':",
+        "opts": [
+          "connect",
+          "connecting",
+          "connected",
+          "re-connect"
+        ]
+      },
+      "answer": "connect",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là connect.",
+      "content_hash": "connect|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item connect - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "connect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của connect",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "connect",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "connect",
+      "explain_vi": "Điền 'connect' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "connect|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item connect - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "connect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của connect",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to connect without proper preparation yesterday.'",
+        "opts": [
+          "He tried to connect without proper preparation yesterday.",
+          "He try to connect without proper preparation yesterday.",
+          "He trying to connect without proper preparation yesterday.",
+          "He was try to connect without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to connect without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "connect|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item connect - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "connect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của connect",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'connect':",
+        "opts": [
+          "apply connect correctly",
+          "make connect wrong",
+          "do connect badly",
+          "take connect off"
+        ]
+      },
+      "answer": "apply connect correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply connect correctly.",
+      "content_hash": "connect|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item connect - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conscious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của conscious",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "conscious (adj.)",
+        "opts": [
+          "ý nghĩa của conscious",
+          "sự từ chối đối với conscious",
+          "trạng thái thiếu conscious",
+          "hành động ngược lại với conscious"
+        ]
+      },
+      "answer": "ý nghĩa của conscious",
+      "explain_vi": "Từ/cụm từ 'conscious' (adj.) có nghĩa chính xác là: ý nghĩa của conscious.",
+      "content_hash": "conscious|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item conscious - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conscious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của conscious",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của conscious':",
+        "opts": [
+          "conscious",
+          "consciousing",
+          "conscioused",
+          "re-conscious"
+        ]
+      },
+      "answer": "conscious",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là conscious.",
+      "content_hash": "conscious|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item conscious - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conscious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của conscious",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "conscious",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "conscious",
+      "explain_vi": "Điền 'conscious' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "conscious|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item conscious - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conscious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của conscious",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to conscious without proper preparation yesterday.'",
+        "opts": [
+          "He tried to conscious without proper preparation yesterday.",
+          "He try to conscious without proper preparation yesterday.",
+          "He trying to conscious without proper preparation yesterday.",
+          "He was try to conscious without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to conscious without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "conscious|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item conscious - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "conscious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của conscious",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'conscious':",
+        "opts": [
+          "apply conscious correctly",
+          "make conscious wrong",
+          "do conscious badly",
+          "take conscious off"
+        ]
+      },
+      "answer": "apply conscious correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply conscious correctly.",
+      "content_hash": "conscious|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item conscious - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "consequence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của consequence",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "consequence (n.)",
+        "opts": [
+          "ý nghĩa của consequence",
+          "sự từ chối đối với consequence",
+          "trạng thái thiếu consequence",
+          "hành động ngược lại với consequence"
+        ]
+      },
+      "answer": "ý nghĩa của consequence",
+      "explain_vi": "Từ/cụm từ 'consequence' (n.) có nghĩa chính xác là: ý nghĩa của consequence.",
+      "content_hash": "consequence|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item consequence - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "consequence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của consequence",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của consequence':",
+        "opts": [
+          "consequence",
+          "consequenceing",
+          "consequenceed",
+          "re-consequence"
+        ]
+      },
+      "answer": "consequence",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là consequence.",
+      "content_hash": "consequence|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item consequence - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "consequence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của consequence",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "consequence",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "consequence",
+      "explain_vi": "Điền 'consequence' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "consequence|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item consequence - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "consequence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của consequence",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to consequence without proper preparation yesterday.'",
+        "opts": [
+          "He tried to consequence without proper preparation yesterday.",
+          "He try to consequence without proper preparation yesterday.",
+          "He trying to consequence without proper preparation yesterday.",
+          "He was try to consequence without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to consequence without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "consequence|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item consequence - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    },
+    {
+      "lemma": "consequence",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của consequence",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'consequence':",
+        "opts": [
+          "apply consequence correctly",
+          "make consequence wrong",
+          "do consequence badly",
+          "take consequence off"
+        ]
+      },
+      "answer": "apply consequence correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply consequence correctly.",
+      "content_hash": "consequence|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item consequence - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-08"
+      }
+    }
+  ]
+}

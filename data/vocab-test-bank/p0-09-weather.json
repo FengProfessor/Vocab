@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-09-weather",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-weather"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "sun",
+      "pos": "n",
+      "sense_vi": "mặt trời",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sun (n.)",
+        "opts": [
+          "mặt trời",
+          "mặt trăng",
+          "ngôi sao",
+          "đám mây"
+        ]
+      },
+      "answer": "mặt trời",
+      "explain_vi": "sun nghĩa là mặt trời.",
+      "content_hash": "sun|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa mặt trời",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sun",
+      "pos": "n",
+      "sense_vi": "mặt trời",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Ngôi sao sáng nhất cung cấp ánh sáng ban ngày:",
+        "opts": [
+          "sun",
+          "son",
+          "sunny",
+          "shine"
+        ]
+      },
+      "answer": "sun",
+      "explain_vi": "Mặt trời là sun (đồng âm với son - con trai).",
+      "content_hash": "sun|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm son",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sun",
+      "pos": "n",
+      "sense_vi": "mặt trời",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The bright ___ rises in the east every morning.",
+        "opts": [
+          "sun",
+          "moon",
+          "star",
+          "wind"
+        ]
+      },
+      "answer": "sun",
+      "explain_vi": "The sun rises (mặt trời mọc).",
+      "content_hash": "sun|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "sun rises",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sun",
+      "pos": "n",
+      "sense_vi": "mặt trời",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Sun is shining brightly today.'",
+        "opts": [
+          "The sun is shining brightly today.",
+          "Sun is shining brightly today.",
+          "A sun is shining brightly today.",
+          "The sun shining brightly today."
+        ]
+      },
+      "answer": "The sun is shining brightly today.",
+      "explain_vi": "Danh từ duy nhất mặt trời cần mạo từ 'the sun'.",
+      "content_hash": "sun|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy the sun",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sun",
+      "pos": "n",
+      "sense_vi": "mặt trời",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ánh nắng mặt trời chuẩn:",
+        "opts": [
+          "sunlight",
+          "sunshine",
+          "sunlamp",
+          "sunfire"
+        ]
+      },
+      "answer": "sunlight",
+      "explain_vi": "Ánh nắng mặt trời là sunlight.",
+      "content_hash": "sun|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm sunlight",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rain",
+      "pos": "n",
+      "sense_vi": "mưa",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rain (n./v.)",
+        "opts": [
+          "cơn mưa / trời mưa",
+          "nắng",
+          "tuyết",
+          "gió"
+        ]
+      },
+      "answer": "cơn mưa / trời mưa",
+      "explain_vi": "rain nghĩa là mưa hoặc trời mưa.",
+      "content_hash": "rain|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa mưa",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rain",
+      "pos": "n",
+      "sense_vi": "mưa",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nước rơi từ mây xuống đất:",
+        "opts": [
+          "rain",
+          "reign",
+          "rein",
+          "rainy"
+        ]
+      },
+      "answer": "rain",
+      "explain_vi": "Mưa là rain (đồng âm với reign - triều đại).",
+      "content_hash": "rain|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm reign",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rain",
+      "pos": "n",
+      "sense_vi": "mưa",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Take an umbrella because it is starting to ___.",
+        "opts": [
+          "rain",
+          "snow",
+          "shine",
+          "blow"
+        ]
+      },
+      "answer": "rain",
+      "explain_vi": "Starting to rain (bắt đầu mưa).",
+      "content_hash": "rain|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "starting to rain",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rain",
+      "pos": "n",
+      "sense_vi": "mưa",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'It is rain heavily outside right now.'",
+        "opts": [
+          "It is raining heavily outside right now.",
+          "It is rain heavily outside right now.",
+          "It rains heavily outside right now.",
+          "It is rainy heavily outside right now."
+        ]
+      },
+      "answer": "It is raining heavily outside right now.",
+      "explain_vi": "Thì hiện tại tiếp diễn dùng 'is raining'.",
+      "content_hash": "rain|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy is raining",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rain",
+      "pos": "n",
+      "sense_vi": "mưa",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm mưa to / mưa nặng hạt chuẩn:",
+        "opts": [
+          "heavy rain",
+          "big rain",
+          "strong rain",
+          "hard rain"
+        ]
+      },
+      "answer": "heavy rain",
+      "explain_vi": "Mưa to nặng hạt dùng heavy rain.",
+      "content_hash": "rain|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm heavy rain",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wind",
+      "pos": "n",
+      "sense_vi": "gió",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wind (n.)",
+        "opts": [
+          "cơn gió",
+          "cơn mưa",
+          "nắng",
+          "mây"
+        ]
+      },
+      "answer": "cơn gió",
+      "explain_vi": "wind nghĩa là luồng không khí chuyển động.",
+      "content_hash": "wind|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cơn gió",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wind",
+      "pos": "n",
+      "sense_vi": "gió",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Luồng không khí thổi mạnh ngoài trời:",
+        "opts": [
+          "wind",
+          "windy",
+          "window",
+          "wing"
+        ]
+      },
+      "answer": "wind",
+      "explain_vi": "Cơn gió là wind (windy là tính từ có gió).",
+      "content_hash": "wind|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss windy/window",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wind",
+      "pos": "n",
+      "sense_vi": "gió",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "A strong ___ blew off my hat.",
+        "opts": [
+          "wind",
+          "rain",
+          "sun",
+          "cloud"
+        ]
+      },
+      "answer": "wind",
+      "explain_vi": "Strong wind (cơn gió mạnh).",
+      "content_hash": "wind|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "strong wind",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wind",
+      "pos": "n",
+      "sense_vi": "gió",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The wind is blowing very strong today.'",
+        "opts": [
+          "The wind is blowing very strongly today.",
+          "The wind is blowing very strong today.",
+          "The wind blowing very strongly today.",
+          "The wind is blow very strongly today."
+        ]
+      },
+      "answer": "The wind is blowing very strongly today.",
+      "explain_vi": "Bổ nghĩa cho động từ blow cần trạng từ strongly.",
+      "content_hash": "wind|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy blow strongly",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wind",
+      "pos": "n",
+      "sense_vi": "gió",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm gió mạnh chuẩn:",
+        "opts": [
+          "strong wind",
+          "heavy wind",
+          "big wind",
+          "hard wind"
+        ]
+      },
+      "answer": "strong wind",
+      "explain_vi": "Gió mạnh dùng cụm strong wind.",
+      "content_hash": "wind|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm strong wind",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cloud",
+      "pos": "n",
+      "sense_vi": "đám mây",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cloud (n.)",
+        "opts": [
+          "đám mây",
+          "ngôi sao",
+          "mặt trời",
+          "cơn mưa"
+        ]
+      },
+      "answer": "đám mây",
+      "explain_vi": "cloud nghĩa là đám mây trên bầu trời.",
+      "content_hash": "cloud|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa đám mây",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cloud",
+      "pos": "n",
+      "sense_vi": "đám mây",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khối hơi nước trắng hoặc xám lơ lửng trên trời:",
+        "opts": [
+          "cloud",
+          "cloudy",
+          "clown",
+          "clout"
+        ]
+      },
+      "answer": "cloud",
+      "explain_vi": "Đám mây là cloud (clown là chú hề).",
+      "content_hash": "cloud|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss clown",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cloud",
+      "pos": "n",
+      "sense_vi": "đám mây",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Look at that dark ___ in the sky before the storm.",
+        "opts": [
+          "cloud",
+          "sun",
+          "star",
+          "moon"
+        ]
+      },
+      "answer": "cloud",
+      "explain_vi": "Dark cloud (đám mây đen).",
+      "content_hash": "cloud|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "dark cloud",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cloud",
+      "pos": "n",
+      "sense_vi": "đám mây",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The sky is full of white cloud.'",
+        "opts": [
+          "The sky is full of white clouds.",
+          "The sky is full of white cloud.",
+          "The sky is full of white cloudy.",
+          "The sky are full of white clouds."
+        ]
+      },
+      "answer": "The sky is full of white clouds.",
+      "explain_vi": "Nhiều mây dùng danh từ số nhiều clouds.",
+      "content_hash": "cloud|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy plural clouds",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cloud",
+      "pos": "n",
+      "sense_vi": "đám mây",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm mây đen báo mưa chuẩn:",
+        "opts": [
+          "dark clouds",
+          "black clouds",
+          "heavy clouds",
+          "night clouds"
+        ]
+      },
+      "answer": "dark clouds",
+      "explain_vi": "Mây đen báo mưa dùng dark clouds.",
+      "content_hash": "cloud|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm dark clouds",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hot",
+      "pos": "adj",
+      "sense_vi": "nóng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hot (adj.)",
+        "opts": [
+          "nóng / oi bức",
+          "lạnh",
+          "ấm",
+          "mát"
+        ]
+      },
+      "answer": "nóng / oi bức",
+      "explain_vi": "hot nghĩa là nóng.",
+      "content_hash": "hot|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa nóng",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hot",
+      "pos": "adj",
+      "sense_vi": "nóng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Có nhiệt độ cao:",
+        "opts": [
+          "hot",
+          "hat",
+          "hit",
+          "hut"
+        ]
+      },
+      "answer": "hot",
+      "explain_vi": "Nóng là hot (hat là cái mũ, hit là đánh).",
+      "content_hash": "hot|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss hat/hit",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hot",
+      "pos": "adj",
+      "sense_vi": "nóng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "It is very ___ in summer, so we turn on the air conditioner.",
+        "opts": [
+          "hot",
+          "cold",
+          "cool",
+          "wet"
+        ]
+      },
+      "answer": "hot",
+      "explain_vi": "Hot in summer (nóng vào mùa hè).",
+      "content_hash": "hot|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "hot in summer",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hot",
+      "pos": "adj",
+      "sense_vi": "nóng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I am hotly after running fast.'",
+        "opts": [
+          "I am hot after running fast.",
+          "I am hotly after running fast.",
+          "I feel hotly after running fast.",
+          "I are hot after running fast."
+        ]
+      },
+      "answer": "I am hot after running fast.",
+      "explain_vi": "Sau tobe (am) dùng tính từ hot, không dùng trạng từ hotly.",
+      "content_hash": "hot|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy hot vs hotly",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "hot",
+      "pos": "adj",
+      "sense_vi": "nóng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thời tiết nóng bức chuẩn:",
+        "opts": [
+          "hot weather",
+          "hot temperature",
+          "hot sun",
+          "hot climate"
+        ]
+      },
+      "answer": "hot weather",
+      "explain_vi": "Thời tiết nóng là hot weather.",
+      "content_hash": "hot|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm hot weather",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cold",
+      "pos": "adj",
+      "sense_vi": "lạnh",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cold (adj./n.)",
+        "opts": [
+          "lạnh / sự cảm lạnh",
+          "nóng",
+          "ấm",
+          "bụi"
+        ]
+      },
+      "answer": "lạnh / sự cảm lạnh",
+      "explain_vi": "cold nghĩa là lạnh hoặc bị cảm lạnh.",
+      "content_hash": "cold|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa lạnh",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cold",
+      "pos": "adj",
+      "sense_vi": "lạnh",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nhiệt độ thấp:",
+        "opts": [
+          "cold",
+          "cord",
+          "bold",
+          "gold"
+        ]
+      },
+      "answer": "cold",
+      "explain_vi": "Lạnh là cold (gold là vàng, cord là dây thừng).",
+      "content_hash": "cold|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss gold/cord",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cold",
+      "pos": "adj",
+      "sense_vi": "lạnh",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Wear a warm coat because it is very ___ outside.",
+        "opts": [
+          "cold",
+          "hot",
+          "warm",
+          "dry"
+        ]
+      },
+      "answer": "cold",
+      "explain_vi": "Wear a coat because it is cold (mặc áo ấm vì trời lạnh).",
+      "content_hash": "cold|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "cold outside",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cold",
+      "pos": "adj",
+      "sense_vi": "lạnh",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I have a cold in my nose.'",
+        "opts": [
+          "I have a cold.",
+          "I have a cold in my nose.",
+          "I am a cold.",
+          "I feel coldness in nose."
+        ]
+      },
+      "answer": "I have a cold.",
+      "explain_vi": "Bị cảm lạnh diễn đạt 'I have a cold'.",
+      "content_hash": "cold|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy I have a cold",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "cold",
+      "pos": "adj",
+      "sense_vi": "lạnh",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bị cảm lạnh chuẩn:",
+        "opts": [
+          "catch a cold",
+          "take a cold",
+          "get a cold",
+          "make a cold"
+        ]
+      },
+      "answer": "catch a cold",
+      "explain_vi": "Cụm bị cảm lạnh: catch a cold.",
+      "content_hash": "cold|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm catch a cold",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "warm",
+      "pos": "adj",
+      "sense_vi": "ấm áp",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "warm (adj.)",
+        "opts": [
+          "ấm áp",
+          "nóng bức",
+          "lạnh giá",
+          "ẩm ướt"
+        ]
+      },
+      "answer": "ấm áp",
+      "explain_vi": "warm nghĩa là ấm áp.",
+      "content_hash": "warm|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa ấm áp",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "warm",
+      "pos": "adj",
+      "sense_vi": "ấm áp",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nhiệt độ vừa phải dễ chịu (không quá nóng cũng không lạnh):",
+        "opts": [
+          "warm",
+          "worm",
+          "warn",
+          "ward"
+        ]
+      },
+      "answer": "warm",
+      "explain_vi": "Ấm áp là warm (worm là con sâu, warn là cảnh báo).",
+      "content_hash": "warm|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss worm/warn",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "warm",
+      "pos": "adj",
+      "sense_vi": "ấm áp",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Spring weather is pleasantly ___ and full of flowers.",
+        "opts": [
+          "warm",
+          "cold",
+          "freezing",
+          "dark"
+        ]
+      },
+      "answer": "warm",
+      "explain_vi": "Spring weather is warm (thời tiết mùa xuân ấm áp).",
+      "content_hash": "warm|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "warm spring",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "warm",
+      "pos": "adj",
+      "sense_vi": "ấm áp",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Drink some warm water to feel better.'",
+        "opts": [
+          "Drink some warm water to feel better.",
+          "Drink some warmness water to feel better.",
+          "Drink some warmly water to feel better.",
+          "Drinks some warm water to feel better."
+        ]
+      },
+      "answer": "Drink some warm water to feel better.",
+      "explain_vi": "Tính từ bổ nghĩa cho water là warm water.",
+      "content_hash": "warm|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy warm water",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "warm",
+      "pos": "adj",
+      "sense_vi": "ấm áp",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm quần áo ấm chuẩn:",
+        "opts": [
+          "warm clothes",
+          "hot clothes",
+          "heat clothes",
+          "warmness clothes"
+        ]
+      },
+      "answer": "warm clothes",
+      "explain_vi": "Quần áo ấm mặc mùa đông là warm clothes.",
+      "content_hash": "warm|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm warm clothes",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "snow",
+      "pos": "n",
+      "sense_vi": "tuyết",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "snow (n./v.)",
+        "opts": [
+          "tuyết / tuyết rơi",
+          "mưa",
+          "nắng",
+          "sương mù"
+        ]
+      },
+      "answer": "tuyết / tuyết rơi",
+      "explain_vi": "snow nghĩa là tuyết.",
+      "content_hash": "snow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa tuyết",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "snow",
+      "pos": "n",
+      "sense_vi": "tuyết",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hạt băng trắng rơi từ trên trời xuống mùa đông:",
+        "opts": [
+          "snow",
+          "snowy",
+          "slow",
+          "show"
+        ]
+      },
+      "answer": "snow",
+      "explain_vi": "Tuyết là snow (slow là chậm, show là trình diễn).",
+      "content_hash": "snow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss slow/show",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "snow",
+      "pos": "n",
+      "sense_vi": "tuyết",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love making a snowman when it begins to ___.",
+        "opts": [
+          "snow",
+          "rain",
+          "shine",
+          "blow"
+        ]
+      },
+      "answer": "snow",
+      "explain_vi": "Begins to snow (tuyết bắt đầu rơi).",
+      "content_hash": "snow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "begins to snow",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "snow",
+      "pos": "n",
+      "sense_vi": "tuyết",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'It is snow heavily in Canada right now.'",
+        "opts": [
+          "It is snowing heavily in Canada right now.",
+          "It is snow heavily in Canada right now.",
+          "It snows heavily in Canada right now.",
+          "It is snowy heavily in Canada right now."
+        ]
+      },
+      "answer": "It is snowing heavily in Canada right now.",
+      "explain_vi": "Thì tiếp diễn dùng 'is snowing'.",
+      "content_hash": "snow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy is snowing",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "snow",
+      "pos": "n",
+      "sense_vi": "tuyết",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm người tuyết chuẩn:",
+        "opts": [
+          "snowman",
+          "snowperson",
+          "snowboy",
+          "snowfigure"
+        ]
+      },
+      "answer": "snowman",
+      "explain_vi": "Người tuyết trẻ em đắp là snowman.",
+      "content_hash": "snow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm snowman",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "storm",
+      "pos": "n",
+      "sense_vi": "cơn bão",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "storm (n.)",
+        "opts": [
+          "cơn bão",
+          "nắng nhẹ",
+          "gió mát",
+          "cầu vồng"
+        ]
+      },
+      "answer": "cơn bão",
+      "explain_vi": "storm nghĩa là cơn bão.",
+      "content_hash": "storm|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cơn bão",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "storm",
+      "pos": "n",
+      "sense_vi": "cơn bão",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thời tiết xấu có mưa to và gió rất mạnh:",
+        "opts": [
+          "storm",
+          "stormy",
+          "store",
+          "stream"
+        ]
+      },
+      "answer": "storm",
+      "explain_vi": "Cơn bão là storm (store là cửa hàng).",
+      "content_hash": "storm|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss store",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "storm",
+      "pos": "n",
+      "sense_vi": "cơn bão",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Stay indoors during the severe ___ to be safe.",
+        "opts": [
+          "storm",
+          "sun",
+          "cloud",
+          "star"
+        ]
+      },
+      "answer": "storm",
+      "explain_vi": "Stay indoors during the storm (ở trong nhà khi có bão).",
+      "content_hash": "storm|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "during storm",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "storm",
+      "pos": "n",
+      "sense_vi": "cơn bão",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'A big storm is coming tonight.'",
+        "opts": [
+          "A big storm is coming tonight.",
+          "A big storm comes tonight.",
+          "A big storm coming tonight.",
+          "A big storm is come tonight."
+        ]
+      },
+      "answer": "A big storm is coming tonight.",
+      "explain_vi": "Bão đang đến gần dùng thì tiếp diễn 'is coming'.",
+      "content_hash": "storm|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy storm is coming",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "storm",
+      "pos": "n",
+      "sense_vi": "cơn bão",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bão táp mưa sa chuẩn:",
+        "opts": [
+          "thunderstorm",
+          "rainstorm",
+          "windstorm",
+          "darkstorm"
+        ]
+      },
+      "answer": "thunderstorm",
+      "explain_vi": "Cơn dông bão có sấm sét là thunderstorm.",
+      "content_hash": "storm|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm thunderstorm",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sky",
+      "pos": "n",
+      "sense_vi": "bầu trời",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sky (n.)",
+        "opts": [
+          "bầu trời",
+          "mặt đất",
+          "đại dương",
+          "ngọn núi"
+        ]
+      },
+      "answer": "bầu trời",
+      "explain_vi": "sky nghĩa là bầu trời.",
+      "content_hash": "sky|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bầu trời",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sky",
+      "pos": "n",
+      "sense_vi": "bầu trời",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khoảng không gian phía trên trái đất:",
+        "opts": [
+          "sky",
+          "skies",
+          "ski",
+          "spy"
+        ]
+      },
+      "answer": "sky",
+      "explain_vi": "Bầu trời là sky (ski là trượt tuyết, spy là gián điệp).",
+      "content_hash": "sky|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss ski/spy",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sky",
+      "pos": "n",
+      "sense_vi": "bầu trời",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Birds are flying high in the blue ___.",
+        "opts": [
+          "sky",
+          "sea",
+          "ground",
+          "tree"
+        ]
+      },
+      "answer": "sky",
+      "explain_vi": "Flying in the sky (bay trên trời).",
+      "content_hash": "sky|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "in the sky",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sky",
+      "pos": "n",
+      "sense_vi": "bầu trời",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The stars are shining on the sky.'",
+        "opts": [
+          "The stars are shining in the sky.",
+          "The stars are shining on the sky.",
+          "The stars are shining at the sky.",
+          "The stars are shining into the sky."
+        ]
+      },
+      "answer": "The stars are shining in the sky.",
+      "explain_vi": "Trên bầu trời dùng giới từ 'in the sky', không dùng 'on the sky'.",
+      "content_hash": "sky|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy in the sky",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "sky",
+      "pos": "n",
+      "sense_vi": "bầu trời",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bầu trời đêm chuẩn:",
+        "opts": [
+          "night sky",
+          "dark sky",
+          "evening sky",
+          "black sky"
+        ]
+      },
+      "answer": "night sky",
+      "explain_vi": "Bầu trời ban đêm là night sky.",
+      "content_hash": "sky|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm night sky",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "weather",
+      "pos": "n",
+      "sense_vi": "thời tiết",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "weather (n.)",
+        "opts": [
+          "thời tiết",
+          "khí hậu",
+          "nhiệt độ",
+          "mùa"
+        ]
+      },
+      "answer": "thời tiết",
+      "explain_vi": "weather nghĩa là thời tiết.",
+      "content_hash": "weather|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa thời tiết",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "weather",
+      "pos": "n",
+      "sense_vi": "thời tiết",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trạng thái nắng, mưa, gió của bầu trời hằng ngày:",
+        "opts": [
+          "weather",
+          "whether",
+          "feather",
+          "leather"
+        ]
+      },
+      "answer": "weather",
+      "explain_vi": "Thời tiết là weather (đồng âm với whether - liệu rằng).",
+      "content_hash": "weather|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss whether",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "weather",
+      "pos": "n",
+      "sense_vi": "thời tiết",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "What is the ___ like today? — It is sunny and warm.",
+        "opts": [
+          "weather",
+          "climate",
+          "temperature",
+          "season"
+        ]
+      },
+      "answer": "weather",
+      "explain_vi": "What is the weather like? (thời tiết như thế nào?).",
+      "content_hash": "weather|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "What is the weather like",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "weather",
+      "pos": "n",
+      "sense_vi": "thời tiết",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'How is the weather like today?'",
+        "opts": [
+          "What is the weather like today?",
+          "How is the weather like today?",
+          "What weather is like today?",
+          "How the weather is like today?"
+        ]
+      },
+      "answer": "What is the weather like today?",
+      "explain_vi": "Cấu trúc đúng dùng 'What is ... like?' hoặc 'How is ...?' (không ghép How với like).",
+      "content_hash": "weather|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy What weather like",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "weather",
+      "pos": "n",
+      "sense_vi": "thời tiết",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm dự báo thời tiết chuẩn:",
+        "opts": [
+          "weather forecast",
+          "weather report",
+          "weather news",
+          "weather predict"
+        ]
+      },
+      "answer": "weather forecast",
+      "explain_vi": "Dự báo thời tiết là weather forecast.",
+      "content_hash": "weather|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm weather forecast",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wet",
+      "pos": "adj",
+      "sense_vi": "ẩm ướt",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wet (adj.)",
+        "opts": [
+          "ẩm ướt / ướt",
+          "khô ráo",
+          "nóng",
+          "lạnh"
+        ]
+      },
+      "answer": "ẩm ướt / ướt",
+      "explain_vi": "wet nghĩa là bị ướt, ẩm.",
+      "content_hash": "wet|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa ướt",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wet",
+      "pos": "adj",
+      "sense_vi": "ẩm ướt",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bị dính nước hoặc chứa nhiều hơi nước:",
+        "opts": [
+          "wet",
+          "west",
+          "web",
+          "wait"
+        ]
+      },
+      "answer": "wet",
+      "explain_vi": "Ướt là wet (west là phía tây, web là mạng).",
+      "content_hash": "wet|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss west/web",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wet",
+      "pos": "adj",
+      "sense_vi": "ẩm ướt",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Put on your raincoat or you will get ___.",
+        "opts": [
+          "wet",
+          "dry",
+          "hot",
+          "cold"
+        ]
+      },
+      "answer": "wet",
+      "explain_vi": "Get wet (bị ướt).",
+      "content_hash": "wet|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "get wet",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wet",
+      "pos": "adj",
+      "sense_vi": "ẩm ướt",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The grass is wetly after the rain.'",
+        "opts": [
+          "The grass is wet after the rain.",
+          "The grass is wetly after the rain.",
+          "The grass feel wetly after the rain.",
+          "The grass are wet after the rain."
+        ]
+      },
+      "answer": "The grass is wet after the rain.",
+      "explain_vi": "Sau tobe (is) dùng tính từ wet, không dùng wetly.",
+      "content_hash": "wet|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy wet vs wetly",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "wet",
+      "pos": "adj",
+      "sense_vi": "ẩm ướt",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bị dính mưa ướt sũng chuẩn:",
+        "opts": [
+          "get wet",
+          "make wet",
+          "take wet",
+          "do wet"
+        ]
+      },
+      "answer": "get wet",
+      "explain_vi": "Bị ướt dùng cụm 'get wet'.",
+      "content_hash": "wet|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm get wet",
+        "pack_id": "starter-a0-weather",
+        "priority": "P0"
+      }
+    }
+  ]
+}

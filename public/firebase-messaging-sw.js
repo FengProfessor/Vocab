@@ -15,6 +15,11 @@ firebase.initializeApp({
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
 
+// Chrome PWA: cần fetch handler mới đủ điều kiện beforeinstallprompt / cài app
+self.addEventListener('fetch', () => {
+  // Pass-through — không cache, chỉ để trang installable
+});
+
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {

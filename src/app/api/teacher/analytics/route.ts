@@ -1,4 +1,4 @@
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient, fetchAllRows } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
@@ -161,23 +161,25 @@ export async function GET(req: Request) {
     // ── BATCH B: coverage + difficulty đọc chung `words` (50 từ) → 2 truy vấn srs song song ──
     if (words.length > 0) {
       const wordIds = words.map(w => w.id);
-      const [covRes, diffRes] = await Promise.all([
-        supabase
+      const [covResData, diffResData] = await Promise.all([
+        fetchAllRows((f, t) => supabase
           .from('srs_progress')
           .select('word_id, user_id')
           .in('word_id', wordIds)
           .in('user_id', studentIds)
-          .gt('review_count', 0),
-        supabase
+          .gt('review_count', 0)
+          .range(f, t)),
+        fetchAllRows((f, t) => supabase
           .from('srs_progress')
           .select('word_id, review_count, stability')
           .in('word_id', wordIds)
           .in('user_id', studentIds)
-          .gt('review_count', 1), // chỉ tính từ đã review ít nhất 2 lần
+          .gt('review_count', 1)
+          .range(f, t)),
       ]);
 
-      const coverage = covRes.data;
-      if (!covRes.error && coverage) {
+      const coverage = covResData;
+      if (coverage) {
         const countMap = new Map<string, Set<string>>();
         for (const row of coverage) {
           if (!countMap.has(row.word_id)) countMap.set(row.word_id, new Set());
@@ -194,8 +196,8 @@ export async function GET(req: Request) {
         });
       }
 
-      const diffProgress = diffRes.data;
-      if (!diffRes.error && diffProgress && diffProgress.length > 0) {
+      const diffProgress = diffResData;
+      if (diffProgress && diffProgress.length > 0) {
         const wordMap = new Map<string, { totalScore: number; count: number }>();
         for (const row of diffProgress) {
           const stability = row.stability as number ?? 1;

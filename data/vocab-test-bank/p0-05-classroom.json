@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-05-classroom",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-classroom"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "book",
+      "pos": "n",
+      "sense_vi": "quần sách",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "book (n.)",
+        "opts": [
+          "quốn sách",
+          "cái bút",
+          "cái bàn",
+          "cặp sách"
+        ]
+      },
+      "answer": "quốn sách",
+      "explain_vi": "book nghĩa là cuốn sách.",
+      "content_hash": "book|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cuốn sách",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "book",
+      "pos": "n",
+      "sense_vi": "quần sách",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Đồ dùng có nhiều trang giấy để đọc và học:",
+        "opts": [
+          "book",
+          "booklet",
+          "cook",
+          "look"
+        ]
+      },
+      "answer": "book",
+      "explain_vi": "Cuốn sách là book (cook là nấu ăn, look là nhìn).",
+      "content_hash": "book|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss cook/look",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "book",
+      "pos": "n",
+      "sense_vi": "quần sách",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Open your English ___ to page 20, please.",
+        "opts": [
+          "book",
+          "pen",
+          "desk",
+          "bag"
+        ]
+      },
+      "answer": "book",
+      "explain_vi": "Cụm open your book (mở sách ra).",
+      "content_hash": "book|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "open your book",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "book",
+      "pos": "n",
+      "sense_vi": "quần sách",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I readed a good book yesterday.'",
+        "opts": [
+          "I read a good book yesterday.",
+          "I readed a good book yesterday.",
+          "I reading a good book yesterday.",
+          "I am read a good book yesterday."
+        ]
+      },
+      "answer": "I read a good book yesterday.",
+      "explain_vi": "Động từ quá khứ của read vẫn viết là read (phát âm /red/).",
+      "content_hash": "book|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy quá khứ readed",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "book",
+      "pos": "n",
+      "sense_vi": "quần sách",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm sách giáo khoa chuẩn:",
+        "opts": [
+          "textbook",
+          "wordbook",
+          "studybook",
+          "classbook"
+        ]
+      },
+      "answer": "textbook",
+      "explain_vi": "Sách giáo khoa dùng cụm textbook.",
+      "content_hash": "book|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm textbook",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pen",
+      "pos": "n",
+      "sense_vi": "cây bút mực",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pen (n.)",
+        "opts": [
+          "bút mực / bút bi",
+          "bút chì",
+          "cục tẩy",
+          "thước kẻ"
+        ]
+      },
+      "answer": "bút mực / bút bi",
+      "explain_vi": "pen nghĩa là bút mực hoặc bút bi.",
+      "content_hash": "pen|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bút mực",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pen",
+      "pos": "n",
+      "sense_vi": "cây bút mực",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Đồ dùng viết bằng mực:",
+        "opts": [
+          "pen",
+          "pin",
+          "pan",
+          "pencil"
+        ]
+      },
+      "answer": "pen",
+      "explain_vi": "Bút mực là pen (pin là chiếc ghim, pan là cái chảo).",
+      "content_hash": "pen|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss pin/pan",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pen",
+      "pos": "n",
+      "sense_vi": "cây bút mực",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Can I borrow your blue ___ to sign this document?",
+        "opts": [
+          "pen",
+          "pin",
+          "pan",
+          "pet"
+        ]
+      },
+      "answer": "pen",
+      "explain_vi": "Dùng pen để viết/ký văn bản bằng mực.",
+      "content_hash": "pen|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "blue pen",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pen",
+      "pos": "n",
+      "sense_vi": "cây bút mực",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She writes with a black pen.'",
+        "opts": [
+          "She writes with a black pen.",
+          "She writes by a black pen.",
+          "She write with a black pen.",
+          "She is write with a black pen."
+        ]
+      },
+      "answer": "She writes with a black pen.",
+      "explain_vi": "Viết bằng công cụ nào dùng giới từ 'with': write with a pen.",
+      "content_hash": "pen|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy write with pen",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pen",
+      "pos": "n",
+      "sense_vi": "cây bút mực",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bút bi chuẩn:",
+        "opts": [
+          "ballpoint pen",
+          "ink pen",
+          "write pen",
+          "paper pen"
+        ]
+      },
+      "answer": "ballpoint pen",
+      "explain_vi": "Bút bi gọi là ballpoint pen.",
+      "content_hash": "pen|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm ballpoint pen",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pencil",
+      "pos": "n",
+      "sense_vi": "bút chì",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pencil (n.)",
+        "opts": [
+          "bút chì",
+          "bút bi",
+          "thước kẻ",
+          "hộp bút"
+        ]
+      },
+      "answer": "bút chì",
+      "explain_vi": "pencil nghĩa là bút chì.",
+      "content_hash": "pencil|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bút chì",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pencil",
+      "pos": "n",
+      "sense_vi": "bút chì",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dụng cụ học tập viết bằng ruột chì có thể tẩy được:",
+        "opts": [
+          "pencil",
+          "pen",
+          "stencil",
+          "paper"
+        ]
+      },
+      "answer": "pencil",
+      "explain_vi": "Bút chì là pencil.",
+      "content_hash": "pencil|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss stencil",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pencil",
+      "pos": "n",
+      "sense_vi": "bút chì",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Use a ___ to draw the sketch before painting.",
+        "opts": [
+          "pencil",
+          "pen",
+          "table",
+          "chair"
+        ]
+      },
+      "answer": "pencil",
+      "explain_vi": "Dùng pencil (bút chì) để phác thảo tranh.",
+      "content_hash": "pencil|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "draw with pencil",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pencil",
+      "pos": "n",
+      "sense_vi": "bút chì",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He forgot his pencil case at home.'",
+        "opts": [
+          "He forgot his pencil case at home.",
+          "He forgot his pencil box in home.",
+          "He forget his pencil case at home.",
+          "He is forgot his pencil case at home."
+        ]
+      },
+      "answer": "He forgot his pencil case at home.",
+      "explain_vi": "Forgot quá khứ đơn, ở nhà dùng 'at home'.",
+      "content_hash": "pencil|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy pencil case at home",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "pencil",
+      "pos": "n",
+      "sense_vi": "bút chì",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hộp đựng bút chì chuẩn:",
+        "opts": [
+          "pencil case",
+          "pencil bag",
+          "pencil box",
+          "pencil holder"
+        ]
+      },
+      "answer": "pencil case",
+      "explain_vi": "Hộp/túi đựng bút học sinh là pencil case.",
+      "content_hash": "pencil|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm pencil case",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "table",
+      "pos": "n",
+      "sense_vi": "cái bàn",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "table (n.)",
+        "opts": [
+          "cái bàn",
+          "cái ghế",
+          "cánh cửa",
+          "cửa sổ"
+        ]
+      },
+      "answer": "cái bàn",
+      "explain_vi": "table nghĩa là cái bàn.",
+      "content_hash": "table|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cái bàn",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "table",
+      "pos": "n",
+      "sense_vi": "cái bàn",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Mặt phẳng có chân để đồ ăn hoặc làm việc:",
+        "opts": [
+          "table",
+          "tablet",
+          "cable",
+          "stable"
+        ]
+      },
+      "answer": "table",
+      "explain_vi": "Cái bàn là table (cable là dây cáp, tablet là máy tính bảng).",
+      "content_hash": "table|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss cable/tablet",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "table",
+      "pos": "n",
+      "sense_vi": "cái bàn",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We sat around the dining ___ to eat dinner.",
+        "opts": [
+          "table",
+          "chair",
+          "bed",
+          "door"
+        ]
+      },
+      "answer": "table",
+      "explain_vi": "Bàn ăn: dining table.",
+      "content_hash": "table|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "dining table",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "table",
+      "pos": "n",
+      "sense_vi": "cái bàn",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Put the book on the table, please.'",
+        "opts": [
+          "Put the book on the table, please.",
+          "Put the book in the table, please.",
+          "Put the book at the table, please.",
+          "Put the book into table, please."
+        ]
+      },
+      "answer": "Put the book on the table, please.",
+      "explain_vi": "Đặt sách lên trên mặt bàn dùng giới từ 'on the table'.",
+      "content_hash": "table|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy on the table",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "table",
+      "pos": "n",
+      "sense_vi": "cái bàn",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm dọn bàn ăn chuẩn:",
+        "opts": [
+          "set the table",
+          "make the table",
+          "do the table",
+          "create the table"
+        ]
+      },
+      "answer": "set the table",
+      "explain_vi": "Sắp dọn bàn ăn dùng cụm 'set the table'.",
+      "content_hash": "table|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm set the table",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chair",
+      "pos": "n",
+      "sense_vi": "cái ghế",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "chair (n.)",
+        "opts": [
+          "cái ghế",
+          "cái bàn",
+          "cửa ra vào",
+          "tủ đồ"
+        ]
+      },
+      "answer": "cái ghế",
+      "explain_vi": "chair nghĩa là cái ghế.",
+      "content_hash": "chair|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cái ghế",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chair",
+      "pos": "n",
+      "sense_vi": "cái ghế",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Đồ vật dùng để ngồi lên:",
+        "opts": [
+          "chair",
+          "cheer",
+          "chain",
+          "charm"
+        ]
+      },
+      "answer": "chair",
+      "explain_vi": "Cái ghế là chair (cheer là reo hò, chain là dây xích).",
+      "content_hash": "chair|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss cheer/chain",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chair",
+      "pos": "n",
+      "sense_vi": "cái ghế",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Please sit down on that comfortable ___.",
+        "opts": [
+          "chair",
+          "table",
+          "door",
+          "window"
+        ]
+      },
+      "answer": "chair",
+      "explain_vi": "Sit down on a chair (ngồi xuống ghế).",
+      "content_hash": "chair|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "sit on chair",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chair",
+      "pos": "n",
+      "sense_vi": "cái ghế",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He sit on the chair slowly.'",
+        "opts": [
+          "He sits on the chair slowly.",
+          "He sit on the chair slowly.",
+          "He sitting on the chair slowly.",
+          "He is sit on the chair slowly."
+        ]
+      },
+      "answer": "He sits on the chair slowly.",
+      "explain_vi": "Chủ ngữ He chia động từ ngôi 3 số ít: sits.",
+      "content_hash": "chair|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia động từ sits",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "chair",
+      "pos": "n",
+      "sense_vi": "cái ghế",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ghế bành êm ái chuẩn:",
+        "opts": [
+          "armchair",
+          "handchair",
+          "bodychair",
+          "backchair"
+        ]
+      },
+      "answer": "armchair",
+      "explain_vi": "Ghế bành có chỗ để tay là armchair.",
+      "content_hash": "chair|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm armchair",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bag",
+      "pos": "n",
+      "sense_vi": "cặp / túi xách",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "bag (n.)",
+        "opts": [
+          "cặp / túi xách",
+          "hộp bút",
+          "sách vở",
+          "áo khoác"
+        ]
+      },
+      "answer": "cặp / túi xách",
+      "explain_vi": "bag nghĩa là cặp hoặc túi xách đựng đồ.",
+      "content_hash": "bag|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cặp/túi",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bag",
+      "pos": "n",
+      "sense_vi": "cặp / túi xách",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Vật dụng chứa sách vở, đồ đạc mang đi:",
+        "opts": [
+          "bag",
+          "bug",
+          "beg",
+          "big"
+        ]
+      },
+      "answer": "bag",
+      "explain_vi": "Túi/cặp là bag (bug là con bọ, beg là xin xỏ).",
+      "content_hash": "bag|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss bug/beg",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bag",
+      "pos": "n",
+      "sense_vi": "cặp / túi xách",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Put your textbooks inside your school ___.",
+        "opts": [
+          "bag",
+          "box",
+          "pocket",
+          "table"
+        ]
+      },
+      "answer": "bag",
+      "explain_vi": "Cặp sách đi học: school bag.",
+      "content_hash": "bag|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "school bag",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bag",
+      "pos": "n",
+      "sense_vi": "cặp / túi xách",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She left her bag at school yesterday.'",
+        "opts": [
+          "She left her bag at school yesterday.",
+          "She left her bag in school yesterday.",
+          "She leaves her bag at school yesterday.",
+          "She is left her bag at school yesterday."
+        ]
+      },
+      "answer": "She left her bag at school yesterday.",
+      "explain_vi": "Trạng từ yesterday dùng động từ quá khứ left.",
+      "content_hash": "bag|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy quá khứ left",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bag",
+      "pos": "n",
+      "sense_vi": "cặp / túi xách",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm cặp sách học sinh chuẩn:",
+        "opts": [
+          "school bag",
+          "study bag",
+          "class bag",
+          "learn bag"
+        ]
+      },
+      "answer": "school bag",
+      "explain_vi": "Cặp sách học sinh là school bag.",
+      "content_hash": "bag|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm school bag",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "phone",
+      "pos": "n",
+      "sense_vi": "điện thoại",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "phone (n.)",
+        "opts": [
+          "điện thoại",
+          "máy tính",
+          "tivi",
+          "đồng hồ"
+        ]
+      },
+      "answer": "điện thoại",
+      "explain_vi": "phone nghĩa là điện thoại.",
+      "content_hash": "phone|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa điện thoại",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "phone",
+      "pos": "n",
+      "sense_vi": "điện thoại",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thiết bị dùng để gọi điện, nhắn tin:",
+        "opts": [
+          "phone",
+          "phonics",
+          "photo",
+          "zone"
+        ]
+      },
+      "answer": "phone",
+      "explain_vi": "Điện thoại là phone (photo là bức ảnh).",
+      "content_hash": "phone|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss photo",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "phone",
+      "pos": "n",
+      "sense_vi": "điện thoại",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "He called his friend on the ___ to ask about homework.",
+        "opts": [
+          "phone",
+          "desk",
+          "book",
+          "bag"
+        ]
+      },
+      "answer": "phone",
+      "explain_vi": "Cụm on the phone (qua điện thoại).",
+      "content_hash": "phone|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "on the phone",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "phone",
+      "pos": "n",
+      "sense_vi": "điện thoại",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is talking in the phone right now.'",
+        "opts": [
+          "She is talking on the phone right now.",
+          "She is talking in the phone right now.",
+          "She is talking at the phone right now.",
+          "She talk on the phone right now."
+        ]
+      },
+      "answer": "She is talking on the phone right now.",
+      "explain_vi": "Nói chuyện qua điện thoại dùng giới từ 'on the phone'.",
+      "content_hash": "phone|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy talking on the phone",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "phone",
+      "pos": "n",
+      "sense_vi": "điện thoại",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm điện thoại thông minh chuẩn:",
+        "opts": [
+          "smartphone",
+          "wisephone",
+          "cleverphone",
+          "brainphone"
+        ]
+      },
+      "answer": "smartphone",
+      "explain_vi": "Điện thoại thông minh là smartphone.",
+      "content_hash": "phone|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm smartphone",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "key",
+      "pos": "n",
+      "sense_vi": "chìa khóa",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "key (n.)",
+        "opts": [
+          "chìa khóa",
+          "ổ khóa",
+          "cánh cửa",
+          "cái túi"
+        ]
+      },
+      "answer": "chìa khóa",
+      "explain_vi": "key nghĩa là chìa khóa.",
+      "content_hash": "key|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa chìa khóa",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "key",
+      "pos": "n",
+      "sense_vi": "chìa khóa",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Vật bằng kim loại nhỏ dùng để mở khóa cửa:",
+        "opts": [
+          "key",
+          "kid",
+          "keep",
+          "king"
+        ]
+      },
+      "answer": "key",
+      "explain_vi": "Chìa khóa là key (kid là trẻ em, king là nhà vua).",
+      "content_hash": "key|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss keep/king",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "key",
+      "pos": "n",
+      "sense_vi": "chìa khóa",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I lost my house ___ and cannot open the door.",
+        "opts": [
+          "key",
+          "pen",
+          "bag",
+          "book"
+        ]
+      },
+      "answer": "key",
+      "explain_vi": "Chìa khóa nhà: house key.",
+      "content_hash": "key|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "house key",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "key",
+      "pos": "n",
+      "sense_vi": "chìa khóa",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Where is the key of the front door?'",
+        "opts": [
+          "Where is the key to the front door?",
+          "Where is the key of the front door?",
+          "Where is the key for front door?",
+          "Where key is to the front door?"
+        ]
+      },
+      "answer": "Where is the key to the front door?",
+      "explain_vi": "Chìa khóa mở cửa nào dùng cấu trúc 'key to the door'.",
+      "content_hash": "key|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy key to the door",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "key",
+      "pos": "n",
+      "sense_vi": "chìa khóa",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chìa khóa nhà chuẩn:",
+        "opts": [
+          "house key",
+          "home key",
+          "room key",
+          "door key"
+        ]
+      },
+      "answer": "house key",
+      "explain_vi": "Chìa khóa mở nhà là house key.",
+      "content_hash": "key|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm house key",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "door",
+      "pos": "n",
+      "sense_vi": "cánh cửa",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "door (n.)",
+        "opts": [
+          "cánh cửa ra vào",
+          "cửa sổ",
+          "bức tường",
+          "mái nhà"
+        ]
+      },
+      "answer": "cánh cửa ra vào",
+      "explain_vi": "door nghĩa là cửa ra vào.",
+      "content_hash": "door|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cửa ra vào",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "door",
+      "pos": "n",
+      "sense_vi": "cánh cửa",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khung di động dùng để đóng/mở lối ra vào phòng:",
+        "opts": [
+          "door",
+          "doom",
+          "floor",
+          "deer"
+        ]
+      },
+      "answer": "door",
+      "explain_vi": "Cửa ra vào là door (floor là sàn nhà).",
+      "content_hash": "door|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss floor",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "door",
+      "pos": "n",
+      "sense_vi": "cánh cửa",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Please close the ___ when you leave the classroom.",
+        "opts": [
+          "door",
+          "floor",
+          "wall",
+          "roof"
+        ]
+      },
+      "answer": "door",
+      "explain_vi": "Cụm close the door (đóng cửa lại).",
+      "content_hash": "door|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "close the door",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "door",
+      "pos": "n",
+      "sense_vi": "cánh cửa",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Someone is knocking in the door.'",
+        "opts": [
+          "Someone is knocking on the door.",
+          "Someone is knocking in the door.",
+          "Someone is knocking at door.",
+          "Someone knock on the door."
+        ]
+      },
+      "answer": "Someone is knocking on the door.",
+      "explain_vi": "Gõ cửa dùng cụm 'knock on the door' (hoặc knock at the door).",
+      "content_hash": "door|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy knock on the door",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "door",
+      "pos": "n",
+      "sense_vi": "cánh cửa",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm cửa chính ra vào chuẩn:",
+        "opts": [
+          "front door",
+          "head door",
+          "first door",
+          "main door"
+        ]
+      },
+      "answer": "front door",
+      "explain_vi": "Cửa chính phía trước nhà là front door.",
+      "content_hash": "door|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm front door",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "window",
+      "pos": "n",
+      "sense_vi": "cửa sổ",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "window (n.)",
+        "opts": [
+          "cửa sổ",
+          "cửa ra vào",
+          "bức tường",
+          "trần nhà"
+        ]
+      },
+      "answer": "cửa sổ",
+      "explain_vi": "window nghĩa là cửa sổ.",
+      "content_hash": "window|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cửa sổ",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "window",
+      "pos": "n",
+      "sense_vi": "cửa sổ",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khung kính trên tường giúp đón ánh sáng và gió:",
+        "opts": [
+          "window",
+          "widow",
+          "wind",
+          "winter"
+        ]
+      },
+      "answer": "window",
+      "explain_vi": "Cửa sổ là window (widow là góa phụ, wind là gió).",
+      "content_hash": "window|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss widow/wind",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "window",
+      "pos": "n",
+      "sense_vi": "cửa sổ",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Look out of the ___ to see the green garden.",
+        "opts": [
+          "window",
+          "door",
+          "floor",
+          "table"
+        ]
+      },
+      "answer": "window",
+      "explain_vi": "Cụm look out of the window (nhìn ra ngoài cửa sổ).",
+      "content_hash": "window|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "look out of window",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "window",
+      "pos": "n",
+      "sense_vi": "cửa sổ",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Can you open window, please?'",
+        "opts": [
+          "Can you open the window, please?",
+          "Can you open window, please?",
+          "Can you opening the window, please?",
+          "Can you to open the window, please?"
+        ]
+      },
+      "answer": "Can you open the window, please?",
+      "explain_vi": "Chỉ cửa sổ cụ thể trong phòng cần mạo từ 'the window'.",
+      "content_hash": "window|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy missing the window",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "window",
+      "pos": "n",
+      "sense_vi": "cửa sổ",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nhìn qua cửa sổ chuẩn:",
+        "opts": [
+          "look through the window",
+          "look at the window",
+          "look on the window",
+          "look into the window"
+        ]
+      },
+      "answer": "look through the window",
+      "explain_vi": "Nhìn xuyên qua kính cửa sổ: look through the window.",
+      "content_hash": "window|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm look through the window",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "school (n.)",
+        "opts": [
+          "trường học",
+          "bệnh viện",
+          "công viên",
+          "nhà ga"
+        ]
+      },
+      "answer": "trường học",
+      "explain_vi": "school nghĩa là trường học.",
+      "content_hash": "school|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa trường học",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nơi học sinh đến học mỗi ngày:",
+        "opts": [
+          "school",
+          "scholar",
+          "scholastic",
+          "scool"
+        ]
+      },
+      "answer": "school",
+      "explain_vi": "Trường học là school.",
+      "content_hash": "school|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "She goes to ___ by bike every day.",
+        "opts": [
+          "school",
+          "class",
+          "home",
+          "bed"
+        ]
+      },
+      "answer": "school",
+      "explain_vi": "Cụm go to school (đi học).",
+      "content_hash": "school|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "go to school",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He goes to the school to study every morning.'",
+        "opts": [
+          "He goes to school to study every morning.",
+          "He goes to the school to study every morning.",
+          "He go to school to study every morning.",
+          "He is go to school to study every morning."
+        ]
+      },
+      "answer": "He goes to school to study every morning.",
+      "explain_vi": "Nói về việc đi học chính thức không dùng mạo từ 'the': go to school.",
+      "content_hash": "school|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy go to school (no the)",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm trường cấp 2 chuẩn:",
+        "opts": [
+          "secondary school",
+          "middle school",
+          "second school",
+          "next school"
+        ]
+      },
+      "answer": "secondary school",
+      "explain_vi": "Trường THCS / cấp 2 gọi là secondary school.",
+      "content_hash": "school|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm secondary school",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "house",
+      "pos": "n",
+      "sense_vi": "ngôi nhà",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "house (n.)",
+        "opts": [
+          "ngôi nhà / căn nhà",
+          "trường học",
+          "cửa hàng",
+          "công viên"
+        ]
+      },
+      "answer": "ngôi nhà / căn nhà",
+      "explain_vi": "house nghĩa là ngôi nhà.",
+      "content_hash": "house|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa ngôi nhà",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "house",
+      "pos": "n",
+      "sense_vi": "ngôi nhà",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tòa nhà nơi một gia đình sinh sống:",
+        "opts": [
+          "house",
+          "horse",
+          "home",
+          "mouse"
+        ]
+      },
+      "answer": "house",
+      "explain_vi": "Ngôi nhà là house (horse là con ngựa, mouse là con chuột).",
+      "content_hash": "house|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss horse/mouse",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "house",
+      "pos": "n",
+      "sense_vi": "ngôi nhà",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "They live in a beautiful red ___ with a big garden.",
+        "opts": [
+          "house",
+          "horse",
+          "mouse",
+          "street"
+        ]
+      },
+      "answer": "house",
+      "explain_vi": "Sống trong căn nhà: live in a house.",
+      "content_hash": "house|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "live in a house",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "house",
+      "pos": "n",
+      "sense_vi": "ngôi nhà",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'My uncle build a new house last year.'",
+        "opts": [
+          "My uncle built a new house last year.",
+          "My uncle build a new house last year.",
+          "My uncle building a new house last year.",
+          "My uncle is build a new house last year."
+        ]
+      },
+      "answer": "My uncle built a new house last year.",
+      "explain_vi": "Trạng từ last year yêu cầu chia quá khứ đơn 'built'.",
+      "content_hash": "house|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy quá khứ built",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "house",
+      "pos": "n",
+      "sense_vi": "ngôi nhà",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm việc nhà chuẩn:",
+        "opts": [
+          "housework",
+          "housejob",
+          "housetask",
+          "houseworkded"
+        ]
+      },
+      "answer": "housework",
+      "explain_vi": "Công việc nhà gọi là housework.",
+      "content_hash": "house|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm housework",
+        "pack_id": "starter-a0-classroom",
+        "priority": "P0"
+      }
+    }
+  ]
+}

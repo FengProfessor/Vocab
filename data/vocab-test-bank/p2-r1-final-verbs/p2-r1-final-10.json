@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-10",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "order",
+    "own",
+    "paint",
+    "pick",
+    "prepare",
+    "push",
+    "receive",
+    "relax",
+    "repeat",
+    "save"
+  ],
+  "items": [
+    {
+      "lemma": "order",
+      "pos": "v",
+      "sense_vi": "gọi món ăn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "order (v.)",
+        "opts": [
+          "gọi món ăn",
+          "dạy học sinh",
+          "trốn dưới giường",
+          "tin cậy vào bạn"
+        ]
+      },
+      "answer": "gọi món ăn",
+      "explain_vi": "Động từ order mang nghĩa chính xác là: gọi món ăn.",
+      "content_hash": "order|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "order gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "order delicious food",
+        "vn_trap": "past tense ordered"
+      }
+    },
+    {
+      "lemma": "order",
+      "pos": "v",
+      "sense_vi": "gọi món ăn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'gọi món ăn' được dịch là:",
+        "opts": [
+          "order",
+          "orders",
+          "ordering",
+          "ordered"
+        ]
+      },
+      "answer": "order",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là order.",
+      "content_hash": "order|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "order l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "order delicious food",
+        "vn_trap": "past tense ordered"
+      }
+    },
+    {
+      "lemma": "order",
+      "pos": "v",
+      "sense_vi": "gọi món ăn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Always remember to ___ your homework on time.",
+        "opts": [
+          "order",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "order",
+      "explain_vi": "Điền 'order' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "order|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "order cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "order delicious food",
+        "vn_trap": "past tense ordered"
+      }
+    },
+    {
+      "lemma": "order",
+      "pos": "v",
+      "sense_vi": "gọi món ăn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She orders the work very good yesterday.'",
+        "opts": [
+          "She ordered the work very well yesterday.",
+          "She orders the work very good yesterday.",
+          "She orders the task very good yesterday.",
+          "She was ordering when I came yesterday."
+        ]
+      },
+      "answer": "She ordered the work very well yesterday.",
+      "explain_vi": "Dùng trạng từ 'well' bổ nghĩa cho động từ, không dùng tính từ 'good'.",
+      "content_hash": "order|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "order error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "order delicious food",
+        "vn_trap": "past tense ordered"
+      }
+    },
+    {
+      "lemma": "order",
+      "pos": "v",
+      "sense_vi": "gọi món ăn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'order':",
+        "opts": [
+          "order delicious food",
+          "order in wrong way",
+          "order without care",
+          "order for nothing"
+        ]
+      },
+      "answer": "order delicious food",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: order delicious food.",
+      "content_hash": "order|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "order collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "order delicious food",
+        "vn_trap": "past tense ordered"
+      }
+    },
+    {
+      "lemma": "own",
+      "pos": "v",
+      "sense_vi": "sở hữu ô tô",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "own (v.)",
+        "opts": [
+          "sở hữu ô tô",
+          "cảm ơn bạn",
+          "đánh quả bóng",
+          "gỡ nhãn dán"
+        ]
+      },
+      "answer": "sở hữu ô tô",
+      "explain_vi": "Động từ own mang nghĩa chính xác là: sở hữu ô tô.",
+      "content_hash": "own|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "own gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "own a private car",
+        "vn_trap": "past tense owned"
+      }
+    },
+    {
+      "lemma": "own",
+      "pos": "v",
+      "sense_vi": "sở hữu ô tô",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'sở hữu ô tô', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "own",
+          "owns",
+          "owning",
+          "owned"
+        ]
+      },
+      "answer": "own",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là own.",
+      "content_hash": "own|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "own l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "own a private car",
+        "vn_trap": "past tense owned"
+      }
+    },
+    {
+      "lemma": "own",
+      "pos": "v",
+      "sense_vi": "sở hữu ô tô",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Be careful when you ___ the street tomorrow morning.",
+        "opts": [
+          "own",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "own",
+      "explain_vi": "Điền 'own' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "own|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "own cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "own a private car",
+        "vn_trap": "past tense owned"
+      }
+    },
+    {
+      "lemma": "own",
+      "pos": "v",
+      "sense_vi": "sở hữu ô tô",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was owning when the bell rang.'",
+        "opts": [
+          "They were owning when the bell rang.",
+          "They was owning when the bell rang.",
+          "They They was owning when the bell rang.",
+          "She was owning when I came yesterday."
+        ]
+      },
+      "answer": "They were owning when the bell rang.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were', không dùng 'was'.",
+      "content_hash": "own|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "own error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "own a private car",
+        "vn_trap": "past tense owned"
+      }
+    },
+    {
+      "lemma": "own",
+      "pos": "v",
+      "sense_vi": "sở hữu ô tô",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'own':",
+        "opts": [
+          "own a private car",
+          "own in wrong way",
+          "own without care",
+          "own for nothing"
+        ]
+      },
+      "answer": "own a private car",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: own a private car.",
+      "content_hash": "own|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "own collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "own a private car",
+        "vn_trap": "past tense owned"
+      }
+    },
+    {
+      "lemma": "paint",
+      "pos": "v",
+      "sense_vi": "sơn bức tường",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "paint (v.)",
+        "opts": [
+          "sơn bức tường",
+          "chạm màn hình",
+          "đau chân",
+          "thuê căn hộ"
+        ]
+      },
+      "answer": "sơn bức tường",
+      "explain_vi": "Động từ paint mang nghĩa chính xác là: sơn bức tường.",
+      "content_hash": "paint|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "paint gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "paint the wooden wall",
+        "vn_trap": "past tense painted"
+      }
+    },
+    {
+      "lemma": "paint",
+      "pos": "v",
+      "sense_vi": "sơn bức tường",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'sơn bức tường' là:",
+        "opts": [
+          "paint",
+          "paints",
+          "painting",
+          "painted"
+        ]
+      },
+      "answer": "paint",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là paint.",
+      "content_hash": "paint|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "paint l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "paint the wooden wall",
+        "vn_trap": "past tense painted"
+      }
+    },
+    {
+      "lemma": "paint",
+      "pos": "v",
+      "sense_vi": "sơn bức tường",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you help me ___ this difficult problem today?",
+        "opts": [
+          "paint",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "paint",
+      "explain_vi": "Điền 'paint' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "paint|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "paint cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "paint the wooden wall",
+        "vn_trap": "past tense painted"
+      }
+    },
+    {
+      "lemma": "paint",
+      "pos": "v",
+      "sense_vi": "sơn bức tường",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He painted without inform anyone first.'",
+        "opts": [
+          "He painted without informing anyone first.",
+          "He painted without inform anyone first.",
+          "They He painted without inform anyone first.",
+          "She was painting when I came yesterday."
+        ]
+      },
+      "answer": "He painted without informing anyone first.",
+      "explain_vi": "Sau giới từ 'without' cần động từ dạng V-ing.",
+      "content_hash": "paint|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "paint error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "paint the wooden wall",
+        "vn_trap": "past tense painted"
+      }
+    },
+    {
+      "lemma": "paint",
+      "pos": "v",
+      "sense_vi": "sơn bức tường",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'paint':",
+        "opts": [
+          "paint the wooden wall",
+          "paint in wrong way",
+          "paint without care",
+          "paint for nothing"
+        ]
+      },
+      "answer": "paint the wooden wall",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: paint the wooden wall.",
+      "content_hash": "paint|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "paint collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "paint the wooden wall",
+        "vn_trap": "past tense painted"
+      }
+    },
+    {
+      "lemma": "pick",
+      "pos": "v",
+      "sense_vi": "chọn đồ vật",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pick (v.)",
+        "opts": [
+          "chọn đồ vật",
+          "du lịch nước ngoài",
+          "tưởng tượng tương lai",
+          "sửa xe đạp"
+        ]
+      },
+      "answer": "chọn đồ vật",
+      "explain_vi": "Động từ pick mang nghĩa chính xác là: chọn đồ vật.",
+      "content_hash": "pick|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "pick gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pick up the phone",
+        "vn_trap": "past tense picked"
+      }
+    },
+    {
+      "lemma": "pick",
+      "pos": "v",
+      "sense_vi": "chọn đồ vật",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'chọn đồ vật' là:",
+        "opts": [
+          "pick",
+          "picks",
+          "picking",
+          "picked"
+        ]
+      },
+      "answer": "pick",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là pick.",
+      "content_hash": "pick|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "pick l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pick up the phone",
+        "vn_trap": "past tense picked"
+      }
+    },
+    {
+      "lemma": "pick",
+      "pos": "v",
+      "sense_vi": "chọn đồ vật",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Do not forget to ___ your passport before traveling.",
+        "opts": [
+          "pick",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "pick",
+      "explain_vi": "Điền 'pick' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "pick|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "pick cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pick up the phone",
+        "vn_trap": "past tense picked"
+      }
+    },
+    {
+      "lemma": "pick",
+      "pos": "v",
+      "sense_vi": "chọn đồ vật",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is picking since two o'clock.'",
+        "opts": [
+          "She has been picking since two o'clock.",
+          "She is picking since two o'clock.",
+          "They She is picking since two o'clock.",
+          "She was picking when I came yesterday."
+        ]
+      },
+      "answer": "She has been picking since two o'clock.",
+      "explain_vi": "Hành động có 'since' kéo dài đến nay dùng hiện tại hoàn thành tiếp diễn.",
+      "content_hash": "pick|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "pick error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pick up the phone",
+        "vn_trap": "past tense picked"
+      }
+    },
+    {
+      "lemma": "pick",
+      "pos": "v",
+      "sense_vi": "chọn đồ vật",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'pick':",
+        "opts": [
+          "pick up the phone",
+          "pick in wrong way",
+          "pick without care",
+          "pick for nothing"
+        ]
+      },
+      "answer": "pick up the phone",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: pick up the phone.",
+      "content_hash": "pick|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "pick collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pick up the phone",
+        "vn_trap": "past tense picked"
+      }
+    },
+    {
+      "lemma": "prepare",
+      "pos": "v",
+      "sense_vi": "chuẩn bị bài",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "prepare (v.)",
+        "opts": [
+          "chuẩn bị bài",
+          "thăm ông bà",
+          "cải thiện tiếng Anh",
+          "thay thế linh kiện"
+        ]
+      },
+      "answer": "chuẩn bị bài",
+      "explain_vi": "Động từ prepare mang nghĩa chính xác là: chuẩn bị bài.",
+      "content_hash": "prepare|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "prepare gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prepare for the exam",
+        "vn_trap": "past tense prepared"
+      }
+    },
+    {
+      "lemma": "prepare",
+      "pos": "v",
+      "sense_vi": "chuẩn bị bài",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'chuẩn bị bài', người Anh dùng:",
+        "opts": [
+          "prepare",
+          "prepares",
+          "prepareing",
+          "prepared"
+        ]
+      },
+      "answer": "prepare",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là prepare.",
+      "content_hash": "prepare|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "prepare l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prepare for the exam",
+        "vn_trap": "past tense prepared"
+      }
+    },
+    {
+      "lemma": "prepare",
+      "pos": "v",
+      "sense_vi": "chuẩn bị bài",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Every student should ___ their goals before the new term.",
+        "opts": [
+          "prepare",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "prepare",
+      "explain_vi": "Điền 'prepare' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "prepare|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "prepare cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prepare for the exam",
+        "vn_trap": "past tense prepared"
+      }
+    },
+    {
+      "lemma": "prepare",
+      "pos": "v",
+      "sense_vi": "chuẩn bị bài",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If he prepares harder, he would pass easily.'",
+        "opts": [
+          "If he prepared harder, he would pass easily.",
+          "If he prepares harder, he would pass easily.",
+          "They If he prepares harder, he would pass easily.",
+          "She was prepareing when I came yesterday."
+        ]
+      },
+      "answer": "If he prepared harder, he would pass easily.",
+      "explain_vi": "Mệnh đề điều kiện loại 2 dùng quá khứ đơn ở mệnh đề IF.",
+      "content_hash": "prepare|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "prepare error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prepare for the exam",
+        "vn_trap": "past tense prepared"
+      }
+    },
+    {
+      "lemma": "prepare",
+      "pos": "v",
+      "sense_vi": "chuẩn bị bài",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'prepare':",
+        "opts": [
+          "prepare for the exam",
+          "prepare in wrong way",
+          "prepare without care",
+          "prepare for nothing"
+        ]
+      },
+      "answer": "prepare for the exam",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: prepare for the exam.",
+      "content_hash": "prepare|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "prepare collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "prepare for the exam",
+        "vn_trap": "past tense prepared"
+      }
+    },
+    {
+      "lemma": "push",
+      "pos": "v",
+      "sense_vi": "đẩy nút",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "push (v.)",
+        "opts": [
+          "đẩy nút",
+          "thức dậy sớm",
+          "giới thiệu bản thân",
+          "trả lời tin nhắn"
+        ]
+      },
+      "answer": "đẩy nút",
+      "explain_vi": "Động từ push mang nghĩa chính xác là: đẩy nút.",
+      "content_hash": "push|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "push gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "push the red button",
+        "vn_trap": "past tense pushed"
+      }
+    },
+    {
+      "lemma": "push",
+      "pos": "v",
+      "sense_vi": "đẩy nút",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'đẩy nút' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "push",
+          "pushs",
+          "pushing",
+          "pushed"
+        ]
+      },
+      "answer": "push",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là push.",
+      "content_hash": "push|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "push l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "push the red button",
+        "vn_trap": "past tense pushed"
+      }
+    },
+    {
+      "lemma": "push",
+      "pos": "v",
+      "sense_vi": "đẩy nút",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Fortunately, she managed to ___ the train on time.",
+        "opts": [
+          "push",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "push",
+      "explain_vi": "Điền 'push' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "push|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "push cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "push the red button",
+        "vn_trap": "past tense pushed"
+      }
+    },
+    {
+      "lemma": "push",
+      "pos": "v",
+      "sense_vi": "đẩy nút",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She enjoys to push in her free time.'",
+        "opts": [
+          "She enjoys pushing in her free time.",
+          "She enjoys to push in her free time.",
+          "They She enjoys to push in her free time.",
+          "She was pushing when I came yesterday."
+        ]
+      },
+      "answer": "She enjoys pushing in her free time.",
+      "explain_vi": "Sau động từ 'enjoy' dùng V-ing (enjoy doing sth).",
+      "content_hash": "push|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "push error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "push the red button",
+        "vn_trap": "past tense pushed"
+      }
+    },
+    {
+      "lemma": "push",
+      "pos": "v",
+      "sense_vi": "đẩy nút",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'push':",
+        "opts": [
+          "push the red button",
+          "push in wrong way",
+          "push without care",
+          "push for nothing"
+        ]
+      },
+      "answer": "push the red button",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: push the red button.",
+      "content_hash": "push|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "push collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "push the red button",
+        "vn_trap": "past tense pushed"
+      }
+    },
+    {
+      "lemma": "receive",
+      "pos": "v",
+      "sense_vi": "nhận quà",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "receive (v.)",
+        "opts": [
+          "nhận quà",
+          "mặc áo phông",
+          "mời dự tiệc",
+          "đại diện công ty"
+        ]
+      },
+      "answer": "nhận quà",
+      "explain_vi": "Động từ receive mang nghĩa chính xác là: nhận quà.",
+      "content_hash": "receive|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "receive gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "receive a birthday gift",
+        "vn_trap": "past tense received"
+      }
+    },
+    {
+      "lemma": "receive",
+      "pos": "v",
+      "sense_vi": "nhận quà",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'nhận quà', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "receive",
+          "receives",
+          "receiveing",
+          "received"
+        ]
+      },
+      "answer": "receive",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là receive.",
+      "content_hash": "receive|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "receive l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "receive a birthday gift",
+        "vn_trap": "past tense received"
+      }
+    },
+    {
+      "lemma": "receive",
+      "pos": "v",
+      "sense_vi": "nhận quà",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Good students always ___ their teachers with respect.",
+        "opts": [
+          "receive",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "receive",
+      "explain_vi": "Điền 'receive' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "receive|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "receive cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "receive a birthday gift",
+        "vn_trap": "past tense received"
+      }
+    },
+    {
+      "lemma": "receive",
+      "pos": "v",
+      "sense_vi": "nhận quà",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is interesting in receiveing new things.'",
+        "opts": [
+          "He is interested in receiveing new things.",
+          "He is interesting in receiveing new things.",
+          "They He is interesting in receiveing new things.",
+          "She was receiveing when I came yesterday."
+        ]
+      },
+      "answer": "He is interested in receiveing new things.",
+      "explain_vi": "Cấu trúc be interested in (hứng thú với cái gì).",
+      "content_hash": "receive|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "receive error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "receive a birthday gift",
+        "vn_trap": "past tense received"
+      }
+    },
+    {
+      "lemma": "receive",
+      "pos": "v",
+      "sense_vi": "nhận quà",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'receive':",
+        "opts": [
+          "receive a birthday gift",
+          "receive in wrong way",
+          "receive without care",
+          "receive for nothing"
+        ]
+      },
+      "answer": "receive a birthday gift",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: receive a birthday gift.",
+      "content_hash": "receive|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "receive collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "receive a birthday gift",
+        "vn_trap": "past tense received"
+      }
+    },
+    {
+      "lemma": "relax",
+      "pos": "v",
+      "sense_vi": "thư giãn cuối tuần",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "relax (v.)",
+        "opts": [
+          "thư giãn cuối tuần",
+          "ước điều ước",
+          "nhảy qua rào",
+          "yêu cầu hỗ trợ"
+        ]
+      },
+      "answer": "thư giãn cuối tuần",
+      "explain_vi": "Động từ relax mang nghĩa chính xác là: thư giãn cuối tuần.",
+      "content_hash": "relax|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "relax gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relax at home",
+        "vn_trap": "past tense relaxed"
+      }
+    },
+    {
+      "lemma": "relax",
+      "pos": "v",
+      "sense_vi": "thư giãn cuối tuần",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'thư giãn cuối tuần' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "relax",
+          "relaxs",
+          "relaxing",
+          "relaxed"
+        ]
+      },
+      "answer": "relax",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là relax.",
+      "content_hash": "relax|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "relax l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relax at home",
+        "vn_trap": "past tense relaxed"
+      }
+    },
+    {
+      "lemma": "relax",
+      "pos": "v",
+      "sense_vi": "thư giãn cuối tuần",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "He decided to ___ a new house in the city center.",
+        "opts": [
+          "relax",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "relax",
+      "explain_vi": "Điền 'relax' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "relax|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "relax cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relax at home",
+        "vn_trap": "past tense relaxed"
+      }
+    },
+    {
+      "lemma": "relax",
+      "pos": "v",
+      "sense_vi": "thư giãn cuối tuần",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite she was tired, she continued to relax.'",
+        "opts": [
+          "Although she was tired, she continued to relax.",
+          "Despite she was tired, she continued to relax.",
+          "They Despite she was tired, she continued to relax.",
+          "She was relaxing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was tired, she continued to relax.",
+      "explain_vi": "Dùng 'Although' đứng trước một mệnh đề, không dùng 'Despite'.",
+      "content_hash": "relax|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "relax error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relax at home",
+        "vn_trap": "past tense relaxed"
+      }
+    },
+    {
+      "lemma": "relax",
+      "pos": "v",
+      "sense_vi": "thư giãn cuối tuần",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'relax':",
+        "opts": [
+          "relax at home",
+          "relax in wrong way",
+          "relax without care",
+          "relax for nothing"
+        ]
+      },
+      "answer": "relax at home",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: relax at home.",
+      "content_hash": "relax|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "relax collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "relax at home",
+        "vn_trap": "past tense relaxed"
+      }
+    },
+    {
+      "lemma": "repeat",
+      "pos": "v",
+      "sense_vi": "lặp lại câu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "repeat (v.)",
+        "opts": [
+          "lặp lại câu",
+          "lo lắng thi cử",
+          "đá quả bóng",
+          "nghỉ ngơi sau làm"
+        ]
+      },
+      "answer": "lặp lại câu",
+      "explain_vi": "Động từ repeat mang nghĩa chính xác là: lặp lại câu.",
+      "content_hash": "repeat|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "repeat gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repeat after teacher",
+        "vn_trap": "past tense repeated"
+      }
+    },
+    {
+      "lemma": "repeat",
+      "pos": "v",
+      "sense_vi": "lặp lại câu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'lặp lại câu', từ tiếng Anh đúng là:",
+        "opts": [
+          "repeat",
+          "repeats",
+          "repeating",
+          "repeated"
+        ]
+      },
+      "answer": "repeat",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là repeat.",
+      "content_hash": "repeat|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "repeat l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repeat after teacher",
+        "vn_trap": "past tense repeated"
+      }
+    },
+    {
+      "lemma": "repeat",
+      "pos": "v",
+      "sense_vi": "lặp lại câu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "In order to ___ your English, you must practice daily.",
+        "opts": [
+          "repeat",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "repeat",
+      "explain_vi": "Điền 'repeat' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "repeat|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "repeat cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repeat after teacher",
+        "vn_trap": "past tense repeated"
+      }
+    },
+    {
+      "lemma": "repeat",
+      "pos": "v",
+      "sense_vi": "lặp lại câu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has repeateded to the house two days ago.'",
+        "opts": [
+          "She repeated to the house two days ago.",
+          "She has repeateded to the house two days ago.",
+          "They She has repeateded to the house two days ago.",
+          "She was repeating when I came yesterday."
+        ]
+      },
+      "answer": "She repeated to the house two days ago.",
+      "explain_vi": "Có thời gian xác định 'ago' trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "repeat|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "repeat error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repeat after teacher",
+        "vn_trap": "past tense repeated"
+      }
+    },
+    {
+      "lemma": "repeat",
+      "pos": "v",
+      "sense_vi": "lặp lại câu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'repeat':",
+        "opts": [
+          "repeat after teacher",
+          "repeat in wrong way",
+          "repeat without care",
+          "repeat for nothing"
+        ]
+      },
+      "answer": "repeat after teacher",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: repeat after teacher.",
+      "content_hash": "repeat|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "repeat collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "repeat after teacher",
+        "vn_trap": "past tense repeated"
+      }
+    },
+    {
+      "lemma": "save",
+      "pos": "v",
+      "sense_vi": "tiết kiệm tiền",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "save (v.)",
+        "opts": [
+          "tiết kiệm tiền",
+          "đóng cửa sổ",
+          "hôn tạm biệt",
+          "dẫn đến thành công"
+        ]
+      },
+      "answer": "tiết kiệm tiền",
+      "explain_vi": "Động từ save mang nghĩa chính xác là: tiết kiệm tiền.",
+      "content_hash": "save|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "save gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "save money for future",
+        "vn_trap": "past tense saved"
+      }
+    },
+    {
+      "lemma": "save",
+      "pos": "v",
+      "sense_vi": "tiết kiệm tiền",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'tiết kiệm tiền' là:",
+        "opts": [
+          "save",
+          "saves",
+          "saveing",
+          "saved"
+        ]
+      },
+      "answer": "save",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là save.",
+      "content_hash": "save|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "save l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "save money for future",
+        "vn_trap": "past tense saved"
+      }
+    },
+    {
+      "lemma": "save",
+      "pos": "v",
+      "sense_vi": "tiết kiệm tiền",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Just try your best to ___ the final examination.",
+        "opts": [
+          "save",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "save",
+      "explain_vi": "Điền 'save' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "save|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "save cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "save money for future",
+        "vn_trap": "past tense saved"
+      }
+    },
+    {
+      "lemma": "save",
+      "pos": "v",
+      "sense_vi": "tiết kiệm tiền",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped to save because he was tired.'",
+        "opts": [
+          "He stopped saveing because he was tired.",
+          "He stopped to save because he was tired.",
+          "They He stopped to save because he was tired.",
+          "She was saveing when I came yesterday."
+        ]
+      },
+      "answer": "He stopped saveing because he was tired.",
+      "explain_vi": "Dừng hẳn một việc đang làm dùng 'stop V-ing'.",
+      "content_hash": "save|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "save error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "save money for future",
+        "vn_trap": "past tense saved"
+      }
+    },
+    {
+      "lemma": "save",
+      "pos": "v",
+      "sense_vi": "tiết kiệm tiền",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'save':",
+        "opts": [
+          "save money for future",
+          "save in wrong way",
+          "save without care",
+          "save for nothing"
+        ]
+      },
+      "answer": "save money for future",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: save money for future.",
+      "content_hash": "save|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "save collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "save money for future",
+        "vn_trap": "past tense saved"
+      }
+    }
+  ]
+}

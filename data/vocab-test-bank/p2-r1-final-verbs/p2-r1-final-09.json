@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-09",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "catch",
+    "draw",
+    "fill",
+    "fix",
+    "forget",
+    "guess",
+    "hate",
+    "join",
+    "laugh",
+    "miss"
+  ],
+  "items": [
+    {
+      "lemma": "catch",
+      "pos": "v",
+      "sense_vi": "bắt xe buýt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "catch (v.)",
+        "opts": [
+          "bắt xe buýt",
+          "đẩy nút",
+          "rơi xuống sàn",
+          "cung cấp hỗ trợ"
+        ]
+      },
+      "answer": "bắt xe buýt",
+      "explain_vi": "Động từ catch mang nghĩa chính xác là: bắt xe buýt.",
+      "content_hash": "catch|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "catch gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "catch the morning train",
+        "vn_trap": "past tense caught"
+      }
+    },
+    {
+      "lemma": "catch",
+      "pos": "v",
+      "sense_vi": "bắt xe buýt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'bắt xe buýt' là:",
+        "opts": [
+          "catch",
+          "catchs",
+          "catching",
+          "caught"
+        ]
+      },
+      "answer": "catch",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là catch.",
+      "content_hash": "catch|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "catch l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "catch the morning train",
+        "vn_trap": "past tense caught"
+      }
+    },
+    {
+      "lemma": "catch",
+      "pos": "v",
+      "sense_vi": "bắt xe buýt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "catch",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "catch",
+      "explain_vi": "Điền 'catch' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "catch|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "catch cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "catch the morning train",
+        "vn_trap": "past tense caught"
+      }
+    },
+    {
+      "lemma": "catch",
+      "pos": "v",
+      "sense_vi": "bắt xe buýt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She catchs the exercise very slow yesterday.'",
+        "opts": [
+          "She caught the exercise very slowly yesterday.",
+          "She catchs the exercise very slow yesterday.",
+          "They She catchs the exercise very slow yesterday.",
+          "She was catching when I came yesterday."
+        ]
+      },
+      "answer": "She caught the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "catch|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "catch error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "catch the morning train",
+        "vn_trap": "past tense caught"
+      }
+    },
+    {
+      "lemma": "catch",
+      "pos": "v",
+      "sense_vi": "bắt xe buýt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'catch':",
+        "opts": [
+          "catch the morning train",
+          "catch in wrong way",
+          "catch without care",
+          "catch for nothing"
+        ]
+      },
+      "answer": "catch the morning train",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: catch the morning train.",
+      "content_hash": "catch|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "catch collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "catch the morning train",
+        "vn_trap": "past tense caught"
+      }
+    },
+    {
+      "lemma": "draw",
+      "pos": "v",
+      "sense_vi": "vẽ bức tranh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "draw (v.)",
+        "opts": [
+          "vẽ bức tranh",
+          "nhận quà",
+          "kết thúc câu chuyện",
+          "xuất bản sách"
+        ]
+      },
+      "answer": "vẽ bức tranh",
+      "explain_vi": "Động từ draw mang nghĩa chính xác là: vẽ bức tranh.",
+      "content_hash": "draw|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "draw gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "draw a beautiful picture",
+        "vn_trap": "past tense drew"
+      }
+    },
+    {
+      "lemma": "draw",
+      "pos": "v",
+      "sense_vi": "vẽ bức tranh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'vẽ bức tranh' là:",
+        "opts": [
+          "draw",
+          "draws",
+          "drawing",
+          "drew"
+        ]
+      },
+      "answer": "draw",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là draw.",
+      "content_hash": "draw|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "draw l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "draw a beautiful picture",
+        "vn_trap": "past tense drew"
+      }
+    },
+    {
+      "lemma": "draw",
+      "pos": "v",
+      "sense_vi": "vẽ bức tranh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "draw",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "draw",
+      "explain_vi": "Điền 'draw' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "draw|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "draw cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "draw a beautiful picture",
+        "vn_trap": "past tense drew"
+      }
+    },
+    {
+      "lemma": "draw",
+      "pos": "v",
+      "sense_vi": "vẽ bức tranh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was drawing when the lights went out.'",
+        "opts": [
+          "They were drawing when the lights went out.",
+          "They was drawing when the lights went out.",
+          "They They was drawing when the lights went out.",
+          "She was drawing when I came yesterday."
+        ]
+      },
+      "answer": "They were drawing when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "draw|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "draw error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "draw a beautiful picture",
+        "vn_trap": "past tense drew"
+      }
+    },
+    {
+      "lemma": "draw",
+      "pos": "v",
+      "sense_vi": "vẽ bức tranh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'draw':",
+        "opts": [
+          "draw a beautiful picture",
+          "draw in wrong way",
+          "draw without care",
+          "draw for nothing"
+        ]
+      },
+      "answer": "draw a beautiful picture",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: draw a beautiful picture.",
+      "content_hash": "draw|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "draw collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "draw a beautiful picture",
+        "vn_trap": "past tense drew"
+      }
+    },
+    {
+      "lemma": "fill",
+      "pos": "v",
+      "sense_vi": "điền thông tin",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fill (v.)",
+        "opts": [
+          "điền thông tin",
+          "thư giãn cuối tuần",
+          "thích đọc sách",
+          "nhận ra sai lầm"
+        ]
+      },
+      "answer": "điền thông tin",
+      "explain_vi": "Động từ fill mang nghĩa chính xác là: điền thông tin.",
+      "content_hash": "fill|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "fill gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fill in the form",
+        "vn_trap": "past tense filled"
+      }
+    },
+    {
+      "lemma": "fill",
+      "pos": "v",
+      "sense_vi": "điền thông tin",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'điền thông tin', người Anh dùng:",
+        "opts": [
+          "fill",
+          "fills",
+          "filling",
+          "filled"
+        ]
+      },
+      "answer": "fill",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là fill.",
+      "content_hash": "fill|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "fill l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fill in the form",
+        "vn_trap": "past tense filled"
+      }
+    },
+    {
+      "lemma": "fill",
+      "pos": "v",
+      "sense_vi": "điền thông tin",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "fill",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "fill",
+      "explain_vi": "Điền 'fill' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "fill|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "fill cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fill in the form",
+        "vn_trap": "past tense filled"
+      }
+    },
+    {
+      "lemma": "fill",
+      "pos": "v",
+      "sense_vi": "điền thông tin",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He fills without check the answers first.'",
+        "opts": [
+          "He filled without checking the answers first.",
+          "He fills without check the answers first.",
+          "They He fills without check the answers first.",
+          "She was filling when I came yesterday."
+        ]
+      },
+      "answer": "He filled without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "fill|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "fill error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fill in the form",
+        "vn_trap": "past tense filled"
+      }
+    },
+    {
+      "lemma": "fill",
+      "pos": "v",
+      "sense_vi": "điền thông tin",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'fill':",
+        "opts": [
+          "fill in the form",
+          "fill in wrong way",
+          "fill without care",
+          "fill for nothing"
+        ]
+      },
+      "answer": "fill in the form",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: fill in the form.",
+      "content_hash": "fill|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "fill collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fill in the form",
+        "vn_trap": "past tense filled"
+      }
+    },
+    {
+      "lemma": "fix",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fix (v.)",
+        "opts": [
+          "sửa xe đạp",
+          "lặp lại câu",
+          "vào phòng",
+          "nhận ra quen thuộc"
+        ]
+      },
+      "answer": "sửa xe đạp",
+      "explain_vi": "Động từ fix mang nghĩa chính xác là: sửa xe đạp.",
+      "content_hash": "fix|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "fix gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fix the old bicycle",
+        "vn_trap": "past tense fixed"
+      }
+    },
+    {
+      "lemma": "fix",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'sửa xe đạp' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "fix",
+          "fixs",
+          "fixing",
+          "fixed"
+        ]
+      },
+      "answer": "fix",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là fix.",
+      "content_hash": "fix|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "fix l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fix the old bicycle",
+        "vn_trap": "past tense fixed"
+      }
+    },
+    {
+      "lemma": "fix",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "fix",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "fix",
+      "explain_vi": "Điền 'fix' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "fix|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "fix cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fix the old bicycle",
+        "vn_trap": "past tense fixed"
+      }
+    },
+    {
+      "lemma": "fix",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is fixing since last year.'",
+        "opts": [
+          "She has been fixing since last year.",
+          "She is fixing since last year.",
+          "They She is fixing since last year.",
+          "She was fixing when I came yesterday."
+        ]
+      },
+      "answer": "She has been fixing since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "fix|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "fix error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fix the old bicycle",
+        "vn_trap": "past tense fixed"
+      }
+    },
+    {
+      "lemma": "fix",
+      "pos": "v",
+      "sense_vi": "sửa xe đạp",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'fix':",
+        "opts": [
+          "fix the old bicycle",
+          "fix in wrong way",
+          "fix without care",
+          "fix for nothing"
+        ]
+      },
+      "answer": "fix the old bicycle",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: fix the old bicycle.",
+      "content_hash": "fix|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "fix collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fix the old bicycle",
+        "vn_trap": "past tense fixed"
+      }
+    },
+    {
+      "lemma": "forget",
+      "pos": "v",
+      "sense_vi": "quên tên",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "forget (v.)",
+        "opts": [
+          "quên tên",
+          "tiết kiệm tiền",
+          "trượt kỳ thi",
+          "ghi âm giọng nói"
+        ]
+      },
+      "answer": "quên tên",
+      "explain_vi": "Động từ forget mang nghĩa chính xác là: quên tên.",
+      "content_hash": "forget|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "forget gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "forget the person's name",
+        "vn_trap": "past tense forgot"
+      }
+    },
+    {
+      "lemma": "forget",
+      "pos": "v",
+      "sense_vi": "quên tên",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'quên tên', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "forget",
+          "forgets",
+          "forgeting",
+          "forgot"
+        ]
+      },
+      "answer": "forget",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là forget.",
+      "content_hash": "forget|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "forget l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "forget the person's name",
+        "vn_trap": "past tense forgot"
+      }
+    },
+    {
+      "lemma": "forget",
+      "pos": "v",
+      "sense_vi": "quên tên",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "forget",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "forget",
+      "explain_vi": "Điền 'forget' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "forget|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "forget cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "forget the person's name",
+        "vn_trap": "past tense forgot"
+      }
+    },
+    {
+      "lemma": "forget",
+      "pos": "v",
+      "sense_vi": "quên tên",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they forgets earlier, they would win.'",
+        "opts": [
+          "If they forgot earlier, they would win.",
+          "If they forgets earlier, they would win.",
+          "They If they forgets earlier, they would win.",
+          "She was forgeting when I came yesterday."
+        ]
+      },
+      "answer": "If they forgot earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "forget|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "forget error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "forget the person's name",
+        "vn_trap": "past tense forgot"
+      }
+    },
+    {
+      "lemma": "forget",
+      "pos": "v",
+      "sense_vi": "quên tên",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'forget':",
+        "opts": [
+          "forget the person's name",
+          "forget in wrong way",
+          "forget without care",
+          "forget for nothing"
+        ]
+      },
+      "answer": "forget the person's name",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: forget the person's name.",
+      "content_hash": "forget|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "forget collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "forget the person's name",
+        "vn_trap": "past tense forgot"
+      }
+    },
+    {
+      "lemma": "guess",
+      "pos": "v",
+      "sense_vi": "đoán câu trả lời",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "guess (v.)",
+        "opts": [
+          "đoán câu trả lời",
+          "chia sẻ thông tin",
+          "bay trên trời",
+          "giảm ô nhiễm"
+        ]
+      },
+      "answer": "đoán câu trả lời",
+      "explain_vi": "Động từ guess mang nghĩa chính xác là: đoán câu trả lời.",
+      "content_hash": "guess|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "guess gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "guess the correct answer",
+        "vn_trap": "past tense guessed"
+      }
+    },
+    {
+      "lemma": "guess",
+      "pos": "v",
+      "sense_vi": "đoán câu trả lời",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'đoán câu trả lời' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "guess",
+          "guesss",
+          "guessing",
+          "guessed"
+        ]
+      },
+      "answer": "guess",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là guess.",
+      "content_hash": "guess|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "guess l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "guess the correct answer",
+        "vn_trap": "past tense guessed"
+      }
+    },
+    {
+      "lemma": "guess",
+      "pos": "v",
+      "sense_vi": "đoán câu trả lời",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "guess",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "guess",
+      "explain_vi": "Điền 'guess' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "guess|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "guess cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "guess the correct answer",
+        "vn_trap": "past tense guessed"
+      }
+    },
+    {
+      "lemma": "guess",
+      "pos": "v",
+      "sense_vi": "đoán câu trả lời",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to guess when she is busy.'",
+        "opts": [
+          "She avoids guessing when she is busy.",
+          "She avoids to guess when she is busy.",
+          "They She avoids to guess when she is busy.",
+          "She was guessing when I came yesterday."
+        ]
+      },
+      "answer": "She avoids guessing when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "guess|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "guess error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "guess the correct answer",
+        "vn_trap": "past tense guessed"
+      }
+    },
+    {
+      "lemma": "guess",
+      "pos": "v",
+      "sense_vi": "đoán câu trả lời",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'guess':",
+        "opts": [
+          "guess the correct answer",
+          "guess in wrong way",
+          "guess without care",
+          "guess for nothing"
+        ]
+      },
+      "answer": "guess the correct answer",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: guess the correct answer.",
+      "content_hash": "guess|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "guess collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "guess the correct answer",
+        "vn_trap": "past tense guessed"
+      }
+    },
+    {
+      "lemma": "hate",
+      "pos": "v",
+      "sense_vi": "ghét làm việc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hate (v.)",
+        "opts": [
+          "ghét làm việc",
+          "hát bài hát",
+          "ép làm việc",
+          "từ chối trả lời"
+        ]
+      },
+      "answer": "ghét làm việc",
+      "explain_vi": "Động từ hate mang nghĩa chính xác là: ghét làm việc.",
+      "content_hash": "hate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "hate gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hate doing housework",
+        "vn_trap": "past tense hated"
+      }
+    },
+    {
+      "lemma": "hate",
+      "pos": "v",
+      "sense_vi": "ghét làm việc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'ghét làm việc', từ tiếng Anh đúng là:",
+        "opts": [
+          "hate",
+          "hates",
+          "hateing",
+          "hated"
+        ]
+      },
+      "answer": "hate",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hate.",
+      "content_hash": "hate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "hate l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hate doing housework",
+        "vn_trap": "past tense hated"
+      }
+    },
+    {
+      "lemma": "hate",
+      "pos": "v",
+      "sense_vi": "ghét làm việc",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "hate",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "hate",
+      "explain_vi": "Điền 'hate' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "hate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "hate cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hate doing housework",
+        "vn_trap": "past tense hated"
+      }
+    },
+    {
+      "lemma": "hate",
+      "pos": "v",
+      "sense_vi": "ghét làm việc",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at hate in public places.'",
+        "opts": [
+          "He is good at hateing in public places.",
+          "He is good at hate in public places.",
+          "They He is good at hate in public places.",
+          "She was hateing when I came yesterday."
+        ]
+      },
+      "answer": "He is good at hateing in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "hate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "hate error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hate doing housework",
+        "vn_trap": "past tense hated"
+      }
+    },
+    {
+      "lemma": "hate",
+      "pos": "v",
+      "sense_vi": "ghét làm việc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hate':",
+        "opts": [
+          "hate doing housework",
+          "hate in wrong way",
+          "hate without care",
+          "hate for nothing"
+        ]
+      },
+      "answer": "hate doing housework",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hate doing housework.",
+      "content_hash": "hate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "hate collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hate doing housework",
+        "vn_trap": "past tense hated"
+      }
+    },
+    {
+      "lemma": "join",
+      "pos": "v",
+      "sense_vi": "tham gia câu lạc bộ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "join (v.)",
+        "opts": [
+          "tham gia câu lạc bộ",
+          "ngửi thấy hương thơm",
+          "tạo thành nhóm",
+          "coi như quan trọng"
+        ]
+      },
+      "answer": "tham gia câu lạc bộ",
+      "explain_vi": "Động từ join mang nghĩa chính xác là: tham gia câu lạc bộ.",
+      "content_hash": "join|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "join gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "join the English club",
+        "vn_trap": "past tense joined"
+      }
+    },
+    {
+      "lemma": "join",
+      "pos": "v",
+      "sense_vi": "tham gia câu lạc bộ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'tham gia câu lạc bộ' là:",
+        "opts": [
+          "join",
+          "joins",
+          "joining",
+          "joined"
+        ]
+      },
+      "answer": "join",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là join.",
+      "content_hash": "join|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "join l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "join the English club",
+        "vn_trap": "past tense joined"
+      }
+    },
+    {
+      "lemma": "join",
+      "pos": "v",
+      "sense_vi": "tham gia câu lạc bộ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Before you leave, make sure to ___ the door.",
+        "opts": [
+          "join",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "join",
+      "explain_vi": "Điền 'join' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "join|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "join cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "join the English club",
+        "vn_trap": "past tense joined"
+      }
+    },
+    {
+      "lemma": "join",
+      "pos": "v",
+      "sense_vi": "tham gia câu lạc bộ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite of the rain, she went out to join.'",
+        "opts": [
+          "Despite the rain, she went out to join.",
+          "Despite of the rain, she went out to join.",
+          "They Despite of the rain, she went out to join.",
+          "She was joining when I came yesterday."
+        ]
+      },
+      "answer": "Despite the rain, she went out to join.",
+      "explain_vi": "Dùng 'Despite' (không có 'of').",
+      "content_hash": "join|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "join error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "join the English club",
+        "vn_trap": "past tense joined"
+      }
+    },
+    {
+      "lemma": "join",
+      "pos": "v",
+      "sense_vi": "tham gia câu lạc bộ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'join':",
+        "opts": [
+          "join the English club",
+          "join in wrong way",
+          "join without care",
+          "join for nothing"
+        ]
+      },
+      "answer": "join the English club",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: join the English club.",
+      "content_hash": "join|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "join collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "join the English club",
+        "vn_trap": "past tense joined"
+      }
+    },
+    {
+      "lemma": "laugh",
+      "pos": "v",
+      "sense_vi": "cười to",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "laugh (v.)",
+        "opts": [
+          "cười to",
+          "mỉm cười vui",
+          "thu thập dữ liệu",
+          "liên quan chủ đề"
+        ]
+      },
+      "answer": "cười to",
+      "explain_vi": "Động từ laugh mang nghĩa chính xác là: cười to.",
+      "content_hash": "laugh|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "laugh gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "laugh out loud",
+        "vn_trap": "past tense laughed"
+      }
+    },
+    {
+      "lemma": "laugh",
+      "pos": "v",
+      "sense_vi": "cười to",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'cười to' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "laugh",
+          "laughs",
+          "laughing",
+          "laughed"
+        ]
+      },
+      "answer": "laugh",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là laugh.",
+      "content_hash": "laugh|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "laugh l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "laugh out loud",
+        "vn_trap": "past tense laughed"
+      }
+    },
+    {
+      "lemma": "laugh",
+      "pos": "v",
+      "sense_vi": "cười to",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love to ___ games in the playground.",
+        "opts": [
+          "laugh",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "laugh",
+      "explain_vi": "Điền 'laugh' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "laugh|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "laugh cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "laugh out loud",
+        "vn_trap": "past tense laughed"
+      }
+    },
+    {
+      "lemma": "laugh",
+      "pos": "v",
+      "sense_vi": "cười to",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has laugheded the book yesterday evening.'",
+        "opts": [
+          "She laughed the book yesterday evening.",
+          "She has laugheded the book yesterday evening.",
+          "They She has laugheded the book yesterday evening.",
+          "She was laughing when I came yesterday."
+        ]
+      },
+      "answer": "She laughed the book yesterday evening.",
+      "explain_vi": "Quá khứ xác định dùng quá khứ đơn.",
+      "content_hash": "laugh|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "laugh error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "laugh out loud",
+        "vn_trap": "past tense laughed"
+      }
+    },
+    {
+      "lemma": "laugh",
+      "pos": "v",
+      "sense_vi": "cười to",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'laugh':",
+        "opts": [
+          "laugh out loud",
+          "laugh in wrong way",
+          "laugh without care",
+          "laugh for nothing"
+        ]
+      },
+      "answer": "laugh out loud",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: laugh out loud.",
+      "content_hash": "laugh|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "laugh collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "laugh out loud",
+        "vn_trap": "past tense laughed"
+      }
+    },
+    {
+      "lemma": "miss",
+      "pos": "v",
+      "sense_vi": "bỏ lỡ xe buýt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "miss (v.)",
+        "opts": [
+          "bỏ lỡ xe buýt",
+          "nghe có vẻ hay",
+          "treo bức tranh",
+          "phát hành phim"
+        ]
+      },
+      "answer": "bỏ lỡ xe buýt",
+      "explain_vi": "Động từ miss mang nghĩa chính xác là: bỏ lỡ xe buýt.",
+      "content_hash": "miss|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "miss gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "miss the morning bus",
+        "vn_trap": "past tense missed"
+      }
+    },
+    {
+      "lemma": "miss",
+      "pos": "v",
+      "sense_vi": "bỏ lỡ xe buýt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'bỏ lỡ xe buýt' là:",
+        "opts": [
+          "miss",
+          "misss",
+          "missing",
+          "missed"
+        ]
+      },
+      "answer": "miss",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là miss.",
+      "content_hash": "miss|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "miss l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "miss the morning bus",
+        "vn_trap": "past tense missed"
+      }
+    },
+    {
+      "lemma": "miss",
+      "pos": "v",
+      "sense_vi": "bỏ lỡ xe buýt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "During the lesson, please ___ to the teacher.",
+        "opts": [
+          "miss",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "miss",
+      "explain_vi": "Điền 'miss' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "miss|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "miss cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "miss the morning bus",
+        "vn_trap": "past tense missed"
+      }
+    },
+    {
+      "lemma": "miss",
+      "pos": "v",
+      "sense_vi": "bỏ lỡ xe buýt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He remembered to missing the door before leaving.'",
+        "opts": [
+          "He remembered to miss the door before leaving.",
+          "He remembered to missing the door before leaving.",
+          "They He remembered to missing the door before leaving.",
+          "She was missing when I came yesterday."
+        ]
+      },
+      "answer": "He remembered to miss the door before leaving.",
+      "explain_vi": "Nhớ phải làm gì dùng 'remember to V'.",
+      "content_hash": "miss|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "miss error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "miss the morning bus",
+        "vn_trap": "past tense missed"
+      }
+    },
+    {
+      "lemma": "miss",
+      "pos": "v",
+      "sense_vi": "bỏ lỡ xe buýt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'miss':",
+        "opts": [
+          "miss the morning bus",
+          "miss in wrong way",
+          "miss without care",
+          "miss for nothing"
+        ]
+      },
+      "answer": "miss the morning bus",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: miss the morning bus.",
+      "content_hash": "miss|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "miss collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "miss the morning bus",
+        "vn_trap": "past tense missed"
+      }
+    }
+  ]
+}

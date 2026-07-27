@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-08-verbs",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-verbs"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "go",
+      "pos": "v",
+      "sense_vi": "đi",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "go (v.)",
+        "opts": [
+          "đi / di chuyển",
+          "đến",
+          "ở lại",
+          "dừng lại"
+        ]
+      },
+      "answer": "đi / di chuyển",
+      "explain_vi": "go nghĩa là đi.",
+      "content_hash": "go|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa đi",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "go",
+      "pos": "v",
+      "sense_vi": "đi",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động di chuyển từ nơi này sang nơi khác:",
+        "opts": [
+          "go",
+          "goes",
+          "went",
+          "gone"
+        ]
+      },
+      "answer": "go",
+      "explain_vi": "Động từ nguyên mẫu là go (went là quá khứ).",
+      "content_hash": "go|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss went",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "go",
+      "pos": "v",
+      "sense_vi": "đi",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I ___ to school on foot every morning.",
+        "opts": [
+          "go",
+          "come",
+          "stay",
+          "arrive"
+        ]
+      },
+      "answer": "go",
+      "explain_vi": "Go to school (đi học).",
+      "content_hash": "go|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "go to school",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "go",
+      "pos": "v",
+      "sense_vi": "đi",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He go to the market yesterday.'",
+        "opts": [
+          "He went to the market yesterday.",
+          "He go to the market yesterday.",
+          "He goes to the market yesterday.",
+          "He is go to the market yesterday."
+        ]
+      },
+      "answer": "He went to the market yesterday.",
+      "explain_vi": "Trạng từ yesterday dùng động từ quá khứ went.",
+      "content_hash": "go|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy quá khứ went",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "go",
+      "pos": "v",
+      "sense_vi": "đi",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đi ngủ chuẩn:",
+        "opts": [
+          "go to bed",
+          "go in bed",
+          "go at bed",
+          "go on bed"
+        ]
+      },
+      "answer": "go to bed",
+      "explain_vi": "Đi ngủ là go to bed.",
+      "content_hash": "go|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm go to bed",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "come",
+      "pos": "v",
+      "sense_vi": "đến / tới",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "come (v.)",
+        "opts": [
+          "đến / tới",
+          "đi xa",
+          "rời khỏi",
+          "quay lại"
+        ]
+      },
+      "answer": "đến / tới",
+      "explain_vi": "come nghĩa là đến hoặc tới đây.",
+      "content_hash": "come|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa đến",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "come",
+      "pos": "v",
+      "sense_vi": "đến / tới",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động di chuyển lại gần phía người nói:",
+        "opts": [
+          "come",
+          "came",
+          "comb",
+          "calm"
+        ]
+      },
+      "answer": "come",
+      "explain_vi": "Đến là come (came là quá khứ).",
+      "content_hash": "come|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss came/comb",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "come",
+      "pos": "v",
+      "sense_vi": "đến / tới",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ in and sit down.",
+        "opts": [
+          "come",
+          "go",
+          "leave",
+          "stay"
+        ]
+      },
+      "answer": "come",
+      "explain_vi": "Come in (mời vào).",
+      "content_hash": "come|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "come in",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "come",
+      "pos": "v",
+      "sense_vi": "đến / tới",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He come back home late last night.'",
+        "opts": [
+          "He came back home late last night.",
+          "He come back home late last night.",
+          "He is come back home late last night.",
+          "He coming back home late last night."
+        ]
+      },
+      "answer": "He came back home late last night.",
+      "explain_vi": "Last night dùng động từ quá khứ came.",
+      "content_hash": "come|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy quá khứ came",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "come",
+      "pos": "v",
+      "sense_vi": "đến / tới",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm mời vào phòng chuẩn:",
+        "opts": [
+          "come in",
+          "come out",
+          "come on",
+          "come off"
+        ]
+      },
+      "answer": "come in",
+      "explain_vi": "Mời vào phòng dùng cụm come in.",
+      "content_hash": "come|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm come in",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "see",
+      "pos": "v",
+      "sense_vi": "nhìn thấy",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "see (v.)",
+        "opts": [
+          "nhìn thấy / quan sát",
+          "nghe thấy",
+          "ngửi thấy",
+          "chạm vào"
+        ]
+      },
+      "answer": "nhìn thấy / quan sát",
+      "explain_vi": "see nghĩa là nhìn thấy bằng mắt.",
+      "content_hash": "see|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa nhìn thấy",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "see",
+      "pos": "v",
+      "sense_vi": "nhìn thấy",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nhận biết sự vật bằng mắt:",
+        "opts": [
+          "see",
+          "saw",
+          "seen",
+          "sea"
+        ]
+      },
+      "answer": "see",
+      "explain_vi": "Nhìn thấy là see (sea là biển, saw là quá khứ).",
+      "content_hash": "see|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss sea/saw",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "see",
+      "pos": "v",
+      "sense_vi": "nhìn thấy",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you ___ the high mountain over there?",
+        "opts": [
+          "see",
+          "hear",
+          "listen",
+          "touch"
+        ]
+      },
+      "answer": "see",
+      "explain_vi": "See the mountain (nhìn thấy ngọn núi).",
+      "content_hash": "see|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "see mountain",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "see",
+      "pos": "v",
+      "sense_vi": "nhìn thấy",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I saw a big bird in the tree yesterday.'",
+        "opts": [
+          "I saw a big bird in the tree yesterday.",
+          "I see a big bird in the tree yesterday.",
+          "I seed a big bird in the tree yesterday.",
+          "I am see a big bird in the tree yesterday."
+        ]
+      },
+      "answer": "I saw a big bird in the tree yesterday.",
+      "explain_vi": "Yesterday dùng quá khứ bất quy tắc saw, không có seed.",
+      "content_hash": "see|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy quá khứ saw",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "see",
+      "pos": "v",
+      "sense_vi": "nhìn thấy",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hẹn gặp lại sau chuẩn:",
+        "opts": [
+          "see you later",
+          "see you after",
+          "see you back",
+          "see you next"
+        ]
+      },
+      "answer": "see you later",
+      "explain_vi": "Hẹn gặp lại sau: see you later.",
+      "content_hash": "see|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm see you later",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "have",
+      "pos": "v",
+      "sense_vi": "có / sở hữu",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "have (v.)",
+        "opts": [
+          "có / sở hữu",
+          "mất",
+          "thiếu",
+          "cho"
+        ]
+      },
+      "answer": "có / sở hữu",
+      "explain_vi": "have nghĩa là có, sở hữu.",
+      "content_hash": "have|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa sở hữu",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "have",
+      "pos": "v",
+      "sense_vi": "có / sở hữu",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Sở hữu hoặc nắm giữ thứ gì đó:",
+        "opts": [
+          "have",
+          "has",
+          "had",
+          "having"
+        ]
+      },
+      "answer": "have",
+      "explain_vi": "Động từ có dạng nguyên mẫu là have (has là ngôi 3 số ít).",
+      "content_hash": "have|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss has/had",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "have",
+      "pos": "v",
+      "sense_vi": "có / sở hữu",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I ___ breakfast at 7 o'clock every morning.",
+        "opts": [
+          "have",
+          "do",
+          "make",
+          "take"
+        ]
+      },
+      "answer": "have",
+      "explain_vi": "Have breakfast (ăn bữa sáng).",
+      "content_hash": "have|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "have breakfast",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "have",
+      "pos": "v",
+      "sense_vi": "có / sở hữu",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She have a new bicycle.'",
+        "opts": [
+          "She has a new bicycle.",
+          "She have a new bicycle.",
+          "She is have a new bicycle.",
+          "She having a new bicycle."
+        ]
+      },
+      "answer": "She has a new bicycle.",
+      "explain_vi": "Chủ ngữ She đi với động từ chia 'has'.",
+      "content_hash": "have|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy have vs has",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "have",
+      "pos": "v",
+      "sense_vi": "có / sở hữu",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ăn bữa sáng chuẩn:",
+        "opts": [
+          "have breakfast",
+          "eat breakfast",
+          "make breakfast",
+          "do breakfast"
+        ]
+      },
+      "answer": "have breakfast",
+      "explain_vi": "Cụm tự nhiên phổ biến là have breakfast.",
+      "content_hash": "have|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm have breakfast",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "want (v.)",
+        "opts": [
+          "muốn / mong muốn",
+          "cần",
+          "ghét",
+          "sợ"
+        ]
+      },
+      "answer": "muốn / mong muốn",
+      "explain_vi": "want nghĩa là muốn có cái gì.",
+      "content_hash": "want|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa muốn",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Mong muốn hoặc khao khát có điều gì:",
+        "opts": [
+          "want",
+          "wants",
+          "wanted",
+          "won't"
+        ]
+      },
+      "answer": "want",
+      "explain_vi": "Muốn là want (won't là viết tắt của will not).",
+      "content_hash": "want|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss won't",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Do you ___ a glass of fresh orange juice?",
+        "opts": [
+          "want",
+          "need",
+          "like",
+          "drink"
+        ]
+      },
+      "answer": "want",
+      "explain_vi": "Want a glass of juice (muốn một cốc nước ép).",
+      "content_hash": "want|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "want juice",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She wants buying a new doll.'",
+        "opts": [
+          "She wants to buy a new doll.",
+          "She wants buying a new doll.",
+          "She want to buy a new doll.",
+          "She is wanting buy a new doll."
+        ]
+      },
+      "answer": "She wants to buy a new doll.",
+      "explain_vi": "Want theo sau bởi to-V: want to buy.",
+      "content_hash": "want|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy want to V",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm muốn làm gì đó chuẩn:",
+        "opts": [
+          "want to do something",
+          "want doing something",
+          "want for do something",
+          "want at doing something"
+        ]
+      },
+      "answer": "want to do something",
+      "explain_vi": "Cấu trúc chuẩn: want to do something.",
+      "content_hash": "want|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm want to do",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "like",
+      "pos": "v",
+      "sense_vi": "thích",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "like (v.)",
+        "opts": [
+          "thích / yêu thích",
+          "ghét",
+          "sợ",
+          "lo lắng"
+        ]
+      },
+      "answer": "thích / yêu thích",
+      "explain_vi": "like nghĩa là thích điều gì.",
+      "content_hash": "like|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa thích",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "like",
+      "pos": "v",
+      "sense_vi": "thích",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cảm thấy ưa thích hoặc quý mến điều gì:",
+        "opts": [
+          "like",
+          "likes",
+          "liked",
+          "lacking"
+        ]
+      },
+      "answer": "like",
+      "explain_vi": "Thích là like.",
+      "content_hash": "like|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss form",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "like",
+      "pos": "v",
+      "sense_vi": "thích",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I ___ listening to pop music in my free time.",
+        "opts": [
+          "like",
+          "want",
+          "need",
+          "hope"
+        ]
+      },
+      "answer": "like",
+      "explain_vi": "Like + V-ing (thích làm gì).",
+      "content_hash": "like|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "like Ving",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "like",
+      "pos": "v",
+      "sense_vi": "thích",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She like playing tennis on weekends.'",
+        "opts": [
+          "She likes playing tennis on weekends.",
+          "She like playing tennis on weekends.",
+          "She is like playing tennis on weekends.",
+          "She liking playing tennis on weekends."
+        ]
+      },
+      "answer": "She likes playing tennis on weekends.",
+      "explain_vi": "Chủ ngữ She chia động từ ngôi 3: likes.",
+      "content_hash": "like|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia động từ likes",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "like",
+      "pos": "v",
+      "sense_vi": "thích",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm muốn / mời lịch sự chuẩn:",
+        "opts": [
+          "would like to",
+          "would want to",
+          "would wish to",
+          "would hope to"
+        ]
+      },
+      "answer": "would like to",
+      "explain_vi": "Mẫu câu mời/muốn lịch sự: would like to.",
+      "content_hash": "like|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm would like to",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "know",
+      "pos": "v",
+      "sense_vi": "biết / hiểu",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "know (v.)",
+        "opts": [
+          "biết / hiểu rõ",
+          "quên",
+          "nhầm lẫn",
+          "hỏi"
+        ]
+      },
+      "answer": "biết / hiểu rõ",
+      "explain_vi": "know nghĩa là biết hoặc hiểu thông tin.",
+      "content_hash": "know|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa biết",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "know",
+      "pos": "v",
+      "sense_vi": "biết / hiểu",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Có kiến thức hoặc hiểu rõ thông tin về điều gì:",
+        "opts": [
+          "know",
+          "knew",
+          "known",
+          "no"
+        ]
+      },
+      "answer": "know",
+      "explain_vi": "Biết là know (đồng âm với no, knew là quá khứ).",
+      "content_hash": "know|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm no/knew",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "know",
+      "pos": "v",
+      "sense_vi": "biết / hiểu",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Do you ___ the answer to this question?",
+        "opts": [
+          "know",
+          "see",
+          "think",
+          "tell"
+        ]
+      },
+      "answer": "know",
+      "explain_vi": "Know the answer (biết câu trả lời).",
+      "content_hash": "know|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "know the answer",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "know",
+      "pos": "v",
+      "sense_vi": "biết / hiểu",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I am knowing his phone number.'",
+        "opts": [
+          "I know his phone number.",
+          "I am knowing his phone number.",
+          "I knows his phone number.",
+          "I have know his phone number."
+        ]
+      },
+      "answer": "I know his phone number.",
+      "explain_vi": "Know là stative verb, không dùng tiếp diễn 'am knowing'.",
+      "content_hash": "know|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy stative verb know",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "know",
+      "pos": "v",
+      "sense_vi": "biết / hiểu",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm biết cách làm gì chuẩn:",
+        "opts": [
+          "know how to do something",
+          "know way to do something",
+          "know to do something",
+          "know method to do something"
+        ]
+      },
+      "answer": "know how to do something",
+      "explain_vi": "Cấu trúc know how to do something.",
+      "content_hash": "know|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm know how to",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "make",
+      "pos": "v",
+      "sense_vi": "chế tạo / làm ra",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "make (v.)",
+        "opts": [
+          "làm / chế tạo",
+          "phá hủy",
+          "mua",
+          "bán"
+        ]
+      },
+      "answer": "làm / chế tạo",
+      "explain_vi": "make nghĩa là làm ra, chế tạo cái gì.",
+      "content_hash": "make|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa chế tạo",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "make",
+      "pos": "v",
+      "sense_vi": "chế tạo / làm ra",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tạo ra hoặc sản xuất ra một sản phẩm:",
+        "opts": [
+          "make",
+          "made",
+          "maker",
+          "mark"
+        ]
+      },
+      "answer": "make",
+      "explain_vi": "Tạo ra là make (made là quá khứ).",
+      "content_hash": "make|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss made/mark",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "make",
+      "pos": "v",
+      "sense_vi": "chế tạo / làm ra",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My mother will ___ a birthday cake for me.",
+        "opts": [
+          "make",
+          "do",
+          "take",
+          "give"
+        ]
+      },
+      "answer": "make",
+      "explain_vi": "Make a cake (làm bánh).",
+      "content_hash": "make|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "make a cake",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "make",
+      "pos": "v",
+      "sense_vi": "chế tạo / làm ra",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She made a mistake in her test yesterday.'",
+        "opts": [
+          "She made a mistake in her test yesterday.",
+          "She did a mistake in her test yesterday.",
+          "She make a mistake in her test yesterday.",
+          "She is make a mistake in her test yesterday."
+        ]
+      },
+      "answer": "She made a mistake in her test yesterday.",
+      "explain_vi": "Tạo ra lỗi dùng make a mistake (quá khứ made a mistake, không dùng did).",
+      "content_hash": "make|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy make a mistake vs do",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "make",
+      "pos": "v",
+      "sense_vi": "chế tạo / làm ra",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm phạm sai lầm chuẩn:",
+        "opts": [
+          "make a mistake",
+          "do a mistake",
+          "create a mistake",
+          "work a mistake"
+        ]
+      },
+      "answer": "make a mistake",
+      "explain_vi": "Phạm lỗi dùng make a mistake.",
+      "content_hash": "make|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm make a mistake",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "give",
+      "pos": "v",
+      "sense_vi": "cho / tặng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "give (v.)",
+        "opts": [
+          "cho / tặng / đưa",
+          "nhận",
+          "lấy",
+          "mất"
+        ]
+      },
+      "answer": "cho / tặng / đưa",
+      "explain_vi": "give nghĩa là đưa hoặc tặng ai cái gì.",
+      "content_hash": "give|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cho/tặng",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "give",
+      "pos": "v",
+      "sense_vi": "cho / tặng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trao cái gì đó cho ai:",
+        "opts": [
+          "give",
+          "gave",
+          "given",
+          "gift"
+        ]
+      },
+      "answer": "give",
+      "explain_vi": "Trao/cho là give (gave là quá khứ).",
+      "content_hash": "give|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss gave/gift",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "give",
+      "pos": "v",
+      "sense_vi": "cho / tặng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ me that pen on the table.",
+        "opts": [
+          "give",
+          "take",
+          "get",
+          "bring"
+        ]
+      },
+      "answer": "give",
+      "explain_vi": "Give me that pen (đưa tôi cây bút đó).",
+      "content_hash": "give|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "give me",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "give",
+      "pos": "v",
+      "sense_vi": "cho / tặng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She gave to me a present on my birthday.'",
+        "opts": [
+          "She gave me a present on my birthday.",
+          "She gave to me a present on my birthday.",
+          "She give me a present on my birthday.",
+          "She is give me a present on my birthday."
+        ]
+      },
+      "answer": "She gave me a present on my birthday.",
+      "explain_vi": "Cấu trúc give sb sth không có giới từ 'to': gave me a present.",
+      "content_hash": "give|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy gave me a present",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "give",
+      "pos": "v",
+      "sense_vi": "cho / tặng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm giúp một tay chuẩn:",
+        "opts": [
+          "give a hand",
+          "make a hand",
+          "do a hand",
+          "take a hand"
+        ]
+      },
+      "answer": "give a hand",
+      "explain_vi": "Cụm giúp đỡ: give a hand.",
+      "content_hash": "give|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm give a hand",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "take",
+      "pos": "v",
+      "sense_vi": "lấy / cầm",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "take (v.)",
+        "opts": [
+          "cầm / lấy / đưa đi",
+          "cho",
+          "trả lại",
+          "bỏ lại"
+        ]
+      },
+      "answer": "cầm / lấy / đưa đi",
+      "explain_vi": "take nghĩa là cầm, lấy hoặc mang đi.",
+      "content_hash": "take|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa lấy/cầm",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "take",
+      "pos": "v",
+      "sense_vi": "lấy / cầm",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cầm lấy hoặc mang thứ gì đi:",
+        "opts": [
+          "take",
+          "took",
+          "taken",
+          "make"
+        ]
+      },
+      "answer": "take",
+      "explain_vi": "Lấy/cầm là take (took là quá khứ).",
+      "content_hash": "take|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss took",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "take",
+      "pos": "v",
+      "sense_vi": "lấy / cầm",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Don't forget to ___ an umbrella because it is raining.",
+        "opts": [
+          "take",
+          "give",
+          "put",
+          "bring"
+        ]
+      },
+      "answer": "take",
+      "explain_vi": "Take an umbrella (mang theo ô).",
+      "content_hash": "take|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "take umbrella",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "take",
+      "pos": "v",
+      "sense_vi": "lấy / cầm",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He took a photo of the monument yesterday.'",
+        "opts": [
+          "He took a photo of the monument yesterday.",
+          "He made a photo of the monument yesterday.",
+          "He did a photo of the monument yesterday.",
+          "He is took a photo yesterday."
+        ]
+      },
+      "answer": "He took a photo of the monument yesterday.",
+      "explain_vi": "Chụp ảnh dùng cụm take a photo (quá khứ took a photo, không dùng make/do).",
+      "content_hash": "take|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy take a photo",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "take",
+      "pos": "v",
+      "sense_vi": "lấy / cầm",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nghỉ giải lao chuẩn:",
+        "opts": [
+          "take a break",
+          "make a break",
+          "do a break",
+          "create a break"
+        ]
+      },
+      "answer": "take a break",
+      "explain_vi": "Cụm nghỉ giải lao chuẩn là take a break.",
+      "content_hash": "take|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm take a break",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "say",
+      "pos": "v",
+      "sense_vi": "nói",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "say (v.)",
+        "opts": [
+          "nói / thốt ra",
+          "nghe",
+          "đọc",
+          "viết"
+        ]
+      },
+      "answer": "nói / thốt ra",
+      "explain_vi": "say nghĩa là nói ra từ ngữ.",
+      "content_hash": "say|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa nói",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "say",
+      "pos": "v",
+      "sense_vi": "nói",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Phát ra lời nói:",
+        "opts": [
+          "say",
+          "said",
+          "saying",
+          "tell"
+        ]
+      },
+      "answer": "say",
+      "explain_vi": "Nói là say (said là quá khứ).",
+      "content_hash": "say|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss said",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "say",
+      "pos": "v",
+      "sense_vi": "nói",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Always ___ thank you when someone helps you.",
+        "opts": [
+          "say",
+          "tell",
+          "speak",
+          "talk"
+        ]
+      },
+      "answer": "say",
+      "explain_vi": "Say thank you (nói lời cảm ơn).",
+      "content_hash": "say|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "say thank you",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "say",
+      "pos": "v",
+      "sense_vi": "nói",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She said to me that she was happy.'",
+        "opts": [
+          "She said to me that she was happy.",
+          "She said me that she was happy.",
+          "She told to me that she was happy.",
+          "She speak to me that she was happy."
+        ]
+      },
+      "answer": "She said to me that she was happy.",
+      "explain_vi": "Cấu trúc say đi với tân ngữ người có 'to': say to me.",
+      "content_hash": "say|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy say to me",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "say",
+      "pos": "v",
+      "sense_vi": "nói",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nói lời tạm biệt chuẩn:",
+        "opts": [
+          "say goodbye",
+          "tell goodbye",
+          "speak goodbye",
+          "talk goodbye"
+        ]
+      },
+      "answer": "say goodbye",
+      "explain_vi": "Nói lời tạm biệt: say goodbye.",
+      "content_hash": "say|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm say goodbye",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "help (v.)",
+        "opts": [
+          "giúp đỡ / hỗ trợ",
+          "cản trở",
+          "hại",
+          "bỏ mặc"
+        ]
+      },
+      "answer": "giúp đỡ / hỗ trợ",
+      "explain_vi": "help nghĩa là giúp đỡ.",
+      "content_hash": "help|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa giúp đỡ",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hỗ trợ người khác hoàn thành công việc:",
+        "opts": [
+          "help",
+          "helped",
+          "helper",
+          "helpful"
+        ]
+      },
+      "answer": "help",
+      "explain_vi": "Giúp đỡ là help (helpful là tốt bụng/có ích).",
+      "content_hash": "help|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss helpful",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you ___ me carry this heavy box?",
+        "opts": [
+          "help",
+          "make",
+          "let",
+          "push"
+        ]
+      },
+      "answer": "help",
+      "explain_vi": "Help me carry (giúp tôi mang).",
+      "content_hash": "help|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "help me carry",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She helped me doing my homework.'",
+        "opts": [
+          "She helped me do my homework.",
+          "She helped me doing my homework.",
+          "She help me did my homework.",
+          "She is helped me do my homework."
+        ]
+      },
+      "answer": "She helped me do my homework.",
+      "explain_vi": "Sau help + O dùng động từ nguyên thể do, không dùng Ving doing.",
+      "content_hash": "help|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy help sb do",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hỏi giúp đỡ lịch sự chuẩn:",
+        "opts": [
+          "Can you help me?",
+          "Can you do me help?",
+          "Can you make me help?",
+          "Can you give me help?"
+        ]
+      },
+      "answer": "Can you help me?",
+      "explain_vi": "Mẫu câu nhờ giúp đỡ: Can you help me?",
+      "content_hash": "help|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm Can you help me",
+        "pack_id": "starter-a0-verbs",
+        "priority": "P0"
+      }
+    }
+  ]
+}

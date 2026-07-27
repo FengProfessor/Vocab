@@ -41,6 +41,41 @@ function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+/** Dấu thanh / chữ Việt — dùng phát hiện VI dính trong example EN. */
+const VI_CHAR_RE =
+  /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i;
+
+/**
+ * Nhiều row lưu example dạng:
+ *   "EN sentence. (Bản dịch tiếng Việt.)"
+ * → VI nằm trong cùng field `example`, cloze lộ nghĩa.
+ * Gỡ ngoặc/viền chứa chữ Việt; giữ câu EN thuần.
+ */
+export function stripEmbeddedVietnamese(example: string): string {
+  let s = (example || '').replace(/\s+/g, ' ').trim();
+  if (!s || !VI_CHAR_RE.test(s)) return s;
+
+  // 1) Ngoặc tròn/vuông có dấu Việt: "… (Một chế độ ăn…)" / "… […]"
+  s = s.replace(/\s*[\(\[][^\)\]]*[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ][^\)\]]*[\)\]]/gi, '');
+
+  // 2) Đuôi sau " / " hoặc " — " toàn VI
+  s = s.replace(
+    /\s*[\/|—–-]\s*[^A-Za-z]*[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ][\s\S]*$/i,
+    '',
+  );
+
+  // 3) Còn sót dấu Việt ở đuôi (không còn EN sau đó)
+  if (VI_CHAR_RE.test(s)) {
+    const cut = s.search(VI_CHAR_RE);
+    if (cut > 12) {
+      const head = s.slice(0, cut).replace(/[\s\(\[\/|—–-]+$/g, '').trim();
+      if (/[A-Za-z]{3,}/.test(head)) s = head;
+    }
+  }
+
+  return s.replace(/\s+/g, ' ').trim();
+}
+
 /**
  * Tạo cloze từ example: blank từ target (word boundary, case-insensitive).
  * Fallback: dùng translation context nếu example thiếu/không chứa word.
@@ -49,7 +84,8 @@ export function makeCloze(example: string | null | undefined, word: string): Clo
   const w = word?.trim();
   if (!w) return null;
 
-  const full = (example || '').trim();
+  // Gỡ VI dính trong example trước khi blank
+  const full = stripEmbeddedVietnamese(example || '');
   if (full) {
     // Multi-word: match cả phrase; single: word boundary
     const pattern =

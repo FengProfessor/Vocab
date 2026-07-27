@@ -1,0 +1,36 @@
+◇ injected env (44) from .env.local // tip: ⌘ suppress logs { quiet: true }
+◇ injected env (0) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "ego" → senses=3 syn=5 dist=1
+   #1: cái tôi, lòng tự trọng | Winning the award really boosted her ego.
+[2/1000] "end" → senses=3 syn=5 dist=2
+   #1: Phần cuối, sự kết thúc | We reached the end of the street.
+[3/1000] "era" → senses=2 syn=5 dist=2
+   #1: thời đại, kỷ nguyên | The country entered a new era of economic growth.
+[4/1000] "etf" → senses=1 syn=0 dist=2
+   #1: tài chính | She invested part of her savings in an ETF that tracks the S&P 500 index.
+[5/1000] "eye" ✗ The operation was aborted due to timeout
+[6/1000] "fan" → senses=3 syn=5 dist=2
+   #1: người hâm mộ | She's a big fan of Taylor Swift.
+[7/1000] "far" → senses=3 syn=4 dist=2
+   #1: khoảng cách xa | How far is it to the airport?
+[8/1000] "fat" → senses=3 syn=5 dist=2
+   #1: béo, mập | He's gotten fat since he stopped exercising.
+[9/1000] "fax" → senses=3 syn=4 dist=1
+   #1: máy fax, hệ thống fax | Please send the contract by fax before noon.
+[10/1000] "fee" → senses=2 syn=6 dist=2
+   #1: phí, lệ phí | The bank charges a small fee for transferring money abroad.
+[11/1000] "few" ✗ Expected ',' or '}' after property value in JSON at position 145 (line 6 column 55)
+[12/1000] "fin" → senses=3 syn=5 dist=1
+   #1: vây cá | The shark's dorsal fin broke the surface of the water.
+[13/1000] "fit"

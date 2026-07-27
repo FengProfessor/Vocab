@@ -1,0 +1,1937 @@
+{
+  "adjectives-basic.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Adjectives (basic).",
+      "opt": "Not correctly: adjective + noun.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Adjectives (basic).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “This exercise is easy.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "advanced-passive.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Advanced Passive.",
+      "opt": "Not correctly: It is said that + clause.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Advanced Passive.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “He is said to have left the country.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "advanced-relative-clauses.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Advanced Relative Clauses.",
+      "opt": "Not correctly: preposition + whom/which.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Advanced Relative Clauses.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “The meeting was cancelled, which surprised us.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "adverbs-frequency.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Adverbs of Frequency.",
+      "opt": "Not correctly: S + adverb + động từ thường.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Adverbs of Frequency.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “We rarely eat out.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "causative.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Causative (have/get something done).",
+      "opt": "Not correctly: have/get + object + V3.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Causative (have/get something done).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “She had the assistant print the report.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "cleft-sentences.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Cleft Sentences.",
+      "opt": "Not correctly: It is/was + focus + that/who ....",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Cleft Sentences.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “What I want is a quiet weekend.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "comparatives-superlatives.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Comparatives & Superlatives.",
+      "opt": "Not correctly: short adjective + -er / the + -est.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Comparatives & Superlatives.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “The train is more comfortable than the bus.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "conditionals-0-1.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Zero & First Conditional.",
+      "opt": "Not correctly: If + present, present (loại 0).",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Zero & First Conditional.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Plants die if they don't get water.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "conjunctions-linking.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Conjunctions & Linking Words.",
+      "opt": "Not correctly: clause + coordinating conjunction + clause.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Conjunctions & Linking Words.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “She studied hard; therefore, she passed.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "discourse-markers.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Discourse Markers.",
+      "opt": "Not correctly: marker + comma + clause.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Discourse Markers.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “In other words, we need more time.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "ellipsis-substitution.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Ellipsis & Substitution.",
+      "opt": "Not correctly: auxiliary thay cụm động từ.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Ellipsis & Substitution.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “She said it would rain, and I think so.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "emphasis-structures.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Emphasis Structures.",
+      "opt": "Not correctly: do/does/did + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Emphasis Structures.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “The film was so moving that I cried.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "future-continuous.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Future Continuous.",
+      "opt": "Not correctly: S + will be + V-ing.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Future Continuous.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Will you be using the car tonight?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "future-in-the-past.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Future in the Past.",
+      "opt": "Not correctly: would + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Future in the Past.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “He was about to speak when the phone rang.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "future-perfect.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Future Perfect.",
+      "opt": "Not correctly: S + will have + V3.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Future Perfect.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Will they have arrived by then?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "gerunds-infinitives.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Gerunds & Infinitives.",
+      "opt": "Not correctly: verb + V-ing.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Gerunds & Infinitives.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Thank you for helping me.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "grammatical-collocations.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Grammatical Collocations.",
+      "opt": "Not correctly: adjective + preposition.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Grammatical Collocations.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “He apologized for being late.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "hedging-language.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Hedging Language.",
+      "opt": "Not correctly: modal + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Hedging Language.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “It is likely that prices will rise.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "inversion.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Inversion.",
+      "opt": "Not correctly: negative adverbial + auxiliary + S + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Inversion.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Only then did I understand.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "mixed-conditionals.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Mixed Conditionals.",
+      "opt": "Not correctly: If + had + V3, would + V (quá khứ → hiện tại).",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Mixed Conditionals.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Had we taken the map, we would know where we are.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "modals-ability.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Ability (can/could).",
+      "opt": "Not correctly: S + can/could + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Ability (can/could).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Can you hear me?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "modals-advice.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Advice (should/ought to).",
+      "opt": "Not correctly: S + should/ought to + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Advice (should/ought to).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Should I call her now?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "modals-deduction.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Deduction (must/might/can't).",
+      "opt": "Not correctly: must + V: gần như chắc chắn.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Deduction (must/might/can't).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “That can't be true.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "modals-obligation.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Obligation (must/have to).",
+      "opt": "Not correctly: S + must + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Obligation (must/have to).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Visitors mustn't touch the paintings.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "modals-perfect.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Perfect Modals (should have, etc.).",
+      "opt": "Not correctly: modal + have + V3.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Perfect Modals (should have, etc.).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “They might have taken the wrong bus.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "modals-permission.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Permission & Requests.",
+      "opt": "Not correctly: Can/Could/May + S + V?.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Modals: Permission & Requests.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Can I borrow your pen?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "nominalisation.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Nominalisation.",
+      "opt": "Not correctly: verb → noun.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Nominalisation.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “The rapid expansion caused concern.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "participle-clauses.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Participle Clauses.",
+      "opt": "Not correctly: V-ing ..., main clause.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Participle Clauses.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Having finished the report, she went home.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "passive-voice.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Passive Voice.",
+      "opt": "Not correctly: S + be + V3.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Passive Voice.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “The package will be delivered tomorrow.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "past-perfect-continuous.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Past Perfect Continuous.",
+      "opt": "Not correctly: S + had been + V-ing.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Past Perfect Continuous.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “They hadn't been living there long.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "past-perfect.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Past Perfect.",
+      "opt": "Not correctly: S + had + V3.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Past Perfect.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Had you finished when he called?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "phrasal-verbs.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Phrasal Verbs (intro).",
+      "opt": "Not correctly: verb + particle.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Phrasal Verbs (intro).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “She looked after the children.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "prepositions-place.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Prepositions of Place.",
+      "opt": "Not correctly: in + không gian bao quanh.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Prepositions of Place.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Meet me at the entrance.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "present-perfect-continuous.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Present Perfect Continuous.",
+      "opt": "Not correctly: S + have/has been + V-ing.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Present Perfect Continuous.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “We haven't been sleeping well lately.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "quantifiers.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Quantifiers (some/any/much/many).",
+      "opt": "Not correctly: many/few + danh từ đếm được số nhiều.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Quantifiers (some/any/much/many).",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Do you need any help?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "question-tags.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Question Tags.",
+      "opt": "Not correctly: mệnh đề khẳng định, trợ động từ phủ định + đại từ?.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Question Tags.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “They left early, didn't they?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "relative-clauses.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Relative Clauses.",
+      "opt": "Not correctly: person + who/that + clause.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Relative Clauses.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “The café where we met has closed.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "reported-speech.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Reported Speech.",
+      "opt": "Not correctly: said (that) + clause.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Reported Speech.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Lan asked whether I was free.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "second-conditional.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Second Conditional.",
+      "opt": "Not correctly: If + past simple, would + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Second Conditional.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “What would you do if you lost your phone?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "subjunctive.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Subjunctive.",
+      "opt": "Not correctly: suggest/insist that + S + V nguyên thể.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Subjunctive.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “They insisted that she apologize.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "there-is-there-are.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng There is / There are.",
+      "opt": "Not correctly: There is + danh từ số ít/không đếm được.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng There is / There are.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “There isn't any milk left.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "third-conditional.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Third Conditional.",
+      "opt": "Not correctly: If + had + V3, would have + V3.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Third Conditional.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Had we known, we would have helped.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "used-to.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Used to / Be used to / Get used to.",
+      "opt": "Not correctly: used to + V.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Used to / Be used to / Get used to.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Are you used to the heat?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "wh-questions.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Wh- Questions.",
+      "opt": "Not correctly: Wh-word + auxiliary + S + V?.",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Wh- Questions.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “Who called you last night?”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ],
+  "wish-if-only.json": [
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Wish / If only.",
+      "opt": "Not correctly: wish + past simple (hiện tại).",
+      "idx": 0
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Chọn câu dùng đúng Wish / If only.",
+      "opt": "Wrong structure for this meaning.",
+      "idx": 0
+    },
+    {
+      "type": "meta_question",
+      "q": "Câu này tự nhiên và đúng ngữ pháp: “She wishes she had studied harder.”",
+      "idx": 4
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ số lượng từ trong câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Điều cần kiểm tra đầu tiên là gì?",
+      "opt": "Chỉ độ dài câu",
+      "idx": 7
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "This sentence missing required grammar.",
+      "idx": 11
+    },
+    {
+      "type": "bad_distractor",
+      "q": "Câu nào là một ví dụ đúng khác?",
+      "opt": "Incorrectly structure sentence.",
+      "idx": 11
+    }
+  ]
+}

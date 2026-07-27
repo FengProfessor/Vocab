@@ -452,113 +452,12 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "Chọn câu dùng đúng Future Perfect.",
-      "opts": [
-        "By Friday, I will have finished the report.",
-        "Not correctly: S + will have + V3.",
-        "Wrong structure for this meaning."
-      ],
-      "answer": "By Friday, I will have finished the report.",
-      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn cấu trúc phù hợp nhất.",
-      "opts": [
-        "S + will have + V3",
-        "S + will not have + V3",
-        "Will + S + have + V3?"
-      ],
-      "answer": "S + will have + V3",
-      "fb": "Mẫu trọng tâm là S + will have + V3."
-    },
-    {
       "type": "fill",
       "q": "Hoàn thành theo mẫu: She ___ have left before noon.",
       "answer": [
         "will"
       ],
       "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
-      "answer": [
-        "Future Perfect",
-        "future perfect"
-      ],
-      "fb": "Chủ điểm là Future Perfect."
-    },
-    {
-      "type": "tf",
-      "q": "Câu này tự nhiên và đúng ngữ pháp: “Will they have arrived by then?”",
-      "answer": true,
-      "fb": "Đúng; câu minh họa một biến thể quan trọng."
-    },
-    {
-      "type": "tf",
-      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Future Perfect chính xác.",
-      "answer": false,
-      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
-    },
-    {
-      "type": "error",
-      "q": "Câu/mô tả nào SAI?",
-      "opts": [
-        "We won't have saved enough by June.",
-        "By next year, he will have worked here for a decade.",
-        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
-      ],
-      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
-      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
-    },
-    {
-      "type": "mcq",
-      "q": "Điều cần kiểm tra đầu tiên là gì?",
-      "opts": [
-        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-        "Chỉ số lượng từ trong câu",
-        "Chỉ độ dài câu"
-      ],
-      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Dịch sang tiếng Anh: “Khách sẽ ăn xong trước khi buổi diễn bắt đầu.”",
-      "answer": [
-        "The guests will have eaten before the show starts."
-      ],
-      "fb": "The guests will have eaten before the show starts."
-    },
-    {
-      "type": "tf",
-      "q": "“By Friday, I will have finished the report.” là một ví dụ đúng.",
-      "answer": true,
-      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
-    },
-    {
-      "type": "error",
-      "q": "Chọn lời khuyên SAI.",
-      "opts": [
-        "Học cấu trúc cùng ví dụ.",
-        "Kiểm tra dạng động từ.",
-        "Dịch máy móc từng từ luôn cho kết quả đúng."
-      ],
-      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
-      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
-    },
-    {
-      "type": "mcq",
-      "q": "Câu nào là một ví dụ đúng khác?",
-      "opts": [
-        "The guests will have eaten before the show starts.",
-        "This sentence missing required grammar.",
-        "Incorrectly structure sentence."
-      ],
-      "answer": "The guests will have eaten before the show starts.",
-      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
     }
   ]
 }

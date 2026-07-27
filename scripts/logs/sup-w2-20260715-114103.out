@@ -1,0 +1,46 @@
+◇ injected env (44) from .env.local // tip: ◈ encrypted .env [www.dotenvx.com]
+◇ injected env (0) from .env.local // tip: ⌘ suppress logs { quiet: true }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "crown" → senses=3 syn=6 dist=1
+   #1: vương miện | The queen placed the crown on her head during the ceremony.
+[2/1000] "crude" → senses=3 syn=6 dist=1
+   #1: Chưa chế biến | Crude oil is pumped from deep underground.
+[3/1000] "cruel" → senses=2 syn=6 dist=1
+   #1: tàn nhẫn, độc ác | He was cruel to his dog and often beat it for no reason.
+[4/1000] "crush" → senses=3 syn=5 dist=1
+   #1: nghiền nát, đè nát | The car was completely crushed in the accident.
+[5/1000] "crust" → senses=3 syn=6 dist=2
+   #1: vỏ bánh mì | The children don't like eating the crusts of their sandwiches.
+[6/1000] "curly" → senses=2 syn=5 dist=1
+   #1: tóc xoăn | She has beautiful curly brown hair.
+[7/1000] "curse" → senses=3 syn=5 dist=1
+   #1: chửi rủa, nói bậy | She cursed loudly when she dropped the plate on her foot.
+[8/1000] "curve" → senses=3 syn=5 dist=1
+   #1: đường cong | The road follows the curve of the river.
+[9/1000] "cycle" → senses=3 syn=6 dist=1
+   #1: chu kỳ, vòng lặp | The economic cycle goes through periods of growth and recession.
+[10/1000] "cynic" → senses=2 syn=5 dist=1
+   #1: người hoài nghi | He's such a cynic that he thinks nobody does volunteer work for genuinely selfless reasons.
+[11/1000] "daily" → senses=3 syn=5 dist=1
+   #1: xảy ra hàng ngày | She takes a daily walk in the park.
+[12/1000] "dairy" → senses=3 syn=1 dist=1
+   #1: sản phẩm từ sữa | She avoids dairy because she's lactose intolerant.
+[13/1000] "dance" → senses=3 syn=5 dist=0
+   #1: nhảy múa, khiêu vũ | They danced together all night at the wedding.
+[14/1000] "darts" → senses=2 syn=0 dist=0
+   #1: trò chơi ném phi tiêu | We played darts at the pub after work.
+[15/1000] "death" → senses=3 syn=5 dist=2
+   #1: sự kết thúc sự sống | His death was sudden and unexpected.
+[16/1000] "debit" → senses=3 syn=5 dist=1
+   #1: khoản ghi nợ | A debit of $50 appeared on my bank statement.
+[17/1000] "decay"

@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-23",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "switch",
+    "taste",
+    "tend",
+    "test",
+    "throw",
+    "tie",
+    "train",
+    "translate",
+    "treat",
+    "trust"
+  ],
+  "items": [
+    {
+      "lemma": "switch",
+      "pos": "v",
+      "sense_vi": "bật tắt đèn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "switch (v.)",
+        "opts": [
+          "bật tắt đèn",
+          "thay đổi kích thước",
+          "đốt củi",
+          "dẫn đường"
+        ]
+      },
+      "answer": "bật tắt đèn",
+      "explain_vi": "Động từ switch mang nghĩa chính xác là: bật tắt đèn.",
+      "content_hash": "switch|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "switch gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "switch off electric lights",
+        "vn_trap": "past tense switched"
+      }
+    },
+    {
+      "lemma": "switch",
+      "pos": "v",
+      "sense_vi": "bật tắt đèn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'bật tắt đèn' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "switch",
+          "switchs",
+          "switching",
+          "switched"
+        ]
+      },
+      "answer": "switch",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là switch.",
+      "content_hash": "switch|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "switch l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "switch off electric lights",
+        "vn_trap": "past tense switched"
+      }
+    },
+    {
+      "lemma": "switch",
+      "pos": "v",
+      "sense_vi": "bật tắt đèn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Keep working hard to ___ your dreams in life.",
+        "opts": [
+          "switch",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "switch",
+      "explain_vi": "Điền 'switch' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "switch|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "switch cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "switch off electric lights",
+        "vn_trap": "past tense switched"
+      }
+    },
+    {
+      "lemma": "switch",
+      "pos": "v",
+      "sense_vi": "bật tắt đèn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She switchs the song very beautiful yesterday.'",
+        "opts": [
+          "She switched the song very beautifully yesterday.",
+          "She switchs the song very beautiful yesterday.",
+          "They She switchs the song very beautiful yesterday.",
+          "She was switching when I came yesterday."
+        ]
+      },
+      "answer": "She switched the song very beautifully yesterday.",
+      "explain_vi": "Trạng từ 'beautifully' bổ nghĩa cho động từ.",
+      "content_hash": "switch|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "switch error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "switch off electric lights",
+        "vn_trap": "past tense switched"
+      }
+    },
+    {
+      "lemma": "switch",
+      "pos": "v",
+      "sense_vi": "bật tắt đèn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'switch':",
+        "opts": [
+          "switch off electric lights",
+          "switch in wrong way",
+          "switch without care",
+          "switch for nothing"
+        ]
+      },
+      "answer": "switch off electric lights",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: switch off electric lights.",
+      "content_hash": "switch|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "switch collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "switch off electric lights",
+        "vn_trap": "past tense switched"
+      }
+    },
+    {
+      "lemma": "taste",
+      "pos": "v",
+      "sense_vi": "nếm thử thức ăn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "taste (v.)",
+        "opts": [
+          "nếm thử thức ăn",
+          "xem bức ảnh",
+          "hủy cuộc họp",
+          "hiểu bài giảng"
+        ]
+      },
+      "answer": "nếm thử thức ăn",
+      "explain_vi": "Động từ taste mang nghĩa chính xác là: nếm thử thức ăn.",
+      "content_hash": "taste|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "taste gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "taste fresh and delicious",
+        "vn_trap": "past tense tasted"
+      }
+    },
+    {
+      "lemma": "taste",
+      "pos": "v",
+      "sense_vi": "nếm thử thức ăn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'nếm thử thức ăn' là:",
+        "opts": [
+          "taste",
+          "tastes",
+          "tasteing",
+          "tasted"
+        ]
+      },
+      "answer": "taste",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là taste.",
+      "content_hash": "taste|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "taste l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "taste fresh and delicious",
+        "vn_trap": "past tense tasted"
+      }
+    },
+    {
+      "lemma": "taste",
+      "pos": "v",
+      "sense_vi": "nếm thử thức ăn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Learning how to ___ a foreign language takes time.",
+        "opts": [
+          "taste",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "taste",
+      "explain_vi": "Điền 'taste' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "taste|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "taste cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "taste fresh and delicious",
+        "vn_trap": "past tense tasted"
+      }
+    },
+    {
+      "lemma": "taste",
+      "pos": "v",
+      "sense_vi": "nếm thử thức ăn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was tasteing when I arrived home.'",
+        "opts": [
+          "They were tasteing when I arrived home.",
+          "They was tasteing when I arrived home.",
+          "They They was tasteing when I arrived home.",
+          "She was tasteing when I came yesterday."
+        ]
+      },
+      "answer": "They were tasteing when I arrived home.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were'.",
+      "content_hash": "taste|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "taste error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "taste fresh and delicious",
+        "vn_trap": "past tense tasted"
+      }
+    },
+    {
+      "lemma": "taste",
+      "pos": "v",
+      "sense_vi": "nếm thử thức ăn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'taste':",
+        "opts": [
+          "taste fresh and delicious",
+          "taste in wrong way",
+          "taste without care",
+          "taste for nothing"
+        ]
+      },
+      "answer": "taste fresh and delicious",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: taste fresh and delicious.",
+      "content_hash": "taste|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "taste collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "taste fresh and delicious",
+        "vn_trap": "past tense tasted"
+      }
+    },
+    {
+      "lemma": "tend",
+      "pos": "v",
+      "sense_vi": "có xu hướng thích",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tend (v.)",
+        "opts": [
+          "có xu hướng thích",
+          "bỏ phiếu bầu",
+          "làm bài tập",
+          "xem phim"
+        ]
+      },
+      "answer": "có xu hướng thích",
+      "explain_vi": "Động từ tend mang nghĩa chính xác là: có xu hướng thích.",
+      "content_hash": "tend|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "tend gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tend to agree completely",
+        "vn_trap": "past tense tended"
+      }
+    },
+    {
+      "lemma": "tend",
+      "pos": "v",
+      "sense_vi": "có xu hướng thích",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'có xu hướng thích' được dịch là:",
+        "opts": [
+          "tend",
+          "tends",
+          "tending",
+          "tended"
+        ]
+      },
+      "answer": "tend",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là tend.",
+      "content_hash": "tend|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "tend l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tend to agree completely",
+        "vn_trap": "past tense tended"
+      }
+    },
+    {
+      "lemma": "tend",
+      "pos": "v",
+      "sense_vi": "có xu hướng thích",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Many people choose to ___ abroad during summer.",
+        "opts": [
+          "tend",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "tend",
+      "explain_vi": "Điền 'tend' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "tend|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "tend cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tend to agree completely",
+        "vn_trap": "past tense tended"
+      }
+    },
+    {
+      "lemma": "tend",
+      "pos": "v",
+      "sense_vi": "có xu hướng thích",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He tends without ask for permission.'",
+        "opts": [
+          "He tended without asking for permission.",
+          "He tends without ask for permission.",
+          "They He tends without ask for permission.",
+          "She was tending when I came yesterday."
+        ]
+      },
+      "answer": "He tended without asking for permission.",
+      "explain_vi": "Sau giới từ 'without' cần V-ing.",
+      "content_hash": "tend|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "tend error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tend to agree completely",
+        "vn_trap": "past tense tended"
+      }
+    },
+    {
+      "lemma": "tend",
+      "pos": "v",
+      "sense_vi": "có xu hướng thích",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'tend':",
+        "opts": [
+          "tend to agree completely",
+          "tend in wrong way",
+          "tend without care",
+          "tend for nothing"
+        ]
+      },
+      "answer": "tend to agree completely",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: tend to agree completely.",
+      "content_hash": "tend|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "tend collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tend to agree completely",
+        "vn_trap": "past tense tended"
+      }
+    },
+    {
+      "lemma": "test",
+      "pos": "v",
+      "sense_vi": "kiểm tra phần mềm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "test (v.)",
+        "opts": [
+          "kiểm tra phần mềm",
+          "cảnh báo nguy hiểm",
+          "nhận được tin nhắn",
+          "theo hướng dẫn"
+        ]
+      },
+      "answer": "kiểm tra phần mềm",
+      "explain_vi": "Động từ test mang nghĩa chính xác là: kiểm tra phần mềm.",
+      "content_hash": "test|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "test gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "test the new code",
+        "vn_trap": "past tense tested"
+      }
+    },
+    {
+      "lemma": "test",
+      "pos": "v",
+      "sense_vi": "kiểm tra phần mềm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'kiểm tra phần mềm', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "test",
+          "tests",
+          "testing",
+          "tested"
+        ]
+      },
+      "answer": "test",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là test.",
+      "content_hash": "test|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "test l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "test the new code",
+        "vn_trap": "past tense tested"
+      }
+    },
+    {
+      "lemma": "test",
+      "pos": "v",
+      "sense_vi": "kiểm tra phần mềm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Never hesitate to ___ for help when you need it.",
+        "opts": [
+          "test",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "test",
+      "explain_vi": "Điền 'test' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "test|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "test cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "test the new code",
+        "vn_trap": "past tense tested"
+      }
+    },
+    {
+      "lemma": "test",
+      "pos": "v",
+      "sense_vi": "kiểm tra phần mềm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is testing since early this morning.'",
+        "opts": [
+          "She has been testing since early this morning.",
+          "She is testing since early this morning.",
+          "They She is testing since early this morning.",
+          "She was testing when I came yesterday."
+        ]
+      },
+      "answer": "She has been testing since early this morning.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "test|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "test error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "test the new code",
+        "vn_trap": "past tense tested"
+      }
+    },
+    {
+      "lemma": "test",
+      "pos": "v",
+      "sense_vi": "kiểm tra phần mềm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'test':",
+        "opts": [
+          "test the new code",
+          "test in wrong way",
+          "test without care",
+          "test for nothing"
+        ]
+      },
+      "answer": "test the new code",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: test the new code.",
+      "content_hash": "test|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "test collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "test the new code",
+        "vn_trap": "past tense tested"
+      }
+    },
+    {
+      "lemma": "throw",
+      "pos": "v",
+      "sense_vi": "ném quả bóng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "throw (v.)",
+        "opts": [
+          "ném quả bóng",
+          "lãng phí thời gian",
+          "suy nghĩ kỹ",
+          "dừng xe"
+        ]
+      },
+      "answer": "ném quả bóng",
+      "explain_vi": "Động từ throw mang nghĩa chính xác là: ném quả bóng.",
+      "content_hash": "throw|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "throw gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "throw the ball high",
+        "vn_trap": "past tense threw"
+      }
+    },
+    {
+      "lemma": "throw",
+      "pos": "v",
+      "sense_vi": "ném quả bóng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'ném quả bóng' là:",
+        "opts": [
+          "throw",
+          "throws",
+          "throwing",
+          "threw"
+        ]
+      },
+      "answer": "throw",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là throw.",
+      "content_hash": "throw|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "throw l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "throw the ball high",
+        "vn_trap": "past tense threw"
+      }
+    },
+    {
+      "lemma": "throw",
+      "pos": "v",
+      "sense_vi": "ném quả bóng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Our team hopes to ___ the championship match.",
+        "opts": [
+          "throw",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "throw",
+      "explain_vi": "Điền 'throw' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "throw|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "throw cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "throw the ball high",
+        "vn_trap": "past tense threw"
+      }
+    },
+    {
+      "lemma": "throw",
+      "pos": "v",
+      "sense_vi": "ném quả bóng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If she throws more, she would succeed.'",
+        "opts": [
+          "If she threw more, she would succeed.",
+          "If she throws more, she would succeed.",
+          "They If she throws more, she would succeed.",
+          "She was throwing when I came yesterday."
+        ]
+      },
+      "answer": "If she threw more, she would succeed.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "throw|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "throw error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "throw the ball high",
+        "vn_trap": "past tense threw"
+      }
+    },
+    {
+      "lemma": "throw",
+      "pos": "v",
+      "sense_vi": "ném quả bóng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'throw':",
+        "opts": [
+          "throw the ball high",
+          "throw in wrong way",
+          "throw without care",
+          "throw for nothing"
+        ]
+      },
+      "answer": "throw the ball high",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: throw the ball high.",
+      "content_hash": "throw|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "throw collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "throw the ball high",
+        "vn_trap": "past tense threw"
+      }
+    },
+    {
+      "lemma": "tie",
+      "pos": "v",
+      "sense_vi": "buộc dây giày",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tie (v.)",
+        "opts": [
+          "buộc dây giày",
+          "vẫy tay chào",
+          "nhìn bảng",
+          "tạo tài khoản"
+        ]
+      },
+      "answer": "buộc dây giày",
+      "explain_vi": "Động từ tie mang nghĩa chính xác là: buộc dây giày.",
+      "content_hash": "tie|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "tie gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tie the leather shoes",
+        "vn_trap": "past tense tied"
+      }
+    },
+    {
+      "lemma": "tie",
+      "pos": "v",
+      "sense_vi": "buộc dây giày",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'buộc dây giày' là:",
+        "opts": [
+          "tie",
+          "ties",
+          "tieing",
+          "tied"
+        ]
+      },
+      "answer": "tie",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là tie.",
+      "content_hash": "tie|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "tie l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tie the leather shoes",
+        "vn_trap": "past tense tied"
+      }
+    },
+    {
+      "lemma": "tie",
+      "pos": "v",
+      "sense_vi": "buộc dây giày",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please feel free to ___ your thoughts with us.",
+        "opts": [
+          "tie",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "tie",
+      "explain_vi": "Điền 'tie' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "tie|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "tie cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tie the leather shoes",
+        "vn_trap": "past tense tied"
+      }
+    },
+    {
+      "lemma": "tie",
+      "pos": "v",
+      "sense_vi": "buộc dây giày",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She loves to tieing every afternoon.'",
+        "opts": [
+          "She loves to tie every afternoon.",
+          "She loves to tieing every afternoon.",
+          "They She loves to tieing every afternoon.",
+          "She was tieing when I came yesterday."
+        ]
+      },
+      "answer": "She loves to tie every afternoon.",
+      "explain_vi": "Sau 'to' dùng động từ nguyên mẫu.",
+      "content_hash": "tie|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "tie error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tie the leather shoes",
+        "vn_trap": "past tense tied"
+      }
+    },
+    {
+      "lemma": "tie",
+      "pos": "v",
+      "sense_vi": "buộc dây giày",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'tie':",
+        "opts": [
+          "tie the leather shoes",
+          "tie in wrong way",
+          "tie without care",
+          "tie for nothing"
+        ]
+      },
+      "answer": "tie the leather shoes",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: tie the leather shoes.",
+      "content_hash": "tie|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "tie collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tie the leather shoes",
+        "vn_trap": "past tense tied"
+      }
+    },
+    {
+      "lemma": "train",
+      "pos": "v",
+      "sense_vi": "đào tạo nhân viên",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "train (v.)",
+        "opts": [
+          "đào tạo nhân viên",
+          "tự hỏi tại sao",
+          "dùng máy tính",
+          "cho phép ra ngoài"
+        ]
+      },
+      "answer": "đào tạo nhân viên",
+      "explain_vi": "Động từ train mang nghĩa chính xác là: đào tạo nhân viên.",
+      "content_hash": "train|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "train gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "train new company employees",
+        "vn_trap": "past tense trained"
+      }
+    },
+    {
+      "lemma": "train",
+      "pos": "v",
+      "sense_vi": "đào tạo nhân viên",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'đào tạo nhân viên', người Anh dùng:",
+        "opts": [
+          "train",
+          "trains",
+          "training",
+          "trained"
+        ]
+      },
+      "answer": "train",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là train.",
+      "content_hash": "train|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "train l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "train new company employees",
+        "vn_trap": "past tense trained"
+      }
+    },
+    {
+      "lemma": "train",
+      "pos": "v",
+      "sense_vi": "đào tạo nhân viên",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Quietly step inside so you don't ___ the baby.",
+        "opts": [
+          "train",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "train",
+      "explain_vi": "Điền 'train' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "train|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "train cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "train new company employees",
+        "vn_trap": "past tense trained"
+      }
+    },
+    {
+      "lemma": "train",
+      "pos": "v",
+      "sense_vi": "đào tạo nhân viên",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is bored with train the same thing.'",
+        "opts": [
+          "He is bored with training the same thing.",
+          "He is bored with train the same thing.",
+          "They He is bored with train the same thing.",
+          "She was training when I came yesterday."
+        ]
+      },
+      "answer": "He is bored with training the same thing.",
+      "explain_vi": "Sau giới từ 'with' dùng V-ing.",
+      "content_hash": "train|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "train error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "train new company employees",
+        "vn_trap": "past tense trained"
+      }
+    },
+    {
+      "lemma": "train",
+      "pos": "v",
+      "sense_vi": "đào tạo nhân viên",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'train':",
+        "opts": [
+          "train new company employees",
+          "train in wrong way",
+          "train without care",
+          "train for nothing"
+        ]
+      },
+      "answer": "train new company employees",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: train new company employees.",
+      "content_hash": "train|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "train collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "train new company employees",
+        "vn_trap": "past tense trained"
+      }
+    },
+    {
+      "lemma": "translate",
+      "pos": "v",
+      "sense_vi": "dịch sang tiếng Việt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "translate (v.)",
+        "opts": [
+          "dịch sang tiếng Việt",
+          "la hét to",
+          "tìm thấy chìa khóa",
+          "thêm muối"
+        ]
+      },
+      "answer": "dịch sang tiếng Việt",
+      "explain_vi": "Động từ translate mang nghĩa chính xác là: dịch sang tiếng Việt.",
+      "content_hash": "translate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "translate gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "translate into plain Vietnamese",
+        "vn_trap": "past tense translated"
+      }
+    },
+    {
+      "lemma": "translate",
+      "pos": "v",
+      "sense_vi": "dịch sang tiếng Việt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'dịch sang tiếng Việt' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "translate",
+          "translates",
+          "translateing",
+          "translated"
+        ]
+      },
+      "answer": "translate",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là translate.",
+      "content_hash": "translate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "translate l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "translate into plain Vietnamese",
+        "vn_trap": "past tense translated"
+      }
+    },
+    {
+      "lemma": "translate",
+      "pos": "v",
+      "sense_vi": "dịch sang tiếng Việt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ the lights before going to bed.",
+        "opts": [
+          "translate",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "translate",
+      "explain_vi": "Điền 'translate' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "translate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "translate cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "translate into plain Vietnamese",
+        "vn_trap": "past tense translated"
+      }
+    },
+    {
+      "lemma": "translate",
+      "pos": "v",
+      "sense_vi": "dịch sang tiếng Việt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'In spite of she was ill, she went to translate.'",
+        "opts": [
+          "Although she was ill, she went to translate.",
+          "In spite of she was ill, she went to translate.",
+          "They In spite of she was ill, she went to translate.",
+          "She was translateing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was ill, she went to translate.",
+      "explain_vi": "Dùng 'Although' thay cho 'In spite of' trước mệnh đề.",
+      "content_hash": "translate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "translate error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "translate into plain Vietnamese",
+        "vn_trap": "past tense translated"
+      }
+    },
+    {
+      "lemma": "translate",
+      "pos": "v",
+      "sense_vi": "dịch sang tiếng Việt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'translate':",
+        "opts": [
+          "translate into plain Vietnamese",
+          "translate in wrong way",
+          "translate without care",
+          "translate for nothing"
+        ]
+      },
+      "answer": "translate into plain Vietnamese",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: translate into plain Vietnamese.",
+      "content_hash": "translate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "translate collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "translate into plain Vietnamese",
+        "vn_trap": "past tense translated"
+      }
+    },
+    {
+      "lemma": "treat",
+      "pos": "v",
+      "sense_vi": "đối xử tốt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "treat (v.)",
+        "opts": [
+          "đối xử tốt",
+          "chấp nhận lời mời",
+          "nói sự thật",
+          "dành thời gian"
+        ]
+      },
+      "answer": "đối xử tốt",
+      "explain_vi": "Động từ treat mang nghĩa chính xác là: đối xử tốt.",
+      "content_hash": "treat|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "treat gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "treat people with respect",
+        "vn_trap": "past tense treated"
+      }
+    },
+    {
+      "lemma": "treat",
+      "pos": "v",
+      "sense_vi": "đối xử tốt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'đối xử tốt', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "treat",
+          "treats",
+          "treating",
+          "treated"
+        ]
+      },
+      "answer": "treat",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là treat.",
+      "content_hash": "treat|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "treat l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "treat people with respect",
+        "vn_trap": "past tense treated"
+      }
+    },
+    {
+      "lemma": "treat",
+      "pos": "v",
+      "sense_vi": "đối xử tốt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "She promised to ___ her parents every weekend.",
+        "opts": [
+          "treat",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "treat",
+      "explain_vi": "Điền 'treat' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "treat|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "treat cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "treat people with respect",
+        "vn_trap": "past tense treated"
+      }
+    },
+    {
+      "lemma": "treat",
+      "pos": "v",
+      "sense_vi": "đối xử tốt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has treateded the letter last week.'",
+        "opts": [
+          "She treated the letter last week.",
+          "She has treateded the letter last week.",
+          "They She has treateded the letter last week.",
+          "She was treating when I came yesterday."
+        ]
+      },
+      "answer": "She treated the letter last week.",
+      "explain_vi": "Thời gian xác định trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "treat|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "treat error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "treat people with respect",
+        "vn_trap": "past tense treated"
+      }
+    },
+    {
+      "lemma": "treat",
+      "pos": "v",
+      "sense_vi": "đối xử tốt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'treat':",
+        "opts": [
+          "treat people with respect",
+          "treat in wrong way",
+          "treat without care",
+          "treat for nothing"
+        ]
+      },
+      "answer": "treat people with respect",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: treat people with respect.",
+      "content_hash": "treat|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "treat collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "treat people with respect",
+        "vn_trap": "past tense treated"
+      }
+    },
+    {
+      "lemma": "trust",
+      "pos": "v",
+      "sense_vi": "tin tưởng bạn thân",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "trust (v.)",
+        "opts": [
+          "tin tưởng bạn thân",
+          "đạt được mục tiêu",
+          "gọi điện thoại",
+          "lớn nhanh"
+        ]
+      },
+      "answer": "tin tưởng bạn thân",
+      "explain_vi": "Động từ trust mang nghĩa chính xác là: tin tưởng bạn thân.",
+      "content_hash": "trust|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "trust gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "trust a close friend",
+        "vn_trap": "past tense trusted"
+      }
+    },
+    {
+      "lemma": "trust",
+      "pos": "v",
+      "sense_vi": "tin tưởng bạn thân",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'tin tưởng bạn thân' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "trust",
+          "trusts",
+          "trusting",
+          "trusted"
+        ]
+      },
+      "answer": "trust",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là trust.",
+      "content_hash": "trust|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "trust l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "trust a close friend",
+        "vn_trap": "past tense trusted"
+      }
+    },
+    {
+      "lemma": "trust",
+      "pos": "v",
+      "sense_vi": "tin tưởng bạn thân",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "They plan to ___ a new office building next year.",
+        "opts": [
+          "trust",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "trust",
+      "explain_vi": "Điền 'trust' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "trust|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "trust cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "trust a close friend",
+        "vn_trap": "past tense trusted"
+      }
+    },
+    {
+      "lemma": "trust",
+      "pos": "v",
+      "sense_vi": "tin tưởng bạn thân",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped trusting to take a short break.'",
+        "opts": [
+          "He stopped to trust to take a short break.",
+          "He stopped trusting to take a short break.",
+          "They He stopped trusting to take a short break.",
+          "She was trusting when I came yesterday."
+        ]
+      },
+      "answer": "He stopped to trust to take a short break.",
+      "explain_vi": "Dừng lại để làm việc khác dùng 'stop to V'.",
+      "content_hash": "trust|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "trust error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "trust a close friend",
+        "vn_trap": "past tense trusted"
+      }
+    },
+    {
+      "lemma": "trust",
+      "pos": "v",
+      "sense_vi": "tin tưởng bạn thân",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'trust':",
+        "opts": [
+          "trust a close friend",
+          "trust in wrong way",
+          "trust without care",
+          "trust for nothing"
+        ]
+      },
+      "answer": "trust a close friend",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: trust a close friend.",
+      "content_hash": "trust|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "trust collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "trust a close friend",
+        "vn_trap": "past tense trusted"
+      }
+    }
+  ]
+}

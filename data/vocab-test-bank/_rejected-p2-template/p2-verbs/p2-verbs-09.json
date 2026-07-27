@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-verbs-09",
+  "priority": "P2",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "press",
+    "prevent",
+    "print",
+    "protect",
+    "prove",
+    "provide",
+    "publish",
+    "realize",
+    "recognize",
+    "record",
+    "reduce",
+    "refuse",
+    "regard",
+    "relate",
+    "release",
+    "rely",
+    "remove",
+    "rent",
+    "repair",
+    "replace"
+  ],
+  "items": [
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của press",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "press (v.)",
+        "opts": [
+          "ý nghĩa của press",
+          "sự từ chối đối với press",
+          "trạng thái thiếu press",
+          "hành động ngược lại với press"
+        ]
+      },
+      "answer": "ý nghĩa của press",
+      "explain_vi": "Từ/cụm từ 'press' (v.) có nghĩa chính xác là: ý nghĩa của press.",
+      "content_hash": "press|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item press - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của press",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của press':",
+        "opts": [
+          "press",
+          "pressing",
+          "pressed",
+          "re-press"
+        ]
+      },
+      "answer": "press",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là press.",
+      "content_hash": "press|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item press - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của press",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "press",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "press",
+      "explain_vi": "Điền 'press' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "press|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item press - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của press",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to press without proper preparation yesterday.'",
+        "opts": [
+          "He tried to press without proper preparation yesterday.",
+          "He try to press without proper preparation yesterday.",
+          "He trying to press without proper preparation yesterday.",
+          "He was try to press without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to press without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "press|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "verbs item press - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "press",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của press",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'press':",
+        "opts": [
+          "apply press correctly",
+          "make press wrong",
+          "do press badly",
+          "take press off"
+        ]
+      },
+      "answer": "apply press correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply press correctly.",
+      "content_hash": "press|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item press - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prevent",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "prevent (v.)",
+        "opts": [
+          "ý nghĩa của prevent",
+          "sự từ chối đối với prevent",
+          "trạng thái thiếu prevent",
+          "hành động ngược lại với prevent"
+        ]
+      },
+      "answer": "ý nghĩa của prevent",
+      "explain_vi": "Từ/cụm từ 'prevent' (v.) có nghĩa chính xác là: ý nghĩa của prevent.",
+      "content_hash": "prevent|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item prevent - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prevent",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của prevent':",
+        "opts": [
+          "prevent",
+          "preventing",
+          "prevented",
+          "re-prevent"
+        ]
+      },
+      "answer": "prevent",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là prevent.",
+      "content_hash": "prevent|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item prevent - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prevent",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "prevent",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "prevent",
+      "explain_vi": "Điền 'prevent' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "prevent|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item prevent - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prevent",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to prevent without proper preparation yesterday.'",
+        "opts": [
+          "He tried to prevent without proper preparation yesterday.",
+          "He try to prevent without proper preparation yesterday.",
+          "He trying to prevent without proper preparation yesterday.",
+          "He was try to prevent without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to prevent without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "prevent|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item prevent - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prevent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prevent",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'prevent':",
+        "opts": [
+          "apply prevent correctly",
+          "make prevent wrong",
+          "do prevent badly",
+          "take prevent off"
+        ]
+      },
+      "answer": "apply prevent correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply prevent correctly.",
+      "content_hash": "prevent|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item prevent - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của print",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "print (v.)",
+        "opts": [
+          "ý nghĩa của print",
+          "sự từ chối đối với print",
+          "trạng thái thiếu print",
+          "hành động ngược lại với print"
+        ]
+      },
+      "answer": "ý nghĩa của print",
+      "explain_vi": "Từ/cụm từ 'print' (v.) có nghĩa chính xác là: ý nghĩa của print.",
+      "content_hash": "print|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item print - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của print",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của print':",
+        "opts": [
+          "print",
+          "printing",
+          "printed",
+          "re-print"
+        ]
+      },
+      "answer": "print",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là print.",
+      "content_hash": "print|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item print - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của print",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "print",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "print",
+      "explain_vi": "Điền 'print' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "print|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item print - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của print",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to print without proper preparation yesterday.'",
+        "opts": [
+          "He tried to print without proper preparation yesterday.",
+          "He try to print without proper preparation yesterday.",
+          "He trying to print without proper preparation yesterday.",
+          "He was try to print without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to print without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "print|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item print - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "print",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của print",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'print':",
+        "opts": [
+          "apply print correctly",
+          "make print wrong",
+          "do print badly",
+          "take print off"
+        ]
+      },
+      "answer": "apply print correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply print correctly.",
+      "content_hash": "print|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item print - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của protect",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "protect (v.)",
+        "opts": [
+          "ý nghĩa của protect",
+          "sự từ chối đối với protect",
+          "trạng thái thiếu protect",
+          "hành động ngược lại với protect"
+        ]
+      },
+      "answer": "ý nghĩa của protect",
+      "explain_vi": "Từ/cụm từ 'protect' (v.) có nghĩa chính xác là: ý nghĩa của protect.",
+      "content_hash": "protect|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "verbs item protect - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của protect",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của protect':",
+        "opts": [
+          "protect",
+          "protecting",
+          "protected",
+          "re-protect"
+        ]
+      },
+      "answer": "protect",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là protect.",
+      "content_hash": "protect|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item protect - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của protect",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "protect",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "protect",
+      "explain_vi": "Điền 'protect' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "protect|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item protect - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của protect",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to protect without proper preparation yesterday.'",
+        "opts": [
+          "He tried to protect without proper preparation yesterday.",
+          "He try to protect without proper preparation yesterday.",
+          "He trying to protect without proper preparation yesterday.",
+          "He was try to protect without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to protect without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "protect|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item protect - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "protect",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của protect",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'protect':",
+        "opts": [
+          "apply protect correctly",
+          "make protect wrong",
+          "do protect badly",
+          "take protect off"
+        ]
+      },
+      "answer": "apply protect correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply protect correctly.",
+      "content_hash": "protect|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "verbs item protect - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prove",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "prove (v.)",
+        "opts": [
+          "ý nghĩa của prove",
+          "sự từ chối đối với prove",
+          "trạng thái thiếu prove",
+          "hành động ngược lại với prove"
+        ]
+      },
+      "answer": "ý nghĩa của prove",
+      "explain_vi": "Từ/cụm từ 'prove' (v.) có nghĩa chính xác là: ý nghĩa của prove.",
+      "content_hash": "prove|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item prove - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prove",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của prove':",
+        "opts": [
+          "prove",
+          "proveing",
+          "proveed",
+          "re-prove"
+        ]
+      },
+      "answer": "prove",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là prove.",
+      "content_hash": "prove|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item prove - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prove",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "prove",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "prove",
+      "explain_vi": "Điền 'prove' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "prove|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item prove - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prove",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to prove without proper preparation yesterday.'",
+        "opts": [
+          "He tried to prove without proper preparation yesterday.",
+          "He try to prove without proper preparation yesterday.",
+          "He trying to prove without proper preparation yesterday.",
+          "He was try to prove without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to prove without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "prove|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item prove - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "prove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prove",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'prove':",
+        "opts": [
+          "apply prove correctly",
+          "make prove wrong",
+          "do prove badly",
+          "take prove off"
+        ]
+      },
+      "answer": "apply prove correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply prove correctly.",
+      "content_hash": "prove|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item prove - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của provide",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "provide (v.)",
+        "opts": [
+          "ý nghĩa của provide",
+          "sự từ chối đối với provide",
+          "trạng thái thiếu provide",
+          "hành động ngược lại với provide"
+        ]
+      },
+      "answer": "ý nghĩa của provide",
+      "explain_vi": "Từ/cụm từ 'provide' (v.) có nghĩa chính xác là: ý nghĩa của provide.",
+      "content_hash": "provide|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item provide - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của provide",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của provide':",
+        "opts": [
+          "provide",
+          "provideing",
+          "provideed",
+          "re-provide"
+        ]
+      },
+      "answer": "provide",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là provide.",
+      "content_hash": "provide|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item provide - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của provide",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "provide",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "provide",
+      "explain_vi": "Điền 'provide' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "provide|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item provide - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của provide",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to provide without proper preparation yesterday.'",
+        "opts": [
+          "He tried to provide without proper preparation yesterday.",
+          "He try to provide without proper preparation yesterday.",
+          "He trying to provide without proper preparation yesterday.",
+          "He was try to provide without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to provide without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "provide|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item provide - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "provide",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của provide",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'provide':",
+        "opts": [
+          "apply provide correctly",
+          "make provide wrong",
+          "do provide badly",
+          "take provide off"
+        ]
+      },
+      "answer": "apply provide correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply provide correctly.",
+      "content_hash": "provide|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item provide - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của publish",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "publish (v.)",
+        "opts": [
+          "ý nghĩa của publish",
+          "sự từ chối đối với publish",
+          "trạng thái thiếu publish",
+          "hành động ngược lại với publish"
+        ]
+      },
+      "answer": "ý nghĩa của publish",
+      "explain_vi": "Từ/cụm từ 'publish' (v.) có nghĩa chính xác là: ý nghĩa của publish.",
+      "content_hash": "publish|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item publish - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của publish",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của publish':",
+        "opts": [
+          "publish",
+          "publishing",
+          "published",
+          "re-publish"
+        ]
+      },
+      "answer": "publish",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là publish.",
+      "content_hash": "publish|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "verbs item publish - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của publish",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "publish",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "publish",
+      "explain_vi": "Điền 'publish' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "publish|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item publish - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của publish",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to publish without proper preparation yesterday.'",
+        "opts": [
+          "He tried to publish without proper preparation yesterday.",
+          "He try to publish without proper preparation yesterday.",
+          "He trying to publish without proper preparation yesterday.",
+          "He was try to publish without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to publish without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "publish|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item publish - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "publish",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của publish",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'publish':",
+        "opts": [
+          "apply publish correctly",
+          "make publish wrong",
+          "do publish badly",
+          "take publish off"
+        ]
+      },
+      "answer": "apply publish correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply publish correctly.",
+      "content_hash": "publish|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item publish - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của realize",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "realize (v.)",
+        "opts": [
+          "ý nghĩa của realize",
+          "sự từ chối đối với realize",
+          "trạng thái thiếu realize",
+          "hành động ngược lại với realize"
+        ]
+      },
+      "answer": "ý nghĩa của realize",
+      "explain_vi": "Từ/cụm từ 'realize' (v.) có nghĩa chính xác là: ý nghĩa của realize.",
+      "content_hash": "realize|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item realize - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của realize",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của realize':",
+        "opts": [
+          "realize",
+          "realizeing",
+          "realizeed",
+          "re-realize"
+        ]
+      },
+      "answer": "realize",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là realize.",
+      "content_hash": "realize|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item realize - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của realize",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "realize",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "realize",
+      "explain_vi": "Điền 'realize' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "realize|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item realize - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của realize",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to realize without proper preparation yesterday.'",
+        "opts": [
+          "He tried to realize without proper preparation yesterday.",
+          "He try to realize without proper preparation yesterday.",
+          "He trying to realize without proper preparation yesterday.",
+          "He was try to realize without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to realize without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "realize|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item realize - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "realize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của realize",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'realize':",
+        "opts": [
+          "apply realize correctly",
+          "make realize wrong",
+          "do realize badly",
+          "take realize off"
+        ]
+      },
+      "answer": "apply realize correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply realize correctly.",
+      "content_hash": "realize|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item realize - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của recognize",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "recognize (v.)",
+        "opts": [
+          "ý nghĩa của recognize",
+          "sự từ chối đối với recognize",
+          "trạng thái thiếu recognize",
+          "hành động ngược lại với recognize"
+        ]
+      },
+      "answer": "ý nghĩa của recognize",
+      "explain_vi": "Từ/cụm từ 'recognize' (v.) có nghĩa chính xác là: ý nghĩa của recognize.",
+      "content_hash": "recognize|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item recognize - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của recognize",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của recognize':",
+        "opts": [
+          "recognize",
+          "recognizeing",
+          "recognizeed",
+          "re-recognize"
+        ]
+      },
+      "answer": "recognize",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là recognize.",
+      "content_hash": "recognize|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item recognize - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của recognize",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "recognize",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "recognize",
+      "explain_vi": "Điền 'recognize' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "recognize|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item recognize - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của recognize",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to recognize without proper preparation yesterday.'",
+        "opts": [
+          "He tried to recognize without proper preparation yesterday.",
+          "He try to recognize without proper preparation yesterday.",
+          "He trying to recognize without proper preparation yesterday.",
+          "He was try to recognize without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to recognize without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "recognize|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item recognize - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "recognize",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của recognize",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'recognize':",
+        "opts": [
+          "apply recognize correctly",
+          "make recognize wrong",
+          "do recognize badly",
+          "take recognize off"
+        ]
+      },
+      "answer": "apply recognize correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply recognize correctly.",
+      "content_hash": "recognize|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item recognize - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của record",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "record (v.)",
+        "opts": [
+          "ý nghĩa của record",
+          "sự từ chối đối với record",
+          "trạng thái thiếu record",
+          "hành động ngược lại với record"
+        ]
+      },
+      "answer": "ý nghĩa của record",
+      "explain_vi": "Từ/cụm từ 'record' (v.) có nghĩa chính xác là: ý nghĩa của record.",
+      "content_hash": "record|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item record - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của record",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của record':",
+        "opts": [
+          "record",
+          "recording",
+          "recorded",
+          "re-record"
+        ]
+      },
+      "answer": "record",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là record.",
+      "content_hash": "record|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item record - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của record",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "record",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "record",
+      "explain_vi": "Điền 'record' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "record|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "verbs item record - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của record",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to record without proper preparation yesterday.'",
+        "opts": [
+          "He tried to record without proper preparation yesterday.",
+          "He try to record without proper preparation yesterday.",
+          "He trying to record without proper preparation yesterday.",
+          "He was try to record without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to record without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "record|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item record - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "record",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của record",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'record':",
+        "opts": [
+          "apply record correctly",
+          "make record wrong",
+          "do record badly",
+          "take record off"
+        ]
+      },
+      "answer": "apply record correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply record correctly.",
+      "content_hash": "record|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item record - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của reduce",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "reduce (v.)",
+        "opts": [
+          "ý nghĩa của reduce",
+          "sự từ chối đối với reduce",
+          "trạng thái thiếu reduce",
+          "hành động ngược lại với reduce"
+        ]
+      },
+      "answer": "ý nghĩa của reduce",
+      "explain_vi": "Từ/cụm từ 'reduce' (v.) có nghĩa chính xác là: ý nghĩa của reduce.",
+      "content_hash": "reduce|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item reduce - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của reduce",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của reduce':",
+        "opts": [
+          "reduce",
+          "reduceing",
+          "reduceed",
+          "re-reduce"
+        ]
+      },
+      "answer": "reduce",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là reduce.",
+      "content_hash": "reduce|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item reduce - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của reduce",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "reduce",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "reduce",
+      "explain_vi": "Điền 'reduce' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "reduce|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item reduce - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của reduce",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to reduce without proper preparation yesterday.'",
+        "opts": [
+          "He tried to reduce without proper preparation yesterday.",
+          "He try to reduce without proper preparation yesterday.",
+          "He trying to reduce without proper preparation yesterday.",
+          "He was try to reduce without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to reduce without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "reduce|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item reduce - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "reduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của reduce",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'reduce':",
+        "opts": [
+          "apply reduce correctly",
+          "make reduce wrong",
+          "do reduce badly",
+          "take reduce off"
+        ]
+      },
+      "answer": "apply reduce correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply reduce correctly.",
+      "content_hash": "reduce|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item reduce - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của refuse",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "refuse (v.)",
+        "opts": [
+          "ý nghĩa của refuse",
+          "sự từ chối đối với refuse",
+          "trạng thái thiếu refuse",
+          "hành động ngược lại với refuse"
+        ]
+      },
+      "answer": "ý nghĩa của refuse",
+      "explain_vi": "Từ/cụm từ 'refuse' (v.) có nghĩa chính xác là: ý nghĩa của refuse.",
+      "content_hash": "refuse|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item refuse - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của refuse",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của refuse':",
+        "opts": [
+          "refuse",
+          "refuseing",
+          "refuseed",
+          "re-refuse"
+        ]
+      },
+      "answer": "refuse",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là refuse.",
+      "content_hash": "refuse|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item refuse - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của refuse",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "refuse",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "refuse",
+      "explain_vi": "Điền 'refuse' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "refuse|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item refuse - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của refuse",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to refuse without proper preparation yesterday.'",
+        "opts": [
+          "He tried to refuse without proper preparation yesterday.",
+          "He try to refuse without proper preparation yesterday.",
+          "He trying to refuse without proper preparation yesterday.",
+          "He was try to refuse without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to refuse without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "refuse|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item refuse - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "refuse",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của refuse",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'refuse':",
+        "opts": [
+          "apply refuse correctly",
+          "make refuse wrong",
+          "do refuse badly",
+          "take refuse off"
+        ]
+      },
+      "answer": "apply refuse correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply refuse correctly.",
+      "content_hash": "refuse|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item refuse - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của regard",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "regard (v.)",
+        "opts": [
+          "ý nghĩa của regard",
+          "sự từ chối đối với regard",
+          "trạng thái thiếu regard",
+          "hành động ngược lại với regard"
+        ]
+      },
+      "answer": "ý nghĩa của regard",
+      "explain_vi": "Từ/cụm từ 'regard' (v.) có nghĩa chính xác là: ý nghĩa của regard.",
+      "content_hash": "regard|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item regard - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của regard",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của regard':",
+        "opts": [
+          "regard",
+          "regarding",
+          "regarded",
+          "re-regard"
+        ]
+      },
+      "answer": "regard",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là regard.",
+      "content_hash": "regard|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item regard - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của regard",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "regard",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "regard",
+      "explain_vi": "Điền 'regard' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "regard|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item regard - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của regard",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to regard without proper preparation yesterday.'",
+        "opts": [
+          "He tried to regard without proper preparation yesterday.",
+          "He try to regard without proper preparation yesterday.",
+          "He trying to regard without proper preparation yesterday.",
+          "He was try to regard without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to regard without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "regard|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "verbs item regard - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "regard",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của regard",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'regard':",
+        "opts": [
+          "apply regard correctly",
+          "make regard wrong",
+          "do regard badly",
+          "take regard off"
+        ]
+      },
+      "answer": "apply regard correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply regard correctly.",
+      "content_hash": "regard|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item regard - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của relate",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "relate (v.)",
+        "opts": [
+          "ý nghĩa của relate",
+          "sự từ chối đối với relate",
+          "trạng thái thiếu relate",
+          "hành động ngược lại với relate"
+        ]
+      },
+      "answer": "ý nghĩa của relate",
+      "explain_vi": "Từ/cụm từ 'relate' (v.) có nghĩa chính xác là: ý nghĩa của relate.",
+      "content_hash": "relate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item relate - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của relate",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của relate':",
+        "opts": [
+          "relate",
+          "relateing",
+          "relateed",
+          "re-relate"
+        ]
+      },
+      "answer": "relate",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là relate.",
+      "content_hash": "relate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item relate - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của relate",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "relate",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "relate",
+      "explain_vi": "Điền 'relate' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "relate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item relate - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của relate",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to relate without proper preparation yesterday.'",
+        "opts": [
+          "He tried to relate without proper preparation yesterday.",
+          "He try to relate without proper preparation yesterday.",
+          "He trying to relate without proper preparation yesterday.",
+          "He was try to relate without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to relate without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "relate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item relate - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "relate",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của relate",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'relate':",
+        "opts": [
+          "apply relate correctly",
+          "make relate wrong",
+          "do relate badly",
+          "take relate off"
+        ]
+      },
+      "answer": "apply relate correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply relate correctly.",
+      "content_hash": "relate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item relate - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của release",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "release (v.)",
+        "opts": [
+          "ý nghĩa của release",
+          "sự từ chối đối với release",
+          "trạng thái thiếu release",
+          "hành động ngược lại với release"
+        ]
+      },
+      "answer": "ý nghĩa của release",
+      "explain_vi": "Từ/cụm từ 'release' (v.) có nghĩa chính xác là: ý nghĩa của release.",
+      "content_hash": "release|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item release - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của release",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của release':",
+        "opts": [
+          "release",
+          "releaseing",
+          "releaseed",
+          "re-release"
+        ]
+      },
+      "answer": "release",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là release.",
+      "content_hash": "release|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item release - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của release",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "release",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "release",
+      "explain_vi": "Điền 'release' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "release|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item release - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của release",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to release without proper preparation yesterday.'",
+        "opts": [
+          "He tried to release without proper preparation yesterday.",
+          "He try to release without proper preparation yesterday.",
+          "He trying to release without proper preparation yesterday.",
+          "He was try to release without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to release without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "release|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item release - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "release",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của release",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'release':",
+        "opts": [
+          "apply release correctly",
+          "make release wrong",
+          "do release badly",
+          "take release off"
+        ]
+      },
+      "answer": "apply release correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply release correctly.",
+      "content_hash": "release|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item release - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "adv",
+      "sense_vi": "ý nghĩa của rely",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rely (adv.)",
+        "opts": [
+          "ý nghĩa của rely",
+          "sự từ chối đối với rely",
+          "trạng thái thiếu rely",
+          "hành động ngược lại với rely"
+        ]
+      },
+      "answer": "ý nghĩa của rely",
+      "explain_vi": "Từ/cụm từ 'rely' (adv.) có nghĩa chính xác là: ý nghĩa của rely.",
+      "content_hash": "rely|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "verbs item rely - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "adv",
+      "sense_vi": "ý nghĩa của rely",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của rely':",
+        "opts": [
+          "rely",
+          "relying",
+          "relyed",
+          "re-rely"
+        ]
+      },
+      "answer": "rely",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là rely.",
+      "content_hash": "rely|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item rely - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "adv",
+      "sense_vi": "ý nghĩa của rely",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "rely",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "rely",
+      "explain_vi": "Điền 'rely' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "rely|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item rely - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "adv",
+      "sense_vi": "ý nghĩa của rely",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to rely without proper preparation yesterday.'",
+        "opts": [
+          "He tried to rely without proper preparation yesterday.",
+          "He try to rely without proper preparation yesterday.",
+          "He trying to rely without proper preparation yesterday.",
+          "He was try to rely without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to rely without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "rely|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item rely - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rely",
+      "pos": "adv",
+      "sense_vi": "ý nghĩa của rely",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'rely':",
+        "opts": [
+          "apply rely correctly",
+          "make rely wrong",
+          "do rely badly",
+          "take rely off"
+        ]
+      },
+      "answer": "apply rely correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply rely correctly.",
+      "content_hash": "rely|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "verbs item rely - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của remove",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "remove (v.)",
+        "opts": [
+          "ý nghĩa của remove",
+          "sự từ chối đối với remove",
+          "trạng thái thiếu remove",
+          "hành động ngược lại với remove"
+        ]
+      },
+      "answer": "ý nghĩa của remove",
+      "explain_vi": "Từ/cụm từ 'remove' (v.) có nghĩa chính xác là: ý nghĩa của remove.",
+      "content_hash": "remove|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item remove - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của remove",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của remove':",
+        "opts": [
+          "remove",
+          "removeing",
+          "removeed",
+          "re-remove"
+        ]
+      },
+      "answer": "remove",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là remove.",
+      "content_hash": "remove|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item remove - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của remove",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "remove",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "remove",
+      "explain_vi": "Điền 'remove' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "remove|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item remove - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của remove",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to remove without proper preparation yesterday.'",
+        "opts": [
+          "He tried to remove without proper preparation yesterday.",
+          "He try to remove without proper preparation yesterday.",
+          "He trying to remove without proper preparation yesterday.",
+          "He was try to remove without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to remove without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "remove|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item remove - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "remove",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của remove",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'remove':",
+        "opts": [
+          "apply remove correctly",
+          "make remove wrong",
+          "do remove badly",
+          "take remove off"
+        ]
+      },
+      "answer": "apply remove correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply remove correctly.",
+      "content_hash": "remove|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item remove - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của rent",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rent (v.)",
+        "opts": [
+          "ý nghĩa của rent",
+          "sự từ chối đối với rent",
+          "trạng thái thiếu rent",
+          "hành động ngược lại với rent"
+        ]
+      },
+      "answer": "ý nghĩa của rent",
+      "explain_vi": "Từ/cụm từ 'rent' (v.) có nghĩa chính xác là: ý nghĩa của rent.",
+      "content_hash": "rent|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item rent - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của rent",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của rent':",
+        "opts": [
+          "rent",
+          "renting",
+          "rented",
+          "re-rent"
+        ]
+      },
+      "answer": "rent",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là rent.",
+      "content_hash": "rent|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item rent - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của rent",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "rent",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "rent",
+      "explain_vi": "Điền 'rent' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "rent|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item rent - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của rent",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to rent without proper preparation yesterday.'",
+        "opts": [
+          "He tried to rent without proper preparation yesterday.",
+          "He try to rent without proper preparation yesterday.",
+          "He trying to rent without proper preparation yesterday.",
+          "He was try to rent without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to rent without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "rent|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item rent - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "rent",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của rent",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'rent':",
+        "opts": [
+          "apply rent correctly",
+          "make rent wrong",
+          "do rent badly",
+          "take rent off"
+        ]
+      },
+      "answer": "apply rent correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply rent correctly.",
+      "content_hash": "rent|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item rent - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của repair",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "repair (v.)",
+        "opts": [
+          "ý nghĩa của repair",
+          "sự từ chối đối với repair",
+          "trạng thái thiếu repair",
+          "hành động ngược lại với repair"
+        ]
+      },
+      "answer": "ý nghĩa của repair",
+      "explain_vi": "Từ/cụm từ 'repair' (v.) có nghĩa chính xác là: ý nghĩa của repair.",
+      "content_hash": "repair|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item repair - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của repair",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của repair':",
+        "opts": [
+          "repair",
+          "repairing",
+          "repaired",
+          "re-repair"
+        ]
+      },
+      "answer": "repair",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là repair.",
+      "content_hash": "repair|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "verbs item repair - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của repair",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "repair",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "repair",
+      "explain_vi": "Điền 'repair' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "repair|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item repair - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của repair",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to repair without proper preparation yesterday.'",
+        "opts": [
+          "He tried to repair without proper preparation yesterday.",
+          "He try to repair without proper preparation yesterday.",
+          "He trying to repair without proper preparation yesterday.",
+          "He was try to repair without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to repair without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "repair|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item repair - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "repair",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của repair",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'repair':",
+        "opts": [
+          "apply repair correctly",
+          "make repair wrong",
+          "do repair badly",
+          "take repair off"
+        ]
+      },
+      "answer": "apply repair correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply repair correctly.",
+      "content_hash": "repair|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item repair - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của replace",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "replace (v.)",
+        "opts": [
+          "ý nghĩa của replace",
+          "sự từ chối đối với replace",
+          "trạng thái thiếu replace",
+          "hành động ngược lại với replace"
+        ]
+      },
+      "answer": "ý nghĩa của replace",
+      "explain_vi": "Từ/cụm từ 'replace' (v.) có nghĩa chính xác là: ý nghĩa của replace.",
+      "content_hash": "replace|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item replace - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của replace",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của replace':",
+        "opts": [
+          "replace",
+          "replaceing",
+          "replaceed",
+          "re-replace"
+        ]
+      },
+      "answer": "replace",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là replace.",
+      "content_hash": "replace|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item replace - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của replace",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "replace",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "replace",
+      "explain_vi": "Điền 'replace' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "replace|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item replace - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của replace",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to replace without proper preparation yesterday.'",
+        "opts": [
+          "He tried to replace without proper preparation yesterday.",
+          "He try to replace without proper preparation yesterday.",
+          "He trying to replace without proper preparation yesterday.",
+          "He was try to replace without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to replace without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "replace|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item replace - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    },
+    {
+      "lemma": "replace",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của replace",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'replace':",
+        "opts": [
+          "apply replace correctly",
+          "make replace wrong",
+          "do replace badly",
+          "take replace off"
+        ]
+      },
+      "answer": "apply replace correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply replace correctly.",
+      "content_hash": "replace|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item replace - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-09"
+      }
+    }
+  ]
+}

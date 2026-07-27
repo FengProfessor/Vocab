@@ -1,0 +1,64 @@
+{
+  "version": "exit-v1",
+  "disclaimer": "Lộ trình = core scaffold, không chứng chỉ CEFR chính thức. Hoàn thành cấp = đạt can-do bên dưới trong app, chưa = band thi quốc tế.",
+  "levels": {
+    "A0": {
+      "labelVi": "Mất gốc → sẵn sàng A1",
+      "targetLemmas": "120–200 trong path",
+      "canDo": [
+        "Chào hỏi, tự giới thiệu tên/tuổi đơn giản",
+        "Nói số, màu, đồ vật quanh mình",
+        "Phát âm được âm cuối /p t k/ và đuôi -s cơ bản",
+        "Dùng I am / This is / my..."
+      ],
+      "notYet": ["Kể chuyện quá khứ", "Thảo luận ý kiến dài"]
+    },
+    "A1": {
+      "labelVi": "Sơ cấp 1 (core)",
+      "targetLemmas": "~300–400 tích lũy path",
+      "canDo": [
+        "Nói về gia đình, nhà cửa, bữa ăn, quần áo",
+        "Mô tả thói quen với Present Simple",
+        "Hỏi wh- questions đơn giản",
+        "Nghe phân biệt cặp âm cơ bản + weak forms can/a/the"
+      ],
+      "notYet": ["Kể chuyện quá khứ liền mạch", "Đọc bài báo"]
+    },
+    "A2": {
+      "labelVi": "Sơ cấp 2 (core)",
+      "targetLemmas": "~600–800 tích lũy path",
+      "canDo": [
+        "Kể việc đã xảy ra (Past Simple) và kế hoạch (going to/will)",
+        "Mua sắm, đi lại, khám bệnh với từ vựng tình huống",
+        "Nói trải nghiệm ever/never (Present Perfect intro)",
+        "Đọc -ed endings và nhịp câu cơ bản"
+      ],
+      "notYet": ["Tranh luận học thuật", "Viết essay"]
+    },
+    "B1": {
+      "labelVi": "Trung cấp (core)",
+      "targetLemmas": "~1000+ tích lũy path",
+      "canDo": [
+        "Kể trải nghiệm với perfect continuous / used to",
+        "Nói ý kiến, điều kiện 2–3 cơ bản",
+        "Hiểu bị động & tường thuật đơn giản",
+        "Đọc đoạn trung bình về đời sống/công việc"
+      ],
+      "notYet": ["IELTS 6.5+ academic", "Thuyết trình formal dài"]
+    },
+    "B2": {
+      "labelVi": "Trung cao core (chưa = CEFR B2 full)",
+      "targetLemmas": "~1400+ trong path — scaffold học thuật",
+      "canDo": [
+        "Theo dõi chủ đề edu/env/science/society",
+        "Dùng discourse markers, nominalisation cơ bản",
+        "Viết/nói đoạn nguyên nhân–kết quả ngắn",
+        "Làm quen collocation học thuật"
+      ],
+      "notYet": [
+        "Tương đương chứng chỉ B2 Cambridge/IELTS",
+        "Cleft/inversion/hedging nâng cao (tab Grammar C1 preview)"
+      ]
+    }
+  }
+}

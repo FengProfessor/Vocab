@@ -1,0 +1,12 @@
+◇ injected env (44) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+=== NLM core_senses backfill ===
+Validating credentials for profile: default...
+✓ Authenticated
+  Email: Unknown
+  Profile: default
+  Notebooks accessible: 92
+  Credentials path: C:\Users\tapho\AppData\Local\nlm\nlm\profiles\default
+notebook: 12e89a38-2984-40e3-bc8b-40f8f056deae
+pending batch size: 100, batch-size=5
+
+[nlm] words 1-5: eye, fee, few, fin, fit

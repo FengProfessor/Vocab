@@ -110,10 +110,15 @@ for (const p of profiles ?? []) {
 
   const { data: gam } = await sb
     .from('user_gamification')
-    .select('current_streak')
+    .select('current_streak, last_active_date')
     .eq('user_id', p.id)
     .maybeSingle();
-  const streak = gam?.current_streak ?? 0;
+  // Streak liên tiếp còn sống: last_active hôm nay/hôm qua mới giữ; không dùng raw (có thể stale)
+  const raw = gam?.current_streak ?? 0;
+  const last = (gam?.last_active_date ?? '').slice(0, 10);
+  const today = new Date().toISOString().slice(0, 10);
+  const y = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const streak = raw > 0 && (last === today || last === y) ? raw : 0;
   const plan = effectivePlan(p.plan, p.plan_expires_at);
   const claimed = await hasNewbieClaim(p.id);
   const enrolled = await enrolledMeta(p.id);

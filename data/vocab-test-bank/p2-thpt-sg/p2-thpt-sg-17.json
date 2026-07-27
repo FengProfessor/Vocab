@@ -1,0 +1,835 @@
+{
+  "version": 3,
+  "batch_id": "p2-thpt-sg-17",
+  "priority": "P2",
+  "queue": "thpt_single",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "fuel",
+    "fulfill",
+    "function",
+    "fund",
+    "fundamental",
+    "future."
+  ],
+  "items": [
+    {
+      "lemma": "fuel",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fuel",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fuel (n.)",
+        "opts": [
+          "ý nghĩa của fuel",
+          "sự từ chối đối với fuel",
+          "trạng thái thiếu fuel",
+          "hành động ngược lại với fuel"
+        ]
+      },
+      "answer": "ý nghĩa của fuel",
+      "explain_vi": "Từ/cụm từ 'fuel' (n.) có nghĩa chính xác là: ý nghĩa của fuel.",
+      "content_hash": "fuel|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item fuel - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fuel",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fuel",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fuel':",
+        "opts": [
+          "fuel",
+          "fueling",
+          "fueled",
+          "re-fuel"
+        ]
+      },
+      "answer": "fuel",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fuel.",
+      "content_hash": "fuel|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item fuel - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fuel",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fuel",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fuel",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fuel",
+      "explain_vi": "Điền 'fuel' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fuel|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item fuel - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fuel",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fuel",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fuel without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fuel without proper preparation yesterday.",
+          "He try to fuel without proper preparation yesterday.",
+          "He trying to fuel without proper preparation yesterday.",
+          "He was try to fuel without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fuel without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fuel|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item fuel - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fuel",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fuel",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fuel':",
+        "opts": [
+          "apply fuel correctly",
+          "make fuel wrong",
+          "do fuel badly",
+          "take fuel off"
+        ]
+      },
+      "answer": "apply fuel correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fuel correctly.",
+      "content_hash": "fuel|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item fuel - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fulfill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fulfill",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fulfill (n.)",
+        "opts": [
+          "ý nghĩa của fulfill",
+          "sự từ chối đối với fulfill",
+          "trạng thái thiếu fulfill",
+          "hành động ngược lại với fulfill"
+        ]
+      },
+      "answer": "ý nghĩa của fulfill",
+      "explain_vi": "Từ/cụm từ 'fulfill' (n.) có nghĩa chính xác là: ý nghĩa của fulfill.",
+      "content_hash": "fulfill|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item fulfill - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fulfill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fulfill",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fulfill':",
+        "opts": [
+          "fulfill",
+          "fulfilling",
+          "fulfilled",
+          "re-fulfill"
+        ]
+      },
+      "answer": "fulfill",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fulfill.",
+      "content_hash": "fulfill|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item fulfill - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fulfill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fulfill",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fulfill",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fulfill",
+      "explain_vi": "Điền 'fulfill' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fulfill|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item fulfill - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fulfill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fulfill",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fulfill without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fulfill without proper preparation yesterday.",
+          "He try to fulfill without proper preparation yesterday.",
+          "He trying to fulfill without proper preparation yesterday.",
+          "He was try to fulfill without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fulfill without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fulfill|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item fulfill - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fulfill",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fulfill",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fulfill':",
+        "opts": [
+          "apply fulfill correctly",
+          "make fulfill wrong",
+          "do fulfill badly",
+          "take fulfill off"
+        ]
+      },
+      "answer": "apply fulfill correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fulfill correctly.",
+      "content_hash": "fulfill|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item fulfill - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "function",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của function",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "function (n.)",
+        "opts": [
+          "ý nghĩa của function",
+          "sự từ chối đối với function",
+          "trạng thái thiếu function",
+          "hành động ngược lại với function"
+        ]
+      },
+      "answer": "ý nghĩa của function",
+      "explain_vi": "Từ/cụm từ 'function' (n.) có nghĩa chính xác là: ý nghĩa của function.",
+      "content_hash": "function|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item function - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "function",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của function",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của function':",
+        "opts": [
+          "function",
+          "functioning",
+          "functioned",
+          "re-function"
+        ]
+      },
+      "answer": "function",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là function.",
+      "content_hash": "function|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item function - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "function",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của function",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "function",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "function",
+      "explain_vi": "Điền 'function' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "function|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item function - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "function",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của function",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to function without proper preparation yesterday.'",
+        "opts": [
+          "He tried to function without proper preparation yesterday.",
+          "He try to function without proper preparation yesterday.",
+          "He trying to function without proper preparation yesterday.",
+          "He was try to function without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to function without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "function|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item function - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "function",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của function",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'function':",
+        "opts": [
+          "apply function correctly",
+          "make function wrong",
+          "do function badly",
+          "take function off"
+        ]
+      },
+      "answer": "apply function correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply function correctly.",
+      "content_hash": "function|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item function - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fund",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fund",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fund (n.)",
+        "opts": [
+          "ý nghĩa của fund",
+          "sự từ chối đối với fund",
+          "trạng thái thiếu fund",
+          "hành động ngược lại với fund"
+        ]
+      },
+      "answer": "ý nghĩa của fund",
+      "explain_vi": "Từ/cụm từ 'fund' (n.) có nghĩa chính xác là: ý nghĩa của fund.",
+      "content_hash": "fund|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item fund - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fund",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fund",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fund':",
+        "opts": [
+          "fund",
+          "funding",
+          "funded",
+          "re-fund"
+        ]
+      },
+      "answer": "fund",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fund.",
+      "content_hash": "fund|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item fund - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fund",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fund",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fund",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fund",
+      "explain_vi": "Điền 'fund' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fund|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item fund - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fund",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fund",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fund without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fund without proper preparation yesterday.",
+          "He try to fund without proper preparation yesterday.",
+          "He trying to fund without proper preparation yesterday.",
+          "He was try to fund without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fund without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fund|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item fund - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fund",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fund",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fund':",
+        "opts": [
+          "apply fund correctly",
+          "make fund wrong",
+          "do fund badly",
+          "take fund off"
+        ]
+      },
+      "answer": "apply fund correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fund correctly.",
+      "content_hash": "fund|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item fund - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fundamental",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fundamental",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fundamental (n.)",
+        "opts": [
+          "ý nghĩa của fundamental",
+          "sự từ chối đối với fundamental",
+          "trạng thái thiếu fundamental",
+          "hành động ngược lại với fundamental"
+        ]
+      },
+      "answer": "ý nghĩa của fundamental",
+      "explain_vi": "Từ/cụm từ 'fundamental' (n.) có nghĩa chính xác là: ý nghĩa của fundamental.",
+      "content_hash": "fundamental|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item fundamental - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fundamental",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fundamental",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fundamental':",
+        "opts": [
+          "fundamental",
+          "fundamentaling",
+          "fundamentaled",
+          "re-fundamental"
+        ]
+      },
+      "answer": "fundamental",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fundamental.",
+      "content_hash": "fundamental|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item fundamental - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fundamental",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fundamental",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fundamental",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fundamental",
+      "explain_vi": "Điền 'fundamental' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fundamental|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item fundamental - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fundamental",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fundamental",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fundamental without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fundamental without proper preparation yesterday.",
+          "He try to fundamental without proper preparation yesterday.",
+          "He trying to fundamental without proper preparation yesterday.",
+          "He was try to fundamental without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fundamental without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fundamental|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item fundamental - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "fundamental",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fundamental",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fundamental':",
+        "opts": [
+          "apply fundamental correctly",
+          "make fundamental wrong",
+          "do fundamental badly",
+          "take fundamental off"
+        ]
+      },
+      "answer": "apply fundamental correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fundamental correctly.",
+      "content_hash": "fundamental|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item fundamental - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "future.",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của future.",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "future. (n.)",
+        "opts": [
+          "ý nghĩa của future.",
+          "sự từ chối đối với future.",
+          "trạng thái thiếu future.",
+          "hành động ngược lại với future."
+        ]
+      },
+      "answer": "ý nghĩa của future.",
+      "explain_vi": "Từ/cụm từ 'future.' (n.) có nghĩa chính xác là: ý nghĩa của future..",
+      "content_hash": "future|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item future. - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "future.",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của future.",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của future.':",
+        "opts": [
+          "future.",
+          "future.ing",
+          "future.ed",
+          "re-future."
+        ]
+      },
+      "answer": "future.",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là future..",
+      "content_hash": "future|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item future. - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "future.",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của future.",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "future.",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "future.",
+      "explain_vi": "Điền 'future.' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "future|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item future. - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "future.",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của future.",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to future. without proper preparation yesterday.'",
+        "opts": [
+          "He tried to future. without proper preparation yesterday.",
+          "He try to future. without proper preparation yesterday.",
+          "He trying to future. without proper preparation yesterday.",
+          "He was try to future. without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to future. without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "future|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item future. - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    },
+    {
+      "lemma": "future.",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của future.",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'future.':",
+        "opts": [
+          "apply future. correctly",
+          "make future. wrong",
+          "do future. badly",
+          "take future. off"
+        ]
+      },
+      "answer": "apply future. correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply future. correctly.",
+      "content_hash": "future|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item future. - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-17"
+      }
+    }
+  ]
+}

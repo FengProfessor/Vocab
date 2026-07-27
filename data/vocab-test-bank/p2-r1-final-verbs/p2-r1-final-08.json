@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-08",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "report",
+    "decide",
+    "pull",
+    "return",
+    "explain",
+    "hope",
+    "develop",
+    "carry",
+    "check",
+    "choose"
+  ],
+  "items": [
+    {
+      "lemma": "report",
+      "pos": "v",
+      "sense_vi": "báo cáo tin tức",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "report (v.)",
+        "opts": [
+          "báo cáo tin tức",
+          "đoán câu trả lời",
+          "tốn nhiều tiền",
+          "để ý biển báo"
+        ]
+      },
+      "answer": "báo cáo tin tức",
+      "explain_vi": "Động từ report mang nghĩa chính xác là: báo cáo tin tức.",
+      "content_hash": "report|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "report gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "report the latest news",
+        "vn_trap": "past tense reported"
+      }
+    },
+    {
+      "lemma": "report",
+      "pos": "v",
+      "sense_vi": "báo cáo tin tức",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'báo cáo tin tức', người Anh dùng:",
+        "opts": [
+          "report",
+          "reports",
+          "reporting",
+          "reported"
+        ]
+      },
+      "answer": "report",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là report.",
+      "content_hash": "report|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "report l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "report the latest news",
+        "vn_trap": "past tense reported"
+      }
+    },
+    {
+      "lemma": "report",
+      "pos": "v",
+      "sense_vi": "báo cáo tin tức",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Keep working hard to ___ your dreams in life.",
+        "opts": [
+          "report",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "report",
+      "explain_vi": "Điền 'report' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "report|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "report cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "report the latest news",
+        "vn_trap": "past tense reported"
+      }
+    },
+    {
+      "lemma": "report",
+      "pos": "v",
+      "sense_vi": "báo cáo tin tức",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She reports the song very beautiful yesterday.'",
+        "opts": [
+          "She reported the song very beautifully yesterday.",
+          "She reports the song very beautiful yesterday.",
+          "They She reports the song very beautiful yesterday.",
+          "She was reporting when I came yesterday."
+        ]
+      },
+      "answer": "She reported the song very beautifully yesterday.",
+      "explain_vi": "Trạng từ 'beautifully' bổ nghĩa cho động từ.",
+      "content_hash": "report|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "report error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "report the latest news",
+        "vn_trap": "past tense reported"
+      }
+    },
+    {
+      "lemma": "report",
+      "pos": "v",
+      "sense_vi": "báo cáo tin tức",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'report':",
+        "opts": [
+          "report the latest news",
+          "report in wrong way",
+          "report without care",
+          "report for nothing"
+        ]
+      },
+      "answer": "report the latest news",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: report the latest news.",
+      "content_hash": "report|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "report collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "report the latest news",
+        "vn_trap": "past tense reported"
+      }
+    },
+    {
+      "lemma": "decide",
+      "pos": "v",
+      "sense_vi": "quyết định đi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "decide (v.)",
+        "opts": [
+          "quyết định đi",
+          "ghét làm việc",
+          "đếm từ một",
+          "lên kế hoạch đi"
+        ]
+      },
+      "answer": "quyết định đi",
+      "explain_vi": "Động từ decide mang nghĩa chính xác là: quyết định đi.",
+      "content_hash": "decide|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "decide gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "decide to leave early",
+        "vn_trap": "past tense decided"
+      }
+    },
+    {
+      "lemma": "decide",
+      "pos": "v",
+      "sense_vi": "quyết định đi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'quyết định đi' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "decide",
+          "decides",
+          "decideing",
+          "decided"
+        ]
+      },
+      "answer": "decide",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là decide.",
+      "content_hash": "decide|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "decide l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "decide to leave early",
+        "vn_trap": "past tense decided"
+      }
+    },
+    {
+      "lemma": "decide",
+      "pos": "v",
+      "sense_vi": "quyết định đi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Learning how to ___ a foreign language takes time.",
+        "opts": [
+          "decide",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "decide",
+      "explain_vi": "Điền 'decide' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "decide|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "decide cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "decide to leave early",
+        "vn_trap": "past tense decided"
+      }
+    },
+    {
+      "lemma": "decide",
+      "pos": "v",
+      "sense_vi": "quyết định đi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was decideing when I arrived home.'",
+        "opts": [
+          "They were decideing when I arrived home.",
+          "They was decideing when I arrived home.",
+          "They They was decideing when I arrived home.",
+          "She was decideing when I came yesterday."
+        ]
+      },
+      "answer": "They were decideing when I arrived home.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were'.",
+      "content_hash": "decide|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "decide error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "decide to leave early",
+        "vn_trap": "past tense decided"
+      }
+    },
+    {
+      "lemma": "decide",
+      "pos": "v",
+      "sense_vi": "quyết định đi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'decide':",
+        "opts": [
+          "decide to leave early",
+          "decide in wrong way",
+          "decide without care",
+          "decide for nothing"
+        ]
+      },
+      "answer": "decide to leave early",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: decide to leave early.",
+      "content_hash": "decide|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "decide collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "decide to leave early",
+        "vn_trap": "past tense decided"
+      }
+    },
+    {
+      "lemma": "pull",
+      "pos": "v",
+      "sense_vi": "kéo cửa",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pull (v.)",
+        "opts": [
+          "kéo cửa",
+          "tham gia câu lạc bộ",
+          "che hộp quà",
+          "chỉ vào bức ảnh"
+        ]
+      },
+      "answer": "kéo cửa",
+      "explain_vi": "Động từ pull mang nghĩa chính xác là: kéo cửa.",
+      "content_hash": "pull|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "pull gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pull the heavy door",
+        "vn_trap": "past tense pulled"
+      }
+    },
+    {
+      "lemma": "pull",
+      "pos": "v",
+      "sense_vi": "kéo cửa",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'kéo cửa', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "pull",
+          "pulls",
+          "pulling",
+          "pulled"
+        ]
+      },
+      "answer": "pull",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là pull.",
+      "content_hash": "pull|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "pull l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pull the heavy door",
+        "vn_trap": "past tense pulled"
+      }
+    },
+    {
+      "lemma": "pull",
+      "pos": "v",
+      "sense_vi": "kéo cửa",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Many people choose to ___ abroad during summer.",
+        "opts": [
+          "pull",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "pull",
+      "explain_vi": "Điền 'pull' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "pull|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "pull cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pull the heavy door",
+        "vn_trap": "past tense pulled"
+      }
+    },
+    {
+      "lemma": "pull",
+      "pos": "v",
+      "sense_vi": "kéo cửa",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He pulls without ask for permission.'",
+        "opts": [
+          "He pulled without asking for permission.",
+          "He pulls without ask for permission.",
+          "They He pulls without ask for permission.",
+          "She was pulling when I came yesterday."
+        ]
+      },
+      "answer": "He pulled without asking for permission.",
+      "explain_vi": "Sau giới từ 'without' cần V-ing.",
+      "content_hash": "pull|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "pull error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pull the heavy door",
+        "vn_trap": "past tense pulled"
+      }
+    },
+    {
+      "lemma": "pull",
+      "pos": "v",
+      "sense_vi": "kéo cửa",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'pull':",
+        "opts": [
+          "pull the heavy door",
+          "pull in wrong way",
+          "pull without care",
+          "pull for nothing"
+        ]
+      },
+      "answer": "pull the heavy door",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: pull the heavy door.",
+      "content_hash": "pull|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "pull collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pull the heavy door",
+        "vn_trap": "past tense pulled"
+      }
+    },
+    {
+      "lemma": "return",
+      "pos": "v",
+      "sense_vi": "trở về nhà",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "return (v.)",
+        "opts": [
+          "trở về nhà",
+          "cười to",
+          "băng qua đường",
+          "thích hơn"
+        ]
+      },
+      "answer": "trở về nhà",
+      "explain_vi": "Động từ return mang nghĩa chính xác là: trở về nhà.",
+      "content_hash": "return|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "return gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "return back home",
+        "vn_trap": "past tense returned"
+      }
+    },
+    {
+      "lemma": "return",
+      "pos": "v",
+      "sense_vi": "trở về nhà",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'trở về nhà' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "return",
+          "returns",
+          "returning",
+          "returned"
+        ]
+      },
+      "answer": "return",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là return.",
+      "content_hash": "return|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "return l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "return back home",
+        "vn_trap": "past tense returned"
+      }
+    },
+    {
+      "lemma": "return",
+      "pos": "v",
+      "sense_vi": "trở về nhà",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Never hesitate to ___ for help when you need it.",
+        "opts": [
+          "return",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "return",
+      "explain_vi": "Điền 'return' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "return|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "return cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "return back home",
+        "vn_trap": "past tense returned"
+      }
+    },
+    {
+      "lemma": "return",
+      "pos": "v",
+      "sense_vi": "trở về nhà",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is returning since early this morning.'",
+        "opts": [
+          "She has been returning since early this morning.",
+          "She is returning since early this morning.",
+          "They She is returning since early this morning.",
+          "She was returning when I came yesterday."
+        ]
+      },
+      "answer": "She has been returning since early this morning.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "return|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "return error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "return back home",
+        "vn_trap": "past tense returned"
+      }
+    },
+    {
+      "lemma": "return",
+      "pos": "v",
+      "sense_vi": "trở về nhà",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'return':",
+        "opts": [
+          "return back home",
+          "return in wrong way",
+          "return without care",
+          "return for nothing"
+        ]
+      },
+      "answer": "return back home",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: return back home.",
+      "content_hash": "return|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "return collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "return back home",
+        "vn_trap": "past tense returned"
+      }
+    },
+    {
+      "lemma": "explain",
+      "pos": "v",
+      "sense_vi": "giải thích bài học",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "explain (v.)",
+        "opts": [
+          "giải thích bài học",
+          "bỏ lỡ xe buýt",
+          "khóc lớn",
+          "trình bày ý tưởng"
+        ]
+      },
+      "answer": "giải thích bài học",
+      "explain_vi": "Động từ explain mang nghĩa chính xác là: giải thích bài học.",
+      "content_hash": "explain|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "explain gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "explain the new lesson",
+        "vn_trap": "past tense explained"
+      }
+    },
+    {
+      "lemma": "explain",
+      "pos": "v",
+      "sense_vi": "giải thích bài học",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'giải thích bài học', từ tiếng Anh đúng là:",
+        "opts": [
+          "explain",
+          "explains",
+          "explaining",
+          "explained"
+        ]
+      },
+      "answer": "explain",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là explain.",
+      "content_hash": "explain|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "explain l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "explain the new lesson",
+        "vn_trap": "past tense explained"
+      }
+    },
+    {
+      "lemma": "explain",
+      "pos": "v",
+      "sense_vi": "giải thích bài học",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Our team hopes to ___ the championship match.",
+        "opts": [
+          "explain",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "explain",
+      "explain_vi": "Điền 'explain' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "explain|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "explain cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "explain the new lesson",
+        "vn_trap": "past tense explained"
+      }
+    },
+    {
+      "lemma": "explain",
+      "pos": "v",
+      "sense_vi": "giải thích bài học",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If she explains more, she would succeed.'",
+        "opts": [
+          "If she explained more, she would succeed.",
+          "If she explains more, she would succeed.",
+          "They If she explains more, she would succeed.",
+          "She was explaining when I came yesterday."
+        ]
+      },
+      "answer": "If she explained more, she would succeed.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "explain|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "explain error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "explain the new lesson",
+        "vn_trap": "past tense explained"
+      }
+    },
+    {
+      "lemma": "explain",
+      "pos": "v",
+      "sense_vi": "giải thích bài học",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'explain':",
+        "opts": [
+          "explain the new lesson",
+          "explain in wrong way",
+          "explain without care",
+          "explain for nothing"
+        ]
+      },
+      "answer": "explain the new lesson",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: explain the new lesson.",
+      "content_hash": "explain|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "explain collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "explain the new lesson",
+        "vn_trap": "past tense explained"
+      }
+    },
+    {
+      "lemma": "hope",
+      "pos": "v",
+      "sense_vi": "hy vọng thắng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hope (v.)",
+        "opts": [
+          "hy vọng thắng",
+          "gọi món ăn",
+          "nhảy múa",
+          "ấn nút mở"
+        ]
+      },
+      "answer": "hy vọng thắng",
+      "explain_vi": "Động từ hope mang nghĩa chính xác là: hy vọng thắng.",
+      "content_hash": "hope|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "hope gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hope to win match",
+        "vn_trap": "past tense hoped"
+      }
+    },
+    {
+      "lemma": "hope",
+      "pos": "v",
+      "sense_vi": "hy vọng thắng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'hy vọng thắng' là:",
+        "opts": [
+          "hope",
+          "hopes",
+          "hopeing",
+          "hoped"
+        ]
+      },
+      "answer": "hope",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hope.",
+      "content_hash": "hope|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "hope l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hope to win match",
+        "vn_trap": "past tense hoped"
+      }
+    },
+    {
+      "lemma": "hope",
+      "pos": "v",
+      "sense_vi": "hy vọng thắng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please feel free to ___ your thoughts with us.",
+        "opts": [
+          "hope",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "hope",
+      "explain_vi": "Điền 'hope' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "hope|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "hope cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hope to win match",
+        "vn_trap": "past tense hoped"
+      }
+    },
+    {
+      "lemma": "hope",
+      "pos": "v",
+      "sense_vi": "hy vọng thắng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She loves to hopeing every afternoon.'",
+        "opts": [
+          "She loves to hope every afternoon.",
+          "She loves to hopeing every afternoon.",
+          "They She loves to hopeing every afternoon.",
+          "She was hopeing when I came yesterday."
+        ]
+      },
+      "answer": "She loves to hope every afternoon.",
+      "explain_vi": "Sau 'to' dùng động từ nguyên mẫu.",
+      "content_hash": "hope|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "hope error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hope to win match",
+        "vn_trap": "past tense hoped"
+      }
+    },
+    {
+      "lemma": "hope",
+      "pos": "v",
+      "sense_vi": "hy vọng thắng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hope':",
+        "opts": [
+          "hope to win match",
+          "hope in wrong way",
+          "hope without care",
+          "hope for nothing"
+        ]
+      },
+      "answer": "hope to win match",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hope to win match.",
+      "content_hash": "hope|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "hope collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hope to win match",
+        "vn_trap": "past tense hoped"
+      }
+    },
+    {
+      "lemma": "develop",
+      "pos": "v",
+      "sense_vi": "phát triển kỹ năng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "develop (v.)",
+        "opts": [
+          "phát triển kỹ năng",
+          "sở hữu ô tô",
+          "miêu tả bức tranh",
+          "ngăn bệnh tật"
+        ]
+      },
+      "answer": "phát triển kỹ năng",
+      "explain_vi": "Động từ develop mang nghĩa chính xác là: phát triển kỹ năng.",
+      "content_hash": "develop|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "develop gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "develop new skills",
+        "vn_trap": "past tense developed"
+      }
+    },
+    {
+      "lemma": "develop",
+      "pos": "v",
+      "sense_vi": "phát triển kỹ năng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'phát triển kỹ năng' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "develop",
+          "develops",
+          "developing",
+          "developed"
+        ]
+      },
+      "answer": "develop",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là develop.",
+      "content_hash": "develop|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "develop l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "develop new skills",
+        "vn_trap": "past tense developed"
+      }
+    },
+    {
+      "lemma": "develop",
+      "pos": "v",
+      "sense_vi": "phát triển kỹ năng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Quietly step inside so you don't ___ the baby.",
+        "opts": [
+          "develop",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "develop",
+      "explain_vi": "Điền 'develop' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "develop|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "develop cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "develop new skills",
+        "vn_trap": "past tense developed"
+      }
+    },
+    {
+      "lemma": "develop",
+      "pos": "v",
+      "sense_vi": "phát triển kỹ năng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is bored with develop the same thing.'",
+        "opts": [
+          "He is bored with developing the same thing.",
+          "He is bored with develop the same thing.",
+          "They He is bored with develop the same thing.",
+          "She was developing when I came yesterday."
+        ]
+      },
+      "answer": "He is bored with developing the same thing.",
+      "explain_vi": "Sau giới từ 'with' dùng V-ing.",
+      "content_hash": "develop|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "develop error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "develop new skills",
+        "vn_trap": "past tense developed"
+      }
+    },
+    {
+      "lemma": "develop",
+      "pos": "v",
+      "sense_vi": "phát triển kỹ năng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'develop':",
+        "opts": [
+          "develop new skills",
+          "develop in wrong way",
+          "develop without care",
+          "develop for nothing"
+        ]
+      },
+      "answer": "develop new skills",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: develop new skills.",
+      "content_hash": "develop|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "develop collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "develop new skills",
+        "vn_trap": "past tense developed"
+      }
+    },
+    {
+      "lemma": "carry",
+      "pos": "v",
+      "sense_vi": "mang cặp nặng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "carry (v.)",
+        "opts": [
+          "mang cặp nặng",
+          "sơn bức tường",
+          "chết trong chiến tranh",
+          "in tài liệu"
+        ]
+      },
+      "answer": "mang cặp nặng",
+      "explain_vi": "Động từ carry mang nghĩa chính xác là: mang cặp nặng.",
+      "content_hash": "carry|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "carry gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "carry a heavy bag",
+        "vn_trap": "past tense carried"
+      }
+    },
+    {
+      "lemma": "carry",
+      "pos": "v",
+      "sense_vi": "mang cặp nặng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'mang cặp nặng' là:",
+        "opts": [
+          "carry",
+          "carrys",
+          "carrying",
+          "carried"
+        ]
+      },
+      "answer": "carry",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là carry.",
+      "content_hash": "carry|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "carry l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "carry a heavy bag",
+        "vn_trap": "past tense carried"
+      }
+    },
+    {
+      "lemma": "carry",
+      "pos": "v",
+      "sense_vi": "mang cặp nặng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ the lights before going to bed.",
+        "opts": [
+          "carry",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "carry",
+      "explain_vi": "Điền 'carry' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "carry|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "carry cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "carry a heavy bag",
+        "vn_trap": "past tense carried"
+      }
+    },
+    {
+      "lemma": "carry",
+      "pos": "v",
+      "sense_vi": "mang cặp nặng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'In spite of she was ill, she went to carry.'",
+        "opts": [
+          "Although she was ill, she went to carry.",
+          "In spite of she was ill, she went to carry.",
+          "They In spite of she was ill, she went to carry.",
+          "She was carrying when I came yesterday."
+        ]
+      },
+      "answer": "Although she was ill, she went to carry.",
+      "explain_vi": "Dùng 'Although' thay cho 'In spite of' trước mệnh đề.",
+      "content_hash": "carry|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "carry error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "carry a heavy bag",
+        "vn_trap": "past tense carried"
+      }
+    },
+    {
+      "lemma": "carry",
+      "pos": "v",
+      "sense_vi": "mang cặp nặng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'carry':",
+        "opts": [
+          "carry a heavy bag",
+          "carry in wrong way",
+          "carry without care",
+          "carry for nothing"
+        ]
+      },
+      "answer": "carry a heavy bag",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: carry a heavy bag.",
+      "content_hash": "carry|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "carry collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "carry a heavy bag",
+        "vn_trap": "past tense carried"
+      }
+    },
+    {
+      "lemma": "check",
+      "pos": "v",
+      "sense_vi": "kiểm tra đáp án",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "check (v.)",
+        "opts": [
+          "kiểm tra đáp án",
+          "chọn đồ vật",
+          "khám phá nơi mới",
+          "bảo vệ động vật"
+        ]
+      },
+      "answer": "kiểm tra đáp án",
+      "explain_vi": "Động từ check mang nghĩa chính xác là: kiểm tra đáp án.",
+      "content_hash": "check|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "check gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "check the correct answer",
+        "vn_trap": "past tense checked"
+      }
+    },
+    {
+      "lemma": "check",
+      "pos": "v",
+      "sense_vi": "kiểm tra đáp án",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'kiểm tra đáp án' được dịch là:",
+        "opts": [
+          "check",
+          "checks",
+          "checking",
+          "checked"
+        ]
+      },
+      "answer": "check",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là check.",
+      "content_hash": "check|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "check l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "check the correct answer",
+        "vn_trap": "past tense checked"
+      }
+    },
+    {
+      "lemma": "check",
+      "pos": "v",
+      "sense_vi": "kiểm tra đáp án",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "She promised to ___ her parents every weekend.",
+        "opts": [
+          "check",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "check",
+      "explain_vi": "Điền 'check' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "check|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "check cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "check the correct answer",
+        "vn_trap": "past tense checked"
+      }
+    },
+    {
+      "lemma": "check",
+      "pos": "v",
+      "sense_vi": "kiểm tra đáp án",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has checkeded the letter last week.'",
+        "opts": [
+          "She checked the letter last week.",
+          "She has checkeded the letter last week.",
+          "They She has checkeded the letter last week.",
+          "She was checking when I came yesterday."
+        ]
+      },
+      "answer": "She checked the letter last week.",
+      "explain_vi": "Thời gian xác định trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "check|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "check error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "check the correct answer",
+        "vn_trap": "past tense checked"
+      }
+    },
+    {
+      "lemma": "check",
+      "pos": "v",
+      "sense_vi": "kiểm tra đáp án",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'check':",
+        "opts": [
+          "check the correct answer",
+          "check in wrong way",
+          "check without care",
+          "check for nothing"
+        ]
+      },
+      "answer": "check the correct answer",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: check the correct answer.",
+      "content_hash": "check|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "check collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "check the correct answer",
+        "vn_trap": "past tense checked"
+      }
+    },
+    {
+      "lemma": "choose",
+      "pos": "v",
+      "sense_vi": "chọn đáp án",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "choose (v.)",
+        "opts": [
+          "chọn đáp án",
+          "chuẩn bị bài",
+          "lái ô tô",
+          "chứng minh ý kiến"
+        ]
+      },
+      "answer": "chọn đáp án",
+      "explain_vi": "Động từ choose mang nghĩa chính xác là: chọn đáp án.",
+      "content_hash": "choose|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "choose gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "choose the best option",
+        "vn_trap": "past tense chose"
+      }
+    },
+    {
+      "lemma": "choose",
+      "pos": "v",
+      "sense_vi": "chọn đáp án",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'chọn đáp án', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "choose",
+          "chooses",
+          "chooseing",
+          "chose"
+        ]
+      },
+      "answer": "choose",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là choose.",
+      "content_hash": "choose|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "choose l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "choose the best option",
+        "vn_trap": "past tense chose"
+      }
+    },
+    {
+      "lemma": "choose",
+      "pos": "v",
+      "sense_vi": "chọn đáp án",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "They plan to ___ a new office building next year.",
+        "opts": [
+          "choose",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "choose",
+      "explain_vi": "Điền 'choose' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "choose|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "choose cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "choose the best option",
+        "vn_trap": "past tense chose"
+      }
+    },
+    {
+      "lemma": "choose",
+      "pos": "v",
+      "sense_vi": "chọn đáp án",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped chooseing to take a short break.'",
+        "opts": [
+          "He stopped to choose to take a short break.",
+          "He stopped chooseing to take a short break.",
+          "They He stopped chooseing to take a short break.",
+          "She was chooseing when I came yesterday."
+        ]
+      },
+      "answer": "He stopped to choose to take a short break.",
+      "explain_vi": "Dừng lại để làm việc khác dùng 'stop to V'.",
+      "content_hash": "choose|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "choose error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "choose the best option",
+        "vn_trap": "past tense chose"
+      }
+    },
+    {
+      "lemma": "choose",
+      "pos": "v",
+      "sense_vi": "chọn đáp án",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'choose':",
+        "opts": [
+          "choose the best option",
+          "choose in wrong way",
+          "choose without care",
+          "choose for nothing"
+        ]
+      },
+      "answer": "choose the best option",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: choose the best option.",
+      "content_hash": "choose|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "choose collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "choose the best option",
+        "vn_trap": "past tense chose"
+      }
+    }
+  ]
+}

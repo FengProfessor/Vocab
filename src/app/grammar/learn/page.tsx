@@ -11,6 +11,7 @@ import type { GrammarTopic, GrammarLesson, GrammarProgress } from '@/lib/supabas
 import GrammarHighlight, { type WordAnnotation } from '@/components/grammar/GrammarHighlight';
 import TenseTimeline from '@/components/grammar/TenseTimeline';
 import GoldenLesson from '@/components/grammar/GoldenLesson';
+import { GrammarFormula } from '@/components/grammar/GrammarFormula';
 import {
   ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen, Volume2, History, FileDown,
 } from 'lucide-react';
@@ -548,7 +549,12 @@ function GrammarLearnContent() {
                   children?: React.ReactNode;
                 } & React.HTMLAttributes<HTMLElement>) => {
                   const codeText = String(children).replace(/\n$/, '');
-                  // Check if it's a formula: contains '+' or '→' or '=>'
+                  // Check if it's our new formula block
+                  if (!inline && _className === 'language-formula') {
+                    return <GrammarFormula code={codeText} />;
+                  }
+
+                  // Check if it's an inline formula: contains '+' or '→' or '=>'
                   const isFormula = (codeText.includes('+') || codeText.includes('→') || codeText.includes('=>')) && codeText.length < 80;
                   
                   if (inline) {

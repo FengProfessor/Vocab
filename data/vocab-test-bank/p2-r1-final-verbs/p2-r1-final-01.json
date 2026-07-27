@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-01",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity Phase 2 · 10 lemmas cloze+error high quality · real ESL traps",
+  "lemmas": [
+    "do",
+    "get",
+    "think",
+    "look",
+    "use",
+    "find",
+    "tell",
+    "call",
+    "try",
+    "ask"
+  ],
+  "items": [
+    {
+      "lemma": "do",
+      "pos": "v",
+      "sense_vi": "làm bài tập",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "do (v.)",
+        "opts": [
+          "làm bài tập",
+          "giữ bí mật",
+          "thêm muối",
+          "đoán câu trả lời"
+        ]
+      },
+      "answer": "làm bài tập",
+      "explain_vi": "Động từ do mang nghĩa chính xác là: làm bài tập.",
+      "content_hash": "do|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "do gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "do homework",
+        "vn_trap": "past tense did"
+      }
+    },
+    {
+      "lemma": "do",
+      "pos": "v",
+      "sense_vi": "làm bài tập",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'làm bài tập', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "do",
+          "dos",
+          "doing",
+          "did"
+        ]
+      },
+      "answer": "do",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là do.",
+      "content_hash": "do|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "do l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "do homework",
+        "vn_trap": "past tense did"
+      }
+    },
+    {
+      "lemma": "do",
+      "pos": "v",
+      "sense_vi": "làm bài tập",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "After finishing school, all students have to ___ their homework.",
+        "opts": [
+          "do",
+          "make",
+          "take",
+          "create"
+        ]
+      },
+      "answer": "do",
+      "explain_vi": "Dùng 'do' với 'homework' (do homework = làm bài tập).",
+      "content_hash": "do|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "do phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "do homework",
+        "vn_trap": "past tense did"
+      }
+    },
+    {
+      "lemma": "do",
+      "pos": "v",
+      "sense_vi": "làm bài tập",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She makes her homework every evening.'",
+        "opts": [
+          "She does her homework every evening.",
+          "She makes her homework every evening.",
+          "She do her homework every evening.",
+          "She is make her homework every evening."
+        ]
+      },
+      "answer": "She does her homework every evening.",
+      "explain_vi": "Cụm từ cố định 'do homework', với chủ ngữ She chia thành 'does'.",
+      "content_hash": "do|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "do phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "do homework",
+        "vn_trap": "past tense did"
+      }
+    },
+    {
+      "lemma": "do",
+      "pos": "v",
+      "sense_vi": "làm bài tập",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'do':",
+        "opts": [
+          "do homework",
+          "make homework",
+          "do a mistake",
+          "make exercise"
+        ]
+      },
+      "answer": "do homework",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: do homework.",
+      "content_hash": "do|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "do phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "do homework",
+        "vn_trap": "past tense did"
+      }
+    },
+    {
+      "lemma": "get",
+      "pos": "v",
+      "sense_vi": "nhận được tin nhắn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "get (v.)",
+        "opts": [
+          "nhận được tin nhắn",
+          "cho phép đi",
+          "dành thời gian",
+          "ghét làm việc"
+        ]
+      },
+      "answer": "nhận được tin nhắn",
+      "explain_vi": "Động từ get mang nghĩa chính xác là: nhận được tin nhắn.",
+      "content_hash": "get|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "get gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "get up early",
+        "vn_trap": "past tense got"
+      }
+    },
+    {
+      "lemma": "get",
+      "pos": "v",
+      "sense_vi": "nhận được tin nhắn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'nhận được tin nhắn' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "get",
+          "gets",
+          "geting",
+          "got"
+        ]
+      },
+      "answer": "get",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là get.",
+      "content_hash": "get|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "get l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "get up early",
+        "vn_trap": "past tense got"
+      }
+    },
+    {
+      "lemma": "get",
+      "pos": "v",
+      "sense_vi": "nhận được tin nhắn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Did you ___ any text messages from your friends yesterday?",
+        "opts": [
+          "get",
+          "borrow",
+          "lend",
+          "sell"
+        ]
+      },
+      "answer": "get",
+      "explain_vi": "Dùng 'get' mang nghĩa nhận được tin nhắn.",
+      "content_hash": "get|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "get phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "get up early",
+        "vn_trap": "past tense got"
+      }
+    },
+    {
+      "lemma": "get",
+      "pos": "v",
+      "sense_vi": "nhận được tin nhắn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He getted a long message from his mom yesterday.'",
+        "opts": [
+          "He got a long message from his mom yesterday.",
+          "He getted a long message from his mom yesterday.",
+          "He has getted a long message from his mom yesterday.",
+          "He is get a long message from his mom yesterday."
+        ]
+      },
+      "answer": "He got a long message from his mom yesterday.",
+      "explain_vi": "Quá khứ bất quy tắc của 'get' là 'got', không dùng 'getted'.",
+      "content_hash": "get|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "get phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "get up early",
+        "vn_trap": "past tense got"
+      }
+    },
+    {
+      "lemma": "get",
+      "pos": "v",
+      "sense_vi": "nhận được tin nhắn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'get':",
+        "opts": [
+          "get up early",
+          "make up early",
+          "do up early",
+          "take up early"
+        ]
+      },
+      "answer": "get up early",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: get up early.",
+      "content_hash": "get|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "get phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "get up early",
+        "vn_trap": "past tense got"
+      }
+    },
+    {
+      "lemma": "think",
+      "pos": "v",
+      "sense_vi": "suy nghĩ kỹ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "think (v.)",
+        "opts": [
+          "suy nghĩ kỹ",
+          "bắt đầu học",
+          "lớn nhanh",
+          "tham gia câu lạc bộ"
+        ]
+      },
+      "answer": "suy nghĩ kỹ",
+      "explain_vi": "Động từ think mang nghĩa chính xác là: suy nghĩ kỹ.",
+      "content_hash": "think|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "think gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "think about someone",
+        "vn_trap": "past tense thought"
+      }
+    },
+    {
+      "lemma": "think",
+      "pos": "v",
+      "sense_vi": "suy nghĩ kỹ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'suy nghĩ kỹ', từ tiếng Anh đúng là:",
+        "opts": [
+          "think",
+          "thinks",
+          "thinking",
+          "thought"
+        ]
+      },
+      "answer": "think",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là think.",
+      "content_hash": "think|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "think l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "think about someone",
+        "vn_trap": "past tense thought"
+      }
+    },
+    {
+      "lemma": "think",
+      "pos": "v",
+      "sense_vi": "suy nghĩ kỹ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ carefully before answering the teacher's question.",
+        "opts": [
+          "think",
+          "forget",
+          "ignore",
+          "refuse"
+        ]
+      },
+      "answer": "think",
+      "explain_vi": "Dùng 'think' trong câu khuyên suy nghĩ kỹ trước khi trả lời.",
+      "content_hash": "think|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "think phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "think about someone",
+        "vn_trap": "past tense thought"
+      }
+    },
+    {
+      "lemma": "think",
+      "pos": "v",
+      "sense_vi": "suy nghĩ kỹ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He thinked about the main plan yesterday.'",
+        "opts": [
+          "He thought about the main plan yesterday.",
+          "He thinked about the main plan yesterday.",
+          "He has thinked about the main plan yesterday.",
+          "He was think about the main plan yesterday."
+        ]
+      },
+      "answer": "He thought about the main plan yesterday.",
+      "explain_vi": "Quá khứ bất quy tắc của 'think' là 'thought', không dùng 'thinked'.",
+      "content_hash": "think|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "think phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "think about someone",
+        "vn_trap": "past tense thought"
+      }
+    },
+    {
+      "lemma": "think",
+      "pos": "v",
+      "sense_vi": "suy nghĩ kỹ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'think':",
+        "opts": [
+          "think about someone",
+          "think on someone",
+          "think for someone",
+          "think at someone"
+        ]
+      },
+      "answer": "think about someone",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: think about someone.",
+      "content_hash": "think|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "think phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "think about someone",
+        "vn_trap": "past tense thought"
+      }
+    },
+    {
+      "lemma": "look",
+      "pos": "v",
+      "sense_vi": "nhìn bảng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "look (v.)",
+        "opts": [
+          "nhìn bảng",
+          "nói chuyện với bạn",
+          "mở cửa",
+          "cười to"
+        ]
+      },
+      "answer": "nhìn bảng",
+      "explain_vi": "Động từ look mang nghĩa chính xác là: nhìn bảng.",
+      "content_hash": "look|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "look gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "look for missing keys",
+        "vn_trap": "past tense looked"
+      }
+    },
+    {
+      "lemma": "look",
+      "pos": "v",
+      "sense_vi": "nhìn bảng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'nhìn bảng' là:",
+        "opts": [
+          "look",
+          "looks",
+          "looking",
+          "looked"
+        ]
+      },
+      "answer": "look",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là look.",
+      "content_hash": "look|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "look l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "look for missing keys",
+        "vn_trap": "past tense looked"
+      }
+    },
+    {
+      "lemma": "look",
+      "pos": "v",
+      "sense_vi": "nhìn bảng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Students, please ___ at the whiteboard while I explain the lesson.",
+        "opts": [
+          "look",
+          "hear",
+          "listen",
+          "watch"
+        ]
+      },
+      "answer": "look",
+      "explain_vi": "Dùng 'look at' để chỉ hành động nhìn vào cái gì (bảng).",
+      "content_hash": "look|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "look phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "look for missing keys",
+        "vn_trap": "past tense looked"
+      }
+    },
+    {
+      "lemma": "look",
+      "pos": "v",
+      "sense_vi": "nhìn bảng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is looking for her keys since two o'clock.'",
+        "opts": [
+          "She has been looking for her keys since two o'clock.",
+          "She is looking for her keys since two o'clock.",
+          "She looked for her keys since two o'clock.",
+          "She has looking for her keys since two o'clock."
+        ]
+      },
+      "answer": "She has been looking for her keys since two o'clock.",
+      "explain_vi": "Hành động kéo dài có 'since' dùng hiện tại hoàn thành tiếp diễn (has been looking).",
+      "content_hash": "look|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "look phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "look for missing keys",
+        "vn_trap": "past tense looked"
+      }
+    },
+    {
+      "lemma": "look",
+      "pos": "v",
+      "sense_vi": "nhìn bảng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'look':",
+        "opts": [
+          "look for missing keys",
+          "look at missing keys",
+          "look into missing keys",
+          "look after missing keys"
+        ]
+      },
+      "answer": "look for missing keys",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: look for missing keys.",
+      "content_hash": "look|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "look phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "look for missing keys",
+        "vn_trap": "past tense looked"
+      }
+    },
+    {
+      "lemma": "use",
+      "pos": "v",
+      "sense_vi": "dùng máy tính",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "use (v.)",
+        "opts": [
+          "dùng máy tính",
+          "quay lại đằng sau",
+          "thắng trận đấu",
+          "bỏ lỡ xe buýt"
+        ]
+      },
+      "answer": "dùng máy tính",
+      "explain_vi": "Động từ use mang nghĩa chính xác là: dùng máy tính.",
+      "content_hash": "use|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "use gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "used to do something",
+        "vn_trap": "past tense used"
+      }
+    },
+    {
+      "lemma": "use",
+      "pos": "v",
+      "sense_vi": "dùng máy tính",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'dùng máy tính' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "use",
+          "uses",
+          "useing",
+          "used"
+        ]
+      },
+      "answer": "use",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là use.",
+      "content_hash": "use|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "use l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "used to do something",
+        "vn_trap": "past tense used"
+      }
+    },
+    {
+      "lemma": "use",
+      "pos": "v",
+      "sense_vi": "dùng máy tính",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ my computer to search for information online.",
+        "opts": [
+          "use",
+          "rent",
+          "sell",
+          "borrow"
+        ]
+      },
+      "answer": "use",
+      "explain_vi": "Dùng 'use' mang nghĩa sử dụng máy tính.",
+      "content_hash": "use|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "use phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "used to do something",
+        "vn_trap": "past tense used"
+      }
+    },
+    {
+      "lemma": "use",
+      "pos": "v",
+      "sense_vi": "dùng máy tính",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'This computer is used for type documents.'",
+        "opts": [
+          "This computer is used for typing documents.",
+          "This computer is used for type documents.",
+          "This computer is used to typing documents.",
+          "This computer used for type documents."
+        ]
+      },
+      "answer": "This computer is used for typing documents.",
+      "explain_vi": "Cấu trúc 'be used for' đi với động từ dạng V-ing (typing).",
+      "content_hash": "use|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "use phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "used to do something",
+        "vn_trap": "past tense used"
+      }
+    },
+    {
+      "lemma": "use",
+      "pos": "v",
+      "sense_vi": "dùng máy tính",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'use':",
+        "opts": [
+          "used to do something",
+          "used to doing something",
+          "use for do something",
+          "used for to do something"
+        ]
+      },
+      "answer": "used to do something",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: used to do something.",
+      "content_hash": "use|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "use phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "used to do something",
+        "vn_trap": "past tense used"
+      }
+    },
+    {
+      "lemma": "find",
+      "pos": "v",
+      "sense_vi": "tìm thấy chìa khóa",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "find (v.)",
+        "opts": [
+          "tìm thấy chìa khóa",
+          "cho xem ảnh",
+          "đề nghị giúp đỡ",
+          "gọi món ăn"
+        ]
+      },
+      "answer": "tìm thấy chìa khóa",
+      "explain_vi": "Động từ find mang nghĩa chính xác là: tìm thấy chìa khóa.",
+      "content_hash": "find|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "find gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "find out the truth",
+        "vn_trap": "past tense found"
+      }
+    },
+    {
+      "lemma": "find",
+      "pos": "v",
+      "sense_vi": "tìm thấy chìa khóa",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'tìm thấy chìa khóa' là:",
+        "opts": [
+          "find",
+          "finds",
+          "finding",
+          "found"
+        ]
+      },
+      "answer": "find",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là find.",
+      "content_hash": "find|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "find l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "find out the truth",
+        "vn_trap": "past tense found"
+      }
+    },
+    {
+      "lemma": "find",
+      "pos": "v",
+      "sense_vi": "tìm thấy chìa khóa",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "I hope you will ___ your lost keys soon.",
+        "opts": [
+          "find",
+          "lose",
+          "drop",
+          "hide"
+        ]
+      },
+      "answer": "find",
+      "explain_vi": "Dùng 'find' mang nghĩa tìm thấy chìa khóa.",
+      "content_hash": "find|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "find phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "find out the truth",
+        "vn_trap": "past tense found"
+      }
+    },
+    {
+      "lemma": "find",
+      "pos": "v",
+      "sense_vi": "tìm thấy chìa khóa",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She finded her keys under the table yesterday.'",
+        "opts": [
+          "She found her keys under the table yesterday.",
+          "She finded her keys under the table yesterday.",
+          "She has finded her keys under the table yesterday.",
+          "She was find her keys under the table yesterday."
+        ]
+      },
+      "answer": "She found her keys under the table yesterday.",
+      "explain_vi": "Quá khứ bất quy tắc của 'find' là 'found', không dùng 'finded'.",
+      "content_hash": "find|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "find phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "find out the truth",
+        "vn_trap": "past tense found"
+      }
+    },
+    {
+      "lemma": "find",
+      "pos": "v",
+      "sense_vi": "tìm thấy chìa khóa",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'find':",
+        "opts": [
+          "find out the truth",
+          "find in the truth",
+          "find on the truth",
+          "find at the truth"
+        ]
+      },
+      "answer": "find out the truth",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: find out the truth.",
+      "content_hash": "find|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "find phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "find out the truth",
+        "vn_trap": "past tense found"
+      }
+    },
+    {
+      "lemma": "tell",
+      "pos": "v",
+      "sense_vi": "nói sự thật",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tell (v.)",
+        "opts": [
+          "nói sự thật",
+          "nghe tiếng động",
+          "cân nhắc kỹ",
+          "sở hữu ô tô"
+        ]
+      },
+      "answer": "nói sự thật",
+      "explain_vi": "Động từ tell mang nghĩa chính xác là: nói sự thật.",
+      "content_hash": "tell|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "tell gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tell a story",
+        "vn_trap": "past tense told"
+      }
+    },
+    {
+      "lemma": "tell",
+      "pos": "v",
+      "sense_vi": "nói sự thật",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'nói sự thật' được dịch là:",
+        "opts": [
+          "tell",
+          "tells",
+          "telling",
+          "told"
+        ]
+      },
+      "answer": "tell",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là tell.",
+      "content_hash": "tell|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "tell l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tell a story",
+        "vn_trap": "past tense told"
+      }
+    },
+    {
+      "lemma": "tell",
+      "pos": "v",
+      "sense_vi": "nói sự thật",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You should always ___ the truth to your parents.",
+        "opts": [
+          "tell",
+          "say",
+          "speak",
+          "talk"
+        ]
+      },
+      "answer": "tell",
+      "explain_vi": "Dùng 'tell the truth' (nói sự thật).",
+      "content_hash": "tell|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "tell phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tell a story",
+        "vn_trap": "past tense told"
+      }
+    },
+    {
+      "lemma": "tell",
+      "pos": "v",
+      "sense_vi": "nói sự thật",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He told to me that he was tired yesterday.'",
+        "opts": [
+          "He told me that he was tired yesterday.",
+          "He told to me that he was tired yesterday.",
+          "He said me that he was tired yesterday.",
+          "He told with me that he was tired yesterday."
+        ]
+      },
+      "answer": "He told me that he was tired yesterday.",
+      "explain_vi": "Cấu trúc 'tell someone' không có giới từ 'to' đi kèm (không dùng tell to me).",
+      "content_hash": "tell|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "tell phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tell a story",
+        "vn_trap": "past tense told"
+      }
+    },
+    {
+      "lemma": "tell",
+      "pos": "v",
+      "sense_vi": "nói sự thật",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'tell':",
+        "opts": [
+          "tell a story",
+          "say a story",
+          "speak a story",
+          "talk a story"
+        ]
+      },
+      "answer": "tell a story",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: tell a story.",
+      "content_hash": "tell|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "tell phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "tell a story",
+        "vn_trap": "past tense told"
+      }
+    },
+    {
+      "lemma": "call",
+      "pos": "v",
+      "sense_vi": "gọi điện thoại",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "call (v.)",
+        "opts": [
+          "gọi điện thoại",
+          "di chuyển đồ đạc",
+          "xuất hiện bất ngờ",
+          "sơn bức tường"
+        ]
+      },
+      "answer": "gọi điện thoại",
+      "explain_vi": "Động từ call mang nghĩa chính xác là: gọi điện thoại.",
+      "content_hash": "call|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "call gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "call someone on phone",
+        "vn_trap": "past tense called"
+      }
+    },
+    {
+      "lemma": "call",
+      "pos": "v",
+      "sense_vi": "gọi điện thoại",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'gọi điện thoại', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "call",
+          "calls",
+          "calling",
+          "called"
+        ]
+      },
+      "answer": "call",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là call.",
+      "content_hash": "call|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "call l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "call someone on phone",
+        "vn_trap": "past tense called"
+      }
+    },
+    {
+      "lemma": "call",
+      "pos": "v",
+      "sense_vi": "gọi điện thoại",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ me on the phone as soon as you arrive.",
+        "opts": [
+          "call",
+          "visit",
+          "meet",
+          "meetup"
+        ]
+      },
+      "answer": "call",
+      "explain_vi": "Dùng 'call' mang nghĩa gọi điện thoại.",
+      "content_hash": "call|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "call phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "call someone on phone",
+        "vn_trap": "past tense called"
+      }
+    },
+    {
+      "lemma": "call",
+      "pos": "v",
+      "sense_vi": "gọi điện thoại",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Please call to me when you get home tonight.'",
+        "opts": [
+          "Please call me when you get home tonight.",
+          "Please call to me when you get home tonight.",
+          "Please call with me when you get home tonight.",
+          "Please calling me when you get home tonight."
+        ]
+      },
+      "answer": "Please call me when you get home tonight.",
+      "explain_vi": "Động từ 'call' dùng tân ngữ trực tiếp (call me), không thêm giới từ 'to'.",
+      "content_hash": "call|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "call phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "call someone on phone",
+        "vn_trap": "past tense called"
+      }
+    },
+    {
+      "lemma": "call",
+      "pos": "v",
+      "sense_vi": "gọi điện thoại",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'call':",
+        "opts": [
+          "call someone on phone",
+          "call to someone on phone",
+          "call with someone on phone",
+          "call at someone on phone"
+        ]
+      },
+      "answer": "call someone on phone",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: call someone on phone.",
+      "content_hash": "call|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "call phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "call someone on phone",
+        "vn_trap": "past tense called"
+      }
+    },
+    {
+      "lemma": "try",
+      "pos": "v",
+      "sense_vi": "cố gắng làm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "try (v.)",
+        "opts": [
+          "cố gắng làm",
+          "sống ở thành phố",
+          "mua sách mới",
+          "chọn đồ vật"
+        ]
+      },
+      "answer": "cố gắng làm",
+      "explain_vi": "Động từ try mang nghĩa chính xác là: cố gắng làm.",
+      "content_hash": "try|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "try gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "try to do best",
+        "vn_trap": "past tense tried"
+      }
+    },
+    {
+      "lemma": "try",
+      "pos": "v",
+      "sense_vi": "cố gắng làm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'cố gắng làm' là:",
+        "opts": [
+          "try",
+          "trys",
+          "trying",
+          "tried"
+        ]
+      },
+      "answer": "try",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là try.",
+      "content_hash": "try|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "try l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "try to do best",
+        "vn_trap": "past tense tried"
+      }
+    },
+    {
+      "lemma": "try",
+      "pos": "v",
+      "sense_vi": "cố gắng làm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Every student should ___ their best to pass the exam.",
+        "opts": [
+          "try",
+          "fail",
+          "miss",
+          "avoid"
+        ]
+      },
+      "answer": "try",
+      "explain_vi": "Cụm từ 'try one's best' có nghĩa là cố gắng hết sức.",
+      "content_hash": "try|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "try phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "try to do best",
+        "vn_trap": "past tense tried"
+      }
+    },
+    {
+      "lemma": "try",
+      "pos": "v",
+      "sense_vi": "cố gắng làm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He tried pass the test yesterday.'",
+        "opts": [
+          "He tried to pass the test yesterday.",
+          "He tried pass the test yesterday.",
+          "He tried for pass the test yesterday.",
+          "He try to pass the test yesterday."
+        ]
+      },
+      "answer": "He tried to pass the test yesterday.",
+      "explain_vi": "Cấu trúc 'try to V' chỉ nỗ lực cố gắng làm gì.",
+      "content_hash": "try|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "try phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "try to do best",
+        "vn_trap": "past tense tried"
+      }
+    },
+    {
+      "lemma": "try",
+      "pos": "v",
+      "sense_vi": "cố gắng làm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'try':",
+        "opts": [
+          "try to do best",
+          "try doing best",
+          "try for do best",
+          "try to doing best"
+        ]
+      },
+      "answer": "try to do best",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: try to do best.",
+      "content_hash": "try|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "try phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "try to do best",
+        "vn_trap": "past tense tried"
+      }
+    },
+    {
+      "lemma": "ask",
+      "pos": "v",
+      "sense_vi": "hỏi câu hỏi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ask (v.)",
+        "opts": [
+          "hỏi câu hỏi",
+          "tin tưởng vào bản thân",
+          "chờ xe buýt",
+          "chuẩn bị bài"
+        ]
+      },
+      "answer": "hỏi câu hỏi",
+      "explain_vi": "Động từ ask mang nghĩa chính xác là: hỏi câu hỏi.",
+      "content_hash": "ask|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "ask gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ask for help",
+        "vn_trap": "past tense asked"
+      }
+    },
+    {
+      "lemma": "ask",
+      "pos": "v",
+      "sense_vi": "hỏi câu hỏi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'hỏi câu hỏi' là:",
+        "opts": [
+          "ask",
+          "asks",
+          "asking",
+          "asked"
+        ]
+      },
+      "answer": "ask",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là ask.",
+      "content_hash": "ask|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "ask l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ask for help",
+        "vn_trap": "past tense asked"
+      }
+    },
+    {
+      "lemma": "ask",
+      "pos": "v",
+      "sense_vi": "hỏi câu hỏi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "If you don't understand the exercise, you can ___ the teacher.",
+        "opts": [
+          "ask",
+          "answer",
+          "reply",
+          "explain"
+        ]
+      },
+      "answer": "ask",
+      "explain_vi": "Dùng 'ask' có nghĩa là hỏi giáo viên.",
+      "content_hash": "ask|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "ask phase2 cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ask for help",
+        "vn_trap": "past tense asked"
+      }
+    },
+    {
+      "lemma": "ask",
+      "pos": "v",
+      "sense_vi": "hỏi câu hỏi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She asked to me a difficult question yesterday.'",
+        "opts": [
+          "She asked me a difficult question yesterday.",
+          "She asked to me a difficult question yesterday.",
+          "She asked for me a difficult question yesterday.",
+          "She is ask me a difficult question yesterday."
+        ]
+      },
+      "answer": "She asked me a difficult question yesterday.",
+      "explain_vi": "Cấu trúc 'ask someone a question' không dùng giới từ 'to'.",
+      "content_hash": "ask|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "ask phase2 error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ask for help",
+        "vn_trap": "past tense asked"
+      }
+    },
+    {
+      "lemma": "ask",
+      "pos": "v",
+      "sense_vi": "hỏi câu hỏi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'ask':",
+        "opts": [
+          "ask for help",
+          "ask to help",
+          "ask about help",
+          "ask with help"
+        ]
+      },
+      "answer": "ask for help",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: ask for help.",
+      "content_hash": "ask|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "ask phase2 collocation real traps",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "ask for help",
+        "vn_trap": "past tense asked"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-24",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "type",
+    "unite",
+    "update",
+    "upset",
+    "value",
+    "vary",
+    "view",
+    "vote",
+    "warn",
+    "waste"
+  ],
+  "items": [
+    {
+      "lemma": "type",
+      "pos": "v",
+      "sense_vi": "gõ văn bản",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "type (v.)",
+        "opts": [
+          "gõ văn bản",
+          "hành động ngay",
+          "cố gắng làm",
+          "mở cửa"
+        ]
+      },
+      "answer": "gõ văn bản",
+      "explain_vi": "Động từ type mang nghĩa chính xác là: gõ văn bản.",
+      "content_hash": "type|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "type gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "type a long email",
+        "vn_trap": "past tense typed"
+      }
+    },
+    {
+      "lemma": "type",
+      "pos": "v",
+      "sense_vi": "gõ văn bản",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'gõ văn bản', từ tiếng Anh đúng là:",
+        "opts": [
+          "type",
+          "types",
+          "typeing",
+          "typed"
+        ]
+      },
+      "answer": "type",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là type.",
+      "content_hash": "type|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "type l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "type a long email",
+        "vn_trap": "past tense typed"
+      }
+    },
+    {
+      "lemma": "type",
+      "pos": "v",
+      "sense_vi": "gõ văn bản",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "type",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "type",
+      "explain_vi": "Điền 'type' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "type|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "type cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "type a long email",
+        "vn_trap": "past tense typed"
+      }
+    },
+    {
+      "lemma": "type",
+      "pos": "v",
+      "sense_vi": "gõ văn bản",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She types the exercise very slow yesterday.'",
+        "opts": [
+          "She typed the exercise very slowly yesterday.",
+          "She types the exercise very slow yesterday.",
+          "They She types the exercise very slow yesterday.",
+          "She was typeing when I came yesterday."
+        ]
+      },
+      "answer": "She typed the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "type|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "type error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "type a long email",
+        "vn_trap": "past tense typed"
+      }
+    },
+    {
+      "lemma": "type",
+      "pos": "v",
+      "sense_vi": "gõ văn bản",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'type':",
+        "opts": [
+          "type a long email",
+          "type in wrong way",
+          "type without care",
+          "type for nothing"
+        ]
+      },
+      "answer": "type a long email",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: type a long email.",
+      "content_hash": "type|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "type collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "type a long email",
+        "vn_trap": "past tense typed"
+      }
+    },
+    {
+      "lemma": "unite",
+      "pos": "v",
+      "sense_vi": "đoàn kết mọi người",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "unite (v.)",
+        "opts": [
+          "đoàn kết mọi người",
+          "thừa nhận lỗi",
+          "hỏi câu hỏi",
+          "thắng trận đấu"
+        ]
+      },
+      "answer": "đoàn kết mọi người",
+      "explain_vi": "Động từ unite mang nghĩa chính xác là: đoàn kết mọi người.",
+      "content_hash": "unite|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "unite gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "unite people together",
+        "vn_trap": "past tense united"
+      }
+    },
+    {
+      "lemma": "unite",
+      "pos": "v",
+      "sense_vi": "đoàn kết mọi người",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'đoàn kết mọi người' là:",
+        "opts": [
+          "unite",
+          "unites",
+          "uniteing",
+          "united"
+        ]
+      },
+      "answer": "unite",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là unite.",
+      "content_hash": "unite|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "unite l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "unite people together",
+        "vn_trap": "past tense united"
+      }
+    },
+    {
+      "lemma": "unite",
+      "pos": "v",
+      "sense_vi": "đoàn kết mọi người",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "unite",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "unite",
+      "explain_vi": "Điền 'unite' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "unite|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "unite cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "unite people together",
+        "vn_trap": "past tense united"
+      }
+    },
+    {
+      "lemma": "unite",
+      "pos": "v",
+      "sense_vi": "đoàn kết mọi người",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was uniteing when the lights went out.'",
+        "opts": [
+          "They were uniteing when the lights went out.",
+          "They was uniteing when the lights went out.",
+          "They They was uniteing when the lights went out.",
+          "She was uniteing when I came yesterday."
+        ]
+      },
+      "answer": "They were uniteing when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "unite|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "unite error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "unite people together",
+        "vn_trap": "past tense united"
+      }
+    },
+    {
+      "lemma": "unite",
+      "pos": "v",
+      "sense_vi": "đoàn kết mọi người",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'unite':",
+        "opts": [
+          "unite people together",
+          "unite in wrong way",
+          "unite without care",
+          "unite for nothing"
+        ]
+      },
+      "answer": "unite people together",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: unite people together.",
+      "content_hash": "unite|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "unite collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "unite people together",
+        "vn_trap": "past tense united"
+      }
+    },
+    {
+      "lemma": "update",
+      "pos": "v",
+      "sense_vi": "cập nhật phần mềm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "update (v.)",
+        "opts": [
+          "cập nhật phần mềm",
+          "khuyên nên làm",
+          "cảm thấy vui",
+          "đề nghị giúp đỡ"
+        ]
+      },
+      "answer": "cập nhật phần mềm",
+      "explain_vi": "Động từ update mang nghĩa chính xác là: cập nhật phần mềm.",
+      "content_hash": "update|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "update gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "update the mobile app",
+        "vn_trap": "past tense updated"
+      }
+    },
+    {
+      "lemma": "update",
+      "pos": "v",
+      "sense_vi": "cập nhật phần mềm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'cập nhật phần mềm' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "update",
+          "updates",
+          "updateing",
+          "updated"
+        ]
+      },
+      "answer": "update",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là update.",
+      "content_hash": "update|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "update l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "update the mobile app",
+        "vn_trap": "past tense updated"
+      }
+    },
+    {
+      "lemma": "update",
+      "pos": "v",
+      "sense_vi": "cập nhật phần mềm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "update",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "update",
+      "explain_vi": "Điền 'update' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "update|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "update cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "update the mobile app",
+        "vn_trap": "past tense updated"
+      }
+    },
+    {
+      "lemma": "update",
+      "pos": "v",
+      "sense_vi": "cập nhật phần mềm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He updates without check the answers first.'",
+        "opts": [
+          "He updated without checking the answers first.",
+          "He updates without check the answers first.",
+          "They He updates without check the answers first.",
+          "She was updateing when I came yesterday."
+        ]
+      },
+      "answer": "He updated without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "update|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "update error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "update the mobile app",
+        "vn_trap": "past tense updated"
+      }
+    },
+    {
+      "lemma": "update",
+      "pos": "v",
+      "sense_vi": "cập nhật phần mềm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'update':",
+        "opts": [
+          "update the mobile app",
+          "update in wrong way",
+          "update without care",
+          "update for nothing"
+        ]
+      },
+      "answer": "update the mobile app",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: update the mobile app.",
+      "content_hash": "update|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "update collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "update the mobile app",
+        "vn_trap": "past tense updated"
+      }
+    },
+    {
+      "lemma": "upset",
+      "pos": "v",
+      "sense_vi": "làm buồn",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "upset (v.)",
+        "opts": [
+          "làm buồn",
+          "ảnh hưởng sức khỏe",
+          "trở thành bác sĩ",
+          "cân nhắc kỹ"
+        ]
+      },
+      "answer": "làm buồn",
+      "explain_vi": "Động từ upset mang nghĩa chính xác là: làm buồn.",
+      "content_hash": "upset|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "upset gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "upset your best friend",
+        "vn_trap": "past tense upset"
+      }
+    },
+    {
+      "lemma": "upset",
+      "pos": "v",
+      "sense_vi": "làm buồn",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'làm buồn' là:",
+        "opts": [
+          "upset",
+          "upsets",
+          "upseting",
+          "re-upset"
+        ]
+      },
+      "answer": "upset",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là upset.",
+      "content_hash": "upset|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "upset l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "upset your best friend",
+        "vn_trap": "past tense upset"
+      }
+    },
+    {
+      "lemma": "upset",
+      "pos": "v",
+      "sense_vi": "làm buồn",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "upset",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "upset",
+      "explain_vi": "Điền 'upset' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "upset|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "upset cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "upset your best friend",
+        "vn_trap": "past tense upset"
+      }
+    },
+    {
+      "lemma": "upset",
+      "pos": "v",
+      "sense_vi": "làm buồn",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is upseting since last year.'",
+        "opts": [
+          "She has been upseting since last year.",
+          "She is upseting since last year.",
+          "They She is upseting since last year.",
+          "She was upseting when I came yesterday."
+        ]
+      },
+      "answer": "She has been upseting since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "upset|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "upset error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "upset your best friend",
+        "vn_trap": "past tense upset"
+      }
+    },
+    {
+      "lemma": "upset",
+      "pos": "v",
+      "sense_vi": "làm buồn",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'upset':",
+        "opts": [
+          "upset your best friend",
+          "upset in wrong way",
+          "upset without care",
+          "upset for nothing"
+        ]
+      },
+      "answer": "upset your best friend",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: upset your best friend.",
+      "content_hash": "upset|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "upset collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "upset your best friend",
+        "vn_trap": "past tense upset"
+      }
+    },
+    {
+      "lemma": "value",
+      "pos": "v",
+      "sense_vi": "trân trọng thời gian",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "value (v.)",
+        "opts": [
+          "trân trọng thời gian",
+          "đồng ý ý kiến",
+          "rời khỏi nhà",
+          "xuất hiện bất ngờ"
+        ]
+      },
+      "answer": "trân trọng thời gian",
+      "explain_vi": "Động từ value mang nghĩa chính xác là: trân trọng thời gian.",
+      "content_hash": "value|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "value gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "value precious time",
+        "vn_trap": "past tense valued"
+      }
+    },
+    {
+      "lemma": "value",
+      "pos": "v",
+      "sense_vi": "trân trọng thời gian",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'trân trọng thời gian' được dịch là:",
+        "opts": [
+          "value",
+          "values",
+          "valueing",
+          "valued"
+        ]
+      },
+      "answer": "value",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là value.",
+      "content_hash": "value|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "value l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "value precious time",
+        "vn_trap": "past tense valued"
+      }
+    },
+    {
+      "lemma": "value",
+      "pos": "v",
+      "sense_vi": "trân trọng thời gian",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "value",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "value",
+      "explain_vi": "Điền 'value' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "value|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "value cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "value precious time",
+        "vn_trap": "past tense valued"
+      }
+    },
+    {
+      "lemma": "value",
+      "pos": "v",
+      "sense_vi": "trân trọng thời gian",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they values earlier, they would win.'",
+        "opts": [
+          "If they valued earlier, they would win.",
+          "If they values earlier, they would win.",
+          "They If they values earlier, they would win.",
+          "She was valueing when I came yesterday."
+        ]
+      },
+      "answer": "If they valued earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "value|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "value error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "value precious time",
+        "vn_trap": "past tense valued"
+      }
+    },
+    {
+      "lemma": "value",
+      "pos": "v",
+      "sense_vi": "trân trọng thời gian",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'value':",
+        "opts": [
+          "value precious time",
+          "value in wrong way",
+          "value without care",
+          "value for nothing"
+        ]
+      },
+      "answer": "value precious time",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: value precious time.",
+      "content_hash": "value|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "value collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "value precious time",
+        "vn_trap": "past tense valued"
+      }
+    },
+    {
+      "lemma": "vary",
+      "pos": "v",
+      "sense_vi": "thay đổi kích thước",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "vary (v.)",
+        "opts": [
+          "thay đổi kích thước",
+          "nhắm tới mục tiêu",
+          "đặt cuốn sách",
+          "mua sách mới"
+        ]
+      },
+      "answer": "thay đổi kích thước",
+      "explain_vi": "Động từ vary mang nghĩa chính xác là: thay đổi kích thước.",
+      "content_hash": "vary|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "vary gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vary in different sizes",
+        "vn_trap": "past tense varied"
+      }
+    },
+    {
+      "lemma": "vary",
+      "pos": "v",
+      "sense_vi": "thay đổi kích thước",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'thay đổi kích thước', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "vary",
+          "varys",
+          "varying",
+          "varied"
+        ]
+      },
+      "answer": "vary",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là vary.",
+      "content_hash": "vary|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "vary l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vary in different sizes",
+        "vn_trap": "past tense varied"
+      }
+    },
+    {
+      "lemma": "vary",
+      "pos": "v",
+      "sense_vi": "thay đổi kích thước",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "vary",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "vary",
+      "explain_vi": "Điền 'vary' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "vary|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "vary cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vary in different sizes",
+        "vn_trap": "past tense varied"
+      }
+    },
+    {
+      "lemma": "vary",
+      "pos": "v",
+      "sense_vi": "thay đổi kích thước",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to vary when she is busy.'",
+        "opts": [
+          "She avoids varying when she is busy.",
+          "She avoids to vary when she is busy.",
+          "They She avoids to vary when she is busy.",
+          "She was varying when I came yesterday."
+        ]
+      },
+      "answer": "She avoids varying when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "vary|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "vary error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vary in different sizes",
+        "vn_trap": "past tense varied"
+      }
+    },
+    {
+      "lemma": "vary",
+      "pos": "v",
+      "sense_vi": "thay đổi kích thước",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'vary':",
+        "opts": [
+          "vary in different sizes",
+          "vary in wrong way",
+          "vary without care",
+          "vary for nothing"
+        ]
+      },
+      "answer": "vary in different sizes",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: vary in different sizes.",
+      "content_hash": "vary|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "vary collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vary in different sizes",
+        "vn_trap": "past tense varied"
+      }
+    },
+    {
+      "lemma": "view",
+      "pos": "v",
+      "sense_vi": "xem bức ảnh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "view (v.)",
+        "opts": [
+          "xem bức ảnh",
+          "thông báo tin tức",
+          "có nghĩa là",
+          "chờ xe buýt"
+        ]
+      },
+      "answer": "xem bức ảnh",
+      "explain_vi": "Động từ view mang nghĩa chính xác là: xem bức ảnh.",
+      "content_hash": "view|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "view gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "view the beautiful scenery",
+        "vn_trap": "past tense viewed"
+      }
+    },
+    {
+      "lemma": "view",
+      "pos": "v",
+      "sense_vi": "xem bức ảnh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'xem bức ảnh' là:",
+        "opts": [
+          "view",
+          "views",
+          "viewing",
+          "viewed"
+        ]
+      },
+      "answer": "view",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là view.",
+      "content_hash": "view|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "view l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "view the beautiful scenery",
+        "vn_trap": "past tense viewed"
+      }
+    },
+    {
+      "lemma": "view",
+      "pos": "v",
+      "sense_vi": "xem bức ảnh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "view",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "view",
+      "explain_vi": "Điền 'view' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "view|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "view cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "view the beautiful scenery",
+        "vn_trap": "past tense viewed"
+      }
+    },
+    {
+      "lemma": "view",
+      "pos": "v",
+      "sense_vi": "xem bức ảnh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at view in public places.'",
+        "opts": [
+          "He is good at viewing in public places.",
+          "He is good at view in public places.",
+          "They He is good at view in public places.",
+          "She was viewing when I came yesterday."
+        ]
+      },
+      "answer": "He is good at viewing in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "view|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "view error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "view the beautiful scenery",
+        "vn_trap": "past tense viewed"
+      }
+    },
+    {
+      "lemma": "view",
+      "pos": "v",
+      "sense_vi": "xem bức ảnh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'view':",
+        "opts": [
+          "view the beautiful scenery",
+          "view in wrong way",
+          "view without care",
+          "view for nothing"
+        ]
+      },
+      "answer": "view the beautiful scenery",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: view the beautiful scenery.",
+      "content_hash": "view|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "view collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "view the beautiful scenery",
+        "vn_trap": "past tense viewed"
+      }
+    },
+    {
+      "lemma": "vote",
+      "pos": "v",
+      "sense_vi": "bỏ phiếu bầu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "vote (v.)",
+        "opts": [
+          "bỏ phiếu bầu",
+          "xin lỗi về lỗi",
+          "giữ bí mật",
+          "phục vụ khách"
+        ]
+      },
+      "answer": "bỏ phiếu bầu",
+      "explain_vi": "Động từ vote mang nghĩa chính xác là: bỏ phiếu bầu.",
+      "content_hash": "vote|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "vote gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vote for favorite candidate",
+        "vn_trap": "past tense voted"
+      }
+    },
+    {
+      "lemma": "vote",
+      "pos": "v",
+      "sense_vi": "bỏ phiếu bầu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'bỏ phiếu bầu' là:",
+        "opts": [
+          "vote",
+          "votes",
+          "voteing",
+          "voted"
+        ]
+      },
+      "answer": "vote",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là vote.",
+      "content_hash": "vote|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "vote l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vote for favorite candidate",
+        "vn_trap": "past tense voted"
+      }
+    },
+    {
+      "lemma": "vote",
+      "pos": "v",
+      "sense_vi": "bỏ phiếu bầu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Before you leave, make sure to ___ the door.",
+        "opts": [
+          "vote",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "vote",
+      "explain_vi": "Điền 'vote' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "vote|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "vote cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vote for favorite candidate",
+        "vn_trap": "past tense voted"
+      }
+    },
+    {
+      "lemma": "vote",
+      "pos": "v",
+      "sense_vi": "bỏ phiếu bầu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite of the rain, she went out to vote.'",
+        "opts": [
+          "Despite the rain, she went out to vote.",
+          "Despite of the rain, she went out to vote.",
+          "They Despite of the rain, she went out to vote.",
+          "She was voteing when I came yesterday."
+        ]
+      },
+      "answer": "Despite the rain, she went out to vote.",
+      "explain_vi": "Dùng 'Despite' (không có 'of').",
+      "content_hash": "vote|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "vote error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vote for favorite candidate",
+        "vn_trap": "past tense voted"
+      }
+    },
+    {
+      "lemma": "vote",
+      "pos": "v",
+      "sense_vi": "bỏ phiếu bầu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'vote':",
+        "opts": [
+          "vote for favorite candidate",
+          "vote in wrong way",
+          "vote without care",
+          "vote for nothing"
+        ]
+      },
+      "answer": "vote for favorite candidate",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: vote for favorite candidate.",
+      "content_hash": "vote|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "vote collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "vote for favorite candidate",
+        "vn_trap": "past tense voted"
+      }
+    },
+    {
+      "lemma": "warn",
+      "pos": "v",
+      "sense_vi": "cảnh báo nguy hiểm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "warn (v.)",
+        "opts": [
+          "cảnh báo nguy hiểm",
+          "nộp đơn xin việc",
+          "cho phép đi",
+          "gửi thư"
+        ]
+      },
+      "answer": "cảnh báo nguy hiểm",
+      "explain_vi": "Động từ warn mang nghĩa chính xác là: cảnh báo nguy hiểm.",
+      "content_hash": "warn|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "warn gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "warn about potential danger",
+        "vn_trap": "past tense warned"
+      }
+    },
+    {
+      "lemma": "warn",
+      "pos": "v",
+      "sense_vi": "cảnh báo nguy hiểm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'cảnh báo nguy hiểm', người Anh dùng:",
+        "opts": [
+          "warn",
+          "warns",
+          "warning",
+          "warned"
+        ]
+      },
+      "answer": "warn",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là warn.",
+      "content_hash": "warn|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "warn l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "warn about potential danger",
+        "vn_trap": "past tense warned"
+      }
+    },
+    {
+      "lemma": "warn",
+      "pos": "v",
+      "sense_vi": "cảnh báo nguy hiểm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love to ___ games in the playground.",
+        "opts": [
+          "warn",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "warn",
+      "explain_vi": "Điền 'warn' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "warn|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "warn cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "warn about potential danger",
+        "vn_trap": "past tense warned"
+      }
+    },
+    {
+      "lemma": "warn",
+      "pos": "v",
+      "sense_vi": "cảnh báo nguy hiểm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has warneded the book yesterday evening.'",
+        "opts": [
+          "She warned the book yesterday evening.",
+          "She has warneded the book yesterday evening.",
+          "They She has warneded the book yesterday evening.",
+          "She was warning when I came yesterday."
+        ]
+      },
+      "answer": "She warned the book yesterday evening.",
+      "explain_vi": "Quá khứ xác định dùng quá khứ đơn.",
+      "content_hash": "warn|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "warn error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "warn about potential danger",
+        "vn_trap": "past tense warned"
+      }
+    },
+    {
+      "lemma": "warn",
+      "pos": "v",
+      "sense_vi": "cảnh báo nguy hiểm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'warn':",
+        "opts": [
+          "warn about potential danger",
+          "warn in wrong way",
+          "warn without care",
+          "warn for nothing"
+        ]
+      },
+      "answer": "warn about potential danger",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: warn about potential danger.",
+      "content_hash": "warn|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "warn collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "warn about potential danger",
+        "vn_trap": "past tense warned"
+      }
+    },
+    {
+      "lemma": "waste",
+      "pos": "v",
+      "sense_vi": "lãng phí thời gian",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "waste (v.)",
+        "opts": [
+          "lãng phí thời gian",
+          "tranh luận vấn đề",
+          "bắt đầu học",
+          "mong chờ tin tốt"
+        ]
+      },
+      "answer": "lãng phí thời gian",
+      "explain_vi": "Động từ waste mang nghĩa chính xác là: lãng phí thời gian.",
+      "content_hash": "waste|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "waste gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "waste valuable time",
+        "vn_trap": "past tense wasted"
+      }
+    },
+    {
+      "lemma": "waste",
+      "pos": "v",
+      "sense_vi": "lãng phí thời gian",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'lãng phí thời gian' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "waste",
+          "wastes",
+          "wasteing",
+          "wasted"
+        ]
+      },
+      "answer": "waste",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là waste.",
+      "content_hash": "waste|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "waste l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "waste valuable time",
+        "vn_trap": "past tense wasted"
+      }
+    },
+    {
+      "lemma": "waste",
+      "pos": "v",
+      "sense_vi": "lãng phí thời gian",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "During the lesson, please ___ to the teacher.",
+        "opts": [
+          "waste",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "waste",
+      "explain_vi": "Điền 'waste' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "waste|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "waste cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "waste valuable time",
+        "vn_trap": "past tense wasted"
+      }
+    },
+    {
+      "lemma": "waste",
+      "pos": "v",
+      "sense_vi": "lãng phí thời gian",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He remembered to wasteing the door before leaving.'",
+        "opts": [
+          "He remembered to waste the door before leaving.",
+          "He remembered to wasteing the door before leaving.",
+          "They He remembered to wasteing the door before leaving.",
+          "She was wasteing when I came yesterday."
+        ]
+      },
+      "answer": "He remembered to waste the door before leaving.",
+      "explain_vi": "Nhớ phải làm gì dùng 'remember to V'.",
+      "content_hash": "waste|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "waste error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "waste valuable time",
+        "vn_trap": "past tense wasted"
+      }
+    },
+    {
+      "lemma": "waste",
+      "pos": "v",
+      "sense_vi": "lãng phí thời gian",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'waste':",
+        "opts": [
+          "waste valuable time",
+          "waste in wrong way",
+          "waste without care",
+          "waste for nothing"
+        ]
+      },
+      "answer": "waste valuable time",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: waste valuable time.",
+      "content_hash": "waste|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "waste collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "waste valuable time",
+        "vn_trap": "past tense wasted"
+      }
+    }
+  ]
+}

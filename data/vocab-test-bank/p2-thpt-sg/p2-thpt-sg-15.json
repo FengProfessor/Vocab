@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-thpt-sg-15",
+  "priority": "P2",
+  "queue": "thpt_single",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "export",
+    "express",
+    "extend",
+    "external",
+    "extra",
+    "extreme",
+    "facility",
+    "factor",
+    "factory",
+    "failure",
+    "familiar",
+    "famous",
+    "fancy",
+    "fascinate",
+    "fashion",
+    "feature",
+    "federal",
+    "feedback",
+    "festival",
+    "fiction"
+  ],
+  "items": [
+    {
+      "lemma": "export",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của export",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "export (n.)",
+        "opts": [
+          "ý nghĩa của export",
+          "sự từ chối đối với export",
+          "trạng thái thiếu export",
+          "hành động ngược lại với export"
+        ]
+      },
+      "answer": "ý nghĩa của export",
+      "explain_vi": "Từ/cụm từ 'export' (n.) có nghĩa chính xác là: ý nghĩa của export.",
+      "content_hash": "export|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item export - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "export",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của export",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của export':",
+        "opts": [
+          "export",
+          "exporting",
+          "exported",
+          "re-export"
+        ]
+      },
+      "answer": "export",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là export.",
+      "content_hash": "export|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item export - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "export",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của export",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "export",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "export",
+      "explain_vi": "Điền 'export' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "export|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item export - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "export",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của export",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to export without proper preparation yesterday.'",
+        "opts": [
+          "He tried to export without proper preparation yesterday.",
+          "He try to export without proper preparation yesterday.",
+          "He trying to export without proper preparation yesterday.",
+          "He was try to export without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to export without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "export|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item export - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "export",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của export",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'export':",
+        "opts": [
+          "apply export correctly",
+          "make export wrong",
+          "do export badly",
+          "take export off"
+        ]
+      },
+      "answer": "apply export correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply export correctly.",
+      "content_hash": "export|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item export - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "express",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của express",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "express (n.)",
+        "opts": [
+          "ý nghĩa của express",
+          "sự từ chối đối với express",
+          "trạng thái thiếu express",
+          "hành động ngược lại với express"
+        ]
+      },
+      "answer": "ý nghĩa của express",
+      "explain_vi": "Từ/cụm từ 'express' (n.) có nghĩa chính xác là: ý nghĩa của express.",
+      "content_hash": "express|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item express - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "express",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của express",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của express':",
+        "opts": [
+          "express",
+          "expressing",
+          "expressed",
+          "re-express"
+        ]
+      },
+      "answer": "express",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là express.",
+      "content_hash": "express|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item express - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "express",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của express",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "express",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "express",
+      "explain_vi": "Điền 'express' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "express|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item express - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "express",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của express",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to express without proper preparation yesterday.'",
+        "opts": [
+          "He tried to express without proper preparation yesterday.",
+          "He try to express without proper preparation yesterday.",
+          "He trying to express without proper preparation yesterday.",
+          "He was try to express without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to express without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "express|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item express - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "express",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của express",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'express':",
+        "opts": [
+          "apply express correctly",
+          "make express wrong",
+          "do express badly",
+          "take express off"
+        ]
+      },
+      "answer": "apply express correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply express correctly.",
+      "content_hash": "express|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item express - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extend",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extend",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "extend (n.)",
+        "opts": [
+          "ý nghĩa của extend",
+          "sự từ chối đối với extend",
+          "trạng thái thiếu extend",
+          "hành động ngược lại với extend"
+        ]
+      },
+      "answer": "ý nghĩa của extend",
+      "explain_vi": "Từ/cụm từ 'extend' (n.) có nghĩa chính xác là: ý nghĩa của extend.",
+      "content_hash": "extend|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item extend - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extend",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extend",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của extend':",
+        "opts": [
+          "extend",
+          "extending",
+          "extended",
+          "re-extend"
+        ]
+      },
+      "answer": "extend",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là extend.",
+      "content_hash": "extend|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item extend - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extend",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extend",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "extend",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "extend",
+      "explain_vi": "Điền 'extend' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "extend|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item extend - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extend",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extend",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to extend without proper preparation yesterday.'",
+        "opts": [
+          "He tried to extend without proper preparation yesterday.",
+          "He try to extend without proper preparation yesterday.",
+          "He trying to extend without proper preparation yesterday.",
+          "He was try to extend without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to extend without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "extend|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item extend - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extend",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extend",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'extend':",
+        "opts": [
+          "apply extend correctly",
+          "make extend wrong",
+          "do extend badly",
+          "take extend off"
+        ]
+      },
+      "answer": "apply extend correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply extend correctly.",
+      "content_hash": "extend|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item extend - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "external",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của external",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "external (n.)",
+        "opts": [
+          "ý nghĩa của external",
+          "sự từ chối đối với external",
+          "trạng thái thiếu external",
+          "hành động ngược lại với external"
+        ]
+      },
+      "answer": "ý nghĩa của external",
+      "explain_vi": "Từ/cụm từ 'external' (n.) có nghĩa chính xác là: ý nghĩa của external.",
+      "content_hash": "external|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item external - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "external",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của external",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của external':",
+        "opts": [
+          "external",
+          "externaling",
+          "externaled",
+          "re-external"
+        ]
+      },
+      "answer": "external",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là external.",
+      "content_hash": "external|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item external - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "external",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của external",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "external",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "external",
+      "explain_vi": "Điền 'external' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "external|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item external - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "external",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của external",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to external without proper preparation yesterday.'",
+        "opts": [
+          "He tried to external without proper preparation yesterday.",
+          "He try to external without proper preparation yesterday.",
+          "He trying to external without proper preparation yesterday.",
+          "He was try to external without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to external without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "external|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item external - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "external",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của external",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'external':",
+        "opts": [
+          "apply external correctly",
+          "make external wrong",
+          "do external badly",
+          "take external off"
+        ]
+      },
+      "answer": "apply external correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply external correctly.",
+      "content_hash": "external|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item external - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extra",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extra",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "extra (n.)",
+        "opts": [
+          "ý nghĩa của extra",
+          "sự từ chối đối với extra",
+          "trạng thái thiếu extra",
+          "hành động ngược lại với extra"
+        ]
+      },
+      "answer": "ý nghĩa của extra",
+      "explain_vi": "Từ/cụm từ 'extra' (n.) có nghĩa chính xác là: ý nghĩa của extra.",
+      "content_hash": "extra|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item extra - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extra",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extra",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của extra':",
+        "opts": [
+          "extra",
+          "extraing",
+          "extraed",
+          "re-extra"
+        ]
+      },
+      "answer": "extra",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là extra.",
+      "content_hash": "extra|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item extra - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extra",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extra",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "extra",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "extra",
+      "explain_vi": "Điền 'extra' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "extra|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item extra - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extra",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extra",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to extra without proper preparation yesterday.'",
+        "opts": [
+          "He tried to extra without proper preparation yesterday.",
+          "He try to extra without proper preparation yesterday.",
+          "He trying to extra without proper preparation yesterday.",
+          "He was try to extra without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to extra without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "extra|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item extra - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extra",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extra",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'extra':",
+        "opts": [
+          "apply extra correctly",
+          "make extra wrong",
+          "do extra badly",
+          "take extra off"
+        ]
+      },
+      "answer": "apply extra correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply extra correctly.",
+      "content_hash": "extra|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item extra - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extreme",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extreme",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "extreme (n.)",
+        "opts": [
+          "ý nghĩa của extreme",
+          "sự từ chối đối với extreme",
+          "trạng thái thiếu extreme",
+          "hành động ngược lại với extreme"
+        ]
+      },
+      "answer": "ý nghĩa của extreme",
+      "explain_vi": "Từ/cụm từ 'extreme' (n.) có nghĩa chính xác là: ý nghĩa của extreme.",
+      "content_hash": "extreme|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item extreme - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extreme",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extreme",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của extreme':",
+        "opts": [
+          "extreme",
+          "extremeing",
+          "extremeed",
+          "re-extreme"
+        ]
+      },
+      "answer": "extreme",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là extreme.",
+      "content_hash": "extreme|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item extreme - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extreme",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extreme",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "extreme",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "extreme",
+      "explain_vi": "Điền 'extreme' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "extreme|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item extreme - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extreme",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extreme",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to extreme without proper preparation yesterday.'",
+        "opts": [
+          "He tried to extreme without proper preparation yesterday.",
+          "He try to extreme without proper preparation yesterday.",
+          "He trying to extreme without proper preparation yesterday.",
+          "He was try to extreme without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to extreme without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "extreme|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item extreme - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "extreme",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của extreme",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'extreme':",
+        "opts": [
+          "apply extreme correctly",
+          "make extreme wrong",
+          "do extreme badly",
+          "take extreme off"
+        ]
+      },
+      "answer": "apply extreme correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply extreme correctly.",
+      "content_hash": "extreme|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item extreme - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "facility",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của facility",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "facility (n.)",
+        "opts": [
+          "ý nghĩa của facility",
+          "sự từ chối đối với facility",
+          "trạng thái thiếu facility",
+          "hành động ngược lại với facility"
+        ]
+      },
+      "answer": "ý nghĩa của facility",
+      "explain_vi": "Từ/cụm từ 'facility' (n.) có nghĩa chính xác là: ý nghĩa của facility.",
+      "content_hash": "facility|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item facility - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "facility",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của facility",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của facility':",
+        "opts": [
+          "facility",
+          "facilitying",
+          "facilityed",
+          "re-facility"
+        ]
+      },
+      "answer": "facility",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là facility.",
+      "content_hash": "facility|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item facility - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "facility",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của facility",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "facility",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "facility",
+      "explain_vi": "Điền 'facility' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "facility|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item facility - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "facility",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của facility",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to facility without proper preparation yesterday.'",
+        "opts": [
+          "He tried to facility without proper preparation yesterday.",
+          "He try to facility without proper preparation yesterday.",
+          "He trying to facility without proper preparation yesterday.",
+          "He was try to facility without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to facility without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "facility|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item facility - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "facility",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của facility",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'facility':",
+        "opts": [
+          "apply facility correctly",
+          "make facility wrong",
+          "do facility badly",
+          "take facility off"
+        ]
+      },
+      "answer": "apply facility correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply facility correctly.",
+      "content_hash": "facility|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item facility - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factor",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "factor (n.)",
+        "opts": [
+          "ý nghĩa của factor",
+          "sự từ chối đối với factor",
+          "trạng thái thiếu factor",
+          "hành động ngược lại với factor"
+        ]
+      },
+      "answer": "ý nghĩa của factor",
+      "explain_vi": "Từ/cụm từ 'factor' (n.) có nghĩa chính xác là: ý nghĩa của factor.",
+      "content_hash": "factor|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item factor - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factor",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của factor':",
+        "opts": [
+          "factor",
+          "factoring",
+          "factored",
+          "re-factor"
+        ]
+      },
+      "answer": "factor",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là factor.",
+      "content_hash": "factor|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item factor - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factor",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "factor",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "factor",
+      "explain_vi": "Điền 'factor' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "factor|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item factor - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factor",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to factor without proper preparation yesterday.'",
+        "opts": [
+          "He tried to factor without proper preparation yesterday.",
+          "He try to factor without proper preparation yesterday.",
+          "He trying to factor without proper preparation yesterday.",
+          "He was try to factor without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to factor without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "factor|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item factor - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factor",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factor",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'factor':",
+        "opts": [
+          "apply factor correctly",
+          "make factor wrong",
+          "do factor badly",
+          "take factor off"
+        ]
+      },
+      "answer": "apply factor correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply factor correctly.",
+      "content_hash": "factor|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item factor - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factory",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "factory (n.)",
+        "opts": [
+          "ý nghĩa của factory",
+          "sự từ chối đối với factory",
+          "trạng thái thiếu factory",
+          "hành động ngược lại với factory"
+        ]
+      },
+      "answer": "ý nghĩa của factory",
+      "explain_vi": "Từ/cụm từ 'factory' (n.) có nghĩa chính xác là: ý nghĩa của factory.",
+      "content_hash": "factory|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item factory - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factory",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của factory':",
+        "opts": [
+          "factory",
+          "factorying",
+          "factoryed",
+          "re-factory"
+        ]
+      },
+      "answer": "factory",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là factory.",
+      "content_hash": "factory|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item factory - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factory",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "factory",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "factory",
+      "explain_vi": "Điền 'factory' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "factory|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item factory - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factory",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to factory without proper preparation yesterday.'",
+        "opts": [
+          "He tried to factory without proper preparation yesterday.",
+          "He try to factory without proper preparation yesterday.",
+          "He trying to factory without proper preparation yesterday.",
+          "He was try to factory without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to factory without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "factory|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item factory - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "factory",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của factory",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'factory':",
+        "opts": [
+          "apply factory correctly",
+          "make factory wrong",
+          "do factory badly",
+          "take factory off"
+        ]
+      },
+      "answer": "apply factory correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply factory correctly.",
+      "content_hash": "factory|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item factory - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "failure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của failure",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "failure (n.)",
+        "opts": [
+          "ý nghĩa của failure",
+          "sự từ chối đối với failure",
+          "trạng thái thiếu failure",
+          "hành động ngược lại với failure"
+        ]
+      },
+      "answer": "ý nghĩa của failure",
+      "explain_vi": "Từ/cụm từ 'failure' (n.) có nghĩa chính xác là: ý nghĩa của failure.",
+      "content_hash": "failure|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item failure - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "failure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của failure",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của failure':",
+        "opts": [
+          "failure",
+          "failureing",
+          "failureed",
+          "re-failure"
+        ]
+      },
+      "answer": "failure",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là failure.",
+      "content_hash": "failure|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item failure - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "failure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của failure",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "failure",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "failure",
+      "explain_vi": "Điền 'failure' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "failure|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item failure - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "failure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của failure",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to failure without proper preparation yesterday.'",
+        "opts": [
+          "He tried to failure without proper preparation yesterday.",
+          "He try to failure without proper preparation yesterday.",
+          "He trying to failure without proper preparation yesterday.",
+          "He was try to failure without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to failure without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "failure|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item failure - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "failure",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của failure",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'failure':",
+        "opts": [
+          "apply failure correctly",
+          "make failure wrong",
+          "do failure badly",
+          "take failure off"
+        ]
+      },
+      "answer": "apply failure correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply failure correctly.",
+      "content_hash": "failure|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item failure - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "familiar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của familiar",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "familiar (n.)",
+        "opts": [
+          "ý nghĩa của familiar",
+          "sự từ chối đối với familiar",
+          "trạng thái thiếu familiar",
+          "hành động ngược lại với familiar"
+        ]
+      },
+      "answer": "ý nghĩa của familiar",
+      "explain_vi": "Từ/cụm từ 'familiar' (n.) có nghĩa chính xác là: ý nghĩa của familiar.",
+      "content_hash": "familiar|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item familiar - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "familiar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của familiar",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của familiar':",
+        "opts": [
+          "familiar",
+          "familiaring",
+          "familiared",
+          "re-familiar"
+        ]
+      },
+      "answer": "familiar",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là familiar.",
+      "content_hash": "familiar|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item familiar - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "familiar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của familiar",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "familiar",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "familiar",
+      "explain_vi": "Điền 'familiar' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "familiar|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item familiar - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "familiar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của familiar",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to familiar without proper preparation yesterday.'",
+        "opts": [
+          "He tried to familiar without proper preparation yesterday.",
+          "He try to familiar without proper preparation yesterday.",
+          "He trying to familiar without proper preparation yesterday.",
+          "He was try to familiar without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to familiar without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "familiar|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item familiar - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "familiar",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của familiar",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'familiar':",
+        "opts": [
+          "apply familiar correctly",
+          "make familiar wrong",
+          "do familiar badly",
+          "take familiar off"
+        ]
+      },
+      "answer": "apply familiar correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply familiar correctly.",
+      "content_hash": "familiar|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item familiar - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "famous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của famous",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "famous (adj.)",
+        "opts": [
+          "ý nghĩa của famous",
+          "sự từ chối đối với famous",
+          "trạng thái thiếu famous",
+          "hành động ngược lại với famous"
+        ]
+      },
+      "answer": "ý nghĩa của famous",
+      "explain_vi": "Từ/cụm từ 'famous' (adj.) có nghĩa chính xác là: ý nghĩa của famous.",
+      "content_hash": "famous|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item famous - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "famous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của famous",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của famous':",
+        "opts": [
+          "famous",
+          "famousing",
+          "famoused",
+          "re-famous"
+        ]
+      },
+      "answer": "famous",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là famous.",
+      "content_hash": "famous|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item famous - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "famous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của famous",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "famous",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "famous",
+      "explain_vi": "Điền 'famous' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "famous|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item famous - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "famous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của famous",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to famous without proper preparation yesterday.'",
+        "opts": [
+          "He tried to famous without proper preparation yesterday.",
+          "He try to famous without proper preparation yesterday.",
+          "He trying to famous without proper preparation yesterday.",
+          "He was try to famous without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to famous without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "famous|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item famous - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "famous",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của famous",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'famous':",
+        "opts": [
+          "apply famous correctly",
+          "make famous wrong",
+          "do famous badly",
+          "take famous off"
+        ]
+      },
+      "answer": "apply famous correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply famous correctly.",
+      "content_hash": "famous|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item famous - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fancy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fancy",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fancy (n.)",
+        "opts": [
+          "ý nghĩa của fancy",
+          "sự từ chối đối với fancy",
+          "trạng thái thiếu fancy",
+          "hành động ngược lại với fancy"
+        ]
+      },
+      "answer": "ý nghĩa của fancy",
+      "explain_vi": "Từ/cụm từ 'fancy' (n.) có nghĩa chính xác là: ý nghĩa của fancy.",
+      "content_hash": "fancy|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item fancy - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fancy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fancy",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fancy':",
+        "opts": [
+          "fancy",
+          "fancying",
+          "fancyed",
+          "re-fancy"
+        ]
+      },
+      "answer": "fancy",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fancy.",
+      "content_hash": "fancy|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item fancy - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fancy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fancy",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fancy",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fancy",
+      "explain_vi": "Điền 'fancy' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fancy|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item fancy - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fancy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fancy",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fancy without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fancy without proper preparation yesterday.",
+          "He try to fancy without proper preparation yesterday.",
+          "He trying to fancy without proper preparation yesterday.",
+          "He was try to fancy without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fancy without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fancy|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item fancy - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fancy",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fancy",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fancy':",
+        "opts": [
+          "apply fancy correctly",
+          "make fancy wrong",
+          "do fancy badly",
+          "take fancy off"
+        ]
+      },
+      "answer": "apply fancy correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fancy correctly.",
+      "content_hash": "fancy|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item fancy - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fascinate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fascinate",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fascinate (n.)",
+        "opts": [
+          "ý nghĩa của fascinate",
+          "sự từ chối đối với fascinate",
+          "trạng thái thiếu fascinate",
+          "hành động ngược lại với fascinate"
+        ]
+      },
+      "answer": "ý nghĩa của fascinate",
+      "explain_vi": "Từ/cụm từ 'fascinate' (n.) có nghĩa chính xác là: ý nghĩa của fascinate.",
+      "content_hash": "fascinate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item fascinate - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fascinate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fascinate",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fascinate':",
+        "opts": [
+          "fascinate",
+          "fascinateing",
+          "fascinateed",
+          "re-fascinate"
+        ]
+      },
+      "answer": "fascinate",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fascinate.",
+      "content_hash": "fascinate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item fascinate - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fascinate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fascinate",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fascinate",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fascinate",
+      "explain_vi": "Điền 'fascinate' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fascinate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item fascinate - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fascinate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fascinate",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fascinate without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fascinate without proper preparation yesterday.",
+          "He try to fascinate without proper preparation yesterday.",
+          "He trying to fascinate without proper preparation yesterday.",
+          "He was try to fascinate without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fascinate without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fascinate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item fascinate - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fascinate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fascinate",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fascinate':",
+        "opts": [
+          "apply fascinate correctly",
+          "make fascinate wrong",
+          "do fascinate badly",
+          "take fascinate off"
+        ]
+      },
+      "answer": "apply fascinate correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fascinate correctly.",
+      "content_hash": "fascinate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item fascinate - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fashion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fashion",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fashion (n.)",
+        "opts": [
+          "ý nghĩa của fashion",
+          "sự từ chối đối với fashion",
+          "trạng thái thiếu fashion",
+          "hành động ngược lại với fashion"
+        ]
+      },
+      "answer": "ý nghĩa của fashion",
+      "explain_vi": "Từ/cụm từ 'fashion' (n.) có nghĩa chính xác là: ý nghĩa của fashion.",
+      "content_hash": "fashion|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item fashion - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fashion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fashion",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fashion':",
+        "opts": [
+          "fashion",
+          "fashioning",
+          "fashioned",
+          "re-fashion"
+        ]
+      },
+      "answer": "fashion",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fashion.",
+      "content_hash": "fashion|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item fashion - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fashion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fashion",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fashion",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fashion",
+      "explain_vi": "Điền 'fashion' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fashion|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item fashion - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fashion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fashion",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fashion without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fashion without proper preparation yesterday.",
+          "He try to fashion without proper preparation yesterday.",
+          "He trying to fashion without proper preparation yesterday.",
+          "He was try to fashion without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fashion without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fashion|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item fashion - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fashion",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fashion",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fashion':",
+        "opts": [
+          "apply fashion correctly",
+          "make fashion wrong",
+          "do fashion badly",
+          "take fashion off"
+        ]
+      },
+      "answer": "apply fashion correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fashion correctly.",
+      "content_hash": "fashion|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item fashion - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feature",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feature",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "feature (n.)",
+        "opts": [
+          "ý nghĩa của feature",
+          "sự từ chối đối với feature",
+          "trạng thái thiếu feature",
+          "hành động ngược lại với feature"
+        ]
+      },
+      "answer": "ý nghĩa của feature",
+      "explain_vi": "Từ/cụm từ 'feature' (n.) có nghĩa chính xác là: ý nghĩa của feature.",
+      "content_hash": "feature|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item feature - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feature",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feature",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của feature':",
+        "opts": [
+          "feature",
+          "featureing",
+          "featureed",
+          "re-feature"
+        ]
+      },
+      "answer": "feature",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là feature.",
+      "content_hash": "feature|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item feature - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feature",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feature",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "feature",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "feature",
+      "explain_vi": "Điền 'feature' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "feature|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item feature - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feature",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feature",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to feature without proper preparation yesterday.'",
+        "opts": [
+          "He tried to feature without proper preparation yesterday.",
+          "He try to feature without proper preparation yesterday.",
+          "He trying to feature without proper preparation yesterday.",
+          "He was try to feature without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to feature without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "feature|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item feature - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feature",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feature",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'feature':",
+        "opts": [
+          "apply feature correctly",
+          "make feature wrong",
+          "do feature badly",
+          "take feature off"
+        ]
+      },
+      "answer": "apply feature correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply feature correctly.",
+      "content_hash": "feature|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item feature - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "federal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của federal",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "federal (n.)",
+        "opts": [
+          "ý nghĩa của federal",
+          "sự từ chối đối với federal",
+          "trạng thái thiếu federal",
+          "hành động ngược lại với federal"
+        ]
+      },
+      "answer": "ý nghĩa của federal",
+      "explain_vi": "Từ/cụm từ 'federal' (n.) có nghĩa chính xác là: ý nghĩa của federal.",
+      "content_hash": "federal|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item federal - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "federal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của federal",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của federal':",
+        "opts": [
+          "federal",
+          "federaling",
+          "federaled",
+          "re-federal"
+        ]
+      },
+      "answer": "federal",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là federal.",
+      "content_hash": "federal|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item federal - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "federal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của federal",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "federal",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "federal",
+      "explain_vi": "Điền 'federal' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "federal|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item federal - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "federal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của federal",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to federal without proper preparation yesterday.'",
+        "opts": [
+          "He tried to federal without proper preparation yesterday.",
+          "He try to federal without proper preparation yesterday.",
+          "He trying to federal without proper preparation yesterday.",
+          "He was try to federal without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to federal without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "federal|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item federal - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "federal",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của federal",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'federal':",
+        "opts": [
+          "apply federal correctly",
+          "make federal wrong",
+          "do federal badly",
+          "take federal off"
+        ]
+      },
+      "answer": "apply federal correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply federal correctly.",
+      "content_hash": "federal|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item federal - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feedback",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feedback",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "feedback (n.)",
+        "opts": [
+          "ý nghĩa của feedback",
+          "sự từ chối đối với feedback",
+          "trạng thái thiếu feedback",
+          "hành động ngược lại với feedback"
+        ]
+      },
+      "answer": "ý nghĩa của feedback",
+      "explain_vi": "Từ/cụm từ 'feedback' (n.) có nghĩa chính xác là: ý nghĩa của feedback.",
+      "content_hash": "feedback|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item feedback - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feedback",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feedback",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của feedback':",
+        "opts": [
+          "feedback",
+          "feedbacking",
+          "feedbacked",
+          "re-feedback"
+        ]
+      },
+      "answer": "feedback",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là feedback.",
+      "content_hash": "feedback|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item feedback - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feedback",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feedback",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "feedback",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "feedback",
+      "explain_vi": "Điền 'feedback' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "feedback|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item feedback - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feedback",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feedback",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to feedback without proper preparation yesterday.'",
+        "opts": [
+          "He tried to feedback without proper preparation yesterday.",
+          "He try to feedback without proper preparation yesterday.",
+          "He trying to feedback without proper preparation yesterday.",
+          "He was try to feedback without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to feedback without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "feedback|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item feedback - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "feedback",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của feedback",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'feedback':",
+        "opts": [
+          "apply feedback correctly",
+          "make feedback wrong",
+          "do feedback badly",
+          "take feedback off"
+        ]
+      },
+      "answer": "apply feedback correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply feedback correctly.",
+      "content_hash": "feedback|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item feedback - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "festival",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của festival",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "festival (n.)",
+        "opts": [
+          "ý nghĩa của festival",
+          "sự từ chối đối với festival",
+          "trạng thái thiếu festival",
+          "hành động ngược lại với festival"
+        ]
+      },
+      "answer": "ý nghĩa của festival",
+      "explain_vi": "Từ/cụm từ 'festival' (n.) có nghĩa chính xác là: ý nghĩa của festival.",
+      "content_hash": "festival|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item festival - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "festival",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của festival",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của festival':",
+        "opts": [
+          "festival",
+          "festivaling",
+          "festivaled",
+          "re-festival"
+        ]
+      },
+      "answer": "festival",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là festival.",
+      "content_hash": "festival|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item festival - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "festival",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của festival",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "festival",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "festival",
+      "explain_vi": "Điền 'festival' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "festival|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item festival - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "festival",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của festival",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to festival without proper preparation yesterday.'",
+        "opts": [
+          "He tried to festival without proper preparation yesterday.",
+          "He try to festival without proper preparation yesterday.",
+          "He trying to festival without proper preparation yesterday.",
+          "He was try to festival without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to festival without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "festival|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item festival - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "festival",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của festival",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'festival':",
+        "opts": [
+          "apply festival correctly",
+          "make festival wrong",
+          "do festival badly",
+          "take festival off"
+        ]
+      },
+      "answer": "apply festival correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply festival correctly.",
+      "content_hash": "festival|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item festival - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fiction",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fiction",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fiction (n.)",
+        "opts": [
+          "ý nghĩa của fiction",
+          "sự từ chối đối với fiction",
+          "trạng thái thiếu fiction",
+          "hành động ngược lại với fiction"
+        ]
+      },
+      "answer": "ý nghĩa của fiction",
+      "explain_vi": "Từ/cụm từ 'fiction' (n.) có nghĩa chính xác là: ý nghĩa của fiction.",
+      "content_hash": "fiction|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item fiction - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fiction",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fiction",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của fiction':",
+        "opts": [
+          "fiction",
+          "fictioning",
+          "fictioned",
+          "re-fiction"
+        ]
+      },
+      "answer": "fiction",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là fiction.",
+      "content_hash": "fiction|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item fiction - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fiction",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fiction",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "fiction",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "fiction",
+      "explain_vi": "Điền 'fiction' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "fiction|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item fiction - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fiction",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fiction",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to fiction without proper preparation yesterday.'",
+        "opts": [
+          "He tried to fiction without proper preparation yesterday.",
+          "He try to fiction without proper preparation yesterday.",
+          "He trying to fiction without proper preparation yesterday.",
+          "He was try to fiction without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to fiction without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "fiction|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item fiction - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    },
+    {
+      "lemma": "fiction",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của fiction",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'fiction':",
+        "opts": [
+          "apply fiction correctly",
+          "make fiction wrong",
+          "do fiction badly",
+          "take fiction off"
+        ]
+      },
+      "answer": "apply fiction correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply fiction correctly.",
+      "content_hash": "fiction|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item fiction - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-15"
+      }
+    }
+  ]
+}

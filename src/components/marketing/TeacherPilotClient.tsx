@@ -136,7 +136,7 @@ export function AudienceTabs() {
             href="#bang-gia"
             className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#17231d]/15 bg-white/70 px-7 py-4 font-black transition-colors hover:bg-white"
           >
-            Xem bảng giá
+            Xem gói & báo giá
           </a>
         </div>
          <p className="mt-6 flex items-center gap-x-4 text-sm font-semibold text-[#657269]">
@@ -153,6 +153,10 @@ const faqItems = [
     {
         q: 'Học sinh có phải trả tiền không?',
         a: 'Không. Học sinh tham gia lớp miễn phí bằng mã lớp; chỉ tài khoản giáo viên/trung tâm mới có gói trả phí.',
+    },
+    {
+        q: 'Giá các gói gia sư / giáo viên / trung tâm là bao nhiêu?',
+        a: 'Giá theo quy mô lớp và số học sinh. Liên hệ Mr Phong: 0949 317 036 (Zalo/gọi) để nhận báo giá phù hợp.',
     },
     {
         q: 'Có cần cài đặt phần mềm không?',

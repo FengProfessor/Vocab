@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-26",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "aim",
+    "announce",
+    "apologize",
+    "apply",
+    "argue",
+    "arrange",
+    "arrive",
+    "attack",
+    "attend",
+    "avoid"
+  ],
+  "items": [
+    {
+      "lemma": "aim",
+      "pos": "v",
+      "sense_vi": "nhắm tới mục tiêu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "aim (v.)",
+        "opts": [
+          "nhắm tới mục tiêu",
+          "đốt củi",
+          "ngồi ghế",
+          "bán quần áo"
+        ]
+      },
+      "answer": "nhắm tới mục tiêu",
+      "explain_vi": "Động từ aim mang nghĩa chính xác là: nhắm tới mục tiêu.",
+      "content_hash": "aim|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "aim gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "aim for high scores",
+        "vn_trap": "past tense aimed"
+      }
+    },
+    {
+      "lemma": "aim",
+      "pos": "v",
+      "sense_vi": "nhắm tới mục tiêu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'nhắm tới mục tiêu', người Anh dùng:",
+        "opts": [
+          "aim",
+          "aims",
+          "aiming",
+          "aimed"
+        ]
+      },
+      "answer": "aim",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là aim.",
+      "content_hash": "aim|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "aim l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "aim for high scores",
+        "vn_trap": "past tense aimed"
+      }
+    },
+    {
+      "lemma": "aim",
+      "pos": "v",
+      "sense_vi": "nhắm tới mục tiêu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Keep working hard to ___ your dreams in life.",
+        "opts": [
+          "aim",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "aim",
+      "explain_vi": "Điền 'aim' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "aim|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "aim cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "aim for high scores",
+        "vn_trap": "past tense aimed"
+      }
+    },
+    {
+      "lemma": "aim",
+      "pos": "v",
+      "sense_vi": "nhắm tới mục tiêu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She aims the song very beautiful yesterday.'",
+        "opts": [
+          "She aimed the song very beautifully yesterday.",
+          "She aims the song very beautiful yesterday.",
+          "They She aims the song very beautiful yesterday.",
+          "She was aiming when I came yesterday."
+        ]
+      },
+      "answer": "She aimed the song very beautifully yesterday.",
+      "explain_vi": "Trạng từ 'beautifully' bổ nghĩa cho động từ.",
+      "content_hash": "aim|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "aim error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "aim for high scores",
+        "vn_trap": "past tense aimed"
+      }
+    },
+    {
+      "lemma": "aim",
+      "pos": "v",
+      "sense_vi": "nhắm tới mục tiêu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'aim':",
+        "opts": [
+          "aim for high scores",
+          "aim in wrong way",
+          "aim without care",
+          "aim for nothing"
+        ]
+      },
+      "answer": "aim for high scores",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: aim for high scores.",
+      "content_hash": "aim|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "aim collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "aim for high scores",
+        "vn_trap": "past tense aimed"
+      }
+    },
+    {
+      "lemma": "announce",
+      "pos": "v",
+      "sense_vi": "thông báo tin tức",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "announce (v.)",
+        "opts": [
+          "thông báo tin tức",
+          "hủy cuộc họp",
+          "đứng dậy",
+          "yêu cầu thời gian"
+        ]
+      },
+      "answer": "thông báo tin tức",
+      "explain_vi": "Động từ announce mang nghĩa chính xác là: thông báo tin tức.",
+      "content_hash": "announce|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "announce gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "announce important breaking news",
+        "vn_trap": "past tense announced"
+      }
+    },
+    {
+      "lemma": "announce",
+      "pos": "v",
+      "sense_vi": "thông báo tin tức",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'thông báo tin tức' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "announce",
+          "announces",
+          "announceing",
+          "announced"
+        ]
+      },
+      "answer": "announce",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là announce.",
+      "content_hash": "announce|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "announce l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "announce important breaking news",
+        "vn_trap": "past tense announced"
+      }
+    },
+    {
+      "lemma": "announce",
+      "pos": "v",
+      "sense_vi": "thông báo tin tức",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Learning how to ___ a foreign language takes time.",
+        "opts": [
+          "announce",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "announce",
+      "explain_vi": "Điền 'announce' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "announce|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "announce cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "announce important breaking news",
+        "vn_trap": "past tense announced"
+      }
+    },
+    {
+      "lemma": "announce",
+      "pos": "v",
+      "sense_vi": "thông báo tin tức",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was announceing when I arrived home.'",
+        "opts": [
+          "They were announceing when I arrived home.",
+          "They was announceing when I arrived home.",
+          "They They was announceing when I arrived home.",
+          "She was announceing when I came yesterday."
+        ]
+      },
+      "answer": "They were announceing when I arrived home.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were'.",
+      "content_hash": "announce|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "announce error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "announce important breaking news",
+        "vn_trap": "past tense announced"
+      }
+    },
+    {
+      "lemma": "announce",
+      "pos": "v",
+      "sense_vi": "thông báo tin tức",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'announce':",
+        "opts": [
+          "announce important breaking news",
+          "announce in wrong way",
+          "announce without care",
+          "announce for nothing"
+        ]
+      },
+      "answer": "announce important breaking news",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: announce important breaking news.",
+      "content_hash": "announce|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "announce collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "announce important breaking news",
+        "vn_trap": "past tense announced"
+      }
+    },
+    {
+      "lemma": "apologize",
+      "pos": "v",
+      "sense_vi": "xin lỗi về lỗi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "apologize (v.)",
+        "opts": [
+          "xin lỗi về lỗi",
+          "làm bài tập",
+          "mất chìa khóa",
+          "báo cáo tin tức"
+        ]
+      },
+      "answer": "xin lỗi về lỗi",
+      "explain_vi": "Động từ apologize mang nghĩa chính xác là: xin lỗi về lỗi.",
+      "content_hash": "apologize|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "apologize gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apologize for the delay",
+        "vn_trap": "past tense apologized"
+      }
+    },
+    {
+      "lemma": "apologize",
+      "pos": "v",
+      "sense_vi": "xin lỗi về lỗi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'xin lỗi về lỗi', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "apologize",
+          "apologizes",
+          "apologizeing",
+          "apologized"
+        ]
+      },
+      "answer": "apologize",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là apologize.",
+      "content_hash": "apologize|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "apologize l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apologize for the delay",
+        "vn_trap": "past tense apologized"
+      }
+    },
+    {
+      "lemma": "apologize",
+      "pos": "v",
+      "sense_vi": "xin lỗi về lỗi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Many people choose to ___ abroad during summer.",
+        "opts": [
+          "apologize",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "apologize",
+      "explain_vi": "Điền 'apologize' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "apologize|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "apologize cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apologize for the delay",
+        "vn_trap": "past tense apologized"
+      }
+    },
+    {
+      "lemma": "apologize",
+      "pos": "v",
+      "sense_vi": "xin lỗi về lỗi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He apologizes without ask for permission.'",
+        "opts": [
+          "He apologized without asking for permission.",
+          "He apologizes without ask for permission.",
+          "They He apologizes without ask for permission.",
+          "She was apologizeing when I came yesterday."
+        ]
+      },
+      "answer": "He apologized without asking for permission.",
+      "explain_vi": "Sau giới từ 'without' cần V-ing.",
+      "content_hash": "apologize|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "apologize error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apologize for the delay",
+        "vn_trap": "past tense apologized"
+      }
+    },
+    {
+      "lemma": "apologize",
+      "pos": "v",
+      "sense_vi": "xin lỗi về lỗi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'apologize':",
+        "opts": [
+          "apologize for the delay",
+          "apologize in wrong way",
+          "apologize without care",
+          "apologize for nothing"
+        ]
+      },
+      "answer": "apologize for the delay",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: apologize for the delay.",
+      "content_hash": "apologize|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "apologize collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apologize for the delay",
+        "vn_trap": "past tense apologized"
+      }
+    },
+    {
+      "lemma": "apply",
+      "pos": "v",
+      "sense_vi": "nộp đơn xin việc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "apply (v.)",
+        "opts": [
+          "nộp đơn xin việc",
+          "nhận được tin nhắn",
+          "trả tiền ăn",
+          "quyết định đi"
+        ]
+      },
+      "answer": "nộp đơn xin việc",
+      "explain_vi": "Động từ apply mang nghĩa chính xác là: nộp đơn xin việc.",
+      "content_hash": "apply|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "apply gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apply for a job",
+        "vn_trap": "past tense applied"
+      }
+    },
+    {
+      "lemma": "apply",
+      "pos": "v",
+      "sense_vi": "nộp đơn xin việc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'nộp đơn xin việc' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "apply",
+          "applys",
+          "applying",
+          "applied"
+        ]
+      },
+      "answer": "apply",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là apply.",
+      "content_hash": "apply|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "apply l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apply for a job",
+        "vn_trap": "past tense applied"
+      }
+    },
+    {
+      "lemma": "apply",
+      "pos": "v",
+      "sense_vi": "nộp đơn xin việc",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Never hesitate to ___ for help when you need it.",
+        "opts": [
+          "apply",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "apply",
+      "explain_vi": "Điền 'apply' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "apply|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "apply cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apply for a job",
+        "vn_trap": "past tense applied"
+      }
+    },
+    {
+      "lemma": "apply",
+      "pos": "v",
+      "sense_vi": "nộp đơn xin việc",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is applying since early this morning.'",
+        "opts": [
+          "She has been applying since early this morning.",
+          "She is applying since early this morning.",
+          "They She is applying since early this morning.",
+          "She was applying when I came yesterday."
+        ]
+      },
+      "answer": "She has been applying since early this morning.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "apply|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "apply error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apply for a job",
+        "vn_trap": "past tense applied"
+      }
+    },
+    {
+      "lemma": "apply",
+      "pos": "v",
+      "sense_vi": "nộp đơn xin việc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'apply':",
+        "opts": [
+          "apply for a job",
+          "apply in wrong way",
+          "apply without care",
+          "apply for nothing"
+        ]
+      },
+      "answer": "apply for a job",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: apply for a job.",
+      "content_hash": "apply|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "apply collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "apply for a job",
+        "vn_trap": "past tense applied"
+      }
+    },
+    {
+      "lemma": "argue",
+      "pos": "v",
+      "sense_vi": "tranh luận vấn đề",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "argue (v.)",
+        "opts": [
+          "tranh luận vấn đề",
+          "suy nghĩ kỹ",
+          "gặp người mới",
+          "kéo cửa"
+        ]
+      },
+      "answer": "tranh luận vấn đề",
+      "explain_vi": "Động từ argue mang nghĩa chính xác là: tranh luận vấn đề.",
+      "content_hash": "argue|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "argue gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "argue with close friends",
+        "vn_trap": "past tense argued"
+      }
+    },
+    {
+      "lemma": "argue",
+      "pos": "v",
+      "sense_vi": "tranh luận vấn đề",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'tranh luận vấn đề', từ tiếng Anh đúng là:",
+        "opts": [
+          "argue",
+          "argues",
+          "argueing",
+          "argued"
+        ]
+      },
+      "answer": "argue",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là argue.",
+      "content_hash": "argue|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "argue l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "argue with close friends",
+        "vn_trap": "past tense argued"
+      }
+    },
+    {
+      "lemma": "argue",
+      "pos": "v",
+      "sense_vi": "tranh luận vấn đề",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Our team hopes to ___ the championship match.",
+        "opts": [
+          "argue",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "argue",
+      "explain_vi": "Điền 'argue' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "argue|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "argue cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "argue with close friends",
+        "vn_trap": "past tense argued"
+      }
+    },
+    {
+      "lemma": "argue",
+      "pos": "v",
+      "sense_vi": "tranh luận vấn đề",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If she argues more, she would succeed.'",
+        "opts": [
+          "If she argued more, she would succeed.",
+          "If she argues more, she would succeed.",
+          "They If she argues more, she would succeed.",
+          "She was argueing when I came yesterday."
+        ]
+      },
+      "answer": "If she argued more, she would succeed.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "argue|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "argue error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "argue with close friends",
+        "vn_trap": "past tense argued"
+      }
+    },
+    {
+      "lemma": "argue",
+      "pos": "v",
+      "sense_vi": "tranh luận vấn đề",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'argue':",
+        "opts": [
+          "argue with close friends",
+          "argue in wrong way",
+          "argue without care",
+          "argue for nothing"
+        ]
+      },
+      "answer": "argue with close friends",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: argue with close friends.",
+      "content_hash": "argue|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "argue collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "argue with close friends",
+        "vn_trap": "past tense argued"
+      }
+    },
+    {
+      "lemma": "arrange",
+      "pos": "v",
+      "sense_vi": "sắp xếp cuộc họp",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "arrange (v.)",
+        "opts": [
+          "sắp xếp cuộc họp",
+          "nhìn bảng",
+          "bao gồm tên",
+          "trở về nhà"
+        ]
+      },
+      "answer": "sắp xếp cuộc họp",
+      "explain_vi": "Động từ arrange mang nghĩa chính xác là: sắp xếp cuộc họp.",
+      "content_hash": "arrange|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "arrange gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrange a meeting time",
+        "vn_trap": "past tense arranged"
+      }
+    },
+    {
+      "lemma": "arrange",
+      "pos": "v",
+      "sense_vi": "sắp xếp cuộc họp",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'sắp xếp cuộc họp' là:",
+        "opts": [
+          "arrange",
+          "arranges",
+          "arrangeing",
+          "arranged"
+        ]
+      },
+      "answer": "arrange",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là arrange.",
+      "content_hash": "arrange|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "arrange l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrange a meeting time",
+        "vn_trap": "past tense arranged"
+      }
+    },
+    {
+      "lemma": "arrange",
+      "pos": "v",
+      "sense_vi": "sắp xếp cuộc họp",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Please feel free to ___ your thoughts with us.",
+        "opts": [
+          "arrange",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "arrange",
+      "explain_vi": "Điền 'arrange' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "arrange|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "arrange cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrange a meeting time",
+        "vn_trap": "past tense arranged"
+      }
+    },
+    {
+      "lemma": "arrange",
+      "pos": "v",
+      "sense_vi": "sắp xếp cuộc họp",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She loves to arrangeing every afternoon.'",
+        "opts": [
+          "She loves to arrange every afternoon.",
+          "She loves to arrangeing every afternoon.",
+          "They She loves to arrangeing every afternoon.",
+          "She was arrangeing when I came yesterday."
+        ]
+      },
+      "answer": "She loves to arrange every afternoon.",
+      "explain_vi": "Sau 'to' dùng động từ nguyên mẫu.",
+      "content_hash": "arrange|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "arrange error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrange a meeting time",
+        "vn_trap": "past tense arranged"
+      }
+    },
+    {
+      "lemma": "arrange",
+      "pos": "v",
+      "sense_vi": "sắp xếp cuộc họp",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'arrange':",
+        "opts": [
+          "arrange a meeting time",
+          "arrange in wrong way",
+          "arrange without care",
+          "arrange for nothing"
+        ]
+      },
+      "answer": "arrange a meeting time",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: arrange a meeting time.",
+      "content_hash": "arrange|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "arrange collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrange a meeting time",
+        "vn_trap": "past tense arranged"
+      }
+    },
+    {
+      "lemma": "arrive",
+      "pos": "v",
+      "sense_vi": "đến đúng giờ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "arrive (v.)",
+        "opts": [
+          "đến đúng giờ",
+          "dùng máy tính",
+          "tiếp tục học",
+          "giải thích bài học"
+        ]
+      },
+      "answer": "đến đúng giờ",
+      "explain_vi": "Động từ arrive mang nghĩa chính xác là: đến đúng giờ.",
+      "content_hash": "arrive|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "arrive gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrive on time at",
+        "vn_trap": "past tense arrived"
+      }
+    },
+    {
+      "lemma": "arrive",
+      "pos": "v",
+      "sense_vi": "đến đúng giờ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'đến đúng giờ' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "arrive",
+          "arrives",
+          "arriveing",
+          "arrived"
+        ]
+      },
+      "answer": "arrive",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là arrive.",
+      "content_hash": "arrive|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "arrive l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrive on time at",
+        "vn_trap": "past tense arrived"
+      }
+    },
+    {
+      "lemma": "arrive",
+      "pos": "v",
+      "sense_vi": "đến đúng giờ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Quietly step inside so you don't ___ the baby.",
+        "opts": [
+          "arrive",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "arrive",
+      "explain_vi": "Điền 'arrive' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "arrive|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "arrive cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrive on time at",
+        "vn_trap": "past tense arrived"
+      }
+    },
+    {
+      "lemma": "arrive",
+      "pos": "v",
+      "sense_vi": "đến đúng giờ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is bored with arrive the same thing.'",
+        "opts": [
+          "He is bored with arriveing the same thing.",
+          "He is bored with arrive the same thing.",
+          "They He is bored with arrive the same thing.",
+          "She was arriveing when I came yesterday."
+        ]
+      },
+      "answer": "He is bored with arriveing the same thing.",
+      "explain_vi": "Sau giới từ 'with' dùng V-ing.",
+      "content_hash": "arrive|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "arrive error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrive on time at",
+        "vn_trap": "past tense arrived"
+      }
+    },
+    {
+      "lemma": "arrive",
+      "pos": "v",
+      "sense_vi": "đến đúng giờ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'arrive':",
+        "opts": [
+          "arrive on time at",
+          "arrive in wrong way",
+          "arrive without care",
+          "arrive for nothing"
+        ]
+      },
+      "answer": "arrive on time at",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: arrive on time at.",
+      "content_hash": "arrive|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "arrive collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "arrive on time at",
+        "vn_trap": "past tense arrived"
+      }
+    },
+    {
+      "lemma": "attack",
+      "pos": "v",
+      "sense_vi": "tấn công kẻ địch",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "attack (v.)",
+        "opts": [
+          "tấn công kẻ địch",
+          "tìm thấy chìa khóa",
+          "đặt mục tiêu",
+          "hy vọng thắng"
+        ]
+      },
+      "answer": "tấn công kẻ địch",
+      "explain_vi": "Động từ attack mang nghĩa chính xác là: tấn công kẻ địch.",
+      "content_hash": "attack|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "attack gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attack the enemy base",
+        "vn_trap": "past tense attacked"
+      }
+    },
+    {
+      "lemma": "attack",
+      "pos": "v",
+      "sense_vi": "tấn công kẻ địch",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'tấn công kẻ địch' là:",
+        "opts": [
+          "attack",
+          "attacks",
+          "attacking",
+          "attacked"
+        ]
+      },
+      "answer": "attack",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là attack.",
+      "content_hash": "attack|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "attack l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attack the enemy base",
+        "vn_trap": "past tense attacked"
+      }
+    },
+    {
+      "lemma": "attack",
+      "pos": "v",
+      "sense_vi": "tấn công kẻ địch",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ the lights before going to bed.",
+        "opts": [
+          "attack",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "attack",
+      "explain_vi": "Điền 'attack' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "attack|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "attack cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attack the enemy base",
+        "vn_trap": "past tense attacked"
+      }
+    },
+    {
+      "lemma": "attack",
+      "pos": "v",
+      "sense_vi": "tấn công kẻ địch",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'In spite of she was ill, she went to attack.'",
+        "opts": [
+          "Although she was ill, she went to attack.",
+          "In spite of she was ill, she went to attack.",
+          "They In spite of she was ill, she went to attack.",
+          "She was attacking when I came yesterday."
+        ]
+      },
+      "answer": "Although she was ill, she went to attack.",
+      "explain_vi": "Dùng 'Although' thay cho 'In spite of' trước mệnh đề.",
+      "content_hash": "attack|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "attack error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attack the enemy base",
+        "vn_trap": "past tense attacked"
+      }
+    },
+    {
+      "lemma": "attack",
+      "pos": "v",
+      "sense_vi": "tấn công kẻ địch",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'attack':",
+        "opts": [
+          "attack the enemy base",
+          "attack in wrong way",
+          "attack without care",
+          "attack for nothing"
+        ]
+      },
+      "answer": "attack the enemy base",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: attack the enemy base.",
+      "content_hash": "attack|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "attack collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attack the enemy base",
+        "vn_trap": "past tense attacked"
+      }
+    },
+    {
+      "lemma": "attend",
+      "pos": "v",
+      "sense_vi": "tham dự lớp học",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "attend (v.)",
+        "opts": [
+          "tham dự lớp học",
+          "nói sự thật",
+          "học tiếng Anh",
+          "phát triển kỹ năng"
+        ]
+      },
+      "answer": "tham dự lớp học",
+      "explain_vi": "Động từ attend mang nghĩa chính xác là: tham dự lớp học.",
+      "content_hash": "attend|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "attend gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attend the morning class",
+        "vn_trap": "past tense attended"
+      }
+    },
+    {
+      "lemma": "attend",
+      "pos": "v",
+      "sense_vi": "tham dự lớp học",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'tham dự lớp học' được dịch là:",
+        "opts": [
+          "attend",
+          "attends",
+          "attending",
+          "attended"
+        ]
+      },
+      "answer": "attend",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là attend.",
+      "content_hash": "attend|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "attend l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attend the morning class",
+        "vn_trap": "past tense attended"
+      }
+    },
+    {
+      "lemma": "attend",
+      "pos": "v",
+      "sense_vi": "tham dự lớp học",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "She promised to ___ her parents every weekend.",
+        "opts": [
+          "attend",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "attend",
+      "explain_vi": "Điền 'attend' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "attend|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "attend cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attend the morning class",
+        "vn_trap": "past tense attended"
+      }
+    },
+    {
+      "lemma": "attend",
+      "pos": "v",
+      "sense_vi": "tham dự lớp học",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has attendeded the letter last week.'",
+        "opts": [
+          "She attended the letter last week.",
+          "She has attendeded the letter last week.",
+          "They She has attendeded the letter last week.",
+          "She was attending when I came yesterday."
+        ]
+      },
+      "answer": "She attended the letter last week.",
+      "explain_vi": "Thời gian xác định trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "attend|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "attend error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attend the morning class",
+        "vn_trap": "past tense attended"
+      }
+    },
+    {
+      "lemma": "attend",
+      "pos": "v",
+      "sense_vi": "tham dự lớp học",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'attend':",
+        "opts": [
+          "attend the morning class",
+          "attend in wrong way",
+          "attend without care",
+          "attend for nothing"
+        ]
+      },
+      "answer": "attend the morning class",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: attend the morning class.",
+      "content_hash": "attend|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "attend collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "attend the morning class",
+        "vn_trap": "past tense attended"
+      }
+    },
+    {
+      "lemma": "avoid",
+      "pos": "v",
+      "sense_vi": "tránh mắc lỗi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "avoid (v.)",
+        "opts": [
+          "tránh mắc lỗi",
+          "gọi điện thoại",
+          "thay đổi ý định",
+          "mang cặp nặng"
+        ]
+      },
+      "answer": "tránh mắc lỗi",
+      "explain_vi": "Động từ avoid mang nghĩa chính xác là: tránh mắc lỗi.",
+      "content_hash": "avoid|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "avoid gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "avoid making bad mistakes",
+        "vn_trap": "past tense avoided"
+      }
+    },
+    {
+      "lemma": "avoid",
+      "pos": "v",
+      "sense_vi": "tránh mắc lỗi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'tránh mắc lỗi', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "avoid",
+          "avoids",
+          "avoiding",
+          "avoided"
+        ]
+      },
+      "answer": "avoid",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là avoid.",
+      "content_hash": "avoid|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "avoid l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "avoid making bad mistakes",
+        "vn_trap": "past tense avoided"
+      }
+    },
+    {
+      "lemma": "avoid",
+      "pos": "v",
+      "sense_vi": "tránh mắc lỗi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "They plan to ___ a new office building next year.",
+        "opts": [
+          "avoid",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "avoid",
+      "explain_vi": "Điền 'avoid' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "avoid|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "avoid cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "avoid making bad mistakes",
+        "vn_trap": "past tense avoided"
+      }
+    },
+    {
+      "lemma": "avoid",
+      "pos": "v",
+      "sense_vi": "tránh mắc lỗi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped avoiding to take a short break.'",
+        "opts": [
+          "He stopped to avoid to take a short break.",
+          "He stopped avoiding to take a short break.",
+          "They He stopped avoiding to take a short break.",
+          "She was avoiding when I came yesterday."
+        ]
+      },
+      "answer": "He stopped to avoid to take a short break.",
+      "explain_vi": "Dừng lại để làm việc khác dùng 'stop to V'.",
+      "content_hash": "avoid|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "avoid error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "avoid making bad mistakes",
+        "vn_trap": "past tense avoided"
+      }
+    },
+    {
+      "lemma": "avoid",
+      "pos": "v",
+      "sense_vi": "tránh mắc lỗi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'avoid':",
+        "opts": [
+          "avoid making bad mistakes",
+          "avoid in wrong way",
+          "avoid without care",
+          "avoid for nothing"
+        ]
+      },
+      "answer": "avoid making bad mistakes",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: avoid making bad mistakes.",
+      "content_hash": "avoid|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "avoid collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "avoid making bad mistakes",
+        "vn_trap": "past tense avoided"
+      }
+    }
+  ]
+}

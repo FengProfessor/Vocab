@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-03",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "show",
+    "hear",
+    "move",
+    "live",
+    "believe",
+    "hold",
+    "bring",
+    "happen",
+    "sit",
+    "stand"
+  ],
+  "items": [
+    {
+      "lemma": "show",
+      "pos": "v",
+      "sense_vi": "cho xem ảnh",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "show (v.)",
+        "opts": [
+          "cho xem ảnh",
+          "đặt mục tiêu",
+          "gợi ý cách làm",
+          "dạy học sinh"
+        ]
+      },
+      "answer": "cho xem ảnh",
+      "explain_vi": "Động từ show mang nghĩa chính xác là: cho xem ảnh.",
+      "content_hash": "show|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "show gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "show the picture",
+        "vn_trap": "past tense showed"
+      }
+    },
+    {
+      "lemma": "show",
+      "pos": "v",
+      "sense_vi": "cho xem ảnh",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'cho xem ảnh' là:",
+        "opts": [
+          "show",
+          "shows",
+          "showing",
+          "showed"
+        ]
+      },
+      "answer": "show",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là show.",
+      "content_hash": "show|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "show l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "show the picture",
+        "vn_trap": "past tense showed"
+      }
+    },
+    {
+      "lemma": "show",
+      "pos": "v",
+      "sense_vi": "cho xem ảnh",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "show",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "show",
+      "explain_vi": "Điền 'show' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "show|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "show cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "show the picture",
+        "vn_trap": "past tense showed"
+      }
+    },
+    {
+      "lemma": "show",
+      "pos": "v",
+      "sense_vi": "cho xem ảnh",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She shows the exercise very slow yesterday.'",
+        "opts": [
+          "She showed the exercise very slowly yesterday.",
+          "She shows the exercise very slow yesterday.",
+          "They She shows the exercise very slow yesterday.",
+          "She was showing when I came yesterday."
+        ]
+      },
+      "answer": "She showed the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "show|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "show error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "show the picture",
+        "vn_trap": "past tense showed"
+      }
+    },
+    {
+      "lemma": "show",
+      "pos": "v",
+      "sense_vi": "cho xem ảnh",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'show':",
+        "opts": [
+          "show the picture",
+          "show in wrong way",
+          "show without care",
+          "show for nothing"
+        ]
+      },
+      "answer": "show the picture",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: show the picture.",
+      "content_hash": "show|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "show collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "show the picture",
+        "vn_trap": "past tense showed"
+      }
+    },
+    {
+      "lemma": "hear",
+      "pos": "v",
+      "sense_vi": "nghe tiếng động",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hear (v.)",
+        "opts": [
+          "nghe tiếng động",
+          "học tiếng Anh",
+          "nâng tay lên",
+          "cảm ơn bạn"
+        ]
+      },
+      "answer": "nghe tiếng động",
+      "explain_vi": "Động từ hear mang nghĩa chính xác là: nghe tiếng động.",
+      "content_hash": "hear|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "hear gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hear a loud noise",
+        "vn_trap": "past tense heard"
+      }
+    },
+    {
+      "lemma": "hear",
+      "pos": "v",
+      "sense_vi": "nghe tiếng động",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'nghe tiếng động' là:",
+        "opts": [
+          "hear",
+          "hears",
+          "hearing",
+          "heard"
+        ]
+      },
+      "answer": "hear",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hear.",
+      "content_hash": "hear|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "hear l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hear a loud noise",
+        "vn_trap": "past tense heard"
+      }
+    },
+    {
+      "lemma": "hear",
+      "pos": "v",
+      "sense_vi": "nghe tiếng động",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "hear",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "hear",
+      "explain_vi": "Điền 'hear' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "hear|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "hear cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hear a loud noise",
+        "vn_trap": "past tense heard"
+      }
+    },
+    {
+      "lemma": "hear",
+      "pos": "v",
+      "sense_vi": "nghe tiếng động",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was hearing when the lights went out.'",
+        "opts": [
+          "They were hearing when the lights went out.",
+          "They was hearing when the lights went out.",
+          "They They was hearing when the lights went out.",
+          "She was hearing when I came yesterday."
+        ]
+      },
+      "answer": "They were hearing when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "hear|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "hear error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hear a loud noise",
+        "vn_trap": "past tense heard"
+      }
+    },
+    {
+      "lemma": "hear",
+      "pos": "v",
+      "sense_vi": "nghe tiếng động",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hear':",
+        "opts": [
+          "hear a loud noise",
+          "hear in wrong way",
+          "hear without care",
+          "hear for nothing"
+        ]
+      },
+      "answer": "hear a loud noise",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hear a loud noise.",
+      "content_hash": "hear|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "hear collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hear a loud noise",
+        "vn_trap": "past tense heard"
+      }
+    },
+    {
+      "lemma": "move",
+      "pos": "v",
+      "sense_vi": "di chuyển đồ đạc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "move (v.)",
+        "opts": [
+          "di chuyển đồ đạc",
+          "thay đổi ý định",
+          "đỗ kỳ thi",
+          "chạm màn hình"
+        ]
+      },
+      "answer": "di chuyển đồ đạc",
+      "explain_vi": "Động từ move mang nghĩa chính xác là: di chuyển đồ đạc.",
+      "content_hash": "move|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "move gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "move to new house",
+        "vn_trap": "past tense moved"
+      }
+    },
+    {
+      "lemma": "move",
+      "pos": "v",
+      "sense_vi": "di chuyển đồ đạc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'di chuyển đồ đạc', người Anh dùng:",
+        "opts": [
+          "move",
+          "moves",
+          "moveing",
+          "moved"
+        ]
+      },
+      "answer": "move",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là move.",
+      "content_hash": "move|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "move l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "move to new house",
+        "vn_trap": "past tense moved"
+      }
+    },
+    {
+      "lemma": "move",
+      "pos": "v",
+      "sense_vi": "di chuyển đồ đạc",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "move",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "move",
+      "explain_vi": "Điền 'move' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "move|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "move cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "move to new house",
+        "vn_trap": "past tense moved"
+      }
+    },
+    {
+      "lemma": "move",
+      "pos": "v",
+      "sense_vi": "di chuyển đồ đạc",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He moves without check the answers first.'",
+        "opts": [
+          "He moved without checking the answers first.",
+          "He moves without check the answers first.",
+          "They He moves without check the answers first.",
+          "She was moveing when I came yesterday."
+        ]
+      },
+      "answer": "He moved without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "move|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "move error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "move to new house",
+        "vn_trap": "past tense moved"
+      }
+    },
+    {
+      "lemma": "move",
+      "pos": "v",
+      "sense_vi": "di chuyển đồ đạc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'move':",
+        "opts": [
+          "move to new house",
+          "move in wrong way",
+          "move without care",
+          "move for nothing"
+        ]
+      },
+      "answer": "move to new house",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: move to new house.",
+      "content_hash": "move|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "move collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "move to new house",
+        "vn_trap": "past tense moved"
+      }
+    },
+    {
+      "lemma": "live",
+      "pos": "v",
+      "sense_vi": "sống ở thành phố",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "live (v.)",
+        "opts": [
+          "sống ở thành phố",
+          "dẫn đường",
+          "bán quần áo",
+          "du lịch nước ngoài"
+        ]
+      },
+      "answer": "sống ở thành phố",
+      "explain_vi": "Động từ live mang nghĩa chính xác là: sống ở thành phố.",
+      "content_hash": "live|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "live gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "live in a city",
+        "vn_trap": "past tense lived"
+      }
+    },
+    {
+      "lemma": "live",
+      "pos": "v",
+      "sense_vi": "sống ở thành phố",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'sống ở thành phố' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "live",
+          "lives",
+          "liveing",
+          "lived"
+        ]
+      },
+      "answer": "live",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là live.",
+      "content_hash": "live|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "live l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "live in a city",
+        "vn_trap": "past tense lived"
+      }
+    },
+    {
+      "lemma": "live",
+      "pos": "v",
+      "sense_vi": "sống ở thành phố",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "live",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "live",
+      "explain_vi": "Điền 'live' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "live|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "live cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "live in a city",
+        "vn_trap": "past tense lived"
+      }
+    },
+    {
+      "lemma": "live",
+      "pos": "v",
+      "sense_vi": "sống ở thành phố",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is liveing since last year.'",
+        "opts": [
+          "She has been liveing since last year.",
+          "She is liveing since last year.",
+          "They She is liveing since last year.",
+          "She was liveing when I came yesterday."
+        ]
+      },
+      "answer": "She has been liveing since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "live|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "live error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "live in a city",
+        "vn_trap": "past tense lived"
+      }
+    },
+    {
+      "lemma": "live",
+      "pos": "v",
+      "sense_vi": "sống ở thành phố",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'live':",
+        "opts": [
+          "live in a city",
+          "live in wrong way",
+          "live without care",
+          "live for nothing"
+        ]
+      },
+      "answer": "live in a city",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: live in a city.",
+      "content_hash": "live|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "live collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "live in a city",
+        "vn_trap": "past tense lived"
+      }
+    },
+    {
+      "lemma": "believe",
+      "pos": "v",
+      "sense_vi": "tin tưởng vào bản thân",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "believe (v.)",
+        "opts": [
+          "tin tưởng vào bản thân",
+          "hiểu bài giảng",
+          "yêu cầu thời gian",
+          "thăm ông bà"
+        ]
+      },
+      "answer": "tin tưởng vào bản thân",
+      "explain_vi": "Động từ believe mang nghĩa chính xác là: tin tưởng vào bản thân.",
+      "content_hash": "believe|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "believe gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "believe in success",
+        "vn_trap": "past tense believed"
+      }
+    },
+    {
+      "lemma": "believe",
+      "pos": "v",
+      "sense_vi": "tin tưởng vào bản thân",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'tin tưởng vào bản thân', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "believe",
+          "believes",
+          "believeing",
+          "believed"
+        ]
+      },
+      "answer": "believe",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là believe.",
+      "content_hash": "believe|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "believe l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "believe in success",
+        "vn_trap": "past tense believed"
+      }
+    },
+    {
+      "lemma": "believe",
+      "pos": "v",
+      "sense_vi": "tin tưởng vào bản thân",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "believe",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "believe",
+      "explain_vi": "Điền 'believe' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "believe|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "believe cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "believe in success",
+        "vn_trap": "past tense believed"
+      }
+    },
+    {
+      "lemma": "believe",
+      "pos": "v",
+      "sense_vi": "tin tưởng vào bản thân",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they believes earlier, they would win.'",
+        "opts": [
+          "If they believed earlier, they would win.",
+          "If they believes earlier, they would win.",
+          "They If they believes earlier, they would win.",
+          "She was believeing when I came yesterday."
+        ]
+      },
+      "answer": "If they believed earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "believe|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "believe error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "believe in success",
+        "vn_trap": "past tense believed"
+      }
+    },
+    {
+      "lemma": "believe",
+      "pos": "v",
+      "sense_vi": "tin tưởng vào bản thân",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'believe':",
+        "opts": [
+          "believe in success",
+          "believe in wrong way",
+          "believe without care",
+          "believe for nothing"
+        ]
+      },
+      "answer": "believe in success",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: believe in success.",
+      "content_hash": "believe|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "believe collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "believe in success",
+        "vn_trap": "past tense believed"
+      }
+    },
+    {
+      "lemma": "hold",
+      "pos": "v",
+      "sense_vi": "cầm chiếc cốc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "hold (v.)",
+        "opts": [
+          "cầm chiếc cốc",
+          "xem phim",
+          "báo cáo tin tức",
+          "thức dậy sớm"
+        ]
+      },
+      "answer": "cầm chiếc cốc",
+      "explain_vi": "Động từ hold mang nghĩa chính xác là: cầm chiếc cốc.",
+      "content_hash": "hold|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "hold gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hold a meeting",
+        "vn_trap": "past tense held"
+      }
+    },
+    {
+      "lemma": "hold",
+      "pos": "v",
+      "sense_vi": "cầm chiếc cốc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'cầm chiếc cốc' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "hold",
+          "holds",
+          "holding",
+          "held"
+        ]
+      },
+      "answer": "hold",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là hold.",
+      "content_hash": "hold|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "hold l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hold a meeting",
+        "vn_trap": "past tense held"
+      }
+    },
+    {
+      "lemma": "hold",
+      "pos": "v",
+      "sense_vi": "cầm chiếc cốc",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "hold",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "hold",
+      "explain_vi": "Điền 'hold' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "hold|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "hold cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hold a meeting",
+        "vn_trap": "past tense held"
+      }
+    },
+    {
+      "lemma": "hold",
+      "pos": "v",
+      "sense_vi": "cầm chiếc cốc",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to hold when she is busy.'",
+        "opts": [
+          "She avoids holding when she is busy.",
+          "She avoids to hold when she is busy.",
+          "They She avoids to hold when she is busy.",
+          "She was holding when I came yesterday."
+        ]
+      },
+      "answer": "She avoids holding when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "hold|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "hold error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hold a meeting",
+        "vn_trap": "past tense held"
+      }
+    },
+    {
+      "lemma": "hold",
+      "pos": "v",
+      "sense_vi": "cầm chiếc cốc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'hold':",
+        "opts": [
+          "hold a meeting",
+          "hold in wrong way",
+          "hold without care",
+          "hold for nothing"
+        ]
+      },
+      "answer": "hold a meeting",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: hold a meeting.",
+      "content_hash": "hold|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "hold collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "hold a meeting",
+        "vn_trap": "past tense held"
+      }
+    },
+    {
+      "lemma": "bring",
+      "pos": "v",
+      "sense_vi": "mang theo ô",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "bring (v.)",
+        "opts": [
+          "mang theo ô",
+          "theo hướng dẫn",
+          "quyết định đi",
+          "mặc áo phông"
+        ]
+      },
+      "answer": "mang theo ô",
+      "explain_vi": "Động từ bring mang nghĩa chính xác là: mang theo ô.",
+      "content_hash": "bring|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "bring gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "bring some food",
+        "vn_trap": "past tense brought"
+      }
+    },
+    {
+      "lemma": "bring",
+      "pos": "v",
+      "sense_vi": "mang theo ô",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'mang theo ô', từ tiếng Anh đúng là:",
+        "opts": [
+          "bring",
+          "brings",
+          "bringing",
+          "brought"
+        ]
+      },
+      "answer": "bring",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là bring.",
+      "content_hash": "bring|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "bring l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "bring some food",
+        "vn_trap": "past tense brought"
+      }
+    },
+    {
+      "lemma": "bring",
+      "pos": "v",
+      "sense_vi": "mang theo ô",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "bring",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "bring",
+      "explain_vi": "Điền 'bring' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "bring|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "bring cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "bring some food",
+        "vn_trap": "past tense brought"
+      }
+    },
+    {
+      "lemma": "bring",
+      "pos": "v",
+      "sense_vi": "mang theo ô",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at bring in public places.'",
+        "opts": [
+          "He is good at bringing in public places.",
+          "He is good at bring in public places.",
+          "They He is good at bring in public places.",
+          "She was bringing when I came yesterday."
+        ]
+      },
+      "answer": "He is good at bringing in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "bring|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "bring error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "bring some food",
+        "vn_trap": "past tense brought"
+      }
+    },
+    {
+      "lemma": "bring",
+      "pos": "v",
+      "sense_vi": "mang theo ô",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'bring':",
+        "opts": [
+          "bring some food",
+          "bring in wrong way",
+          "bring without care",
+          "bring for nothing"
+        ]
+      },
+      "answer": "bring some food",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: bring some food.",
+      "content_hash": "bring|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "bring collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "bring some food",
+        "vn_trap": "past tense brought"
+      }
+    },
+    {
+      "lemma": "happen",
+      "pos": "v",
+      "sense_vi": "xảy ra bất ngờ",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "happen (v.)",
+        "opts": [
+          "xảy ra bất ngờ",
+          "dừng xe",
+          "kéo cửa",
+          "ước điều ước"
+        ]
+      },
+      "answer": "xảy ra bất ngờ",
+      "explain_vi": "Động từ happen mang nghĩa chính xác là: xảy ra bất ngờ.",
+      "content_hash": "happen|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "happen gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "happen by chance",
+        "vn_trap": "past tense happened"
+      }
+    },
+    {
+      "lemma": "happen",
+      "pos": "v",
+      "sense_vi": "xảy ra bất ngờ",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'xảy ra bất ngờ' là:",
+        "opts": [
+          "happen",
+          "happens",
+          "happening",
+          "happened"
+        ]
+      },
+      "answer": "happen",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là happen.",
+      "content_hash": "happen|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "happen l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "happen by chance",
+        "vn_trap": "past tense happened"
+      }
+    },
+    {
+      "lemma": "happen",
+      "pos": "v",
+      "sense_vi": "xảy ra bất ngờ",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Before you leave, make sure to ___ the door.",
+        "opts": [
+          "happen",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "happen",
+      "explain_vi": "Điền 'happen' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "happen|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "happen cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "happen by chance",
+        "vn_trap": "past tense happened"
+      }
+    },
+    {
+      "lemma": "happen",
+      "pos": "v",
+      "sense_vi": "xảy ra bất ngờ",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite of the rain, she went out to happen.'",
+        "opts": [
+          "Despite the rain, she went out to happen.",
+          "Despite of the rain, she went out to happen.",
+          "They Despite of the rain, she went out to happen.",
+          "She was happening when I came yesterday."
+        ]
+      },
+      "answer": "Despite the rain, she went out to happen.",
+      "explain_vi": "Dùng 'Despite' (không có 'of').",
+      "content_hash": "happen|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "happen error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "happen by chance",
+        "vn_trap": "past tense happened"
+      }
+    },
+    {
+      "lemma": "happen",
+      "pos": "v",
+      "sense_vi": "xảy ra bất ngờ",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'happen':",
+        "opts": [
+          "happen by chance",
+          "happen in wrong way",
+          "happen without care",
+          "happen for nothing"
+        ]
+      },
+      "answer": "happen by chance",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: happen by chance.",
+      "content_hash": "happen|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "happen collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "happen by chance",
+        "vn_trap": "past tense happened"
+      }
+    },
+    {
+      "lemma": "sit",
+      "pos": "v",
+      "sense_vi": "ngồi ghế",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sit (v.)",
+        "opts": [
+          "ngồi ghế",
+          "tạo tài khoản",
+          "trở về nhà",
+          "lo lắng thi cử"
+        ]
+      },
+      "answer": "ngồi ghế",
+      "explain_vi": "Động từ sit mang nghĩa chính xác là: ngồi ghế.",
+      "content_hash": "sit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "sit gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sit on a chair",
+        "vn_trap": "past tense sat"
+      }
+    },
+    {
+      "lemma": "sit",
+      "pos": "v",
+      "sense_vi": "ngồi ghế",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'ngồi ghế' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "sit",
+          "sits",
+          "siting",
+          "sat"
+        ]
+      },
+      "answer": "sit",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là sit.",
+      "content_hash": "sit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "sit l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sit on a chair",
+        "vn_trap": "past tense sat"
+      }
+    },
+    {
+      "lemma": "sit",
+      "pos": "v",
+      "sense_vi": "ngồi ghế",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love to ___ games in the playground.",
+        "opts": [
+          "sit",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "sit",
+      "explain_vi": "Điền 'sit' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "sit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "sit cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sit on a chair",
+        "vn_trap": "past tense sat"
+      }
+    },
+    {
+      "lemma": "sit",
+      "pos": "v",
+      "sense_vi": "ngồi ghế",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has sated the book yesterday evening.'",
+        "opts": [
+          "She sat the book yesterday evening.",
+          "She has sated the book yesterday evening.",
+          "They She has sated the book yesterday evening.",
+          "She was siting when I came yesterday."
+        ]
+      },
+      "answer": "She sat the book yesterday evening.",
+      "explain_vi": "Quá khứ xác định dùng quá khứ đơn.",
+      "content_hash": "sit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "sit error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sit on a chair",
+        "vn_trap": "past tense sat"
+      }
+    },
+    {
+      "lemma": "sit",
+      "pos": "v",
+      "sense_vi": "ngồi ghế",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sit':",
+        "opts": [
+          "sit on a chair",
+          "sit in wrong way",
+          "sit without care",
+          "sit for nothing"
+        ]
+      },
+      "answer": "sit on a chair",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: sit on a chair.",
+      "content_hash": "sit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "sit collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sit on a chair",
+        "vn_trap": "past tense sat"
+      }
+    },
+    {
+      "lemma": "stand",
+      "pos": "v",
+      "sense_vi": "đứng dậy",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "stand (v.)",
+        "opts": [
+          "đứng dậy",
+          "cho phép ra ngoài",
+          "giải thích bài học",
+          "đóng cửa sổ"
+        ]
+      },
+      "answer": "đứng dậy",
+      "explain_vi": "Động từ stand mang nghĩa chính xác là: đứng dậy.",
+      "content_hash": "stand|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "stand gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stand in line",
+        "vn_trap": "past tense stood"
+      }
+    },
+    {
+      "lemma": "stand",
+      "pos": "v",
+      "sense_vi": "đứng dậy",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'đứng dậy' là:",
+        "opts": [
+          "stand",
+          "stands",
+          "standing",
+          "stood"
+        ]
+      },
+      "answer": "stand",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là stand.",
+      "content_hash": "stand|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "stand l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stand in line",
+        "vn_trap": "past tense stood"
+      }
+    },
+    {
+      "lemma": "stand",
+      "pos": "v",
+      "sense_vi": "đứng dậy",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "During the lesson, please ___ to the teacher.",
+        "opts": [
+          "stand",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "stand",
+      "explain_vi": "Điền 'stand' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "stand|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "stand cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stand in line",
+        "vn_trap": "past tense stood"
+      }
+    },
+    {
+      "lemma": "stand",
+      "pos": "v",
+      "sense_vi": "đứng dậy",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He remembered to standing the door before leaving.'",
+        "opts": [
+          "He remembered to stand the door before leaving.",
+          "He remembered to standing the door before leaving.",
+          "They He remembered to standing the door before leaving.",
+          "She was standing when I came yesterday."
+        ]
+      },
+      "answer": "He remembered to stand the door before leaving.",
+      "explain_vi": "Nhớ phải làm gì dùng 'remember to V'.",
+      "content_hash": "stand|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "stand error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stand in line",
+        "vn_trap": "past tense stood"
+      }
+    },
+    {
+      "lemma": "stand",
+      "pos": "v",
+      "sense_vi": "đứng dậy",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'stand':",
+        "opts": [
+          "stand in line",
+          "stand in wrong way",
+          "stand without care",
+          "stand for nothing"
+        ]
+      },
+      "answer": "stand in line",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: stand in line.",
+      "content_hash": "stand|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "stand collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "stand in line",
+        "vn_trap": "past tense stood"
+      }
+    }
+  ]
+}

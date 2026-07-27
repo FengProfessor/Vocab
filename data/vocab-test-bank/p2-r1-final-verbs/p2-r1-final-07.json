@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-07",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "fall",
+    "cut",
+    "reach",
+    "kill",
+    "remain",
+    "suggest",
+    "raise",
+    "pass",
+    "sell",
+    "require"
+  ],
+  "items": [
+    {
+      "lemma": "fall",
+      "pos": "v",
+      "sense_vi": "ngã xuống đất",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fall (v.)",
+        "opts": [
+          "ngã xuống đất",
+          "hy vọng thắng",
+          "dạy học sinh",
+          "đặt đồ xuống"
+        ]
+      },
+      "answer": "ngã xuống đất",
+      "explain_vi": "Động từ fall mang nghĩa chính xác là: ngã xuống đất.",
+      "content_hash": "fall|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "fall gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fall down on ground",
+        "vn_trap": "past tense fell"
+      }
+    },
+    {
+      "lemma": "fall",
+      "pos": "v",
+      "sense_vi": "ngã xuống đất",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'ngã xuống đất', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "fall",
+          "falls",
+          "falling",
+          "fell"
+        ]
+      },
+      "answer": "fall",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là fall.",
+      "content_hash": "fall|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "fall l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fall down on ground",
+        "vn_trap": "past tense fell"
+      }
+    },
+    {
+      "lemma": "fall",
+      "pos": "v",
+      "sense_vi": "ngã xuống đất",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Always remember to ___ your homework on time.",
+        "opts": [
+          "fall",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "fall",
+      "explain_vi": "Điền 'fall' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "fall|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "fall cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fall down on ground",
+        "vn_trap": "past tense fell"
+      }
+    },
+    {
+      "lemma": "fall",
+      "pos": "v",
+      "sense_vi": "ngã xuống đất",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She falls the work very good yesterday.'",
+        "opts": [
+          "She fell the work very well yesterday.",
+          "She falls the work very good yesterday.",
+          "She falls the task very good yesterday.",
+          "She was falling when I came yesterday."
+        ]
+      },
+      "answer": "She fell the work very well yesterday.",
+      "explain_vi": "Dùng trạng từ 'well' bổ nghĩa cho động từ, không dùng tính từ 'good'.",
+      "content_hash": "fall|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "fall error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fall down on ground",
+        "vn_trap": "past tense fell"
+      }
+    },
+    {
+      "lemma": "fall",
+      "pos": "v",
+      "sense_vi": "ngã xuống đất",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'fall':",
+        "opts": [
+          "fall down on ground",
+          "fall in wrong way",
+          "fall without care",
+          "fall for nothing"
+        ]
+      },
+      "answer": "fall down on ground",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: fall down on ground.",
+      "content_hash": "fall|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "fall collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "fall down on ground",
+        "vn_trap": "past tense fell"
+      }
+    },
+    {
+      "lemma": "cut",
+      "pos": "v",
+      "sense_vi": "cắt giấy",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "cut (v.)",
+        "opts": [
+          "cắt giấy",
+          "phát triển kỹ năng",
+          "cảm ơn bạn",
+          "nằm nghỉ ngơi"
+        ]
+      },
+      "answer": "cắt giấy",
+      "explain_vi": "Động từ cut mang nghĩa chính xác là: cắt giấy.",
+      "content_hash": "cut|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "cut gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cut with sharp scissors",
+        "vn_trap": "past tense cut"
+      }
+    },
+    {
+      "lemma": "cut",
+      "pos": "v",
+      "sense_vi": "cắt giấy",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'cắt giấy' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "cut",
+          "cuts",
+          "cuting",
+          "re-cut"
+        ]
+      },
+      "answer": "cut",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là cut.",
+      "content_hash": "cut|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "cut l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cut with sharp scissors",
+        "vn_trap": "past tense cut"
+      }
+    },
+    {
+      "lemma": "cut",
+      "pos": "v",
+      "sense_vi": "cắt giấy",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Be careful when you ___ the street tomorrow morning.",
+        "opts": [
+          "cut",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "cut",
+      "explain_vi": "Điền 'cut' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "cut|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "cut cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cut with sharp scissors",
+        "vn_trap": "past tense cut"
+      }
+    },
+    {
+      "lemma": "cut",
+      "pos": "v",
+      "sense_vi": "cắt giấy",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was cuting when the bell rang.'",
+        "opts": [
+          "They were cuting when the bell rang.",
+          "They was cuting when the bell rang.",
+          "They They was cuting when the bell rang.",
+          "She was cuting when I came yesterday."
+        ]
+      },
+      "answer": "They were cuting when the bell rang.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were', không dùng 'was'.",
+      "content_hash": "cut|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "cut error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cut with sharp scissors",
+        "vn_trap": "past tense cut"
+      }
+    },
+    {
+      "lemma": "cut",
+      "pos": "v",
+      "sense_vi": "cắt giấy",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'cut':",
+        "opts": [
+          "cut with sharp scissors",
+          "cut in wrong way",
+          "cut without care",
+          "cut for nothing"
+        ]
+      },
+      "answer": "cut with sharp scissors",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: cut with sharp scissors.",
+      "content_hash": "cut|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "cut collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "cut with sharp scissors",
+        "vn_trap": "past tense cut"
+      }
+    },
+    {
+      "lemma": "reach",
+      "pos": "v",
+      "sense_vi": "đến đích",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "reach (v.)",
+        "opts": [
+          "đến đích",
+          "mang cặp nặng",
+          "chạm màn hình",
+          "nâng vật nặng"
+        ]
+      },
+      "answer": "đến đích",
+      "explain_vi": "Động từ reach mang nghĩa chính xác là: đến đích.",
+      "content_hash": "reach|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "reach gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reach the final destination",
+        "vn_trap": "past tense reached"
+      }
+    },
+    {
+      "lemma": "reach",
+      "pos": "v",
+      "sense_vi": "đến đích",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'đến đích', từ tiếng Anh đúng là:",
+        "opts": [
+          "reach",
+          "reachs",
+          "reaching",
+          "reached"
+        ]
+      },
+      "answer": "reach",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là reach.",
+      "content_hash": "reach|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "reach l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reach the final destination",
+        "vn_trap": "past tense reached"
+      }
+    },
+    {
+      "lemma": "reach",
+      "pos": "v",
+      "sense_vi": "đến đích",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you help me ___ this difficult problem today?",
+        "opts": [
+          "reach",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "reach",
+      "explain_vi": "Điền 'reach' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "reach|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "reach cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reach the final destination",
+        "vn_trap": "past tense reached"
+      }
+    },
+    {
+      "lemma": "reach",
+      "pos": "v",
+      "sense_vi": "đến đích",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He reached without inform anyone first.'",
+        "opts": [
+          "He reached without informing anyone first.",
+          "He reached without inform anyone first.",
+          "They He reached without inform anyone first.",
+          "She was reaching when I came yesterday."
+        ]
+      },
+      "answer": "He reached without informing anyone first.",
+      "explain_vi": "Sau giới từ 'without' cần động từ dạng V-ing.",
+      "content_hash": "reach|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "reach error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reach the final destination",
+        "vn_trap": "past tense reached"
+      }
+    },
+    {
+      "lemma": "reach",
+      "pos": "v",
+      "sense_vi": "đến đích",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'reach':",
+        "opts": [
+          "reach the final destination",
+          "reach in wrong way",
+          "reach without care",
+          "reach for nothing"
+        ]
+      },
+      "answer": "reach the final destination",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: reach the final destination.",
+      "content_hash": "reach|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "reach collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "reach the final destination",
+        "vn_trap": "past tense reached"
+      }
+    },
+    {
+      "lemma": "kill",
+      "pos": "v",
+      "sense_vi": "giết thời gian",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "kill (v.)",
+        "opts": [
+          "giết thời gian",
+          "kiểm tra đáp án",
+          "du lịch nước ngoài",
+          "thắp ngọn nến"
+        ]
+      },
+      "answer": "giết thời gian",
+      "explain_vi": "Động từ kill mang nghĩa chính xác là: giết thời gian.",
+      "content_hash": "kill|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "kill gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kill time waiting",
+        "vn_trap": "past tense killed"
+      }
+    },
+    {
+      "lemma": "kill",
+      "pos": "v",
+      "sense_vi": "giết thời gian",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'giết thời gian' là:",
+        "opts": [
+          "kill",
+          "kills",
+          "killing",
+          "killed"
+        ]
+      },
+      "answer": "kill",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là kill.",
+      "content_hash": "kill|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "kill l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kill time waiting",
+        "vn_trap": "past tense killed"
+      }
+    },
+    {
+      "lemma": "kill",
+      "pos": "v",
+      "sense_vi": "giết thời gian",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Do not forget to ___ your passport before traveling.",
+        "opts": [
+          "kill",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "kill",
+      "explain_vi": "Điền 'kill' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "kill|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "kill cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kill time waiting",
+        "vn_trap": "past tense killed"
+      }
+    },
+    {
+      "lemma": "kill",
+      "pos": "v",
+      "sense_vi": "giết thời gian",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is killing since two o'clock.'",
+        "opts": [
+          "She has been killing since two o'clock.",
+          "She is killing since two o'clock.",
+          "They She is killing since two o'clock.",
+          "She was killing when I came yesterday."
+        ]
+      },
+      "answer": "She has been killing since two o'clock.",
+      "explain_vi": "Hành động có 'since' kéo dài đến nay dùng hiện tại hoàn thành tiếp diễn.",
+      "content_hash": "kill|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "kill error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kill time waiting",
+        "vn_trap": "past tense killed"
+      }
+    },
+    {
+      "lemma": "kill",
+      "pos": "v",
+      "sense_vi": "giết thời gian",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'kill':",
+        "opts": [
+          "kill time waiting",
+          "kill in wrong way",
+          "kill without care",
+          "kill for nothing"
+        ]
+      },
+      "answer": "kill time waiting",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: kill time waiting.",
+      "content_hash": "kill|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "kill collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kill time waiting",
+        "vn_trap": "past tense killed"
+      }
+    },
+    {
+      "lemma": "remain",
+      "pos": "v",
+      "sense_vi": "vẫn còn nguyên",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "remain (v.)",
+        "opts": [
+          "vẫn còn nguyên",
+          "chọn đáp án",
+          "thăm ông bà",
+          "khóa cửa phòng"
+        ]
+      },
+      "answer": "vẫn còn nguyên",
+      "explain_vi": "Động từ remain mang nghĩa chính xác là: vẫn còn nguyên.",
+      "content_hash": "remain|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "remain gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remain calm inside",
+        "vn_trap": "past tense remained"
+      }
+    },
+    {
+      "lemma": "remain",
+      "pos": "v",
+      "sense_vi": "vẫn còn nguyên",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'vẫn còn nguyên' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "remain",
+          "remains",
+          "remaining",
+          "remained"
+        ]
+      },
+      "answer": "remain",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là remain.",
+      "content_hash": "remain|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "remain l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remain calm inside",
+        "vn_trap": "past tense remained"
+      }
+    },
+    {
+      "lemma": "remain",
+      "pos": "v",
+      "sense_vi": "vẫn còn nguyên",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Every student should ___ their goals before the new term.",
+        "opts": [
+          "remain",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "remain",
+      "explain_vi": "Điền 'remain' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "remain|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "remain cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remain calm inside",
+        "vn_trap": "past tense remained"
+      }
+    },
+    {
+      "lemma": "remain",
+      "pos": "v",
+      "sense_vi": "vẫn còn nguyên",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If he remains harder, he would pass easily.'",
+        "opts": [
+          "If he remained harder, he would pass easily.",
+          "If he remains harder, he would pass easily.",
+          "They If he remains harder, he would pass easily.",
+          "She was remaining when I came yesterday."
+        ]
+      },
+      "answer": "If he remained harder, he would pass easily.",
+      "explain_vi": "Mệnh đề điều kiện loại 2 dùng quá khứ đơn ở mệnh đề IF.",
+      "content_hash": "remain|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "remain error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remain calm inside",
+        "vn_trap": "past tense remained"
+      }
+    },
+    {
+      "lemma": "remain",
+      "pos": "v",
+      "sense_vi": "vẫn còn nguyên",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'remain':",
+        "opts": [
+          "remain calm inside",
+          "remain in wrong way",
+          "remain without care",
+          "remain for nothing"
+        ]
+      },
+      "answer": "remain calm inside",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: remain calm inside.",
+      "content_hash": "remain|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "remain collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "remain calm inside",
+        "vn_trap": "past tense remained"
+      }
+    },
+    {
+      "lemma": "suggest",
+      "pos": "v",
+      "sense_vi": "gợi ý cách làm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "suggest (v.)",
+        "opts": [
+          "gợi ý cách làm",
+          "bắt xe buýt",
+          "thức dậy sớm",
+          "quản lý công việc"
+        ]
+      },
+      "answer": "gợi ý cách làm",
+      "explain_vi": "Động từ suggest mang nghĩa chính xác là: gợi ý cách làm.",
+      "content_hash": "suggest|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "suggest gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suggest doing something",
+        "vn_trap": "past tense suggested"
+      }
+    },
+    {
+      "lemma": "suggest",
+      "pos": "v",
+      "sense_vi": "gợi ý cách làm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'gợi ý cách làm' là:",
+        "opts": [
+          "suggest",
+          "suggests",
+          "suggesting",
+          "suggested"
+        ]
+      },
+      "answer": "suggest",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là suggest.",
+      "content_hash": "suggest|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "suggest l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suggest doing something",
+        "vn_trap": "past tense suggested"
+      }
+    },
+    {
+      "lemma": "suggest",
+      "pos": "v",
+      "sense_vi": "gợi ý cách làm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Fortunately, she managed to ___ the train on time.",
+        "opts": [
+          "suggest",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "suggest",
+      "explain_vi": "Điền 'suggest' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "suggest|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "suggest cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suggest doing something",
+        "vn_trap": "past tense suggested"
+      }
+    },
+    {
+      "lemma": "suggest",
+      "pos": "v",
+      "sense_vi": "gợi ý cách làm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She enjoys to suggest in her free time.'",
+        "opts": [
+          "She enjoys suggesting in her free time.",
+          "She enjoys to suggest in her free time.",
+          "They She enjoys to suggest in her free time.",
+          "She was suggesting when I came yesterday."
+        ]
+      },
+      "answer": "She enjoys suggesting in her free time.",
+      "explain_vi": "Sau động từ 'enjoy' dùng V-ing (enjoy doing sth).",
+      "content_hash": "suggest|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "suggest error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suggest doing something",
+        "vn_trap": "past tense suggested"
+      }
+    },
+    {
+      "lemma": "suggest",
+      "pos": "v",
+      "sense_vi": "gợi ý cách làm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'suggest':",
+        "opts": [
+          "suggest doing something",
+          "suggest in wrong way",
+          "suggest without care",
+          "suggest for nothing"
+        ]
+      },
+      "answer": "suggest doing something",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: suggest doing something.",
+      "content_hash": "suggest|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "suggest collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "suggest doing something",
+        "vn_trap": "past tense suggested"
+      }
+    },
+    {
+      "lemma": "raise",
+      "pos": "v",
+      "sense_vi": "nâng tay lên",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "raise (v.)",
+        "opts": [
+          "nâng tay lên",
+          "vẽ bức tranh",
+          "mặc áo phông",
+          "kết hôn năm nay"
+        ]
+      },
+      "answer": "nâng tay lên",
+      "explain_vi": "Động từ raise mang nghĩa chính xác là: nâng tay lên.",
+      "content_hash": "raise|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "raise gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "raise hand to ask",
+        "vn_trap": "past tense raised"
+      }
+    },
+    {
+      "lemma": "raise",
+      "pos": "v",
+      "sense_vi": "nâng tay lên",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'nâng tay lên' được dịch là:",
+        "opts": [
+          "raise",
+          "raises",
+          "raiseing",
+          "raised"
+        ]
+      },
+      "answer": "raise",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là raise.",
+      "content_hash": "raise|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "raise l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "raise hand to ask",
+        "vn_trap": "past tense raised"
+      }
+    },
+    {
+      "lemma": "raise",
+      "pos": "v",
+      "sense_vi": "nâng tay lên",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Good students always ___ their teachers with respect.",
+        "opts": [
+          "raise",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "raise",
+      "explain_vi": "Điền 'raise' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "raise|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "raise cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "raise hand to ask",
+        "vn_trap": "past tense raised"
+      }
+    },
+    {
+      "lemma": "raise",
+      "pos": "v",
+      "sense_vi": "nâng tay lên",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is interesting in raiseing new things.'",
+        "opts": [
+          "He is interested in raiseing new things.",
+          "He is interesting in raiseing new things.",
+          "They He is interesting in raiseing new things.",
+          "She was raiseing when I came yesterday."
+        ]
+      },
+      "answer": "He is interested in raiseing new things.",
+      "explain_vi": "Cấu trúc be interested in (hứng thú với cái gì).",
+      "content_hash": "raise|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "raise error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "raise hand to ask",
+        "vn_trap": "past tense raised"
+      }
+    },
+    {
+      "lemma": "raise",
+      "pos": "v",
+      "sense_vi": "nâng tay lên",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'raise':",
+        "opts": [
+          "raise hand to ask",
+          "raise in wrong way",
+          "raise without care",
+          "raise for nothing"
+        ]
+      },
+      "answer": "raise hand to ask",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: raise hand to ask.",
+      "content_hash": "raise|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "raise collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "raise hand to ask",
+        "vn_trap": "past tense raised"
+      }
+    },
+    {
+      "lemma": "pass",
+      "pos": "v",
+      "sense_vi": "đỗ kỳ thi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "pass (v.)",
+        "opts": [
+          "đỗ kỳ thi",
+          "điền thông tin",
+          "ước điều ước",
+          "đo chiều dài"
+        ]
+      },
+      "answer": "đỗ kỳ thi",
+      "explain_vi": "Động từ pass mang nghĩa chính xác là: đỗ kỳ thi.",
+      "content_hash": "pass|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "pass gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pass the final exam",
+        "vn_trap": "past tense passed"
+      }
+    },
+    {
+      "lemma": "pass",
+      "pos": "v",
+      "sense_vi": "đỗ kỳ thi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'đỗ kỳ thi', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "pass",
+          "passs",
+          "passing",
+          "passed"
+        ]
+      },
+      "answer": "pass",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là pass.",
+      "content_hash": "pass|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "pass l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pass the final exam",
+        "vn_trap": "past tense passed"
+      }
+    },
+    {
+      "lemma": "pass",
+      "pos": "v",
+      "sense_vi": "đỗ kỳ thi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "He decided to ___ a new house in the city center.",
+        "opts": [
+          "pass",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "pass",
+      "explain_vi": "Điền 'pass' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "pass|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "pass cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pass the final exam",
+        "vn_trap": "past tense passed"
+      }
+    },
+    {
+      "lemma": "pass",
+      "pos": "v",
+      "sense_vi": "đỗ kỳ thi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite she was tired, she continued to pass.'",
+        "opts": [
+          "Although she was tired, she continued to pass.",
+          "Despite she was tired, she continued to pass.",
+          "They Despite she was tired, she continued to pass.",
+          "She was passing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was tired, she continued to pass.",
+      "explain_vi": "Dùng 'Although' đứng trước một mệnh đề, không dùng 'Despite'.",
+      "content_hash": "pass|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "pass error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pass the final exam",
+        "vn_trap": "past tense passed"
+      }
+    },
+    {
+      "lemma": "pass",
+      "pos": "v",
+      "sense_vi": "đỗ kỳ thi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'pass':",
+        "opts": [
+          "pass the final exam",
+          "pass in wrong way",
+          "pass without care",
+          "pass for nothing"
+        ]
+      },
+      "answer": "pass the final exam",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: pass the final exam.",
+      "content_hash": "pass|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "pass collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "pass the final exam",
+        "vn_trap": "past tense passed"
+      }
+    },
+    {
+      "lemma": "sell",
+      "pos": "v",
+      "sense_vi": "bán quần áo",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "sell (v.)",
+        "opts": [
+          "bán quần áo",
+          "sửa xe đạp",
+          "lo lắng thi cử",
+          "đề cập chủ đề"
+        ]
+      },
+      "answer": "bán quần áo",
+      "explain_vi": "Động từ sell mang nghĩa chính xác là: bán quần áo.",
+      "content_hash": "sell|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "sell gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sell clothes online",
+        "vn_trap": "past tense sold"
+      }
+    },
+    {
+      "lemma": "sell",
+      "pos": "v",
+      "sense_vi": "bán quần áo",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'bán quần áo' là:",
+        "opts": [
+          "sell",
+          "sells",
+          "selling",
+          "sold"
+        ]
+      },
+      "answer": "sell",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là sell.",
+      "content_hash": "sell|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "sell l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sell clothes online",
+        "vn_trap": "past tense sold"
+      }
+    },
+    {
+      "lemma": "sell",
+      "pos": "v",
+      "sense_vi": "bán quần áo",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "In order to ___ your English, you must practice daily.",
+        "opts": [
+          "sell",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "sell",
+      "explain_vi": "Điền 'sell' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "sell|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "sell cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sell clothes online",
+        "vn_trap": "past tense sold"
+      }
+    },
+    {
+      "lemma": "sell",
+      "pos": "v",
+      "sense_vi": "bán quần áo",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has solded to the house two days ago.'",
+        "opts": [
+          "She sold to the house two days ago.",
+          "She has solded to the house two days ago.",
+          "They She has solded to the house two days ago.",
+          "She was selling when I came yesterday."
+        ]
+      },
+      "answer": "She sold to the house two days ago.",
+      "explain_vi": "Có thời gian xác định 'ago' trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "sell|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "sell error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sell clothes online",
+        "vn_trap": "past tense sold"
+      }
+    },
+    {
+      "lemma": "sell",
+      "pos": "v",
+      "sense_vi": "bán quần áo",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'sell':",
+        "opts": [
+          "sell clothes online",
+          "sell in wrong way",
+          "sell without care",
+          "sell for nothing"
+        ]
+      },
+      "answer": "sell clothes online",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: sell clothes online.",
+      "content_hash": "sell|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "sell collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "sell clothes online",
+        "vn_trap": "past tense sold"
+      }
+    },
+    {
+      "lemma": "require",
+      "pos": "v",
+      "sense_vi": "yêu cầu thời gian",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "require (v.)",
+        "opts": [
+          "yêu cầu thời gian",
+          "quên tên",
+          "đóng cửa sổ",
+          "phiền lòng"
+        ]
+      },
+      "answer": "yêu cầu thời gian",
+      "explain_vi": "Động từ require mang nghĩa chính xác là: yêu cầu thời gian.",
+      "content_hash": "require|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "require gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "require more time",
+        "vn_trap": "past tense required"
+      }
+    },
+    {
+      "lemma": "require",
+      "pos": "v",
+      "sense_vi": "yêu cầu thời gian",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'yêu cầu thời gian' là:",
+        "opts": [
+          "require",
+          "requires",
+          "requireing",
+          "required"
+        ]
+      },
+      "answer": "require",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là require.",
+      "content_hash": "require|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "require l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "require more time",
+        "vn_trap": "past tense required"
+      }
+    },
+    {
+      "lemma": "require",
+      "pos": "v",
+      "sense_vi": "yêu cầu thời gian",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Just try your best to ___ the final examination.",
+        "opts": [
+          "require",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "require",
+      "explain_vi": "Điền 'require' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "require|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "require cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "require more time",
+        "vn_trap": "past tense required"
+      }
+    },
+    {
+      "lemma": "require",
+      "pos": "v",
+      "sense_vi": "yêu cầu thời gian",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped to require because he was tired.'",
+        "opts": [
+          "He stopped requireing because he was tired.",
+          "He stopped to require because he was tired.",
+          "They He stopped to require because he was tired.",
+          "She was requireing when I came yesterday."
+        ]
+      },
+      "answer": "He stopped requireing because he was tired.",
+      "explain_vi": "Dừng hẳn một việc đang làm dùng 'stop V-ing'.",
+      "content_hash": "require|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "require error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "require more time",
+        "vn_trap": "past tense required"
+      }
+    },
+    {
+      "lemma": "require",
+      "pos": "v",
+      "sense_vi": "yêu cầu thời gian",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'require':",
+        "opts": [
+          "require more time",
+          "require in wrong way",
+          "require without care",
+          "require for nothing"
+        ]
+      },
+      "answer": "require more time",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: require more time.",
+      "content_hash": "require|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "require collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "require more time",
+        "vn_trap": "past tense required"
+      }
+    }
+  ]
+}

@@ -11,7 +11,7 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 SRC = Path("tmp/wordbanks-export.json")
-OUT = Path("tmp/Grammar_Wordbanks_Full_A0A2.docx")
+OUT = Path("tmp/Grammar_Wordbanks_Full_All_Levels.docx")
 
 TITLES = {
     "countable-uncountable": "1. Danh từ đếm được & không đếm được (C/U)",

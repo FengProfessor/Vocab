@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-thpt-sg-06",
+  "priority": "P2",
+  "queue": "thpt_single",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "anticipate",
+    "anxious",
+    "apparent",
+    "appreciate",
+    "approach",
+    "appropriate",
+    "approve",
+    "aspect",
+    "assist",
+    "associate",
+    "assume",
+    "atmosphere",
+    "attempt",
+    "attitude",
+    "attract",
+    "authority",
+    "available",
+    "average",
+    "aware",
+    "background"
+  ],
+  "items": [
+    {
+      "lemma": "anticipate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của anticipate",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "anticipate (n.)",
+        "opts": [
+          "ý nghĩa của anticipate",
+          "sự từ chối đối với anticipate",
+          "trạng thái thiếu anticipate",
+          "hành động ngược lại với anticipate"
+        ]
+      },
+      "answer": "ý nghĩa của anticipate",
+      "explain_vi": "Từ/cụm từ 'anticipate' (n.) có nghĩa chính xác là: ý nghĩa của anticipate.",
+      "content_hash": "anticipate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item anticipate - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anticipate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của anticipate",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của anticipate':",
+        "opts": [
+          "anticipate",
+          "anticipateing",
+          "anticipateed",
+          "re-anticipate"
+        ]
+      },
+      "answer": "anticipate",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là anticipate.",
+      "content_hash": "anticipate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item anticipate - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anticipate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của anticipate",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "anticipate",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "anticipate",
+      "explain_vi": "Điền 'anticipate' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "anticipate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item anticipate - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anticipate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của anticipate",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to anticipate without proper preparation yesterday.'",
+        "opts": [
+          "He tried to anticipate without proper preparation yesterday.",
+          "He try to anticipate without proper preparation yesterday.",
+          "He trying to anticipate without proper preparation yesterday.",
+          "He was try to anticipate without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to anticipate without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "anticipate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item anticipate - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anticipate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của anticipate",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'anticipate':",
+        "opts": [
+          "apply anticipate correctly",
+          "make anticipate wrong",
+          "do anticipate badly",
+          "take anticipate off"
+        ]
+      },
+      "answer": "apply anticipate correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply anticipate correctly.",
+      "content_hash": "anticipate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item anticipate - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anxious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của anxious",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "anxious (adj.)",
+        "opts": [
+          "ý nghĩa của anxious",
+          "sự từ chối đối với anxious",
+          "trạng thái thiếu anxious",
+          "hành động ngược lại với anxious"
+        ]
+      },
+      "answer": "ý nghĩa của anxious",
+      "explain_vi": "Từ/cụm từ 'anxious' (adj.) có nghĩa chính xác là: ý nghĩa của anxious.",
+      "content_hash": "anxious|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item anxious - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anxious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của anxious",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của anxious':",
+        "opts": [
+          "anxious",
+          "anxiousing",
+          "anxioused",
+          "re-anxious"
+        ]
+      },
+      "answer": "anxious",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là anxious.",
+      "content_hash": "anxious|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item anxious - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anxious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của anxious",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "anxious",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "anxious",
+      "explain_vi": "Điền 'anxious' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "anxious|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item anxious - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anxious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của anxious",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to anxious without proper preparation yesterday.'",
+        "opts": [
+          "He tried to anxious without proper preparation yesterday.",
+          "He try to anxious without proper preparation yesterday.",
+          "He trying to anxious without proper preparation yesterday.",
+          "He was try to anxious without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to anxious without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "anxious|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item anxious - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "anxious",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của anxious",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'anxious':",
+        "opts": [
+          "apply anxious correctly",
+          "make anxious wrong",
+          "do anxious badly",
+          "take anxious off"
+        ]
+      },
+      "answer": "apply anxious correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply anxious correctly.",
+      "content_hash": "anxious|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item anxious - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "apparent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apparent",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "apparent (n.)",
+        "opts": [
+          "ý nghĩa của apparent",
+          "sự từ chối đối với apparent",
+          "trạng thái thiếu apparent",
+          "hành động ngược lại với apparent"
+        ]
+      },
+      "answer": "ý nghĩa của apparent",
+      "explain_vi": "Từ/cụm từ 'apparent' (n.) có nghĩa chính xác là: ý nghĩa của apparent.",
+      "content_hash": "apparent|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item apparent - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "apparent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apparent",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của apparent':",
+        "opts": [
+          "apparent",
+          "apparenting",
+          "apparented",
+          "re-apparent"
+        ]
+      },
+      "answer": "apparent",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là apparent.",
+      "content_hash": "apparent|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item apparent - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "apparent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apparent",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "apparent",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "apparent",
+      "explain_vi": "Điền 'apparent' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "apparent|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item apparent - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "apparent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apparent",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to apparent without proper preparation yesterday.'",
+        "opts": [
+          "He tried to apparent without proper preparation yesterday.",
+          "He try to apparent without proper preparation yesterday.",
+          "He trying to apparent without proper preparation yesterday.",
+          "He was try to apparent without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to apparent without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "apparent|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item apparent - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "apparent",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của apparent",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'apparent':",
+        "opts": [
+          "apply apparent correctly",
+          "make apparent wrong",
+          "do apparent badly",
+          "take apparent off"
+        ]
+      },
+      "answer": "apply apparent correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply apparent correctly.",
+      "content_hash": "apparent|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item apparent - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appreciate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appreciate",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "appreciate (n.)",
+        "opts": [
+          "ý nghĩa của appreciate",
+          "sự từ chối đối với appreciate",
+          "trạng thái thiếu appreciate",
+          "hành động ngược lại với appreciate"
+        ]
+      },
+      "answer": "ý nghĩa của appreciate",
+      "explain_vi": "Từ/cụm từ 'appreciate' (n.) có nghĩa chính xác là: ý nghĩa của appreciate.",
+      "content_hash": "appreciate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item appreciate - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appreciate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appreciate",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của appreciate':",
+        "opts": [
+          "appreciate",
+          "appreciateing",
+          "appreciateed",
+          "re-appreciate"
+        ]
+      },
+      "answer": "appreciate",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là appreciate.",
+      "content_hash": "appreciate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item appreciate - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appreciate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appreciate",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "appreciate",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "appreciate",
+      "explain_vi": "Điền 'appreciate' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "appreciate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item appreciate - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appreciate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appreciate",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to appreciate without proper preparation yesterday.'",
+        "opts": [
+          "He tried to appreciate without proper preparation yesterday.",
+          "He try to appreciate without proper preparation yesterday.",
+          "He trying to appreciate without proper preparation yesterday.",
+          "He was try to appreciate without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to appreciate without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "appreciate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item appreciate - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appreciate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appreciate",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'appreciate':",
+        "opts": [
+          "apply appreciate correctly",
+          "make appreciate wrong",
+          "do appreciate badly",
+          "take appreciate off"
+        ]
+      },
+      "answer": "apply appreciate correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply appreciate correctly.",
+      "content_hash": "appreciate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item appreciate - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approach",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "approach (n.)",
+        "opts": [
+          "ý nghĩa của approach",
+          "sự từ chối đối với approach",
+          "trạng thái thiếu approach",
+          "hành động ngược lại với approach"
+        ]
+      },
+      "answer": "ý nghĩa của approach",
+      "explain_vi": "Từ/cụm từ 'approach' (n.) có nghĩa chính xác là: ý nghĩa của approach.",
+      "content_hash": "approach|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item approach - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approach",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của approach':",
+        "opts": [
+          "approach",
+          "approaching",
+          "approached",
+          "re-approach"
+        ]
+      },
+      "answer": "approach",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là approach.",
+      "content_hash": "approach|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item approach - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approach",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "approach",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "approach",
+      "explain_vi": "Điền 'approach' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "approach|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item approach - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approach",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to approach without proper preparation yesterday.'",
+        "opts": [
+          "He tried to approach without proper preparation yesterday.",
+          "He try to approach without proper preparation yesterday.",
+          "He trying to approach without proper preparation yesterday.",
+          "He was try to approach without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to approach without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "approach|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item approach - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approach",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approach",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'approach':",
+        "opts": [
+          "apply approach correctly",
+          "make approach wrong",
+          "do approach badly",
+          "take approach off"
+        ]
+      },
+      "answer": "apply approach correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply approach correctly.",
+      "content_hash": "approach|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item approach - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appropriate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appropriate",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "appropriate (n.)",
+        "opts": [
+          "ý nghĩa của appropriate",
+          "sự từ chối đối với appropriate",
+          "trạng thái thiếu appropriate",
+          "hành động ngược lại với appropriate"
+        ]
+      },
+      "answer": "ý nghĩa của appropriate",
+      "explain_vi": "Từ/cụm từ 'appropriate' (n.) có nghĩa chính xác là: ý nghĩa của appropriate.",
+      "content_hash": "appropriate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item appropriate - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appropriate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appropriate",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của appropriate':",
+        "opts": [
+          "appropriate",
+          "appropriateing",
+          "appropriateed",
+          "re-appropriate"
+        ]
+      },
+      "answer": "appropriate",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là appropriate.",
+      "content_hash": "appropriate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item appropriate - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appropriate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appropriate",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "appropriate",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "appropriate",
+      "explain_vi": "Điền 'appropriate' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "appropriate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item appropriate - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appropriate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appropriate",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to appropriate without proper preparation yesterday.'",
+        "opts": [
+          "He tried to appropriate without proper preparation yesterday.",
+          "He try to appropriate without proper preparation yesterday.",
+          "He trying to appropriate without proper preparation yesterday.",
+          "He was try to appropriate without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to appropriate without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "appropriate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item appropriate - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "appropriate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của appropriate",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'appropriate':",
+        "opts": [
+          "apply appropriate correctly",
+          "make appropriate wrong",
+          "do appropriate badly",
+          "take appropriate off"
+        ]
+      },
+      "answer": "apply appropriate correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply appropriate correctly.",
+      "content_hash": "appropriate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item appropriate - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approve",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approve",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "approve (n.)",
+        "opts": [
+          "ý nghĩa của approve",
+          "sự từ chối đối với approve",
+          "trạng thái thiếu approve",
+          "hành động ngược lại với approve"
+        ]
+      },
+      "answer": "ý nghĩa của approve",
+      "explain_vi": "Từ/cụm từ 'approve' (n.) có nghĩa chính xác là: ý nghĩa của approve.",
+      "content_hash": "approve|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item approve - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approve",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approve",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của approve':",
+        "opts": [
+          "approve",
+          "approveing",
+          "approveed",
+          "re-approve"
+        ]
+      },
+      "answer": "approve",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là approve.",
+      "content_hash": "approve|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item approve - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approve",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approve",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "approve",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "approve",
+      "explain_vi": "Điền 'approve' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "approve|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item approve - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approve",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approve",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to approve without proper preparation yesterday.'",
+        "opts": [
+          "He tried to approve without proper preparation yesterday.",
+          "He try to approve without proper preparation yesterday.",
+          "He trying to approve without proper preparation yesterday.",
+          "He was try to approve without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to approve without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "approve|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item approve - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "approve",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của approve",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'approve':",
+        "opts": [
+          "apply approve correctly",
+          "make approve wrong",
+          "do approve badly",
+          "take approve off"
+        ]
+      },
+      "answer": "apply approve correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply approve correctly.",
+      "content_hash": "approve|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item approve - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aspect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aspect",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "aspect (n.)",
+        "opts": [
+          "ý nghĩa của aspect",
+          "sự từ chối đối với aspect",
+          "trạng thái thiếu aspect",
+          "hành động ngược lại với aspect"
+        ]
+      },
+      "answer": "ý nghĩa của aspect",
+      "explain_vi": "Từ/cụm từ 'aspect' (n.) có nghĩa chính xác là: ý nghĩa của aspect.",
+      "content_hash": "aspect|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item aspect - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aspect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aspect",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của aspect':",
+        "opts": [
+          "aspect",
+          "aspecting",
+          "aspected",
+          "re-aspect"
+        ]
+      },
+      "answer": "aspect",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là aspect.",
+      "content_hash": "aspect|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item aspect - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aspect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aspect",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "aspect",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "aspect",
+      "explain_vi": "Điền 'aspect' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "aspect|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item aspect - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aspect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aspect",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to aspect without proper preparation yesterday.'",
+        "opts": [
+          "He tried to aspect without proper preparation yesterday.",
+          "He try to aspect without proper preparation yesterday.",
+          "He trying to aspect without proper preparation yesterday.",
+          "He was try to aspect without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to aspect without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "aspect|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item aspect - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aspect",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aspect",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'aspect':",
+        "opts": [
+          "apply aspect correctly",
+          "make aspect wrong",
+          "do aspect badly",
+          "take aspect off"
+        ]
+      },
+      "answer": "apply aspect correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply aspect correctly.",
+      "content_hash": "aspect|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item aspect - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assist",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assist",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "assist (n.)",
+        "opts": [
+          "ý nghĩa của assist",
+          "sự từ chối đối với assist",
+          "trạng thái thiếu assist",
+          "hành động ngược lại với assist"
+        ]
+      },
+      "answer": "ý nghĩa của assist",
+      "explain_vi": "Từ/cụm từ 'assist' (n.) có nghĩa chính xác là: ý nghĩa của assist.",
+      "content_hash": "assist|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item assist - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assist",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assist",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của assist':",
+        "opts": [
+          "assist",
+          "assisting",
+          "assisted",
+          "re-assist"
+        ]
+      },
+      "answer": "assist",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là assist.",
+      "content_hash": "assist|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item assist - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assist",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assist",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "assist",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "assist",
+      "explain_vi": "Điền 'assist' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "assist|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item assist - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assist",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assist",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to assist without proper preparation yesterday.'",
+        "opts": [
+          "He tried to assist without proper preparation yesterday.",
+          "He try to assist without proper preparation yesterday.",
+          "He trying to assist without proper preparation yesterday.",
+          "He was try to assist without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to assist without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "assist|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item assist - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assist",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assist",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'assist':",
+        "opts": [
+          "apply assist correctly",
+          "make assist wrong",
+          "do assist badly",
+          "take assist off"
+        ]
+      },
+      "answer": "apply assist correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply assist correctly.",
+      "content_hash": "assist|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item assist - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "associate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của associate",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "associate (n.)",
+        "opts": [
+          "ý nghĩa của associate",
+          "sự từ chối đối với associate",
+          "trạng thái thiếu associate",
+          "hành động ngược lại với associate"
+        ]
+      },
+      "answer": "ý nghĩa của associate",
+      "explain_vi": "Từ/cụm từ 'associate' (n.) có nghĩa chính xác là: ý nghĩa của associate.",
+      "content_hash": "associate|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item associate - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "associate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của associate",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của associate':",
+        "opts": [
+          "associate",
+          "associateing",
+          "associateed",
+          "re-associate"
+        ]
+      },
+      "answer": "associate",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là associate.",
+      "content_hash": "associate|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item associate - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "associate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của associate",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "associate",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "associate",
+      "explain_vi": "Điền 'associate' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "associate|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item associate - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "associate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của associate",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to associate without proper preparation yesterday.'",
+        "opts": [
+          "He tried to associate without proper preparation yesterday.",
+          "He try to associate without proper preparation yesterday.",
+          "He trying to associate without proper preparation yesterday.",
+          "He was try to associate without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to associate without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "associate|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item associate - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "associate",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của associate",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'associate':",
+        "opts": [
+          "apply associate correctly",
+          "make associate wrong",
+          "do associate badly",
+          "take associate off"
+        ]
+      },
+      "answer": "apply associate correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply associate correctly.",
+      "content_hash": "associate|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item associate - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assume",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assume",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "assume (n.)",
+        "opts": [
+          "ý nghĩa của assume",
+          "sự từ chối đối với assume",
+          "trạng thái thiếu assume",
+          "hành động ngược lại với assume"
+        ]
+      },
+      "answer": "ý nghĩa của assume",
+      "explain_vi": "Từ/cụm từ 'assume' (n.) có nghĩa chính xác là: ý nghĩa của assume.",
+      "content_hash": "assume|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item assume - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assume",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assume",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của assume':",
+        "opts": [
+          "assume",
+          "assumeing",
+          "assumeed",
+          "re-assume"
+        ]
+      },
+      "answer": "assume",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là assume.",
+      "content_hash": "assume|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item assume - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assume",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assume",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "assume",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "assume",
+      "explain_vi": "Điền 'assume' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "assume|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item assume - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assume",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assume",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to assume without proper preparation yesterday.'",
+        "opts": [
+          "He tried to assume without proper preparation yesterday.",
+          "He try to assume without proper preparation yesterday.",
+          "He trying to assume without proper preparation yesterday.",
+          "He was try to assume without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to assume without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "assume|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item assume - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "assume",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của assume",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'assume':",
+        "opts": [
+          "apply assume correctly",
+          "make assume wrong",
+          "do assume badly",
+          "take assume off"
+        ]
+      },
+      "answer": "apply assume correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply assume correctly.",
+      "content_hash": "assume|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item assume - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "atmosphere",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của atmosphere",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "atmosphere (n.)",
+        "opts": [
+          "ý nghĩa của atmosphere",
+          "sự từ chối đối với atmosphere",
+          "trạng thái thiếu atmosphere",
+          "hành động ngược lại với atmosphere"
+        ]
+      },
+      "answer": "ý nghĩa của atmosphere",
+      "explain_vi": "Từ/cụm từ 'atmosphere' (n.) có nghĩa chính xác là: ý nghĩa của atmosphere.",
+      "content_hash": "atmosphere|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item atmosphere - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "atmosphere",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của atmosphere",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của atmosphere':",
+        "opts": [
+          "atmosphere",
+          "atmosphereing",
+          "atmosphereed",
+          "re-atmosphere"
+        ]
+      },
+      "answer": "atmosphere",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là atmosphere.",
+      "content_hash": "atmosphere|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item atmosphere - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "atmosphere",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của atmosphere",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "atmosphere",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "atmosphere",
+      "explain_vi": "Điền 'atmosphere' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "atmosphere|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item atmosphere - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "atmosphere",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của atmosphere",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to atmosphere without proper preparation yesterday.'",
+        "opts": [
+          "He tried to atmosphere without proper preparation yesterday.",
+          "He try to atmosphere without proper preparation yesterday.",
+          "He trying to atmosphere without proper preparation yesterday.",
+          "He was try to atmosphere without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to atmosphere without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "atmosphere|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item atmosphere - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "atmosphere",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của atmosphere",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'atmosphere':",
+        "opts": [
+          "apply atmosphere correctly",
+          "make atmosphere wrong",
+          "do atmosphere badly",
+          "take atmosphere off"
+        ]
+      },
+      "answer": "apply atmosphere correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply atmosphere correctly.",
+      "content_hash": "atmosphere|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item atmosphere - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attempt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attempt",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "attempt (n.)",
+        "opts": [
+          "ý nghĩa của attempt",
+          "sự từ chối đối với attempt",
+          "trạng thái thiếu attempt",
+          "hành động ngược lại với attempt"
+        ]
+      },
+      "answer": "ý nghĩa của attempt",
+      "explain_vi": "Từ/cụm từ 'attempt' (n.) có nghĩa chính xác là: ý nghĩa của attempt.",
+      "content_hash": "attempt|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item attempt - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attempt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attempt",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của attempt':",
+        "opts": [
+          "attempt",
+          "attempting",
+          "attempted",
+          "re-attempt"
+        ]
+      },
+      "answer": "attempt",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là attempt.",
+      "content_hash": "attempt|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item attempt - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attempt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attempt",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "attempt",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "attempt",
+      "explain_vi": "Điền 'attempt' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "attempt|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item attempt - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attempt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attempt",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to attempt without proper preparation yesterday.'",
+        "opts": [
+          "He tried to attempt without proper preparation yesterday.",
+          "He try to attempt without proper preparation yesterday.",
+          "He trying to attempt without proper preparation yesterday.",
+          "He was try to attempt without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to attempt without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "attempt|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item attempt - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attempt",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attempt",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'attempt':",
+        "opts": [
+          "apply attempt correctly",
+          "make attempt wrong",
+          "do attempt badly",
+          "take attempt off"
+        ]
+      },
+      "answer": "apply attempt correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply attempt correctly.",
+      "content_hash": "attempt|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item attempt - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attitude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attitude",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "attitude (n.)",
+        "opts": [
+          "ý nghĩa của attitude",
+          "sự từ chối đối với attitude",
+          "trạng thái thiếu attitude",
+          "hành động ngược lại với attitude"
+        ]
+      },
+      "answer": "ý nghĩa của attitude",
+      "explain_vi": "Từ/cụm từ 'attitude' (n.) có nghĩa chính xác là: ý nghĩa của attitude.",
+      "content_hash": "attitude|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item attitude - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attitude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attitude",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của attitude':",
+        "opts": [
+          "attitude",
+          "attitudeing",
+          "attitudeed",
+          "re-attitude"
+        ]
+      },
+      "answer": "attitude",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là attitude.",
+      "content_hash": "attitude|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item attitude - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attitude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attitude",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "attitude",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "attitude",
+      "explain_vi": "Điền 'attitude' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "attitude|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item attitude - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attitude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attitude",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to attitude without proper preparation yesterday.'",
+        "opts": [
+          "He tried to attitude without proper preparation yesterday.",
+          "He try to attitude without proper preparation yesterday.",
+          "He trying to attitude without proper preparation yesterday.",
+          "He was try to attitude without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to attitude without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "attitude|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item attitude - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attitude",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attitude",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'attitude':",
+        "opts": [
+          "apply attitude correctly",
+          "make attitude wrong",
+          "do attitude badly",
+          "take attitude off"
+        ]
+      },
+      "answer": "apply attitude correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply attitude correctly.",
+      "content_hash": "attitude|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item attitude - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attract",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attract",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "attract (n.)",
+        "opts": [
+          "ý nghĩa của attract",
+          "sự từ chối đối với attract",
+          "trạng thái thiếu attract",
+          "hành động ngược lại với attract"
+        ]
+      },
+      "answer": "ý nghĩa của attract",
+      "explain_vi": "Từ/cụm từ 'attract' (n.) có nghĩa chính xác là: ý nghĩa của attract.",
+      "content_hash": "attract|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item attract - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attract",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attract",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của attract':",
+        "opts": [
+          "attract",
+          "attracting",
+          "attracted",
+          "re-attract"
+        ]
+      },
+      "answer": "attract",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là attract.",
+      "content_hash": "attract|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item attract - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attract",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attract",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "attract",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "attract",
+      "explain_vi": "Điền 'attract' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "attract|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item attract - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attract",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attract",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to attract without proper preparation yesterday.'",
+        "opts": [
+          "He tried to attract without proper preparation yesterday.",
+          "He try to attract without proper preparation yesterday.",
+          "He trying to attract without proper preparation yesterday.",
+          "He was try to attract without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to attract without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "attract|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item attract - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "attract",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của attract",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'attract':",
+        "opts": [
+          "apply attract correctly",
+          "make attract wrong",
+          "do attract badly",
+          "take attract off"
+        ]
+      },
+      "answer": "apply attract correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply attract correctly.",
+      "content_hash": "attract|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item attract - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "authority",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của authority",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "authority (n.)",
+        "opts": [
+          "ý nghĩa của authority",
+          "sự từ chối đối với authority",
+          "trạng thái thiếu authority",
+          "hành động ngược lại với authority"
+        ]
+      },
+      "answer": "ý nghĩa của authority",
+      "explain_vi": "Từ/cụm từ 'authority' (n.) có nghĩa chính xác là: ý nghĩa của authority.",
+      "content_hash": "authority|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item authority - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "authority",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của authority",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của authority':",
+        "opts": [
+          "authority",
+          "authoritying",
+          "authorityed",
+          "re-authority"
+        ]
+      },
+      "answer": "authority",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là authority.",
+      "content_hash": "authority|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item authority - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "authority",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của authority",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "authority",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "authority",
+      "explain_vi": "Điền 'authority' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "authority|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item authority - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "authority",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của authority",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to authority without proper preparation yesterday.'",
+        "opts": [
+          "He tried to authority without proper preparation yesterday.",
+          "He try to authority without proper preparation yesterday.",
+          "He trying to authority without proper preparation yesterday.",
+          "He was try to authority without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to authority without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "authority|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item authority - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "authority",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của authority",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'authority':",
+        "opts": [
+          "apply authority correctly",
+          "make authority wrong",
+          "do authority badly",
+          "take authority off"
+        ]
+      },
+      "answer": "apply authority correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply authority correctly.",
+      "content_hash": "authority|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item authority - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "available",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của available",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "available (adj.)",
+        "opts": [
+          "ý nghĩa của available",
+          "sự từ chối đối với available",
+          "trạng thái thiếu available",
+          "hành động ngược lại với available"
+        ]
+      },
+      "answer": "ý nghĩa của available",
+      "explain_vi": "Từ/cụm từ 'available' (adj.) có nghĩa chính xác là: ý nghĩa của available.",
+      "content_hash": "available|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item available - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "available",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của available",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của available':",
+        "opts": [
+          "available",
+          "availableing",
+          "availableed",
+          "re-available"
+        ]
+      },
+      "answer": "available",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là available.",
+      "content_hash": "available|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item available - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "available",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của available",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "available",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "available",
+      "explain_vi": "Điền 'available' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "available|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item available - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "available",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của available",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to available without proper preparation yesterday.'",
+        "opts": [
+          "He tried to available without proper preparation yesterday.",
+          "He try to available without proper preparation yesterday.",
+          "He trying to available without proper preparation yesterday.",
+          "He was try to available without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to available without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "available|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item available - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "available",
+      "pos": "adj",
+      "sense_vi": "ý nghĩa của available",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'available':",
+        "opts": [
+          "apply available correctly",
+          "make available wrong",
+          "do available badly",
+          "take available off"
+        ]
+      },
+      "answer": "apply available correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply available correctly.",
+      "content_hash": "available|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item available - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "average",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của average",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "average (n.)",
+        "opts": [
+          "ý nghĩa của average",
+          "sự từ chối đối với average",
+          "trạng thái thiếu average",
+          "hành động ngược lại với average"
+        ]
+      },
+      "answer": "ý nghĩa của average",
+      "explain_vi": "Từ/cụm từ 'average' (n.) có nghĩa chính xác là: ý nghĩa của average.",
+      "content_hash": "average|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item average - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "average",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của average",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của average':",
+        "opts": [
+          "average",
+          "averageing",
+          "averageed",
+          "re-average"
+        ]
+      },
+      "answer": "average",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là average.",
+      "content_hash": "average|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "thpt_single item average - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "average",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của average",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "average",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "average",
+      "explain_vi": "Điền 'average' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "average|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "thpt_single item average - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "average",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của average",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to average without proper preparation yesterday.'",
+        "opts": [
+          "He tried to average without proper preparation yesterday.",
+          "He try to average without proper preparation yesterday.",
+          "He trying to average without proper preparation yesterday.",
+          "He was try to average without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to average without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "average|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "thpt_single item average - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "average",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của average",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'average':",
+        "opts": [
+          "apply average correctly",
+          "make average wrong",
+          "do average badly",
+          "take average off"
+        ]
+      },
+      "answer": "apply average correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply average correctly.",
+      "content_hash": "average|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "thpt_single item average - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aware",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aware",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "aware (n.)",
+        "opts": [
+          "ý nghĩa của aware",
+          "sự từ chối đối với aware",
+          "trạng thái thiếu aware",
+          "hành động ngược lại với aware"
+        ]
+      },
+      "answer": "ý nghĩa của aware",
+      "explain_vi": "Từ/cụm từ 'aware' (n.) có nghĩa chính xác là: ý nghĩa của aware.",
+      "content_hash": "aware|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item aware - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aware",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aware",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của aware':",
+        "opts": [
+          "aware",
+          "awareing",
+          "awareed",
+          "re-aware"
+        ]
+      },
+      "answer": "aware",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là aware.",
+      "content_hash": "aware|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "thpt_single item aware - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aware",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aware",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "aware",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "aware",
+      "explain_vi": "Điền 'aware' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "aware|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "thpt_single item aware - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aware",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aware",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to aware without proper preparation yesterday.'",
+        "opts": [
+          "He tried to aware without proper preparation yesterday.",
+          "He try to aware without proper preparation yesterday.",
+          "He trying to aware without proper preparation yesterday.",
+          "He was try to aware without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to aware without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "aware|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "thpt_single item aware - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "aware",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của aware",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'aware':",
+        "opts": [
+          "apply aware correctly",
+          "make aware wrong",
+          "do aware badly",
+          "take aware off"
+        ]
+      },
+      "answer": "apply aware correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply aware correctly.",
+      "content_hash": "aware|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "thpt_single item aware - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "background",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của background",
+      "level": "B1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "background (n.)",
+        "opts": [
+          "ý nghĩa của background",
+          "sự từ chối đối với background",
+          "trạng thái thiếu background",
+          "hành động ngược lại với background"
+        ]
+      },
+      "answer": "ý nghĩa của background",
+      "explain_vi": "Từ/cụm từ 'background' (n.) có nghĩa chính xác là: ý nghĩa của background.",
+      "content_hash": "background|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item background - meaning",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "background",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của background",
+      "level": "B1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của background':",
+        "opts": [
+          "background",
+          "backgrounding",
+          "backgrounded",
+          "re-background"
+        ]
+      },
+      "answer": "background",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là background.",
+      "content_hash": "background|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "thpt_single item background - near miss form",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "background",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của background",
+      "level": "B1",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "background",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "background",
+      "explain_vi": "Điền 'background' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "background|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "thpt_single item background - context cloze",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "background",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của background",
+      "level": "B1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to background without proper preparation yesterday.'",
+        "opts": [
+          "He tried to background without proper preparation yesterday.",
+          "He try to background without proper preparation yesterday.",
+          "He trying to background without proper preparation yesterday.",
+          "He was try to background without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to background without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "background|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "thpt_single item background - error identification",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    },
+    {
+      "lemma": "background",
+      "pos": "n",
+      "sense_vi": "ý nghĩa của background",
+      "level": "B1",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'background':",
+        "opts": [
+          "apply background correctly",
+          "make background wrong",
+          "do background badly",
+          "take background off"
+        ]
+      },
+      "answer": "apply background correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply background correctly.",
+      "content_hash": "background|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "thpt_single item background - collocation phrase",
+        "priority": "P2",
+        "queue": "thpt_single",
+        "pack_id": "p2-thpt-sg-06"
+      }
+    }
+  ]
+}

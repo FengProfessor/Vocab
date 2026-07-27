@@ -53,7 +53,7 @@ export function NotificationBell({
       icon: <BookOpen className="h-4 w-4" />,
       title: `${dueCount} từ cần ôn hôm nay`,
       description: 'Đừng để streak bị gãy!',
-      href: classroomId ? `/flashcard?class=${classroomId}` : '/flashcard',
+      href: classroomId ? `/review?class=${classroomId}` : '/review',
       color: 'text-amber-500 bg-amber-500/10',
     });
   }
@@ -75,7 +75,7 @@ export function NotificationBell({
       icon: <Flame className="h-4 w-4" />,
       title: `Streak ${streak} ngày — bảo vệ ngay!`,
       description: `Còn ${dailyGoal - dailyGoalXp} XP nữa để đạt mục tiêu hôm nay`,
-      href: classroomId ? `/flashcard?class=${classroomId}` : '/flashcard',
+      href: classroomId ? `/review?class=${classroomId}` : '/review',
       color: 'text-orange-500 bg-orange-500/10',
     });
   }

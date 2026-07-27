@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import type { Components } from 'react-markdown';
+import { GrammarFormula } from '@/components/grammar/GrammarFormula';
 
 const ReactMarkdown = dynamic(() => import('react-markdown'), {
   ssr: false,
@@ -13,9 +14,17 @@ const ReactMarkdown = dynamic(() => import('react-markdown'), {
 const DEFAULT_COMPONENTS: Components = {
   p: ({ ...p }) => <p className="leading-relaxed" {...p} />,
   strong: ({ ...p }) => <strong className="font-bold text-slate-900" {...p} />,
-  code: ({ ...p }) => (
-    <code className="rounded-md bg-indigo-50 px-1.5 py-0.5 font-mono text-[0.85em] text-indigo-700" {...p} />
-  ),
+  code: ({ node: _node, inline, className, children, ...props }: any) => {
+    const codeText = String(children).replace(/\n$/, '');
+    if (!inline && className === 'language-formula') {
+      return <GrammarFormula code={codeText} />;
+    }
+    return (
+      <code className="rounded-md bg-indigo-50 px-1.5 py-0.5 font-mono text-[0.85em] text-indigo-700" {...props}>
+        {codeText}
+      </code>
+    );
+  },
   ul: ({ ...p }) => <ul className="my-2 list-disc space-y-1 pl-5" {...p} />,
   li: ({ ...p }) => <li className="leading-relaxed" {...p} />,
 };

@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-03-numbers",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-numbers"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "one",
+      "pos": "num",
+      "sense_vi": "số 1",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "one (num.)",
+        "opts": [
+          "số 1",
+          "số 2",
+          "số 3",
+          "số 0"
+        ]
+      },
+      "answer": "số 1",
+      "explain_vi": "one nghĩa là số một (1).",
+      "content_hash": "one|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 1",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "one",
+      "pos": "num",
+      "sense_vi": "số 1",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm đầu tiên (số một):",
+        "opts": [
+          "one",
+          "wan",
+          "first",
+          "once"
+        ]
+      },
+      "answer": "one",
+      "explain_vi": "Số một là one (wan là cách đọc gần giống nhưng sai chữ).",
+      "content_hash": "one|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss wan/first",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "one",
+      "pos": "num",
+      "sense_vi": "số 1",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "I have ___ apple and two bananas in my bag.",
+        "opts": [
+          "one",
+          "two",
+          "three",
+          "four"
+        ]
+      },
+      "answer": "one",
+      "explain_vi": "Điền one đi với danh từ số ít apple.",
+      "content_hash": "one|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "one + singular noun",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "one",
+      "pos": "num",
+      "sense_vi": "số 1",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There is one books on the desk.'",
+        "opts": [
+          "There is one book on the desk.",
+          "There is one books on the desk.",
+          "There are one book on the desk.",
+          "There be one book on the desk."
+        ]
+      },
+      "answer": "There is one book on the desk.",
+      "explain_vi": "Sau số đếm 'one' dùng danh từ số ít 'book'.",
+      "content_hash": "one|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy one + singular",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "one",
+      "pos": "num",
+      "sense_vi": "số 1",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từng người một chuẩn:",
+        "opts": [
+          "one by one",
+          "one and one",
+          "one to one",
+          "one with one"
+        ]
+      },
+      "answer": "one by one",
+      "explain_vi": "Cụm 'one by one' nghĩa là từng người/lần lượt.",
+      "content_hash": "one|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm one by one",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "two",
+      "pos": "num",
+      "sense_vi": "số 2",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "two (num.)",
+        "opts": [
+          "số 2",
+          "số 1",
+          "số 3",
+          "số 4"
+        ]
+      },
+      "answer": "số 2",
+      "explain_vi": "two nghĩa là số hai (2).",
+      "content_hash": "two|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 2",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "two",
+      "pos": "num",
+      "sense_vi": "số 2",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm thứ hai (số hai):",
+        "opts": [
+          "two",
+          "too",
+          "to",
+          "twice"
+        ]
+      },
+      "answer": "two",
+      "explain_vi": "Số hai là two (đồng âm với too và to).",
+      "content_hash": "two|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm too/to",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "two",
+      "pos": "num",
+      "sense_vi": "số 2",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "She has ___ cats and a dog.",
+        "opts": [
+          "two",
+          "one",
+          "a",
+          "an"
+        ]
+      },
+      "answer": "two",
+      "explain_vi": "Điền two đi với danh từ số nhiều cats.",
+      "content_hash": "two|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "two + plural noun",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "two",
+      "pos": "num",
+      "sense_vi": "số 2",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He bought two pen yesterday.'",
+        "opts": [
+          "He bought two pens yesterday.",
+          "He bought two pen yesterday.",
+          "He bought two a pen yesterday.",
+          "He buys two pen yesterday."
+        ]
+      },
+      "answer": "He bought two pens yesterday.",
+      "explain_vi": "Số đếm 'two' đi với danh từ số nhiều 'pens'.",
+      "content_hash": "two|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy two + plural",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "two",
+      "pos": "num",
+      "sense_vi": "số 2",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hai ngày trước chuẩn:",
+        "opts": [
+          "two days ago",
+          "two days before",
+          "two days back",
+          "two days early"
+        ]
+      },
+      "answer": "two days ago",
+      "explain_vi": "Cụm 'two days ago' nghĩa là hai ngày trước.",
+      "content_hash": "two|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm two days ago",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "three",
+      "pos": "num",
+      "sense_vi": "số 3",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "three (num.)",
+        "opts": [
+          "số 3",
+          "số 2",
+          "số 4",
+          "số 5"
+        ]
+      },
+      "answer": "số 3",
+      "explain_vi": "three nghĩa là số ba (3).",
+      "content_hash": "three|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 3",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "three",
+      "pos": "num",
+      "sense_vi": "số 3",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm đứng sau số hai (số ba):",
+        "opts": [
+          "three",
+          "tree",
+          "free",
+          "third"
+        ]
+      },
+      "answer": "three",
+      "explain_vi": "Số ba là three (tree là cái cây, free là miễn phí).",
+      "content_hash": "three|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss tree/free",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "three",
+      "pos": "num",
+      "sense_vi": "số 3",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "A triangle has ___ sides.",
+        "opts": [
+          "three",
+          "four",
+          "two",
+          "five"
+        ]
+      },
+      "answer": "three",
+      "explain_vi": "Hình tam giác có 3 cạnh (three sides).",
+      "content_hash": "three|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "three sides",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "three",
+      "pos": "num",
+      "sense_vi": "số 3",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I see tree birds in the garden.'",
+        "opts": [
+          "I see three birds in the garden.",
+          "I see tree birds in the garden.",
+          "I see free birds in the garden.",
+          "I see third birds in the garden."
+        ]
+      },
+      "answer": "I see three birds in the garden.",
+      "explain_vi": "Từ chỉ số 3 là three (không nhầm với tree - cái cây).",
+      "content_hash": "three|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy three vs tree",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "three",
+      "pos": "num",
+      "sense_vi": "số 3",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ba lần một tuần chuẩn:",
+        "opts": [
+          "three times a week",
+          "three time a week",
+          "three timing a week",
+          "three turn a week"
+        ]
+      },
+      "answer": "three times a week",
+      "explain_vi": "Ba lần một tuần dùng 'three times a week'.",
+      "content_hash": "three|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm three times a week",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "four",
+      "pos": "num",
+      "sense_vi": "số 4",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "four (num.)",
+        "opts": [
+          "số 4",
+          "số 3",
+          "số 5",
+          "số 6"
+        ]
+      },
+      "answer": "số 4",
+      "explain_vi": "four nghĩa là số bốn (4).",
+      "content_hash": "four|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 4",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "four",
+      "pos": "num",
+      "sense_vi": "số 4",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm thứ bốn (số bốn):",
+        "opts": [
+          "four",
+          "for",
+          "fore",
+          "fourth"
+        ]
+      },
+      "answer": "four",
+      "explain_vi": "Số bốn là four (đồng âm với for).",
+      "content_hash": "four|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm for",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "four",
+      "pos": "num",
+      "sense_vi": "số 4",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "A square has ___ equal sides.",
+        "opts": [
+          "four",
+          "three",
+          "five",
+          "six"
+        ]
+      },
+      "answer": "four",
+      "explain_vi": "Hình vuông có 4 cạnh bằng nhau (four sides).",
+      "content_hash": "four|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "four sides",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "four",
+      "pos": "num",
+      "sense_vi": "số 4",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There are for chair in the room.'",
+        "opts": [
+          "There are four chairs in the room.",
+          "There are for chair in the room.",
+          "There are four chair in the room.",
+          "There is four chairs in the room."
+        ]
+      },
+      "answer": "There are four chairs in the room.",
+      "explain_vi": "Số bốn viết đúng là four và đi với danh từ số nhiều chairs.",
+      "content_hash": "four|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy for/four + plural",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "four",
+      "pos": "num",
+      "sense_vi": "số 4",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bốn mùa chuẩn:",
+        "opts": [
+          "four seasons",
+          "four times",
+          "four years",
+          "four days"
+        ]
+      },
+      "answer": "four seasons",
+      "explain_vi": "Bốn mùa trong năm là four seasons.",
+      "content_hash": "four|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm four seasons",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "five",
+      "pos": "num",
+      "sense_vi": "số 5",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "five (num.)",
+        "opts": [
+          "số 5",
+          "số 4",
+          "số 6",
+          "số 7"
+        ]
+      },
+      "answer": "số 5",
+      "explain_vi": "five nghĩa là số năm (5).",
+      "content_hash": "five|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 5",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "five",
+      "pos": "num",
+      "sense_vi": "số 5",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm thứ năm (số năm):",
+        "opts": [
+          "five",
+          "fine",
+          "fifth",
+          "fifteen"
+        ]
+      },
+      "answer": "five",
+      "explain_vi": "Số năm là five (fine là tốt đẹp).",
+      "content_hash": "five|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss fine",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "five",
+      "pos": "num",
+      "sense_vi": "số 5",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We have ___ fingers on each hand.",
+        "opts": [
+          "five",
+          "four",
+          "six",
+          "ten"
+        ]
+      },
+      "answer": "five",
+      "explain_vi": "Mỗi bàn tay có 5 ngón tay (five fingers).",
+      "content_hash": "five|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "five fingers",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "five",
+      "pos": "num",
+      "sense_vi": "số 5",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He has fine books in his backpack.'",
+        "opts": [
+          "He has five books in his backpack.",
+          "He has fine books in his backpack.",
+          "He has five book in his backpack.",
+          "He have five books in his backpack."
+        ]
+      },
+      "answer": "He has five books in his backpack.",
+      "explain_vi": "Số 5 viết đúng là five, đi với danh từ số nhiều books.",
+      "content_hash": "five|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy fine/five",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "five",
+      "pos": "num",
+      "sense_vi": "số 5",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm năm phút trước chuẩn:",
+        "opts": [
+          "five minutes ago",
+          "five minute ago",
+          "five minutes before",
+          "five minutes early"
+        ]
+      },
+      "answer": "five minutes ago",
+      "explain_vi": "Cụm 'five minutes ago' nghĩa là 5 phút trước.",
+      "content_hash": "five|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm five minutes ago",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "six",
+      "pos": "num",
+      "sense_vi": "số 6",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "six (num.)",
+        "opts": [
+          "số 6",
+          "số 5",
+          "số 7",
+          "số 8"
+        ]
+      },
+      "answer": "số 6",
+      "explain_vi": "six nghĩa là số sáu (6).",
+      "content_hash": "six|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 6",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "six",
+      "pos": "num",
+      "sense_vi": "số 6",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm đứng trước số bảy (số sáu):",
+        "opts": [
+          "six",
+          "sick",
+          "sixth",
+          "sixteen"
+        ]
+      },
+      "answer": "six",
+      "explain_vi": "Số sáu là six (sick là bị ốm).",
+      "content_hash": "six|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss sick",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "six",
+      "pos": "num",
+      "sense_vi": "số 6",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The class finishes at ___ PM every afternoon.",
+        "opts": [
+          "six",
+          "sick",
+          "second",
+          "sun"
+        ]
+      },
+      "answer": "six",
+      "explain_vi": "Điền six PM (6 giờ chiều).",
+      "content_hash": "six|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "six PM",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "six",
+      "pos": "num",
+      "sense_vi": "số 6",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There are sick apples in the basket.'",
+        "opts": [
+          "There are six apples in the basket.",
+          "There are sick apples in the basket.",
+          "There are six apple in the basket.",
+          "There is six apples in the basket."
+        ]
+      },
+      "answer": "There are six apples in the basket.",
+      "explain_vi": "Số 6 viết là six, không viết sick (ốm).",
+      "content_hash": "six|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy six vs sick",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "six",
+      "pos": "num",
+      "sense_vi": "số 6",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm sáu tháng trước chuẩn:",
+        "opts": [
+          "six months ago",
+          "six month ago",
+          "six months before",
+          "six months back"
+        ]
+      },
+      "answer": "six months ago",
+      "explain_vi": "Cụm 'six months ago' (6 tháng trước).",
+      "content_hash": "six|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm six months ago",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "seven",
+      "pos": "num",
+      "sense_vi": "số 7",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "seven (num.)",
+        "opts": [
+          "số 7",
+          "số 6",
+          "số 8",
+          "số 9"
+        ]
+      },
+      "answer": "số 7",
+      "explain_vi": "seven nghĩa là số bảy (7).",
+      "content_hash": "seven|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 7",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "seven",
+      "pos": "num",
+      "sense_vi": "số 7",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm đứng sau số sáu (số bảy):",
+        "opts": [
+          "seven",
+          "sever",
+          "seventeen",
+          "seventh"
+        ]
+      },
+      "answer": "seven",
+      "explain_vi": "Số bảy là seven (sever là chia cắt).",
+      "content_hash": "seven|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss sever",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "seven",
+      "pos": "num",
+      "sense_vi": "số 7",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "There are ___ days in a week.",
+        "opts": [
+          "seven",
+          "six",
+          "five",
+          "eight"
+        ]
+      },
+      "answer": "seven",
+      "explain_vi": "Một tuần có 7 ngày (seven days).",
+      "content_hash": "seven|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "seven days",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "seven",
+      "pos": "num",
+      "sense_vi": "số 7",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'A week have seven day.'",
+        "opts": [
+          "A week has seven days.",
+          "A week have seven day.",
+          "A week has seven day.",
+          "A week having seven days."
+        ]
+      },
+      "answer": "A week has seven days.",
+      "explain_vi": "A week là số ít đi với has, seven đi với danh từ số nhiều days.",
+      "content_hash": "seven|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy singular/plural",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "seven",
+      "pos": "num",
+      "sense_vi": "số 7",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bảy ngày một tuần chuẩn:",
+        "opts": [
+          "seven days a week",
+          "seven day a week",
+          "seven days per week",
+          "seven times a week"
+        ]
+      },
+      "answer": "seven days a week",
+      "explain_vi": "Bảy ngày một tuần là 'seven days a week'.",
+      "content_hash": "seven|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm seven days a week",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eight",
+      "pos": "num",
+      "sense_vi": "số 8",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "eight (num.)",
+        "opts": [
+          "số 8",
+          "số 7",
+          "số 9",
+          "số 10"
+        ]
+      },
+      "answer": "số 8",
+      "explain_vi": "eight nghĩa là số tám (8).",
+      "content_hash": "eight|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 8",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eight",
+      "pos": "num",
+      "sense_vi": "số 8",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm đứng trước số chín (số tám):",
+        "opts": [
+          "eight",
+          "ate",
+          "eighteen",
+          "eighth"
+        ]
+      },
+      "answer": "eight",
+      "explain_vi": "Số tám là eight (đồng âm với ate - quá khứ của eat).",
+      "content_hash": "eight|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm ate",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eight",
+      "pos": "num",
+      "sense_vi": "số 8",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "An octopus has ___ legs.",
+        "opts": [
+          "eight",
+          "seven",
+          "six",
+          "ten"
+        ]
+      },
+      "answer": "eight",
+      "explain_vi": "Con bạch tộc có 8 chân (eight legs).",
+      "content_hash": "eight|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "eight legs",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eight",
+      "pos": "num",
+      "sense_vi": "số 8",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I ate eight bananas yesterday.'",
+        "opts": [
+          "I ate eight bananas yesterday.",
+          "I eight ate bananas yesterday.",
+          "I ate ate bananas yesterday.",
+          "I eight eight bananas yesterday."
+        ]
+      },
+      "answer": "I ate eight bananas yesterday.",
+      "explain_vi": "Động từ quá khứ ate đi với số 8 eight.",
+      "content_hash": "eight|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy ate vs eight",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eight",
+      "pos": "num",
+      "sense_vi": "số 8",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm lúc 8 giờ sáng chuẩn:",
+        "opts": [
+          "at eight o'clock in the morning",
+          "at eight clock in the morning",
+          "on eight o'clock in the morning",
+          "in eight o'clock in the morning"
+        ]
+      },
+      "answer": "at eight o'clock in the morning",
+      "explain_vi": "Chỉ mốc giờ dùng 'at eight o'clock'.",
+      "content_hash": "eight|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm at eight o'clock",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nine",
+      "pos": "num",
+      "sense_vi": "số 9",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "nine (num.)",
+        "opts": [
+          "số 9",
+          "số 8",
+          "số 10",
+          "số 7"
+        ]
+      },
+      "answer": "số 9",
+      "explain_vi": "nine nghĩa là số chín (9).",
+      "content_hash": "nine|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 9",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nine",
+      "pos": "num",
+      "sense_vi": "số 9",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm đứng trước số mười (số chín):",
+        "opts": [
+          "nine",
+          "ninth",
+          "nineteen",
+          "line"
+        ]
+      },
+      "answer": "nine",
+      "explain_vi": "Số chín là nine (ninth là thứ chín).",
+      "content_hash": "nine|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss ninth",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nine",
+      "pos": "num",
+      "sense_vi": "số 9",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The shop opens at ___ AM every morning.",
+        "opts": [
+          "nine",
+          "ninth",
+          "night",
+          "new"
+        ]
+      },
+      "answer": "nine",
+      "explain_vi": "Mở cửa lúc 9 giờ sáng (nine AM).",
+      "content_hash": "nine|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "nine AM",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nine",
+      "pos": "num",
+      "sense_vi": "số 9",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There are ninth students in the classroom.'",
+        "opts": [
+          "There are nine students in the classroom.",
+          "There are ninth students in the classroom.",
+          "There are nine student in the classroom.",
+          "There is nine students in the classroom."
+        ]
+      },
+      "answer": "There are nine students in the classroom.",
+      "explain_vi": "Số lượng dùng số đếm nine, không dùng số thứ tự ninth.",
+      "content_hash": "nine|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy nine vs ninth",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "nine",
+      "pos": "num",
+      "sense_vi": "số 9",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm chín tuổi chuẩn:",
+        "opts": [
+          "nine years old",
+          "nine year old",
+          "nine years age",
+          "nine aged"
+        ]
+      },
+      "answer": "nine years old",
+      "explain_vi": "Chỉ tuổi dùng 'nine years old'.",
+      "content_hash": "nine|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm nine years old",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ten",
+      "pos": "num",
+      "sense_vi": "số 10",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "ten (num.)",
+        "opts": [
+          "số 10",
+          "số 9",
+          "số 8",
+          "số 100"
+        ]
+      },
+      "answer": "số 10",
+      "explain_vi": "ten nghĩa là số mười (10).",
+      "content_hash": "ten|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa số 10",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ten",
+      "pos": "num",
+      "sense_vi": "số 10",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Số đếm số mười (10):",
+        "opts": [
+          "ten",
+          "tan",
+          "tent",
+          "tenth"
+        ]
+      },
+      "answer": "ten",
+      "explain_vi": "Số mười là ten (tan là màu rám nắng, tent là cái lều).",
+      "content_hash": "ten|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss tan/tent",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ten",
+      "pos": "num",
+      "sense_vi": "số 10",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We have ___ toes on our two feet.",
+        "opts": [
+          "ten",
+          "five",
+          "eight",
+          "twelve"
+        ]
+      },
+      "answer": "ten",
+      "explain_vi": "Hai bàn chân có 10 ngón chân (ten toes).",
+      "content_hash": "ten|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "ten toes",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ten",
+      "pos": "num",
+      "sense_vi": "số 10",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He has ten year old sister.'",
+        "opts": [
+          "He has a ten-year-old sister.",
+          "He has ten year old sister.",
+          "He has ten years old sister.",
+          "He have ten years old sister."
+        ]
+      },
+      "answer": "He has a ten-year-old sister.",
+      "explain_vi": "Cụm tính từ ghép chỉ tuổi: a ten-year-old sister.",
+      "content_hash": "ten|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy tính từ ghép ten-year-old",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "ten",
+      "pos": "num",
+      "sense_vi": "số 10",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm mười phút nữa chuẩn:",
+        "opts": [
+          "in ten minutes",
+          "at ten minutes",
+          "on ten minutes",
+          "for ten minutes ago"
+        ]
+      },
+      "answer": "in ten minutes",
+      "explain_vi": "Mười phút nữa (trong tương lai) dùng 'in ten minutes'.",
+      "content_hash": "ten|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm in ten minutes",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "today",
+      "pos": "n",
+      "sense_vi": "hôm nay",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "today (n./adv.)",
+        "opts": [
+          "ngày hôm nay",
+          "ngày mai",
+          "ngày qua",
+          "tuần tới"
+        ]
+      },
+      "answer": "ngày hôm nay",
+      "explain_vi": "today là ngày hôm nay.",
+      "content_hash": "today|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa hôm nay",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "today",
+      "pos": "n",
+      "sense_vi": "hôm nay",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Ngày hiện tại (hôm nay):",
+        "opts": [
+          "today",
+          "tomorrow",
+          "yesterday",
+          "tonight"
+        ]
+      },
+      "answer": "today",
+      "explain_vi": "Hôm nay là today.",
+      "content_hash": "today|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss từ thời gian",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "today",
+      "pos": "n",
+      "sense_vi": "hôm nay",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "What day is it ___? — It is Monday.",
+        "opts": [
+          "today",
+          "tomorrow",
+          "yesterday",
+          "tonight"
+        ]
+      },
+      "answer": "today",
+      "explain_vi": "Hỏi thứ mấy hôm nay: What day is it today?",
+      "content_hash": "today|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "What day is it today",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "today",
+      "pos": "n",
+      "sense_vi": "hôm nay",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Today is a rain day.'",
+        "opts": [
+          "Today is a rainy day.",
+          "Today is a rain day.",
+          "Today is rainy day.",
+          "Today is rain day."
+        ]
+      },
+      "answer": "Today is a rainy day.",
+      "explain_vi": "Dùng tính từ rainy để bổ nghĩa cho danh từ day.",
+      "content_hash": "today|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy tính từ rainy",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "today",
+      "pos": "n",
+      "sense_vi": "hôm nay",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hỏi thời tiết hôm nay chuẩn:",
+        "opts": [
+          "How is the weather today?",
+          "What is the weather today like?",
+          "How the weather is today?",
+          "Where is the weather today?"
+        ]
+      },
+      "answer": "How is the weather today?",
+      "explain_vi": "Mẫu câu hỏi thời tiết: How is the weather today?",
+      "content_hash": "today|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm How is the weather today",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tomorrow",
+      "pos": "n",
+      "sense_vi": "ngày mai",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tomorrow (n./adv.)",
+        "opts": [
+          "ngày mai",
+          "hôm nay",
+          "hôm qua",
+          "tuần trước"
+        ]
+      },
+      "answer": "ngày mai",
+      "explain_vi": "tomorrow là ngày tiếp theo sau ngày hôm nay.",
+      "content_hash": "tomorrow|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa ngày mai",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tomorrow",
+      "pos": "n",
+      "sense_vi": "ngày mai",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Ngày kế tiếp sau hôm nay (ngày mai):",
+        "opts": [
+          "tomorrow",
+          "tomorow",
+          "today",
+          "tonight"
+        ]
+      },
+      "answer": "tomorrow",
+      "explain_vi": "Ngày mai viết đúng chính tả là tomorrow (2 chữ r).",
+      "content_hash": "tomorrow|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss chính tả tomorow",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tomorrow",
+      "pos": "n",
+      "sense_vi": "ngày mai",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We will go to the zoo ___ morning.",
+        "opts": [
+          "tomorrow",
+          "yesterday",
+          "last",
+          "ago"
+        ]
+      },
+      "answer": "tomorrow",
+      "explain_vi": "Cụm tomorrow morning (sáng mai).",
+      "content_hash": "tomorrow|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "tomorrow morning",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tomorrow",
+      "pos": "n",
+      "sense_vi": "ngày mai",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'We went to the beach tomorrow.'",
+        "opts": [
+          "We will go to the beach tomorrow.",
+          "We went to the beach tomorrow.",
+          "We go to the beach yesterday.",
+          "We are go to the beach tomorrow."
+        ]
+      },
+      "answer": "We will go to the beach tomorrow.",
+      "explain_vi": "Trạng từ tomorrow diễn tả tương lai, dùng will go.",
+      "content_hash": "tomorrow|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy tương lai will go",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tomorrow",
+      "pos": "n",
+      "sense_vi": "ngày mai",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm gặp lại vào ngày mai chuẩn:",
+        "opts": [
+          "See you tomorrow",
+          "See tomorrow you",
+          "Meet you tomorrow day",
+          "Look you tomorrow"
+        ]
+      },
+      "answer": "See you tomorrow",
+      "explain_vi": "Cụm chào gặp lại ngày mai: See you tomorrow.",
+      "content_hash": "tomorrow|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm See you tomorrow",
+        "pack_id": "starter-a0-numbers",
+        "priority": "P0"
+      }
+    }
+  ]
+}

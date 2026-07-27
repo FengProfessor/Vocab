@@ -1,0 +1,2314 @@
+{
+  "version": 1,
+  "batch_id": "batch-a-20",
+  "created_note": "antigravity pre-gen · no external LLM API",
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "match_pair"
+  ],
+  "items": [
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wake up (phrase)",
+        "opts": [
+          "thức dậy",
+          "đi ngủ",
+          "thức khuya",
+          "ngáp"
+        ]
+      },
+      "answer": "thức dậy",
+      "explain_vi": "Phrasal verb: thức dậy (tỉnh giấc / ra khỏi giường).",
+      "content_hash": "wake-up|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động tỉnh giấc hoặc rời khỏi giường vào buổi sáng:",
+        "opts": [
+          "wake up",
+          "go to bed",
+          "sleep in",
+          "stay awake"
+        ]
+      },
+      "answer": "wake up",
+      "explain_vi": "Cụm động từ chỉ hành động tỉnh giấc buổi sáng là wake up.",
+      "content_hash": "wake-up|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "I usually ___ at 6 AM so I can have breakfast before school.",
+        "opts": [
+          "wake up",
+          "stand up",
+          "grow up",
+          "look up"
+        ]
+      },
+      "answer": "wake up",
+      "explain_vi": "Dùng wake up + at [thời gian] với nghĩa thức dậy lúc 6 giờ sáng.",
+      "content_hash": "wake-up|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I wake on early every day to prepare for class.'",
+        "opts": [
+          "I wake up early every day to prepare for class.",
+          "I wake on early every day to prepare for class.",
+          "I wake off early every day to prepare for class.",
+          "I waking early every day to prepare for class."
+        ]
+      },
+      "answer": "I wake up early every day to prepare for class.",
+      "explain_vi": "Cụm đúng là wake up (thức dậy), không dùng giới từ on hay off.",
+      "content_hash": "wake-up|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "wake up",
+      "pos": "phrase",
+      "sense_vi": "thức dậy",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: wake up",
+        "opts": [
+          "wake up — thức dậy",
+          "go to bed — đi ngủ",
+          "stay up — thức khuya",
+          "sleep in — ngủ nướng"
+        ]
+      },
+      "answer": "wake up — thức dậy",
+      "explain_vi": "Cặp đúng là wake up — thức dậy.",
+      "content_hash": "wake-up|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "homework (n.)",
+        "opts": [
+          "bài tập về nhà",
+          "việc nhà",
+          "bài kiểm tra",
+          "sách giáo khoa"
+        ]
+      },
+      "answer": "bài tập về nhà",
+      "explain_vi": "Danh từ homework nghĩa là bài tập về nhà do giáo viên giao.",
+      "content_hash": "homework|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nhiệm vụ học tập thầy cô giao về nhà làm:",
+        "opts": [
+          "homework",
+          "housework",
+          "assignment",
+          "classwork"
+        ]
+      },
+      "answer": "homework",
+      "explain_vi": "Bài tập làm ở nhà là homework (phân biệt với housework là việc nhà).",
+      "content_hash": "homework|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "You should complete your math ___ before watching TV.",
+        "opts": [
+          "homework",
+          "housework",
+          "job",
+          "chore"
+        ]
+      },
+      "answer": "homework",
+      "explain_vi": "Điền homework để chỉ bài tập môn toán về nhà.",
+      "content_hash": "homework|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She makes her homework after dinner every night.'",
+        "opts": [
+          "She does her homework after dinner every night.",
+          "She makes her homework after dinner every night.",
+          "She creates her homework after dinner every night.",
+          "She works her homework after dinner every night."
+        ]
+      },
+      "answer": "She does her homework after dinner every night.",
+      "explain_vi": "Kết hợp từ đúng là do homework, không dùng make homework.",
+      "content_hash": "homework|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "homework",
+      "pos": "n",
+      "sense_vi": "bài tập về nhà",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: homework",
+        "opts": [
+          "homework — bài tập về nhà",
+          "housework — việc nhà",
+          "textbook — sách giáo khoa",
+          "exam — kỳ thi"
+        ]
+      },
+      "answer": "homework — bài tập về nhà",
+      "explain_vi": "Cặp đúng là homework — bài tập về nhà.",
+      "content_hash": "homework|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "school (n.)",
+        "opts": [
+          "trường học",
+          "bệnh viện",
+          "thư viện",
+          "công viên"
+        ]
+      },
+      "answer": "trường học",
+      "explain_vi": "Danh từ school nghĩa là trường học.",
+      "content_hash": "school|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nơi học sinh đến để học tập hằng ngày:",
+        "opts": [
+          "school",
+          "hospital",
+          "library",
+          "office"
+        ]
+      },
+      "answer": "school",
+      "explain_vi": "Trường học trong tiếng Anh là school.",
+      "content_hash": "school|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "My little brother walks to ___ with his classmates.",
+        "opts": [
+          "school",
+          "work",
+          "home",
+          "bed"
+        ]
+      },
+      "answer": "school",
+      "explain_vi": "Cụm walk to school nghĩa là đi bộ đến trường.",
+      "content_hash": "school|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He goes to the school on foot every morning to learn.'",
+        "opts": [
+          "He goes to school on foot every morning to learn.",
+          "He goes to the school on foot every morning to learn.",
+          "He go to school on foot every morning to learn.",
+          "He is go to school on foot every morning to learn."
+        ]
+      },
+      "answer": "He goes to school on foot every morning to learn.",
+      "explain_vi": "Nói về việc đi học chung không dùng mạo từ 'the': go to school.",
+      "content_hash": "school|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "school",
+      "pos": "n",
+      "sense_vi": "trường học",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: school",
+        "opts": [
+          "school — trường học",
+          "hospital — bệnh viện",
+          "library — thư viện",
+          "park — công viên"
+        ]
+      },
+      "answer": "school — trường học",
+      "explain_vi": "Cặp đúng là school — trường học.",
+      "content_hash": "school|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tired (adj.)",
+        "opts": [
+          "mệt mỏi",
+          "vui vẻ",
+          "lo lắng",
+          "tức giận"
+        ]
+      },
+      "answer": "mệt mỏi",
+      "explain_vi": "Tính từ tired dùng để mô tả trạng thái mệt mỏi, thiếu năng lượng.",
+      "content_hash": "tired|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cảm giác kiệt sức, cần nghỉ ngơi sau khi làm việc:",
+        "opts": [
+          "tired",
+          "bored",
+          "angry",
+          "scared"
+        ]
+      },
+      "answer": "tired",
+      "explain_vi": "Tính từ miêu tả mệt mỏi là tired.",
+      "content_hash": "tired|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "After working all day in the garden, she felt extremely ___.",
+        "opts": [
+          "tired",
+          "hungry",
+          "thirsty",
+          "excited"
+        ]
+      },
+      "answer": "tired",
+      "explain_vi": "Điền tired để hợp ngữ cảnh mệt mỏi sau khi làm việc cả ngày.",
+      "content_hash": "tired|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I am very tiring after a long football match.'",
+        "opts": [
+          "I am very tired after a long football match.",
+          "I am very tiring after a long football match.",
+          "I am very tire after a long football match.",
+          "I feel tiring after a long football match."
+        ]
+      },
+      "answer": "I am very tired after a long football match.",
+      "explain_vi": "Mô tả cảm xúc người dùng tính từ đuôi -ed: tired, không dùng tiring.",
+      "content_hash": "tired|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "tired",
+      "pos": "adj",
+      "sense_vi": "mệt mỏi",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: tired",
+        "opts": [
+          "tired — mệt mỏi",
+          "happy — vui vẻ",
+          "worried — lo lắng",
+          "angry — tức giận"
+        ]
+      },
+      "answer": "tired — mệt mỏi",
+      "explain_vi": "Cặp đúng là tired — mệt mỏi.",
+      "content_hash": "tired|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "breakfast (n.)",
+        "opts": [
+          "bữa sáng",
+          "bữa trưa",
+          "bữa tối",
+          "bữa phụ"
+        ]
+      },
+      "answer": "bữa sáng",
+      "explain_vi": "Danh từ breakfast là bữa ăn đầu tiên vào buổi sáng.",
+      "content_hash": "breakfast|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bữa ăn đầu tiên trong ngày vào buổi sáng:",
+        "opts": [
+          "breakfast",
+          "lunch",
+          "dinner",
+          "supper"
+        ]
+      },
+      "answer": "breakfast",
+      "explain_vi": "Bữa sáng là breakfast.",
+      "content_hash": "breakfast|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "I always have bread and hot milk for ___ at 7 AM.",
+        "opts": [
+          "breakfast",
+          "lunch",
+          "dinner",
+          "snack"
+        ]
+      },
+      "answer": "breakfast",
+      "explain_vi": "Cụm have ... for breakfast (ăn món gì cho bữa sáng).",
+      "content_hash": "breakfast|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He eats a breakfast at 7 o'clock every morning.'",
+        "opts": [
+          "He eats breakfast at 7 o'clock every morning.",
+          "He eats a breakfast at 7 o'clock every morning.",
+          "He make breakfast at 7 o'clock every morning.",
+          "He having breakfast at 7 o'clock every morning."
+        ]
+      },
+      "answer": "He eats breakfast at 7 o'clock every morning.",
+      "explain_vi": "Không dùng mạo từ 'a' trước các bữa ăn chung chung như breakfast.",
+      "content_hash": "breakfast|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "breakfast",
+      "pos": "n",
+      "sense_vi": "bữa sáng",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: breakfast",
+        "opts": [
+          "breakfast — bữa sáng",
+          "lunch — bữa trưa",
+          "dinner — bữa tối",
+          "snack — bữa phụ"
+        ]
+      },
+      "answer": "breakfast — bữa sáng",
+      "explain_vi": "Cặp đúng là breakfast — bữa sáng.",
+      "content_hash": "breakfast|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "study (v.)",
+        "opts": [
+          "học tập",
+          "giảng dạy",
+          "vui chơi",
+          "làm việc"
+        ]
+      },
+      "answer": "học tập",
+      "explain_vi": "Động từ study nghĩa là học tập, nghiên cứu môn học.",
+      "content_hash": "study|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động dành thời gian rèn luyện, tiếp thu kiến thức:",
+        "opts": [
+          "study",
+          "teach",
+          "play",
+          "work"
+        ]
+      },
+      "answer": "study",
+      "explain_vi": "Hành động học tập là study.",
+      "content_hash": "study|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "We need to ___ hard to pass the final English exam.",
+        "opts": [
+          "study",
+          "teach",
+          "read",
+          "write"
+        ]
+      },
+      "answer": "study",
+      "explain_vi": "Cụm study hard nghĩa là học tập chăm chỉ.",
+      "content_hash": "study|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She study English for two hours every evening.'",
+        "opts": [
+          "She studies English for two hours every evening.",
+          "She study English for two hours every evening.",
+          "She studying English for two hours every evening.",
+          "She is study English for two hours every evening."
+        ]
+      },
+      "answer": "She studies English for two hours every evening.",
+      "explain_vi": "Chủ ngữ She ở thì hiện tại đơn đi với động từ chia 'studies'.",
+      "content_hash": "study|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "study",
+      "pos": "v",
+      "sense_vi": "học tập",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: study",
+        "opts": [
+          "study — học tập",
+          "teach — giảng dạy",
+          "play — chơi",
+          "work — làm việc"
+        ]
+      },
+      "answer": "study — học tập",
+      "explain_vi": "Cặp đúng là study — học tập.",
+      "content_hash": "study|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "friend (n.)",
+        "opts": [
+          "bạn bè",
+          "kẻ thù",
+          "người lạ",
+          "hàng xóm"
+        ]
+      },
+      "answer": "bạn bè",
+      "explain_vi": "Danh từ friend nghĩa là bạn bè.",
+      "content_hash": "friend|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người quen biết, quý mến và hay trò chuyện cùng mình:",
+        "opts": [
+          "friend",
+          "enemy",
+          "stranger",
+          "neighbor"
+        ]
+      },
+      "answer": "friend",
+      "explain_vi": "Từ chỉ bạn bè là friend.",
+      "content_hash": "friend|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Linh is my best ___, we play basketball together every afternoon.",
+        "opts": [
+          "friend",
+          "enemy",
+          "teacher",
+          "doctor"
+        ]
+      },
+      "answer": "friend",
+      "explain_vi": "Cụm best friend nghĩa là bạn thân nhất.",
+      "content_hash": "friend|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is a friend of me from high school.'",
+        "opts": [
+          "She is a friend of mine from high school.",
+          "She is a friend of me from high school.",
+          "She is a friend to my from high school.",
+          "She is my a friend from high school."
+        ]
+      },
+      "answer": "She is a friend of mine from high school.",
+      "explain_vi": "Cấu trúc đúng là 'a friend of mine' (dùng đại từ sở hữu mine).",
+      "content_hash": "friend|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "friend",
+      "pos": "n",
+      "sense_vi": "bạn bè",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: friend",
+        "opts": [
+          "friend — bạn bè",
+          "enemy — kẻ thù",
+          "stranger — người lạ",
+          "neighbor — hàng xóm"
+        ]
+      },
+      "answer": "friend — bạn bè",
+      "explain_vi": "Cặp đúng là friend — bạn bè.",
+      "content_hash": "friend|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "happy (adj.)",
+        "opts": [
+          "vui vẻ",
+          "buồn bã",
+          "tức giận",
+          "lo lắng"
+        ]
+      },
+      "answer": "vui vẻ",
+      "explain_vi": "Tính từ happy thể hiện sự vui vẻ, hạnh phúc.",
+      "content_hash": "happy|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Cảm xúc vui sướng, hân hoan khi gặp điều tốt lành:",
+        "opts": [
+          "happy",
+          "sad",
+          "angry",
+          "anxious"
+        ]
+      },
+      "answer": "happy",
+      "explain_vi": "Tính từ vui vẻ là happy.",
+      "content_hash": "happy|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "All the children felt very ___ when they received high marks.",
+        "opts": [
+          "happy",
+          "sad",
+          "upset",
+          "scared"
+        ]
+      },
+      "answer": "happy",
+      "explain_vi": "Điền happy hợp ý nghĩa cảm xúc vui mừng khi được điểm cao.",
+      "content_hash": "happy|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She felt happily when she got the new job.'",
+        "opts": [
+          "She felt happy when she got the new job.",
+          "She felt happily when she got the new job.",
+          "She feel happy when she got the new job.",
+          "She is happily when she got the new job."
+        ]
+      },
+      "answer": "She felt happy when she got the new job.",
+      "explain_vi": "Động từ nối 'feel' đi với tính từ 'happy' chứ không dùng trạng từ 'happily'.",
+      "content_hash": "happy|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "happy",
+      "pos": "adj",
+      "sense_vi": "vui vẻ",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: happy",
+        "opts": [
+          "happy — vui vẻ",
+          "sad — buồn bã",
+          "angry — tức giận",
+          "nervous — lo lắng"
+        ]
+      },
+      "answer": "happy — vui vẻ",
+      "explain_vi": "Cặp đúng là happy — vui vẻ.",
+      "content_hash": "happy|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "finish (v.)",
+        "opts": [
+          "hoàn thành",
+          "bắt đầu",
+          "tạm dừng",
+          "hủy bỏ"
+        ]
+      },
+      "answer": "hoàn thành",
+      "explain_vi": "Động từ finish có nghĩa là hoàn thành, kết thúc việc gì.",
+      "content_hash": "finish|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Làm xong hoặc hoàn thành công việc được giao:",
+        "opts": [
+          "finish",
+          "start",
+          "begin",
+          "continue"
+        ]
+      },
+      "answer": "finish",
+      "explain_vi": "Hoàn thành trong tiếng Anh là finish.",
+      "content_hash": "finish|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ your assignment before the deadline tomorrow.",
+        "opts": [
+          "finish",
+          "start",
+          "delay",
+          "forget"
+        ]
+      },
+      "answer": "finish",
+      "explain_vi": "Dùng finish với nghĩa hoàn thành bài tập trước hạn.",
+      "content_hash": "finish|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He finished to write the summary at 10 PM.'",
+        "opts": [
+          "He finished writing the summary at 10 PM.",
+          "He finished to write the summary at 10 PM.",
+          "He finished write the summary at 10 PM.",
+          "He finished for writing the summary at 10 PM."
+        ]
+      },
+      "answer": "He finished writing the summary at 10 PM.",
+      "explain_vi": "Sau động từ finish dùng dạng V-ing: finish writing.",
+      "content_hash": "finish|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "finish",
+      "pos": "v",
+      "sense_vi": "hoàn thành",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: finish",
+        "opts": [
+          "finish — hoàn thành",
+          "start — bắt đầu",
+          "pause — tạm dừng",
+          "cancel — hủy bỏ"
+        ]
+      },
+      "answer": "finish — hoàn thành",
+      "explain_vi": "Cặp đúng là finish — hoàn thành.",
+      "content_hash": "finish|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "start (v.)",
+        "opts": [
+          "bắt đầu",
+          "kết thúc",
+          "dừng lại",
+          "bỏ qua"
+        ]
+      },
+      "answer": "bắt đầu",
+      "explain_vi": "Động từ start nghĩa là bắt đầu.",
+      "content_hash": "start|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khởi đầu hoặc tiến hành một công việc nào đó:",
+        "opts": [
+          "start",
+          "finish",
+          "end",
+          "stop"
+        ]
+      },
+      "answer": "start",
+      "explain_vi": "Bắt đầu là start.",
+      "content_hash": "start|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "The English lesson will ___ at 8 o'clock sharp.",
+        "opts": [
+          "start",
+          "finish",
+          "close",
+          "leave"
+        ]
+      },
+      "answer": "start",
+      "explain_vi": "Điền start với nghĩa buổi học bắt đầu lúc 8 giờ.",
+      "content_hash": "start|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'The movie starts in 7 PM every Sunday.'",
+        "opts": [
+          "The movie starts at 7 PM every Sunday.",
+          "The movie starts in 7 PM every Sunday.",
+          "The movie starts on 7 PM every Sunday.",
+          "The movie starts for 7 PM every Sunday."
+        ]
+      },
+      "answer": "The movie starts at 7 PM every Sunday.",
+      "explain_vi": "Chỉ mốc thời gian giờ giấc dùng giới từ 'at': at 7 PM.",
+      "content_hash": "start|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "start",
+      "pos": "v",
+      "sense_vi": "bắt đầu",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: start",
+        "opts": [
+          "start — bắt đầu",
+          "finish — kết thúc",
+          "stop — dừng lại",
+          "pause — tạm dừng"
+        ]
+      },
+      "answer": "start — bắt đầu",
+      "explain_vi": "Cặp đúng là start — bắt đầu.",
+      "content_hash": "start|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "need (v.)",
+        "opts": [
+          "cần",
+          "muốn",
+          "thích",
+          "ghét"
+        ]
+      },
+      "answer": "cần",
+      "explain_vi": "Động từ need diễn tả sự cần thiết, nhu cầu.",
+      "content_hash": "need|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Yêu cầu hoặc đòi hỏi phải có thứ gì đó cần thiết:",
+        "opts": [
+          "need",
+          "want",
+          "like",
+          "hate"
+        ]
+      },
+      "answer": "need",
+      "explain_vi": "Cần thiết là need.",
+      "content_hash": "need|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "You ___ a clean passport to travel overseas.",
+        "opts": [
+          "need",
+          "want",
+          "like",
+          "wish"
+        ]
+      },
+      "answer": "need",
+      "explain_vi": "Dùng need để chỉ sự bắt buộc/cần thiết có hộ chiếu.",
+      "content_hash": "need|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He needs go to the clinic immediately.'",
+        "opts": [
+          "He needs to go to the clinic immediately.",
+          "He needs go to the clinic immediately.",
+          "He need to go to the clinic immediately.",
+          "He is needing go to the clinic immediately."
+        ]
+      },
+      "answer": "He needs to go to the clinic immediately.",
+      "explain_vi": "Động từ need theo sau bởi to-V: need to go.",
+      "content_hash": "need|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "need",
+      "pos": "v",
+      "sense_vi": "cần",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: need",
+        "opts": [
+          "need — cần",
+          "want — muốn",
+          "like — thích",
+          "hate — ghét"
+        ]
+      },
+      "answer": "need — cần",
+      "explain_vi": "Cặp đúng là need — cần.",
+      "content_hash": "need|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "want (v.)",
+        "opts": [
+          "muốn",
+          "cần",
+          "ghét",
+          "sợ"
+        ]
+      },
+      "answer": "muốn",
+      "explain_vi": "Động từ want diễn tả mong muốn cá nhân.",
+      "content_hash": "want|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Mong muốn hoặc khao khát có điều gì đó:",
+        "opts": [
+          "want",
+          "need",
+          "hate",
+          "fear"
+        ]
+      },
+      "answer": "want",
+      "explain_vi": "Muốn trong tiếng Anh là want.",
+      "content_hash": "want|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Do you ___ to join our study group this afternoon?",
+        "opts": [
+          "want",
+          "need",
+          "must",
+          "should"
+        ]
+      },
+      "answer": "want",
+      "explain_vi": "Mẫu câu hỏi ý muốn: Do you want to...?",
+      "content_hash": "want|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She wants buying a new pen for school.'",
+        "opts": [
+          "She wants to buy a new pen for school.",
+          "She wants buying a new pen for school.",
+          "She want to buy a new pen for school.",
+          "She is wanting buy a new pen for school."
+        ]
+      },
+      "answer": "She wants to buy a new pen for school.",
+      "explain_vi": "Cấu trúc want đi với to-V: want to buy.",
+      "content_hash": "want|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "want",
+      "pos": "v",
+      "sense_vi": "muốn",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: want",
+        "opts": [
+          "want — muốn",
+          "need — cần",
+          "fear — sợ",
+          "hate — ghét"
+        ]
+      },
+      "answer": "want — muốn",
+      "explain_vi": "Cặp đúng là want — muốn.",
+      "content_hash": "want|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "help (v.)",
+        "opts": [
+          "giúp đỡ",
+          "cản trở",
+          "tấn công",
+          "bỏ mặc"
+        ]
+      },
+      "answer": "giúp đỡ",
+      "explain_vi": "Động từ help nghĩa là giúp đỡ, hỗ trợ.",
+      "content_hash": "help|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hỗ trợ người khác hoàn thành công việc:",
+        "opts": [
+          "help",
+          "hinder",
+          "attack",
+          "ignore"
+        ]
+      },
+      "answer": "help",
+      "explain_vi": "Giúp đỡ là help.",
+      "content_hash": "help|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Could you ___ me lift this heavy box onto the table?",
+        "opts": [
+          "help",
+          "make",
+          "let",
+          "push"
+        ]
+      },
+      "answer": "help",
+      "explain_vi": "Cấu trúc help someone (to) do something.",
+      "content_hash": "help|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She helped me doing my difficult homework.'",
+        "opts": [
+          "She helped me do my difficult homework.",
+          "She helped me doing my difficult homework.",
+          "She help me did my difficult homework.",
+          "She is helped me do my difficult homework."
+        ]
+      },
+      "answer": "She helped me do my difficult homework.",
+      "explain_vi": "Sau help + tân ngữ dùng động từ nguyên thể (do), không dùng V-ing (doing).",
+      "content_hash": "help|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "help",
+      "pos": "v",
+      "sense_vi": "giúp đỡ",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: help",
+        "opts": [
+          "help — giúp đỡ",
+          "hinder — cản trở",
+          "attack — tấn công",
+          "ignore — phớt lờ"
+        ]
+      },
+      "answer": "help — giúp đỡ",
+      "explain_vi": "Cặp đúng là help — giúp đỡ.",
+      "content_hash": "help|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "late (adj.)",
+        "opts": [
+          "trễ / muộn",
+          "sớm",
+          "đúng giờ",
+          "nhanh chóng"
+        ]
+      },
+      "answer": "trễ / muộn",
+      "explain_vi": "Tính từ late có nghĩa là trễ, muộn.",
+      "content_hash": "late|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Đến muộn hơn so với giờ quy định:",
+        "opts": [
+          "late",
+          "early",
+          "punctual",
+          "fast"
+        ]
+      },
+      "answer": "late",
+      "explain_vi": "Trễ/muộn trong tiếng Anh là late.",
+      "content_hash": "late|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Hurry up or we will be ___ for the train!",
+        "opts": [
+          "late",
+          "early",
+          "ready",
+          "slow"
+        ]
+      },
+      "answer": "late",
+      "explain_vi": "Cụm be late for (bị trễ/muộn cái gì).",
+      "content_hash": "late|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He arrived lately for the meeting yesterday.'",
+        "opts": [
+          "He arrived late for the meeting yesterday.",
+          "He arrived lately for the meeting yesterday.",
+          "He arrived late to the meeting yesterday.",
+          "He was lately for the meeting yesterday."
+        ]
+      },
+      "answer": "He arrived late for the meeting yesterday.",
+      "explain_vi": "Đến muộn dùng trạng từ 'late', 'lately' có nghĩa là dạo gần đây.",
+      "content_hash": "late|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "late",
+      "pos": "adj",
+      "sense_vi": "trễ / muộn",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: late",
+        "opts": [
+          "late — trễ / muộn",
+          "early — sớm",
+          "punctual — đúng giờ",
+          "quick — nhanh"
+        ]
+      },
+      "answer": "late — trễ / muộn",
+      "explain_vi": "Cặp đúng là late — trễ / muộn.",
+      "content_hash": "late|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "early (adj.)",
+        "opts": [
+          "sớm",
+          "muộn",
+          "chậm",
+          "kịp lúc"
+        ]
+      },
+      "answer": "sớm",
+      "explain_vi": "Tính từ early có nghĩa là sớm.",
+      "content_hash": "early|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Xảy ra trước thời gian dự định hoặc vào đầu khoảng thời gian:",
+        "opts": [
+          "early",
+          "late",
+          "slow",
+          "delayed"
+        ]
+      },
+      "answer": "early",
+      "explain_vi": "Sớm trong tiếng Anh là early.",
+      "content_hash": "early|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "They set off ___ in the morning to avoid traffic.",
+        "opts": [
+          "early",
+          "late",
+          "soon",
+          "fast"
+        ]
+      },
+      "answer": "early",
+      "explain_vi": "Cụm early in the morning (sớm vào buổi sáng).",
+      "content_hash": "early|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'We arrived earlily at the bus station.'",
+        "opts": [
+          "We arrived early at the bus station.",
+          "We arrived earlily at the bus station.",
+          "We arrived early on the bus station.",
+          "We arrived earliness at the bus station."
+        ]
+      },
+      "answer": "We arrived early at the bus station.",
+      "explain_vi": "Trạng từ của early vẫn là early, không có dạng earlily.",
+      "content_hash": "early|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "early",
+      "pos": "adj",
+      "sense_vi": "sớm",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: early",
+        "opts": [
+          "early — sớm",
+          "late — muộn",
+          "slow — chậm",
+          "delayed — bị hoãn"
+        ]
+      },
+      "answer": "early — sớm",
+      "explain_vi": "Cặp đúng là early — sớm.",
+      "content_hash": "early|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "classroom (n.)",
+        "opts": [
+          "phòng học",
+          "sân trường",
+          "nhà bếp",
+          "phòng khách"
+        ]
+      },
+      "answer": "phòng học",
+      "explain_vi": "Danh từ classroom có nghĩa là phòng học.",
+      "content_hash": "classroom|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Căn phòng nơi học sinh và giáo viên làm việc học tập:",
+        "opts": [
+          "classroom",
+          "playground",
+          "kitchen",
+          "living room"
+        ]
+      },
+      "answer": "classroom",
+      "explain_vi": "Phòng học là classroom.",
+      "content_hash": "classroom|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "The students walked quietly into the ___ when the bell rang.",
+        "opts": [
+          "classroom",
+          "playground",
+          "canteen",
+          "stadium"
+        ]
+      },
+      "answer": "classroom",
+      "explain_vi": "Điền classroom với nghĩa đi vào phòng học khi chuông reo.",
+      "content_hash": "classroom|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'There are thirty desks into the classroom.'",
+        "opts": [
+          "There are thirty desks in the classroom.",
+          "There are thirty desks into the classroom.",
+          "There are thirty desks at classroom.",
+          "There have thirty desks in the classroom."
+        ]
+      },
+      "answer": "There are thirty desks in the classroom.",
+      "explain_vi": "Chỉ vị trí bên trong không gian phòng học dùng giới từ 'in'.",
+      "content_hash": "classroom|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "classroom",
+      "pos": "n",
+      "sense_vi": "phòng học",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: classroom",
+        "opts": [
+          "classroom — phòng học",
+          "playground — sân chơi",
+          "canteen — nhà ăn",
+          "library — thư viện"
+        ]
+      },
+      "answer": "classroom — phòng học",
+      "explain_vi": "Cặp đúng là classroom — phòng học.",
+      "content_hash": "classroom|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "teacher (n.)",
+        "opts": [
+          "giáo viên",
+          "học sinh",
+          "bác sĩ",
+          "kỹ sư"
+        ]
+      },
+      "answer": "giáo viên",
+      "explain_vi": "Danh từ teacher nghĩa là giáo viên.",
+      "content_hash": "teacher|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Người giảng dạy bài học cho học sinh tại trường:",
+        "opts": [
+          "teacher",
+          "student",
+          "doctor",
+          "engineer"
+        ]
+      },
+      "answer": "teacher",
+      "explain_vi": "Giáo viên là teacher.",
+      "content_hash": "teacher|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Our history ___ explains the past events very clearly.",
+        "opts": [
+          "teacher",
+          "student",
+          "worker",
+          "driver"
+        ]
+      },
+      "answer": "teacher",
+      "explain_vi": "Cụm history teacher nghĩa là giáo viên lịch sử.",
+      "content_hash": "teacher|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'My aunt is teacher of English at a secondary school.'",
+        "opts": [
+          "My aunt is a teacher of English at a secondary school.",
+          "My aunt is teacher of English at a secondary school.",
+          "My aunt is an teacher of English at a secondary school.",
+          "My aunt works like teacher of English at a secondary school."
+        ]
+      },
+      "answer": "My aunt is a teacher of English at a secondary school.",
+      "explain_vi": "Nói về nghề nghiệp cần có mạo từ 'a': a teacher.",
+      "content_hash": "teacher|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "teacher",
+      "pos": "n",
+      "sense_vi": "giáo viên",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: teacher",
+        "opts": [
+          "teacher — giáo viên",
+          "student — học sinh",
+          "doctor — bác sĩ",
+          "engineer — kỹ sư"
+        ]
+      },
+      "answer": "teacher — giáo viên",
+      "explain_vi": "Cặp đúng là teacher — giáo viên.",
+      "content_hash": "teacher|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "break (n.)",
+        "opts": [
+          "giờ giải lao",
+          "bài kiểm tra",
+          "tiết học",
+          "buổi lễ"
+        ]
+      },
+      "answer": "giờ giải lao",
+      "explain_vi": "Danh từ break nghĩa là giờ giải lao, thời gian nghỉ ngắn.",
+      "content_hash": "break|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khoảng thời gian nghỉ ngắn giữa các tiết học:",
+        "opts": [
+          "break",
+          "exam",
+          "lesson",
+          "ceremony"
+        ]
+      },
+      "answer": "break",
+      "explain_vi": "Giờ giải lao là break.",
+      "content_hash": "break|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Let's take a 15-minute ___ after finishing this exercise.",
+        "opts": [
+          "break",
+          "pause",
+          "stop",
+          "rest"
+        ]
+      },
+      "answer": "break",
+      "explain_vi": "Cụm cố định take a break nghĩa là nghỉ giải lao.",
+      "content_hash": "break|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'We have a short break on the meeting.'",
+        "opts": [
+          "We have a short break during the meeting.",
+          "We have a short break on the meeting.",
+          "We have short break in the meeting.",
+          "We make a short break on the meeting."
+        ]
+      },
+      "answer": "We have a short break during the meeting.",
+      "explain_vi": "Diễn tả việc nghỉ giải lao trong suốt cuộc họp dùng giới từ 'during'.",
+      "content_hash": "break|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "break",
+      "pos": "n",
+      "sense_vi": "giờ giải lao",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: break",
+        "opts": [
+          "break — giờ giải lao",
+          "exam — bài kiểm tra",
+          "lesson — tiết học",
+          "ceremony — buổi lễ"
+        ]
+      },
+      "answer": "break — giờ giải lao",
+      "explain_vi": "Cặp đúng là break — giờ giải lao.",
+      "content_hash": "break|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "exam (n.)",
+        "opts": [
+          "kỳ thi",
+          "bài giảng",
+          "kỳ nghỉ",
+          "dự án"
+        ]
+      },
+      "answer": "kỳ thi",
+      "explain_vi": "Danh từ exam (viết tắt của examination) nghĩa là kỳ thi.",
+      "content_hash": "exam|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Bài kiểm tra trình độ, kiến thức chính thức:",
+        "opts": [
+          "exam",
+          "lecture",
+          "vacation",
+          "project"
+        ]
+      },
+      "answer": "exam",
+      "explain_vi": "Kỳ thi trong tiếng Anh là exam.",
+      "content_hash": "exam|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "She revised all the notes to prepare for the final ___.",
+        "opts": [
+          "exam",
+          "lesson",
+          "class",
+          "break"
+        ]
+      },
+      "answer": "exam",
+      "explain_vi": "Cụm final exam nghĩa là kỳ thi cuối kỳ.",
+      "content_hash": "exam|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He passed in the exam with flying colors.'",
+        "opts": [
+          "He passed the exam with flying colors.",
+          "He passed in the exam with flying colors.",
+          "He passed at the exam with flying colors.",
+          "He passed on the exam with flying colors."
+        ]
+      },
+      "answer": "He passed the exam with flying colors.",
+      "explain_vi": "Động từ pass đi trực tiếp với tân ngữ (pass the exam), không có giới từ in.",
+      "content_hash": "exam|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "exam",
+      "pos": "n",
+      "sense_vi": "kỳ thi",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: exam",
+        "opts": [
+          "exam — kỳ thi",
+          "lecture — bài giảng",
+          "vacation — kỳ nghỉ",
+          "project — dự án"
+        ]
+      },
+      "answer": "exam — kỳ thi",
+      "explain_vi": "Cặp đúng là exam — kỳ thi.",
+      "content_hash": "exam|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "remember (v.)",
+        "opts": [
+          "ghi nhớ",
+          "quên mất",
+          "bỏ qua",
+          "nhầm lẫn"
+        ]
+      },
+      "answer": "ghi nhớ",
+      "explain_vi": "Động từ remember nghĩa là ghi nhớ, nhớ lại.",
+      "content_hash": "remember|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Lưu giữ thông tin trong đầu hoặc nhớ lại điều gì:",
+        "opts": [
+          "remember",
+          "forget",
+          "ignore",
+          "confuse"
+        ]
+      },
+      "answer": "remember",
+      "explain_vi": "Ghi nhớ là remember.",
+      "content_hash": "remember|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "cloze",
+      "stem": {
+        "q": "Please ___ to turn off the air conditioner before leaving.",
+        "opts": [
+          "remember",
+          "remind",
+          "recall",
+          "memorize"
+        ]
+      },
+      "answer": "remember",
+      "explain_vi": "Cấu trúc remember to do something (nhớ phải làm gì).",
+      "content_hash": "remember|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I remember to lock the door when I left this morning.'",
+        "opts": [
+          "I remember locking the door when I left this morning.",
+          "I remember to lock the door when I left this morning.",
+          "I remember lock the door when I left this morning.",
+          "I am remember locking the door when I left this morning."
+        ]
+      },
+      "answer": "I remember locking the door when I left this morning.",
+      "explain_vi": "Nhớ đã làm gì trong quá khứ dùng remember + V-ing: remember locking.",
+      "content_hash": "remember|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "notes": ""
+      }
+    },
+    {
+      "lemma": "remember",
+      "pos": "v",
+      "sense_vi": "ghi nhớ",
+      "level": "A1",
+      "type": "match_pair",
+      "stem": {
+        "q": "Chọn cặp từ — nghĩa đúng cho từ: remember",
+        "opts": [
+          "remember — ghi nhớ",
+          "forget — quên mất",
+          "ignore — phớt lờ",
+          "confuse — nhầm lẫn"
+        ]
+      },
+      "answer": "remember — ghi nhớ",
+      "explain_vi": "Cặp đúng là remember — ghi nhớ.",
+      "content_hash": "remember|match_pair|01",
+      "meta": {
+        "skill": "pair_matching",
+        "notes": ""
+      }
+    }
+  ]
+}

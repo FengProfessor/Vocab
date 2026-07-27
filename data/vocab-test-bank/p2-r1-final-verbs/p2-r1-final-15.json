@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-15",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "introduce",
+    "invite",
+    "jump",
+    "kick",
+    "kiss",
+    "lay",
+    "lie",
+    "lift",
+    "light",
+    "lock"
+  ],
+  "items": [
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "giới thiệu bản thân",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "introduce (v.)",
+        "opts": [
+          "giới thiệu bản thân",
+          "để ý biển báo",
+          "đi xe đạp",
+          "buộc dây giày"
+        ]
+      },
+      "answer": "giới thiệu bản thân",
+      "explain_vi": "Động từ introduce mang nghĩa chính xác là: giới thiệu bản thân.",
+      "content_hash": "introduce|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "introduce gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "introduce a new friend",
+        "vn_trap": "past tense introduced"
+      }
+    },
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "giới thiệu bản thân",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'giới thiệu bản thân' là:",
+        "opts": [
+          "introduce",
+          "introduces",
+          "introduceing",
+          "introduced"
+        ]
+      },
+      "answer": "introduce",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là introduce.",
+      "content_hash": "introduce|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "introduce l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "introduce a new friend",
+        "vn_trap": "past tense introduced"
+      }
+    },
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "giới thiệu bản thân",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Unless you ___ now, you will miss the morning bus.",
+        "opts": [
+          "introduce",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "introduce",
+      "explain_vi": "Điền 'introduce' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "introduce|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "introduce cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "introduce a new friend",
+        "vn_trap": "past tense introduced"
+      }
+    },
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "giới thiệu bản thân",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She introduces the exercise very slow yesterday.'",
+        "opts": [
+          "She introduced the exercise very slowly yesterday.",
+          "She introduces the exercise very slow yesterday.",
+          "They She introduces the exercise very slow yesterday.",
+          "She was introduceing when I came yesterday."
+        ]
+      },
+      "answer": "She introduced the exercise very slowly yesterday.",
+      "explain_vi": "Trạng từ 'slowly' bổ nghĩa cho động từ.",
+      "content_hash": "introduce|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "introduce error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "introduce a new friend",
+        "vn_trap": "past tense introduced"
+      }
+    },
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "giới thiệu bản thân",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'introduce':",
+        "opts": [
+          "introduce a new friend",
+          "introduce in wrong way",
+          "introduce without care",
+          "introduce for nothing"
+        ]
+      },
+      "answer": "introduce a new friend",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: introduce a new friend.",
+      "content_hash": "introduce|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "introduce collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "introduce a new friend",
+        "vn_trap": "past tense introduced"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "mời dự tiệc",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "invite (v.)",
+        "opts": [
+          "mời dự tiệc",
+          "lên kế hoạch đi",
+          "gọi chuông cửa",
+          "đào tạo nhân viên"
+        ]
+      },
+      "answer": "mời dự tiệc",
+      "explain_vi": "Động từ invite mang nghĩa chính xác là: mời dự tiệc.",
+      "content_hash": "invite|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "invite gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "invite to birthday party",
+        "vn_trap": "past tense invited"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "mời dự tiệc",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'mời dự tiệc' là:",
+        "opts": [
+          "invite",
+          "invites",
+          "inviteing",
+          "invited"
+        ]
+      },
+      "answer": "invite",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là invite.",
+      "content_hash": "invite|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "invite l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "invite to birthday party",
+        "vn_trap": "past tense invited"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "mời dự tiệc",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Very few students are able to ___ this puzzle.",
+        "opts": [
+          "invite",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "invite",
+      "explain_vi": "Điền 'invite' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "invite|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "invite cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "invite to birthday party",
+        "vn_trap": "past tense invited"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "mời dự tiệc",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was inviteing when the lights went out.'",
+        "opts": [
+          "They were inviteing when the lights went out.",
+          "They was inviteing when the lights went out.",
+          "They They was inviteing when the lights went out.",
+          "She was inviteing when I came yesterday."
+        ]
+      },
+      "answer": "They were inviteing when the lights went out.",
+      "explain_vi": "Chủ ngữ 'They' dùng 'were'.",
+      "content_hash": "invite|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "invite error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "invite to birthday party",
+        "vn_trap": "past tense invited"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "mời dự tiệc",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'invite':",
+        "opts": [
+          "invite to birthday party",
+          "invite in wrong way",
+          "invite without care",
+          "invite for nothing"
+        ]
+      },
+      "answer": "invite to birthday party",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: invite to birthday party.",
+      "content_hash": "invite|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "invite collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "invite to birthday party",
+        "vn_trap": "past tense invited"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "nhảy qua rào",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "jump (v.)",
+        "opts": [
+          "nhảy qua rào",
+          "chỉ vào bức ảnh",
+          "tăng giá cả",
+          "dịch sang tiếng Việt"
+        ]
+      },
+      "answer": "nhảy qua rào",
+      "explain_vi": "Động từ jump mang nghĩa chính xác là: nhảy qua rào.",
+      "content_hash": "jump|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "jump gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "jump over the fence",
+        "vn_trap": "past tense jumped"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "nhảy qua rào",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để nói về hành động 'nhảy qua rào', người Anh dùng:",
+        "opts": [
+          "jump",
+          "jumps",
+          "jumping",
+          "jumped"
+        ]
+      },
+      "answer": "jump",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là jump.",
+      "content_hash": "jump|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "jump l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "jump over the fence",
+        "vn_trap": "past tense jumped"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "nhảy qua rào",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "We should all ___ together to protect nature.",
+        "opts": [
+          "jump",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "jump",
+      "explain_vi": "Điền 'jump' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "jump|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "jump cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "jump over the fence",
+        "vn_trap": "past tense jumped"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "nhảy qua rào",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He jumps without check the answers first.'",
+        "opts": [
+          "He jumped without checking the answers first.",
+          "He jumps without check the answers first.",
+          "They He jumps without check the answers first.",
+          "She was jumping when I came yesterday."
+        ]
+      },
+      "answer": "He jumped without checking the answers first.",
+      "explain_vi": "Sau 'without' dùng V-ing.",
+      "content_hash": "jump|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "jump error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "jump over the fence",
+        "vn_trap": "past tense jumped"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "nhảy qua rào",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'jump':",
+        "opts": [
+          "jump over the fence",
+          "jump in wrong way",
+          "jump without care",
+          "jump for nothing"
+        ]
+      },
+      "answer": "jump over the fence",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: jump over the fence.",
+      "content_hash": "jump|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "jump collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "jump over the fence",
+        "vn_trap": "past tense jumped"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "đá quả bóng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "kick (v.)",
+        "opts": [
+          "đá quả bóng",
+          "thích hơn",
+          "lăn quả bóng",
+          "đối xử tốt"
+        ]
+      },
+      "answer": "đá quả bóng",
+      "explain_vi": "Động từ kick mang nghĩa chính xác là: đá quả bóng.",
+      "content_hash": "kick|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "kick gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kick the football hard",
+        "vn_trap": "past tense kicked"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "đá quả bóng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khái niệm 'đá quả bóng' tương đương với động từ tiếng Anh:",
+        "opts": [
+          "kick",
+          "kicks",
+          "kicking",
+          "kicked"
+        ]
+      },
+      "answer": "kick",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là kick.",
+      "content_hash": "kick|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "kick l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kick the football hard",
+        "vn_trap": "past tense kicked"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "đá quả bóng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "You can ___ your laptop to complete the report.",
+        "opts": [
+          "kick",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "kick",
+      "explain_vi": "Điền 'kick' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "kick|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "kick cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kick the football hard",
+        "vn_trap": "past tense kicked"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "đá quả bóng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is kicking since last year.'",
+        "opts": [
+          "She has been kicking since last year.",
+          "She is kicking since last year.",
+          "They She is kicking since last year.",
+          "She was kicking when I came yesterday."
+        ]
+      },
+      "answer": "She has been kicking since last year.",
+      "explain_vi": "Dùng hiện tại hoàn thành tiếp diễn với 'since'.",
+      "content_hash": "kick|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "kick error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kick the football hard",
+        "vn_trap": "past tense kicked"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "đá quả bóng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'kick':",
+        "opts": [
+          "kick the football hard",
+          "kick in wrong way",
+          "kick without care",
+          "kick for nothing"
+        ]
+      },
+      "answer": "kick the football hard",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: kick the football hard.",
+      "content_hash": "kick|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "kick collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kick the football hard",
+        "vn_trap": "past tense kicked"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "hôn tạm biệt",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "kiss (v.)",
+        "opts": [
+          "hôn tạm biệt",
+          "trình bày ý tưởng",
+          "quy định luật lệ",
+          "tin tưởng bạn thân"
+        ]
+      },
+      "answer": "hôn tạm biệt",
+      "explain_vi": "Động từ kiss mang nghĩa chính xác là: hôn tạm biệt.",
+      "content_hash": "kiss|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "kiss gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kiss goodbye at station",
+        "vn_trap": "past tense kissed"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "hôn tạm biệt",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'hôn tạm biệt', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "kiss",
+          "kisss",
+          "kissing",
+          "kissed"
+        ]
+      },
+      "answer": "kiss",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là kiss.",
+      "content_hash": "kiss|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "kiss l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kiss goodbye at station",
+        "vn_trap": "past tense kissed"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "hôn tạm biệt",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Yesterday, he tried to ___ his old bicycle.",
+        "opts": [
+          "kiss",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "kiss",
+      "explain_vi": "Điền 'kiss' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "kiss|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "kiss cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kiss goodbye at station",
+        "vn_trap": "past tense kissed"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "hôn tạm biệt",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If they kisss earlier, they would win.'",
+        "opts": [
+          "If they kissed earlier, they would win.",
+          "If they kisss earlier, they would win.",
+          "They If they kisss earlier, they would win.",
+          "She was kissing when I came yesterday."
+        ]
+      },
+      "answer": "If they kissed earlier, they would win.",
+      "explain_vi": "Điều kiện loại 2 dùng quá khứ đơn.",
+      "content_hash": "kiss|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "kiss error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kiss goodbye at station",
+        "vn_trap": "past tense kissed"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "hôn tạm biệt",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'kiss':",
+        "opts": [
+          "kiss goodbye at station",
+          "kiss in wrong way",
+          "kiss without care",
+          "kiss for nothing"
+        ]
+      },
+      "answer": "kiss goodbye at station",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: kiss goodbye at station.",
+      "content_hash": "kiss|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "kiss collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "kiss goodbye at station",
+        "vn_trap": "past tense kissed"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "đặt đồ xuống",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lay (v.)",
+        "opts": [
+          "đặt đồ xuống",
+          "ấn nút mở",
+          "vội vã đi",
+          "gõ văn bản"
+        ]
+      },
+      "answer": "đặt đồ xuống",
+      "explain_vi": "Động từ lay mang nghĩa chính xác là: đặt đồ xuống.",
+      "content_hash": "lay|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "lay gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lay something on table",
+        "vn_trap": "past tense laid"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "đặt đồ xuống",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'đặt đồ xuống' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "lay",
+          "lays",
+          "laying",
+          "laid"
+        ]
+      },
+      "answer": "lay",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là lay.",
+      "content_hash": "lay|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "lay l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lay something on table",
+        "vn_trap": "past tense laid"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "đặt đồ xuống",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Zero effort will never help you ___ your targets.",
+        "opts": [
+          "lay",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "lay",
+      "explain_vi": "Điền 'lay' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "lay|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "lay cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lay something on table",
+        "vn_trap": "past tense laid"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "đặt đồ xuống",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She avoids to lay when she is busy.'",
+        "opts": [
+          "She avoids laying when she is busy.",
+          "She avoids to lay when she is busy.",
+          "They She avoids to lay when she is busy.",
+          "She was laying when I came yesterday."
+        ]
+      },
+      "answer": "She avoids laying when she is busy.",
+      "explain_vi": "Sau 'avoid' dùng V-ing.",
+      "content_hash": "lay|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "lay error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lay something on table",
+        "vn_trap": "past tense laid"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "đặt đồ xuống",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'lay':",
+        "opts": [
+          "lay something on table",
+          "lay in wrong way",
+          "lay without care",
+          "lay for nothing"
+        ]
+      },
+      "answer": "lay something on table",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: lay something on table.",
+      "content_hash": "lay|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "lay collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lay something on table",
+        "vn_trap": "past tense laid"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "nằm nghỉ ngơi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lie (v.)",
+        "opts": [
+          "nằm nghỉ ngơi",
+          "ngăn bệnh tật",
+          "tìm kiếm thông tin",
+          "đoàn kết mọi người"
+        ]
+      },
+      "answer": "nằm nghỉ ngơi",
+      "explain_vi": "Động từ lie mang nghĩa chính xác là: nằm nghỉ ngơi.",
+      "content_hash": "lie|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "lie gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lie on comfortable bed",
+        "vn_trap": "past tense lay"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "nằm nghỉ ngơi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'nằm nghỉ ngơi', từ tiếng Anh đúng là:",
+        "opts": [
+          "lie",
+          "lies",
+          "lieing",
+          "lay"
+        ]
+      },
+      "answer": "lie",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là lie.",
+      "content_hash": "lie|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "lie l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lie on comfortable bed",
+        "vn_trap": "past tense lay"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "nằm nghỉ ngơi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "A good leader knows how to ___ their team well.",
+        "opts": [
+          "lie",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "lie",
+      "explain_vi": "Điền 'lie' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "lie|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "lie cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lie on comfortable bed",
+        "vn_trap": "past tense lay"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "nằm nghỉ ngơi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is good at lie in public places.'",
+        "opts": [
+          "He is good at lieing in public places.",
+          "He is good at lie in public places.",
+          "They He is good at lie in public places.",
+          "She was lieing when I came yesterday."
+        ]
+      },
+      "answer": "He is good at lieing in public places.",
+      "explain_vi": "Sau 'good at' dùng V-ing.",
+      "content_hash": "lie|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "lie error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lie on comfortable bed",
+        "vn_trap": "past tense lay"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "nằm nghỉ ngơi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'lie':",
+        "opts": [
+          "lie on comfortable bed",
+          "lie in wrong way",
+          "lie without care",
+          "lie for nothing"
+        ]
+      },
+      "answer": "lie on comfortable bed",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: lie on comfortable bed.",
+      "content_hash": "lie|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "lie collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lie on comfortable bed",
+        "vn_trap": "past tense lay"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "nâng vật nặng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lift (v.)",
+        "opts": [
+          "nâng vật nặng",
+          "in tài liệu",
+          "có vẻ vui",
+          "cập nhật phần mềm"
+        ]
+      },
+      "answer": "nâng vật nặng",
+      "explain_vi": "Động từ lift mang nghĩa chính xác là: nâng vật nặng.",
+      "content_hash": "lift|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "lift gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lift heavy boxes up",
+        "vn_trap": "past tense lifted"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "nâng vật nặng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'nâng vật nặng' là:",
+        "opts": [
+          "lift",
+          "lifts",
+          "lifting",
+          "lifted"
+        ]
+      },
+      "answer": "lift",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là lift.",
+      "content_hash": "lift|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "lift l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lift heavy boxes up",
+        "vn_trap": "past tense lifted"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "nâng vật nặng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Before you leave, make sure to ___ the door.",
+        "opts": [
+          "lift",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "lift",
+      "explain_vi": "Điền 'lift' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "lift|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "lift cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lift heavy boxes up",
+        "vn_trap": "past tense lifted"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "nâng vật nặng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite of the rain, she went out to lift.'",
+        "opts": [
+          "Despite the rain, she went out to lift.",
+          "Despite of the rain, she went out to lift.",
+          "They Despite of the rain, she went out to lift.",
+          "She was lifting when I came yesterday."
+        ]
+      },
+      "answer": "Despite the rain, she went out to lift.",
+      "explain_vi": "Dùng 'Despite' (không có 'of').",
+      "content_hash": "lift|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "lift error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lift heavy boxes up",
+        "vn_trap": "past tense lifted"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "nâng vật nặng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'lift':",
+        "opts": [
+          "lift heavy boxes up",
+          "lift in wrong way",
+          "lift without care",
+          "lift for nothing"
+        ]
+      },
+      "answer": "lift heavy boxes up",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: lift heavy boxes up.",
+      "content_hash": "lift|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "lift collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lift heavy boxes up",
+        "vn_trap": "past tense lifted"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "thắp ngọn nến",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "light (v.)",
+        "opts": [
+          "thắp ngọn nến",
+          "bảo vệ động vật",
+          "chọn phương án",
+          "làm buồn"
+        ]
+      },
+      "answer": "thắp ngọn nến",
+      "explain_vi": "Động từ light mang nghĩa chính xác là: thắp ngọn nến.",
+      "content_hash": "light|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "light gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "light a candle night",
+        "vn_trap": "past tense lit"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "thắp ngọn nến",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'thắp ngọn nến' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "light",
+          "lights",
+          "lighting",
+          "lit"
+        ]
+      },
+      "answer": "light",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là light.",
+      "content_hash": "light|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "light l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "light a candle night",
+        "vn_trap": "past tense lit"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "thắp ngọn nến",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Children love to ___ games in the playground.",
+        "opts": [
+          "light",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "light",
+      "explain_vi": "Điền 'light' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "light|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "light cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "light a candle night",
+        "vn_trap": "past tense lit"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "thắp ngọn nến",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has lited the book yesterday evening.'",
+        "opts": [
+          "She lit the book yesterday evening.",
+          "She has lited the book yesterday evening.",
+          "They She has lited the book yesterday evening.",
+          "She was lighting when I came yesterday."
+        ]
+      },
+      "answer": "She lit the book yesterday evening.",
+      "explain_vi": "Quá khứ xác định dùng quá khứ đơn.",
+      "content_hash": "light|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "light error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "light a candle night",
+        "vn_trap": "past tense lit"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "thắp ngọn nến",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'light':",
+        "opts": [
+          "light a candle night",
+          "light in wrong way",
+          "light without care",
+          "light for nothing"
+        ]
+      },
+      "answer": "light a candle night",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: light a candle night.",
+      "content_hash": "light|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "light collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "light a candle night",
+        "vn_trap": "past tense lit"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "khóa cửa phòng",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lock (v.)",
+        "opts": [
+          "khóa cửa phòng",
+          "chứng minh ý kiến",
+          "tách hai nhóm",
+          "trân trọng thời gian"
+        ]
+      },
+      "answer": "khóa cửa phòng",
+      "explain_vi": "Động từ lock mang nghĩa chính xác là: khóa cửa phòng.",
+      "content_hash": "lock|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "lock gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lock the room door",
+        "vn_trap": "past tense locked"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "khóa cửa phòng",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'khóa cửa phòng' là:",
+        "opts": [
+          "lock",
+          "locks",
+          "locking",
+          "locked"
+        ]
+      },
+      "answer": "lock",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là lock.",
+      "content_hash": "lock|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "lock l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lock the room door",
+        "vn_trap": "past tense locked"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "khóa cửa phòng",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "During the lesson, please ___ to the teacher.",
+        "opts": [
+          "lock",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "lock",
+      "explain_vi": "Điền 'lock' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "lock|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "lock cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lock the room door",
+        "vn_trap": "past tense locked"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "khóa cửa phòng",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He remembered to locking the door before leaving.'",
+        "opts": [
+          "He remembered to lock the door before leaving.",
+          "He remembered to locking the door before leaving.",
+          "They He remembered to locking the door before leaving.",
+          "She was locking when I came yesterday."
+        ]
+      },
+      "answer": "He remembered to lock the door before leaving.",
+      "explain_vi": "Nhớ phải làm gì dùng 'remember to V'.",
+      "content_hash": "lock|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "lock error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lock the room door",
+        "vn_trap": "past tense locked"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "khóa cửa phòng",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'lock':",
+        "opts": [
+          "lock the room door",
+          "lock in wrong way",
+          "lock without care",
+          "lock for nothing"
+        ]
+      },
+      "answer": "lock the room door",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: lock the room door.",
+      "content_hash": "lock|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "lock collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "lock the room door",
+        "vn_trap": "past tense locked"
+      }
+    }
+  ]
+}

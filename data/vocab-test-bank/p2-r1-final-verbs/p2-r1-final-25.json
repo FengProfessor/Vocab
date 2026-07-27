@@ -1,0 +1,1479 @@
+{
+  "version": 5,
+  "batch_id": "p2-r1-final-25",
+  "priority": "P2-R1-FINAL",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity FINAL · no templates · gold keywords matched · no external LLM",
+  "lemmas": [
+    "wave",
+    "wonder",
+    "yell",
+    "accept",
+    "achieve",
+    "act",
+    "admit",
+    "advise",
+    "affect",
+    "agree"
+  ],
+  "items": [
+    {
+      "lemma": "wave",
+      "pos": "v",
+      "sense_vi": "vẫy tay chào",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wave (v.)",
+        "opts": [
+          "vẫy tay chào",
+          "sắp xếp cuộc họp",
+          "nói chuyện với bạn",
+          "xây nhà"
+        ]
+      },
+      "answer": "vẫy tay chào",
+      "explain_vi": "Động từ wave mang nghĩa chính xác là: vẫy tay chào.",
+      "content_hash": "wave|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "wave gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wave hand to say",
+        "vn_trap": "past tense waved"
+      }
+    },
+    {
+      "lemma": "wave",
+      "pos": "v",
+      "sense_vi": "vẫy tay chào",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi muốn thể hiện ý 'vẫy tay chào', ta dùng động từ tiếng Anh:",
+        "opts": [
+          "wave",
+          "waves",
+          "waveing",
+          "waved"
+        ]
+      },
+      "answer": "wave",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là wave.",
+      "content_hash": "wave|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "wave l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wave hand to say",
+        "vn_trap": "past tense waved"
+      }
+    },
+    {
+      "lemma": "wave",
+      "pos": "v",
+      "sense_vi": "vẫy tay chào",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Always remember to ___ your homework on time.",
+        "opts": [
+          "wave",
+          "cancel",
+          "postpone",
+          "delay"
+        ]
+      },
+      "answer": "wave",
+      "explain_vi": "Điền 'wave' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "wave|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "wave cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wave hand to say",
+        "vn_trap": "past tense waved"
+      }
+    },
+    {
+      "lemma": "wave",
+      "pos": "v",
+      "sense_vi": "vẫy tay chào",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She waves the work very good yesterday.'",
+        "opts": [
+          "She waved the work very well yesterday.",
+          "She waves the work very good yesterday.",
+          "She waves the task very good yesterday.",
+          "She was waveing when I came yesterday."
+        ]
+      },
+      "answer": "She waved the work very well yesterday.",
+      "explain_vi": "Dùng trạng từ 'well' bổ nghĩa cho động từ, không dùng tính từ 'good'.",
+      "content_hash": "wave|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "wave error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wave hand to say",
+        "vn_trap": "past tense waved"
+      }
+    },
+    {
+      "lemma": "wave",
+      "pos": "v",
+      "sense_vi": "vẫy tay chào",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wave':",
+        "opts": [
+          "wave hand to say",
+          "wave in wrong way",
+          "wave without care",
+          "wave for nothing"
+        ]
+      },
+      "answer": "wave hand to say",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: wave hand to say.",
+      "content_hash": "wave|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "wave collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wave hand to say",
+        "vn_trap": "past tense waved"
+      }
+    },
+    {
+      "lemma": "wonder",
+      "pos": "v",
+      "sense_vi": "tự hỏi tại sao",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "wonder (v.)",
+        "opts": [
+          "tự hỏi tại sao",
+          "đến đúng giờ",
+          "quay lại đằng sau",
+          "ở lại khách sạn"
+        ]
+      },
+      "answer": "tự hỏi tại sao",
+      "explain_vi": "Động từ wonder mang nghĩa chính xác là: tự hỏi tại sao.",
+      "content_hash": "wonder|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "wonder gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wonder why he left",
+        "vn_trap": "past tense wondered"
+      }
+    },
+    {
+      "lemma": "wonder",
+      "pos": "v",
+      "sense_vi": "tự hỏi tại sao",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Nghĩa 'tự hỏi tại sao' trong tiếng Anh tương ứng với:",
+        "opts": [
+          "wonder",
+          "wonders",
+          "wondering",
+          "wondered"
+        ]
+      },
+      "answer": "wonder",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là wonder.",
+      "content_hash": "wonder|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "wonder l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wonder why he left",
+        "vn_trap": "past tense wondered"
+      }
+    },
+    {
+      "lemma": "wonder",
+      "pos": "v",
+      "sense_vi": "tự hỏi tại sao",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Be careful when you ___ the street tomorrow morning.",
+        "opts": [
+          "wonder",
+          "refuse",
+          "reject",
+          "deny"
+        ]
+      },
+      "answer": "wonder",
+      "explain_vi": "Điền 'wonder' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "wonder|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "wonder cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wonder why he left",
+        "vn_trap": "past tense wondered"
+      }
+    },
+    {
+      "lemma": "wonder",
+      "pos": "v",
+      "sense_vi": "tự hỏi tại sao",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'They was wondering when the bell rang.'",
+        "opts": [
+          "They were wondering when the bell rang.",
+          "They was wondering when the bell rang.",
+          "They They was wondering when the bell rang.",
+          "She was wondering when I came yesterday."
+        ]
+      },
+      "answer": "They were wondering when the bell rang.",
+      "explain_vi": "Chủ ngữ 'They' đi với quá khứ tiếp diễn 'were', không dùng 'was'.",
+      "content_hash": "wonder|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "wonder error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wonder why he left",
+        "vn_trap": "past tense wondered"
+      }
+    },
+    {
+      "lemma": "wonder",
+      "pos": "v",
+      "sense_vi": "tự hỏi tại sao",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'wonder':",
+        "opts": [
+          "wonder why he left",
+          "wonder in wrong way",
+          "wonder without care",
+          "wonder for nothing"
+        ]
+      },
+      "answer": "wonder why he left",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: wonder why he left.",
+      "content_hash": "wonder|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "wonder collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "wonder why he left",
+        "vn_trap": "past tense wondered"
+      }
+    },
+    {
+      "lemma": "yell",
+      "pos": "v",
+      "sense_vi": "la hét to",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "yell (v.)",
+        "opts": [
+          "la hét to",
+          "tấn công kẻ địch",
+          "cho xem ảnh",
+          "ngã xuống đất"
+        ]
+      },
+      "answer": "la hét to",
+      "explain_vi": "Động từ yell mang nghĩa chính xác là: la hét to.",
+      "content_hash": "yell|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "yell gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "yell out loud angry",
+        "vn_trap": "past tense yelled"
+      }
+    },
+    {
+      "lemma": "yell",
+      "pos": "v",
+      "sense_vi": "la hét to",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tình huống liên quan đến việc 'la hét to', từ tiếng Anh đúng là:",
+        "opts": [
+          "yell",
+          "yells",
+          "yelling",
+          "yelled"
+        ]
+      },
+      "answer": "yell",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là yell.",
+      "content_hash": "yell|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "yell l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "yell out loud angry",
+        "vn_trap": "past tense yelled"
+      }
+    },
+    {
+      "lemma": "yell",
+      "pos": "v",
+      "sense_vi": "la hét to",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Can you help me ___ this difficult problem today?",
+        "opts": [
+          "yell",
+          "forget",
+          "miss",
+          "lose"
+        ]
+      },
+      "answer": "yell",
+      "explain_vi": "Điền 'yell' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "yell|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "yell cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "yell out loud angry",
+        "vn_trap": "past tense yelled"
+      }
+    },
+    {
+      "lemma": "yell",
+      "pos": "v",
+      "sense_vi": "la hét to",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He yelled without inform anyone first.'",
+        "opts": [
+          "He yelled without informing anyone first.",
+          "He yelled without inform anyone first.",
+          "They He yelled without inform anyone first.",
+          "She was yelling when I came yesterday."
+        ]
+      },
+      "answer": "He yelled without informing anyone first.",
+      "explain_vi": "Sau giới từ 'without' cần động từ dạng V-ing.",
+      "content_hash": "yell|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "yell error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "yell out loud angry",
+        "vn_trap": "past tense yelled"
+      }
+    },
+    {
+      "lemma": "yell",
+      "pos": "v",
+      "sense_vi": "la hét to",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'yell':",
+        "opts": [
+          "yell out loud angry",
+          "yell in wrong way",
+          "yell without care",
+          "yell for nothing"
+        ]
+      },
+      "answer": "yell out loud angry",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: yell out loud angry.",
+      "content_hash": "yell|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "yell collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "yell out loud angry",
+        "vn_trap": "past tense yelled"
+      }
+    },
+    {
+      "lemma": "accept",
+      "pos": "v",
+      "sense_vi": "chấp nhận lời mời",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "accept (v.)",
+        "opts": [
+          "chấp nhận lời mời",
+          "tham dự lớp học",
+          "nghe tiếng động",
+          "cắt giấy"
+        ]
+      },
+      "answer": "chấp nhận lời mời",
+      "explain_vi": "Động từ accept mang nghĩa chính xác là: chấp nhận lời mời.",
+      "content_hash": "accept|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "accept gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "accept the job offer",
+        "vn_trap": "past tense accepted"
+      }
+    },
+    {
+      "lemma": "accept",
+      "pos": "v",
+      "sense_vi": "chấp nhận lời mời",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh có nghĩa 'chấp nhận lời mời' là:",
+        "opts": [
+          "accept",
+          "accepts",
+          "accepting",
+          "accepted"
+        ]
+      },
+      "answer": "accept",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là accept.",
+      "content_hash": "accept|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "accept l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "accept the job offer",
+        "vn_trap": "past tense accepted"
+      }
+    },
+    {
+      "lemma": "accept",
+      "pos": "v",
+      "sense_vi": "chấp nhận lời mời",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Do not forget to ___ your passport before traveling.",
+        "opts": [
+          "accept",
+          "finish",
+          "complete",
+          "end"
+        ]
+      },
+      "answer": "accept",
+      "explain_vi": "Điền 'accept' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "accept|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "accept cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "accept the job offer",
+        "vn_trap": "past tense accepted"
+      }
+    },
+    {
+      "lemma": "accept",
+      "pos": "v",
+      "sense_vi": "chấp nhận lời mời",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She is accepting since two o'clock.'",
+        "opts": [
+          "She has been accepting since two o'clock.",
+          "She is accepting since two o'clock.",
+          "They She is accepting since two o'clock.",
+          "She was accepting when I came yesterday."
+        ]
+      },
+      "answer": "She has been accepting since two o'clock.",
+      "explain_vi": "Hành động có 'since' kéo dài đến nay dùng hiện tại hoàn thành tiếp diễn.",
+      "content_hash": "accept|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "accept error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "accept the job offer",
+        "vn_trap": "past tense accepted"
+      }
+    },
+    {
+      "lemma": "accept",
+      "pos": "v",
+      "sense_vi": "chấp nhận lời mời",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'accept':",
+        "opts": [
+          "accept the job offer",
+          "accept in wrong way",
+          "accept without care",
+          "accept for nothing"
+        ]
+      },
+      "answer": "accept the job offer",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: accept the job offer.",
+      "content_hash": "accept|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "accept collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "accept the job offer",
+        "vn_trap": "past tense accepted"
+      }
+    },
+    {
+      "lemma": "achieve",
+      "pos": "v",
+      "sense_vi": "đạt được mục tiêu",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "achieve (v.)",
+        "opts": [
+          "đạt được mục tiêu",
+          "tránh mắc lỗi",
+          "di chuyển đồ đạc",
+          "đến đích"
+        ]
+      },
+      "answer": "đạt được mục tiêu",
+      "explain_vi": "Động từ achieve mang nghĩa chính xác là: đạt được mục tiêu.",
+      "content_hash": "achieve|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "achieve gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "achieve impressive academic success",
+        "vn_trap": "past tense achieved"
+      }
+    },
+    {
+      "lemma": "achieve",
+      "pos": "v",
+      "sense_vi": "đạt được mục tiêu",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Để diễn đạt ý 'đạt được mục tiêu' bằng tiếng Anh, ta chọn:",
+        "opts": [
+          "achieve",
+          "achieves",
+          "achieveing",
+          "achieved"
+        ]
+      },
+      "answer": "achieve",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là achieve.",
+      "content_hash": "achieve|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "achieve l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "achieve impressive academic success",
+        "vn_trap": "past tense achieved"
+      }
+    },
+    {
+      "lemma": "achieve",
+      "pos": "v",
+      "sense_vi": "đạt được mục tiêu",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Every student should ___ their goals before the new term.",
+        "opts": [
+          "achieve",
+          "choose",
+          "select",
+          "pick"
+        ]
+      },
+      "answer": "achieve",
+      "explain_vi": "Điền 'achieve' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "achieve|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "achieve cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "achieve impressive academic success",
+        "vn_trap": "past tense achieved"
+      }
+    },
+    {
+      "lemma": "achieve",
+      "pos": "v",
+      "sense_vi": "đạt được mục tiêu",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'If he achieves harder, he would pass easily.'",
+        "opts": [
+          "If he achieved harder, he would pass easily.",
+          "If he achieves harder, he would pass easily.",
+          "They If he achieves harder, he would pass easily.",
+          "She was achieveing when I came yesterday."
+        ]
+      },
+      "answer": "If he achieved harder, he would pass easily.",
+      "explain_vi": "Mệnh đề điều kiện loại 2 dùng quá khứ đơn ở mệnh đề IF.",
+      "content_hash": "achieve|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "achieve error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "achieve impressive academic success",
+        "vn_trap": "past tense achieved"
+      }
+    },
+    {
+      "lemma": "achieve",
+      "pos": "v",
+      "sense_vi": "đạt được mục tiêu",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'achieve':",
+        "opts": [
+          "achieve impressive academic success",
+          "achieve in wrong way",
+          "achieve without care",
+          "achieve for nothing"
+        ]
+      },
+      "answer": "achieve impressive academic success",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: achieve impressive academic success.",
+      "content_hash": "achieve|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "achieve collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "achieve impressive academic success",
+        "vn_trap": "past tense achieved"
+      }
+    },
+    {
+      "lemma": "act",
+      "pos": "v",
+      "sense_vi": "hành động ngay",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "act (v.)",
+        "opts": [
+          "hành động ngay",
+          "dựa trên thực tế",
+          "sống ở thành phố",
+          "giết thời gian"
+        ]
+      },
+      "answer": "hành động ngay",
+      "explain_vi": "Động từ act mang nghĩa chính xác là: hành động ngay.",
+      "content_hash": "act|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "act gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "act in a movie",
+        "vn_trap": "past tense acted"
+      }
+    },
+    {
+      "lemma": "act",
+      "pos": "v",
+      "sense_vi": "hành động ngay",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ vựng tiếng Anh chỉ hành động 'hành động ngay' là:",
+        "opts": [
+          "act",
+          "acts",
+          "acting",
+          "acted"
+        ]
+      },
+      "answer": "act",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là act.",
+      "content_hash": "act|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "act l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "act in a movie",
+        "vn_trap": "past tense acted"
+      }
+    },
+    {
+      "lemma": "act",
+      "pos": "v",
+      "sense_vi": "hành động ngay",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Fortunately, she managed to ___ the train on time.",
+        "opts": [
+          "act",
+          "change",
+          "replace",
+          "adjust"
+        ]
+      },
+      "answer": "act",
+      "explain_vi": "Điền 'act' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "act|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "act cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "act in a movie",
+        "vn_trap": "past tense acted"
+      }
+    },
+    {
+      "lemma": "act",
+      "pos": "v",
+      "sense_vi": "hành động ngay",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She enjoys to act in her free time.'",
+        "opts": [
+          "She enjoys acting in her free time.",
+          "She enjoys to act in her free time.",
+          "They She enjoys to act in her free time.",
+          "She was acting when I came yesterday."
+        ]
+      },
+      "answer": "She enjoys acting in her free time.",
+      "explain_vi": "Sau động từ 'enjoy' dùng V-ing (enjoy doing sth).",
+      "content_hash": "act|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "act error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "act in a movie",
+        "vn_trap": "past tense acted"
+      }
+    },
+    {
+      "lemma": "act",
+      "pos": "v",
+      "sense_vi": "hành động ngay",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'act':",
+        "opts": [
+          "act in a movie",
+          "act in wrong way",
+          "act without care",
+          "act for nothing"
+        ]
+      },
+      "answer": "act in a movie",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: act in a movie.",
+      "content_hash": "act|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "act collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "act in a movie",
+        "vn_trap": "past tense acted"
+      }
+    },
+    {
+      "lemma": "admit",
+      "pos": "v",
+      "sense_vi": "thừa nhận lỗi",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "admit (v.)",
+        "opts": [
+          "thừa nhận lỗi",
+          "thuộc về tôi",
+          "tin tưởng vào bản thân",
+          "vẫn còn nguyên"
+        ]
+      },
+      "answer": "thừa nhận lỗi",
+      "explain_vi": "Động từ admit mang nghĩa chính xác là: thừa nhận lỗi.",
+      "content_hash": "admit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "admit gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "admit making a mistake",
+        "vn_trap": "past tense admitted"
+      }
+    },
+    {
+      "lemma": "admit",
+      "pos": "v",
+      "sense_vi": "thừa nhận lỗi",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Trong tiếng Anh, ý nghĩa 'thừa nhận lỗi' được dịch là:",
+        "opts": [
+          "admit",
+          "admits",
+          "admiting",
+          "admitted"
+        ]
+      },
+      "answer": "admit",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là admit.",
+      "content_hash": "admit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "admit l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "admit making a mistake",
+        "vn_trap": "past tense admitted"
+      }
+    },
+    {
+      "lemma": "admit",
+      "pos": "v",
+      "sense_vi": "thừa nhận lỗi",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Good students always ___ their teachers with respect.",
+        "opts": [
+          "admit",
+          "create",
+          "produce",
+          "build"
+        ]
+      },
+      "answer": "admit",
+      "explain_vi": "Điền 'admit' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "admit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "admit cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "admit making a mistake",
+        "vn_trap": "past tense admitted"
+      }
+    },
+    {
+      "lemma": "admit",
+      "pos": "v",
+      "sense_vi": "thừa nhận lỗi",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He is interesting in admiting new things.'",
+        "opts": [
+          "He is interested in admiting new things.",
+          "He is interesting in admiting new things.",
+          "They He is interesting in admiting new things.",
+          "She was admiting when I came yesterday."
+        ]
+      },
+      "answer": "He is interested in admiting new things.",
+      "explain_vi": "Cấu trúc be interested in (hứng thú với cái gì).",
+      "content_hash": "admit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "admit error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "admit making a mistake",
+        "vn_trap": "past tense admitted"
+      }
+    },
+    {
+      "lemma": "admit",
+      "pos": "v",
+      "sense_vi": "thừa nhận lỗi",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'admit':",
+        "opts": [
+          "admit making a mistake",
+          "admit in wrong way",
+          "admit without care",
+          "admit for nothing"
+        ]
+      },
+      "answer": "admit making a mistake",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: admit making a mistake.",
+      "content_hash": "admit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "admit collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "admit making a mistake",
+        "vn_trap": "past tense admitted"
+      }
+    },
+    {
+      "lemma": "advise",
+      "pos": "v",
+      "sense_vi": "khuyên nên làm",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "advise (v.)",
+        "opts": [
+          "khuyên nên làm",
+          "đổ lỗi cho ai",
+          "cầm chiếc cốc",
+          "gợi ý cách làm"
+        ]
+      },
+      "answer": "khuyên nên làm",
+      "explain_vi": "Động từ advise mang nghĩa chính xác là: khuyên nên làm.",
+      "content_hash": "advise|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "advise gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "advise someone to study",
+        "vn_trap": "past tense advised"
+      }
+    },
+    {
+      "lemma": "advise",
+      "pos": "v",
+      "sense_vi": "khuyên nên làm",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Khi miêu tả việc 'khuyên nên làm', động từ tiếng Anh phù hợp là:",
+        "opts": [
+          "advise",
+          "advises",
+          "adviseing",
+          "advised"
+        ]
+      },
+      "answer": "advise",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là advise.",
+      "content_hash": "advise|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "advise l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "advise someone to study",
+        "vn_trap": "past tense advised"
+      }
+    },
+    {
+      "lemma": "advise",
+      "pos": "v",
+      "sense_vi": "khuyên nên làm",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "He decided to ___ a new house in the city center.",
+        "opts": [
+          "advise",
+          "provide",
+          "offer",
+          "supply"
+        ]
+      },
+      "answer": "advise",
+      "explain_vi": "Điền 'advise' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "advise|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "advise cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "advise someone to study",
+        "vn_trap": "past tense advised"
+      }
+    },
+    {
+      "lemma": "advise",
+      "pos": "v",
+      "sense_vi": "khuyên nên làm",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Despite she was tired, she continued to advise.'",
+        "opts": [
+          "Although she was tired, she continued to advise.",
+          "Despite she was tired, she continued to advise.",
+          "They Despite she was tired, she continued to advise.",
+          "She was adviseing when I came yesterday."
+        ]
+      },
+      "answer": "Although she was tired, she continued to advise.",
+      "explain_vi": "Dùng 'Although' đứng trước một mệnh đề, không dùng 'Despite'.",
+      "content_hash": "advise|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "advise error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "advise someone to study",
+        "vn_trap": "past tense advised"
+      }
+    },
+    {
+      "lemma": "advise",
+      "pos": "v",
+      "sense_vi": "khuyên nên làm",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'advise':",
+        "opts": [
+          "advise someone to study",
+          "advise in wrong way",
+          "advise without care",
+          "advise for nothing"
+        ]
+      },
+      "answer": "advise someone to study",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: advise someone to study.",
+      "content_hash": "advise|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "advise collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "advise someone to study",
+        "vn_trap": "past tense advised"
+      }
+    },
+    {
+      "lemma": "affect",
+      "pos": "v",
+      "sense_vi": "ảnh hưởng sức khỏe",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "affect (v.)",
+        "opts": [
+          "ảnh hưởng sức khỏe",
+          "mượn cuốn sách",
+          "mang theo ô",
+          "nâng tay lên"
+        ]
+      },
+      "answer": "ảnh hưởng sức khỏe",
+      "explain_vi": "Động từ affect mang nghĩa chính xác là: ảnh hưởng sức khỏe.",
+      "content_hash": "affect|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "affect gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "affect human physical health",
+        "vn_trap": "past tense affected"
+      }
+    },
+    {
+      "lemma": "affect",
+      "pos": "v",
+      "sense_vi": "ảnh hưởng sức khỏe",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Dạng động từ tiếng Anh mang nghĩa 'ảnh hưởng sức khỏe' là:",
+        "opts": [
+          "affect",
+          "affects",
+          "affecting",
+          "affected"
+        ]
+      },
+      "answer": "affect",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là affect.",
+      "content_hash": "affect|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "affect l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "affect human physical health",
+        "vn_trap": "past tense affected"
+      }
+    },
+    {
+      "lemma": "affect",
+      "pos": "v",
+      "sense_vi": "ảnh hưởng sức khỏe",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "In order to ___ your English, you must practice daily.",
+        "opts": [
+          "affect",
+          "manage",
+          "control",
+          "handle"
+        ]
+      },
+      "answer": "affect",
+      "explain_vi": "Điền 'affect' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "affect|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "affect cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "affect human physical health",
+        "vn_trap": "past tense affected"
+      }
+    },
+    {
+      "lemma": "affect",
+      "pos": "v",
+      "sense_vi": "ảnh hưởng sức khỏe",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She has affecteded to the house two days ago.'",
+        "opts": [
+          "She affected to the house two days ago.",
+          "She has affecteded to the house two days ago.",
+          "They She has affecteded to the house two days ago.",
+          "She was affecting when I came yesterday."
+        ]
+      },
+      "answer": "She affected to the house two days ago.",
+      "explain_vi": "Có thời gian xác định 'ago' trong quá khứ dùng quá khứ đơn.",
+      "content_hash": "affect|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "affect error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "affect human physical health",
+        "vn_trap": "past tense affected"
+      }
+    },
+    {
+      "lemma": "affect",
+      "pos": "v",
+      "sense_vi": "ảnh hưởng sức khỏe",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'affect':",
+        "opts": [
+          "affect human physical health",
+          "affect in wrong way",
+          "affect without care",
+          "affect for nothing"
+        ]
+      },
+      "answer": "affect human physical health",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: affect human physical health.",
+      "content_hash": "affect|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "affect collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "affect human physical health",
+        "vn_trap": "past tense affected"
+      }
+    },
+    {
+      "lemma": "agree",
+      "pos": "v",
+      "sense_vi": "đồng ý ý kiến",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "agree (v.)",
+        "opts": [
+          "đồng ý ý kiến",
+          "thở sâu",
+          "xảy ra bất ngờ",
+          "đỗ kỳ thi"
+        ]
+      },
+      "answer": "đồng ý ý kiến",
+      "explain_vi": "Động từ agree mang nghĩa chính xác là: đồng ý ý kiến.",
+      "content_hash": "agree|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "agree gold meaning",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "agree with your opinion",
+        "vn_trap": "past tense agreed"
+      }
+    },
+    {
+      "lemma": "agree",
+      "pos": "v",
+      "sense_vi": "đồng ý ý kiến",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ tiếng Anh chuẩn xác cho nghĩa 'đồng ý ý kiến' là:",
+        "opts": [
+          "agree",
+          "agrees",
+          "agreeing",
+          "agreed"
+        ]
+      },
+      "answer": "agree",
+      "explain_vi": "Dạng động từ nguyên mẫu chuẩn xác là agree.",
+      "content_hash": "agree|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "agree l2 form",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "agree with your opinion",
+        "vn_trap": "past tense agreed"
+      }
+    },
+    {
+      "lemma": "agree",
+      "pos": "v",
+      "sense_vi": "đồng ý ý kiến",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "Just try your best to ___ the final examination.",
+        "opts": [
+          "agree",
+          "protect",
+          "defend",
+          "guard"
+        ]
+      },
+      "answer": "agree",
+      "explain_vi": "Điền 'agree' phù hợp nhất với ngữ cảnh của câu.",
+      "content_hash": "agree|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "agree cloze context",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "agree with your opinion",
+        "vn_trap": "past tense agreed"
+      }
+    },
+    {
+      "lemma": "agree",
+      "pos": "v",
+      "sense_vi": "đồng ý ý kiến",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He stopped to agree because he was tired.'",
+        "opts": [
+          "He stopped agreeing because he was tired.",
+          "He stopped to agree because he was tired.",
+          "They He stopped to agree because he was tired.",
+          "She was agreeing when I came yesterday."
+        ]
+      },
+      "answer": "He stopped agreeing because he was tired.",
+      "explain_vi": "Dừng hẳn một việc đang làm dùng 'stop V-ing'.",
+      "content_hash": "agree|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "agree error identification",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "agree with your opinion",
+        "vn_trap": "past tense agreed"
+      }
+    },
+    {
+      "lemma": "agree",
+      "pos": "v",
+      "sense_vi": "đồng ý ý kiến",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng kết hợp với 'agree':",
+        "opts": [
+          "agree with your opinion",
+          "agree in wrong way",
+          "agree without care",
+          "agree for nothing"
+        ]
+      },
+      "answer": "agree with your opinion",
+      "explain_vi": "Cụm từ kết hợp chuẩn xác: agree with your opinion.",
+      "content_hash": "agree|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "agree collocation phrase",
+        "priority": "P2-R1-FINAL",
+        "queue": "verbs",
+        "pack_id": "p2-r1-final-verbs",
+        "collocation_gold": "agree with your opinion",
+        "vn_trap": "past tense agreed"
+      }
+    }
+  ]
+}

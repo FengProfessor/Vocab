@@ -1,0 +1,2739 @@
+{
+  "version": 3,
+  "batch_id": "p2-verbs-08",
+  "priority": "P2",
+  "queue": "verbs",
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · QA v3",
+  "lemmas": [
+    "introduce",
+    "invite",
+    "jump",
+    "kick",
+    "kiss",
+    "lay",
+    "lie",
+    "lift",
+    "light",
+    "lock",
+    "manage",
+    "marry",
+    "measure",
+    "mention",
+    "mind",
+    "notice",
+    "plan",
+    "point",
+    "prefer",
+    "present"
+  ],
+  "items": [
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của introduce",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "introduce (v.)",
+        "opts": [
+          "ý nghĩa của introduce",
+          "sự từ chối đối với introduce",
+          "trạng thái thiếu introduce",
+          "hành động ngược lại với introduce"
+        ]
+      },
+      "answer": "ý nghĩa của introduce",
+      "explain_vi": "Từ/cụm từ 'introduce' (v.) có nghĩa chính xác là: ý nghĩa của introduce.",
+      "content_hash": "introduce|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item introduce - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của introduce",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của introduce':",
+        "opts": [
+          "introduce",
+          "introduceing",
+          "introduceed",
+          "re-introduce"
+        ]
+      },
+      "answer": "introduce",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là introduce.",
+      "content_hash": "introduce|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item introduce - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của introduce",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "introduce",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "introduce",
+      "explain_vi": "Điền 'introduce' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "introduce|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item introduce - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của introduce",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to introduce without proper preparation yesterday.'",
+        "opts": [
+          "He tried to introduce without proper preparation yesterday.",
+          "He try to introduce without proper preparation yesterday.",
+          "He trying to introduce without proper preparation yesterday.",
+          "He was try to introduce without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to introduce without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "introduce|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item introduce - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "introduce",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của introduce",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'introduce':",
+        "opts": [
+          "apply introduce correctly",
+          "make introduce wrong",
+          "do introduce badly",
+          "take introduce off"
+        ]
+      },
+      "answer": "apply introduce correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply introduce correctly.",
+      "content_hash": "introduce|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item introduce - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của invite",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "invite (v.)",
+        "opts": [
+          "ý nghĩa của invite",
+          "sự từ chối đối với invite",
+          "trạng thái thiếu invite",
+          "hành động ngược lại với invite"
+        ]
+      },
+      "answer": "ý nghĩa của invite",
+      "explain_vi": "Từ/cụm từ 'invite' (v.) có nghĩa chính xác là: ý nghĩa của invite.",
+      "content_hash": "invite|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item invite - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của invite",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của invite':",
+        "opts": [
+          "invite",
+          "inviteing",
+          "inviteed",
+          "re-invite"
+        ]
+      },
+      "answer": "invite",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là invite.",
+      "content_hash": "invite|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item invite - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của invite",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "invite",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "invite",
+      "explain_vi": "Điền 'invite' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "invite|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item invite - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của invite",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to invite without proper preparation yesterday.'",
+        "opts": [
+          "He tried to invite without proper preparation yesterday.",
+          "He try to invite without proper preparation yesterday.",
+          "He trying to invite without proper preparation yesterday.",
+          "He was try to invite without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to invite without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "invite|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item invite - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "invite",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của invite",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'invite':",
+        "opts": [
+          "apply invite correctly",
+          "make invite wrong",
+          "do invite badly",
+          "take invite off"
+        ]
+      },
+      "answer": "apply invite correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply invite correctly.",
+      "content_hash": "invite|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item invite - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của jump",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "jump (v.)",
+        "opts": [
+          "ý nghĩa của jump",
+          "sự từ chối đối với jump",
+          "trạng thái thiếu jump",
+          "hành động ngược lại với jump"
+        ]
+      },
+      "answer": "ý nghĩa của jump",
+      "explain_vi": "Từ/cụm từ 'jump' (v.) có nghĩa chính xác là: ý nghĩa của jump.",
+      "content_hash": "jump|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item jump - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của jump",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của jump':",
+        "opts": [
+          "jump",
+          "jumping",
+          "jumped",
+          "re-jump"
+        ]
+      },
+      "answer": "jump",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là jump.",
+      "content_hash": "jump|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "verbs item jump - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của jump",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "jump",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "jump",
+      "explain_vi": "Điền 'jump' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "jump|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item jump - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của jump",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to jump without proper preparation yesterday.'",
+        "opts": [
+          "He tried to jump without proper preparation yesterday.",
+          "He try to jump without proper preparation yesterday.",
+          "He trying to jump without proper preparation yesterday.",
+          "He was try to jump without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to jump without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "jump|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item jump - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "jump",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của jump",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'jump':",
+        "opts": [
+          "apply jump correctly",
+          "make jump wrong",
+          "do jump badly",
+          "take jump off"
+        ]
+      },
+      "answer": "apply jump correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply jump correctly.",
+      "content_hash": "jump|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item jump - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kick",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "kick (v.)",
+        "opts": [
+          "ý nghĩa của kick",
+          "sự từ chối đối với kick",
+          "trạng thái thiếu kick",
+          "hành động ngược lại với kick"
+        ]
+      },
+      "answer": "ý nghĩa của kick",
+      "explain_vi": "Từ/cụm từ 'kick' (v.) có nghĩa chính xác là: ý nghĩa của kick.",
+      "content_hash": "kick|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item kick - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kick",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của kick':",
+        "opts": [
+          "kick",
+          "kicking",
+          "kicked",
+          "re-kick"
+        ]
+      },
+      "answer": "kick",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là kick.",
+      "content_hash": "kick|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item kick - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kick",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "kick",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "kick",
+      "explain_vi": "Điền 'kick' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "kick|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item kick - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kick",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to kick without proper preparation yesterday.'",
+        "opts": [
+          "He tried to kick without proper preparation yesterday.",
+          "He try to kick without proper preparation yesterday.",
+          "He trying to kick without proper preparation yesterday.",
+          "He was try to kick without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to kick without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "kick|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item kick - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kick",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kick",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'kick':",
+        "opts": [
+          "apply kick correctly",
+          "make kick wrong",
+          "do kick badly",
+          "take kick off"
+        ]
+      },
+      "answer": "apply kick correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply kick correctly.",
+      "content_hash": "kick|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item kick - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kiss",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "kiss (v.)",
+        "opts": [
+          "ý nghĩa của kiss",
+          "sự từ chối đối với kiss",
+          "trạng thái thiếu kiss",
+          "hành động ngược lại với kiss"
+        ]
+      },
+      "answer": "ý nghĩa của kiss",
+      "explain_vi": "Từ/cụm từ 'kiss' (v.) có nghĩa chính xác là: ý nghĩa của kiss.",
+      "content_hash": "kiss|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item kiss - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kiss",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của kiss':",
+        "opts": [
+          "kiss",
+          "kissing",
+          "kissed",
+          "re-kiss"
+        ]
+      },
+      "answer": "kiss",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là kiss.",
+      "content_hash": "kiss|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item kiss - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kiss",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "kiss",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "kiss",
+      "explain_vi": "Điền 'kiss' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "kiss|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item kiss - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kiss",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to kiss without proper preparation yesterday.'",
+        "opts": [
+          "He tried to kiss without proper preparation yesterday.",
+          "He try to kiss without proper preparation yesterday.",
+          "He trying to kiss without proper preparation yesterday.",
+          "He was try to kiss without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to kiss without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "kiss|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item kiss - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "kiss",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của kiss",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'kiss':",
+        "opts": [
+          "apply kiss correctly",
+          "make kiss wrong",
+          "do kiss badly",
+          "take kiss off"
+        ]
+      },
+      "answer": "apply kiss correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply kiss correctly.",
+      "content_hash": "kiss|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item kiss - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lay",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lay (v.)",
+        "opts": [
+          "ý nghĩa của lay",
+          "sự từ chối đối với lay",
+          "trạng thái thiếu lay",
+          "hành động ngược lại với lay"
+        ]
+      },
+      "answer": "ý nghĩa của lay",
+      "explain_vi": "Từ/cụm từ 'lay' (v.) có nghĩa chính xác là: ý nghĩa của lay.",
+      "content_hash": "lay|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item lay - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lay",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của lay':",
+        "opts": [
+          "lay",
+          "laying",
+          "layed",
+          "re-lay"
+        ]
+      },
+      "answer": "lay",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là lay.",
+      "content_hash": "lay|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item lay - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lay",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "lay",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "lay",
+      "explain_vi": "Điền 'lay' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "lay|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "verbs item lay - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lay",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to lay without proper preparation yesterday.'",
+        "opts": [
+          "He tried to lay without proper preparation yesterday.",
+          "He try to lay without proper preparation yesterday.",
+          "He trying to lay without proper preparation yesterday.",
+          "He was try to lay without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to lay without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "lay|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item lay - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lay",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lay",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'lay':",
+        "opts": [
+          "apply lay correctly",
+          "make lay wrong",
+          "do lay badly",
+          "take lay off"
+        ]
+      },
+      "answer": "apply lay correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply lay correctly.",
+      "content_hash": "lay|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item lay - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lie",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lie (v.)",
+        "opts": [
+          "ý nghĩa của lie",
+          "sự từ chối đối với lie",
+          "trạng thái thiếu lie",
+          "hành động ngược lại với lie"
+        ]
+      },
+      "answer": "ý nghĩa của lie",
+      "explain_vi": "Từ/cụm từ 'lie' (v.) có nghĩa chính xác là: ý nghĩa của lie.",
+      "content_hash": "lie|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item lie - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lie",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của lie':",
+        "opts": [
+          "lie",
+          "lieing",
+          "lieed",
+          "re-lie"
+        ]
+      },
+      "answer": "lie",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là lie.",
+      "content_hash": "lie|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item lie - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lie",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "lie",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "lie",
+      "explain_vi": "Điền 'lie' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "lie|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item lie - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lie",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to lie without proper preparation yesterday.'",
+        "opts": [
+          "He tried to lie without proper preparation yesterday.",
+          "He try to lie without proper preparation yesterday.",
+          "He trying to lie without proper preparation yesterday.",
+          "He was try to lie without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to lie without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "lie|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item lie - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lie",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lie",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'lie':",
+        "opts": [
+          "apply lie correctly",
+          "make lie wrong",
+          "do lie badly",
+          "take lie off"
+        ]
+      },
+      "answer": "apply lie correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply lie correctly.",
+      "content_hash": "lie|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item lie - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lift",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lift (v.)",
+        "opts": [
+          "ý nghĩa của lift",
+          "sự từ chối đối với lift",
+          "trạng thái thiếu lift",
+          "hành động ngược lại với lift"
+        ]
+      },
+      "answer": "ý nghĩa của lift",
+      "explain_vi": "Từ/cụm từ 'lift' (v.) có nghĩa chính xác là: ý nghĩa của lift.",
+      "content_hash": "lift|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item lift - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lift",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của lift':",
+        "opts": [
+          "lift",
+          "lifting",
+          "lifted",
+          "re-lift"
+        ]
+      },
+      "answer": "lift",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là lift.",
+      "content_hash": "lift|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item lift - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lift",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "lift",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "lift",
+      "explain_vi": "Điền 'lift' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "lift|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item lift - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lift",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to lift without proper preparation yesterday.'",
+        "opts": [
+          "He tried to lift without proper preparation yesterday.",
+          "He try to lift without proper preparation yesterday.",
+          "He trying to lift without proper preparation yesterday.",
+          "He was try to lift without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to lift without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "lift|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item lift - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lift",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lift",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'lift':",
+        "opts": [
+          "apply lift correctly",
+          "make lift wrong",
+          "do lift badly",
+          "take lift off"
+        ]
+      },
+      "answer": "apply lift correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply lift correctly.",
+      "content_hash": "lift|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item lift - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của light",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "light (v.)",
+        "opts": [
+          "ý nghĩa của light",
+          "sự từ chối đối với light",
+          "trạng thái thiếu light",
+          "hành động ngược lại với light"
+        ]
+      },
+      "answer": "ý nghĩa của light",
+      "explain_vi": "Từ/cụm từ 'light' (v.) có nghĩa chính xác là: ý nghĩa của light.",
+      "content_hash": "light|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item light - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của light",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của light':",
+        "opts": [
+          "light",
+          "lighting",
+          "lighted",
+          "re-light"
+        ]
+      },
+      "answer": "light",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là light.",
+      "content_hash": "light|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item light - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của light",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "light",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "light",
+      "explain_vi": "Điền 'light' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "light|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item light - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của light",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to light without proper preparation yesterday.'",
+        "opts": [
+          "He tried to light without proper preparation yesterday.",
+          "He try to light without proper preparation yesterday.",
+          "He trying to light without proper preparation yesterday.",
+          "He was try to light without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to light without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "light|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "verbs item light - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "light",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của light",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'light':",
+        "opts": [
+          "apply light correctly",
+          "make light wrong",
+          "do light badly",
+          "take light off"
+        ]
+      },
+      "answer": "apply light correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply light correctly.",
+      "content_hash": "light|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item light - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lock",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "lock (v.)",
+        "opts": [
+          "ý nghĩa của lock",
+          "sự từ chối đối với lock",
+          "trạng thái thiếu lock",
+          "hành động ngược lại với lock"
+        ]
+      },
+      "answer": "ý nghĩa của lock",
+      "explain_vi": "Từ/cụm từ 'lock' (v.) có nghĩa chính xác là: ý nghĩa của lock.",
+      "content_hash": "lock|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item lock - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lock",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của lock':",
+        "opts": [
+          "lock",
+          "locking",
+          "locked",
+          "re-lock"
+        ]
+      },
+      "answer": "lock",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là lock.",
+      "content_hash": "lock|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item lock - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lock",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "lock",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "lock",
+      "explain_vi": "Điền 'lock' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "lock|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item lock - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lock",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to lock without proper preparation yesterday.'",
+        "opts": [
+          "He tried to lock without proper preparation yesterday.",
+          "He try to lock without proper preparation yesterday.",
+          "He trying to lock without proper preparation yesterday.",
+          "He was try to lock without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to lock without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "lock|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item lock - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "lock",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của lock",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'lock':",
+        "opts": [
+          "apply lock correctly",
+          "make lock wrong",
+          "do lock badly",
+          "take lock off"
+        ]
+      },
+      "answer": "apply lock correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply lock correctly.",
+      "content_hash": "lock|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item lock - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của manage",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "manage (v.)",
+        "opts": [
+          "ý nghĩa của manage",
+          "sự từ chối đối với manage",
+          "trạng thái thiếu manage",
+          "hành động ngược lại với manage"
+        ]
+      },
+      "answer": "ý nghĩa của manage",
+      "explain_vi": "Từ/cụm từ 'manage' (v.) có nghĩa chính xác là: ý nghĩa của manage.",
+      "content_hash": "manage|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item manage - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của manage",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của manage':",
+        "opts": [
+          "manage",
+          "manageing",
+          "manageed",
+          "re-manage"
+        ]
+      },
+      "answer": "manage",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là manage.",
+      "content_hash": "manage|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item manage - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của manage",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "manage",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "manage",
+      "explain_vi": "Điền 'manage' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "manage|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item manage - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của manage",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to manage without proper preparation yesterday.'",
+        "opts": [
+          "He tried to manage without proper preparation yesterday.",
+          "He try to manage without proper preparation yesterday.",
+          "He trying to manage without proper preparation yesterday.",
+          "He was try to manage without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to manage without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "manage|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item manage - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "manage",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của manage",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'manage':",
+        "opts": [
+          "apply manage correctly",
+          "make manage wrong",
+          "do manage badly",
+          "take manage off"
+        ]
+      },
+      "answer": "apply manage correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply manage correctly.",
+      "content_hash": "manage|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item manage - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của marry",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "marry (v.)",
+        "opts": [
+          "ý nghĩa của marry",
+          "sự từ chối đối với marry",
+          "trạng thái thiếu marry",
+          "hành động ngược lại với marry"
+        ]
+      },
+      "answer": "ý nghĩa của marry",
+      "explain_vi": "Từ/cụm từ 'marry' (v.) có nghĩa chính xác là: ý nghĩa của marry.",
+      "content_hash": "marry|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "verbs item marry - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của marry",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của marry':",
+        "opts": [
+          "marry",
+          "marrying",
+          "marryed",
+          "re-marry"
+        ]
+      },
+      "answer": "marry",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là marry.",
+      "content_hash": "marry|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item marry - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của marry",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "marry",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "marry",
+      "explain_vi": "Điền 'marry' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "marry|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item marry - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của marry",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to marry without proper preparation yesterday.'",
+        "opts": [
+          "He tried to marry without proper preparation yesterday.",
+          "He try to marry without proper preparation yesterday.",
+          "He trying to marry without proper preparation yesterday.",
+          "He was try to marry without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to marry without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "marry|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item marry - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "marry",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của marry",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'marry':",
+        "opts": [
+          "apply marry correctly",
+          "make marry wrong",
+          "do marry badly",
+          "take marry off"
+        ]
+      },
+      "answer": "apply marry correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply marry correctly.",
+      "content_hash": "marry|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "verbs item marry - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của measure",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "measure (v.)",
+        "opts": [
+          "ý nghĩa của measure",
+          "sự từ chối đối với measure",
+          "trạng thái thiếu measure",
+          "hành động ngược lại với measure"
+        ]
+      },
+      "answer": "ý nghĩa của measure",
+      "explain_vi": "Từ/cụm từ 'measure' (v.) có nghĩa chính xác là: ý nghĩa của measure.",
+      "content_hash": "measure|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item measure - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của measure",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của measure':",
+        "opts": [
+          "measure",
+          "measureing",
+          "measureed",
+          "re-measure"
+        ]
+      },
+      "answer": "measure",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là measure.",
+      "content_hash": "measure|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item measure - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của measure",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "measure",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "measure",
+      "explain_vi": "Điền 'measure' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "measure|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item measure - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của measure",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to measure without proper preparation yesterday.'",
+        "opts": [
+          "He tried to measure without proper preparation yesterday.",
+          "He try to measure without proper preparation yesterday.",
+          "He trying to measure without proper preparation yesterday.",
+          "He was try to measure without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to measure without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "measure|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item measure - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "measure",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của measure",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'measure':",
+        "opts": [
+          "apply measure correctly",
+          "make measure wrong",
+          "do measure badly",
+          "take measure off"
+        ]
+      },
+      "answer": "apply measure correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply measure correctly.",
+      "content_hash": "measure|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item measure - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mention",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "mention (v.)",
+        "opts": [
+          "ý nghĩa của mention",
+          "sự từ chối đối với mention",
+          "trạng thái thiếu mention",
+          "hành động ngược lại với mention"
+        ]
+      },
+      "answer": "ý nghĩa của mention",
+      "explain_vi": "Từ/cụm từ 'mention' (v.) có nghĩa chính xác là: ý nghĩa của mention.",
+      "content_hash": "mention|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item mention - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mention",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của mention':",
+        "opts": [
+          "mention",
+          "mentioning",
+          "mentioned",
+          "re-mention"
+        ]
+      },
+      "answer": "mention",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là mention.",
+      "content_hash": "mention|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item mention - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mention",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "mention",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "mention",
+      "explain_vi": "Điền 'mention' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "mention|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item mention - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mention",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to mention without proper preparation yesterday.'",
+        "opts": [
+          "He tried to mention without proper preparation yesterday.",
+          "He try to mention without proper preparation yesterday.",
+          "He trying to mention without proper preparation yesterday.",
+          "He was try to mention without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to mention without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "mention|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item mention - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mention",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mention",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'mention':",
+        "opts": [
+          "apply mention correctly",
+          "make mention wrong",
+          "do mention badly",
+          "take mention off"
+        ]
+      },
+      "answer": "apply mention correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply mention correctly.",
+      "content_hash": "mention|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item mention - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mind",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "mind (v.)",
+        "opts": [
+          "ý nghĩa của mind",
+          "sự từ chối đối với mind",
+          "trạng thái thiếu mind",
+          "hành động ngược lại với mind"
+        ]
+      },
+      "answer": "ý nghĩa của mind",
+      "explain_vi": "Từ/cụm từ 'mind' (v.) có nghĩa chính xác là: ý nghĩa của mind.",
+      "content_hash": "mind|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item mind - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mind",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của mind':",
+        "opts": [
+          "mind",
+          "minding",
+          "minded",
+          "re-mind"
+        ]
+      },
+      "answer": "mind",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là mind.",
+      "content_hash": "mind|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "verbs item mind - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mind",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "mind",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "mind",
+      "explain_vi": "Điền 'mind' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "mind|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item mind - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mind",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to mind without proper preparation yesterday.'",
+        "opts": [
+          "He tried to mind without proper preparation yesterday.",
+          "He try to mind without proper preparation yesterday.",
+          "He trying to mind without proper preparation yesterday.",
+          "He was try to mind without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to mind without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "mind|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item mind - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "mind",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của mind",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'mind':",
+        "opts": [
+          "apply mind correctly",
+          "make mind wrong",
+          "do mind badly",
+          "take mind off"
+        ]
+      },
+      "answer": "apply mind correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply mind correctly.",
+      "content_hash": "mind|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item mind - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của notice",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "notice (v.)",
+        "opts": [
+          "ý nghĩa của notice",
+          "sự từ chối đối với notice",
+          "trạng thái thiếu notice",
+          "hành động ngược lại với notice"
+        ]
+      },
+      "answer": "ý nghĩa của notice",
+      "explain_vi": "Từ/cụm từ 'notice' (v.) có nghĩa chính xác là: ý nghĩa của notice.",
+      "content_hash": "notice|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item notice - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của notice",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của notice':",
+        "opts": [
+          "notice",
+          "noticeing",
+          "noticeed",
+          "re-notice"
+        ]
+      },
+      "answer": "notice",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là notice.",
+      "content_hash": "notice|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item notice - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của notice",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "notice",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "notice",
+      "explain_vi": "Điền 'notice' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "notice|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item notice - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của notice",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to notice without proper preparation yesterday.'",
+        "opts": [
+          "He tried to notice without proper preparation yesterday.",
+          "He try to notice without proper preparation yesterday.",
+          "He trying to notice without proper preparation yesterday.",
+          "He was try to notice without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to notice without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "notice|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item notice - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "notice",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của notice",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'notice':",
+        "opts": [
+          "apply notice correctly",
+          "make notice wrong",
+          "do notice badly",
+          "take notice off"
+        ]
+      },
+      "answer": "apply notice correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply notice correctly.",
+      "content_hash": "notice|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item notice - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của plan",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "plan (v.)",
+        "opts": [
+          "ý nghĩa của plan",
+          "sự từ chối đối với plan",
+          "trạng thái thiếu plan",
+          "hành động ngược lại với plan"
+        ]
+      },
+      "answer": "ý nghĩa của plan",
+      "explain_vi": "Từ/cụm từ 'plan' (v.) có nghĩa chính xác là: ý nghĩa của plan.",
+      "content_hash": "plan|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item plan - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của plan",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của plan':",
+        "opts": [
+          "plan",
+          "planing",
+          "planed",
+          "re-plan"
+        ]
+      },
+      "answer": "plan",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là plan.",
+      "content_hash": "plan|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item plan - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của plan",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "plan",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "plan",
+      "explain_vi": "Điền 'plan' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "plan|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item plan - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của plan",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to plan without proper preparation yesterday.'",
+        "opts": [
+          "He tried to plan without proper preparation yesterday.",
+          "He try to plan without proper preparation yesterday.",
+          "He trying to plan without proper preparation yesterday.",
+          "He was try to plan without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to plan without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "plan|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item plan - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "plan",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của plan",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'plan':",
+        "opts": [
+          "apply plan correctly",
+          "make plan wrong",
+          "do plan badly",
+          "take plan off"
+        ]
+      },
+      "answer": "apply plan correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply plan correctly.",
+      "content_hash": "plan|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item plan - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của point",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "point (v.)",
+        "opts": [
+          "ý nghĩa của point",
+          "sự từ chối đối với point",
+          "trạng thái thiếu point",
+          "hành động ngược lại với point"
+        ]
+      },
+      "answer": "ý nghĩa của point",
+      "explain_vi": "Từ/cụm từ 'point' (v.) có nghĩa chính xác là: ý nghĩa của point.",
+      "content_hash": "point|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item point - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của point",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của point':",
+        "opts": [
+          "point",
+          "pointing",
+          "pointed",
+          "re-point"
+        ]
+      },
+      "answer": "point",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là point.",
+      "content_hash": "point|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.7,
+        "quality_notes": "verbs item point - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của point",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "point",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "point",
+      "explain_vi": "Điền 'point' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "point|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "verbs item point - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của point",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to point without proper preparation yesterday.'",
+        "opts": [
+          "He tried to point without proper preparation yesterday.",
+          "He try to point without proper preparation yesterday.",
+          "He trying to point without proper preparation yesterday.",
+          "He was try to point without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to point without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "point|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.3,
+        "quality_notes": "verbs item point - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "point",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của point",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'point':",
+        "opts": [
+          "apply point correctly",
+          "make point wrong",
+          "do point badly",
+          "take point off"
+        ]
+      },
+      "answer": "apply point correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply point correctly.",
+      "content_hash": "point|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.6,
+        "quality_notes": "verbs item point - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prefer",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "prefer (v.)",
+        "opts": [
+          "ý nghĩa của prefer",
+          "sự từ chối đối với prefer",
+          "trạng thái thiếu prefer",
+          "hành động ngược lại với prefer"
+        ]
+      },
+      "answer": "ý nghĩa của prefer",
+      "explain_vi": "Từ/cụm từ 'prefer' (v.) có nghĩa chính xác là: ý nghĩa của prefer.",
+      "content_hash": "prefer|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item prefer - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prefer",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của prefer':",
+        "opts": [
+          "prefer",
+          "prefering",
+          "prefered",
+          "re-prefer"
+        ]
+      },
+      "answer": "prefer",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là prefer.",
+      "content_hash": "prefer|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.4,
+        "quality_notes": "verbs item prefer - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prefer",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "prefer",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "prefer",
+      "explain_vi": "Điền 'prefer' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "prefer|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.7,
+        "quality_notes": "verbs item prefer - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prefer",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to prefer without proper preparation yesterday.'",
+        "opts": [
+          "He tried to prefer without proper preparation yesterday.",
+          "He try to prefer without proper preparation yesterday.",
+          "He trying to prefer without proper preparation yesterday.",
+          "He was try to prefer without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to prefer without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "prefer|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 8.8,
+        "quality_notes": "verbs item prefer - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "prefer",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của prefer",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'prefer':",
+        "opts": [
+          "apply prefer correctly",
+          "make prefer wrong",
+          "do prefer badly",
+          "take prefer off"
+        ]
+      },
+      "answer": "apply prefer correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply prefer correctly.",
+      "content_hash": "prefer|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.1,
+        "quality_notes": "verbs item prefer - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của present",
+      "level": "A2",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "present (v.)",
+        "opts": [
+          "ý nghĩa của present",
+          "sự từ chối đối với present",
+          "trạng thái thiếu present",
+          "hành động ngược lại với present"
+        ]
+      },
+      "answer": "ý nghĩa của present",
+      "explain_vi": "Từ/cụm từ 'present' (v.) có nghĩa chính xác là: ý nghĩa của present.",
+      "content_hash": "present|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item present - meaning",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của present",
+      "level": "A2",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Từ / cụm từ tiếng Anh nghĩa là 'ý nghĩa của present':",
+        "opts": [
+          "present",
+          "presenting",
+          "presented",
+          "re-present"
+        ]
+      },
+      "answer": "present",
+      "explain_vi": "Hình thái chuẩn xác trong tiếng Anh là present.",
+      "content_hash": "present|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 8.9,
+        "quality_notes": "verbs item present - near miss form",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của present",
+      "level": "A2",
+      "type": "cloze",
+      "stem": {
+        "q": "All students are required to ___ this key task according to the instructions.",
+        "opts": [
+          "present",
+          "cancel",
+          "ignore",
+          "postpone"
+        ]
+      },
+      "answer": "present",
+      "explain_vi": "Điền 'present' thích hợp nhất với ngữ cảnh chuẩn bị cho buổi hội thảo.",
+      "content_hash": "present|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9.2,
+        "quality_notes": "verbs item present - context cloze",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của present",
+      "level": "A2",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He try to present without proper preparation yesterday.'",
+        "opts": [
+          "He tried to present without proper preparation yesterday.",
+          "He try to present without proper preparation yesterday.",
+          "He trying to present without proper preparation yesterday.",
+          "He was try to present without proper preparation yesterday."
+        ]
+      },
+      "answer": "He tried to present without proper preparation yesterday.",
+      "explain_vi": "Sửa lỗi dạng chia động từ / ngữ pháp trong câu thành bản đúng.",
+      "content_hash": "present|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "verbs item present - error identification",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    },
+    {
+      "lemma": "present",
+      "pos": "v",
+      "sense_vi": "ý nghĩa của present",
+      "level": "A2",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm từ đúng liên quan đến 'present':",
+        "opts": [
+          "apply present correctly",
+          "make present wrong",
+          "do present badly",
+          "take present off"
+        ]
+      },
+      "answer": "apply present correctly",
+      "explain_vi": "Kết hợp từ chuẩn xác: apply present correctly.",
+      "content_hash": "present|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 8.6,
+        "quality_notes": "verbs item present - collocation phrase",
+        "priority": "P2",
+        "queue": "verbs",
+        "pack_id": "p2-verbs-08"
+      }
+    }
+  ]
+}

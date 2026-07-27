@@ -1,0 +1,56 @@
+◇ injected env (44) from .env.local // tip: ⌘ enable debugging { debug: true }
+◇ injected env (0) from .env.local // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+══════════════════════════════════════════════
+ GLM-5.2 core_senses backfill (Oxford-style)
+ model=glm-5.2
+ base=https://open.bigmodel.cn/api/paas/v4
+ dry=false force=false limit=1000 delay=300
+══════════════════════════════════════════════
+🔌 Smoke test GLM...
+   OK {"ok":true}
+🚀 1000 words to process
+
+[1/1000] "immune" → senses=3 syn=5 dist=1
+   #1: miễn dịch, không nhiễm bệnh | Most people who've had chickenpox are immune to it for the rest of their lives.
+[2/1000] "impact" → senses=3 syn=5 dist=2
+   #1: tác động, ảnh hưởng | The new policy had a significant impact on small businesses.
+[3/1000] "impair" → senses=2 syn=6 dist=1
+   #1: làm suy yếu | Lack of sleep can significantly impair your ability to concentrate.
+[4/1000] "import" → senses=3 syn=1 dist=1
+   #1: nhập khẩu hàng hóa | The country imports most of its oil from the Middle East.
+[5/1000] "impose" → senses=3 syn=6 dist=2
+   #1: áp đặt luật/thuế | The government imposed new taxes on imported goods.
+[6/1000] "incite" → senses=2 syn=4 dist=1
+   #1: kích động, xúi giục | He was accused of inciting the crowd to attack the police.
+[7/1000] "income" → senses=2 syn=6 dist=2
+   #1: thu nhập cá nhân | Their household income has increased by 10% this year.
+[8/1000] "indeed"◇ injected env (44) from .env.local // tip: ◈ secrets for agents [www.dotenvx.com]
+◇ injected env (0) from .env.local // tip: ⌘ suppress logs { quiet: true }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+05:26:21 ══════════════════════════════════════════════
+05:26:21  GLM-5.2 core_senses backfill (Oxford-style)
+05:26:21  model=glm-5.2 forever=false shard=0/1
+05:26:21  base=https://open.bigmodel.cn/api/paas/v4 dry=false force=false limit=1000 delay=300
+05:26:21 ══════════════════════════════════════════════
+05:26:21 Smoke test GLM...
+05:26:28 Smoke OK {"ok":true}
+05:26:30 round fetch=1000 shard=0/1
+◇ injected env (44) from .env.local // tip: ◈ encrypted .env [www.dotenvx.com]
+◇ injected env (0) from .env.local // tip: ⌘ enable debugging { debug: true }
+[backfill-glm] env ok · model=glm-5.2 · keylen=49
+05:27:18 ══════════════════════════════════════════════
+05:27:18  GLM-5.2 core_senses backfill (Oxford-style)
+05:27:18  model=glm-5.2 forever=false shard=0/1
+05:27:18  base=https://open.bigmodel.cn/api/paas/v4 dry=false force=false limit=1000 delay=300
+05:27:18 ══════════════════════════════════════════════
+05:27:18 Smoke test GLM...
+05:27:21 Smoke OK {"ok":true}
+05:27:23 round fetch=1000 shard=0/1
+05:27:36 [1/1000] ✓ insure · mua bảo hiểm | You should insure your car against theft.
+05:28:02 [2/1000] ✓ intact · không hư hỏng | The painting remained intact after 200 years.
+05:28:16 [3/1000] ✓ intend · dự định làm gì | She intends to study law at university.
+05:28:39 [4/1000] ✓ intent · quyết tâm, tập trung | She seemed intent on destroying her own career.
+05:28:56 [5/1000] ✓ invade · quân sự xâm lược | Enemy troops invaded the country at dawn.
+05:29:10 [6/1000] ✓ invent · phát minh ra | Alexander Graham Bell invented the telephone in 1876.
+05:29:24 [7/1000] ✓ invert · đảo ngược, lộn ngược | She inverted the bottle to get the last drops of sauce out.

@@ -363,113 +363,12 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "Chọn câu dùng đúng Modals: Deduction (must/might/can't).",
-      "opts": [
-        "She must be at work; her car is gone.",
-        "Not correctly: must + V: gần như chắc chắn.",
-        "Wrong structure for this meaning."
-      ],
-      "answer": "She must be at work; her car is gone.",
-      "fb": "Câu đúng tuân theo cấu trúc và diễn đạt tự nhiên."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn cấu trúc phù hợp nhất.",
-      "opts": [
-        "must + V: gần như chắc chắn",
-        "might/may/could + V: có thể",
-        "can't + V: gần như không thể"
-      ],
-      "answer": "must + V: gần như chắc chắn",
-      "fb": "Mẫu trọng tâm là must + V: gần như chắc chắn."
-    },
-    {
       "type": "fill",
       "q": "Hoàn thành theo mẫu: He ___ know the answer.",
       "answer": [
         "might"
       ],
       "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Điền tên cấu trúc/chủ điểm đang luyện.",
-      "answer": [
-        "Modals: Deduction (must/might/can't)",
-        "modals: deduction (must/might/can't)"
-      ],
-      "fb": "Chủ điểm là Modals: Deduction (must/might/can't)."
-    },
-    {
-      "type": "tf",
-      "q": "Câu này tự nhiên và đúng ngữ pháp: “That can't be true.”",
-      "answer": true,
-      "fb": "Đúng; câu minh họa một biến thể quan trọng."
-    },
-    {
-      "type": "tf",
-      "q": "Có thể luôn dịch từng từ tiếng Việt để tạo Modals: Deduction (must/might/can't) chính xác.",
-      "answer": false,
-      "fb": "Sai; cần chọn cấu trúc theo ý nghĩa và quy tắc tiếng Anh."
-    },
-    {
-      "type": "error",
-      "q": "Câu/mô tả nào SAI?",
-      "opts": [
-        "They may arrive late.",
-        "This could be the right key.",
-        "Có thể bỏ mọi thành phần bắt buộc của cấu trúc."
-      ],
-      "answer": "Có thể bỏ mọi thành phần bắt buộc của cấu trúc.",
-      "fb": "Không được bỏ thành phần bắt buộc nếu việc lược bỏ không có quy tắc cho phép."
-    },
-    {
-      "type": "mcq",
-      "q": "Điều cần kiểm tra đầu tiên là gì?",
-      "opts": [
-        "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-        "Chỉ số lượng từ trong câu",
-        "Chỉ độ dài câu"
-      ],
-      "answer": "Ý nghĩa và quan hệ thời gian/ngữ pháp",
-      "fb": "Ý nghĩa quyết định lựa chọn cấu trúc."
-    },
-    {
-      "type": "fill",
-      "q": "Dịch sang tiếng Anh: “Hẳn bạn mệt sau chuyến đi.”",
-      "answer": [
-        "You must be tired after the journey."
-      ],
-      "fb": "You must be tired after the journey."
-    },
-    {
-      "type": "tf",
-      "q": "“She must be at work; her car is gone.” là một ví dụ đúng.",
-      "answer": true,
-      "fb": "Đúng; câu dùng cấu trúc tự nhiên."
-    },
-    {
-      "type": "error",
-      "q": "Chọn lời khuyên SAI.",
-      "opts": [
-        "Học cấu trúc cùng ví dụ.",
-        "Kiểm tra dạng động từ.",
-        "Dịch máy móc từng từ luôn cho kết quả đúng."
-      ],
-      "answer": "Dịch máy móc từng từ luôn cho kết quả đúng.",
-      "fb": "Cấu trúc tiếng Anh và tiếng Việt không tương ứng từng từ."
-    },
-    {
-      "type": "mcq",
-      "q": "Câu nào là một ví dụ đúng khác?",
-      "opts": [
-        "You must be tired after the journey.",
-        "This sentence missing required grammar.",
-        "Incorrectly structure sentence."
-      ],
-      "answer": "You must be tired after the journey.",
-      "fb": "Câu đúng vừa chuẩn ngữ pháp vừa tự nhiên."
     }
   ]
 }

@@ -1,0 +1,1579 @@
+{
+  "version": 2,
+  "batch_id": "p0-06-food",
+  "priority": "P0",
+  "pack_ids": [
+    "starter-a0-food"
+  ],
+  "quality_bar": 8.5,
+  "types_required": [
+    "meaning_mcq",
+    "l2_to_en",
+    "cloze",
+    "error",
+    "collocation_mcq"
+  ],
+  "created_note": "antigravity · no external LLM · rubric >=8.5",
+  "items": [
+    {
+      "lemma": "water",
+      "pos": "n",
+      "sense_vi": "nước uống",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "water (n.)",
+        "opts": [
+          "nước uống / nước",
+          "sữa",
+          "trà",
+          "cà phê"
+        ]
+      },
+      "answer": "nước uống / nước",
+      "explain_vi": "water nghĩa là nước.",
+      "content_hash": "water|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa nước",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "water",
+      "pos": "n",
+      "sense_vi": "nước uống",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Chất lỏng không màu cần thiết cho sự sống:",
+        "opts": [
+          "water",
+          "waiter",
+          "wafer",
+          "winter"
+        ]
+      },
+      "answer": "water",
+      "explain_vi": "Nước là water (waiter là bồi bàn).",
+      "content_hash": "water|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss waiter",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "water",
+      "pos": "n",
+      "sense_vi": "nước uống",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Drink a glass of pure ___ every morning.",
+        "opts": [
+          "water",
+          "wafer",
+          "wine",
+          "wood"
+        ]
+      },
+      "answer": "water",
+      "explain_vi": "Drink a glass of water (uống một cốc nước).",
+      "content_hash": "water|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "glass of water",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "water",
+      "pos": "n",
+      "sense_vi": "nước uống",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He drank two glass of water.'",
+        "opts": [
+          "He drank two glasses of water.",
+          "He drank two glass of water.",
+          "He drank two water glasses.",
+          "He drink two glasses of water."
+        ]
+      },
+      "answer": "He drank two glasses of water.",
+      "explain_vi": "Danh từ glass đếm được số nhiều dùng 'two glasses of water'.",
+      "content_hash": "water|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy two glasses of water",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "water",
+      "pos": "n",
+      "sense_vi": "nước uống",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm nước uống đóng chai chuẩn:",
+        "opts": [
+          "bottled water",
+          "bottle water",
+          "pack water",
+          "box water"
+        ]
+      },
+      "answer": "bottled water",
+      "explain_vi": "Nước khoáng đóng chai là bottled water.",
+      "content_hash": "water|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm bottled water",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rice",
+      "pos": "n",
+      "sense_vi": "cơm / gạo",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "rice (n.)",
+        "opts": [
+          "cơm / gạo",
+          "bánh mì",
+          "mì sợi",
+          "ngô"
+        ]
+      },
+      "answer": "cơm / gạo",
+      "explain_vi": "rice nghĩa là gạo hoặc cơm.",
+      "content_hash": "rice|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cơm/gạo",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rice",
+      "pos": "n",
+      "sense_vi": "cơm / gạo",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thực phẩm chính làm từ hạt lúa:",
+        "opts": [
+          "rice",
+          "rise",
+          "race",
+          "mice"
+        ]
+      },
+      "answer": "rice",
+      "explain_vi": "Gạo/cơm là rice (rise là gia tăng, race là cuộc đua).",
+      "content_hash": "rice|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss rise/race",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rice",
+      "pos": "n",
+      "sense_vi": "cơm / gạo",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Vietnamese people usually eat ___ for lunch and dinner.",
+        "opts": [
+          "rice",
+          "rise",
+          "rose",
+          "rope"
+        ]
+      },
+      "answer": "rice",
+      "explain_vi": "Eat rice (ăn cơm).",
+      "content_hash": "rice|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "eat rice",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rice",
+      "pos": "n",
+      "sense_vi": "cơm / gạo",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She cooked a rices for the family.'",
+        "opts": [
+          "She cooked rice for the family.",
+          "She cooked a rices for the family.",
+          "She cooked a rice for the family.",
+          "She cook rice for the family."
+        ]
+      },
+      "answer": "She cooked rice for the family.",
+      "explain_vi": "Rice là danh từ không đếm được, không có 'a' hay 'rices'.",
+      "content_hash": "rice|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy a rices",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "rice",
+      "pos": "n",
+      "sense_vi": "cơm / gạo",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm cơm chiên / cơm rang chuẩn:",
+        "opts": [
+          "fried rice",
+          "cook rice",
+          "boil rice",
+          "make rice"
+        ]
+      },
+      "answer": "fried rice",
+      "explain_vi": "Cơm chiên / cơm rang là fried rice.",
+      "content_hash": "rice|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm fried rice",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bread",
+      "pos": "n",
+      "sense_vi": "bánh mì",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "bread (n.)",
+        "opts": [
+          "bánh mì",
+          "bánh quy",
+          "bánh sinh nhật",
+          "kẹo"
+        ]
+      },
+      "answer": "bánh mì",
+      "explain_vi": "bread nghĩa là bánh mì.",
+      "content_hash": "bread|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa bánh mì",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bread",
+      "pos": "n",
+      "sense_vi": "bánh mì",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thức ăn làm từ bột mì nướng chín:",
+        "opts": [
+          "bread",
+          "breed",
+          "break",
+          "bead"
+        ]
+      },
+      "answer": "bread",
+      "explain_vi": "Bánh mì là bread (breed là giống loài, break là làm gãy).",
+      "content_hash": "bread|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss breed/break",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bread",
+      "pos": "n",
+      "sense_vi": "bánh mì",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "He ate a slice of toasted ___ with butter.",
+        "opts": [
+          "bread",
+          "break",
+          "brick",
+          "brain"
+        ]
+      },
+      "answer": "bread",
+      "explain_vi": "A slice of bread (một lát bánh mì).",
+      "content_hash": "bread|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "slice of bread",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bread",
+      "pos": "n",
+      "sense_vi": "bánh mì",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I bought two breads from the bakery.'",
+        "opts": [
+          "I bought two loaves of bread from the bakery.",
+          "I bought two breads from the bakery.",
+          "I bought two bread from the bakery.",
+          "I buy two breads from the bakery."
+        ]
+      },
+      "answer": "I bought two loaves of bread from the bakery.",
+      "explain_vi": "Bread là danh từ không đếm được, đếm ổ dùng 'loaves of bread'.",
+      "content_hash": "bread|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy two breads",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "bread",
+      "pos": "n",
+      "sense_vi": "bánh mì",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ổ bánh mì chuẩn:",
+        "opts": [
+          "a loaf of bread",
+          "a piece of bread",
+          "a stick of bread",
+          "a bar of bread"
+        ]
+      },
+      "answer": "a loaf of bread",
+      "explain_vi": "Một ổ bánh mì dùng 'a loaf of bread'.",
+      "content_hash": "bread|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm loaf of bread",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "milk",
+      "pos": "n",
+      "sense_vi": "sữa",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "milk (n.)",
+        "opts": [
+          "sữa tươi / sữa",
+          "nước cam",
+          "nước lọc",
+          "trà"
+        ]
+      },
+      "answer": "sữa tươi / sữa",
+      "explain_vi": "milk nghĩa là sữa.",
+      "content_hash": "milk|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa sữa",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "milk",
+      "pos": "n",
+      "sense_vi": "sữa",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thức uống bổ dưỡng màu trắng do bò/dê tiết ra:",
+        "opts": [
+          "milk",
+          "mild",
+          "mink",
+          "mill"
+        ]
+      },
+      "answer": "milk",
+      "explain_vi": "Sữa là milk (mild là nhẹ nhàng, mill là cối xay).",
+      "content_hash": "milk|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss mild/mill",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "milk",
+      "pos": "n",
+      "sense_vi": "sữa",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "The cat drank all the warm ___ in the bowl.",
+        "opts": [
+          "milk",
+          "meat",
+          "meal",
+          "mind"
+        ]
+      },
+      "answer": "milk",
+      "explain_vi": "Drank milk (uống sữa).",
+      "content_hash": "milk|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "drink milk",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "milk",
+      "pos": "n",
+      "sense_vi": "sữa",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She drinks a milk every morning.'",
+        "opts": [
+          "She drinks milk every morning.",
+          "She drinks a milk every morning.",
+          "She drink milk every morning.",
+          "She is drink milk every morning."
+        ]
+      },
+      "answer": "She drinks milk every morning.",
+      "explain_vi": "Milk là danh từ không đếm được, không dùng 'a milk'.",
+      "content_hash": "milk|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy a milk",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "milk",
+      "pos": "n",
+      "sense_vi": "sữa",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm sữa tươi nguyên chất chuẩn:",
+        "opts": [
+          "fresh milk",
+          "raw milk",
+          "new milk",
+          "pure milk"
+        ]
+      },
+      "answer": "fresh milk",
+      "explain_vi": "Sữa tươi dùng cụm fresh milk.",
+      "content_hash": "milk|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm fresh milk",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "egg",
+      "pos": "n",
+      "sense_vi": "quả trứng",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "egg (n.)",
+        "opts": [
+          "quả trứng",
+          "quả táo",
+          "quả cam",
+          "củ khoai"
+        ]
+      },
+      "answer": "quả trứng",
+      "explain_vi": "egg nghĩa là quả trứng.",
+      "content_hash": "egg|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa quả trứng",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "egg",
+      "pos": "n",
+      "sense_vi": "quả trứng",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thực phẩm hình bầu dục do gà/vịt đẻ ra:",
+        "opts": [
+          "egg",
+          "edge",
+          "ego",
+          "leg"
+        ]
+      },
+      "answer": "egg",
+      "explain_vi": "Quả trứng là egg (edge là rìa/cạnh).",
+      "content_hash": "egg|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss edge",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "egg",
+      "pos": "n",
+      "sense_vi": "quả trứng",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My mother fried an ___ for breakfast.",
+        "opts": [
+          "egg",
+          "apple",
+          "orange",
+          "ice"
+        ]
+      },
+      "answer": "egg",
+      "explain_vi": "Fried an egg (rán một quả trứng).",
+      "content_hash": "egg|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "fried an egg",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "egg",
+      "pos": "n",
+      "sense_vi": "quả trứng",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He ate a egg this morning.'",
+        "opts": [
+          "He ate an egg this morning.",
+          "He ate a egg this morning.",
+          "He ate egg this morning.",
+          "He eat an egg this morning."
+        ]
+      },
+      "answer": "He ate an egg this morning.",
+      "explain_vi": "Danh từ egg bắt đầu bằng nguyên âm 'e' dùng mạo từ 'an'.",
+      "content_hash": "egg|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy a/an egg",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "egg",
+      "pos": "n",
+      "sense_vi": "quả trứng",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm trứng rán / ốp la chuẩn:",
+        "opts": [
+          "fried egg",
+          "cooked egg",
+          "boiled egg",
+          "baked egg"
+        ]
+      },
+      "answer": "fried egg",
+      "explain_vi": "Trứng rán là fried egg.",
+      "content_hash": "egg|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm fried egg",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tea",
+      "pos": "n",
+      "sense_vi": "trà / chè",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "tea (n.)",
+        "opts": [
+          "trà / chè",
+          "cà phê",
+          "sữa",
+          "nước ngọt"
+        ]
+      },
+      "answer": "trà / chè",
+      "explain_vi": "tea nghĩa là trà.",
+      "content_hash": "tea|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa trà",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tea",
+      "pos": "n",
+      "sense_vi": "trà / chè",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thức uống pha từ lá trà khô sấy nóng:",
+        "opts": [
+          "tea",
+          "tee",
+          "sea",
+          "tree"
+        ]
+      },
+      "answer": "tea",
+      "explain_vi": "Trà là tea (tee là giá phát bóng gôn).",
+      "content_hash": "tea|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss tee",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tea",
+      "pos": "n",
+      "sense_vi": "trà / chè",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My grandmother prefers drinking hot green ___.",
+        "opts": [
+          "tea",
+          "water",
+          "juice",
+          "soda"
+        ]
+      },
+      "answer": "tea",
+      "explain_vi": "Green tea (trà xanh).",
+      "content_hash": "tea|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "green tea",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tea",
+      "pos": "n",
+      "sense_vi": "trà / chè",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'Would you like a cup of tea?'",
+        "opts": [
+          "Would you like a cup of tea?",
+          "Would you like a cup tea?",
+          "Would you like cup of tea?",
+          "Do you like a cup tea?"
+        ]
+      },
+      "answer": "Would you like a cup of tea?",
+      "explain_vi": "Mẫu câu mời lịch sự: Would you like a cup of tea?",
+      "content_hash": "tea|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy Would you like a cup of tea",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "tea",
+      "pos": "n",
+      "sense_vi": "trà / chè",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm trà xanh chuẩn:",
+        "opts": [
+          "green tea",
+          "leaf tea",
+          "plant tea",
+          "fresh tea"
+        ]
+      },
+      "answer": "green tea",
+      "explain_vi": "Trà xanh là green tea.",
+      "content_hash": "tea|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm green tea",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "coffee",
+      "pos": "n",
+      "sense_vi": "cà phê",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "coffee (n.)",
+        "opts": [
+          "cà phê",
+          "trà",
+          "sữa",
+          "nước ép"
+        ]
+      },
+      "answer": "cà phê",
+      "explain_vi": "coffee nghĩa là cà phê.",
+      "content_hash": "coffee|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa cà phê",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "coffee",
+      "pos": "n",
+      "sense_vi": "cà phê",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thức uống pha từ hạt cà phê rang xay:",
+        "opts": [
+          "coffee",
+          "toffee",
+          "cough",
+          "coffer"
+        ]
+      },
+      "answer": "coffee",
+      "explain_vi": "Cà phê là coffee (toffee là kẹo bơ cứng).",
+      "content_hash": "coffee|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss toffee",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "coffee",
+      "pos": "n",
+      "sense_vi": "cà phê",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "My father drinks black ___ without sugar.",
+        "opts": [
+          "coffee",
+          "tea",
+          "milk",
+          "water"
+        ]
+      },
+      "answer": "coffee",
+      "explain_vi": "Black coffee (cà phê đen).",
+      "content_hash": "coffee|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "black coffee",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "coffee",
+      "pos": "n",
+      "sense_vi": "cà phê",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He makes a coffee every morning.'",
+        "opts": [
+          "He makes coffee every morning.",
+          "He makes a coffee every morning.",
+          "He make coffee every morning.",
+          "He is make coffee every morning."
+        ]
+      },
+      "answer": "He makes coffee every morning.",
+      "explain_vi": "Coffee danh từ không đếm được chung không dùng 'a coffee'.",
+      "content_hash": "coffee|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy a coffee",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "coffee",
+      "pos": "n",
+      "sense_vi": "cà phê",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm hạt cà phê chuẩn:",
+        "opts": [
+          "coffee beans",
+          "coffee seeds",
+          "coffee nuts",
+          "coffee grains"
+        ]
+      },
+      "answer": "coffee beans",
+      "explain_vi": "Hạt cà phê gọi là coffee beans.",
+      "content_hash": "coffee|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm coffee beans",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fruit",
+      "pos": "n",
+      "sense_vi": "trai cây / hoa quả",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fruit (n.)",
+        "opts": [
+          "trái cây / hoa quả",
+          "rau củ",
+          "thịt",
+          "hải sản"
+        ]
+      },
+      "answer": "trái cây / hoa quả",
+      "explain_vi": "fruit nghĩa là trái cây.",
+      "content_hash": "fruit|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa trái cây",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fruit",
+      "pos": "n",
+      "sense_vi": "trai cây / hoa quả",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Tên gọi chung các loại quả ăn được như táo, cam, chuối...:",
+        "opts": [
+          "fruit",
+          "flute",
+          "fluid",
+          "foot"
+        ]
+      },
+      "answer": "fruit",
+      "explain_vi": "Trái cây là fruit (flute là cây sáo).",
+      "content_hash": "fruit|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss flute",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fruit",
+      "pos": "n",
+      "sense_vi": "trai cây / hoa quả",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Eating fresh ___ every day is good for your health.",
+        "opts": [
+          "fruit",
+          "candy",
+          "sugar",
+          "salt"
+        ]
+      },
+      "answer": "fruit",
+      "explain_vi": "Eating fresh fruit (ăn trái cây tươi).",
+      "content_hash": "fruit|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "fresh fruit",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fruit",
+      "pos": "n",
+      "sense_vi": "trai cây / hoa quả",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She likes eating many fruits.'",
+        "opts": [
+          "She likes eating fresh fruit.",
+          "She likes eating many fruits.",
+          "She like eating fresh fruit.",
+          "She is like eating fresh fruit."
+        ]
+      },
+      "answer": "She likes eating fresh fruit.",
+      "explain_vi": "Fruit nói chung làm danh từ không đếm được dùng dạng số ít 'fruit'.",
+      "content_hash": "fruit|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy fruit số ít",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fruit",
+      "pos": "n",
+      "sense_vi": "trai cây / hoa quả",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm sinh tố trái cây chuẩn:",
+        "opts": [
+          "fruit juice",
+          "fruit drink",
+          "fruit water",
+          "fruit liquid"
+        ]
+      },
+      "answer": "fruit juice",
+      "explain_vi": "Nước ép trái cây là fruit juice.",
+      "content_hash": "fruit|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm fruit juice",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fish",
+      "pos": "n",
+      "sense_vi": "con cá / thịt cá",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "fish (n.)",
+        "opts": [
+          "con cá / thịt cá",
+          "con gà",
+          "con bò",
+          "con lợn"
+        ]
+      },
+      "answer": "con cá / thịt cá",
+      "explain_vi": "fish nghĩa là con cá hoặc món cá.",
+      "content_hash": "fish|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa con cá",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fish",
+      "pos": "n",
+      "sense_vi": "con cá / thịt cá",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Động vật sống dưới nước thở bằng mang:",
+        "opts": [
+          "fish",
+          "fishes",
+          "finish",
+          "dish"
+        ]
+      },
+      "answer": "fish",
+      "explain_vi": "Con cá số ít/số nhiều chung là fish.",
+      "content_hash": "fish|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss finish",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fish",
+      "pos": "n",
+      "sense_vi": "con cá / thịt cá",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Cats love eating fresh ___.",
+        "opts": [
+          "fish",
+          "rice",
+          "bread",
+          "fruit"
+        ]
+      },
+      "answer": "fish",
+      "explain_vi": "Cats eat fish (mèo ăn cá).",
+      "content_hash": "fish|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "eat fish",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fish",
+      "pos": "n",
+      "sense_vi": "con cá / thịt cá",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I saw three fishes swimming in the pond.'",
+        "opts": [
+          "I saw three fish swimming in the pond.",
+          "I saw three fishes swimming in the pond.",
+          "I see three fishes swimming in the pond.",
+          "I am seeing three fish in the pond."
+        ]
+      },
+      "answer": "I saw three fish swimming in the pond.",
+      "explain_vi": "Danh từ số nhiều của fish giữ nguyên là fish (khi cùng loại).",
+      "content_hash": "fish|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9.5,
+        "quality_notes": "bẫy số nhiều fish",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "fish",
+      "pos": "n",
+      "sense_vi": "con cá / thịt cá",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm bể nuôi cá chuẩn:",
+        "opts": [
+          "fish tank",
+          "fish box",
+          "fish room",
+          "fish house"
+        ]
+      },
+      "answer": "fish tank",
+      "explain_vi": "Bể cá cảnh là fish tank.",
+      "content_hash": "fish|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm fish tank",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "meat",
+      "pos": "n",
+      "sense_vi": "thịt",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "meat (n.)",
+        "opts": [
+          "thịt",
+          "rau",
+          "cá",
+          "trái cây"
+        ]
+      },
+      "answer": "thịt",
+      "explain_vi": "meat nghĩa là thịt động vật dùng làm đồ ăn.",
+      "content_hash": "meat|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa thịt",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "meat",
+      "pos": "n",
+      "sense_vi": "thịt",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Thức ăn làm từ cơ bắp động vật:",
+        "opts": [
+          "meat",
+          "meet",
+          "meal",
+          "mate"
+        ]
+      },
+      "answer": "meat",
+      "explain_vi": "Thịt là meat (đồng âm với meet - gặp gỡ).",
+      "content_hash": "meat|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9.5,
+        "quality_notes": "near-miss đồng âm meet",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "meat",
+      "pos": "n",
+      "sense_vi": "thịt",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Vegetarians do not eat ___.",
+        "opts": [
+          "meat",
+          "rice",
+          "bread",
+          "vegetables"
+        ]
+      },
+      "answer": "meat",
+      "explain_vi": "Vegetarians do not eat meat (người ăn chay không ăn thịt).",
+      "content_hash": "meat|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "eat meat",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "meat",
+      "pos": "n",
+      "sense_vi": "thịt",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'I do not eat a meat.'",
+        "opts": [
+          "I do not eat meat.",
+          "I do not eat a meat.",
+          "I do not eat meats.",
+          "I am not eat meat."
+        ]
+      },
+      "answer": "I do not eat meat.",
+      "explain_vi": "Meat là danh từ không đếm được, không dùng 'a meat'.",
+      "content_hash": "meat|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy a meat",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "meat",
+      "pos": "n",
+      "sense_vi": "thịt",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm thịt bò chuẩn:",
+        "opts": [
+          "beef meat",
+          "cow meat",
+          "bull meat",
+          "calf meat"
+        ]
+      },
+      "answer": "beef meat",
+      "explain_vi": "Thịt bò gọi là beef (hoặc beef meat).",
+      "content_hash": "meat|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm beef",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eat",
+      "pos": "v",
+      "sense_vi": "ăn",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "eat (v.)",
+        "opts": [
+          "ăn",
+          "uống",
+          "nấu",
+          "ngủ"
+        ]
+      },
+      "answer": "ăn",
+      "explain_vi": "eat nghĩa là ăn thức ăn.",
+      "content_hash": "eat|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa ăn",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eat",
+      "pos": "v",
+      "sense_vi": "ăn",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động đưa thức ăn vào miệng nhai và nuốt:",
+        "opts": [
+          "eat",
+          "ate",
+          "eaten",
+          "heat"
+        ]
+      },
+      "answer": "eat",
+      "explain_vi": "Động từ ăn dạng nguyên mẫu là eat (ate là quá khứ).",
+      "content_hash": "eat|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss ate",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eat",
+      "pos": "v",
+      "sense_vi": "ăn",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "We ___ lunch at 12 o'clock every day.",
+        "opts": [
+          "eat",
+          "drink",
+          "cook",
+          "wash"
+        ]
+      },
+      "answer": "eat",
+      "explain_vi": "Eat lunch (ăn trưa).",
+      "content_hash": "eat|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "eat lunch",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eat",
+      "pos": "v",
+      "sense_vi": "ăn",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'She eat an apple every morning.'",
+        "opts": [
+          "She eats an apple every morning.",
+          "She eat an apple every morning.",
+          "She eating an apple every morning.",
+          "She is eat an apple every morning."
+        ]
+      },
+      "answer": "She eats an apple every morning.",
+      "explain_vi": "Chủ ngữ She đi với động từ chia ngôi 3 số ít: eats.",
+      "content_hash": "eat|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy chia eats",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "eat",
+      "pos": "v",
+      "sense_vi": "ăn",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm ăn ngoài hàng / ăn tiệm chuẩn:",
+        "opts": [
+          "eat out",
+          "eat away",
+          "eat off",
+          "eat inside"
+        ]
+      },
+      "answer": "eat out",
+      "explain_vi": "Đi ăn ngoài tiệm dùng cụm 'eat out'.",
+      "content_hash": "eat|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9.5,
+        "quality_notes": "cụm eat out",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "drink",
+      "pos": "v",
+      "sense_vi": "uống",
+      "level": "A0",
+      "type": "meaning_mcq",
+      "stem": {
+        "q": "drink (v.)",
+        "opts": [
+          "uống",
+          "ăn",
+          "nếm",
+          "ngửi"
+        ]
+      },
+      "answer": "uống",
+      "explain_vi": "drink nghĩa là uống chất lỏng.",
+      "content_hash": "drink|meaning_mcq|01",
+      "meta": {
+        "skill": "receptive_meaning",
+        "quality_score": 9,
+        "quality_notes": "nghĩa uống",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "drink",
+      "pos": "v",
+      "sense_vi": "uống",
+      "level": "A0",
+      "type": "l2_to_en",
+      "stem": {
+        "q": "Hành động đưa chất lỏng vào miệng và nuốt:",
+        "opts": [
+          "drink",
+          "drank",
+          "drunk",
+          "drench"
+        ]
+      },
+      "answer": "drink",
+      "explain_vi": "Động từ uống nguyên mẫu là drink (drank là quá khứ).",
+      "content_hash": "drink|l2_to_en|01",
+      "meta": {
+        "skill": "productive_meaning",
+        "quality_score": 9,
+        "quality_notes": "near-miss drank",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "drink",
+      "pos": "v",
+      "sense_vi": "uống",
+      "level": "A0",
+      "type": "cloze",
+      "stem": {
+        "q": "Remember to ___ plenty of water on hot days.",
+        "opts": [
+          "drink",
+          "eat",
+          "cook",
+          "wash"
+        ]
+      },
+      "answer": "drink",
+      "explain_vi": "Drink plenty of water (uống nhiều nước).",
+      "content_hash": "drink|cloze|01",
+      "meta": {
+        "skill": "collocation_context",
+        "quality_score": 9,
+        "quality_notes": "drink water",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "drink",
+      "pos": "v",
+      "sense_vi": "uống",
+      "level": "A0",
+      "type": "error",
+      "stem": {
+        "q": "Chọn câu đúng: 'He drank a glass of milk yesterday.'",
+        "opts": [
+          "He drank a glass of milk yesterday.",
+          "He drink a glass of milk yesterday.",
+          "He is drank a glass of milk yesterday.",
+          "He drinking a glass of milk yesterday."
+        ]
+      },
+      "answer": "He drank a glass of milk yesterday.",
+      "explain_vi": "Yesterday yêu cầu động từ quá khứ bất quy tắc 'drank'.",
+      "content_hash": "drink|error|01",
+      "meta": {
+        "skill": "error_identification",
+        "quality_score": 9,
+        "quality_notes": "bẫy quá khứ drank",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    },
+    {
+      "lemma": "drink",
+      "pos": "v",
+      "sense_vi": "uống",
+      "level": "A0",
+      "type": "collocation_mcq",
+      "stem": {
+        "q": "Chọn cụm đồ uống lạnh giải khát chuẩn:",
+        "opts": [
+          "cold drink",
+          "cool drink",
+          "ice drink",
+          "chill drink"
+        ]
+      },
+      "answer": "cold drink",
+      "explain_vi": "Đồ uống lạnh là cold drink.",
+      "content_hash": "drink|collocation_mcq|01",
+      "meta": {
+        "skill": "collocation",
+        "quality_score": 9,
+        "quality_notes": "cụm cold drink",
+        "pack_id": "starter-a0-food",
+        "priority": "P0"
+      }
+    }
+  ]
+}
