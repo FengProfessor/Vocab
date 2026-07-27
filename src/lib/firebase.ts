@@ -149,12 +149,11 @@ export const requestForToken = async (onStep?: (msg: string) => void): Promise<s
   return current;
 };
 
-export const onMessageListener = (): Promise<MessagePayload> | undefined => {
+export const onMessageListener = (callback: (payload: MessagePayload) => void): (() => void) | undefined => {
   if (typeof window === 'undefined') return;
   const messaging = getMessaging(app);
-  return new Promise<MessagePayload>((resolve) => {
-    onMessage(messaging, (payload) => {
-      resolve(payload);
-    });
+  // onMessage returns an unsubscribe function
+  return onMessage(messaging, (payload) => {
+    callback(payload);
   });
 };

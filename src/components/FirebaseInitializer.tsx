@@ -67,8 +67,17 @@ export default function FirebaseInitializer() {
 
         console.log('[FCM] Token registered successfully');
 
-        onMessageListener()?.then((payload) => {
+        const { toast } = await import('sonner');
+        onMessageListener((payload) => {
           console.log('[FCM] Foreground message:', payload);
+          const title = payload.notification?.title || 'Thông báo mới';
+          const body = payload.notification?.body || '';
+          
+          toast(title, {
+            description: body,
+            duration: 5000,
+            icon: '🔔',
+          });
         });
       } catch (err) {
         console.error('[FCM] Setup error:', err);

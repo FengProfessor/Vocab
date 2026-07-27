@@ -104,15 +104,15 @@ export async function sendPushNotificationToUser(
       webpush: {
         fcmOptions: { link },
         notification: {
-          icon: '/icons/icon-192.webp',
-          badge: '/icons/icon-192.webp',
+          icon: 'https://lingopro.online/icons/icon-192.webp',
+          badge: 'https://lingopro.online/icons/icon-192.webp',
           tag: 'lingopro-due',
           renotify: true,
         },
       },
       android: {
         collapseKey: 'lingopro-due',
-        priority: 'high' as const,
+        priority: 'high',
         notification: { tag: 'lingopro-due' },
       },
     };

@@ -26,8 +26,8 @@ messaging.onBackgroundMessage((payload) => {
   const notificationTitle = notification.title || 'LingoPro Update';
   const notificationOptions = {
     body: notification.body || 'Bạn có từ đến hạn cần ôn.',
-    icon: '/icons/icon-192.webp',
-    badge: '/icons/icon-192.webp',
+    icon: 'https://lingopro.online/icons/icon-192.webp',
+    badge: 'https://lingopro.online/icons/icon-192.webp',
     data: payload.data || {},
   };
 
