@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 import {
   DISPLAY_NAME_MAX,
   DISPLAY_NAME_MIN,
@@ -20,7 +20,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     if (!auth) return unauthorized();
     const supabase = createServiceClient();
     const { data, error: dbErr } = await supabase.from('profiles').select('*').eq('id', auth.userId).single();
-    if (dbErr) return NextResponse.json({ success: false, error: dbErr.message }, { status: 500 });
+    if (dbErr) return safeErrorResponse(dbErr, 'Không tải được hồ sơ');
 
     const rawPlan = (data?.plan as Plan | undefined) ?? 'free';
     const expiresAt = (data?.plan_expires_at as string | null | undefined) ?? null;
@@ -46,7 +46,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       meta: { displayNameMin: DISPLAY_NAME_MIN, displayNameMax: DISPLAY_NAME_MAX },
     });
   } catch (err: unknown) {
-    return NextResponse.json({ success: false, error: err instanceof Error ? err.message : String(err) }, { status: 500 });
+    return safeErrorResponse(err, 'Không tải được hồ sơ');
   }
 }
 
@@ -78,7 +78,7 @@ export async function PUT(req: NextRequest): Promise<NextResponse> {
     }
 
     const { data, error: dbErr } = await supabase.from('profiles').update(updates).eq('id', auth.userId).select().single();
-    if (dbErr) return NextResponse.json({ success: false, error: dbErr.message }, { status: 500 });
+    if (dbErr) return safeErrorResponse(dbErr, 'Không cập nhật được hồ sơ');
 
     // Đồng bộ tên lên room_presence nếu có bảng
     if (typeof updates.full_name === 'string') {
@@ -93,6 +93,6 @@ export async function PUT(req: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, data });
   } catch (err: unknown) {
-    return NextResponse.json({ success: false, error: err instanceof Error ? err.message : String(err) }, { status: 500 });
+    return safeErrorResponse(err, 'Không cập nhật được hồ sơ');
   }
 }

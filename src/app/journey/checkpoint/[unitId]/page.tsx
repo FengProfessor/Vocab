@@ -9,7 +9,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
-import { completeRoadmapStep } from '@/lib/roadmap-client';
+import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { playWordAudio } from '@/lib/audio';
 import { judgeAnswer } from '@/lib/study';
 import { encouragement } from '@/lib/encouragement';
@@ -117,7 +117,7 @@ export default function CheckpointPage() {
       const result = await completeRoadmapStep(stepId, scorePct);
       setSubmitting(false);
       if (result) {
-        sessionStorage.setItem('roadmap_celebrate', result.levelCompleted ? 'level' : 'unit');
+        setRoadmapCelebrateFlag(result);
         router.push('/journey');
         return;
       }
@@ -178,7 +178,15 @@ export default function CheckpointPage() {
       </div>
       <p className="text-xs text-muted-foreground">{title}</p>
 
-      <h1 className="text-xl font-bold">{q.prompt}</h1>
+      <h1 className="text-xl font-bold">
+        {q.prompt?.trim()
+          ? q.prompt
+          : q.type === 'typing'
+            ? 'Gõ từ tiếng Anh đúng'
+            : isAudioQ
+              ? 'Nghe và chọn đáp án đúng'
+              : 'Chọn đáp án đúng'}
+      </h1>
       {isAudioQ && q.audioWord && (
         <Button variant="outline" onClick={() => void playWordAudio(q.audioWord!)}>
           <Volume2 className="w-4 h-4 mr-2" /> Nghe lại

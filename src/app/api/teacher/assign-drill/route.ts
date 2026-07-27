@@ -1,6 +1,6 @@
 import { createServiceClient } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getAuthUser, unauthorized, forbidden, safeErrorResponse } from '@/lib/api-security';
 
 /**
  * POST /api/teacher/assign-drill
@@ -34,10 +34,33 @@ export async function POST(req: Request): Promise<NextResponse> {
       .maybeSingle();
     if (!cls || cls.teacher_id !== auth.userId) return unauthorized();
 
+    // Chống IDOR: studentId phải là học viên đã enroll lớp này (không thì GV có thể ghi
+    // SRS của user bất kỳ qua lớp __personal__ của chính mình).
+    const { data: enr } = await supabase
+      .from('enrollments')
+      .select('id')
+      .eq('classroom_id', classroomId)
+      .eq('student_id', studentId)
+      .maybeSingle();
+    if (!enr) return forbidden('Student not enrolled in this classroom');
+
+    const hasExplicitWordIds = Array.isArray(wordIds) && wordIds.length > 0;
     let targetWordIds = wordIds || [];
 
+    // Khi client chỉ định wordIds: chỉ giữ những từ THỰC SỰ thuộc lớp này
+    // (không cho reset lịch SRS của từ ngoài phạm vi lớp được uỷ quyền).
+    if (hasExplicitWordIds) {
+      const { data: scoped, error: scopeErr } = await supabase
+        .from('words')
+        .select('id')
+        .eq('classroom_id', classroomId)
+        .in('id', targetWordIds);
+      if (scopeErr) throw scopeErr;
+      targetWordIds = (scoped || []).map((w) => (w as { id: string }).id);
+    }
+
     // If no word IDs specified, fetch top 5 most difficult words for this student
-    if (targetWordIds.length === 0) {
+    if (!hasExplicitWordIds && targetWordIds.length === 0) {
       const { data: progressList, error: fetchErr } = await supabase
         .from('srs_progress')
         .select('word_id, difficulty, stability, words!inner(classroom_id)')
@@ -86,8 +109,6 @@ export async function POST(req: Request): Promise<NextResponse> {
       message: `Assigned ${targetWordIds.length} words for extra practice: ${wordListStr}`,
     });
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error('Assign Drill API Error:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(error, 'Không giao được bài luyện');
   }
 }

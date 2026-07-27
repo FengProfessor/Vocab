@@ -40,8 +40,20 @@ const nextConfig: NextConfig = {
     ],
   },
   images: {
-    // Cho phép mọi host https (ảnh đi qua image-proxy / nguồn ngoài động)
-    remotePatterns: [{ protocol: 'https', hostname: '**' }],
+    // SECURITY: KHÔNG dùng hostname:'**' — biến /_next/image thành open proxy + SSRF/transcode
+    // abuse không auth (bỏ qua mọi hardening của /api/image-proxy). App KHÔNG dùng next/image
+    // (mọi ảnh qua <img src={resolveImageSrc()}> → direct CDN hoặc /api/image-proxy same-origin),
+    // nên allowlist này chỉ là defense-in-depth; mirror DIRECT_IMAGE_HOST_SUFFIXES trong media-url.ts.
+    remotePatterns: [
+      'supabase.co', 'supabase.in', 'pixabay.com', 'pexels.com', 'unsplash.com',
+      'cloudinary.com', 'imgur.com', 'googleusercontent.com', 'ggpht.com', 'gstatic.com',
+      'wikimedia.org', 'wikipedia.org', 'cdn.jsdelivr.net', 'cloudfront.net', 'r2.dev',
+      'amazonaws.com', 'google.com', 'ytimg.com', 'twimg.com', 'fbcdn.net', 'pinimg.com',
+      'staticflickr.com', 'pollinations.ai',
+    ].flatMap((h) => [
+      { protocol: 'https' as const, hostname: h },
+      { protocol: 'https' as const, hostname: `**.${h}` },
+    ]),
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 ngày
     deviceSizes: [640, 750, 828, 1080, 1200],

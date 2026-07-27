@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { createOrder, isValidPeriodMonths } from '@/lib/billing';
+import { safeErrorResponse } from '@/lib/api-security';
 import type { Plan } from '@/lib/supabase';
 
 // Fail-closed: env rỗng → mảng rỗng → mọi request đều 403 (tránh [''].includes('') = true)
@@ -68,9 +69,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true, ...result });
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error('[Billing] Create order error:', msg);
-    return NextResponse.json({ error: msg }, { status: 500 });
+    return safeErrorResponse(err, 'Không tạo được đơn hàng');
   }
 }
 
@@ -116,7 +115,6 @@ export async function GET(req: NextRequest) {
       limit,
     });
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    return NextResponse.json({ error: msg }, { status: 500 });
+    return safeErrorResponse(err, 'Không tải được đơn hàng');
   }
 }

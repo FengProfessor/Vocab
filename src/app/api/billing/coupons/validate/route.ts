@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { safeErrorResponse } from '@/lib/api-security';
 import type { Plan } from '@/lib/supabase';
 import {
   applyDiscount,
@@ -70,7 +71,7 @@ export async function POST(req: NextRequest) {
     .maybeSingle();
 
   if (dbErr) {
-    return NextResponse.json({ error: dbErr.message }, { status: 500 });
+    return safeErrorResponse(dbErr, 'Không kiểm tra được mã giảm giá');
   }
   if (!data) {
     return NextResponse.json({ valid: false, error: 'Mã không tồn tại hoặc đã tắt' }, { status: 404 });

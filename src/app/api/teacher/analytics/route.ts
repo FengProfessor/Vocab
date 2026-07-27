@@ -1,6 +1,6 @@
 import { createServiceClient } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
 /**
  * GET /api/teacher/analytics?classroomId=yyy
@@ -66,15 +66,50 @@ export async function GET(req: Request) {
       ? studentList.reduce((sum, s) => sum + (s.avg_quiz_accuracy || 0), 0) / studentList.length
       : 0;
 
-    // Count words due today across all enrolled students
+    // ── BATCH A: các truy vấn chỉ cần studentIds + classroomId → chạy song song ──
+    // (trước đây tuần tự: due → words → quizzes → reviews = 4x round-trip).
+    // `words` (giới hạn 50) dùng chung cho cả coverage lẫn difficulty → bỏ lần quét words thứ 2.
+    type QuizRow = { id: string; user_id: string; score: number; total_questions: number; accuracy: number; completed_at: string };
+    type ReviewRow = { user_id: string; last_reviewed_at: string };
     let wordsDueToday = 0;
-    if (studentList.length > 0) {
-      const { count } = await supabase
-        .from('srs_progress')
-        .select('id', { count: 'exact', head: true })
-        .in('user_id', studentIds)
-        .lte('next_review_date', todayDate);
-      wordsDueToday = count || 0;
+    let words: { id: string; word: string }[] = [];
+    let recentQuizzes: QuizRow[] = [];
+    let recentReviews: ReviewRow[] = [];
+
+    if (studentIds.length > 0) {
+      const [dueRes, wordsRes, quizRes, reviewRes] = await Promise.all([
+        supabase
+          .from('srs_progress')
+          .select('id', { count: 'exact', head: true })
+          .in('user_id', studentIds)
+          .lte('next_review_date', todayDate),
+        supabase
+          .from('words')
+          .select('id, word')
+          .eq('classroom_id', classroomId)
+          .order('created_at', { ascending: true })
+          .limit(50),
+        supabase
+          .from('quiz_results')
+          .select('id, user_id, score, total_questions, accuracy, completed_at')
+          .eq('classroom_id', classroomId)
+          .in('user_id', studentIds)
+          .gte('completed_at', sevenDaysAgoISO)
+          .order('completed_at', { ascending: false })
+          .limit(20),
+        supabase
+          .from('srs_progress')
+          .select('user_id, last_reviewed_at, words!inner(classroom_id)')
+          .in('user_id', studentIds)
+          .eq('words.classroom_id', classroomId)
+          .gte('last_reviewed_at', sevenDaysAgoISO)
+          .order('last_reviewed_at', { ascending: false })
+          .limit(30),
+      ]);
+      wordsDueToday = dueRes.count || 0;
+      words = (wordsRes.data as { id: string; word: string }[] | null) || [];
+      recentQuizzes = (quizRes.data as QuizRow[] | null) || [];
+      recentReviews = (reviewRes.data as unknown as ReviewRow[] | null) || [];
     }
 
     // 3. Top students by VMS (mastery score), top 5
@@ -114,46 +149,6 @@ export async function GET(req: Request) {
       coverage_pct: number;
     }> = [];
 
-    if (enrolledCount > 0) {
-      const { data: words, error: wordsErr } = await supabase
-        .from('words')
-        .select('id, word')
-        .eq('classroom_id', classroomId)
-        .order('created_at', { ascending: true })
-        .limit(50);
-
-      if (!wordsErr && words && words.length > 0) {
-        const wordIds = words.map(w => w.id);
-
-        // Count distinct students who have at least 1 review per word
-        const { data: coverage, error: covErr } = await supabase
-          .from('srs_progress')
-          .select('word_id, user_id')
-          .in('word_id', wordIds)
-          .in('user_id', studentIds)
-          .gt('review_count', 0);
-
-        if (!covErr && coverage) {
-          // Group by word_id
-          const countMap = new Map<string, Set<string>>();
-          for (const row of coverage) {
-            if (!countMap.has(row.word_id)) countMap.set(row.word_id, new Set());
-            countMap.get(row.word_id)!.add(row.user_id);
-          }
-
-          wordCoverage = words.map(w => {
-            const reviewers = countMap.get(w.id)?.size || 0;
-            return {
-              word_id: w.id,
-              word: w.word,
-              students_reviewed: reviewers,
-              coverage_pct: enrolledCount > 0 ? Math.round((reviewers / enrolledCount) * 100) : 0,
-            };
-          });
-        }
-      }
-    }
-
     // 6. Word difficulty: top 10 từ có fail rate cao nhất
     // Proxy: dùng srs_progress — từ có review_count cao nhưng stability thấp = khó nhớ
     type WordDifficultyItem = {
@@ -163,46 +158,62 @@ export async function GET(req: Request) {
     };
     let wordDifficulty: WordDifficultyItem[] = [];
 
-    if (enrolledCount > 0) {
-      const { data: diffWords } = await supabase
-        .from('words')
-        .select('id, word')
-        .eq('classroom_id', classroomId);
-
-      if (diffWords && diffWords.length > 0) {
-        const diffWordIds = diffWords.map(w => w.id);
-        const { data: diffProgress } = await supabase
+    // ── BATCH B: coverage + difficulty đọc chung `words` (50 từ) → 2 truy vấn srs song song ──
+    if (words.length > 0) {
+      const wordIds = words.map(w => w.id);
+      const [covRes, diffRes] = await Promise.all([
+        supabase
+          .from('srs_progress')
+          .select('word_id, user_id')
+          .in('word_id', wordIds)
+          .in('user_id', studentIds)
+          .gt('review_count', 0),
+        supabase
           .from('srs_progress')
           .select('word_id, review_count, stability')
-          .in('word_id', diffWordIds)
+          .in('word_id', wordIds)
           .in('user_id', studentIds)
-          .gt('review_count', 1); // chỉ tính từ đã review ít nhất 2 lần
+          .gt('review_count', 1), // chỉ tính từ đã review ít nhất 2 lần
+      ]);
 
-        if (diffProgress && diffProgress.length > 0) {
-          // Tính fail_rate per word: trung bình (review_count / stability) → cao = khó
-          const wordMap = new Map<string, { totalScore: number; count: number }>();
-          for (const row of diffProgress) {
-            const stability = row.stability as number ?? 1;
-            // fail proxy: review nhiều mà stability thấp → khó
-            const failScore = stability > 0 ? (row.review_count as number) / stability : row.review_count as number;
-            if (!wordMap.has(row.word_id)) wordMap.set(row.word_id, { totalScore: 0, count: 0 });
-            const entry = wordMap.get(row.word_id)!;
-            entry.totalScore += failScore;
-            entry.count += 1;
-          }
-
-          const wordLookup = new Map(diffWords.map(w => [w.id, w.word]));
-          const scored = [...wordMap.entries()]
-            .map(([wid, { totalScore, count }]) => ({
-              word_id: wid,
-              word: wordLookup.get(wid) || '',
-              fail_rate: count > 0 ? Math.round((totalScore / count) * 10) / 10 : 0,
-            }))
-            .sort((a, b) => b.fail_rate - a.fail_rate)
-            .slice(0, 10);
-
-          wordDifficulty = scored;
+      const coverage = covRes.data;
+      if (!covRes.error && coverage) {
+        const countMap = new Map<string, Set<string>>();
+        for (const row of coverage) {
+          if (!countMap.has(row.word_id)) countMap.set(row.word_id, new Set());
+          countMap.get(row.word_id)!.add(row.user_id);
         }
+        wordCoverage = words.map(w => {
+          const reviewers = countMap.get(w.id)?.size || 0;
+          return {
+            word_id: w.id,
+            word: w.word,
+            students_reviewed: reviewers,
+            coverage_pct: enrolledCount > 0 ? Math.round((reviewers / enrolledCount) * 100) : 0,
+          };
+        });
+      }
+
+      const diffProgress = diffRes.data;
+      if (!diffRes.error && diffProgress && diffProgress.length > 0) {
+        const wordMap = new Map<string, { totalScore: number; count: number }>();
+        for (const row of diffProgress) {
+          const stability = row.stability as number ?? 1;
+          const failScore = stability > 0 ? (row.review_count as number) / stability : row.review_count as number;
+          if (!wordMap.has(row.word_id)) wordMap.set(row.word_id, { totalScore: 0, count: 0 });
+          const entry = wordMap.get(row.word_id)!;
+          entry.totalScore += failScore;
+          entry.count += 1;
+        }
+        const wordLookup = new Map(words.map(w => [w.id, w.word]));
+        wordDifficulty = [...wordMap.entries()]
+          .map(([wid, { totalScore, count }]) => ({
+            word_id: wid,
+            word: wordLookup.get(wid) || '',
+            fail_rate: count > 0 ? Math.round((totalScore / count) * 10) / 10 : 0,
+          }))
+          .sort((a, b) => b.fail_rate - a.fail_rate)
+          .slice(0, 10);
       }
     }
 
@@ -220,17 +231,8 @@ export async function GET(req: Request) {
     let activityFeed: ActivityItem[] = [];
 
     if (studentIds.length > 0) {
-      // Recent quiz submissions
-      const { data: recentQuizzes } = await supabase
-        .from('quiz_results')
-        .select('id, user_id, score, total_questions, accuracy, completed_at')
-        .eq('classroom_id', classroomId)
-        .in('user_id', studentIds)
-        .gte('completed_at', sevenDaysAgoISO)
-        .order('completed_at', { ascending: false })
-        .limit(20);
-
-      const quizActivities: ActivityItem[] = (recentQuizzes || []).map(q => ({
+      // recentQuizzes / recentReviews đã fetch song song ở BATCH A
+      const quizActivities: ActivityItem[] = recentQuizzes.map(q => ({
         type: 'quiz',
         student_id: q.user_id,
         student_name: nameMap.get(q.user_id) || 'Unknown',
@@ -238,19 +240,9 @@ export async function GET(req: Request) {
         timestamp: q.completed_at,
       }));
 
-      // Recent SRS reviews — join with words to get classroom filter
-      const { data: recentReviews } = await supabase
-        .from('srs_progress')
-        .select('user_id, last_reviewed_at, words!inner(classroom_id)')
-        .in('user_id', studentIds)
-        .eq('words.classroom_id', classroomId)
-        .gte('last_reviewed_at', sevenDaysAgoISO)
-        .order('last_reviewed_at', { ascending: false })
-        .limit(30);
-
       // Group SRS reviews by user + day to avoid per-word spam
       const reviewGroups = new Map<string, { user_id: string; timestamp: string; count: number }>();
-      for (const r of (recentReviews || [])) {
+      for (const r of recentReviews) {
         const day = (r.last_reviewed_at as string).split('T')[0];
         const key = `${r.user_id}_${day}`;
         if (!reviewGroups.has(key)) {
@@ -272,24 +264,25 @@ export async function GET(req: Request) {
         .slice(0, 10);
     }
 
-    return NextResponse.json({
-      success: true,
-      classStats: {
-        active_students: activeStudents,
-        total_enrolled: enrolledCount,
-        total_class_words: totalClassWords,
-        avg_accuracy: Math.round(avgAccuracy * 100),
-        words_due_today: wordsDueToday,
+    return NextResponse.json(
+      {
+        success: true,
+        classStats: {
+          active_students: activeStudents,
+          total_enrolled: enrolledCount,
+          total_class_words: totalClassWords,
+          avg_accuracy: Math.round(avgAccuracy * 100),
+          words_due_today: wordsDueToday,
+        },
+        topStudents,
+        strugglingStudents,
+        wordCoverage,
+        wordDifficulty,
+        activityFeed,
       },
-      topStudents,
-      strugglingStudents,
-      wordCoverage,
-      wordDifficulty,
-      activityFeed,
-    });
+      { headers: { 'Cache-Control': 'private, max-age=20, stale-while-revalidate=40' } },
+    );
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error('[TeacherAnalytics] Error:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(error, 'Không tải được phân tích lớp');
   }
 }

@@ -3,9 +3,7 @@ import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
 type ProfileRow = { id: string; email: string; full_name: string; role: string; created_at: string };
-type ClassroomRow = { id: string };
-type WordRow = { id: string; created_at: string };
-type QuizRow = { accuracy: number; completed_at: string };
+type QuizRow = { user_id: string; accuracy: number; completed_at: string };
 
 // Fail-closed: nếu ADMIN_EMAILS chưa cấu hình → mảng rỗng → mọi request đều 403
 const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
@@ -41,77 +39,71 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (profilesError) throw profilesError;
 
     const today = new Date().toISOString().split('T')[0];
+    const profileList = (profiles || []) as ProfileRow[];
+    const userIds = profileList.map((p) => p.id);
 
-    // Enrich each user with stats
-    const users = await Promise.all((profiles || []).map(async (profile: ProfileRow) => {
-      // Count words (via their personal classroom)
-      const { data: classrooms } = await supabase
-        .from('classrooms')
-        .select('id')
-        .eq('teacher_id', profile.id)
-        .eq('name', '__personal__');
+    // ── Bulk-fetch thay cho N+1 (trước đây ~3 query/user → bão hoà pool Supabase) ──
+    // 3 truy vấn tổng: personal classrooms + quiz_results song song, rồi words theo classroom.
+    const [classRes, quizRes] = userIds.length > 0
+      ? await Promise.all([
+          supabase.from('classrooms').select('id, teacher_id').eq('name', '__personal__').in('teacher_id', userIds),
+          supabase.from('quiz_results').select('user_id, accuracy, completed_at').in('user_id', userIds),
+        ])
+      : [{ data: [] }, { data: [] }];
 
-      let wordCount = 0;
-      let wordsToday = 0;
-      let lastActive: string | null = null;
+    const classrooms = (classRes.data || []) as { id: string; teacher_id: string }[];
+    const classroomIds = classrooms.map((c) => c.id);
+    const classroomToUser = new Map(classrooms.map((c) => [c.id, c.teacher_id]));
 
-      if (classrooms && classrooms.length > 0) {
-        const classroomIds = (classrooms as ClassroomRow[]).map((c) => c.id);
+    let wordRows: { classroom_id: string; created_at: string }[] = [];
+    if (classroomIds.length > 0) {
+      const { data: words } = await supabase
+        .from('words')
+        .select('classroom_id, created_at')
+        .in('classroom_id', classroomIds);
+      wordRows = (words || []) as { classroom_id: string; created_at: string }[];
+    }
 
-        const { data: words } = await supabase
-          .from('words')
-          .select('id, created_at')
-          .in('classroom_id', classroomIds);
+    // Gộp per-user trong bộ nhớ (thay cho việc truy vấn từng user)
+    const wordCountMap = new Map<string, number>();
+    const wordsTodayMap = new Map<string, number>();
+    const lastActiveMap = new Map<string, string>();
+    const bumpLastActive = (uid: string, ts: string | null | undefined) => {
+      if (!ts) return;
+      const prev = lastActiveMap.get(uid);
+      if (!prev || new Date(ts).getTime() > new Date(prev).getTime()) lastActiveMap.set(uid, ts);
+    };
+    for (const w of wordRows) {
+      const uid = classroomToUser.get(w.classroom_id);
+      if (!uid) continue;
+      wordCountMap.set(uid, (wordCountMap.get(uid) || 0) + 1);
+      if (w.created_at?.startsWith(today)) wordsTodayMap.set(uid, (wordsTodayMap.get(uid) || 0) + 1);
+      bumpLastActive(uid, w.created_at);
+    }
 
-        const wordRows = (words || []) as WordRow[];
-        wordCount = wordRows.length;
-        wordsToday = wordRows.filter((w) =>
-          w.created_at?.startsWith(today)
-        ).length;
+    const quizCountMap = new Map<string, number>();
+    const quizSumMap = new Map<string, number>();
+    for (const q of (quizRes.data || []) as QuizRow[]) {
+      quizCountMap.set(q.user_id, (quizCountMap.get(q.user_id) || 0) + 1);
+      quizSumMap.set(q.user_id, (quizSumMap.get(q.user_id) || 0) + (q.accuracy || 0));
+      bumpLastActive(q.user_id, q.completed_at);
+    }
 
-        if (wordRows.length > 0) {
-          lastActive = wordRows.slice().sort((a, b) =>
-            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-          )[0]?.created_at;
-        }
-      }
-
-      // Quiz stats
-      const { data: quizResults } = await supabase
-        .from('quiz_results')
-        .select('accuracy, completed_at')
-        .eq('user_id', profile.id);
-
-      const quizRows = (quizResults || []) as QuizRow[];
-      const quizCount = quizRows.length;
-      const avgAccuracy = quizCount > 0
-        ? quizRows.reduce((sum, r) => sum + (r.accuracy || 0), 0) / quizCount
-        : 0;
-
-      // Update lastActive from quiz if more recent
-      if (quizRows.length > 0) {
-        const latestQuiz = quizRows.slice().sort((a, b) =>
-          new Date(b.completed_at).getTime() - new Date(a.completed_at).getTime()
-        )[0]?.completed_at;
-
-        if (!lastActive || new Date(latestQuiz) > new Date(lastActive)) {
-          lastActive = latestQuiz;
-        }
-      }
-
+    const users = profileList.map((profile) => {
+      const quizCount = quizCountMap.get(profile.id) || 0;
       return {
         id: profile.id,
         email: profile.email,
         full_name: profile.full_name,
         role: profile.role,
         created_at: profile.created_at,
-        wordCount,
-        wordsToday,
+        wordCount: wordCountMap.get(profile.id) || 0,
+        wordsToday: wordsTodayMap.get(profile.id) || 0,
         quizCount,
-        avgAccuracy,
-        lastActive,
+        avgAccuracy: quizCount > 0 ? (quizSumMap.get(profile.id) || 0) / quizCount : 0,
+        lastActive: lastActiveMap.get(profile.id) || null,
       };
-    }));
+    });
 
     // Aggregate totals
     const totalWords = users.reduce((sum, u) => sum + u.wordCount, 0);

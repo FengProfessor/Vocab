@@ -25,6 +25,19 @@ export interface RoadmapLevelView {
 
 export type RoadmapTrackId = 'cefr' | 'thpt';
 
+// ── Exit standards (stub) ──
+// Ở đây thay vì roadmap.ts để tránh kéo ~157KB JSON lộ trình vào bundle client
+// chỉ vì 2 hàm hằng số (roadmap.ts build index từ 6 file JSON ở top-level, không tree-shake được).
+export type ExitStandard = { canDo: string[]; notYet: string[] };
+
+export function getExitDisclaimer(): string {
+  return 'Chuẩn đầu ra theo CEFR. Ôn đều SRS để giữ từ và kỹ năng lâu dài.';
+}
+
+export function getExitStandard(_levelId: string): ExitStandard | null {
+  return null;
+}
+
 export interface RoadmapEnrollmentView {
   track: RoadmapTrackId;
   levelId: string;
@@ -57,6 +70,19 @@ export interface CompleteStepResult {
   unitCompleted: boolean;
   levelCompleted: boolean;
   levelId: string;
+}
+
+/** Flag sessionStorage → Journey hiện popup chúc mừng (unit | level:<id>). */
+export function setRoadmapCelebrateFlag(result: Pick<CompleteStepResult, 'levelCompleted' | 'levelId'>): void {
+  try {
+    if (result.levelCompleted) {
+      sessionStorage.setItem('roadmap_celebrate', `level:${result.levelId}`);
+    } else {
+      sessionStorage.setItem('roadmap_celebrate', 'unit');
+    }
+  } catch {
+    /* ignore */
+  }
 }
 
 let lastCompleteError: string | undefined;

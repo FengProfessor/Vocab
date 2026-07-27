@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
+import { effectiveCurrentStreak } from '@/lib/gamification';
 
 export interface LeaderboardEntry {
   rank: number;
@@ -94,45 +95,38 @@ export async function GET(
 
     const studentIds = enrollments.map((e) => e.student_id as string);
 
-    // Lấy profiles của students
-    const { data: profiles, error: profilesErr } = await supabase
-      .from('profiles')
-      .select('id, full_name')
-      .in('id', studentIds);
+    const periodStart = getPeriodStartDate(period);
+
+    // 4 truy vấn độc lập → chạy song song (trước đây tuần tự = 4x round-trip).
+    // srs_progress scope thẳng theo classroom qua inner join words → không kéo toàn bộ
+    // srs của lớp/kho khác rồi lọc trong JS (trước đây tải cả nghìn hàng thừa).
+    const [
+      { data: profiles, error: profilesErr },
+      { data: gamifRows },
+      { data: srsRows },
+      { data: quizRows },
+    ] = await Promise.all([
+      supabase.from('profiles').select('id, full_name').in('id', studentIds),
+      supabase
+        .from('user_gamification')
+        .select('user_id, total_xp, today_xp, current_streak, last_active_date, today_date')
+        .in('user_id', studentIds),
+      supabase
+        .from('srs_progress')
+        .select('user_id, word_id, words!inner(classroom_id)')
+        .eq('words.classroom_id', classroomId)
+        .in('user_id', studentIds)
+        .gte('review_count', 1),
+      supabase
+        .from('quiz_results')
+        .select('user_id, accuracy')
+        .eq('classroom_id', classroomId)
+        .in('user_id', studentIds),
+    ]);
 
     if (profilesErr || !profiles) {
       return NextResponse.json({ success: false, error: 'Failed to fetch profiles' }, { status: 500 });
     }
-
-    // Lấy gamification data
-    const periodStart = getPeriodStartDate(period);
-
-    const { data: gamifRows } = await supabase
-      .from('user_gamification')
-      .select('user_id, total_xp, today_xp, current_streak, last_active_date, today_date')
-      .in('user_id', studentIds);
-
-    // Lấy words_learned: count srs_progress với review_count >= 1 trong classroom
-    const { data: srsRows } = await supabase
-      .from('srs_progress')
-      .select('user_id, word_id')
-      .in('user_id', studentIds)
-      .gte('review_count', 1);
-
-    // Lấy quiz accuracy trung bình trong classroom
-    const { data: quizRows } = await supabase
-      .from('quiz_results')
-      .select('user_id, accuracy')
-      .eq('classroom_id', classroomId)
-      .in('user_id', studentIds);
-
-    // Lấy words thuộc classroom để filter srs_progress
-    const { data: classroomWords } = await supabase
-      .from('words')
-      .select('id')
-      .eq('classroom_id', classroomId);
-
-    const classroomWordIds = new Set((classroomWords ?? []).map((w) => w.id as string));
 
     // Map gamification theo user_id
     type GamifRow = {
@@ -147,13 +141,11 @@ export async function GET(
       (gamifRows ?? []).map((g) => [g.user_id as string, g as GamifRow])
     );
 
-    // Count words learned per user (chỉ từ trong classroom)
+    // Count words learned per user (srsRows đã scope theo classroom qua inner join)
     const wordsLearnedMap = new Map<string, number>();
     for (const row of srsRows ?? []) {
-      if (classroomWordIds.has(row.word_id as string)) {
-        const uid = row.user_id as string;
-        wordsLearnedMap.set(uid, (wordsLearnedMap.get(uid) ?? 0) + 1);
-      }
+      const uid = row.user_id as string;
+      wordsLearnedMap.set(uid, (wordsLearnedMap.get(uid) ?? 0) + 1);
     }
 
     // Avg accuracy per user
@@ -165,8 +157,6 @@ export async function GET(
     }
 
     // Xây dựng danh sách leaderboard
-    const today = new Date().toISOString().slice(0, 10);
-
     const entries = profiles.map((p) => {
       const uid = p.id as string;
       const gamif = gamifMap.get(uid);
@@ -195,11 +185,9 @@ export async function GET(
       const acc = accuracyMap.get(uid);
       const accuracy = acc ? Math.round(acc.sum / acc.count) : 0;
 
-      // Kiểm tra streak còn active không
+      // Streak liên tiếp còn sống (0 nếu last_active > 1 ngày — không phải tổng ngày học)
       const streak = gamif
-        ? (gamif.last_active_date === today || gamif.last_active_date === new Date(Date.now() - 86400000).toISOString().slice(0, 10))
-          ? gamif.current_streak
-          : 0
+        ? effectiveCurrentStreak(gamif.current_streak, gamif.last_active_date)
         : 0;
 
       return {
@@ -221,15 +209,16 @@ export async function GET(
       ...e,
     }));
 
-    return NextResponse.json({
-      success: true,
-      data: leaderboard,
-      period,
-      classroomName: classroom.name as string,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: leaderboard,
+        period,
+        classroomName: classroom.name as string,
+      },
+      { headers: { 'Cache-Control': 'private, max-age=30, stale-while-revalidate=60' } },
+    );
   } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : 'Unknown error';
-    console.error('[Leaderboard] Error:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(err, 'Không tải được bảng xếp hạng');
   }
 }

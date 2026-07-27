@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import type { GrammarExample } from '@/lib/supabase';
-import { getAuthUser, unauthorized, getClientIp } from '@/lib/api-security';
+import { getAuthUser, unauthorized, getClientIp, safeErrorResponse } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 /** Chỉ admin trong whitelist mới được tạo/sửa/xoá lesson. */
@@ -44,8 +44,10 @@ export async function GET(req: Request) {
 
     const supabase = createServiceClient();
 
-    // Single/topic: CDN OK. Bulk list: private — giảm scrape kho IP
-    const CACHE_HEADERS = { 'Cache-Control': 'no-store, no-cache, must-revalidate' };
+    // Single/topic = nội dung tĩnh (lý thuyết + ví dụ đã bake) → cho CDN + SWR cache.
+    // Bulk list = private (no-store) để giảm scrape kho IP. Admin sửa lesson trễ ~1h (chấp nhận được).
+    const CACHEABLE = { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400' };
+    const NO_STORE = { 'Cache-Control': 'no-store, no-cache, must-revalidate' };
 
     if (id) {
       const { data, error } = await supabase
@@ -54,7 +56,7 @@ export async function GET(req: Request) {
         .eq('id', id)
         .single();
       if (error) throw error;
-      return NextResponse.json({ success: true, data }, { headers: CACHE_HEADERS });
+      return NextResponse.json({ success: true, data }, { headers: CACHEABLE });
     }
 
     // Join topic khi lọc theo topicId — client lộ trình cần topic.slug để ghi step
@@ -67,10 +69,9 @@ export async function GET(req: Request) {
 
     const { data, error } = await query;
     if (error) throw error;
-    return NextResponse.json({ success: true, data }, { headers: CACHE_HEADERS });
+    return NextResponse.json({ success: true, data }, { headers: topicId ? CACHEABLE : NO_STORE });
   } catch (e: unknown) {
-    const msg = e instanceof Error ? e.message : 'Unknown error';
-    return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
+    return safeErrorResponse(e, 'Server error');
   }
 }
 
@@ -118,8 +119,7 @@ export async function POST(req: Request) {
     if (error) throw error;
     return NextResponse.json({ success: true, data });
   } catch (e: unknown) {
-    const msg = e instanceof Error ? e.message : 'Unknown error';
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(e, 'Server error');
   }
 }
 
@@ -137,7 +137,8 @@ export async function PATCH(req: Request) {
     // Body chạm field khác → bắt buộc admin trong whitelist.
     const keys = Object.keys(body);
     const isAnnotationOnly = keys.length === 2 && keys.includes('lessonId') && keys.includes('examples');
-    if (!isAnnotationOnly && !(await isAdmin(auth.userId))) {
+    const admin = await isAdmin(auth.userId);
+    if (!isAnnotationOnly && !admin) {
       return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
     const { lessonId, examples } = body;
@@ -145,6 +146,39 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ success: false, error: 'lessonId and examples are required' }, { status: 400 });
     }
     const supabase = createServiceClient();
+
+    // `grammar_lessons` là nội dung dùng chung toàn hệ thống. User thường CHỈ được
+    // cache annotation (màu hoá POS) — KHÔNG được thay/xoá câu ví dụ gốc.
+    // Chống vandalism: merge riêng field `annotations` lên examples đã lưu (khớp theo `en`),
+    // bỏ qua mọi en/vi/note client gửi. Chỉ admin mới được ghi đè toàn bộ.
+    if (!admin) {
+      const { data: current, error: readErr } = await supabase
+        .from('grammar_lessons')
+        .select('examples')
+        .eq('id', lessonId)
+        .single();
+      if (readErr) throw readErr;
+      const stored = (current?.examples ?? []) as GrammarExample[];
+      const incoming = new Map<string, GrammarExample['annotations']>();
+      for (const ex of examples) {
+        if (ex && typeof ex.en === 'string' && Array.isArray(ex.annotations)) {
+          incoming.set(ex.en.trim(), ex.annotations);
+        }
+      }
+      const merged = stored.map((ex) => {
+        const ann = incoming.get((ex.en ?? '').trim());
+        return ann ? { ...ex, annotations: ann } : ex;
+      });
+      const { data, error } = await supabase
+        .from('grammar_lessons')
+        .update({ examples: merged })
+        .eq('id', lessonId)
+        .select('id, examples')
+        .single();
+      if (error) throw error;
+      return NextResponse.json({ success: true, data });
+    }
+
     const { data, error } = await supabase
       .from('grammar_lessons')
       .update({ examples })
@@ -154,8 +188,7 @@ export async function PATCH(req: Request) {
     if (error) throw error;
     return NextResponse.json({ success: true, data });
   } catch (e: unknown) {
-    const message = e instanceof Error ? e.message : 'Unknown error';
-    return NextResponse.json({ success: false, error: message }, { status: 500 });
+    return safeErrorResponse(e, 'Server error');
   }
 }
 
@@ -181,8 +214,7 @@ export async function PUT(req: Request) {
     await supabase.from('grammar_quiz_cache').delete().eq('lesson_id', id);
     return NextResponse.json({ success: true, data });
   } catch (e: unknown) {
-    const msg = e instanceof Error ? e.message : 'Unknown error';
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(e, 'Server error');
   }
 }
 
@@ -204,7 +236,6 @@ export async function DELETE(req: Request) {
     if (error) throw error;
     return NextResponse.json({ success: true });
   } catch (e: unknown) {
-    const msg = e instanceof Error ? e.message : 'Unknown error';
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(e, 'Server error');
   }
 }

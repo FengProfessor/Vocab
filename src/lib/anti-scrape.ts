@@ -48,6 +48,15 @@ export const QUOTA = {
     { suffix: 'm', limit: 30, windowMs: 60_000 },
     { suffix: 'h', limit: 200, windowMs: 3_600_000 },
   ] as QuotaWindow[],
+  /**
+   * TTS phát âm (proxy Google/Youdao). Học: nghe lại nhiều lần/1 buổi ổn.
+   * Cào audio hàng loạt / q ngẫu nhiên đốt egress → chặn burst + giờ.
+   */
+  tts: [
+    { suffix: 'm', limit: 60, windowMs: 60_000 },
+    { suffix: 'h', limit: 600, windowMs: 3_600_000 },
+    { suffix: 'd', limit: 3000, windowMs: 86_400_000 },
+  ] as QuotaWindow[],
   /** List words paginated (auth) */
   wordsList: [
     { suffix: 'm', limit: 40, windowMs: 60_000 },

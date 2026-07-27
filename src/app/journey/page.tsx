@@ -13,19 +13,26 @@ import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import {
   fetchRoadmap,
+  getExitDisclaimer,
+  getExitStandard,
   type RoadmapEnrollmentView,
   type RoadmapLevelView,
   type RoadmapStepView,
   type RoadmapTrackId,
 } from '@/lib/roadmap-client';
-import { getExitDisclaimer, getExitStandard } from '@/lib/roadmap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Celebration } from '@/components/gamification/Celebration';
+import type { MilestonePopupPayload } from '@/components/gamification/MilestonePopup';
 import { ArrowLeft, BookOpen, CheckCircle2, Flag, GraduationCap, Headphones, Lock, Sparkles, Star, Volume2 } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { StudentShell } from '@/components/student/StudentShell';
+
+const MilestonePopup = dynamic(
+  () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),
+  { ssr: false },
+);
 
 interface PlacementQuestionView { id: string; level: string; kind: string; prompt: string; options: string[]; audioWord?: string }
 
@@ -80,7 +87,7 @@ export default function JourneyPage() {
   const [levelId, setLevelId] = useState<string>('A0');
   const [track, setTrack] = useState<RoadmapTrackId>('cefr');
   const [busyStep, setBusyStep] = useState<string | null>(null);
-  const [celebrate, setCelebrate] = useState<string | null>(null);
+  const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
 
   const [mode, setMode] = useState<PlacementMode>(null);
   const [questions, setQuestions] = useState<PlacementQuestionView[]>([]);
@@ -142,10 +149,20 @@ export default function JourneyPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       const flag = sessionStorage.getItem('roadmap_celebrate');
-      if (flag) {
-        sessionStorage.removeItem('roadmap_celebrate');
-        setCelebrate(flag);
-        toast.success(flag === 'level' ? '🏆 Lên cấp! Cả một chặng đường — tự hào lắm đó!' : '🎉 Vượt chặng! Chặng mới đã mở.');
+      if (!flag) return;
+      sessionStorage.removeItem('roadmap_celebrate');
+      // format: "unit" | "level" | "level:A2"
+      if (flag === 'unit') {
+        setMilestonePopup({ kind: 'unit', intensity: 'strong' });
+        return;
+      }
+      if (flag === 'level' || flag.startsWith('level:')) {
+        const id = flag.startsWith('level:') ? flag.slice('level:'.length) : undefined;
+        setMilestonePopup({
+          kind: 'roadmap_level',
+          levelId: id || undefined,
+          intensity: 'epic',
+        });
       }
     }, 0);
     return () => clearTimeout(timer);
@@ -460,7 +477,11 @@ export default function JourneyPage() {
   return (
     <StudentShell title="Lộ trình">
       <div className="mx-auto max-w-2xl p-4 pb-24 space-y-8" data-onboarding="journey-main">
-      <Celebration trigger={Boolean(celebrate)} triggerKey={celebrate ?? undefined} intensity={celebrate === 'level' ? 'epic' : 'light'} />
+      <MilestonePopup
+        open={!!milestonePopup}
+        payload={milestonePopup}
+        onClose={() => setMilestonePopup(null)}
+      />
       <div className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold">Lộ trình của bạn</h1>

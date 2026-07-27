@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getClientIp } from '@/lib/api-security';
+import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 /**
  * Proxy TTS neural miễn phí cho phát âm từ vựng.
@@ -73,6 +75,10 @@ export async function GET(req: NextRequest) {
   if (/https?:|<|>|javascript:/i.test(q)) {
     return NextResponse.json({ error: 'invalid q' }, { status: 400 });
   }
+
+  // Chống cào audio hàng loạt / q ngẫu nhiên đốt egress (route không auth)
+  const denied = await assertScrapeQuota(`tts:${getClientIp(req)}`, QUOTA.tts);
+  if (denied) return denied;
 
   const buf = (await fetchGoogleTts(q)) ?? (await fetchYoudaoTts(q));
   if (!buf) {

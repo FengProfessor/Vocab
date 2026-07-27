@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
 type StatusValue = 'approved' | 'rejected' | 'pending';
 
@@ -46,13 +46,10 @@ export async function PATCH(
       .select('id, status')
       .single();
 
-    if (error) return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    if (error) return safeErrorResponse(error, 'Không cập nhật được trạng thái từ');
 
     return NextResponse.json({ success: true, data });
   } catch (err: unknown) {
-    return NextResponse.json(
-      { success: false, error: err instanceof Error ? err.message : String(err) },
-      { status: 500 }
-    );
+    return safeErrorResponse(err, 'Không cập nhật được trạng thái từ');
   }
 }

@@ -92,7 +92,10 @@ export async function POST(req: Request) {
         );
       }
       console.error('[Register]', msg);
-      return NextResponse.json({ error: msg, code: 'create_failed' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Không tạo được tài khoản. Kiểm tra lại email/mật khẩu hoặc thử Google.', code: 'create_failed' },
+        { status: 400 },
+      );
     }
 
     if (!data.user) {

@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getRouter } from '@/lib/ai-router';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getAuthUser, unauthorized, checkRateLimitAsync, tooManyRequests, safeErrorResponse } from '@/lib/api-security';
+
+/** Trần số từ gọi AI trong 1 request khi client không chỉ định wordIds (chống đốt quota). */
+const MAX_AI_WORDS_PER_REQUEST = 60;
 
 // Enrich nhiều từ trong 1 request → có thể lâu. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 60;
@@ -78,6 +81,10 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (cls?.teacher_id !== auth.userId && !enrollment) {
       return NextResponse.json({ success: false, error: 'Not a member of this classroom' }, { status: 403 });
     }
+
+    // Throttle per-user: route đốt quota AI hàng loạt (sibling refresh-image cũng RL)
+    const rl = await checkRateLimitAsync(`refresh:${auth.userId}`, 3, 60_000);
+    if (!rl.allowed) return tooManyRequests();
 
     console.log(`[Refresh] Refreshing classroom: ${classroomId}`);
 
@@ -204,7 +211,14 @@ export async function POST(req: Request): Promise<NextResponse> {
       }
     }
 
-    console.log(`Words pending in classroom: ${filtered.length}. Resolved via Cache: ${refreshed}. Remaining for AI: ${stillPending.length}`);
+    // Chống đốt quota: khi client không chỉ định wordIds, giới hạn số từ gọi AI/1 request
+    let aiSkipped = 0;
+    if (!requestedIds && stillPending.length > MAX_AI_WORDS_PER_REQUEST) {
+      aiSkipped = stillPending.length - MAX_AI_WORDS_PER_REQUEST;
+      stillPending.length = MAX_AI_WORDS_PER_REQUEST;
+    }
+
+    console.log(`Words pending in classroom: ${filtered.length}. Resolved via Cache: ${refreshed}. Remaining for AI: ${stillPending.length}${aiSkipped ? ` (${aiSkipped} hoãn lại)` : ''}`);
 
     if (stillPending.length > 0) {
       // Process in chunks of 20 to speed up and avoid Gemini rate limits (Batch Processing)
@@ -284,12 +298,11 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
       success: true,
       refreshed,
       total: filtered.length,
-      message: `Refreshed ${refreshed}/${filtered.length} words`,
+      deferred: aiSkipped,
+      message: `Refreshed ${refreshed}/${filtered.length} words${aiSkipped ? ` (${aiSkipped} từ hoãn lại, gọi lại để tiếp tục)` : ''}`,
     });
 
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error('POST /api/words/refresh Error:', msg);
-    return NextResponse.json({ success: false, error: msg }, { status: 500 });
+    return safeErrorResponse(error, 'Server error');
   }
 }
