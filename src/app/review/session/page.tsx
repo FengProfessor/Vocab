@@ -43,7 +43,7 @@ interface WordItem extends ReviewWordLike {
   isDue: boolean;
 }
 
-const NEXT_OK_MS = 1600;
+const NEXT_OK_MS = 5000;
 const NEXT_BAD_MS = 10000;
 /** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án. */
 const FEEDBACK_LOCK_MS = 700;
