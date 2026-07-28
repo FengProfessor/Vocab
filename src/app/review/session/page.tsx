@@ -44,7 +44,7 @@ interface WordItem extends ReviewWordLike {
 }
 
 const NEXT_OK_MS = 1600;
-const NEXT_BAD_MS = 2800;
+const NEXT_BAD_MS = 4500;
 /** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án. */
 const FEEDBACK_LOCK_MS = 700;
 const SESSION_CAP = 25;
