@@ -457,112 +457,319 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "She ___ to school every day.",
-      "opts": [
-        "go",
-        "goes",
-        "going"
-      ],
-      "answer": "goes",
-      "fb": "go → goes (tận cùng o + es) với He/She/It."
-    },
-    {
-      "type": "mcq",
-      "q": "___ they like coffee?",
-      "opts": [
-        "Does",
-        "Do",
-        "Are"
-      ],
-      "answer": "Do",
-      "fb": "I/You/We/They → Do. Đối với các chủ ngữ số nhiều hoặc đại từ I/You/We/They, ta dùng trợ động từ Do để đặt câu hỏi."
+      "type": "fill",
+      "q": "My mother ____ (be) a nurse.",
+      "opts": [],
+      "answer": "is",
+      "fb": "mother = một người → is"
     },
     {
       "type": "fill",
-      "q": "He ___ (watch) TV after dinner.",
-      "answer": [
-        "watches"
-      ],
-      "fb": "watch → watches (tận cùng ch + es)."
+      "q": "Lan ____ (come) from Thai Nguyen.",
+      "opts": [],
+      "answer": "comes",
+      "fb": "Lan = một người → thêm -s"
     },
     {
       "type": "fill",
-      "q": "My sister ___ (study) at night.",
-      "answer": [
-        "studies"
-      ],
-      "fb": "study → studies (phụ âm d trước y → ies)."
+      "q": "They ____ (not / be) at home now.",
+      "opts": [],
+      "answer": "aren't",
+      "fb": "câu có be → thêm not vào be"
     },
     {
       "type": "fill",
-      "q": "We ___ (not / like) fish. (dạng rút gọn)",
-      "answer": [
-        "don't like",
-        "do not like"
-      ],
-      "fb": "We → don't like (don't + nguyên thể)."
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"She don't like tea.\"",
-      "answer": false,
-      "fb": "SAI. She phải dùng doesn't → \"She doesn't like tea.\""
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"Water boils at 100°C.\"",
-      "answer": true,
-      "fb": "ĐÚNG. Sự thật hiển nhiên dùng hiện tại đơn."
-    },
-    {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "He goes to work by car.",
-        "Do she work here?",
-        "They don't watch TV."
-      ],
-      "answer": "Do she work here?",
-      "fb": "Phải là \"Does she work here?\" (He/She/It → Does)."
-    },
-    {
-      "type": "mcq",
-      "q": "Dạng phủ định của \"They play games\" là:",
-      "opts": [
-        "They doesn't play games.",
-        "They don't play games.",
-        "They don't plays games."
-      ],
-      "answer": "They don't play games.",
-      "fb": "They + don't + V nguyên thể."
+      "q": "My brother ____ (not / do) his homework at night.",
+      "opts": [],
+      "answer": "doesn't do",
+      "fb": "V thường + he → doesn't + V để trơ"
     },
     {
       "type": "fill",
-      "q": "The shop ___ (open) at 8 a.m.",
-      "answer": [
-        "opens"
-      ],
-      "fb": "open → opens với 'The shop' (ngôi thứ 3 số ít)."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn trạng từ tần suất đúng vị trí: 'I ___ eat breakfast.'",
-      "opts": [
-        "always",
-        "every day",
-        "at 7"
-      ],
-      "answer": "always",
-      "fb": "Trạng từ tần suất (always) đứng trước động từ thường."
+      "q": "I ____ (be) very hungry now.",
+      "opts": [],
+      "answer": "am",
+      "fb": "I luôn đi với am"
     },
     {
       "type": "fill",
-      "q": "___ your brother speak French? (Do/Does)",
-      "answer": [
-        "does"
-      ],
-      "fb": "your brother = He → Does."
+      "q": "It ____ (rain) a lot in my hometown.",
+      "opts": [],
+      "answer": "rains",
+      "fb": "It = một thứ → thêm -s"
+    },
+    {
+      "type": "fill",
+      "q": "____ (be) your school big?",
+      "opts": [],
+      "answer": "Is",
+      "fb": "câu hỏi có be → be lên trước chủ ngữ"
+    },
+    {
+      "type": "fill",
+      "q": "My brother ____ (get) up at 6 a.m. every morning.",
+      "opts": [],
+      "answer": "gets",
+      "fb": "every morning · He → -s"
+    },
+    {
+      "type": "fill",
+      "q": "____ your sister ____ (study) English every day?",
+      "opts": [],
+      "answer": "Does … study",
+      "fb": "every day · she → Does + V trơ"
+    },
+    {
+      "type": "fill",
+      "q": "I will text you when I ____ (get) to Ha Noi.",
+      "opts": [],
+      "answer": "get",
+      "fb": "vế when nói tương lai → hiện tại đơn, cấm will"
+    },
+    {
+      "type": "fill",
+      "q": "Don't turn off the computer until I ____ (say) so.",
+      "opts": [],
+      "answer": "say",
+      "fb": "vế until cấm will → hiện tại đơn"
+    },
+    {
+      "type": "fill",
+      "q": "She ____ (call) you tomorrow as soon as she ____ (receive) the letter.",
+      "opts": [],
+      "answer": "will call / receives",
+      "fb": "as soon as nói tương lai → hiện tại đơn, vế kia mới will"
+    },
+    {
+      "type": "fill",
+      "q": "Violets ____ (bloom) in spring.",
+      "opts": [],
+      "answer": "bloom",
+      "fb": "sự thật hiển nhiên → hiện tại đơn"
+    },
+    {
+      "type": "fill",
+      "q": "I always ____ (buy) lottery tickets but I never ____ (win) anything.",
+      "opts": [],
+      "answer": "buy / win",
+      "fb": "always, never = thói quen → hiện tại đơn"
+    },
+    {
+      "type": "fill",
+      "q": "This kind of cloth ____ (not / use) to make shirts.",
+      "opts": [],
+      "answer": "isn't used",
+      "fb": "hiện tại đơn phủ định → isn't + V3"
+    },
+    {
+      "type": "fill",
+      "q": "People grow rice in the Mekong Delta.  →  Rice ____ in the Mekong Delta.",
+      "opts": [],
+      "answer": "is grown",
+      "fb": "People → cắt by · hiện tại đơn → is + V3"
+    },
+    {
+      "type": "fill",
+      "q": "She is tired of ____ (do) the same thing every day.",
+      "opts": [],
+      "answer": "doing",
+      "fb": "of là giới từ → V-ing"
+    },
+    {
+      "type": "fill",
+      "q": "I was born ____ October 12th.",
+      "opts": [],
+      "answer": "on",
+      "fb": "ngày cụ thể → on"
+    },
+    {
+      "type": "fill",
+      "q": "We often have a big meal ____ Christmas.",
+      "opts": [],
+      "answer": "at",
+      "fb": "Christmas nằm trong nhóm at"
+    },
+    {
+      "type": "fill",
+      "q": "There are some new books ____ the table.",
+      "opts": [],
+      "answer": "on",
+      "fb": "nằm trên bề mặt bàn → on"
+    },
+    {
+      "type": "fill",
+      "q": "My uncle has lived ____ Da Nang for ten years.",
+      "opts": [],
+      "answer": "in",
+      "fb": "thành phố → in"
+    },
+    {
+      "type": "fill",
+      "q": "The train to Hue leaves ____ half past six.",
+      "opts": [],
+      "answer": "at",
+      "fb": "giờ chính xác → at"
+    },
+    {
+      "type": "fill",
+      "q": "My father usually reads the news ____ the morning.",
+      "opts": [],
+      "answer": "in",
+      "fb": "buổi trong ngày → in"
+    },
+    {
+      "type": "fill",
+      "q": "She is famous ____ her beautiful voice.",
+      "opts": [],
+      "answer": "for",
+      "fb": "famous for = nổi tiếng vì cái gì"
+    },
+    {
+      "type": "fill",
+      "q": "I'm not very good ____ remembering names.",
+      "opts": [],
+      "answer": "at",
+      "fb": "good at = giỏi việc gì"
+    },
+    {
+      "type": "fill",
+      "q": "____ the high salary, he decided to quit the job.",
+      "opts": [],
+      "answer": "Despite / In spite of",
+      "fb": "the high salary là cụm danh từ → despite"
+    },
+    {
+      "type": "fill",
+      "q": "____ (Despite of / Despite) the loud music next door, the baby slept well.",
+      "opts": [],
+      "answer": "Despite",
+      "fb": "despite không bao giờ đi với of"
+    },
+    {
+      "type": "fill",
+      "q": "The train was delayed for two hours. ____, we missed the wedding.",
+      "opts": [],
+      "answer": "Therefore",
+      "fb": "đứng đầu câu mới và nêu kết quả → Therefore"
+    },
+    {
+      "type": "fill",
+      "q": "Edison's ____ (invent) of the light bulb changed the world.",
+      "opts": [],
+      "answer": "invention",
+      "fb": "sau sở hữu Edison's → cần danh từ"
+    },
+    {
+      "type": "fill",
+      "q": "My grandmother is still very ____ (health) at eighty.",
+      "opts": [],
+      "answer": "healthy",
+      "fb": "sau to be → cần tính từ"
+    },
+    {
+      "type": "fill",
+      "q": "This machine is out of order, ____?",
+      "opts": [],
+      "answer": "isn't it",
+      "fb": "vế trước khẳng định → đuôi phủ định"
+    },
+    {
+      "type": "fill",
+      "q": "Everybody enjoyed the trip, ____?",
+      "opts": [],
+      "answer": "didn't they",
+      "fb": "vế trước khẳng định ở quá khứ → didn't, và Everybody thay bằng they"
+    },
+    {
+      "type": "fill",
+      "q": "Sắp xếp: My father drives a (Japanese / small / new) car.",
+      "opts": [],
+      "answer": "a small new Japanese car",
+      "fb": "kích cỡ → tuổi → xuất xứ"
+    },
+    {
+      "type": "fill",
+      "q": "Sắp xếp: They live in a (wooden / lovely / old) house.",
+      "opts": [],
+      "answer": "a lovely old wooden house",
+      "fb": "ý kiến → tuổi → chất liệu"
+    },
+    {
+      "type": "fill",
+      "q": "A. confused   B. faced   C. cried   D. defined",
+      "opts": [],
+      "answer": "B. faced",
+      "fb": "faced: trước -ed là /s/ → /t/ · ba từ kia → /d/"
+    },
+    {
+      "type": "fill",
+      "q": "A. agreed   B. kissed   C. liked   D. coughed",
+      "opts": [],
+      "answer": "A. agreed",
+      "fb": "agreed: trước -ed là nguyên âm → /d/ · ba từ kia → /t/"
+    },
+    {
+      "type": "fill",
+      "q": "A. cats   B. tapes   C. rides   D. cooks",
+      "opts": [],
+      "answer": "C. rides",
+      "fb": "rides: trước -s là /d/ → /z/ · ba từ kia → /s/"
+    },
+    {
+      "type": "fill",
+      "q": "A. hours   B. fathers   C. brothers   D. thinks",
+      "opts": [],
+      "answer": "D. thinks",
+      "fb": "thinks: trước -s là /k/ → /s/ · ba từ kia → /z/"
+    },
+    {
+      "type": "fill",
+      "q": "A. resources   B. stages   C. preserves   D. focuses",
+      "opts": [],
+      "answer": "C. preserves",
+      "fb": "preserves: trước -s là /v/ → /z/ · ba từ kia sau âm rít /s/ /dʒ/ → /ɪz/"
+    },
+    {
+      "type": "fill",
+      "q": "A. paper   B. police   C. people   D. cinema",
+      "opts": [],
+      "answer": "B. police",
+      "fb": "police nhấn âm 2 · ba từ kia nhấn âm 1"
+    },
+    {
+      "type": "fill",
+      "q": "A. problem   B. invent   C. destroy   D. demand",
+      "opts": [],
+      "answer": "A. problem",
+      "fb": "problem là danh từ 2 âm tiết nhấn âm 1 · ba từ kia là động từ nhấn âm 2"
+    },
+    {
+      "type": "fill",
+      "q": "A. automatic   B. reasonable   C. mathematics   D. preservation",
+      "opts": [],
+      "answer": "B. reasonable",
+      "fb": "-ic / -ics / -tion kéo trọng âm về ngay trước (âm 3) · reasonable nhấn âm 1"
+    },
+    {
+      "type": "fill",
+      "q": "A. measurement   B. information   C. economic   D. engineer",
+      "opts": [],
+      "answer": "A. measurement",
+      "fb": "-tion, -ic, -eer đều đẩy trọng âm ra âm 3 · measurement nhấn âm 1"
+    },
+    {
+      "type": "fill",
+      "q": "You have finished your homework, ____?  (A do you · B have you · C haven't you · D don't you)",
+      "opts": [],
+      "answer": "C haven't you",
+      "fb": "Vế trước khẳng định với have nên đuôi hỏi là haven't you · buổi 23"
+    },
+    {
+      "type": "fill",
+      "q": "Ba ____ to the library every Sunday.  (A go · B goes · C is going · D went)",
+      "opts": [],
+      "answer": "B goes",
+      "fb": "every Sunday và Ba là số ít → hiện tại đơn thêm -es · buổi 2"
     }
   ]
 }

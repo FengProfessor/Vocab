@@ -477,114 +477,193 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "She ___ to the movies last night.",
-      "opts": [
-        "go",
-        "goes",
-        "went"
-      ],
+      "type": "fill",
+      "q": "The biscuit factory ____ (close) last year.",
+      "opts": [],
+      "answer": "closed",
+      "fb": "last year = mốc quá khứ"
+    },
+    {
+      "type": "fill",
+      "q": "Bill ____ (have) breakfast when I ____ (stop) at his house.",
+      "opts": [],
+      "answer": "was having / stopped",
+      "fb": "ăn sáng = việc dài · stop = việc ngắn xen vào"
+    },
+    {
+      "type": "fill",
+      "q": "I last ____ (go) to Spain in 1990.",
+      "opts": [],
       "answer": "went",
-      "fb": "Sử dụng quá khứ đơn để diễn tả hành động đã xảy ra và kết thúc."
+      "fb": "in 1990 = mốc quá khứ"
     },
     {
       "type": "fill",
-      "q": "I ___ (eat) breakfast at 7 a.m. yesterday.",
-      "answer": [
-        "ate"
-      ],
-      "fb": "Sử dụng quá khứ đơn để diễn tả hành động đã xảy ra và kết thúc."
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"I go to the store yesterday.\"",
-      "answer": false,
-      "fb": "Sai, phải sử dụng quá khứ đơn: \"I went to the store yesterday.\""
-    },
-    {
-      "type": "mcq",
-      "q": "Câu sau là câu gì?",
-      "opts": [
-        "Khẳng định",
-        "Phủ định",
-        "Nghi vấn"
-      ],
-      "answer": "Khẳng định",
-      "fb": "Câu \"I went to the store yesterday\" là câu khẳng định."
+      "q": "She ____ (not / know) my address then.",
+      "opts": [],
+      "answer": "didn't know",
+      "fb": "know = trong đầu → không -ing"
     },
     {
       "type": "fill",
-      "q": "They ___ (not / go) to the party.",
-      "answer": [
-        "did not go"
-      ],
-      "fb": "Sử dụng didn't + V nguyên thể trong quá khứ đơn."
-    },
-    {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "I went to the store yesterday.",
-        "I go to the store yesterday.",
-        "She didn't like coffee."
-      ],
-      "answer": "I go to the store yesterday.",
-      "fb": "Phải sử dụng quá khứ đơn: \"I went to the store yesterday.\""
-    },
-    {
-      "type": "mcq",
-      "q": "Dạng phủ định của \"They went to the movies\" là:",
-      "opts": [
-        "They didn't go to the movies.",
-        "They don't go to the movies.",
-        "They doesn't go to the movies."
-      ],
-      "answer": "They didn't go to the movies.",
-      "fb": "Sử dụng didn't + V nguyên thể trong quá khứ đơn."
+      "q": "____ you ____ (spend) a lot of money last month?",
+      "opts": [],
+      "answer": "Did … spend",
+      "fb": "câu hỏi QK → Did + V trơ"
     },
     {
       "type": "fill",
-      "q": "The company ___ (start) in 2010.",
-      "answer": [
-        "started"
-      ],
-      "fb": "Sử dụng quá khứ đơn để diễn tả hành động đã xảy ra và kết thúc."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn câu đúng?",
-      "opts": [
-        "I go to the store yesterday.",
-        "I went to the store yesterday.",
-        "I am going to the store yesterday."
-      ],
-      "answer": "I went to the store yesterday.",
-      "fb": "Sử dụng quá khứ đơn để diễn tả hành động đã xảy ra và kết thúc."
+      "q": "When she ____ (be) young, she ____ (be) very beautiful.",
+      "opts": [],
+      "answer": "was / was",
+      "fb": "trạng thái trong quá khứ → QK đơn"
     },
     {
       "type": "fill",
-      "q": "Did you ___ (finish) your homework?",
-      "answer": [
-        "finish"
-      ],
-      "fb": "Sử dụng Did + S + V nguyên thể trong câu hỏi nghi vấn."
+      "q": "They ____ (visit) the zoo at ten o'clock yesterday.",
+      "opts": [],
+      "answer": "were visiting",
+      "fb": "at ten o'clock yesterday → đang giữa việc"
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"She didn't likes coffee.\"",
-      "answer": false,
-      "fb": "Sai, phải sử dụng didn't + V nguyên thể: \"She didn't like coffee.\""
+      "type": "fill",
+      "q": "When the teacher ____ (come) in, the students ____ (stand) up.",
+      "opts": [],
+      "answer": "came / stood",
+      "fb": "2 việc ngắn nối nhau → cả 2 đơn"
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "I went to the store yesterday.",
-        "I go to the store yesterday.",
-        "She didn't like coffee."
-      ],
-      "answer": "I go to the store yesterday.",
-      "fb": "Phải sử dụng quá khứ đơn: \"I went to the store yesterday.\""
+      "type": "fill",
+      "q": "Bob ____ (buy) a new laptop last Sunday.",
+      "opts": [],
+      "answer": "bought",
+      "fb": "last Sunday = mốc chết → quá khứ đơn"
+    },
+    {
+      "type": "fill",
+      "q": "My family ____ (move) to Ha Noi three years ago.",
+      "opts": [],
+      "answer": "moved",
+      "fb": "… ago = mốc chết → quá khứ đơn"
+    },
+    {
+      "type": "fill",
+      "q": "When I ____ (open) the door yesterday, the cat ____ (sleep) on the sofa.",
+      "opts": [],
+      "answer": "opened / was sleeping",
+      "fb": "mở cửa = việc ngắn · mèo đang ngủ sẵn"
+    },
+    {
+      "type": "fill",
+      "q": "As soon as the rain ____ (stop) yesterday afternoon, the children ____ (run) outside.",
+      "opts": [],
+      "answer": "stopped / ran",
+      "fb": "hai việc ngắn nối đuôi → cả hai quá khứ đơn"
+    },
+    {
+      "type": "fill",
+      "q": "While Nam ____ (walk) along the beach last week, he ____ (find) a wallet.",
+      "opts": [],
+      "answer": "was walking / found",
+      "fb": "đi dạo = việc dài · nhặt được ví = việc ngắn"
+    },
+    {
+      "type": "fill",
+      "q": "After we ____ (finish) the exam last June, we ____ (have) a big party.",
+      "opts": [],
+      "answer": "finished / had",
+      "fb": "After + hai việc nối đuôi trong quá khứ → cả hai đơn"
+    },
+    {
+      "type": "fill",
+      "q": "Before I ____ (go) to bed last night, I ____ (turn) off all the lights.",
+      "opts": [],
+      "answer": "went / turned",
+      "fb": "Before + hai việc nối đuôi trong quá khứ → cả hai đơn"
+    },
+    {
+      "type": "fill",
+      "q": "What ____ you ____ (do) when the earthquake ____ (happen) last month?",
+      "opts": [],
+      "answer": "were … doing / happened",
+      "fb": "động đất = việc ngắn cắt ngang việc em đang làm dở"
+    },
+    {
+      "type": "fill",
+      "q": "Gold ____ (discover) in California in the 19th century.",
+      "opts": [],
+      "answer": "was discovered",
+      "fb": "in the 19th century = quá khứ đơn → was + V3"
+    },
+    {
+      "type": "fill",
+      "q": "Lots of houses ____ (destroy) by the earthquake last week.",
+      "opts": [],
+      "answer": "were destroyed",
+      "fb": "houses số nhiều + last week → were + V3"
+    },
+    {
+      "type": "fill",
+      "q": "A surprise party ____ (organize) by the children last night.",
+      "opts": [],
+      "answer": "was organized",
+      "fb": "last night = quá khứ đơn · party số ít → was + V3"
+    },
+    {
+      "type": "fill",
+      "q": "Somebody stole my phone yesterday.  →  My phone ____ yesterday.",
+      "opts": [],
+      "answer": "was stolen",
+      "fb": "Somebody → cắt by · quá khứ đơn → was + V3"
+    },
+    {
+      "type": "fill",
+      "q": "My cold is ____ (good) today than it was yesterday.",
+      "opts": [],
+      "answer": "better",
+      "fb": "good là bất quy tắc → better"
+    },
+    {
+      "type": "fill",
+      "q": "My best friend, ____ moved to Da Nang, called me yesterday.",
+      "opts": [],
+      "answer": "who",
+      "fb": "có phẩy + người → who, cấm that"
+    },
+    {
+      "type": "fill",
+      "q": "Nam wishes he ____ (not / break) his mother's vase yesterday.",
+      "opts": [],
+      "answer": "hadn't broken",
+      "fb": "yesterday = chuyện đã qua → hadn't + V3"
+    },
+    {
+      "type": "fill",
+      "q": "My best friend lives in Hue. I wish he ____ (live) closer to me.",
+      "opts": [],
+      "answer": "lived",
+      "fb": "Chuyện bây giờ, không có mốc quá khứ → V2"
+    },
+    {
+      "type": "fill",
+      "q": "Đổi sang gián tiếp: “Did you go with your mother yesterday?” he asked me.",
+      "opts": [],
+      "answer": "He asked me if I had gone with my mother the day before.",
+      "fb": "hỏi yes/no nên nối bằng if · quá khứ đơn lùi thành had gone"
+    },
+    {
+      "type": "fill",
+      "q": "Everyone in the office ____ leave the building for a fire drill yesterday. (must / had to)",
+      "opts": [],
+      "answer": "had to",
+      "fb": "chuyện quá khứ nên dùng had to"
+    },
+    {
+      "type": "fill",
+      "q": "By the time we arrived, the film ____ already started.  (A has · B had · C was · D did)",
+      "opts": [],
+      "answer": "B had",
+      "fb": "Xong trước một mốc quá khứ → had + V3 · buổi 6"
     }
   ]
 }

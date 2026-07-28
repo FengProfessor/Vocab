@@ -365,11 +365,24 @@
   "exercises": [
     {
       "type": "fill",
-      "q": "Hoàn thành theo mẫu: I ___ to submit this today.",
-      "answer": [
-        "have"
-      ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "q": "Children ____ play with matches. (mustn't / needn't)",
+      "opts": [],
+      "answer": "mustn't",
+      "fb": "nguy hiểm nên cấm hẳn → mustn't"
+    },
+    {
+      "type": "fill",
+      "q": "It's Sunday tomorrow, so I ____ get up early. (needn't / mustn't)",
+      "opts": [],
+      "answer": "needn't",
+      "fb": "chủ nhật nghỉ nên khỏi cần dậy sớm, không phải cấm"
+    },
+    {
+      "type": "fill",
+      "q": "You ____ take photos in this museum. Look at the sign. (mustn't / needn't)",
+      "opts": [],
+      "answer": "mustn't",
+      "fb": "có biển cấm → mustn't"
     }
   ]
 }

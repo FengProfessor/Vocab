@@ -346,11 +346,45 @@
   "exercises": [
     {
       "type": "fill",
-      "q": "Hoàn thành theo mẫu: English ___ spoken worldwide.",
-      "answer": [
-        "is"
-      ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "q": "The telephone ____ (invent) by Alexander Graham Bell.",
+      "opts": [],
+      "answer": "was invented",
+      "fb": "chuyện đã xong trong quá khứ → was + V3"
+    },
+    {
+      "type": "fill",
+      "q": "Trees ____ (plant) in our schoolyard since Monday.",
+      "opts": [],
+      "answer": "have been planted",
+      "fb": "since Monday = kéo tới giờ → have been + V3"
+    },
+    {
+      "type": "fill",
+      "q": "Nobody can answer this question.  →  This question ____.",
+      "opts": [],
+      "answer": "can't be answered",
+      "fb": "Nobody + can → can't be + V3, cắt by"
+    },
+    {
+      "type": "fill",
+      "q": "Rút gọn: The cakes which are sold in that shop are delicious.",
+      "opts": [],
+      "answer": "The cakes sold in that shop are delicious.",
+      "fb": "are sold bị động → giữ sold"
+    },
+    {
+      "type": "fill",
+      "q": "Rút gọn: The letters which were written by my grandfather are in this box.",
+      "opts": [],
+      "answer": "The letters written by my grandfather are in this box.",
+      "fb": "were written bị động → giữ written"
+    },
+    {
+      "type": "fill",
+      "q": "The homework ____ by the students last night.  (A did · B was done · C is done · D does)",
+      "opts": [],
+      "answer": "B was done",
+      "fb": "Bài tập được làm, mốc last night → bị động quá khứ · buổi 9"
     }
   ]
 }

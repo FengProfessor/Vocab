@@ -416,114 +416,123 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "I ___ (finish) my homework.",
-      "opts": [
-        "have finish",
-        "have finished",
-        "has finish"
-      ],
-      "answer": "have finished",
-      "fb": "Dạng quá khứ phân từ của 'finish' là 'finished'"
-    },
-    {
-      "type": "mcq",
-      "q": "She ___ (not/go) to the party last night.",
-      "opts": [
-        "hasn't gone",
-        "haven't go",
-        "hasn't go"
-      ],
-      "answer": "hasn't gone",
-      "fb": "Dạng quá khứ phân từ của 'go' là 'gone', và dùng 'hasn't' với she"
+      "type": "fill",
+      "q": "I ____ (already / finish) my exercise.",
+      "opts": [],
+      "answer": "have already finished",
+      "fb": "already chèn giữa have và V3"
     },
     {
       "type": "fill",
-      "q": "They ___ (visit) Paris twice.",
-      "answer": [
-        "have visited"
-      ],
-      "fb": "Dạng quá khứ phân từ của 'visit' là 'visited'"
+      "q": "Rashid ____ (just / pass) his driving test.",
+      "opts": [],
+      "answer": "has just passed",
+      "fb": "just → hoàn thành (đứng giữa has và V3)"
     },
     {
       "type": "fill",
-      "q": "I ___ (not/eat) breakfast yet.",
-      "answer": [
-        "haven't eaten"
-      ],
-      "fb": "Dạng quá khứ phân từ của 'eat' là 'eaten', và dùng 'haven't' với I"
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"I have went to school.\"",
-      "answer": false,
-      "fb": "Sai, nên dùng 'I have gone to school.'"
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"She has never been to the USA.\"",
-      "answer": true,
-      "fb": "Đúng, câu sử dụng thì hiện tại hoàn thành để nói về một sự kiện chưa bao giờ xảy ra"
-    },
-    {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "I have eaten breakfast.",
-        "She has gone to the store.",
-        "They have went to the movie."
-      ],
-      "answer": "They have went to the movie.",
-      "fb": "Sai, nên dùng 'They have gone to the movie.'"
-    },
-    {
-      "type": "mcq",
-      "q": "Dạng phủ định của \"I have eaten breakfast\" là:",
-      "opts": [
-        "I haven't eat breakfast.",
-        "I haven't eaten breakfast.",
-        "I don't eat breakfast."
-      ],
-      "answer": "I haven't eaten breakfast.",
-      "fb": "Dạng quá khứ phân từ của 'eat' là 'eaten', và dùng 'haven't' với I"
+      "q": "Nam and I ____ (be) pen pals for a long time.",
+      "opts": [],
+      "answer": "have been",
+      "fb": "for + quãng → hoàn thành (be → been)"
     },
     {
       "type": "fill",
-      "q": "___ you (finish) your project?",
-      "answer": [
-        "Have you finished"
-      ],
-      "fb": "Câu hỏi về hành động đã hoàn thành, dùng 'have' với you"
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn câu trả lời đúng: \"I ___ (see) that movie.\"",
-      "opts": [
-        "have see",
-        "have seen",
-        "has see"
-      ],
-      "answer": "have seen",
-      "fb": "Dạng quá khứ phân từ của 'see' là 'seen'"
+      "q": "How long ____ they ____ (live) here? — Since 1990.",
+      "opts": [],
+      "answer": "have … lived",
+      "fb": "How long + since → hiện tại hoàn thành"
     },
     {
       "type": "fill",
-      "q": "My parents ___ (travel) to many countries.",
-      "answer": [
-        "have traveled"
-      ],
-      "fb": "Dạng quá khứ phân từ của 'travel' là 'traveled'"
+      "q": "The teacher ____ (already / tell) us to be quiet.",
+      "opts": [],
+      "answer": "has already told",
+      "fb": "already → hoàn thành (tell → told)"
     },
     {
-      "type": "mcq",
-      "q": "Dạng nghi vấn của \"She has eaten breakfast\" là:",
-      "opts": [
-        "Has she eat breakfast?",
-        "Has she eaten breakfast?",
-        "Have she eaten breakfast?"
-      ],
-      "answer": "Has she eaten breakfast?",
-      "fb": "Dạng quá khứ phân từ của 'eat' là 'eaten', và dùng 'has' với she"
+      "type": "fill",
+      "q": "She ____ (not / see) him since Christmas.",
+      "opts": [],
+      "answer": "hasn't seen",
+      "fb": "since + mốc → hoàn thành phủ định"
+    },
+    {
+      "type": "fill",
+      "q": "____ you ____ (finish) your project yet?",
+      "opts": [],
+      "answer": "Have … finished",
+      "fb": "yet trong câu hỏi → hiện tại hoàn thành"
+    },
+    {
+      "type": "fill",
+      "q": "Karen ____ (study) Italian for three years and is still studying.",
+      "opts": [],
+      "answer": "has studied",
+      "fb": "for + quãng, giờ vẫn học → hoàn thành"
+    },
+    {
+      "type": "fill",
+      "q": "____ she ____ (visit) her grandma this Sunday? She has already bought a present.",
+      "opts": [],
+      "answer": "Is … going to visit",
+      "fb": "đã mua quà sẵn = kế hoạch có từ trước → be going to"
+    },
+    {
+      "type": "fill",
+      "q": "We ____ (live) in England for two years.",
+      "opts": [],
+      "answer": "have lived",
+      "fb": "for → kéo dài tới giờ → hiện tại hoàn thành"
+    },
+    {
+      "type": "fill",
+      "q": "The policeman ____ (not / stop) my father last Friday.",
+      "opts": [],
+      "answer": "didn't stop",
+      "fb": "last Friday = mốc rõ → quá khứ; sau didn't để V trơ"
+    },
+    {
+      "type": "fill",
+      "q": "How long ____ Bob and Mary ____ (be) married?",
+      "opts": [],
+      "answer": "have … been",
+      "fb": "How long → hiện tại hoàn thành"
+    },
+    {
+      "type": "fill",
+      "q": "She ____ (learn) German since 2022.",
+      "opts": [],
+      "answer": "has learned",
+      "fb": "since + mốc → hiện tại hoàn thành"
+    },
+    {
+      "type": "fill",
+      "q": "____ your brother ____ (finish) his homework yet?",
+      "opts": [],
+      "answer": "Has … finished",
+      "fb": "yet → hoàn thành, đảo Has lên đầu"
+    },
+    {
+      "type": "fill",
+      "q": "While my mother ____ (cook), the phone ____ (ring).",
+      "opts": [],
+      "answer": "was cooking / rang",
+      "fb": "việc dài → tiếp diễn, việc ngắn xen vào → đơn"
+    },
+    {
+      "type": "fill",
+      "q": "You ____ wash the dishes tonight — I've already done them. (mustn't / don't have to)",
+      "opts": [],
+      "answer": "don't have to",
+      "fb": "rửa rồi nên khỏi cần, không phải cấm"
+    },
+    {
+      "type": "fill",
+      "q": "Whose bag is this? It ____ Lan's — she has one just like it. (must be / can't be)",
+      "opts": [],
+      "answer": "must be",
+      "fb": "có căn cứ nên đoán chắc → must be"
     }
   ]
 }

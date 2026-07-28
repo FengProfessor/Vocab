@@ -334,5 +334,132 @@
     "comparison": "**Many/Few vs Much/Little:** *many, few* đi với danh từ ĐẾM ĐƯỢC số nhiều (*few friends*); *much, little* đi với danh từ KHÔNG đếm được (*little time*). Câu khẳng định văn nói chuộng *a lot of* thay cho much/many.",
     "definition": "**Lượng từ** như 'some', 'any', 'much' và 'many' là các từ hạn định giúp xác định số lượng của danh từ mà không cần con số cụ thể. Việc sử dụng chính xác các từ này phụ thuộc vào tính chất đếm được hay không đếm được của danh từ, cũng như loại câu (khẳng định, phủ định hay nghi vấn)."
   },
-  "exercises": []
+  "exercises": [
+    {
+      "type": "fill",
+      "q": "We ____ (have) English on Monday and Friday.",
+      "opts": [],
+      "answer": "have",
+      "fb": "We = số nhiều → V để trơ"
+    },
+    {
+      "type": "fill",
+      "q": "____ your parents ____ (work) in a factory?",
+      "opts": [],
+      "answer": "Do … work",
+      "fb": "parents = số nhiều → Do + V để trơ"
+    },
+    {
+      "type": "fill",
+      "q": "Hoa and her sister ____ (go) to school by bike.",
+      "opts": [],
+      "answer": "go",
+      "fb": "and nối 2 người → số nhiều, V để trơ"
+    },
+    {
+      "type": "fill",
+      "q": "Every player in the team ____ (want) to win.",
+      "opts": [],
+      "answer": "wants",
+      "fb": "Every + danh từ số ít → V số ít"
+    },
+    {
+      "type": "fill",
+      "q": "One of my brothers ____ (live) in Da Nang.",
+      "opts": [],
+      "answer": "lives",
+      "fb": "chủ ngữ chính là “One” → số ít"
+    },
+    {
+      "type": "fill",
+      "q": "The cost of these books ____ (be) too high.",
+      "opts": [],
+      "answer": "is",
+      "fb": "chia theo “The cost” đứng trước of"
+    },
+    {
+      "type": "fill",
+      "q": "Neither Bill nor Mary ____ (be) going to the party tonight.",
+      "opts": [],
+      "answer": "is",
+      "fb": "vế sau là “Mary” → số ít"
+    },
+    {
+      "type": "fill",
+      "q": "Some of the money ____ (be) still in the box.",
+      "opts": [],
+      "answer": "is",
+      "fb": "some of + money không đếm được → số ít"
+    },
+    {
+      "type": "fill",
+      "q": "There ____ (be) no girls in this class.",
+      "opts": [],
+      "answer": "are",
+      "fb": "There + be theo “no girls” số nhiều"
+    },
+    {
+      "type": "fill",
+      "q": "Each item in the bill ____ (be) correct.",
+      "opts": [],
+      "answer": "is",
+      "fb": "Each + danh từ số ít → số ít"
+    },
+    {
+      "type": "fill",
+      "q": "Half of the students in my class ____ (wear) glasses.",
+      "opts": [],
+      "answer": "wear",
+      "fb": "half of + students số nhiều → số nhiều"
+    },
+    {
+      "type": "fill",
+      "q": "The boy with his two dogs ____ (be) waiting outside.",
+      "opts": [],
+      "answer": "is",
+      "fb": "with → theo “The boy” đứng trước"
+    },
+    {
+      "type": "fill",
+      "q": "Not only my parents but also my sister ____ (like) this song.",
+      "opts": [],
+      "answer": "likes",
+      "fb": "vế sau là “my sister” → số ít"
+    },
+    {
+      "type": "fill",
+      "q": "These exercises ____ (check) by the teacher every Friday.",
+      "opts": [],
+      "answer": "are checked",
+      "fb": "exercises số nhiều + every Friday → are + V3"
+    },
+    {
+      "type": "fill",
+      "q": "The company sent the customers a free gift.  →  The customers ____ a free gift.",
+      "opts": [],
+      "answer": "were sent",
+      "fb": "Người lên đầu, số nhiều → were + V3"
+    },
+    {
+      "type": "fill",
+      "q": "My mother is ____ nurse at a big hospital.",
+      "opts": [],
+      "answer": "a",
+      "fb": "nghề nghiệp, đếm được số ít → a"
+    },
+    {
+      "type": "fill",
+      "q": "Many students in my class like ____ computer games.",
+      "opts": [],
+      "answer": "∅",
+      "fb": "danh từ số nhiều nói chung → để trống"
+    },
+    {
+      "type": "fill",
+      "q": "Neither Lan nor her friends ____ late for class.  (A is · B am · C are · D was)",
+      "opts": [],
+      "answer": "C are",
+      "fb": "Neither… nor chia theo chủ ngữ gần nhất là her friends · buổi 8"
+    }
+  ]
 }

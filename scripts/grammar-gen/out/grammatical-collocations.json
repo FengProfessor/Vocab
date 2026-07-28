@@ -350,5 +350,41 @@
     "comparison": "**Collocation ngữ pháp vs dịch word-by-word:** Cặp từ + giới từ trong tiếng Anh là CỐ ĐỊNH, không suy ra từ tiếng Việt: *listen TO music* (nghe nhạc — tiếng Việt không có \"to\"), *depend ON* (phụ thuộc VÀO — không phải of). Học cả cụm, đừng dịch từng chữ.",
     "definition": "**Kết hợp ngữ pháp (Grammatical Collocations)** là cách các từ ngữ thường đi đôi với nhau theo quy tắc ngữ pháp cố định, ví dụ như sự kết hợp giữa động từ và giới từ hay tính từ và giới từ. Nắm vững những cặp từ này giúp người học sử dụng tiếng Anh một cách tự nhiên và chính xác hơn, tránh các lỗi diễn đạt không mong muốn."
   },
-  "exercises": []
+  "exercises": [
+    {
+      "type": "fill",
+      "q": "There is ____ old man waiting at the gate.",
+      "opts": [],
+      "answer": "an",
+      "fb": "old bắt đầu bằng nguyên âm → an"
+    },
+    {
+      "type": "fill",
+      "q": "She has ____ (many / much) homework tonight.",
+      "opts": [],
+      "answer": "much",
+      "fb": "homework không đếm được → much"
+    },
+    {
+      "type": "fill",
+      "q": "____ (A few / Few) people came to her party, so it was really boring.",
+      "opts": [],
+      "answer": "Few",
+      "fb": "nghĩa xấu, gần như chẳng ai đến → Few"
+    },
+    {
+      "type": "fill",
+      "q": "My brother plays ____ guitar very well.",
+      "opts": [],
+      "answer": "the",
+      "fb": "nhạc cụ đứng sau play → the"
+    },
+    {
+      "type": "fill",
+      "q": "There are ____ (a lot of / much) students in the library today.",
+      "opts": [],
+      "answer": "a lot of",
+      "fb": "students đếm được → a lot of, không dùng much"
+    }
+  ]
 }

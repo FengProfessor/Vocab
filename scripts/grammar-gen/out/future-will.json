@@ -374,112 +374,116 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "I think people ___ live on Mars one day.",
-      "opts": [
-        "will",
-        "are",
-        "do"
-      ],
-      "answer": "will",
-      "fb": "I think + dự đoán thường dùng will."
-    },
-    {
-      "type": "mcq",
-      "q": "The bag is heavy. I ___ carry it for you.",
-      "opts": [
-        "'ll",
-        "am going",
-        "do"
-      ],
-      "answer": "'ll",
-      "fb": "Đây là đề nghị giúp ngay lúc nói."
-    },
-    {
-      "type": "mcq",
-      "q": "Choose the correct question.",
-      "opts": [
-        "Will she comes?",
-        "Does she will come?",
-        "Will she come?"
-      ],
-      "answer": "Will she come?",
-      "fb": "Will + S + V nguyên thể."
+      "type": "fill",
+      "q": "I'm sure our team ____ (win) the match tomorrow.",
+      "opts": [],
+      "answer": "will win",
+      "fb": "I'm sure = tin chắc, chỉ là đoán → will"
     },
     {
       "type": "fill",
-      "q": "They ___ arrive soon. (will)",
-      "answer": [
-        "will"
-      ],
-      "fb": "Will dùng với mọi chủ ngữ."
+      "q": "I don't think it ____ (rain) this evening.",
+      "opts": [],
+      "answer": "will rain",
+      "fb": "I don't think = đoán, chưa thấy bằng chứng nào → will"
     },
     {
       "type": "fill",
-      "q": "He ___ forget your birthday. (will not, contracted)",
-      "answer": [
-        "won't"
-      ],
-      "fb": "will not rút gọn thành won't."
+      "q": "The phone is ringing! — Don't stand up, I ____ (answer) it.",
+      "opts": [],
+      "answer": "will answer",
+      "fb": "vừa nghe chuông mới quyết nhận giúp → will"
     },
     {
       "type": "fill",
-      "q": "___ you help me with this box?",
-      "answer": [
-        "will"
-      ],
-      "fb": "Will you...? dùng để yêu cầu/đề nghị."
+      "q": "Nam is very sad now. — Don't worry, I ____ (not / tell) him the truth.",
+      "opts": [],
+      "answer": "won't tell",
+      "fb": "hứa ngay lúc nói → will, phủ định là won't"
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"She will goes tomorrow.\"",
-      "answer": false,
-      "fb": "SAI. Sau will dùng động từ nguyên thể. Câu đúng: \"She will go tomorrow.\""
+      "type": "fill",
+      "q": "In 2030 people ____ (live) on the Moon, I think.",
+      "opts": [],
+      "answer": "will live",
+      "fb": "I think = đoán chuyện xa → will"
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"I won't to forget.\"",
-      "answer": false,
-      "fb": "SAI. Sau won't không dùng to. Câu đúng: \"I won't forget.\""
+      "type": "fill",
+      "q": "The new stadium will ____ (open) next June.",
+      "opts": [],
+      "answer": "be opened",
+      "fb": "sau will → be + V3"
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"Will you will come?\"",
-      "answer": false,
-      "fb": "SAI. Trong câu hỏi chỉ dùng một will trước chủ ngữ. Câu đúng: \"Will you come?\""
+      "type": "fill",
+      "q": "People expect that the price will fall.  →  The price ____ to fall.",
+      "opts": [],
+      "answer": "is expected",
+      "fb": "Chủ ngữ thật lên đầu · việc ở vế sau xảy ra SAU → to + V (will fall → to fall)"
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "I'll call you tonight.",
-        "She will goes tomorrow.",
-        "I think our team will win."
-      ],
-      "answer": "She will goes tomorrow.",
-      "fb": "Sau will dùng động từ nguyên thể. Câu đúng: \"She will go tomorrow.\""
+      "type": "fill",
+      "q": "If Minh ____ (come) to my house tomorrow, we ____ (play) football together.",
+      "opts": [],
+      "answer": "comes / will play",
+      "fb": "tomorrow còn xảy ra được → loại 1, Minh = he nên thêm -s"
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "She won't attend the meeting.",
-        "I won't to forget.",
-        "Don't worry; I'll carry the box."
-      ],
-      "answer": "I won't to forget.",
-      "fb": "Sau won't không dùng to. Câu đúng: \"I won't forget.\""
+      "type": "fill",
+      "q": "If Nam ____ (not / wake) up early, he ____ (be) late for school tomorrow.",
+      "opts": [],
+      "answer": "doesn't wake / will be",
+      "fb": "tomorrow → loại 1 · Nam = he nên dùng doesn't"
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "Will they arrive before noon?",
-        "Will you will come?",
-        "The sun will rise at 5:30 tomorrow."
-      ],
-      "answer": "Will you will come?",
-      "fb": "Trong câu hỏi chỉ dùng một will trước chủ ngữ. Câu đúng: \"Will you come?\""
+      "type": "fill",
+      "q": "If it ____ (not / rain) this weekend, we ____ (go) camping.",
+      "opts": [],
+      "answer": "doesn't rain / will go",
+      "fb": "this weekend còn xảy ra được → loại 1"
+    },
+    {
+      "type": "fill",
+      "q": "Viết lại dùng unless: If you don't turn off the lights, the bill will be very high.",
+      "opts": [],
+      "answer": "Unless you turn off the lights, the bill will be very high.",
+      "fb": "unless đã mang nghĩa “không” → bỏ don't"
+    },
+    {
+      "type": "fill",
+      "q": "If my parents ____ (agree), I ____ (join) the English club next month.",
+      "opts": [],
+      "answer": "agree / will join",
+      "fb": "next month → loại 1"
+    },
+    {
+      "type": "fill",
+      "q": "Đổi sang gián tiếp: Lan said to me: “I will call you tonight.”",
+      "opts": [],
+      "answer": "Lan told me (that) she would call me that night.",
+      "fb": "said to me → told me · will lùi thành would · tonight → that night"
+    },
+    {
+      "type": "fill",
+      "q": "I don't know where Mai is. She ____ in the library. (may be / must be)",
+      "opts": [],
+      "answer": "may be",
+      "fb": "không biết chắc nên chỉ đoán → may be"
+    },
+    {
+      "type": "fill",
+      "q": "Don't forget to lock the door, ____?",
+      "opts": [],
+      "answer": "will you",
+      "fb": "câu mệnh lệnh → đuôi will you"
+    },
+    {
+      "type": "fill",
+      "q": "If I ____ you, I would tell the truth.  (A am · B was · C were · D will be)",
+      "opts": [],
+      "answer": "C were",
+      "fb": "Điều kiện loại 2 dùng were cho mọi chủ ngữ · buổi 15"
     }
   ]
 }

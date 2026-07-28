@@ -215,29 +215,24 @@
     ],
     "mistakes": [
       {
-        "why": "Trước danh từ book phải dùng tính từ sở hữu my.",
-        "right": "This is my book.",
-        "wrong": "This is mine book."
-      },
-      {
-        "why": "Đứng độc lập để chỉ sở hữu phải dùng hers.",
-        "right": "That bicycle is hers.",
-        "wrong": "That bicycle is her."
-      },
-      {
-        "why": "its là sở hữu; it’s là dạng rút gọn của it is/it has.",
-        "right": "The dog is eating its food.",
-        "wrong": "The dog is eating it’s food."
-      },
-      {
-        "why": "Sở hữu của NGƯỜI dùng 's, không dùng cấu trúc of kiểu dịch từ tiếng Việt.",
+        "why": "Sở hữu của người dùng 's, không dùng cấu trúc of kiểu dịch từ tiếng Việt.",
         "right": "This is my brother's book.",
         "wrong": "This is the book of my brother."
       },
       {
-        "why": "It's = it is; ITS (không phẩy) là tính từ sở hữu — hai từ khác hẳn nhau.",
-        "right": "It's a beautiful day.",
-        "wrong": "Its a beautiful day."
+        "why": "It's = it is; ITS (không phẩy) mới là tính từ sở hữu.",
+        "right": "It's a nice car.",
+        "wrong": "Its a nice car."
+      },
+      {
+        "why": "Cuối câu dùng đại từ sở hữu (mine), không dùng tính từ sở hữu (my).",
+        "right": "This bag is mine.",
+        "wrong": "This bag is my."
+      },
+      {
+        "why": "They're = they are; their là tính từ sở hữu — hai từ khác nghĩa.",
+        "right": "They're going home now.",
+        "wrong": "Their going home now."
       }
     ],
     "comparison": "**my vs mine:** *my book* cần danh từ; *the book is mine* không thêm danh từ. **its vs it’s:** *its tail* = cái đuôi của nó; *it’s long* = it is long."
@@ -335,29 +330,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "She bought a beautiful dress.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “adjective + noun”."
+        "why": "Tính từ đứng TRƯỚC danh từ trong tiếng Anh (ngược tiếng Việt).",
+        "right": "She has a red car.",
+        "wrong": "She has a car red."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "The soup smells delicious.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “be/seem/look/feel + adjective”."
+        "why": "Tính từ không chia số nhiều — không thêm -s.",
+        "right": "They are happy.",
+        "wrong": "They are happys."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "This exercise is easy.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Tính từ ngắn 1 âm tiết thêm -er, không dùng more.",
+        "right": "He is taller than me.",
+        "wrong": "He is more tall than me."
       },
       {
-        "why": "Trước danh từ phải dùng TÍNH TỪ (careful), không dùng trạng từ.",
-        "right": "Sam is a careful driver.",
-        "wrong": "Sam is a carefully driver."
-      },
-      {
-        "why": "Mô tả cách thực hiện hành động phải dùng TRẠNG TỪ (carefully), không dùng tính từ.",
-        "right": "Sam drove carefully.",
-        "wrong": "Sam drove careful."
+        "why": "Trước nguyên âm (i) dùng AN, không dùng a.",
+        "right": "It is an interesting book.",
+        "wrong": "It is a interesting book."
       }
     ],
     "comparison": "**Tính từ vs Trạng từ:** Tính từ mô tả DANH TỪ, đứng trước danh từ hoặc sau động từ nối (be, look, seem): *Sam is a careful driver.* Trạng từ mô tả cách hành động diễn ra, bổ nghĩa cho ĐỘNG TỪ: *Sam drove carefully.* Nhớ: nói về NGƯỜI/VẬT → tính từ; nói về CÁCH LÀM → trạng từ."
@@ -395,29 +385,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "There is a pharmacy near my house.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “There is + danh từ số ít/không đếm được”."
+        "why": "Danh từ số ít (a book) đi với THERE IS.",
+        "right": "There is a book on the table.",
+        "wrong": "There are a book on the table."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "There are two messages for you.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “There are + danh từ số nhiều”."
+        "why": "Danh từ số nhiều (three chairs) đi với THERE ARE.",
+        "right": "There are three chairs here.",
+        "wrong": "There is three chairs here."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "There isn't any milk left.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Giới thiệu sự tồn tại lần đầu dùng THERE, không dùng it.",
+        "right": "There is a park near my house.",
+        "wrong": "It is a park near my house."
       },
       {
-        "why": "Giới thiệu sự tồn tại lần đầu phải dùng THERE, không dùng it.",
-        "right": "There was a lot of traffic.",
-        "wrong": "It was a lot of traffic."
-      },
-      {
-        "why": "Nhắc lại thứ đã đề cập thì dùng IT, không lặp lại there is.",
-        "right": "There is a new restaurant. It is very good.",
-        "wrong": "There is a new restaurant. There is very good."
+        "why": "Không dịch \"có\" thành have — dùng there are.",
+        "right": "There are many people in the room.",
+        "wrong": "Have many people in the room."
       }
     ],
     "comparison": "**There vs It:** Dùng *there is/are* khi giới thiệu một thứ TỒN TẠI lần đầu: *There is a new restaurant.* Dùng *it* khi nhắc lại thứ đã nói đến: *It is very good.* Người Việt hay dịch \"có\" và \"nó\" lẫn lộn thành *It was a lot of traffic* — sai."
@@ -652,29 +637,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "Where do you live?",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “Wh-word + auxiliary + S + V?”."
+        "why": "Câu hỏi đảo trợ động từ/be lên trước chủ ngữ.",
+        "right": "Where are you from?",
+        "wrong": "Where you are from?"
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "Why was she upset?",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “Wh-word + be + S?”."
+        "why": "Câu hỏi quá khứ cần trợ động từ DID + động từ nguyên thể.",
+        "right": "What did you do yesterday?",
+        "wrong": "What you do yesterday?"
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Who called you last night?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Khi từ để hỏi là chủ ngữ, không dùng did.",
+        "right": "Who phoned you?",
+        "wrong": "Who did phone you?"
       },
       {
-        "why": "Khi từ để hỏi là CHỦ NGỮ của câu, không dùng trợ động từ do/does/did.",
-        "right": "Who phoned Emma?",
-        "wrong": "Who did phone Emma?"
-      },
-      {
-        "why": "Khi từ để hỏi là TÂN NGỮ, phải đặt trợ động từ (did) trước chủ ngữ.",
-        "right": "Who did Emma phone?",
-        "wrong": "Who Emma phoned?"
+        "why": "Thiếu trợ động từ did trong câu hỏi quá khứ.",
+        "right": "How much did you pay?",
+        "wrong": "How much you pay?"
       }
     ],
     "comparison": "**Wh-word làm CHỦ NGỮ vs làm TÂN NGỮ:** Khi từ để hỏi là chủ ngữ, giữ nguyên trật tự câu kể, KHÔNG dùng do/does/did: *Who phoned Emma?* (ai gọi?). Khi từ để hỏi là tân ngữ, phải có trợ động từ trước chủ ngữ: *Who did Emma phone?* (Emma gọi ai?). Cùng một chữ Who nhưng hai cấu trúc khác hẳn nhau."
@@ -712,29 +692,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I usually walk to work.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + adverb + động từ thường”."
+        "why": "Trạng từ tần suất đứng TRƯỚC động từ thường.",
+        "right": "I always go to school by bike.",
+        "wrong": "I go always to school by bike."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She is always helpful.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + be + adverb”."
+        "why": "Với động từ be, trạng từ tần suất đứng SAU be.",
+        "right": "She is always late.",
+        "wrong": "She always is late."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "We rarely eat out.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Dùng trạng từ (usually), không dùng tính từ (usual).",
+        "right": "He usually watches TV.",
+        "wrong": "He usual watches TV."
       },
       {
-        "why": "Với động từ thường (1 từ), trạng từ tần suất đứng TRƯỚC động từ.",
-        "right": "Emily always drives to work.",
-        "wrong": "Emily drives always to work."
-      },
-      {
-        "why": "Với động từ be (am/is/are/was/were), trạng từ tần suất đứng SAU be.",
-        "right": "You are always late.",
-        "wrong": "You always are late."
+        "why": "Never đứng giữa câu, trước động từ thường — không mở đầu câu (trừ đảo ngữ trang trọng).",
+        "right": "I never eat meat.",
+        "wrong": "Never I eat meat."
       }
     ],
     "comparison": "**Vị trí với động từ thường vs động từ be:** Trạng từ tần suất đứng TRƯỚC động từ thường (*Emily always drives to work*) nhưng đứng SAU am/is/are/was/were (*You are always late*). Đây là cặp vị trí học sinh hay đảo ngược nhất."
@@ -850,29 +825,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "The keys are in my bag.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “in + không gian bao quanh”."
+        "why": "Trên bề mặt phẳng dùng ON, không dùng in.",
+        "right": "The cat is on the table.",
+        "wrong": "The cat is in the table."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "Your phone is on the desk.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “on + bề mặt”."
+        "why": "Thành phố/quốc gia dùng IN, không dùng at.",
+        "right": "I live in Hanoi.",
+        "wrong": "I live at Hanoi."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Meet me at the entrance.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Tại một điểm cụ thể dùng AT.",
+        "right": "She is standing at the bus stop.",
+        "wrong": "She is standing in the bus stop."
       },
       {
-        "why": "Tầng của tòa nhà dùng ON, không dùng in.",
-        "right": "Our apartment is on the second floor.",
-        "wrong": "Our apartment is in the second floor."
-      },
-      {
-        "why": "Tham dự sự kiện/cuộc họp dùng AT, không dùng on.",
-        "right": "I saw Steve at a conference.",
-        "wrong": "I saw Steve on a conference."
+        "why": "Treo trên bề mặt tường dùng ON.",
+        "right": "The picture is on the wall.",
+        "wrong": "The picture is in the wall."
       }
     ],
     "comparison": "**In vs On vs At:** *In* = bên trong không gian 3 chiều (in the bottle, in Hanoi). *On* = trên bề mặt phẳng, tầng nhà (on the table, on the second floor). *At* = tại một điểm/sự kiện (at the bus stop, at a conference). Cặp ví dụ: *water IN the bottle* vs *a label ON the bottle*."
@@ -970,34 +940,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "Mai can speak Japanese.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + can/could + V”."
+        "why": "Sau can là động từ nguyên thể KHÔNG to.",
+        "right": "I can swim.",
+        "wrong": "I can to swim."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "I couldn't swim when I was five.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + cannot/could not + V”."
+        "why": "Can là modal — không chia -s theo ngôi.",
+        "right": "She can drive.",
+        "wrong": "She cans drive."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Can you hear me?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Sau can't cũng là động từ nguyên thể không to.",
+        "right": "He can't come.",
+        "wrong": "He can't to come."
       },
       {
-        "why": "Sau động từ khuyết thiếu can, động từ chính giữ nguyên thể không to.",
-        "right": "She can sing.",
-        "wrong": "She can sings."
-      },
-      {
-        "why": "Thành công trong tình huống cụ thể quá khứ dùng WAS/WERE ABLE TO, không dùng could.",
-        "right": "The fire spread quickly, but everybody was able to escape.",
-        "wrong": "The fire spread quickly, but everybody could escape."
-      },
-      {
-        "why": "Can không có dạng hoàn thành — các thì perfect phải dùng BE ABLE TO.",
-        "right": "I haven't been able to sleep recently.",
-        "wrong": "I haven't can sleep recently."
+        "why": "Thành công trong tình huống cụ thể quá khứ dùng was able to, không dùng could.",
+        "right": "The fire spread, but everybody was able to escape.",
+        "wrong": "The fire spread, but everybody could escape."
       }
     ],
     "comparison": "**Could vs Was able to:** *Could* = khả năng CHUNG trong quá khứ (*My grandfather could swim* — biết bơi nói chung). *Was/were able to / managed to* = THÀNH CÔNG trong một tình huống cụ thể (*He was able to swim to safety* — thoát được lần đó). Tình huống cụ thể thành công → không dùng could."
@@ -1095,29 +1055,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "We have a few questions.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “many/few + danh từ đếm được số nhiều”."
+        "why": "Money không đếm được — không đi với many; dùng a lot of.",
+        "right": "I have a lot of money.",
+        "wrong": "I have many money."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "There isn't much time.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “much/little + danh từ không đếm được”."
+        "why": "Cars đếm được số nhiều dùng many, không dùng much.",
+        "right": "There are many cars.",
+        "wrong": "There are much cars."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Do you need any help?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Câu phủ định dùng ANY, không dùng some.",
+        "right": "I don't have any time.",
+        "wrong": "I don't have some time."
       },
       {
-        "why": "Trong câu khẳng định, much hiếm dùng — người bản xứ dùng a lot of.",
-        "right": "We spent a lot of money.",
-        "wrong": "We spent much money."
-      },
-      {
-        "why": "Sau most of phải có từ hạn định (the/my/this...) trước danh từ.",
-        "right": "I spent most of the time in bed.",
-        "wrong": "I spent most of time in bed."
+        "why": "Money không đếm được dùng little, không dùng few.",
+        "right": "She has little money.",
+        "wrong": "She has few money."
       }
     ],
     "comparison": "**Many/Few vs Much/Little:** *many, few* đi với danh từ ĐẾM ĐƯỢC số nhiều (*few friends*); *much, little* đi với danh từ KHÔNG đếm được (*little time*). Câu khẳng định văn nói chuộng *a lot of* thay cho much/many."
@@ -1475,34 +1430,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "This room is brighter than mine.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “short adjective + -er / the + -est”."
-      },
-      {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "Lan is the tallest student in the class.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “more / the most + long adjective”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "The train is more comfortable than the bus.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Most không có the khi mang nghĩa phần lớn hoặc đa số nói chung.",
-        "right": "Most shops accept credit cards.",
-        "wrong": "The most shops accept credit cards."
-      },
-      {
-        "why": "Tính từ ngắn 1 âm tiết thêm -ER, không dùng more.",
+        "why": "Tính từ ngắn thêm -er, không dùng more.",
         "right": "She is taller than him.",
         "wrong": "She is more tall than him."
       },
       {
-        "why": "Không ghép most + -est — double superlative là lỗi.",
-        "right": "That is the biggest building.",
-        "wrong": "That is the most biggest building."
+        "why": "Tính từ ngắn thêm -est, không dùng most.",
+        "right": "This is the biggest house.",
+        "wrong": "This is the most big house."
+      },
+      {
+        "why": "Tính từ 2 âm tiết kết thúc bằng -er/-y thường thêm -er.",
+        "right": "He is cleverer than me.",
+        "wrong": "He is more clever than me."
+      },
+      {
+        "why": "Không ghép most + -est (double superlative).",
+        "right": "That is the cheapest one.",
+        "wrong": "That is the most cheapest one."
       }
     ],
     "comparison": "**So sánh hơn vs so sánh nhất:** So sánh HƠN giữa 2 đối tượng: -er/more + than (*This hotel is cheaper than that one*). So sánh NHẤT trong nhóm ≥3: the + -est/most (*the cheapest in town*). Tính từ ngắn thêm đuôi, tính từ dài dùng more/most — không dùng cả hai cùng lúc."
@@ -1540,29 +1485,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "May I come in?",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “Can/Could/May + S + V?”."
+        "why": "Sau can là động từ nguyên thể không to.",
+        "right": "Can I use your phone?",
+        "wrong": "Can I to use your phone?"
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "Could you open the window, please?",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “Would you + V ...?”."
+        "why": "Sau may là động từ nguyên thể, không phải V-ing.",
+        "right": "May I borrow your pen?",
+        "wrong": "May I borrowing your pen?"
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Can I borrow your pen?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Trong câu tường thuật, may (xin phép) lùi thành could.",
+        "right": "He said we could wait here.",
+        "wrong": "He said we might wait here."
       },
       {
-        "why": "Trong câu tường thuật, may (xin phép) lùi thành COULD, không phải might.",
-        "right": "He said we could wait in the hallway.",
-        "wrong": "He said we might wait in the hallway."
-      },
-      {
-        "why": "Mustn't = CẤM làm; don't need to/needn't = KHÔNG CẦN làm — hai nghĩa khác hẳn.",
-        "right": "You don't need to lock the door; it is OK to leave it unlocked.",
-        "wrong": "You mustn't lock the door; it is OK to leave it unlocked."
+        "why": "Mustn't = cấm; don't have to = không cần — không nhầm.",
+        "right": "You don't have to go, it's optional.",
+        "wrong": "You mustn't go, it's optional."
       }
     ],
     "comparison": "**Can vs May (xin phép):** Cả hai đều xin phép nhưng *may* trang trọng, lịch sự hơn; *can* dùng trong tình huống thân mật. *Can I use your phone?* (bạn bè) vs *May I use your phone?* (trang trọng). Trong reported speech, may → could."
@@ -1600,34 +1540,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "You must wear a helmet.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + must + V”."
+        "why": "Sau must là động từ nguyên thể không to.",
+        "right": "I must finish this today.",
+        "wrong": "I must to finish this today."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "I have to submit this today.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + have/has to + V”."
+        "why": "Nghĩa vụ quá khứ dùng had to — must không có dạng quá khứ.",
+        "right": "Yesterday I had to walk home.",
+        "wrong": "Yesterday I must walk home."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Visitors mustn't touch the paintings.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Không bắt buộc dùng don't have to; mustn't nghĩa là CẤM.",
+        "right": "You don't have to come, it's not necessary.",
+        "wrong": "You mustn't come, it's not necessary."
       },
       {
-        "why": "Sau động từ khuyết thiếu must, dùng động từ nguyên thể không to.",
-        "right": "You must study hard.",
-        "wrong": "You must to study hard."
-      },
-      {
-        "why": "Nghĩa vụ trong QUÁ KHỨ dùng HAD TO — must không có dạng quá khứ.",
-        "right": "I couldn't get a taxi last night. I had to walk home.",
-        "wrong": "I couldn't get a taxi last night. I must walk home."
-      },
-      {
-        "why": "Nghĩa vụ kéo dài từ quá khứ đến nay (since) dùng HAS HAD TO (hiện tại hoàn thành).",
-        "right": "Julia has had to wear glasses since she was very young.",
-        "wrong": "Julia must wear glasses since she was very young."
+        "why": "Sau must, động từ về nguyên thể — không chia -s.",
+        "right": "She must wear a uniform.",
+        "wrong": "She must wears a uniform."
       }
     ],
     "comparison": "**Mustn't vs Don't have to:** Dạng khẳng định must/have to gần nghĩa nhau, nhưng phủ định KHÁC HẲN: *You mustn't go* = CẤM đi. *You don't have to go* = KHÔNG CẦN đi (đi hay không tùy bạn). Đây là cặp gây hiểu nhầm nguy hiểm nhất của modal."
@@ -1665,29 +1595,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "You should get more sleep.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + should/ought to + V”."
+        "why": "Sau should là động từ nguyên thể không to.",
+        "right": "You should see a doctor.",
+        "wrong": "You should to see a doctor."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "We ought to apologize.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + shouldn't + V”."
+        "why": "Should là modal — không chia -s.",
+        "right": "He should study harder.",
+        "wrong": "He shoulds study harder."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Should I call her now?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Sau had better là động từ nguyên thể không to.",
+        "right": "You had better go now.",
+        "wrong": "You had better to go now."
       },
       {
-        "why": "Lời khuyên/quan điểm chung dùng SHOULD; had better chỉ cho tình huống cụ thể khẩn cấp.",
-        "right": "I think everybody should learn a foreign language.",
-        "wrong": "I think everybody had better learn a foreign language."
-      },
-      {
-        "why": "Sau suggest that, dùng động từ NGUYÊN THỂ (bare form), không thêm should to.",
-        "right": "I would suggest that you take this route.",
-        "wrong": "I would suggest that you should to take this route."
+        "why": "Lời khuyên chung dùng should; had better chỉ cho tình huống cụ thể.",
+        "right": "I think everybody should learn English.",
+        "wrong": "I think everybody had better learn English."
       }
     ],
     "comparison": "**Should vs Had better:** *Should* = lời khuyên chung, \"làm thế là tốt\" (*You should go out more often*). *Had better* CHỈ dùng cho tình huống cụ thể có nguy cơ nếu không nghe (*It's late. You'd better go*). Không dùng had better cho lời khuyên chung chung."
@@ -1725,29 +1650,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
+        "why": "Mệnh đề if không dùng will — dùng hiện tại đơn.",
+        "right": "If it rains, I will stay home.",
+        "wrong": "If it will rain, I will stay home."
+      },
+      {
+        "why": "Loại 0 dùng hiện tại đơn cả hai vế — ngôi 3 thêm -s.",
         "right": "If you heat ice, it melts.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “If + present, present (loại 0)”."
+        "wrong": "If you heat ice, it melt."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "If it rains, we'll stay home.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “If + present, will + V (loại 1)”."
+        "why": "Loại 1 vế kết quả cần WILL cho dự định tương lai.",
+        "right": "If I have time, I will visit you.",
+        "wrong": "If I have time, I visit you."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Plants die if they don't get water.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Dự đoán tương lai cụ thể dùng loại 1 với WILL; loại 0 chỉ cho chân lý chung.",
-        "right": "If it rains tomorrow, the ground will get wet.",
-        "wrong": "If it rains tomorrow, the ground gets wet."
-      },
-      {
-        "why": "Mệnh đề IF không dùng will — dùng hiện tại đơn thay thế.",
-        "right": "We won't be able to go out if it rains.",
-        "wrong": "We won't be able to go out if it will rain."
+        "why": "Unless đã mang nghĩa phủ định — không thêm don't.",
+        "right": "Unless you hurry, you will be late.",
+        "wrong": "Unless you don't hurry, you will be late."
       }
     ],
     "comparison": "**Điều kiện loại 1 vs loại 0:** Loại 1 = khả năng CỤ THỂ trong tương lai (*If you are late, I will be angry* — có thể xảy ra). Loại 0 = chân lý / quy luật luôn đúng, không dùng will (*If you mix blue and yellow, you get green* — sự thật)."
@@ -1850,29 +1770,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I have been studying for three hours.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + have/has been + V-ing”."
-      },
-      {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She has been crying; her eyes are red.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + haven't/hasn't been + V-ing”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "We haven't been sleeping well lately.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Quá trình bắt đầu trong quá khứ kéo dài đến nay + for/since → present perfect continuous, không dùng hiện tại tiếp diễn.",
+        "why": "Quá trình kéo dài đến nay + for dùng present perfect continuous.",
         "right": "I have been learning English for five years.",
         "wrong": "I am learning English for five years."
       },
       {
-        "why": "Know là stative verb — dùng present perfect đơn, không dùng continuous.",
-        "right": "I have known him since 2019.",
-        "wrong": "I have been knowing him since 2019."
+        "why": "Know là động từ trạng thái — dùng present perfect đơn.",
+        "right": "She has known him for years.",
+        "wrong": "She has been knowing him for years."
+      },
+      {
+        "why": "Sau has been phải là V-ing.",
+        "right": "He has been working all day.",
+        "wrong": "He has been work all day."
+      },
+      {
+        "why": "Dạng tiếp diễn dùng V-ing, không phải quá khứ phân từ.",
+        "right": "They have been playing since morning.",
+        "wrong": "They have been played since morning."
       }
     ],
     "comparison": "**HTHT tiếp diễn vs HTHT đơn:** Tiếp diễn nhấn vào QUÁ TRÌNH kéo dài bao lâu (*I've been reading all afternoon* — suốt cả chiều). Đơn nhấn vào KẾT QUẢ đã xong bao nhiêu (*I've read 200 pages* — được 200 trang)."
@@ -1910,29 +1825,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "The train had left before we arrived.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + had + V3”."
+        "why": "Việc xảy ra trước một mốc quá khứ dùng past perfect (had + P2).",
+        "right": "When I arrived, the train had already left.",
+        "wrong": "When I arrived, the train already left."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She had never flown before that trip.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + had not + V3”."
+        "why": "Sau had dùng quá khứ phân từ (gone), không dùng quá khứ đơn.",
+        "right": "She had gone home before I called.",
+        "wrong": "She had went home before I called."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Had you finished when he called?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "P2 của eat là eaten, không phải ate.",
+        "right": "After he had eaten, he slept.",
+        "wrong": "After he had ate, he slept."
       },
       {
-        "why": "Hành động đọc xong xảy ra TRƯỚC việc trả sách → cần past perfect (had read).",
-        "right": "I took the book back to the library when I had read it.",
-        "wrong": "I took the book back to the library when I read it."
-      },
-      {
-        "why": "Sau had dùng QUÁ KHỨ PHÂN TỪ (come), không dùng quá khứ đơn (came).",
-        "right": "You could have stayed with us if you had come to London.",
-        "wrong": "You could have stayed with us if you had came to London."
+        "why": "P2 của see là seen sau had.",
+        "right": "I had never seen snow before that trip.",
+        "wrong": "I had never see snow before that trip."
       }
     ],
     "comparison": "**Quá khứ hoàn thành vs Quá khứ đơn:** Past perfect đánh dấu hành động xảy ra TRƯỚC một hành động quá khứ khác: *When we arrived, the film HAD STARTED* (phim chiếu trước khi tới — lỡ đoạn đầu). Quá khứ đơn cả hai vế = chuỗi sự kiện theo thứ tự: *When we arrived, the film STARTED* (tới xong phim mới chiếu). Một chữ had đổi cả trật tự thời gian."
@@ -1970,29 +1880,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I used to live in Hue.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “used to + V”."
+        "why": "Khẳng định dùng USED to (có d).",
+        "right": "I used to play football when I was young.",
+        "wrong": "I use to play football when I was young."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She didn't use to drink coffee.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “be used to + noun/V-ing”."
+        "why": "Sau didn't dùng USE to (bỏ d).",
+        "right": "I didn't use to like coffee.",
+        "wrong": "I didn't used to like coffee."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Are you used to the heat?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Be used to + V-ing (đã quen với việc gì).",
+        "right": "She is used to getting up early now.",
+        "wrong": "She is used to get up early now."
       },
       {
-        "why": "Trong be/get used TO, chữ to là GIỚI TỪ → theo sau là V-ING.",
-        "right": "Lisa is used to driving on the left.",
-        "wrong": "Lisa is used to drive on the left."
-      },
-      {
-        "why": "Sau trợ động từ didn't, dùng USE TO nguyên thể (bỏ d).",
-        "right": "I didn't use to like him.",
-        "wrong": "I didn't used to like him."
+        "why": "Used to + động từ nguyên thể (thói quen quá khứ).",
+        "right": "He used to smoke a lot.",
+        "wrong": "He used to smoking a lot."
       }
     ],
     "comparison": "**Used to do vs Be used to doing:** *used to do* = thói quen QUÁ KHỨ nay không còn (*I used to drive to work* — trước hay lái, giờ thì không). *be / get used to doing* = đã QUEN, không còn lạ lẫm ở hiện tại (*She is used to driving on the left* — quen rồi)."
@@ -2030,29 +1935,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "This time tomorrow, I will be flying to Seoul.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + will be + V-ing”."
+        "why": "Hành động đang diễn ra tại mốc tương lai dùng will be + V-ing.",
+        "right": "At 8pm I will be having dinner.",
+        "wrong": "At 8pm I will have dinner (đang ăn dở)."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She will be working at nine.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + will not be + V-ing”."
+        "why": "Thiếu BE trong cấu trúc will be + V-ing.",
+        "right": "This time tomorrow I will be flying to Paris.",
+        "wrong": "This time tomorrow I will flying to Paris."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Will you be using the car tonight?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Mệnh đề thời gian (while) không dùng will.",
+        "right": "While I am waiting, I will read.",
+        "wrong": "While I will be waiting, I will read."
       },
       {
-        "why": "Mệnh đề thời gian (while/when/before) KHÔNG dùng will — dùng thì hiện tại thay thế.",
-        "right": "I can read a book while I'm waiting.",
-        "wrong": "I can read a book while I'll be waiting."
-      },
-      {
-        "why": "Sau will be phải là V-ING (dạng tiếp diễn), không phải động từ nguyên thể.",
-        "right": "The meeting will be starting at half past seven.",
-        "wrong": "The meeting will be start at half past seven."
+        "why": "Sau will be phải là V-ing, không phải nguyên thể.",
+        "right": "The meeting will be starting at seven.",
+        "wrong": "The meeting will be start at seven."
       }
     ],
     "comparison": "**Tương lai tiếp diễn vs Tương lai đơn:** Future continuous tả hành động ĐANG DIỄN RA tại một thời điểm tương lai: *At 8pm tonight, I will be having dinner* (8 giờ đang ăn dở). Future simple là quyết định/lời hứa trọn vẹn: *I will have dinner at 8pm* (sẽ ăn lúc 8 giờ). Đang giữa chừng → will be V-ing."
@@ -2090,29 +1990,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I stayed home because I was ill.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “clause + coordinating conjunction + clause”."
-      },
-      {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "Although it was late, we continued.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “subordinator + clause, main clause”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "She studied hard; therefore, she passed.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Because of là giới từ, không đứng trước mệnh đề đủ chủ-vị; có mệnh đề thì dùng BECAUSE.",
+        "why": "Because of đi với danh từ; có mệnh đề dùng because.",
         "right": "Because he was late, he missed the bus.",
         "wrong": "Because of he was late, he missed the bus."
       },
       {
-        "why": "Although phải đi với MỆNH ĐỀ có động từ; trước danh từ phải dùng DESPITE/in spite of.",
+        "why": "Although đi với mệnh đề; trước danh từ dùng despite.",
         "right": "Despite his tiredness, he kept working.",
         "wrong": "Although his tiredness, he kept working."
+      },
+      {
+        "why": "Không ghép đôi although...but trong một câu.",
+        "right": "Although it was late, we continued.",
+        "wrong": "Although it was late, but we continued."
+      },
+      {
+        "why": "Despite là giới từ — theo sau là danh từ/V-ing, không phải mệnh đề.",
+        "right": "I couldn't sleep despite being tired.",
+        "wrong": "I couldn't sleep despite I was tired."
       }
     ],
     "comparison": "**Although vs Despite:** *Although/even though* là LIÊN TỪ → theo sau là MỆNH ĐỀ đủ chủ-vị (*Because he was late, he missed the bus*). *Despite/in spite of/because of* là GIỚI TỪ → theo sau là DANH TỪ/V-ing (*Because of his lateness...*). Cùng nghĩa, khác cấu trúc theo sau."
@@ -2150,29 +2045,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I enjoy reading before bed.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “verb + V-ing”."
+        "why": "Sau enjoy dùng V-ing, không dùng to-infinitive.",
+        "right": "I enjoy reading books.",
+        "wrong": "I enjoy to read books."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She decided to leave early.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “verb + to + V”."
+        "why": "Sau want dùng to-infinitive, không dùng V-ing.",
+        "right": "She wants to go home.",
+        "wrong": "She wants going home."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Thank you for helping me.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Sau avoid dùng V-ing.",
+        "right": "He avoided meeting her.",
+        "wrong": "He avoided to meet her."
       },
       {
-        "why": "Enjoy đi với V-ing, không đi với to + động từ.",
-        "right": "I enjoy playing soccer.",
-        "wrong": "I enjoy to play soccer."
-      },
-      {
-        "why": "Cấu trúc spend time đi với V-ing.",
-        "right": "We spent the whole day preparing for the party.",
-        "wrong": "We spent the whole day to prepare for the party."
+        "why": "Sau decide dùng to-infinitive.",
+        "right": "They decided to buy a house.",
+        "wrong": "They decided buying a house."
       }
     ],
     "comparison": "**Danh động từ vs nguyên mẫu (đổi nghĩa):** Vài động từ đổi nghĩa theo dạng đi sau. *remember + V-ing* = nhớ việc ĐÃ làm (*I remember locking the door* — đã khóa, giờ nhớ lại). *remember + to V* = nhớ ĐỂ làm (*I remembered to lock the door* — nhớ mà đi khóa)."
@@ -2210,24 +2100,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "The bridge was built in 2010.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + be + V3”."
+        "why": "Bị động dùng quá khứ phân từ (built), không dùng nguyên thể.",
+        "right": "The house was built in 1990.",
+        "wrong": "The house was build in 1990."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "English is spoken worldwide.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + modal + be + V3”."
+        "why": "Sau is/are dùng P2 (spoken).",
+        "right": "English is spoken here.",
+        "wrong": "English is speak here."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "The package will be delivered tomorrow.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "P2 của write là written.",
+        "right": "The letter was written by Tom.",
+        "wrong": "The letter was wrote by Tom."
       },
       {
-        "why": "Câu bị động cần dạng phù hợp của be + quá khứ phân từ.",
-        "right": "Many accidents are caused by careless driving.",
-        "wrong": "Many accidents cause by careless driving."
+        "why": "P2 của sing là sung, không phải sang.",
+        "right": "This song was sung by her.",
+        "wrong": "This song was sang by her."
       }
     ],
     "comparison": "**Câu bị động vs chủ động:** Chủ động nhấn vào AI làm (*Somebody built this house in 1981*). Bị động nhấn vào ĐIỀU GÌ xảy ra với chủ thể, khi tác nhân không rõ / không quan trọng (*This house was built in 1981*)."
@@ -2265,24 +2155,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
+        "why": "Câu tường thuật quá khứ: will lùi thành would.",
+        "right": "He said he would come.",
+        "wrong": "He said he will come."
+      },
+      {
+        "why": "Tell cần tân ngữ (told me); không tân ngữ dùng said.",
         "right": "She said that she was tired.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “said (that) + clause”."
+        "wrong": "She told that she was tired."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "He told me to wait.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “told + object + clause”."
+        "why": "Câu hỏi tường thuật dùng trật tự câu kể, lùi thì.",
+        "right": "He asked where I lived.",
+        "wrong": "He asked where do I live."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Lan asked whether I was free.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Câu hỏi gián tiếp dùng trật tự câu kể: chủ ngữ đứng trước động từ.",
-        "right": "She asked us what we were doing.",
-        "wrong": "She asked us what were we doing?"
+        "why": "Có tân ngữ (me) dùng told, không dùng said me.",
+        "right": "She told me she was busy.",
+        "wrong": "She said me she was busy."
       }
     ],
     "comparison": "**Câu tường thuật vs trực tiếp:** Trực tiếp = trích NGUYÊN VĂN, giữ thì gốc (*He said \"I have to go\"*). Tường thuật = thuật lại, LÙI THÌ về quá khứ khi không còn đúng ở hiện tại (*He said he had to go*)."
@@ -2320,29 +2210,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "The woman who called is my aunt.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “person + who/that + clause”."
+        "why": "Chỉ người dùng who, không dùng which.",
+        "right": "The man who lives here is kind.",
+        "wrong": "The man which lives here is kind."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "This is the book that I mentioned.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “thing + which/that + clause”."
+        "why": "Chỉ vật dùng which/that, không dùng who.",
+        "right": "The book which I read was good.",
+        "wrong": "The book who I read was good."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "The café where we met has closed.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Where đã thay cho \"in which\" — không lặp giới từ/đại từ.",
+        "right": "This is the house where I live.",
+        "wrong": "This is the house where I live in it."
       },
       {
-        "why": "Sau everything dùng that hoặc lược bỏ đại từ quan hệ, không dùng what.",
-        "right": "Everything that they said was true.",
-        "wrong": "Everything what they said was true."
-      },
-      {
-        "why": "Không lặp lại đại từ tân ngữ him trong mệnh đề quan hệ.",
-        "right": "The man I was sitting next to was friendly.",
-        "wrong": "The man I was sitting next to him was friendly."
+        "why": "That đã làm tân ngữ — không lặp them thừa.",
+        "right": "The keys that we were looking for are here.",
+        "wrong": "The keys that we were looking for them are here."
       }
     ],
     "comparison": "**Mệnh đề quan hệ xác định vs không xác định:** Xác định = thông tin THIẾT YẾU để hiểu danh từ, KHÔNG dấu phẩy (*The woman who called is my aunt* — bỏ đi thì không rõ ai). Không xác định = thông tin THÊM, đặt giữa dấu phẩy, bỏ vẫn hiểu (*My aunt, who called yesterday, is a doctor*)."
@@ -2380,24 +2265,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "If I had more time, I would learn Korean.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “If + past simple, would + V”."
+        "why": "Loại 2 dùng WERE cho mọi ngôi trong giả định.",
+        "right": "If I were you, I would apologize.",
+        "wrong": "If I was you, I would apologize."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She would travel more if she were rich.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “If + past simple, could/might + V”."
+        "why": "Loại 2 vế kết quả dùng would, không dùng will.",
+        "right": "If I had money, I would buy a car.",
+        "wrong": "If I had money, I will buy a car."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "What would you do if you lost your phone?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Mệnh đề if loại 2 dùng quá khứ đơn, không dùng would.",
+        "right": "If I had time, I would help.",
+        "wrong": "If I would have time, I would help."
       },
       {
-        "why": "Điều kiện giả định ở hiện tại dùng quá khứ đơn trong mệnh đề if.",
-        "right": "It would be perfect if there were sockets for our phone chargers.",
-        "wrong": "It would be perfect if there are sockets for our phone chargers."
+        "why": "Giả định hiện tại không thực: vế kết quả dùng would.",
+        "right": "If she studied, she would pass.",
+        "wrong": "If she studied, she will pass."
       }
     ],
     "comparison": "**Điều kiện loại 2 vs loại 1:** Loại 2 = giả định KHÔNG có thật ở hiện tại / tương lai (*If Jack was playing, they would win* — Jack không chơi). Loại 1 = khả năng CÓ THẬT (*If you are late, I will be angry* — có thể xảy ra)."
@@ -2435,29 +2320,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "If I had left earlier, I would have caught the train.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “If + had + V3, would have + V3”."
-      },
-      {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She would have passed if she had studied.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “If + had + V3, could/might have + V3”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Had we known, we would have helped.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Mệnh đề if loại 3 dùng PAST PERFECT (had + P2), không dùng would have.",
-        "right": "If I had studied, I would have passed.",
-        "wrong": "If I would have studied, I would have passed."
-      },
-      {
-        "why": "Vế kết quả loại 3 cần đủ WOULD HAVE + P2.",
+        "why": "Loại 3 vế kết quả cần would HAVE + P2.",
         "right": "If I had studied, I would have passed.",
         "wrong": "If I had studied, I would passed."
+      },
+      {
+        "why": "Mệnh đề if loại 3 dùng past perfect (had + P2), không dùng would have.",
+        "right": "If I had known, I would have come.",
+        "wrong": "If I would have known, I would have come."
+      },
+      {
+        "why": "P2 của come là come sau had.",
+        "right": "If she had come earlier, she would have seen him.",
+        "wrong": "If she had came earlier, she would have seen him."
+      },
+      {
+        "why": "Việc đã qua: vế kết quả loại 3 dùng would have + P2.",
+        "right": "If they had left, they would have caught the train.",
+        "wrong": "If they had left, they would catch the train."
       }
     ],
     "comparison": "**Điều kiện loại 3 vs loại 2:** Loại 3 = giả định trái với QUÁ KHỨ, không thể đổi (*If you had seen him, you could have spoken to him* — nhưng đã không gặp). Loại 2 = giả định trái với HIỆN TẠI / tương lai (*If I had his address, I could write to him* — giờ không có địa chỉ)."
@@ -2495,29 +2375,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "She must be at work; her car is gone.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “must + V: gần như chắc chắn”."
+        "why": "Sau must là động từ nguyên thể không to.",
+        "right": "He must be tired.",
+        "wrong": "He must to be tired."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "He might know the answer.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “might/may/could + V: có thể”."
+        "why": "Suy đoán quá khứ dùng must HAVE + P2 (have nguyên thể).",
+        "right": "She must have left already.",
+        "wrong": "She must has left already."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "That can't be true.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Sau can't là động từ nguyên thể không to.",
+        "right": "It can't be true.",
+        "wrong": "It can't to be true."
       },
       {
-        "why": "Modal verb đi thẳng với động từ NGUYÊN THỂ không to.",
-        "right": "You must study hard.",
-        "wrong": "You must to study hard."
-      },
-      {
-        "why": "Sau modal luôn là HAVE nguyên thể, không chia has theo ngôi.",
-        "right": "He must have heard the news.",
-        "wrong": "He must has heard the news."
+        "why": "Phủ định suy đoán quá khứ dùng can't have + P2.",
+        "right": "He can't have seen me yesterday.",
+        "wrong": "He can't saw me yesterday."
       }
     ],
     "comparison": "**Suy đoán (deduction) vs Điều kiện quá khứ:** *He must have heard the noise* = suy luận logic từ bằng chứng (chắc chắn anh ấy đã nghe). *He would have heard the noise (if he had been there)* = kết quả giả định của điều kiện không có thật. Must have = kết luận; would have = tưởng tượng."
@@ -2555,29 +2430,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "You're coming, aren't you?",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “mệnh đề khẳng định, trợ động từ phủ định + đại từ?”."
+        "why": "Câu khẳng định đi với tag PHỦ ĐỊNH.",
+        "right": "You are a student, aren't you?",
+        "wrong": "You are a student, are you?"
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She doesn't drive, does she?",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “mệnh đề phủ định, trợ động từ khẳng định + đại từ?”."
+        "why": "Câu khẳng định phải đi với tag phủ định.",
+        "right": "She can swim, can't she?",
+        "wrong": "She can swim, can she?"
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "They left early, didn't they?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Động từ thường ở hiện tại đơn dùng trợ động từ do/does trong tag, không lặp lại động từ chính.",
+        "why": "Động từ thường hiện tại đơn dùng do/does trong tag.",
         "right": "You travel a lot, don't you?",
         "wrong": "You travel a lot, travel you?"
       },
       {
-        "why": "Câu phủ định (won't) phải đi với tag KHẲNG ĐỊNH (will she) — ngược cực.",
-        "right": "Kate won't be late, will she?",
-        "wrong": "Kate won't be late, won't she?"
+        "why": "Câu phủ định đi với tag KHẲNG ĐỊNH.",
+        "right": "He won't be late, will he?",
+        "wrong": "He won't be late, won't he?"
       }
     ],
     "comparison": "**Question tag vs câu hỏi thường:** Tag là câu hỏi mini gắn CUỐI câu kể để xác nhận/hỏi ý kiến (*He is Spanish, isn't he?*), còn câu hỏi thường đảo trợ động từ lên ĐẦU (*Is he Spanish?*). Quy tắc vàng: câu khẳng định → tag phủ định, câu phủ định → tag khẳng định."
@@ -2615,27 +2485,22 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "Please turn off the lights.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “verb + particle”."
-      },
-      {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "I ran into an old friend.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “verb + particle + object”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "She looked after the children.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Tân ngữ là ĐẠI TỪ (it/them) phải đứng GIỮA động từ và particle.",
+        "why": "Tân ngữ là đại từ (it) phải đứng GIỮA động từ và particle.",
         "right": "Don't throw it away.",
         "wrong": "Don't throw away it."
       },
       {
-        "why": "Phrasal verb 3 từ run away FROM cố định giới từ from, không thay bằng of.",
+        "why": "Đại từ (it) đứng giữa turn và on.",
+        "right": "Please turn it on.",
+        "wrong": "Please turn on it."
+      },
+      {
+        "why": "Sau give up dùng V-ing, không dùng to-infinitive.",
+        "right": "I gave up smoking.",
+        "wrong": "I gave up to smoke."
+      },
+      {
+        "why": "Phrasal verb run away đi với from, không dùng of.",
         "right": "Why did you run away from me?",
         "wrong": "Why did you run away of me?"
       }
@@ -2675,29 +2540,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I had been waiting for an hour when the bus came.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + had been + V-ing”."
-      },
-      {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
+        "why": "Quá trình kéo dài trước một mốc quá khứ dùng had been + V-ing.",
         "right": "She was tired because she had been working all night.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + had not been + V-ing”."
+        "wrong": "She was tired because she worked all night."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "They hadn't been living there long.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Know là động từ trạng thái — dùng past perfect đơn.",
+        "right": "I had known him for years.",
+        "wrong": "I had been knowing him for years."
       },
       {
-        "why": "Động từ trạng thái (know, seem, believe) KHÔNG dùng dạng tiếp diễn — dùng past perfect đơn.",
-        "right": "I had known him for years before we became partners.",
-        "wrong": "I had been knowing him for years before we became partners."
+        "why": "Sau had been dùng V-ing.",
+        "right": "They had been playing for hours.",
+        "wrong": "They had been play for hours."
       },
       {
-        "why": "Seem là stative verb — không có dạng continuous.",
-        "right": "He had seemed unwell for some time.",
-        "wrong": "He had been seeming unwell for some time."
+        "why": "Cấu trúc là had BEEN + V-ing, không phải had being.",
+        "right": "He had been working since noon.",
+        "wrong": "He had being working since noon."
       }
     ],
     "comparison": "**Quá khứ hoàn thành tiếp diễn vs Quá khứ hoàn thành:** Dạng tiếp diễn nhấn QUÁ TRÌNH kéo dài trước mốc quá khứ: *It had been raining for hours* (mưa suốt nhiều giờ — nhấn độ dài). Dạng đơn nhấn KẾT QUẢ đã xong: *The rain had stopped* (đã tạnh — nhấn trạng thái). Quá trình → been + V-ing; kết quả → P2."
@@ -2735,29 +2595,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "By Friday, I will have finished the report.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “S + will have + V3”."
+        "why": "Việc sẽ xong TRƯỚC một mốc tương lai dùng will have + P2.",
+        "right": "By 2030 I will have finished my degree.",
+        "wrong": "By 2030 I will finish my degree."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She will have left before noon.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + will not have + V3”."
+        "why": "Sau will have dùng quá khứ phân từ (finished).",
+        "right": "By next month she will have finished it.",
+        "wrong": "By next month she will have finish it."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Will they have arrived by then?",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Cấu trúc là will HAVE + P2, không phải will had.",
+        "right": "By 6pm they will have left.",
+        "wrong": "By 6pm they will had left."
       },
       {
-        "why": "Sau will have phải là QUÁ KHỨ PHÂN TỪ (finished).",
-        "right": "By next month, she will have finished the project.",
-        "wrong": "By next month, she will have finish the project."
-      },
-      {
-        "why": "Mốc by + tương lai đòi future perfect để diễn tả quãng thời gian tích lũy đến mốc đó.",
-        "right": "By next year, I will have worked here for ten years.",
-        "wrong": "By next year, I work here for ten years."
+        "why": "Sau will have dùng P2 (worked).",
+        "right": "By next year I will have worked here for ten years.",
+        "wrong": "By next year I will have work here for ten years."
       }
     ],
     "comparison": "**Tương lai hoàn thành vs Tương lai đơn:** Future perfect nhìn NGƯỢC từ một mốc tương lai — việc sẽ ĐÃ XONG trước mốc đó: *By 2030, I will have finished my degree* (trước 2030 là xong). Future simple chỉ nói việc sẽ xảy ra: *I will finish my degree in 2030.* Có \"by + mốc thời gian\" → nghĩ ngay đến will have + P2."
@@ -2795,29 +2650,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I knew she would succeed.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “would + V”."
+        "why": "Nhìn tương lai từ quá khứ: will lùi thành would.",
+        "right": "He said he would come.",
+        "wrong": "He said he will come."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "They were going to leave, but it rained.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “was/were going to + V”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "He was about to speak when the phone rang.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Câu tường thuật quá khứ: WILL lùi thì thành WOULD.",
-        "right": "He said he would come to the party.",
-        "wrong": "He said he will come to the party."
-      },
-      {
-        "why": "Mệnh đề chính ở quá khứ (knew) kéo vế sau về WAS going to — tương lai nhìn từ quá khứ.",
+        "why": "Mệnh đề chính quá khứ kéo vế sau về was going to.",
         "right": "I knew she was going to win.",
         "wrong": "I knew she is going to win."
+      },
+      {
+        "why": "Sau động từ quá khứ (thought), will → would.",
+        "right": "We thought it would rain.",
+        "wrong": "We thought it will rain."
+      },
+      {
+        "why": "Tường thuật lời hứa quá khứ dùng would.",
+        "right": "She promised she would help.",
+        "wrong": "She promised she will help."
       }
     ],
     "comparison": "**Tương lai trong quá khứ vs Quá khứ đơn:** Was/were going to + would tả dự định/dự đoán ĐỨNG TỪ QUÁ KHỨ nhìn tới: *He said he WOULD come* (lúc đó anh ấy nói sẽ đến — đến hay không chưa biết). Quá khứ đơn tả việc đã xảy ra: *He came.* Trong reported speech, will luôn lùi thành would."
@@ -2855,29 +2705,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "If I had slept earlier, I wouldn't be tired now.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “If + had + V3, would + V (quá khứ → hiện tại)”."
+        "why": "Kết quả hiện tại của điều kiện quá khứ dùng would + V.",
+        "right": "If I had saved money, I would be rich now.",
+        "wrong": "If I had saved money, I will be rich now."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "If she were more organized, she wouldn't have missed the deadline.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “If + past simple, would have + V3 (hiện tại → quá khứ)”."
+        "why": "Mệnh đề if dùng past perfect, không dùng would have.",
+        "right": "If I had won, I would be happy now.",
+        "wrong": "If I would have won, I would be happy now."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Had we taken the map, we would know where we are.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Điều kiện xảy ra trong quá khứ dùng past perfect dù kết quả ở hiện tại.",
+        "right": "If we hadn't spent all our money, we could travel now.",
+        "wrong": "If we didn't spend all our money, we could travel now."
       },
       {
-        "why": "Mệnh đề if không dùng would have — phải dùng quá khứ hoàn thành (had + P2).",
-        "right": "If I had won the lottery, I would be rich now.",
-        "wrong": "If I would have won the lottery, I would be rich now."
-      },
-      {
-        "why": "Điều kiện xảy ra trong QUÁ KHỨ (đã tiêu tiền) phải dùng past perfect, dù kết quả ở hiện tại.",
-        "right": "If we hadn't spent all our money, we could take a holiday now.",
-        "wrong": "If we didn't spend all our money, we could take a holiday now."
+        "why": "Điều kiện quá khứ (yesterday) dùng had been.",
+        "right": "If she had been more careful yesterday, she wouldn't be hurt now.",
+        "wrong": "If she was more careful yesterday, she wouldn't be hurt now."
       }
     ],
     "comparison": "**Mixed vs Third conditional:** Câu điều kiện HỖN HỢP nối điều kiện quá khứ với kết quả HIỆN TẠI: *If I had won the lottery, I would be rich now.* Câu điều kiện loại 3 giữ cả hai vế trong QUÁ KHỨ: *If I had won the lottery, I would have bought a house last year.* Nhìn trạng ngữ thời gian (now vs last year) để chọn vế sau."
@@ -2915,29 +2760,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I wish I knew the answer.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “wish + past simple (hiện tại)”."
+        "why": "Wish về hiện tại không thực dùng quá khứ đơn.",
+        "right": "I wish I had more time.",
+        "wrong": "I wish I have more time."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "If only it weren't raining.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “wish + had + V3 (quá khứ)”."
+        "why": "Wish về chính mình dùng were, không dùng would.",
+        "right": "I wish I were taller.",
+        "wrong": "I wish I would be taller."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "She wishes she had studied harder.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Tiếc nuối quá khứ dùng past perfect (had + P2).",
+        "right": "I wish I had studied harder last year.",
+        "wrong": "I wish I studied harder last year."
       },
       {
-        "why": "Mong ước thực tế cho tương lai dùng HOPE + hiện tại; wish không đi với hiện tại đơn kiểu này.",
-        "right": "I hope my English becomes better with practice.",
-        "wrong": "I wish my English becomes better with practice."
-      },
-      {
-        "why": "Không dùng would khi wish về CHÍNH MÌNH hoặc với động từ trạng thái — dùng quá khứ đơn.",
-        "right": "John wishes he wasn't so busy.",
-        "wrong": "John wishes he wouldn't be so busy."
+        "why": "Mong ước thực tế tương lai dùng hope, không dùng wish + hiện tại.",
+        "right": "I hope my English becomes better.",
+        "wrong": "I wish my English becomes better."
       }
     ],
     "comparison": "**Wish vs Hope:** *Hope* = mong muốn THỰC TẾ, có thể xảy ra, dùng thì hiện tại (*I hope Anna is here*). *Wish/if only* = tiếc nuối điều KHÔNG có thật/khó xảy ra, dùng thì quá khứ (*I wish Anna were here* — cô ấy không ở đây). Mong điều khả thi → hope; than điều ngược sự thật → wish."
@@ -2975,29 +2815,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "You should have called me.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “modal + have + V3”."
+        "why": "Tiếc nuối quá khứ dùng should have + P2.",
+        "right": "You should have come to the party.",
+        "wrong": "You should came to the party."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She must have forgotten.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “should/ought to have + V3”."
+        "why": "Suy đoán quá khứ dùng must have + P2 (have nguyên thể).",
+        "right": "He must have left already.",
+        "wrong": "He must has left already."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "They might have taken the wrong bus.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Phủ định suy đoán quá khứ dùng can't have + P2.",
+        "right": "She can't have seen me.",
+        "wrong": "She can't saw me."
       },
       {
-        "why": "Tiếc nuối/trách về việc QUÁ KHỨ không xảy ra phải dùng should HAVE + P2.",
-        "right": "You should have come to the party last night.",
-        "wrong": "You should come to the party last night."
-      },
-      {
-        "why": "Phủ định suy đoán về quá khứ dùng can't HAVE + P2, không chia động từ quá khứ sau modal.",
-        "right": "She can't have seen me yesterday.",
-        "wrong": "She can't saw me yesterday."
+        "why": "Việc quá khứ không cần thiết dùng needn't have + P2.",
+        "right": "I needn't have bought it.",
+        "wrong": "I needn't to buy it."
       }
     ],
     "comparison": "**Perfect modal vs modal thường:** Modal + have + P2 nói về QUÁ KHỨ đã kết thúc — suy đoán hoặc tiếc nuối: *He must have had a party* (chắc đã tổ chức). Modal thường nói hiện tại/tương lai: *He must be having a party* (chắc đang tổ chức). Have + P2 = đã xong; be + V-ing = đang diễn ra."
@@ -3035,29 +2870,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
+        "why": "Nhờ người khác làm dùng have + vật + P2.",
         "right": "I had my hair cut yesterday.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “have/get + object + V3”."
+        "wrong": "I cut my hair yesterday (nhờ thợ)."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "We are getting the roof repaired.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “have + person + V”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "She had the assistant print the report.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Trong have something done, TÂN NGỮ (your car) đứng trước quá khứ phân từ (serviced).",
+        "why": "Tân ngữ (your car) đứng TRƯỚC quá khứ phân từ.",
         "right": "How often do you have your car serviced?",
         "wrong": "How often do you have serviced your car?"
       },
       {
-        "why": "GET + người + TO-infinitive; chỉ have/make/let mới đi với nguyên thể không to.",
+        "why": "Get + người + TO-infinitive.",
         "right": "I got him to repair the roof.",
         "wrong": "I got him repair the roof."
+      },
+      {
+        "why": "Make + người + động từ nguyên thể KHÔNG to.",
+        "right": "She made me wait.",
+        "wrong": "She made me to wait."
       }
     ],
     "comparison": "**Causative vs chủ động thường:** *Lisa repaired the roof* = Lisa TỰ sửa. *Lisa had the roof repaired* = Lisa NHỜ/thuê người khác sửa. Cấu trúc have + TÂN NGỮ + P2 — tân ngữ luôn đứng trước quá khứ phân từ. Get thì cần to-infinitive khi có người thực hiện: *get him TO repair*."
@@ -3095,29 +2925,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "It is believed that the painting is genuine.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “It is said that + clause”."
+        "why": "Personal passive dùng to-infinitive sau động từ tường thuật bị động.",
+        "right": "She is said to be rich.",
+        "wrong": "She is said that she is rich."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "The company is expected to announce cuts.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “S + is said to + V/to have V3”."
+        "why": "Impersonal passive dùng it + that + mệnh đề.",
+        "right": "It is said that she is rich.",
+        "wrong": "It is said she to be rich."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "He is said to have left the country.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Hành động bị động quá khứ cần to have BEEN + P2.",
+        "right": "The castle is thought to have been built in 1500.",
+        "wrong": "The castle is thought to have built in 1500."
       },
       {
-        "why": "Khung personal passive cần TO-infinitive sau động từ tường thuật bị động, không dùng mệnh đề that.",
-        "right": "She is said to be a talented musician.",
-        "wrong": "She is said that she is a talented musician."
-      },
-      {
-        "why": "Hành động bị động trong quá khứ cần perfect passive infinitive: to have BEEN + P2.",
-        "right": "The old castle is thought to have been built in the 15th century.",
-        "wrong": "The old castle is thought to have built in the 15th century."
+        "why": "Cần TO trước động từ trong personal passive.",
+        "right": "He is believed to be innocent.",
+        "wrong": "He is believed be innocent."
       }
     ],
     "comparison": "**Personal vs Impersonal passive:** Bị động cá nhân đưa đối tượng lên làm chủ ngữ + TO-infinitive: *She is said TO BE rich.* Bị động vô nhân xưng dùng chủ ngữ giả it + mệnh đề that: *IT is said THAT she is rich.* Cùng nghĩa, hai khung câu — không trộn lẫn hai khung với nhau."
@@ -3155,29 +2980,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "The person to whom I spoke was helpful.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “preposition + whom/which”."
+        "why": "Thông tin phụ về danh từ xác định dùng phẩy + which, không dùng that.",
+        "right": "Anna told me about her job, which she enjoys.",
+        "wrong": "Anna told me about her job that she enjoys."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She has three sons, all of whom are doctors.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “quantifier + of whom/which”."
+        "why": "Mệnh đề không xác định về người dùng who, không dùng that.",
+        "right": "My father, who is a doctor, is retired.",
+        "wrong": "My father, that is a doctor, is retired."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "The meeting was cancelled, which surprised us.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Sau giới từ/lượng từ dùng whom, không dùng who.",
+        "right": "The students, many of whom passed, celebrated.",
+        "wrong": "The students, many of who passed, celebrated."
       },
       {
-        "why": "Thông tin phụ về danh từ đã xác định phải dùng mệnh đề không xác định: phẩy + WHICH, không dùng that.",
-        "right": "Anna told me about her new job, which she's enjoying very much.",
-        "wrong": "Anna told me about her new job that she's enjoying very much."
-      },
-      {
-        "why": "Đại từ quan hệ that đã làm tân ngữ rồi — không lặp thêm them thừa.",
-        "right": "Where are the keys that we were looking for?",
-        "wrong": "Where are the keys that we were looking for them?"
+        "why": "Sau giới từ dùng which, không dùng that.",
+        "right": "The house in which I live is old.",
+        "wrong": "The house in that I live is old."
       }
     ],
     "comparison": "**Defining vs Non-defining:** Mệnh đề xác định chỉ rõ danh từ nào đang nói, không có phẩy, được dùng that: *The book that I am reading is great.* Mệnh đề không xác định thêm thông tin phụ, BẮT BUỘC có phẩy và KHÔNG dùng that: *The book, which I am reading, is great.* Có phẩy = bỏ mệnh đề đi câu vẫn đủ nghĩa."
@@ -3215,29 +3035,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
+        "why": "Chủ ngữ ngầm của mệnh đề phân từ phải trùng chủ ngữ chính (người mệt là tôi).",
+        "right": "Feeling tired, I went to bed.",
+        "wrong": "Feeling tired, the bed was comfortable."
+      },
+      {
+        "why": "Nghĩa bị động dùng P2 (stolen), không dùng V-ing.",
+        "right": "The money stolen was never found.",
+        "wrong": "The money stealing was never found."
+      },
+      {
+        "why": "Hành động chủ động đang diễn ra dùng V-ing.",
         "right": "Walking home, I saw an accident.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “V-ing ..., main clause”."
+        "wrong": "Walked home, I saw an accident."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "Built in 1890, the house needs repairs.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “V3 ..., main clause”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Having finished the report, she went home.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Chủ ngữ ngầm của mệnh đề phân từ phải TRÙNG chủ ngữ mệnh đề chính (người mệt là tôi, không phải cái giường).",
-        "right": "Feeling tired, I went to bed early.",
-        "wrong": "Feeling tired, the bed was very comfortable."
-      },
-      {
-        "why": "Nghĩa bị động/hoàn tất dùng P2 (stolen); V-ing chỉ dùng cho nghĩa chủ động đang diễn ra.",
-        "right": "The police never found the money stolen in the robbery.",
-        "wrong": "The police never found the money stealing in the robbery."
+        "why": "Chủ ngữ sau phải là người thực hiện hành động phân từ.",
+        "right": "Having finished the work, she submitted the report.",
+        "wrong": "Having finished the work, the report was submitted."
       }
     ],
     "comparison": "**Participle clause vs mệnh đề trạng ngữ:** Mệnh đề phân từ rút gọn thời gian/lý do bằng V-ing/P2 nhưng CHỈ đúng khi hai vế CÙNG chủ ngữ: *Being a vegetarian, he doesn't eat meat* = *Because HE is a vegetarian, HE doesn't eat meat.* Khác chủ ngữ mà rút gọn → lỗi dangling modifier."
@@ -3275,29 +3090,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I can play chess, and Lan can too.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “auxiliary thay cụm động từ”."
+        "why": "Thay danh từ lặp bằng ones để tránh lặp.",
+        "right": "I like these shoes but not those ones.",
+        "wrong": "I like these shoes but not that shoes."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "I need a pen. Do you have one?",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “one/ones thay danh từ đếm được”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "She said it would rain, and I think so.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Phủ định mệnh đề sau hope phải nói HOPE NOT, không dùng don't hope so.",
+        "why": "Phủ định sau hope dùng hope not, không dùng don't hope so.",
         "right": "Do you think it will rain? I hope not.",
         "wrong": "Do you think it will rain? I don't hope so."
       },
       {
-        "why": "Sau trợ động từ did (ellipsis), phải LƯỢC BỎ động từ lặp — không giữ liked thừa.",
-        "right": "...different from the ones I did.",
-        "wrong": "...different from the ones I did liked."
+        "why": "Tránh lặp bằng so + trợ động từ + chủ ngữ.",
+        "right": "She can swim and so can I.",
+        "wrong": "She can swim and I can swim too."
+      },
+      {
+        "why": "Phủ định đồng tình dùng neither + trợ động từ + chủ ngữ.",
+        "right": "He didn't come and neither did I.",
+        "wrong": "He didn't come and I didn't come neither."
       }
     ],
     "comparison": "**Substitution vs Ellipsis:** Thay thế dùng từ đại diện one/so/do cho phần lặp lại: *I like those ONES.* Tỉnh lược thì BỎ HẲN phần lặp khi ngữ cảnh đã rõ: *Do you like these shoes? — I DO.* Cả hai đều tránh lặp, một bên thay từ, một bên lược bỏ."
@@ -3335,29 +3145,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "The doctor suggested that he rest.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “suggest/insist that + S + V nguyên thể”."
+        "why": "Sau suggest that dùng động từ nguyên thể (go) mọi ngôi.",
+        "right": "I suggest that he go now.",
+        "wrong": "I suggest that he goes now."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "It is essential that every member be present.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “It is essential that + S + V nguyên thể”."
+        "why": "Tính từ cấp thiết + that dùng be, không dùng is.",
+        "right": "It is essential that everyone be here.",
+        "wrong": "It is essential that everyone is here."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "They insisted that she apologize.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Sau insist that dùng dạng gốc động từ, không chia -s.",
+        "right": "The doctor insisted that she rest.",
+        "wrong": "The doctor insisted that she rests."
       },
       {
-        "why": "Sau insist that, động từ ở thức giả định — DẠNG GỐC, không chia theo ngôi.",
-        "right": "I insisted that he apologize.",
-        "wrong": "I insisted that he apologises."
-      },
-      {
-        "why": "Tính từ cấp thiết (essential/important) + that kích hoạt subjunctive: dùng BE thay is/are.",
-        "right": "It is essential that everyone be here on time.",
-        "wrong": "It is essential that everyone is here on time."
+        "why": "Sau demand that dùng động từ nguyên thể.",
+        "right": "They demanded that he apologize.",
+        "wrong": "They demanded that he apologizes."
       }
     ],
     "comparison": "**Subjunctive vs chỉ định thường:** Sau động từ yêu cầu/đề nghị (insist, demand, suggest) + that, động từ về DẠNG GỐC không chia: *I insisted that he APOLOGIZE* (không phải apologizes). Phương án thay thế kiểu Anh-Anh: thêm should (*that he should apologize*). Không chia -s, không is/are — dùng be."
@@ -3395,29 +3200,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "I do understand your concern.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “do/does/did + V”."
-      },
-      {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "She did call you yesterday.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “so/such ... that”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "The film was so moving that I cried.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Sau trợ động từ nhấn mạnh does, động từ chính về nguyên thể — không thêm -s.",
+        "why": "Sau does nhấn mạnh, động từ về nguyên thể — không thêm -s.",
         "right": "He does like it.",
         "wrong": "He does likes it."
       },
       {
-        "why": "Sau did nhấn mạnh, động từ chính giữ nguyên thể — không chia quá khứ.",
-        "right": "We did enjoy the concert.",
-        "wrong": "We did enjoyed the concert."
+        "why": "Sau did nhấn mạnh, động từ về nguyên thể.",
+        "right": "We did enjoy the trip.",
+        "wrong": "We did enjoyed the trip."
+      },
+      {
+        "why": "Nhấn mạnh quá khứ dùng did + động từ nguyên thể.",
+        "right": "I did want to help.",
+        "wrong": "I do wanted to help."
+      },
+      {
+        "why": "Ngôi 3 số ít nhấn mạnh dùng DOES, không dùng do.",
+        "right": "She does love music.",
+        "wrong": "She do love music."
       }
     ],
     "comparison": "**Câu nhấn mạnh vs câu thường:** Thêm trợ động từ do/does/did trước động từ để KHẲNG ĐỊNH mạnh: *I DO like it* (tôi thích thật mà!) vs câu thường *I like it.* Sau do/does/did nhấn mạnh, động từ chính về NGUYÊN THỂ."
@@ -3455,29 +3255,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "It was Lan who solved the problem.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “It is/was + focus + that/who ...”."
+        "why": "Đại từ làm chủ ngữ mệnh đề sau dùng who, không dùng whom.",
+        "right": "It was you who invited me.",
+        "wrong": "It was you whom invited me."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "It is patience that you need.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “What + clause + be + focus”."
+        "why": "Cleft nhấn trạng ngữ thời gian dùng that, không dùng when.",
+        "right": "It was yesterday that you called.",
+        "wrong": "It was yesterday when you called."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "What I want is a quiet weekend.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Không lặp tân ngữ (it) trong cấu trúc What... is.",
+        "right": "What I need is a rest.",
+        "wrong": "What I need it is a rest."
       },
       {
-        "why": "Đại từ quan hệ làm CHỦ NGỮ của mệnh đề sau phải là WHO, không dùng whom.",
-        "right": "It was you who invited me to the party.",
-        "wrong": "It was you whom invited me to the party."
-      },
-      {
-        "why": "Cleft nhấn mạnh trạng ngữ thời gian vẫn dùng THAT, không dùng when.",
-        "right": "It was yesterday that you invited me to the party.",
-        "wrong": "It was yesterday when you invited me to the party."
+        "why": "Cleft bắt đầu bằng chủ ngữ giả IT.",
+        "right": "It is the noise that annoys me.",
+        "wrong": "Is the noise that annoys me."
       }
     ],
     "comparison": "**Cleft vs mệnh đề quan hệ:** Câu chẻ tách một thông điệp thành hai vế để NHẤN MẠNH một yếu tố: *It was the party that you invited me to* (nhấn: chính bữa tiệc đó). Mệnh đề quan hệ chỉ bổ nghĩa bình thường: *The party that you invited me to was fun.* Cùng dùng that/who nhưng mục đích khác nhau."
@@ -3515,29 +3310,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "Never have I seen such a view.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “negative adverbial + auxiliary + S + V”."
+        "why": "Trạng ngữ phủ định đầu câu bắt buộc đảo trợ động từ lên trước chủ ngữ.",
+        "right": "Never have I seen such beauty.",
+        "wrong": "Never I have seen such beauty."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "Rarely does he complain.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “Only + expression + auxiliary + S + V”."
+        "why": "No sooner đầu câu yêu cầu đảo ngữ (had + chủ ngữ).",
+        "right": "No sooner had we arrived than it rained.",
+        "wrong": "No sooner we had arrived than it rained."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "Only then did I understand.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Not only đầu câu yêu cầu đảo trợ động từ.",
+        "right": "Not only does she sing, but she also dances.",
+        "wrong": "Not only she sings, but she dances."
       },
       {
-        "why": "Mở đầu bằng trạng ngữ phủ định (Never) bắt buộc ĐẢO trợ động từ lên trước chủ ngữ.",
-        "right": "Never have I been so happy.",
-        "wrong": "Never I have been so happy."
-      },
-      {
-        "why": "No sooner đầu câu yêu cầu đảo ngữ: had + chủ ngữ.",
-        "right": "No sooner had we got inside than the concert ended.",
-        "wrong": "No sooner we had got inside than the concert ended."
+        "why": "Rarely đầu câu cần đảo ngữ với do/does.",
+        "right": "Rarely do I go out at night.",
+        "wrong": "Rarely I go out at night."
       }
     ],
     "comparison": "**Đảo ngữ vs câu hỏi:** Cả hai đều đặt trợ động từ trước chủ ngữ, nhưng đảo ngữ là CÂU KỂ trang trọng nhấn mạnh, kết thúc bằng dấu chấm: *Never have I seen such beauty.* Câu hỏi thật kết thúc bằng dấu hỏi: *Have I ever seen such beauty?* Trạng ngữ phủ định đầu câu → bắt buộc đảo."
@@ -3575,29 +3365,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "First of all, we need a clear goal.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “marker + comma + clause”."
+        "why": "Không ghép although...but trong một câu.",
+        "right": "Although he was tired, he continued.",
+        "wrong": "Although he was tired, but he continued."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "However, the plan is expensive.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “clause; however, clause”."
+        "why": "However đầu câu cần dấu phẩy sau nó.",
+        "right": "I like it. However, I won't buy it.",
+        "wrong": "I like it. However I won't buy it."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "In other words, we need more time.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Despite không đi với of (khác in spite OF).",
+        "right": "Despite the rain, we went out.",
+        "wrong": "Despite of the rain, we went out."
       },
       {
-        "why": "Không ghép đôi although + but — tiếng Anh chỉ dùng MỘT từ nối cho một quan hệ nhượng bộ.",
-        "right": "Although he is tired, he keeps working.",
-        "wrong": "Although he is tired, but he keeps working."
-      },
-      {
-        "why": "Despite là giới từ — theo sau là danh từ/V-ing, không phải mệnh đề đủ chủ-vị.",
-        "right": "I couldn't sleep despite being very tired.",
-        "wrong": "I couldn't sleep despite I was very tired."
+        "why": "Cụm cố định là on the other HAND (số ít).",
+        "right": "On the other hand, it is cheaper.",
+        "wrong": "On the other hands, it is cheaper."
       }
     ],
     "comparison": "**Liên từ nhượng bộ vs giới từ tương phản:** *Although it rained, we had a good time* (although + mệnh đề) vs *Despite the rain, we had a good time* (despite + danh từ). Và tiếng Anh chuẩn KHÔNG cho ghép đôi although...but trong cùng một câu như tiếng Việt \"mặc dù...nhưng\"."
@@ -3635,29 +3420,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "The committee decided to postpone the vote.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “verb → noun”."
+        "why": "Danh hóa động từ decide thành danh từ decision.",
+        "right": "The government decided to reduce tax. This decision was popular.",
+        "wrong": "The government decided to reduce tax. This decide was popular."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "The committee's decision led to a delay.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “adjective → noun”."
+        "why": "Have trouble + V-ing.",
+        "right": "I had no trouble finding a place.",
+        "wrong": "I had no trouble to find a place."
       },
       {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "The rapid expansion caused concern.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
+        "why": "Danh từ của analyse là analysis.",
+        "right": "The analysis of the data took time.",
+        "wrong": "The analyse of the data took time."
       },
       {
-        "why": "Không đặt giới từ for trước to-infinitive chỉ mục đích.",
-        "right": "I blocked out a few hours to bike.",
-        "wrong": "I blocked out a few hours for to bike."
-      },
-      {
-        "why": "Cụm have trouble bắt buộc đi với V-ING, không đi với to-infinitive.",
-        "right": "I had no trouble finding a place to stay.",
-        "wrong": "I had no trouble to find a place to stay."
+        "why": "Danh hóa explain thành explanation.",
+        "right": "Her explanation was clear.",
+        "wrong": "Her explain was clear."
       }
     ],
     "comparison": "**Danh hóa vs mệnh đề động từ:** Danh hóa biến động từ/tính từ thành danh từ để câu trang trọng, học thuật: *APOLOGIZING to them is important* (V-ing làm chủ ngữ) thay vì *To apologize...* Văn academic chuộng danh hóa: decide → decision, explain → explanation."
@@ -3695,29 +3475,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "This may indicate a broader problem.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “modal + V”."
+        "why": "Văn học thuật dùng hedging để mềm hóa nhận định.",
+        "right": "This might not be entirely correct.",
+        "wrong": "This is completely wrong."
       },
       {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "The results appear to support the theory.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “seem/appear/tend to + V”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "It is likely that prices will rise.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Hope nói về khả năng thực tế tương lai → dùng WILL, không dùng would giả định.",
+        "why": "Hope về khả năng thực tế dùng will, không dùng would.",
         "right": "If the weather changes, I hope you'll remember.",
         "wrong": "If the weather changes, I hope you would remember."
       },
       {
-        "why": "Likely ở đây là trạng từ trong cụm modal — không chèn to trước động từ.",
+        "why": "Likely ở đây là trạng từ — không chèn to trước động từ.",
         "right": "They would likely benefit.",
         "wrong": "They would likely to benefit."
+      },
+      {
+        "why": "Diễn đạt rào đón dùng seem thay vì khẳng định tuyệt đối.",
+        "right": "It seems to be true.",
+        "wrong": "It is obvious true."
       }
     ],
     "comparison": "**Hedging vs khẳng định thẳng:** Ngôn ngữ rào đón dùng would/might/perhaps để mềm hóa nhận định, dễ được đồng tình: *Many WOULD think he is too young* (nhiều người có lẽ sẽ nghĩ...). Khẳng định thẳng dùng will/hiện tại đơn: *Many WILL think...* Văn học thuật và giao tiếp lịch sự chuộng hedging."
@@ -3755,29 +3530,24 @@
     ],
     "mistakes": [
       {
-        "why": "Cần học cả cụm cấu trúc, không dịch từng từ từ tiếng Việt.",
-        "right": "She is interested in design.",
-        "wrong": "Dùng cấu trúc nhưng bỏ thành phần bắt buộc trong mẫu “adjective + preposition”."
-      },
-      {
-        "why": "Dạng từ đứng sau được quyết định bởi cấu trúc, không chỉ bởi nghĩa.",
-        "right": "We depend on public transport.",
-        "wrong": "Dùng nhầm dạng động từ hoặc giới từ trong “verb + preposition”."
-      },
-      {
-        "why": "Trước khi viết, xác định thời điểm, quan hệ ý và trọng tâm cần diễn đạt.",
-        "right": "He apologized for being late.",
-        "wrong": "Ghép hai mẫu khác nhau vào cùng một câu mà không kiểm tra ý nghĩa."
-      },
-      {
-        "why": "Interested luôn đi với IN — collocation cố định, không dùng about.",
+        "why": "Interested luôn đi với IN.",
         "right": "She is interested in music.",
         "wrong": "She is interested about music."
       },
       {
-        "why": "Depend luôn đi với ON; \"depends of\" là dịch word-by-word sai.",
+        "why": "Depend luôn đi với ON.",
         "right": "It depends on the weather.",
         "wrong": "It depends of the weather."
+      },
+      {
+        "why": "Good luôn đi với AT.",
+        "right": "I am good at English.",
+        "wrong": "I am good in English."
+      },
+      {
+        "why": "Listen luôn đi với TO.",
+        "right": "He listened to the music.",
+        "wrong": "He listened the music."
       }
     ],
     "comparison": "**Collocation ngữ pháp vs dịch word-by-word:** Cặp từ + giới từ trong tiếng Anh là CỐ ĐỊNH, không suy ra từ tiếng Việt: *listen TO music* (nghe nhạc — tiếng Việt không có \"to\"), *depend ON* (phụ thuộc VÀO — không phải of). Học cả cụm, đừng dịch từng chữ."

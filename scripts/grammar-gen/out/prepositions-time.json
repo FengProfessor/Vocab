@@ -406,114 +406,18 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "I have a meeting ___ May.",
-      "opts": [
-        "in",
-        "on",
-        "at"
-      ],
-      "answer": "in",
-      "fb": "Sử dụng **in** với tháng."
-    },
-    {
-      "type": "mcq",
-      "q": "The party is ___ Saturday.",
-      "opts": [
-        "in",
-        "on",
-        "at"
-      ],
-      "answer": "on",
-      "fb": "Sử dụng **on** với ngày trong tuần."
-    },
-    {
-      "type": "mcq",
-      "q": "I'll meet you ___ 7 o'clock.",
-      "opts": [
-        "in",
-        "on",
-        "at"
-      ],
-      "answer": "at",
-      "fb": "Sử dụng **at** với giờ."
+      "type": "fill",
+      "q": "My father gave me a new laptop.  →  I ____ a new laptop by my father.",
+      "opts": [],
+      "answer": "was given",
+      "fb": "Người lên đầu → be + V3, không thêm giới từ"
     },
     {
       "type": "fill",
-      "q": "I was born ___ 1990.",
-      "answer": [
-        "in"
-      ],
-      "fb": "Sử dụng **in** với năm."
-    },
-    {
-      "type": "fill",
-      "q": "We're going to the beach ___ summer.",
-      "answer": [
-        "in"
-      ],
-      "fb": "Sử dụng **in** với mùa."
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"I have a meeting on May.\"",
-      "answer": false,
-      "fb": "SAI. Sử dụng **in** với tháng."
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"The party is in Saturday.\"",
-      "answer": false,
-      "fb": "SAI. Sử dụng **on** với ngày trong tuần."
-    },
-    {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "I have a meeting in May.",
-        "The party is on Saturday.",
-        "I'll meet you in 7 o'clock."
-      ],
-      "answer": "I'll meet you in 7 o'clock.",
-      "fb": "Phải là \"I'll meet you at 7 o'clock.\" (Sử dụng **at** với giờ)."
-    },
-    {
-      "type": "mcq",
-      "q": "Dạng đúng của câu \"I'll meet you at 7 o'clock.\" là:",
-      "opts": [
-        "I'll meet you in 7 o'clock.",
-        "I'll meet you on 7 o'clock.",
-        "I'll meet you at 7 o'clock."
-      ],
-      "answer": "I'll meet you at 7 o'clock.",
-      "fb": "Sử dụng **at** với giờ."
-    },
-    {
-      "type": "fill",
-      "q": "The store is open ___ Sundays.",
-      "answer": [
-        "on"
-      ],
-      "fb": "Sử dụng **on** với ngày trong tuần."
-    },
-    {
-      "type": "mcq",
-      "q": "Chọn giới từ đúng: 'I have a meeting ___ Monday.'",
-      "opts": [
-        "in",
-        "on",
-        "at"
-      ],
-      "answer": "on",
-      "fb": "Sử dụng **on** với ngày trong tuần."
-    },
-    {
-      "type": "fill",
-      "q": "I was born ___ 1990.",
-      "answer": [
-        "in"
-      ],
-      "fb": "Sử dụng **in** với năm."
+      "q": "She is good ____ Maths.  (A in · B at · C on · D for)",
+      "opts": [],
+      "answer": "B at",
+      "fb": "good đi cố định với giới từ at · buổi 21"
     }
   ]
 }

@@ -419,11 +419,199 @@
   "exercises": [
     {
       "type": "fill",
-      "q": "Hoàn thành theo mẫu: This ___ the book that I mentioned.",
-      "answer": [
-        "is"
-      ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "q": "People say that this castle is 500 years old.  →  It ____ that this castle is 500 years old.",
+      "opts": [],
+      "answer": "is said",
+      "fb": "Kiểu It: It + is said + that, vế sau giữ nguyên"
+    },
+    {
+      "type": "fill",
+      "q": "This chair is ____ (comfortable) than that one.",
+      "opts": [],
+      "answer": "more comfortable",
+      "fb": "comfortable dài → more + tính từ"
+    },
+    {
+      "type": "fill",
+      "q": "Which is ____ (dangerous) animal in the world?",
+      "opts": [],
+      "answer": "the most dangerous",
+      "fb": "in the world → nhất, dangerous dài nên the most"
+    },
+    {
+      "type": "fill",
+      "q": "This exercise is ____ (easy) than that one.",
+      "opts": [],
+      "answer": "easier",
+      "fb": "easy đuôi -y → bỏ y thêm -ier"
+    },
+    {
+      "type": "fill",
+      "q": "It was ____ a cold night that the lake froze. (so / such)",
+      "opts": [],
+      "answer": "such",
+      "fb": "sau chỗ trống là a + adj + danh từ → such"
+    },
+    {
+      "type": "fill",
+      "q": "He has ____ many friends that he is never alone. (so / such)",
+      "opts": [],
+      "answer": "so",
+      "fb": "many luôn đi với so"
+    },
+    {
+      "type": "fill",
+      "q": "The man ____ is standing at the door is my father.",
+      "opts": [],
+      "answer": "who (hoặc that)",
+      "fb": "the man = người → who"
+    },
+    {
+      "type": "fill",
+      "q": "I like the picture ____ hangs on the wall.",
+      "opts": [],
+      "answer": "which (hoặc that)",
+      "fb": "the picture = vật → which"
+    },
+    {
+      "type": "fill",
+      "q": "Do you know the girl ____ brother won the race?",
+      "opts": [],
+      "answer": "whose",
+      "fb": "sau chỗ trống là danh từ brother → whose"
+    },
+    {
+      "type": "fill",
+      "q": "Hue, ____ is famous for its food, is my hometown.",
+      "opts": [],
+      "answer": "which",
+      "fb": "có phẩy + vật → which, cấm that"
+    },
+    {
+      "type": "fill",
+      "q": "The people ____ live upstairs are very noisy.",
+      "opts": [],
+      "answer": "who (hoặc that)",
+      "fb": "people = người → who"
+    },
+    {
+      "type": "fill",
+      "q": "This is the dictionary ____ I borrowed from Lan.",
+      "opts": [],
+      "answer": "which (hoặc that)",
+      "fb": "the dictionary = vật → which"
+    },
+    {
+      "type": "fill",
+      "q": "Mr Hung, ____ son studies with me, is a driver.",
+      "opts": [],
+      "answer": "whose",
+      "fb": "sau chỗ trống là danh từ son → whose"
+    },
+    {
+      "type": "fill",
+      "q": "The house ____ roof is red belongs to my aunt.",
+      "opts": [],
+      "answer": "whose",
+      "fb": "sau chỗ trống là danh từ roof → whose"
+    },
+    {
+      "type": "fill",
+      "q": "The song ____ we heard on the radio is very old.",
+      "opts": [],
+      "answer": "which (hoặc that)",
+      "fb": "the song = vật → which"
+    },
+    {
+      "type": "fill",
+      "q": "Rút gọn: The man who is waiting outside wants to see you.",
+      "opts": [],
+      "answer": "The man waiting outside wants to see you.",
+      "fb": "is waiting chủ động → waiting"
+    },
+    {
+      "type": "fill",
+      "q": "Rút gọn: Neil Armstrong was the first man who walked on the Moon.",
+      "opts": [],
+      "answer": "Neil Armstrong was the first man to walk on the Moon.",
+      "fb": "the first → dùng to V"
+    },
+    {
+      "type": "fill",
+      "q": "Rút gọn: The people who live next door are very friendly.",
+      "opts": [],
+      "answer": "The people living next door are very friendly.",
+      "fb": "live chủ động → living"
+    },
+    {
+      "type": "fill",
+      "q": "Viết lại dùng in which: This is the house which my family lived in for ten years.",
+      "opts": [],
+      "answer": "This is the house in which my family lived for ten years.",
+      "fb": "giới từ in lên trước which thì bỏ in ở cuối"
+    },
+    {
+      "type": "fill",
+      "q": "Viết lại dùng what: I don't believe the thing which she told me.",
+      "opts": [],
+      "answer": "I don't believe what she told me.",
+      "fb": "the thing which gộp lại thành what"
+    },
+    {
+      "type": "fill",
+      "q": "Rút gọn: My father was the only person who noticed my mistake.",
+      "opts": [],
+      "answer": "My father was the only person to notice my mistake.",
+      "fb": "the only → dùng to V"
+    },
+    {
+      "type": "fill",
+      "q": "Viết lại dùng with whom: That is the friend who I often go to the cinema with.",
+      "opts": [],
+      "answer": "That is the friend with whom I often go to the cinema.",
+      "fb": "giới từ with lên trước thì phải dùng whom"
+    },
+    {
+      "type": "fill",
+      "q": "Đổi sang gián tiếp: He said: “Someone has stolen my bag.”",
+      "opts": [],
+      "answer": "He said (that) someone had stolen his bag.",
+      "fb": "has stolen lùi thành had stolen"
+    },
+    {
+      "type": "fill",
+      "q": "Đổi sang gián tiếp: She said: “We are learning English now.”",
+      "opts": [],
+      "answer": "She said (that) they were learning English then.",
+      "fb": "are lùi thành were · now → then"
+    },
+    {
+      "type": "fill",
+      "q": "Đổi sang gián tiếp: Huong said: “We are going to have a party next weekend.”",
+      "opts": [],
+      "answer": "Huong said (that) they were going to have a party the following weekend.",
+      "fb": "are going to lùi thành were going to · next weekend → the following weekend"
+    },
+    {
+      "type": "fill",
+      "q": "Who is that man standing ____ the school gate?",
+      "opts": [],
+      "answer": "at",
+      "fb": "cổng trường là một điểm → at"
+    },
+    {
+      "type": "fill",
+      "q": "My friend wants to buy that new car ____ she doesn't have enough money.",
+      "opts": [],
+      "answer": "although",
+      "fb": "she doesn't have là chủ ngữ + động từ, ý trái ngược → although"
+    },
+    {
+      "type": "fill",
+      "q": "The book ____ I borrowed from you is very interesting.  (A who · B whom · C which · D whose)",
+      "opts": [],
+      "answer": "C which",
+      "fb": "Thay cho vật là quyển sách → which · buổi 13"
     }
   ]
 }

@@ -353,11 +353,66 @@
   "exercises": [
     {
       "type": "fill",
-      "q": "Hoàn thành theo mẫu: I couldn't swim when I ___ five.",
-      "answer": [
-        "was"
-      ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "q": "Your car can ____ (fix) in two hours.",
+      "opts": [],
+      "answer": "be fixed",
+      "fb": "sau can → be + V3"
+    },
+    {
+      "type": "fill",
+      "q": "Chinese bicycles are ____ (bad) than Japanese ones.",
+      "opts": [],
+      "answer": "worse",
+      "fb": "bad là bất quy tắc → worse"
+    },
+    {
+      "type": "fill",
+      "q": "He speaks English ____ (fluent) as his teacher.",
+      "opts": [],
+      "answer": "as fluently",
+      "fb": "bổ nghĩa cho speaks nên là trạng từ fluently, kẹp giữa hai chữ as thì giữ nguyên"
+    },
+    {
+      "type": "fill",
+      "q": "The music was ____ loud that we couldn't talk. (so / such)",
+      "opts": [],
+      "answer": "so",
+      "fb": "loud đứng trơ, không có danh từ theo sau → so"
+    },
+    {
+      "type": "fill",
+      "q": "Ann ____ at home — I saw her at the supermarket ten minutes ago. (can't be / must be)",
+      "opts": [],
+      "answer": "can't be",
+      "fb": "vừa gặp ở siêu thị nên không thể ở nhà → can't be"
+    },
+    {
+      "type": "fill",
+      "q": "Could you give me ____ (a little / a few) water?",
+      "opts": [],
+      "answer": "a little",
+      "fb": "water không đếm được → a little"
+    },
+    {
+      "type": "fill",
+      "q": "It rained all day, ____ we cancelled the picnic.",
+      "opts": [],
+      "answer": "so",
+      "fb": "kết quả nằm giữa câu, ngay sau dấu phẩy → so"
+    },
+    {
+      "type": "fill",
+      "q": "Please speak more ____ (slow); I can't follow you.",
+      "opts": [],
+      "answer": "slowly",
+      "fb": "sau động từ speak → trạng từ -ly"
+    },
+    {
+      "type": "fill",
+      "q": "Mai's brother can't swim, ____?",
+      "opts": [],
+      "answer": "can he",
+      "fb": "vế trước phủ định → đuôi khẳng định"
     }
   ]
 }

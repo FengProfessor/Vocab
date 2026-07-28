@@ -530,114 +530,95 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "She ___ a letter now.",
-      "opts": [
-        "is writing",
-        "writes",
-        "write"
-      ],
-      "answer": "is writing",
-      "fb": "Hành động đang diễn ra (now) → dùng Hiện tại tiếp diễn (S + is + V-ing)."
-    },
-    {
-      "type": "mcq",
-      "q": "What ___ you ___ at the moment?",
-      "opts": [
-        "are / doing",
-        "do / doing",
-        "are / do"
-      ],
-      "answer": "are / doing",
-      "fb": "Câu hỏi ở Hiện tại tiếp diễn: Are + S + V-ing."
+      "type": "fill",
+      "q": "Listen! Someone ____ (cry) in the next room.",
+      "opts": [],
+      "answer": "is crying",
+      "fb": "Listen! = ngay lúc này"
     },
     {
       "type": "fill",
-      "q": "They ___ (not / play) games right now.",
-      "answer": [
-        "are not playing",
-        "aren't playing"
-      ],
-      "fb": "Dạng phủ định của Hiện tại tiếp diễn: S + are not + V-ing."
+      "q": "Tom ____ (not / like) coffee.",
+      "opts": [],
+      "answer": "doesn't like",
+      "fb": "like = trong đầu → đơn, phủ định doesn't"
     },
     {
       "type": "fill",
-      "q": "Look! The baby ___ (sleep) in the crib.",
-      "answer": [
-        "is sleeping"
-      ],
-      "fb": "'Look!' là dấu hiệu của hành động đang diễn ra. 'sleep' → sleeping."
+      "q": "We ____ (watch) TV every night.",
+      "opts": [],
+      "answer": "watch",
+      "fb": "every night · We → V trơ"
     },
     {
       "type": "fill",
-      "q": "We ___ (have) dinner with our parents tonight.",
-      "answer": [
-        "are having"
-      ],
-      "fb": "Kế hoạch đã được sắp xếp trong tương lai gần dùng Hiện tại tiếp diễn. 'have' → having (bỏ -e)."
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"He is always forget his keys.\"",
-      "answer": false,
-      "fb": "SAI. Sau 'is always', động từ phải thêm -ing để diễn tả sự khó chịu: 'He is always forgetting his keys.'"
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"I am understanding this lesson.\"",
-      "answer": false,
-      "fb": "SAI. 'Understand' là động từ trạng thái, không dùng ở thì tiếp diễn. Phải là 'I understand this lesson.'"
-    },
-    {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "She is cooking lunch.",
-        "They are watch TV.",
-        "I am reading a book."
-      ],
-      "answer": "They are watch TV.",
-      "fb": "Phải là 'They are watching TV.' Động từ chính phải thêm -ing."
-    },
-    {
-      "type": "mcq",
-      "q": "Dạng phủ định của \"You are listening to music\" là:",
-      "opts": [
-        "You aren't listen to music.",
-        "You aren't listening to music.",
-        "You don't listening to music."
-      ],
-      "answer": "You aren't listening to music.",
-      "fb": "Dạng phủ định: S + be + not + V-ing. 'Don't' không dùng với động từ 'to be' trong thì tiếp diễn."
+      "q": "Where ____ she ____ (go) now?",
+      "opts": [],
+      "answer": "is … going",
+      "fb": "now → tiếp diễn"
     },
     {
       "type": "fill",
-      "q": "My sister ___ (live) with friends for a few months.",
-      "answer": [
-        "is living"
-      ],
-      "fb": "Hành động tạm thời xung quanh hiện tại. 'live' → living (bỏ -e)."
-    },
-    {
-      "type": "mcq",
-      "q": "Be quiet! The children ___.",
-      "opts": [
-        "are sleeping",
-        "sleep",
-        "sleeps"
-      ],
-      "answer": "are sleeping",
-      "fb": "Lời kêu gọi 'Be quiet!' chỉ hành động đang diễn ra ngay lúc nói → dùng Hiện tại tiếp diễn."
+      "q": "My mother ____ (want) a new phone at the moment.",
+      "opts": [],
+      "answer": "wants",
+      "fb": "want = trong đầu → đơn dù có at the moment"
     },
     {
       "type": "fill",
-      "q": "What ___ she ___ (do) this afternoon? She ___ (meet) a client.",
-      "answer": [
-        "is",
-        "doing",
-        "is meeting"
-      ],
-      "fb": "Câu hỏi và câu trả lời về kế hoạch trong tương lai gần đều dùng Hiện tại tiếp diễn. 'meet' → meeting."
+      "q": "They ____ (build) a new school in my village this year.",
+      "opts": [],
+      "answer": "are building",
+      "fb": "this year = giai đoạn tạm thời"
+    },
+    {
+      "type": "fill",
+      "q": "The train ____ (leave) at 8 a.m. tomorrow.",
+      "opts": [],
+      "answer": "leaves",
+      "fb": "thời gian biểu cố định → đơn"
+    },
+    {
+      "type": "fill",
+      "q": "You ____ always ____ (leave) your phone at home!",
+      "opts": [],
+      "answer": "are always leaving",
+      "fb": "always + bực mình → tiếp diễn"
+    },
+    {
+      "type": "fill",
+      "q": "I ____ (fly) to Da Nang at 6 a.m. tomorrow. My ticket is booked.",
+      "opts": [],
+      "answer": "am flying",
+      "fb": "đã đặt vé, chốt giờ → hiện tại tiếp diễn"
+    },
+    {
+      "type": "fill",
+      "q": "We ____ (have) a big birthday party next weekend. The invitations are sent.",
+      "opts": [],
+      "answer": "are having",
+      "fb": "thiệp đã gửi = lịch chốt → hiện tại tiếp diễn"
+    },
+    {
+      "type": "fill",
+      "q": "Look! That man ____ (try) to open the door of your car.",
+      "opts": [],
+      "answer": "is trying",
+      "fb": "Look! đầu câu → hiện tại tiếp diễn"
+    },
+    {
+      "type": "fill",
+      "q": "Don't come in — the floor ____ (wash) at the moment.",
+      "opts": [],
+      "answer": "is being washed",
+      "fb": "at the moment = đang xảy ra → is being + V3"
+    },
+    {
+      "type": "fill",
+      "q": "Rút gọn: The bridge which was destroyed in the storm is being repaired.",
+      "opts": [],
+      "answer": "The bridge destroyed in the storm is being repaired.",
+      "fb": "was destroyed bị động → giữ destroyed"
     }
   ]
 }

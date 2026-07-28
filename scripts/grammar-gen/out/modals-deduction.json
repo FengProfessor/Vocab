@@ -364,11 +364,10 @@
   "exercises": [
     {
       "type": "fill",
-      "q": "Hoàn thành theo mẫu: He ___ know the answer.",
-      "answer": [
-        "might"
-      ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "q": "Đổi sang gián tiếp: My teacher said to us: “You may use dictionaries for this test.”",
+      "opts": [],
+      "answer": "My teacher told us (that) we might use dictionaries for that test.",
+      "fb": "may lùi thành might · this → that"
     }
   ]
 }

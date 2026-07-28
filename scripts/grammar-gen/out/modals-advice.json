@@ -325,5 +325,41 @@
     "comparison": "**Should vs Had better:** *Should* = lời khuyên chung, \"làm thế là tốt\" (*You should go out more often*). *Had better* CHỈ dùng cho tình huống cụ thể có nguy cơ nếu không nghe (*It's late. You'd better go*). Không dùng had better cho lời khuyên chung chung.",
     "definition": "**Động từ khuyết thiếu chỉ lời khuyên** bao gồm 'should' và 'ought to', dùng để đưa ra gợi ý hoặc nhận định về một hành động được xem là đúng đắn hoặc phù hợp. Cấu trúc này không mang tính bắt buộc mà đóng vai trò định hướng hành vi, giúp người nghe cân nhắc lựa chọn tối ưu trong các tình huống cụ thể."
   },
-  "exercises": []
+  "exercises": [
+    {
+      "type": "fill",
+      "q": "You should turn off the lights before you go to bed.  →  The lights ____ before you go to bed.",
+      "opts": [],
+      "answer": "should be turned off",
+      "fb": "Modal should → should be + V3"
+    },
+    {
+      "type": "fill",
+      "q": "I think you ____ go to bed earlier. (should / must)",
+      "opts": [],
+      "answer": "should",
+      "fb": "I think + lời khuyên → should"
+    },
+    {
+      "type": "fill",
+      "q": "It's a school rule: we ____ speak English in class. (have to / should)",
+      "opts": [],
+      "answer": "have to",
+      "fb": "nội quy trường bắt → have to"
+    },
+    {
+      "type": "fill",
+      "q": "You should avoid ____ (eat) too much sugar.",
+      "opts": [],
+      "answer": "eating",
+      "fb": "avoid nằm nhóm V-ing"
+    },
+    {
+      "type": "fill",
+      "q": "Children should not depend ____ their parents for everything.",
+      "opts": [],
+      "answer": "on",
+      "fb": "depend luôn dính với on"
+    }
+  ]
 }

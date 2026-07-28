@@ -333,5 +333,34 @@
     "comparison": "**Phrasal verb vs Prepositional verb:** Phrasal verb (verb + particle) cho phép tân ngữ danh từ đứng trước HOẶC sau particle (*throw the box away / throw away the box*) — nhưng đại từ BẮT BUỘC đứng giữa (*throw it away*). Prepositional verb có giới từ cố định, tân ngữ luôn đứng sau (*look at it*, không tách được).",
     "definition": "**Cụm động từ** là sự kết hợp của một động từ với một hoặc hai tiểu từ (trạng từ hoặc giới từ) để tạo thành một đơn vị nghĩa mới, thường khác biệt với nghĩa gốc của động từ. Ví dụ: *look up*, *give in*. Chúng đóng vai trò quan trọng trong giao tiếp tiếng Anh tự nhiên."
   },
-  "exercises": []
+  "exercises": [
+    {
+      "type": "fill",
+      "q": "My family decided ____ (buy) a new fridge.",
+      "opts": [],
+      "answer": "to buy",
+      "fb": "decide nằm nhóm to V"
+    },
+    {
+      "type": "fill",
+      "q": "I hope ____ (pass) the entrance exam next year.",
+      "opts": [],
+      "answer": "to pass",
+      "fb": "hope nằm nhóm to V"
+    },
+    {
+      "type": "fill",
+      "q": "Remember ____ (water) the flowers this afternoon.",
+      "opts": [],
+      "answer": "to water",
+      "fb": "dặn việc chưa làm → to V"
+    },
+    {
+      "type": "fill",
+      "q": "The teacher wants us ____ (be) quiet in the library.",
+      "opts": [],
+      "answer": "to be",
+      "fb": "want ai làm gì → vẫn to V"
+    }
+  ]
 }

@@ -466,114 +466,32 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "I ___ (play) football at 5 pm yesterday.",
-      "opts": [
-        "play",
-        "was playing",
-        "played"
-      ],
-      "answer": "was playing",
-      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
+      "type": "fill",
+      "q": "At 8 p.m. last night my father ____ (feed) the pigeons.",
+      "opts": [],
+      "answer": "was feeding",
+      "fb": "at + giờ + quá khứ → tiếp diễn"
     },
     {
       "type": "fill",
-      "q": "They ___ (not / watch) TV at that time.",
-      "answer": [
-        "were not watching"
-      ],
-      "fb": "Sử dụng Past Continuous trong phủ định."
-    },
-    {
-      "type": "mcq",
-      "q": "What were you ___ (do) at 8 pm last night?",
-      "opts": [
-        "doing",
-        "do",
-        "did"
-      ],
-      "answer": "doing",
-      "fb": "Sử dụng Past Continuous để hỏi về hành động đang diễn ra."
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"I was go to school.\"",
-      "answer": false,
-      "fb": "Sử dụng sai Past Continuous."
+      "q": "While I ____ (do) my homework, my sister ____ (listen) to music.",
+      "opts": [],
+      "answer": "was doing / was listening",
+      "fb": "2 việc dài song song → cả 2 tiếp diễn"
     },
     {
       "type": "fill",
-      "q": "The baby ___ (cry) when the mother came home.",
-      "answer": [
-        "was crying"
-      ],
-      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
-    },
-    {
-      "type": "mcq",
-      "q": "Which sentence is in the Past Continuous tense?",
-      "opts": [
-        "I went to school.",
-        "I was going to school.",
-        "I go to school."
-      ],
-      "answer": "I was going to school.",
-      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
-    },
-    {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
-        "They were playing football.",
-        "They was playing football.",
-        "They play football."
-      ],
-      "answer": "They was playing football.",
-      "fb": "Sử dụng sai **was** và **were**."
+      "q": "At 7 p.m. yesterday my father ____ (watch) the news when the phone ____ (ring).",
+      "opts": [],
+      "answer": "was watching / rang",
+      "fb": "at 7 p.m. yesterday = đang giữa chừng · chuông reo = việc ngắn"
     },
     {
       "type": "fill",
-      "q": "She ___ (not / study) English at that time.",
-      "answer": [
-        "was not studying"
-      ],
-      "fb": "Sử dụng Past Continuous trong phủ định."
-    },
-    {
-      "type": "mcq",
-      "q": "What was she ___ (do) at 5 pm yesterday?",
-      "opts": [
-        "doing",
-        "do",
-        "did"
-      ],
-      "answer": "doing",
-      "fb": "Sử dụng Past Continuous để hỏi về hành động đang diễn ra."
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"They were not watching TV.\"",
-      "answer": true,
-      "fb": "Sử dụng đúng Past Continuous trong phủ định."
-    },
-    {
-      "type": "fill",
-      "q": "The students ___ (write) their exams when the fire alarm went off.",
-      "answer": [
-        "were writing"
-      ],
-      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
-    },
-    {
-      "type": "mcq",
-      "q": "Which sentence is in the Past Continuous tense?",
-      "opts": [
-        "I did my homework.",
-        "I was doing my homework.",
-        "I do my homework."
-      ],
-      "answer": "I was doing my homework.",
-      "fb": "Sử dụng Past Continuous để mô tả hành động đang diễn ra."
+      "q": "At 9 p.m. yesterday I ____ (help) my mother in the kitchen.",
+      "opts": [],
+      "answer": "was helping",
+      "fb": "at + giờ + quá khứ → quá khứ tiếp diễn"
     }
   ]
 }
