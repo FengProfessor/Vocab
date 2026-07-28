@@ -624,7 +624,7 @@ function SessionContent() {
             {/* Feedback banner */}
             {verdict !== null && (
               <div
-                className={`rounded-2xl px-3 py-2 text-center text-sm font-bold ${
+                className={`flex flex-col items-center gap-1 rounded-2xl px-3 py-2 text-center text-sm font-bold ${
                   verdict === 'correct'
                     ? 'bg-emerald-50 text-emerald-700'
                     : verdict === 'close'
@@ -632,11 +632,19 @@ function SessionContent() {
                       : 'bg-rose-50 text-rose-700'
                 }`}
               >
-                {verdict === 'correct' && '✓ Chính xác!'}
-                {verdict === 'close' && `≈ Gần đúng — đáp án: ${answer}`}
-                {verdict === 'wrong' && `✗ Sai — đáp án: ${answer}`}
+                <div>
+                  {verdict === 'correct' && '✓ Chính xác!'}
+                  {verdict === 'close' && `≈ Gần đúng — đáp án: ${answer}`}
+                  {verdict === 'wrong' && `✗ Sai — đáp án: ${answer}`}
+                </div>
+                {current?.ipa && !isListen && !showWordFront && (
+                  <div className="flex items-center justify-center gap-1.5 font-mono text-xs font-medium opacity-90">
+                    {verdict === 'correct' && <span>{current.word}</span>}
+                    <span>{parseIpa(current.ipa)}</span>
+                  </div>
+                )}
                 {current?.example && (itemMode === 'cloze_mcq' || itemMode === 'cloze_type') && (
-                  <p className="mt-1 text-xs font-medium opacity-80">&ldquo;{current.example}&rdquo;</p>
+                  <p className="mt-0.5 text-xs font-medium opacity-80">&ldquo;{current.example}&rdquo;</p>
                 )}
               </div>
             )}
