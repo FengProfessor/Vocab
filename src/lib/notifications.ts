@@ -112,7 +112,7 @@ export async function sendPushNotificationToUser(
       },
       android: {
         collapseKey: 'lingopro-due',
-        priority: 'high',
+        priority: 'high' as const,
         notification: { tag: 'lingopro-due' },
       },
     };

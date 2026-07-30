@@ -43,7 +43,7 @@ interface WordItem extends ReviewWordLike {
   isDue: boolean;
 }
 
-const NEXT_OK_MS = 5000;
+const NEXT_OK_MS = 4000;
 const NEXT_BAD_MS = 10000;
 /** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án. */
 const FEEDBACK_LOCK_MS = 700;
@@ -632,10 +632,22 @@ function SessionContent() {
                       : 'bg-rose-50 text-rose-700'
                 }`}
               >
-                <div>
-                  {verdict === 'correct' && '✓ Chính xác!'}
-                  {verdict === 'close' && `≈ Gần đúng — đáp án: ${answer}`}
-                  {verdict === 'wrong' && `✗ Sai — đáp án: ${answer}`}
+                <div className="flex items-center justify-center gap-2">
+                  <span>
+                    {verdict === 'correct' && '✓ Chính xác!'}
+                    {verdict === 'close' && `≈ Gần đúng — đáp án: ${answer}`}
+                    {verdict === 'wrong' && `✗ Sai — đáp án: ${answer}`}
+                  </span>
+                  {current && (
+                    <button
+                      type="button"
+                      onClick={() => speak(current.word, 1.0)}
+                      className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/80 text-current shadow-xs transition hover:bg-white active:scale-95"
+                      title="Phát âm từ đúng"
+                    >
+                      <Volume2 className="h-4 w-4" />
+                    </button>
+                  )}
                 </div>
                 {current?.ipa && !isListen && !showWordFront && (
                   <div className="flex items-center justify-center gap-1.5 font-mono text-xs font-medium opacity-90">
