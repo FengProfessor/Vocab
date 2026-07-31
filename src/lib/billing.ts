@@ -383,9 +383,30 @@ export async function createOrder(
     // Fallback: Direct database updates in TypeScript
     if (rpcErrorOccurred || !order) {
       const now = new Date();
-      const startsAt = now;
-      const expiresAt = new Date(now);
-      expiresAt.setMonth(expiresAt.getMonth() + periodMonths);
+
+      // Get current plan for history and stacking logic
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('plan, plan_expires_at')
+        .eq('id', userId)
+        .single();
+      const oldPlan = profile?.plan ?? 'free';
+
+      let startsAt = now;
+      if (profile?.plan_expires_at) {
+        const currentExp = new Date(profile.plan_expires_at);
+        if (currentExp > now) {
+          startsAt = currentExp;
+        }
+      }
+
+      const trialDays = trialCouponDays(coupon.code);
+      let expiresAt = new Date(startsAt);
+      if (trialDays) {
+        expiresAt = new Date(startsAt.getTime() + trialDays * 24 * 60 * 60 * 1000);
+      } else {
+        expiresAt.setMonth(expiresAt.getMonth() + periodMonths);
+      }
 
       // Create paid order
       const { data: newOrder, error: orderErr } = await supabase
@@ -414,17 +435,7 @@ export async function createOrder(
 
       order = newOrder as unknown as OrderSummary;
 
-      // Get current plan for history
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('plan, plan_expires_at')
-        .eq('id', userId)
-        .single();
-      const oldPlan = profile?.plan ?? 'free';
-
-      // Trial coupon (NEWBIE1W/2W): số ngày cố định; không rút ngắn Pro còn hạn dài hơn
-      const trialExp = trialCouponExpiry(coupon.code, now);
-      let planExpiresAt = trialExp ?? expiresAt;
+      let planExpiresAt = expiresAt;
       if (profile?.plan_expires_at) {
         const currentExp = new Date(profile.plan_expires_at);
         if (currentExp > planExpiresAt) planExpiresAt = currentExp;

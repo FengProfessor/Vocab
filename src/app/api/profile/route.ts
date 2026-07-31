@@ -26,7 +26,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const expiresAt = (data?.plan_expires_at as string | null | undefined) ?? null;
     const effectivePlan = getEffectivePlan(rawPlan, expiresAt);
     const remainingDays = getRemainingDays(expiresAt);
-    const wordUsage = await getWordSaveUsage(supabase, auth.userId, effectivePlan);
+    const wordUsage = await getWordSaveUsage(supabase, auth.userId, effectivePlan, data?.created_at);
 
     return NextResponse.json({
       success: true,

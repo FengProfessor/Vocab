@@ -37,7 +37,7 @@ export const FREE_CODEMIX_UPGRADE_DAILY_LIMIT = 1;
 export const FREE_PACK_READING_DAILY_LIMIT = 2;
 
 /**
- * Số từ MỚI free được lưu/tháng (calendar month, UTC).
+ * Số từ MỚI free được lưu trong 1 tháng (tính theo chu kỳ từ ngày học sinh enroll).
  * Chỉ chặn lưu mới (POST /api/words); từ đã lưu vẫn ôn FSRS bình thường.
  * Catalog pack import không đếm vào quota này (free value = lộ trình sẵn).
  */
@@ -46,6 +46,44 @@ export const FREE_WORD_SAVE_MONTHLY_LIMIT = 200;
 /** ISO start of current UTC calendar month. */
 export function startOfUtcMonth(d: Date = new Date()): string {
   return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1, 0, 0, 0, 0)).toISOString();
+}
+
+function createValidCycleDate(year: number, month: number, targetDay: number, hours: number, mins: number, secs: number, ms: number): Date {
+  const daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+  const actualDay = Math.min(targetDay, daysInMonth);
+  return new Date(Date.UTC(year, month, actualDay, hours, mins, secs, ms));
+}
+
+/**
+ * ISO start của chu kỳ 1 tháng hiện tại cho học sinh dựa vào ngày đăng ký (userCreatedAt).
+ * Nếu chưa có userCreatedAt, fallback về startOfUtcMonth.
+ */
+export function startOfStudentCycle(userCreatedAt: string | Date | null | undefined, now: Date = new Date()): string {
+  if (!userCreatedAt) return startOfUtcMonth(now);
+  const signUp = new Date(userCreatedAt);
+  if (isNaN(signUp.getTime())) return startOfUtcMonth(now);
+
+  const targetDay = signUp.getUTCDate();
+  const hours = signUp.getUTCHours();
+  const mins = signUp.getUTCMinutes();
+  const secs = signUp.getUTCSeconds();
+  const ms = signUp.getUTCMilliseconds();
+
+  const curYear = now.getUTCFullYear();
+  const curMonth = now.getUTCMonth();
+
+  const cCurr = createValidCycleDate(curYear, curMonth, targetDay, hours, mins, secs, ms);
+  const cNext = createValidCycleDate(curYear, curMonth + 1, targetDay, hours, mins, secs, ms);
+
+  if (now.getTime() >= cNext.getTime()) {
+    return cNext.toISOString();
+  }
+  if (now.getTime() >= cCurr.getTime()) {
+    return cCurr.toISOString();
+  }
+
+  const cPrev = createValidCycleDate(curYear, curMonth - 1, targetDay, hours, mins, secs, ms);
+  return cPrev.toISOString();
 }
 
 /** Số ngày còn lại trước khi gói hết hạn. <0 = đã hết. null = free/lifetime. */
@@ -332,25 +370,36 @@ export interface WordSaveUsage {
 }
 
 /**
- * Đếm từ Free: tháng UTC + lifetime (UI near-limit / power user).
+ * Đếm từ Free: trong 1 tháng chu kỳ của học sinh + lifetime.
  * Pro: used=0, lifetime=0, limit=null.
  */
 export async function getWordSaveUsage(
   supabase: SupabaseClient,
   userId: string | null,
   plan: Plan,
+  userCreatedAt?: string | Date | null,
 ): Promise<WordSaveUsage> {
   if (!userId || plan !== 'free') {
     return { used: 0, lifetime: 0, limit: null, remaining: null };
   }
 
-  const monthStart = startOfUtcMonth();
+  let createdAt = userCreatedAt;
+  if (!createdAt) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('created_at')
+      .eq('id', userId)
+      .maybeSingle();
+    createdAt = profile?.created_at as string | null | undefined;
+  }
+
+  const cycleStart = startOfStudentCycle(createdAt);
   const [monthRes, lifeRes] = await Promise.all([
     supabase
       .from('words')
       .select('id', { count: 'exact', head: true })
       .eq('added_by', userId)
-      .gte('created_at', monthStart),
+      .gte('created_at', cycleStart),
     supabase
       .from('words')
       .select('id', { count: 'exact', head: true })
@@ -358,7 +407,7 @@ export async function getWordSaveUsage(
   ]);
 
   if (monthRes.error) {
-    console.warn('[Entitlement] word month count failed:', monthRes.error.message);
+    console.warn('[Entitlement] word cycle count failed:', monthRes.error.message);
   }
   if (lifeRes.error) {
     console.warn('[Entitlement] word lifetime count failed:', lifeRes.error.message);
@@ -376,7 +425,7 @@ export async function getWordSaveUsage(
 }
 
 /**
- * Free: chặn lưu mới khi vượt FREE_WORD_SAVE_MONTHLY_LIMIT (tháng UTC).
+ * Free: chặn lưu mới khi vượt FREE_WORD_SAVE_MONTHLY_LIMIT trong 1 tháng chu kỳ cá nhân.
  *
  * **Luôn enforce quota từ** (tách khỏi ENTITLEMENT_ENFORCED feature gate)
  * — tránh Free 250+ từ như case power user vẫn lưu vô hạn.
@@ -389,6 +438,7 @@ export async function checkWordSaveQuota(
   userId: string | null,
   plan: Plan,
   extraToAdd = 1,
+  userCreatedAt?: string | Date | null,
 ): Promise<WordSaveQuotaResult> {
   if (plan !== 'free') {
     return { allowed: true, used: 0, limit: null, remaining: null };
@@ -403,7 +453,7 @@ export async function checkWordSaveQuota(
     };
   }
 
-  const usage = await getWordSaveUsage(supabase, userId, plan);
+  const usage = await getWordSaveUsage(supabase, userId, plan, userCreatedAt);
   const used = usage.used;
   const remaining = usage.remaining ?? 0;
 

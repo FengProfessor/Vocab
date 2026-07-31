@@ -108,10 +108,10 @@ Do not include markdown tags like \`\`\`json. Just the raw JSON.`;
       return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
     }
 
-    // Kiểm tra kết quả rác: IPA chứa ký tự "[" (dạng placeholder) hoặc không có nghĩa nào
+    // Kiểm tra kết quả rác: IPA chứa placeholder hoặc không có nghĩa nào
     const firstIpa = (parsed.pronunciations as Array<{ ipa?: string }> | undefined)?.[0]?.ipa ?? '';
     const hasMeanings = ((parsed.results as Array<{ meanings?: unknown[] }> | undefined)?.[0]?.meanings?.length ?? 0) > 0;
-    if (firstIpa.includes('[') || !hasMeanings) {
+    if (/word not found|not found|unknown|placeholder|gibberish|n\/a/i.test(firstIpa) || !hasMeanings) {
       console.log(`[ai-lookup] Garbage result for "${cleanWord}" — skipping cache`);
       return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
     }

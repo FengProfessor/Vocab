@@ -202,9 +202,9 @@ function formatIpa(raw: string | undefined | null): string {
 
 /** Kiểm tra data có phải kết quả rác không (IPA placeholder hoặc nghĩa bịa) */
 function isGarbageResult(data: DictionaryData): boolean {
-  // IPA chứa "[" → placeholder như "[word not found]"
+  // IPA chứa placeholder rác như "[word not found]" hay "not found"
   const firstIpa = data.pronunciations?.[0]?.ipa ?? '';
-  if (firstIpa.includes('[')) return true;
+  if (/word not found|not found|unknown|placeholder|gibberish|n\/a/i.test(firstIpa)) return true;
 
   // Kiểm tra mọi definition xem có text rác không
   const allDefs = data.results?.flatMap(r => r.meanings?.map(m => m.definition ?? '') ?? []) ?? [];
@@ -506,8 +506,9 @@ export default function DictionaryPage() {
       return;
     }
 
-    // Cụm miss → auto fallback câu (user không chọn mode)
-    if (kind === 'phrase' && force === 'auto') {
+    // Cụm miss → chỉ auto fallback câu nếu từ 4 từ trở lên hoặc có cấu trúc mệnh đề.
+    // Cụm ngắn (2-3 từ như "due to", "look up") không bị ép thành tra câu S-V-O.
+    if (kind === 'phrase' && force === 'auto' && (wordCount(raw) >= 4 || looksLikeClause(raw))) {
       const sent = await lookupSentence(raw.slice(0, 400));
       if (sent && sent !== 'pro' && sent !== 'busy') {
         setResult(sent);
