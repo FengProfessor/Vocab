@@ -119,7 +119,7 @@ export default function StudentDashboard() {
 
   // Popup chúc mừng mốc (level / badge / streak)
   const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
-  const [prevSnapshot, setPrevSnapshot] = useState<{ level: number; badgeIds: string[]; streak: number } | null>(null);
+  const prevSnapshotRef = useRef<{ level: number; badgeIds: string[]; streak: number } | null>(null);
 
   // Chặn double-load: getSession + onAuthStateChange SIGNED_IN/INITIAL_SESSION
   const loadStartedRef = useRef(false);
@@ -473,6 +473,8 @@ export default function StudentDashboard() {
   }, [profile?.id]);
 
   // === Detect mốc (level / badge / streak liên tiếp) → popup chúc mừng ===
+  // Dùng useRef (đồng bộ) thay vì useState để tránh fire popup trùng khi re-render nhanh.
+  // SessionStorage guard: mỗi mốc chỉ hiện 1 lần / session.
   useEffect(() => {
     if (!profile?.id) return;
     const masteredCount = words.filter((w: Word & { srsLevel?: number }) => w.srsLevel === 5).length;
@@ -483,43 +485,66 @@ export default function StudentDashboard() {
     ).filter((b) => b.earned);
     const currentBadges = earned.map((b) => b.id);
 
+    const prev = prevSnapshotRef.current;
+
     // Lần đầu chỉ snapshot, không fire
-    if (!prevSnapshot) {
-      setPrevSnapshot({
+    if (!prev) {
+      prevSnapshotRef.current = {
         level: currentLevel,
         badgeIds: currentBadges,
         streak: studyStreak,
-      });
+      };
       return;
     }
 
+    // Helper: chặn hiện popup trùng trong cùng session
+    const alreadyShown = (key: string) => {
+      try { return sessionStorage.getItem(key) === '1'; } catch { return false; }
+    };
+    const markShown = (key: string) => {
+      try { sessionStorage.setItem(key, '1'); } catch { /* ignore */ }
+    };
+
     // Ưu tiên: level up > badge > streak milestone
-    if (currentLevel > prevSnapshot.level) {
-      setMilestonePopup({ kind: 'level', value: currentLevel, intensity: 'epic' });
+    if (currentLevel > prev.level) {
+      const ssKey = `milestone_level_${currentLevel}`;
+      if (!alreadyShown(ssKey)) {
+        markShown(ssKey);
+        setMilestonePopup({ kind: 'level', value: currentLevel, intensity: 'epic' });
+      }
     } else {
-      const newBadgeId = currentBadges.find((id) => !prevSnapshot.badgeIds.includes(id));
+      const newBadgeId = currentBadges.find((id) => !prev.badgeIds.includes(id));
       if (newBadgeId) {
-        const label = earned.find((b) => b.id === newBadgeId)?.label;
-        setMilestonePopup({
-          kind: 'badge',
-          badgeLabel: label,
-          intensity: 'strong',
-        });
+        const ssKey = `milestone_badge_${newBadgeId}`;
+        if (!alreadyShown(ssKey)) {
+          markShown(ssKey);
+          const label = earned.find((b) => b.id === newBadgeId)?.label;
+          setMilestonePopup({
+            kind: 'badge',
+            badgeLabel: label,
+            intensity: 'strong',
+          });
+        }
       } else {
         const hitStreak =
           (STREAK_MILESTONES as readonly number[]).includes(studyStreak) &&
-          studyStreak > prevSnapshot.streak;
+          studyStreak > prev.streak;
         if (hitStreak) {
-          setMilestonePopup({ kind: 'streak', value: studyStreak, intensity: 'strong' });
+          const ssKey = `milestone_streak_${studyStreak}`;
+          if (!alreadyShown(ssKey)) {
+            markShown(ssKey);
+            setMilestonePopup({ kind: 'streak', value: studyStreak, intensity: 'strong' });
+          }
         }
       }
     }
 
-    setPrevSnapshot({
+    // Cập nhật ref đồng bộ → lần render tiếp không fire lại
+    prevSnapshotRef.current = {
       level: currentLevel,
       badgeIds: currentBadges,
       streak: studyStreak,
-    });
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: so sánh snapshot cũ vs mới
   }, [gamification.total_xp, studyStreak, words.length, profile?.id]);
 
