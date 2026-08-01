@@ -215,10 +215,7 @@ function SessionContent() {
           if (withEx.length >= 2) due = withEx;
         }
 
-        if (due.length === 0) {
-          // Fallback: lấy sample ready (luyện khi không due)
-          due = ready.slice(0, Math.min(SESSION_CAP, ready.length));
-        }
+        // Không fallback random — ôn khi chưa due sẽ phá lịch FSRS
 
         due = due.slice(0, SESSION_CAP);
         if (due.length === 0) {
@@ -405,17 +402,20 @@ function SessionContent() {
     return (
       <StudentShell title={sessionTitle} hideMobileNav contentClassName="max-w-md mx-auto">
         <div className="flex flex-col items-center gap-6 px-4 py-16 text-center">
-          <div className="text-6xl">📭</div>
-          <h1 className="text-2xl font-black text-slate-900">Chưa có từ để ôn</h1>
-          <p className="text-sm font-medium text-slate-500">
-            Học vài từ mới hoặc quay lại khi có từ due.
+          <div className="text-6xl">🎉</div>
+          <h1 className="text-2xl font-black text-slate-900">Không có từ nào đến hạn ôn</h1>
+          <p className="text-sm font-medium text-slate-500 leading-relaxed">
+            Hiện tại chưa có từ nào cần ôn tập. Ôn trước hạn sẽ ảnh hưởng đến thuật toán ghi nhớ.
+          </p>
+          <p className="text-sm font-medium text-indigo-600">
+            Muốn luyện thêm? Vào <strong>Sử dụng từ</strong> để làm quiz mà không ảnh hưởng FSRS.
           </p>
           <div className="flex w-full flex-col gap-2">
-            <Link href={hubHref}>
-              <Button className="h-12 w-full rounded-2xl bg-indigo-600 font-bold">← Hub ôn tập</Button>
+            <Link href={classroomId ? `/practice?class=${classroomId}` : '/practice'}>
+              <Button className="h-12 w-full rounded-2xl bg-indigo-600 font-bold">🧠 Sử dụng từ — Quiz luyện tập</Button>
             </Link>
-            <Link href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}>
-              <Button variant="outline" className="h-12 w-full rounded-2xl font-bold">Học từ mới</Button>
+            <Link href={hubHref}>
+              <Button variant="outline" className="h-12 w-full rounded-2xl font-bold">← Hub ôn tập</Button>
             </Link>
           </div>
         </div>
