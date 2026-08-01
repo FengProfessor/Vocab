@@ -675,8 +675,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       classroomId = await getOrCreatePersonalClassroom(supabase, userId);
     }
 
-    // ── Chế độ REVIEW: từ ĐÃ học & ĐẾN HẠN (cap theo limit, default 100) ──
-    // Tránh limit 1000 + select * bloated khi session chỉ cần ~25 thẻ.
+    // ── Chế độ REVIEW: từ ĐÃ học & ĐẾN HẠN + từ MỚI chưa học (cap theo limit, default 100) ──
+    // Từ mới (chưa có srs_progress) cũng được trộn vào để HS tạo từ xong ôn ngay.
     if (filter === 'review') {
       const nowIso = new Date().toISOString();
       const reviewCap = Math.min(limit, 100);
@@ -694,40 +694,77 @@ export async function GET(req: Request): Promise<NextResponse> {
       const dueIds = (dueSrs || [])
         .map((s) => s.word_id)
         .filter((id) => !requestedIdSet || requestedIdSet.has(id));
-      if (dueIds.length === 0) {
-        return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
-          headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-        });
-      }
 
       const srsByWord = new Map(
         (dueSrs || []).map((s) => [s.word_id as string, s as SRSProgressWithStability]),
       );
 
-      // Lấy từ due (id list từ SRS user) — không join srs_progress(*) (payload nhẹ)
+      // ── Bổ sung từ MỚI (chưa có srs_progress) để HS tạo từ xong ôn ngay ──
+      const remaining = reviewCap - dueIds.length;
+      let newWordIds: string[] = [];
+      if (remaining > 0) {
+        // Lấy tất cả word_id mà user ĐÃ có srs_progress (kể cả review_count=0)
+        const { data: allSrsRows } = await supabase
+          .from('srs_progress')
+          .select('word_id')
+          .eq('user_id', userId)
+          .limit(10000);
+        const knownIds = new Set((allSrsRows || []).map((r) => r.word_id as string));
+        // Thêm dueIds vào set (phòng trùng)
+        for (const id of dueIds) knownIds.add(id);
+
+        // Lấy từ trong classroom, chưa có SRS, mới nhất trước
+        const { data: candidateRows } = await supabase
+          .from('words')
+          .select('id')
+          .eq('classroom_id', classroomId)
+          .order('created_at', { ascending: false })
+          .limit(remaining * 3); // lấy dư để lọc
+
+        newWordIds = (candidateRows || [])
+          .map((r) => r.id as string)
+          .filter((id) => !knownIds.has(id))
+          .slice(0, remaining);
+      }
+
+      const allIds = [...dueIds, ...newWordIds];
+      if (allIds.length === 0) {
+        return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
+          headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+        });
+      }
+
+      // Lấy từ due + mới (id list) — không join srs_progress(*) (payload nhẹ)
       let dueWordsQuery = supabase
         .from('words')
         .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at')
-        .in('id', dueIds);
+        .in('id', allIds);
       if (requestedIds) {
         dueWordsQuery = dueWordsQuery.eq('classroom_id', classroomId);
       }
       const { data: wordsData, error: wErr } = await dueWordsQuery;
       if (wErr) throw wErr;
 
-      const order = new Map(dueIds.map((id, i) => [id, i])); // giữ thứ tự due lâu nhất trước
+      const newIdSet = new Set(newWordIds);
+      const order = new Map(allIds.map((id, i) => [id, i])); // due trước, mới sau
       const enriched = ((wordsData || []) as Word[])
+        .filter((w) =>
+          w.word && w.translation &&
+          !w.translation.includes('failed') &&
+          !w.translation.includes('Analyzing') &&
+          !w.translation.includes('⏳'))
         .map((w) => {
-          const srs = srsByWord.get(w.id) || null;
-          const srsLevel = stabilityToLevel(srs?.stability || 0);
+          const isNew = newIdSet.has(w.id);
+          const srs = isNew ? null : (srsByWord.get(w.id) || null);
+          const srsLevel = isNew ? 0 : stabilityToLevel(srs?.stability || 0);
           return {
             ...w,
             srs,
             isDue: true,
-            reviewCount: srs?.review_count || 0,
+            reviewCount: isNew ? 0 : (srs?.review_count || 0),
             srsLevel,
-            mastery: Math.min(100, srsLevel * 20),
-            status: srsLevel >= 5 ? 'mastered' : 'learning',
+            mastery: isNew ? 0 : Math.min(100, srsLevel * 20),
+            status: isNew ? 'new' : (srsLevel >= 5 ? 'mastered' : 'learning'),
           };
         })
         .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
