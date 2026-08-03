@@ -43,6 +43,7 @@ interface ListSpec {
   topicKey: string;
   titleBase: string;
   attribution: string;
+  allowOverlap?: boolean;
 }
 
 /** Thứ tự ưu tiên: foundation → exam → academic extras → dict vault. */
@@ -104,6 +105,7 @@ const LIST_SPECS: ListSpec[] = [
     topicKey: 'task1',
     titleBase: 'IELTS Writing Task 1',
     attribution: 'List nội bộ (IELTS Writing Task 1 data language).',
+    allowOverlap: true,
   },
   {
     file: 'ielts-speaking-idioms.txt',
@@ -505,9 +507,11 @@ async function main(): Promise<void> {
     }
     generatedFrom.push(`scripts/lists/${spec.file}`);
     const all = parseListFile(fp);
-    // Chỉ từ đã ready; dedupe trong extra lists (ưu tiên list trước trong LIST_SPECS)
-    const readyWords = all.filter((w) => ready.has(w) && !usedInLists.has(w));
-    for (const w of readyWords) usedInLists.add(w);
+    // Chỉ từ đã ready; dedupe trong extra lists (trừ khi allowOverlap = true)
+    const readyWords = all.filter((w) => ready.has(w) && (spec.allowOverlap || !usedInLists.has(w)));
+    if (!spec.allowOverlap) {
+      for (const w of readyWords) usedInLists.add(w);
+    }
 
     const chunks = splitBalanced(readyWords);
     chunks.forEach((words, idx) => {

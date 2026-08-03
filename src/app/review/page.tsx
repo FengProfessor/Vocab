@@ -87,8 +87,9 @@ function ReviewHubContent() {
 
         <div className="grid gap-3">
           {HUB_MODES.map((m) => {
-            // Modes that go through /review/session use FSRS — disable when no due words
-            const isFsrsMode = m.id === 'mixed' || m.id === 'cloze' || m.id === 'listen';
+            // Modes that POST /api/words/srs — disable when no due words to protect scheduling
+            // Only 'mcq' (/quiz) is safe: no SRS update, loads all words for recognition practice
+            const isFsrsMode = m.id !== 'mcq';
             const disabled = isFsrsMode && dueCount === 0;
 
             if (disabled) {
