@@ -17,6 +17,86 @@ import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-clie
 /** Bump khi đổi shape/logic drill — bỏ localStorage session cũ (type/options sai). */
 const GRAMMAR_STATE_VER = 'v2';
 
+function cleanAnswer(s: string): string {
+  return (s || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[’`]/g, "'")
+    .replace(/\s+/g, ' ');
+}
+
+function expandContractions(str: string): string[] {
+  const base = cleanAnswer(str)
+    .replace(/\bdđin't\b/g, "didn't")
+    .replace(/\b([a-z]+)\s*\.\.\.\s*([a-z]+)\b/gi, '$1 $2')
+    .replace(/[,/]/g, ' ');
+
+  const var1 = base
+    .replace(/\bdidn't\b/g, 'did not')
+    .replace(/\bdoesn't\b/g, 'does not')
+    .replace(/\bdon't\b/g, 'do not')
+    .replace(/\bisn't\b/g, 'is not')
+    .replace(/\baren't\b/g, 'are not')
+    .replace(/\bwasn't\b/g, 'was not')
+    .replace(/\bweren't\b/g, 'were not')
+    .replace(/\bhaven't\b/g, 'have not')
+    .replace(/\bhasn't\b/g, 'has not')
+    .replace(/\bwon't\b/g, 'will not')
+    .replace(/\bcan't\b/g, 'cannot')
+    .replace(/\bshan't\b/g, 'shall not')
+    .replace(/\bshouldn't\b/g, 'should not')
+    .replace(/\bwouldn't\b/g, 'would not')
+    .replace(/\bcouldn't\b/g, 'could not')
+    .replace(/\bain't\b/g, 'am not')
+    .replace(/\bit's\b/g, 'it is')
+    .replace(/\bhe's\b/g, 'he is')
+    .replace(/\bshe's\b/g, 'she is')
+    .replace(/\bthat's\b/g, 'that is')
+    .replace(/\bthere's\b/g, 'there is')
+    .replace(/\bwhat's\b/g, 'what is')
+    .replace(/\bthey're\b/g, 'they are')
+    .replace(/\byou're\b/g, 'you are')
+    .replace(/\bwe're\b/g, 'we are')
+    .replace(/\bi'm\b/g, 'i am')
+    .replace(/\bi've\b/g, 'i have')
+    .replace(/\bthey've\b/g, 'they have')
+    .replace(/\bwe've\b/g, 'we have')
+    .replace(/\byou've\b/g, 'you have')
+    .replace(/\bi'll\b/g, 'i will')
+    .replace(/\bhe'll\b/g, 'he will')
+    .replace(/\bshe'll\b/g, 'she will')
+    .replace(/\bthey'll\b/g, 'they will')
+    .replace(/\bwe'll\b/g, 'we will')
+    .replace(/\byou'll\b/g, 'you will');
+
+  const var2 = base.replace(/['’]/g, '');
+
+  return [base, var1, var2, cleanAnswer(str)];
+}
+
+function areAnswersEqual(userAns: string, correctAns: string): boolean {
+  if (!userAns || !correctAns) return false;
+
+  const uVariants = expandContractions(userAns);
+  const cPossibilities = (correctAns || '')
+    .split(/[,/]/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  for (const pos of cPossibilities) {
+    const cVariants = expandContractions(pos);
+    for (const u of uVariants) {
+      if (cVariants.includes(u)) return true;
+      const uStripped = u.replace(/[^a-z0-9]/g, '');
+      for (const c of cVariants) {
+        if (uStripped === c.replace(/[^a-z0-9]/g, '')) return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 function grammarStateKey(userId: string, kind: 'review' | 'lesson' | 'class', id?: string | null): string {
   if (kind === 'review') return `lingopro_grammar_state_${GRAMMAR_STATE_VER}_${userId}_review`;
   if (kind === 'lesson') return `lingopro_grammar_state_${GRAMMAR_STATE_VER}_${userId}_lesson_${id}`;
@@ -804,7 +884,7 @@ function GrammarContent() {
   const options = Array.isArray(current.options) ? current.options : [];
   const useErrorClick = current.type === 'error_correction' && canUseErrorClickMode(current.question, options);
   const answersMatch = (a: string | null, b: string | undefined) =>
-    !!a && !!b && a.trim().toLowerCase() === b.trim().toLowerCase();
+    areAnswersEqual(a || '', b || '');
   const isCorrectSelected = answersMatch(selected, current.correct_answer);
 
   /* ── Quiz ─────────────────────────────────────────────────── */

@@ -265,30 +265,246 @@ function cleanAnswer(s: string): string {
   return (s || '')
     .toLowerCase()
     .trim()
-    .replace(/’/g, "'")
-    .replace(/dđin't/g, "didn't")
-    .replace(/don't/g, "don't")
-    .replace(/doesn't/g, "doesn't")
+    .replace(/[’`]/g, "'")
     .replace(/\s+/g, ' ');
 }
 
+function expandContractions(str: string): string[] {
+  const base = cleanAnswer(str)
+    .replace(/\bdđin't\b/g, "didn't")
+    .replace(/\b([a-z]+)\s*\.\.\.\s*([a-z]+)\b/gi, '$1 $2')
+    .replace(/[,/]/g, ' ');
+
+  const var1 = base
+    .replace(/\bdidn't\b/g, 'did not')
+    .replace(/\bdoesn't\b/g, 'does not')
+    .replace(/\bdon't\b/g, 'do not')
+    .replace(/\bisn't\b/g, 'is not')
+    .replace(/\baren't\b/g, 'are not')
+    .replace(/\bwasn't\b/g, 'was not')
+    .replace(/\bweren't\b/g, 'were not')
+    .replace(/\bhaven't\b/g, 'have not')
+    .replace(/\bhasn't\b/g, 'has not')
+    .replace(/\bwon't\b/g, 'will not')
+    .replace(/\bcan't\b/g, 'cannot')
+    .replace(/\bshan't\b/g, 'shall not')
+    .replace(/\bshouldn't\b/g, 'should not')
+    .replace(/\bwouldn't\b/g, 'would not')
+    .replace(/\bcouldn't\b/g, 'could not')
+    .replace(/\bain't\b/g, 'am not')
+    .replace(/\bit's\b/g, 'it is')
+    .replace(/\bhe's\b/g, 'he is')
+    .replace(/\bshe's\b/g, 'she is')
+    .replace(/\bthat's\b/g, 'that is')
+    .replace(/\bthere's\b/g, 'there is')
+    .replace(/\bwhat's\b/g, 'what is')
+    .replace(/\bthey're\b/g, 'they are')
+    .replace(/\byou're\b/g, 'you are')
+    .replace(/\bwe're\b/g, 'we are')
+    .replace(/\bi'm\b/g, 'i am')
+    .replace(/\bi've\b/g, 'i have')
+    .replace(/\bthey've\b/g, 'they have')
+    .replace(/\bwe've\b/g, 'we have')
+    .replace(/\byou've\b/g, 'you have')
+    .replace(/\bi'll\b/g, 'i will')
+    .replace(/\bhe'll\b/g, 'he will')
+    .replace(/\bshe'll\b/g, 'she will')
+    .replace(/\bthey'll\b/g, 'they will')
+    .replace(/\bwe'll\b/g, 'we will')
+    .replace(/\byou'll\b/g, 'you will');
+
+  const var2 = base.replace(/['’]/g, '');
+
+  return [base, var1, var2, cleanAnswer(str)];
+}
+
 function areAnswersEqual(userAns: string, correctAns: string): boolean {
-  const u = cleanAnswer(userAns);
-  const cList = (correctAns || '').split(',').map(cleanAnswer);
-  if (cList.includes(u)) return true;
-  const expand = (str: string) => str
-    .replace(/didn't/g, 'did not')
-    .replace(/doesn't/g, 'does not')
-    .replace(/don't/g, 'do not')
-    .replace(/isn't/g, 'is not')
-    .replace(/aren't/g, 'are not')
-    .replace(/wasn't/g, 'was not')
-    .replace(/weren't/g, 'were not')
-    .replace(/haven't/g, 'have not')
-    .replace(/hasn't/g, 'has not')
-    .replace(/won't/g, 'will not')
-    .replace(/can't/g, 'cannot');
-  return cList.map(expand).includes(expand(u));
+  if (!userAns || !correctAns) return false;
+
+  const uVariants = expandContractions(userAns);
+  const cPossibilities = (correctAns || '')
+    .split(/[,/]/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  for (const pos of cPossibilities) {
+    const cVariants = expandContractions(pos);
+    for (const u of uVariants) {
+      if (cVariants.includes(u)) return true;
+      const uStripped = u.replace(/[^a-z0-9]/g, '');
+      for (const c of cVariants) {
+        if (uStripped === c.replace(/[^a-z0-9]/g, '')) return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+function InlineGapQuestion({
+  question,
+  userAns,
+  onChangeAns,
+  submitted,
+  isCorrect,
+  onEnterSubmit,
+}: {
+  question: string;
+  userAns: string;
+  onChangeAns: (val: string) => void;
+  submitted: boolean;
+  isCorrect: boolean;
+  onEnterSubmit: () => void;
+}) {
+  const parts = question.split(/(_{2,}|\[\[.*?\]\])/g);
+  const gapCount = parts.filter((p) => /^_{2,}$|^\[\[.*?\]\]$/.test(p)).length;
+
+  const [gaps, setGaps] = useState<string[]>(() => new Array(Math.max(1, gapCount)).fill(''));
+
+  useEffect(() => {
+    const count = parts.filter((p) => /^_{2,}$|^\[\[.*?\]\]$/.test(p)).length;
+    setGaps(new Array(Math.max(1, count)).fill(''));
+  }, [question]);
+
+  const handleGapChange = (idx: number, val: string) => {
+    const newGaps = [...gaps];
+    newGaps[idx] = val;
+    setGaps(newGaps);
+    onChangeAns(newGaps.join(' '));
+  };
+
+  if (gapCount === 0) {
+    return (
+      <div className="space-y-3">
+        <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 leading-snug">
+          {question}
+        </h4>
+        <input
+          type="text"
+          disabled={submitted}
+          value={userAns}
+          onChange={(e) => onChangeAns(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter' && !submitted) onEnterSubmit(); }}
+          placeholder="Nhập câu trả lời..."
+          className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary text-sm font-semibold bg-background"
+        />
+      </div>
+    );
+  }
+
+  let gapCounter = 0;
+
+  return (
+    <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-relaxed">
+      {parts.map((part, i) => {
+        if (/^_{2,}$|^\[\[.*?\]\]$/.test(part)) {
+          const currentGapIdx = gapCounter++;
+          const val = gaps[currentGapIdx] || '';
+
+          let inputStyle = 'border-slate-300 dark:border-slate-700 focus:ring-2 focus:ring-primary bg-background text-primary';
+          if (submitted) {
+            inputStyle = isCorrect
+              ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 font-black ring-2 ring-emerald-200'
+              : 'border-rose-500 bg-rose-50 dark:bg-rose-950/60 text-rose-700 font-black ring-2 ring-rose-200';
+          }
+
+          return (
+            <input
+              key={i}
+              type="text"
+              disabled={submitted}
+              value={val}
+              onChange={(e) => handleGapChange(currentGapIdx, e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter' && !submitted) onEnterSubmit(); }}
+              placeholder={`chỗ trống ${currentGapIdx + 1}`}
+              className={`mx-1.5 px-3 py-1.5 border rounded-xl font-extrabold font-mono text-sm inline-block shadow-sm text-center min-w-[110px] max-w-[170px] transition-all ${inputStyle}`}
+            />
+          );
+        }
+        return <span key={i}>{part}</span>;
+      })}
+    </div>
+  );
+}
+
+function ErrorCorrectionQuestion({
+  question,
+  userAns,
+  onChangeAns,
+  submitted,
+  isCorrect,
+  correctAnswer,
+}: {
+  question: string;
+  userAns: string;
+  onChangeAns: (val: string) => void;
+  submitted: boolean;
+  isCorrect: boolean;
+  correctAnswer: string;
+}) {
+  const parts = question.split(/(\[\[.*?\]\])/g);
+  const candidateCount = parts.filter((p) => /^\[\[.*?\]\]$/.test(p)).length;
+
+  if (candidateCount === 0) {
+    return (
+      <div className="space-y-3">
+        <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 leading-snug">
+          {question}
+        </h4>
+        <input
+          type="text"
+          disabled={submitted}
+          value={userAns}
+          onChange={(e) => onChangeAns(e.target.value)}
+          placeholder="Nhập lỗi sai và từ sửa..."
+          className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary text-sm font-semibold bg-background"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-3">
+      <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-relaxed">
+        {parts.map((part, i) => {
+          if (/^\[\[.*?\]\]$/.test(part)) {
+            const rawWord = part.replace(/^\[\[|\]\]$/g, '').trim();
+            const isSelected = cleanAnswer(userAns) === cleanAnswer(rawWord) || userAns.includes(rawWord);
+
+            let btnStyle = 'border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 bg-indigo-50/70 dark:bg-indigo-950/40';
+            if (submitted) {
+              const isTargetError = cleanAnswer(correctAnswer).includes(cleanAnswer(rawWord)) || cleanAnswer(rawWord).includes(cleanAnswer(correctAnswer.split(' ')[0]));
+              if (isTargetError) {
+                btnStyle = 'border-emerald-500 bg-emerald-600 text-white font-black ring-2 ring-emerald-300 shadow-md';
+              } else if (isSelected && !isCorrect) {
+                btnStyle = 'border-rose-500 bg-rose-600 text-white font-black line-through shadow-md';
+              } else {
+                btnStyle = 'opacity-40 border-slate-200 dark:border-slate-800';
+              }
+            } else if (isSelected) {
+              btnStyle = 'border-primary bg-primary text-white font-extrabold ring-2 ring-primary/30 shadow-md';
+            }
+
+            return (
+              <button
+                key={i}
+                type="button"
+                disabled={submitted}
+                onClick={() => onChangeAns(rawWord)}
+                className={`mx-1 px-2.5 py-1 rounded-xl border underline decoration-2 font-extrabold text-sm transition-all ${btnStyle}`}
+              >
+                {rawWord}
+              </button>
+            );
+          }
+          return <span key={i}>{part}</span>;
+        })}
+      </div>
+      <p className="text-xs text-muted-foreground italic flex items-center gap-1">
+        <span>👉 Click vào từ gạch chân ở trên để chọn vị trí bị lỗi sai!</span>
+      </p>
+    </div>
+  );
 }
 
 function InlineLessonQuizPanel({
@@ -374,18 +590,39 @@ function InlineLessonQuizPanel({
           <span className="text-[10px] font-extrabold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-md mb-2 inline-block">
             {currentEx.type === 'multiple_choice' ? 'Trắc nghiệm' : currentEx.type === 'error_correction' ? 'Tìm lỗi sai' : 'Điền vào chỗ trống'}
           </span>
-          <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 leading-snug">
-            {currentEx.question}
-          </h4>
+
+          {currentEx.type === 'error_correction' ? (
+            <ErrorCorrectionQuestion
+              question={currentEx.question}
+              userAns={userAns}
+              onChangeAns={setUserAns}
+              submitted={submitted}
+              isCorrect={isCorrect}
+              correctAnswer={currentEx.correct_answer}
+            />
+          ) : currentEx.options && currentEx.options.length > 0 ? (
+            <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 leading-snug">
+              {currentEx.question}
+            </h4>
+          ) : (
+            <InlineGapQuestion
+              question={currentEx.question}
+              userAns={userAns}
+              onChangeAns={setUserAns}
+              submitted={submitted}
+              isCorrect={isCorrect}
+              onEnterSubmit={handleSubmit}
+            />
+          )}
         </div>
 
-        {/* Options list OR Text input */}
-        {currentEx.options && currentEx.options.length > 0 ? (
+        {/* Options list for Multiple Choice */}
+        {currentEx.options && currentEx.options.length > 0 && currentEx.type !== 'error_correction' && (
           <div className="space-y-2.5">
             {currentEx.options.map((opt: string, idx: number) => {
               const cleanOpt = opt.replace(/^[A-D]\.\s*/i, '');
               const isSelected = cleanAnswer(userAns) === cleanAnswer(cleanOpt) || userAns === opt;
-              const isRightOpt = cleanAnswer(cleanOpt) === cleanAnswer(currentEx.correct_answer);
+              const isRightOpt = areAnswersEqual(cleanOpt, currentEx.correct_answer);
 
               let optionStyle = 'border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-primary/5';
               if (submitted) {
@@ -413,18 +650,6 @@ function InlineLessonQuizPanel({
                 </button>
               );
             })}
-          </div>
-        ) : (
-          <div className="space-y-2">
-            <input
-              type="text"
-              disabled={submitted}
-              value={userAns}
-              onChange={(e) => setUserAns(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter' && !submitted) handleSubmit(); }}
-              placeholder="Nhập đáp án..."
-              className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary text-sm font-semibold bg-background"
-            />
           </div>
         )}
 
