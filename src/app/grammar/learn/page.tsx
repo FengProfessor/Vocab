@@ -490,6 +490,51 @@ function InlineLessonQuizPanel({
   );
 }
 
+function formatSectionTitle(rawTitle: string, idx: number): string {
+  if (!rawTitle) return 'Tổng quan bài học';
+
+  let cleaned = rawTitle.trim();
+
+  // If generic "Phần 1", "Phần 2"
+  if (/^Phần\s+\d+$/i.test(cleaned)) {
+    return idx === 0 ? 'Tổng quan & Mục tiêu bài học' : `Khối kiến thức ${idx + 1}`;
+  }
+
+  // Remove leading numbers like "1. " or "## 1. "
+  const text = cleaned.replace(/^(?:##\s*)?(\d+[\.\)]\s*)?/, '').trim();
+
+  // Keyword mappings to 2-4 word titles
+  if (text.includes('Xương câu') || text.includes('S – V – O') || text.includes('S-V-O')) {
+    return 'Cấu trúc câu S – V – O';
+  }
+  if (text.includes('Hòa hợp chủ ngữ') || text.includes('hòa hợp')) {
+    return 'Hòa hợp Chủ ngữ – Động từ';
+  }
+  if (text.includes('phủ định') || text.includes('nghi vấn') || text.includes('hai đường')) {
+    return 'Câu Phủ định & Nghi vấn (Be / Do / Does)';
+  }
+  if (text.includes('chính tả') || text.includes('đuôi -s') || text.includes('-es')) {
+    return 'Quy tắc chính tả đuôi -s / -es';
+  }
+
+  // Truncate at colon ':', dash '—', or ' là '
+  let shortText = text;
+  if (shortText.includes(':')) {
+    shortText = shortText.split(':')[0].trim();
+  } else if (shortText.includes('—')) {
+    shortText = shortText.split('—')[0].trim();
+  } else if (shortText.includes(' là ')) {
+    shortText = shortText.split(' là ')[0].trim();
+  }
+
+  if (shortText.length > 40) {
+    const words = shortText.split(' ');
+    shortText = words.slice(0, 6).join(' ');
+  }
+
+  return shortText || text;
+}
+
 function CollapsibleTheoryMarkdown({
   content,
   onTriggerPractice,
@@ -546,6 +591,7 @@ function CollapsibleTheoryMarkdown({
     <div className="space-y-4">
       {parts.map((sec, idx) => {
         const isOpen = !!expandedSections[idx];
+        const displayTitle = formatSectionTitle(sec.title, idx);
         return (
           <div
             key={idx}
@@ -561,7 +607,7 @@ function CollapsibleTheoryMarkdown({
                 <span className="shrink-0 h-7 w-7 rounded-lg bg-primary/10 text-primary text-xs font-black flex items-center justify-center border border-primary/20">
                   {idx + 1}
                 </span>
-                <span className="text-sm sm:text-base font-extrabold truncate">{sec.title}</span>
+                <span className="text-sm sm:text-base font-extrabold truncate">{displayTitle}</span>
               </div>
               <ChevronDown className={`shrink-0 h-5 w-5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-primary' : ''}`} />
             </button>
@@ -574,11 +620,11 @@ function CollapsibleTheoryMarkdown({
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        onTriggerPractice(idx, sec.title);
+                        onTriggerPractice(idx, displayTitle);
                       }}
                       className="px-4 py-2 bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-extrabold text-xs rounded-xl transition-colors flex items-center gap-1.5 shadow-sm"
                     >
-                      <Dumbbell className="h-3.5 w-3.5" /> ⚡ Luyện tập củng cố: {sec.title.split('.')[1] || sec.title}
+                      <Dumbbell className="h-3.5 w-3.5" /> ⚡ Luyện tập củng cố: {displayTitle}
                     </button>
                   </div>
                 )}
