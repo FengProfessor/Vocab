@@ -293,10 +293,12 @@ function areAnswersEqual(userAns: string, correctAns: string): boolean {
 
 function InlineLessonQuizPanel({
   exercises,
+  panelTitle,
   onClose,
   isSplitView = false,
 }: {
   exercises: any[];
+  panelTitle?: string;
   onClose?: () => void;
   isSplitView?: boolean;
 }) {
@@ -340,17 +342,17 @@ function InlineLessonQuizPanel({
     <div className={`flex flex-col h-full bg-background border rounded-3xl shadow-xl overflow-hidden ${isSplitView ? 'border-primary/30 ring-1 ring-primary/10' : ''}`}>
       {/* Header */}
       <div className="px-5 py-3.5 bg-gradient-to-r from-primary via-indigo-600 to-purple-600 text-white flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Dumbbell className="h-4 w-4" />
-          <span className="font-extrabold text-sm">Luyện Tập Trực Tiếp</span>
-          <span className="bg-white/20 text-white text-[10px] font-black px-2 py-0.5 rounded-full">
+        <div className="flex items-center gap-2 min-w-0 pr-2">
+          <Dumbbell className="h-4 w-4 shrink-0" />
+          <span className="font-extrabold text-sm truncate">{panelTitle || 'Luyện Tập Trực Tiếp'}</span>
+          <span className="shrink-0 bg-white/20 text-white text-[10px] font-black px-2 py-0.5 rounded-full">
             {currentIndex + 1} / {exercises.length}
           </span>
         </div>
         {onClose && (
           <button
             onClick={onClose}
-            className="h-7 w-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-xs font-bold transition-colors"
+            className="h-7 w-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-xs font-bold transition-colors shrink-0"
             title="Đóng"
           >
             ✕
@@ -493,7 +495,7 @@ function CollapsibleTheoryMarkdown({
   onTriggerPractice,
 }: {
   content: string;
-  onTriggerPractice?: (secIndex: number) => void;
+  onTriggerPractice?: (secIndex: number, secTitle: string) => void;
 }) {
   const [expandedSections, setExpandedSections] = useState<Record<number, boolean>>({ 0: true, 1: true });
 
@@ -517,7 +519,7 @@ function CollapsibleTheoryMarkdown({
         {onTriggerPractice && (
           <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
             <button
-              onClick={() => onTriggerPractice(0)}
+              onClick={() => onTriggerPractice(0, 'Bài tập tổng quan')}
               className="px-4 py-2.5 bg-gradient-to-r from-primary to-indigo-600 text-white font-extrabold text-xs rounded-xl shadow-md hover:opacity-90 transition-all flex items-center gap-1.5"
             >
               <Dumbbell className="h-3.5 w-3.5" /> ⚡ Làm bài tập củng cố ngay
@@ -572,11 +574,11 @@ function CollapsibleTheoryMarkdown({
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        onTriggerPractice(idx);
+                        onTriggerPractice(idx, sec.title);
                       }}
                       className="px-4 py-2 bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-extrabold text-xs rounded-xl transition-colors flex items-center gap-1.5 shadow-sm"
                     >
-                      <Dumbbell className="h-3.5 w-3.5" /> ⚡ Luyện tập 5 câu củng cố phần này
+                      <Dumbbell className="h-3.5 w-3.5" /> ⚡ Luyện tập củng cố: {sec.title.split('.')[1] || sec.title}
                     </button>
                   </div>
                 )}
@@ -625,6 +627,7 @@ function GrammarLearnContent() {
   const [splitView, setSplitView] = useState(false);
   const [quizModalOpen, setQuizModalOpen] = useState(false);
   const [quizSectionIndex, setQuizSectionIndex] = useState<number | null>(null);
+  const [quizSectionTitle, setQuizSectionTitle] = useState<string | null>(null);
 
   useEffect(() => {
     const init = async () => {
@@ -932,20 +935,61 @@ function GrammarLearnContent() {
   if (activeLesson) {
     const status = lessonStatus(activeLesson.id);
 
-    const getExercisesForSection = (secIdx: number) => {
+    const getExercisesForSection = (secIdx: number, secTitle?: string) => {
       if (!activeLesson?.exercises?.length) return [];
-      const chunkSize = Math.max(3, Math.floor(activeLesson.exercises.length / 5));
+      const exercises = activeLesson.exercises;
+      const titleLower = (secTitle || '').toLowerCase();
+
+      // Rule 1: "Chính tả", "đuôi -s", "-es"
+      if (titleLower.includes('chính tả') || titleLower.includes('đuôi -s') || titleLower.includes('-es') || titleLower.includes('ngôi 3') || titleLower.includes('ngôi thứ ba')) {
+        const matched = exercises.filter((ex: any) => {
+          const text = ((ex.question || '') + ' ' + (ex.explanation || '')).toLowerCase();
+          return text.includes('đuôi -s') || text.includes('-es') || text.includes('y thành') || text.includes('ngôi ba số ít') || text.includes('ngôi thứ ba') || text.includes('chính tả') || text.includes('chữ cái cuối') || text.includes('r01b');
+        });
+        if (matched.length > 0) return matched;
+      }
+
+      // Rule 2: "Phủ định", "nghi vấn", "do/does", "be và", "trợ động từ"
+      if (titleLower.includes('phủ định') || titleLower.includes('nghi vấn') || titleLower.includes('be và') || titleLower.includes('do/does') || titleLower.includes('đường')) {
+        const matched = exercises.filter((ex: any) => {
+          const text = ((ex.question || '') + ' ' + (ex.explanation || '')).toLowerCase();
+          return text.includes("don't") || text.includes("doesn't") || text.includes("do/does") || text.includes("mượn") || text.includes("phủ định") || text.includes("nghi vấn") || text.includes("trợ động từ") || text.includes("đảo be");
+        });
+        if (matched.length > 0) return matched;
+      }
+
+      // Rule 3: "Công thức", "Hòa hợp", "chủ ngữ", "số ít", "số nhiều"
+      if (titleLower.includes('công thức') || titleLower.includes('hòa hợp') || titleLower.includes('chủ ngữ') || titleLower.includes('số ít') || titleLower.includes('số nhiều')) {
+        const matched = exercises.filter((ex: any) => {
+          const text = ((ex.question || '') + ' ' + (ex.explanation || '')).toLowerCase();
+          return text.includes('hòa hợp') || text.includes('số ít') || text.includes('số nhiều') || text.includes('chủ ngữ') || text.includes('nối bằng and') || text.includes('danh từ');
+        });
+        if (matched.length > 0) return matched;
+      }
+
+      // Rule 4: "Định nghĩa", "xương câu", "tổng quan", "cấu trúc câu"
+      if (titleLower.includes('định nghĩa') || titleLower.includes('xương câu') || titleLower.includes('tổng quan') || titleLower.includes('cấu trúc')) {
+        const matched = exercises.filter((ex: any) => {
+          const text = ((ex.question || '') + ' ' + (ex.explanation || '')).toLowerCase();
+          return text.includes('động từ') || text.includes('s - v - o') || text.includes('chủ ngữ') || text.includes('be');
+        });
+        if (matched.length > 0) return matched;
+      }
+
+      // Fallback: chunk slicing by section index
+      const chunkSize = Math.max(3, Math.floor(exercises.length / 5));
       const start = secIdx * chunkSize;
-      const sliced = activeLesson.exercises.slice(start, start + chunkSize);
-      return sliced.length > 0 ? sliced : activeLesson.exercises.slice(0, 5);
+      const sliced = exercises.slice(start, start + chunkSize);
+      return sliced.length > 0 ? sliced : exercises.slice(0, 5);
     };
 
     const currentQuizExercises = quizSectionIndex !== null
-      ? getExercisesForSection(quizSectionIndex)
+      ? getExercisesForSection(quizSectionIndex, quizSectionTitle || undefined)
       : (activeLesson?.exercises || []);
 
-    const triggerSectionPractice = (secIdx: number) => {
+    const triggerSectionPractice = (secIdx: number, secTitle: string) => {
       setQuizSectionIndex(secIdx);
+      setQuizSectionTitle(secTitle);
       setQuizModalOpen(true);
     };
 
@@ -1059,6 +1103,7 @@ function GrammarLearnContent() {
             <div className="w-full max-w-xl max-h-[90vh] h-[650px] animate-in zoom-in-95 duration-200">
               <InlineLessonQuizPanel
                 exercises={currentQuizExercises}
+                panelTitle={quizSectionTitle ? `Luyện tập: ${quizSectionTitle.split('.')[1] || quizSectionTitle}` : 'Luyện Tập Bài Học'}
                 onClose={() => setQuizModalOpen(false)}
               />
             </div>
