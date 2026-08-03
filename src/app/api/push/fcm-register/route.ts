@@ -46,18 +46,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       // Bảng chưa tồn tại (migration chưa chạy) → bỏ qua, vẫn dùng legacy bên dưới
       console.warn('[FCM] fcm_tokens upsert skipped:', tokErr.message);
     } else {
-      // 1 user = 1 endpoint active: gỡ token cũ (app cài 2 lần / MT+DT) → cron không bắn N TB.
-      // Máy khác muốn nhận lại: mở app trên máy đó (register ghi đè).
-      const { error: pruneErr, count: pruned } = await supabase
-        .from('fcm_tokens')
-        .delete({ count: 'exact' })
-        .eq('user_id', userId)
-        .neq('token', fcmToken);
-      if (pruneErr) {
-        console.warn('[FCM] prune old tokens skipped:', pruneErr.message);
-      } else if (pruned && pruned > 0) {
-        console.log(`[FCM] Pruned ${pruned} old token(s) for user ${userId.slice(0, 8)}`);
-      }
+      // Do not prune tokens here! Allow multiple devices (Phone, Desktop).
+      // Dead tokens will be automatically removed in notifications.ts when Firebase rejects them.
     }
 
     // Legacy: vẫn ghi profiles.fcm_token để tương thích ngược

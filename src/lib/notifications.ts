@@ -117,58 +117,57 @@ export async function sendPushNotificationToUser(
       },
     };
 
+    const tokenStrings = ordered.map(t => t.token);
+    let response;
+    try {
+      response = await admin.messaging().sendEachForMulticast({
+        tokens: tokenStrings,
+        ...baseMessage,
+      });
+    } catch (err: unknown) {
+      const e = err as { message?: string; code?: string } | undefined;
+      return { error: `Multicast error: ${e?.message || e?.code || 'unknown'}` };
+    }
+
     const deadTokens: string[] = [];
     const errors: string[] = [];
 
-    for (const { token } of ordered) {
-      try {
-        const messageId = await admin.messaging().send({ token, ...baseMessage });
-
-        if (deadTokens.length) {
-          await supabase.from('fcm_tokens').delete().in('token', deadTokens);
-          if (profile?.fcm_token && deadTokens.includes(profile.fcm_token)) {
-            await supabase.from('profiles').update({ fcm_token: null }).eq('id', userId);
-          }
-          console.log(`[FCM] Cleared ${deadTokens.length} dead token(s) for user ${userId}`);
+    response.responses.forEach((resp, idx) => {
+      if (!resp.success && resp.error) {
+        errors.push(resp.error.message || resp.error.code || 'unknown');
+        if (isDeadTokenError(resp.error)) {
+          deadTokens.push(tokenStrings[idx]);
         }
-
-        if (profile && profile.fcm_token !== token) {
-          await supabase.from('profiles').update({ fcm_token: token }).eq('id', userId);
-        }
-
-        console.log(
-          `[FCM] Sent 1 notif (tried ${errors.length + 1}/${ordered.length}) user=${userId.slice(0, 8)}`
-        );
-        return {
-          messageId,
-          sentCount: 1,
-          tried: errors.length + 1,
-          tokenCount: ordered.length,
-        };
-      } catch (err: unknown) {
-        const e = err as { code?: string; message?: string } | undefined;
-        const detail = e?.message || e?.code || 'unknown';
-        errors.push(detail);
-        if (isDeadTokenError(err)) {
-          deadTokens.push(token);
-          continue;
-        }
-        // Lỗi khác: vẫn thử token kế (tránh 1 token web hỏng chặn hết phone).
-        console.warn(`[FCM] token fail user=${userId.slice(0, 8)}: ${detail}`);
-        continue;
       }
-    }
+    });
 
-    if (deadTokens.length) {
+    if (deadTokens.length > 0) {
       await supabase.from('fcm_tokens').delete().in('token', deadTokens);
       if (profile?.fcm_token && deadTokens.includes(profile.fcm_token)) {
         await supabase.from('profiles').update({ fcm_token: null }).eq('id', userId);
       }
-      console.log(`[FCM] Cleared ${deadTokens.length} dead token(s) for user ${userId}`);
+      console.log(`[FCM] Cleared ${deadTokens.length} dead token(s) for user ${userId.slice(0, 8)}`);
+    }
+
+    if (response.successCount > 0) {
+      // Update profile.fcm_token to the freshest successful token if it's not already
+      const firstSuccessIdx = response.responses.findIndex(r => r.success);
+      const successfulToken = tokenStrings[firstSuccessIdx];
+      if (profile && profile.fcm_token !== successfulToken) {
+        await supabase.from('profiles').update({ fcm_token: successfulToken }).eq('id', userId);
+      }
+
+      console.log(`[FCM] Sent to ${response.successCount}/${tokenStrings.length} tokens for user=${userId.slice(0, 8)}`);
+      return {
+        messageId: response.responses[firstSuccessIdx].messageId,
+        sentCount: response.successCount,
+        tried: tokenStrings.length,
+        tokenCount: tokenStrings.length,
+      };
     }
 
     return {
-      error: `All ${ordered.length} token(s) failed for user ${userId}: ${errors.slice(0, 3).join(' | ')}`,
+      error: `All ${tokenStrings.length} token(s) failed for user ${userId}: ${errors.slice(0, 3).join(' | ')}`,
     };
   } catch (err: unknown) {
     const e = err as { message?: string; code?: string } | undefined;
