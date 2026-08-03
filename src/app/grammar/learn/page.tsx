@@ -39,12 +39,69 @@ interface TopicProgressSummary {
   nextDueDate: string | null;
 }
 
-/** Cấu hình hiển thị 3 cấp độ — gradient đồng bộ với banner trong trang bài học */
-const LEVELS = [
-  { key: 'beginner', label: 'Cơ bản', sub: 'A0–A1', icon: '🌱', grad: 'from-emerald-500 to-teal-600' },
-  { key: 'intermediate', label: 'Trung cấp', sub: 'A2', icon: '🚀', grad: 'from-blue-500 to-indigo-600' },
-  { key: 'advanced', label: 'Nâng cao', sub: 'B1+', icon: '🎓', grad: 'from-purple-500 to-pink-600' },
+/** 5 Chặng Lộ Trình Ngữ Pháp THPT QG */
+const STAGES = [
+  {
+    id: 1,
+    name: 'CHẶNG 1: Thì & Nền Tảng Chia Động Từ',
+    sub: 'Buổi 01 – 07 • Nền tảng A0–A1',
+    icon: '🌱',
+    grad: 'from-emerald-600 via-teal-600 to-cyan-700',
+    badgeStyle: 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800',
+    range: [1, 7],
+  },
+  {
+    id: 2,
+    name: 'CHẶNG 2: Cấu Trúc Biến Đổi & Viết Lại Câu',
+    sub: 'Buổi 08 – 12 • Cứng cáp A2',
+    icon: '⚡',
+    grad: 'from-blue-600 via-indigo-600 to-violet-700',
+    badgeStyle: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-800',
+    range: [8, 12],
+  },
+  {
+    id: 3,
+    name: 'CHẶNG 3: Mệnh Đề & Từ Nối Mức Độ Khá',
+    sub: 'Buổi 13 – 16 • Thông thạo A2+',
+    icon: '🧩',
+    grad: 'from-purple-600 via-fuchsia-600 to-pink-700',
+    badgeStyle: 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-950/40 dark:text-purple-300 dark:border-purple-800',
+    range: [13, 16],
+  },
+  {
+    id: 4,
+    name: 'CHẶNG 4: Vùng Điểm 8+ & Nâng Cao THPT QG',
+    sub: 'Buổi 17 – 21 • Chuyên sâu B1+',
+    icon: '🎓',
+    grad: 'from-amber-600 via-orange-600 to-red-700',
+    badgeStyle: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800',
+    range: [17, 21],
+  },
+  {
+    id: 5,
+    name: 'CHẶNG 5: Tổng Ôn Đề Trộn & Phản Xạ Phòng Thi',
+    sub: 'Buổi 22 – 25 • Chinh phục 9+',
+    icon: '🏆',
+    grad: 'from-rose-600 via-pink-600 to-purple-700',
+    badgeStyle: 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800',
+    range: [22, 25],
+  },
 ] as const;
+
+function parseTopicTitle(raw: string): { badge: string; displayTitle: string; buoiNum: number } {
+  if (!raw) return { badge: 'THPT QG', displayTitle: '', buoiNum: 1 };
+  const match = raw.match(/^Buổi\s+(\d+)\s*[:\-\u2013\u2014]\s*(.+)$/i);
+  if (match) {
+    const num = parseInt(match[1], 10);
+    return {
+      badge: `BUỔI ${String(num).padStart(2, '0')}`,
+      displayTitle: match[2].trim(),
+      buoiNum: num,
+    };
+  }
+  return { badge: 'CHUYÊN ĐỀ', displayTitle: raw.trim(), buoiNum: 1 };
+}
+
 
 /** Đọc câu tiếng Anh — voice EN tường minh (tránh giọng Việt). */
 function speakEnglish(text: string) {
@@ -808,11 +865,14 @@ function GrammarLearnContent() {
             </div>
           )}
 
-          {LEVELS.map((lv) => {
-            const lvTopics = topics.filter((t) => t.level === lv.key);
-            if (lvTopics.length === 0) return null;
-            // Tổng tiến độ của cấp độ (chỉ có khi đăng nhập)
-            const lvProg = lvTopics.reduce(
+          {STAGES.map((stg) => {
+            const stgTopics = topics.filter((t) => {
+              const parsed = parseTopicTitle(t.title_vi || t.title);
+              return parsed.buoiNum >= stg.range[0] && parsed.buoiNum <= stg.range[1];
+            });
+            if (stgTopics.length === 0) return null;
+            // Tổng tiến độ của chặng
+            const stgProg = stgTopics.reduce(
               (acc, t) => {
                 const tp = progressByTopic[t.id];
                 if (tp) {
@@ -825,27 +885,27 @@ function GrammarLearnContent() {
               { done: 0, total: 0 },
             );
             return (
-              <section key={lv.key} className="space-y-3 pt-2 first:pt-0">
+              <section key={stg.id} className="space-y-3 pt-3 first:pt-0">
                 <div className="flex items-center justify-between px-1">
                   <div className="flex items-center gap-2.5">
-                    <span className={`h-9 w-9 rounded-xl bg-gradient-to-br ${lv.grad} text-white flex items-center justify-center text-base shadow-sm`}>
-                      {lv.icon}
+                    <span className={`h-10 w-10 rounded-2xl bg-gradient-to-br ${stg.grad} text-white flex items-center justify-center text-lg shadow-md shadow-slate-200/50 dark:shadow-none`}>
+                      {stg.icon}
                     </span>
                     <div>
-                      <h2 className="font-black text-slate-800 leading-tight">{lv.label}</h2>
-                      <p className="text-[11px] text-muted-foreground font-semibold tracking-wide">
-                        {lv.sub} · {lvTopics.length} chủ đề
+                      <h2 className="font-extrabold text-slate-900 dark:text-slate-100 text-sm sm:text-base leading-tight">{stg.name}</h2>
+                      <p className="text-[11px] text-muted-foreground font-medium tracking-wide">
+                        {stg.sub} · {stgTopics.length} chủ đề
                       </p>
                     </div>
                   </div>
-                  {userId && lvProg.total > 0 && (
-                    <span className="text-xs font-bold text-muted-foreground tabular-nums">
-                      {lvProg.done}/{lvProg.total} bài
+                  {userId && stgProg.total > 0 && (
+                    <span className="text-xs font-bold text-slate-500 tabular-nums bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200/60 dark:border-slate-700">
+                      {stgProg.done}/{stgProg.total} bài
                     </span>
                   )}
                 </div>
 
-                {lvTopics.map((topic) => {
+                {stgTopics.map((topic) => {
                   const lessons = lessonsByTopic[topic.id] || [];
                   const isOpen = expandedTopic === topic.id;
                   const tp = progressByTopic[topic.id];
@@ -854,52 +914,61 @@ function GrammarLearnContent() {
                     ? (typeof tp.learnedLessons === 'number' ? tp.learnedLessons : tp.masteredLessons)
                     : 0;
                   const isDue = tp?.nextDueDate != null && new Date(tp.nextDueDate).getTime() <= now;
+                  const parsed = parseTopicTitle(topic.title_vi || topic.title);
+
                   return (
                     <div
                       key={topic.id}
                       ref={(el) => { topicRefs.current[topic.id] = el; }}
-                      className={`bg-background border rounded-2xl shadow-sm overflow-hidden transition-all ${
-                        isOpen ? 'ring-2 ring-primary/15 border-primary/30' : ''
+                      className={`bg-background border rounded-2xl shadow-sm overflow-hidden transition-all duration-200 ${
+                        isOpen ? 'ring-2 ring-primary/20 border-primary/40 shadow-md' : 'hover:border-slate-300 dark:hover:border-slate-700'
                       }`}
                     >
                       <button
                         onClick={() => toggleTopic(topic.id)}
-                        className="w-full flex items-center gap-3 px-4 sm:px-5 py-4 hover:bg-muted/30 transition-colors text-left"
+                        className="w-full flex items-center gap-3.5 px-4 sm:px-5 py-4 hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors text-left"
                       >
-                        <span className={`shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br ${lv.grad} text-white flex items-center justify-center font-black text-sm shadow-sm ${pct === 100 ? '' : 'opacity-90'}`}>
-                          {pct === 100 ? <CheckCircle2 className="h-5 w-5" /> : (topic.title_vi || topic.title).charAt(0).toUpperCase()}
+                        <span className={`shrink-0 px-2.5 py-1 rounded-xl font-mono text-[11px] font-black border transition-all ${stg.badgeStyle}`}>
+                          {parsed.badge}
                         </span>
+
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-slate-800 truncate">{topic.title_vi || topic.title}</span>
+                            <span className="font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base leading-snug line-clamp-1">
+                              {parsed.displayTitle}
+                            </span>
                             {isDue && (
-                              <span className="shrink-0 text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-1.5 py-0.5">
+                              <span className="shrink-0 text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5 animate-pulse">
                                 Cần ôn
                               </span>
                             )}
+                            {pct === 100 && (
+                              <span className="shrink-0 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-2 py-0.5 flex items-center gap-1">
+                                <CheckCircle2 className="h-3 w-3" /> Hoàn thành
+                              </span>
+                            )}
                           </div>
-                          <div className="text-xs text-muted-foreground truncate">
-                            {topic.title}
-                            {typeof topic.lessonCount === 'number' ? ` · ${topic.lessonCount} bài` : ''}
-                          </div>
+
                           {userId && tp && tp.totalLessons > 0 && (
-                            <div className="flex items-center gap-2 mt-1.5">
-                              <div className="flex-1 max-w-[180px] h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                            <div className="flex items-center gap-2.5 mt-2">
+                              <div className="flex-1 max-w-[200px] h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
                                 <div
-                                  className={`h-full rounded-full transition-all ${pct === 100 ? 'bg-emerald-500' : 'bg-primary'}`}
+                                  className={`h-full rounded-full transition-all duration-500 ${pct === 100 ? 'bg-emerald-500' : 'bg-gradient-to-r from-indigo-500 to-primary'}`}
                                   style={{ width: `${pct}%` }}
                                 />
                               </div>
-                              <span className="text-[10px] text-muted-foreground tabular-nums">
-                                {learnedCount}/{tp.totalLessons}
+                              <span className="text-[10px] text-muted-foreground font-semibold tabular-nums">
+                                {learnedCount}/{tp.totalLessons} bài
                               </span>
                             </div>
                           )}
                         </div>
+
                         <ChevronDown
-                          className={`shrink-0 h-5 w-5 text-muted-foreground transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                          className={`shrink-0 h-5 w-5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-primary' : ''}`}
                         />
                       </button>
+
 
                       {isOpen && (
                         <div className="border-t divide-y">
