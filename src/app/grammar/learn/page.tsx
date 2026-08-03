@@ -13,7 +13,7 @@ import TenseTimeline from '@/components/grammar/TenseTimeline';
 import GoldenLesson from '@/components/grammar/GoldenLesson';
 import { GrammarFormula } from '@/components/grammar/GrammarFormula';
 import {
-  ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, Clock, Dumbbell, BookOpen, Volume2, History, FileDown,
+  ChevronLeft, ChevronDown, ChevronUp, Loader2, GraduationCap, CheckCircle2, XCircle, Clock, Dumbbell, BookOpen, Volume2, History, FileDown, Sparkles, Split,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { speak } from '@/lib/study';
@@ -261,7 +261,240 @@ const markdownComponents = {
   }
 };
 
-function CollapsibleTheoryMarkdown({ content }: { content: string }) {
+function cleanAnswer(s: string): string {
+  return (s || '')
+    .toLowerCase()
+    .trim()
+    .replace(/’/g, "'")
+    .replace(/dđin't/g, "didn't")
+    .replace(/don't/g, "don't")
+    .replace(/doesn't/g, "doesn't")
+    .replace(/\s+/g, ' ');
+}
+
+function areAnswersEqual(userAns: string, correctAns: string): boolean {
+  const u = cleanAnswer(userAns);
+  const cList = (correctAns || '').split(',').map(cleanAnswer);
+  if (cList.includes(u)) return true;
+  const expand = (str: string) => str
+    .replace(/didn't/g, 'did not')
+    .replace(/doesn't/g, 'does not')
+    .replace(/don't/g, 'do not')
+    .replace(/isn't/g, 'is not')
+    .replace(/aren't/g, 'are not')
+    .replace(/wasn't/g, 'was not')
+    .replace(/weren't/g, 'were not')
+    .replace(/haven't/g, 'have not')
+    .replace(/hasn't/g, 'has not')
+    .replace(/won't/g, 'will not')
+    .replace(/can't/g, 'cannot');
+  return cList.map(expand).includes(expand(u));
+}
+
+function InlineLessonQuizPanel({
+  exercises,
+  onClose,
+  isSplitView = false,
+}: {
+  exercises: any[];
+  onClose?: () => void;
+  isSplitView?: boolean;
+}) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [userAns, setUserAns] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [score, setScore] = useState(0);
+
+  if (!exercises || exercises.length === 0) {
+    return (
+      <div className="p-8 text-center text-muted-foreground bg-background border rounded-3xl shadow-sm">
+        <Dumbbell className="h-10 w-10 mx-auto mb-2 opacity-30 text-primary" />
+        <p className="font-bold text-sm">Chưa có bài tập cho phần này.</p>
+        <p className="text-xs mt-1">Vui lòng làm bài tập tổng hợp ở cuối bài!</p>
+      </div>
+    );
+  }
+
+  const currentEx = exercises[currentIndex];
+
+  const handleSubmit = () => {
+    if (!userAns.trim()) return;
+    const correct = areAnswersEqual(userAns, currentEx.correct_answer);
+    setIsCorrect(correct);
+    setSubmitted(true);
+    if (correct) {
+      setScore((prev) => prev + 1);
+    }
+  };
+
+  const handleNext = () => {
+    setSubmitted(false);
+    setUserAns('');
+    if (currentIndex < exercises.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
+    }
+  };
+
+  return (
+    <div className={`flex flex-col h-full bg-background border rounded-3xl shadow-xl overflow-hidden ${isSplitView ? 'border-primary/30 ring-1 ring-primary/10' : ''}`}>
+      {/* Header */}
+      <div className="px-5 py-3.5 bg-gradient-to-r from-primary via-indigo-600 to-purple-600 text-white flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Dumbbell className="h-4 w-4" />
+          <span className="font-extrabold text-sm">Luyện Tập Trực Tiếp</span>
+          <span className="bg-white/20 text-white text-[10px] font-black px-2 py-0.5 rounded-full">
+            {currentIndex + 1} / {exercises.length}
+          </span>
+        </div>
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="h-7 w-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-xs font-bold transition-colors"
+            title="Đóng"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+
+      {/* Progress Bar */}
+      <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5">
+        <div
+          className="bg-primary h-full transition-all duration-300"
+          style={{ width: `${((currentIndex + 1) / exercises.length) * 100}%` }}
+        />
+      </div>
+
+      {/* Quiz Content Body */}
+      <div className="flex-1 p-5 sm:p-6 overflow-y-auto space-y-4">
+        <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5">
+          <span className="text-[10px] font-extrabold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-md mb-2 inline-block">
+            {currentEx.type === 'multiple_choice' ? 'Trắc nghiệm' : currentEx.type === 'error_correction' ? 'Tìm lỗi sai' : 'Điền vào chỗ trống'}
+          </span>
+          <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 leading-snug">
+            {currentEx.question}
+          </h4>
+        </div>
+
+        {/* Options list OR Text input */}
+        {currentEx.options && currentEx.options.length > 0 ? (
+          <div className="space-y-2.5">
+            {currentEx.options.map((opt: string, idx: number) => {
+              const cleanOpt = opt.replace(/^[A-D]\.\s*/i, '');
+              const isSelected = cleanAnswer(userAns) === cleanAnswer(cleanOpt) || userAns === opt;
+              const isRightOpt = cleanAnswer(cleanOpt) === cleanAnswer(currentEx.correct_answer);
+
+              let optionStyle = 'border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-primary/5';
+              if (submitted) {
+                if (isRightOpt) {
+                  optionStyle = 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-900 dark:text-emerald-200 font-bold';
+                } else if (isSelected && !isCorrect) {
+                  optionStyle = 'border-rose-500 bg-rose-50 dark:bg-rose-950/50 text-rose-900 dark:text-rose-200 font-bold';
+                } else {
+                  optionStyle = 'border-slate-200 dark:border-slate-800 opacity-50';
+                }
+              } else if (isSelected) {
+                optionStyle = 'border-primary bg-primary/10 text-primary font-bold ring-2 ring-primary/20';
+              }
+
+              return (
+                <button
+                  key={idx}
+                  disabled={submitted}
+                  onClick={() => setUserAns(cleanOpt)}
+                  className={`w-full p-3.5 rounded-xl border text-left font-medium text-sm transition-all flex items-center justify-between ${optionStyle}`}
+                >
+                  <span>{opt}</span>
+                  {submitted && isRightOpt && <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />}
+                  {submitted && isSelected && !isCorrect && <XCircle className="h-4 w-4 text-rose-600 shrink-0" />}
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="space-y-2">
+            <input
+              type="text"
+              disabled={submitted}
+              value={userAns}
+              onChange={(e) => setUserAns(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter' && !submitted) handleSubmit(); }}
+              placeholder="Nhập đáp án..."
+              className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary text-sm font-semibold bg-background"
+            />
+          </div>
+        )}
+
+        {/* Feedback & Explanation */}
+        {submitted && (
+          <div className={`p-4 rounded-2xl border text-sm space-y-1.5 animate-in fade-in slide-in-from-bottom-2 ${
+            isCorrect ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200' : 'bg-rose-50 dark:bg-rose-950/50 border-rose-200 dark:border-rose-800 text-rose-900 dark:text-rose-200'
+          }`}>
+            <div className="flex items-center gap-2 font-black">
+              {isCorrect ? <CheckCircle2 className="h-4 w-4 text-emerald-600" /> : <XCircle className="h-4 w-4 text-rose-600" />}
+              <span>{isCorrect ? 'Chính xác! (+10 XP)' : 'Chưa đúng!'}</span>
+            </div>
+            {!isCorrect && (
+              <p className="text-xs font-bold text-rose-700 dark:text-rose-300">
+                Đáp án đúng: <span className="font-mono underline">{currentEx.correct_answer}</span>
+              </p>
+            )}
+            {currentEx.explanation && (
+              <p className="text-xs leading-relaxed opacity-90 pt-1.5 border-t border-black/10 dark:border-white/10">
+                💡 <strong>Giải thích:</strong> {currentEx.explanation}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Action Footer */}
+      <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 flex items-center justify-between">
+        <span className="text-xs font-bold text-slate-500">
+          Đúng: {score}/{currentIndex + (submitted ? 1 : 0)}
+        </span>
+
+        {!submitted ? (
+          <button
+            disabled={!userAns.trim()}
+            onClick={handleSubmit}
+            className="px-5 py-2.5 bg-primary text-white font-extrabold text-sm rounded-xl hover:opacity-90 disabled:opacity-40 transition-all shadow-sm"
+          >
+            Kiểm tra đáp án
+          </button>
+        ) : currentIndex < exercises.length - 1 ? (
+          <button
+            onClick={handleNext}
+            className="px-5 py-2.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-extrabold text-sm rounded-xl hover:opacity-90 transition-all flex items-center gap-1.5"
+          >
+            Câu tiếp ➔
+          </button>
+        ) : (
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-extrabold text-emerald-600">🎉 Đã xong lượt này!</span>
+            {onClose && (
+              <button
+                onClick={onClose}
+                className="px-3.5 py-1.5 bg-emerald-600 text-white font-extrabold text-xs rounded-xl hover:bg-emerald-700"
+              >
+                Đóng
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function CollapsibleTheoryMarkdown({
+  content,
+  onTriggerPractice,
+}: {
+  content: string;
+  onTriggerPractice?: (secIndex: number) => void;
+}) {
   const [expandedSections, setExpandedSections] = useState<Record<number, boolean>>({ 0: true, 1: true });
 
   if (!content) return null;
@@ -281,6 +514,16 @@ function CollapsibleTheoryMarkdown({ content }: { content: string }) {
     return (
       <div className="prose prose-slate max-w-none bg-background border rounded-3xl p-6 sm:p-8 shadow-sm">
         <LazyMarkdown components={markdownComponents}>{content}</LazyMarkdown>
+        {onTriggerPractice && (
+          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+            <button
+              onClick={() => onTriggerPractice(0)}
+              className="px-4 py-2.5 bg-gradient-to-r from-primary to-indigo-600 text-white font-extrabold text-xs rounded-xl shadow-md hover:opacity-90 transition-all flex items-center gap-1.5"
+            >
+              <Dumbbell className="h-3.5 w-3.5" /> ⚡ Làm bài tập củng cố ngay
+            </button>
+          </div>
+        )}
       </div>
     );
   }
@@ -324,6 +567,19 @@ function CollapsibleTheoryMarkdown({ content }: { content: string }) {
             {isOpen && (
               <div className="p-6 sm:p-8 prose prose-slate max-w-none border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
                 <LazyMarkdown components={markdownComponents}>{sec.body}</LazyMarkdown>
+                {onTriggerPractice && (
+                  <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onTriggerPractice(idx);
+                      }}
+                      className="px-4 py-2 bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-extrabold text-xs rounded-xl transition-colors flex items-center gap-1.5 shadow-sm"
+                    >
+                      <Dumbbell className="h-3.5 w-3.5" /> ⚡ Luyện tập 5 câu củng cố phần này
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -364,6 +620,11 @@ function GrammarLearnContent() {
   const [annotationsCache, setAnnotationsCache] = useState<Record<string, WordAnnotation[]>>({});
   const [loadingAnnotations, setLoadingAnnotations] = useState(false);
   const annotatedLessons = useRef<Set<string>>(new Set());
+
+  // Split View & Quiz Pop-up State
+  const [splitView, setSplitView] = useState(false);
+  const [quizModalOpen, setQuizModalOpen] = useState(false);
+  const [quizSectionIndex, setQuizSectionIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const init = async () => {
@@ -670,71 +931,139 @@ function GrammarLearnContent() {
 
   if (activeLesson) {
     const status = lessonStatus(activeLesson.id);
+
+    const getExercisesForSection = (secIdx: number) => {
+      if (!activeLesson?.exercises?.length) return [];
+      const chunkSize = Math.max(3, Math.floor(activeLesson.exercises.length / 5));
+      const start = secIdx * chunkSize;
+      const sliced = activeLesson.exercises.slice(start, start + chunkSize);
+      return sliced.length > 0 ? sliced : activeLesson.exercises.slice(0, 5);
+    };
+
+    const currentQuizExercises = quizSectionIndex !== null
+      ? getExercisesForSection(quizSectionIndex)
+      : (activeLesson?.exercises || []);
+
+    const triggerSectionPractice = (secIdx: number) => {
+      setQuizSectionIndex(secIdx);
+      setQuizModalOpen(true);
+    };
+
     return (
       <main className="min-h-dvh bg-muted/40 font-sans">
-        <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 flex items-center px-4 sm:px-6">
+        <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 flex items-center justify-between px-4 sm:px-6">
           <button
             onClick={() => setActiveLesson(null)}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-semibold"
           >
             <ChevronLeft className="h-4 w-4" /> Lộ trình
           </button>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setSplitView((v) => !v)}
+              className={`hidden lg:flex items-center gap-1.5 text-xs font-extrabold px-3.5 py-1.5 rounded-full border transition-all ${
+                splitView
+                  ? 'bg-primary text-white border-primary shadow-sm'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+              }`}
+              title="Bật/Tắt chế độ Vừa đọc Lý thuyết vừa Làm bài tập song song"
+            >
+              <Split className="h-3.5 w-3.5" />
+              <span>{splitView ? 'Màn hình Đọc' : '🖥️ Vừa đọc vừa làm (Split View)'}</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setQuizSectionIndex(null);
+                setQuizModalOpen(true);
+              }}
+              className="flex items-center gap-1.5 text-xs font-extrabold px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm hover:opacity-95 transition-all"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>⚡ Làm bài tập ngay</span>
+            </button>
+          </div>
         </header>
 
-        <article className="max-w-3xl mx-auto p-4 sm:p-8 space-y-6">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-            <span>{activeLesson.topic?.title_vi || activeLesson.topic?.title || 'Ngữ Pháp THPT QG'}</span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-slate-100">{activeLesson.title}</h1>
+        <div className={splitView ? 'max-w-7xl mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start' : ''}>
+          <article className={splitView ? 'space-y-6' : 'max-w-3xl mx-auto p-4 sm:p-8 space-y-6'}>
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+              <span>{activeLesson.topic?.title_vi || activeLesson.topic?.title || 'Ngữ Pháp THPT QG'}</span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-slate-100">{activeLesson.title}</h1>
 
-          {activeLesson.image_url && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={resolveImageSrc(activeLesson.image_url)}
-              referrerPolicy="no-referrer"
-              alt={activeLesson.title}
-              loading="lazy"
-              decoding="async"
-              className="w-full max-h-64 object-cover rounded-2xl border"
-            />
+            {activeLesson.image_url && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={resolveImageSrc(activeLesson.image_url)}
+                referrerPolicy="no-referrer"
+                alt={activeLesson.title}
+                loading="lazy"
+                decoding="async"
+                className="w-full max-h-64 object-cover rounded-2xl border"
+              />
+            )}
+
+            {activeLesson.sections ? (
+              <GoldenLesson sections={activeLesson.sections} exercises={activeLesson.exercises} />
+            ) : (
+              <CollapsibleTheoryMarkdown
+                content={
+                  activeLesson.source === 'ai-golden' || activeLesson.source === '25-chuyen-de-v2'
+                    ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
+                    : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
+                }
+                onTriggerPractice={triggerSectionPractice}
+              />
+            )}
+
+            {/* Action Bar */}
+            <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={() => {
+                    setQuizSectionIndex(null);
+                    setQuizModalOpen(true);
+                  }}
+                  className="flex-1 bg-gradient-to-r from-primary to-indigo-600 text-white font-extrabold py-3.5 px-6 rounded-2xl hover:opacity-95 shadow-md shadow-primary/20 transition-all flex items-center justify-center gap-2 text-base"
+                >
+                  <Dumbbell className="h-5 w-5" /> Bắt đầu làm bài tập Pop-up ngay
+                </button>
+                <button
+                  onClick={markAsLearned}
+                  disabled={marking}
+                  className="border-2 border-slate-200 dark:border-slate-700 font-bold py-3.5 px-6 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 disabled:opacity-50"
+                >
+                  {marking ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4 text-emerald-500" />}
+                  {status === 'new' ? 'Đã đọc xong' : 'Ôn lại xong'}
+                </button>
+              </div>
+            </div>
+          </article>
+
+          {/* Split Screen Panel on Desktop */}
+          {splitView && (
+            <div className="sticky top-20 hidden lg:block h-[calc(100vh-6rem)]">
+              <InlineLessonQuizPanel
+                exercises={activeLesson.exercises || []}
+                isSplitView={true}
+              />
+            </div>
           )}
+        </div>
 
-          {activeLesson.sections ? (
-            <GoldenLesson sections={activeLesson.sections} exercises={activeLesson.exercises} />
-          ) : (
-            <CollapsibleTheoryMarkdown
-              content={
-                activeLesson.source === 'ai-golden' || activeLesson.source === '25-chuyen-de-v2'
-                  ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
-                  : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
-              }
-            />
-          )}
-
-          {/* Action Bar */}
-          <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <button
-                onClick={() => {
-                  const qs = new URLSearchParams({ lesson: activeLesson.id });
-                  if (roadmapStepId) qs.set('roadmapStep', roadmapStepId);
-                  router.push(`/grammar?${qs.toString()}`);
-                }}
-                className="flex-1 bg-gradient-to-r from-primary to-indigo-600 text-white font-extrabold py-3.5 px-6 rounded-2xl hover:opacity-95 shadow-md shadow-primary/20 transition-all flex items-center justify-center gap-2 text-base"
-              >
-                <Dumbbell className="h-5 w-5" /> Bắt đầu làm bài tập củng cố
-              </button>
-              <button
-                onClick={markAsLearned}
-                disabled={marking}
-                className="border-2 border-slate-200 dark:border-slate-700 font-bold py-3.5 px-6 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 disabled:opacity-50"
-              >
-                {marking ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4 text-emerald-500" />}
-                {status === 'new' ? 'Đã đọc xong' : 'Ôn lại xong'}
-              </button>
+        {/* Pop-up Quiz Modal */}
+        {quizModalOpen && (
+          <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
+            <div className="w-full max-w-xl max-h-[90vh] h-[650px] animate-in zoom-in-95 duration-200">
+              <InlineLessonQuizPanel
+                exercises={currentQuizExercises}
+                onClose={() => setQuizModalOpen(false)}
+              />
             </div>
           </div>
-        </article>
+        )}
       </main>
     );
   }
