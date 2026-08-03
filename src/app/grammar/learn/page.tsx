@@ -112,12 +112,57 @@ function speakEnglish(text: string) {
   speak(text, 0.9);
 }
 
+function ensureMarkdownTableFormat(text: string): string {
+  if (!text) return '';
+  const lines = text.split('\n');
+  const result: string[] = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i].trim();
+
+    // Smashed || rows -> split into clean | col1 | col2 |
+    if (line.includes('||')) {
+      const segs = line.split('||').map((s) => s.trim()).filter(Boolean);
+      if (segs.length > 1) {
+        line = '| ' + segs.join(' | ') + ' |';
+      }
+    }
+
+    // If line looks like a table row: starts/ends with | or has >= 2 pipes
+    const isPipeLine = line.includes('|') && !line.startsWith('#') && !line.startsWith('```');
+
+    if (isPipeLine) {
+      const cells = line.split('|').map((s) => s.trim()).filter(Boolean);
+      if (cells.length >= 2) {
+        const prevLine = result[result.length - 1] || '';
+        const prevIsPipe = prevLine.includes('|') && !prevLine.startsWith('#');
+
+        if (!prevIsPipe) {
+          result.push(`| ${cells.join(' | ')} |`);
+          const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+          const nextIsDivider = /^\|?\s*:?-+:?\s*\|/.test(nextLine);
+          if (!nextIsDivider) {
+            result.push(`| ${cells.map(() => '---').join(' | ')} |`);
+          }
+          continue;
+        }
+      }
+    }
+
+    result.push(lines[i]);
+  }
+
+  return result.join('\n');
+}
+
 function formatOcrTheory(text: string): string {
   if (!text) return '';
 
+  const cleanText = ensureMarkdownTableFormat(text);
+
   // Nếu text đã có định dạng Markdown chuẩn (bảng, tiêu đề, codeblock), trả về trực tiếp không phá vỡ dòng
-  if (text.includes('| --- |') || text.includes('|---|') || text.includes('| ---') || text.includes('```formula') || text.includes('## ')) {
-    return text;
+  if (cleanText.includes('| --- |') || cleanText.includes('|---|') || cleanText.includes('| ---') || cleanText.includes('```formula') || cleanText.includes('## ')) {
+    return cleanText;
   }
 
   // 1. Chuẩn hóa xuống dòng
@@ -1325,9 +1370,11 @@ function GrammarLearnContent() {
             ) : (
               <CollapsibleTheoryMarkdown
                 content={
-                  activeLesson.source === 'ai-golden' || activeLesson.source === '25-chuyen-de-v2'
-                    ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
-                    : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
+                  ensureMarkdownTableFormat(
+                    activeLesson.source === 'ai-golden' || activeLesson.source === '25-chuyen-de-v2'
+                      ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
+                      : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
+                  )
                 }
                 onTriggerPractice={triggerSectionPractice}
               />
