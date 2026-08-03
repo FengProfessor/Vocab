@@ -206,6 +206,143 @@ function formatOcrTheory(text: string): string {
   return formatted;
 }
 
+const markdownComponents = {
+  h2: ({ node: _node, ...props }: any) => (
+    <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-2.5 mb-4 mt-6 flex items-center gap-2" {...props} />
+  ),
+  h3: ({ node: _node, ...props }: any) => (
+    <h3 className="text-lg font-extrabold text-slate-700 dark:text-slate-200 mb-3 mt-4" {...props} />
+  ),
+  blockquote: ({ node: _node, ...props }: any) => (
+    <blockquote className="my-4 p-4 bg-amber-50/70 dark:bg-amber-950/40 border-l-4 border-amber-500 rounded-r-2xl text-amber-900 dark:text-amber-200 text-sm leading-relaxed" {...props} />
+  ),
+  table: ({ node: _node, ...props }: any) => (
+    <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200/80 shadow-md bg-white dark:bg-slate-900 dark:border-slate-800">
+      <table className="w-full text-left text-sm text-slate-700 dark:text-slate-200 border-collapse" {...props} />
+    </div>
+  ),
+  thead: ({ node: _node, ...props }: any) => <thead className="bg-indigo-50/90 dark:bg-indigo-950/60 text-xs text-indigo-950 dark:text-indigo-200 uppercase font-black tracking-wider border-b border-indigo-100 dark:border-indigo-900" {...props} />,
+  th: ({ node: _node, ...props }: any) => <th className="px-4 py-3.5 border-b font-extrabold tracking-wider text-indigo-950 dark:text-indigo-100" {...props} />,
+  td: ({ node: _node, ...props }: any) => <td className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300" {...props} />,
+  tr: ({ node: _node, ...props }: any) => <tr className="odd:bg-white even:bg-slate-50/60 dark:odd:bg-slate-900 dark:even:bg-slate-800/40 hover:bg-indigo-50/40 dark:hover:bg-indigo-900/30 transition-colors" {...props} />,
+  ul: ({ node: _node, ...props }: any) => <ul className="my-4 space-y-2.5 list-disc list-inside text-slate-700 dark:text-slate-200" {...props} />,
+  ol: ({ node: _node, ...props }: any) => <ol className="my-4 space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-200" {...props} />,
+  li: ({ node: _node, ...props }: any) => <li className="leading-relaxed font-medium marker:text-primary marker:font-bold" {...props} />,
+  code: ({ node: _node, inline, className: _className, children, ...props }: {
+    node?: unknown;
+    inline?: boolean;
+    className?: string;
+    children?: React.ReactNode;
+  } & React.HTMLAttributes<HTMLElement>) => {
+    const codeText = String(children).replace(/\n$/, '');
+    if (!inline && _className === 'language-formula') {
+      return <GrammarFormula code={codeText} />;
+    }
+    const isFormula = (codeText.includes('+') || codeText.includes('→') || codeText.includes('=>')) && codeText.length < 80;
+    if (inline) {
+      if (isFormula) {
+        return (
+          <code className="px-2.5 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-black font-mono text-xs inline-block mx-1.5 shadow-sm" {...props}>
+            {codeText}
+          </code>
+        );
+      }
+      return (
+        <code className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold font-mono text-xs mx-0.5" {...props}>
+          {codeText}
+        </code>
+      );
+    }
+    return (
+      <pre className="p-4 rounded-2xl bg-slate-900 text-slate-200 font-mono text-sm overflow-x-auto shadow-inner my-4 border border-slate-800">
+        <code {...props}>{codeText}</code>
+      </pre>
+    );
+  }
+};
+
+function CollapsibleTheoryMarkdown({ content }: { content: string }) {
+  const [expandedSections, setExpandedSections] = useState<Record<number, boolean>>({ 0: true, 1: true });
+
+  if (!content) return null;
+
+  const parts = content.split(/\n(?=##\s+)/g).map((part, idx) => {
+    const lines = part.trim().split('\n');
+    let title = `Phần ${idx + 1}`;
+    let body = part.trim();
+    if (lines[0].startsWith('## ')) {
+      title = lines[0].replace(/^##\s+/, '').trim();
+      body = lines.slice(1).join('\n').trim();
+    }
+    return { title, body };
+  });
+
+  if (parts.length <= 1 || content.length < 1200) {
+    return (
+      <div className="prose prose-slate max-w-none bg-background border rounded-3xl p-6 sm:p-8 shadow-sm">
+        <LazyMarkdown components={markdownComponents}>{content}</LazyMarkdown>
+      </div>
+    );
+  }
+
+  const toggleSection = (idx: number) => {
+    setExpandedSections((prev) => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
+  const expandAll = () => {
+    const allState: Record<number, boolean> = {};
+    parts.forEach((_, idx) => { allState[idx] = true; });
+    setExpandedSections(allState);
+  };
+
+  const hasCollapsed = parts.some((_, idx) => !expandedSections[idx]);
+
+  return (
+    <div className="space-y-4">
+      {parts.map((sec, idx) => {
+        const isOpen = !!expandedSections[idx];
+        return (
+          <div
+            key={idx}
+            className={`bg-background border rounded-2xl shadow-sm overflow-hidden transition-all duration-200 ${
+              isOpen ? 'border-primary/30 ring-1 ring-primary/10' : 'hover:border-slate-300 dark:hover:border-slate-700'
+            }`}
+          >
+            <button
+              onClick={() => toggleSection(idx)}
+              className="w-full flex items-center justify-between px-5 py-4 bg-slate-50/80 dark:bg-slate-900/60 hover:bg-slate-100/90 dark:hover:bg-slate-800/90 transition-colors text-left font-bold text-slate-800 dark:text-slate-200"
+            >
+              <div className="flex items-center gap-3 min-w-0 pr-2">
+                <span className="shrink-0 h-7 w-7 rounded-lg bg-primary/10 text-primary text-xs font-black flex items-center justify-center border border-primary/20">
+                  {idx + 1}
+                </span>
+                <span className="text-sm sm:text-base font-extrabold truncate">{sec.title}</span>
+              </div>
+              <ChevronDown className={`shrink-0 h-5 w-5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-primary' : ''}`} />
+            </button>
+
+            {isOpen && (
+              <div className="p-6 sm:p-8 prose prose-slate max-w-none border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
+                <LazyMarkdown components={markdownComponents}>{sec.body}</LazyMarkdown>
+              </div>
+            )}
+          </div>
+        );
+      })}
+
+      {hasCollapsed && (
+        <button
+          onClick={expandAll}
+          className="w-full py-3 px-4 border border-dashed border-primary/40 rounded-xl text-primary font-bold text-sm bg-primary/5 hover:bg-primary/10 transition-colors flex items-center justify-center gap-2"
+        >
+          <ChevronDown className="h-4 w-4" /> Mở rộng toàn bộ bài học
+        </button>
+      )}
+    </div>
+  );
+}
+
+
 function GrammarLearnContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -544,10 +681,13 @@ function GrammarLearnContent() {
           </button>
         </header>
 
-        <article className="max-w-2xl mx-auto p-4 sm:p-8 space-y-6">
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-800">{activeLesson.title}</h1>
+        <article className="max-w-3xl mx-auto p-4 sm:p-8 space-y-6">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+            <span>{activeLesson.topic?.title_vi || activeLesson.topic?.title || 'Ngữ Pháp THPT QG'}</span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-slate-100">{activeLesson.title}</h1>
 
-          {activeLesson.image_url ? (
+          {activeLesson.image_url && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={resolveImageSrc(activeLesson.image_url)}
@@ -557,136 +697,22 @@ function GrammarLearnContent() {
               decoding="async"
               className="w-full max-h-64 object-cover rounded-2xl border"
             />
-          ) : (
-            // Beautiful colored level-based HSL gradient header
-            <div className={`w-full min-h-32 rounded-2xl border flex flex-col justify-end p-6 text-white bg-gradient-to-br ${
-              activeLesson.topic?.level === 'beginner' 
-                ? 'from-emerald-500 to-teal-600 shadow-emerald-100/10' 
-                : activeLesson.topic?.level === 'intermediate'
-                  ? 'from-blue-500 to-indigo-600 shadow-blue-100/10'
-                  : 'from-purple-500 to-pink-600 shadow-purple-100/10'
-            } shadow-lg relative overflow-hidden`}>
-              <div className="absolute top-0 right-0 p-8 opacity-10 font-bold text-7xl pointer-events-none select-none">
-                {activeLesson.topic?.level === 'beginner' ? 'A0–A1' : activeLesson.topic?.level === 'intermediate' ? 'A2' : 'B1+'}
-              </div>
-              <span className="text-[10px] font-black uppercase tracking-widest bg-white/20 px-2.5 py-1 rounded-full w-max mb-1.5 backdrop-blur-sm">
-                📚 Ngữ Pháp • {activeLesson.topic?.level === 'beginner' ? 'Cơ bản A0–A1' : activeLesson.topic?.level === 'intermediate' ? 'A2' : 'B1+'}
-              </span>
-              <p className="text-xs text-white/80 font-medium tracking-wide">
-                {activeLesson.topic?.title_vi || activeLesson.topic?.title}
-              </p>
-            </div>
           )}
-
-          {/* Timeline visual aid (chỉ cho bài cũ; Golden Lesson tự có timeline trong sections) */}
-          {!activeLesson.sections && <TenseTimeline lessonTitle={activeLesson.title} />}
 
           {activeLesson.sections ? (
             <GoldenLesson sections={activeLesson.sections} exercises={activeLesson.exercises} />
           ) : (
-          <div className="prose prose-slate max-w-none bg-background border rounded-3xl p-6 sm:p-8 shadow-sm">
-            <LazyMarkdown
-              components={{
-                h2: ({ node: _node, ...props }) => (
-                  <h2 className="text-xl font-extrabold text-slate-800 border-b border-slate-100 pb-2.5 mb-4 mt-6 flex items-center gap-2" {...props} />
-                ),
-                h3: ({ node: _node, ...props }) => (
-                  <h3 className="text-lg font-extrabold text-slate-700 mb-3 mt-4" {...props} />
-                ),
-                blockquote: ({ node: _node, ...props }) => (
-                  <blockquote className="my-4 p-4 bg-amber-50/50 border-l-4 border-amber-500 rounded-r-2xl text-amber-900 text-sm leading-relaxed" {...props} />
-                ),
-                table: ({ node: _node, ...props }) => (
-                  <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200/80 shadow-md bg-white dark:bg-slate-900 dark:border-slate-800">
-                    <table className="w-full text-left text-sm text-slate-700 dark:text-slate-200 border-collapse" {...props} />
-                  </div>
-                ),
-                thead: ({ node: _node, ...props }) => <thead className="bg-indigo-50/90 dark:bg-indigo-950/60 text-xs text-indigo-950 dark:text-indigo-200 uppercase font-black tracking-wider border-b border-indigo-100 dark:border-indigo-900" {...props} />,
-                th: ({ node: _node, ...props }) => <th className="px-4 py-3.5 border-b font-extrabold tracking-wider text-indigo-950 dark:text-indigo-100" {...props} />,
-                td: ({ node: _node, ...props }) => <td className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300" {...props} />,
-                tr: ({ node: _node, ...props }) => <tr className="odd:bg-white even:bg-slate-50/60 dark:odd:bg-slate-900 dark:even:bg-slate-800/40 hover:bg-indigo-50/40 dark:hover:bg-indigo-900/30 transition-colors" {...props} />,
-                ul: ({ node: _node, ...props }) => <ul className="my-4 space-y-2.5 list-disc list-inside text-slate-700 dark:text-slate-200" {...props} />,
-                ol: ({ node: _node, ...props }) => <ol className="my-4 space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-200" {...props} />,
-                li: ({ node: _node, ...props }) => <li className="leading-relaxed font-medium marker:text-primary marker:font-bold" {...props} />,
-                code: ({ node: _node, inline, className: _className, children, ...props }: {
-                  node?: unknown;
-                  inline?: boolean;
-                  className?: string;
-                  children?: React.ReactNode;
-                } & React.HTMLAttributes<HTMLElement>) => {
-                  const codeText = String(children).replace(/\n$/, '');
-                  // Check if it's our new formula block
-                  if (!inline && _className === 'language-formula') {
-                    return <GrammarFormula code={codeText} />;
-                  }
-
-                  // Check if it's an inline formula: contains '+' or '→' or '=>'
-                  const isFormula = (codeText.includes('+') || codeText.includes('→') || codeText.includes('=>')) && codeText.length < 80;
-                  
-                  if (inline) {
-                    if (isFormula) {
-                      return (
-                        <code className="px-2.5 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-black font-mono text-xs inline-block mx-1.5 shadow-sm" {...props}>
-                          {codeText}
-                        </code>
-                      );
-                    }
-                    return (
-                      <code className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold font-mono text-xs mx-0.5" {...props}>
-                        {codeText}
-                      </code>
-                    );
-                  }
-                  
-                  return (
-                    <pre className="p-4 rounded-2xl bg-slate-900 text-slate-200 font-mono text-sm overflow-x-auto shadow-inner my-4 border border-slate-800">
-                      <code {...props}>{codeText}</code>
-                    </pre>
-                  );
-                }
-              }}
-            >
-              {activeLesson.source === 'ai-golden' || activeLesson.source === '25-chuyen-de-v2'
-                ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
-                : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')}
-            </LazyMarkdown>
-          </div>
+            <CollapsibleTheoryMarkdown
+              content={
+                activeLesson.source === 'ai-golden' || activeLesson.source === '25-chuyen-de-v2'
+                  ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
+                  : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
+              }
+            />
           )}
 
-          {activeLesson.examples?.length > 0 && (
-            <div className="bg-background border rounded-2xl p-6 shadow-sm space-y-3">
-              <h3 className="font-bold flex items-center gap-2 text-primary">
-                <BookOpen className="h-4 w-4" /> Ví dụ
-              </h3>
-              {activeLesson.examples.map((ex, i) => (
-                <div key={i} className="border-l-2 border-primary/30 pl-3 group">
-                  <div className="flex items-start gap-2">
-                    <button
-                      type="button"
-                      onClick={() => speakEnglish(ex.en)}
-                      aria-label={`Đọc câu ví dụ ${i + 1}`}
-                      title="Nghe phát âm"
-                      className="shrink-0 mt-1 h-7 w-7 flex items-center justify-center rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors"
-                    >
-                      <Volume2 className="h-3.5 w-3.5" />
-                    </button>
-                    <div className="flex-1 min-w-0">
-                  <GrammarHighlight
-                    sentence={ex.en}
-                    annotations={annotationsCache[ex.en] ?? []}
-                    loading={loadingAnnotations && !annotationsCache[ex.en]}
-                    showLegend={i === 0}
-                  />
-                      {ex.vi && <p className="text-sm text-muted-foreground mt-0.5">{ex.vi}</p>}
-                      {ex.note && <p className="text-xs text-amber-700 italic mt-0.5">{ex.note}</p>}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div className="space-y-2 pt-2">
+          {/* Action Bar */}
+          <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => {
@@ -694,64 +720,19 @@ function GrammarLearnContent() {
                   if (roadmapStepId) qs.set('roadmapStep', roadmapStepId);
                   router.push(`/grammar?${qs.toString()}`);
                 }}
-                className="flex-1 bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 bg-gradient-to-r from-primary to-indigo-600 text-white font-extrabold py-3.5 px-6 rounded-2xl hover:opacity-95 shadow-md shadow-primary/20 transition-all flex items-center justify-center gap-2 text-base"
               >
-                <Dumbbell className="h-4 w-4" /> Làm bài tập
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  try {
-                    const s = activeLesson.sections;
-                    const html = buildGrammarLessonPdfHtml({
-                      title: activeLesson.title,
-                      titleVi: activeLesson.topic?.title_vi || activeLesson.topic?.title || activeLesson.title,
-                      level: activeLesson.topic?.level,
-                      slug: activeLesson.topic?.slug,
-                      definition: s?.definition,
-                      tips: s?.tips,
-                      mistakes: s?.mistakes,
-                      wordbanks: s?.wordbanks,
-                      exercises: activeLesson.exercises ?? undefined,
-                      exerciseCap: 0, // all exercises
-                      withAnswers: true,
-                      siteUrl: typeof window !== 'undefined' ? window.location.origin : undefined,
-                    });
-                    const base = suggestGrammarPdfFileName(
-                      activeLesson.topic?.title_vi || activeLesson.title,
-                      activeLesson.topic?.slug,
-                    );
-                    const w = openBlankPdfWindow();
-                    if (w) {
-                      writePdfHtmlToWindow(w, html);
-                      toast.success('Đã mở handout — bấm “Lưu / In PDF”');
-                    } else {
-                      downloadGrammarPdfHtml(html, base.replace(/\.pdf$/i, ''));
-                      toast.message('Popup bị chặn — đã tải file HTML (mở → In → PDF)');
-                    }
-                  } catch (e) {
-                    console.error('[GrammarPDF]', e);
-                    toast.error('Không tạo được PDF. Thử lại.');
-                  }
-                }}
-                className="flex-1 border font-bold py-3 rounded-xl hover:bg-muted transition-colors flex items-center justify-center gap-2"
-              >
-                <FileDown className="h-4 w-4" /> Tải PDF ôn
+                <Dumbbell className="h-5 w-5" /> Bắt đầu làm bài tập củng cố
               </button>
               <button
                 onClick={markAsLearned}
                 disabled={marking}
-                className="flex-1 border font-bold py-3 rounded-xl hover:bg-muted transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                className="border-2 border-slate-200 dark:border-slate-700 font-bold py-3.5 px-6 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 disabled:opacity-50"
               >
-                {marking ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
+                {marking ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4 text-emerald-500" />}
                 {status === 'new' ? 'Đã đọc xong' : 'Ôn lại xong'}
               </button>
             </div>
-            {status === 'new' && (
-              <p className="text-xs text-muted-foreground text-center">
-                💡 PDF = handout đối chiếu offline · Bài tập trên app mới ghi tiến độ.
-              </p>
-            )}
           </div>
         </article>
       </main>
