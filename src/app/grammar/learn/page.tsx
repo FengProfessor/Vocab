@@ -115,6 +115,11 @@ function speakEnglish(text: string) {
 function formatOcrTheory(text: string): string {
   if (!text) return '';
 
+  // Nếu text đã có định dạng Markdown chuẩn (bảng, tiêu đề, codeblock), trả về trực tiếp không phá vỡ dòng
+  if (text.includes('| --- |') || text.includes('|---|') || text.includes('| ---') || text.includes('```formula') || text.includes('## ')) {
+    return text;
+  }
+
   // 1. Chuẩn hóa xuống dòng
   const normalized = text.replace(/\r\n/g, '\n');
 
@@ -592,13 +597,17 @@ function GrammarLearnContent() {
                   <blockquote className="my-4 p-4 bg-amber-50/50 border-l-4 border-amber-500 rounded-r-2xl text-amber-900 text-sm leading-relaxed" {...props} />
                 ),
                 table: ({ node: _node, ...props }) => (
-                  <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200 shadow-sm bg-white">
-                    <table className="w-full text-left text-sm text-slate-600 border-collapse" {...props} />
+                  <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200/80 shadow-md bg-white dark:bg-slate-900 dark:border-slate-800">
+                    <table className="w-full text-left text-sm text-slate-700 dark:text-slate-200 border-collapse" {...props} />
                   </div>
                 ),
-                thead: ({ node: _node, ...props }) => <thead className="bg-slate-50/80 text-xs text-slate-700 uppercase font-black" {...props} />,
-                th: ({ node: _node, ...props }) => <th className="px-4 py-3 border-b font-bold tracking-wider text-slate-700" {...props} />,
-                td: ({ node: _node, ...props }) => <td className="px-4 py-3 border-b border-slate-100 font-medium" {...props} />,
+                thead: ({ node: _node, ...props }) => <thead className="bg-indigo-50/90 dark:bg-indigo-950/60 text-xs text-indigo-950 dark:text-indigo-200 uppercase font-black tracking-wider border-b border-indigo-100 dark:border-indigo-900" {...props} />,
+                th: ({ node: _node, ...props }) => <th className="px-4 py-3.5 border-b font-extrabold tracking-wider text-indigo-950 dark:text-indigo-100" {...props} />,
+                td: ({ node: _node, ...props }) => <td className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300" {...props} />,
+                tr: ({ node: _node, ...props }) => <tr className="odd:bg-white even:bg-slate-50/60 dark:odd:bg-slate-900 dark:even:bg-slate-800/40 hover:bg-indigo-50/40 dark:hover:bg-indigo-900/30 transition-colors" {...props} />,
+                ul: ({ node: _node, ...props }) => <ul className="my-4 space-y-2.5 list-disc list-inside text-slate-700 dark:text-slate-200" {...props} />,
+                ol: ({ node: _node, ...props }) => <ol className="my-4 space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-200" {...props} />,
+                li: ({ node: _node, ...props }) => <li className="leading-relaxed font-medium marker:text-primary marker:font-bold" {...props} />,
                 code: ({ node: _node, inline, className: _className, children, ...props }: {
                   node?: unknown;
                   inline?: boolean;
@@ -617,13 +626,13 @@ function GrammarLearnContent() {
                   if (inline) {
                     if (isFormula) {
                       return (
-                        <code className="px-2.5 py-1 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-700 font-black font-mono text-xs inline-block mx-1.5 shadow-sm" {...props}>
+                        <code className="px-2.5 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-black font-mono text-xs inline-block mx-1.5 shadow-sm" {...props}>
                           {codeText}
                         </code>
                       );
                     }
                     return (
-                      <code className="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-800 font-semibold font-mono text-xs mx-0.5" {...props}>
+                      <code className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold font-mono text-xs mx-0.5" {...props}>
                         {codeText}
                       </code>
                     );
@@ -637,7 +646,7 @@ function GrammarLearnContent() {
                 }
               }}
             >
-              {activeLesson.source === 'ai-golden'
+              {activeLesson.source === 'ai-golden' || activeLesson.source === '25-chuyen-de-v2'
                 ? (activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')
                 : formatOcrTheory(activeLesson.theory_vi || activeLesson.theory || '*Chưa có nội dung lý thuyết.*')}
             </LazyMarkdown>
