@@ -840,7 +840,7 @@ function CollapsibleTheoryMarkdown({
   if (parts.length <= 1 || content.length < 1200) {
     return (
       <div className="prose prose-slate max-w-none bg-background border rounded-3xl p-6 sm:p-8 shadow-sm">
-        <LazyMarkdown components={markdownComponents}>{content}</LazyMarkdown>
+        <LazyMarkdown components={markdownComponents}>{ensureMarkdownTableFormat(content)}</LazyMarkdown>
         {onTriggerPractice && (
           <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
             <button
@@ -894,7 +894,7 @@ function CollapsibleTheoryMarkdown({
 
             {isOpen && (
               <div className="p-6 sm:p-8 prose prose-slate max-w-none border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
-                <LazyMarkdown components={markdownComponents}>{sec.body}</LazyMarkdown>
+                <LazyMarkdown components={markdownComponents}>{ensureMarkdownTableFormat(sec.body)}</LazyMarkdown>
                 {onTriggerPractice && (
                   <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                     <button

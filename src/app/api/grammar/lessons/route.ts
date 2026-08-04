@@ -46,7 +46,7 @@ export async function GET(req: Request) {
 
     // Single/topic = nội dung tĩnh (lý thuyết + ví dụ đã bake) → cho CDN + SWR cache.
     // Bulk list = private (no-store) để giảm scrape kho IP. Admin sửa lesson trễ ~1h (chấp nhận được).
-    const CACHEABLE = { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400' };
+    const CACHEABLE = { 'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0' };
     const NO_STORE = { 'Cache-Control': 'no-store, no-cache, must-revalidate' };
 
     if (id) {
