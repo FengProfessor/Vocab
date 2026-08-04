@@ -115,8 +115,8 @@ function speakEnglish(text: string) {
 function ensureMarkdownTableFormat(text: string): string {
   if (!text) return '';
 
-  // 1. Replace all || with newlines so each row is on its own line!
-  const unrolled = text.replace(/\|\|+/g, '\n');
+  // 1. Replace double pipes || or spaced pipes | | with newlines!
+  const unrolled = text.replace(/\|\s*\|+/g, '\n');
   const lines = unrolled.split('\n');
   const result: string[] = [];
 
