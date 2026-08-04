@@ -10,12 +10,12 @@ function cleanFormulaToken(raw: string): string {
     'S:S': 'S (Chủ ngữ)',
     'V:V': 'V (Động từ)',
     'O:O': 'O (Tân ngữ)',
-    'V:be': 'be (am / is / are)',
-    'D:bổ ngữ': 'Bổ ngữ (Danh từ / Tính từ)',
+    'V:be': 'be (am/is/are)',
+    'D:bổ ngữ': 'Bổ ngữ',
     'S': 'S (Chủ ngữ)',
     'V': 'V (Động từ)',
     'O': 'O (Tân ngữ)',
-    'be': 'be (am / is / are)',
+    'be': 'be (am/is/are)',
   };
 
   if (keyMap[s]) return keyMap[s];
@@ -57,12 +57,12 @@ export function GrammarFormula({ code }: { code: string }) {
     .filter(Boolean);
 
   return (
-    <div className="my-6 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-indigo-50/90 via-purple-50/60 to-blue-50/90 dark:from-indigo-950/40 dark:via-purple-950/30 dark:to-slate-900 border border-indigo-100 dark:border-indigo-800/60 shadow-lg space-y-4">
+    <div className="my-6 p-4 sm:p-5 rounded-3xl bg-gradient-to-br from-indigo-50/90 via-purple-50/60 to-blue-50/90 dark:from-indigo-950/40 dark:via-purple-950/30 dark:to-slate-900 border border-indigo-100 dark:border-indigo-800/60 shadow-lg space-y-3">
       <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-indigo-700 dark:text-indigo-300">
         <span>⚡ Công thức cốt lõi</span>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {formulas.map((formula, fIdx) => {
           // Split elements by '+'
           const parts = formula
@@ -73,7 +73,7 @@ export function GrammarFormula({ code }: { code: string }) {
           return (
             <div
               key={fIdx}
-              className="flex flex-wrap items-center gap-2.5 sm:gap-3 p-3.5 bg-white/90 dark:bg-slate-900/90 rounded-2xl border border-indigo-100/80 dark:border-slate-800 shadow-sm"
+              className="flex flex-nowrap items-center gap-2 sm:gap-3 p-3 bg-white/90 dark:bg-slate-900/90 rounded-2xl border border-indigo-100/80 dark:border-slate-800 shadow-sm overflow-x-auto whitespace-nowrap no-scrollbar"
             >
               {parts.map((part, pIdx) => {
                 // If part has choices like {am|is|are} or (don't | doesn't)
@@ -85,17 +85,17 @@ export function GrammarFormula({ code }: { code: string }) {
                 return (
                   <React.Fragment key={pIdx}>
                     {pIdx > 0 && (
-                      <span className="text-indigo-400 dark:text-indigo-500 font-black text-base sm:text-lg px-1 select-none">
+                      <span className="text-indigo-400 dark:text-indigo-500 font-black text-base sm:text-lg shrink-0 px-0.5 select-none">
                         +
                       </span>
                     )}
 
                     {isStack ? (
-                      <div className="flex flex-col gap-1.5 p-1.5 bg-indigo-50 dark:bg-indigo-950/50 rounded-xl border border-indigo-200 dark:border-indigo-800">
+                      <div className="flex flex-col gap-1 p-1 bg-indigo-50 dark:bg-indigo-950/50 rounded-xl border border-indigo-200 dark:border-indigo-800 shrink-0">
                         {options.map((opt, oIdx) => (
                           <div
                             key={oIdx}
-                            className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-extrabold border text-center transition-all ${getTokenBadgeStyle(opt)}`}
+                            className={`px-3 py-1 rounded-lg text-xs sm:text-sm font-extrabold border text-center transition-all whitespace-nowrap shrink-0 ${getTokenBadgeStyle(opt)}`}
                           >
                             {opt}
                           </div>
@@ -103,7 +103,7 @@ export function GrammarFormula({ code }: { code: string }) {
                       </div>
                     ) : (
                       <div
-                        className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold border shadow-sm transition-all ${getTokenBadgeStyle(options[0])}`}
+                        className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-extrabold border shadow-sm transition-all whitespace-nowrap shrink-0 ${getTokenBadgeStyle(options[0])}`}
                       >
                         {options[0]}
                       </div>

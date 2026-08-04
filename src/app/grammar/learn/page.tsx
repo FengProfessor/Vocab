@@ -115,40 +115,50 @@ function speakEnglish(text: string) {
 function ensureMarkdownTableFormat(text: string): string {
   if (!text) return '';
 
-  // 1. Replace double pipes || or spaced pipes | | with newlines!
-  const unrolled = text.replace(/\|\s*\|+/g, '\n');
-  const lines = unrolled.split('\n');
+  // 1. Separate inline tables stuck to paragraph text
+  let s = text.replace(/([^\n])\s*(\|[^|\n]+\|[^|\n]+\|)/g, '$1\n\n$2');
+
+  // 2. Unroll double pipes or smashed pipe rows into newlines
+  s = s.replace(/\|\|+/g, '\n');
+  s = s.replace(/\|\s*\|/g, '\n');
+
+  const lines = s.split('\n');
   const result: string[] = [];
+  let inTable = false;
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i].trim();
     if (!line) continue;
 
     if (line.includes('|') && !line.startsWith('#') && !line.startsWith('```')) {
-      const cells = line.split('|').map((s) => s.trim()).filter(Boolean);
+      const cells = line.split('|').map((c) => c.trim()).filter(Boolean);
       if (cells.length >= 2) {
         if (cells.every((c) => /^:?-+:?$/.test(c))) {
           result.push(`| ${cells.map(() => '---').join(' | ')} |`);
+          inTable = true;
           continue;
         }
 
         const formattedRow = `| ${cells.join(' | ')} |`;
-        result.push(formattedRow);
 
-        const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
-        const nextCells = nextLine.split('|').map((s) => s.trim()).filter(Boolean);
-        const nextIsDivider = nextCells.length >= 2 && nextCells.every((c) => /^:?-+:?$/.test(c));
+        if (!inTable) {
+          result.push('\n' + formattedRow);
+          const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+          const nextCells = nextLine.split('|').map((c) => c.trim()).filter(Boolean);
+          const nextIsDivider = nextCells.length >= 2 && nextCells.every((c) => /^:?-+:?$/.test(c));
 
-        const prevLine = result.length > 1 ? result[result.length - 2] : '';
-        const prevIsPipe = prevLine.includes('|') && !prevLine.startsWith('#');
-
-        if (!prevIsPipe && !nextIsDivider) {
-          result.push(`| ${cells.map(() => '---').join(' | ')} |`);
+          if (!nextIsDivider) {
+            result.push(`| ${cells.map(() => '---').join(' | ')} |`);
+          }
+          inTable = true;
+        } else {
+          result.push(formattedRow);
         }
         continue;
       }
     }
 
+    inTable = false;
     result.push(lines[i]);
   }
 
