@@ -1010,7 +1010,21 @@ function GrammarLearnContent() {
       const res = await fetch(`/api/grammar/lessons?topicId=${topicId}`)
         .then((r) => r.json())
         .catch(() => null);
-      if (res?.success) setLessonsByTopic((prev) => ({ ...prev, [topicId]: res.data }));
+      let lessons = (res?.success ? res.data : []) as GrammarLesson[];
+
+      if (lessons.length === 0) {
+        const topicObj = topics.find((t) => t.id === topicId);
+        if (topicObj?.order_index) {
+          const fallbackRes = await fetch(`/api/grammar/lessons?orderIndex=${topicObj.order_index}`)
+            .then((r) => r.json())
+            .catch(() => null);
+          if (fallbackRes?.success && fallbackRes.data.length > 0) {
+            lessons = fallbackRes.data;
+          }
+        }
+      }
+
+      setLessonsByTopic((prev) => ({ ...prev, [topicId]: lessons }));
       setLoadingTopic(null);
     }
   };

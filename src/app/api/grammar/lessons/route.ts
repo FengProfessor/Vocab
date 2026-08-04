@@ -49,6 +49,8 @@ export async function GET(req: Request) {
     const CACHEABLE = { 'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0' };
     const NO_STORE = { 'Cache-Control': 'no-store, no-cache, must-revalidate' };
 
+    const orderIndex = searchParams.get('orderIndex');
+
     if (id) {
       const { data, error } = await supabase
         .from('grammar_lessons')
@@ -57,6 +59,20 @@ export async function GET(req: Request) {
         .single();
       if (error) throw error;
       return NextResponse.json({ success: true, data }, { headers: CACHEABLE });
+    }
+
+    if (orderIndex) {
+      const idx = parseInt(orderIndex, 10);
+      const { data: tp } = await supabase.from('grammar_topics').select('id').eq('order_index', idx).maybeSingle();
+      if (tp) {
+        const { data, error } = await supabase
+          .from('grammar_lessons')
+          .select('*, topic:grammar_topics(*)')
+          .eq('topic_id', tp.id)
+          .order('order_index', { ascending: true });
+        if (error) throw error;
+        return NextResponse.json({ success: true, data }, { headers: CACHEABLE });
+      }
     }
 
     // Join topic khi lọc theo topicId — client lộ trình cần topic.slug để ghi step
