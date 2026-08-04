@@ -681,7 +681,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                   <p className="line-clamp-2 text-sm text-indigo-100 sm:text-base">{current.translation}</p>
                 </div>
 
-                <div className="flex shrink-0 items-center gap-2.5">
+                <div className="flex shrink-0 items-center gap-2">
                   {current.pos && (
                     <Badge className="border-none bg-white/20 px-2.5 text-[9px] font-black uppercase tracking-widest text-white">
                       {current.pos}
@@ -689,24 +689,38 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                   )}
                   <button
                     type="button"
-                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/20 transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                    title="Nghe phát âm Anh - Anh (UK)"
+                    className="flex h-10 items-center gap-1 px-2.5 rounded-xl border border-white/25 bg-white/20 hover:bg-white/30 transition-transform hover:scale-105 active:scale-95 text-xs font-bold text-white shadow-sm"
                     onClick={(e) => {
                       e.stopPropagation();
-                      speak(current.word, 1.0);
+                      speak(current.word, 1.0, 'en-GB');
                     }}
                   >
-                    <Volume2 className="h-5 w-5 text-white sm:h-6 sm:w-6" />
+                    <Volume2 className="h-4 w-4 text-white" />
+                    <span>🇬🇧 UK</span>
                   </button>
                   <button
                     type="button"
-                    title="Slow pronunciation"
-                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/10 transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                    title="Nghe phát âm Anh - Mỹ (US)"
+                    className="flex h-10 items-center gap-1 px-2.5 rounded-xl border border-white/25 bg-white/20 hover:bg-white/30 transition-transform hover:scale-105 active:scale-95 text-xs font-bold text-white shadow-sm"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      speak(current.word, 1.0, 'en-US');
+                    }}
+                  >
+                    <Volume2 className="h-4 w-4 text-white" />
+                    <span>🇺🇸 US</span>
+                  </button>
+                  <button
+                    type="button"
+                    title="Đọc chậm"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 transition-transform hover:scale-105 active:scale-95"
                     onClick={(e) => {
                       e.stopPropagation();
                       speak(current.word, 0.6);
                     }}
                   >
-                    <Snail className="h-5 w-5 text-white/80 sm:h-6 sm:w-6" />
+                    <Snail className="h-4 w-4 text-white/90" />
                   </button>
                 </div>
 

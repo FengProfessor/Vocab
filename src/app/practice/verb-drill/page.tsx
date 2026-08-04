@@ -121,7 +121,7 @@ function tierBadgeClass(n: number): string {
   return 'bg-emerald-100 text-emerald-800';
 }
 
-function posLabel(pos: string): { short: string; vi: string } {
+function posLabel(pos: string, lemma?: string): { short: string; vi: string } {
   const p = String(pos || '')
     .trim()
     .toLowerCase()
@@ -141,9 +141,20 @@ function posLabel(pos: string): { short: string; vi: string } {
     interj: { short: 'interj.', vi: 'thán từ' },
     num: { short: 'num.', vi: 'số từ' },
     phrase: { short: 'phr.', vi: 'cụm từ' },
+    collocation: { short: 'phr.', vi: 'cụm từ' },
+    colloc: { short: 'phr.', vi: 'cụm từ' },
+    phrasal: { short: 'phr v.', vi: 'cụm động từ' },
+    'phrasal verb': { short: 'phr v.', vi: 'cụm động từ' },
+    idiom: { short: 'idiom', vi: 'thành ngữ' },
+    expression: { short: 'expr.', vi: 'thành ngữ' },
   };
   if (map[p]) return map[p];
-  if (!p) return { short: '?', vi: 'chưa rõ loại' };
+  if (!p) {
+    if (lemma && lemma.trim().includes(' ')) {
+      return { short: 'phr.', vi: 'cụm từ' };
+    }
+    return { short: '?', vi: 'chưa rõ loại' };
+  }
   return { short: `${p}.`, vi: p };
 }
 
@@ -423,7 +434,7 @@ export default function VerbDrillPage() {
   }, [canQuiz, poolWords, wordCount, allMeanings, allLemmas]);
 
   const current = queue[idx] ?? null;
-  const currentPos = current ? posLabel(current.pos) : null;
+  const currentPos = current ? posLabel(current.pos, current.lemma) : null;
   const currentIpa = current?.ipa ? parseIpa(current.ipa) : '';
 
   // Meaning card: auto nghe lemma (cloze không — spoil đáp án)
@@ -705,25 +716,31 @@ export default function VerbDrillPage() {
                 <p className="mt-3 text-lg font-bold leading-snug text-slate-900">
                   {current.stem}
                 </p>
-                {/* Sau khi trả lời: lộ lemma + IPA + nghe lại */}
+                {/* Sau khi trả lời: lộ lemma + IPA + nghĩa từ + nghe lại */}
                 {revealed && (
-                  <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-                    <span className="text-sm font-black text-slate-800">
-                      {current.blankSurface || current.lemma}
-                    </span>
-                    {currentIpa && (
-                      <span className="font-mono text-xs text-slate-500">/{currentIpa}/</span>
-                    )}
-                    <button
-                      type="button"
-                      onClick={() =>
-                        speak((current.blankSurface || current.lemma).trim(), 1.0)
-                      }
-                      className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-teal-200 bg-white text-teal-700"
-                      aria-label="Nghe"
-                    >
-                      <Volume2 className="h-3.5 w-3.5" />
-                    </button>
+                  <div className="mt-3 flex flex-col items-center justify-center gap-1.5 border-t border-teal-200/60 pt-3">
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                      <span className="text-sm font-black text-slate-900">
+                        {current.blankSurface || current.lemma}
+                      </span>
+                      {currentIpa && (
+                        <span className="font-mono text-xs text-slate-500">/{currentIpa}/</span>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          speak((current.blankSurface || current.lemma).trim(), 1.0)
+                        }
+                        className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-teal-200 bg-white text-teal-700 shadow-xs active:scale-95"
+                        aria-label="Nghe"
+                      >
+                        <Volume2 className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                    {/* Nghĩa Tiếng Việt của từ vựng */}
+                    <p className="text-xs font-bold text-teal-900">
+                      {words.find((w) => w.lemma.toLowerCase() === current.lemma.toLowerCase())?.vi}
+                    </p>
                   </div>
                 )}
               </div>

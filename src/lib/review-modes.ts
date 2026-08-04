@@ -51,6 +51,25 @@ const VI_CHAR_RE =
  * → VI nằm trong cùng field `example`, cloze lộ nghĩa.
  * Gỡ ngoặc/viền chứa chữ Việt; giữ câu EN thuần.
  */
+export function extractVietnameseSentenceTranslation(example: string | null | undefined): string | null {
+  if (!example) return null;
+  const s = example.trim();
+
+  // 1) Ngoặc tròn/vuông chứa chữ Việt ở cuối câu: "(Bản dịch tiếng Việt...)"
+  const parenMatch = s.match(/[\(\[][^\)\]]*[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ][^\)\]]*[\)\]]$/i);
+  if (parenMatch) {
+    return parenMatch[0].replace(/^[\(\[]|[\)\]]$/g, '').trim();
+  }
+
+  // 2) Phân cách dạng " / " hoặc " | " hoặc " — " theo sau bởi tiếng Việt
+  const sepMatch = s.match(/\s*[\/|—–-]\s*([^A-Za-z]*[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ][\s\S]*)$/i);
+  if (sepMatch) {
+    return sepMatch[1].trim();
+  }
+
+  return null;
+}
+
 export function stripEmbeddedVietnamese(example: string): string {
   let s = (example || '').replace(/\s+/g, ' ').trim();
   if (!s || !VI_CHAR_RE.test(s)) return s;

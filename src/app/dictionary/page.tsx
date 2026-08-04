@@ -1002,42 +1002,42 @@ export default function DictionaryPage() {
                   )}
                 </div>
 
-                {/* Pronunciation chips */}
-                <div className="flex flex-wrap items-center gap-2 mt-2 min-w-0">
-                  {formatIpa(ukPron?.ipa) && (
-                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono break-all">
-                      🇬🇧 /{formatIpa(ukPron?.ipa)}/
-                    </span>
-                  )}
-                  {formatIpa(usPron?.ipa) && (
-                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono break-all">
-                      🇺🇸 /{formatIpa(usPron?.ipa)}/
-                    </span>
-                  )}
+                {/* Pronunciation chips & speaker buttons */}
+                <div className="flex flex-wrap items-center gap-2 mt-2.5 min-w-0">
+                  {/* UK Badge & Button */}
+                  <button
+                    type="button"
+                    onClick={() => speakWord(displayWord, 'en-GB')}
+                    title="Nghe phát âm Anh - Anh (UK)"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 border border-blue-200/60 dark:border-blue-800/60 text-blue-700 dark:text-blue-300 transition-colors text-xs font-semibold"
+                  >
+                    <Volume2 className="h-3.5 w-3.5 shrink-0" />
+                    <span>🇬🇧 UK</span>
+                    {formatIpa(ukPron?.ipa) && (
+                      <span className="font-mono opacity-85">/{formatIpa(ukPron?.ipa)}/</span>
+                    )}
+                  </button>
+
+                  {/* US Badge & Button */}
+                  <button
+                    type="button"
+                    onClick={() => speakWord(displayWord, 'en-US')}
+                    title="Nghe phát âm Anh - Mỹ (US)"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/60 border border-amber-200/60 dark:border-amber-800/60 text-amber-700 dark:text-amber-300 transition-colors text-xs font-semibold"
+                  >
+                    <Volume2 className="h-3.5 w-3.5 shrink-0" />
+                    <span>🇺🇸 US</span>
+                    {formatIpa(usPron?.ipa) && (
+                      <span className="font-mono opacity-85">/{formatIpa(usPron?.ipa)}/</span>
+                    )}
+                  </button>
+
+                  {/* General IPA fallback */}
                   {formatIpa(singlePron?.ipa) && !ukPron && !usPron && (
-                    <span className="text-sm bg-muted px-2 py-0.5 rounded-full font-mono break-all">
+                    <span className="text-xs bg-muted px-2.5 py-1 rounded-full font-mono text-muted-foreground">
                       /{formatIpa(singlePron?.ipa)}/
                     </span>
                   )}
-                  {/* Speaker buttons — always show */}
-                  <button
-                    onClick={() => speakWord(displayWord, 'en-GB')}
-                    title="Phát âm UK"
-                    className="p-1.5 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-                    type="button"
-                  >
-                    <Volume2 className="h-4 w-4" />
-                    <span className="sr-only">UK</span>
-                  </button>
-                  <button
-                    onClick={() => speakWord(displayWord, 'en-US')}
-                    title="Phát âm US"
-                    className="p-1.5 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground flex items-center gap-0.5"
-                    type="button"
-                  >
-                    <Volume2 className="h-4 w-4" />
-                    <span className="text-xs">US</span>
-                  </button>
                 </div>
               </div>
 

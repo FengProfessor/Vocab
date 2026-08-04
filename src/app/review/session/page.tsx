@@ -26,10 +26,12 @@ import {
   type ReviewSessionMode,
   type ReviewWordLike,
   buildWordChoices,
+  extractVietnameseSentenceTranslation,
   itemModeLabel,
   makeCloze,
   pickItemMode,
   resultToQuality,
+  stripEmbeddedVietnamese,
   verdictAndQuality,
 } from '@/lib/review-modes';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
@@ -624,16 +626,16 @@ function SessionContent() {
             {/* Feedback banner */}
             {verdict !== null && (
               <div
-                className={`flex flex-col items-center gap-1 rounded-2xl px-3 py-2 text-center text-sm font-bold ${
+                className={`flex flex-col items-center gap-1.5 rounded-2xl px-3 py-2.5 text-center text-sm font-bold border transition-all ${
                   verdict === 'correct'
-                    ? 'bg-emerald-50 text-emerald-700'
+                    ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
                     : verdict === 'close'
-                      ? 'bg-amber-50 text-amber-700'
-                      : 'bg-rose-50 text-rose-700'
+                      ? 'bg-amber-50 text-amber-800 border-amber-200'
+                      : 'bg-rose-50 text-rose-800 border-rose-200'
                 }`}
               >
                 <div className="flex items-center justify-center gap-2">
-                  <span>
+                  <span className="text-base font-black">
                     {verdict === 'correct' && '✓ Chính xác!'}
                     {verdict === 'close' && `≈ Gần đúng — đáp án: ${answer}`}
                     {verdict === 'wrong' && `✗ Sai — đáp án: ${answer}`}
@@ -642,21 +644,44 @@ function SessionContent() {
                     <button
                       type="button"
                       onClick={() => speak(current.word, 1.0)}
-                      className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/80 text-current shadow-xs transition hover:bg-white active:scale-95"
+                      className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-current shadow-xs transition hover:scale-105 active:scale-95"
                       title="Phát âm từ đúng"
                     >
-                      <Volume2 className="h-4 w-4" />
+                      <Volume2 className="h-4 w-4 text-emerald-600" />
                     </button>
                   )}
                 </div>
-                {current?.ipa && !isListen && !showWordFront && (
-                  <div className="flex items-center justify-center gap-1.5 font-mono text-xs font-medium opacity-90">
-                    {verdict === 'correct' && <span>{current.word}</span>}
-                    <span>{parseIpa(current.ipa)}</span>
+
+                {/* Từ vựng + IPA + Nghĩa Tiếng Việt của từ */}
+                {current && (
+                  <div className="flex flex-wrap items-center justify-center gap-1.5 text-xs sm:text-sm">
+                    <span className="font-black text-slate-900">{current.word}</span>
+                    {current.pos && (
+                      <span className="rounded bg-slate-200/60 px-1 py-0.2 text-[10px] font-bold text-slate-600">
+                        {current.pos}
+                      </span>
+                    )}
+                    {current.ipa && (
+                      <span className="font-mono text-xs text-slate-500">/{parseIpa(current.ipa)}/</span>
+                    )}
+                    <span className="text-slate-300">•</span>
+                    <span className="font-bold text-indigo-700">{current.translation}</span>
                   </div>
                 )}
-                {current?.example && (itemMode === 'cloze_mcq' || itemMode === 'cloze_type') && (
-                  <p className="mt-0.5 text-xs font-medium opacity-80">&ldquo;{current.example}&rdquo;</p>
+
+                {/* Dịch câu Tiếng Việt cho dạng Cloze (Điền chỗ trống) */}
+                {(itemMode === 'cloze_mcq' || itemMode === 'cloze_type') && current?.example && (
+                  <div className="mt-1 w-full border-t border-slate-200/60 pt-1.5 text-xs font-medium text-slate-700">
+                    {extractVietnameseSentenceTranslation(current.example) ? (
+                      <p className="italic text-emerald-900/90 font-semibold">
+                        &ldquo;{extractVietnameseSentenceTranslation(current.example)}&rdquo;
+                      </p>
+                    ) : (
+                      <p className="italic text-slate-600 opacity-90">
+                        &ldquo;{stripEmbeddedVietnamese(current.example)}&rdquo;
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
             )}

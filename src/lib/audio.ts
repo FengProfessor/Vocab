@@ -127,10 +127,11 @@ async function freeDictUrl(word: string): Promise<string | null> {
   }
 }
 
-function gstaticUrl(word: string): string | null {
+function gstaticUrl(word: string, region: 'UK' | 'US' = 'US'): string | null {
   const clean = word.toLowerCase().replace(/[^a-z]/g, '');
   if (!clean || clean.length > 40) return null;
-  return `https://ssl.gstatic.com/dictionary/static/sounds/20200429/${clean}--_us_1.mp3`;
+  const suffix = region === 'UK' ? '_gb_1' : '_us_1';
+  return `https://ssl.gstatic.com/dictionary/static/sounds/20200429/${clean}--${suffix}.mp3`;
 }
 
 function neuralUrl(text: string): string {
@@ -139,15 +140,21 @@ function neuralUrl(text: string): string {
 
 export type AudioSource = 'real' | 'neural' | 'tts';
 
+function youdaoUrl(word: string, region: 'UK' | 'US' = 'US'): string {
+  const type = region === 'UK' ? 1 : 2;
+  return `https://dict.youdao.com/dictvoice?type=${type}&audio=${encodeURIComponent(word)}`;
+}
+
 /**
- * Phát âm 1 từ/cụm: mp3 người thật → neural TTS → Web Speech.
+ * Phát âm 1 từ/cụm: Oxford mp3 người thật studio → neural TTS → Youdao → Web Speech.
  * rate: 1.0 thường, 0.6 chậm.
- * Request cũ tự hủy khi có speak/stop mới (generation guard).
+ * region: 'UK' (Anh - Anh) hoặc 'US' (Anh - Mỹ).
  */
 export async function playWordAudio(
   word: string,
   audioUrl?: string | null,
   rate = 1.0,
+  region: 'UK' | 'US' = 'US',
 ): Promise<AudioSource> {
   if (typeof window === 'undefined') return 'tts';
   const text = word?.trim();
@@ -160,7 +167,7 @@ export async function playWordAudio(
   const alive = () => myGen === playGeneration;
 
   const mp3Rate = rate > 0 && rate <= 2 ? rate : 1;
-  const cacheKey = text.toLowerCase();
+  const cacheKey = `${region}:${text.toLowerCase()}`;
   const isPhrase = /\s/.test(text);
 
   // 0) Cache hit từ lần phát thành công trước
@@ -174,8 +181,18 @@ export async function playWordAudio(
     urlCache.delete(cacheKey);
   }
 
-  // 1) URL truyền vào (DB audio_real)
-  if (audioUrl) {
+  // 1) Từ đơn: Oxford Gstatic Studio Human Voice (chuẩn 100% người thật)
+  if (!isPhrase) {
+    if (!alive()) return 'tts';
+    const gs = gstaticUrl(text.toLowerCase(), region);
+    if (gs && (await playUrl(gs, mp3Rate, myGen))) {
+      urlCache.set(cacheKey, gs);
+      return 'real';
+    }
+  }
+
+  // 2) URL truyền vào (DB audio_real)
+  if (audioUrl && region === 'US') {
     if (!alive()) return 'tts';
     if (await playUrl(audioUrl, mp3Rate, myGen)) {
       urlCache.set(cacheKey, audioUrl);
@@ -183,24 +200,11 @@ export async function playWordAudio(
     }
   }
 
-  // 2-3) Từ đơn: giọng người thật
-  // Ưu tiên gstatic trước freeDict — URL deterministic, không chờ API,
-  // giảm “chữ đã hiện / đã sang từ mới mà tiếng từ cũ mới tới”.
-  if (!isPhrase) {
-    if (!alive()) return 'tts';
-    const gs = gstaticUrl(cacheKey);
-    if (gs && (await playUrl(gs, mp3Rate, myGen))) {
-      urlCache.set(cacheKey, gs);
-      return 'real';
-    }
-
-    if (!alive()) return 'tts';
-    const human = await freeDictUrl(cacheKey);
-    if (!alive()) return 'tts';
-    if (human && (await playUrl(human, mp3Rate, myGen))) {
-      urlCache.set(cacheKey, human);
-      return 'real';
-    }
+  // 3) Youdao direct voice theo vùng (UK type=1 / US type=2)
+  const ydUrl = youdaoUrl(text, region);
+  if (await playUrl(ydUrl, mp3Rate, myGen)) {
+    urlCache.set(cacheKey, ydUrl);
+    return 'real';
   }
 
   // 4) Neural TTS (Google Translate / Youdao proxy) — rõ, hỗ trợ cụm
@@ -213,9 +217,7 @@ export async function playWordAudio(
 
   // 5) Web Speech robot — chỉ khi request còn là latest
   if (!alive()) return 'tts';
-  // speakLocal tự ++ epoch; nếu giữa chừng đã stop thì epoch lệch → no-op
-  speakLocal(text, rate);
-  // Double-check: stop xen giữa speakLocal sync path
+  speakLocal(text, rate, region === 'UK' ? 'en-GB' : 'en-US');
   if (!alive()) {
     silenceSpeech();
     return 'tts';

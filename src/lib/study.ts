@@ -216,16 +216,17 @@ function loadAudioMod(): Promise<AudioMod> {
  * Fire-and-forget — flashcard/learn không cần await.
  * Mỗi lần gọi tự vô hiệu hóa lookup/play trước đó (generation trong audio.ts).
  */
-export function speak(text: string, rate = 1.0, _lang: SpeakLang = 'en-US'): void {
+export function speak(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void {
   if (typeof window === 'undefined') return;
   const trimmed = text?.trim();
   if (!trimmed) return;
   // Sync: chặn utterance/voiceschanged cũ trước khi cascade async chạy
   silenceSpeech();
+  const region: 'UK' | 'US' = String(lang).includes('GB') || String(lang).includes('UK') ? 'UK' : 'US';
   // Dynamic import tránh circular: audio.ts → speakLocal từ study.ts
   void loadAudioMod()
-    .then(({ playWordAudio }) => playWordAudio(trimmed, null, rate))
-    .catch(() => speakLocal(trimmed, rate, _lang));
+    .then(({ playWordAudio }) => playWordAudio(trimmed, null, rate, region))
+    .catch(() => speakLocal(trimmed, rate, lang));
 }
 
 /**
