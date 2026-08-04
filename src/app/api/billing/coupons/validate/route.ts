@@ -63,6 +63,22 @@ export async function POST(req: NextRequest) {
   const plan: Exclude<Plan, 'free'> = body.orderKind === 'group' ? 'pro' : (body.plan ?? 'pro');
   const orderKind = body.orderKind === 'group' ? 'group' : 'individual';
 
+  if (code === 'WLU') {
+    const { data: existingWlu } = await supabase
+      .from('orders')
+      .select('id')
+      .eq('user_id', user.id)
+      .eq('coupon_code', 'WLU')
+      .maybeSingle();
+
+    if (existingWlu) {
+      return NextResponse.json(
+        { valid: false, error: 'Tài khoản của bạn đã sử dụng mã WLU rồi.' },
+        { status: 400 },
+      );
+    }
+  }
+
   const { data, error: dbErr } = await supabase
     .from('coupons')
     .select('*')
@@ -73,28 +89,44 @@ export async function POST(req: NextRequest) {
   if (dbErr) {
     return safeErrorResponse(dbErr, 'Không kiểm tra được mã giảm giá');
   }
-  if (!data) {
+
+  let coupon: Coupon | null = null;
+
+  if (data) {
+    const now = new Date();
+    const validFrom = new Date(data.valid_from);
+    const validUntil = data.valid_until ? new Date(data.valid_until) : null;
+    const withinDate = now >= validFrom && (!validUntil || now <= validUntil);
+    const withinUsage = !data.max_uses || data.used_count < data.max_uses;
+    const applicablePlan = !data.applicable_plans || data.applicable_plans.includes(plan);
+
+    if (!withinDate) {
+      return NextResponse.json({ valid: false, error: 'Mã hết hạn hoặc chưa có hiệu lực' }, { status: 400 });
+    }
+    if (!withinUsage) {
+      return NextResponse.json({ valid: false, error: 'Mã đã hết lượt dùng' }, { status: 400 });
+    }
+    if (!applicablePlan) {
+      return NextResponse.json({ valid: false, error: 'Mã không áp dụng cho gói này' }, { status: 400 });
+    }
+
+    coupon = data as Coupon;
+  } else if (code === 'WLU') {
+    coupon = {
+      id: 'synthetic-wlu',
+      code: 'WLU',
+      discount_pct: 100,
+      discount_amount: null,
+      max_uses: null,
+      used_count: 0,
+      valid_from: new Date(0).toISOString(),
+      valid_until: null,
+      applicable_plans: ['pro', 'premium'],
+      is_active: true,
+    };
+  } else {
     return NextResponse.json({ valid: false, error: 'Mã không tồn tại hoặc đã tắt' }, { status: 404 });
   }
-
-  const now = new Date();
-  const validFrom = new Date(data.valid_from);
-  const validUntil = data.valid_until ? new Date(data.valid_until) : null;
-  const withinDate = now >= validFrom && (!validUntil || now <= validUntil);
-  const withinUsage = !data.max_uses || data.used_count < data.max_uses;
-  const applicablePlan = !data.applicable_plans || data.applicable_plans.includes(plan);
-
-  if (!withinDate) {
-    return NextResponse.json({ valid: false, error: 'Mã hết hạn hoặc chưa có hiệu lực' }, { status: 400 });
-  }
-  if (!withinUsage) {
-    return NextResponse.json({ valid: false, error: 'Mã đã hết lượt dùng' }, { status: 400 });
-  }
-  if (!applicablePlan) {
-    return NextResponse.json({ valid: false, error: 'Mã không áp dụng cho gói này' }, { status: 400 });
-  }
-
-  const coupon = data as Coupon;
 
   // Trial / free 100%: chỉ 1 tháng
   try {
@@ -111,8 +143,8 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Preview trial: luôn tính theo 1 tháng
-  const effectivePeriod = isTrialCouponCode(code) ? 1 : periodMonths;
+  // Preview trial: 1 tháng, WLU: 12 tháng (1 năm)
+  const effectivePeriod = code === 'WLU' ? 12 : isTrialCouponCode(code) ? 1 : periodMonths;
   const basePrice =
     orderKind === 'group'
       ? computeGroupPrice(seats, effectivePeriod)
@@ -137,11 +169,13 @@ export async function POST(req: NextRequest) {
     basePrice,
     finalAmount,
     saved: Math.max(0, basePrice - finalAmount),
-    /** Client phải chuyển UI về 1 tháng khi nhận forcePeriodMonths */
-    forcePeriodMonths: isTrialCouponCode(code) ? 1 : null,
+    /** Client phải chuyển UI về 1 tháng (hoặc 12 tháng đối với WLU) khi nhận forcePeriodMonths */
+    forcePeriodMonths: code === 'WLU' ? 12 : isTrialCouponCode(code) ? 1 : null,
     trialDays: days,
-    message: days
-      ? `Mã quà: ${days} ngày Pro miễn phí (chỉ kỳ 1 tháng). Không áp dụng gói 3–12 tháng.`
-      : undefined,
+    message: code === 'WLU'
+      ? 'Mã WLU: Unlock 1 năm Pro miễn phí (0đ) cho người quen.'
+      : days
+        ? `Mã quà: ${days} ngày Pro miễn phí (chỉ kỳ 1 tháng). Không áp dụng gói 3–12 tháng.`
+        : undefined,
   });
 }

@@ -44,6 +44,7 @@ import {
   isCohortProPromoActive,
 } from '@/lib/cohort-pro-promo';
 import { CohortProPromoBanner } from '@/components/upsell/CohortProPromoBanner';
+import { WluWelcomeModal } from '@/components/billing/WluWelcomeModal';
 
 /** Tạm ẩn khung Nhận quà (LIVE trial) — bật lại khi cần quà live */
 const SHOW_GIFT_REDEEM = false;
@@ -111,6 +112,7 @@ function UpgradePageContent() {
   const [couponValid, setCouponValid] = useState<Coupon | null>(null);
   const [couponChecking, setCouponChecking] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showWluModal, setShowWluModal] = useState(false);
   /** Mã quà live — mục riêng, không dính kỳ 1 tháng / 1 năm */
   const [giftCode, setGiftCode] = useState('');
   const [giftLoading, setGiftLoading] = useState(false);
@@ -353,6 +355,8 @@ function UpgradePageContent() {
         error?: string;
         coupon?: Coupon;
         saved?: number;
+        forcePeriodMonths?: number | null;
+        message?: string;
       };
 
       if (!res.ok || !data.valid || !data.coupon) {
@@ -362,7 +366,12 @@ function UpgradePageContent() {
       }
 
       setCouponValid(data.coupon);
-      if (data.saved && data.saved > 0) {
+      if (data.forcePeriodMonths) {
+        setPeriodMonths(data.forcePeriodMonths);
+      }
+      if (data.message) {
+        toast.success(data.message);
+      } else if (data.saved && data.saved > 0) {
         toast.success(`Áp dụng thành công · tiết kiệm ${formatVND(data.saved)}`);
       } else {
         toast.success(`Đã áp dụng mã ${data.coupon.code}`);
@@ -377,6 +386,7 @@ function UpgradePageContent() {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
+    const appliedCode = ((couponValid?.code ?? couponCode).trim()).toUpperCase();
     try {
       const {
         data: { session },
@@ -395,13 +405,13 @@ function UpgradePageContent() {
                 seats,
                 periodMonths,
                 paymentMethod: 'bank_transfer',
-                couponCode: (couponValid?.code ?? couponCode.trim()) || undefined,
+                couponCode: appliedCode || undefined,
               }
             : {
                 plan: selectedPlan,
                 periodMonths,
                 paymentMethod: 'bank_transfer',
-                couponCode: (couponValid?.code ?? couponCode.trim()) || undefined,
+                couponCode: appliedCode || undefined,
               },
         ),
       });
@@ -419,7 +429,15 @@ function UpgradePageContent() {
         plan: data.order.plan,
         status: data.order.status,
       });
-      toast.success(data.order.status === 'paid' ? 'Kích hoạt gói thành công!' : 'Đơn hàng đã được tạo');
+
+      if (appliedCode === 'WLU' || data.order.status === 'paid') {
+        if (appliedCode === 'WLU') {
+          setShowWluModal(true);
+        }
+        toast.success(data.order.status === 'paid' ? 'Kích hoạt gói thành công!' : 'Đơn hàng đã được tạo');
+      } else {
+        toast.success('Đơn hàng đã được tạo');
+      }
     } catch (error) {
       toast.error(`Lỗi: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
@@ -445,6 +463,7 @@ function UpgradePageContent() {
     return (
       <div className="min-h-dvh bg-[#faf9f5] text-[#1a1915]">
         <ShellHeader currentLabel="Đã kích hoạt" />
+        <WluWelcomeModal open={showWluModal} onClose={() => setShowWluModal(false)} />
         <main className="mx-auto max-w-lg px-4 py-16 sm:px-6">
           <div className="rounded-2xl border border-[#e8e6dc] bg-white p-8 text-center shadow-sm">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#edf7f1] text-[#2d7f5e]">
@@ -1024,6 +1043,7 @@ function UpgradePageContent() {
           </a>
         </p>
       </div>
+      <WluWelcomeModal open={showWluModal} onClose={() => setShowWluModal(false)} />
     </div>
   );
 }

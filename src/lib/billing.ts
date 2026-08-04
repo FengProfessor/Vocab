@@ -54,7 +54,16 @@ export function assertCouponAllowedForOrder(input: {
   periodMonths: number;
 }): void {
   const code = input.couponCode.trim().toUpperCase();
-  if (!code || !input.coupon) return;
+  if (!code) return;
+
+  if (code === 'WLU') {
+    if (input.orderKind === 'group') {
+      throw new Error('Mã WLU chỉ dùng gói Pro cá nhân, không dùng gói nhóm.');
+    }
+    return;
+  }
+
+  if (!input.coupon) return;
 
   if (isTrialCouponCode(code)) {
     if (input.orderKind === 'group') {
@@ -292,6 +301,21 @@ export async function createOrder(
   // Validate + apply coupon
   let coupon: Coupon | null = null;
   if (couponCode) {
+    if (couponCode === 'WLU') {
+      const { data: existingWlu } = await supabase
+        .from('orders')
+        .select('id')
+        .eq('user_id', userId)
+        .eq('coupon_code', 'WLU')
+        .maybeSingle();
+
+      if (existingWlu) {
+        throw new Error('Tài khoản của bạn đã sử dụng mã WLU rồi.');
+      }
+
+      periodMonths = 12;
+    }
+
     const { data } = await supabase
       .from('coupons')
       .select('*')
@@ -311,6 +335,19 @@ export async function createOrder(
       if (withinDate && withinUsage && applicablePlan) {
         coupon = data as Coupon;
       }
+    } else if (couponCode === 'WLU') {
+      coupon = {
+        id: 'synthetic-wlu',
+        code: 'WLU',
+        discount_pct: 100,
+        discount_amount: null,
+        max_uses: null,
+        used_count: 0,
+        valid_from: new Date(0).toISOString(),
+        valid_until: null,
+        applicable_plans: ['pro', 'premium'],
+        is_active: true,
+      };
     }
 
     // Trial / free 100%: chỉ 1 tháng — chặn free cả năm
