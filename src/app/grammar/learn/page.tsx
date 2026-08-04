@@ -114,38 +114,38 @@ function speakEnglish(text: string) {
 
 function ensureMarkdownTableFormat(text: string): string {
   if (!text) return '';
-  const lines = text.split('\n');
+
+  // 1. Replace all || with newlines so each row is on its own line!
+  const unrolled = text.replace(/\|\|+/g, '\n');
+  const lines = unrolled.split('\n');
   const result: string[] = [];
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i].trim();
+    if (!line) continue;
 
-    // Smashed || rows -> split into clean | col1 | col2 |
-    if (line.includes('||')) {
-      const segs = line.split('||').map((s) => s.trim()).filter(Boolean);
-      if (segs.length > 1) {
-        line = '| ' + segs.join(' | ') + ' |';
-      }
-    }
-
-    // If line looks like a table row: starts/ends with | or has >= 2 pipes
-    const isPipeLine = line.includes('|') && !line.startsWith('#') && !line.startsWith('```');
-
-    if (isPipeLine) {
+    if (line.includes('|') && !line.startsWith('#') && !line.startsWith('```')) {
       const cells = line.split('|').map((s) => s.trim()).filter(Boolean);
       if (cells.length >= 2) {
-        const prevLine = result[result.length - 1] || '';
-        const prevIsPipe = prevLine.includes('|') && !prevLine.startsWith('#');
-
-        if (!prevIsPipe) {
-          result.push(`| ${cells.join(' | ')} |`);
-          const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
-          const nextIsDivider = /^\|?\s*:?-+:?\s*\|/.test(nextLine);
-          if (!nextIsDivider) {
-            result.push(`| ${cells.map(() => '---').join(' | ')} |`);
-          }
+        if (cells.every((c) => /^:?-+:?$/.test(c))) {
+          result.push(`| ${cells.map(() => '---').join(' | ')} |`);
           continue;
         }
+
+        const formattedRow = `| ${cells.join(' | ')} |`;
+        result.push(formattedRow);
+
+        const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+        const nextCells = nextLine.split('|').map((s) => s.trim()).filter(Boolean);
+        const nextIsDivider = nextCells.length >= 2 && nextCells.every((c) => /^:?-+:?$/.test(c));
+
+        const prevLine = result.length > 1 ? result[result.length - 2] : '';
+        const prevIsPipe = prevLine.includes('|') && !prevLine.startsWith('#');
+
+        if (!prevIsPipe && !nextIsDivider) {
+          result.push(`| ${cells.map(() => '---').join(' | ')} |`);
+        }
+        continue;
       }
     }
 
