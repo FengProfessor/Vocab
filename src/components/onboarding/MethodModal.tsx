@@ -27,9 +27,9 @@ const LOOP_DESKTOP = [
   },
   {
     n: '4',
-    emoji: '🎓',
-    title: 'Ngữ pháp & Tra từ',
-    body: 'Sidebar Ngữ pháp · Tra từ điển → lưu kho.',
+    emoji: '✍️',
+    title: 'Ngữ pháp, Luyện tập & Tra từ',
+    body: 'Sidebar: Ngữ pháp bài học GFM · Luyện điền từ/sửa lỗi · Tra từ điển.',
   },
 ] as const;
 
@@ -55,13 +55,13 @@ const LOOP_MOBILE = [
   {
     n: '4',
     emoji: '☰',
-    title: 'Ngữ pháp trong menu',
-    body: '☰ góc trái → Ngữ pháp · gắn app MH chính (Safari/Chrome).',
+    title: 'Ngữ pháp & Luyện tập trong menu',
+    body: '☰ góc trái → Ngữ pháp, Sử dụng từ · gắn app MH chính.',
   },
 ] as const;
 
 export function MethodModal() {
-  const { isActive, currentStep, next, skip } = useOnboarding();
+  const { isActive, currentStep, next } = useOnboarding();
 
   if (!isActive || currentStep.id !== 'method') return null;
 
@@ -69,12 +69,7 @@ export function MethodModal() {
   const LOOP_STEPS = isMobile ? LOOP_MOBILE : LOOP_DESKTOP;
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) skip();
-      }}
-    >
+    <div className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4">
       <div
         className="relative my-auto w-full max-w-md max-h-[min(680px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-emerald-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
@@ -122,16 +117,9 @@ export function MethodModal() {
           <button
             type="button"
             onClick={next}
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0"
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 cursor-pointer"
           >
             Xem từng nút trên app <ArrowRight className="h-5 w-5" />
-          </button>
-          <button
-            type="button"
-            onClick={skip}
-            className="w-full py-1.5 text-center text-xs font-bold text-slate-400 hover:text-slate-600"
-          >
-            Bỏ qua tour →
           </button>
         </div>
       </div>

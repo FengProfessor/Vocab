@@ -130,6 +130,39 @@ export const ONBOARDING_STEPS: OnboardingStep[] = [
     position: 'bottom',
   },
 
+  // ── Sử dụng từ / Luyện tập ──
+  {
+    id: 'guide-practice',
+    type: 'guide',
+    route: '/practice',
+    title: 'Sử dụng từ & Luyện tập',
+    description: 'Luyện điền ô trống, sửa lỗi sai & ghép câu để phản xạ nhanh.',
+    howTo: [
+      'Sidebar: Sử dụng từ ✍️',
+      'Luyện điền từ trực tiếp vào ô trống',
+      'Tìm và sửa lỗi sai trong câu, chọn collocations chuẩn',
+    ],
+    howToMobile: [
+      'Chạm ☰ góc trái header → chọn «Sử dụng từ»',
+      'Luyện điền từ vào ô trống & sửa lỗi sai',
+      'Luyện tập giúp bạn làm chủ ngữ cảnh và cách dùng từ',
+    ],
+    ctaLabel: 'Mở Luyện tập & thử',
+    emoji: '✍️',
+    xpReward: 5,
+  },
+  {
+    id: 'practice-spot',
+    type: 'spotlight',
+    route: '/practice',
+    targetSelector: '[data-onboarding="practice-use-words"]',
+    title: 'Trang Luyện tập',
+    description: 'Chọn các dạng bài tương tác để rèn luyện kỹ năng sử dụng từ.',
+    emoji: '✍️',
+    xpReward: 5,
+    position: 'bottom',
+  },
+
   // ── Thư viện ──
   {
     id: 'guide-library',
@@ -266,17 +299,19 @@ export const ONBOARDING_STEPS: OnboardingStep[] = [
     id: 'guide-grammar',
     type: 'guide',
     route: '/grammar/learn',
-    title: 'Ngữ pháp',
-    description: 'Bài + bài tập, lịch ôn riêng.',
+    title: 'Ngữ pháp & Lịch ôn FSRS',
+    description: 'Bài học chuẩn GFM, công thức badge màu, bài tập điền từ & sửa lỗi sai.',
     howTo: [
       'Sidebar: Ngữ pháp 🎓',
-      'Chọn bài / due → đọc → làm BT',
+      'Xem công thức cấu trúc màu sinh động',
+      'Điền đáp án trực tiếp vào câu & click sửa từ sai',
+      'Ôn tập định kỳ theo thuật toán FSRS',
     ],
     howToMobile: [
       'Chạm ☰ góc trái header (mọi trang app)',
       'Trong drawer: chạm «Ngữ pháp»',
-      'Chọn bài đang mở hoặc đến hạn',
-      'Không có tab Ngữ pháp dưới footer — chỉ trong ☰',
+      'Chọn bài đang mở hoặc đến hạn ôn',
+      'Học công thức dạng badge & bài tập tương tác',
     ],
     ctaLabel: 'Mở Ngữ pháp',
     emoji: '🎓',
@@ -421,11 +456,11 @@ export const ONBOARDING_STEPS: OnboardingStep[] = [
   },
 ];
 
-export const ONBOARDING_VERSION = 'v5-20260716-mobile';
+export const ONBOARDING_VERSION = 'v6-20260805-mandatory';
 
 export const ONBOARDING_STORAGE_KEY = `lingopro_onboarding_${ONBOARDING_VERSION}`;
 export const ONBOARDING_STORAGE_KEY_LEGACY = 'lingopro_onboarding_completed';
-export const ONBOARDING_STEP_SESSION_KEY = 'lingopro_onboarding_step_v5';
+export const ONBOARDING_STEP_SESSION_KEY = 'lingopro_onboarding_step_v6';
 
 export const ONBOARDING_PRO_COUPON = 'NEWBIE1W';
 export const ONBOARDING_PRO_DAYS = 7;
@@ -456,3 +491,4 @@ export function resolveHowTo(step: OnboardingStep): string[] {
   if (isTourMobile() && step.howToMobile?.length) return step.howToMobile;
   return step.howTo ?? [];
 }
+

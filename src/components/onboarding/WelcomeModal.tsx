@@ -11,6 +11,7 @@ const PREVIEW_DESKTOP = [
   { emoji: '📦', label: 'Thư viện' },
   { emoji: '✨', label: 'Cần học' },
   { emoji: '🔄', label: 'Cần ôn' },
+  { emoji: '✍️', label: 'Sử dụng từ' },
   { emoji: '🎓', label: 'Ngữ pháp' },
   { emoji: '🔍', label: 'Tra từ' },
 ] as const;
@@ -26,7 +27,7 @@ const PREVIEW_MOBILE = [
 ] as const;
 
 export function WelcomeModal() {
-  const { isActive, currentStep, next, skip, userName } = useOnboarding();
+  const { isActive, currentStep, next, userName } = useOnboarding();
 
   if (!isActive || currentStep.id !== 'welcome') return null;
 
@@ -35,12 +36,7 @@ export function WelcomeModal() {
   const PREVIEW = isMobile ? PREVIEW_MOBILE : PREVIEW_DESKTOP;
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) skip();
-      }}
-    >
+    <div className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4">
       <div
         className="relative my-auto w-full max-w-md max-h-[min(640px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-indigo-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
@@ -71,14 +67,14 @@ export function WelcomeModal() {
                 </>
               )}
             </p>
-            <div className="mt-3 grid grid-cols-3 gap-1.5 sm:grid-cols-6">
+            <div className="mt-3 grid grid-cols-4 gap-1.5 sm:grid-cols-7">
               {PREVIEW.map((item) => (
                 <div
                   key={item.label}
                   className="flex flex-col items-center gap-0.5 rounded-xl bg-slate-50 px-1 py-2"
                 >
                   <span className="text-base leading-none">{item.emoji}</span>
-                  <span className="text-center text-[9px] font-extrabold text-slate-500">
+                  <span className="text-center text-[9px] font-extrabold text-slate-500 leading-tight">
                     {item.label}
                   </span>
                 </div>
@@ -89,16 +85,9 @@ export function WelcomeModal() {
           <button
             type="button"
             onClick={next}
-            className="flex h-12 w-full items-center justify-center rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 sm:h-14 sm:text-lg"
+            className="flex h-12 w-full items-center justify-center rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 sm:h-14 sm:text-lg cursor-pointer"
           >
-            Bắt đầu! 🚀
-          </button>
-          <button
-            type="button"
-            onClick={skip}
-            className="w-full py-2 text-sm font-bold text-slate-400 hover:text-slate-600"
-          >
-            Bỏ qua, tự khám phá →
+            Bắt đầu khám phá! 🚀
           </button>
         </div>
       </div>

@@ -12,7 +12,7 @@ import { Bell, ArrowRight, Share, PlusSquare, MoreVertical, Smartphone, CheckCir
 import './onboarding.css';
 
 export function SetupModal() {
-  const { isActive, currentStep, next, skip } = useOnboarding();
+  const { isActive, currentStep, next } = useOnboarding();
   const [permission, setPermission] = useState<NotificationPermission>('default');
   const [loading, setLoading] = useState(false);
   const [notificationSupported, setNotificationSupported] = useState(true);
@@ -65,12 +65,7 @@ export function SetupModal() {
   if (!isActive || currentStep.id !== 'setup') return null;
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) skip();
-      }}
-    >
+    <div className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4">
       <div
         className="relative my-auto w-full max-w-md max-h-[min(720px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-indigo-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
@@ -180,18 +175,12 @@ export function SetupModal() {
           </div>
 
           {/* CTA Footer */}
-          <div className="pt-2 space-y-2">
+          <div className="pt-2">
             <button
               onClick={next}
               className="w-full h-14 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-lg shadow-lg shadow-indigo-200 border-b-4 border-indigo-800 active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               Tiếp theo <ArrowRight className="h-5 w-5" />
-            </button>
-            <button
-              onClick={skip}
-              className="w-full h-10 text-slate-400 hover:text-slate-600 text-xs font-bold transition-colors"
-            >
-              Bỏ qua bước này →
             </button>
           </div>
 

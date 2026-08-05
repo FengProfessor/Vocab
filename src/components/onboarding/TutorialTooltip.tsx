@@ -117,7 +117,6 @@ export function TutorialTooltip() {
     totalSpotlightSteps,
     next,
     prev,
-    skip,
   } = useOnboarding();
   const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
   const [ready, setReady] = useState(false);
@@ -280,18 +279,11 @@ export function TutorialTooltip() {
           </div>
 
           <div className="flex items-center gap-1.5">
-            <button
-              type="button"
-              onClick={skip}
-              className="px-2 py-1.5 text-xs font-bold text-slate-400 hover:text-slate-600"
-            >
-              Bỏ qua
-            </button>
             {spotlightStepNumber > 1 && (
               <button
                 type="button"
                 onClick={prev}
-                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200"
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200 cursor-pointer"
                 aria-label="Lùi"
               >
                 <ChevronLeft className="h-4 w-4 text-slate-600" />
@@ -300,7 +292,7 @@ export function TutorialTooltip() {
             <button
               type="button"
               onClick={handleNext}
-              className="flex h-9 items-center gap-1 rounded-xl bg-indigo-600 px-3.5 text-sm font-bold text-white shadow-md shadow-indigo-200 hover:bg-indigo-700"
+              className="flex h-9 items-center gap-1 rounded-xl bg-indigo-600 px-3.5 text-sm font-bold text-white shadow-md shadow-indigo-200 hover:bg-indigo-700 cursor-pointer"
             >
               Tiếp <ChevronRight className="h-4 w-4" />
             </button>

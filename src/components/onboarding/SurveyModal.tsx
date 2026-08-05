@@ -13,7 +13,7 @@ import './onboarding.css';
  * Hiện trước khi sang bước RewardModal nhận quà.
  */
 export function SurveyModal() {
-  const { isActive, currentStep, next, skip } = useOnboarding();
+  const { isActive, currentStep, next } = useOnboarding();
   const [selectedSource, setSelectedSource] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -25,6 +25,7 @@ export function SurveyModal() {
     { value: 'instagram', label: 'Instagram 📸' },
     { value: 'threads', label: 'Threads 💬' },
     { value: 'referral', label: 'Người quen giới thiệu 👥' },
+    { value: 'other', label: 'Nguồn khác 🚀' },
   ];
 
   const handleSelect = async (source: string) => {
@@ -77,7 +78,7 @@ export function SurveyModal() {
 
         {/* Body / Options */}
         <div className="p-6 -mt-6 relative bg-white">
-          <div className="space-y-2.5 mb-4">
+          <div className="space-y-2.5">
             {options.map((opt) => {
               const isSelected = selectedSource === opt.value;
               return (
@@ -97,13 +98,6 @@ export function SurveyModal() {
               );
             })}
           </div>
-
-          <button
-            onClick={skip}
-            className="w-full text-center text-xs font-bold text-slate-400 hover:text-slate-600 transition-colors py-2 cursor-pointer"
-          >
-            Bỏ qua khảo sát này ➔
-          </button>
         </div>
       </div>
     </div>,

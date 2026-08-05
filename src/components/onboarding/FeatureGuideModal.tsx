@@ -12,7 +12,7 @@ import './onboarding.css';
  * Modal hướng dẫn chi tiết (type=guide) — howTo (desktop/mobile) + «Thử ngay».
  */
 export function FeatureGuideModal() {
-  const { isActive, currentStep, next, skip, prev, currentStepIndex } = useOnboarding();
+  const { isActive, currentStep, next, prev, currentStepIndex } = useOnboarding();
   const router = useRouter();
 
   if (!isActive || currentStep.type !== 'guide') return null;
@@ -30,12 +30,7 @@ export function FeatureGuideModal() {
   };
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) skip();
-      }}
-    >
+    <div className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-900/70 p-3 backdrop-blur-sm onboarding-fade-in sm:p-4">
       <div
         className="relative my-auto w-full max-w-md max-h-[min(720px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-indigo-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
@@ -80,7 +75,7 @@ export function FeatureGuideModal() {
               <button
                 type="button"
                 onClick={goTry}
-                className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0"
+                className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 cursor-pointer"
               >
                 {cta} <ExternalLink className="h-4 w-4" />
               </button>
@@ -90,7 +85,7 @@ export function FeatureGuideModal() {
                 <button
                   type="button"
                   onClick={prev}
-                  className="h-11 flex-1 rounded-xl border border-slate-200 bg-slate-50 text-sm font-bold text-slate-600 hover:bg-slate-100"
+                  className="h-11 flex-1 rounded-xl border border-slate-200 bg-slate-50 text-sm font-bold text-slate-600 hover:bg-slate-100 cursor-pointer"
                 >
                   ← Lùi
                 </button>
@@ -98,18 +93,11 @@ export function FeatureGuideModal() {
               <button
                 type="button"
                 onClick={next}
-                className="flex h-11 flex-1 items-center justify-center gap-1 rounded-xl bg-slate-900 text-sm font-bold text-white hover:bg-slate-800"
+                className="flex h-11 flex-1 items-center justify-center gap-1 rounded-xl bg-slate-900 text-sm font-bold text-white hover:bg-slate-800 cursor-pointer"
               >
                 Đã hiểu, tiếp <ArrowRight className="h-4 w-4" />
               </button>
             </div>
-            <button
-              type="button"
-              onClick={skip}
-              className="w-full py-1.5 text-center text-xs font-bold text-slate-400 hover:text-slate-600"
-            >
-              Bỏ qua cả tour →
-            </button>
           </div>
         </div>
       </div>
