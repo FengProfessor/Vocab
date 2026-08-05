@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LingoPro Web App
 
-## Getting Started
+Ứng dụng học từ vựng & ngữ pháp Tiếng Anh thông minh LingoPro.
 
-First, run the development server:
+> **Lưu ý quan trọng:**  
+> Dự án LingoPro (Vocab) hiện đã chuyển 100% sang vận hành trên PC Server cá nhân (Self-Hosted) qua Cloudflare Tunnel ([https://lingopro.online](https://lingopro.online)). Dự án không còn dùng Vercel nữa nên bạn không cần chỉnh sửa `vercel.json` hay quan tâm giới hạn Vercel Hobby nhé.  
+>  
+> Từ bây giờ khi bạn làm xong tính năng mới, bạn chỉ cần gõ `git push origin main` là PC Server ở nhà sẽ tự động nhận Webhook và cập nhật phiên bản mới nhất ra trang chủ!
+
+---
+
+## 🚀 Kiến Trúc & Vận Hành (Self-Hosted PC Server)
+
+- **Main Server:** PC Server cá nhân chạy Node.js / Next.js (`http://localhost:3000`)
+- **Networking & SSL:** Cloudflare Tunnel (`https://lingopro.online`)
+- **Database & Auth:** Supabase Cloud
+- **Workflow:** `git push origin main` $\rightarrow$ Webhook tự động pull + build + reload trên Server.
+
+---
+
+## 🛠️ Chạy Local / Development
 
 ```bash
+# Cài đặt dependencies
+npm install
+
+# Chạy server phát triển
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở [http://localhost:3000](http://localhost:3000) trên trình duyệt để kiểm tra ứng dụng.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Quy Trình Deploy Tính Năng Mới
 
-## Learn More
+Khi hoàn tất chỉnh sửa hoặc thêm tính năng:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+git add .
+git commit -m "feat: mô tả thay đổi"
+git push origin main
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+PC Server sẽ tự động nhận thông báo từ GitHub Webhook và cập nhật trang web chính thức [https://lingopro.online](https://lingopro.online).
