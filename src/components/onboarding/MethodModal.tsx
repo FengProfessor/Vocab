@@ -61,7 +61,7 @@ const LOOP_MOBILE = [
 ] as const;
 
 export function MethodModal() {
-  const { isActive, currentStep, next } = useOnboarding();
+  const { isActive, currentStep, next, skip } = useOnboarding();
 
   if (!isActive || currentStep.id !== 'method') return null;
 
@@ -74,6 +74,15 @@ export function MethodModal() {
         className="relative my-auto w-full max-w-md max-h-[min(680px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-emerald-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
       >
+        <button
+          type="button"
+          onClick={skip}
+          className="absolute right-3 top-3 z-20 rounded-full bg-black/20 p-1.5 text-white transition hover:bg-black/40 cursor-pointer"
+          aria-label="Bỏ qua"
+        >
+          ✕
+        </button>
+
         <div className="bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-600 px-5 pb-9 pt-6 text-center">
           <div className="onboarding-mascot-bounce mb-1 inline-block">
             <Mascot mood="thinking" size="md" />
@@ -114,13 +123,23 @@ export function MethodModal() {
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={next}
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 cursor-pointer"
-          >
-            Xem từng nút trên app <ArrowRight className="h-5 w-5" />
-          </button>
+          <div className="space-y-2">
+            <button
+              type="button"
+              onClick={next}
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 cursor-pointer"
+            >
+              Xem từng nút trên app <ArrowRight className="h-5 w-5" />
+            </button>
+
+            <button
+              type="button"
+              onClick={skip}
+              className="w-full text-center text-xs font-bold text-slate-400 hover:text-slate-600 py-1 cursor-pointer"
+            >
+              Bỏ qua hướng dẫn
+            </button>
+          </div>
         </div>
       </div>
     </div>,

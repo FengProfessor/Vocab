@@ -12,7 +12,7 @@ import { Bell, ArrowRight, Share, PlusSquare, MoreVertical, Smartphone, CheckCir
 import './onboarding.css';
 
 export function SetupModal() {
-  const { isActive, currentStep, next } = useOnboarding();
+  const { isActive, currentStep, next, skip } = useOnboarding();
   const [permission, setPermission] = useState<NotificationPermission>('default');
   const [loading, setLoading] = useState(false);
   const [notificationSupported, setNotificationSupported] = useState(true);
@@ -70,6 +70,15 @@ export function SetupModal() {
         className="relative my-auto w-full max-w-md max-h-[min(720px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-indigo-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
       >
+        <button
+          type="button"
+          onClick={skip}
+          className="absolute right-3 top-3 z-20 rounded-full bg-black/20 p-1.5 text-white transition hover:bg-black/40 cursor-pointer"
+          aria-label="Bỏ qua"
+        >
+          ✕
+        </button>
+
         {/* Gradient header */}
         <div className="bg-gradient-to-br from-indigo-500 via-violet-500 to-purple-600 p-6 pb-10 text-center relative">
           <div className="absolute top-2 left-6 w-16 h-16 rounded-full bg-white/10" />
@@ -175,12 +184,20 @@ export function SetupModal() {
           </div>
 
           {/* CTA Footer */}
-          <div className="pt-2">
+          <div className="pt-2 space-y-2">
             <button
               onClick={next}
               className="w-full h-14 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-lg shadow-lg shadow-indigo-200 border-b-4 border-indigo-800 active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               Tiếp theo <ArrowRight className="h-5 w-5" />
+            </button>
+
+            <button
+              type="button"
+              onClick={skip}
+              className="w-full text-center text-xs font-bold text-slate-400 hover:text-slate-600 py-1 cursor-pointer"
+            >
+              Bỏ qua hướng dẫn
             </button>
           </div>
 

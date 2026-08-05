@@ -27,7 +27,7 @@ const PREVIEW_MOBILE = [
 ] as const;
 
 export function WelcomeModal() {
-  const { isActive, currentStep, next, userName } = useOnboarding();
+  const { isActive, currentStep, next, skip, userName } = useOnboarding();
 
   if (!isActive || currentStep.id !== 'welcome') return null;
 
@@ -41,6 +41,15 @@ export function WelcomeModal() {
         className="relative my-auto w-full max-w-md max-h-[min(640px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-indigo-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
       >
+        <button
+          type="button"
+          onClick={skip}
+          className="absolute right-3 top-3 z-20 rounded-full bg-black/20 p-1.5 text-white transition hover:bg-black/40 cursor-pointer"
+          aria-label="Bỏ qua"
+        >
+          ✕
+        </button>
+
         <div className="relative bg-gradient-to-br from-indigo-500 via-violet-500 to-purple-600 px-6 pb-10 pt-7 text-center">
           <div className="relative z-10">
             <div className="onboarding-mascot-bounce mb-2 inline-block">
@@ -82,13 +91,23 @@ export function WelcomeModal() {
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={next}
-            className="flex h-12 w-full items-center justify-center rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 sm:h-14 sm:text-lg cursor-pointer"
-          >
-            Bắt đầu khám phá! 🚀
-          </button>
+          <div className="space-y-2">
+            <button
+              type="button"
+              onClick={next}
+              className="flex h-12 w-full items-center justify-center rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-lg shadow-indigo-200 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 sm:h-14 sm:text-lg cursor-pointer"
+            >
+              Bắt đầu khám phá! 🚀
+            </button>
+
+            <button
+              type="button"
+              onClick={skip}
+              className="w-full text-center text-xs font-bold text-slate-400 hover:text-slate-600 py-1 cursor-pointer"
+            >
+              Bỏ qua hướng dẫn
+            </button>
+          </div>
         </div>
       </div>
     </div>,

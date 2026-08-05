@@ -78,16 +78,26 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const localDone = !!localStorage.getItem(ONBOARDING_STORAGE_KEY);
-      const dbVersion =
-        typeof userMetadata?.lingopro_onboarding_version === 'string'
-          ? userMetadata.lingopro_onboarding_version
-          : null;
-      const dbDone = dbVersion === ONBOARDING_VERSION;
+      let localDone = false;
+      try {
+        localDone =
+          !!localStorage.getItem(ONBOARDING_STORAGE_KEY) ||
+          !!localStorage.getItem(ONBOARDING_STORAGE_KEY_LEGACY) ||
+          !!localStorage.getItem('lingopro_onboarding_completed') ||
+          Object.keys(localStorage).some((k) => k.startsWith('lingopro_onboarding_'));
+      } catch {
+        /* ignore */
+      }
+
+      const dbDone =
+        !!userMetadata?.lingopro_onboarding_completed ||
+        typeof userMetadata?.lingopro_onboarding_version === 'string';
+
       const isForced = userMetadata?.force_onboarding === true;
 
-      if (isForced || (!localDone && !dbDone)) {
-        localStorage.removeItem(ONBOARDING_STORAGE_KEY_LEGACY);
+      const isAlreadyDone = (localDone || dbDone) && !isForced;
+
+      if (!isAlreadyDone) {
         try {
           const saved = sessionStorage.getItem(ONBOARDING_STEP_SESSION_KEY);
           const idx = saved ? parseInt(saved, 10) : 0;
@@ -101,7 +111,7 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
         setIsActive(true);
       }
       setHasChecked(true);
-    }, 1200);
+    }, 400);
     return () => clearTimeout(timer);
   }, [userMetadata]);
 
@@ -115,9 +125,10 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
   }, [isActive, hasChecked, currentStepIndex]);
 
   const markCompleted = useCallback(async () => {
-    localStorage.setItem(ONBOARDING_STORAGE_KEY, ONBOARDING_VERSION);
-    localStorage.removeItem(ONBOARDING_STORAGE_KEY_LEGACY);
     try {
+      localStorage.setItem(ONBOARDING_STORAGE_KEY, ONBOARDING_VERSION);
+      localStorage.setItem(ONBOARDING_STORAGE_KEY_LEGACY, 'true');
+      localStorage.setItem('lingopro_onboarding_completed', 'true');
       sessionStorage.removeItem(ONBOARDING_STEP_SESSION_KEY);
     } catch {
       /* ignore */

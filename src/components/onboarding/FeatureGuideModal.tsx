@@ -12,7 +12,7 @@ import './onboarding.css';
  * Modal hướng dẫn chi tiết (type=guide) — howTo (desktop/mobile) + «Thử ngay».
  */
 export function FeatureGuideModal() {
-  const { isActive, currentStep, next, prev, currentStepIndex } = useOnboarding();
+  const { isActive, currentStep, next, prev, skip, currentStepIndex } = useOnboarding();
   const router = useRouter();
 
   if (!isActive || currentStep.type !== 'guide') return null;
@@ -35,6 +35,15 @@ export function FeatureGuideModal() {
         className="relative my-auto w-full max-w-md max-h-[min(720px,calc(100dvh-24px))] overflow-y-auto rounded-[28px] border-b-8 border-indigo-200 bg-white shadow-2xl onboarding-zoom-in"
         onClick={(e) => e.stopPropagation()}
       >
+        <button
+          type="button"
+          onClick={skip}
+          className="absolute right-3 top-3 z-20 rounded-full bg-black/20 p-1.5 text-white transition hover:bg-black/40 cursor-pointer"
+          aria-label="Bỏ qua"
+        >
+          ✕
+        </button>
+
         <div className="bg-gradient-to-br from-indigo-500 via-violet-500 to-purple-600 px-5 pb-8 pt-6 text-center">
           <div className="onboarding-mascot-bounce mb-1 inline-block">
             <Mascot mood="thinking" size="md" />
@@ -98,6 +107,13 @@ export function FeatureGuideModal() {
                 Đã hiểu, tiếp <ArrowRight className="h-4 w-4" />
               </button>
             </div>
+            <button
+              type="button"
+              onClick={skip}
+              className="w-full text-center text-xs font-bold text-slate-400 hover:text-slate-600 py-1 cursor-pointer"
+            >
+              Bỏ qua hướng dẫn
+            </button>
           </div>
         </div>
       </div>

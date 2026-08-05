@@ -113,7 +113,7 @@ export default function StudentDashboard() {
   const [statusFilter, setStatusFilter] = useState<'all' | 'new' | 'due' | 'learned' | 'mastered'>('all');
   const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'az' | 'hardest'>('newest');
   const router = useRouter();
-  const { data: gamification, refresh: refreshGamification } = useGamification(profile?.id ?? null);
+  const { data: gamification, loading: gamificationLoading, refresh: refreshGamification } = useGamification(profile?.id ?? null);
   /** Streak hiển thị = ngày LIÊN TIẾP từ heatmap (không dùng raw current_streak / tổng ngày học). */
   const [studyStreak, setStudyStreak] = useState(0);
 
@@ -476,7 +476,7 @@ export default function StudentDashboard() {
   // Dùng useRef (đồng bộ) thay vì useState để tránh fire popup trùng khi re-render nhanh.
   // SessionStorage guard: mỗi mốc chỉ hiện 1 lần / session.
   useEffect(() => {
-    if (!profile?.id) return;
+    if (!profile?.id || gamificationLoading) return;
     const masteredCount = words.filter((w: Word & { srsLevel?: number }) => w.srsLevel === 5).length;
     const currentLevel = xpToLevel(gamification.total_xp);
     const earned = earnedBadges(
@@ -487,13 +487,14 @@ export default function StudentDashboard() {
 
     const prev = prevSnapshotRef.current;
 
-    // Lần đầu chỉ snapshot, không fire
+    // Lần đầu sau khi gamification data đã load xong: snapshot baseline, KHÔNG fire popup
     if (!prev) {
       prevSnapshotRef.current = {
         level: currentLevel,
         badgeIds: currentBadges,
         streak: studyStreak,
       };
+      try { sessionStorage.setItem(`milestone_level_${currentLevel}`, '1'); } catch { /* ignore */ }
       return;
     }
 
@@ -546,7 +547,7 @@ export default function StudentDashboard() {
       streak: studyStreak,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: so sánh snapshot cũ vs mới
-  }, [gamification.total_xp, studyStreak, words.length, profile?.id]);
+  }, [gamification.total_xp, gamificationLoading, studyStreak, words.length, profile?.id]);
 
   // Đóng dropdown profile khi click ra ngoài
   useEffect(() => {

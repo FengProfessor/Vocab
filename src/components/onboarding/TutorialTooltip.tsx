@@ -117,6 +117,7 @@ export function TutorialTooltip() {
     totalSpotlightSteps,
     next,
     prev,
+    skip,
   } = useOnboarding();
   const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
   const [ready, setReady] = useState(false);
@@ -279,6 +280,13 @@ export function TutorialTooltip() {
           </div>
 
           <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={skip}
+              className="px-2 py-1 text-xs font-bold text-slate-400 hover:text-slate-600 cursor-pointer"
+            >
+              Bỏ qua
+            </button>
             {spotlightStepNumber > 1 && (
               <button
                 type="button"
