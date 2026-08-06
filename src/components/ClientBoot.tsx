@@ -2,13 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
-import { UpgradeGiftModal } from '@/components/campaign/UpgradeGiftModal';
-
-/**
- * Boot client-only extras từ root layout.
- * /auth + marketing: KHÔNG tải Tour/FCM/Install — tránh chậm form đăng nhập.
- */
-
 const FirebaseInitializer = dynamic(
   () => import('@/components/FirebaseInitializer'),
   { ssr: false },
@@ -17,14 +10,16 @@ const InstallPrompt = dynamic(
   () => import('@/components/InstallPrompt'),
   { ssr: false },
 );
-const TourBootstrap = dynamic(
-  () => import('@/components/onboarding/TourBootstrap').then((m) => m.TourBootstrap),
-  { ssr: false },
-);
 const UpsellProvider = dynamic(
   () => import('@/components/upsell/UpsellProvider').then((m) => m.UpsellProvider),
   { ssr: false },
 );
+const UpgradeGiftModal = dynamic(
+  () => import('@/components/campaign/UpgradeGiftModal').then((m) => m.UpgradeGiftModal),
+  { ssr: false },
+);
+
+
 
 /** Path không cần boot nặng (auth, marketing, legal). */
 function isLightPath(pathname: string): boolean {
