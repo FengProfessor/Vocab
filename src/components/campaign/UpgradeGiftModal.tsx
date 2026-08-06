@@ -36,7 +36,21 @@ export function UpgradeGiftModal() {
           const { data } = await supabase.auth.getSession();
           session = data.session;
         }
+        if (!session?.access_token) {
+          try {
+            const rawToken = localStorage.getItem('sb-jyhdxhqkftirncbstfpe-auth-token');
+            if (rawToken) {
+              const parsed = JSON.parse(rawToken);
+              if (parsed.access_token && parsed.user) {
+                session = parsed;
+              }
+            }
+          } catch {
+            // ignore
+          }
+        }
         if (!session?.access_token || !session.user) return;
+
 
         let data: ClaimResult | null = null;
 
