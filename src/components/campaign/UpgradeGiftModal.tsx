@@ -197,10 +197,11 @@ export function UpgradeGiftModal() {
   };
 
 
-  if (!isOpen || !claimData) return null;
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-300">
+
       <Celebration trigger={celebrate} intensity="epic" />
 
       <div className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-slate-900 border border-amber-500/30 p-6 md:p-8 shadow-2xl shadow-amber-500/10 text-slate-100 animate-in zoom-in-95 duration-300">
@@ -248,11 +249,11 @@ export function UpgradeGiftModal() {
             </div>
             <div>
               <div className="font-bold text-slate-100 text-base flex items-center gap-1.5">
-                {claimData.isExtended ? 'Cộng dồn +7 Ngày Pro' : 'Kích hoạt 7 Ngày Pro Đếm Ngược'}
+                {claimData?.isExtended ? 'Cộng dồn +7 Ngày Pro' : 'Kích hoạt 7 Ngày Pro Đếm Ngược'}
                 <Sparkles className="h-4 w-4 text-amber-400" />
               </div>
               <p className="text-xs text-slate-400 mt-0.5">
-                {claimData.isExtended
+                {claimData?.isExtended
                   ? 'Gói Pro hiện tại của bạn đã được cộng nối tiếp thêm 7 ngày trải nghiệm.'
                   : 'Trải nghiệm full tính năng Pro: Luyện nói AI, Tra cụm từ Pro, Ngữ pháp nâng cao...'}
               </p>
@@ -263,10 +264,11 @@ export function UpgradeGiftModal() {
             <span className="flex items-center gap-1">
               <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" /> Đã áp dụng tự động
             </span>
-            {claimData.planExpiresAt && (
+            {claimData?.planExpiresAt && (
               <span>Hạn dùng: {new Date(claimData.planExpiresAt).toLocaleDateString('vi-VN')}</span>
             )}
           </div>
+
         </div>
 
         {/* Lời chúc */}
