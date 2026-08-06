@@ -729,6 +729,25 @@ export default function StudentDashboard() {
     return result;
   }, [words, debouncedQuery, statusFilter, sortBy]);
 
+  const masteredCount = useMemo(
+    () => (levelCounts.length >= 5 ? levelCounts[4] + (levelCounts[5] || 0) : words.filter((w) => (w.srsLevel ?? 0) >= 5).length),
+    [levelCounts, words]
+  );
+
+  const greeting = useMemo(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Buổi sáng tốt lành';
+    if (hour < 18) return 'Buổi chiều làm việc tốt';
+    return 'Buổi tối vui vẻ';
+  }, []);
+
+  const mascotMood: MascotMood = reviewDueCount > 0 ? 'thinking' : newCount > 0 ? 'happy' : 'cheer';
+
+  const badges = useMemo(
+    () => earnedBadges({ ...gamification, current_streak: studyStreak }, masteredCount),
+    [gamification, studyStreak, masteredCount]
+  );
+
   return (
     <>
       <UpgradeGiftModal />
