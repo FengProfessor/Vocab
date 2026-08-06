@@ -158,7 +158,7 @@ export function UpgradeGiftModal() {
   if (!isOpen || !claimData) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-300">
       <Celebration trigger={celebrate} intensity="epic" />
 
       <div className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-slate-900 border border-amber-500/30 p-6 md:p-8 shadow-2xl shadow-amber-500/10 text-slate-100 animate-in zoom-in-95 duration-300">
