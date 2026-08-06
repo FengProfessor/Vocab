@@ -14,10 +14,8 @@ const UpsellProvider = dynamic(
   () => import('@/components/upsell/UpsellProvider').then((m) => m.UpsellProvider),
   { ssr: false },
 );
-const UpgradeGiftModal = dynamic(
-  () => import('@/components/campaign/UpgradeGiftModal').then((m) => m.UpgradeGiftModal),
-  { ssr: false },
-);
+
+
 
 
 
@@ -68,11 +66,10 @@ export function ClientBoot() {
     <>
       <FirebaseInitializer />
       <InstallPrompt />
-      {/* Quà tri ân 7 ngày Pro nâng cấp máy chủ */}
-      {isTourPath(pathname) ? <UpgradeGiftModal /> : null}
       {/* Soft: hết hạn / 150+ từ · Hard: FREE_WORD_LIMIT qua event */}
       {isTourPath(pathname) ? <UpsellProvider /> : null}
     </>
   );
 }
+
 
