@@ -29,9 +29,13 @@ export function UpgradeGiftModal() {
 
     let isSubscribed = true;
 
-    async function checkAndClaimGift() {
+    async function checkAndClaimGift(activeSession?: any) {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        let session = activeSession;
+        if (!session) {
+          const { data } = await supabase.auth.getSession();
+          session = data.session;
+        }
         if (!session?.access_token || !session.user) return;
 
         let data: ClaimResult | null = null;
@@ -134,16 +138,24 @@ export function UpgradeGiftModal() {
     }
 
 
-    // Delay nhẹ 1s để dashboard tải xong trước khi bật quà
+    // Delay nhẹ 800ms để dashboard tải xong trước khi bật quà
     const timer = setTimeout(() => {
       void checkAndClaimGift();
-    }, 1000);
+    }, 800);
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user && isSubscribed) {
+        void checkAndClaimGift(session);
+      }
+    });
 
     return () => {
       isSubscribed = false;
       clearTimeout(timer);
+      subscription?.unsubscribe();
     };
   }, []);
+
 
   const handleClose = () => {
     if (typeof window !== 'undefined') {
