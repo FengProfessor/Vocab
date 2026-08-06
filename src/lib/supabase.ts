@@ -1,7 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key';
+const DEFAULT_SUPABASE_URL = 'https://jyhdxhqkftirncbstfpe.supabase.co';
+const DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_cNsBhEJMkhMDa_2k5MHJCw_I68kPEEf';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || DEFAULT_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
 
 // Client-side Supabase client — PKCE + localStorage session (login nhanh, không đụng cookie server)
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {

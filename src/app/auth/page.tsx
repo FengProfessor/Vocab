@@ -51,11 +51,7 @@ export default function AuthPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState('');
-  const [debugError, setDebugError] = useState(() => (
-    process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-      ? ''
-      : 'Thiếu cấu hình Supabase. Vui lòng kiểm tra các biến môi trường.'
-  ));
+  const [debugError, setDebugError] = useState('');
   const [showManualRedirect, setShowManualRedirect] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const [inApp, setInApp] = useState<ReturnType<typeof detectInAppBrowser> | null>(null);
