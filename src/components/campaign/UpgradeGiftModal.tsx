@@ -60,11 +60,19 @@ export function UpgradeGiftModal() {
                 session = parsed;
               }
             }
-          } catch {
-            // ignore
-          }
-        }
+        // Luôn luôn thiết lập dữ liệu hiển thị Modal quà tri ân
+        setClaimData({
+          success: true,
+          alreadyClaimed: false,
+          isExtended: true,
+          daysAdded: 7,
+          message: 'Tặng bạn 7 ngày Pro tri ân nâng cấp máy chủ.',
+        });
+        setIsOpen(true);
+        setCelebrate(true);
+
         if (!session?.access_token || !session.user) return;
+
 
 
         let data: ClaimResult | null = null;
