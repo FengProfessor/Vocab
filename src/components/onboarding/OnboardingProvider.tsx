@@ -93,9 +93,8 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
         !!userMetadata?.lingopro_onboarding_completed ||
         typeof userMetadata?.lingopro_onboarding_version === 'string';
 
-      const isForced = userMetadata?.force_onboarding === true;
-
-      const isAlreadyDone = (localDone || dbDone) && !isForced;
+      // Ưu tiên localDone hoặc dbDone: nếu đã xong/bỏ qua thì không bao giờ ép tour nữa
+      const isAlreadyDone = localDone || dbDone;
 
       if (!isAlreadyDone) {
         try {

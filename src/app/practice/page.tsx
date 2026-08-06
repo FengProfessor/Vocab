@@ -48,7 +48,7 @@ const MODES = [
 export default function PracticeHubPage() {
   return (
     <StudentShell title="Sử dụng từ">
-      <div className="mx-auto max-w-lg space-y-3 px-3 py-4 pb-24 sm:px-4">
+      <div className="mx-auto max-w-lg space-y-3 px-3 py-4 pb-24 sm:px-4" data-onboarding="practice-use-words">
         <div>
           <h1 className="text-lg font-black tracking-tight text-slate-900">Sử dụng từ</h1>
           <p className="mt-0.5 text-xs font-medium text-slate-500">
