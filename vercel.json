@@ -1,4 +1,9 @@
 {
+  "git": {
+    "deploymentEnabled": false
+  },
+  "buildCommand": "exit 0",
+  "ignoreCommand": "exit 0",
   "crons": [
     {
       "path": "/api/cron/check-expired",
@@ -19,3 +24,4 @@
     }
   ]
 }
+
