@@ -70,61 +70,9 @@ function TourNavigator() {
 }
 
 /**
- * Tour chỉ mount khi ClientBoot cho phép path học.
- * Không query profiles — lấy tên từ user_metadata (nhanh, không đụng DB).
+ * TourBootstrap tạm thời được tắt theo yêu cầu để tránh kẹt ở bước "SỬ DỤNG TỪ".
  */
 export function TourBootstrap() {
-  // Tạm thời tắt hướng dẫn tân thủ theo yêu cầu (ngăn lỗi kẹt ở bước "SỬ DỤNG TỪ")
   return null;
-
-  useEffect(() => {
-    // Path marketing/auth: không getSession, không profiles
-    if (!allowed) {
-      setReady(true);
-      setUserId(null);
-      return;
-    }
-
-    let cancelled = false;
-    (async () => {
-      try {
-        const {
-          data: { session },
-        } = await supabase.auth.getSession();
-        if (cancelled) return;
-        if (!session?.user) {
-          setUserId(null);
-          setReady(true);
-          return;
-        }
-        const meta = (session.user.user_metadata ?? {}) as Meta & {
-          full_name?: string;
-          name?: string;
-        };
-        setUserId(session.user.id);
-        setUserMetadata(meta);
-        // Không query profiles — auth.session đủ cho tour chào tên
-        setUserName(
-          (typeof meta.full_name === 'string' && meta.full_name) ||
-            (typeof meta.name === 'string' && meta.name) ||
-            '',
-        );
-        setReady(true);
-      } catch {
-        if (!cancelled) setReady(true);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [pathname, allowed]);
-
-  if (!allowed || !ready || !userId) return null;
-
-  return (
-    <OnboardingProvider userId={userId} userName={userName} userMetadata={userMetadata}>
-      <TourNavigator />
-      <OnboardingLayers />
-    </OnboardingProvider>
-  );
 }
+
