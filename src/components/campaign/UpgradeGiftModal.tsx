@@ -139,9 +139,8 @@ export function UpgradeGiftModal() {
           };
         }
 
-        if (!isSubscribed) return;
-
         if (data && data.success) {
+
           setClaimData(data);
           setIsOpen(true);
           setCelebrate(true);
