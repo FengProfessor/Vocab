@@ -13,7 +13,12 @@ async function authorize(req: NextRequest) {
   if (!token) return null;
   const supabase = createServiceClient();
   const { data: { user } } = await supabase.auth.getUser(token);
-  if (!user || !ADMIN_EMAILS.includes(user.email?.toLowerCase() ?? '')) return null;
+  if (!user) return null;
+  const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
+  const callerEmail = (callerProfile?.email || user.email || '').toLowerCase().trim();
+  const isAdminRole = callerProfile?.role === 'admin';
+  const isWhitelisted = ADMIN_EMAILS.length > 0 && Boolean(callerEmail && ADMIN_EMAILS.includes(callerEmail));
+  if (!isAdminRole && !isWhitelisted) return null;
   return supabase;
 }
 

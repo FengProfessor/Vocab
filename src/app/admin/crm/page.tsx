@@ -132,19 +132,38 @@ export default function CrmDashboard() {
   const [reviewDate, setReviewDate] = useState(''); // YYYY-MM-DD — ôn cuối đúng ngày
   const [selected, setSelected] = useState<Customer | null>(null);
 
-  useEffect(() => {
-    const load = async () => {
+  const loadData = useCallback(async () => {
+    setIsLoading(true);
+    setError('');
+    try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) { router.push('/auth'); return; }
       const res = await authFetch('/api/admin/crm');
-      if (res.status === 403) { setError('Cần quyền admin'); setIsLoading(false); return; }
-      if (!res.ok) { setError('Lỗi tải dữ liệu'); setIsLoading(false); return; }
-      const json = await res.json();
-      if (json.success) setData(json);
+      const json = await res.json().catch(() => null);
+
+      if (res.status === 403) {
+        setError(json?.error || 'Cần quyền admin (Email của bạn chưa được cấp quyền trong ADMIN_EMAILS).');
+        return;
+      }
+      if (!res.ok) {
+        setError(json?.error || `Lỗi tải dữ liệu (Mã lỗi ${res.status})`);
+        return;
+      }
+      if (json?.success) {
+        setData(json);
+      } else {
+        setError(json?.error || 'Không thể lấy dữ liệu CRM.');
+      }
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Lỗi kết nối máy chủ.');
+    } finally {
       setIsLoading(false);
-    };
-    load();
+    }
   }, [router]);
+
+  useEffect(() => {
+    loadData();
+  }, [loadData]);
 
   const filtered = useMemo(() => {
     if (!data) return [];
@@ -237,11 +256,32 @@ export default function CrmDashboard() {
     );
   }
   if (error) {
+    const is403 = error.toLowerCase().includes('admin') || error.toLowerCase().includes('403');
     return (
-      <div className="min-h-dvh flex flex-col items-center justify-center gap-3 bg-muted/40 text-center px-6">
-        <AlertTriangle className="h-10 w-10 text-amber-500" />
-        <p className="font-semibold">{error}</p>
-        <Link href="/admin" className="text-sm text-primary underline">Về Admin</Link>
+      <div className="min-h-dvh flex flex-col items-center justify-center gap-4 bg-muted/40 text-center px-6 py-12">
+        <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-600">
+          <AlertTriangle className="h-7 w-7" />
+        </div>
+        <div className="max-w-md space-y-2">
+          <h2 className="text-lg font-bold">Không thể truy cập CRM</h2>
+          <p className="text-sm text-muted-foreground">{error}</p>
+          {is403 && (
+            <p className="text-xs text-muted-foreground/80 bg-background border rounded-xl p-3 text-left font-mono mt-2">
+              💡 <strong>Hướng dẫn:</strong> Thêm email của bạn vào biến môi trường <code className="text-primary font-bold">ADMIN_EMAILS</code> trong file <code className="text-primary font-bold">.env.local</code> trên server (ví dụ: <code className="text-primary font-bold">ADMIN_EMAILS="email_cua_ban@gmail.com"</code>) sau đó khởi động lại app.
+            </p>
+          )}
+        </div>
+        <div className="flex items-center gap-3 mt-2">
+          <button
+            onClick={loadData}
+            className="flex items-center gap-1.5 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-xl transition-colors shadow-sm"
+          >
+            <RotateCcw className="h-4 w-4" /> Thử lại
+          </button>
+          <Link href="/admin" className="text-sm font-semibold bg-muted hover:bg-muted/80 text-foreground px-4 py-2 rounded-xl transition-colors border">
+            Về Admin
+          </Link>
+        </div>
       </div>
     );
   }

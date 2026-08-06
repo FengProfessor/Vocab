@@ -83,14 +83,22 @@ export async function GET(req: Request): Promise<NextResponse> {
   try {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    if (ADMIN_EMAILS.length === 0) {
-      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
-    }
     const supabase: ServiceClient = createServiceClient();
-    const { data: callerProfile } = await supabase.from('profiles').select('email').eq('id', auth.userId).single();
-    const callerEmail = callerProfile?.email?.toLowerCase() ?? '';
-    if (!callerEmail || !ADMIN_EMAILS.includes(callerEmail)) {
-      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
+    const { data: callerProfile } = await supabase
+      .from('profiles')
+      .select('email, role')
+      .eq('id', auth.userId)
+      .maybeSingle();
+
+    const callerEmail = (callerProfile?.email || auth.email || '').toLowerCase().trim();
+    const isAdminRole = callerProfile?.role === 'admin';
+    const isWhitelisted = ADMIN_EMAILS.length > 0 && Boolean(callerEmail && ADMIN_EMAILS.includes(callerEmail));
+
+    if (!isAdminRole && !isWhitelisted) {
+      return NextResponse.json(
+        { success: false, error: 'Cần quyền admin (Tài khoản chưa có role admin hoặc email chưa được thêm vào ADMIN_EMAILS)' },
+        { status: 403 },
+      );
     }
 
     // ── Bulk fetch (paginate — PostgREST mặc định max 1000 rows/request) ──
@@ -149,17 +157,22 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     // Words + quiz + SRS: paginate + order ổn định
     const classroomIds = classroomRows.map(c => c.id);
-    const [wordRows, quizRows, srsRows] = await Promise.all([
-      classroomIds.length
-        ? fetchAllPages<WordRow>((from, to) =>
-            supabase
-              .from('words')
-              .select('classroom_id, created_at')
-              .in('classroom_id', classroomIds)
-              .order('classroom_id')
-              .range(from, to) as PromiseLike<{ data: WordRow[] | null; error: { message: string } | null }>,
-          )
-        : Promise.resolve([] as WordRow[]),
+    const CHUNK_SIZE = 50;
+    const wordRows: WordRow[] = [];
+    for (let i = 0; i < classroomIds.length; i += CHUNK_SIZE) {
+      const chunk = classroomIds.slice(i, i + CHUNK_SIZE);
+      const batch = await fetchAllPages<WordRow>((from, to) =>
+        supabase
+          .from('words')
+          .select('classroom_id, created_at')
+          .in('classroom_id', chunk)
+          .order('classroom_id')
+          .range(from, to) as PromiseLike<{ data: WordRow[] | null; error: { message: string } | null }>,
+      );
+      wordRows.push(...batch);
+    }
+
+    const [quizRows, srsRows] = await Promise.all([
       fetchAllPages<QuizRow>((from, to) =>
         supabase
           .from('quiz_results')

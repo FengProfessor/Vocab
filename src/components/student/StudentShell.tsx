@@ -488,6 +488,8 @@ export function StudentShell({
             </span>
             <span>Đăng xuất</span>
           </button>
+        </div>
+      </aside>
       )}
 
       {/* ═══ MAIN ═══ */}

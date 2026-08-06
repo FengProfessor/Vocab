@@ -27,6 +27,7 @@ const WEAK_SECRETS = new Set([
 
 export interface AuthResult {
   userId: string;
+  email?: string;
 }
 
 /** Prefix nhận diện extension token (mint tại /api/extension-token). */
@@ -41,7 +42,7 @@ export function hashExtensionToken(token: string): string {
  * Extract & verify the bearer token from the request `Authorization` header.
  * Hỗ trợ 2 loại: Supabase JWT (web session, hết hạn ~1h) và extension token
  * `lpext_` (dài hạn, tra bảng `extension_tokens` qua SHA-256 hash).
- * Returns `{ userId }` on success, hoặc `null` nếu không hợp lệ.
+ * Returns `{ userId, email }` on success, hoặc `null` nếu không hợp lệ.
  */
 export async function getAuthUser(req: Request): Promise<AuthResult | null> {
   const authHeader = req.headers.get('authorization');
@@ -91,7 +92,7 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
     cacheSet(authCacheKey, null, 5_000);
     return null;
   }
-  const result = { userId: data.user.id };
+  const result = { userId: data.user.id, email: data.user.email };
   cacheSet(authCacheKey, result, 30_000);
   return result;
 }

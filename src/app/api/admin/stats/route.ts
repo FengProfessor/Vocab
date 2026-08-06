@@ -18,14 +18,18 @@ export async function GET(req: Request): Promise<NextResponse> {
     // ── Auth: admin only ──
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    // Fail-closed: danh sách rỗng (env chưa set) → từ chối tất cả
-    if (ADMIN_EMAILS.length === 0) {
-      return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
-    }
     const supabase = createServiceClient();
-    const { data: callerProfile } = await supabase.from('profiles').select('email').eq('id', auth.userId).single();
-    const callerEmail = callerProfile?.email?.toLowerCase() ?? '';
-    if (!callerEmail || !ADMIN_EMAILS.includes(callerEmail)) {
+    const { data: callerProfile } = await supabase
+      .from('profiles')
+      .select('email, role')
+      .eq('id', auth.userId)
+      .maybeSingle();
+
+    const callerEmail = (callerProfile?.email || auth.email || '').toLowerCase().trim();
+    const isAdminRole = callerProfile?.role === 'admin';
+    const isWhitelisted = ADMIN_EMAILS.length > 0 && Boolean(callerEmail && ADMIN_EMAILS.includes(callerEmail));
+
+    if (!isAdminRole && !isWhitelisted) {
       return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
 

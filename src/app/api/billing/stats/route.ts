@@ -20,7 +20,12 @@ export async function GET(req: NextRequest) {
     const { data: { user } } = await supabase.auth.getUser(token);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    if (!ADMIN_EMAILS.includes(user.email?.toLowerCase() ?? '')) {
+    const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
+    const callerEmail = (callerProfile?.email || user.email || '').toLowerCase().trim();
+    const isAdminRole = callerProfile?.role === 'admin';
+    const isWhitelisted = ADMIN_EMAILS.length > 0 && Boolean(callerEmail && ADMIN_EMAILS.includes(callerEmail));
+
+    if (!isAdminRole && !isWhitelisted) {
       return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
     }
 
