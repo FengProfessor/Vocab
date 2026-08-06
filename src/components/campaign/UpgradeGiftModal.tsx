@@ -47,13 +47,10 @@ export function UpgradeGiftModal() {
         const data: ClaimResult = await res.json();
         if (!isSubscribed) return;
 
-        if (data.success && !data.alreadyClaimed) {
+        if (data.success) {
           setClaimData(data);
           setIsOpen(true);
           setCelebrate(true);
-          localStorage.setItem(LOCAL_STORAGE_KEY, 'true');
-        } else if (data.alreadyClaimed) {
-          // Lưu lại localStorage để lần sau không gọi lại API
           localStorage.setItem(LOCAL_STORAGE_KEY, 'true');
         }
       } catch (err) {
