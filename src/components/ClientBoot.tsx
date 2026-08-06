@@ -71,7 +71,8 @@ export function ClientBoot() {
     <>
       <FirebaseInitializer />
       <InstallPrompt />
-      {isTourPath(pathname) ? <TourBootstrap /> : null}
+      {/* Tạm thời tắt hướng dẫn tân thủ (TourBootstrap) */}
+      {/* {isTourPath(pathname) ? <TourBootstrap /> : null} */}
       {/* Soft: hết hạn / 150+ từ · Hard: FREE_WORD_LIMIT qua event */}
       {isTourPath(pathname) ? <UpsellProvider /> : null}
     </>

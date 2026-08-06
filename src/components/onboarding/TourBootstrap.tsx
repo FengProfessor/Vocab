@@ -74,12 +74,8 @@ function TourNavigator() {
  * Không query profiles — lấy tên từ user_metadata (nhanh, không đụng DB).
  */
 export function TourBootstrap() {
-  const pathname = usePathname() ?? '';
-  const allowed = pathAllowed(pathname);
-  const [userId, setUserId] = useState<string | null>(null);
-  const [userName, setUserName] = useState('');
-  const [userMetadata, setUserMetadata] = useState<Meta | null>(null);
-  const [ready, setReady] = useState(false);
+  // Tạm thời tắt hướng dẫn tân thủ theo yêu cầu (ngăn lỗi kẹt ở bước "SỬ DỤNG TỪ")
+  return null;
 
   useEffect(() => {
     // Path marketing/auth: không getSession, không profiles
