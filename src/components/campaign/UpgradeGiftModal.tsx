@@ -19,6 +19,7 @@ interface ClaimResult {
 }
 
 export function UpgradeGiftModal() {
+  const [mounted, setMounted] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [claimData, setClaimData] = useState<ClaimResult | null>({
     success: true,
@@ -30,6 +31,7 @@ export function UpgradeGiftModal() {
   const [celebrate, setCelebrate] = useState(true);
 
   useEffect(() => {
+    setMounted(true);
     if (typeof window === 'undefined') return;
     if (localStorage.getItem(LOCAL_STORAGE_KEY) === 'true') {
       setIsOpen(false);
@@ -38,6 +40,7 @@ export function UpgradeGiftModal() {
 
     setIsOpen(true);
     setCelebrate(true);
+
 
 
     async function checkAndClaimGift(activeSession?: any) {
@@ -196,7 +199,8 @@ export function UpgradeGiftModal() {
   };
 
 
-  if (!isOpen) return null;
+  if (!mounted || !isOpen) return null;
+
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-300">
