@@ -18,9 +18,21 @@ interface ClaimResult {
 }
 
 export function UpgradeGiftModal() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [claimData, setClaimData] = useState<ClaimResult | null>(null);
-  const [celebrate, setCelebrate] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(LOCAL_STORAGE_KEY) !== 'true';
+    }
+    return false;
+  });
+  const [claimData, setClaimData] = useState<ClaimResult | null>({
+    success: true,
+    alreadyClaimed: false,
+    isExtended: true,
+    daysAdded: 7,
+    message: 'Tặng bạn 7 ngày Pro tri ân nâng cấp máy chủ.'
+  });
+  const [celebrate, setCelebrate] = useState(true);
+
 
   useEffect(() => {
     // 1. Nếu đã nhận trên trình duyệt này -> bỏ qua
